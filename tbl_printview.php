@@ -44,12 +44,12 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview thanks to Christophe Gesché from the "MySQL Form
+ * Multi-tables printview thanks to Christophe Geschï¿½ from the "MySQL Form
  * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
-} else if (isset($table)) {
+} elseif (isset($table)) {
     $the_tables[] = $table;
 }
 $multi_tables     = (count($the_tables) > 1);
@@ -102,7 +102,7 @@ foreach ($the_tables AS $key => $table) {
     /**
      * Gets fields properties
      */
-    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
+    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations (Mike Beck)
@@ -116,8 +116,7 @@ foreach ($the_tables AS $key => $table) {
         } else {
             $have_rel = FALSE;
         }
-    }
-    else {
+    } else {
            $have_rel = FALSE;
     } // end if
 
@@ -220,7 +219,7 @@ foreach ($the_tables AS $key => $table) {
     <td width="80" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
     <td width="40" class="print"><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td width="70" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td width="70" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) {7echo $row['Default']; } ?>&nbsp;</td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
     echo "\n";
@@ -413,7 +412,7 @@ foreach ($the_tables AS $key => $table) {
                     echo '                ';
                     if ($showtable['Row_format'] == 'Fixed') {
                         echo $strFixed;
-                    } else if ($showtable['Row_format'] == 'Dynamic') {
+                    } elseif ($showtable['Row_format'] == 'Dynamic') {
                         echo $strDynamic;
                     } else {
                         echo $showtable['Row_format'];

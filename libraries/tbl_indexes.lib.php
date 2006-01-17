@@ -60,14 +60,14 @@ function PMA_check_indexes($idx_collection, $table = true) {
         return $output;
     }
 
-    foreach($idx_collection['ALL'] AS $w_keyname => $w_count) {
+    foreach ($idx_collection['ALL'] AS $w_keyname => $w_count) {
         if (isset($idx_collection['PRIMARY'][$w_keyname]) && (isset($idx_collection['INDEX'][$w_keyname]) || isset($idx_collection['UNIQUE'][$w_keyname]))) {
             $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningPrimary'], htmlspecialchars($w_keyname)), $table);
         } elseif (isset($idx_collection['UNIQUE'][$w_keyname]) && isset($idx_collection['INDEX'][$w_keyname])) {
             $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningUnique'], htmlspecialchars($w_keyname)), $table);
         }
 
-        foreach($index_types AS $index_type) {
+        foreach ($index_types AS $index_type) {
             if (isset($idx_collection[$index_type][$w_keyname]) && $idx_collection[$index_type][$w_keyname] > 1) {
                 $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningMultiple'], $index_type, htmlspecialchars($w_keyname)), $table);
             }

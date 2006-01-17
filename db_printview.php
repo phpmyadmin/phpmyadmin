@@ -44,7 +44,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
         unset($result);
 
         if (isset($sot_cache)) {
-            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
+            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
             if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($result)) {
                     if (!isset($sot_cache[$tmp[0]])) {
@@ -134,7 +134,7 @@ else {
         if (isset($sts_data['Type'])) {
             if ($sts_data['Type'] == 'MRG_MyISAM') {
                 $mergetable = TRUE;
-            } else if (!preg_match('@ISAM|HEAP@i', $sts_data['Type'])) {
+            } elseif (!preg_match('@ISAM|HEAP@i', $sts_data['Type'])) {
                 $nonisam    = TRUE;
             }
         }
@@ -149,18 +149,17 @@ else {
                     } else {
                         list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 0);
                     }
-                } else if ($cfg['ShowStats']) {
+                } elseif ($cfg['ShowStats']) {
                     $formated_size                  = '&nbsp;-&nbsp;';
                     $unit                           = '';
                 }
                 $sum_entries                        += $sts_data['Rows'];
             }
             // MyISAM MERGE Table
-            else if ($cfg['ShowStats'] && $mergetable == TRUE) {
+            elseif ($cfg['ShowStats'] && $mergetable == TRUE) {
                 $formated_size = '&nbsp;-&nbsp;';
                 $unit          = '';
-            }
-            else if ($cfg['ShowStats']) {
+            } elseif ($cfg['ShowStats']) {
                 $formated_size = 'unknown';
                 $unit          = '';
             }

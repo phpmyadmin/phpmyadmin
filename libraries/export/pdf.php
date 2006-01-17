@@ -83,7 +83,7 @@ class PMA_PDF extends PMA_FPDF
             }
             $this->SetY(($this->tMargin) - ($this->FontSizePt/$this->k)*2);
             $this->cellFontSize = $this->FontSizePt ;
-            $this->SetFont(PMA_PDF_FONT, '' ,($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt ));
+            $this->SetFont(PMA_PDF_FONT, '', ($this->titleFontSize ? $this->titleFontSize : $this->FontSizePt));
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
             $l = ($this->lMargin);
             $this->SetFont(PMA_PDF_FONT, '', $this->cellFontSize);
@@ -204,7 +204,7 @@ class PMA_PDF extends PMA_FPDF
 
         // Pass 1 for column widths
         // TODO: force here a LIMIT to speed up pass 1 ?
-        $this->results = PMA_DBI_query($query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->numFields  = PMA_DBI_num_fields($this->results);
         $this->fields = PMA_DBI_get_fields_meta($this->results);
 
@@ -272,7 +272,7 @@ class PMA_PDF extends PMA_FPDF
 
         // Pass 2
 
-        $this->results = PMA_DBI_query($query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->Open();
         $this->setY($this->tMargin);
         $this->AddPage();

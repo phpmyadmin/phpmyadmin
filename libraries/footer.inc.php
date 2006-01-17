@@ -68,13 +68,17 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
     <?php
 
 // Link to itself to replicate windows including frameset
-if (!isset($GLOBALS['checked_special'])) $GLOBALS['checked_special'] = FALSE;
+if (!isset($GLOBALS['checked_special'])) {
+    $GLOBALS['checked_special'] = FALSE;
+}
 
 if (isset($_SERVER['SCRIPT_NAME']) && empty($_POST) && !$GLOBALS['checked_special']) {
     echo '<div id="selflink">' . "\n";
     echo '<a href="index.php?target=' . basename($_SERVER['SCRIPT_NAME']);
     $url = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
-    if (!empty($url)) echo '&amp;' . $url;
+    if (!empty($url)) {
+        echo '&amp;' . $url;
+    }
     echo '" target="_blank">' . $GLOBALS['strOpenNewWindow'] . '</a>' . "\n";
     echo '</div>' . "\n";
 }

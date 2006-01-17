@@ -125,7 +125,7 @@ if (!empty($id_bookmark)) {
     require_once('./libraries/bookmark.lib.php');
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
-            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark,'id', isset($action_bookmark_all));
+            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark, 'id', isset($action_bookmark_all));
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
                 $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
             }
@@ -156,7 +156,7 @@ if (!empty($bkm_label) && !empty($import_text)) {
     // Should we replace bookmark?
     if (isset($bkm_replace)) {
         $bookmarks = PMA_listBookmarks($db, $cfg['Bookmark']);
-        foreach($bookmarks as $key => $val) {
+        foreach ($bookmarks as $key => $val) {
             if ($val == $bkm_label) {
                 PMA_deleteBookmarks($db, $cfg['Bookmark'], $key);
             }
@@ -180,10 +180,15 @@ if ($memory_limit = -1) {
 }
 
 // Calculate value of the limit
-if (strtolower(substr($memory_limit, -1)) == 'm') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
-elseif (strtolower(substr($memory_limit, -1)) == 'k') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
-elseif (strtolower(substr($memory_limit, -1)) == 'g') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
-else $memory_limit = (int)$memory_limit;
+if (strtolower(substr($memory_limit, -1)) == 'm') {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+} elseif (strtolower(substr($memory_limit, -1)) == 'k') {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+} elseif (strtolower(substr($memory_limit, -1)) == 'g') {
+    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+} else {
+    $memory_limit = (int)$memory_limit;
+}
 
 $read_limit = $memory_limit / 4; // Just to be sure, there might be lot of memory needed for uncompression
 
@@ -194,7 +199,7 @@ if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
     $local_import_file = PMA_securePath($local_import_file);
 
     $import_file  = PMA_userDir($cfg['UploadDir']) . $local_import_file;
-} else if (empty($import_file) || !is_uploaded_file($import_file))  {
+} elseif (empty($import_file) || !is_uploaded_file($import_file))  {
     $import_file  = 'none';
 }
 
@@ -300,7 +305,7 @@ if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
     if ($charset_of_file != $charset) {
         $charset_conversion = TRUE;
     }
-} else if (PMA_MYSQL_INT_VERSION >= 40100
+} elseif (PMA_MYSQL_INT_VERSION >= 40100
     && isset($charset_of_file) && $charset_of_file != 'utf8') {
     PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
     // We can not show query in this case, it is in different charset

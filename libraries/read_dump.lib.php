@@ -44,7 +44,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                 }
                 // Backquotes or no backslashes before quotes: it's indeed the
                 // end of the string -> exit the loop
-                else if ($string_start == '`' || $sql[$i-1] != '\\') {
+                elseif ($string_start == '`' || $sql[$i-1] != '\\') {
                     $string_start      = '';
                     $in_string         = FALSE;
                     break;
@@ -74,17 +74,19 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
         } // end if (in string)
 
         // lets skip comments (/*, -- and #)
-        else if (($char == '-' && $sql_len > $i + 2 && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') || $char == '#' || ($char == '/' && $sql_len > $i + 1 && $sql[$i + 1] == '*')) {
+        elseif (($char == '-' && $sql_len > $i + 2 && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') || $char == '#' || ($char == '/' && $sql_len > $i + 1 && $sql[$i + 1] == '*')) {
             $i = strpos($sql, $char == '/' ? '*/' : "\n", $i);
             // didn't we hit end of string?
             if ($i === FALSE) {
                 break;
             }
-            if ($char == '/') $i++;
+            if ($char == '/') {
+                $i++;
+            }
         }
 
         // We are not in a string, first check for delimiter...
-        else if ($char == ';') {
+        elseif ($char == ';') {
             // if delimiter found, add the parsed part to the returned array
             $ret[]      = array('query' => substr($sql, 0, $i), 'empty' => $nothing);
             $nothing    = TRUE;
@@ -96,14 +98,14 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                 // The submited statement(s) end(s) here
                 return TRUE;
             }
-        } // end else if (is delimiter)
+        } // end elseif (is delimiter)
 
         // ... then check for start of a string,...
-        else if (($char == '"') || ($char == '\'') || ($char == '`')) {
+        elseif (($char == '"') || ($char == '\'') || ($char == '`')) {
             $in_string    = TRUE;
             $nothing      = FALSE;
             $string_start = $char;
-        } // end else if (is start of string)
+        } // end elseif (is start of string)
 
         elseif ($nothing) {
             $nothing = FALSE;
@@ -151,8 +153,12 @@ function PMA_readFile($path, $mime = '') {
             }
             $test = fread($file, 3);
             fclose($file);
-            if ($test[0] == chr(31) && $test[1] == chr(139)) return PMA_readFile($path, 'application/x-gzip');
-            if ($test == 'BZh') return PMA_readFile($path, 'application/x-bzip');
+            if ($test[0] == chr(31) && $test[1] == chr(139)) {
+                return PMA_readFile($path, 'application/x-gzip');
+            }
+            if ($test == 'BZh') {
+                return PMA_readFile($path, 'application/x-bzip');
+            }
             return PMA_readFile($path, 'text/plain');
         case 'text/plain':
             $file = @fopen($path, 'rb');

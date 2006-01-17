@@ -101,14 +101,19 @@ function PMA_exportDBCreate($db) {
  *
  * @access  public
  */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+{
     global $what;
 
-    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strDumpingData'] . ' ' .$table . '</h2>')) return FALSE;
-    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) return FALSE;
+    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strDumpingData'] . ' ' . $table . '</h2>')) {
+        return FALSE;
+    }
+    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
+        return FALSE;
+    }
 
     // Gets the data from the database
-    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
@@ -118,7 +123,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $schema_insert .= '<td class="print"><b>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</b></td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert)) {
+            return FALSE;
+        }
     } // end if
 
     // Format the data
@@ -127,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
                 $value = $GLOBALS[$what . '_replace_null'];
-            } else if ($row[$j] == '0' || $row[$j] != '') {
+            } elseif ($row[$j] == '0' || $row[$j] != '') {
                 $value = $row[$j];
             } else {
                 $value = '';
@@ -135,10 +142,14 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $schema_insert .= '<td class="print">' . htmlspecialchars($value) . '</td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert)) {
+            return FALSE;
+        }
     } // end while
     PMA_DBI_free_result($result);
-    if (!PMA_exportOutputHandler('</table>')) return FALSE;
+    if (!PMA_exportOutputHandler('</table>')) {
+        return FALSE;
+    }
 
     return TRUE;
 }
@@ -147,7 +158,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 {
     global $cfgRelation;
 
-    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strTableStructure'] . ' ' .$table . '</h2>')) return FALSE;
+    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strTableStructure'] . ' ' .$table . '</h2>')) {
+        return FALSE;
+    }
 
     /**
      * Get the unique keys in the table
@@ -156,7 +169,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $keys_result    = PMA_DBI_query($keys_query);
     $unique_keys    = array();
     while ($key = PMA_DBI_fetch_assoc($keys_result)) {
-        if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
+        if ($key['Non_unique'] == 0) {
+            $unique_keys[] = $key['Column_name'];
+        }
     }
     PMA_DBI_free_result($keys_result);
 
@@ -179,15 +194,16 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         } else {
             $have_rel = FALSE;
         }
-    }
-    else {
+    } else {
            $have_rel = FALSE;
     } // end if
 
     /**
      * Displays the table structure
      */
-    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) return FALSE;
+    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
+        return FALSE;
+    }
 
     $columns_cnt = 4;
     if ($do_relation && $have_rel) {
@@ -218,7 +234,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
     $schema_insert .= '</tr>';
 
-    if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+    if (!PMA_exportOutputHandler($schema_insert)) {
+        return FALSE;
+    }
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
 
@@ -294,7 +312,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
         $schema_insert .= '</tr>';
 
-        if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert)) {
+            return FALSE;
+        }
     } // end while
     PMA_DBI_free_result($result);
 

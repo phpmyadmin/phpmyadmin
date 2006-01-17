@@ -124,7 +124,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $escaped;
 
     // Gets the data from the database
-    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
@@ -141,7 +141,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $schema_insert     .= $export_separator;
         } // end for
         $schema_insert  =trim(substr($schema_insert, 0, -1));
-        if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert . $add_character)) {
+            return FALSE;
+        }
     } // end if
 
     // Format the data
@@ -150,8 +152,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
                 $schema_insert .= $GLOBALS[$what . '_replace_null'];
-            }
-            else if ($row[$j] == '0' || $row[$j] != '') {
+            } elseif ($row[$j] == '0' || $row[$j] != '') {
                 // loic1 : always enclose fields
                 if ($what == 'excel') {
                     $row[$j]       = ereg_replace("\015(\012)?", "\012", $row[$j]);
@@ -163,8 +164,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                                    . str_replace($enclosed, $escaped . $enclosed, $row[$j])
                                    . $enclosed;
                 }
-            }
-            else {
+            } else {
                 $schema_insert .= '';
             }
             if ($j < $fields_cnt-1) {
@@ -172,7 +172,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             }
         } // end for
 
-        if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert . $add_character)) {
+            return FALSE;
+        }
     } // end while
     PMA_DBI_free_result($result);
 

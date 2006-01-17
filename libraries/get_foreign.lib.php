@@ -64,8 +64,7 @@ if ($foreigners && isset($foreigners[$field])) {
             }
             @PMA_DBI_free_result($disp);
         }
-    }
-    else {
+    } else {
         unset($disp_row);
         $foreign_link = true;
     }

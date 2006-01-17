@@ -39,8 +39,8 @@ $options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACT
  *
  * @access  public
  */
-function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected_value) {
-
+function PMA_generate_dropdown($dropdown_question, $radio_name, $choices, $selected_value)
+{
     echo $dropdown_question . '&nbsp;&nbsp;';
 
     echo '<select name="' . $radio_name . '">' . "\n";
@@ -281,7 +281,7 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
     }
     // [0] of the row is the name
 
-    $tab_rs              = PMA_DBI_query($tab_query, NULL, PMA_DBI_QUERY_STORE);
+    $tab_rs              = PMA_DBI_query($tab_query, null, PMA_DBI_QUERY_STORE);
     $selectboxall['nix'] = '--';
     $selectboxall_innodb['nix'] = '--';
 
@@ -290,7 +290,7 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
             PMA_DBI_select_db($db);
 
             // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', null, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 $seen_a_primary = FALSE;
                 while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
@@ -337,7 +337,7 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
             PMA_DBI_select_db($db);
 
             // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', null, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
                     $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
@@ -358,7 +358,7 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
 
 // Now find out the columns of our $table
 // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
+$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
 
 if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     while ($row = PMA_DBI_fetch_assoc($col_rs)) {

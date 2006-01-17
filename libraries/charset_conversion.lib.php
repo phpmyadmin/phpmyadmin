@@ -24,7 +24,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
             }
         }
         $PMA_recoding_engine             = 'recode';
-    } else if ($cfg['RecodingEngine'] == 'iconv') {
+    } elseif ($cfg['RecodingEngine'] == 'iconv') {
         if (!@extension_loaded('iconv')) {
             PMA_dl('iconv');
             if (!@extension_loaded('iconv')) {
@@ -36,7 +36,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
     } else {
         if (@extension_loaded('iconv')) {
             $PMA_recoding_engine         = 'iconv';
-        } else if (@extension_loaded('recode')) {
+        } elseif (@extension_loaded('recode')) {
             $PMA_recoding_engine         = 'recode';
         } else {
             PMA_dl('iconv');
@@ -75,7 +75,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
     if ($PMA_recoding_engine == 'iconv') {
         if (@function_exists('iconv')) {
             $PMA_recoding_engine = PMA_CHARSET_ICONV;
-        } else if (@function_exists('libiconv')) {
+        } elseif (@function_exists('libiconv')) {
             $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
         } else {
             $PMA_recoding_engine = PMA_CHARSET_NONE;
@@ -87,7 +87,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
             require_once('./libraries/footer.inc.php');
             exit();
         }
-    } else if ($PMA_recoding_engine == 'recode') {
+    } elseif ($PMA_recoding_engine == 'recode') {
         if (@function_exists('recode_string')) {
             $PMA_recoding_engine = PMA_CHARSET_RECODE;
         } else {
@@ -101,7 +101,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
     } else {
         if (@function_exists('iconv')) {
             $PMA_recoding_engine = PMA_CHARSET_ICONV;
-        } else if (@function_exists('libiconv')) {
+        } elseif (@function_exists('libiconv')) {
             $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
         } elseif (@function_exists('recode_string')) {
             $PMA_recoding_engine = PMA_CHARSET_RECODE;
@@ -143,8 +143,7 @@ function PMA_convert_display_charset($what) {
         // this constant is not defined before the login:
         || (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) ) {  // lem9: even if AllowAnywhereRecoding is TRUE, do not recode for MySQL >= 4.1.x since MySQL does the job
         return $what;
-    }
-    else if (is_array($what)) {
+    } elseif (is_array($what)) {
         $result = array();
         foreach ($what AS $key => $val) {
             if (is_string($val) || is_array($val)) {
@@ -158,8 +157,7 @@ function PMA_convert_display_charset($what) {
             }
         } // end while
         return $result;
-    }
-    else if (is_string($what)) {
+    } elseif (is_string($what)) {
 
         switch ($GLOBALS['PMA_recoding_engine']) {
             case PMA_CHARSET_RECODE:
@@ -171,8 +169,7 @@ function PMA_convert_display_charset($what) {
             default:
                 return $what;
         }
-    }
-    else if (is_object($what)) {
+    } elseif (is_object($what)) {
         // isn't it object returned from mysql_fetch_field ?
         if (@is_string($what->name)) {
             $what->name = PMA_convert_display_charset($what->name);
@@ -184,8 +181,7 @@ function PMA_convert_display_charset($what) {
             $what->Database = PMA_convert_display_charset($what->Database);
         }
         return $what;
-    }
-    else {
+    } else {
         // when we don't know what it is we don't touch it...
         return $what;
     }
@@ -243,7 +239,9 @@ function PMA_convert_charset($what) {
  * @author  nijel
  */
 function PMA_convert_string($src_charset, $dest_charset, $what) {
-    if ($src_charset == $dest_charset) return $what;
+    if ($src_charset == $dest_charset) {
+        return $what;
+    }
     switch ($GLOBALS['PMA_recoding_engine']) {
         case PMA_CHARSET_RECODE:
             return recode_string($src_charset . '..'  . $dest_charset, $what);

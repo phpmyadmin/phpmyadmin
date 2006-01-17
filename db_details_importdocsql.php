@@ -62,7 +62,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
             if (isset($lines) && is_array($lines) && count($lines) > 0) {
                 foreach ($lines AS $lkey => $line) {
                     //echo '<p>' . $line . '</p>';
-                    $inf     = explode('|',$line);
+                    $inf     = explode('|', $line);
                     if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
                         $qry = '
                              INSERT INTO
@@ -125,14 +125,11 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     if (empty($DOCUMENT_ROOT)) {
         if (!empty($_SERVER) && isset($_SERVER['DOCUMENT_ROOT'])) {
             $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
-        }
-        else if (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
+        } elseif (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
             $DOCUMENT_ROOT = $_ENV['DOCUMENT_ROOT'];
-        }
-        else if (@getenv('DOCUMENT_ROOT')) {
+        } elseif (@getenv('DOCUMENT_ROOT')) {
             $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
-        }
-        else {
+        } else {
             $DOCUMENT_ROOT = '.';
         }
     } // end if
@@ -173,15 +170,13 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                             echo $strFileCouldNotBeRead;
                             exit();
                         }
-                    }
-                    else {
+                    } else {
                         $sql_file_new = $tmp_subdir . basename($sql_file);
                         move_uploaded_file($sql_file, $sql_file_new);
                         $docsql_text = PMA_readFile($sql_file_new, $sql_file_compression);
                         unlink($sql_file_new);
                     }
-                }
-                else {
+                } else {
                     // read from the normal upload dir
                     $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
                 }
@@ -228,7 +223,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
      */
     ?>
 
-    <form method="post" action="db_details_importdocsql.php" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
+    <form method="post" action="db_details_importdocsql.php" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
         <?php echo PMA_generate_common_hidden_inputs($db); ?>
         <input type="hidden" name="submit_show" value="true" />
         <input type="hidden" name="do" value="import" />

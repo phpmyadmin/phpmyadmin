@@ -430,7 +430,7 @@ function PMA_displayTableList($tables, $visible = false,
     } else {
         echo '<ul id="subel' . $element_counter . '" style="display: none">';
     }
-    foreach( $tables as $group => $table ) {
+    foreach ( $tables as $group => $table ) {
         if ( isset( $table['is' . $sep . 'group'] ) ) {
             $common_url_query = $GLOBALS['common_url_query']
                 . '&amp;tbl_group=' . urlencode( $tab_group_full . $group );

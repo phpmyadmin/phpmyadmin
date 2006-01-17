@@ -63,7 +63,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     </script>
     <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
         <?php
-    } else if (isset($js_to_run) && $js_to_run == 'user_password.js') {
+    } elseif (isset($js_to_run) && $js_to_run == 'user_password.js') {
         echo "\n";
         ?>
     // js form validation stuff
@@ -75,7 +75,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     </script>
     <script src="./js/user_password.js" type="text/javascript" language="javascript"></script>
         <?php
-    } else if (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
+    } elseif (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
         echo "\n";
         ?>
     // js form validation stuff
@@ -88,7 +88,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     <script src="./js/server_privileges.js" type="text/javascript" language="javascript"></script>
     <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
         <?php
-    } else if (isset($js_to_run) && $js_to_run == 'indexes.js') {
+    } elseif (isset($js_to_run) && $js_to_run == 'indexes.js') {
         echo "\n";
         ?>
     // js index validation stuff
@@ -98,7 +98,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     </script>
     <script src="./js/indexes.js" type="text/javascript" language="javascript"></script>
         <?php
-    } else if (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
+    } elseif (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
         echo "\n";
         ?>
     //-->
@@ -194,7 +194,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                  */
                 if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
                     if (strstr($show_comment, '; InnoDB free')) {
-                        $show_comment = preg_replace('@; InnoDB free:.*?$@' , '', $show_comment);
+                        $show_comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
                     }
                     echo '<span class="table_comment" id="span_table_comment">'
                         .'&quot;' . htmlspecialchars($show_comment)

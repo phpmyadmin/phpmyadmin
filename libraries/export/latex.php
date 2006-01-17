@@ -129,7 +129,7 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    $result      = PMA_DBI_try_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
     $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {
@@ -150,7 +150,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $buffer .= ' \\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_caption'])
                    . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_data_label']) . '} \\\\';
     }
-    if (!PMA_exportOutputHandler($buffer)) return FALSE;
+    if (!PMA_exportOutputHandler($buffer)) {
+        return FALSE;
+    }
 
     // show column names
     if (isset($GLOBALS['latex_showcolumns'])) {
@@ -159,14 +161,20 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $buffer .= '\\multicolumn{1}{|c|}{\\textbf{' . PMA_texEscape(stripslashes($columns[$i])) . '}} & ';
           }
 
-        $buffer = substr($buffer,0,-2) . '\\\\ \\hline \hline ';
-        if (!PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) return FALSE;
+        $buffer = substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
+        if (!PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
+            return FALSE;
+        }
         if (isset($GLOBALS['latex_caption'])) {
             if (!PMA_exportOutputHandler('\\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_continued_caption']) . '} \\\\ ')) return FALSE;
         }
-        if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) return FALSE;
+        if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
+            return FALSE;
+        }
     } else {
-        if (!PMA_exportOutputHandler('\\\\ \hline')) return FALSE;
+        if (!PMA_exportOutputHandler('\\\\ \hline')) {
+            return FALSE;
+        }
     }
 
     // print the whole table
@@ -189,11 +197,15 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             }
         }
         $buffer .= ' \\\\ \\hline ' . $crlf;
-        if (!PMA_exportOutputHandler($buffer)) return FALSE;
+        if (!PMA_exportOutputHandler($buffer)) {
+            return FALSE;
+        }
     }
 
     $buffer = ' \\end{longtable}' . $crlf;
-    if (!PMA_exportOutputHandler($buffer)) return FALSE;
+    if (!PMA_exportOutputHandler($buffer)) {
+        return FALSE;
+    }
 
     PMA_DBI_free_result($result);
     return TRUE;
@@ -227,7 +239,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $keys_result    = PMA_DBI_query($keys_query);
     $unique_keys    = array();
     while ($key = PMA_DBI_fetch_assoc($keys_result)) {
-        if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
+        if ($key['Non_unique'] == 0) {
+            $unique_keys[] = $key['Column_name'];
+        }
     }
     PMA_DBI_free_result($keys_result);
     
@@ -250,8 +264,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         } else {
             $have_rel = FALSE;
         }
-    }
-    else {
+    } else {
            $have_rel = FALSE;
     } // end if
 
@@ -260,7 +273,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      */
     $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . ': ' . $table  . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{';
-    if (!PMA_exportOutputHandler($buffer)) return FALSE;
+    if (!PMA_exportOutputHandler($buffer)) {
+        return FALSE;
+    }
 
     $columns_cnt = 4;
     $alignment = '|l|c|c|c|';
@@ -308,7 +323,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
     $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ';
 
-    if (!PMA_exportOutputHandler($buffer)) return FALSE;
+    if (!PMA_exportOutputHandler($buffer)) {
+        return FALSE;
+    }
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
 
@@ -379,16 +396,18 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $local_buffer = PMA_texEscape($local_buffer);
         if ($row['Key']=='PRI') {
             $pos=strpos($local_buffer, "\000");
-            $local_buffer = '\\textit{' . substr($local_buffer,0,$pos) . '}' . substr($local_buffer,$pos);
+            $local_buffer = '\\textit{' . substr($local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos);
         }
         if (in_array($field_name, $unique_keys)) {
             $pos=strpos($local_buffer, "\000");
-            $local_buffer = '\\textbf{' . substr($local_buffer,0,$pos) . '}' . substr($local_buffer,$pos);
+            $local_buffer = '\\textbf{' . substr($local_buffer, 0, $pos) . '}' . substr($local_buffer, $pos);
         }
         $buffer = str_replace("\000", ' & ', $local_buffer);
         $buffer .= ' \\\\ \\hline ' . $crlf;
 
-        if (!PMA_exportOutputHandler($buffer)) return FALSE;
+        if (!PMA_exportOutputHandler($buffer)) {
+            return FALSE;
+        }
     } // end while
     PMA_DBI_free_result($result);
 

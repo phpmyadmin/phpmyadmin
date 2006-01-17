@@ -48,11 +48,9 @@ session_write_close();
 if (empty($HTTP_HOST)) {
     if (!empty($_ENV) && isset($_ENV['HTTP_HOST'])) {
         $HTTP_HOST = $_ENV['HTTP_HOST'];
-    }
-    elseif (@getenv('HTTP_HOST')) {
+    } elseif (@getenv('HTTP_HOST')) {
         $HTTP_HOST = getenv('HTTP_HOST');
-    }
-    else {
+    } else {
         $HTTP_HOST = '';
     }
 }
@@ -72,7 +70,7 @@ unset( $cfgRelation );
 $drops = array( 'lang', 'server', 'convcharset', 'collation_connection',
     'db', 'table' );
 
-foreach( $drops as $each_drop ) {
+foreach ( $drops as $each_drop ) {
     if ( ! array_key_exists( $each_drop, $_GET ) ) {
         unset( $_GET[$each_drop] );
     }
@@ -122,7 +120,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <script type="text/javascript" language="javascript">
 // <![CDATA[
     // definitions used in querywindow.js
-    var common_query = '<?php echo PMA_generate_common_url('','','&');?>';
+    var common_query = '<?php echo PMA_generate_common_url('', '', '&');?>';
     var opendb_url = '<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>';
     var safari_browser = <?php echo PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false' ?>;
     var querywindow_height = <?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>;

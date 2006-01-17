@@ -23,10 +23,11 @@
  * @uses    explode()
  * @return  bool    success if valid lang is found, otherwise false
  */
-function PMA_langCheck() {
+function PMA_langCheck()
+{
     // check forced language
-    if ( ! empty( $GLOBALS['cfg']['Lang'] ) ) {
-        if ( PMA_langSet( $GLOBALS['cfg']['Lang'] ) ) {
+    if (! empty($GLOBALS['cfg']['Lang'])) {
+        if (PMA_langSet($GLOBALS['cfg']['Lang'])) {
             return true;
         } else {
             $GLOBALS['lang_failed_cfg'] = $GLOBALS['cfg']['Lang'];
@@ -34,8 +35,8 @@ function PMA_langCheck() {
     }
 
     // check user requested language
-    if ( ! empty( $_REQUEST['lang'] ) ) {
-        if ( PMA_langSet( $_REQUEST['lang'] ) ) {
+    if (! empty($_REQUEST['lang'])) {
+        if (PMA_langSet($_REQUEST['lang'])) {
             return true;
         } else {
             $GLOBALS['lang_failed_request'] = $_REQUEST['lang'];
@@ -43,8 +44,8 @@ function PMA_langCheck() {
     }
 
     // check previous set language
-    if ( ! empty( $_COOKIE['pma_lang'] ) ) {
-        if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
+    if (! empty($_COOKIE['pma_lang'])) {
+        if (PMA_langSet($_COOKIE['pma_lang'])) {
             return true;
         } else {
             $GLOBALS['lang_failed_cookie'] = $_COOKIE['pma_lang'];
@@ -52,21 +53,21 @@ function PMA_langCheck() {
     }
 
     // try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE variable
-    if ( ! empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ) {
-        foreach ( explode( ',', $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) as $lang ) {
-            if ( PMA_langDetect( $lang, 1 ) ) {
+    if (! empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        foreach (explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']) as $lang) {
+            if (PMA_langDetect($lang, 1)) {
                 return true;
             }
         }
     }
 
     // try to findout user's language by checking its HTTP_USER_AGENT variable
-    if ( PMA_langDetect($_SERVER['HTTP_USER_AGENT'], 2) ) {
+    if (PMA_langDetect($_SERVER['HTTP_USER_AGENT'], 2)) {
         return true;
     }
 
     // Didn't catch any valid lang : we use the default settings
-    if ( PMA_langSet($GLOBALS['cfg']['DefaultLang']) ) {
+    if (PMA_langSet($GLOBALS['cfg']['DefaultLang'])) {
         return true;
     }
 
@@ -82,8 +83,9 @@ function PMA_langCheck() {
  * @param   string  $lang   language to set
  * @return  bool    success
  */
-function PMA_langSet( &$lang ) {
-    if ( empty( $lang ) || empty( $GLOBALS['available_languages'][$lang] ) ) {
+function PMA_langSet(&$lang)
+{
+    if (empty($lang) || empty($GLOBALS['available_languages'][$lang])) {
         return false;
     }
     $GLOBALS['lang'] = $lang;
@@ -103,9 +105,14 @@ function PMA_langSet( &$lang ) {
  *
  * @access  private
  */
-function PMA_langDetect( &$str, $envType ) {
-    if ( empty( $str ) )                            return false;
-    if ( empty( $GLOBALS['available_languages'] ) ) return false;
+function PMA_langDetect(&$str, $envType)
+{
+    if (empty($str)) {
+        return false;
+    }
+    if (empty($GLOBALS['available_languages'])) {
+        return false;
+    }
 
     foreach ($GLOBALS['available_languages'] as $lang => $value) {
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
@@ -116,7 +123,7 @@ function PMA_langDetect( &$str, $envType ) {
         }
         if (($envType == 1 && eregi('^(' . $expr . ')(;q=[0-9]\\.[0-9])?$', $str))
             || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $expr . ')(;|\]|\))', $str))) {
-            if ( PMA_langSet( $lang ) ) {
+            if (PMA_langSet($lang)) {
                 return true;
             }
         }
@@ -133,14 +140,14 @@ $lang_path = './lang/';
 /**
  * first check for lang dir exists
  */
-if ( ! is_dir( $lang_path ) ) {
+if (! is_dir($lang_path)) {
     // language directory not found
-    trigger_error( 'phpMyAdmin-ERROR: path not found: '
+    trigger_error('phpMyAdmin-ERROR: path not found: '
         . $lang_path . ', check your language directory.',
-        E_USER_WARNING );
+        E_USER_WARNING);
     // and tell the user
-    PMA_sendHeaderLocation( 'error.php?error='
-        . urlencode( 'path to languages is invalid: ' . $lang_path ) );
+    PMA_sendHeaderLocation('error.php?error='
+        . urlencode( 'path to languages is invalid: ' . $lang_path));
     // stop execution
     exit;
 }
@@ -318,9 +325,9 @@ $available_languages = array(
 );
 
 // Language filtering support
-if ( ! empty( $GLOBALS['cfg']['FilterLanguages'] ) ) {
+if (! empty($GLOBALS['cfg']['FilterLanguages'])) {
     $new_lang = array();
-    foreach($available_languages as $key => $val) {
+    foreach ($available_languages as $key => $val) {
         if (preg_match('@' . $GLOBALS['cfg']['FilterLanguages'] . '@', $key)) {
             $new_lang[$key] = $val;
         }
@@ -328,18 +335,18 @@ if ( ! empty( $GLOBALS['cfg']['FilterLanguages'] ) ) {
     if (count($new_lang) > 0) {
         $available_languages = $new_lang;
     }
-    unset( $key, $val, $new_lang );
+    unset($key, $val, $new_lang);
 }
 
 /**
  * check for language files
  */
-foreach ( $available_languages as $each_lang_key => $each_lang ) {
-    if ( ! file_exists( $lang_path . $each_lang[1] . '.inc.php' ) ) {
-        unset( $available_languages[$each_lang_key] );
+foreach ($available_languages as $each_lang_key => $each_lang) {
+    if (! file_exists($lang_path . $each_lang[1] . '.inc.php')) {
+        unset($available_languages[$each_lang_key]);
     }
 }
-unset( $each_lang_key, $each_lang );
+unset($each_lang_key, $each_lang);
 
 // MySQL charsets map
 $mysql_charset_map = array(
@@ -373,7 +380,7 @@ $mysql_charset_map = array(
  */
 // Checks whether charset recoding should be allowed or not
 $allow_recoding = FALSE; // Default fallback value
-if ( empty($convcharset) ) {
+if (empty($convcharset)) {
     if (isset($_COOKIE['pma_charset'])) {
         $convcharset = $_COOKIE['pma_charset'];
     } else {
@@ -381,36 +388,36 @@ if ( empty($convcharset) ) {
     }
 }
 
-if ( ! PMA_langCheck() ) {
+if (! PMA_langCheck()) {
     // fallback language
     $fall_back_lang = 'en-utf-8'; $line = __LINE__;
-    if ( ! PMA_langSet( $fall_back_lang ) ) {
-        trigger_error( 'phpMyAdmin-ERROR: invalid lang code: '
+    if (! PMA_langSet($fall_back_lang)) {
+        trigger_error('phpMyAdmin-ERROR: invalid lang code: '
             . __FILE__ . '#' . $line . ', check hard coded fall back language.',
-            E_USER_WARNING );
+            E_USER_WARNING);
         // stop execution
         // and tell the user that his choosen language is invalid
-        PMA_sendHeaderLocation( 'error.php?error='
-            . urlencode( 'Could not load any language, please check your language settings and folder' ) );
+        PMA_sendHeaderLocation('error.php?error='
+            . urlencode('Could not load any language, please check your language settings and folder'));
         exit;
     }
 }
 
 // Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
-require_once( $lang_file );
+require_once($lang_file);
 
 // now, that we have loaded the language strings we can send the errors
-if ( $lang_failed_cfg ) {
-    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_cfg );
+if ($lang_failed_cfg) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_cfg);
 }
-if ( $lang_failed_cookie ) {
-    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_cookie );
+if ($lang_failed_cookie) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_cookie);
 }
-if ( $lang_failed_request ) {
-    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_request );
+if ($lang_failed_request) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_request);
 }
 
-unset( $lang_file, $lang_path, $strLanguageFileNotFound, $line, $fall_back_lang,
-    $lang_failed_cfg, $lang_failed_cookie, $lang_failed_request, $strLanguageUnknown );
+unset($lang_file, $lang_path, $strLanguageFileNotFound, $line, $fall_back_lang,
+    $lang_failed_cfg, $lang_failed_cookie, $lang_failed_request, $strLanguageUnknown);
 ?>

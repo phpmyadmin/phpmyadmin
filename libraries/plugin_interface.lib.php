@@ -242,7 +242,7 @@ function PMA_pluginGetJavascript(&$list) {
     //<![CDATA[
     function hide_them_all() {
         ';
-    foreach($list as $plugin_name => $val) {
+    foreach ($list as $plugin_name => $val) {
         $ret .= 'document.getElementById("' . $plugin_name . '_options").style.display = "none";' . "\n";
     }
     $ret .= '
@@ -251,7 +251,7 @@ function PMA_pluginGetJavascript(&$list) {
     function init_options() {
         hide_them_all();
         ';
-    foreach($list as $plugin_name => $val) {
+    foreach ($list as $plugin_name => $val) {
         $ret .= 'if (document.getElementById("radio_plugin_' . $plugin_name . '").checked) {' . "\n";
         $ret .= 'document.getElementById("' . $plugin_name . '_options").style.display = "block";' . "\n";
         $ret .= ' } else ' . "\n";
@@ -269,7 +269,7 @@ function PMA_pluginGetJavascript(&$list) {
             if (farr[len - 1] == "gz" || farr[len - 1] == "bz2" || farr[len -1] == "zip") len--;
             switch (farr[len - 1]) {
                 ';
-    foreach($list as $plugin_name => $val) {
+    foreach ($list as $plugin_name => $val) {
         $ret .= 'case "' . $val['extension'] . '" :';
         $ret .= 'document.getElementById("radio_plugin_' . $plugin_name . '").checked = true;';
         $ret .= 'init_options();';

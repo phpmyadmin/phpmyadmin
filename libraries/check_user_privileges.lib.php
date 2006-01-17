@@ -9,7 +9,7 @@
 /**
  * returns true (int > 0) if current user is superuser
  * otherwise 0
- * 
+ *
  * @return integer  $is_superuser
  */
 function PMA_isSuperuser() {
@@ -33,9 +33,9 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
     $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
     $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
     while ($row = PMA_DBI_fetch_row($rs_usr)) {
-        $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
-        $show_grants_dbname = ereg_replace('^`(.*)`','\\1',  $show_grants_dbname);
-        $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
+        $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4, (strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
+        $show_grants_dbname = ereg_replace('^`(.*)`', '\\1',  $show_grants_dbname);
+        $show_grants_str    = substr($row[0], 6, (strpos($row[0], ' ON ') - 6));
         if ($show_grants_str == 'RELOAD') {
             $is_reload_priv = true;
         }
@@ -47,13 +47,12 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                 $db_to_create   = '';
                 $dbs_where_create_table_allowed[] = '*';
                 break;
-            } // end if
-            else {
+            } else {
                 // this array may contain wildcards
                 $dbs_where_create_table_allowed[] = $show_grants_dbname;
-                
+
                 // before MySQL 4.1.0, we cannot use backquotes around a dbname
-                // for the USE command, so the USE will fail if the dbname contains 
+                // for the USE command, so the USE will fail if the dbname contains
                 // a "-" and we cannot detect if such a db already exists;
                 // since 4.1.0, we need to use backquotes if the dbname contains a "-"
                 // in a USE command
@@ -67,7 +66,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                 if ( (ereg($re0 . '%|_', $show_grants_dbname)
                     && !ereg('\\\\%|\\\\_', $show_grants_dbname))
                     // does this db exist?
-                    || (!PMA_DBI_try_query('USE ' .  ereg_replace($re1 .'(%|_)', '\\1\\3',$dbname_to_test),  NULL, PMA_DBI_QUERY_STORE) && substr(PMA_DBI_getError(), 1, 4) != 1044)
+                    || (!PMA_DBI_try_query('USE ' .  ereg_replace($re1 .'(%|_)', '\\1\\3', $dbname_to_test),  null, PMA_DBI_QUERY_STORE) && substr(PMA_DBI_getError(), 1, 4) != 1044)
                     ) {
                      $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                      $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
@@ -78,7 +77,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                      //
                      // we don't break, we want all possible databases
                      //break;
-                } // end if             
+                } // end if
             } // end elseif
         } // end if
     } // end while
@@ -93,7 +92,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
 if (PMA_MYSQL_INT_VERSION >= 40102) {
     $rs_usr = PMA_DBI_try_query('SHOW GRANTS', $userlink, PMA_DBI_QUERY_STORE);
     if ($rs_usr) {
-        PMA_analyseShowGrant($rs_usr,$is_create_db_priv, $db_to_create, $is_reload_priv, $dbs_where_create_table_allowed);
+        PMA_analyseShowGrant($rs_usr, $is_create_db_priv, $db_to_create, $is_reload_priv, $dbs_where_create_table_allowed);
         PMA_DBI_free_result($rs_usr);
         unset($rs_usr);
     }
@@ -104,7 +103,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 // $userlink so maybe the SELECT will fail
 
     if (!$is_create_db_priv) {
-        $res                           = PMA_DBI_query('SELECT USER();', NULL, PMA_DBI_QUERY_STORE);
+        $res                           = PMA_DBI_query('SELECT USER();', null, PMA_DBI_QUERY_STORE);
         list($mysql_cur_user_and_host) = PMA_DBI_fetch_row($res);
         $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
@@ -149,8 +148,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             } // end while
             PMA_DBI_free_result($rs_usr);
             unset($rs_usr, $row, $re0, $re1);
-        } // end if
-        else {
+        } else {
             // Finally, let's try to get the user's privileges by using SHOW
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
@@ -162,7 +160,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             }
             unset($local_query);
             if ($rs_usr) {
-                PMA_analyseShowGrant($rs_usr,$is_create_db_priv, $db_to_create, $is_reload_priv, $dbs_where_create_table_allowed);
+                PMA_analyseShowGrant($rs_usr, $is_create_db_priv, $db_to_create, $is_reload_priv, $dbs_where_create_table_allowed);
                 PMA_DBI_free_result($rs_usr);
                 unset($rs_usr);
             } // end if

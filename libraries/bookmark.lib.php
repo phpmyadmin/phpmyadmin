@@ -102,7 +102,9 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
                     . '      OR user = \'\')' )
                     . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
     $result = PMA_DBI_try_query($query, $controllink);
-    if (!$result) return FALSE;
+    if (!$result) {
+        return FALSE;
+    }
     list($bookmark_query) = PMA_DBI_fetch_row($result) or array(FALSE);
 
     return $bookmark_query;
@@ -132,7 +134,7 @@ function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
     }
 
     $search_for = array();
-    foreach($table_array AS $table => $table_sortkey) {
+    foreach ($table_array AS $table => $table_sortkey) {
         $search_for[] = "'" . PMA_sqlAddslashes($table) . "'";
     }
 
@@ -140,7 +142,9 @@ function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
                     . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
                     . (count($search_for) > 0 ? ' AND label IN (' . implode(', ', $search_for) . ')' : '');
     $result = PMA_DBI_try_query($query, $controllink, PMA_DBI_QUERY_STORE);
-    if (!$result || PMA_DBI_num_rows($result) < 1) return $bookmarks;
+    if (!$result || PMA_DBI_num_rows($result) < 1) {
+        return $bookmarks;
+    }
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $bookmarks[$row['label']] = $row['query'];
     }

@@ -58,9 +58,10 @@ require_once('./libraries/bookmark.lib.php'); // used for file listing
  *                                          what part to display 
  *                                          false if not inside querywindow
  */
-function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
+function PMA_sqlQueryForm($query = true, $display_tab = false)
+{
     // check tab to display if inside querywindow
-    if ( ! $display_tab ) {
+    if (! $display_tab) {
         $display_tab = 'full';
         $is_querywindow = false;
     } else {
@@ -68,12 +69,12 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     }
     
     // query to show
-    if ( true === $query  ) {
-        $query = empty( $GLOBALS['sql_query'] ) ? '' : $GLOBALS['sql_query'];
+    if (true === $query) {
+        $query = empty($GLOBALS['sql_query']) ? '' : $GLOBALS['sql_query'];
     }
     
     // set enctype to multipart for file uploads
-    if ( $GLOBALS['is_upload'] ) {
+    if ($GLOBALS['is_upload']) {
         $enctype = ' enctype="multipart/form-data"';
     } else {
         $enctype = '';
@@ -81,25 +82,25 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     
     $table  = '';
     $db     = '';
-    if ( ! isset( $GLOBALS['db'] ) || ! strlen($GLOBALS['db']) ) {
+    if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
         // prepare for server related
-        $goto   = empty( $GLOBALS['goto'] ) ? 
+        $goto   = empty($GLOBALS['goto']) ? 
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif ( ! isset( $GLOBALS['table'] ) || ! strlen($GLOBALS['table']) ) {
+    } elseif (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
-        $goto   = empty( $GLOBALS['goto'] ) ? 
+        $goto   = empty($GLOBALS['goto']) ? 
                     'db_details.php' : $GLOBALS['goto'];
     } else {
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
-        $goto   = empty( $GLOBALS['goto'] ) ? 
+        $goto   = empty($GLOBALS['goto']) ? 
                     'tbl_properties.php' : $GLOBALS['goto'];
     }
     
     
     // start output
-    if ( $is_querywindow ) {
+    if ($is_querywindow) {
         ?>
         <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
@@ -113,45 +114,45 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
             .' onsubmit="return checkSqlQuery(this)" name="sqlform">' . "\n";
     }
     
-    if ( $is_querywindow ) {
+    if ($is_querywindow) {
         echo '<input type="hidden" name="focus_querywindow" value="true" />'
             ."\n";
-        if ( $display_tab != 'sql' && $display_tab != 'full' ) {
+        if ($display_tab != 'sql' && $display_tab != 'full') {
             echo '<input type="hidden" name="sql_query" value="" />' . "\n";
             echo '<input type="hidden" name="show_query" value="1" />' . "\n";
         }
     }
     echo '<input type="hidden" name="is_js_confirmed" value="0" />' . "\n"
-        .PMA_generate_common_hidden_inputs( $db, $table ) . "\n"
+        .PMA_generate_common_hidden_inputs($db, $table) . "\n"
         .'<input type="hidden" name="pos" value="0" />' . "\n"
         .'<input type="hidden" name="goto" value="' 
-        .htmlspecialchars( $goto ) . '" />' . "\n"
+        .htmlspecialchars($goto) . '" />' . "\n"
         .'<input type="hidden" name="zero_rows" value="' 
-        . htmlspecialchars( $GLOBALS['strSuccess'] ) . '" />' . "\n"
+        . htmlspecialchars($GLOBALS['strSuccess']) . '" />' . "\n"
         .'<input type="hidden" name="prev_sql_query" value="' 
-        . htmlspecialchars( $query ) . '" />' . "\n";
+        . htmlspecialchars($query) . '" />' . "\n";
 
     // display querybox
-    if ( $display_tab === 'full' || $display_tab === 'sql' ) {
-        PMA_sqlQueryFormInsert( $query, $is_querywindow );
+    if ($display_tab === 'full' || $display_tab === 'sql') {
+        PMA_sqlQueryFormInsert($query, $is_querywindow);
     }
     
     // display uploads
-    if ( $display_tab === 'files' && $GLOBALS['is_upload'] ) {
+    if ($display_tab === 'files' && $GLOBALS['is_upload']) {
         PMA_sqlQueryFormUpload();
     }
     
     // Bookmark Support
-    if ( $display_tab === 'full' || $display_tab === 'history' ) {
-        if ( ! empty( $GLOBALS['cfg']['Bookmark'] )
+    if ($display_tab === 'full' || $display_tab === 'history') {
+        if (! empty( $GLOBALS['cfg']['Bookmark'])
           && $GLOBALS['cfg']['Bookmark']['db']
-          && $GLOBALS['cfg']['Bookmark']['table'] ) {
+          && $GLOBALS['cfg']['Bookmark']['table']) {
             PMA_sqlQueryFormBookmark();
         }
     }
     
     // Encoding setting form appended by Y.Kawada
-    if ( function_exists('PMA_set_enc_form') ) {
+    if (function_exists('PMA_set_enc_form')) {
         echo PMA_set_enc_form('    ');
     }
     
@@ -177,17 +178,18 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
  * @param   string      $query          query to display in the textarea
  * @param   boolean     $is_querywindow if inside querywindow or not
  */
-function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
+function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
+{
     
     // enable auto select text in textarea
-    if ( $GLOBALS['cfg']['TextareaAutoSelect'] ) {
+    if ($GLOBALS['cfg']['TextareaAutoSelect']) {
         $auto_sel = ' onfocus="selectContent( this, sql_box_locked, true )"';
     } else {
         $auto_sel = '';
     }
     
     // enable locking if inside query window
-    if ( $is_querywindow ) {
+    if ($is_querywindow) {
         $locking = ' onkeypress="document.sqlform.elements[\'LockFromUpdate\'].'
             .'checked = true;"';
     } else {
@@ -197,29 +199,29 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     $table          = '';
     $db             = '';
     $fields_list    = array();
-    if ( ! isset( $GLOBALS['db'] ) || ! strlen($GLOBALS['db']) ) {
+    if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
         // prepare for server related
-        $legend = sprintf( $GLOBALS['strRunSQLQueryOnServer'],
+        $legend = sprintf($GLOBALS['strRunSQLQueryOnServer'],
             htmlspecialchars(
-                $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host'] ) );
-    } elseif ( ! isset( $GLOBALS['table'] ) || ! strlen($GLOBALS['table']) ) {
+                $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']));
+    } elseif (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] 
-            . '?' . PMA_generate_common_url( $db ) . '"';
-        if ( $is_querywindow ) {
+            . '?' . PMA_generate_common_url($db) . '"';
+        if ($is_querywindow) {
             $strDBLink .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frames[1].name"';
         }
         $strDBLink .= '>'
-            . htmlspecialchars( $db ) . '</a>';
+            . htmlspecialchars($db) . '</a>';
         // else use
-        // $strDBLink = htmlspecialchars( $db );
-        $legend = sprintf( $GLOBALS['strRunSQLQuery'], $strDBLink );
-        if ( empty( $query ) ) {
-            $query = str_replace( '%d', 
-                PMA_backquote( $db ), $GLOBALS['cfg']['DefaultQueryDatabase'] );
+        // $strDBLink = htmlspecialchars($db);
+        $legend = sprintf($GLOBALS['strRunSQLQuery'], $strDBLink);
+        if (empty($query)) {
+            $query = str_replace('%d', 
+                PMA_backquote($db), $GLOBALS['cfg']['DefaultQueryDatabase']);
         }
     } else {
         $table  = $GLOBALS['table'];
@@ -228,37 +230,37 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         // we do a try_query here, because we could be in the query window,
         // trying to synchonize and the table has not yet been created
         $fields_list = PMA_DBI_fetch_result( 
-            'SHOW FULL COLUMNS FROM ' . PMA_backquote( $db ) 
-            . '.' . PMA_backquote( $GLOBALS['table'] ));
+            'SHOW FULL COLUMNS FROM ' . PMA_backquote($db) 
+            . '.' . PMA_backquote($GLOBALS['table']));
         
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] 
-            . '?' . PMA_generate_common_url( $db ) . '"';
-        if ( $is_querywindow ) {
+            . '?' . PMA_generate_common_url($db) . '"';
+        if ($is_querywindow) {
             $strDBLink .= ' target="_self"'
                 . ' onclick="this.target=window.opener.frames[1].name"';
         }
         $strDBLink .= '>'
-            . htmlspecialchars( $db ) . '</a>';
+            . htmlspecialchars($db) . '</a>';
         // else use
-        // $strDBLink = htmlspecialchars( $db );
-        $legend = sprintf( $GLOBALS['strRunSQLQuery'], $strDBLink );
-        if ( empty( $query ) && count( $fields_list ) ) {
+        // $strDBLink = htmlspecialchars($db);
+        $legend = sprintf($GLOBALS['strRunSQLQuery'], $strDBLink);
+        if (empty($query) && count($fields_list)) {
             $field_names = array();
-            foreach ( $fields_list as $field ) {
+            foreach ($fields_list as $field) {
                 $field_names[] = PMA_backquote($field['Field']);
             }
             $query =
-                str_replace( '%d', PMA_backquote( $db ),
-                    str_replace( '%t', PMA_backquote( $table ),
-                        str_replace( '%f',
-                            implode( ', ', $field_names ),
-                            $GLOBALS['cfg']['DefaultQueryTable'] ) ) );
+                str_replace('%d', PMA_backquote($db),
+                    str_replace('%t', PMA_backquote($table),
+                        str_replace('%f',
+                            implode(', ', $field_names ),
+                            $GLOBALS['cfg']['DefaultQueryTable'])));
             unset($field_names);
         }
     }
-    $legend .= ': ' . PMA_showMySQLDocu( 'SQL-Syntax', 'SELECT' );
+    $legend .= ': ' . PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
 
-    if ( count( $fields_list ) ) {
+    if (count($fields_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
     } else {
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
@@ -277,17 +279,17 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         .$auto_sel . $locking . '>' . $query . '</textarea>' . "\n";
     echo '</div>' . "\n";
         
-    if ( count( $fields_list ) ) {
+    if (count($fields_list)) {
         echo '<div id="tablefieldscontainer">' . "\n"
             .'<label>' . $GLOBALS['strFields'] . '</label>' . "\n"
             .'<select id="tablefields" name="dummy" '
             .'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
             .'multiple="multiple" ondblclick="insertValueQuery()">' . "\n";
-        foreach ( $fields_list as $field ) {
+        foreach ($fields_list as $field) {
             echo '<option value="' 
-                .PMA_backquote( htmlspecialchars( $field['Field'] ) ) . '"';
-            if ( isset( $field['Field'] ) && strlen($field['Field']) && isset($field['Comment']) ) {
-                echo ' title="' . htmlspecialchars( $field['Comment'] ) . '"';
+                .PMA_backquote(htmlspecialchars($field['Field'])) . '"';
+            if (isset($field['Field']) && strlen($field['Field']) && isset($field['Comment'])) {
+                echo ' title="' . htmlspecialchars($field['Comment']) . '"';
             }
             echo '>' . htmlspecialchars( $field['Field'] ) . '</option>' . "\n";
         }
@@ -309,9 +311,9 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</div>' . "\n";
     
-    if ( ! empty( $GLOBALS['cfg']['Bookmark'] )
+    if (! empty($GLOBALS['cfg']['Bookmark'])
       && $GLOBALS['cfg']['Bookmark']['db']
-      && $GLOBALS['cfg']['Bookmark']['table'] ) {
+      && $GLOBALS['cfg']['Bookmark']['table']) {
         ?>
         <div id="bookmarkoptions">
         <div class="formelement">
@@ -341,7 +343,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     
     echo '<fieldset id="queryboxfooter" class="tblFooters">' . "\n";
     echo '<div class="formelement">' . "\n";
-    if ( $is_querywindow ) {
+    if ($is_querywindow) {
         ?>
         <script type="text/javascript" language="javascript">
         //<![CDATA[
@@ -382,9 +384,10 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
  * @uses    count()
  * @uses    htmlspecialchars()
  */
-function PMA_sqlQueryFormBookmark() {
+function PMA_sqlQueryFormBookmark()
+{
     $bookmark_list = PMA_listBookmarks(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', $GLOBALS['cfg']['Bookmark'] );
-    if ( ! $bookmark_list || count( $bookmark_list ) < 1 ) {
+    if (! $bookmark_list || count($bookmark_list) < 1) {
         return;
     }
     
@@ -394,16 +397,16 @@ function PMA_sqlQueryFormBookmark() {
     echo '<div class="formelement">';
     echo '<select name="id_bookmark">' . "\n";
     echo '<option value=""></option>' . "\n";
-    foreach ( $bookmark_list as $key => $value ) {
-        echo '<option value="' . htmlspecialchars( $key ) . '">' 
-            .htmlspecialchars( $value ) . '</option>' . "\n";
+    foreach ($bookmark_list as $key => $value) {
+        echo '<option value="' . htmlspecialchars($key) . '">' 
+            .htmlspecialchars($value) . '</option>' . "\n";
     }
     // &nbsp; is required for correct display with styles/line height
     echo '</select>&nbsp;' . "\n";
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
     echo $GLOBALS['strVar'];
-    if ( $GLOBALS['cfg']['ReplaceHelpImg'] ) {
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
         echo ' <a href="./Documentation.html#faqbookmark"'
             .' target="documentation">'
             .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png"'
@@ -470,7 +473,7 @@ function PMA_sqlQueryFormBookmark() {
  * @uses    PMA_CSDROPDOWN_CHARSET
  * @uses    empty()
  */
-function PMA_sqlQueryFormUpload() {
+function PMA_sqlQueryFormUpload(){
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
@@ -487,9 +490,9 @@ function PMA_sqlQueryFormUpload() {
     echo $GLOBALS['strLocationTextfile'] . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';
-    echo PMA_displayMaximumUploadSize( $GLOBALS['max_upload_size'] );
+    echo PMA_displayMaximumUploadSize($GLOBALS['max_upload_size']);
     // some browsers should respect this :)
-    echo PMA_generateHiddenMaxFileSize( $GLOBALS['max_upload_size'] ) . "\n";
+    echo PMA_generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
     echo '</div>';
     
     if ($files === FALSE) {
@@ -514,25 +517,25 @@ function PMA_sqlQueryFormUpload() {
       && $GLOBALS['allow_recoding'] ) {
         echo $GLOBALS['strCharsetOfFile'] . "\n"
              . '<select name="charset_of_file" size="1">' . "\n";
-        foreach( $GLOBALS['cfg']['AvailableCharsets'] as $temp_charset ) {
+        foreach ($GLOBALS['cfg']['AvailableCharsets'] as $temp_charset) {
             echo '<option value="' . $temp_charset . '"';
-            if ( $temp_charset == $GLOBALS['charset'] ) {
+            if ($temp_charset == $GLOBALS['charset']) {
                 echo ' selected="selected"';
             }
             echo '>' . $temp_charset . '</option>' . "\n";
         }
         echo '</select>' . "\n";
-    } elseif ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+    } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
         echo $GLOBALS['strCharsetOfFile'] . "\n";
-        echo PMA_generateCharsetDropdownBox( PMA_CSDROPDOWN_CHARSET,
-                'charset_of_file', NULL, 'utf8', FALSE );
+        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
+                'charset_of_file', null, 'utf8', FALSE);
     } // end if (recoding)
     echo '<input type="submit" name="SQL" value="' . $GLOBALS['strGo']
         .'" />' . "\n";
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>';
     
-    foreach( $errors as $error => $message ) {
+    foreach ( $errors as $error => $message ) {
         echo '<div>' . $error . '</div>';
         echo '<div>' . $message . '</div>';
     }

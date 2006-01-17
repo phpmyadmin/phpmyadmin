@@ -853,7 +853,7 @@ function show_checked_option() {
 
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo '        <select id="select_charset_of_file" name="charset_of_file" size="1">' . "\n";
-        foreach($cfg['AvailableCharsets'] as $key => $temp_charset) {
+        foreach ($cfg['AvailableCharsets'] as $key => $temp_charset) {
             echo '            <option value="' . $temp_charset . '"';
             if ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
               || $temp_charset == $cfg['Export']['charset']) {

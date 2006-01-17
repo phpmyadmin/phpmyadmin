@@ -24,52 +24,50 @@ if (!@function_exists('session_name')) {
     require_once('./libraries/select_lang.lib.php');
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
-    header( 'Location: error.php'
-            . '?lang='  . urlencode( $available_languages[$lang][2] )
-            . '&char='  . urlencode( $charset )
-            . '&dir='   . urlencode( $text_dir )
-            . '&type='  . urlencode( $strError )
-            . '&error=' . urlencode(
-                sprintf($strCantLoad, 'session'))
-             );
+    header('Location: error.php'
+            . '?lang='  . urlencode($available_languages[$lang][2])
+            . '&char='  . urlencode($charset)
+            . '&dir='   . urlencode($text_dir)
+            . '&type='  . urlencode($strError)
+            . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
     exit();
 }
 
 // session cookie settings
-session_set_cookie_params( 0, PMA_Config::getCookiePath(),
-    '', PMA_Config::isHttps() );
+session_set_cookie_params(0, PMA_Config::getCookiePath(),
+    '', PMA_Config::isHttps());
 
 // disable starting of sessions before all settings are done
-ini_set( 'session.auto_start', false );
+ini_set('session.auto_start', false);
 
 // cookies are safer
-ini_set( 'session.use_cookies', true );
+ini_set('session.use_cookies', true);
 
 // but not all user allow cookies
-ini_set( 'session.use_only_cookies', false );
-ini_set( 'session.use_trans_sid', true );
-ini_set( 'url_rewriter.tags',
-    'a=href,frame=src,input=src,form=fakeentry,fieldset=' );
-ini_set( 'arg_separator.output' , '&amp;' );
+ini_set('session.use_only_cookies', false);
+ini_set('session.use_trans_sid', true);
+ini_set('url_rewriter.tags',
+    'a=href,frame=src,input=src,form=fakeentry,fieldset=');
+ini_set('arg_separator.output', '&amp;');
 
 // delete session/cookies when browser is closed
-ini_set( 'session.cookie_lifetime', 0 );
+ini_set('session.cookie_lifetime', 0);
 
 // warn but dont work with bug
-ini_set( 'session.bug_compat_42', false );
-ini_set( 'session.bug_compat_warn', true );
+ini_set('session.bug_compat_42', false);
+ini_set('session.bug_compat_warn', true);
 
 // use more secure session ids (with PHP 5)
-if ( version_compare( PHP_VERSION, '5.0.0', 'ge' )
-  && substr( PHP_OS, 0 ,3 ) != 'WIN' ) {
-    ini_set( 'session.hash_function', 1 );
-    ini_set( 'session.hash_bits_per_character', 6 );
+if (version_compare( PHP_VERSION, '5.0.0', 'ge')
+  && substr(PHP_OS, 0, 3) != 'WIN') {
+    ini_set('session.hash_function', 1);
+    ini_set('session.hash_bits_per_character', 6);
 }
 
 // start the session
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
-@session_name( 'phpMyAdmin' );
+@session_name('phpMyAdmin');
 @session_start();
 
 /**
@@ -82,12 +80,13 @@ if ( version_compare( PHP_VERSION, '5.0.0', 'ge' )
  * @uses    strip_tags()            to prevent XSS attacks in SID
  * @uses    function_exists()       for session_regenerate_id()
  */
-function PMA_secureSession() {
+function PMA_secureSession()
+{
     // prevent session fixation and XSS
-    if ( function_exists( 'session_regenerate_id' ) ) {
-        session_regenerate_id( true );
+    if (function_exists('session_regenerate_id')) {
+        session_regenerate_id(true);
     } else {
-        session_id( strip_tags( session_id() ) );
+        session_id(strip_tags(session_id()));
     }
 }
 ?>

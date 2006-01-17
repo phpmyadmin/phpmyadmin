@@ -80,7 +80,7 @@ if (isset($db) &&
 
         // Duplicate the bookmarks for this db (done once for each db)
         if ($db != $newname) {
-            $get_fields = array('user','label','query');
+            $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
             $new_fields = array('dbase' => $newname);
             PMA_duplicate_table_info('bookmarkwork', 'bookmark', $get_fields,
@@ -332,7 +332,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
          SELECT *
            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']) . '
           WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
-    $test_rs    = PMA_query_as_cu($test_query, NULL, PMA_DBI_QUERY_STORE);
+    $test_rs    = PMA_query_as_cu($test_query, null, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) { ?>
     <!-- PDF schema -->

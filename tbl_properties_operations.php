@@ -215,7 +215,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
     }
 } else {
     // remove InnoDB comment from end, just the minimal part (*? is non greedy)
-    $comment = preg_replace('@; InnoDB free:.*?$@' , '', $show_comment);
+    $comment = preg_replace('@; InnoDB free:.*?$@', '', $show_comment);
 }
 
 // PACK_KEYS: MyISAM or ISAM

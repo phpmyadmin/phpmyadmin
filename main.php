@@ -90,8 +90,8 @@ if (!$cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 &
 if ( $server > 0 ) {
     echo '<ul>' . "\n";
 
-    PMA_printListItem( $strProtocolVersion . ': ' . PMA_DBI_get_proto_info()
-        , 'li_mysql_proto' );
+    PMA_printListItem( $strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
+        'li_mysql_proto' );
     PMA_printListItem( $strServer . ': ' . $server_info, 'li_server_info' );
     PMA_printListItem( $strUser . ': ' . htmlspecialchars( $mysql_cur_user_and_host ),
         'li_user_info' );
@@ -131,7 +131,7 @@ if ( $server > 0 ) {
            . '    </li>' . "\n"
            . '    <li id="li_select_mysql_collation">';
         echo '        <form method="post" action="index.php" target="_parent">' . "\n"
-           . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
+           . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . $strMySQLConnectionCollation . ': ' . "\n"
            . '            </label>' . "\n"
@@ -172,7 +172,7 @@ if ( $server > 0 ) {
             './server_privileges.php?' . $common_url_query );
     }
 
-    $binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
+    $binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', null, PMA_DBI_QUERY_STORE);
     if ( $binlogs ) {
         if (PMA_DBI_num_rows($binlogs) > 0) {
             PMA_printListItem( $strBinaryLog, 'li_mysql_binlogs',
@@ -235,7 +235,7 @@ if (empty($cfg['Lang'])) {
 
 
 if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
-    && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
+  && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
     echo '<li id="li_select_charset">';
     ?>
     <form method="post" action="index.php" target="_parent">
@@ -300,7 +300,7 @@ PMA_printListItem( $strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdm
 
 <?php
 if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
-    foreach( $GLOBALS['PMA_errors'] as $error ) {
+    foreach ( $GLOBALS['PMA_errors'] as $error ) {
         echo '<div class="error">' . $error . '</div>' . "\n";
     }
 }
@@ -371,19 +371,20 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
  * @param   string  $id     id, used for css styles
  * @param   string  $url    make item as link with $url as target
  */
-function PMA_printListItem( $name, $id = NULL, $url = NULL, $mysql_help_page = NULL ) {
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null)
+{
     echo '<li id="' . $id . '">';
-    if ( NULL !== $url ) {
+    if (null !== $url) {
         echo '<a href="' . $url . '">';
     }
 
     echo $name;
 
-    if ( NULL !== $url ) {
+    if (null !== $url) {
         echo '</a>' . "\n";
     }
-    if ( NULL !== $mysql_help_page ) {
-        echo PMA_showMySQLDocu( '', $mysql_help_page );
+    if (null !== $mysql_help_page) {
+        echo PMA_showMySQLDocu('', $mysql_help_page);
     }
     echo '</li>';
 }

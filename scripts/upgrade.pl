@@ -77,7 +77,7 @@ if (open(LATEST, "wget -o /dev/null -O - $source_url|")) {
 
 	my $i = 0;
 
-	while(my $line = <LATEST>) {
+	while (my $line = <LATEST>) {
 		chomp($line);
 		if ($line =~ /http/) {
 			$urls[$i++] = $line;
@@ -107,7 +107,7 @@ if (open(DEFINES, $targetdirectory .'/libraries/Config.class.php')) {
 	my $versionStatus = 0;
 	$installedversion = "unknownversion";
 
-	while(my $line = <DEFINES>) {
+	while (my $line = <DEFINES>) {
 
 		next unless $line =~ /'PMA_VERSION',\ '(.*)?'\);$/;
 		$installedversion = $1;

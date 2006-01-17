@@ -28,7 +28,7 @@ if ( $doWriteModifyAt == 'left' ){
            . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), FALSE)
            . '    </td>' . "\n";
     }
-} else if ($doWriteModifyAt == 'right') {
+} elseif ($doWriteModifyAt == 'right') {
     if (!empty($del_url)) {
         echo '    <td align="center">' . "\n"
            . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), FALSE)

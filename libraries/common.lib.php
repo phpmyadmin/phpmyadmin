@@ -54,7 +54,7 @@
 function PMA_securePath($path)
 {
     // change .. to .
-    $path = preg_replace('@\.\.*@','.',$path);
+    $path = preg_replace('@\.\.*@', '.', $path);
 
     return $path;
 } // end function
@@ -280,8 +280,7 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink,
                     while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
                         $dblist[] = $uva_row[0];
                     } // end while
-                } // end if
-                else {
+                } else {
                     while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
                         $uva_db = $uva_row[0];
                         if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
@@ -648,11 +647,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 }
                 break;
             case 'html':
-                $formatted_sql = PMA_SQP_formatHtml($parsed_sql,'color');
+                $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'color');
                 break;
             case 'text':
                 //$formatted_sql = PMA_SQP_formatText($parsed_sql);
-                $formatted_sql = PMA_SQP_formatHtml($parsed_sql,'text');
+                $formatted_sql = PMA_SQP_formatHtml($parsed_sql, 'text');
                 break;
             default:
                 break;
@@ -677,7 +676,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     {
         global $cfg;
 
-        if ($cfg['MySQLManualType'] == 'none' || empty($cfg['MySQLManualBase'])) return '';
+        if ($cfg['MySQLManualType'] == 'none' || empty($cfg['MySQLManualBase'])) {
+            return '';
+        }
 
         // Fixup for newly used names:
         $chapter = str_replace('_', '-', strtolower($chapter));
@@ -685,19 +686,25 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
         switch ($cfg['MySQLManualType']) {
             case 'chapters':
-                if (empty($chapter)) $chapter = 'index';
+                if (empty($chapter)) {
+                    $chapter = 'index';
+                }
                 $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $link;
                 break;
             case 'big':
                 $url = $cfg['MySQLManualBase'] . '#' . $link;
                 break;
             case 'searchable':
-                if (empty($link)) $link = 'index';
+                if (empty($link)) {
+                    $link = 'index';
+                }
                 $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
                 break;
             case 'viewable':
             default:
-                if (empty($link)) $link = 'index';
+                if (empty($link)) {
+                    $link = 'index';
+                }
                 $mysql = '5.0';
                 if (defined('PMA_MYSQL_INT_VERSION')) {
                     if (PMA_MYSQL_INT_VERSION < 50000) {
@@ -716,7 +723,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
         } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
             return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
-        }else{
+        } else {
             return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
         }
     } // end of the 'PMA_showMySQLDocu()' function
@@ -789,7 +796,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             // ---
             // modified to show me the help on sql errors (Michael Keck)
             echo '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
-            if (strstr(strtolower($formatted_sql),'select')) { // please show me help to the error on select
+            if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
                 echo PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
             }
             if ($is_modify_link && isset($db)) {
@@ -1044,7 +1051,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 uksort($tables, 'strnatcasecmp');
             }
         }
-        
+
         if (count($tables) < 1) {
             return $tables;
         }
@@ -1816,8 +1823,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             if ($tab['text'] == $GLOBALS['strEmpty']
                 || $tab['text'] == $GLOBALS['strDrop']) {
                 $tab['class'] = 'caution';
-            }
-            elseif (!empty($tab['active'])
+            } elseif (!empty($tab['active'])
               || (isset($GLOBALS['active_page'])
                    && $GLOBALS['active_page'] == $tab['link'])
               || basename($_SERVER['PHP_SELF']) == $tab['link'])
@@ -1910,24 +1916,22 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     function PMA_linkOrButton($url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = '')
     {
-        if (!is_array($tag_params))
-        {
+        if (! is_array($tag_params)) {
             $tmp = $tag_params;
             $tag_params = array();
-            if (!empty($tmp))
-            {
+            if (!empty($tmp)) {
                 $tag_params['onclick'] = 'return confirmLink(this, \'' . $tmp . '\')';
             }
             unset($tmp);
         }
-        if (!empty($target)) {
+        if (! empty($target)) {
             $tag_params['target'] = htmlentities($target);
         }
 
         $tag_params_strings = array();
         foreach ($tag_params as $par_name => $par_value) {
             // htmlentities() only on non javascript
-            $par_value = substr($par_name,0 ,2) == 'on'
+            $par_value = substr($par_name, 0, 2) == 'on'
                 ? $par_value
                 : htmlentities($par_value);
             $tag_params_strings[] = $par_name . '="' . $par_value . '"';
@@ -1939,8 +1943,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             $ret = "\n" . '<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . '</a>' . "\n";
-        }
-        else {
+        } else {
             // no spaces (linebreaks) at all
             // or after the hidden fields
             // IE will display them all
@@ -2103,14 +2106,18 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     {
         global $PHP_SELF, $checked_special;
 
-        if (!isset($checked_special)) $checked_special = false;
+        if (!isset($checked_special)) {
+            $checked_special = false;
+        }
 
         $reported_script_name = basename($PHP_SELF);
         $found_error = false;
         $error_message = '';
 
         foreach ($params AS $param) {
-            if ($request && $param != 'db' && $param != 'table') $checked_special = true;
+            if ($request && $param != 'db' && $param != 'table') {
+                $checked_special = true;
+            }
 
             if (!isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name . ': Missing parameter: ' . $param . ' <a href="./Documentation.html#faqmissingparameters" target="documentation"> (FAQ 2.8)</a><br />';
@@ -2313,7 +2320,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             $i = $sliceStart;
             $x = $nbTotalPage - $sliceEnd;
             $met_boundary = false;
-            while($i <= $x) {
+            while ($i <= $x) {
                 if ($i >= ($pageNow - $range) && $i <= ($pageNow + $range)) {
                     // If our pageselector comes near the current page, we use 1
                     // counter increments
@@ -2392,7 +2399,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             }
         }
 
-        if ($default_current_timestamp && strpos(' ' . strtoupper($type),'TIMESTAMP') == 1) {
+        if ($default_current_timestamp && strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
             // 0 is empty in PHP
         } elseif (!empty($default) || $default == '0' || $default != $default_orig) {

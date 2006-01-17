@@ -124,7 +124,7 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
     $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {
@@ -133,7 +133,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     unset($i);
 
     $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
-    if (!PMA_exportOutputHandler($buffer)) return FALSE;
+    if (!PMA_exportOutputHandler($buffer)) {
+        return FALSE;
+    }
 
     while ($record = PMA_DBI_fetch_row($result)) {
         $buffer         = '    <' . $table . '>' . $crlf;
@@ -145,7 +147,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
         $buffer         .= '    </' . $table . '>' . $crlf;
 
-        if (!PMA_exportOutputHandler($buffer)) return FALSE;
+        if (!PMA_exportOutputHandler($buffer)) {
+            return FALSE;
+        }
     }
     PMA_DBI_free_result($result);
 

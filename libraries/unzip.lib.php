@@ -106,8 +106,9 @@
          *  @uses   SimpleUnzip::ReadFile() Opens file on new if specified
          *  @since  1.0
          */
-        function SimpleUnzip($in_FileName = '') {
-            if($in_FileName !== '') {
+        function SimpleUnzip($in_FileName = '')
+        {
+            if ($in_FileName !== '') {
                 SimpleUnzip::ReadFile($in_FileName);
             }
         } // end of the 'SimpleUnzip' constructor
@@ -120,7 +121,8 @@
          *  @uses   $Entries
          *  @since  1.0
          */
-        function Count() {
+        function Count()
+        {
             return count($this->Entries);
         } // end of the 'Count()' method
 
@@ -133,7 +135,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetData($in_Index) {
+        function GetData($in_Index)
+        {
             return $this->Entries[$in_Index]->Data;
         } // end of the 'GetData()' method
 
@@ -146,7 +149,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetEntry($in_Index) {
+        function GetEntry($in_Index)
+        {
             return $this->Entries[$in_Index];
         } // end of the 'GetEntry()' method
 
@@ -159,7 +163,8 @@
          *  @access public
          *  @since   1.0
          */
-        function GetError($in_Index) {
+        function GetError($in_Index)
+        {
             return $this->Entries[$in_Index]->Error;
         } // end of the 'GetError()' method
 
@@ -172,7 +177,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetErrorMsg($in_Index) {
+        function GetErrorMsg($in_Index)
+        {
             return $this->Entries[$in_Index]->ErrorMsg;
         } // end of the 'GetErrorMsg()' method
 
@@ -185,7 +191,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetName($in_Index) {
+        function GetName($in_Index)
+        {
             return $this->Entries[$in_Index]->Name;
         } // end of the 'GetName()' method
 
@@ -198,7 +205,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetPath($in_Index) {
+        function GetPath($in_Index)
+        {
             return $this->Entries[$in_Index]->Path;
         } // end of the 'GetPath()' method
 
@@ -211,7 +219,8 @@
          *  @access public
          *  @since  1.0
          */
-        function GetTime($in_Index) {
+        function GetTime($in_Index)
+        {
             return $this->Entries[$in_Index]->Time;
         } // end of the 'GetTime()' method
 
@@ -224,7 +233,8 @@
          *  @access public
          *  @since  1.0
          */
-        function ReadFile($in_FileName) {
+        function ReadFile($in_FileName)
+        {
             $this->Entries = array();
 
             // Get file parameters
@@ -261,7 +271,7 @@
             array_shift($aE);
 
             // Loop through the entries
-            foreach($aE as $vZ) {
+            foreach ($aE as $vZ) {
                 $aI = array();
                 $aI['E']  = 0;
                 $aI['EM'] = '';
@@ -272,7 +282,7 @@
                 $nF = $aP['FNL'];
 
                 // Special case : value block after the compressed data
-                if($aP['GPF'] & 0x0008) {
+                if ($aP['GPF'] & 0x0008) {
                     $aP1 = unpack('V1CRC/V1CS/V1UCS', substr($vZ, -12));
 
                     $aP['CRC'] = $aP1['CRC'];
@@ -285,7 +295,7 @@
                 // Getting stored filename
                 $aI['N'] = substr($vZ, 26, $nF);
 
-                if(substr($aI['N'], -1) == '/') {
+                if (substr($aI['N'], -1) == '/') {
                     // is a directory entry - will be skipped
                     continue;
                 }
@@ -297,16 +307,14 @@
 
                 $vZ = substr($vZ, 26 + $nF);
 
-                if(strlen($vZ) != $aP['CS']) {
+                if (strlen($vZ) != $aP['CS']) {
                   $aI['E']  = 1;
                   $aI['EM'] = 'Compressed size is not equal with the value in header information.';
-                }
-                else {
-                    if($bE) {
+                } else {
+                    if ($bE) {
                         $aI['E']  = 5;
                         $aI['EM'] = 'File is encrypted, which is not supported from this class.';
-                    }
-                    else {
+                    } else {
                         switch($aP['CM']) {
                             case 0: // Stored
                                 // Here is nothing to do, the file ist flat.
@@ -318,21 +326,19 @@
 
                             case 12: // BZIP2
 // 2003-12-02 - HB >
-                                if(! extension_loaded('bz2')) {
-                                    if(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+                                if (! extension_loaded('bz2')) {
+                                    if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
                                       @dl('php_bz2.dll');
-                                    }
-                                    else {
+                                    } else {
                                       @dl('bz2.so');
                                     }
                                 }
 
-                                if(extension_loaded('bz2')) {
+                                if (extension_loaded('bz2')) {
 // 2003-12-02 - HB <
                                     $vZ = bzdecompress($vZ);
 // 2003-12-02 - HB >
-                                }
-                                else {
+                                } else {
                                     $aI['E']  = 7;
                                     $aI['EM'] = "PHP BZIP2 extension not available.";
                                 }
@@ -346,19 +352,17 @@
                         }
 
 // 2003-12-02 - HB >
-                        if(! $aI['E']) {
+                        if (! $aI['E']) {
 // 2003-12-02 - HB <
-                            if($vZ === FALSE) {
+                            if ($vZ === FALSE) {
                                 $aI['E']  = 2;
                                 $aI['EM'] = 'Decompression of data failed.';
-                            }
-                            else {
-                                if(strlen($vZ) != $aP['UCS']) {
+                            } else {
+                                if (strlen($vZ) != $aP['UCS']) {
                                     $aI['E']  = 3;
                                     $aI['EM'] = 'Uncompressed size is not equal with the value in header information.';
-                                }
-                                else {
-                                    if(crc32($vZ) != $aP['CRC']) {
+                                } else {
+                                    if (crc32($vZ) != $aP['CRC']) {
                                         $aI['E']  = 4;
                                         $aI['EM'] = 'CRC32 checksum is not equal with the value in header information.';
                                     }
@@ -475,7 +479,8 @@
          *  @access public
          *  @since  1.0
          */
-        function SimpleUnzipEntry($in_Entry) {
+        function SimpleUnzipEntry($in_Entry)
+        {
             $this->Data     = $in_Entry['D'];
             $this->Error    = $in_Entry['E'];
             $this->ErrorMsg = $in_Entry['EM'];

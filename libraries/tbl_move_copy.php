@@ -169,7 +169,7 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
 
             for ($j = $i; $j < $cnt; $j++) {
                 if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT') {
+                  && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT') {
                     if ($parsed_sql[$j+1]['type'] == 'quote_backtick') {
                         $parsed_sql[$j+1]['data'] = '';
                     }

@@ -48,8 +48,10 @@ echo PMA_pluginGetJavascript($import_list);
 <?php
 if (!empty($cfg['UploadDir'])) {
     $extensions = '';
-    foreach($import_list as $key => $val) {
-        if (!empty($extensions)) $extensions .= '|';
+    foreach ($import_list as $key => $val) {
+        if (!empty($extensions)) {
+            $extensions .= '|';
+        }
         $extensions .= $val['extension'];
     }
     $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
@@ -101,9 +103,15 @@ echo '</div>' . "\n";
 // zip, gzip and bzip2 encode features
 $compressions = $strNone;
 
-if ($cfg['GZipDump'] && @function_exists('gzopen')) $compressions .= ', gzip';
-if ($cfg['BZipDump'] && @function_exists('bzopen')) $compressions .= ', bzip2';
-if ($cfg['ZipDump'] && @function_exists('gzinflate')) $compressions .= ', zip';
+if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+    $compressions .= ', gzip';
+}
+if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+    $compressions .= ', bzip2';
+}
+if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
+    $compressions .= ', zip';
+}
 
 // We don't have show anything about compression, when no supported
 if ($compressions != $strNone) {

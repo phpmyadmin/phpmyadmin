@@ -4,7 +4,7 @@
 // Check parameters
 
 require_once('./libraries/common.lib.php');
-PMA_checkParameters(array('db','table','action','num_fields'));
+PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 
 // Get available character sets and storage engines
@@ -50,8 +50,7 @@ if ($action == 'tbl_create.php') {
     ?>
     <input type="hidden" name="reload" value="1" />
     <?php
-}
-elseif ($action == 'tbl_addfield.php') {
+} elseif ($action == 'tbl_addfield.php') {
     ?>
     <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
     <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
@@ -244,8 +243,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     if (empty($row['Type'])) {
         $row['Type'] = '';
         $type        = '';
-    }
-    else {
+    } else {
         $type        = $row['Type'];
     }
     // set or enum types: slashes single quotes inside options
@@ -323,7 +321,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     $ci++;
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $tmp_collation          = empty($row['Collation']) ? NULL : $row['Collation'];
+        $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
         $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'field_collation[]', 'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, FALSE);
         unset($tmp_collation);
         $ci++;
@@ -403,7 +401,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     $ci++;
 
     if (isset($row)
-        && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
+      && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
         $row['Default'] = 'NULL';
     }
 
@@ -613,7 +611,7 @@ var odd_row = <?php echo $odd_row; ?>;
 function addField() {
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace( '°\s+°', ' ', preg_replace( '°\'°', '\\\'', $new_field ) ); ?>';
+    var new_field = '<?php echo preg_replace( 'ï¿½\s+ï¿½', ' ', preg_replace( 'ï¿½\'ï¿½', '\\\'', $new_field ) ); ?>';
     var i = 0;
     for ( i = 0; i < new_fields; i++ ) {
         if ( odd_row ) {
@@ -653,13 +651,13 @@ if ($action == 'tbl_create.php') {
         </td>
         <td width="25">&nbsp;</td>
         <td>
-<?php echo PMA_generateEnginesDropdown('tbl_type', NULL, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : NULL), 3); ?>
+<?php echo PMA_generateEnginesDropdown('tbl_type', null, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null), 3); ?>
         </td>
         <?php
         if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
                . '        <td>' . "\n"
-               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, (isset($tbl_collation) ? $tbl_collation : NULL), FALSE, 3)
+               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null, (isset($tbl_collation) ? $tbl_collation : null), FALSE, 3)
                . '        </td>' . "\n";
         }
     ?>

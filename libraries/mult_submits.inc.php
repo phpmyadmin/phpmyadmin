@@ -232,7 +232,7 @@ if ( !empty($submit_mult) && !empty($what)) {
         echo PMA_generate_common_hidden_inputs($db);
     } elseif (strpos(' ' . $action, 'tbl_properties') == 1
               || $what == 'row_delete') {
-        echo PMA_generate_common_hidden_inputs($db,$table);
+        echo PMA_generate_common_hidden_inputs($db, $table);
     } else  {
         echo PMA_generate_common_hidden_inputs();
     }
@@ -393,7 +393,7 @@ elseif ($mult_btn == $strYes) {
                 break;
         } // end switch
 
-        // All "DROP TABLE","DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
+        // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
         // statements will be run at once below
         if ($run_parts) { 
             $sql_query .= $a_query . ';' . "\n";

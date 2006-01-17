@@ -67,8 +67,8 @@ if ( ! empty( $GLOBALS['DBG'] )
 
             if ( $time_avg_hit > $GLOBALS['cfg']['DBG']['profile']['threshold'] ) {
                 echo '<tr class="' . $odd_row ? 'odd' : 'even' . '">' .
-                    // gma changed "$mod_name" to "substr($mod_name,$cwdlen+1)"
-                    '<td>' . substr($mod_name,$cwdlen+1) . '</td>' .
+                    // gma changed "$mod_name" to "substr($mod_name, $cwdlen+1)"
+                    '<td>' . substr($mod_name, $cwdlen+1) . '</td>' .
                     '<td>' . $line_no . '</td>' .
                     '<td>' . $dbg_prof_results['hit_count'][$idx] . '</td>' .
                     '<td>' . $time_avg_hit . '</td>' .

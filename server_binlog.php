@@ -24,7 +24,9 @@ echo '<h2>' . "\n"
    . '    ' . $strBinaryLog . "\n"
    . '</h2>' . "\n";
 
-if (!isset($log)) $log = '';
+if (!isset($log)) {
+    $log = '';
+}
 
 /**
  * Display log selector.
@@ -35,7 +37,7 @@ if (count($binary_logs) > 1) {
     echo '<fieldset><legend>';
     echo $strSelectBinaryLog;
     echo '</legend><select name="log">';
-    foreach($binary_logs as $name) {
+    foreach ($binary_logs as $name) {
         echo '<option value="' . $name . '"' . ($name == $log ? ' selected="selected"' : '') . '>' . $name . '</option>';
     }
     echo '</select>';
@@ -48,7 +50,9 @@ if (count($binary_logs) > 1) {
 
 
 $sql_query = 'SHOW BINLOG EVENTS';
-if (!empty($log)) $sql_query .= ' IN \'' . $log . '\'';
+if (!empty($log)) {
+    $sql_query .= ' IN \'' . $log . '\'';
+}
 
 /**
  * Sends the query and buffers the result

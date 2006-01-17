@@ -441,10 +441,10 @@ class Horde_Cipher_blowfish {
         $R = null;
 
         $retarray = array_values(unpack('N*', $block));
-        if(isset($retarray[0])) {
+        if (isset($retarray[0])) {
             $L = $retarray[0];
         }
-        if(isset($retarray[1])) {
+        if (isset($retarray[1])) {
             $R = $retarray[1];
         }
 // end change for phpMyAdmin
@@ -534,7 +534,7 @@ function PMA_blowfish_encrypt($data, $secret) {
     for ($i=0; $i<strlen($data); $i+=8) {
         $block = substr($data, $i, 8);
         if (strlen($block) < 8) {
-            $block = full_str_pad($block,8,"\0", 1);
+            $block = full_str_pad($block, 8, "\0", 1);
         }
         $encrypt .= $pma_cipher->encryptBlock($block, $secret);
     }

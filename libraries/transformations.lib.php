@@ -19,7 +19,7 @@ function PMA_transformation_getOptions($string) {
 
     // strip possible slashes to behave like documentation says
     $result = array();
-    foreach($transform_options as $val) {
+    foreach ($transform_options as $val) {
         $result[] = stripslashes($val);
     }
     return $result;
@@ -59,7 +59,7 @@ function PMA_getAvailableMIMEtypes() {
                 $stack['transformation'][] = $mimetype . ': ' . $base[1];
                 $stack['transformation_file'][] = $file;
 
-            } else if (preg_match('|^.*\.inc\.php$|', trim($file), $match)) {
+            } elseif (preg_match('|^.*\.inc\.php$|', trim($file), $match)) {
                 // File is a plain mimetype, no functions.
                 $base = str_replace('.inc.php', '', $file);
 
@@ -161,7 +161,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                    . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
         }
-    } else if (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0) {
+    } elseif (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0) {
         $upd_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
                    . ' VALUES('

@@ -75,7 +75,7 @@ while ($row = PMA_DBI_fetch_assoc($result)) {
 PMA_DBI_free_result($result);
 
 // 3. Get fields
-$fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
+$fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 // Get more complete field information
@@ -362,7 +362,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td>' . (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?></td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
     <td align="center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode( 'SELECT COUNT(*) AS `' . $strRows . '`, `' . $row['Field'] . '` FROM `' . $table . '` GROUP BY `' . $row['Field'] . '` ORDER BY `' . $row['Field'] . '`' ); ?>">
@@ -411,7 +411,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
         }
@@ -425,7 +425,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
             <?php
         }
@@ -438,7 +438,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             echo "\n";
             ?>
     <td align="center" nowrap="nowrap">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex, htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
     </td>
             <?php
@@ -461,7 +461,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
 
-$checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$table);
+$checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
 ?>
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
@@ -723,11 +723,9 @@ if ( $cfg['ShowStats'] ) {
         <td class="value"><?php
         if ($showtable['Row_format'] == 'Fixed') {
             echo $strFixed;
-        }
-        else if ($showtable['Row_format'] == 'Dynamic') {
+        } elseif ($showtable['Row_format'] == 'Dynamic') {
             echo $strDynamic;
-        }
-        else {
+        } else {
             echo $showtable['Row_format'];
         }
         ?></td>

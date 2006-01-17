@@ -119,17 +119,17 @@ function PMA_getRelationsParam($verbose = FALSE)
         while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
             if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
                 $cfgRelation['bookmark']        = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['relation']) {
+            } elseif ($curr_table[0] == $cfg['Server']['relation']) {
                 $cfgRelation['relation']        = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['table_info']) {
+            } elseif ($curr_table[0] == $cfg['Server']['table_info']) {
                 $cfgRelation['table_info']      = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['table_coords']) {
+            } elseif ($curr_table[0] == $cfg['Server']['table_coords']) {
                 $cfgRelation['table_coords']    = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['column_info']) {
+            } elseif ($curr_table[0] == $cfg['Server']['column_info']) {
                 $cfgRelation['column_info'] = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['pdf_pages']) {
+            } elseif ($curr_table[0] == $cfg['Server']['pdf_pages']) {
                 $cfgRelation['pdf_pages']       = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['history']) {
+            } elseif ($curr_table[0] == $cfg['Server']['history']) {
                 $cfgRelation['history'] = $curr_table[0];
             }
         } // end while
@@ -157,9 +157,9 @@ function PMA_getRelationsParam($verbose = FALSE)
             while ($curr_mime_field = @PMA_DBI_fetch_row($mime_rs)) {
                 if ($curr_mime_field[0] == 'mimetype') {
                     $mime_field_mimetype               = TRUE;
-                } else if ($curr_mime_field[0] == 'transformation') {
+                } elseif ($curr_mime_field[0] == 'transformation') {
                     $mime_field_transformation         = TRUE;
-                } else if ($curr_mime_field[0] == 'transformation_options') {
+                } elseif ($curr_mime_field[0] == 'transformation_options') {
                     $mime_field_transformation_options = TRUE;
                 }
             }
@@ -315,7 +315,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_backquote($db) . '.' . PMA_backquote($table);
         $show_create_table_res = PMA_DBI_query($show_create_table_query);
-        list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
+        list(, $show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
         PMA_DBI_free_result($show_create_table_res);
         unset($show_create_table_res, $show_create_table_query);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -468,7 +468,7 @@ function PMA_getComments($db, $table = '') {
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             $fields = PMA_DBI_get_fields($db, $table);
             if ($fields) {
-                foreach($fields as $key=>$field) {
+                foreach ($fields as $key=>$field) {
                     $tmp_col = $field['Field'];
                     if (!empty($field['Comment'])) {
                         $native_comment[$tmp_col] = $field['Comment'];
@@ -520,9 +520,9 @@ function PMA_getComments($db, $table = '') {
                         $comment[$col] = $native_comment[$col];
                     } else {
                         // no native comment, so migrate pmadb-style to native
-                        PMA_setComment($db, $table, $col, $comment[$col],'','native');
+                        PMA_setComment($db, $table, $col, $comment[$col], '', 'native');
                         // and erase the pmadb-style comment
-                        PMA_setComment($db, $table, $col, '','','pmadb');
+                        PMA_setComment($db, $table, $col, '', '', 'pmadb');
                     }
                 }
             }
@@ -583,7 +583,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     if ($mode == 'native' && isset($table) && strlen($table)) {
         $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
             . PMA_generateAlterTable($col, $col, '', '', '', '', FALSE, '', FALSE, '', $comment, '', '');
-        PMA_DBI_try_query($query, NULL, PMA_DBI_QUERY_STORE);
+        PMA_DBI_try_query($query, null, PMA_DBI_QUERY_STORE);
         return TRUE;
     }
 
@@ -636,7 +636,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
                     AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
                     AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
         }
-    } else if (strlen($comment) > 0) {
+    } elseif (strlen($comment) > 0) {
         $upd_query = '
              INSERT INTO
                     ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
@@ -879,18 +879,18 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     // put the dropdown sections in correct order
 
     $c = count($cfg['ForeignKeyDropdownOrder']);
-    if($c == 2) {
+    if ($c == 2) {
         $top = $reloptions[$cfg['ForeignKeyDropdownOrder'][0]];
         $bot = $reloptions[$cfg['ForeignKeyDropdownOrder'][1]];
-    } elseif($c == 1) {
+    } elseif ($c == 1) {
         $bot = $reloptions[$cfg['ForeignKeyDropdownOrder'][0]];
-        $top = NULL;
+        $top = null;
     } else {
         $top = $reloptions['id-content'];
         $bot = $reloptions['content-id'];
     }
     $str_bot = implode('', $bot);
-    if($top !== NULL) {
+    if ($top !== null) {
         $str_top = implode('', $top);
         $top_count = count($top);
         if ($max == -1 || $top_count < $max) {

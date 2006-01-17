@@ -52,7 +52,7 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
+$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
 
 $count  = 0;
 while ($row = PMA_DBI_fetch_assoc($rowset)) {
@@ -128,7 +128,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     /**
      * Gets fields properties
      */
-    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
+    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
@@ -141,8 +141,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         } else {
             $have_rel = FALSE;
         }
-    }
-    else {
+    } else {
         $have_rel = FALSE;
     } // end if
 
@@ -237,7 +236,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $strAttribute; ?></td>*/ ?>
     <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?></td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?></td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
         <?php
         if ($have_rel) {

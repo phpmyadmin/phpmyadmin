@@ -276,7 +276,7 @@ else {
     // Gets the number of rows per page
     if (empty($session_max_rows)) {
         $session_max_rows = $cfg['MaxRows'];
-    } else if ($session_max_rows != 'all') {
+    } elseif ($session_max_rows != 'all') {
         $cfg['MaxRows']   = $session_max_rows;
     }
     // Defines the display mode (horizontal/vertical) and header "frequency"
@@ -303,19 +303,19 @@ else {
         $is_count = !$is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
         $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
         $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
-    } else if (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
         $is_explain  = TRUE;
-    } else if (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
-    } else if (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
         $is_insert   = TRUE;
         $is_affected = TRUE;
-    } else if (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
         $is_affected = TRUE;
-    } else if (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
         $is_show     = TRUE;
-    } else if (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
+    } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
         $is_maint    = TRUE;
     }
 
@@ -372,15 +372,14 @@ else {
     if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         unset($result);
         $num_rows = 0;
-    }
-    else {
+    } else {
         // garvin: Measure query time. TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
-        list($usec, $sec) = explode(' ',microtime());
+        list($usec, $sec) = explode(' ', microtime());
         $querytime_before = ((float)$usec + (float)$sec);
 
-        $result   = @PMA_DBI_try_query($full_sql_query, NULL, PMA_DBI_QUERY_STORE);
+        $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
 
-        list($usec, $sec) = explode(' ',microtime());
+        list($usec, $sec) = explode(' ', microtime());
         $querytime_after = ((float)$usec + (float)$sec);
 
         $GLOBALS['querytime'] = $querytime_after - $querytime_before;
@@ -401,7 +400,7 @@ else {
 
         if (!$is_affected) {
             $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
-        } else if (!isset($num_rows)) {
+        } elseif (!isset($num_rows)) {
             $num_rows = @PMA_DBI_affected_rows();
         }
 
@@ -409,7 +408,7 @@ else {
         // This could happen if the user sends a query like "USE `database`;"
         $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
         $row = PMA_DBI_fetch_row($res);
-        if (is_array($row) && isset($row[0]) && (strcasecmp($db,$row[0]) != 0)) {
+        if (is_array($row) && isset($row[0]) && (strcasecmp($db, $row[0]) != 0)) {
             $db     = $row[0];
             $reload = 1;
         }
@@ -430,8 +429,7 @@ else {
             // if we did not append a limit, set this to get a correct
             // "Showing rows..." message
             $GLOBALS['session_max_rows'] = 'all';
-        }
-        else if ($is_select) {
+        } elseif ($is_select) {
 
                 //    c o u n t    q u e r y
 
@@ -465,7 +463,7 @@ else {
                         if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
                             $count_what = 'DISTINCT ';
                             $first_expr = TRUE;
-                            foreach($analyzed_sql[0]['select_expr'] as $part) {
+                            foreach ($analyzed_sql[0]['select_expr'] as $part) {
                                 $count_what .= (!$first_expr ? ', ' : '') . $part['expr'];
                                 $first_expr = FALSE;
                             }
@@ -599,14 +597,14 @@ else {
     if ($num_rows < 1 || $is_affected) {
         if ($is_delete) {
             $message = $strDeletedRows . '&nbsp;' . $num_rows;
-        } else if ($is_insert) {
+        } elseif ($is_insert) {
             $message = $strInsertedRows . '&nbsp;' . $num_rows;
             $insert_id = PMA_DBI_insert_id();
             if ($insert_id != 0) {
                 // insert_id is id of FIRST record inserted in one insert, so if we inserted multiple rows, we had to increment this
                 $message .= '[br]'.$strInsertedRowId . '&nbsp;' . ($insert_id + $num_rows - 1);
             }
-        } else if ($is_affected) {
+        } elseif ($is_affected) {
             $message = $strAffectedRows . '&nbsp;' . $num_rows;
 
             // Ok, here is an explanation for the !$is_select.
@@ -617,11 +615,11 @@ else {
             // The $zero_rows containing $strSuccess and sent with
             // the form should not have priority over
             // errors like $strEmptyResultSet
-        } else if (!empty($zero_rows) && !$is_select) {
+        } elseif (!empty($zero_rows) && !$is_select) {
             $message = $zero_rows;
-        } else if (!empty($GLOBALS['show_as_php'])) {
+        } elseif (!empty($GLOBALS['show_as_php'])) {
             $message = $strPhp;
-        } else if (!empty($GLOBALS['validatequery'])) {
+        } elseif (!empty($GLOBALS['validatequery'])) {
             $message = $strValidateSQL;
         } else {
             $message = $strEmptyResultSet;
@@ -643,7 +641,7 @@ else {
                 if (!isset($table)) {
                     $goto = 'db_details.php';
                 } else {
-                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
+                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', null, PMA_DBI_QUERY_STORE);
                     if (!($is_table && @PMA_DBI_num_rows($is_table))) {
                         $goto = 'db_details.php';
                         unset($table);
@@ -675,8 +673,7 @@ else {
             }
             $active_page = $goto;
             require('./' . $goto);
-        } // end if file_exist
-        else {
+        } else {
             PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
         exit();
@@ -747,7 +744,7 @@ else {
 
         // BEGIN INDEX CHECK See if indexes should be checked.
         if (isset($query_type) && $query_type == 'check_tbl' && isset($selected) && is_array($selected)) {
-            foreach($selected AS $idx => $tbl_name) {
+            foreach ($selected AS $idx => $tbl_name) {
                 $indexes        = $indexes_info = $indexes_data = array();
                 $tbl_ret_keys   = PMA_get_indexes(urldecode($tbl_name), $err_url_0);
 

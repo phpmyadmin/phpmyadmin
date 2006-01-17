@@ -17,6 +17,7 @@ $Source$
       - clarified some variable names
     * db_sarch.php:
       fixed bug: Undefined variable: num_tables
+    * [really much files]: (not complete) PEAR coding standard
 
 2006-01-16 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: typo

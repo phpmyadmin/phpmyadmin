@@ -8,7 +8,7 @@
 require_once('./libraries/common.lib.php');
 
 // Check parameters
-PMA_checkParameters(array('db','table','goto'));
+PMA_checkParameters(array('db', 'table', 'goto'));
 
 PMA_DBI_select_db($db);
 
@@ -122,7 +122,9 @@ $message = '';
 
 foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     // skip fields to be ignored
-    if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) continue;
+    if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) {
+        continue;
+    }
 
     // Restore the "primary key" to a convenient format
     $primary_key = urldecode($enc_primary_key);
@@ -155,9 +157,9 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
 
         if (empty($me_funcs[$encoded_key])) {
             $cur_value = $val . ', ';
-        } else if (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
+        } elseif (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
-        } else if (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
+        } elseif (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
             $cur_value = $me_funcs[$encoded_key] . '(), ';
         } else {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
@@ -166,17 +168,17 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
         if ($is_insert) {
             // insert, no need to add column
             $valuelist .= $cur_value;
-        } else if (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
+        } elseif (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
             // field had the null checkbox
             // field no longer has the null checkbox
             // field does not have the same value
             $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
-        } else if (empty($me_funcs[$encoded_key])
+        } elseif (empty($me_funcs[$encoded_key])
             && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
             && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
-        } else if (!empty($val)) {
+        } elseif (!empty($val)) {
             // TODO: avoid setting a field to NULL when it's already NULL
             $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
         }

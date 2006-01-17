@@ -29,34 +29,52 @@ if (isset($plugin_list)) {
             // Append new data to buffer
             $buffer .= $data;
             // Do not parse string when we're not at the end and don't have ; inside
-            if ((strpos($buffer, ';') === FALSE) && !$finished) continue;
+            if ((strpos($buffer, ';') === FALSE) && !$finished) {
+                continue;
+            }
         }
         // Current length of our buffer
         $len = strlen($buffer);
         // Grab some SQL queries out of it
-        while($i < $len) {
+        while ($i < $len) {
             // Find first interesting character, several strpos seem to be faster than simple loop in php:
-            //while(($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
+            //while (($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
             //if ($i == $len) break;
             $oi = $i;
             $p1 = strpos($buffer, '\'', $i);
-            if ($p1 === FALSE) $p1 = 2147483647;
+            if ($p1 === FALSE) {
+                $p1 = 2147483647;
+            }
             $p2 = strpos($buffer, '"', $i);
-            if ($p2 === FALSE) $p2 = 2147483647;
+            if ($p2 === FALSE) {
+                $p2 = 2147483647;
+            }
             $p3 = strpos($buffer, ';', $i);
-            if ($p3 === FALSE) $p3 = 2147483647;
+            if ($p3 === FALSE) {
+                $p3 = 2147483647;
+            }
             $p4 = strpos($buffer, '#', $i);
-            if ($p4 === FALSE) $p4 = 2147483647;
+            if ($p4 === FALSE) {
+                $p4 = 2147483647;
+            }
             $p5 = strpos($buffer, '--', $i);
-            if ($p5 === FALSE) $p5 = 2147483647;
+            if ($p5 === FALSE) {
+                $p5 = 2147483647;
+            }
             $p6 = strpos($buffer, '/*', $i);
-            if ($p6 === FALSE) $p6 = 2147483647;
+            if ($p6 === FALSE) {
+                $p6 = 2147483647;
+            }
             $p7 = strpos($buffer, '`', $i);
-            if ($p7 === FALSE) $p7 = 2147483647;
+            if ($p7 === FALSE) {
+                $p7 = 2147483647;
+            }
             $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7);
             if ($i == 2147483647) {
                 $i = $oi;
-                if (!$finished) break;
+                if (!$finished) {
+                    break;
+                }
                 // at the end there might be some whitespace...
                 if (trim($buffer) == '') {
                     $buffer = '';
@@ -94,7 +112,9 @@ if (isset($plugin_list)) {
                     // Skip the string
                     $i = $pos;
                 }
-                if (!$endq) break;
+                if (!$endq) {
+                    break;
+                }
                 $i++;
                 // Aren't we at the end?
                 if ($finished && $i == $len) {
@@ -131,7 +151,9 @@ if (isset($plugin_list)) {
                     }
                 }
                 // Skip *
-                if ($ch == '/') $i++;
+                if ($ch == '/') {
+                    $i++;
+                }
                 // Skip last char
                 $i++;
                 // Next query part will start here 
@@ -161,7 +183,9 @@ if (isset($plugin_list)) {
                     $i = 0;
                     $start_pos = 0;
                     // Any chance we will get a complete query?
-                    if ((strpos($buffer, ';') === FALSE) && !$finished) break;
+                    if ((strpos($buffer, ';') === FALSE) && !$finished) {
+                        break;
+                    }
                 } else {
                     $i++;
                     $start_pos = $i;

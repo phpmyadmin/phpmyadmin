@@ -288,7 +288,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                FROM `information_schema`.`TABLES`
               WHERE `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
                 ' . $sql_where_table;
-        $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA','TABLE_NAME'),
+        $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
             null, $link);
         unset( $sql_where_table, $sql );
     } else {
@@ -964,7 +964,7 @@ function PMA_DBI_fetch_result( $result, $key = null, $value = null,
         if ( is_array($key) ) {
             while ( $row = $fetch_function($result) ) {
                 $result_target =& $resultrows;
-                foreach( $key as $key_index ) {
+                foreach ( $key as $key_index ) {
                     if ( ! isset( $result_target[$row[$key_index]] ) ) {
                         $result_target[$row[$key_index]] = array();
                     }
@@ -981,7 +981,7 @@ function PMA_DBI_fetch_result( $result, $key = null, $value = null,
         if ( is_array($key) ) {
             while ( $row = $fetch_function($result) ) {
                 $result_target =& $resultrows;
-                foreach( $key as $key_index ) {
+                foreach ( $key as $key_index ) {
                     if ( ! isset( $result_target[$row[$key_index]] ) ) {
                         $result_target[$row[$key_index]] = array();
                     }

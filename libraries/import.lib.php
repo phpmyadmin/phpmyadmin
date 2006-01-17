@@ -15,7 +15,8 @@ define('PMA_CHK_DROP', 1);
  *  @return boolean true if timeout is close
  *  @access public
  */
-function PMA_checkTimeout() {
+function PMA_checkTimeout()
+{
     global $timestamp, $maximum_time, $timeout_passed;
     if ($maximum_time == 0) {
         return FALSE;
@@ -37,16 +38,23 @@ function PMA_checkTimeout() {
  *  @return string MIME type of compression, none for none
  *  @access public
  */
-function PMA_detectCompression($filepath) {
+function PMA_detectCompression($filepath)
+{
     $file = @fopen($filepath, 'rb');
     if (!$file) {
         return FALSE;
     }
     $test = fread($file, 4);
     fclose($file);
-    if ($test[0] == chr(31) && $test[1] == chr(139)) return 'application/gzip';
-    if (substr($test, 0, 3) == 'BZh') return 'application/bzip2';
-    if ($test == "PK\003\004") return 'application/zip';
+    if ($test[0] == chr(31) && $test[1] == chr(139)) {
+        return 'application/gzip';
+    }
+    if (substr($test, 0, 3) == 'BZh') {
+        return 'application/bzip2';
+    }
+    if ($test == "PK\003\004") {
+        return 'application/zip';
+    }
     return 'none';
 }
 
@@ -58,7 +66,8 @@ function PMA_detectCompression($filepath) {
  *  @param  string query to display, this might be commented
  *  @access public
  */
-function PMA_importRunQuery($sql = '', $full = '') {
+function PMA_importRunQuery($sql = '', $full = '')
+{
     global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
     if (isset($import_run_buffer)) {
@@ -110,7 +119,7 @@ function PMA_importRunQuery($sql = '', $full = '') {
                             $error = TRUE;
                             return;
                         }
-                    } else if ($cfg['VerboseMultiSubmit']) {
+                    } elseif ($cfg['VerboseMultiSubmit']) {
                         $a_num_rows = (int)@PMA_DBI_num_rows($result);
                         $a_aff_rows = (int)@PMA_DBI_affected_rows();
                         if ($a_num_rows > 0) {
@@ -181,19 +190,29 @@ function PMA_importRunQuery($sql = '', $full = '') {
  *  @return string part of file/buffer
  *  @access public
  */
-function PMA_importGetNextChunk($size = 32768) {
+function PMA_importGetNextChunk($size = 32768)
+{
     global $import_file, $import_text, $finished, $compression, $import_handle, $offset, $charset_conversion, $charset_of_file, $charset, $read_multiply, $read_limit;
     
     // Add some progression while reading large amount of data
-    if ($read_multiply <= 8) $size *= $read_multiply;
-    else $size *= 8;
+    if ($read_multiply <= 8) {
+        $size *= $read_multiply;
+    } else {
+        $size *= 8;
+    }
     $read_multiply++;
 
     // We can not read too much
-    if ($size > $read_limit) $size = $read_limit;
+    if ($size > $read_limit) {
+        $size = $read_limit;
+    }
 
-    if (PMA_checkTimeout()) return FALSE;
-    if ($finished) return TRUE;
+    if (PMA_checkTimeout()) {
+        return FALSE;
+    }
+    if ($finished) {
+        return TRUE;
+    }
 
     if ($import_file == 'none') {
         // Well this is not yet supported and tested, but should return content of textarea

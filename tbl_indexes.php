@@ -36,7 +36,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid table name -> back to the default db_details sub-page
     if ( isset($table) && strlen($table) ) {
         $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
-            . PMA_sqlAddslashes($table, TRUE) . '\'', NULL, PMA_DBI_QUERY_STORE);
+            . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
     }
     if ( ! isset($table) || ! strlen($table)
       || !( $is_table && PMA_DBI_num_rows($is_table) ) ) {
@@ -125,10 +125,10 @@ if (!defined('PMA_IDX_INCLUDED')
     if ($index_type == 'PRIMARY') {
         if ($index == '') {
             $index = 'PRIMARY';
-        } else if ($index != 'PRIMARY') {
+        } elseif ($index != 'PRIMARY') {
             PMA_mysqlDie($strPrimaryKeyName, '', FALSE, $err_url);
         }
-    } else if ($index == 'PRIMARY') {
+    } elseif ($index == 'PRIMARY') {
          PMA_mysqlDie($strCantRenameIdxToPrimary, '', FALSE, $err_url);
     }
 
@@ -191,7 +191,7 @@ if (!defined('PMA_IDX_INCLUDED')
 /**
  * Edits an index or defines a new one
  */
-else if (!defined('PMA_IDX_INCLUDED')
+elseif (!defined('PMA_IDX_INCLUDED')
          && (isset($index) || isset($create_index))) {
 
     // Prepares the form values
@@ -227,9 +227,9 @@ else if (!defined('PMA_IDX_INCLUDED')
           || (PMA_MYSQL_INT_VERSION >= 40002
             && $edited_index_info['Index_type'] == 'FULLTEXT')) {
             $index_type                       = 'FULLTEXT';
-        } else if ($index == 'PRIMARY') {
+        } elseif ($index == 'PRIMARY') {
             $index_type                       = 'PRIMARY';
-        } else if ($edited_index_info['Non_unique'] == '0') {
+        } elseif ($edited_index_info['Non_unique'] == '0') {
             $index_type                       = 'UNIQUE';
         } else {
             $index_type                       = 'INDEX';
@@ -343,7 +343,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
     <td><select name="column[]">
             <option value="--ignore--"
-                <?php if ('--ignore--' == $selected) echo ' selected="selected"'; ?>>
+                <?php if ('--ignore--' == $selected) { echo ' selected="selected"'; } ?>>
                 -- <?php echo $strIgnore; ?> --</option>
         <?php
         foreach ($fields_names AS $key => $val) {

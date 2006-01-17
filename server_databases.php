@@ -110,8 +110,8 @@ echo '<h2>' . "\n"
 /**
  * Gets the databases list
  */
-if ( $server > 0 ) {
-    $databases = PMA_DBI_get_databases_full( NULL, $dbstats );
+if ($server > 0) {
+    $databases = PMA_DBI_get_databases_full(null, $dbstats);
 } else {
     $databases = array();
 }
@@ -120,13 +120,13 @@ if ( $server > 0 ) {
 /**
  * Displays the page
  */
-if ( count($databases) > 0 ) {
+if (count($databases) > 0) {
     // sorts the array
     usort( $databases, 'PMA_dbCmp' );
 
     // table col order
     // there is no db specific collation or charset prior 4.1.0
-    if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
         $column_order['DEFAULT_COLLATION_NAME'] = array(
                 'disp_name' => $strCollation,
                 'description_function' => 'PMA_getCollationDescr',

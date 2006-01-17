@@ -152,7 +152,7 @@ $row_count      = 0;
 $hidden_fields = array();
 $odd_row       = true;
 foreach ( $tables as $keyname => $each_table ) {
-    if ( $each_table['TABLE_ROWS'] === NULL || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
+    if ( $each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
         $each_table['TABLE_ROWS'] = PMA_countRecords( $db,
             $each_table['TABLE_NAME'], $return = true, $force_exact = true );
     }
@@ -452,21 +452,21 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 /* Printable view of a table */
 echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
-if ( $cfg['PropertiesIconic'] ) {
+if ($cfg['PropertiesIconic']) {
      echo '<img class="icon" src="' . $pmaThemeImage
         .'b_print.png" width="16" height="16" alt="" />';
 }
 echo $strPrintView . '</a> ';
 
 echo '<a href="./db_datadict.php?' . $url_query . '">';
-if($cfg['PropertiesIconic']){
+if ($cfg['PropertiesIconic']) {
     echo '<img class="icon" src="' . $pmaThemeImage
         .'b_tblanalyse.png" width="16" height="16" alt="" />';
 }
 echo $strDataDict . '</a>';
 echo '</p>';
 
-if ( empty( $db_is_information_schema ) ) {
+if (empty($db_is_information_schema)) {
     require('./libraries/display_create_table.lib.php');
 } // end if (Create Table dialog)
 

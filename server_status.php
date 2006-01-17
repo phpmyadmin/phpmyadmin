@@ -304,7 +304,7 @@ foreach ( $server_status as $name => $value ) {
         unset( $server_status[$name] );
     } else {
         foreach ( $allocations as $filter => $section ) {
-            if ( preg_match( '°^' . $filter . '°i', $name )
+            if ( preg_match( 'ï¿½^' . $filter . 'ï¿½i', $name )
               && isset( $server_status[$name] ) ) {
                 unset( $server_status[$name] );
                 $sections[$section]['vars'][$name] = $value;
@@ -446,7 +446,7 @@ foreach ( $sections as $section_name => $section ) {
         $server_status['Connections'] > 0
       ? number_format(
             $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-            2 , $GLOBALS['number_decimal_separator'],
+            2, $GLOBALS['number_decimal_separator'],
             $GLOBALS['number_thousands_separator']) . '%'
       : '--- '; ?></td>
 </tr>

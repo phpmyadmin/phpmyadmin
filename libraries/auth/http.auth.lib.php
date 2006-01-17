@@ -21,7 +21,7 @@
  */
 function PMA_auth() {
 
-    header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
+    header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
     header('HTTP/1.0 401 Unauthorized');
     header('status: 401 Unauthorized');
 
@@ -83,19 +83,19 @@ function PMA_auth_check()
             $PHP_AUTH_USER = $_SERVER['PHP_AUTH_USER'];
         }
         // CGI, might be encoded, see bellow
-        else if (@getenv('REMOTE_USER')) {
+        elseif (@getenv('REMOTE_USER')) {
             $PHP_AUTH_USER = getenv('REMOTE_USER');
         }
         // WebSite Professional
-        else if (@getenv('AUTH_USER')) {
+        elseif (@getenv('AUTH_USER')) {
             $PHP_AUTH_USER = getenv('AUTH_USER');
         }
         // IIS, might be encoded, see bellow
-        else if (@getenv('HTTP_AUTHORIZATION')) {
+        elseif (@getenv('HTTP_AUTHORIZATION')) {
             $PHP_AUTH_USER = getenv('HTTP_AUTHORIZATION');
         }
         // FastCGI, might be encoded, see bellow
-        else if (@getenv('Authorization')) {
+        elseif (@getenv('Authorization')) {
             $PHP_AUTH_USER = getenv('Authorization');
         }
     }
@@ -107,11 +107,11 @@ function PMA_auth_check()
             $PHP_AUTH_PW = $_SERVER['PHP_AUTH_PW'];
         }
         // Apache/CGI
-        else if (@getenv('REMOTE_PASSWORD')) {
+        elseif (@getenv('REMOTE_PASSWORD')) {
             $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
         }
         // WebSite Professional
-        else if (@getenv('AUTH_PASSWORD')) {
+        elseif (@getenv('AUTH_PASSWORD')) {
             $PHP_AUTH_PW = getenv('AUTH_PASSWORD');
         }
     }

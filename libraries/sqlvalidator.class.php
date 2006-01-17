@@ -54,8 +54,8 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
         var $connection_technology_version;
         var $interactive;
 
-        var $service_link = NULL;
-        var $session_data = NULL;
+        var $service_link = null;
+        var $session_data = null;
 
 
         /**
@@ -103,7 +103,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
                                       $interactive)
         {
     $use_array = array( "a_userName" => $username, "a_password" => $password, "a_callingProgram" => $calling_program, "a_callingProgramVersion" => $calling_program_version, "a_targetDbms" => $target_dbms, "a_targetDbmsVersion" => $target_dbms_version, "a_connectionTechnology" => $connection_technology, "a_connectionTechnologyVersion" => $connection_technology_version, "a_interactive" => $interactive);
-            $ret = $obj->call("openSession",$use_array);
+            $ret = $obj->call("openSession", $use_array);
 
            // This is the old version that needed the overload extension
            /* $ret = $obj->openSession($username, $password,
@@ -131,7 +131,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
         function _validateSQL($obj, $session, $sql, $method)
         {
     $use_array = array("a_sessionId" => $session->sessionId, "a_sessionKey" => $session->sessionKey, "a_SQL" => $sql, "a_resultType" => $this->output_type);
-            $res = $obj->call("validateSQL",$use_array);
+            $res = $obj->call("validateSQL", $use_array);
 
            // This is the old version that needed the overload extension
            // $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
@@ -185,8 +185,8 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
             $this->connection_technology_version = phpversion();
             $this->interactive = 1;
 
-            $this->service_link = NULL;
-            $this->session_data = NULL;
+            $this->service_link = null;
+            $this->session_data = null;
         } // end of the "PMA_SQLValidator()" function
 
 
@@ -347,7 +347,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
                                                               $this->connection_technology, $this->connection_technology_version,
                                                               $this->interactive);
 
-            if (isset($this->session_data) && ($this->session_data != NULL)
+            if (isset($this->session_data) && ($this->session_data != null)
                 && ($this->session_data->target != $this->url)) {
                 // Reopens the service on the new URL that was provided
                 $url = $this->session_data->target;

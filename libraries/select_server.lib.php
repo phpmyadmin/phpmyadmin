@@ -56,7 +56,7 @@ function PMA_select_server($form, $left) {
             if ($list){
                 if ($selected && !$left) {
                     echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
-                }else{
+                } else {
                     echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
                 }
             } else {

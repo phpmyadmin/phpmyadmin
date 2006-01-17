@@ -371,7 +371,7 @@ function PMA_STR_binarySearchInArr($str, $arr, $arrsize)
         $res        = strcmp($str, $arr[$mid]);
         if ($res == 0) {
             $found  = TRUE;
-        } else if ($res < 0) {
+        } elseif ($res < 0) {
             $top    = $mid - 1;
         } else {
             $bottom = $mid + 1;

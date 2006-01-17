@@ -136,7 +136,7 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
+$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
 if (isset($primary_key)) {
     if (is_array($primary_key)) {
         $primary_key_array = $primary_key;
@@ -148,7 +148,7 @@ if (isset($primary_key)) {
     $result = array();
     foreach ($primary_key_array AS $rowcount => $primary_key) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
-        $result[$rowcount]       = PMA_DBI_query($local_query, NULL, PMA_DBI_QUERY_STORE);
+        $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
         $primary_keys[$rowcount] = $primary_key;
 
@@ -178,7 +178,7 @@ if (isset($primary_key)) {
         } // end if (no record returned)
     }
 } else {
-    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', NULL, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
     unset($row);
 }
 
@@ -212,7 +212,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 <?php } ?>
 
 <!-- Change table properties form -->
-<form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
+<form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo urlencode($goto); ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
@@ -361,7 +361,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             && !isset($row_table_def['Default'])
             && isset($row_table_def['Null'])
             && $row_table_def['Null'] == 'YES') {
-            $row_table_def['Default'] = NULL;
+            $row_table_def['Default'] = null;
         }
 
         if ($row_table_def['Type'] == 'datetime'
@@ -378,7 +378,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             // UPDATE case with an empty and not NULL value under PHP4
             elseif (empty($vrow[$rowfield]) && is_null($vrow[$rowfield])) {
                 $vrow[$rowfield] = date('Y-m-d H:i:s', time());
-            } // end if... else if...
+            } // end if... elseif...
         }
         $len             = (preg_match('@float|double@', $row_table_def['Type']))
                          ? 100
@@ -484,7 +484,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if (($cfg['ProtectBinary'] && $is_blob && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
-            } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
+            } elseif (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
                 echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
             } else {
                 ?>
@@ -591,9 +591,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 } else {
                     $onclick .= '2, ';
                 }
-            } else if (strstr($row_table_def['True_Type'], 'set')) {
+            } elseif (strstr($row_table_def['True_Type'], 'set')) {
                 $onclick     .= '3, ';
-            } else if ($foreigners && isset($foreigners[$field])) {
+            } elseif ($foreigners && isset($foreigners[$field])) {
                 $onclick     .= '4, ';
             } else {
                 $onclick     .= '5, ';
@@ -624,7 +624,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             </script>
             </td>
             <?php
-        } else if (isset($disp_row) && is_array($disp_row)) {
+        } elseif (isset($disp_row) && is_array($disp_row)) {
             ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
@@ -636,8 +636,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             </td>
             <?php
             unset($disp_row);
-        }
-        else if ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {
+        } elseif ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {
             ?>
             <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
         </tr>
@@ -648,8 +647,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
             </td>
           <?php
-        }
-        else if (strstr($type, 'text')) {
+        } elseif (strstr($type, 'text')) {
             ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
                 <?php echo $backup_field . "\n"; ?>
@@ -661,8 +659,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if (strlen($special_chars) > 32000) {
                 echo '        <td bgcolor="' . $bgcolor . '">' . $strTextAreaLength . '</td>' . "\n";
             }
-        }
-        else if ($type == 'enum') {
+        } elseif ($type == 'enum') {
             $enum        = PMA_getEnumSetOptions($row_table_def['Type']);
             $enum_cnt    = count($enum);
             ?>
@@ -698,8 +695,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 ?>
                 </select>
                 <?php
-            } // end if
-            else {
+            } else {
                 echo "\n";
                 for ($j = 0; $j < $enum_cnt; $j++) {
                     // Removes automatic MySQL escape format
@@ -721,8 +717,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             </td>
             <?php
             echo "\n";
-        }
-        else if ($type == 'set') {
+        } elseif ($type == 'set') {
             $set = PMA_getEnumSetOptions($row_table_def['Type']);
 
             if (isset($vset)) {
@@ -757,7 +752,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         }
         // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data destroyed
-        else if ($is_binary || $is_blob) {
+        elseif ($is_binary || $is_blob) {
             if (($cfg['ProtectBinary'] && $is_blob)
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo "\n";
@@ -775,7 +770,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="protected" />
                 <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
                 <?php
-            } else if ($is_blob) {
+            } elseif ($is_blob) {
                 echo "\n";
                 ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
@@ -844,7 +839,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
             echo '</td>';
 
-        } // end else if ( binary or blob)
+        } // end elseif ( binary or blob)
         else {
             // For char or varchar, respect the maximum length (M); for other
             // types (int or float), the length is not a limit on the values that
@@ -855,8 +850,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if ($is_char) {
                 $fieldsize = (($len > 40) ? 40 : $len);
                 $maxlength = $len;
-            }
-            else {
+            } else {
                 $fieldsize = 20;
                 $maxlength = 99;
             } // end if... else...
@@ -948,15 +942,15 @@ if (!empty($disp_message)) {
                 <option value="back" <?php echo $selected_after_insert_back; ?>><?php echo $strAfterInsertBack; ?></option>
                 <option value="new_insert" <?php echo $selected_after_insert_new_insert; ?>><?php echo $strAfterInsertNewInsert; ?></option>
 <?php
-if (isset($primary_key))
-{?>
+if (isset($primary_key)) {
+    ?>
                 <option value="same_insert"><?php echo $strAfterInsertSame; ?></option>
-<?php
+    <?php
     // If we have just numeric primary key, we can also edit next
     if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
-?>
+        ?>
                 <option value="edit_next"><?php echo $strAfterInsertNext; ?></option>
-<?php
+        <?php
     }
 }
 ?>

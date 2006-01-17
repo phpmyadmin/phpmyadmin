@@ -93,8 +93,7 @@ if (!empty($bug_encoded)) {
             } else {
             $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
         }
-    }
-    else {
+    } else {
         $result  = PMA_printDecodedBug($bug_decoded);
     } // end if... else...
 

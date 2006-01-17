@@ -339,7 +339,7 @@ function get_action($name, $title, $added = '', $enabled = TRUE) {
 function get_url_action($url, $title, $params = array()) {
     $ret = '';
     $ret .= '<form class="action" method="GET" action="' . $url . '" target="_blank">';
-    foreach($params as $key => $val) {
+    foreach ($params as $key => $val) {
         $ret .= '<input type="hidden" name="' . $key . '" value="' . $val . '" />';
     }
     $ret .= '<input type="submit" value="' . $title . '" />';
@@ -418,7 +418,7 @@ function get_cfg_val($name, $val) {
     $ret = '';
     if (is_array($val)) {
         $ret .= "\n";
-        foreach($val as $k => $v) {
+        foreach ($val as $k => $v) {
             if (!isset($type)) {
                 if (is_string($k)) {
                     $type = 'string';
@@ -463,9 +463,9 @@ function get_cfg_string($cfg) {
 
     if (count($c['Servers']) > 0) {
         $ret .= "/* Servers configuration */\n\$i = 0;\n";
-        foreach($c['Servers'] as $cnt => $srv) {
+        foreach ($c['Servers'] as $cnt => $srv) {
             $ret .= "\n/* Server " . get_server_name($srv, $cnt) . " */\n\$i++;\n";
-            foreach($srv as $key => $val) {
+            foreach ($srv as $key => $val) {
                 $ret .= get_cfg_val("\$cfg['Servers'][\$i]['$key']", $val);
             }
         }
@@ -473,7 +473,7 @@ function get_cfg_string($cfg) {
     }
     unset($c['Servers']);
 
-    foreach($c as $key => $val) {
+    foreach ($c as $key => $val) {
         $ret .= get_cfg_val("\$cfg['$key']", $val);
     }
 
@@ -510,12 +510,15 @@ function compress_servers(&$cfg) {
  *
  * @return  array   array with grabbed values
  */
-function grab_values($list) {
+function grab_values($list)
+{
     $a = split(';', $list);
     $res = array();
-    foreach($a as $val) {
+    foreach ($a as $val) {
         $v = split(':', $val);
-        if (!isset($v[1])) $v[1] = '';
+        if (!isset($v[1])) {
+            $v[1] = '';
+        }
         switch($v[1]) {
             case 'bool':
                 $res[$v[0]] = isset($_POST[$v[0]]);
@@ -535,7 +538,7 @@ function grab_values($list) {
                     $cur = $_POST[$v[0]];
                     if ($cur == 'TRUE') {
                         $res[$v[0]] = TRUE;
-                    } else if ($cur == 'FALSE') {
+                    } elseif ($cur == 'FALSE') {
                         $res[$v[0]] = FALSE;
                     } else {
                         $res[$v[0]] = $cur;
@@ -566,7 +569,7 @@ function grab_values($list) {
 function show_overview($title, $list, $buttons = '') {
     echo '<fieldset class="overview">' . "\n";
     echo '<legend>' . $title . '</legend>' . "\n";
-    foreach($list as $val) {
+    foreach ($list as $val) {
         echo '<div class="row">';
         echo '<div class="desc">';
         echo $val[0];
@@ -605,18 +608,24 @@ function show_overview($title, $list, $buttons = '') {
 function show_config_form($list, $legend, $help, $defaults = array(), $save = '', $prefix = '') {
     global $PMA_Config;
 
-    if (empty($save)) $save = 'Update';
+    if (empty($save)) {
+        $save = 'Update';
+    }
 
     echo '<fieldset class="optbox">' . "\n";
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<p>' . $help . '</p>' . "\n";
-    foreach($list as $val) {
+    foreach ($list as $val) {
         echo '<div class="opts">';
         $type = 'text';
         if (isset($val[3])) {
-            if (is_array($val[3])) $type = 'select';
-            elseif (is_bool($val[3])) $type = 'check';
-            elseif ($val[3] == 'password') $type = 'password';
+            if (is_array($val[3])) {
+                $type = 'select';
+            } elseif (is_bool($val[3])) {
+                $type = 'check';
+            } elseif ($val[3] == 'password') {
+                $type = 'password';
+            }
         }
         switch ($type) {
             case 'text':
@@ -866,7 +875,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
             echo '<input type="hidden" name="server" value="' . $number . '" />';
         }
         $hi = array ('bookmarktable', 'relation', 'table_info', 'table_coords', 'pdf_pages', 'column_info', 'history', 'AllowDeny');
-        foreach($hi as $k) {
+        foreach ($hi as $k) {
             if (isset($defaults[$k]) && (!is_string($defaults[$k]) || strlen($defaults[$k]) > 0)) {
                 echo '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars(serialize($defaults[$k])) . '" />';
             }
@@ -1078,7 +1087,9 @@ function show_window_form($defaults = array()) {
  * @return  string  HTML for server selection
  */
 function get_server_selection($cfg) {
-    if (count($cfg['Servers']) == 0) return '';
+    if (count($cfg['Servers']) == 0) {
+        return '';
+    }
     $ret = '<select name="server">';
     foreach ($cfg['Servers'] as $key => $val) {
         $ret .= '<option value="' . $key . '">' . get_server_name($val, $key) . '</option>';
@@ -1287,7 +1298,7 @@ switch ($action) {
         }
         if (function_exists('mysqli_get_client_info')) {
             $defaults['extension'] = 'mysqli';
-        } else if (function_exists('mysql_get_client_info')) {
+        } elseif (function_exists('mysql_get_client_info')) {
             $defaults['extension'] = 'mysql';
         } else {
             message('warning', 'Could not load neither mysql nor mysqli extension, you might not be able to use phpMyAdmin!');
@@ -1300,11 +1311,15 @@ switch ($action) {
         show_server_form($defaults);
         break;
     case 'editserver':
-        if (!isset($_POST['server'])) footer();
+        if (!isset($_POST['server'])) {
+            footer();
+        }
         show_server_form($configuration['Servers'][$_POST['server']], $_POST['server']);
         break;
     case 'deleteserver':
-        if (!isset($_POST['server'])) footer();
+        if (!isset($_POST['server'])) {
+            footer();
+        }
         message('notice', 'Deleted server ' . get_server_name($configuration['Servers'][$_POST['server']], $_POST['server']));
         unset($configuration['Servers'][$_POST['server']]);
         compress_servers($configuration);
@@ -1314,7 +1329,7 @@ switch ($action) {
         if (count($configuration['Servers']) == 0) {
             message('notice', 'No servers defined, so none can be shown');
         } else {
-            foreach($configuration['Servers'] as $i => $srv) {
+            foreach ($configuration['Servers'] as $i => $srv) {
                 $data = array();
                 if (!empty($srv['verbose'])) {
                     $data[] = array('Verbose name', $srv['verbose']);
@@ -1434,7 +1449,7 @@ switch ($action) {
         if (!isset($d['RecodingEngine'])) {
             if (@extension_loaded('iconv')) {
                 $d['RecodingEngine']         = 'iconv';
-            } else if (@extension_loaded('recode')) {
+            } elseif (@extension_loaded('recode')) {
                 $d['RecodingEngine']         = 'recode';
             } else {
                 PMA_dl('iconv');

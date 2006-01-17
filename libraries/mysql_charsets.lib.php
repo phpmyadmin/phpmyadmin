@@ -50,7 +50,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     define('PMA_CSDROPDOWN_COLLATION', 0);
     define('PMA_CSDROPDOWN_CHARSET',   1);
 
-    function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = NULL, $id = NULL, $default = NULL, $label = TRUE, $indent = 0, $submitOnChange = FALSE, $displayUnavailable = FALSE) {
+    function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = null, $id = null, $default = null, $label = TRUE, $indent = 0, $submitOnChange = FALSE, $displayUnavailable = FALSE) {
         global $mysql_charsets, $mysql_charsets_descriptions, $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
 
         if (empty($name)) {

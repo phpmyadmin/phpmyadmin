@@ -22,7 +22,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100) {
     $is_create_table_priv = true;
 }
 
-foreach( $dbs_where_create_table_allowed as $allowed_db ) {
+foreach ( $dbs_where_create_table_allowed as $allowed_db ) {
 
     // if we find the exact db name, we stop here
     if ($allowed_db == $db) {

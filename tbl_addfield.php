@@ -32,7 +32,7 @@ if (isset($submit_num_fields)) {
     }
     $num_fields = $orig_num_fields + $added_fields;
     $regenerate = TRUE;
-} else if (isset($do_save_data)) {
+} elseif (isset($do_save_data)) {
     $query = '';
 
     // Transforms the radio button field_key into 3 arrays

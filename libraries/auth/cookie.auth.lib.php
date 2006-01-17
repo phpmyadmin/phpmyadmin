@@ -82,14 +82,12 @@ function PMA_auth()
         // server name
         if (!empty($GLOBALS['pma_cookie_servername'])) {
             $default_server = $GLOBALS['pma_cookie_servername'];
-        }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
+        } elseif (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
             $default_server = $_COOKIE['pma_cookie_servername-' . $server];
         }
 
         $autocomplete     = '';
-    }
-    else {
+    } else {
         $default_user     = '';
         $autocomplete     = ' autocomplete="off"';
     }
@@ -231,7 +229,7 @@ echo sprintf( $GLOBALS['strWelcome'],
 
 <?php
 if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
-    foreach( $GLOBALS['PMA_errors'] as $error ) {
+    foreach ( $GLOBALS['PMA_errors'] as $error ) {
         echo '<div class="error">' . $error . '</div>' . "\n";
     }
 }
@@ -297,11 +295,11 @@ function PMA_auth_check()
 
     // The user wants to be logged out -> delete password cookie
     if (!empty($old_usr)) {
-        setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
     }
 
     // The user just logged in
-    else if (!empty($pma_username)) {
+    elseif (!empty($pma_username)) {
         $PHP_AUTH_USER = $pma_username;
         $PHP_AUTH_PW   = (empty($pma_password)) ? '' : $pma_password;
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
@@ -319,8 +317,7 @@ function PMA_auth_check()
             if (!empty($pma_cookie_servername)) {
                 $pma_auth_server = $pma_cookie_servername;
                 $from_cookie   = TRUE;
-            }
-            else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
+            } elseif (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
                 $pma_auth_server = $_COOKIE['pma_cookie_servername-' . $server];
                 $from_cookie   = TRUE;
             }
@@ -356,11 +353,9 @@ function PMA_auth_check()
         // password
         if (!empty($pma_cookie_password)) {
             $PHP_AUTH_PW   = $pma_cookie_password;
-        }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password-' . $server])) {
+        } elseif (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password-' . $server])) {
             $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password-' . $server];
-        }
-        else {
+        } else {
             $from_cookie   = FALSE;
         }
         $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW, $GLOBALS['cfg']['blowfish_secret'] . $decrypted_time);
@@ -458,7 +453,7 @@ function PMA_auth_set_user()
                     $GLOBALS['is_https']);
             } else {
                 // Delete servername cookie
-                setcookie('pma_cookie_servername-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+                setcookie('pma_cookie_servername-' . $server, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
             }
         }
 
@@ -502,19 +497,19 @@ function PMA_auth_fails()
 global $conn_error, $server;
 
     // Deletes password cookie and displays the login form
-    setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+    setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         $conn_error = $GLOBALS['strAccessDenied'];
-    } else if (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
-        $conn_error = sprintf($GLOBALS['strNoActivity'],$GLOBALS['cfg']['LoginCookieValidity']);
+    } elseif (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
+        $conn_error = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);
         // Remember where we got timeout to return on same place
         if (isset($_SERVER['SCRIPT_NAME'])) {
             $GLOBALS['target'] = basename($_SERVER['SCRIPT_NAME']);
         }
-    } else if (PMA_DBI_getError()) {
+    } elseif (PMA_DBI_getError()) {
         $conn_error = PMA_sanitize(PMA_DBI_getError());
-    } else if (isset($php_errormsg)) {
+    } elseif (isset($php_errormsg)) {
         $conn_error = $php_errormsg;
     } else {
         $conn_error = $GLOBALS['strCannotLogin'];

@@ -22,12 +22,12 @@ require_once('./libraries/db_table_exists.lib.php');
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table), NULL, PMA_DBI_QUERY_STORE);
+$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table), null, PMA_DBI_QUERY_STORE);
 if (isset($primary_key)) {
-    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';', NULL, PMA_DBI_QUERY_STORE);
+    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';', null, PMA_DBI_QUERY_STORE);
     $row         = PMA_DBI_fetch_assoc($result);
 } else {
-    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', NULL, PMA_DBI_QUERY_STORE);
+    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
     $row         = PMA_DBI_fetch_assoc($result);
 }
 
@@ -87,7 +87,7 @@ if (!isset($resize)) {
     if ($ratioWidth < $ratioHeight){
         $destWidth = $srcWidth/$ratioHeight;
         $destHeight = $newHeight;
-    }else{
+    } else {
         $destWidth = $newWidth;
         $destHeight = $srcHeight/$ratioWidth;
     }
@@ -101,7 +101,7 @@ if (!isset($resize)) {
     ImageCopyResampled( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
 
     if ($resize == 'jpeg') {
-        ImageJPEG( $destImage,'',75 );
+        ImageJPEG( $destImage, '', 75 );
     }
     if ($resize == 'png') {
         ImagePNG( $destImage);

@@ -75,7 +75,7 @@ if ($plugin_param == 'table') {
                 }
                 $val = trim($val);
                 $found = FALSE;
-                foreach($tmp_fields as $id => $field) {
+                foreach ($tmp_fields as $id => $field) {
                     if ($field['Field'] == $val) {
                         $found = TRUE;
                         break;
@@ -118,7 +118,9 @@ if ($plugin_param == 'table') {
                 $buffer .= $data;
                 // Do not parse string when we're not at the end and don't have new line inside
                 if (($csv_new_line == 'auto' && strpos($buffer, "\r") === FALSE && strpos($buffer, "\n") === FALSE)
-                    || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === FALSE)) continue;
+                    || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === FALSE)) {
+                    continue;
+                }
             }
 
             // Current length of our buffer
@@ -140,7 +142,9 @@ if ($plugin_param == 'table') {
                     // Grab empty field
                     if ($ch == $csv_terminated) {
                         $values[] = '';
-                        if ($i == $len - 1) break;
+                        if ($i == $len - 1) {
+                            break;
+                        }
                         $i++;
                         $ch = $buffer[$i];
                         continue;
@@ -149,7 +153,9 @@ if ($plugin_param == 'table') {
                     // Grab one field 
                     if ($ch == $csv_enclosed) {
                         $need_end = TRUE;
-                        if ($i == $len - 1) break;
+                        if ($i == $len - 1) {
+                            break;
+                        }
                         $i++;
                         $ch = $buffer[$i];
                     } else {
@@ -157,7 +163,7 @@ if ($plugin_param == 'table') {
                     }
                     $fail = FALSE;
                     $value = '';
-                    while(($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
+                    while (($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
                         if ($ch == $csv_escaped) {
                             if ($i == $len - 1) {
                                 $fail = TRUE;
@@ -176,11 +182,15 @@ if ($plugin_param == 'table') {
                         $i++;
                         $ch = $buffer[$i];
                     }
-                    if ($fail) break;
+                    if ($fail) {
+                        break;
+                    }
                     $values[] = $value;
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $csv_enclosed) {
-                        if ($i == $len - 1) break;
+                        if ($i == $len - 1) {
+                            break;
+                        }
                         $i++;
                         $ch = $buffer[$i];
                     }
@@ -190,7 +200,9 @@ if ($plugin_param == 'table') {
                     }
                     // Go to next char
                     if ($ch == $csv_terminated) {
-                        if ($i == $len - 1) break;
+                        if ($i == $len - 1) {
+                            break;
+                        }
                         $i++;
                         $ch = $buffer[$i];
                     }
@@ -199,7 +211,9 @@ if ($plugin_param == 'table') {
                 // End of line
                 if ($csv_finish || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
                     if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
-                        if ($i >= ($len - 2) && !$finished) break; // We need more data to decide new line
+                        if ($i >= ($len - 2) && !$finished) {
+                            break; // We need more data to decide new line
+                        }
                         if ($buffer[$i + 1] == "\n") {
                             $i++;
                         }
@@ -218,7 +232,7 @@ if ($plugin_param == 'table') {
                     
                     $first = TRUE;
                     $sql = $sql_template;
-                    foreach($values as $key => $val) {
+                    foreach ($values as $key => $val) {
                         if (!$first) {
                             $sql .= ', ';
                         }

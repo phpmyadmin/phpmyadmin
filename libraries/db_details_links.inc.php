@@ -19,7 +19,7 @@ if (empty($sub_part)) {
   // priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
   // (even if they cannot see the tables)
 
-$is_superuser = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', NULL, PMA_DBI_QUERY_STORE);
+$is_superuser = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', null, PMA_DBI_QUERY_STORE);
 
 /**
  * Prepares links

@@ -9,7 +9,7 @@
 
 require_once('./libraries/common.lib.php');
 
-PMA_checkParameters(array('db','encoded_key'));
+PMA_checkParameters(array('db', 'encoded_key'));
 
 
 // f i e l d    u p l o a d e d    f r o m    a    f i l e
@@ -112,8 +112,11 @@ if (!$check_stop) {
 
 // f i e l d    v a l u e    i n    t h e    f o r m
 
-    if (isset($me_fields_type[$encoded_key])) $type = $me_fields_type[$encoded_key];
-    else $type = '';
+    if (isset($me_fields_type[$encoded_key])) {
+        $type = $me_fields_type[$encoded_key];
+    } else {
+        $type = '';
+    }
 
     $f = 'field_' . md5($key);
     $t_fval = (isset($$f) ? $$f : null);

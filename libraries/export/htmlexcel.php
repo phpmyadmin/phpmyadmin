@@ -122,7 +122,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $what;
 
     // Gets the data from the database
-    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
@@ -132,7 +132,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $schema_insert .= '<td class=xl2216681 nowrap><b>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</b></td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert)) {
+            return FALSE;
+        }
     } // end if
 
     // Format the data
@@ -141,7 +143,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
                 $value = $GLOBALS[$what . '_replace_null'];
-            } else if ($row[$j] == '0' || $row[$j] != '') {
+            } elseif ($row[$j] == '0' || $row[$j] != '') {
                 $value = $row[$j];
             } else {
                 $value = '';
@@ -149,7 +151,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $schema_insert .= '<td class=xl2216681 nowrap>' . htmlspecialchars($value) . '</td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) return FALSE;
+        if (!PMA_exportOutputHandler($schema_insert)) {
+            return FALSE;
+        }
     } // end while
     PMA_DBI_free_result($result);
 

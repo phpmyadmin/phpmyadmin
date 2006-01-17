@@ -51,7 +51,7 @@ if ($is_superuser) {
 }
 
 $has_binlogs = FALSE;
-$binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
+$binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', null, PMA_DBI_QUERY_STORE);
 if ($binlogs) {
     if (PMA_DBI_num_rows($binlogs) > 0) {
         $binary_logs = array();

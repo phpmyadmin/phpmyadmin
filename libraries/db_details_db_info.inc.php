@@ -68,7 +68,7 @@ if ( true === $cfg['SkipLockedTables'] ) {
         PMA_DBI_free_result($db_info_result);
 
         if (isset($sot_cache)) {
-            $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
+            $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', null, PMA_DBI_QUERY_STORE);
             if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
                     if (!isset($sot_cache[$tmp[0]])) {
@@ -123,7 +123,7 @@ if ( ! isset( $sot_ready ) ) {
     }
     
     if ( $cfg['ShowTooltip'] ) {
-        foreach( $tables as $each_table ) {
+        foreach ( $tables as $each_table ) {
             fillTooltip( $tooltip_truename, $tooltip_aliasname, $each_table );
         }
     }

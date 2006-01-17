@@ -59,10 +59,11 @@ header('Content-Type: text/html; charset=' . $charset);
 <body>
 <h1>phpMyAdmin - <?php echo $type; ?></h1>
 <p><?php
-if (get_magic_quotes_gpc())
+if (get_magic_quotes_gpc()) {
     echo PMA_sanitize(stripslashes($_REQUEST['error']));
-else 
+} else { 
     echo PMA_sanitize($_REQUEST['error']);
+}
 ?></p>
 </body>
 </html>
