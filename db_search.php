@@ -22,6 +22,7 @@ $url_params['goto'] = 'db_search.php';
  * Get the list of tables from the current database
  */
 $tables     = PMA_DBI_get_tables($GLOBALS['db']);
+$num_tables = count( $tables );
 
 /**
  * Displays top links
