@@ -371,7 +371,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <li>Introduced in 1.3.0, it uses Basic HTTP authentication method and
         allows you to login as any valid MySQL user.</li>
     <li>Is supported with most PHP configurations. For IIS (ISAPI) support
-        using CGI PHP, see <a href="#faq1_32">FAQ 1.32</a>.</li>
+        using CGI PHP see <a href="#faq1_32">FAQ 1.32</a>, for using with
+        Apache CGI see <a href="#faq1_35">FAQ 1.35</a>.</li>
     <li>See also <a href="#faq4_4">FAQ 4.4</a> about not using the
         <i>.htaccess</i> mechanism along with 'http' authentication mode.</li>
 </ul>
@@ -2798,6 +2799,19 @@ RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&amp
 RewriteRule ^([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&amp;target=$2 [R]
 RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)$ index.php?db=$1&amp;table=$2 [R]
 RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
+</pre>
+
+<a name="faq1_35"></a>
+<h4>
+    [<a href="#faq1_35">1.35</a>] Can I use HTTP authentication with Apache CGI?
+</h4>
+<p>
+    Yes. However you need to pass authentication variable to CGI using
+    following rewrite rule:
+</p>
+<pre>
+RewriteEngine On
+RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 </pre>
 
 <a name="faqconfig"></a><br />

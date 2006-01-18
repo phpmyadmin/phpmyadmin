@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-18 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Add info about Apache CGI and http auth (patch
+      #1375495).
+
 2006-01-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php:
       fixed bug: undefined index with empty database in db structure view
