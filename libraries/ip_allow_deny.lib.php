@@ -123,7 +123,7 @@ function PMA_getIp()
         // True IP without proxy
         return $direct_ip;
     } else {
-        $is_ip = preg_match('|^([0-9]{1,3}\.){3,3}[0-9]{1,3}|', $proxy_ip, $regs = array());
+        $is_ip = preg_match('|^([0-9]{1,3}\.){3,3}[0-9]{1,3}|', $proxy_ip, $regs);
         if ($is_ip && (count($regs) > 0)) {
             // True IP behind a proxy
             return $regs[0];
@@ -161,7 +161,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 {
    $result = TRUE;
 
-   if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs = array())) {
+   if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
        // performs a mask match
        $ipl    = ip2long($ipToTest);
        $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);

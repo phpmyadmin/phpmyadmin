@@ -136,7 +136,7 @@ function PMA_importRunQuery($sql = '', $full = '')
                     }
 
                     // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                    if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match = array() )) {
+                    if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match)) {
                         $db = trim($match[1]);
                         $reload = TRUE;
                     }

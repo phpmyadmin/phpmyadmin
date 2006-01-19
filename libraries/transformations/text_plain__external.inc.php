@@ -67,7 +67,7 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
         0 => array("pipe", "r"),
         1 => array("pipe", "w")
     );
-    $process = proc_open($program . ' ' . $poptions, $descriptorspec, $pipes = array());
+    $process = proc_open($program . ' ' . $poptions, $descriptorspec, $pipes);
     if (is_resource($process)) {
         fwrite($pipes[0], $buffer);
         fclose($pipes[0]);

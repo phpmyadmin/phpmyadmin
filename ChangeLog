@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * pdf_schema.php, db_details_qbe.php, libraries\display_tbl.lib.php,
+      libraries\export\htmlword.php, libraries\export\latex.php,
+      libraries\import.lib.php, libraries\ip_allow_deny.lib.php,
+      libraries\transformations.lib.php,
+      libraries\transformations\text_plain__external.inc.php:
+      fixed bug #1409972 PHP 5.1.2 compatibility
+
 2006-01-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add info about Apache CGI and http auth (patch
       #1375495).

@@ -50,7 +50,7 @@ function PMA_getAvailableMIMEtypes() {
         @ksort($filestack);
         foreach ($filestack AS $key => $file) {
 
-            if (preg_match('|^.*__.*\.inc\.php$|', trim($file), $match = array())) {
+            if (preg_match('|^.*__.*\.inc\.php$|', trim($file))) {
                 // File contains transformation functions.
                 $base = explode('__', str_replace('.inc.php', '', $file));
                 $mimetype = str_replace('_', '/', $base[0]);
@@ -59,7 +59,7 @@ function PMA_getAvailableMIMEtypes() {
                 $stack['transformation'][] = $mimetype . ': ' . $base[1];
                 $stack['transformation_file'][] = $file;
 
-            } elseif (preg_match('|^.*\.inc\.php$|', trim($file), $match)) {
+            } elseif (preg_match('|^.*\.inc\.php$|', trim($file))) {
                 // File is a plain mimetype, no functions.
                 $base = str_replace('.inc.php', '', $file);
 

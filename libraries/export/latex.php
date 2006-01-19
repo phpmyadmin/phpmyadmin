@@ -332,7 +332,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
         // loic1: set or enum types: slashes single quotes inside options
-        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp = array())) {
+        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
             $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
             $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             $type_nowrap  = '';
@@ -349,9 +349,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
                 $type     = '&nbsp;';
             }
 
-            $binary       = eregi('BINARY', $row['Type'], $test = array());
-            $unsigned     = eregi('UNSIGNED', $row['Type'], $test = array());
-            $zerofill     = eregi('ZEROFILL', $row['Type'], $test = array());
+            $binary       = eregi('BINARY', $row['Type']);
+            $unsigned     = eregi('UNSIGNED', $row['Type']);
+            $zerofill     = eregi('ZEROFILL', $row['Type']);
         }
         $strAttribute     = '&nbsp;';
         if ($binary) {

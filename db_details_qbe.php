@@ -3,8 +3,11 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * Get the values of the variables posted or sent to this script and display
- * the headers
+ * query by example the whole database
+ */
+
+/**
+ * requirements
  */
 require_once('./libraries/common.lib.php');
 require_once('./libraries/relation.lib.php');
@@ -19,97 +22,63 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * A query has been submitted -> execute it, else display the headers
  */
-if (isset($submit_sql) && preg_match('@^SELECT@i', $encoded_sql_query)) {
+if ( isset( $_REQUEST['submit_sql'] )
+  && preg_match('@^SELECT@i', $_REQUEST['encoded_sql_query']) ) {
     $goto      = 'db_details.php';
-    $zero_rows = htmlspecialchars($strSuccess);
-    $sql_query = urldecode($encoded_sql_query);
+    $zero_rows = htmlspecialchars($GLOBALS['strSuccess']);
+    $sql_query = urldecode($_REQUEST['encoded_sql_query']);
     require('./sql.php');
     exit();
 } else {
     $sub_part  = '_qbe';
     require('./libraries/db_details_common.inc.php');
     $url_query .= '&amp;goto=db_details_qbe.php';
+    $url_params['goto'] = 'db_details_qbe.php';
     require('./libraries/db_details_db_info.inc.php');
 }
 
-if (isset($submit_sql) && !preg_match('@^SELECT@i', $encoded_sql_query)) {
-    echo '<p class="warning">' . $strHaveToShow . '</p>';
+if ( isset($_REQUEST['submit_sql'] )
+  && ! preg_match('@^SELECT@i', $_REQUEST['encoded_sql_query']) ) {
+    echo '<div class="warning">' . $GLOBALS['strHaveToShow'] . '</div>';
 }
 
 
 /**
  * Initialize some variables
  */
-if (empty($Columns)) {
-    $Columns  = 3;  // Initial number of columns
-}
-if (!isset($Add_Col)) {
-    $Add_Col  = '';
-}
-if (!isset($Add_Row)) {
-    $Add_Row  = '';
-}
-if (!isset($Rows)) {
-    $Rows     = '';
-}
-if (!isset($InsCol)) {
-    $InsCol   = array();
-}
-if (!isset($DelCol)) {
-    $DelCol   = array();
-}
-if (!isset($prev_Criteria)) {
-    $prev_Criteria = '';
-}
-if (!isset($Criteria)) {
-    $Criteria = array();
-    for ($i = 0; $i < $Columns; $i++) {
-        $Criteria[$i] = '';
-    }
-}
-if (!isset($InsRow)) {
-    $InsRow = array();
-    for ($i = 0; $i < $Columns; $i++) {
-        $InsRow[$i] = '';
-    }
-}
-if (!isset($DelRow)) {
-    $DelRow = array();
-    for ($i = 0; $i < $Columns; $i++) {
-        $DelRow[$i] = '';
-    }
-}
-if (!isset($AndOrRow)) {
-    $AndOrRow = array();
-    for ($i = 0; $i < $Columns; $i++) {
-        $AndOrRow[$i] = '';
-    }
-}
-if (!isset($AndOrCol)) {
-    $AndOrCol = array();
-    for ($i = 0; $i < $Columns; $i++) {
-        $AndOrCol[$i] = '';
-    }
-}
+$col_cnt = isset( $_REQUEST['col_cnt'] ) ? (int) $_REQUEST['col_cnt'] : 3;
+$add_col = isset( $_REQUEST['add_col'] ) ? (int) $_REQUEST['add_col'] : 0;
+$add_row = isset( $_REQUEST['add_row'] ) ? (int) $_REQUEST['add_row'] : 0;
+
+$rows = isset( $_REQUEST['rows'] ) ? (int) $_REQUEST['rows'] : 0;
+$ins_col = isset( $_REQUEST['ins_col'] ) ? $_REQUEST['ins_col'] : array();
+$del_col = isset( $_REQUEST['del_col'] ) ? $_REQUEST['del_col'] : array();
+
+$prev_criteria = isset( $_REQUEST['prev_criteria'] )
+    ? $_REQUEST['prev_criteria']
+    : array();
+$criteria = isset( $_REQUEST['criteria'] )
+    ? $_REQUEST['criteria']
+    : array_fill(0, $col_cnt, '');
+
+$ins_row = isset( $_REQUEST['ins_row'] )
+    ? $_REQUEST['ins_row']
+    : array_fill(0, $col_cnt, '');
+$del_row = isset( $_REQUEST['del_row'] )
+    ? $_REQUEST['del_row']
+    : array_fill(0, $col_cnt, '');
+$and_or_row = isset( $_REQUEST['and_or_row'] )
+    ? $_REQUEST['and_or_row']
+    : array_fill(0, $col_cnt, '');
+$and_or_col = isset( $_REQUEST['and_or_col'] )
+    ? $_REQUEST['and_or_col']
+    : array_fill(0, $col_cnt, '');
+
 // minimum width
-$wid          = 12;
-$col          = $Columns + $Add_Col;
-if ($col < 0) {
-    $col      = 0;
-}
-$row          = $Rows + $Add_Row;
-if ($row < 0) {
-    $row      = 0;
-}
+$form_column_width = 12;
+$col = max($col_cnt + $add_col, 0);
+$row = max($rows + $add_row, 0);
 
-
-/**
- * Prepares the form
- */
-$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
-$tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
-$i              = 0;
-$k              = 0;
 
 // The tables list sent by a previously submitted form
 if (!empty($TableList)) {
@@ -118,6 +87,19 @@ if (!empty($TableList)) {
         $tbl_names[urldecode($TableList[$x])] = ' selected="selected"';
     }
 } // end if
+
+
+$columns = PMA_DBI_get_columns_full( $GLOBALS['db'] );
+$tables  = PMA_DBI_get_columns_full( $GLOBALS['db'] );
+
+
+/**
+ * Prepares the form
+ */
+$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+$tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
+$i              = 0;
+$k              = 0;
 
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
@@ -140,8 +122,8 @@ while ($i < $tbl_result_cnt) {
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
 
             // increase the width if necessary
-            if (strlen($fld[$k]) > $wid) {
-                $wid = strlen($fld[$k]);
+            if (strlen($fld[$k]) > $form_column_width) {
+                $form_column_width = strlen($fld[$k]);
             } //end if
 
             $k++;
@@ -154,88 +136,76 @@ while ($i < $tbl_result_cnt) {
 PMA_DBI_free_result($tbl_result);
 
 // largest width found
-$realwidth = $wid . 'ex';
+$realwidth = $form_column_width . 'ex';
 
 
 /**
- * Displays the form
+ * Displays the Query by example form
  */
-?>
 
-<!-- Query by example form -->
-<form action="db_details_qbe.php" method="post">
-<table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
-
-    <!-- Fields row -->
-    <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
-            <b><?php echo $strField; ?>:&nbsp;</b>
-        </td>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
-        ?>
-        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <select style="width: <?php echo $realwidth; ?>" name="Field[<?php echo $z; ?>]" size="1">
-                <option value=""></option>
-        <?php
-        echo "\n";
-        for ($y = 0; $y < sizeof($fld); $y++) {
-            if ($fld[$y] == '') {
-                $sel = ' selected="selected"';
-            } else {
-                $sel = '';
-            }
-            echo '                ';
-            echo '<option value="' . htmlspecialchars($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
-        } // end for
-        ?>
-            </select>
-        </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
-        continue;
+function showColumnSelectCell( $columns, $column_number, $selected = '' )
+{
+    ?>
+    <td align="center">
+        <select name="Field[<?php echo $column_number; ?>]" size="1">
+            <option value=""></option>
+    <?php
+    foreach ( $columns as $column ) {
+        if ( $column === $selected ) {
+            $sel = ' selected="selected"';
+        } else {
+            $sel = '';
+        }
+        echo '                ';
+        echo '<option value="' . htmlspecialchars($column) . '"' . $sel . '>'
+            . htmlspecialchars($column) . '</option>' . "\n";
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <select style="width: <?php echo $realwidth; ?>" name="Field[<?php echo $z; ?>]" size="1">
-                <option value=""></option>
+        </select>
+    </td>
     <?php
-    echo "\n";
-    for ($y = 0; $y < sizeof($fld); $y++) {
-        if (isset($Field[$x]) && $fld[$y] == urldecode($Field[$x])) {
-            $curField[$z] = urldecode($Field[$x]);
-            $sel          = ' selected="selected"';
-        } else {
-            $sel          = '';
-        } // end if
-        echo '                ';
-        echo '<option value="' . htmlspecialchars($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
-    } // end for
-    ?>
-            </select>
-        </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-    </tr>
+}
 
-    <!-- Sort row -->
-    <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
-            <b><?php echo $strSort; ?>:&nbsp;</b>
-        </td>
+?>
+
+<form action="db_details_qbe.php" method="post">
+<table>
+<tr class="odd">
+    <th align="<?php echo $cell_align_right; ?>">
+        <?php echo $strField; ?>:
+    </th>
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if ( isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+        showColumnSelectCell( $fld, $z );
+        $z++;
+    }
+
+    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+        continue;
+    }
+
+    $selected = '';
+    if ( isset( $Field[$x] ) ) {
+        $selected = urldecode($Field[$x]);
+        $curField[$z] = urldecode($Field[$x]);
+    }
+    showColumnSelectCell( $fld, $z, $selected );
+    $z++;
+} // end for
+?>
+</tr>
+
+<!-- Sort row -->
+<tr class="even">
+    <th align="<?php echo $cell_align_right; ?>">
+        <?php echo $strSort; ?>:
+    </th>
+<?php
+$z = 0;
+for ($x = 0; $x < $col; $x++) {
+    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
@@ -249,7 +219,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
     ?>
@@ -300,7 +270,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
         <td class="tblHeaders" align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]" />
@@ -310,7 +280,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
     if (isset($Show[$x])) {
@@ -338,34 +308,34 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
+            <input type="text" name="criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
         </td>
         <?php
         $z++;
     } // end if
     echo "\n";
 
-    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
-    if (isset($Criteria[$x])) {
-        $stripped_Criteria = $Criteria[$x];
+    if (isset($criteria[$x])) {
+        $stripped_Criteria = $criteria[$x];
     }
-    if ((empty($prev_Criteria) || !isset($prev_Criteria[$x]))
-        || urldecode($prev_Criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
+    if ((empty($prev_criteria) || !isset($prev_criteria[$x]))
+        || urldecode($prev_criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
         $curCriteria[$z]   = $stripped_Criteria;
         $encoded_Criteria  = urlencode($stripped_Criteria);
     } else {
-        $curCriteria[$z]   = urldecode($prev_Criteria[$x]);
-        $encoded_Criteria  = $prev_Criteria[$x];
+        $curCriteria[$z]   = urldecode($prev_criteria[$x]);
+        $encoded_Criteria  = $prev_criteria[$x];
     }
     ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-            <input type="hidden" name="prev_Criteria[<?php echo $z; ?>]" value="<?php echo $encoded_Criteria; ?>" />
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
+            <input type="hidden" name="prev_criteria[<?php echo $z; ?>]" value="<?php echo $encoded_Criteria; ?>" />
+            <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
         </td>
     <?php
     $z++;
@@ -379,7 +349,7 @@ for ($x = 0; $x < $col; $x++) {
 $w = 0;
 for ($y = 0; $y <= $row; $y++) {
     $bgcolor = ($y % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-    if (isset($InsRow[$y]) && $InsRow[$y] == 'on') {
+    if (isset($ins_row[$y]) && $ins_row[$y] == 'on') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
         ?>
@@ -390,26 +360,26 @@ for ($y = 0; $y <= $row; $y++) {
             <tr>
                 <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEIns; ?>:</small>
-                    <input type="checkbox" name="InsRow[<?php echo $w; ?>]" />
+                    <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
                 </td>
                 <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strAnd; ?>:</b>
                 </td>
                 <td>
-                    <input type="radio" name="AndOrRow[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
+                    <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
                     &nbsp;
                 </td>
             </tr>
             <tr>
                 <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEDel; ?>:</small>
-                    <input type="checkbox" name="DelRow[<?php echo $w; ?>]" />
+                    <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
                 </td>
                 <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strOr; ?>:</b>
                 </td>
                 <td>
-                    <input type="radio" name="AndOrRow[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
+                    <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
                     &nbsp;
                 </td>
             </tr>
@@ -418,7 +388,7 @@ for ($y = 0; $y <= $row; $y++) {
         <?php
         $z = 0;
         for ($x = 0; $x < $col; $x++) {
-            if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+            if (isset($ins_col[$x]) && $ins_col[$x] == 'on') {
                 echo "\n";
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
@@ -428,7 +398,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <?php
                 $z++;
             } // end if
-            if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+            if (isset($del_col[$x]) && $del_col[$x] == 'on') {
                 continue;
             }
 
@@ -448,14 +418,14 @@ for ($y = 0; $y <= $row; $y++) {
         <?php
     } // end if
 
-    if (isset($DelRow[$y]) && $DelRow[$y] == 'on') {
+    if (isset($del_row[$y]) && $del_row[$y] == 'on') {
         continue;
     }
 
-    if (isset($AndOrRow[$y])) {
-        $curAndOrRow[$w] = $AndOrRow[$y];
+    if (isset($and_or_row[$y])) {
+        $curAndOrRow[$w] = $and_or_row[$y];
     }
-    if (isset($AndOrRow[$y]) && $AndOrRow[$y] == 'and') {
+    if (isset($and_or_row[$y]) && $and_or_row[$y] == 'and') {
         $chk['and'] =  ' checked="checked"';
         $chk['or']  =  '';
     } else {
@@ -471,25 +441,25 @@ for ($y = 0; $y <= $row; $y++) {
             <tr>
                 <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEIns; ?>:</small>
-                    <input type="checkbox" name="InsRow[<?php echo $w; ?>]" />
+                    <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
                 </td>
                 <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strAnd; ?>:</b>
                 </td>
                 <td>
-                    <input type="radio" name="AndOrRow[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
+                    <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
                 </td>
             </tr>
             <tr>
                 <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEDel; ?>:</small>
-                    <input type="checkbox" name="DelRow[<?php echo $w; ?>]" />
+                    <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
                 </td>
                 <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strOr; ?>:</b>
                 </td>
                 <td>
-                    <input type="radio" name="AndOrRow[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
+                    <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
                 </td>
             </tr>
             </table>
@@ -497,7 +467,7 @@ for ($y = 0; $y <= $row; $y++) {
     <?php
     $z = 0;
     for ($x = 0; $x < $col; $x++) {
-        if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+        if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
             echo "\n";
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
@@ -507,7 +477,7 @@ for ($y = 0; $y <= $row; $y++) {
             <?php
             $z++;
         } // end if
-        if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+        if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
             continue;
         }
 
@@ -548,9 +518,9 @@ for ($y = 0; $y <= $row; $y++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
-        $curAndOrCol[$z] = $AndOrCol[$y];
-        if ($AndOrCol[$z] == 'or') {
+    if (!empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+        $curAndOrCol[$z] = $and_or_col[$y];
+        if ($and_or_col[$z] == 'or') {
             $chk['or']  = ' checked="checked"';
             $chk['and'] = '';
         } else {
@@ -560,28 +530,28 @@ for ($x = 0; $x < $col; $x++) {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <b><?php echo $strOr; ?>:</b>
-            <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
+            <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
             &nbsp;&nbsp;<b><?php echo $strAnd; ?>:</b>
-            <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
+            <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
             <br />
             <?php echo $strQBEIns . "\n"; ?>
-            <input type="checkbox" name="InsCol[<?php echo $z; ?>]" />
+            <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
             &nbsp;&nbsp;<?php echo $strQBEDel . "\n"; ?>
-            <input type="checkbox" name="DelCol[<?php echo $z; ?>]" />
+            <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
         </td>
         <?php
         $z++;
     } // end if
     echo "\n";
 
-    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
 
-    if (isset($AndOrCol[$y])) {
-        $curAndOrCol[$z] = $AndOrCol[$y];
+    if (isset($and_or_col[$y])) {
+        $curAndOrCol[$z] = $and_or_col[$y];
     }
-    if (isset($AndOrCol[$z]) && $AndOrCol[$z] == 'or') {
+    if (isset($and_or_col[$z]) && $and_or_col[$z] == 'or') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
     } else {
@@ -591,14 +561,14 @@ for ($x = 0; $x < $col; $x++) {
     ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <b><?php echo $strOr; ?>:</b>
-            <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
+            <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
             &nbsp;&nbsp;<b><?php echo $strAnd; ?>:</b>
-            <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
+            <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
             <br />
             <?php echo $strQBEIns . "\n"; ?>
-            <input type="checkbox" name="InsCol[<?php echo $z; ?>]" />
+            <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
             &nbsp;&nbsp;<?php echo $strQBEDel . "\n"; ?>
-            <input type="checkbox" name="DelCol[<?php echo $z; ?>]" />
+            <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
         </td>
     <?php
     $z++;
@@ -613,13 +583,13 @@ for ($x = 0; $x < $col; $x++) {
 <table border="0" cellpadding="2" cellspacing="1">
     <tr>
         <td nowrap="nowrap"><input type="hidden" value="<?php echo htmlspecialchars($db); ?>" name="db" />
-                <input type="hidden" value="<?php echo $z; ?>" name="Columns" />
+                <input type="hidden" value="<?php echo $z; ?>" name="col_cnt" />
                 <?php
                     $w--;
                 ?>
-                <input type="hidden" value="<?php echo $w; ?>" name="Rows" />
+                <input type="hidden" value="<?php echo $w; ?>" name="rows" />
                 <?php echo $strAddDeleteRow; ?>:
-                <select size="1" name="Add_Row" style="vertical-align: middle">
+                <select size="1" name="add_row" style="vertical-align: middle">
                     <option value="-3">-3</option>
                     <option value="-2">-2</option>
                     <option value="-1">-1</option>
@@ -631,7 +601,7 @@ for ($x = 0; $x < $col; $x++) {
         </td>
         <td width="10">&nbsp;</td>
         <td nowrap="nowrap"><?php echo $strAddDeleteColumn; ?>:
-                <select size="1" name="Add_Col" style="vertical-align: middle">
+                <select size="1" name="add_col" style="vertical-align: middle">
                     <option value="-3">-3</option>
                     <option value="-2">-2</option>
                     <option value="-1">-1</option>
@@ -658,7 +628,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $strTableListOptions = '';
 $numTableListOptions = 0;
-foreach($tbl_names AS $key => $val) {
+foreach ($tbl_names AS $key => $val) {
     $strTableListOptions .= '                        ';
     $strTableListOptions .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
     $numTableListOptions++;
@@ -729,7 +699,7 @@ if (isset($Field) && count($Field) > 0) {
     // Check 'where' clauses
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
         // Now we need all tables that we have in the where clause
-        $crit_cnt         = count($Criteria);
+        $crit_cnt         = count($criteria);
         for ($x = 0; $x < $crit_cnt; $x++) {
             $curr_tab     = explode('.', urldecode($Field[$x]));
             if (!empty($curr_tab[0]) && !empty($curr_tab[1])) {
@@ -739,10 +709,10 @@ if (isset($Field) && count($Field) > 0) {
                 $col_raw  = urldecode($curr_tab[1]);
                 $col1     = str_replace('`', '', $col_raw);
                 $col1     = $tab . '.' . $col1;
-                // Now we know that our array has the same numbers as $Criteria
+                // Now we know that our array has the same numbers as $criteria
                 // we can check which of our columns has a where clause
-                if (!empty($Criteria[$x])) {
-                    if (substr($Criteria[$x], 0, 1) == '=' || stristr($Criteria[$x], 'is')) {
+                if (!empty($criteria[$x])) {
+                    if (substr($criteria[$x], 0, 1) == '=' || stristr($criteria[$x], 'is')) {
                         $col_where[$col] = $col1;
                         $tab_wher[$tab]  = $tab;
                     }
@@ -791,10 +761,10 @@ if (isset($Field) && count($Field) > 0) {
             if (isset($col_unique) && count($col_unique) > 0) {
                 $col_cand = $col_unique;
                 $needsort = 1;
-            } else if (isset($col_index) && count($col_index) > 0) {
+            } elseif (isset($col_index) && count($col_index) > 0) {
                 $col_cand = $col_index;
                 $needsort = 1;
-            } else if (isset($col_where) && count($col_where) > 0) {
+            } elseif (isset($col_where) && count($col_where) > 0) {
                 $col_cand = $tab_wher;
                 $needsort = 0;
             } else {
