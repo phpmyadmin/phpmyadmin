@@ -16,6 +16,18 @@ require_once('./libraries/check_user_privileges.lib.php');
 //
 // Note: in this case we could even skip the following "foreach" logic
 
+// Addendum, 2006-01-19: ok, I give up. We got some reports about servers
+// where the hostname field in mysql.user is not the same as the one
+// in mysql.db for a user. In this case, SHOW GRANTS does not return
+// the db-specific privileges. And probably, those users are on a shared
+// server, so can't set up a control user with rights to the "mysql" db.
+// We cannot reliably detect the db-specific privileges, so no more
+// warnings about the lack of privileges for CREATE TABLE. Tested
+// on MySQL 5.0.18.
+
+$is_create_table_priv = true;
+
+/*
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     $is_create_table_priv = false;
 } else {
@@ -80,7 +92,7 @@ foreach ( $dbs_where_create_table_allowed as $allowed_db ) {
     }
 } // end foreach
 unset($i, $max_position, $chunk, $pattern);
-
+*/
 ?>
 <form method="post" action="tbl_create.php"
     onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
