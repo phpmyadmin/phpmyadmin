@@ -12,6 +12,8 @@ $Source$
       libraries\transformations.lib.php,
       libraries\transformations\text_plain__external.inc.php:
       fixed bug #1409972 PHP 5.1.2 compatibility
+    * libraries\url_generating.lib.php:
+      fixed bug: undefined index server ($GLOBALS['server'])
 
 2006-01-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add info about Apache CGI and http auth (patch

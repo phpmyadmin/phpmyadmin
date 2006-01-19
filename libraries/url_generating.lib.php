@@ -29,58 +29,58 @@
  *
  * @author  nijel
  */
-function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, $skip = array() )
+function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $skip = array())
 {
-    if ( is_array( $db ) ) {
+    if (is_array($db)) {
         $params  =& $db;
-        $_indent = empty( $table ) ? $indent : $table;
-        $_skip   = empty( $indent ) ? $skip : $indent;
+        $_indent = empty($table) ? $indent : $table;
+        $_skip   = empty($indent) ? $skip : $indent;
         $indent  =& $_indent;
         $skip    =& $_skip;
     } else {
         $params = array();
-        if ( isset($db) && strlen($db) ) {
+        if (isset($db) && strlen($db)) {
             $params['db'] = $db;
         }
-        if ( isset($table) && strlen($table) ) {
+        if (isset($table) && strlen($table)) {
             $params['table'] = $table;
         }
     }
 
-    if ( ! empty( $GLOBALS['server'] )
-    &&  $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault'] ) {
+    if (! empty($GLOBALS['server'])
+    &&  $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
         $params['server'] = $GLOBALS['server'];
     }
-    if ( empty( $_COOKIE['pma_lang'] )
-    && ! empty( $GLOBALS['lang'] ) ) {
+    if (empty($_COOKIE['pma_lang'])
+    && ! empty($GLOBALS['lang'])) {
         $params['lang'] = $GLOBALS['lang'];
     }
-    if ( empty( $_COOKIE['pma_charset'] )
-    && ! empty( $GLOBALS['convcharset'] ) ) {
+    if (empty($_COOKIE['pma_charset'])
+    && ! empty($GLOBALS['convcharset'])) {
         $params['convcharset'] = $GLOBALS['convcharset'];
     }
-    if ( empty( $_COOKIE['pma_collation_connection'] )
-    && ! empty( $GLOBALS['collation_connection'] ) ) {
+    if (empty($_COOKIE['pma_collation_connection'])
+    && ! empty($GLOBALS['collation_connection'])) {
         $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
 
-    if ( ! is_array($skip) ) {
-        if ( isset( $params[$skip] ) ) {
-            unset( $params[$skip] );
+    if (! is_array($skip)) {
+        if (isset($params[$skip])) {
+            unset($params[$skip]);
         }
     } else {
-        foreach ( $skip as $skipping ) {
-            if ( isset( $params[$skipping] ) ) {
-                unset( $params[$skipping] );
+        foreach ($skip as $skipping) {
+            if (isset($params[$skipping])) {
+                unset($params[$skipping]);
             }
         }
     }
 
-    $spaces = str_repeat( '    ', $indent );
+    $spaces = str_repeat('    ', $indent);
 
     $return = '';
-    foreach ( $params as $key => $val ) {
-        $return .= $spaces . '<input type="hidden" name="' . htmlspecialchars( $key ) . '" value="' . htmlspecialchars( $val ) . '" />' . "\n";
+    foreach ($params as $key => $val) {
+        $return .= $spaces . '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($val) . '" />' . "\n";
     }
 
     return $return;
@@ -91,7 +91,7 @@ function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, 
  *
  * <code>
  * // note the ?
- * echo 'script.php?' . PMA_generate_common_url( 'mysql', 'rights' );
+ * echo 'script.php?' . PMA_generate_common_url('mysql', 'rights');
  * // produces with cookies enabled:
  * // script.php?db=mysql&amp;table=rights
  * // with cookies disabled:
@@ -101,7 +101,7 @@ function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, 
  * $params['db']      = 'mysql';
  * $params['table']   = 'rights';
  * // note the missing ?
- * echo 'script.php' . PMA_generate_common_url( $params );
+ * echo 'script.php' . PMA_generate_common_url($params);
  * // produces with cookies enabled:
  * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
  * // with cookies disabled:
@@ -136,16 +136,16 @@ function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, 
  */
 function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 {
-    if ( is_array( $db ) ) {
+    if (is_array($db)) {
         $params =& $db;
-        $delim  = empty( $table ) ? $delim : $table;
+        $delim  = empty($table) ? $delim : $table;
         $questionmark = '?';
     } else {
         $params = array();
-        if ( isset($db) && strlen($db) ) {
+        if (isset($db) && strlen($db)) {
             $params['db'] = $db;
         }
-        if ( isset($table) && strlen($table) ) {
+        if (isset($table) && strlen($table)) {
             $params['table'] = $table;
         }
         $questionmark = '';
@@ -153,50 +153,50 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 
     // use seperators defined by php, but prefer ';'
     // as recommended by W3C
-    $php_arg_separator_input = ini_get( 'arg_separator.input' );
-    if ( strpos( $php_arg_separator_input, ';' ) !== false ) {
+    $php_arg_separator_input = ini_get('arg_separator.input');
+    if (strpos($php_arg_separator_input, ';') !== false) {
         $separator = ';';
-    } elseif ( strlen( $php_arg_separator_input ) > 0 ) {
+    } elseif (strlen($php_arg_separator_input) > 0) {
         $separator = $php_arg_separator_input{0};
     } else {
         $separator = '&';
     }
 
     // check wether to htmlentity the separator or not
-    if ( $delim === '&amp;' ) {
-        $delim = htmlentities( $separator );
+    if ($delim === '&amp;') {
+        $delim = htmlentities($separator);
     } else {
         $delim = $separator;
     }
 
-    if ( $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
-      && ! empty( $GLOBALS['server'] ) ) {
+    if (isset($GLOBALS['server'])
+      && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
         $params['server'] = $GLOBALS['server'];
     }
 
-    if ( empty( $_COOKIE['pma_lang'] )
-      && ! empty( $GLOBALS['lang'] ) ) {
+    if (empty($_COOKIE['pma_lang'])
+      && ! empty($GLOBALS['lang'])) {
         $params['lang'] = $GLOBALS['lang'];
     }
-    if ( empty( $_COOKIE['pma_charset'] )
-      && ! empty( $GLOBALS['convcharset'] ) ) {
+    if (empty($_COOKIE['pma_charset'])
+      && ! empty($GLOBALS['convcharset'])) {
         $params['convcharset'] = $GLOBALS['convcharset'];
     }
-    if ( empty( $_COOKIE['pma_collation_connection'] )
-      && ! empty( $GLOBALS['collation_connection'] ) ) {
+    if (empty($_COOKIE['pma_collation_connection'])
+      && ! empty($GLOBALS['collation_connection'])) {
         $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
 
     $param_strings = array();
-    foreach ( $params as $key => $val ) {
-        $param_strings[] = urlencode( $key ) . '=' . urlencode( $val );
+    foreach ($params as $key => $val) {
+        $param_strings[] = urlencode($key) . '=' . urlencode($val);
     }
 
-    if ( empty( $param_strings ) ) {
+    if (empty($param_strings)) {
         return '';
     }
 
-    return $questionmark . implode( $delim, $param_strings );
+    return $questionmark . implode($delim, $param_strings);
 }
 
 ?>
