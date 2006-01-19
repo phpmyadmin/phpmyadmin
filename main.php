@@ -5,7 +5,9 @@
 /**
  * Don't display the page heading
  */
-define('PMA_DISPLAY_HEADING', 0);
+if (!defined('PMA_DISPLAY_HEADING')) {
+    define('PMA_DISPLAY_HEADING', 0);
+}
 
 /**
  * Gets some core libraries and displays a top message if required

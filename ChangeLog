@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: already defined constant
+
 2006-01-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * pdf_schema.php, db_details_qbe.php, libraries\display_tbl.lib.php,
       libraries\export\htmlword.php, libraries\export\latex.php,
