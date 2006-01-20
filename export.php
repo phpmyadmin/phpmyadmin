@@ -492,6 +492,11 @@ if ($export_type == 'server') {
     }
 
     if (!empty($sql_query)) {
+        // only preg_replace if needed
+        if (!empty($add_query)) {
+            // remove trailing semicolon before adding a LIMIT
+            $sql_query = preg_replace('%;\s*$%', '', $sql_query);
+        }
         $local_query = $sql_query . $add_query;
         PMA_DBI_select_db($db);
     } else {
