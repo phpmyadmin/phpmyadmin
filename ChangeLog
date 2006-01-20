@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2006-01-20 Marc Delisle  <lem9@users.sourceforge.net>
-    * export.php: bug #1410078, error exporting query ending with semicolon
+    * export.php: bug #1410078, error exporting query ending with semicolon,
+      thanks to Ryan Schmidt
 
 2006-01-19 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: already defined constant
