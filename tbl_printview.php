@@ -219,7 +219,7 @@ foreach ($the_tables AS $key => $table) {
     <td width="80" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
     <td width="40" class="print"><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td width="70" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) {7echo $row['Default']; } ?>&nbsp;</td>
+    <td width="70" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?>&nbsp;</td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
     echo "\n";

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * tbl_printview.php: typo
+
 2006-01-20 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug #1410078, error exporting query ending with semicolon,
       thanks to Ryan Schmidt
