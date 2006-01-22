@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1410787, incorrect merging of parameters
+      contained in an array
+
 2006-01-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * tbl_printview.php: typo
 

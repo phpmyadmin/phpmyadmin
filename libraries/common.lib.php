@@ -440,6 +440,7 @@ function PMA_array_merge_recursive()
             return false;
             break;
         case 1 :
+            // when does that happen?
             return func_get_arg(0);
             break;
         case 2 :
@@ -448,10 +449,17 @@ function PMA_array_merge_recursive()
                 return $args[1];
             }
             foreach ($args[1] AS $key2 => $value2) {
-                if (isset($args[0][$key2])) {
+                if (isset($args[0][$key2]) && !is_int($key2)) {
                     $args[0][$key2] = PMA_array_merge_recursive($args[0][$key2],
                         $value2);
                 } else {
+                    // we erase the parent array, otherwise we cannot override a directive that
+                    // contains array elements, like this: 
+                    // (in config.default.php) $cfg['ForeignKeyDropdownOrder'] = array('id-content','content-id');
+                    // (in config.inc.php) $cfg['ForeignKeyDropdownOrder'] = array('content-id');
+                    if (is_int($key2) && $key2 == 0) {
+                        unset($args[0]);
+                    }
                     $args[0][$key2] = $value2;
                 }
             }
