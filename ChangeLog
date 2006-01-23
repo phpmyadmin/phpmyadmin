@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-23 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Translation update.
+
 2006-01-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1410787, incorrect merging of parameters
       contained in an array

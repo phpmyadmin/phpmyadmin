@@ -843,6 +843,7 @@ $strSQPBugUnknownPunctuation = 'Neznámé interpunkèní znaménko';
 $strStatCheckTime = 'Poslední kontrola';
 $strStatCreateTime = 'Vytvoøení';
 $strStatement = 'Údaj';
+$strStatisticsOverrun = 'Na hodnì zatí¾eném serveru mohou èítaèe pøetéct, tak¾e statistiky MySQL serveru mohou být nepøesné.';
 $strStatUpdateTime = 'Poslední zmìna';
 $strStatus = 'Stav';
 $strStorageEngines = 'Úlo¾i¹tì';
@@ -977,5 +978,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 ?>
