@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*: strViewMaxExactCount for the VIEW row count detection
+      I'm working on...
+
 2006-01-23 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation update.
 
