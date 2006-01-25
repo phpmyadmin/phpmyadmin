@@ -8,6 +8,7 @@ $Source$
 2006-01-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_status.php:
       fixed bug: high ascii char in preg_match
+    * lang/german-*: update
 
 2006-01-24 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: strViewMaxExactCount for the VIEW row count detection
