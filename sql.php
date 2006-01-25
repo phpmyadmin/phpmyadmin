@@ -353,16 +353,19 @@ else {
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
     // this case)
+    // Note: testing shows that this no longer applies since MySQL 4.0.x 
 
-    if ($is_delete
-        && preg_match('@^DELETE([[:space:]].+)?(FROM[[:space:]](.+))$@i', $sql_query, $parts)
-        && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
-        $cnt_all_result = @PMA_DBI_try_query('SELECT COUNT(*) as count ' .  $parts[2]);
-        if ($cnt_all_result) {
-            list($num_rows) = PMA_DBI_fetch_row($cnt_all_result);
-            PMA_DBI_free_result($cnt_all_result);
-        } else {
-            $num_rows   = 0;
+    if (PMA_MYSQL_INT_VERSION < 40000) {
+        if ($is_delete
+            && preg_match('@^DELETE([[:space:]].+)?(FROM[[:space:]](.+))$@i', $sql_query, $parts)
+            && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
+            $cnt_all_result = @PMA_DBI_try_query('SELECT COUNT(*) as count ' .  $parts[2]);
+            if ($cnt_all_result) {
+                list($num_rows) = PMA_DBI_fetch_row($cnt_all_result);
+                PMA_DBI_free_result($cnt_all_result);
+            } else {
+                $num_rows   = 0;
+            }
         }
     }
 
