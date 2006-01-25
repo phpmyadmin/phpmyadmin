@@ -473,6 +473,7 @@ else {
                          } else {
                              $count_what = '*';
                          }
+                        // this one does not apply to VIEWs
                         $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
                     }
 
