@@ -805,14 +805,7 @@ if (isset($Field) && count($Field) > 0) {
                 $checked_tables = $col_cand;
                 foreach ($col_cand AS $tab) {
                     if ($checked_tables[$tab] != 1 ) {
-                        $rows_qry = 'SELECT COUNT(1) AS anz '
-                                  . 'FROM ' . PMA_backquote($tab);
-                        $rows_rs  = PMA_DBI_query($rows_qry);
-                        while ($res = PMA_DBI_fetch_assoc($rows_rs)) {
-                            $tsize[$tab] = $res['anz'];
-                        }
-                        PMA_DBI_free_result($rows_rs);
-                        unset($rows_rs);
+                        $tsize[$tab] = PMA_countRecords($db, $tab, true, false);
                         $checked_tables[$tab] = 1;
                     }
                     $csize[$tab] = $tsize[$tab];
