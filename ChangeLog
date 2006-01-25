@@ -8,6 +8,8 @@ $Source$
 2006-01-25 Marc Delisle  <lem9@users.sourceforge.net>
    * db_details_qbe.php: use PMA_countRecords() when possible, to be able
      to centralise into it the VIEW detection logic
+   * sql.php: affected rows are returned in case of DELETE with no WHERE 
+     clause, at least since MySQL 4.0.x, so no need to pre-count
 
 2006-01-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_status.php:
