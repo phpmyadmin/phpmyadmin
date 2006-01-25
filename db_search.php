@@ -116,6 +116,8 @@ if (isset($_REQUEST['submit_search'])) {
 
         // Builds complete queries
         $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $sqlstr_where;
+        // here, I think we need to still use the COUNT clause, even for
+        // VIEWs, anyway we have a WHERE clause that should limit results
         $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS count' . $sqlstr_from . $sqlstr_where;
         $sql['delete']        = $sqlstr_delete . $sqlstr_from . $sqlstr_where;
 
