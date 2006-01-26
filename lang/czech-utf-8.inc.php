@@ -958,6 +958,7 @@ $strViewDumpDatabases = 'Export databází';
 $strViewDumpDB = 'Export databáze';
 $strViewDump = 'Export tabulky';
 $strViewHasBeenDropped = 'Pohled %s byl odstraněn';
+$strViewMaxExactCount = 'Tento pohled má více než %d záznamů. Viz %sdokumentace%s.';
 $strView = 'Pohled';
 
 $strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemohl být otevřen';
@@ -979,5 +980,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strViewMaxExactCount = 'This view has more than %d rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

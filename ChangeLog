@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-26 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Translation update.
+
 2006-01-25 Marc Delisle  <lem9@users.sourceforge.net>
    * db_details_qbe.php: use PMA_countRecords() when possible, to be able
      to centralise into it the VIEW detection logic
