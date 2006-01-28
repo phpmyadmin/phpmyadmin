@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1396998, avoid displaying exact row
+    count for views, work in progress. TODO: display the $strViewMaxExactCount
+    message, and change Documentation.html
+
 2006-01-26 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation update.
 

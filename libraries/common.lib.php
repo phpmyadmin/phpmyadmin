@@ -1238,11 +1238,36 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         return $the_crlf;
     } // end of the 'PMA_whichCrlf()' function
 
+    /**
+     * Checks if this "table" is a view
+     *
+     * @param   string   the database name
+     * @param   string   the table name
+     *
+     * @return  boolean  whether this is a view 
+     *
+     * @access  public
+     */
+    function PMA_tableIsView($db, $table) {
+        // maybe we already know if the table is a view
+        if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
+            return true;
+        }
+        // old MySQL version: no view
+        if (PMA_MYSQL_INT_VERSION < 50000) {
+            return false;
+        } 
+        if ( false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'' . $db . '\' AND TABLE_NAME = \'' . $table . '\';')) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     /**
-     * Counts and displays the number of records in a table
+     * Counts and returns (or displays) the number of records in a table
      *
-     * Last revision 13 July 2001: Patch for limiting dump size from
+     * Revision 13 July 2001: Patch for limiting dump size from
      * vinay@sanisoft.com & girish@sanisoft.com
      *
      * @param   string   the current database name
@@ -1267,15 +1292,30 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             PMA_DBI_free_result($result);
         }
 
+        $tbl_is_view = PMA_tableIsView($db, $table);
+
         if (!isset($num)) {
-            $result    = PMA_DBI_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-            list($num) = ($result) ? PMA_DBI_fetch_row($result) : array(0);
-            PMA_DBI_free_result($result);
+            if (! $tbl_is_view) {
+                $num = PMA_DBI_fetch_value('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+                // necessary?
+                if (! $num) {
+                    $num = 0;
+                }
+            // since counting all rows of a view could be too long
+            } else {
+                $result = PMA_DBI_query('SELECT 1 FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT ' . $cfg['MaxExactCount'], null, PMA_DBI_QUERY_STORE);
+                $num = PMA_DBI_num_rows($result);
+            }
         }
         if ($ret) {
             return $num;
         } else {
+            // Note: as of PMA 2.8.0, we no longer seem to be using 
+            // PMA_countRecords() in display mode. 
             echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+            if ($tbl_is_view) {
+                echo '&nbsp;' . sprintf($strViewMaxExactCount, $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
+            }
             return true;
         }
     } // end of the 'PMA_countRecords()' function
