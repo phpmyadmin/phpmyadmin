@@ -1077,13 +1077,20 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
             // check for correct row count
             if (null === $table['Rows']) {
-                // do not check exact row count here,
-                // if row count is invalid possible the table is defect
-                // and this would break left frame
-                /*
-                $table['Rows'] = PMA_countRecords($db, $table['Name'],
-                    $return = true, $force_exact = true);
-                */
+                // Do not check exact row count here,
+                // if row count is invalid possibly the table is defect
+                // and this would break left frame;
+                // but we can check row count if this is a view,
+                // since PMA_countRecords() returns a limited row count 
+                // in this case.
+
+                // set this because PMA_countRecords() can use it
+                $tbl_is_view = PMA_tableIsView($db, $table['Name']);
+
+                if ($tbl_is_view) {
+                    $table['Rows'] = PMA_countRecords($db, $table['Name'],
+                        $return = true);
+                }
             }
 
             // in $group we save the reference to the place in $table_groups
