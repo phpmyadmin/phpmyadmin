@@ -10,6 +10,7 @@ $Source$
     * lang/polish: updates, thanks to Jakub Wilk - ubanus
     * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
     * lang/italian: update, thanks to Luca Rebellato
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
 
 2006-01-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1396998, avoid displaying exact row
