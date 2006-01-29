@@ -67,6 +67,11 @@ if (version_compare( PHP_VERSION, '5.0.0', 'ge')
 // start the session
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
+
+// [2006-01-25] Nicola Asuni - www.tecnick.com: maybe the PHP directive
+// session.save_handler is set to another value like "user"
+ini_set("session.save_handler", "files");
+
 @session_name('phpMyAdmin');
 @session_start();
 

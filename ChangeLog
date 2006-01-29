@@ -13,6 +13,8 @@ $Source$
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
     * db_details_structure.php: bug #1396998, notice for view row count
       in table list
+    * libraries/session.inc.php: bug #1414628, session.save_handler might
+      be set to something different than "files". Thanks to Nicola Asuni
 
 2006-01-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1396998, avoid displaying exact row
