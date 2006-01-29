@@ -1257,6 +1257,8 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      */
     function PMA_tableIsView($db, $table) {
         // maybe we already know if the table is a view
+        // TODO: see what we could do with the possible existence
+        // of $table_is_view
         if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
             return true;
         }
