@@ -1767,11 +1767,18 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt><b><a name="cfg_MaxExactCount"></a>$cfg[MaxExactCount] </b>integer</dt>
     <dd>
-        Determines for how large tables phpMyAdmin should get exact row count by
-    <code>SELECT COUNT</code>. If approximate row count is smaller than this
-    value, <code>SELECT COUNT</code> will be used, otherwise only value
-    returned by <code>SHOW TABLE STATUS</code>. This has currently an impact
-    only on InnoDB tables.
+        <ul>
+            <li>For InnoDB tables, determines for how large tables phpMyAdmin 
+            should get the exact row count using <code>SELECT COUNT</code>. 
+            If the approximate row count as returned by 
+            <code>SHOW TABLE STATUS</code> is smaller than this value, 
+            <code>SELECT COUNT</code> will be used, otherwise the approximate
+            count will be used.
+            </li>
+            <li>For VIEWs, since obtaining the exact count could have an
+            impact on performance, this value is the maximum to be displayed.
+            </li>
+        </ul>
     </dd>
 
     <dt><a name="wysiwyg"></a>
