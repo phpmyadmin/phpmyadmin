@@ -11,11 +11,12 @@ $Source$
     * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
     * lang/italian: update, thanks to Luca Rebellato
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * db_details_structure.php: bug #1396998, notice for view row count
+      in table list
 
 2006-01-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1396998, avoid displaying exact row
-    count for views, work in progress. TODO: display the $strViewMaxExactCount
-    message, and change Documentation.html
+    count for views, work in progress
 
 2006-01-26 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation update.

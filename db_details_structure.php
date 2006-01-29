@@ -151,6 +151,8 @@ $row_count      = 0;
 
 $hidden_fields = array();
 $odd_row       = true;
+$at_least_one_view = false;
+
 foreach ( $tables as $keyname => $each_table ) {
     if ( $each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
         $each_table['TABLE_ROWS'] = PMA_countRecords( $db,
@@ -161,6 +163,9 @@ foreach ( $tables as $keyname => $each_table ) {
     // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
     $table_is_view = ( $each_table['TABLE_TYPE'] === 'VIEW'
                        || $each_table['TABLE_TYPE'] === 'SYSTEM VIEW' );
+    if ($table_is_view) {
+        $at_least_one_view = true;
+    }
 
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? htmlspecialchars($tooltip_aliasname[$each_table['TABLE_NAME']])
@@ -317,7 +322,7 @@ foreach ( $tables as $keyname => $each_table ) {
             <?php echo $titles['Drop']; ?></a></td>
     <?php } // end if ( ! $db_is_information_schema ) ?>
     <?php if ( isset( $each_table['TABLE_ROWS'] ) ) { ?>
-    <td class="value"><?php echo PMA_formatNumber( $each_table['TABLE_ROWS'], 0 ); ?></td>
+    <td class="value"><?php echo PMA_formatNumber( $each_table['TABLE_ROWS'], 0 ) . ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCount'] ? '<sup>1</sup>' : ''); ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
     <td nowrap="nowrap"><?php echo $each_table['ENGINE']; ?></td>
             <?php if ( isset( $collation ) ) { ?>
@@ -441,6 +446,15 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 <?php echo implode( "\n", $hidden_fields ) . "\n"; ?>
 </div>
 </form>
+<?php
+// Notice about row count for views
+
+if ($at_least_one_view && !$db_is_information_schema) {
+    echo '<div class="notice">' . "\n";
+    echo '<p><sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . '</p>' . "\n";
+    echo '</div>' . "\n";
+}
+?>
 <hr />
 
 <?php
