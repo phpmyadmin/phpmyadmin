@@ -1323,7 +1323,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             // PMA_countRecords() in display mode. 
             echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
             if ($tbl_is_view) {
-                echo '&nbsp;' . sprintf($strViewMaxExactCount, $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
+                echo '&nbsp;' . sprintf($GLOBALS['strViewMaxExactCount'], $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
             }
             return true;
         }
