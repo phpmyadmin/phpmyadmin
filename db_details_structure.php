@@ -220,6 +220,7 @@ foreach ( $tables as $keyname => $each_table ) {
 
     // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
     //        statistics whatever is the table type
+
     if ( isset( $each_table['TABLE_ROWS'] ) ) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // is accurate.
@@ -281,7 +282,7 @@ foreach ( $tables as $keyname => $each_table ) {
                 $overhead = '-';
             }
         } // end if
-    }
+    } // end if ( isset( $each_table['TABLE_ROWS'] )
 
     if ( $num_columns > 0 && $num_tables > $num_columns
       && ( ($row_count % $num_columns) == 0 )) {
@@ -320,8 +321,11 @@ foreach ( $tables as $keyname => $each_table ) {
             echo urlencode($drop_message); ?>"
             onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
             <?php echo $titles['Drop']; ?></a></td>
-    <?php } // end if ( ! $db_is_information_schema ) ?>
-    <?php if ( isset( $each_table['TABLE_ROWS'] ) ) { ?>
+    <?php } // end if ( ! $db_is_information_schema )
+
+    // there is a null value in the ENGINE when the table needs to be
+    // repaired, so this test ensures that we'll display "in use" 
+    if (isset($each_table['TABLE_ROWS']) && $each_table['ENGINE'] != null) { ?>
     <td class="value"><?php echo PMA_formatNumber( $each_table['TABLE_ROWS'], 0 ) . ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCount'] ? '<sup>1</sup>' : ''); ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
     <td nowrap="nowrap"><?php echo $each_table['ENGINE']; ?></td>

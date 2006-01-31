@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: bug #1412058, damaged table reporting
+
 2006-01-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1418145, missing global,
           thanks to Bananeweizen
