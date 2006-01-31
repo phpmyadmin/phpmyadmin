@@ -332,6 +332,7 @@ if (!$error) {
         $show_error_header = TRUE;
     } else {
         // Do the real import
+        $plugin_param = $import_type;
         require('./libraries/import/' . $format . '.php');
     }
 }
