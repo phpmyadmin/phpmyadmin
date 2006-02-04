@@ -8,6 +8,7 @@ $Source$
 2006-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1409770 auto-detection and dirname on
       Windows, thanks to Alex - nixniemand
+    * libraries/mult_submits.inc.php: array to string conversion
 
 2006-01-31 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #1412058, damaged table reporting
