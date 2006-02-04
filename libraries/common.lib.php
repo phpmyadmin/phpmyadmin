@@ -1875,7 +1875,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         $tab = array_merge($defaults, $tab);
 
-        // determine aditional style-class
+        // determine additionnal style-class
         if (empty($tab['class'])) {
             if ($tab['text'] == $GLOBALS['strEmpty']
                 || $tab['text'] == $GLOBALS['strDrop']) {
@@ -1927,7 +1927,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         }
 
         return $out;
-    } // end of the 'PMA_printTab()' function
+    } // end of the 'PMA_getTab()' function
 
     /**
      * returns html-code for a tab navigation

@@ -10,6 +10,8 @@ $Source$
       Windows, thanks to Alex - nixniemand
     * libraries/mult_submits.inc.php, server_databases.php: array to string 
       conversion
+    * tbl_properties_operations.php, tbl_properties.php, tbl_import.php,
+      tbl_change.php: bug #1415465, undefined $sql_query
 
 2006-01-31 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #1412058, damaged table reporting

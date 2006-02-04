@@ -8,6 +8,8 @@ require_once('./libraries/common.lib.php');
  * Runs common work
  */
 require('./libraries/tbl_properties_common.php');
+$url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
+
 require_once('./libraries/sql_query_form.lib.php');
 
 $err_url   = 'tbl_properties.php' . $err_url;

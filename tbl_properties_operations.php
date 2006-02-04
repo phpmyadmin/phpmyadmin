@@ -8,6 +8,7 @@ require_once('./libraries/common.lib.php');
  * Runs common work
  */
 require('./libraries/tbl_properties_common.php');
+$url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_operations.php';
 
 /**
  * Gets relation settings

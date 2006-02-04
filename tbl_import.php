@@ -8,6 +8,8 @@ require_once('./libraries/common.lib.php');
  * Gets tables informations and displays top links
  */
 require_once('./libraries/tbl_properties_common.php');
+$url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
+
 require_once('./libraries/tbl_properties_table_info.inc.php');
 /**
  * Displays top menu links
