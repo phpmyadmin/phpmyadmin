@@ -565,10 +565,12 @@ class PMA_Config
             }
             // And finally path, without script name, the 'a' is there not to
             // strip our directory, when path is only /pmadir/ without filename
-            $path = dirname($url['path'] . 'a');
+            // (also backslashes returned by Windows have to be changed)
+            $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
+
             // To work correctly within transformations overview:
             if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
-                $path = dirname(dirname($path));
+                $path = str_replace("\\", "/", dirname(dirname($path)));
             }
             // in vhost situations, there could be already an ending slash
             if (substr($path, -1) != '/') {
