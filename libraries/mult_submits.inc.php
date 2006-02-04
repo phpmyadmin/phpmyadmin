@@ -8,13 +8,13 @@
  */
 if (!empty($submit_mult)
     && ($submit_mult != $strWithChecked)
-    && (  ( isset($selected_db) && strlen($selected_db) )
+    && (  ( isset($selected_db) && (is_array($selected_db) || strlen($selected_db)))
        || ( isset($selected_tbl) && (is_array($selected_tbl) || strlen($selected_tbl)))
        || ( isset($selected_fld) && (is_array($selected_fld) || strlen($selected_fld)))
        || !empty($rows_to_delete)
          )) {
 
-    if (isset($selected_db) && strlen($selected_db)) {
+    if (isset($selected_db) && (is_array($selected_db) || strlen($selected_db))) {
         $selected     = $selected_db;
         $what         = 'drop_db';
     } elseif (isset($selected_tbl) && (is_array($selected_tbl) || strlen($selected_tbl))) {
