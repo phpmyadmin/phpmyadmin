@@ -75,7 +75,7 @@ if (isset($drop_selected_dbs_x)) {
 }
 
 if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
-    if ((! isset($selected_db) || ! strlen($selected_db)) && ! (isset($query_type) && !empty($selected))) {
+    if (! isset($selected_db) && ! isset($query_type)) {
         $message = $strNoDatabasesSelected;
     } else {
         $action = 'server_databases.php';
