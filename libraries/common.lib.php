@@ -504,6 +504,25 @@ require_once './libraries/Config.class.php';
 
 
 if (!defined('PMA_MINIMUM_COMMON')) {
+    
+    /**
+     * string PMA_getIcon(string $icon)
+     * 
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @param   $icon   name of icon
+     * @return          html img tag
+     */
+    function PMA_getIcon($icon, $alternate = '')
+    {
+        if ($GLOBALS['cfg']['PropertiesIconic']) {
+            return '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+                . ' title="' . $alternate . '" alt="' . $alternate . '"'
+                . ' class="icon" width="16" height="16" />';
+        } else {
+            return $alternate;
+        }
+    }
+    
     /**
      * Displays the maximum size for an upload
      *
@@ -2532,6 +2551,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 return '';
             }
             $database = $GLOBALS['db'];
+        } else {
+            $database = PMA_unescape_mysql_wildcards($database);
         }
 
         return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($database) . '"'
@@ -2761,9 +2782,40 @@ $goto_whitelist = array(
 );
 
 /**
+ * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
+ * 
+ * checks given given $page against given $whitelist and returns true if valid
+ * it ignores optionaly query paramters in $page (script.php?ignored)
+ * 
+ * @uses    in_array()
+ * @uses    urldecode()
+ * @uses    substr()
+ * @uses    strpos()
+ * @param   string  &$page      page to check
+ * @param   array   $whitelist  whitelist to check page against
+ * @return  boolean whether $page is valid or not (in $whitelist or not)
+ */
+function PMA_checkPageValidity(&$page, $whitelist)
+{
+	if (! isset($page)) {
+		return false;
+    }
+    
+    if (in_array($page, $whitelist)) {
+        return true;
+    } else {
+        $page = urldecode($page);
+        if (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
+            return true;
+        }
+    }
+	return false;
+}
+
+/**
  * check $__redirect against whitelist
  */
-if (!in_array($__redirect, $goto_whitelist)) {
+if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
     $__redirect = null;
 }
 
@@ -2771,9 +2823,9 @@ if (!in_array($__redirect, $goto_whitelist)) {
  * @var string  $goto   holds page that should be displayed
  */
 // Security fix: disallow accessing serious server files via "?goto="
-if (isset($_REQUEST['goto']) && in_array(substr($_REQUEST['goto'], 0, strpos($_REQUEST['goto'] . '?', '?')), $goto_whitelist)) {
+if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
-    $GLOBALS['url_params']['goto'] = $goto;
+    $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
     unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto'], $_COOKIE['goto']);
     $GLOBALS['goto'] = '';
@@ -2782,7 +2834,7 @@ if (isset($_REQUEST['goto']) && in_array(substr($_REQUEST['goto'], 0, strpos($_R
 /**
  * @var string $back returning page
  */
-if (isset($_REQUEST['back']) && in_array($_REQUEST['back'], $goto_whitelist)) {
+if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
