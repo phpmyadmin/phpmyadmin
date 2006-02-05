@@ -59,7 +59,8 @@ if (!isset($sql_query) && isset($table) && isset($db)) {
 }
 
 // instead of doing the test twice
-$is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);
+$is_drop_database = preg_match('/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
+    $sql_query);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -219,15 +220,15 @@ if (!$cfg['Confirm']
     || isset($GLOBALS['show_as_php'])
 
     || !empty($GLOBALS['validatequery'])) {
-    $do_confirm = FALSE;
+    $do_confirm = false;
 } else {
     $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
 }
 
-if ( $do_confirm ) {
+if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    require_once('./libraries/header.inc.php');
-    if ( $is_drop_database) {
+    require_once './libraries/header.inc.php';
+    if ($is_drop_database) {
         echo '<h1 class="warning">' . $strDropDatabaseStrongWarning . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
@@ -268,9 +269,8 @@ else {
     // A table has to be created or renamed -> left frame should be reloaded
     // TODO: use the parser/analyzer
 
-    if ( empty( $reload )
-        && (preg_match('@^CREATE (VIEW|TABLE)\s+@i', $sql_query)
-         || preg_match('@^ALTER TABLE\s+.*RENAME@i', $sql_query))) {
+    if (empty($reload)
+        && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $reload           = 1;
     }
     // Gets the number of rows per page

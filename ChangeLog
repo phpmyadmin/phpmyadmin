@@ -8,6 +8,7 @@ $Source$
 2006-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/mult_submits.inc.php, server_databases.php: array to string 
       conversion (sorry to late :-( ), use of $_REQUEST
+    * sql.php: fixed some 'not refreshing left frame'
 
 2006-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1409770 auto-detection and dirname on
