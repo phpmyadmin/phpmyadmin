@@ -10,12 +10,21 @@
 require_once('./libraries/common.lib.php');
 $js_to_run = 'functions.js';
 
+// default values
+$GLOBALS['reload'] = false;
+
 // Are we just executing plain query or sql file? (eg. non import, but query box/window run)
 if (!empty($sql_query)) {
     // run SQL query
     $import_text = $sql_query;
     $import_type = 'query';
     $format = 'sql';
+    
+    // refresh left frame on changes in table or db structure
+    if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+        $GLOBALS['reload'] = true;
+    }
+    
     unset($sql_query);
 } elseif (!empty($sql_localfile)) {
     // run SQL file on server
@@ -113,7 +122,6 @@ $file_to_unlink = '';
 $sql_query = '';
 $sql_query_disabled = FALSE;
 $go_sql = FALSE;
-$reload = FALSE;
 $executed_queries = 0;
 $run_query = TRUE;
 $charset_conversion = FALSE;
@@ -129,6 +137,12 @@ if (!empty($id_bookmark)) {
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
                 $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
             }
+            
+            // refresh left frame on changes in table or db structure
+            if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+                $GLOBALS['reload'] = true;
+            }
+            
             break;
         case 1: // bookmarked query that have to be displayed
             $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
