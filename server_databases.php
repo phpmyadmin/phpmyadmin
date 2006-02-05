@@ -5,11 +5,11 @@
 /**
  * Does the common work
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 
 $js_to_run = 'functions.js';
-require('./libraries/server_common.inc.php');
+require './libraries/server_common.inc.php';
 
 /**
  * Sorts the databases array according to the user's choice
@@ -45,22 +45,22 @@ function PMA_dbCmp($a, $b) {
 /**
  * avoids 'undefined index' errors
  */
-if (empty($sort_by)) {
+if (empty($_REQUEST['sort_by'])) {
     $sort_by = 'SCHEMA_NAME';
 } else {
-    $sort_by = PMA_sanitize($sort_by);
+    $sort_by = PMA_sanitize($_REQUEST['sort_by']);
 }
-if (empty($sort_order)) {
+if (empty($_REQUEST['sort_order'])) {
     if ($sort_by == 'SCHEMA_NAME') {
         $sort_order = 'asc';
     } else {
         $sort_order = 'desc';
     }
 } else {
-    $sort_order = PMA_sanitize($sort_order);
+    $sort_order = PMA_sanitize($_REQUEST['sort_order']);
 }
 
-$dbstats = empty( $dbstats ) ? 0 : 1;
+$dbstats = empty($dbstats) ? 0 : 1;
 
 
 /**
@@ -69,19 +69,23 @@ $dbstats = empty( $dbstats ) ? 0 : 1;
 
 // workaround for IE behavior (it returns some coordinates based on where
 // the mouse was on the Drop image):
-
-if (isset($drop_selected_dbs_x)) {
-    $drop_selected_dbs = 'Drop';
+if (isset($_REQUEST['drop_selected_dbs_x'])) {
+    $_REQUEST['drop_selected_dbs'] = true;
 }
 
-if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
-    if (! isset($selected_db) && ! isset($query_type)) {
+if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
+  && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
+    if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
         $message = $strNoDatabasesSelected;
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db' ;
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        require('./libraries/mult_submits.inc.php');
+        if (isset($_REQUEST['selected_dbs'])) {
+            $selected_db = $_REQUEST['selected_dbs'];
+        }
+        require './libraries/mult_submits.inc.php';
+        unset($action, $submit_mult, $err_url, $selected_db);
         if ($mult_btn == $strYes) {
             $message = sprintf($strDatabasesDropped, count($selected));
         } else {
@@ -93,7 +97,7 @@ if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg
 /**
  * Displays the links
  */
-require('./libraries/server_links.inc.php');
+require './libraries/server_links.inc.php';
 
 
 /**
@@ -212,9 +216,9 @@ if (count($databases) > 0) {
         if ( $is_superuser || $cfg['AllowUserDropDatabase'] ) {
             echo '    <td class="tool">' . "\n";
             if ($current['SCHEMA_NAME'] != 'mysql' && (PMA_MYSQL_INT_VERSION < 50002 || $current['SCHEMA_NAME'] != 'information_schema')) {
-                echo '        <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
+                echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
             } else {
-                echo '        <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" disabled="disabled"/>' . "\n";
+                echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" disabled="disabled"/>' . "\n";
             }
             echo '    </td>' . "\n";
         }
@@ -333,13 +337,13 @@ if (count($databases) > 0) {
  * Create new database.
  */
 echo '<ul><li id="li_create_database">' . "\n";
-require('./libraries/display_create_database.lib.php');
+require './libraries/display_create_database.lib.php';
 echo '    </li>' . "\n";
 echo '</ul>' . "\n";
 
 /**
  * Sends the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 
 ?>

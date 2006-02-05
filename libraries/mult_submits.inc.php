@@ -8,16 +8,16 @@
  */
 if (!empty($submit_mult)
     && ($submit_mult != $strWithChecked)
-    && (  ( isset($selected_db) && (is_array($selected_db) || strlen($selected_db)))
-       || ( isset($selected_tbl) && (is_array($selected_tbl) || strlen($selected_tbl)))
-       || ( isset($selected_fld) && (is_array($selected_fld) || strlen($selected_fld)))
+    && (  ( isset($selected_db) && !empty($selected_db) )
+       || ( isset($selected_tbl) && !empty($selected_tbl) )
+       || ( isset($selected_fld) && !empty($selected_fld) )
        || !empty($rows_to_delete)
          )) {
 
-    if (isset($selected_db) && (is_array($selected_db) || strlen($selected_db))) {
+    if (isset($selected_db) && !empty($selected_db)) {
         $selected     = $selected_db;
         $what         = 'drop_db';
-    } elseif (isset($selected_tbl) && (is_array($selected_tbl) || strlen($selected_tbl))) {
+    } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
         if ($submit_mult == $strPrintView) {
             require('./tbl_printview.php');
         } else {
@@ -54,7 +54,7 @@ if (!empty($submit_mult)
                    break;
            } // end switch
         }
-    } elseif (isset($selected_fld) && (is_array($selected_fld) || strlen($selected_fld))) {
+    } elseif (isset($selected_fld) && !empty($selected_fld)) {
         $selected     = $selected_fld;
         switch ($submit_mult) {
             case $strDrop:
