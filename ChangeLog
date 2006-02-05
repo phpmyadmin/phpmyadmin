@@ -15,6 +15,9 @@ $Source$
        - PMA_checkPageValidity() [bug #1416848]
        - added PMA_getIcon()
        - PMA_getDbLink(): unescape names
+    * scripts/setup.php:
+      fixed bug #1424274 'Found a problem in the setup script'
+      (ShowPHPInfo -> ShowPhpInfo)
 
 2006-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1409770 auto-detection and dirname on

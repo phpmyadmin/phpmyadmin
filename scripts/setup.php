@@ -713,7 +713,7 @@ function show_security_form($defaults = array()) {
         show_config_form(array(
             array('Blowfish secret', 'blowfish_secret', 'Secret passphrase used for encrypting cookies'),
             array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connection while using phpMyAdmin', FALSE),
-            array('Show phpinfo output', 'ShowPHPInfo', 'Whether to allow users to see phpinfo() output', FALSE),
+            array('Show phpinfo output', 'ShowPhpInfo', 'Whether to allow users to see phpinfo() output', FALSE),
             array('Show password change form', 'ShowChgPassword', 'Whether to show form for changing password, this does not limit ability to execute the same command directly', FALSE),
             array('Allow login to any MySQL server', 'AllowArbitraryServer', 'If enabled user can enter any MySQL server in login form for cookie auth.', FALSE),
             array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name while using cookie auth.', TRUE),
@@ -1379,7 +1379,7 @@ switch ($action) {
 
     case 'feat_security_real':
         if (isset($_POST['submit_save'])) {
-            $vals = grab_values('blowfish_secret;ForceSSL:bool;ShowPHPInfo:bool;ShowChgPassword:bool;AllowArbitraryServer:bool;LoginCookieRecall:book;LoginCookieValidity:int');
+            $vals = grab_values('blowfish_secret;ForceSSL:bool;ShowPhpInfo:bool;ShowChgPassword:bool;AllowArbitraryServer:bool;LoginCookieRecall:book;LoginCookieValidity:int');
             $err = FALSE;
             if (empty($vals['blowfish_secret'])) {
                 message('warning', 'Blowfish secret is empty, you will not be able to use cookie authentication.');
