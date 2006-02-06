@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-06 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Fix typos (bug #1424923).
+
 2006-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/mult_submits.inc.php, server_databases.php: array to string 
       conversion (sorry to late :-( ), use of $_REQUEST

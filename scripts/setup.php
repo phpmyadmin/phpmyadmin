@@ -952,7 +952,7 @@ function show_tabs_form($defaults = array()) {
             array('Default tab for server', 'DefaultTabServer', 'Tab that is displayed when entering server', array('main.php', 'server_databases.php', 'server_status.php', 'server_variables.php', 'server_privileges.php', 'server_processlist.php')),
             array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_details_structure.php', 'db_details.php', 'db_search.php', 'db_operations.php')),
             array('Default tab for table', 'DefaultTabTable', 'Tab that is displayed when entering table', array('tbl_properties_structure.php', 'sql.php', 'tbl_properties.php', 'tbl_select.php', 'tbl_change.php')),
-            array('Use lighter tabs', 'LightTab', 'If you want simpler tabs enable this', FALSE),
+            array('Use lighter tabs', 'LightTabs', 'If you want simpler tabs enable this', FALSE),
             ),
             'Configure tabs',
             'Choose how you want tabs to work.',
@@ -1533,7 +1533,7 @@ switch ($action) {
 
     case 'lay_left_real':
         if (isset($_POST['submit_save'])) {
-            $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDusplayServers:bool;LeftPointerEnable:bool');
+            $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDisplayServers:bool;LeftPointerEnable:bool');
             $err = FALSE;
             if (isset($vals['LeftFrameTableLevel']) && $vals['LeftFrameTableLevel'] < 1) {
                 message('error', 'Invalid value for maximum table nesting level!');
