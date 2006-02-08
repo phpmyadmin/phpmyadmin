@@ -564,13 +564,23 @@ class PMA_Config
                 $pma_absolute_uri .= ':' . $url['port'];
             }
             // And finally path, without script name, the 'a' is there not to
-            // strip our directory, when path is only /pmadir/ without filename
-            // (also backslashes returned by Windows have to be changed)
-            $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
+            // strip our directory, when path is only /pmadir/ without filename.
+            // Backslashes returned by Windows have to be changed.
+            // Only replace backslashes by forward slashes if on Windows,
+            // as the backslash could be valid on a non-Windows system.
+            if ($this->get('PMA_IS_WINDOWS') == 1) {
+                $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
+            } else {
+                $path = dirname($url['path'] . 'a');
+            }
 
             // To work correctly within transformations overview:
             if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
-                $path = str_replace("\\", "/", dirname(dirname($path)));
+                if ($this->get('PMA_IS_WINDOWS') == 1) {
+                    $path = str_replace("\\", "/", dirname(dirname($path)));
+                } else {
+                    $path = dirname(dirname($path));
+                }
             }
             // in vhost situations, there could be already an ending slash
             if (substr($path, -1) != '/') {
