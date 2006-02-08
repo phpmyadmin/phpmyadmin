@@ -7,7 +7,8 @@ $Source$
 
 2006-02-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: leave the possibility of having a
-      backslash in the path on non-Windows system, thanks to Michal
+      backslash in the path on non-Windows system, thanks to Michal;
+      and bug #1418769, part 2: missing argument (PHP 4 constructor)
 
 2006-02-06 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Fix typos (bug #1424923).

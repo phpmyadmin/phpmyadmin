@@ -476,7 +476,7 @@ class PMA_Config
      *
      * @deprecated
      */
-    function PMA_Config($source)
+    function PMA_Config($source = null)
     {
         $this->__construct($source);
     }
