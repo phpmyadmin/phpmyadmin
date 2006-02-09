@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/mult_submit.inc.php: bug #1404565, left frame refresh on 
+      db drop from Databases link in main page
+
 2006-02-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: leave the possibility of having a
       backslash in the path on non-Windows system, thanks to Michal;

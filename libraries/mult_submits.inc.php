@@ -151,6 +151,7 @@ if ( !empty($submit_mult) && !empty($what)) {
                 $full_query .= 'DROP DATABASE '
                     . PMA_backquote(htmlspecialchars(urldecode($sval)))
                     . ';<br />';
+                $reload = 1;
                 break;
 
             case 'drop_tbl':
@@ -236,6 +237,9 @@ if ( !empty($submit_mult) && !empty($what)) {
     } else  {
         echo PMA_generate_common_hidden_inputs();
     }
+?>
+<input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload) : 0; ?>" />
+<?php
     foreach ($selected AS $idx => $sval) {
         echo '<input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
