@@ -17,9 +17,8 @@
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
-
     $cfg = array('DefaultLang'           => 'en-iso-8859-1',
-                    'AllowAnywhereRecoding' => FALSE);
+                 'AllowAnywhereRecoding' => false);
     // Loads the language file
     require_once('./libraries/select_lang.lib.php');
     // Displays the error message
@@ -31,14 +30,33 @@ if (!@function_exists('session_name')) {
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
     exit();
+} elseif (ini_get('session.auto_start') == true) {
+    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                 'AllowAnywhereRecoding' => false);
+    // Loads the language file
+    require_once('./libraries/select_lang.lib.php');
+    // Displays the error message
+    // (do not use &amp; for parameters sent by header)
+    // TODO FIXME replace with locale string
+    $strSessionAutostartError = 'phpMyAdmin cannot run with'
+        . ' [a@http://php.net/session#ini.session.auto-start@php]session.auto_start[/a]'
+        . ' enabled. Check your php configuration.';
+    header('Location: error.php'
+            . '?lang='  . urlencode('en') //($available_languages[$lang][2])
+            . '&char='  . urlencode($charset)
+            . '&dir='   . urlencode('ltr') //($text_dir)
+            . '&type='  . urlencode('Error') //($strError)
+            . '&error=' . urlencode($strSessionAutostartError));
+    exit();
 }
+
+// disable starting of sessions before all settings are done
+// does not work, besides how it is written in php manual
+//ini_set('session.auto_start', 0);
 
 // session cookie settings
 session_set_cookie_params(0, PMA_Config::getCookiePath(),
     '', PMA_Config::isHttps());
-
-// disable starting of sessions before all settings are done
-ini_set('session.auto_start', false);
 
 // cookies are safer
 ini_set('session.use_cookies', true);
@@ -48,7 +66,7 @@ ini_set('session.use_only_cookies', false);
 ini_set('session.use_trans_sid', true);
 ini_set('url_rewriter.tags',
     'a=href,frame=src,input=src,form=fakeentry,fieldset=');
-ini_set('arg_separator.output', '&amp;');
+//ini_set('arg_separator.output', '&amp;');
 
 // delete session/cookies when browser is closed
 ini_set('session.cookie_lifetime', 0);
@@ -58,7 +76,7 @@ ini_set('session.bug_compat_42', false);
 ini_set('session.bug_compat_warn', true);
 
 // use more secure session ids (with PHP 5)
-if (version_compare( PHP_VERSION, '5.0.0', 'ge')
+if (version_compare(PHP_VERSION, '5.0.0', 'ge')
   && substr(PHP_OS, 0, 3) != 'WIN') {
     ini_set('session.hash_function', 1);
     ini_set('session.hash_bits_per_character', 6);
@@ -70,7 +88,7 @@ if (version_compare( PHP_VERSION, '5.0.0', 'ge')
 
 // [2006-01-25] Nicola Asuni - www.tecnick.com: maybe the PHP directive
 // session.save_handler is set to another value like "user"
-ini_set("session.save_handler", "files");
+ini_set('session.save_handler', 'files');
 
 @session_name('phpMyAdmin');
 @session_start();

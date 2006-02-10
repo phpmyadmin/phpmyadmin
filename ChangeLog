@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libararies/session.inc.php:
+      stop execution and ommit warning on session.auto_start enabled
+    
 2006-02-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/mult_submit.inc.php: bug #1404565, left frame refresh on 
       db drop from Databases link in main page
