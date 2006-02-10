@@ -1,0 +1,4 @@
+# At least on web servers supporting the .htaccess mecanism,
+# we disable session.auto_start; on other servers, users will
+# get a warning that they have to disable this setting
+php_flag session.auto_start 0
