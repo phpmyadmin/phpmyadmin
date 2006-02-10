@@ -10,6 +10,7 @@ $Source$
       servers supporting .htaccess we can run even if session.auto_start
       is enabled
     * lang/belarusian updates, thanks to Jaska Zedlik
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
 
 2006-02-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libararies/session.inc.php:
