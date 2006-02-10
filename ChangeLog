@@ -9,6 +9,7 @@ $Source$
     * .htaccess added to main directory for bug #1411996; at least on
       servers supporting .htaccess we can run even if session.auto_start
       is enabled
+    * lang/belarusian updates, thanks to Jaska Zedlik
 
 2006-02-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libararies/session.inc.php:
