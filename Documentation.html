@@ -165,9 +165,11 @@
     <li> Ensure that all the scripts have the appropriate owner (if PHP is
          running in safe mode, having some scripts with an owner different
          from the owner of other scripts will be a
-         problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li>
-    <li> Create the file <tt>config.inc.php</tt>. You can use setup script
-         provided in distribution (<a
+         problem). See <a href="#faq4_2">FAQ 4.2</a> and 
+         <a href="#faq1_26">FAQ 1.26</a> for suggestions.</li>
+    <li> Create the file <tt>config.inc.php</tt> in the main (top-level)
+         directory (the one that contains <tt>index.php</tt>).
+         You can use setup script provided in distribution (<a
          href="scripts/setup.php">scripts/setup.php</a>) to create basics of
          config file. See <a href="#setup_script">Setup</a> chapter for
          details. If you don't like setup or want to fine tune resulting
@@ -180,7 +182,7 @@
          for an explanation of all values. Please also read the remaining of
          this Installation section for information about authentication modes
          and the linked-tables infrastructure.</li> <li> If you are using the
-         config auth_type, it is suggested that you protect the phpMyAdmin
+         <tt>auth_type</tt> configuration directive, it is suggested that you protect the phpMyAdmin
          installation directory, for example with HTTP&#8211;AUTH in a
          <i>.htaccess</i> file. See the <a href="#faqmultiuser">
          multi&#8211;user sub&#8211;section</a> of this FAQ for additional
@@ -190,10 +192,10 @@
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
-    <li> You should deny access to libraries subfolder in your webserver
+    <li> You should deny access to the <tt>libraries</tt> subfolder in your webserver
          configuration. For Apache you can use supplied .htaccess file in that
          folder, for other webservers, you should configure this yourself.
-         Such configuration prevents from possible path expossure and cross
+         Such configuration prevents from possible path exposure and cross
          side scripting vulnerabilities that might happen to be found in that
          code.</li>
 </ol>
@@ -203,12 +205,25 @@
     Since 2.8.0 phpMyAdmin comes with a setup script that can help you with
     creating configuration. This script is located in <tt>scripts</tt> folder: <a
     href="scripts/setup.php">scripts/setup.php</a>. Its usage is quite
-    simple. In case you just want to download configuration, you don't have to
-    perform any additional actions. For saving file on webserver, or loading
-    previous configuration you have to create <code>config</code> directory in
+simple. You follow the dialogs and this script prepares in memory the
+configuration directives. You then have two choices for saving the
+configuration file:
+    <ol>
+        <li>Download it to your local workstation, then upload (for example
+            with ftp) to your main phpMyAdmin directory. In this case, you
+            don't have to prepare a special <tt>config</tt> directory, so
+            no further actions are necessary.</li>
+        <li>Save the file to your webserver into <tt>config</tt> directory.
+        </li>
+    </ol>
+  </p>
+  <p>
+    For saving file on webserver, or loading
+    previous configuration you have to create <tt>config</tt> directory in
     phpMyAdmin's top level directory and make it writable to web server. For
     loading previous configuration, place it there (and make sure it has write
-    permissions for webserver). You can use following commands:
+    permissions for webserver). On a Linux/UNIX server you can use the 
+    following commands:
  </p>
  <pre>
     cd phpMyAdmin
@@ -218,11 +233,17 @@
     cp config.inc.php config/           # copy current configuration
     chmod o+w config/config.inc.php     # give it world writable permissions
  </pre>
+ <p>On a Windows system, create a <tt>config</tt> in the main phpMyAdmin
+ directory and ensure that your web server has read/write access to it. 
+ <a href="#faq1_26">FAQ 1.26</a> can help you about this. If you already have
+ an existing <tt>config.inc.php</tt> in your main directory, copy it to the
+ newly created <tt>config</tt> directory.
+ </p>
  <p>
-    Then you can open <code>setup.php</code> in your browser and perform
+    Then you can open <tt>scripts/setup.php</tt> in your browser and perform
     setup. After saving your configuration move generated configuration to top
-    level directory and delete created <code>config</code> directory. Do not
-    forget to remove world write permissions on <code>config.inc.php</code>!
+    level directory and delete created <tt>config</tt> directory. Do not
+    forget to remove world write permissions on <tt>config.inc.php</tt>!
  </p>
  <p>
     Please note that it does not allow to configure everything, so for some
