@@ -924,14 +924,8 @@ if (isset($primary_key)) {
     <?php
 echo "\n";
 
-// Defines whether "insert another new row" should be
-// selected or not (keep this choice sticky)
-if (!empty($disp_message)) {
-    $selected_after_insert_new_insert = ' selected="selected"';
-    $selected_after_insert_back = '';
-} else {
-    $selected_after_insert_back = ' selected="selected"';
-    $selected_after_insert_new_insert = '';
+if (!isset($after_insert)) {
+    $after_insert = 'back';
 }
 ?>
         </td>
@@ -940,12 +934,12 @@ if (!empty($disp_message)) {
         </td>
         <td valign="middle" nowrap="nowrap">
             <select name="after_insert">
-                <option value="back" <?php echo $selected_after_insert_back; ?>><?php echo $strAfterInsertBack; ?></option>
-                <option value="new_insert" <?php echo $selected_after_insert_new_insert; ?>><?php echo $strAfterInsertNewInsert; ?></option>
+                <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertBack; ?></option>
+                <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNewInsert; ?></option>
 <?php
 if (isset($primary_key)) {
     ?>
-                <option value="same_insert"><?php echo $strAfterInsertSame; ?></option>
+                <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertSame; ?></option>
     <?php
     // If we have just numeric primary key, we can also edit next
     if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {

@@ -35,6 +35,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . '&dontlimitchars=' . $dontlimitchars
+          . '&after_insert=' . $after_insert
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
 } elseif (isset($after_insert) && $after_insert == 'same_insert') {
     $goto = 'tbl_change.php?'
@@ -45,6 +46,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . '&dontlimitchars=' . $dontlimitchars
+          . '&after_insert=' . $after_insert
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
     if (isset($primary_key)) {
         foreach ($primary_key AS $pk) {
@@ -60,6 +62,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . '&dontlimitchars=' . $dontlimitchars
+          . '&after_insert=' . $after_insert
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
     if (isset($primary_key)) {
         foreach ($primary_key AS $pk) {
