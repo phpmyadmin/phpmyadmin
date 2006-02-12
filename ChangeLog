@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/english and hebrew: bug #1429769, typo
+
 2006-02-10 Marc Delisle  <lem9@users.sourceforge.net>
     * .htaccess added to main directory for bug #1411996; at least on
       servers supporting .htaccess we can run even if session.auto_start
