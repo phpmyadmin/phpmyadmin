@@ -7,7 +7,9 @@ $Source$
 
 2006-02-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php:
-       - fixed bug #1416848 'Insert new row from Browse page'
+      - fixed bug #1416848 'Insert new row from Browse page'
+    * libraries/common.lib.php:
+      - fixed bug #1409893 - links in navigation frame opens new window
 
 2006-02-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/english and hebrew: bug #1429769, typo
