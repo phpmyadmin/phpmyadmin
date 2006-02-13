@@ -677,11 +677,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     //       Do not show comments, if using horizontalflipped mode, because of space usage
     if ($GLOBALS['cfg']['ShowBrowseComments'] && ($GLOBALS['cfgRelation']['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) && $disp_direction != 'horizontalflipped') {
         $comments_map = array();
-        foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
-
-            $tb = $tbl['table_true_name'];
-
-            $comments_map[$tb] = PMA_getComments($db, $tb);
+        if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
+            foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
+                $tb = $tbl['table_true_name'];
+                $comments_map[$tb] = PMA_getComments($db, $tb);
+                unset($tb);
+            }
         }
     }
 
