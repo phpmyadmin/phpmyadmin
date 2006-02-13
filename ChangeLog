@@ -10,6 +10,10 @@ $Source$
       - fixed bug #1416848 'Insert new row from Browse page'
     * libraries/common.lib.php:
       - fixed bug #1409893 - links in navigation frame opens new window
+    * libraries/select_server.lib.php:
+      - fixed bug #1425688 'Server Select quirk'
+      - valid XHTML 1.0
+      - code readability
 
 2006-02-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/english and hebrew: bug #1429769, typo

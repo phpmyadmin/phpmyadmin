@@ -4,96 +4,113 @@
  * $Id$
  */
 
-function PMA_select_server($form, $left) {
-    global $server, $cfg, $lang, $convcharset;
-   
+/**
+ * display server selection in list or selectbox form, or option tags only
+ * 
+ * @todo    make serverlist a real html-list
+ * @globals $lang
+ * @globals $convcharset
+ * @uses    $GLOBALS['cfg']['DisplayServersList']
+ * @uses    $GLOBALS['strServer']
+ * @uses    $GLOBALS['cfg']['Servers']
+ * @uses    $GLOBALS['strGo']
+ * @uses    implode()
+ * @uses    htmlspecialchars()
+ * @param   boolean $not_only_options   whether to include form tags or not
+ * @param   boolean $ommit_fieldset     whether to ommit fieldset tag or not
+ */
+function PMA_select_server($not_only_options, $ommit_fieldset)
+{
+    global $lang, $convcharset;
+    
     // Show as list?
-    $list = $cfg['DisplayServersList'];
-    if (!$form) {
-        $list = FALSE;
+    if ($not_only_options) {
+        $list = $GLOBALS['cfg']['DisplayServersList'];
+        $not_only_options =! $list;
+    } else {
+        $list = false;
     }
-   
-    if ($form) {
-        if ($left) {
-            echo '<div class="heada">' . $GLOBALS['strServer']. ':</div>';
+    
+    if ($not_only_options) {
+        echo '<form method="post" action="index.php" target="_parent">';
+
+        if (! $ommit_fieldset) {
+            echo '<fieldset>';
+        }
+        echo '<label for="select_server">' . $GLOBALS['strServer'] . ':</label> ';
+        
+        echo '<select name="server" id="select_server" onchange="this.form.submit();">';
+        // TODO FIXME replace with $GLOBALS['strServers']
+        echo '<option value="">(' . $GLOBALS['strServer'] . ') ...</option>' . "\n";
+    } elseif ($list) {
+        echo $GLOBALS['strServer'] . ':<br />';
+        // TODO FIXME display server list as 'list'
+        // echo '<ol>';
+    }
+    
+    foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
+        if (empty($server['host'])) {
+            continue;
+        }
+        
+        if (!empty($GLOBALS['server']) && $GLOBALS['server'] === $key) {
+            $selected = 1;
         } else {
-            ?> 
-    <fieldset>
-    <legend><?php echo $GLOBALS['strServerChoice']; ?></legend>
-            <?php
+        	$selected = 0;
         }
-        if (!$list) {
-            ?> 
-        <form method="post" action="index.php" target="_parent">
-            <select name="server" onchange="this.form.submit();">
-            <?php
+        
+        if (!empty($server['verbose'])) {
+            $label = $server['verbose'];
+        } else {
+            $label = $server['host'];
+            if (!empty($server['port'])) {
+                $label .= ':' . $server['port'];
+            }
         }
-    }
-    foreach ($cfg['Servers'] AS $key => $val) {
-        if (!empty($val['host'])) {
-             $selected = 0;
-            if (!empty($server) && ($server == $key)) {
-                $selected = 1;
-            }
-            if (!empty($val['verbose'])) {
-                $label = $val['verbose'];
-            } else {
-                $label = $val['host'];
-                if (!empty($val['port'])) {
-                    $label .= ':' . $val['port'];
-                }
-            }
-            // loic1: if 'only_db' is an array and there is more than one
-            //        value, displaying such informations may not be a so good
-            //        idea
-            if (!empty($val['only_db'])) {
-                $label .= ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-            }
-            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
-                $label .= '  (' . $val['user'] . ')';
-            }
+        // loic1: if 'only_db' is an array and there is more than one
+        //        value, displaying such informations may not be a so good
+        //        idea
+        if (!empty($server['only_db'])) {
+        	// TODO FIXME this can become a really big selectbox ...
+            $label .= ' - ' . (is_array($server['only_db']) ? implode(', ', $server['only_db']) : $server['only_db']);
+        }
+        if (!empty($server['user']) && $server['auth_type'] == 'config') {
+            $label .= '  (' . $server['user'] . ')';
+        }
 
-            if ($list){
-                if ($selected && !$left) {
-                    echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
-                } else {
-                    echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
-                }
+        if ($list) {
+            // TODO FIXME display server list as 'list'
+            // echo '<li>';
+            if ($selected && !$ommit_fieldset) {
+                echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
             } else {
-                echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
+                echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
             }
-
-        } // end if (!empty($val['host']))
+            // echo '</li>';
+        } else {
+            echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
+        }
     } // end while
 
-    if ($form) {
-        if ( ! $list ) {
-        ?> 
-        </select>
+    if ($not_only_options) {
+        echo '</select>';
+        if ($ommit_fieldset) {
+            echo '<hr />';
+        } else {
+            echo '</fieldset>';
+        }
+        ?>
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-	<?php
-	// Show submit button if we have just one server (this happens with no default)
-	if (count($cfg['Servers']) > 1) {
-		echo '<noscript>';
-	}
-	?>
-        <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
-	<?php
-	if (count($cfg['Servers']) > 1) {
-		echo '</noscript>';
-	}
-	?>
-    </form>
         <?php
-    }
-        if (!$left) {
-        ?> 
-</fieldset>
-        <?php
-        } else {
-            echo '<hr />';
-        }
+        // Show submit button if we have just one server (this happens with no default)
+  		echo '<noscript>';
+    	echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+   		echo '</noscript>';
+    	echo '</form>';
+    } elseif ($list) {
+        // TODO FIXME display server list as 'list'
+        // echo '</ol>';
     }
 }
 ?> 
