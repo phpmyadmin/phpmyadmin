@@ -492,6 +492,39 @@ function PMA_arrayWalkRecursive(&$array, $function)
 }
 
 /**
+ * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
+ * 
+ * checks given given $page against given $whitelist and returns true if valid
+ * it ignores optionaly query paramters in $page (script.php?ignored)
+ * 
+ * @uses    in_array()
+ * @uses    urldecode()
+ * @uses    substr()
+ * @uses    strpos()
+ * @param   string  &$page      page to check
+ * @param   array   $whitelist  whitelist to check page against
+ * @return  boolean whether $page is valid or not (in $whitelist or not)
+ */
+function PMA_checkPageValidity(&$page, $whitelist)
+{
+    if (! isset($page)) {
+        return false;
+    }
+    
+    if (in_array($page, $whitelist)) {
+        return true;
+    } elseif (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
+        return true;
+    } else {
+        $_page = urldecode($page);
+        if (in_array(substr($_page, 0, strpos($_page . '?', '?')), $whitelist)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
  * include here only libraries which contain only function definitions
  * no code im main()!
  */
@@ -2780,37 +2813,6 @@ $goto_whitelist = array(
     'translators.html',
     'user_password.php',
 );
-
-/**
- * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
- * 
- * checks given given $page against given $whitelist and returns true if valid
- * it ignores optionaly query paramters in $page (script.php?ignored)
- * 
- * @uses    in_array()
- * @uses    urldecode()
- * @uses    substr()
- * @uses    strpos()
- * @param   string  &$page      page to check
- * @param   array   $whitelist  whitelist to check page against
- * @return  boolean whether $page is valid or not (in $whitelist or not)
- */
-function PMA_checkPageValidity(&$page, $whitelist)
-{
-	if (! isset($page)) {
-		return false;
-    }
-    
-    if (in_array($page, $whitelist)) {
-        return true;
-    } else {
-        $page = urldecode($page);
-        if (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
-            return true;
-        }
-    }
-	return false;
-}
 
 /**
  * check $__redirect against whitelist
