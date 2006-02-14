@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-14 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Updates.
+
 2006-02-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_structure.php, tbl_properties_structure.php:
       - fixed bug #1420474 'Consistency (order of truncate/drop)'
