@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_structure.php, tbl_properties_structure.php:
+      - fixed bug #1420474 'Consistency (order of truncate/drop)'
+      - some PEAR coding standard
+
 2006-02-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1425522, warning when calling
       a stored procedure, thanks to JTC - jcqns
@@ -18,6 +23,8 @@ $Source$
       - fixed bug #1425688 'Server Select quirk'
       - valid XHTML 1.0
       - code readability
+    * server_privileges.php:
+      - fixed bug #1427707 Priv->user->pass radio buttons unselectable
 
 2006-02-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/english and hebrew: bug #1429769, typo
