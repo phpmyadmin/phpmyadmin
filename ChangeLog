@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: XHTML error, thanks to Cédric Corazza
+    * Documentation.html: remove experimental status for MySQL 4.1 support
+
 2006-02-14 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
 

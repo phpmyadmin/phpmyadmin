@@ -208,6 +208,7 @@
 simple. You follow the dialogs and this script prepares in memory the
 configuration directives. You then have two choices for saving the
 configuration file:
+ </p>
     <ol>
         <li>Download it to your local workstation, then upload (for example
             with ftp) to your main phpMyAdmin directory. In this case, you
@@ -216,7 +217,6 @@ configuration file:
         <li>Save the file to your webserver into <tt>config</tt> directory.
         </li>
     </ol>
-  </p>
   <p>
     For saving file on webserver, or loading
     previous configuration you have to create <tt>config</tt> directory in
@@ -559,8 +559,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         The improved MySQL extension. This extension became available
         with php 5.0.0 and is the recommended way to connect to a server
         running MySQL 4.1.x.
-        <br />
-        Note: phpMyAdmin's MySQL 4.1 support is experimental!
     </dd>
 
     <dt><b><a name="cfg_Servers_compress"></a>$cfg['Servers'][$i]['compress']</b> boolean</dt>
