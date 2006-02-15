@@ -2511,7 +2511,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         if ($default_current_timestamp && strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
             // 0 is empty in PHP
-        } elseif (!empty($default) || $default == '0' || $default != $default_orig) {
+            // auto_increment field cannot have a default value
+        } elseif ($extra !== 'AUTO_INCREMENT' && (!empty($default) || $default == '0' || $default != $default_orig)) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
