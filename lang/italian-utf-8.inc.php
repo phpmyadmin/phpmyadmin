@@ -288,7 +288,7 @@ $strFieldsEnclosedBy = 'Campo composto da';
 $strFieldsEscapedBy = 'Campo impedito da';
 $strFieldsTerminatedBy = 'Campo terminato da';
 $strFileAlreadyExists = 'Il file %s esiste già sul server: prego, cambiare nome del file o selezionare l\'opzione "sovrascrivi".';
-$strFileCouldNotBeRead = 'Il filenon può essere letto';
+$strFileCouldNotBeRead = 'Il file non può essere letto';
 $strFileNameTemplateDescriptionDatabase = 'nome database';
 $strFileNameTemplateDescription = 'Questo valore è interpretato usando %1$sstrftime%2$s, in questo modo puoi usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte le seguenti trasformazioni: %3$s. Il testo rimanente resterà invariato.';
 $strFileNameTemplateDescriptionServer = 'nome server';
@@ -504,6 +504,7 @@ $strNoRowsSelected = 'Nessuna riga selezionata';
 $strNoSpace = 'Spazio insufficiente per salvare il file %s.';
 $strNoTablesFound = 'Non ci sono tabelle nel database.';
 $strNoThemeSupport = 'Nessun supporto per i temi, si prega di controllare la configurazione e/o i temi nella cartella %s.';
+$strNothingToImport = 'Non hai inserito alcun dato da importare';
 $strNotNumber = 'Questo non è un numero!';
 $strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
@@ -974,13 +975,9 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 
 $strXML = 'XML';
 
-$strYes = ' Si ';
+$strYes = 'Sì';
 
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
-
-// To translate:
-
-$strNothingToImport = 'You didn\'t enter any data to import!'; //to translate
 
 ?>
