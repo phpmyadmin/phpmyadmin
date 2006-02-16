@@ -9,6 +9,7 @@ $Source$
     * lang/italian: update, thanks to Luca Rebellato
     * lang/german: remove duplicates
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
+    * lang/finnish: update, thanks to Jouni Kahkonen
 
 2006-02-15 Marc Delisle  <lem9@users.sourceforge.net>
     * bug #1406378, default value and auto_increment, thanks to Nuvo - nyvsld
