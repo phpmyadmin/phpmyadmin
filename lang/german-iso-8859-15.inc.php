@@ -884,8 +884,6 @@ $strZip = 'Zip-komprimiert';
 
 // To translate:
 $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-$strAllowInterrupt = 'Abbruch wenn die maximale Scriptlaufzeit errreicht wird. Damit ist es möglich große Dateien zu importieren, allerdings kann es Transaktionen zerstören.';  //recently translated
-$strAndThen = 'und';  //recently translated
 
 $strBrowseDistinctValues = 'Zeige unterschiedliche Werte';  //recently translated
 
