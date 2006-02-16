@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/italian: update, thanks to Luca Rebellato
+
 2006-02-15 Marc Delisle  <lem9@users.sourceforge.net>
     * bug #1406378, default value and auto_increment, thanks to Nuvo - nyvsld
 
