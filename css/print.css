@@ -5,9 +5,9 @@
 table,
 table tr td,
 table tr th {
-	border: 1px solid black;
-	border-collapse: collapse;
-	background-color: white;
-	color: white;
-	font-size: 8pt;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+/*    font-size: 8pt;*/
 }

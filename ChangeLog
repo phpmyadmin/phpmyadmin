@@ -15,6 +15,7 @@ $Source$
     * libraries/select_server.lib.php:
       - fixed pre-select for current server (fixed type missmatch)
       - do not autosubmit on '(Server) ...'
+    * css/print.css: fixed bug #1419696 'print css results in blank table output'
 
 2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
