@@ -5,9 +5,9 @@
 /**
  * WARNING: This script has to be included at the very end of your code because
  *          it will stop the script execution!
- * 
+ *
  * always use $GLOBALS, as this script is also included by functions
- * 
+ *
  */
 
 require_once './libraries/relation.lib.php'; // for PMA_setHistory()
@@ -74,7 +74,7 @@ if (!isset($GLOBALS['checked_special'])) {
 }
 
 if (isset($_SERVER['SCRIPT_NAME']) && empty($_POST) && !$GLOBALS['checked_special']) {
-    echo '<div id="selflink">' . "\n";
+    echo '<div id="selflink" class="print_ignore">' . "\n";
     echo '<a href="index.php?target=' . basename($_SERVER['SCRIPT_NAME']);
     $url = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
     if (!empty($url)) {

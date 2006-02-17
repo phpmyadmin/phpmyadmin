@@ -18,6 +18,7 @@ $Source$
     * css/print.css: fixed bug #1419696 'print css results in blank table output'
     * tbl_printview.php, css/print.css, themes/*/css/theme_print.css.php:
       fixed/cleaned printer output
+    * libraries/footer.inc.php: do not print selflink
 
 2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
