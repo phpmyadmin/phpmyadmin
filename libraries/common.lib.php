@@ -140,7 +140,7 @@ function PMA_getHtmlSelectDb($selected = '')
     // so, as mostly names will be in english, we set the whole selectbox to LTR
     // and EN
     $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
-        .' onchange="window.parent.openDb(this.value);">' . "\n"
+        .' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
         .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
         ."\n";
     foreach ($dblist as $group => $dbs) {

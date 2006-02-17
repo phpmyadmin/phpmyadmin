@@ -5,11 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2006-02-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2006-02-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * docs.css, Documentation.html, translators.html:
       - XHTML 1.1, more semantic, formating
       - added glossar
       - linked all references
+    * libraries/common.lib.php:
+      - fixed bug #1432626 'bad url error after select "(Databases)..."'
 
 2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
