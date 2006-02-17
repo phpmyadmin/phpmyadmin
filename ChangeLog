@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * docs.css, Documentation.html, translators.html:
+      - XHTML 1.1, more semantic, formating
+      - added glossar
+      - linked all references
+
 2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
     * lang/german: remove duplicates
@@ -57,9 +63,9 @@ $Source$
 2006-02-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libararies/session.inc.php:
       stop execution and ommit warning on session.auto_start enabled
-    
+
 2006-02-09 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/mult_submit.inc.php: bug #1404565, left frame refresh on 
+    * libraries/mult_submit.inc.php: bug #1404565, left frame refresh on
       db drop from Databases link in main page
 
 2006-02-08 Marc Delisle  <lem9@users.sourceforge.net>
@@ -71,7 +77,7 @@ $Source$
     * scripts/setup.php: Fix typos (bug #1424923).
 
 2006-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/mult_submits.inc.php, server_databases.php: array to string 
+    * libraries/mult_submits.inc.php, server_databases.php: array to string
       conversion (sorry to late :-( ), use of $_REQUEST
     * sql.php: fixed some 'not refreshing left frame'
     * import.php: refresh left frame also on multiqueries and bookmarks
@@ -87,7 +93,7 @@ $Source$
 2006-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1409770 auto-detection and dirname on
       Windows, thanks to Alex - nixniemand
-    * libraries/mult_submits.inc.php, server_databases.php: array to string 
+    * libraries/mult_submits.inc.php, server_databases.php: array to string
       conversion
     * tbl_properties_operations.php, tbl_properties.php, tbl_import.php,
       tbl_change.php: bug #1415465, undefined $sql_query
@@ -122,7 +128,7 @@ $Source$
 2006-01-25 Marc Delisle  <lem9@users.sourceforge.net>
    * db_details_qbe.php: use PMA_countRecords() when possible, to be able
      to centralise into it the VIEW detection logic
-   * sql.php: affected rows are returned in case of DELETE with no WHERE 
+   * sql.php: affected rows are returned in case of DELETE with no WHERE
      clause, at least since MySQL 4.0.x, so no need to pre-count
 
 2006-01-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
