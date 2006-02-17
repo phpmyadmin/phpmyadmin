@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*, db_details_structure.php:
+      bug #1431352, no %d in strViewMaxExactCount
+
 2006-02-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * docs.css, Documentation.html, translators.html:
       - XHTML 1.1, more semantic, formating
