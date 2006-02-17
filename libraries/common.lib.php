@@ -1225,7 +1225,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     {
         // '0' is also empty for php :-(
         if ($do_it
-            && strlen($a_name) && $a_name != '*') {
+            && isset($a_name) && !empty($a_name) && $a_name != '*') {
 
             if (is_array($a_name)) {
                  $result = array();

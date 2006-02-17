@@ -10,6 +10,7 @@ $Source$
       bug #1431352, no %d in strViewMaxExactCount
     * db_details_structure.php: bug #1431340, rowcount for views and
       unneeded $strViewMaxExactCount
+    * libraries/common.lib.php: array to string conversion
 
 2006-02-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * docs.css, Documentation.html, translators.html:
