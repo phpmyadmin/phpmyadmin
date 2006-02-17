@@ -985,6 +985,6 @@ $strZip = '"zip-pakattu"';
 
 // To translate:
 
-$strViewMaxExactCount = 'This view has more than %d rows. Please refer to %sdocumentation%s.';  //to translate
+$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 ?>

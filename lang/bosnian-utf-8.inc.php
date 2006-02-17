@@ -986,5 +986,5 @@ $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not crea
 $strSQLImportOptions = 'SQL options';  //to translate
 $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
-$strViewMaxExactCount = 'This view has more than %d rows. Please refer to %sdocumentation%s.';  //to translate
+$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

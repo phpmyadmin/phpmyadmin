@@ -473,9 +473,7 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 
 if ($at_least_one_view && !$db_is_information_schema) {
     echo '<div class="notice">' . "\n";
-    // TODO FIXME replace %d with %s in strings
-    //echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
-    echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
+    echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
     echo '</div>' . "\n";
 }
 ?>

@@ -952,7 +952,7 @@ $strViewDumpDatabases = 'View dump (schema) of databases';
 $strViewDumpDB = 'View dump (schema) of database';
 $strViewDump = 'View dump (schema) of table';
 $strViewHasBeenDropped = 'View %s has been dropped';
-$strViewMaxExactCount = 'This view has more than %d rows. Please refer to %sdocumentation%s.';
+$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';
 $strView = 'View';
 
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';

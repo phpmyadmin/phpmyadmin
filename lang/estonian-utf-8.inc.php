@@ -979,6 +979,6 @@ $strThemeNotFound = 'Theme %s not found!';  //to translate
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 
-$strViewMaxExactCount = 'This view has more than %d rows. Please refer to %sdocumentation%s.';  //to translate
+$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 ?>
