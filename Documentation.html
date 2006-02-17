@@ -468,9 +468,9 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     does not exist, please refer to the <a href="#setup">Quick install</a>
     section to create one. This file only needs to contain the parameters you want to
     change from their corresponding default value in
-    <tt>libraries/config.default.php</tt>.<br /><br />
+    <tt>libraries/config.default.php</tt>.</p>
 
-    The parameters which relate to design (like colors) are placed in
+<p> The parameters which relate to design (like colors) are placed in
     <tt>themes/themename/layout.inc.php</tt>. You might also want to create
     <i>config.footer.inc.php</i> and <i>config.header.inc.php</i> files to add
     your site specific code to be included on start and end of each page.</p>
@@ -732,14 +732,17 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         The keys can be numeric or character.<br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
-            <li>put the relation table name in <tt>$cfg['Servers'][$i]['relation']</tt>
-            </li>
+
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
+                infrastructure</li>
+            <li>put the relation table name in
+                <tt>$cfg['Servers'][$i]['relation']</tt></li>
             <li>now as normal user open phpMyAdmin and for each one of your
                 tables where you want to use this feature, click
                 &quot;Structure/Relation view/&quot; and choose foreign fields.
-            </li>
+                </li>
         </ul>
+
         Please note that in the current version, <tt>master_db</tt>
         must be the same as <tt>foreign_db</tt>. Those fields have been put in
         future development of the cross-db relations.
@@ -779,12 +782,14 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         You must be using the &quot;relation&quot; feature.<br /><br />
 
         To allow the usage of this functionality:
-        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
+                infrastructure</li>
             <li>put the correct table names in
                 <tt>$cfg['Servers'][$i]['table_coords']</tt> and
-                <tt>$cfg['Servers'][$i]['pdf_pages']</tt>
-            </li>
+                <tt>$cfg['Servers'][$i]['pdf_pages']</tt></li>
         </ul>
+
         Usage tips: <a href="#faqpdf"><abbr title="Portable Document Format">PDF</abbr> output</a>.
     </dd>
 
@@ -849,10 +854,11 @@ ALTER TABLE `pma_column_comments`
         browser.<br /><br />
 
         To allow the usage of this functionality:
+
         <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
                 infrastructure</li>
             <li>put the table name in <tt>$cfg['Servers'][$i]['history']</tt>
-            </li>
+                </li>
         </ul>
     </dd>
 
@@ -924,12 +930,14 @@ ALTER TABLE `pma_column_comments`
         <tt>'deny,allow'</tt> or <tt>'deny % from all'</tt> if your rule order
         is set to <tt>'allow,deny'</tt> or <tt>'explicit'</tt>.<br /><br />
 
-        For the <abbr title="Internet Protocol">IP</abbr> matching system, the following work:<br />
+        For the <abbr title="Internet Protocol">IP</abbr> matching system, the
+        following work:<br />
         <tt>xxx.xxx.xxx.xxx</tt>        (an exact <abbr title="Internet Protocol">IP</abbr> address)<br />
         <tt>xxx.xxx.xxx.[yyy-zzz]</tt>  (an <abbr title="Internet Protocol">IP</abbr> address range)<br />
         <tt>xxx.xxx.xxx.xxx/nn</tt>     (CIDR, Classless Inter-Domain Routing type <abbr title="Internet Protocol">IP</abbr> addresses)<br />
         But the following does not work:<br />
-        <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial <abbr title="Internet Protocol">IP</abbr> address range)
+        <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial
+        <abbr title="Internet Protocol">IP</abbr> address range)
     </dd>
 
     <dt id="cfg_ServerDefault">$cfg[ServerDefault] integer</dt>
@@ -1432,25 +1440,31 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_UploadDir">$cfg[UploadDir] string</dt>
     <dd>
-        The name of the directory where <abbr title="structured query language">SQL</abbr> files have been uploaded by other
-        means than phpMyAdmin (for example, ftp).  Those files are available
-        under a drop-down box when you click the database name, then the <abbr title="structured query language">SQL</abbr>
-        tab.
+        The name of the directory where
+        <abbr title="structured query language">SQL</abbr> files have been
+        uploaded by other means than phpMyAdmin (for example, ftp).  Those files
+        are available under a drop-down box when you click the database name,
+        then the <abbr title="structured query language">SQL</abbr> tab.
         <br /><br />
+
         If you want different directory for each user, %u will be replaced
-        with username.
-        <br /><br />
+        with username.<br /><br />
+
         Please note that the file names must have the suffix &quot;.sql&quot;
         (or &quot;.sql.bz2&quot; or &quot;.sql.gz&quot; if support for
-        compressed formats is enabled).
-        <br /><br />
+        compressed formats is enabled).<br /><br />
+
         This feature is useful when your file is too big to be uploaded via
-        <abbr title="HyperText Transfer Protocol">HTTP</abbr>, or when file uploads are disabled in PHP.
-        <br /><br />
+        <abbr title="HyperText Transfer Protocol">HTTP</abbr>, or when file
+        uploads are disabled in PHP.<br /><br />
+
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
         <br /><br />
-        See also <a href="#faq1_16"><abbr title="Frequently Asked Questions">FAQ</abbr> 1.16</a> for alternatives.
+
+        See also <a href="#faq1_16">
+        <abbr title="Frequently Asked Questions">FAQ</abbr> 1.16</a> for
+        alternatives.
     </dd>
 
     <dt id="cfg_docSQLDir">$cfg[docSQLDir] string</dt>
@@ -1464,14 +1478,14 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_SaveDir">$cfg[SaveDir] string</dt>
     <dd>
-        The name of the directory where dumps can be saved.
-        <br /><br />
+        The name of the directory where dumps can be saved.<br /><br />
+
         If you want different directory for each user, %u will be replaced
-        with username.
-        <br /><br />
+        with username.<br /><br />
+
         Please note that the directory has to be writable for user running
-        webserver.
-        <br /><br />
+        webserver.<br /><br />
+
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
@@ -1480,7 +1494,8 @@ ALTER TABLE `pma_column_comments`
     <dd>
         The name of the directory, where temporary files can be stored.
         <br /><br />
-        This is needed for native MS Excel export, see <a href="#faq6_23"><abbr title="Frequently Asked Questions">FAQ</abbr>
+        This is needed for native MS Excel export, see
+        <a href="#faq6_23"><abbr title="Frequently Asked Questions">FAQ</abbr>
         6.23</a>
     </dd>
 
@@ -1511,18 +1526,18 @@ ALTER TABLE `pma_column_comments`
         <span id="cfg_QueryHistoryMax">$cfg[QueryHistoryMax] </span>integer
     </dt>
     <dd>
-    All those variables affect the query window feature. A <tt><abbr title="structured query language">SQL</abbr></tt> link
-    or icon is always displayed on the left panel. If JavaScript is enabled in
-    your browser, a click on this opens a distinct query window, which is
-    a direct interface to enter <abbr title="structured query language">SQL</abbr> queries. Otherwise, the right panel
-    changes to display a query box.
-        <br /><br />
+        All those variables affect the query window feature. A <tt><abbr title="structured query language">SQL</abbr></tt> link
+        or icon is always displayed on the left panel. If JavaScript is enabled in
+        your browser, a click on this opens a distinct query window, which is
+        a direct interface to enter <abbr title="structured query language">SQL</abbr> queries. Otherwise, the right panel
+        changes to display a query box.<br /><br />
+
         The size of this query window can be customized with
         <tt>$cfg['QueryWindowWidth']</tt> and <tt>$cfg['QueryWindowWidth']</tt>
         - both integers for the size in pixels. Note that normally, those
         parameters will be modified in <tt>layout.inc.php</tt> for the
-        theme you are using.
-        <br /><br />
+        theme you are using.<br /><br />
+
         If <tt>$cfg['EditInWindow']</tt> is set to true, a click on [Edit]
         from the results page (in the &quot;Showing Rows&quot; section)
         opens the query window and puts the current query
@@ -1894,96 +1909,102 @@ ALTER TABLE `pma_column_comments`
 
 <ol><li>A mimetype+subtype transform:<br /><br />
 
-        [mimetype]_[subtype]__[transform].inc.php<br /><br />
+        <tt>[mimetype]_[subtype]__[transform].inc.php</tt><br /><br />
 
-        Please not that mimetype and subtype are separated via '_', which shall not be
-        contained in their names. The transform function/filename may contain only
-        characters which cause no problems in the file system as well as the PHP function
-        naming convention.<br /><br />
+        Please not that mimetype and subtype are separated via '_', which shall
+        not be contained in their names. The transform function/filename may
+        contain only characters which cause no problems in the file system as
+        well as the PHP function naming convention.<br /><br />
 
-        The transform function will the be called 'PMA_transform_[mimetype]_[subtype]__[transform]()'.<br /><br />
+        The transform function will the be called
+        '<tt>PMA_transform_[mimetype]_[subtype]__[transform]()</tt>'.<br /><br />
 
         <b>Example:</b><br /><br />
 
-        text_html__formatted.inc.php<br />
-        PMA_transform_text_html__formatted()</li>
+        <tt>text_html__formatted.inc.php</tt><br />
+        <tt>PMA_transform_text_html__formatted()</tt></li>
 
     <li>A mimetype (w/o subtype) transform:<br /><br />
 
-        [mimetype]__[transform].inc.php<br /><br />
+        <tt>[mimetype]__[transform].inc.php</tt><br /><br />
 
         Please note that there are no single '_' characters.
-        The transform function/filename may contain only characters which cause no problems
-        in the file system as well as the PHP function naming convention.<br /><br />
+        The transform function/filename may contain only characters which cause
+        no problems in the file system as well as the PHP function naming
+        convention.<br /><br />
 
-        The transform function will the be called 'PMA_transform_[mimetype]__[transform]()'.<br /><br />
+        The transform function will the be called
+        '<tt>PMA_transform_[mimetype]__[transform]()</tt>'.<br /><br />
 
         <b>Example:</b><br /><br />
 
-        text__formatted.inc.php<br />
-        PMA_transform_text__formatted()</li>
+        <tt>text__formatted.inc.php</tt><br />
+        <tt>PMA_transform_text__formatted()</tt></li>
 
     <li>A mimetype+subtype without specific transform function<br /><br />
 
-        [mimetype]_[subtype].inc.php<br /><br />
+        <tt>[mimetype]_[subtype].inc.php</tt><br /><br />
 
-        Please note that there are no '__' characters in the filename. Do not use special
-        characters in the filename causing problems with the file system.<br /><br />
+        Please note that there are no '__' characters in the filename. Do not
+        use special characters in the filename causing problems with the file
+        system.<br /><br />
 
         No transformation function is defined in the file itself.<br /><br />
 
         <b>Example:</b><br /><br />
 
-        text_plain.inc.php<br />
+        <tt>text_plain.inc.php</tt><br />
         (No function)</li>
 
     <li>A mimetype (w/o subtype) without specific transform function<br /><br />
 
-        [mimetype].inc.php<br /><br />
+        <tt>[mimetype].inc.php</tt><br /><br />
 
-        Please note that there are no '_' characters in the filename. Do not use special
-        characters in the filename causing problems with the file system.<br /><br />
+        Please note that there are no '_' characters in the filename. Do not use
+        special characters in the filename causing problems with the file system.
+        <br /><br />
 
         No transformation function is defined in the file itself.<br /><br />
 
         <b>Example:</b><br /><br />
 
-        text.inc.php<br />
+        <tt>text.inc.php</tt><br />
         (No function)</li>
 
     <li>A global transform function with no specific mimetype<br /><br />
 
-        global__[transform].inc.php<br /><br />
+        <tt>global__[transform].inc.php</tt><br /><br />
 
-        The transform function will the be called 'PMA_transform_global__[transform]()'.<br /><br />
+        The transform function will the be called
+        '<tt>PMA_transform_global__[transform]()</tt>'.<br /><br />
 
         <b>Example:</b><br /><br />
 
-        global__formatted<br />
-        PMA_transform_global__formatted()</li>
+        <tt>global__formatted</tt><br />
+        <tt>PMA_transform_global__formatted()</tt></li>
 </ol>
 
-<p>    So generally use '_' to split up mimetype and subtype, and '__' to provide a
+<p> So generally use '_' to split up mimetype and subtype, and '__' to provide a
     transform function.</p>
 
-<p>    All filenames containing no '__' in themselves are not shown as valid transform
+<p> All filenames containing no '__' in themselves are not shown as valid transform
     functions in the dropdown.</p>
 
-<p>    Please see the libraries/transformations/TEMPLATE file for adding your own transform
+<p> Please see the libraries/transformations/TEMPLATE file for adding your own transform
     function. See the libraries/transformations/TEMPLATE_MIMETYPE for adding a mimetype
     without a transform function. Also note the introduction of a function description in
     the language files. For each function a $strTransformation_[filename without .inc.php]
     has to exist.</p>
 
-<p>    You can use the template generator to generate new functions and entries in the
+<p> You can use the template generator to generate new functions and entries in the
     language file.</p>
 
-<p>    To create a new transform function please see
+<p> To create a new transform function please see
     <tt>libraries/transformations/template_generator.sh</tt>.
     To create a new, empty mimetype please see
     <tt>libraries/transformations/template_generator_mimetype.sh</tt>.</p>
 
-<p>    A transform function always gets passed three variables:</p>
+<p> A transform function always gets passed three variables:</p>
 
 <ol><li><b>$buffer</b> - Contains the text inside of the column. This is the text,
         you want to transform.</li>
@@ -2301,157 +2322,153 @@ ALTER TABLE `pma_column_comments`
     &quot;PHP-MySQL&quot; or something similar.</p>
 
 <h4 id="faq1_21">
-    <a href="#faq1_21">I am running the <abbr title="Common Gateway Interface">CGI</abbr> version of PHP under Unix, and I cannot
-    login using cookie auth.</a></h4>
+    <a href="#faq1_21">I am running the
+    <abbr title="Common Gateway Interface">CGI</abbr> version of PHP under Unix,
+    and I cannot login using cookie auth.</a></h4>
 
 <p> In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.</p>
 
 <h4 id="faq1_22">
-    <a href="#faq1_22">I don't see the &quot;Location of text file&quot; field, so
-    I cannot upload.
-</a></h4>
-<p>
-    This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
-    parameter is not set to &quot;on&quot;.
-</p>
+    <a href="#faq1_22">I don't see the &quot;Location of text file&quot; field,
+    so I cannot upload.</a></h4>
+
+<p> This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
+    parameter is not set to &quot;on&quot;.</p>
 
 <h4 id="faq1_23">
-    <a href="#faq1_23">I'm running MySQL on a Win32 machine. Each time I create a new
-    table the table and field names are changed to lowercase!
-</a></h4>
-<p>
-    This happens because the MySQL directive <tt>lower_case_table_names</tt>
+    <a href="#faq1_23">I'm running MySQL on a Win32 machine. Each time I create
+    a new table the table and field names are changed to lowercase!</a></h4>
+
+<p> This happens because the MySQL directive <tt>lower_case_table_names</tt>
     defaults to 1 (<tt>ON</tt>) in the Win32 version of MySQL. You can change
     this behavior by simply changing the directive to 0 (<tt>OFF</tt>):<br />
     Just edit your <tt>my.ini</tt> file that should be located in your Windows
-    directory and add the following line to the group [mysqld]:<br />
-    <tt>set-variable = lower_case_table_names=0</tt><br />
-    Next, save the file and restart the MySQL service. You can always check the
-    value of this directive using the query<br />
-    <tt>SHOW VARIABLES LIKE 'lower_case_table_names';</tt>
-</p>
+    directory and add the following line to the group [mysqld]:</p>
+
+<pre>set-variable = lower_case_table_names=0</pre>
+
+<p> Next, save the file and restart the MySQL service. You can always check the
+    value of this directive using the query</p>
+
+<pre>SHOW VARIABLES LIKE 'lower_case_table_names';</pre>
 
 <h4 id="faq1_24">
-    <a href="#faq1_24">Some characters are being truncated in my queries, or I get
-    characters randomly added. I am running PHP 4.2.3.
-</a></h4>
-<p>
-    This is a
-    <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
-</p>
+    <a href="#faq1_24">Some characters are being truncated in my queries, or I
+    get characters randomly added. I am running PHP 4.2.3.</a></h4>
+
+<p> This is a <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
+    </p>
 
 <h4 id="faq1_25">
     <a href="#faq1_25">I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
-    and I get problems, such as undefined variables when I run a <abbr title="structured query language">SQL</abbr> query.
-</a></h4>
-<p>
-    A tip from Jose Fandos: put a comment on the following two lines
-    in httpd.conf, like this:<br />
-    <tt># mod_gzip_item_include file \.php$</tt><br />
-    <tt># mod_gzip_item_include mime "application/x-httpd-php.*"</tt><br />
-    as this version of mod_gzip on Apache (Windows) has problems handling
-    PHP scripts. Of course you have to restart Apache.
-</p>
+    and I get problems, such as undefined variables when I run a
+    <abbr title="structured query language">SQL</abbr> query.</a></h4>
+
+<p> A tip from Jose Fandos: put a comment on the following two lines
+    in httpd.conf, like this:</p>
+
+<pre>
+# mod_gzip_item_include file \.php$
+# mod_gzip_item_include mime "application/x-httpd-php.*"
+</pre>
+
+<p> as this version of mod_gzip on Apache (Windows) has problems handling
+    PHP scripts. Of course you have to restart Apache.</p>
 
 <h4 id="faq1_26">
-    <a href="#faq1_26">I just installed phpMyAdmin in my document root of <abbr title="Internet Information Services">IIS</abbr> but
+    <a href="#faq1_26">I just installed phpMyAdmin in my document root of
+    <abbr title="Internet Information Services">IIS</abbr> but
     I get the error &quot;No input file specified&quot; when trying to
     run phpMyAdmin.</a></h4>
-<p>
-    This is a permission problem. Right-click on the phpmyadmin folder
+
+<p> This is a permission problem. Right-click on the phpmyadmin folder
     and choose properties. Under the tab Security, click on &quot;Add&quot;
     and select the user &quot;IUSR_machine&quot; from the list. Now set his
-    permissions and it should work.
-</p>
+    permissions and it should work.</p>
 
 <h4 id="faq1_27">
     <a href="#faq1_27">I get empty page when I want to view huge page (eg.
-    db_details_structure.php with plenty of tables).
-</a></h4>
-<p>
-    This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
+    db_details_structure.php with plenty of tables).</a></h4>
+
+<p> This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering is enabled. If you turn off it (by
     <a href="#cfg_OBGzip" class="configrule">$cfg['OBGzip'] = false</a>
-    in <i>config.inc.php</i>), it should work. This bug will be fixed in PHP 5.0.0.
-</p>
+    in <i>config.inc.php</i>), it should work. This bug will be fixed in
+    PHP&nbsp;5.0.0.</p>
 
 <h4 id="faq1_28">
-    <a href="#faq1_28">My MySQL server sometimes refuses queries and returns the message
-    'Errorcode: 13'. What does this mean?
-</a></h4>
-<p>
-    This can happen due to a MySQL bug when having database / table names with
+    <a href="#faq1_28">My MySQL server sometimes refuses queries and returns the
+    message 'Errorcode: 13'. What does this mean?</a></h4>
+
+<p> This can happen due to a MySQL bug when having database / table names with
     upper case characters although <tt>lower_case_table_names</tt> is set to 1.
     To fix this, turn off this directive, convert all database and table names
     to lower case and turn it on again. Alternatively, there's a bug-fix
-    available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.
-</p>
+    available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.</p>
 
 <h4 id="faq1_29">
     <a href="#faq1_29">When I create a table or modify a field, I get an error
-    and the fields are duplicated.
-</a></h4>
-<p>
-    It is possible to configure Apache in such a way that PHP has problems
-    interpreting .php files.
-    <br /><br />
-    The problems occur when two different (and conflicting) set of directives
-    are used:
-    <br /><br />
-    <tt>
-    SetOutputFilter PHP<br />
-    SetInputFilter PHP<br />
-    </tt>
-    and
-    <br />
-    <tt>
-    AddType application/x-httpd-php .php
-    </tt>
-    <br /><br />
-    In the case we saw, one set of directives was in
+    and the fields are duplicated.</a></h4>
+
+<p> It is possible to configure Apache in such a way that PHP has problems
+    interpreting .php files.</p>
+
+<p> The problems occur when two different (and conflicting) set of directives
+    are used:</p>
+
+<pre>
+SetOutputFilter PHP
+SetInputFilter PHP
+</pre>
+
+<p> and</p>
+
+<pre>AddType application/x-httpd-php .php</pre>
+
+<p> In the case we saw, one set of directives was in
     <tt>/etc/httpd/conf/httpd.conf</tt>, while
     the other set was in <tt>/etc/httpd/conf/addon-modules/php.conf</tt>.<br />
     The recommended way is with <tt>AddType</tt>, so just comment out
-    the first set of lines and restart Apache:
-    <br /><br />
-    <tt><b>
-    #SetOutputFilter PHP<br />
-    #SetInputFilter PHP<br /></b>
-    </tt>
-</p>
+    the first set of lines and restart Apache:</p>
+
+<pre>
+#SetOutputFilter PHP
+#SetInputFilter PHP
+</pre>
 
 <h4 id="faq1_30">
     <a href="#faq1_30">I get the error &quot;left.php: Missing hash&quot;.</a></h4>
-<p>
-    This problem is known to happen when the server is running Turck MMCache
-    but upgrading MMCache to version 2.3.21 solves the problem.
-</p>
+
+<p> This problem is known to happen when the server is running Turck MMCache
+    but upgrading MMCache to version 2.3.21 solves the problem.</p>
 
 <h4 id="faq1_31">
     <a href="#faq1_31">Does phpMyAdmin support php5?</a></h4>
-<p>
-    Yes.
-    <br />
+
+<p> Yes.<br />
     However, phpMyAdmin needs to be backwards compatible to php4. This is why
     you won't be able to run phpMyAdmin having enabled E_STRICT in your
-    error_reporting settings.
-</p>
+    error_reporting settings.</p>
 
 <h4 id="faq1_32">
     <a href="#faq1_32">Can I use <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication with <abbr title="Internet Information Services">IIS</abbr>?</a></h4>
-<p>
-    Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in <abbr title="Internet Server Application Programming Interface">ISAPI</abbr>
+
+<p> Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in <abbr title="Internet Server Application Programming Interface">ISAPI</abbr>
     mode under <abbr title="Internet Information Services">IIS</abbr> 5.1.</p>
-    <ol>
-        <li>In your <tt>php.ini</tt> file, set <tt>cgi.rfc2616_headers = 0</tt></li>
 
-        <li>In <tt>Web Site Properties -> File/Directory Security -> Anonymous Access</tt> dialog box, check the <tt>Anonymous access</tt> checkbox and uncheck any other checkboxes (i.e. uncheck <tt>Basic authentication</tt>, <tt>Integrated Windows authentication</tt>, and <tt>Digest</tt> if it's enabled.) Click <tt>OK</tt>. </li>
-
-        <li>In <tt>Custom Errors</tt>, select the range of <tt>401;1</tt> through <tt>401;5</tt> and click the <tt>Set to Default</tt> button. </li>
-    </ol>
+<ol><li>In your <tt>php.ini</tt> file, set <tt>cgi.rfc2616_headers = 0</tt></li>
+    <li>In <tt>Web Site Properties -> File/Directory Security -> Anonymous
+        Access</tt> dialog box, check the <tt>Anonymous access</tt> checkbox and
+        uncheck any other checkboxes (i.e. uncheck <tt>Basic authentication</tt>,
+        <tt>Integrated Windows authentication</tt>, and <tt>Digest</tt> if it's
+        enabled.) Click <tt>OK</tt>.</li>
+    <li>In <tt>Custom Errors</tt>, select the range of <tt>401;1</tt> through
+        <tt>401;5</tt> and click the <tt>Set to Default</tt> button.</li>
+</ol>
 
 <h4 id="faq1_33">
-    <a href="#faq1_33">Is there a problem with the mysqli extension when running PHP 5.0.4 on 64-bit systems?</a></h4>
+    <a href="#faq1_33">Is there a problem with the mysqli extension when running
+    PHP 5.0.4 on 64-bit systems?</a></h4>
 
 <p> Yes. This problem affects phpMyAdmin (&quot;Call to undefined function
     pma_reloadnavigation&quot;), so upgrade your PHP to the next version.</p>
