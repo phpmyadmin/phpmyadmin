@@ -1,41 +1,30 @@
 /* For printview */
-body{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         10px;
+body, table, th, td {
     color:             #000000;
     background-color:  #ffffff;
+    font-size:         8pt;
 }
-h1{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         16px;
-    font-weight:       bold;
-    color:             #000000;
+
+img {
+    border: 0;
 }
-table{
-    border-width:      1px;
+
+table, th, td {
+    border-width:      0.1em;
     border-color:      #000000;
     border-style:      solid;
+}
+
+table {
     border-collapse:   collapse;
     border-spacing:    0;
 }
-th{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         10px;
-    font-weight:       bold;
-    color:             #000000;
-    background-color:  #e5e5e5;
-    border-width:      1px;
-    border-color:      #000000;
-    border-style:      solid;
-    padding:           2px;
+
+th, td {
+    padding:           0.2em;
 }
-td{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         10px;
-    color:             #000000;
-    background-color:  #ffffff;
-    border-width:      1px;
-    border-color:      #000000;
-    border-style:      solid;
-    padding:           2px;
+
+th {
+    font-weight:       bold;
+    background-color:  #e5e5e5;
 }
