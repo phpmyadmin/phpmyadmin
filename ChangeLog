@@ -8,6 +8,8 @@ $Source$
 2006-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*, db_details_structure.php:
       bug #1431352, no %d in strViewMaxExactCount
+    * db_details_structure.php: bug #1431340, rowcount for views and
+      unneeded $strViewMaxExactCount
 
 2006-02-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * docs.css, Documentation.html, translators.html:

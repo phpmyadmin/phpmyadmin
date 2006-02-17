@@ -171,7 +171,7 @@ $row_count      = 0;
 
 $hidden_fields = array();
 $odd_row       = true;
-$at_least_one_view = false;
+$at_least_one_view_exceeds_max_count = false;
 
 foreach ($tables as $keyname => $each_table) {
     if ($each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
@@ -183,9 +183,6 @@ foreach ($tables as $keyname => $each_table) {
     // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
     $table_is_view = ($each_table['TABLE_TYPE'] === 'VIEW'
                        || $each_table['TABLE_TYPE'] === 'SYSTEM VIEW');
-    if ($table_is_view) {
-        $at_least_one_view = true;
-    }
 
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? htmlspecialchars($tooltip_aliasname[$each_table['TABLE_NAME']])
@@ -343,12 +340,23 @@ foreach ($tables as $keyname => $each_table) {
             <?php echo $titles['Drop']; ?></a></td>
     <?php } // end if (! $db_is_information_schema)
 
-    // there is a null value in the ENGINE when the table needs to be
-    // repaired, so this test ensures that we'll display "in use"
-    if (isset($each_table['TABLE_ROWS']) && $each_table['ENGINE'] != null) { ?>
-    <td class="value"><?php echo PMA_formatNumber($each_table['TABLE_ROWS'], 0) . ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCount'] ? '<sup>1</sup>' : ''); ?></td>
+    // there is a null value in the ENGINE
+    // - when the table needs to be repaired, or
+    // - when it's a view
+    //  so ensure that we'll display "in use" below for a table
+    //  that needs to be repaired
+
+    if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) { 
+        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCount']) {
+            $at_least_one_view_exceeds_max_count = true;
+            $show_superscript = '<sup>1</sup>';
+        } else {
+            $show_superscript = '';
+        }
+    ?>
+    <td class="value"><?php echo PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
-    <td nowrap="nowrap"><?php echo $each_table['ENGINE']; ?></td>
+    <td nowrap="nowrap"><?php echo ($table_is_view ? $strView : $each_table['ENGINE']); ?></td>
             <?php if (isset($collation)) { ?>
     <td nowrap="nowrap"><?php echo $collation ?></td>
             <?php } ?>
@@ -471,7 +479,7 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 <?php
 // Notice about row count for views
 
-if ($at_least_one_view && !$db_is_information_schema) {
+if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
     echo '<div class="notice">' . "\n";
     echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
     echo '</div>' . "\n";
