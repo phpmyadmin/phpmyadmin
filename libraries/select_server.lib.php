@@ -6,7 +6,7 @@
 
 /**
  * display server selection in list or selectbox form, or option tags only
- * 
+ *
  * @todo    make serverlist a real html-list
  * @globals $lang
  * @globals $convcharset
@@ -22,7 +22,7 @@
 function PMA_select_server($not_only_options, $ommit_fieldset)
 {
     global $lang, $convcharset;
-    
+
     // Show as list?
     if ($not_only_options) {
         $list = $GLOBALS['cfg']['DisplayServersList'];
@@ -30,7 +30,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
     } else {
         $list = false;
     }
-    
+
     if ($not_only_options) {
         echo '<form method="post" action="index.php" target="_parent">';
 
@@ -38,8 +38,9 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
             echo '<fieldset>';
         }
         echo '<label for="select_server">' . $GLOBALS['strServer'] . ':</label> ';
-        
-        echo '<select name="server" id="select_server" onchange="this.form.submit();">';
+
+        echo '<select name="server" id="select_server"'
+            . ' onchange="if (this.value != \'\') this.form.submit();">';
         // TODO FIXME replace with $GLOBALS['strServers']
         echo '<option value="">(' . $GLOBALS['strServer'] . ') ...</option>' . "\n";
     } elseif ($list) {
@@ -47,18 +48,18 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         // TODO FIXME display server list as 'list'
         // echo '<ol>';
     }
-    
+
     foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
         if (empty($server['host'])) {
             continue;
         }
-        
-        if (!empty($GLOBALS['server']) && $GLOBALS['server'] === $key) {
+
+        if (!empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
             $selected = 1;
         } else {
-        	$selected = 0;
+            $selected = 0;
         }
-        
+
         if (!empty($server['verbose'])) {
             $label = $server['verbose'];
         } else {
@@ -71,7 +72,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         //        value, displaying such informations may not be a so good
         //        idea
         if (!empty($server['only_db'])) {
-        	// TODO FIXME this can become a really big selectbox ...
+            // TODO FIXME this can become a really big/long/wide selectbox ...
             $label .= ' - ' . (is_array($server['only_db']) ? implode(', ', $server['only_db']) : $server['only_db']);
         }
         if (!empty($server['user']) && $server['auth_type'] == 'config') {
@@ -104,13 +105,13 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <?php
         // Show submit button if we have just one server (this happens with no default)
-  		echo '<noscript>';
-    	echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
-   		echo '</noscript>';
-    	echo '</form>';
+        echo '<noscript>';
+        echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+        echo '</noscript>';
+        echo '</form>';
     } elseif ($list) {
         // TODO FIXME display server list as 'list'
         // echo '</ol>';
     }
 }
-?> 
+?>

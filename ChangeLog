@@ -12,6 +12,8 @@ $Source$
       - linked all references
     * libraries/common.lib.php:
       - fixed bug #1432626 'bad url error after select "(Databases)..."'
+    * libraries/select_server.lib.php:
+      fixed pre-select for current server (fixed type missmatch)
 
 2006-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
