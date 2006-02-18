@@ -75,8 +75,9 @@ if (!empty($disp_message)) {
 
 /**
  * Defines the url to return to in case of error in a sql statement
+ * (at this point, $goto might be set but empty)
  */
-if (!isset($goto)) {
+if (empty($goto)) {
     $goto    = 'db_details.php';
 }
 // TODO: check if we could replace by "db_details|tbl"

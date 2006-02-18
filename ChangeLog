@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: bug #1415465, undefined $sql_query
+
 2006-02-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php:
       fixed bug #1433882 html special chars not escaped in query in querybox
