@@ -43,7 +43,9 @@
 
 if (defined('E_STRICT')) {
     $old_error_reporting = error_reporting(0);
-    error_reporting($old_error_reporting ^ E_STRICT);
+    if ($old_error_reporting & E_STRICT) {
+        error_reporting($old_error_reporting ^ E_STRICT);
+    }
     unset($old_error_reporting);
 }
 
