@@ -36,6 +36,16 @@
  *   release number
  */
 
+/**
+ * For now, avoid warnings of E_STRICT mode
+ * (this must be done before function definitions)
+ */
+
+if (defined('E_STRICT')) {
+    $old_error_reporting = error_reporting(0);
+    error_reporting($old_error_reporting ^ E_STRICT);
+    unset($old_error_reporting);
+}
 
 /******************************************************************************/
 /* definition of functions         LABEL_definition_of_functions              */
