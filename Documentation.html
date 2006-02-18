@@ -2447,8 +2447,9 @@ SetInputFilter PHP
 
 <p> Yes.<br />
     However, phpMyAdmin needs to be backwards compatible to php4. This is why
-    you won't be able to run phpMyAdmin having enabled E_STRICT in your
-    error_reporting settings.</p>
+    phpMyAdmin disables the <tt>E_STRICT</tt> error_level in
+    <tt>error_reporting</tt> settings.
+</p>
 
 <h4 id="faq1_32">
     <a href="#faq1_32">Can I use <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication with <abbr title="Internet Information Services">IIS</abbr>?</a></h4>
