@@ -318,6 +318,9 @@ function PMA_DBI_affected_rows($link = null)
     return mysql_affected_rows($link);
 }
 
+/**
+ * @TODO add missing keys like in from mysqli_query (orgname, orgtable, flags, decimals)
+ */
 function PMA_DBI_get_fields_meta($result) {
     $fields       = array();
     $num_fields   = mysql_num_fields($result);
