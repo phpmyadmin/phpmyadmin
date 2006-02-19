@@ -739,7 +739,7 @@ else {
         }
 
         // hide edit and delete links for information_schema
-        if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
+        if ( PMA_MYSQL_INT_VERSION >= 50002 && isset($db) && $db == 'information_schema' ) {
             $disp_mode = 'nnnn110111';
         }
 
