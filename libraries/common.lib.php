@@ -299,7 +299,7 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink,
                             $dblist[]           = $uva_db;
                             $uva_mydbs[$uva_db] = 0;
                         } elseif (!isset($dblist[$uva_db])) {
-                            foreach ($uva_mydbs AS $uva_matchpattern => $uva_value) {
+                            foreach ($uva_mydbs as $uva_matchpattern => $uva_value) {
                                 // loic1: fixed bad regexp
                                 // TODO: db names may contain characters
                                 //       that are regexp instructions
@@ -460,13 +460,13 @@ function PMA_array_merge_recursive()
             if (!is_array($args[0]) || !is_array($args[1])) {
                 return $args[1];
             }
-            foreach ($args[1] AS $key2 => $value2) {
+            foreach ($args[1] as $key2 => $value2) {
                 if (isset($args[0][$key2]) && !is_int($key2)) {
                     $args[0][$key2] = PMA_array_merge_recursive($args[0][$key2],
                         $value2);
                 } else {
                     // we erase the parent array, otherwise we cannot override a directive that
-                    // contains array elements, like this: 
+                    // contains array elements, like this:
                     // (in config.default.php) $cfg['ForeignKeyDropdownOrder'] = array('id-content','content-id');
                     // (in config.inc.php) $cfg['ForeignKeyDropdownOrder'] = array('content-id');
                     if (is_int($key2) && $key2 == 0) {
@@ -505,10 +505,10 @@ function PMA_arrayWalkRecursive(&$array, $function)
 
 /**
  * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
- * 
+ *
  * checks given given $page against given $whitelist and returns true if valid
  * it ignores optionaly query paramters in $page (script.php?ignored)
- * 
+ *
  * @uses    in_array()
  * @uses    urldecode()
  * @uses    substr()
@@ -522,7 +522,7 @@ function PMA_checkPageValidity(&$page, $whitelist)
     if (! isset($page)) {
         return false;
     }
-    
+
     if (in_array($page, $whitelist)) {
         return true;
     } elseif (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
@@ -549,10 +549,10 @@ require_once './libraries/Config.class.php';
 
 
 if (!defined('PMA_MINIMUM_COMMON')) {
-    
+
     /**
      * string PMA_getIcon(string $icon)
-     * 
+     *
      * @uses    $GLOBALS['pmaThemeImage']
      * @param   $icon   name of icon
      * @return          html img tag
@@ -567,7 +567,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             return $alternate;
         }
     }
-    
+
     /**
      * Displays the maximum size for an upload
      *
@@ -1145,7 +1145,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 // if row count is invalid possibly the table is defect
                 // and this would break left frame;
                 // but we can check row count if this is a view,
-                // since PMA_countRecords() returns a limited row count 
+                // since PMA_countRecords() returns a limited row count
                 // in this case.
 
                 // set this because PMA_countRecords() can use it
@@ -1241,7 +1241,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
             if (is_array($a_name)) {
                  $result = array();
-                 foreach ($a_name AS $key => $val) {
+                 foreach ($a_name as $key => $val) {
                      $result[$key] = '`' . $val . '`';
                  }
                  return $result;
@@ -1315,7 +1315,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * @param   string   the database name
      * @param   string   the table name
      *
-     * @return  boolean  whether this is a view 
+     * @return  boolean  whether this is a view
      *
      * @access  public
      */
@@ -1329,7 +1329,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         // old MySQL version: no view
         if (PMA_MYSQL_INT_VERSION < 50000) {
             return false;
-        } 
+        }
         if ( false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'' . $db . '\' AND TABLE_NAME = \'' . $table . '\';')) {
             return false;
         } else {
@@ -1383,8 +1383,8 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         if ($ret) {
             return $num;
         } else {
-            // Note: as of PMA 2.8.0, we no longer seem to be using 
-            // PMA_countRecords() in display mode. 
+            // Note: as of PMA 2.8.0, we no longer seem to be using
+            // PMA_countRecords() in display mode.
             echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
             if ($tbl_is_view) {
                 echo '&nbsp;' . sprintf($GLOBALS['strViewMaxExactCount'], $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
@@ -2093,7 +2093,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 $subname_close  = ']';
                 $submit_name    = ' name="usesubform[' . $GLOBALS['subform_counter'] . ']"';
             }
-            foreach ($query_parts AS $query_pair) {
+            foreach ($query_parts as $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
                 $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
                     . $subname_close . '" value="'
@@ -2235,7 +2235,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         $found_error = false;
         $error_message = '';
 
-        foreach ($params AS $param) {
+        foreach ($params as $param) {
             if ($request && $param != 'db' && $param != 'table') {
                 $checked_special = true;
             }
@@ -2257,10 +2257,18 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param   resource    handle for current query
-     * @param   integer     number of fields
-     * @param   array       meta information about fields
-     * @param   array       current row
+     * @uses    PMA_MYSQL_INT_VERSION
+     * @uses    $GLOBALS['analyzed_sql'][0]
+     * @uses    PMA_DBI_field_flags()
+     * @uses    PMA_backquote()
+     * @uses    PMA_sqlAddslashes()
+     * @uses    stristr()
+     * @uses    bin2hex()
+     * @uses    preg_replace()
+     * @param   resource    $handle         current query result
+     * @param   integer     $fields_cnt     number of fields
+     * @param   array       $fields_meta    meta information about fields
+     * @param   array       $row            current row
      *
      * @access  public
      * @author  Michal Cihar (michal@cihar.com)
@@ -2274,20 +2282,26 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $field_flags = PMA_DBI_field_flags($handle, $i);
-            $meta      = $fields_meta[$i];
+            $meta        = $fields_meta[$i];
+
             // do not use an alias in a condition
-            $column_for_condition = $meta->name;
-            if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
-                    $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                    if (strlen($alias)) {
-                        $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                        if ($alias == $meta->name) {
-                            $column_for_condition = $true_column;
+            if (! isset($meta->orgname)) {
+                $meta->orgname = $meta->name;
+
+                if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
+                  && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
+                    foreach ($GLOBALS['analyzed_sql'][0]['select_expr']
+                      as $select_expr) {
+                        // need (string) === (string)
+                        // '' !== 0 but '' == 0
+                        if ((string) $select_expr['alias'] === (string) $meta->name) {
+                            $meta->orgname = $select_expr['column'];
+                            break;
                         } // end if
-                    } // end if
-                } // end while
+                    } // end foreach
+                }
             }
+
 
             // to fix the bug where float fields (primary or not)
             // can't be matched because of the imprecision of
@@ -2295,15 +2309,19 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             // (also, the syntax "CONCAT(field) IS NULL"
             // that we need on the next "if" will work)
             if ($meta->type == 'real') {
-                $condition = ' CONCAT(' . PMA_backquote($column_for_condition) . ') ';
+                $condition = ' CONCAT(' . PMA_backquote($meta->table) . '.'
+                    . PMA_backquote($meta->orgname) . ') ';
             } else {
                 // string and blob fields have to be converted using
                 // the system character set (always utf8) since
                 // mysql4.1 can use different charset for fields.
-                if (PMA_MYSQL_INT_VERSION >= 40100 && ($meta->type == 'string' || $meta->type == 'blob')) {
-                    $condition = ' CONVERT(' . PMA_backquote($column_for_condition) . ' USING utf8) ';
+                if (PMA_MYSQL_INT_VERSION >= 40100
+                  && ($meta->type == 'string' || $meta->type == 'blob')) {
+                    $condition = ' CONVERT(' . PMA_backquote($meta->table) . '.'
+                        . PMA_backquote($meta->orgname) . ' USING utf8) ';
                 } else {
-                    $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
+                    $condition = ' ' . PMA_backquote($meta->table) . '.'
+                        . PMA_backquote($meta->orgname) . ' ';
                 }
             } // end if... else...
 
@@ -2320,12 +2338,14 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                         // use a CAST if possible, to avoid problems
                         // if the field contains wildcard characters % or _
                         if (PMA_MYSQL_INT_VERSION < 40002) {
-                            $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
+                            $condition .= 'LIKE 0x' . bin2hex($row[$i]) . ' AND';
                         } else {
-                            $condition .= '= CAST(0x' . bin2hex($row[$i]). ' AS BINARY) AND';
+                            $condition .= '= CAST(0x' . bin2hex($row[$i])
+                                . ' AS BINARY) AND';
                         }
                 } else {
-                    $condition .= '= \'' . PMA_sqlAddslashes($row[$i], false, true) . '\' AND';
+                    $condition .= '= \''
+                        . PMA_sqlAddslashes($row[$i], false, true) . '\' AND';
                 }
             }
             if ($meta->primary_key > 0) {
@@ -2469,7 +2489,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             $pages = array_unique($pages);
         }
 
-        foreach ($pages AS $i) {
+        foreach ($pages as $i) {
             if ($i == $pageNow) {
                 $selected = 'selected="selected" style="font-weight: bold"';
             } else {

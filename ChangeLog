@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php PMA_getUvaCondition():
+       - fixed missing $analyzed_sql (partly bug #1431615)
+       - added table names to column names (partly bug #1431615)
+       - simplified search for alias
+
 2006-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1415465, undefined $sql_query
     * libraries/common.lib.php: bug #1377215, errors with E_STRICT
