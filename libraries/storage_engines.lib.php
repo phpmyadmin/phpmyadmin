@@ -206,7 +206,7 @@ class PMA_StorageEngine
      */
     function PMA_StorageEngine($engine)
     {
-        $this->__construct();
+        $this->__construct($engine);
     }
 
     /**
