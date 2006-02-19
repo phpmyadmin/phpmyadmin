@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: re-establish previous error reporting mode
+
 2006-02-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php PMA_getUvaCondition():
        - fixed missing $analyzed_sql (partly bug #1431615)
