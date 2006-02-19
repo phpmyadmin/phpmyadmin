@@ -10,6 +10,9 @@ $Source$
        - fixed missing $analyzed_sql (partly bug #1431615)
        - added table names to column names (partly bug #1431615)
        - simplified search for alias
+    * libraries/dbi/mysqli.dbi.lib.php:
+      - make use of MYSQLI_* constants
+      - added column types newdecimal and bit
 
 2006-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1415465, undefined $sql_query
