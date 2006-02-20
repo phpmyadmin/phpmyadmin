@@ -15,6 +15,8 @@ $Source$
       - coding standards
     * js/querywindow.js, css/phpmyadmin.css.php:
       - RFE #1433382 visulal feat. request for left bar
+    * sql.php:
+      - fixed bug #1431422 Safari: Print view prints blank page
 
 2006-02-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: re-establish previous error reporting mode

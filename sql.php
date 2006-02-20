@@ -5,10 +5,10 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
-require_once('./libraries/tbl_indexes.lib.php');
-require_once('./libraries/check_user_privileges.lib.php');
-require_once('./libraries/bookmark.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/tbl_indexes.lib.php';
+require_once './libraries/check_user_privileges.lib.php';
+require_once './libraries/bookmark.lib.php';
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -25,7 +25,7 @@ if (!empty($goto)) {
 
 if (empty($goto)) {
     $goto = (! isset($table) || ! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
-    $is_gotofile  = TRUE;
+    $is_gotofile  = true;
 } // end if
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
@@ -45,7 +45,7 @@ if (isset($fields['dbase'])) {
 
 // Default to browse if no query set an we have table (needed for browsing from DefaultTabTable)
 if (!isset($sql_query) && isset($table) && isset($db)) {
-    require_once('./libraries/bookmark.lib.php');
+    require_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_queryBookmarks($db, $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
     if (!empty($book_sql_query)) {
         $sql_query = $book_sql_query;
@@ -73,7 +73,7 @@ if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
     && $is_drop_database
     && !$is_superuser) {
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
     PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
 } // end if
 
@@ -83,7 +83,7 @@ if (!defined('PMA_CHK_DROP')
  */
 
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_countRecords($db, $table, TRUE, TRUE);
+    $unlim_num_rows = PMA_countRecords($db, $table, true, true);
     $pos = @((ceil($unlim_num_rows / $session_max_rows) - 1) * $session_max_rows);
 }
 /**
@@ -157,14 +157,14 @@ if ($is_select) {
     if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])) {
         $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
     }
-    if ( isset($analyzed_sql[0]['table_ref'][0]['db'])
-      && strlen($analyzed_sql[0]['table_ref'][0]['db']) ) {
+    if (isset($analyzed_sql[0]['table_ref'][0]['db'])
+      && strlen($analyzed_sql[0]['table_ref'][0]['db'])) {
         $db    = $analyzed_sql[0]['table_ref'][0]['db'];
     } else {
         $db = $prev_db;
     }
     // Nijel: don't change reload, if we already decided to reload in import
-    if ( empty( $reload ) ) {
+    if (empty($reload)) {
         $reload  = ($db == $prev_db) ? 0 : 1;
     }
 }
@@ -173,7 +173,7 @@ if ($is_select) {
  * Sets or modifies the $goto variable if required
  */
 if ($goto == 'sql.php') {
-    $is_gotofile = FALSE;
+    $is_gotofile = false;
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table)
           . '&amp;pos=' . $pos
@@ -189,11 +189,11 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if ($is_gotofile) {
-        if (strpos(' ' . $goto, 'db_details') == 1 && isset($table) && strlen($table) ) {
+        if (strpos(' ' . $goto, 'db_details') == 1 && isset($table) && strlen($table)) {
             unset($table);
         }
         $active_page = $goto;
-        require('./' . PMA_securePath($goto));
+        require './' . PMA_securePath($goto);
     } else {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
@@ -246,7 +246,7 @@ if ($do_confirm) {
     <?php
     echo '<fieldset class="confirmation">' . "\n"
         .'    <legend>' . $strDoYouReally . '</legend>'
-        .'    <tt>' . htmlspecialchars( $stripped_sql_query ) . '</tt>' . "\n"
+        .'    <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>' . "\n"
         .'</fieldset>' . "\n"
         .'<fieldset class="tblFooters">' . "\n";
     ?>
@@ -296,7 +296,7 @@ else {
     // TODO: detect all this with the parser, to avoid problems finding
     // those strings in comments or backquoted identifiers
 
-    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
+    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = false;
     if ($is_select) { // see line 141
         $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
         $is_func =  !$is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
@@ -304,19 +304,19 @@ else {
         $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
         $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
     } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
-        $is_explain  = TRUE;
+        $is_explain  = true;
     } elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
-        $is_delete   = TRUE;
-        $is_affected = TRUE;
+        $is_delete   = true;
+        $is_affected = true;
     } elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
-        $is_insert   = TRUE;
-        $is_affected = TRUE;
+        $is_insert   = true;
+        $is_affected = true;
     } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
-        $is_affected = TRUE;
+        $is_affected = true;
     } elseif (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
-        $is_show     = TRUE;
+        $is_show     = true;
     } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
-        $is_maint    = TRUE;
+        $is_maint    = true;
     }
 
     // Do append a "LIMIT" clause?
@@ -353,7 +353,7 @@ else {
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
     // this case)
-    // Note: testing shows that this no longer applies since MySQL 4.0.x 
+    // Note: testing shows that this no longer applies since MySQL 4.0.x
 
     if (PMA_MYSQL_INT_VERSION < 40000) {
         if ($is_delete
@@ -376,20 +376,19 @@ else {
         unset($result);
         $num_rows = 0;
     } else {
-        // garvin: Measure query time. TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
-        list($usec, $sec) = explode(' ', microtime());
-        $querytime_before = ((float)$usec + (float)$sec);
+        // garvin: Measure query time.
+        // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
+        $querytime_before = array_sum(explode(' ', microtime()));
 
         $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
 
-        list($usec, $sec) = explode(' ', microtime());
-        $querytime_after = ((float)$usec + (float)$sec);
+        $querytime_after = array_sum(explode(' ', microtime()));
 
         $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
         // Displays an error message if required and stop parsing the script
         if ($error        = PMA_DBI_getError()) {
-            require_once('./libraries/header.inc.php');
+            require_once './libraries/header.inc.php';
             $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
@@ -443,7 +442,7 @@ else {
                 // is not quick on large InnoDB tables
 
                 // but do not count again if we did it previously
-                // due to $find_real_end == TRUE
+                // due to $find_real_end == true
 
                 if (!$is_group
                  && !isset($analyzed_sql[0]['queryflags']['union'])
@@ -454,7 +453,7 @@ else {
                  ) {
 
                     // "j u s t   b r o w s i n g"
-                    $unlim_num_rows = PMA_countRecords($db, $table, TRUE);
+                    $unlim_num_rows = PMA_countRecords($db, $table, true);
 
                 } else { // n o t   " j u s t   b r o w s i n g "
 
@@ -465,10 +464,10 @@ else {
 
                         if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
                             $count_what = 'DISTINCT ';
-                            $first_expr = TRUE;
+                            $first_expr = true;
                             foreach ($analyzed_sql[0]['select_expr'] as $part) {
                                 $count_what .= (!$first_expr ? ', ' : '') . $part['expr'];
-                                $first_expr = FALSE;
+                                $first_expr = false;
                             }
                          } else {
                              $count_what = '*';
@@ -561,8 +560,8 @@ else {
                         // count from the latest query that worked)
                         //
                         // another case where the count_query is wrong:
-                        // SELECT COUNT( * ), f1 from t1 group by f1
-                        // and you click to sort on count( * )
+                        // SELECT COUNT(*), f1 from t1 group by f1
+                        // and you click to sort on count(*)
                         // }
                         $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
                         list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
@@ -576,7 +575,7 @@ else {
 
         // garvin: if a table or database gets dropped, check column comments.
         if (isset($purge) && $purge == '1') {
-            require_once('./libraries/relation_cleanup.lib.php');
+            require_once './libraries/relation_cleanup.lib.php';
 
             if (isset($table) && isset($db) && strlen($table) && strlen($db)) {
                 PMA_relationsCleanupTable($db, $table);
@@ -589,9 +588,9 @@ else {
 
         // garvin: If a column gets dropped, do relation magic.
         if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
-            && isset($db) && isset($table)
-            && strlen($db) && strlen($table) && !empty($purgekey)) {
-            require_once('./libraries/relation_cleanup.lib.php');
+          && isset($db) && isset($table)
+          && strlen($db) && strlen($table) && !empty($purgekey)) {
+            require_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupColumn($db, $table, $purgekey);
 
         } // end if column PMA_* purge
@@ -640,12 +639,12 @@ else {
             if (isset($db) && $db == '') {
                 unset($db);
             }
-            $is_db = $is_table = FALSE;
+            $is_db = $is_table = false;
             if (strpos(' ' . $goto, 'tbl_properties') == 1) {
                 if (!isset($table)) {
                     $goto = 'db_details.php';
                 } else {
-                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', null, PMA_DBI_QUERY_STORE);
+                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';', null, PMA_DBI_QUERY_STORE);
                     if (!($is_table && @PMA_DBI_num_rows($is_table))) {
                         $goto = 'db_details.php';
                         unset($table);
@@ -673,10 +672,10 @@ else {
                 $js_to_run = 'functions.js';
             }
             if ($goto != 'main.php') {
-                require_once('./libraries/header.inc.php');
+                require_once './libraries/header.inc.php';
             }
             $active_page = $goto;
-            require('./' . $goto);
+            require './' . $goto;
         } else {
             PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
@@ -690,26 +689,26 @@ else {
             unset($show_query);
         }
         if (isset($printview) && $printview == '1') {
-            require_once('./libraries/header_printview.inc.php');
+            require_once './libraries/header_printview.inc.php';
         } else {
             $js_to_run = 'functions.js';
             unset($message);
             if (isset($table) && strlen($table)) {
-                require('./libraries/tbl_properties_common.php');
+                require './libraries/tbl_properties_common.php';
                 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
-                require('./libraries/tbl_properties_table_info.inc.php');
-                require('./libraries/tbl_properties_links.inc.php');
+                require './libraries/tbl_properties_table_info.inc.php';
+                require './libraries/tbl_properties_links.inc.php';
             } elseif (isset($db) && strlen($db)) {
-                require('./libraries/db_details_common.inc.php');
-                require('./libraries/db_details_db_info.inc.php');
+                require './libraries/db_details_common.inc.php';
+                require './libraries/db_details_db_info.inc.php';
             } else {
-                require('./libraries/server_common.inc.php');
-                require('./libraries/server_links.inc.php');
+                require './libraries/server_common.inc.php';
+                require './libraries/server_links.inc.php';
             }
         }
 
         if (isset($db) && strlen($db)) {
-            require_once('./libraries/relation.lib.php');
+            require_once './libraries/relation.lib.php';
             $cfgRelation = PMA_getRelationsParam();
         }
 
@@ -720,7 +719,7 @@ else {
         }
 
         // Display previous update query (from tbl_replace)
-        if (isset($disp_query) && $cfg['ShowSQL'] == TRUE) {
+        if (isset($disp_query) && $cfg['ShowSQL'] == true) {
             $tmp_sql_query = $GLOBALS['sql_query'];
             $GLOBALS['sql_query'] = $disp_query;
             PMA_showMessage($disp_message);
@@ -728,7 +727,7 @@ else {
         }
 
         // Displays the results in a table
-        require_once('./libraries/display_tbl.lib.php');
+        require_once './libraries/display_tbl.lib.php';
         if (empty($disp_mode)) {
             // see the "PMA_setDisplayMode()" function in
             // libraries/display_tbl.lib.php
@@ -739,7 +738,7 @@ else {
         }
 
         // hide edit and delete links for information_schema
-        if ( PMA_MYSQL_INT_VERSION >= 50002 && isset($db) && $db == 'information_schema' ) {
+        if (PMA_MYSQL_INT_VERSION >= 50002 && isset($db) && $db == 'information_schema') {
             $disp_mode = 'nnnn110111';
         }
 
@@ -797,7 +796,7 @@ else {
                 echo PMA_linkOrButton(
                     'tbl_change.php' . $url_query,
                     ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" height="16" width="16" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow,
-                    '', TRUE, TRUE, '') . "\n";
+                    '', true, true, '') . "\n";
 
                 if ($disp_mode[9] == '1') {
                     echo '&nbsp;&nbsp;';
@@ -819,14 +818,14 @@ else {
                 echo PMA_linkOrButton(
                     'sql.php' . $url_query . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : ''),
                     ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintView . '"/>' : '') . $strPrintView,
-                    '', TRUE, TRUE, 'print_view') . "\n";
+                    '', true, true, 'print_view') . "\n";
 
                 if (!$dontlimitchars) {
                     echo   '    &nbsp;&nbsp;' . "\n";
                     echo PMA_linkOrButton(
                         'sql.php' . $url_query . '&amp;dontlimitchars=1',
                         ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
-                        '', TRUE, TRUE, 'print_view') . "\n";
+                        '', true, true, 'print_view') . "\n";
                 }
             } // end displays "printable view"
 
@@ -848,12 +847,12 @@ else {
             echo PMA_linkOrButton(
                 'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
                 ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_tblexport.png" height="16" width="16" alt="' . $strExport . '" />' : '') . $strExport,
-                '', TRUE, TRUE, '') . "\n";
+                '', true, true, '') . "\n";
         }
 
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
-            && ( isset( $cfg['Bookmark'] ) && $cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
+            && (isset($cfg['Bookmark']) && $cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
             && !empty($sql_query)) {
             echo "\n";
 
@@ -895,7 +894,7 @@ else {
         <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" />
         <label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
     </div>
-    
+
     <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
@@ -907,25 +906,26 @@ else {
 
         // Do print the page if required
         if (isset($printview) && $printview == '1') {
-            echo "\n";
             ?>
 <script type="text/javascript" language="javascript">
-<!--
+//<![CDATA[
 // Do print the page
-if (typeof(window.print) != 'undefined') {
-    window.print();
+window.onload = function()
+{
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
 }
-//-->
+//]]>
 </script>
             <?php
         } // end print case
     } // end rows returned
 
 } // end executes the query
-echo "\n\n";
 
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>
