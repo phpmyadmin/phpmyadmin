@@ -5,13 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/dbi/mysqli.dbi.lib.php:
+      - fixed undefined MYSQLI_BINARY_FLAG constant
+      - documentation
+
 2006-02-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: re-establish previous error reporting mode
     * sql.php: bug #1434576, undefined variable $db
     * libraries/storage_engines.lib.php: bug #1434578, missing argument
       for __construct()
     * Documentation.html: bug #1433633, document consequences of having
-      a .htaccess file, thanks to Isaac Bennetch 
+      a .htaccess file, thanks to Isaac Bennetch
 
 2006-02-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php PMA_getUvaCondition():
