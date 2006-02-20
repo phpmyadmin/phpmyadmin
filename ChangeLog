@@ -9,6 +9,10 @@ $Source$
     * libraries/dbi/mysqli.dbi.lib.php:
       - fixed undefined MYSQLI_BINARY_FLAG constant
       - documentation
+    * server_status.php:
+      - RFE #1434196 More significant digits in /status
+      - replaced number_format() with PMA_formatNumber()
+      - coding standards
 
 2006-02-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: re-establish previous error reporting mode

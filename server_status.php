@@ -5,10 +5,10 @@
  * displays status variables with descriptions and some hints an optmizing
  *  + reset status variables
  */
-if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
-    define( 'PMA_NO_VARIABLES_IMPORT', true );
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
 }
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 /**
  * Does the common work
@@ -25,13 +25,12 @@ require './libraries/server_links.inc.php';
 /**
  * Displays the sub-page heading
  */
-echo '<a name="_top"></a>' . "\n";
 echo '<div id="serverstatus">' . "\n";
 echo '<h2>' . "\n"
    . ($GLOBALS['cfg']['MainPageIconic']
-   ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] .
-     's_status.png" width="16" height="16" alt="" />'
-   : '' )
+       ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] .
+         's_status.png" width="16" height="16" alt="" />'
+       : '')
    . $strServerStatus . "\n"
    . '</h2>' . "\n";
 
@@ -39,37 +38,37 @@ echo '<h2>' . "\n"
 /**
  * flush status variables if requested
  */
-if ( isset( $_REQUEST['flush'] ) ) {
+if (isset($_REQUEST['flush'])) {
     $_flush_commands = array(
         'STATUS',
         'TABLES',
         'QUERY CACHE',
     );
 
-    if ( in_array( $_REQUEST['flush'], $_flush_commands ) ) {
+    if (in_array($_REQUEST['flush'], $_flush_commands)) {
         PMA_DBI_query('FLUSH ' . $_REQUEST['flush'] . ';');
     }
-    unset( $_flush_commands );
+    unset($_flush_commands);
 }
 
 
 /**
  * get status from server
  */
-if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
-    $server_status = PMA_DBI_fetch_result( 'SHOW GLOBAL STATUS', 0, 1 );
+if (PMA_MYSQL_INT_VERSION >= 50002) {
+    $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
 } else {
-    $server_status = PMA_DBI_fetch_result( 'SHOW STATUS', 0, 1 );
+    $server_status = PMA_DBI_fetch_result('SHOW STATUS', 0, 1);
 }
 
 
 /**
  * for some calculations we require also some server settings
  */
-if ( PMA_MYSQL_INT_VERSION >= 40003 ) {
-    $server_variables = PMA_DBI_fetch_result( 'SHOW GLOBAL VARIABLES', 0, 1 );
+if (PMA_MYSQL_INT_VERSION >= 40003) {
+    $server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
 } else {
-    $server_variables = PMA_DBI_fetch_result( 'SHOW VARIABLES', 0, 1 );
+    $server_variables = PMA_DBI_fetch_result('SHOW VARIABLES', 0, 1);
 }
 
 
@@ -77,7 +76,7 @@ if ( PMA_MYSQL_INT_VERSION >= 40003 ) {
  * starttime calculation
  */
 $start_time = PMA_DBI_fetch_value(
-    'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime'] );
+    'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
 
 /**
@@ -89,22 +88,22 @@ $deprecated = array(
     'Com_dealloc_sql' => 'Com_stmt_close',
 );
 
-foreach ( $deprecated as $old => $new ) {
-    if ( isset( $server_status[$old] )
-      && isset( $server_status[$new] ) ) {
-        unset( $server_status[$old] );
+foreach ($deprecated as $old => $new) {
+    if (isset($server_status[$old])
+      && isset($server_status[$new])) {
+        unset($server_status[$old]);
     }
 }
-unset( $deprecated );
+unset($deprecated);
 
 
 /**
  * calculate some values
  */
 // Key_buffer_fraction
-if ( isset( $server_status['Key_blocks_unused'] )
-  && isset( $server_variables['key_cache_block_size'] )
-  && isset( $server_variables['key_buffer_size'] ) ) {
+if (isset($server_status['Key_blocks_unused'])
+  && isset($server_variables['key_cache_block_size'])
+  && isset($server_variables['key_buffer_size'])) {
     $server_status['Key_buffer_fraction_%'] =
         100
       - $server_status['Key_blocks_unused']
@@ -112,16 +111,16 @@ if ( isset( $server_status['Key_blocks_unused'] )
       / $server_variables['key_buffer_size']
       * 100;
 } elseif (
-     isset( $server_status['Key_blocks_used'] )
-  && isset( $server_variables['key_buffer_size'] ) ) {
+     isset($server_status['Key_blocks_used'])
+  && isset($server_variables['key_buffer_size'])) {
     $server_status['Key_buffer_fraction_%'] =
         $server_status['Key_blocks_used']
       * 1024
       / $server_variables['key_buffer_size'];
 }
 // Threads_cache_hitrate
-if ( isset( $server_status['Threads_created'] )
-  && isset( $server_status['Connections'] ) ) {
+if (isset($server_status['Threads_created'])
+  && isset($server_status['Connections'])) {
     $server_status['Threads_cache_hitrate_%'] =
         100
       - $server_status['Threads_created']
@@ -224,23 +223,23 @@ $allocations = array(
 
 $sections = array(
     // section => section name (description)
-    'com'           => array( 'title' => '' ),
-    'query'         => array( 'title' => '' ),
-    'innodb'        => array( 'title' => 'InnoDB' ),
-    'ndb'           => array( 'title' => 'NDB' ),
-    'ssl'           => array( 'title' => 'SSL' ),
-    'handler'       => array( 'title' => $strHandler ),
-    'qcache'        => array( 'title' => $strQueryCache ),
-    'threads'       => array( 'title' => $strThreads ),
-    'binlog_cache'  => array( 'title' => $strBinaryLog ),
-    'created_tmp'   => array( 'title' => $strTempData ),
-    'delayed'       => array( 'title' => $strServerStatusDelayedInserts ),
-    'key'           => array( 'title' => $strKeyCache ),
-    'select'        => array( 'title' => $strJoins ),
-    'repl'          => array( 'title' => $strReplication ),
-    'sort'          => array( 'title' => $strSorting ),
-    'table'         => array( 'title' => $strNumTables ),
-    'tc'            => array( 'title' => $strTransactionCoordinator ),
+    'com'           => array('title' => ''),
+    'query'         => array('title' => ''),
+    'innodb'        => array('title' => 'InnoDB'),
+    'ndb'           => array('title' => 'NDB'),
+    'ssl'           => array('title' => 'SSL'),
+    'handler'       => array('title' => $strHandler),
+    'qcache'        => array('title' => $strQueryCache),
+    'threads'       => array('title' => $strThreads),
+    'binlog_cache'  => array('title' => $strBinaryLog),
+    'created_tmp'   => array('title' => $strTempData),
+    'delayed'       => array('title' => $strServerStatusDelayedInserts),
+    'key'           => array('title' => $strKeyCache),
+    'select'        => array('title' => $strJoins),
+    'repl'          => array('title' => $strReplication),
+    'sort'          => array('title' => $strSorting),
+    'table'         => array('title' => $strNumTables),
+    'tc'            => array('title' => $strTransactionCoordinator),
 );
 
 
@@ -298,21 +297,21 @@ $links['innodb']['MySQL - ' . $strDocu]
 
 
 // sort status vars into arrays
-foreach ( $server_status as $name => $value ) {
-    if ( isset( $allocations[$name] ) ) {
+foreach ($server_status as $name => $value) {
+    if (isset($allocations[$name])) {
         $sections[$allocations[$name]]['vars'][$name] = $value;
-        unset( $server_status[$name] );
+        unset($server_status[$name]);
     } else {
-        foreach ( $allocations as $filter => $section ) {
-            if ( preg_match( '/^' . $filter . '/', $name )
-              && isset( $server_status[$name] ) ) {
-                unset( $server_status[$name] );
+        foreach ($allocations as $filter => $section) {
+            if (preg_match('/^' . $filter . '/', $name)
+              && isset($server_status[$name])) {
+                unset($server_status[$name]);
                 $sections[$section]['vars'][$name] = $value;
             }
         }
     }
 }
-unset( $name, $value, $filter, $section, $allocations );
+unset($name, $value, $filter, $section, $allocations);
 
 // rest
 $sections['all']['vars'] =& $server_status;
@@ -337,16 +336,16 @@ $hour_factor    = 3600 / $server_status['Uptime'];
 
 <p>
 <?php
-echo sprintf( $strServerStatusUptime,
-    PMA_timespanFormat( $server_status['Uptime'] ),
-    PMA_localisedDate( $start_time ) ) . "\n";
+echo sprintf($strServerStatusUptime,
+    PMA_timespanFormat($server_status['Uptime']),
+    PMA_localisedDate($start_time)) . "\n";
 ?>
 </p>
 
 <div id="sectionlinks">
 <?php
-foreach ( $sections as $section_name => $section ) {
-    if ( ! empty( $section['vars'] ) && ! empty( $section['title'] ) ) {
+foreach ($sections as $section_name => $section) {
+    if (! empty($section['vars']) && ! empty($section['title'])) {
         echo '<a href="' . $PHP_SELF . '?' .
              PMA_generate_common_url() . '#' . $section_name . '">' .
              $section['title'] . '</a>' . "\n";
@@ -369,34 +368,34 @@ foreach ( $sections as $section_name => $section ) {
     <th class="name"><?php echo $strReceived; ?></th>
     <td class="value"><?php echo
         implode(' ',
-            PMA_formatByteDown( $server_status['Bytes_received'], 3 ) ); ?></td>
+            PMA_formatByteDown($server_status['Bytes_received'], 4)); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_received'] * $hour_factor, 3 ) ); ?></td>
+                $server_status['Bytes_received'] * $hour_factor, 4)); ?></td>
 </tr>
 <tr class="even">
     <th class="name"><?php echo $strSent; ?></th>
     <td class="value"><?php echo
         implode(' ',
-            PMA_formatByteDown( $server_status['Bytes_sent'], 3 ) ); ?></td>
+            PMA_formatByteDown($server_status['Bytes_sent'], 4)); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_sent'] * $hour_factor, 3 ) ); ?></td>
+                $server_status['Bytes_sent'] * $hour_factor, 4)); ?></td>
 </tr>
 <tr class="odd">
     <th class="name"><?php echo $strTotalUC; ?></th>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3 )
+                $server_status['Bytes_received'] + $server_status['Bytes_sent'], 4)
         ); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
                 ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-                * $hour_factor, 3 )
+                * $hour_factor, 4)
         ); ?></td>
 </tr>
 </tbody>
@@ -414,52 +413,47 @@ foreach ( $sections as $section_name => $section ) {
 <tr class="odd">
     <th class="name"><?php echo $strMaxConnects; ?></th>
     <td class="value"><?php echo
-        number_format( $server_status['Max_used_connections'], 0,
-            $GLOBALS['number_decimal_separator'],
-            $GLOBALS['number_thousands_separator']); ?>  </td>
+        PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
     <td class="value">--- </td>
     <td class="value">--- </td>
 </tr>
 <tr class="even">
     <th class="name"><?php echo $strFailedAttempts; ?></th>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Aborted_connects'], 4, 0 ); ?></td>
+        PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Aborted_connects'] * $hour_factor,
-            4, 2 ); ?></td>
+        PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
+            4, 2); ?></td>
     <td class="value"><?php echo
         $server_status['Connections'] > 0
-      ? number_format(
+      ? PMA_formatNumber(
             $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
-            2, $GLOBALS['number_decimal_separator'],
-            $GLOBALS['number_thousands_separator'] ) . '%'
+            0, 2) . '%'
       : '--- '; ?></td>
 </tr>
 <tr class="odd">
     <th class="name"><?php echo $strAbortedClients; ?></th>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Aborted_clients'], 4, 0 ); ?></td>
+        PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Aborted_clients'] * $hour_factor,
-            4, 2 ); ?></td>
+        PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
+            4, 2); ?></td>
     <td class="value"><?php echo
         $server_status['Connections'] > 0
-      ? number_format(
+      ? PMA_formatNumber(
             $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-            2, $GLOBALS['number_decimal_separator'],
-            $GLOBALS['number_thousands_separator']) . '%'
+            0, 2) . '%'
       : '--- '; ?></td>
 </tr>
 <tr class="even">
     <th class="name"><?php echo $strTotalUC; ?></th>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Connections'], 4, 0 ); ?></td>
+        PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Connections'] * $hour_factor,
-            4, 2 ); ?></td>
+        PMA_formatNumber($server_status['Connections'] * $hour_factor,
+            4, 2); ?></td>
     <td class="value"><?php echo
-        number_format( 100, 2, $GLOBALS['number_decimal_separator'],
-            $GLOBALS['number_thousands_separator'] ); ?>%</td>
+        PMA_formatNumber(100, 0, 2); ?>%</td>
 </tr>
 </tbody>
 </table>
@@ -467,10 +461,8 @@ foreach ( $sections as $section_name => $section ) {
 <hr class="clearfloat" />
 
 <h3><?php echo
-    sprintf( $strQueryStatistics,
-        number_format($server_status['Questions'],
-            0, $GLOBALS['number_decimal_separator'],
-            $GLOBALS['number_thousands_separator'] ) ); ?></h3>
+    sprintf($strQueryStatistics,
+        PMA_formatNumber($server_status['Questions'], 0)); ?></h3>
 
 <table id="serverstatusqueriessummary" class="data">
 <thead>
@@ -484,18 +476,18 @@ foreach ( $sections as $section_name => $section ) {
 <tbody>
 <tr class="odd">
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Questions'], 3, 0 ); ?></td>
+        PMA_formatNumber($server_status['Questions'], 4, 0); ?></td>
     <td class="value"><?php echo
-        PMA_formatNumber( $server_status['Questions'] * $hour_factor,
-            3, 2 ); ?></td>
+        PMA_formatNumber($server_status['Questions'] * $hour_factor,
+            3, 2); ?></td>
     <td class="value"><?php echo
         PMA_formatNumber(
             $server_status['Questions'] * 60 / $server_status['Uptime'],
-            3, 2 ); ?></td>
+            3, 2); ?></td>
     <td class="value"><?php echo
         PMA_formatNumber(
             $server_status['Questions'] / $server_status['Uptime'],
-            3, 2 ); ?></td>
+            3, 2); ?></td>
 </tr>
 </tbody>
 </table>
@@ -504,16 +496,16 @@ foreach ( $sections as $section_name => $section ) {
 <?php
 // number of tables to split values into
 $tables         = 2;
-$rows_per_table = (int) ceil( count( $sections['com']['vars'] ) / $tables );
+$rows_per_table = (int) ceil(count($sections['com']['vars']) / $tables);
 $current_table  = 0;
 $odd_row        = true;
 $countRows      = 0;
-$perc_factor    = 100 / ( $server_status['Questions'] - $server_status['Connections'] );
-foreach ( $sections['com']['vars'] as $name => $value ) {
+$perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
+foreach ($sections['com']['vars'] as $name => $value) {
     $current_table++;
-    if ( $countRows === 0 || $countRows === $rows_per_table ) {
+    if ($countRows === 0 || $countRows === $rows_per_table) {
         $odd_row = true;
-        if ( $countRows === $rows_per_table ) {
+        if ($countRows === $rows_per_table) {
             echo '    </tbody>' . "\n";
             echo '    </table>' . "\n";
         }
@@ -537,18 +529,16 @@ foreach ( $sections['com']['vars'] as $name => $value ) {
 // For the percentage column, use Questions - Connections, because
 // the number of connections is not an item of the Query types
 // but is included in Questions. Then the total of the percentages is 100.
-    $name = str_replace( 'Com_', '', $name );
-    $name = str_replace( '_', ' ', $name );
+    $name = str_replace('Com_', '', $name);
+    $name = str_replace('_', ' ', $name);
 ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo htmlspecialchars( $name ); ?></th>
-            <td class="value"><?php echo PMA_formatNumber( $value, 3, 0 ); ?></td>
+            <th class="name"><?php echo htmlspecialchars($name); ?></th>
+            <td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
             <td class="value"><?php echo
-                PMA_formatNumber( $value * $hour_factor, 3, 2 ); ?></td>
+                PMA_formatNumber($value * $hour_factor, 4, 2); ?></td>
             <td class="value"><?php echo
-                number_format( $value * $perc_factor, 2,
-                    $GLOBALS['number_decimal_separator'],
-                    $GLOBALS['number_thousands_separator'] ); ?>%</td>
+                PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
         </tr>
 <?php
 }
@@ -569,23 +559,23 @@ unset(
     $server_status['Questions'], $server_status['Uptime']
 );
 
-foreach ( $sections as $section_name => $section ) {
-    if ( ! empty( $section['vars'] ) ) {
+foreach ($sections as $section_name => $section) {
+    if (! empty($section['vars'])) {
 ?>
     <table class="data" id="serverstatussection<?php echo $section_name; ?>">
     <caption class="tblHeaders">
         <a class="top"
            href="<?php echo $PHP_SELF . '?' .
-                 PMA_generate_common_url() . '#_top'; ?>"
+                 PMA_generate_common_url() . '#serverstatus'; ?>"
            name="<?php echo $section_name; ?>"><?php echo $strPos1; ?>
             <?php echo
                 ($GLOBALS['cfg']['MainPageIconic']
               ? '<img src="' . $GLOBALS['pmaThemeImage'] .
                 's_asc.png" width="11" height="9" align="middle" alt="" />'
-              : '' ); ?>
+              : ''); ?>
         </a>
 <?php
-if ( ! empty( $section['title'] ) ) {
+if (! empty($section['title'])) {
     echo $section['title'];
 }
 ?>
@@ -601,16 +591,16 @@ if ( ! empty( $section['title'] ) ) {
         </tr>
     </thead>
 <?php
-        if ( ! empty( $links[$section_name] ) ) {
+        if (! empty($links[$section_name])) {
 ?>
     <tfoot>
         <tr class="tblFooters">
             <th colspan="3" class="tblFooters">
 <?php
-            foreach ( $links[$section_name] as $link_name => $link_url ) {
+            foreach ($links[$section_name] as $link_name => $link_url) {
                 echo '<a href="' . $link_url . '">' . $link_name . '</a>' . "\n";
             }
-            unset( $link_url, $link_name );
+            unset($link_url, $link_name);
 ?>
             </th>
         </tr>
@@ -621,60 +611,58 @@ if ( ! empty( $section['title'] ) ) {
     <tbody>
 <?php
         $odd_row = false;
-        foreach ( $section['vars'] as $name => $value ) {
+        foreach ($section['vars'] as $name => $value) {
             $odd_row = !$odd_row;
 ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
             <th class="name"><?php echo htmlspecialchars($name); ?></th>
             <td class="value"><?php
-            if ( isset( $alerts[$name] ) ) {
-                if ( $value > $alerts[$name] ) {
+            if (isset($alerts[$name])) {
+                if ($value > $alerts[$name]) {
                     echo '<span class="attention">';
                 } else {
                     echo '<span class="allfine">';
                 }
             }
-            if ( '%' === substr( $name, -1, 1 ) ) {
-                echo number_format( $value, 2,
-                    $GLOBALS['number_decimal_separator'],
-                    $GLOBALS['number_thousands_separator'] ) . ' %';
-            } elseif ( is_numeric( $value ) && $value == (int) $value ) {
-                echo PMA_formatNumber( $value, 3, 0 );
-            } elseif ( is_numeric( $value ) ) {
-                echo PMA_formatNumber( $value, 3, 2 );
+            if ('%' === substr($name, -1, 1)) {
+                echo PMA_formatNumber($value, 0, 2) . ' %';
+            } elseif (is_numeric($value) && $value == (int) $value) {
+                echo PMA_formatNumber($value, 4, 0);
+            } elseif (is_numeric($value)) {
+                echo PMA_formatNumber($value, 4, 2);
             } else {
-                echo htmlspecialchars( $value );
+                echo htmlspecialchars($value);
             }
-            if ( isset( $alerts[$name] ) ) {
+            if (isset($alerts[$name])) {
                 echo '</span>';
             }
             ?></td>
             <td class="descr">
             <?php
-            if ( isset( $GLOBALS['strShowStatus' . $name . 'Descr'] ) ) {
+            if (isset($GLOBALS['strShowStatus' . $name . 'Descr'])) {
                 echo $GLOBALS['strShowStatus' . $name . 'Descr'];
             }
 
-            if ( isset( $links[$name] ) ) {
-                foreach ( $links[$name] as $link_name => $link_url ) {
+            if (isset($links[$name])) {
+                foreach ($links[$name] as $link_name => $link_url) {
                     echo ' <a href="' . $link_url . '">' . $link_name . '</a>' .
                         "\n";
                 }
-                unset( $link_url, $link_name );
+                unset($link_url, $link_name);
             }
             ?>
             </td>
         </tr>
 <?php
         }
-        unset( $name, $value );
+        unset($name, $value);
 ?>
     </tbody>
     </table>
 <?php
     }
 }
-unset( $section_name, $section, $sections, $server_status, $odd_row, $alerts );
+unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 ?>
 </div>
 </div>
