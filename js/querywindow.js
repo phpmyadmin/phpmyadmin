@@ -3,23 +3,25 @@ var querywindow = '';
 /**
  * sets current selected db
  *
- * @param	string	db name
+ * @param    string    db name
  */
 function setDb( new_db ) {
     //alert('setDb(' + new_db + ')');
     if ( new_db != db ) {
         // db has changed
         //alert( new_db + '(' + new_db.length + ') : ' + db );
-        
-        db = new_db;
-        
-        if ( window.frames[0].document.getElementById( db ) == null ) {
+
+        if ( window.frames[0].document.getElementById(new_db) == null ) {
             // db is unknown, reload complete left frame
             refreshLeft();
-            
+        } else {
+            unmarkDbTable(db);
+            markDbTable(new_db);
         }
+        db = new_db;
+
         // TODO: add code to expand db in lightview mode
-        
+
         // refresh querywindow
         refreshQuerywindow();
     }
@@ -28,23 +30,24 @@ function setDb( new_db ) {
 /**
  * sets current selected table (called from left.php)
  *
- * @param	string	table name
+ * @param    string    table name
  */
 function setTable( new_table ) {
     //alert('setTable(' + new_table + ')');
     if ( new_table != table ) {
         // table has changed
         //alert( new_table + '(' + new_table.length + ') : ' + table );
-        
+
         table = new_table;
-        
-        if ( window.frames[0].document.getElementById( db + '.' + table ) == null ) {
+
+        if ( window.frames[0].document.getElementById( db + '.' + table ) == null
+         && table != '' ) {
             // table is unknown, reload complete left frame
             refreshLeft();
-            
+
         }
         // TODO: add code to expand table in lightview mode
-        
+
         // refresh querywindow
         refreshQuerywindow();
     }
@@ -58,21 +61,84 @@ function refreshMain( url ) {
             url = 'main.php';
         }
     }
-    goTo( url + '?&server=' + server + 
-        '&db=' + db + 
-        '&table=' + table + 
-        '&lang=' + lang + 
+    goTo( url + '?&server=' + server +
+        '&db=' + db +
+        '&table=' + table +
+        '&lang=' + lang +
         '&collation_connection=' + collation_connection,
         'main' );
 }
 
 function refreshLeft() {
-    goTo('left.php?&server=' + server + 
-        '&db=' + db + 
-        '&table=' + table + 
-        '&lang=' + lang + 
+    goTo('left.php?&server=' + server +
+        '&db=' + db +
+        '&table=' + table +
+        '&lang=' + lang +
         '&collation_connection=' + collation_connection
         );
+}
+
+/**
+ * adds class to element
+ */
+function addClass(element, classname)
+{
+    if (element != null) {
+        element.className += ' ' + classname;
+        //alert('set class: ' + classname + ', now: ' + element.className);
+    }
+}
+
+/**
+ * removes class from element
+ */
+function removeClass(element, classname)
+{
+    if (element != null) {
+        element.className = element.className.replace(' ' + classname, '');
+        // if there is no other class anem there is no leading space
+        element.className = element.className.replace(classname, '');
+        //alert('removed class: ' + classname + ', now: ' + element.className);
+    }
+}
+
+function unmarkDbTable(db, table)
+{
+    var element_reference = window.frames[0].document.getElementById(db);
+    if (element_reference != null) {
+        //alert('remove from: ' + db);
+        removeClass(element_reference.parentNode, 'marked');
+    }
+
+    element_reference = window.frames[0].document.getElementById(db + '.' + table);
+    if (element_reference != null) {
+        //alert('remove from: ' + db + '.' + table);
+        removeClass(element_reference.parentNode, 'marked');
+    }
+}
+
+function markDbTable(db, table)
+{
+    var element_reference = window.frames[0].document.getElementById(db);
+    if (element_reference != null) {
+        addClass(element_reference.parentNode, 'marked');
+        // scrolldown
+        element_reference.focus();
+        // opera marks the text, we dont want this ...
+        element_reference.blur();
+    }
+
+    element_reference = window.frames[0].document.getElementById(db + '.' + table);
+    if (element_reference != null) {
+        addClass(element_reference.parentNode, 'marked');
+        // scrolldown
+        element_reference.focus();
+        // opera marks the text, we dont want this ...
+        element_reference.blur();
+    }
+
+    // return to main frame ...
+    window.frames[1].focus();
 }
 
 /**
@@ -89,20 +155,24 @@ function setAll( new_lang, new_collation_connection, new_server, new_db, new_tab
         collation_connection  = new_collation_connection;
         lang  = new_lang;
         refreshLeft();
-    }
-    else if ( new_db != db || new_table != table ) {
+    } else if ( new_db != db || new_table != table ) {
         // save new db and table
-        db     = new_db;
-        table  = new_table;
-        
+        var old_db    = db;
+        var old_table = table;
+        db        = new_db;
+        table     = new_table;
+
         if ( window.frames[0].document.getElementById( db ) == null
           && window.frames[0].document.getElementById( db + '.' + table ) == null ) {
             // table or db is unknown, reload complete left frame
             refreshLeft();
+        } else {
+            unmarkDbTable(old_db, old_table);
+            markDbTable(db, table);
         }
 
         // TODO: add code to expand db in lightview mode
-        
+
         // refresh querywindow
         refreshQuerywindow();
     }
@@ -116,7 +186,7 @@ function reload_querywindow( db, table, sql_query ) {
             querywindow.document.querywindow.query_history_latest_db.value = db;
             querywindow.document.querywindow.table.value = table;
             querywindow.document.querywindow.query_history_latest_table.value = table;
-            
+
             if ( sql_query ) {
                 querywindow.document.querywindow.query_history_latest.value = sql_query;
             }
@@ -128,7 +198,7 @@ function reload_querywindow( db, table, sql_query ) {
 
 function focus_querywindow( sql_query ) {
     if ( querywindow && !querywindow.closed && querywindow.location) {
-        var querywindow = querywindow;
+        //var querywindow = querywindow;
         if ( querywindow.document.querywindow.querydisplay_tab != 'sql' ) {
             querywindow.document.querywindow.querydisplay_tab.value = "sql";
             querywindow.document.querywindow.query_history_latest.value = sql_query;
@@ -212,7 +282,7 @@ function goTo( targeturl, target ) {
         } else if ( target.location.href == pma_absolute_uri + targeturl ) {
             return true;
         }
-        
+
         if ( safari_browser ) {
             target.location.href = targeturl;
         } else {
@@ -241,6 +311,6 @@ function updateTableTitle( table_link_id, new_title ) {
         left.getElementById('browse_' + table_link_id).title = new_title;
         return true;
     }
-    
+
     return false;
 }

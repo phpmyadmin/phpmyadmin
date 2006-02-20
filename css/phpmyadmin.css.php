@@ -692,6 +692,20 @@ li#li_flush_privileges {
     <?php
 } // end styles 2.7.1
 
+if ( $_SESSION['PMA_Theme']->checkVersion( '2.9' ) ) {
+    ?>
+
+/********************/
+/* NEW in PMA 2.9   */
+/********************/
+
+<?php if ( $GLOBALS['cfg']['BrowseMarkerColor'] ) { ?>
+div#left_tableList li.marked {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+<?php } ?>
+    <?php
+} // end styles 2.9
 
 $_SESSION['PMA_Theme']->loadCss( $_REQUEST['js_frame'] );
 ?>
