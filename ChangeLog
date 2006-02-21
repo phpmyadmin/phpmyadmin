@@ -22,6 +22,9 @@ $Source$
       merged libraries\tbl_move_copy.php in class PMA_Table
     * libraries/Table.class.php:
       minor fixes and improvements, formating, documentation
+    * libraries/relation.lib.php:
+      check if $cfg['Server']['pmadb'] really exists and is selectable,
+      minor tweaks and formating
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released from QA_2_8 branch

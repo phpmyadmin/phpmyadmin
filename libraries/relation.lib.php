@@ -25,8 +25,8 @@ require_once './libraries/Table.class.php';
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
- function PMA_query_as_cu($sql, $show_error = TRUE, $options = 0) {
-    global $err_url_0, $db, $controllink, $cfgRelation;
+ function PMA_query_as_cu($sql, $show_error = true, $options = 0) {
+    global $db, $controllink, $cfgRelation;
 
     // Comparing resource ids works on PHP 5 because, when no controluser
     // is defined, connecting with the same user for controllink does
@@ -49,7 +49,7 @@ require_once './libraries/Table.class.php';
     if ($result) {
         return $result;
     } else {
-        return FALSE;
+        return false;
     }
  } // end of the "PMA_query_as_cu()" function
 
@@ -74,34 +74,35 @@ require_once './libraries/Table.class.php';
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
-function PMA_getRelationsParam($verbose = FALSE)
+function PMA_getRelationsParam($verbose = false)
 {
-    global $cfg, $server, $err_url_0, $db, $table, $controllink;
-    global $cfgRelation;
+    global $cfg, $server, $controllink, $cfgRelation;
 
     $cfgRelation                = array();
-    $cfgRelation['relwork']     = FALSE;
-    $cfgRelation['displaywork'] = FALSE;
-    $cfgRelation['bookmarkwork']= FALSE;
-    $cfgRelation['pdfwork']     = FALSE;
-    $cfgRelation['commwork']    = FALSE;
-    $cfgRelation['mimework']    = FALSE;
-    $cfgRelation['historywork'] = FALSE;
-    $cfgRelation['allworks']    = FALSE;
+    $cfgRelation['relwork']     = false;
+    $cfgRelation['displaywork'] = false;
+    $cfgRelation['bookmarkwork']= false;
+    $cfgRelation['pdfwork']     = false;
+    $cfgRelation['commwork']    = false;
+    $cfgRelation['mimework']    = false;
+    $cfgRelation['historywork'] = false;
+    $cfgRelation['allworks']    = false;
 
     // No server selected -> no bookmark table
-    // we return the array with the FALSEs in it,
+    // we return the array with the falses in it,
     // to avoid some 'Unitialized string offset' errors later
-    if ($server == 0
-       || empty($cfg['Server'])
-       || empty($cfg['Server']['pmadb'])) {
-        if ($verbose == TRUE) {
+    if ($server == 0 || empty($cfg['Server']) || empty($cfg['Server']['pmadb'])
+      || ! PMA_DBI_select_db($cfg['Server']['pmadb'], $controllink)) {
+        if ($verbose == true) {
             echo 'PMA Database ... '
                  . '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font>'
-                 . '[ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu'] . '</a> ]<br />' . "\n"
+                 . '[ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu']
+                 . '</a> ]<br />' . "\n"
                  . $GLOBALS['strGeneralRelationFeat']
-                 . ' <font color="green">' . $GLOBALS['strDisabled'] . '</font>' . "\n";
+                 . ' <font color="green">' . $GLOBALS['strDisabled']
+                 . '</font>' . "\n";
         }
+        $cfg['Server']['pmadb'] = false;
         return $cfgRelation;
     }
 
@@ -113,9 +114,8 @@ function PMA_getRelationsParam($verbose = FALSE)
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
 
-    PMA_DBI_select_db($cfgRelation['db'], $controllink);
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
-    $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);
+    $tab_rs    = PMA_query_as_cu($tab_query, false, PMA_DBI_QUERY_STORE);
 
     if ($tab_rs) {
         while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
@@ -135,77 +135,79 @@ function PMA_getRelationsParam($verbose = FALSE)
                 $cfgRelation['history'] = $curr_table[0];
             }
         } // end while
+        PMA_DBI_free_result($tab_rs);
+    } else {
+        $cfg['Server']['pmadb'] = false;
     }
 
     if (isset($cfgRelation['relation'])) {
-        $cfgRelation['relwork']         = TRUE;
+        $cfgRelation['relwork']         = true;
         if (isset($cfgRelation['table_info'])) {
-                $cfgRelation['displaywork'] = TRUE;
+                $cfgRelation['displaywork'] = true;
         }
     }
     if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
-        $cfgRelation['pdfwork']     = TRUE;
+        $cfgRelation['pdfwork']     = true;
     }
     if (isset($cfgRelation['column_info'])) {
-        $cfgRelation['commwork']    = TRUE;
+        $cfgRelation['commwork']    = true;
 
         if ($cfg['Server']['verbose_check']) {
-            $mime_query  = 'SHOW FIELDS FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
-            $mime_rs     = PMA_query_as_cu($mime_query, FALSE);
+            $mime_query  = 'SHOW FIELDS FROM '
+                . PMA_backquote($cfgRelation['db']) . '.'
+                . PMA_backquote($cfgRelation['column_info']);
+            $mime_rs     = PMA_query_as_cu($mime_query, false);
 
-            $mime_field_mimetype                = FALSE;
-            $mime_field_transformation          = FALSE;
-            $mime_field_transformation_options  = FALSE;
+            $mime_field_mimetype                = false;
+            $mime_field_transformation          = false;
+            $mime_field_transformation_options  = false;
             while ($curr_mime_field = @PMA_DBI_fetch_row($mime_rs)) {
                 if ($curr_mime_field[0] == 'mimetype') {
-                    $mime_field_mimetype               = TRUE;
+                    $mime_field_mimetype               = true;
                 } elseif ($curr_mime_field[0] == 'transformation') {
-                    $mime_field_transformation         = TRUE;
+                    $mime_field_transformation         = true;
                 } elseif ($curr_mime_field[0] == 'transformation_options') {
-                    $mime_field_transformation_options = TRUE;
+                    $mime_field_transformation_options = true;
                 }
             }
             PMA_DBI_free_result($mime_rs);
 
-            if ($mime_field_mimetype == TRUE
-                && $mime_field_transformation == TRUE
-                && $mime_field_transformation_options == TRUE) {
-                $cfgRelation['mimework'] = TRUE;
+            if ($mime_field_mimetype == true
+                && $mime_field_transformation == true
+                && $mime_field_transformation_options == true) {
+                $cfgRelation['mimework'] = true;
             }
         } else {
-            $cfgRelation['mimework'] = TRUE;
+            $cfgRelation['mimework'] = true;
         }
     }
 
     if (isset($cfgRelation['history'])) {
-        $cfgRelation['historywork']     = TRUE;
+        $cfgRelation['historywork']     = true;
     }
 
     if (isset($cfgRelation['bookmark'])) {
-        $cfgRelation['bookmarkwork']     = TRUE;
+        $cfgRelation['bookmarkwork']     = true;
     }
 
-    if ($cfgRelation['relwork'] == TRUE && $cfgRelation['displaywork'] == TRUE
-        && $cfgRelation['pdfwork'] == TRUE && $cfgRelation['commwork'] == TRUE
-        && $cfgRelation['mimework'] == TRUE && $cfgRelation['historywork'] == TRUE
-        && $cfgRelation['bookmarkwork'] == TRUE) {
-        $cfgRelation['allworks'] = TRUE;
-    }
-    if ($tab_rs) {
-        PMA_DBI_free_result($tab_rs);
-    } else {
-        $cfg['Server']['pmadb'] = FALSE;
+    if ($cfgRelation['relwork'] == true && $cfgRelation['displaywork'] == true
+        && $cfgRelation['pdfwork'] == true && $cfgRelation['commwork'] == true
+        && $cfgRelation['mimework'] == true && $cfgRelation['historywork'] == true
+        && $cfgRelation['bookmarkwork'] == true) {
+        $cfgRelation['allworks'] = true;
     }
 
-    if ($verbose == TRUE) {
-        $shit     = '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font> [ <a href="Documentation.html#%s">' . $GLOBALS['strDocu'] . '</a> ]';
+    if ($verbose == true) {
+        $shit     = '<font color="red"><b>' . $GLOBALS['strNotOK']
+            . '</b></font> [ <a href="Documentation.html#%s">'
+            . $GLOBALS['strDocu'] . '</a> ]';
         $hit      = '<font color="green"><b>' . $GLOBALS['strOK'] . '</b></font>';
         $enabled  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
         $disabled = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
 
         echo '<table>' . "\n";
         echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'pmadb\'] ... </th><td align="right">'
-             . (($cfg['Server']['pmadb'] == FALSE) ? sprintf($shit, 'pmadb') : $hit)
+             . (($cfg['Server']['pmadb'] == false) ? sprintf($shit, 'pmadb') : $hit)
              . '</td></tr>' . "\n";
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
@@ -213,15 +215,15 @@ function PMA_getRelationsParam($verbose = FALSE)
              . ((isset($cfgRelation['relation'])) ? $hit : sprintf($shit, 'relation'))
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ': '
-             . (($cfgRelation['relwork'] == TRUE) ? $enabled :  $disabled)
+             . (($cfgRelation['relwork'] == true) ? $enabled :  $disabled)
              . '</td></tr>' . "\n";
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
         echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'table_info\']   ... </th><td align="right">'
-             . (($cfgRelation['displaywork'] == FALSE) ? sprintf($shit, 'table_info') : $hit)
+             . (($cfgRelation['displaywork'] == false) ? sprintf($shit, 'table_info') : $hit)
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ': '
-             . (($cfgRelation['displaywork'] == TRUE) ? $enabled : $disabled)
+             . (($cfgRelation['displaywork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
@@ -232,7 +234,7 @@ function PMA_getRelationsParam($verbose = FALSE)
              . ((isset($cfgRelation['pdf_pages'])) ? $hit : sprintf($shit, 'table_coords'))
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ': '
-             . (($cfgRelation['pdfwork'] == TRUE) ? $enabled : $disabled)
+             . (($cfgRelation['pdfwork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
@@ -240,16 +242,16 @@ function PMA_getRelationsParam($verbose = FALSE)
              . ((isset($cfgRelation['column_info'])) ? $hit : sprintf($shit, 'col_com'))
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
-             . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
+             . (($cfgRelation['commwork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strBookmarkQuery'] . ': '
-             . (($cfgRelation['bookmarkwork'] == TRUE) ? $enabled : $disabled)
+             . (($cfgRelation['bookmarkwork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
         echo '    <tr><th align="left">MIME ...</th><td align="right">'
-             . (($cfgRelation['mimework'] == TRUE) ? $hit : sprintf($shit, 'col_com'))
+             . (($cfgRelation['mimework'] == true) ? $hit : sprintf($shit, 'col_com'))
              . '</td></tr>' . "\n";
 
-             if (($cfgRelation['commwork'] == TRUE) && ($cfgRelation['mimework'] != TRUE)) {
+             if (($cfgRelation['commwork'] == true) && ($cfgRelation['mimework'] != true)) {
                  echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
              }
 
@@ -257,11 +259,11 @@ function PMA_getRelationsParam($verbose = FALSE)
              . ((isset($cfgRelation['history'])) ? $hit : sprintf($shit, 'history'))
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strQuerySQLHistory'] . ': '
-             . (($cfgRelation['historywork'] == TRUE) ? $enabled : $disabled)
+             . (($cfgRelation['historywork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
 
         echo '</table>' . "\n";
-    } // end if ($verbose == TRUE) {
+    } // end if ($verbose == true) {
 
     return $cfgRelation;
 } // end of the 'PMA_getRelationsParam()' function
@@ -286,7 +288,7 @@ function PMA_getRelationsParam($verbose = FALSE)
  * @author  Mike Beck <mikebeck@users.sourceforge.net> and Marc Delisle
  */
 function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
-    global $cfgRelation, $err_url_0;
+    global $cfgRelation;
 
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
         $rel_query = '
@@ -366,7 +368,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema'
         && ($source == 'internal' || $source == 'both')) {
 
-        require_once('./libraries/information_schema_relations.lib.php');
+        require_once './libraries/information_schema_relations.lib.php';
 
         if (!isset($foreign)) {
             $foreign = array();
@@ -374,8 +376,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
 
         if (isset($GLOBALS['information_schema_relations'][$table])) {
             foreach ($GLOBALS['information_schema_relations'][$table] as $field => $relations) {
-                if ( ( ! isset($column) || ! strlen($column) || $column == $field )
-                  && ( ! isset($foreign[$field]) || ! strlen($foreign[$field]) ) ) {
+                if ((! isset($column) || ! strlen($column) || $column == $field)
+                  && (! isset($foreign[$field]) || ! strlen($foreign[$field]))) {
                     $foreign[$field] = $relations;
                 }
             }
@@ -385,7 +387,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     if (!empty($foreign) && is_array($foreign)) {
        return $foreign;
     } else {
-        return FALSE;
+        return false;
     }
 
 } // end of the 'PMA_getForeigners()' function
@@ -441,7 +443,7 @@ function PMA_getDisplayField($db, $table) {
     /**
      * No Luck...
      */
-    return FALSE;
+    return false;
 
 } // end of the 'PMA_getDisplayField()' function
 
@@ -484,7 +486,7 @@ function PMA_getComments($db, $table = '') {
 
         // pmadb internal column comments
         // (this function can be called even if $cfgRelation['commwork'] is
-        // FALSE, to get native column comments, so recheck here)
+        // false, to get native column comments, so recheck here)
         if ($cfgRelation['commwork']) {
             $com_qry = '
                  SELECT column_name,
@@ -492,7 +494,7 @@ function PMA_getComments($db, $table = '') {
                    FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']) . '
                   WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\'
                     AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-            $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
+            $com_rs   = PMA_query_as_cu($com_qry, true, PMA_DBI_QUERY_STORE);
         }
     } else {
         // pmadb internal db comments
@@ -502,7 +504,7 @@ function PMA_getComments($db, $table = '') {
               WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\'
                 AND table_name  = \'\'
                 AND column_name = \'(db_comment)\'';
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
+        $com_rs   = PMA_query_as_cu($com_qry, true, PMA_DBI_QUERY_STORE);
     }
 
 
@@ -537,7 +539,7 @@ function PMA_getComments($db, $table = '') {
     if (isset($comment) && is_array($comment)) {
         return $comment;
      } else {
-        return FALSE;
+        return false;
      }
  } // end of the 'PMA_getComments()' function
 
@@ -584,9 +586,9 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     // native mode is only for column comments so we need a table name
     if ($mode == 'native' && isset($table) && strlen($table)) {
         $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
-            . PMA_Table::generateAlter($col, $col, '', '', '', '', FALSE, '', FALSE, '', $comment, '', '');
+            . PMA_Table::generateAlter($col, $col, '', '', '', '', false, '', false, '', $comment, '', '');
         PMA_DBI_try_query($query, null, PMA_DBI_QUERY_STORE);
-        return TRUE;
+        return true;
     }
 
     // $mode == 'pmadb' section:
@@ -617,7 +619,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
           WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
             AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
             AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
-    $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
+    $test_rs   = PMA_query_as_cu($test_qry, true, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = PMA_DBI_fetch_assoc($test_rs);
@@ -632,7 +634,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
                     AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($col) . '\'';
         } else {
             $upd_query = '
-                 DELETE FROM 
+                 DELETE FROM
                         ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
                   WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
                     AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
@@ -679,17 +681,17 @@ function PMA_setHistory($db, $table, $username, $sqlquery) {
     $hist_rs = PMA_query_as_cu('
          INSERT INTO
                 ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
-              ( ' . PMA_backquote('username') . ',
+              (' . PMA_backquote('username') . ',
                 ' . PMA_backquote('db') . ',
                 ' . PMA_backquote('table') . ',
                 ' . PMA_backquote('timevalue') . ',
-                ' . PMA_backquote('sqlquery') . ' )
-         VALUES 
-              ( \'' . PMA_sqlAddslashes($username) . '\',
+                ' . PMA_backquote('sqlquery') . ')
+         VALUES
+              (\'' . PMA_sqlAddslashes($username) . '\',
                 \'' . PMA_sqlAddslashes($db) . '\',
                 \'' . PMA_sqlAddslashes($table) . '\',
                 NOW(),
-                \'' . PMA_sqlAddslashes($sqlquery) . '\' )');
+                \'' . PMA_sqlAddslashes($sqlquery) . '\')');
     return true;
 } // end of 'PMA_setHistory()' function
 
@@ -762,7 +764,7 @@ function PMA_purgeHistory($username) {
         // quotes added around $maxtime to prevent a difficult to
         // reproduce problem
         $remove_rs = PMA_query_as_cu('
-             DELETE FROM 
+             DELETE FROM
                     ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
               WHERE timevalue <= \'' . $maxtime . '\'');
     }
