@@ -5,7 +5,8 @@
 /**
  * Get some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
 
 $js_to_run = 'functions.js';
 
@@ -13,7 +14,7 @@ if (isset($table)) {
     $table = PMA_sanitize($table);
 }
 
-require_once('./libraries/header.inc.php');
+require_once './libraries/header.inc.php';
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
@@ -33,9 +34,9 @@ PMA_DBI_select_db($db);
 /**
  * The form used to define the structure of the table has been submitted
  */
-$abort = FALSE;
+$abort = false;
 if (isset($submit_num_fields)) {
-    $regenerate = TRUE;
+    $regenerate = true;
     $num_fields = $orig_num_fields + $added_fields;
 } elseif (isset($do_save_data)) {
     $sql_query = $query_cpy = '';
@@ -62,8 +63,8 @@ if (isset($submit_num_fields)) {
             continue;
         }
 
-        $query = PMA_generateFieldSpec($field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], isset($field_collation[$i]) ? $field_collation[$i] : '', $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], isset($field_comments[$i]) ? $field_comments[$i] : '', $field_primary, $i);
-        
+        $query = PMA_Table::generateFieldSpec($field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], isset($field_collation[$i]) ? $field_collation[$i] : '', $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], isset($field_comments[$i]) ? $field_comments[$i] : '', $field_primary, $i);
+
         $query .= ', ';
         $sql_query .= $query;
         $query_cpy .= "\n" . '  ' . $query;
@@ -161,17 +162,17 @@ if (isset($submit_num_fields)) {
     }
 
     // Executes the query
-    $error_create = FALSE;
-    $result    = PMA_DBI_try_query($sql_query) or $error_create = TRUE;
+    $error_create = false;
+    $result    = PMA_DBI_try_query($sql_query) or $error_create = true;
 
-    if ($error_create == FALSE) {
+    if ($error_create == false) {
         $sql_query = $query_cpy . ';';
         unset($query_cpy);
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
 
         // garvin: If comments were sent, enable relation stuff
-        require_once('./libraries/relation.lib.php');
-        require_once('./libraries/transformations.lib.php');
+        require_once './libraries/relation.lib.php';
+        require_once './libraries/transformations.lib.php';
 
         $cfgRelation = PMA_getRelationsParam();
 
@@ -193,23 +194,23 @@ if (isset($submit_num_fields)) {
             }
         }
 
-        require('./' . $cfg['DefaultTabTable']);
-        $abort = TRUE;
+        require './' . $cfg['DefaultTabTable'];
+        $abort = true;
         exit();
     } else {
-        PMA_mysqlDie('', '', '', $err_url, FALSE);
+        PMA_mysqlDie('', '', '', $err_url, false);
         // garvin: An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
         $num_fields = $orig_num_fields;
-        $regenerate = TRUE;
+        $regenerate = true;
     }
 } // end do create table
 
 /**
  * Displays the form used to define the structure of the table
  */
-if ($abort == FALSE) {
+if ($abort == false) {
     if (isset($num_fields)) {
         $num_fields = intval($num_fields);
     }
@@ -222,16 +223,15 @@ if ($abort == FALSE) {
         PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
     // Does table exist?
-    elseif (!(PMA_DBI_get_fields($db, $table) === FALSE)) {
+    elseif (!(PMA_DBI_get_fields($db, $table) === false)) {
         PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '', '', $err_url);
     }
     // Table name and number of fields are valid -> show the form
     else {
         $action = 'tbl_create.php';
-        require('./libraries/tbl_properties.inc.php');
+        require './libraries/tbl_properties.inc.php';
         // Displays the footer
-        echo "\n";
-        require_once('./libraries/footer.inc.php');
+        require_once './libraries/footer.inc.php';
    }
 }
 
