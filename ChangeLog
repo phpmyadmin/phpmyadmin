@@ -23,6 +23,9 @@ $Source$
     * libraries/Table.class.php:
       minor fixes and improvements, formating, documentation
 
+2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.0-rc1 released from QA_2_8 branch
+
 2006-02-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php:
       - fixed undefined MYSQLI_BINARY_FLAG constant
