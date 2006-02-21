@@ -11,6 +11,8 @@ $Source$
     * libraries/Table.class.php: *NEW* class PMA_Table
     * tbl_addfield.php, tbl_create.php:
       use Table.class.php
+    * libraries/common.lib.php:
+      moved PMA_generateFieldSpec() into PMA_Table
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released
