@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2006-02-21 Michal Čihař  <michal@cihar.com>
-    * scripts/setup.php: Various bug fixes (bug #1435700, bug #1435806,
-      undefined indexes).
+    * scripts/setup.php: 
+        - Various bug fixes (bug #1435700, bug #1435806, undefined indexes).
+        - XHTML fixes (patch #1435772, thanks to Matt LaPlante - cyberdog3k).
     * libraries/export/sql.php: New line before values (RFE #1435919).
 
 2006-02-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>

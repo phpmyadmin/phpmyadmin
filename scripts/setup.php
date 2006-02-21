@@ -313,7 +313,7 @@ function get_hidden_cfg() {
  */
 function get_action($name, $title, $added = '', $enabled = TRUE) {
     $ret = '';
-    $ret .= '<form class="action" method="POST">';
+    $ret .= '<form class="action" method="post" action="">';
     $ret .= '<input type="hidden" name="action" value="' . $name . '" />';
     $ret .= $added;
     $ret .= '<input type="submit" value="' . $title . '"';
@@ -338,7 +338,7 @@ function get_action($name, $title, $added = '', $enabled = TRUE) {
  */
 function get_url_action($url, $title, $params = array()) {
     $ret = '';
-    $ret .= '<form class="action" method="GET" action="' . $url . '" target="_blank">';
+    $ret .= '<form class="action" method="get" action="' . $url . '" target="_blank">';
     foreach ($params as $key => $val) {
         $ret .= '<input type="hidden" name="' . $key . '" value="' . $val . '" />';
     }
@@ -706,7 +706,7 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
  */
 function show_security_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_security_real" />
     <?php
         echo get_hidden_cfg();
@@ -736,7 +736,7 @@ function show_security_form($defaults = array()) {
  */
 function show_manual_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_manual_real" />
     <?php
         echo get_hidden_cfg();
@@ -762,7 +762,7 @@ function show_manual_form($defaults = array()) {
 function show_charset_form($defaults = array()) {
     global $PMA_Config;
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_charset_real" />
     <?php
         echo get_hidden_cfg();
@@ -789,7 +789,7 @@ function show_charset_form($defaults = array()) {
  */
 function show_extensions_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_extensions_real" />
     <?php
         echo get_hidden_cfg();
@@ -814,7 +814,7 @@ function show_extensions_form($defaults = array()) {
 function show_relation_form($defaults = array()) {
     global $PMA_Config;
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_relation_real" />
     <?php
         echo get_hidden_cfg();
@@ -841,7 +841,7 @@ function show_relation_form($defaults = array()) {
  */
 function show_upload_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="feat_upload_real" />
     <?php
         echo get_hidden_cfg();
@@ -867,7 +867,7 @@ function show_upload_form($defaults = array()) {
  */
 function show_server_form($defaults = array(), $number = FALSE) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="addserver_real" />
     <?php
         echo get_hidden_cfg();
@@ -913,7 +913,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
  */
 function show_left_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_left_real" />
     <?php
         echo get_hidden_cfg();
@@ -944,7 +944,7 @@ function show_left_form($defaults = array()) {
  */
 function show_tabs_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_tabs_real" />
     <?php
         echo get_hidden_cfg();
@@ -971,7 +971,7 @@ function show_tabs_form($defaults = array()) {
  */
 function show_icons_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_icons_real" />
     <?php
         echo get_hidden_cfg();
@@ -999,7 +999,7 @@ function show_icons_form($defaults = array()) {
  */
 function show_browse_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_browse_real" />
     <?php
         echo get_hidden_cfg();
@@ -1028,7 +1028,7 @@ function show_browse_form($defaults = array()) {
  */
 function show_edit_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_edit_real" />
     <?php
         echo get_hidden_cfg();
@@ -1061,7 +1061,7 @@ function show_edit_form($defaults = array()) {
  */
 function show_window_form($defaults = array()) {
     ?>
-<form method="post">
+<form method="post" action="">
     <input type="hidden" name="action" value="lay_window_real" />
     <?php
         echo get_hidden_cfg();
@@ -1161,7 +1161,7 @@ switch ($action) {
         exit;
         break;
     case 'display':
-        echo '<form method="none"><textarea name="config" cols="50" rows="20" id="textconfig" wrap="off">' . "\n";
+        echo '<form method="none" action=""><textarea name="config" cols="50" rows="20" id="textconfig" wrap="off">' . "\n";
         echo htmlspecialchars(get_cfg_string($configuration));
         echo '</textarea></form>' . "\n";
         ?>
