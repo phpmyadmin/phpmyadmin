@@ -16,6 +16,7 @@ $Source$
     * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php,
       libraries/database_interface.lib.php: Compatibility with iconv charset
       names on AIX (patch #1420704, thanks to Björn Wiberg - bwiberg).
+    * libraries/import.lib.php: Skip byte order marks (bug #1423362).
 
 2006-02-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php PMA_getUvaCondition():
