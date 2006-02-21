@@ -434,7 +434,7 @@ function get_cfg_val($name, $val) {
             if ($type == 'string') {
                 $ret .= $name. "['$k'] = " . var_export($v, TRUE) . ";\n";
             } elseif ($type == 'int') {
-                $ret .= "    " . var_export($v, TRUE) . ";\n";
+                $ret .= "    " . var_export($v, TRUE) . ",\n";
             }
         }
         if ($type == 'int') {
@@ -1119,9 +1119,13 @@ function load_config($config_file) {
         unset( $old_error_reporting );
         if ($success_apply_user_config === FALSE) {
             message('error', 'Error while parsing configuration file!');
-        } elseif (count($cfg) == 0 || (isset($cfg['Servers']) && count($cfg) == 1 || count($cfg['Servers']) == 0)) {
+        } elseif (!isset($cfg) || count($cfg) == 0) {
             message('error', 'Config file seems to contain no configuration!');
         } else {
+            // This must be set
+            if (!isset($cfg['Servers'])) {
+                $cfg['Servers'] = array();
+            }
             message('notice', 'Configuration loaded');
             compress_servers($cfg);
             return $cfg;
@@ -1214,7 +1218,7 @@ switch ($action) {
 
     case 'addserver_real':
         if (isset($_POST['submit_save'])) {
-            $new_server = grab_values('host;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;history:serialized;AllowDeny:serialized');
+            $new_server = grab_values('host;extension;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;history:serialized;AllowDeny:serialized');
             $err = FALSE;
             if (empty($new_server['host'])) {
                 message('error', 'Empty hostname!');

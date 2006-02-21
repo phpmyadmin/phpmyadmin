@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-21 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Various bug fixes (bug #1435700, bug #1435806,
+      undefined indexes).
+
 2006-02-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php PMA_getUvaCondition():
       do not test for isset but strlen on orgname of table
