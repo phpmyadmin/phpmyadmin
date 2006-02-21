@@ -561,7 +561,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $replace      = array('\0', '\n', '\r', '\Z');
         $current_row  = 0;
         $query_size   = 0;
-        $separator    = isset($GLOBALS['extended_ins']) ? ',' : ';';
+        if (isset($GLOBALS['extended_ins'])) {
+            $separator    = ',';
+            $schema_insert .= $crlf;
+        } else {
+            $separator    = ';';
+        }
 
         while ($row = PMA_DBI_fetch_row($result)) {
             $current_row++;
