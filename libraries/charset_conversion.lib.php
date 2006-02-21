@@ -59,6 +59,7 @@ define('PMA_CHARSET_NONE', 0);
 define('PMA_CHARSET_ICONV', 1);
 define('PMA_CHARSET_LIBICONV', 2);
 define('PMA_CHARSET_RECODE', 3);
+define('PMA_CHARSET_ICONV_AIX', 4);
 
 if (!isset($cfg['IconvExtraParams'])) {
     $cfg['IconvExtraParams'] = '';
@@ -74,7 +75,11 @@ if (isset($cfg['AllowAnywhereRecoding'])
     }
     if ($PMA_recoding_engine == 'iconv') {
         if (@function_exists('iconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV;
+            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
+            } else {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV;
+            }
         } elseif (@function_exists('libiconv')) {
             $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
         } else {
@@ -100,7 +105,11 @@ if (isset($cfg['AllowAnywhereRecoding'])
         }
     } else {
         if (@function_exists('iconv')) {
-            $PMA_recoding_engine = PMA_CHARSET_ICONV;
+            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV_AIX;
+            } else {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV;
+            }
         } elseif (@function_exists('libiconv')) {
             $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
         } elseif (@function_exists('recode_string')) {
@@ -118,6 +127,10 @@ if (isset($cfg['AllowAnywhereRecoding'])
     $PMA_recoding_engine         = PMA_CHARSET_NONE;
 }
 
+/* Load AIX iconv wrapper if needed */
+if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
+    require_once('./liraries/iconv_wrapper.lib.php');
+}
 
 /**
  * Converts encoding according to current settings.
@@ -164,8 +177,10 @@ function PMA_convert_display_charset($what) {
                 return recode_string($convcharset . '..'  . $charset, $what);
             case PMA_CHARSET_ICONV:
                 return iconv($convcharset, $charset . $cfg['IconvExtraParams'], $what);
+            case PMA_CHARSET_ICONV_AIX:
+                return PMA_aix_iconv_wrapper($convcharset, $charset . $cfg['IconvExtraParams'], $what);
             case PMA_CHARSET_LIBICONV:
-                return libiconv($convcharset, $charset, $what);
+                return libiconv($convcharset, $charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
             default:
                 return $what;
         }
@@ -216,8 +231,10 @@ function PMA_convert_charset($what) {
                 return recode_string($charset . '..'  . $convcharset, $what);
             case PMA_CHARSET_ICONV:
                 return iconv($charset, $convcharset . $cfg['IconvExtraParams'], $what);
+            case PMA_CHARSET_ICONV_AIX:
+                return PMA_aix_iconv_wrapper($charset, $convcharset . $cfg['IconvExtraParams'], $what);
             case PMA_CHARSET_LIBICONV:
-                return libiconv($charset, $convcharset, $what);
+                return libiconv($charset, $convcharset . $GLOBALS['cfg']['IconvExtraParams'], $what);
             default:
                 return $what;
         }
@@ -247,6 +264,8 @@ function PMA_convert_string($src_charset, $dest_charset, $what) {
             return recode_string($src_charset . '..'  . $dest_charset, $what);
         case PMA_CHARSET_ICONV:
             return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
+        case PMA_CHARSET_ICONV_AIX:
+            return PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
         case PMA_CHARSET_LIBICONV:
             return libiconv($src_charset, $dest_charset, $what);
         default:
@@ -285,8 +304,10 @@ function PMA_convert_file($src_charset, $dest_charset, $file) {
                     $line = fgets($fin, 4096);
                     if ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV) {
                         $dist = iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
+                    } elseif ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV_AIX) {
+                        $dist = PMA_aix_iconv_wrapper($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     } else {
-                        $dist = libiconv($src_charset, $dest_charset, $line);
+                        $dist = libiconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                     }
                     fputs($fout, $dist);
                 } // end while

@@ -144,8 +144,14 @@ function PMA_DBI_convert_message( $message ) {
 
     if ( ! empty( $server_language ) && isset( $encodings[$server_language] ) ) {
         if ( function_exists( 'iconv' ) ) {
-            $message = iconv( $encodings[$server_language],
-                $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
+            if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
+                require_once('./liraries/iconv_wrapper.lib.php');
+                $message = PMA_aix_iconv_wrapper( $encodings[$server_language],
+                    $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
+            } else {
+                $message = iconv( $encodings[$server_language],
+                    $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
+            }
         } elseif ( function_exists( 'recode_string' ) ) {
             $message = recode_string( $encodings[$server_language] . '..'  . $GLOBALS['charset'],
                 $message );

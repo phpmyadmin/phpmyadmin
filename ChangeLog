@@ -11,8 +11,11 @@ $Source$
         - XHTML fixes (patch #1435772, thanks to Matt LaPlante - cyberdog3k).
     * libraries/export/sql.php: New line before values (RFE #1435919).
     * libraries/Config.class.php: Trim spaces from config file to avoid
-      unwanted outpu (path #1431566, thanks to Piotr_Skowronek -
+      unwanted outpu (patch #1431566, thanks to Piotr_Skowronek -
       piotr_skowronek).
+    * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php,
+      libraries/database_interface.lib.php: Compatibility with iconv charset
+      names on AIX (patch #1420704, thanks to Björn Wiberg - bwiberg).
 
 2006-02-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php PMA_getUvaCondition():
