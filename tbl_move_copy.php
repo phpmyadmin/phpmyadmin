@@ -5,13 +5,12 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
 
 // Check parameters
 
 PMA_checkParameters(array('db', 'table'));
-
-require_once('./libraries/tbl_move_copy.php');
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -31,7 +30,7 @@ if (isset($new_name) && trim($new_name) != '') {
     if ($db == $target_db && $table == $new_name) {
         $message   = (isset($submit_move) ? $strMoveTableSameNames : $strCopyTableSameNames);
     } else {
-        PMA_table_move_copy($db, $table, $target_db, $new_name, $what, isset($submit_move));
+        PMA_Table::moveCopy($db, $table, $target_db, $new_name, $what, isset($submit_move));
         $js_to_run = 'functions.js';
         $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
         $message   = sprintf($message, htmlspecialchars($table), htmlspecialchars($new_name));
@@ -51,7 +50,7 @@ if (isset($new_name) && trim($new_name) != '') {
             }
         }
     }
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
 } // end is target table name
 
 
@@ -59,7 +58,7 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
     PMA_mysqlDie($strTableEmpty, '', '', $err_url);
 }
 
@@ -68,5 +67,5 @@ else {
  * Back to the calling script
  */
 
-require('./tbl_properties.php');
+require './tbl_properties.php';
 ?>

@@ -15,8 +15,9 @@
 /**
  * requirements
  */
-require_once('./libraries/common.lib.php');
-require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
+require_once './libraries/mysql_charsets.lib.php';
 
 /**
  * Rename/move or copy database
@@ -25,12 +26,10 @@ if (isset($db) &&
     ((isset($db_rename) && $db_rename == 'true') ||
     (isset($db_copy) && $db_copy == 'true'))) {
 
-    require_once('./libraries/tbl_move_copy.php');
-
     if (isset($db_rename) && $db_rename == 'true') {
-        $move = TRUE;
+        $move = true;
     } else {
-        $move = FALSE;
+        $move = false;
     }
 
     if (!isset($newname) || !strlen($newname)) {
@@ -70,7 +69,7 @@ if (isset($db) &&
             }
 
             if ($this_what != 'nocopy') {
-                PMA_table_move_copy($db, $table, $newname, $table,
+                PMA_Table::moveCopy($db, $table, $newname, $table,
                     isset($this_what) ? $this_what : 'data', $move);
             }
 
@@ -83,13 +82,13 @@ if (isset($db) &&
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
             $new_fields = array('dbase' => $newname);
-            PMA_duplicate_table_info('bookmarkwork', 'bookmark', $get_fields,
+            PMA_Table::duplicateInfo('bookmarkwork', 'bookmark', $get_fields,
                 $where_fields, $new_fields);
         }
 
         if ($move) {
             // cleanup pmadb stuff for this db
-            require_once('./libraries/relation_cleanup.lib.php');
+            require_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
             $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
@@ -101,17 +100,17 @@ if (isset($db) &&
             $message    = sprintf($strCopyDatabaseOK, htmlspecialchars($db),
                 htmlspecialchars($newname));
         }
-        $reload     = TRUE;
+        $reload     = true;
 
         /* Change database to be used */
         if ($move) {
             $db         = $newname;
         } else {
             if (isset($switch_to_new) && $switch_to_new == 'true') {
-                PMA_setCookie( 'pma_switch_to_new', 'true' );
+                PMA_setCookie('pma_switch_to_new', 'true');
                 $db         = $newname;
             } else {
-                PMA_setCookie( 'pma_switch_to_new', '' );
+                PMA_setCookie('pma_switch_to_new', '');
             }
         }
     }
@@ -120,7 +119,7 @@ if (isset($db) &&
  * Settings for relations stuff
  */
 
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -133,15 +132,15 @@ if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
 
 /**
  * Prepares the tables list if the user where not redirected to this script
- * because there is no table in the database ($is_info is TRUE)
+ * because there is no table in the database ($is_info is true)
  */
 if (empty($is_info)) {
-    require('./libraries/db_details_common.inc.php');
+    require './libraries/db_details_common.inc.php';
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require('./libraries/db_details_db_info.inc.php');
+    require './libraries/db_details_db_info.inc.php';
     echo "\n";
 }
 
@@ -150,14 +149,14 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 }
 if (PMA_MYSQL_INT_VERSION < 50002
   || (PMA_MYSQL_INT_VERSION >= 50002 && $db != 'information_schema')) {
-    $is_information_schema = FALSE;
+    $is_information_schema = false;
 } else {
-    $is_information_schema = TRUE;
+    $is_information_schema = true;
 }
 
 if (!$is_information_schema) {
 
-    require('./libraries/display_create_table.lib.php');
+    require './libraries/display_create_table.lib.php';
 
     if ($cfgRelation['commwork']) {
         /**
@@ -299,17 +298,17 @@ if (!$is_information_schema) {
         echo '    <label for="select_db_collation">' . $strCollation . ':</label>' . "\n"
            . '    </legend>' . "\n"
            . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
-                'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
+                'db_collation', 'select_db_collation', $db_collation, false, 3)
            . '    <input type="submit" name="submitcollation"'
            . ' value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
            . '</fieldset>' . "\n"
            . '</form>' . "\n";
     }
 
-    if ( $num_tables > 0
-      && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
+    if ($num_tables > 0
+      && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         echo '<div class="error"><h1>' . $strError . '</h1>'
-            . sprintf( $strRelationNotWorking,
+            . sprintf($strRelationNotWorking,
                 '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',
                 '</a>')
             . '</div>';
@@ -415,9 +414,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     <?php
 } // end if
 
-if ( $num_tables > 0
+if ($num_tables > 0
   && $cfgRelation['relwork'] && $cfgRelation['commwork']
-  && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir']) ) {
+  && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     /**
      * import docSQL files
      */
@@ -434,5 +433,5 @@ if ( $num_tables > 0
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

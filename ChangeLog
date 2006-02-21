@@ -17,6 +17,9 @@ $Source$
       libraries/get_foreign.lib.php, libraries/relation.lib.php:
       moved PMA_generateFieldSpec(), PMA_tableIsView(), PMA_countRecords(),
       PMA_generateAlterTable() into class PMA_Table
+    * db_operations.php, tbl_move_copy.php, tbl_properties_operations.php,
+      libraries\Table.class.php, libraries\tbl_move_copy.php:
+      merged libraries\tbl_move_copy.php in class PMA_Table
 
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>

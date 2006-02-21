@@ -2,25 +2,26 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
 
 /**
  * Runs common work
  */
-require('./libraries/tbl_properties_common.php');
+require './libraries/tbl_properties_common.php';
 $url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_operations.php';
 
 /**
  * Gets relation settings
  */
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
  * Gets available MySQL charsets and storage engines
  */
-require_once('./libraries/mysql_charsets.lib.php');
-require_once('./libraries/storage_engines.lib.php');
+require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/storage_engines.lib.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -30,8 +31,7 @@ PMA_DBI_select_db($GLOBALS['db']);
  * Gets tables informations
  */
 
-require_once('./libraries/tbl_move_copy.php');
-require('./libraries/tbl_properties_table_info.inc.php');
+require './libraries/tbl_properties_table_info.inc.php';
 
 $reread_info = false;
 $errors = array();
@@ -40,14 +40,14 @@ $table_alters = array();
 /**
  * Updates table comment, type and options if required
  */
-if ( isset( $_REQUEST['submitoptions'] ) ) {
-    if ( isset( $_REQUEST['new_name'] ) && $_REQUEST['new_name'] !== $GLOBALS['table'] ) {
-        if ( trim($_REQUEST['new_name']) === '' ) {
+if (isset($_REQUEST['submitoptions'])) {
+    if (isset($_REQUEST['new_name']) && $_REQUEST['new_name'] !== $GLOBALS['table']) {
+        if (trim($_REQUEST['new_name']) === '') {
             $errors[] = $strTableEmpty;
-        } elseif ( strpos($_REQUEST['new_name'], '.') !== false ) {
+        } elseif (strpos($_REQUEST['new_name'], '.') !== false) {
             $errors[] = $strError . ': ' . $_REQUEST['new_name'];
         } else {
-            if ( PMA_table_rename( $GLOBALS['table'], $_REQUEST['new_name'] ) ) {
+            if (PMA_Table::rename($GLOBALS['table'], $_REQUEST['new_name'])) {
                 $message   = sprintf($GLOBALS['strRenameTableOK'],
                     htmlspecialchars($GLOBALS['table']), htmlspecialchars($_REQUEST['new_name']));
                 $GLOBALS['table'] = $_REQUEST['new_name'];
@@ -58,82 +58,82 @@ if ( isset( $_REQUEST['submitoptions'] ) ) {
             }
         }
     }
-    if ( isset( $_REQUEST['comment'] )
-      && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment'] ) {
+    if (isset($_REQUEST['comment'])
+      && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']) {
         $table_alters[] = 'COMMENT = \'' . PMA_sqlAddslashes($_REQUEST['comment']) . '\'';
     }
-    if ( ! empty( $_REQUEST['new_tbl_type'] )
-      && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type) ) {
+    if (! empty($_REQUEST['new_tbl_type'])
+      && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
         $table_alters[] = 'TYPE = ' . $_REQUEST['new_tbl_type'];
         $tbl_type = $_REQUEST['new_tbl_type'];
     }
 
-    if ( ! empty( $_REQUEST['tbl_collation'] )
-      && $_REQUEST['tbl_collation'] !== $tbl_collation ) {
+    if (! empty($_REQUEST['tbl_collation'])
+      && $_REQUEST['tbl_collation'] !== $tbl_collation) {
         $table_alters[] = 'DEFAULT ' . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
-    $l_tbl_type = strtolower( $tbl_type );
+    $l_tbl_type = strtolower($tbl_type);
 
-    $pack_keys = empty( $pack_keys ) ? '0' : '1';
-    $_REQUEST['new_pack_keys'] = empty( $_REQUEST['new_pack_keys'] ) ? '0' : '1';
-    if ( ( $l_tbl_type === 'myisam' || $l_tbl_type === 'isam' )
-      && $_REQUEST['new_pack_keys'] !== $pack_keys ) {
+    $pack_keys = empty($pack_keys) ? '0' : '1';
+    $_REQUEST['new_pack_keys'] = empty($_REQUEST['new_pack_keys']) ? '0' : '1';
+    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
+      && $_REQUEST['new_pack_keys'] !== $pack_keys) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
 
-    $checksum = empty( $checksum ) ? '0' : '1';
-    $_REQUEST['new_checksum'] = empty( $_REQUEST['new_checksum'] ) ? '0' : '1';
-    if ( ( $l_tbl_type === 'myisam' )
-      && $_REQUEST['new_checksum'] !== $checksum ) {
+    $checksum = empty($checksum) ? '0' : '1';
+    $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
+    if (($l_tbl_type === 'myisam')
+      && $_REQUEST['new_checksum'] !== $checksum) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
     }
 
-    $delay_key_write = empty( $delay_key_write ) ? '0' : '1';
-    $_REQUEST['new_delay_key_write'] = empty( $_REQUEST['new_delay_key_write'] ) ? '0' : '1';
-    if ( ( $l_tbl_type === 'myisam' )
-      && $_REQUEST['new_delay_key_write'] !== $delay_key_write ) {
+    $delay_key_write = empty($delay_key_write) ? '0' : '1';
+    $_REQUEST['new_delay_key_write'] = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
+    if (($l_tbl_type === 'myisam')
+      && $_REQUEST['new_delay_key_write'] !== $delay_key_write) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if ( ( $l_tbl_type === 'myisam' || $l_tbl_type === 'innodb' )
-      &&  ! empty( $_REQUEST['new_auto_increment'] )
-      && ( ! isset( $auto_increment ) || $_REQUEST['new_auto_increment'] !== $auto_increment ) ) {
+    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'innodb')
+      &&  ! empty($_REQUEST['new_auto_increment'])
+      && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
         $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
     }
 
-    if ( count($table_alters) > 0 ) {
+    if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $message        = PMA_DBI_query($sql_query) ? $strSuccess : $strError;
         $reread_info    = true;
-        unset( $table_alters );
+        unset($table_alters);
     }
 }
 /**
  * Reordering the table has been requested by the user
  */
-if ( isset( $_REQUEST['submitorderby'] ) && ! empty( $_REQUEST['order_field'] ) ) {
+if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
     $sql_query = '
         ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . '
         ORDER BY ' . PMA_backquote(urldecode($_REQUEST['order_field']));
-    if ( isset( $_REQUEST['order_order'] ) && $_REQUEST['order_order'] === 'desc' ) {
+    if (isset($_REQUEST['order_order']) && $_REQUEST['order_order'] === 'desc') {
         $sql_query .= ' DESC';
     }
     $message = PMA_DBI_query($sql_query) ? $strSuccess : $strError;
 } // end if
 
 
-if ( $reread_info ) {
+if ($reread_info) {
     $pack_keys = $checksum = $delay_key_write = 0;
-    require('./libraries/tbl_properties_table_info.inc.php');
+    require './libraries/tbl_properties_table_info.inc.php';
 }
-unset( $reread_info );
+unset($reread_info);
 
 /**
  * Displays top menu links
  */
-require_once('./libraries/tbl_properties_links.inc.php');
+require_once './libraries/tbl_properties_links.inc.php';
 
 $url_params['goto'] = 'tbl_properties_operations.php';
 $url_params['back'] = 'tbl_properties_operations.php';
@@ -146,7 +146,7 @@ $local_query = '
     FROM ' . PMA_backquote($GLOBALS['table']) . '
     FROM ' . PMA_backquote($GLOBALS['db']);
 $columns = PMA_DBI_fetch_result($local_query, null, 'Field');
-unset( $local_query );
+unset($local_query);
 
 /**
  * Displays the page
@@ -160,7 +160,7 @@ unset( $local_query );
     <legend><?php echo $strAlterOrderBy; ?></legend>
     <select name="order_field">
 <?php
-foreach ( $columns as $fieldname ) {
+foreach ($columns as $fieldname) {
     echo '            <option value="' . htmlspecialchars($fieldname) . '">'
         . htmlspecialchars($fieldname) . '</option>' . "\n";
 }
@@ -189,7 +189,7 @@ unset($columns);
 <?php
 // The function used below is defined in "common.lib.php"
 PMA_availableDatabases('main.php?' . PMA_generate_common_url());
-foreach ( $dblist as $each_db ) {
+foreach ($dblist as $each_db) {
     echo '        ';
     echo '<option value="' . htmlspecialchars($each_db) . '">'
         . htmlspecialchars($each_db) . '</option>';
@@ -308,8 +308,8 @@ if ($tbl_type == 'MYISAM') {
     <?php
 } // end if (MYISAM)
 
-if ( isset( $auto_increment ) && strlen($auto_increment) > 0
-  && ( $tbl_type == 'MYISAM' || $tbl_type == 'INNODB' ) ) {
+if (isset($auto_increment) && strlen($auto_increment) > 0
+  && ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB')) {
     ?>
     <tr><td><label for="auto_increment_opt">auto_increment</label></td>
         <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
@@ -336,10 +336,10 @@ if ( isset( $auto_increment ) && strlen($auto_increment) > 0
     <legend><?php echo $strCopyTable; ?></legend>
     <select name="target_db">
 <?php
-foreach ( $dblist as $each_db ) {
+foreach ($dblist as $each_db) {
     echo '        ';
     echo '<option value="' . htmlspecialchars($each_db) . '"';
-    if ( $each_db === $GLOBALS['db'] ) {
+    if ($each_db === $GLOBALS['db']) {
         echo ' selected="selected"';
     }
     echo '>' . htmlspecialchars($each_db) . '</option>';
@@ -370,14 +370,14 @@ foreach ( $dblist as $each_db ) {
     <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
         <?php
         } // endif
-        if ( isset( $_COOKIE['pma_switch_to_new'] )
-          && $_COOKIE['pma_switch_to_new'] == 'true' ) {
+        if (isset($_COOKIE['pma_switch_to_new'])
+          && $_COOKIE['pma_switch_to_new'] == 'true') {
             $pma_switch_to_new = 'true';
         }
     ?>
     <input type="checkbox" name="switch_to_new" value="true"
         id="checkbox_switch"<?php echo
-            isset( $pma_switch_to_new ) && $pma_switch_to_new == 'true'
+            isset($pma_switch_to_new) && $pma_switch_to_new == 'true'
             ? ' checked="checked"'
             : ''; ?> />
     <label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>
@@ -394,12 +394,12 @@ foreach ( $dblist as $each_db ) {
 
 <ul>
 <?php
-if ( $tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB' ) {
-    if ( $tbl_type == 'MYISAM' || $tbl_type == 'INNODB' ) {
+if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB') {
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB') {
         $this_url_params = array_merge($url_params,
-            array( 'sql_query' => 'CHECK TABLE ' . PMA_backquote($GLOBALS['table']) ));
+            array('sql_query' => 'CHECK TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strCheckTable; ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE'); ?>
     </li>
@@ -407,9 +407,9 @@ if ( $tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB'
     }
     if ($tbl_type == 'INNODB') {
         $this_url_params = array_merge($url_params,
-            array( 'sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' TYPE=InnoDB' ));
+            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' TYPE=InnoDB'));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strDefragment; ?></a>
         <?php echo PMA_showMySQLDocu('Table_types', 'InnoDB_File_Defragmenting'); ?>
     </li>
@@ -417,9 +417,9 @@ if ( $tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB'
     }
     if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
         $this_url_params = array_merge($url_params,
-            array( 'sql_query' => 'ANALYZE TABLE ' . PMA_backquote($GLOBALS['table']) ));
+            array('sql_query' => 'ANALYZE TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strAnalyzeTable; ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE');?>
     </li>
@@ -427,9 +427,9 @@ if ( $tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB'
     }
     if ($tbl_type == 'MYISAM') {
         $this_url_params = array_merge($url_params,
-            array( 'sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table']) ));
+            array('sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strRepairTable; ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE'); ?>
     </li>
@@ -437,9 +437,9 @@ if ( $tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB'
     }
     if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
         $this_url_params = array_merge($url_params,
-            array( 'sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table']) ));
+            array('sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strOptimizeTable; ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE'); ?>
     </li>
@@ -452,9 +452,9 @@ $this_url_params = array_merge($url_params,
         'zero_rows' => sprintf($strTableHasBeenFlushed,
             htmlspecialchars($GLOBALS['table'])),
         'reload'    => 1,
-         ));
+        ));
 ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url( $this_url_params ); ?>">
+    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strFlushTable; ?></a>
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH'); ?>
     </li>
@@ -466,7 +466,7 @@ $this_url_params = array_merge($url_params,
 // so I assume that if the current table is InnoDB, I don't display
 // this choice (InnoDB maintains integrity by itself)
 
-if ( $cfgRelation['relwork'] && $tbl_type != "INNODB" ) {
+if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
 
     // we need this PMA_DBI_select_db if the user has access to more than one db
     // and $GLOBALS['db'] is not the last of the list, because PMA_availableDatabases()
@@ -500,10 +500,10 @@ if ( $cfgRelation['relwork'] && $tbl_type != "INNODB" ) {
                          . PMA_backquote($GLOBALS['table']) . '.' . PMA_backquote($master)
                          . ' IS NOT NULL';
             $this_url_params = array_merge($url_params,
-                array( 'sql_query' => $join_query ));
+                array('sql_query' => $join_query));
             echo '        <li>'
                  . '<a href="sql.php'
-                 . PMA_generate_common_url( $this_url_params )
+                 . PMA_generate_common_url($this_url_params)
                  . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
                  . '</a></li>' . "\n";
         } //  foreach $foreign
@@ -519,5 +519,5 @@ if ( $cfgRelation['relwork'] && $tbl_type != "INNODB" ) {
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>
