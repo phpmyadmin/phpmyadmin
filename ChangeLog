@@ -39,6 +39,9 @@ $Source$
       minor tweaks and formating
     * libraries/common.lib.php PMA_getUvaCondition():
       fixed bug #1436058 Notices while browsing table
+    * tbl_properties_operations.php, libraries\Table.class.php:
+      make use of PMA_Table object for renaming tables
+      (added also some required functionality to PMA_Table class)
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released from QA_2_8 branch

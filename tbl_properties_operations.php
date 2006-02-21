@@ -5,11 +5,14 @@
 require_once './libraries/common.lib.php';
 require_once './libraries/Table.class.php';
 
+$pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+
 /**
  * Runs common work
  */
 require './libraries/tbl_properties_common.php';
 $url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_operations.php';
+$url_params['goto'] = $url_params['back'] = 'tbl_properties_operations.php';
 
 /**
  * Gets relation settings
@@ -41,21 +44,16 @@ $table_alters = array();
  * Updates table comment, type and options if required
  */
 if (isset($_REQUEST['submitoptions'])) {
-    if (isset($_REQUEST['new_name']) && $_REQUEST['new_name'] !== $GLOBALS['table']) {
-        if (trim($_REQUEST['new_name']) === '') {
-            $errors[] = $strTableEmpty;
-        } elseif (strpos($_REQUEST['new_name'], '.') !== false) {
-            $errors[] = $strError . ': ' . $_REQUEST['new_name'];
+    $message = '';
+    if (isset($_REQUEST['new_name'])) {
+        if ($pma_table->rename($_REQUEST['new_name'])) {
+            $message .= $pma_table->getLastMessage();
+            $GLOBALS['table'] = $pma_table->getName();;
+            $reread_info = true;
+            $reload = true;
         } else {
-            if (PMA_Table::rename($GLOBALS['table'], $_REQUEST['new_name'])) {
-                $message   = sprintf($GLOBALS['strRenameTableOK'],
-                    htmlspecialchars($GLOBALS['table']), htmlspecialchars($_REQUEST['new_name']));
-                $GLOBALS['table'] = $_REQUEST['new_name'];
-                $reread_info = true;
-                $reload = true;
-            } else {
-                $errors[] = $strError . ': ' . $_REQUEST['new_name'];
-            }
+            $errors[] = $pma_table->getLastError();
+            $message .= $pma_table->getLastError();
         }
     }
     if (isset($_REQUEST['comment'])
@@ -105,7 +103,7 @@ if (isset($_REQUEST['submitoptions'])) {
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
-        $message        = PMA_DBI_query($sql_query) ? $strSuccess : $strError;
+        $message        .= PMA_DBI_query($sql_query) ? $strSuccess : $strError;
         $reread_info    = true;
         unset($table_alters);
     }

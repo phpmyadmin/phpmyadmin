@@ -29,6 +29,16 @@ class PMA_Table {
     var $settings = array();
 
     /**
+     * @var array errors occured
+     */
+    var $errors = array();
+
+    /**
+     * @var array messages
+     */
+    var $messages = array();
+
+    /**
      * Constructor
      *
      * @param   string  $table_name table name
@@ -46,6 +56,16 @@ class PMA_Table {
     function __toString()
     {
         return $this->getName();
+    }
+
+    function getLastError()
+    {
+        return end($this->errors);
+    }
+
+    function getLastMessage()
+    {
+        return end($this->messages);
     }
 
     /**
@@ -186,9 +206,9 @@ class PMA_Table {
      *
      * @see     PMA_Table::__construct()
      */
-    function PMA_Table()
+    function PMA_Table($table_name, $db_name)
     {
-        $this->__construct();
+        $this->__construct($table_name, $db_name);
     }
 
     /**
@@ -407,7 +427,8 @@ class PMA_Table {
      * @author          Garvin Hicking <me@supergarv.de>
      */
     function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
-      $new_fields) {
+      $new_fields)
+    {
         $last_id = -1;
 
         if ($GLOBALS['cfgRelation'][$work]) {
@@ -478,7 +499,8 @@ class PMA_Table {
      *
      * @author          Michal Cihar <michal@cihar.com>
      */
-    function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move) {
+    function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move)
+    {
         global $dblist, $err_url;
 
         if (! isset($GLOBALS['sql_query'])) {
@@ -764,79 +786,145 @@ class PMA_Table {
     }
 
     /**
+     * checks if given name is a valid table name,
+     * currently if not empty, trailing spaces, '.', '/' and '\'
+     *
+     * @todo    add check for valid chars in filename on current system/os
+     * @see     http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
+     * @param   string  $table_name name to check
+     * @return  boolean whether the string is valid or not
+     */
+    function isValidName($table_name)
+    {
+        if ($table_name !== trim($table_name)) {
+            // trailing spaces
+            return false;
+        }
+
+        if (! strlen($table_name)) {
+            // zero length
+            return false;
+        }
+
+        if (preg_match('/[.\/\\\\]+/i', $table_name)) {
+            // illegal char . / \
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * renames table
      *
-     * @param   string  old tbale name
      * @param   string  new table name
+     * @param   string  new database name
      * @return  boolean success
      */
-    function rename($old_name, $new_name)
+    function rename($new_name, $new_db = null)
     {
-        // Ensure the target is valid
-        if (count($GLOBALS['dblist']) > 0
-          && ! in_array($GLOBALS['db'], $GLOBALS['dblist'])) {
-            return false;
+        if (null !== $new_db && $new_db !== $this->getDbName()) {
+            // Ensure the target is valid
+            if (count($GLOBALS['dblist']) > 0
+              && ! in_array($new_db, $GLOBALS['dblist'])) {
+                // TODO add string $strInvalidDatabase
+                $this->errors[] = $GLOBALS['strError'] . ': ' . $new_db;
+                return false;
+            }
+        } else {
+            $new_db = $this->getDbName();
         }
 
-        PMA_DBI_select_db($GLOBALS['db']);
+        $new_table = new PMA_Table($new_name, $new_db);
+
+        if ($this->getFullName() === $new_table->getFullName()) {
+            return true;
+        }
+
+        if (! PMA_Table::isValidName($new_name)) {
+            // TODO add string $strInvalidTableName
+            $this->errors[] = $GLOBALS['strError'] . ': ' . $new_table->getFullName();
+            return false;
+        }
 
         $GLOBALS['sql_query'] = '
-            ALTER TABLE ' . PMA_backquote($old_name) . '
-            RENAME ' . PMA_backquote($new_name) . ';';
+            RENAME TABLE ' . $this->getFullName(true) . '
+                      TO ' . $new_table->getFullName(true) . ';';
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
+            // TODO add $GLOBALS['strErrorRenamingTable'];
+            $this->errors[] = $GLOBALS['strError'] . ': ' . $new_table->getFullName();
             return false;
         }
 
+        $old_name = $this->getName();
+        $old_db = $this->getDbName();
+        $this->setName($new_name);
+        $this->setDbName($new_db);
+
+        // TODO move into extra function
+        // PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
         // garvin: Move old entries from comments to new table
         require_once './libraries/relation.lib.php';
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         if ($GLOBALS['cfgRelation']['commwork']) {
             $remove_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
-                   SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
-                   AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
+                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($remove_query);
             unset($remove_query);
         }
 
         if ($GLOBALS['cfgRelation']['displaywork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info']) . '
-                   SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
-                   AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['table_info']) . '
+                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($table_query);
             unset($table_query);
         }
 
         if ($GLOBALS['cfgRelation']['relwork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                SET     foreign_table = \'' . PMA_sqlAddslashes($new_name) . '\'
-                WHERE foreign_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
-                AND foreign_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
+                   SET `foreign_db`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `foreign_table` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `foreign_db`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `foreign_table` = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($table_query);
 
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                   SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE master_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
-                   AND master_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
+                   SET `master_db`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `master_table` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `master_db`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `master_table` = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($table_query);
             unset($table_query);
         }
 
         if ($GLOBALS['cfgRelation']['pdfwork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
-                   SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
-                   AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
+                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($table_query);
             unset($table_query);
         }
 
+        $this->messages[] = sprintf($GLOBALS['strRenameTableOK'],
+            htmlspecialchars($old_name), htmlspecialchars($new_name));
         return true;
     }
 }
