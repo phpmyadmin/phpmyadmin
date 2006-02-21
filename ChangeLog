@@ -20,6 +20,8 @@ $Source$
     * db_operations.php, tbl_move_copy.php, tbl_properties_operations.php,
       libraries\Table.class.php, libraries\tbl_move_copy.php:
       merged libraries\tbl_move_copy.php in class PMA_Table
+    * libraries/Table.class.php:
+      minor fixes and improvements, formating, documentation
 
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>

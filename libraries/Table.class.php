@@ -221,19 +221,38 @@ class PMA_Table {
     }
 
     /**
-     * @TODO    add documentation
+     * generates column/field specification for ALTER or CREATE TABLE syntax
      *
+     * @todo    move into class PMA_Column
      * @static
+     * @param   string  $name       name
+     * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param   string  $length     length ('2', '5,2', '', ...)
+     * @param   string  $attribute
+     * @param   string  $collation
+     * @param   string  $null       with 'NULL' or 'NOT NULL'
+     * @param   string  $default    default value
+     * @param   boolean $default_current_timestamp  whether default value is
+     *                                              CURRENT_TIMESTAMP or not
+     *                                              this overrides $default value
+     * @param   string  $extra      'AUTO_INCREMENT'
+     * @param   string  $comment    field comment
+     * @param   array   &$field_primary list of fields for PRIMARY KEY
+     * @param   string  $index
+     * @param   string  $default_orig
+     * @return  string  field specification
      */
-    function generateFieldSpec($name, $type, $length, $attribute,
-        $collation, $null, $default, $default_current_timestamp, $extra,
-        $comment='', &$field_primary, $index, $default_orig = false)
+    function generateFieldSpec($name, $type, $length = '', $attribute = '',
+        $collation = '', $null = false, $default = '',
+        $default_current_timestamp = false, $extra = '', $comment = '',
+        &$field_primary, $index, $default_orig = false)
     {
 
         // $default_current_timestamp has priority over $default
         // TODO: on the interface, some js to clear the default value
         // when the default current_timestamp is checked
 
+        // TODO: include db-name
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
@@ -251,7 +270,7 @@ class PMA_Table {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
-        if (!($null === false)) {
+        if ($null !== false) {
             if (!empty($null)) {
                 $query .= ' NOT NULL';
             } else {
@@ -259,11 +278,12 @@ class PMA_Table {
             }
         }
 
-        if ($default_current_timestamp && strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1) {
+        if ($default_current_timestamp
+          && strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
-            // 0 is empty in PHP
-            // auto_increment field cannot have a default value
-        } elseif ($extra !== 'AUTO_INCREMENT' && (!empty($default) || $default == '0' || $default != $default_orig)) {
+        // auto_increment field cannot have a default value
+        } elseif ($extra !== 'AUTO_INCREMENT'
+          && (strlen($default) || $default != $default_orig)) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
@@ -308,42 +328,49 @@ class PMA_Table {
      */
     function countRecords($db, $table, $ret = false, $force_exact = false)
     {
-        global $err_url, $cfg;
-        if (!$force_exact) {
-            $result       = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\';');
-            $showtable    = PMA_DBI_fetch_assoc($result);
-            $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-            if ($num < $cfg['MaxExactCount']) {
-                unset($num);
-            }
-            PMA_DBI_free_result($result);
+        $row_count = false;
+
+        if (! $force_exact) {
+            $row_count = PMA_DBI_fetch_value(
+                'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \''
+                    . PMA_sqlAddslashes($table, true) . '\';',
+                0, 'Rows');
         }
 
         $tbl_is_view = PMA_Table::isView($db, $table);
 
-        if (!isset($num)) {
+        if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
             if (! $tbl_is_view) {
-                $num = PMA_DBI_fetch_value('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-                // necessary?
-                if (! $num) {
-                    $num = 0;
-                }
+                $row_count = PMA_DBI_fetch_value(
+                    'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
+                    . PMA_backquote($table));
             // since counting all rows of a view could be too long
             } else {
-                $result = PMA_DBI_query('SELECT 1 FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT ' . $cfg['MaxExactCount'], null, PMA_DBI_QUERY_STORE);
-                $num = PMA_DBI_num_rows($result);
+                $result = PMA_DBI_query(
+                    'SELECT 1 FROM ' . PMA_backquote($db) . '.'
+                        . PMA_backquote($table) . ' LIMIT '
+                        . $GLOBALS['cfg']['MaxExactCount'],
+                    null, PMA_DBI_QUERY_STORE);
+                $row_count = PMA_DBI_num_rows($result);
+                PMA_DBI_free_result($result);
             }
         }
+
         if ($ret) {
-            return $num;
-        } else {
-            // Note: as of PMA 2.8.0, we no longer seem to be using
-            // PMA_Table::countRecords() in display mode.
-            echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
-            if ($tbl_is_view) {
-                echo '&nbsp;' . sprintf($GLOBALS['strViewMaxExactCount'], $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
-            }
-            return true;
+            return $row_count;
+        }
+
+        /**
+         * @deprecated at the moment nowhere is $return = false used
+         */
+        // Note: as of PMA 2.8.0, we no longer seem to be using
+        // PMA_Table::countRecords() in display mode.
+        echo PMA_formatNumber($row_count, 0);
+        if ($tbl_is_view) {
+            echo '&nbsp;'
+                . sprintf($GLOBALS['strViewMaxExactCount'],
+                    $GLOBALS['cfg']['MaxExactCount'],
+                    '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
         }
     } // end of the 'PMA_Table::countRecords()' function
 
@@ -356,7 +383,7 @@ class PMA_Table {
     {
         $empty_a = array();
         return PMA_backquote($oldcol) . ' '
-            . PMA_generateFieldSpec($newcol, $type, $length, $attribute,
+            . PMA_Table::generateFieldSpec($newcol, $type, $length, $attribute,
                 $collation, $null, $default, $default_current_timestamp, $extra,
                 $comment, $empty_a, -1, $default_orig);
     } // end function
@@ -379,55 +406,64 @@ class PMA_Table {
      *
      * @author          Garvin Hicking <me@supergarv.de>
      */
-    function duplicateInfo($work, $pma_table, $get_fields, $where_fields, $new_fields) {
-        global $cfgRelation;
-
+    function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
+      $new_fields) {
         $last_id = -1;
 
-        if ($cfgRelation[$work]) {
+        if ($GLOBALS['cfgRelation'][$work]) {
             $select_parts = array();
             $row_fields = array();
-            foreach ($get_fields AS $nr => $get_field) {
+            foreach ($get_fields as $get_field) {
                 $select_parts[] = PMA_backquote($get_field);
                 $row_fields[$get_field] = 'cc';
             }
 
             $where_parts = array();
-            foreach ($where_fields AS $_where => $_value) {
-                $where_parts[] = PMA_backquote($_where) . ' = \'' . PMA_sqlAddslashes($_value) . '\'';
+            foreach ($where_fields as $_where => $_value) {
+                $where_parts[] = PMA_backquote($_where) . ' = \''
+                    . PMA_sqlAddslashes($_value) . '\'';
             }
 
             $new_parts = array();
             $new_value_parts = array();
-            foreach ($new_fields AS $_where => $_value) {
+            foreach ($new_fields as $_where => $_value) {
                 $new_parts[] = PMA_backquote($_where);
                 $new_value_parts[] = PMA_sqlAddslashes($_value);
             }
 
-            $table_copy_query = 'SELECT ' . implode(', ', $select_parts)
-                              . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation[$pma_table])
-                              . ' WHERE ' . implode(' AND ', $where_parts);
+            $table_copy_query = '
+                SELECT ' . implode(', ', $select_parts) . '
+                  FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                  . PMA_backquote($GLOBALS['cfgRelation'][$pma_table]) . '
+                 WHERE ' . implode(' AND ', $where_parts);
 
             // must use PMA_DBI_QUERY_STORE here, since we execute another
             // query inside the loop
-            $table_copy_rs    = PMA_query_as_cu($table_copy_query, true, PMA_DBI_QUERY_STORE);
+            $table_copy_rs    = PMA_query_as_cu($table_copy_query, true,
+                PMA_DBI_QUERY_STORE);
 
             while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
                 $value_parts = array();
-                foreach ($table_copy_row AS $_key => $_val) {
+                foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
                         $value_parts[] = PMA_sqlAddslashes($_val);
                     }
                 }
 
-                $new_table_query = 'INSERT IGNORE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation[$pma_table])
-                                . ' (' . implode(', ', $select_parts) . ', ' . implode(', ', $new_parts) . ')'
-                                . ' VALUES '
-                                . ' (\'' . implode('\', \'', $value_parts) . '\', \'' . implode('\', \'', $new_value_parts) . '\')';
+                $new_table_query = '
+                    INSERT IGNORE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_backquote($GLOBALS['cfgRelation'][$pma_table]) . '
+                    (' . implode(', ', $select_parts) . ',
+                     ' . implode(', ', $new_parts) . ')
+                    VALUES
+                    (\'' . implode('\', \'', $value_parts) . '\',
+                     \'' . implode('\', \'', $new_value_parts) . '\')';
 
-                $new_table_rs    = PMA_query_as_cu($new_table_query);
+                PMA_query_as_cu($new_table_query);
                 $last_id = PMA_DBI_insert_id();
             } // end while
+
+            PMA_DBI_free_result($table_copy_rs);
 
             return $last_id;
         }
@@ -440,10 +476,14 @@ class PMA_Table {
      * Copies or renames table
      * FIXME: use RENAME
      *
-     * @author          Michal Čihař <michal@cihar.com>
+     * @author          Michal Cihar <michal@cihar.com>
      */
     function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move) {
-        global $cfgRelation, $dblist, $err_url, $sql_query;
+        global $dblist, $err_url;
+
+        if (! isset($GLOBALS['sql_query'])) {
+            $GLOBALS['sql_query'] = '';
+        }
 
         // set export settings we need
         $GLOBALS['use_backquotes'] = 1;
@@ -452,7 +492,8 @@ class PMA_Table {
         // Ensure the target is valid
         if (count($dblist) > 0 &&
           (! in_array($source_db, $dblist) || ! in_array($target_db, $dblist))) {
-            exit();
+              // TODO exit really needed here? or just a return?
+            exit;
         }
 
         $source = PMA_backquote($source_db) . '.' . PMA_backquote($source_table);
@@ -468,7 +509,7 @@ class PMA_Table {
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            require_once('./libraries/export/sql.php');
+            require_once './libraries/export/sql.php';
 
             $no_constraints_comments = true;
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
@@ -478,7 +519,9 @@ class PMA_Table {
 
             /* nijel: Find table name in query and replace it */
             $i = 0;
-            while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
+            while ($parsed_sql[$i]['type'] != 'quote_backtick') {
+                $i++;
+            }
 
             /* no need to PMA_backquote() */
             $parsed_sql[$i]['data'] = $target;
@@ -487,29 +530,25 @@ class PMA_Table {
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
-            if (isset($GLOBALS['drop_if_exists']) && $GLOBALS['drop_if_exists'] == 'true') {
-                $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($target_table);
-                $result        = PMA_DBI_query($drop_query);
+            if (isset($GLOBALS['drop_if_exists'])
+              && $GLOBALS['drop_if_exists'] == 'true') {
+                $drop_query = 'DROP TABLE IF EXISTS '
+                    . PMA_backquote($target_db) . '.'
+                    . PMA_backquote($target_table);
+                PMA_DBI_query($drop_query);
 
-                if (isset($sql_query)) {
-                    $sql_query .= "\n" . $drop_query . ';';
-                } else {
-                    $sql_query = $drop_query . ';';
-                }
+                $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
 
-                // garvin: If an existing table gets deleted, maintain any entries
-                // for the PMA_* tables
+                // garvin: If an existing table gets deleted, maintain any
+                // entries for the PMA_* tables
                 $maintain_relations = true;
             }
 
-            $result        = @PMA_DBI_query($sql_structure);
-            if (isset($sql_query)) {
-                $sql_query .= "\n" . $sql_structure . ';';
-            } else {
-                $sql_query = $sql_structure . ';';
-            }
+            @PMA_DBI_query($sql_structure);
+            $GLOBALS['sql_query'] .= "\n" . $sql_structure . ';';
 
-            if (($move || isset($GLOBALS['constraints'])) && isset($GLOBALS['sql_constraints'])) {
+            if (($move || isset($GLOBALS['constraints']))
+              && isset($GLOBALS['sql_constraints'])) {
                 $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints']);
                 $i = 0;
 
@@ -537,31 +576,28 @@ class PMA_Table {
 
 
                 // Generate query back
-                $GLOBALS['sql_constraints'] = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-                $result          = PMA_DBI_query($GLOBALS['sql_constraints']);
-                if (isset($sql_query)) {
-                    $sql_query .= "\n" . $GLOBALS['sql_constraints'];
-                } else {
-                    $sql_query = $GLOBALS['sql_constraints'];
-                }
-
+                $GLOBALS['sql_constraints'] = PMA_SQP_formatHtml($parsed_sql,
+                    'query_only');
+                PMA_DBI_query($GLOBALS['sql_constraints']);
+                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints'];
                 unset($GLOBALS['sql_constraints']);
             }
 
         } else {
-            $sql_query='';
+            $GLOBALS['sql_query'] = '';
         }
 
         // Copy the data
         //if ($result != false && ($what == 'data' || $what == 'dataonly')) {
         if ($what == 'data' || $what == 'dataonly') {
-            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
+            $sql_insert_data =
+                'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
-            $sql_query      .= "\n\n" . $sql_insert_data . ';';
+            $GLOBALS['sql_query']      .= "\n\n" . $sql_insert_data . ';';
         }
 
-        require_once('./libraries/relation.lib.php');
-        $cfgRelation = PMA_getRelationsParam();
+        require_once './libraries/relation.lib.php';
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
 
         // Drops old table if the user has requested to move it
         if ($move) {
@@ -574,55 +610,52 @@ class PMA_Table {
             PMA_DBI_query($sql_drop_table);
 
             // garvin: Move old entries from PMA-DBs to new table
-            if ($cfgRelation['commwork']) {
-                $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
+            if ($GLOBALS['cfgRelation']['commwork']) {
+                $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
                               . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\', '
                               . '        db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
                               . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
                               . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
-                $rmv_rs    = PMA_query_as_cu($remove_query);
+                PMA_query_as_cu($remove_query);
                 unset($remove_query);
             }
 
             // garvin: updating bookmarks is not possible since only a single table is moved,
             // and not the whole DB.
-            // if ($cfgRelation['bookmarkwork']) {
-            //     $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['bookmark'])
+            // if ($GLOBALS['cfgRelation']['bookmarkwork']) {
+            //     $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['bookmark'])
             //                   . ' SET     dbase = \'' . PMA_sqlAddslashes($target_db) . '\''
             //                   . ' WHERE dbase  = \'' . PMA_sqlAddslashes($source_db) . '\'';
             //     $rmv_rs    = PMA_query_as_cu($remove_query);
             //     unset($rmv_query);
             // }
 
-            if ($cfgRelation['displaywork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
+            if ($GLOBALS['cfgRelation']['displaywork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info'])
                                 . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\', '
                                 . '         table_name = \'' . PMA_sqlAddslashes($target_table) . '\''
                                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
                                 . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
-                $tb_rs    = PMA_query_as_cu($table_query);
+                PMA_query_as_cu($table_query);
                 unset($table_query);
-                unset($tb_rs);
             }
 
-            if ($cfgRelation['relwork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+            if ($GLOBALS['cfgRelation']['relwork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
                                 . ' SET     foreign_table = \'' . PMA_sqlAddslashes($target_table) . '\','
                                 . '         foreign_db = \'' . PMA_sqlAddslashes($target_db) . '\''
                                 . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($source_db) . '\''
                                 . ' AND foreign_table = \'' . PMA_sqlAddslashes($source_table) . '\'';
-                $tb_rs    = PMA_query_as_cu($table_query);
+                PMA_query_as_cu($table_query);
                 unset($table_query);
-                unset($tb_rs);
 
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
                                 . ' SET     master_table = \'' . PMA_sqlAddslashes($target_table) . '\','
                                 . '         master_db = \'' . PMA_sqlAddslashes($target_db) . '\''
                                 . ' WHERE master_db  = \'' . PMA_sqlAddslashes($source_db) . '\''
                                 . ' AND master_table = \'' . PMA_sqlAddslashes($source_table) . '\'';
-                $tb_rs    = PMA_query_as_cu($table_query);
+                PMA_query_as_cu($table_query);
                 unset($table_query);
-                unset($tb_rs);
             }
 
             // garvin: [TODO] Can't get moving PDFs the right way. The page numbers always
@@ -630,24 +663,23 @@ class PMA_Table {
             // seem to be stored on a per-database basis. Would the author of pdf support
             // please have a look at it?
 
-            if ($cfgRelation['pdfwork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
+            if ($GLOBALS['cfgRelation']['pdfwork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
                                 . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\','
                                 . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
                                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
                                 . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
-                $tb_rs    = PMA_query_as_cu($table_query);
+                PMA_query_as_cu($table_query);
                 unset($table_query);
-                unset($tb_rs);
                 /*
                 $pdf_query = 'SELECT pdf_page_number '
-                           . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
+                           . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
                            . ' AND table_name = \'' . PMA_sqlAddslashes($target_table) . '\'';
                 $pdf_rs = PMA_query_as_cu($pdf_query);
 
                 while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
-                    $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
+                    $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['pdf_pages'])
                                     . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
                                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
                                     . ' AND page_nr = \'' . PMA_sqlAddslashes($pdf_copy_row['pdf_page_number']) . '\'';
@@ -658,15 +690,15 @@ class PMA_Table {
                 */
             }
 
-            $sql_query      .= "\n\n" . $sql_drop_table . ';';
+            $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_table . ';';
         } else {
             // garvin: Create new entries as duplicates from old PMA DBs
             if ($what != 'dataonly' && !isset($maintain_relations)) {
-                if ($cfgRelation['commwork']) {
+                if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT
-                                                column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
-                                            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+                                                column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                                            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
                                             WHERE
                                                 db_name = \'' . PMA_sqlAddslashes($source_db) . '\' AND
                                                 table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
@@ -674,19 +706,21 @@ class PMA_Table {
 
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
-                        $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
-                                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
+                        $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
+                                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
                                     . '\'' . PMA_sqlAddslashes($target_db) . '\','
                                     . '\'' . PMA_sqlAddslashes($target_table) . '\','
                                     . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\''
-                                    . ($cfgRelation['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
+                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
                                             . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
                                             . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
                                             . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\'' : '')
                                     . ')';
-                        $new_comment_rs    = PMA_query_as_cu($new_comment_query);
+                        PMA_query_as_cu($new_comment_query);
                     } // end while
+                    PMA_DBI_free_result($comments_copy_rs);
+                    unset($comments_copy_rs);
                 }
 
                 // duplicating the bookmarks must not be done here, but
@@ -746,19 +780,19 @@ class PMA_Table {
 
         PMA_DBI_select_db($GLOBALS['db']);
 
-        $sql_query = '
+        $GLOBALS['sql_query'] = '
             ALTER TABLE ' . PMA_backquote($old_name) . '
             RENAME ' . PMA_backquote($new_name) . ';';
-        if (! PMA_DBI_query($sql_query)) {
+        if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             return false;
         }
 
         // garvin: Move old entries from comments to new table
-        require_once('./libraries/relation.lib.php');
-        $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['commwork']) {
+        require_once './libraries/relation.lib.php';
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        if ($GLOBALS['cfgRelation']['commwork']) {
             $remove_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
                    SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
                  WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
                    AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
@@ -766,9 +800,9 @@ class PMA_Table {
             unset($remove_query);
         }
 
-        if ($cfgRelation['displaywork']) {
+        if ($GLOBALS['cfgRelation']['displaywork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info']) . '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info']) . '
                    SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
                  WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
                    AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
@@ -776,16 +810,16 @@ class PMA_Table {
             unset($table_query);
         }
 
-        if ($cfgRelation['relwork']) {
+        if ($GLOBALS['cfgRelation']['relwork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation']) . '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
                 SET     foreign_table = \'' . PMA_sqlAddslashes($new_name) . '\'
                 WHERE foreign_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
                 AND foreign_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
             PMA_query_as_cu($table_query);
 
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation']) . '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
                    SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\'
                  WHERE master_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
                    AND master_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
@@ -793,9 +827,9 @@ class PMA_Table {
             unset($table_query);
         }
 
-        if ($cfgRelation['pdfwork']) {
+        if ($GLOBALS['cfgRelation']['pdfwork']) {
             $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
                    SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
                  WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
                    AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
