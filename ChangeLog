@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2006-02-21 Michal Čihař  <michal@cihar.com>
-    * scripts/setup.php: 
+    * scripts/setup.php:
         - Various bug fixes (bug #1435700, bug #1435806, undefined indexes).
         - XHTML fixes (patch #1435772, thanks to Matt LaPlante - cyberdog3k).
     * libraries/export/sql.php: New line before values (RFE #1435919).
@@ -34,6 +34,8 @@ $Source$
     * libraries/relation.lib.php:
       check if $cfg['Server']['pmadb'] really exists and is selectable,
       minor tweaks and formating
+    * libraries/common.lib.php PMA_getUvaCondition():
+      fixed bug #1436058 Notices while browsing table
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released from QA_2_8 branch
