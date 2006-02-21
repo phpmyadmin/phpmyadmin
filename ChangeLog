@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php PMA_getUvaCondition():
+      do not test for isset but strlen on orgname of table
+
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released
 

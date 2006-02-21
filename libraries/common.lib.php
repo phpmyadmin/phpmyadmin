@@ -2287,7 +2287,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             $meta        = $fields_meta[$i];
 
             // do not use an alias in a condition
-            if (! isset($meta->orgname)) {
+            if (! strlen($meta->orgname)) {
                 $meta->orgname = $meta->name;
 
                 if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
