@@ -547,6 +547,7 @@ require_once './libraries/sanitizing.lib.php';
 require_once './libraries/Theme.class.php';
 require_once './libraries/Theme_Manager.class.php';
 require_once './libraries/Config.class.php';
+require_once './libraries/Table.class.php';
 
 
 
@@ -1147,14 +1148,14 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 // if row count is invalid possibly the table is defect
                 // and this would break left frame;
                 // but we can check row count if this is a view,
-                // since PMA_countRecords() returns a limited row count
+                // since PMA_Table::countRecords() returns a limited row count
                 // in this case.
 
-                // set this because PMA_countRecords() can use it
-                $tbl_is_view = PMA_tableIsView($db, $table['Name']);
+                // set this because PMA_Table::countRecords() can use it
+                $tbl_is_view = PMA_Table::isView($db, $table['Name']);
 
                 if ($tbl_is_view) {
-                    $table['Rows'] = PMA_countRecords($db, $table['Name'],
+                    $table['Rows'] = PMA_Table::countRecords($db, $table['Name'],
                         $return = true);
                 }
             }
@@ -1310,90 +1311,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
         return $the_crlf;
     } // end of the 'PMA_whichCrlf()' function
-
-    /**
-     * Checks if this "table" is a view
-     *
-     * @param   string   the database name
-     * @param   string   the table name
-     *
-     * @return  boolean  whether this is a view
-     *
-     * @access  public
-     */
-    function PMA_tableIsView($db, $table) {
-        // maybe we already know if the table is a view
-        // TODO: see what we could do with the possible existence
-        // of $table_is_view
-        if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
-            return true;
-        }
-        // old MySQL version: no view
-        if (PMA_MYSQL_INT_VERSION < 50000) {
-            return false;
-        }
-        if ( false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'' . $db . '\' AND TABLE_NAME = \'' . $table . '\';')) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    /**
-     * Counts and returns (or displays) the number of records in a table
-     *
-     * Revision 13 July 2001: Patch for limiting dump size from
-     * vinay@sanisoft.com & girish@sanisoft.com
-     *
-     * @param   string   the current database name
-     * @param   string   the current table name
-     * @param   boolean  whether to retain or to displays the result
-     * @param   boolean  whether to force an exact count
-     *
-     * @return  mixed    the number of records if retain is required, true else
-     *
-     * @access  public
-     */
-    function PMA_countRecords($db, $table, $ret = false, $force_exact = false)
-    {
-        global $err_url, $cfg;
-        if (!$force_exact) {
-            $result       = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\';');
-            $showtable    = PMA_DBI_fetch_assoc($result);
-            $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-            if ($num < $cfg['MaxExactCount']) {
-                unset($num);
-            }
-            PMA_DBI_free_result($result);
-        }
-
-        $tbl_is_view = PMA_tableIsView($db, $table);
-
-        if (!isset($num)) {
-            if (! $tbl_is_view) {
-                $num = PMA_DBI_fetch_value('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-                // necessary?
-                if (! $num) {
-                    $num = 0;
-                }
-            // since counting all rows of a view could be too long
-            } else {
-                $result = PMA_DBI_query('SELECT 1 FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT ' . $cfg['MaxExactCount'], null, PMA_DBI_QUERY_STORE);
-                $num = PMA_DBI_num_rows($result);
-            }
-        }
-        if ($ret) {
-            return $num;
-        } else {
-            // Note: as of PMA 2.8.0, we no longer seem to be using
-            // PMA_countRecords() in display mode.
-            echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
-            if ($tbl_is_view) {
-                echo '&nbsp;' . sprintf($GLOBALS['strViewMaxExactCount'], $cfg['MaxExactCount'], '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
-            }
-            return true;
-        }
-    } // end of the 'PMA_countRecords()' function
 
     /**
      * Reloads navigation if needed.
@@ -2503,20 +2420,6 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         $gotopage .= ' </select>';
 
         return $gotopage;
-    } // end function
-
-    /**
-     * @TODO    add documentation
-     */
-    function PMA_generateAlterTable($oldcol, $newcol, $type, $length,
-        $attribute, $collation, $null, $default, $default_current_timestamp,
-        $extra, $comment='', $default_orig)
-    {
-        $empty_a = array();
-        return PMA_backquote($oldcol) . ' '
-            . PMA_generateFieldSpec($newcol, $type, $length, $attribute,
-                $collation, $null, $default, $default_current_timestamp, $extra,
-                $comment, $empty_a, -1, $default_orig);
     } // end function
 
     /**

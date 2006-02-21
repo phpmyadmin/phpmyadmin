@@ -3,6 +3,8 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 
+require_once './libraries/Table.class.php';
+
 /**
  * Gets foreign keys in preparation for a drop-down selector
  * Thanks to <markus@noga.de>
@@ -25,7 +27,7 @@ if ($foreigners && isset($foreigners[$field])) {
     // We could also do the SELECT anyway, with a LIMIT, and ensure that
     // the current value of the field is one of the choices.
 
-    $the_total   = PMA_countRecords($foreign_db, $foreign_table, TRUE);
+    $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, TRUE);
 
     if ((isset($override_total) && $override_total == true) || $the_total < $cfg['ForeignKeyMaxLimit']) {
         // foreign_display can be FALSE if no display field defined:

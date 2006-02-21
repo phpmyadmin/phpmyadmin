@@ -6,6 +6,7 @@
  * Gets some core libraries
  */
 require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
 require_once './libraries/tbl_indexes.lib.php';
 require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
@@ -83,7 +84,7 @@ if (!defined('PMA_CHK_DROP')
  */
 
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_countRecords($db, $table, true, true);
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true, true);
     $pos = @((ceil($unlim_num_rows / $session_max_rows) - 1) * $session_max_rows);
 }
 /**
@@ -453,7 +454,7 @@ else {
                  ) {
 
                     // "j u s t   b r o w s i n g"
-                    $unlim_num_rows = PMA_countRecords($db, $table, true);
+                    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
 
                 } else { // n o t   " j u s t   b r o w s i n g "
 

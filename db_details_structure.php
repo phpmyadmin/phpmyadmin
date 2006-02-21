@@ -3,6 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 require_once './libraries/common.lib.php';
+require_once './libraries/Table.class.php';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -175,7 +176,7 @@ $at_least_one_view_exceeds_max_count = false;
 
 foreach ($tables as $keyname => $each_table) {
     if ($each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
-        $each_table['TABLE_ROWS'] = PMA_countRecords($db,
+        $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
             $each_table['TABLE_NAME'], $return = true, $force_exact = true);
     }
 

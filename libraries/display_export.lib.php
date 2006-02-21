@@ -2,6 +2,8 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once './libraries/Table.class.php';
+
 // Get relations & co. status
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
@@ -774,7 +776,7 @@ function show_checked_option() {
         <?php
         echo sprintf( $strDumpXRows,
             '<input type="text" name="limit_to" size="5" value="'
-            . ( isset( $unlim_num_rows ) ? $unlim_num_rows : PMA_countRecords( $db, $table, TRUE ) )
+            . ( isset( $unlim_num_rows ) ? $unlim_num_rows : PMA_Table::countRecords( $db, $table, TRUE ) )
             . '" onfocus="this.select()" />',
             '<input type="text" name="limit_from" value="0" size="5"'
             .' onfocus="this.select()" /> ');

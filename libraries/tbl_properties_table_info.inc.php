@@ -2,6 +2,8 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once './libraries/Table.class.php';
+
 /**
  * extracts table properties from create statement
  *
@@ -75,7 +77,7 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
         : $showtable['Collation'];
 
     if ( null === $showtable['Rows'] ) {
-        $showtable['Rows']   = PMA_countRecords( $GLOBALS['db'],
+        $showtable['Rows']   = PMA_Table::countRecords( $GLOBALS['db'],
             $showtable['Name'], true, true );
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;

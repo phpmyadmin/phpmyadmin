@@ -2,6 +2,8 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once './libraries/Table.class.php';
+
 /**
  * Set of functions used with the relation and pdf feature
  */
@@ -582,7 +584,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     // native mode is only for column comments so we need a table name
     if ($mode == 'native' && isset($table) && strlen($table)) {
         $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
-            . PMA_generateAlterTable($col, $col, '', '', '', '', FALSE, '', FALSE, '', $comment, '', '');
+            . PMA_Table::generateAlter($col, $col, '', '', '', '', FALSE, '', FALSE, '', $comment, '', '');
         PMA_DBI_try_query($query, null, PMA_DBI_QUERY_STORE);
         return TRUE;
     }

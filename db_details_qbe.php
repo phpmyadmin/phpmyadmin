@@ -10,6 +10,7 @@
  * requirements
  */
 require_once('./libraries/common.lib.php');
+require_once './libraries/Table.class.php';
 require_once('./libraries/relation.lib.php');
 
 
@@ -805,7 +806,7 @@ if (isset($Field) && count($Field) > 0) {
                 $checked_tables = $col_cand;
                 foreach ($col_cand AS $tab) {
                     if ($checked_tables[$tab] != 1 ) {
-                        $tsize[$tab] = PMA_countRecords($db, $tab, true, false);
+                        $tsize[$tab] = PMA_Table::countRecords($db, $tab, true, false);
                         $checked_tables[$tab] = 1;
                     }
                     $csize[$tab] = $tsize[$tab];

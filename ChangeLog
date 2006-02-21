@@ -11,8 +11,13 @@ $Source$
     * libraries/Table.class.php: *NEW* class PMA_Table
     * tbl_addfield.php, tbl_create.php:
       use Table.class.php
-    * libraries/common.lib.php:
-      moved PMA_generateFieldSpec() into PMA_Table
+    * db_details_qbe.php, db_details_structure.php, tbl_alter.php, sql.php,
+      libraries/common.lib.php, libraries/tbl_properties_table_info.inc.php,
+      libraries/display_export.lib.php, libraries/display_tbl.lib.php,
+      libraries/get_foreign.lib.php, libraries/relation.lib.php:
+      moved PMA_generateFieldSpec(), PMA_tableIsView(), PMA_countRecords(),
+      PMA_generateAlterTable() into class PMA_Table
+
 
 2006-02-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0-rc1 released
