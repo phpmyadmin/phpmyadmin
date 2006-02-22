@@ -370,8 +370,20 @@ function PMA_DBI_get_tables_full($database, $table = false,
         }
     }
 
-    if ( ! is_array($database) && isset($tables[$database]) ) {
-        return $tables[$database];
+    if (! is_array($database)) {
+        if (isset($tables[$database])) {
+            return $tables[$database];
+        } elseif (isset($tables[strtolower($database)])) {
+            // on windows with lower_case_table_names = 1
+            // MySQL returns
+            // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
+            // but information_schema.TABLES gives `test`
+            // bug #1436171
+            // sf.net/tracker/?func=detail&aid=1436171&group_id=23067&atid=377408
+            return $tables[strtolower($database)];
+        } else {
+            return $tables;
+        }
     } else {
         return $tables;
     }
@@ -603,9 +615,11 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 /**
  * @TODO should only return columns names, for more info use PMA_DBI_get_columns_full()
  *
+ * @deprecated by PMA_DBI_get_columns() or PMA_DBI_get_columns_full()
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
  * @param   mixed   $link       mysql link resource
+ * @return  array   column info
  */
 function PMA_DBI_get_fields($database, $table, $link = null)
 {
@@ -615,6 +629,27 @@ function PMA_DBI_get_fields($database, $table, $link = null)
         'SHOW FULL COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         null, null, $link);
+    if ( ! is_array($fields) || count($fields) < 1 ) {
+        return false;
+    }
+    return $fields;
+}
+
+/**
+ * array PMA_DBI_get_columns(string $database, string $table, bool $full = false, mysql db link $link = null)
+ *
+ * @param   string  $database   name of database
+ * @param   string  $table      name of table to retrieve columns from
+ * @param   boolean $full       wether to return full info or only column names
+ * @param   mixed   $link       mysql link resource
+ * @return  array   column names
+ */
+function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
+{
+    $fields = PMA_DBI_fetch_result(
+        'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
+        FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
+        'Fields', ($full ? null : 'Fields'), $link);
     if ( ! is_array($fields) || count($fields) < 1 ) {
         return false;
     }
