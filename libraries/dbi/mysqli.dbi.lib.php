@@ -523,12 +523,8 @@ function PMA_DBI_get_fields_meta($result)
     // Build an associative array for a type look up
     $typeAr = array();
     $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
-    if (defined('MYSQLI_TYPE_NEWDECIMAL')) {
-        $typeAr[MYSQLI_TYPE_NEWDECIMAL]     = 'real';
-    }
-    if (defined('MYSQLI_TYPE_BIT')) {
-        $typeAr[MYSQLI_TYPE_BIT]     = 'bool';
-    }
+    $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = 'real';
+    $typeAr[MYSQLI_TYPE_BIT]         = 'bool';
     $typeAr[MYSQLI_TYPE_TINY]        = 'int';
     $typeAr[MYSQLI_TYPE_SHORT]       = 'int';
     $typeAr[MYSQLI_TYPE_LONG]        = 'int';
