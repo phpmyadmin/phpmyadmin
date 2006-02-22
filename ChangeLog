@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/footer.inc.php:
+      bug #1436279 Left frame links open in new windows in Safari
+
 2006-02-21 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php:
         - Various bug fixes (bug #1435700, bug #1435806, undefined indexes).

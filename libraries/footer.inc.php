@@ -63,7 +63,14 @@ if (parent.querywindow && !parent.querywindow.closed && parent.querywindow.locat
 
 // reset content frame name, as querywindow needs to set a unique name
 // before submitting form data, and navigation frame needs the original name
-window.parent.frames[1].name = 'frame_content';
+if (window.parent.frames[1].name != 'frame_content') {
+    window.parent.frames[1].name = 'frame_content';
+}
+if (window.parent.frames[1].id != 'frame_content') {
+    window.parent.frames[1].id = 'frame_content';
+}
+//window.parent.frames[1].setAttribute('name', 'frame_content');
+//window.parent.frames[1].setAttribute('id', 'frame_content');
 //]]>
 </script>
 <?php
