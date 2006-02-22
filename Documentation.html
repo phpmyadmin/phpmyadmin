@@ -1623,14 +1623,24 @@ ALTER TABLE `pma_column_comments`
         t1, t2, t10). Currently implemented in the left panel (Light mode)
         and in Database view, for the table list.</dd>
 
-    <dt id="cfg_ShowHttpHostTitle">$cfg[ShowHttpHostTitle] boolean</dt>
-    <dd>Shows the <abbr title="HyperText Transfer Protocol">HTTP</abbr> host name
-        in window's title bar.</dd>
-
-    <dt id="cfg_SetHttpHostTitle">$cfg[SetHttpHostTitle] string</dt>
-    <dd>If <tt>$cfg['ShowHttpHostTitle']</tt> is <tt>TRUE</tt>, it shows the real
-        <abbr title="HyperText Transfer Protocol">HTTP</abbr> host name, unless
-        an alternate name is set here.</dd>
+    <dt id="cfg_TitleTable">$cfg[TitleTable] string</dt>
+    <dt id="cfg_TitleDatabase">$cfg[TitleDatabase] string</dt>
+    <dt id="cfg_TitleServer">$cfg[TitleServer] string</dt>
+    <dt id="cfg_TitleDefault">$cfg[TitleDefault] string</dt>
+    <dd>Allows you to specify window's title bar. Following magic string can
+        be used to get special values:
+        <dl>
+            <dt><code>@HTTP_HOST@</code></dt>
+                <dd>HTTP host that runs phpMyAdmin</dd>
+            <dt><code>@SERVER@</code></dt>
+                <dd>MySQL server name</dd>
+            <dt><code>@DATABASE@</code></dt>
+                <dd>Currently opened database</dd>
+            <dt><code>@TABLE@</code></dt>
+                <dd>Currently opened table</dd>
+            <dt><code>@PHPMYADMIN@</code></dt>
+                <dd>phpMyAdmin with version</dd>
+        </dl>
 
     <dt id="cfg_ErrorIconic">$cfg[ErrorIconic] boolean</dt>
     <dd>Uses icons for warnings, errors and informations.</dd>

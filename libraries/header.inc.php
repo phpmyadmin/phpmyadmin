@@ -26,27 +26,33 @@ if (empty($GLOBALS['is_header_sent'])) {
     require_once('./libraries/header_meta_style.inc.php');
 
     // generate title
-    $title     = '';
-    if ($cfg['ShowHttpHostTitle']) {
-        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) && isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' / ';
-    }
-    if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
-        $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);
-    }
-    if (isset($GLOBALS['db'])) {
-        $title .= ' / ' . str_replace('\'', '\\\'', $GLOBALS['db']);
-    }
-    if (isset($GLOBALS['table'])) {
-        $title .= (empty($title) ? '' : ' ') . ' / ' . str_replace('\'', '\\\'', $GLOBALS['table']);
-    }
-    $title .= ' | phpMyAdmin ' . PMA_VERSION;
+    $title     = str_replace(
+                    array(
+                        '@HTTP_HOST@',
+                        '@SERVER@',
+                        '@DATABASE@',
+                        '@TABLE@',
+                        '@PHPMYADMIN@',
+                        ),
+                    array(
+                        isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '',
+                        isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
+                        isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
+                        isset($GLOBALS['table']) ? $GLOBALS['table'] : '',
+                        'phpMyAdmin ' . PMA_VERSION,
+                        ),
+                    !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
+                    (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
+                    (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
+                    $GLOBALS['cfg']['TitleDefault']))
+                    );
     ?>
     <script type="text/javascript" language="javascript">
     <!--
     // Updates the title of the frameset if possible (ns4 does not allow this)
     if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
         && typeof(parent.document.title) == 'string') {
-        parent.document.title = '<?php echo PMA_sanitize($title); ?>';
+        parent.document.title = '<?php echo PMA_sanitize(str_replace('\'', '\\\'', $title)); ?>';
     }
     <?php
     // Add some javascript instructions if required

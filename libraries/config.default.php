@@ -514,10 +514,11 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 // FIXME:
 // 2004-05-08 rabus: We need to rearrange these variables.
 
-$cfg['ShowHttpHostTitle']   = TRUE;            // show HttpHost in browsers window title (true|false)?
-$cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, please set your host (server)
-                                             // or an other string, wich should be shown in browsers window title.
-                                             // If not set (or empty), the PMA will get your real Host-Adress.
+// Window title settings
+$cfg['TitleTable']          = '@HTTP_HOST@ / @SERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
+$cfg['TitleDatabase']       = '@HTTP_HOST@ / @SERVER@ / @DATABASE@ | @PHPMYADMIN@';
+$cfg['TitleServer']         = '@HTTP_HOST@ / @SERVER@ | @PHPMYADMIN@';
+$cfg['TitleDefault']        = '@HTTP_HOST@ | @PHPMYADMIN@';
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warning, error and information messages (true|false)?
 $cfg['MainPageIconic']       = TRUE;    // show icons in list on main page and on menu tabs (true|false)?
