@@ -8,6 +8,8 @@ $Source$
 2006-02-22 Michal Čihař  <michal@cihar.com>
     * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php:
       Fixes for AIX wrapper, thanks to Björn Wiberg - bwiberg.
+    * libraries/database_interface.lib.php: New function for getting available
+      SQL compatibility modes.
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
