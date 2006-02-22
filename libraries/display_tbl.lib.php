@@ -1295,13 +1295,17 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $blobtext .= ' - NULL';
                     } elseif (isset($row[$i])) {
-                        $blob_size = PMA_formatByteDown(strlen($row[$i]), 3, 1);
-                        $blobtext .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
-                        unset($blob_size);
+                        $blob_size = strlen($row[$i]);
+                        $display_blob_size = PMA_formatByteDown($blob_size, 3, 1);
+                        $blobtext .= ' - '. $display_blob_size[0] . ' ' . $display_blob_size[1];
+                        unset($display_blob_size);
                     }
 
                     $blobtext .= ']';
-                    $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options, $meta) : $default_function($blobtext, array(), $meta));
+                    if ($blob_size > 0) {
+                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options, $meta) : $default_function($blobtext, array(), $meta));
+                    }
+                    unset($blob_size);
 
                     $vertical_display['data'][$row_no][$i]      = '    <td align="center"' . $column_style . $bgcolor . '>' . $blobtext . '</td>';
                 } else {
