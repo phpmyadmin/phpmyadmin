@@ -153,7 +153,7 @@ if ( $server > 0 ) {
         './server_status.php?' . $common_url_query );
     PMA_printListItem( $strMySQLShowVars, 'li_mysql_variables',
         './server_variables.php?' . $common_url_query, 'show-variables' );
-    PMA_printListItem( $strMySQLShowProcess, 'li_mysql_processes',
+    PMA_printListItem( $strProcesses, 'li_mysql_processes',
         './server_processlist.php?' . $common_url_query, 'show-processlist' );
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {

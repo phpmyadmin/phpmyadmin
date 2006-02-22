@@ -66,7 +66,7 @@ if ($has_binlogs) {
 }
 $tabs['process']['icon'] = 's_process.png';
 $tabs['process']['link'] = 'server_processlist.php';
-$tabs['process']['text'] = $strServerTabProcesslist;
+$tabs['process']['text'] = $strProcesses;
 
 $tabs['export']['icon'] = 'b_export.png';
 $tabs['export']['link'] = 'server_export.php';

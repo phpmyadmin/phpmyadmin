@@ -20,6 +20,8 @@ $Source$
       #1420556).
     * Documentation.html, libraries/config.default.php,
       libraries/header.inc.php: Customizable window title (RFE #1408241).
+    * main.php, libraries/server_links.inc.php, lang/*: Same title for
+      processes link (RFE #1350356).
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
