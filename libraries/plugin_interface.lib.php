@@ -179,7 +179,6 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
         $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
             . PMA_getString($opt['text']) . '</label>';
-        $ret .= '</td>';
     } elseif ($opt['type'] == 'text') {
         $ret .= '<td>';
         $ret .= '<label for="text_' . $plugin_name . '_' . $opt['name'] . '">'
@@ -190,14 +189,32 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . ' id="text_' . $plugin_name . '_' . $opt['name'] . '"'
             . (isset($opt['size']) ? ' size="' . $opt['size'] . '"' : '' )
             . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '' ) . ' />';
-        $ret .= '</td>';
+    } elseif ($opt['type'] == 'select') {
+        $ret .= '<td>';
+        $ret .= '<label for="select_' . $plugin_name . '_' . $opt['name'] . '">'
+            . PMA_getString($opt['text']) . '</label>';
+        $ret .= '</td><td>';
+        $ret .= '<select name="' . $plugin_name . '_' . $opt['name'] . '"'
+            . ' id="select_' . $plugin_name . '_' . $opt['name'] . '">';
+        $default = PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']);
+        foreach($opt['values'] as $key => $val) {
+            $ret .= '<option name="' . $key . '"';
+            if ($key == $default) {
+                $ret .= ' selected="selected"';
+            }
+            $ret .= '>' . PMA_getString($val) . '</option>';
+        }
+        $ret .= '</select>';
     } else {
         /* This should be seen only by plugin writers, so I do not thing this
          * needs translation. */
         $ret .= '<td colspan="2">';
         $ret .= 'UNKNOWN OPTION IN IMPORT PLUGIN ' . $plugin_name . '!';
-        $ret .= '</td>';
     }
+    if (isset($opt['doc'])) {
+        $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
+    }
+    $ret .= '</td>';
     $ret .= '</tr>';
     return $ret;
 }

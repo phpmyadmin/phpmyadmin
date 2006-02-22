@@ -10,6 +10,8 @@ $Source$
       Fixes for AIX wrapper, thanks to Björn Wiberg - bwiberg.
     * libraries/database_interface.lib.php: New function for getting available
       SQL compatibility modes.
+    * libraries/plugin_interface.lib.php: Add support for select options and
+      documentation.
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
