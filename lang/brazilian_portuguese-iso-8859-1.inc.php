@@ -569,7 +569,6 @@ $strRelationsForTable = 'RELAÇÕES PARA A TABELA';
 $strRelations = 'Relações'; 
 $strRelationView = 'Ver relações'; 
 $strReloadingThePrivileges = 'Recarregando os privilégios'; 
-$strReloadMySQL = 'Reinicializar o MySQL'; 
 $strRemoveSelectedUsers = 'Remover os usuários selecionados'; 
 $strRenameDatabaseOK = 'O Banco de Dados %s foi renomeado para %s'; 
 $strRenameTableOK = 'Tabela %s renomeada para %s'; 
@@ -988,4 +987,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

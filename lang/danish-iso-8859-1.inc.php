@@ -620,7 +620,6 @@ $strRelationsForTable = 'RELATIONS FOR TABLE (Relationer for tabellen)';
 $strRelations = 'Relationer';
 $strRelationView = 'Se Relationer';
 $strReloadingThePrivileges = 'Genindlæs privilegierne';
-$strReloadMySQL = 'Genstart MySQL';
 $strRemoveSelectedUsers = 'Fjern valgte brugere';
 $strRenameDatabaseOK = 'Database %s er blevet omdøbt til %s';
 $strRenameTableOK = 'Tabellen %s er nu omdøbt til %s';
@@ -973,4 +972,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

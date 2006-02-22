@@ -625,7 +625,6 @@ $strRelationsForTable = 'RELASJONER FOR TABELLEN';
 $strRelations = 'Relasjoner';
 $strRelationView = 'Relasjonsvisning';
 $strReloadingThePrivileges = 'Oppfrisker privilegiene';
-$strReloadMySQL = 'Omstart av MySQL';
 $strRemoveSelectedUsers = 'Fjern valgte brukere';
 $strRenameDatabaseOK = 'Databasen %s har endret navn til %s';
 $strRenameTable = 'Endre tabellens navn';
@@ -982,4 +981,5 @@ $strShowStatusHandler_read_prevDescr = 'The number of requests to read the previ
 $strShowStatusHandler_read_rndDescr = 'The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'; //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

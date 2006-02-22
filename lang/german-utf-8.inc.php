@@ -624,7 +624,6 @@ $strRelationsForTable = 'RELATIONEN DER TABELLE';
 $strRelations = 'Tabellenverknüpfungen';
 $strRelationView = 'Beziehungsübersicht';
 $strReloadingThePrivileges = 'Lade die Benutzertabellen neu';
-$strReloadMySQL = 'Benutzertabellen neu laden';
 $strRemoveSelectedUsers = 'Die ausgewählten Benutzer löschen';
 $strRenameDatabaseOK = 'Datenbank %s wurde umbenannt zu %s';
 $strRenameTableOK = 'Tabelle %s wurde umbenannt in %s.';
@@ -992,4 +991,5 @@ $strUploadLimit = 'Möglicherweise wurde eine zu große Datei hochgeladen. Bitte
 $strViewMaxExactCount = 'Dieses View hat mehr als %d Zeilen. Bitte schlagen Sie im %sHandbuch%s nach.';  //recently translated
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

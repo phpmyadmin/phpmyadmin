@@ -437,7 +437,6 @@ $strRelationNotWorking = 'Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμέν
 $strRelationView = 'Εμφάνιση σχέσεων';  
 $strRelationalSchema = 'Σχεσιακό σχήμα';  
 $strRelations = 'Σχέσεις';  
-$strReloadMySQL = 'Επανεκκίνηση της MySQL';
 $strReloadingThePrivileges = 'Επαναφόρτωση προνομίων'; 
 $strRemoveSelectedUsers = 'Διαγραφή των επιλεγμένων χρηστών'; 
 $strRenameTable = 'Μετονομασία πίνακα σε';
@@ -983,4 +982,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

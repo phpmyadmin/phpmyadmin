@@ -626,7 +626,6 @@ $strRelationsForTable = 'RELATIONS FOR TABLE';
 $strRelations = 'Relazioni';
 $strRelationView = 'Vedi relazioni';
 $strReloadingThePrivileges = 'Caricamento dei privilegi in corso';
-$strReloadMySQL = 'Riavvia MySQL';
 $strRemoveSelectedUsers = 'Rimuove gli utenti selezionati';
 $strRenameDatabaseOK = 'Il DataBase %s è stato rinominato in %s';
 $strRenameTableOK = 'La tabella %s è stata rinominata %s';
@@ -980,4 +979,5 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

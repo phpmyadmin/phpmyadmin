@@ -626,7 +626,6 @@ $strRelationsForTable = 'Suviazi ŭ tablicy';
 $strRelations = 'Suviazi';
 $strRelationView = 'Prahlad zaležnaściaŭ';
 $strReloadingThePrivileges = 'Pierazahruzić pryvilei';
-$strReloadMySQL = 'Pierazahruzić MySQL';
 $strRemoveSelectedUsers = 'Vydalić vybranych karystalnikaŭ';
 $strRenameDatabaseOK = 'Baza dadzienych %s była pierajmienavanaja ŭ %s';
 $strRenameTableOK = 'Tablica %s była pierajmienavanaja ŭ %s';
@@ -980,4 +979,5 @@ $strZeroRemovesTheLimit = 'Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) z
 $strZip = 'archivavany ŭ zip';
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

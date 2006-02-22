@@ -573,7 +573,6 @@ $strRelationView = '關聯檢視';
 $strRelationalSchema = '關聯概要';
 $strRelations = '關聯';
 $strRelationsForTable = 'RELATIONS FOR TABLE';  // keep in SQL statement
-$strReloadMySQL = '重新載入 MySQL';
 $strReloadingThePrivileges = '重新讀取權限';
 $strRemoveSelectedUsers = '移除已選擇使用者';
 $strRenameDatabaseOK = '資料庫 %s 已更改名稱為 %s';
@@ -981,4 +980,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

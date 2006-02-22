@@ -624,7 +624,6 @@ $strRelations = 'リレーション';
 $strRelationsForTable = 'RELATIONS FOR TABLE';
 $strRelationView = 'リレーションを表示する';
 $strReloadingThePrivileges = '特権をリロード中です。';
-$strReloadMySQL = 'MySQL のリロード';
 $strRemoveSelectedUsers = '選択されたユーザーを削除します';
 $strRenameDatabaseOK = 'データベース %s は %s に名称変更しました。';
 $strRenameTable = 'テーブル名の変更';
@@ -988,4 +987,5 @@ $strShowStatusSort_rangeDescr = 'The number of sorts that were done with ranges.
 $strShowStatusTable_locks_waitedDescr = 'The number of times that a table lock could not be acquired immediately and a wait was needed. If this is high, and you have performance problems, you should first optimize your queries, and then either split your table or tables or use replication.';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

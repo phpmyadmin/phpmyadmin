@@ -621,7 +621,6 @@ $strRelationsForTable = 'RELACJE TABELI';
 $strRelations = 'Relacje';
 $strRelationView = 'Widok relacyjny';
 $strReloadingThePrivileges = 'Przeładuj uprawnienia';
-$strReloadMySQL = 'Przeładuj MySQL';
 $strRemoveSelectedUsers = 'Usuń zaznaczonych użytkowników';
 $strRenameDatabaseOK = 'Baza danych %s ma nazwę zmienioną na %s';
 $strRenameTableOK = 'Tabela %s ma nazwę zmienioną na %s';
@@ -975,4 +974,5 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

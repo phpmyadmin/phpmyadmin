@@ -465,7 +465,6 @@ $strRelationNotWorking = 'تمّ تعطيل المزايا الإضافية لل
 $strRelationView = 'عرض الروابط';
 $strRelationalSchema = 'بناء الإرتباطات';
 $strRelations = 'الروابط';
-$strReloadMySQL = 'إعادة تحميل MySQL';
 $strReloadingThePrivileges = 'قيد إعادة قراءة الصلاحيات.';
 $strRemoveSelectedUsers = 'إحذف المستخدمين المحددين';
 $strRenameTable = 'تغيير إسم جدول إلى';
@@ -983,4 +982,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

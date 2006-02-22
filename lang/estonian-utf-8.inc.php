@@ -616,7 +616,6 @@ $strRelationsForTable = 'SEOSED TABELILE';
 $strRelations = 'Suhted';
 $strRelationView = 'Pärinevuse vaade';
 $strReloadingThePrivileges = 'Taaslaen privileege';
-$strReloadMySQL = 'Taaslae MySQL';
 $strRemoveSelectedUsers = 'Eemalda valitud kasutajad';
 $strRenameDatabaseOK = 'Andmebaas %s on ümber nimetatud %s';
 $strRenameTable = 'Nimeta tabel ümber';
@@ -982,4 +981,5 @@ $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

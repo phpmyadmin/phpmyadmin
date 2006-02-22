@@ -244,7 +244,6 @@ $strQueryOnDb = 'پرس و جوي SQL از پايگاه داده <b>%s</b>:';
 
 $strRecords = 'سطرها';
 $strRelationNotWorking ='امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي پيداكردن دليل آن %sاينجا%s را بزنيد .';
-$strReloadMySQL = 'بار كردن مجدد MySQL';
 $strRenameTableOK = 'جدول %s به %s تغيير نام داده‌شد';
 $strRenameTable = 'بازناميدن جدول به';
 $strRepairTable = 'مرمت جدول';
@@ -1004,4 +1003,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

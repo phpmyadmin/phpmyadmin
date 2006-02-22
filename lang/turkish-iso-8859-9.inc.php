@@ -576,7 +576,6 @@ $strRelationsForTable = 'TABLO ÝLÝÞKÝLERÝ';
 $strRelations = 'Ýliþkiler';
 $strRelationView = 'Ýliþki görünümü';
 $strReloadingThePrivileges = 'Ýmtiyazlarý yeniden yüklüyor';
-$strReloadMySQL = 'MySQL\' i yeniden yükle';
 $strRemoveSelectedUsers = 'Seçili kullanýcýlarý kaldýr';
 $strRenameDatabaseOK = '%s veritabaný %s olarak yeniden adlandýrýldý';
 $strRenameTableOK = '%s tablosu %s olarak yeniden adlandýrýldý';
@@ -1004,4 +1003,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

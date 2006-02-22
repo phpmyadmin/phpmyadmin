@@ -243,7 +243,6 @@ $strQueryOnDb = '│яс Ф лФМ SQL гр │гМ░гЕ огоЕ <b>%s</b>:';
 
 $strRecords = 'сьяЕг';
 $strRelationNotWorking ='гЦъгДгй гжгщМ хягМ ъгяъяоД хг лоФАЕгМ │МФДоМ шМящзгА тоЕ²гсй . хягМ │МогъяоД оАМА бД %sгМДлг%s яг хрДМо .';
-$strReloadMySQL = 'хгя ъяоД Цлоо MySQL';
 $strRenameTableOK = 'лоФА %s хЕ %s йшММя ДгЦ огоЕ²то';
 $strRenameTable = 'хгрДгЦМоД лоФА хЕ';
 $strRepairTable = 'ЦяЦй лоФА';
@@ -1003,4 +1002,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -626,7 +626,6 @@ $strRelationsForTable = 'RELACE PRO TABULKU';
 $strRelations = 'Relace';
 $strRelationView = 'Zobrazit relace';
 $strReloadingThePrivileges = 'Znovunaèítám oprávnìní';
-$strReloadMySQL = 'Znovunaètení MySQL';
 $strRemoveSelectedUsers = 'Odstranit vybrané uživatele';
 $strRenameDatabaseOK = 'Databáze %s byla pøejmenována na %s';
 $strRenameTableOK = 'Tabulka %s byla pøejmenována na %s';
@@ -980,4 +979,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -477,7 +477,6 @@ $strRelationNotWorking = 'תכונות נוספות לעבודה עם טבלאות מקושרות בוטלו. לעוד מיד
 $strRelations = 'יחסים';
 $strRelationView = 'תצוגת יחסים';
 $strReloadingThePrivileges = 'טוען מחדש הרשאות';
-$strReloadMySQL = 'טעינה מחדש של MySQL';
 $strRemoveSelectedUsers = 'הסרת משתמשים שנבחרו';
 $strRenameDatabaseOK = 'מאגר נתונים %s שונה אל %s';
 $strRenameTable = 'שינוי שם טבלה אל';
@@ -996,4 +995,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

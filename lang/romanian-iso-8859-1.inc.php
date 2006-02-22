@@ -524,7 +524,6 @@ $strRelationView = 'Vizualizare relationala';
 $strRelationalSchema = 'Schema relationala';
 $strRelations = 'Legaturi';
 $strRelationsForTable = 'RELATII PENTRU TABEL';
-$strReloadMySQL = 'Reincarcare MySQL';
 $strReloadingThePrivileges = 'Reincarcarea drepturilor';
 $strRemoveSelectedUsers = 'Eliminarea utilizatorilor selectati';
 $strRenameDatabaseOK = 'Baza de date %s a fost redenumita in %s';
@@ -979,4 +978,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

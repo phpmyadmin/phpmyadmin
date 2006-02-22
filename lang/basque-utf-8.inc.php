@@ -452,7 +452,6 @@ $strRelationNotWorking = 'Estekatutako taulekin lan egiteko hobespen gehigarriak
 $strRelationView = 'Erlazioen ikuspegia';
 $strRelationalSchema = 'Erlazio-eskema';
 $strRelations = 'Erlazioak';
-$strReloadMySQL = 'MySQL berrabiarazi';
 $strReloadingThePrivileges = 'Pribilegioak berkargatzen';
 $strRemoveSelectedUsers = 'Hautatutako erabiltzaileak baztertu';
 $strRenameTable = 'Taula berrizendatu izen honetara: ';
@@ -982,4 +981,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

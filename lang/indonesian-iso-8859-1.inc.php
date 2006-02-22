@@ -566,7 +566,6 @@ $strRelationsForTable = 'RELASI UNTUK TABEL';
 $strRelations = 'Tabel Relasi';
 $strRelationView = 'Tampilan relasi';
 $strReloadingThePrivileges = 'Reload Hak Istimewa (Privileges)';
-$strReloadMySQL = 'Panggil ulang tabel pengguna';
 $strRemoveSelectedUsers = 'Hapus pengguna yang dipilih';
 $strRenameDatabaseOK = 'Nama database %s telah diubah menjadi %s';
 $strRenameTableOK = 'Nama tabel %s telah diubah menjadi %s';
@@ -974,4 +973,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

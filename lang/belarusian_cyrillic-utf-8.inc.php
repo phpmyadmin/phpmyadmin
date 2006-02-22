@@ -627,7 +627,6 @@ $strRelationsForTable = 'Сувязі ў табліцы';
 $strRelations = 'Сувязі';
 $strRelationView = 'Прагляд залежнасьцяў';
 $strReloadingThePrivileges = 'Перазагрузіць прывілеі';
-$strReloadMySQL = 'Перазагрузіць MySQL';
 $strRemoveSelectedUsers = 'Выдаліць выбраных карыстальнікаў';
 $strRenameDatabaseOK = 'База дадзеных %s была перайменаваная ў %s';
 $strRenameTable = 'Перайменаваць табліцу ў';
@@ -981,4 +980,5 @@ $strZeroRemovesTheLimit = 'Заўвага: Пазначэньне гэтых о�
 $strZip = 'архіваваны ў zip';
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

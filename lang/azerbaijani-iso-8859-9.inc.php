@@ -448,7 +448,6 @@ $strRelationNotWorking = 'Elaqelendirilmiþ cedveller üçün nezerde tutulmuþ be\'z
 $strRelations = 'Relations';
 $strRelationView = 'Relation view';
 $strReloadingThePrivileges = 'Reloading the privileges';
-$strReloadMySQL = 'Reload MySQL';
 $strRemoveSelectedUsers = 'Remove selected users';
 $strRenameTable = 'Cedveli yeniden adlandýr';
 $strRenameTableOK = '%s cedveli %s olaraq yeniden adlandýrýlmýþdýr';
@@ -1000,4 +999,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

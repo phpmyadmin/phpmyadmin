@@ -563,7 +563,6 @@ $strRelationsForTable = 'Tábla-kapcsolatok';
 $strRelations = 'Kapcsolatok';  
 $strRelationView = 'Reláció nézet';
 $strReloadingThePrivileges = 'Privilégiumok újratöltése'; 
-$strReloadMySQL = 'MySQL újratöltése';
 $strRemoveSelectedUsers = 'A kiválasztott felhasználók törlése'; 
 $strRenameDatabaseOK = '%s adatbázis átneveztem erre: %s';  
 $strRenameTableOK = '%s táblát átneveztem erre: %s';
@@ -996,4 +995,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -606,7 +606,6 @@ $strRelationsForTable = 'RELATIONER FÖR TABELL';
 $strRelations = 'Relationer';
 $strRelationView = 'Visa relationer';
 $strReloadingThePrivileges = 'Laddar om privilegierna';
-$strReloadMySQL = 'Ladda om MySQL';
 $strRemoveSelectedUsers = 'Ta bort markerade användare';
 $strRenameDatabaseOK = 'Databas %s har döpts om till %s';
 $strRenameTable = 'Döp om tabellen till';
@@ -983,4 +982,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

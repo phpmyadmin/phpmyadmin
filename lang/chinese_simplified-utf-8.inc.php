@@ -513,7 +513,6 @@ $strRelationView = '关系查看';
 $strRelationalSchema = '关系大纲';
 $strRelations = '关系';
 $strRelationsForTable = '表的关联';
-$strReloadMySQL = '重启 MySQL';
 $strReloadingThePrivileges = '重新载入权限';
 $strRemoveSelectedUsers = '删除选中用户';
 $strRenameDatabaseOK = '数据库 %s 已经被重命名为 %s';
@@ -997,4 +996,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

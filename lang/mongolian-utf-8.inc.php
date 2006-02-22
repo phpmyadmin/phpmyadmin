@@ -572,7 +572,6 @@ $strRelationsForTable = 'Хүснэгтийн хамаарал';
 $strRelations = 'Хамаарал';
 $strRelationView = 'Хамаарал харах';
 $strReloadingThePrivileges = 'Онцгой эрхийг дахин дуудаж байна';
-$strReloadMySQL = 'MySQL-г да.дуудах';
 $strRemoveSelectedUsers = 'Сонгогдсон хэрэглэгчдийг хасах';
 $strRenameDatabaseOK = 'ӨС %s-н нэр нь %s-ээр солигджээ';
 $strRenameTableOK = 'Хүснэгт %s-ын нэр %s болж өөрчлөгдлөө';
@@ -980,4 +979,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

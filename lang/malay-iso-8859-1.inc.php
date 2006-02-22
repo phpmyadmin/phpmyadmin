@@ -303,7 +303,6 @@ $strReferentialIntegrity = 'Semak integriti rujukan:';
 $strRelationalSchema = 'Skema Hubungan';
 $strRelationNotWorking = 'Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang telah tidak diaktifkan. Untuk mengetahuinya klik %shere%s.';
 $strRelationView = 'Paparan Hubungan';
-$strReloadMySQL = 'Ulangmuat MySQL';
 $strRenameTable = 'Tukarnama jadual ke';
 $strRenameTableOK = 'Jadual %s telah ditukarnama ke %s';
 $strRepairTable = 'Baiki jadual';
@@ -998,4 +997,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -444,7 +444,6 @@ $strRelationNotWorking = 'Dodatne mogućnosti za rad sa povezanim tabelama su is
 $strRelationView = 'Relacioni pogled';
 $strRelationalSchema = 'Relaciona shema';
 $strRelations = 'Relacije';
-$strReloadMySQL = 'Ponovo pokreni MySQL';
 $strReloadingThePrivileges = 'Ponovo učitavam privilegije';
 $strRemoveSelectedUsers = 'Ukloni izabrane korisnike';
 $strRenameTable = 'Promjeni ime tabele u ';
@@ -988,4 +987,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -488,7 +488,6 @@ $strRelationView = 'Shiko relacionet';
 $strRelationalSchema = 'Skema relacionale';
 $strRelations = 'Relacione';
 $strRelationsForTable = 'RELACIONET PËR TABELËN';  
-$strReloadMySQL = 'Rinis MySQL';
 $strReloadingThePrivileges = 'Duke ringarkuar të drejtat';
 $strRemoveSelectedUsers = 'Heq përdoruesit e zgjedhur';
 $strRenameDatabaseOK = 'Databazës %s i është ndryshuar emri në %s';  
@@ -980,4 +979,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

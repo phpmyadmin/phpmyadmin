@@ -303,7 +303,6 @@ $strReceived = '받음';
 $strRecords = '레코드수';
 $strReferentialIntegrity = 'referential 무결성 검사:';
 $strRelationNotWorking = 'linked Tables에서 작동하는 부가기능이 사용되지 않습니다. 이유를 알려면 %s여기를 클릭%s하십시오.';
-$strReloadMySQL = 'MySQL 재시동';
 $strReloadingThePrivileges = '사용권한을 갱신합니다(Reloading the privileges)';
 $strRemoveSelectedUsers = '선택한 사용자를 삭제';
 $strRenameTable = '테이블 이름 바꾸기';
@@ -997,4 +996,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

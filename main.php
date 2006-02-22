@@ -165,7 +165,7 @@ if ( $server > 0 ) {
         './server_engines.php?' . $common_url_query );
 
     if ($is_reload_priv) {
-        PMA_printListItem( $strReloadMySQL, 'li_flush_privileges',
+        PMA_printListItem( $strReloadPrivileges, 'li_flush_privileges',
             './server_privileges.php?flush_privileges=1&amp;' . $common_url_query, 'flush' );
     }
 

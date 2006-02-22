@@ -559,7 +559,6 @@ $strRelationView = 'Bäyläneşlär qaraw';
 $strRelationalSchema = 'Bäyläneşlär sxeme';
 $strRelations = 'Bäyläneşlär';
 $strRelationsForTable = 'RELATIONS FOR TABLE';
-$strReloadMySQL = 'MySQL\'nı yañadan cibär';
 $strReloadingThePrivileges = 'Bu xoquqlarnı yöklä';
 $strRemoveSelectedUsers = 'Saylanğan qullanuçı beterü';
 $strRenameDatabaseOK = '"%s" biremlegenä "%s" atı quşıldı';
@@ -979,4 +978,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

@@ -475,7 +475,6 @@ $strRelationView = 'Pogled relacij';
 $strRelationalSchema = 'Relacijska shema';
 $strRelations = 'Relacije';
 $strRelationsForTable = 'RELACIJE ZA TABELO';
-$strReloadMySQL = 'Ponovno nalo¾i MySQL';
 $strReloadingThePrivileges = 'Osve¾ujem privilegije';
 $strRemoveSelectedUsers = 'Izbri¹i izbrane uporabnike';
 $strRenameDatabaseOK = 'Baza podatkov %s je preimenovana v %s';
@@ -976,4 +975,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

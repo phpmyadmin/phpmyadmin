@@ -214,7 +214,6 @@ $strQueryOnDb = 'SQL upit na bazi <b>%s</b>:';
 
 $strRecords = 'Reci';
 $strReferentialIntegrity = 'Provjeri ispravnost veza:';
-$strReloadMySQL = 'Ponovo pokreni MySQL (<i>reload</i>)';
 $strRenameTable = 'Promijeni ime tablice u ';
 $strRenameTableOK = 'Tablici %s promjenjeno ime u %s';
 $strRepairTable = 'Popravi tablicu';
@@ -1003,4 +1002,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

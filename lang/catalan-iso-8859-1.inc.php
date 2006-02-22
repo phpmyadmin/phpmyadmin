@@ -607,7 +607,6 @@ $strRelationsForTable = 'RELACIONS DE LA TAULA';
 $strRelations = 'Relacions';
 $strRelationView = 'Vista de Relacions';
 $strReloadingThePrivileges = 'Recarregant permissos';
-$strReloadMySQL = 'Rellegir el MySQL';
 $strRemoveSelectedUsers = 'Treure els usuaris sel.leccionats';
 $strRenameDatabaseOK = 'Base de dades %s reanomenada a %s';
 $strRenameTableOK = 'La taula %s ha canviat de nom. Ara es diu %s';
@@ -981,4 +980,5 @@ $strReadRequests = 'Read requests';  //to translate
 $strWriteRequests = 'Write requests';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

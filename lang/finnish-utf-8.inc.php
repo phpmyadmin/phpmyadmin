@@ -632,7 +632,6 @@ $strRelationsForTable = 'RELAATIOT TAULULLE';
 $strRelations = 'Relaatiot'; 
 $strRelationView = 'Relaationäkymä';
 $strReloadingThePrivileges = 'Ladataan käyttöoikeuksia uudelleen';
-$strReloadMySQL = 'Käynnistä MySQL uudelleen';
 $strRemoveSelectedUsers = 'Poista valitut käyttäjät';
 $strRenameDatabaseOK = 'Tietokannan %s uusi nimi on nyt %s'; 
 $strRenameTable = 'Nimeä taulu uudelleen';
@@ -989,4 +988,5 @@ $strZip = '"zip-pakattu"';
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

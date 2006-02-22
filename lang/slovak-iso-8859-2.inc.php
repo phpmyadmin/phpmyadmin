@@ -602,7 +602,6 @@ $strRelationsForTable = 'VZ«AHY PRE TABU¥KU';
 $strRelations = 'Prepojenia';
 $strRelationView = 'Zobrazi» spojitosti';
 $strReloadingThePrivileges = 'Znovunaèítanie práv';
-$strReloadMySQL = 'Znovu-naèíta» MySQL';
 $strRemoveSelectedUsers = 'Odstráni» vybraných pou¾ívateµov';
 $strRenameDatabaseOK = 'Databáza %s bola premenovaná na %s';
 $strRenameTableOK = 'Tabuµka %s bola premenovaná na %s';
@@ -977,4 +976,5 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>
