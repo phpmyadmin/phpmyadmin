@@ -11,14 +11,16 @@ function setDb( new_db ) {
         // db has changed
         //alert( new_db + '(' + new_db.length + ') : ' + db );
 
-        if ( window.frames[0].document.getElementById(new_db) == null ) {
+        var old_db = db;
+        db = new_db;
+
+        if ( window.frames[0].document.getElementById(db) == null ) {
             // db is unknown, reload complete left frame
             refreshLeft();
         } else {
-            unmarkDbTable(db);
-            markDbTable(new_db);
+            unmarkDbTable(old_db);
+            markDbTable(db);
         }
-        db = new_db;
 
         // TODO: add code to expand db in lightview mode
 

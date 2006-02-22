@@ -40,6 +40,7 @@ $Source$
     * libraries/dbi/mysqli.dbi.lib.php: workaround for http://bugs.php.net/36007
     * libraries/database_interface.lib.php PMA_DBI_get_tables_full(), left.php:
       added workaround for bug #1436171 Cannot display Capitalised Databases
+    * js/querywindow.js: fixed 'mad' db slector
 
 2006-02-21 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php:
