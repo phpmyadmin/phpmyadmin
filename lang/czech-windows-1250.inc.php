@@ -610,6 +610,7 @@ $strQBEIns = 'pøidat';
 $strQueryCache = 'Vyrovnávací pamì dotazù';
 $strQueryFrame = 'SQL okno';
 $strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
+$strQueryResultsOperations = 'Operace s&nbsp;vısledky dotazu';
 $strQuerySQLHistory = 'SQL historie';
 $strQueryStatistics = '<b>Statistika dotazù</b>: Od spuštìní bylo serveru posláno %s dotazù.';
 $strQueryTime = 'Dotaz zabral %01.4f sekund';
@@ -979,5 +980,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>
