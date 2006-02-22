@@ -987,4 +987,5 @@ $strShowStatusSort_merge_passesDescr = 'The number of merge passes the sort algo
 $strShowStatusSort_rangeDescr = 'The number of sorts that were done with ranges.';  //to translate
 $strShowStatusTable_locks_waitedDescr = 'The number of times that a table lock could not be acquired immediately and a wait was needed. If this is high, and you have performance problems, you should first optimize your queries, and then either split your table or tables or use replication.';  //to translate
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>

@@ -320,6 +320,7 @@ $cfg['Export']['pdf_report_title']          = '';
 $cfg['Import']['format'] = 'sql';
 $cfg['Import']['allow_interrupt'] = TRUE;
 $cfg['Import']['skip_queries'] = '0';
+$cfg['Import']['sql_compatibility'] = 'NONE';
 $cfg['Import']['csv_replace'] = FALSE;
 $cfg['Import']['csv_terminated'] = ';';
 $cfg['Import']['csv_enclosed'] = '"';

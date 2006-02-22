@@ -14,6 +14,8 @@ $Source$
       documentation.
     * libraries/display_export.lib.php: Use new function for SQL compatibility
       modes.
+    * libraries/import/sql.php, lang/*, libraries/config.default.php:
+      Possibility to select SQL compatibility on import (RFE #1386132).
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

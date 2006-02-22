@@ -10,6 +10,16 @@ if (isset($plugin_list)) {
         'extension' => 'sql',
         'options_text' => 'strSQLImportOptions',
         );
+    $compats = PMA_DBI_get_compatibilities();
+    if (!is_null($compats)) {
+        $values = array();
+        foreach($compats as $val) {
+            $values[$val] = $val;
+        }
+        $plugin_list['sql']['options'] = array(
+            array('type' => 'select', 'name' => 'compatibility', 'text' => 'strSQLCompatibility', 'values' => $values, 'doc' => array('manual_MySQL_Database_Administration', 'Server_SQL_mode'))
+            );
+    }
 } else {
 /* We do not define function when plugin is just queried for information above */
     $buffer = '';
@@ -17,6 +27,10 @@ if (isset($plugin_list)) {
     $sql = '';
     $start_pos = 0;
     $i = 0;
+    // Handle compatibility option
+    if (isset($_REQUEST['sql_compatibility'])) {
+        PMA_DBI_try_query('SET SQL_MODE="' . $_REQUEST['sql_compatibility'] . '"');
+    }
     while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         $data = PMA_importGetNextChunk();
         if ($data === FALSE) {

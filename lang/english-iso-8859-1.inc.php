@@ -822,6 +822,7 @@ $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
 $strSpanish = 'Spanish';
 $strSplitWordsWithSpace = 'Words are separated by a space character (" ").';
+$strSQLCompatibility = 'SQL compatibility mode';
 $strSQLExportCompatibility = 'SQL export compatibility';
 $strSQLExportType = 'Export type';
 $strSQLImportOptions = 'SQL options';

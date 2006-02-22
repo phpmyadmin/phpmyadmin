@@ -981,4 +981,5 @@ $strZip = 'Komprimert (zip)';
 $strShowStatusHandler_read_prevDescr = 'The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.'; //to translate
 $strShowStatusHandler_read_rndDescr = 'The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'; //to translate
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>

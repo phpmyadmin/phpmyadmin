@@ -981,4 +981,5 @@ $strReadRequests = 'Read requests';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>

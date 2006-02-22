@@ -974,4 +974,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>

@@ -981,4 +981,5 @@ $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>

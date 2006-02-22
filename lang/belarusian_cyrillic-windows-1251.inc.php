@@ -979,4 +979,5 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Заўвага: Пазначэньне гэтых опцыяў як 0 (нуль) здымае абмежаваньне.';
 $strZip = 'архіваваны ў zip';
 
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 ?>
