@@ -12,6 +12,8 @@ $Source$
       SQL compatibility modes.
     * libraries/plugin_interface.lib.php: Add support for select options and
       documentation.
+    * libraries/display_export.lib.php: Use new function for SQL compatibility
+      modes.
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

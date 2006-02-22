@@ -286,25 +286,13 @@ function show_checked_option() {
         <label for="checkbox_disable_fk">
             <?php echo $strDisableForeignChecks; ?></label>
     </div>
-<?php if (PMA_MYSQL_INT_VERSION >= 40100) { ?>
+<?php 
+    $compats = PMA_DBI_get_compatibilities();
+    if (!is_null($compats)) { ?>
     <label for="select_sql_compat">
         <?php echo $strSQLExportCompatibility; ?>:</label>
     <select name="sql_compat" id="select_sql_compat">
         <?php
-        $compats = array('NONE');
-        if (PMA_MYSQL_INT_VERSION >= 40101) {
-            $compats[] = 'ANSI';
-            $compats[] = 'DB2';
-            $compats[] = 'MAXDB';
-            $compats[] = 'MYSQL323';
-            $compats[] = 'MYSQL40';
-            $compats[] = 'MSSQL';
-            $compats[] = 'ORACLE';
-            $compats[] = 'POSTGRESQL';
-            if (PMA_MYSQL_INT_VERSION >= 50001) {
-                $compats[] = 'TRADITIONAL';
-            }
-        }
         foreach ($compats as $x) {
             echo '<option value="' . $x . '"'
                 . ($cfg['Export']['sql_compat'] == $x ? ' selected="selected"' : '' )
