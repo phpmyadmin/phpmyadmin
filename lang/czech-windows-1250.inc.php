@@ -480,8 +480,8 @@ $strMySQLShowVars = 'Systémové promìnné MySQL';
 $strName = 'Název';
 $strNext = 'Další';
 $strNoActivity = 'Byli jste pøíliš dlouho neaktivní (déle než %s sekund), prosím pøihlaste se znovu';
-$strNoDatabases = 'Žádné databáze';
 $strNoDatabasesSelected = 'Nebyla vybrána žádná databáze.';
+$strNoDatabases = 'Žádné databáze';
 $strNoDescription = 'žádný popisek';
 $strNoDetailsForEngine = 'Nejsou dostupné podrobnìjší informace o tomto úložišti.';
 $strNoDropDatabases = 'Pøíkaz &bdquo;DROP DATABASE&ldquo; je vypnutý.';
@@ -627,6 +627,7 @@ $strRelationsForTable = 'RELACE PRO TABULKU';
 $strRelations = 'Relace';
 $strRelationView = 'Zobrazit relace';
 $strReloadingThePrivileges = 'Znovunaèítám oprávnìní';
+$strReloadPrivileges = 'Znovunaèíst oprávnìní';
 $strRemoveSelectedUsers = 'Odstranit vybrané uživatele';
 $strRenameDatabaseOK = 'Databáze %s byla pøejmenována na %s';
 $strRenameTableOK = 'Tabulka %s byla pøejmenována na %s';
@@ -644,13 +645,13 @@ $strRevokeMessage = 'Byla zrušena práva pro %s';
 $strRevoke = 'Zrušit';
 $strRomanian = 'Rumunština';
 $strRowLength = 'Délka øádku';
-$strRows = 'Øádkù';
 $strRowsFrom = 'øádkù zaèínající od';
 $strRowSize = ' Velikost øádku ';
 $strRowsModeFlippedHorizontal = 'vodorovném (otoèené hlavièky)';
 $strRowsModeHorizontal = 'vodorovném';
 $strRowsModeOptions = 've %s režimu a opakovat hlavièky po %s øádcích.';
 $strRowsModeVertical = 'svislém';
+$strRows = 'Øádkù';
 $strRowsStatistic = 'Statistika øádkù';
 $strRunning = 'na %s';
 $strRunQuery = 'Provést dotaz';
@@ -821,12 +822,13 @@ $strSkipQueries = 'Poèet záznamù (dotazù) od zaèátku, které se mají pøeskoèit';
 $strSlovak = 'Slovenština';
 $strSlovenian = 'Slovinština';
 $strSocketProblem = '(nebo není spávnì nastaven lokální socket MySQL serveru)';
-$strSort = 'Øadit';
 $strSortByKey = 'Setøídit podle klíèe';
 $strSorting = 'Øazení';
+$strSort = 'Øadit';
 $strSpaceUsage = 'Využití místa';
 $strSpanish = 'Španìlština';
 $strSplitWordsWithSpace = 'Slova jsou oddìlena mezerou (&bdquo; &ldquo;).';
+$strSQLCompatibility = 'Režim kompatibility SQL';
 $strSQLExportCompatibility = 'Kompatibilita SQL exportu';
 $strSQLExportType = 'Typ vytvoøených dotazù';
 $strSQLImportOptions = 'Nastavení SQL importu';
@@ -845,8 +847,8 @@ $strStatement = 'Údaj';
 $strStatisticsOverrun = 'Na hodnì zatíženém serveru mohou èítaèe pøetéct, takže statistiky MySQL serveru mohou být nepøesné.';
 $strStatUpdateTime = 'Poslední zmìna';
 $strStatus = 'Stav';
-$strStorageEngine = 'Úložištì';
 $strStorageEngines = 'Úložištì';
+$strStorageEngine = 'Úložištì';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu a data';
 $strStrucDrop = 'Pøidat DROP TABLE';
@@ -976,11 +978,5 @@ $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
-
-// To translate:
-
-$strReloadPrivileges = 'Reload privileges';  //to translate
-
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 ?>

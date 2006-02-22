@@ -628,6 +628,7 @@ $strRelationsForTable = 'RELACE PRO TABULKU';
 $strRelations = 'Relace';
 $strRelationView = 'Zobrazit relace';
 $strReloadingThePrivileges = 'Znovunačítám oprávnění';
+$strReloadPrivileges = 'Znovunačíst oprávnění';
 $strRemoveSelectedUsers = 'Odstranit vybrané uživatele';
 $strRenameDatabaseOK = 'Databáze %s byla přejmenována na %s';
 $strRenameTableOK = 'Tabulka %s byla přejmenována na %s';
@@ -828,6 +829,7 @@ $strSort = 'Řadit';
 $strSpaceUsage = 'Využití místa';
 $strSpanish = 'Španělština';
 $strSplitWordsWithSpace = 'Slova jsou oddělena mezerou (&bdquo; &ldquo;).';
+$strSQLCompatibility = 'Režim kompatibility SQL';
 $strSQLExportCompatibility = 'Kompatibilita SQL exportu';
 $strSQLExportType = 'Typ vytvořených dotazů';
 $strSQLImportOptions = 'Nastavení SQL importu';
@@ -977,11 +979,5 @@ $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
-
-// To translate:
-
-$strReloadPrivileges = 'Reload privileges';  //to translate
-
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 ?>

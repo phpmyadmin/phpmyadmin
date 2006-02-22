@@ -24,6 +24,7 @@ $Source$
       processes link (RFE #1350356).
     * lang/*: Remove unused strTableType, resorted, added missing strings to
       various translations (timespanfmt was most often missing).
+    * lang/czech: Update.
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
