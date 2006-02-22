@@ -82,12 +82,25 @@ if (!isset($GLOBALS['checked_special'])) {
 
 if (isset($_SERVER['SCRIPT_NAME']) && empty($_POST) && !$GLOBALS['checked_special']) {
     echo '<div id="selflink" class="print_ignore">' . "\n";
+    $url_params['target'] = basename($_SERVER['SCRIPT_NAME']);
+    echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
+        . ' title="' . $GLOBALS['strOpenNewWindow'] . '" target="_blank">';
+    /*
     echo '<a href="index.php?target=' . basename($_SERVER['SCRIPT_NAME']);
     $url = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
     if (!empty($url)) {
         echo '&amp;' . $url;
     }
-    echo '" target="_blank">' . $GLOBALS['strOpenNewWindow'] . '</a>' . "\n";
+    echo '" target="_blank">';
+    */
+    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'window-new.png"'
+            . ' alt="' . $GLOBALS['strOpenNewWindow'] . '" />';
+    }
+    if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+        echo $GLOBALS['strOpenNewWindow'];
+    }
+    echo '</a>' . "\n";
     echo '</div>' . "\n";
 }
 
