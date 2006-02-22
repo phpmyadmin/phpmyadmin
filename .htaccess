@@ -1,4 +1,6 @@
 # At least on web servers supporting the .htaccess mecanism,
 # we disable session.auto_start; on other servers, users will
 # get a warning that they have to disable this setting
+# See also FAQ 1.36 in Documentation.html
+
 php_flag session.auto_start 0
