@@ -287,8 +287,9 @@ function show_checked_option() {
             <?php echo $strDisableForeignChecks; ?></label>
     </div>
 <?php 
-    $compats = PMA_DBI_get_compatibilities();
-    if (!is_null($compats)) { ?>
+    $compats = PMA_DBI_getCompatibilities();
+    if (count($compats) > 0) {
+?>
     <label for="select_sql_compat">
         <?php echo $strSQLExportCompatibility; ?>:</label>
     <select name="sql_compat" id="select_sql_compat">

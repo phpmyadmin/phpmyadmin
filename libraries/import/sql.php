@@ -10,8 +10,8 @@ if (isset($plugin_list)) {
         'extension' => 'sql',
         'options_text' => 'strSQLImportOptions',
         );
-    $compats = PMA_DBI_get_compatibilities();
-    if (!is_null($compats)) {
+    $compats = PMA_DBI_getCompatibilities();
+    if (count($compats) > 0) {
         $values = array();
         foreach($compats as $val) {
             $values[$val] = $val;

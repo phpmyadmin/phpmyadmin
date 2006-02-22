@@ -1025,10 +1025,10 @@ function PMA_DBI_get_default_engine()
  *
  * @return  array   supported SQL compatibility modes
  */
-function PMA_DBI_get_compatibilities()
+function PMA_DBI_getCompatibilities()
 {
     if (PMA_MYSQL_INT_VERSION < 40100) {
-        return null;
+        return array();
     }
     $compats = array('NONE');
     if (PMA_MYSQL_INT_VERSION >= 40101) {
@@ -1040,7 +1040,7 @@ function PMA_DBI_get_compatibilities()
         $compats[] = 'MSSQL';
         $compats[] = 'ORACLE';
         $compats[] = 'POSTGRESQL';
-        if (PMA_MYSQL_INT_VERSION >= 50001) {
+        if (PMA_MYSQL_INT_VERSION >= 50002) {
             $compats[] = 'TRADITIONAL';
         }
     }
