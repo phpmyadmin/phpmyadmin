@@ -7,8 +7,6 @@ $Source$
 
 2006-02-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1435303, error on empty BLOB transf.
-    * libraries/database_interface.lib.php PMA_DBI_get_tables_full(), left.php:
-      added workaround for bug #1436171 Cannot display Capitalised Databases
 
 2006-02-22 Michal Čihař  <michal@cihar.com>
     * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php:
@@ -40,6 +38,8 @@ $Source$
     * libraries/footer.inc.php, themes/*/img/window-new.png *NEW*:
       added icon for new window
     * libraries/dbi/mysqli.dbi.lib.php: workaround for http://bugs.php.net/36007
+    * libraries/database_interface.lib.php PMA_DBI_get_tables_full(), left.php:
+      added workaround for bug #1436171 Cannot display Capitalised Databases
 
 2006-02-21 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php:
