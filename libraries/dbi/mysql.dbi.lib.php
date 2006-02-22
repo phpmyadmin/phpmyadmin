@@ -22,15 +22,15 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags) {
 
     if (empty($client_flags)) {
         if ($cfg['PersistentConnections']) {
-            $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
+            $link = @mysql_pconnect($server, $user, $password);
         } else {
-            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
+            $link = @mysql_connect($server, $user, $password);
         }
     } else {
         if ($cfg['PersistentConnections']) {
-            $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, $client_flags);
+            $link = @mysql_pconnect($server, $user, $password, $client_flags);
         } else {
-            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, FALSE, $client_flags);
+            $link = @mysql_connect($server, $user, $password, FALSE, $client_flags);
         }
     }
 
