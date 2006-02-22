@@ -129,7 +129,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
 
 /* Load AIX iconv wrapper if needed */
 if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
-    require_once('./liraries/iconv_wrapper.lib.php');
+    require_once('./libraries/iconv_wrapper.lib.php');
 }
 
 /**

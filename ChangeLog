@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-22 Michal Čihař  <michal@cihar.com>
+    * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php:
+      Fixes for AIX wrapper, thanks to Björn Wiberg - bwiberg.
+
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
       bug #1436279 Left frame links open in new windows in Safari

@@ -42,6 +42,9 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @author  bwiberg  Björn Wiberg <Bjorn.Wiberg@its.uu.se> 
  */
 function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str) {
+
+    global $gnu_iconv_to_aix_iconv_codepage_map;
+
     // Check for transliteration argument at the end of output character set name
     $translit_search = strpos(strtolower($out_charset), '//translit');
     $using_translit = (!($translit_search === FALSE));
