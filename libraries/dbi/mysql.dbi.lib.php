@@ -17,6 +17,26 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
     }
 }
 
+function PMA_DBI_real_connect($server, $user, $password, $client_flags) {
+    global $cfg;
+
+    if (empty($client_flags)) {
+        if ($cfg['PersistentConnections']) {
+            $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
+        } else {
+            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
+        }
+    } else {
+        if ($cfg['PersistentConnections']) {
+            $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, $client_flags);
+        } else {
+            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, FALSE, $client_flags);
+        }
+    }
+
+    return $link;
+}
+
 function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
     global $cfg, $php_errormsg;
 
@@ -40,17 +60,13 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
         $client_flags |= 128;
     }
 
-    if (empty($client_flags)) {
-        $connect_func = 'mysql_' . ($cfg['PersistentConnections'] ? 'p' : '') . 'connect';
-        $link = @$connect_func($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
-    } else {
-        if ($cfg['PersistentConnections']) {
-            $link = @mysql_pconnect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, $client_flags);
-        } else {
-            $link = @mysql_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, FALSE, $client_flags);
-        }
+    $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
+    
+    // Retry with empty password if we're allowed to
+    if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
+        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
     }
-
+    
     if (empty($link)) {
         PMA_auth_fails();
     } // end if

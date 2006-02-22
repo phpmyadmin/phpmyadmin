@@ -72,6 +72,7 @@ $cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (co
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
+$cfg['Servers'][$i]['nopassword']    = FALSE;       // Whether to try to connect without password
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
                                                     // this db is displayed in left frame
                                                     // It may also be an array of db-names, where sorting order is relevant.

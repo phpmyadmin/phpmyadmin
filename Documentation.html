@@ -631,6 +631,17 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         which phpMyAdmin will use to connect to the
         MySQL server. This user/password pair is not needed when <abbr title="HyperText Transfer Protocol">HTTP</abbr> or
         cookie authentication is used and should be empty.</dd>
+    <dt id="servers_nopassword">
+        <span
+        id="cfg_Servers_nopassword">$cfg['Servers'][$i]['nopassword']</span> boolean
+    </dt>
+    <dd>
+        Allow attempt to login without password when login with password
+        fails. This can be used together with http authentication, when
+        authentication is done some other way and phpMyAdmin gets user name
+        from auth and uses empty password for connecting to MySQL. Password
+        login is still tried first, but as fallback, no password method is
+        tried.</dd>
     <dt id="servers_only_db">
         <span id="cfg_Servers_only_db">$cfg['Servers'][$i]['only_db']</span> string or array
     </dt>

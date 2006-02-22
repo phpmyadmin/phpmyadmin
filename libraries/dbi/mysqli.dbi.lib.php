@@ -91,6 +91,11 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
 
     $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
 
+    // Retry with empty password if we're allowed to
+    if ($return_value == false && $cfg['Server']['nopassword'] && !$is_controluser) {
+        $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+    }
+
     if ($return_value == false) {
         PMA_auth_fails();
     } // end if
