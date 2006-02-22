@@ -41,6 +41,16 @@ if (! defined('MYSQLI_BINARY_FLAG')) {
 }
 
 /**
+ * @see http://bugs.php.net/36007
+ */
+if (! defined('MYSQLI_TYPE_NEWDECIMAL')) {
+    define('MYSQLI_TYPE_NEWDECIMAL', 246);
+}
+if (! defined('MYSQLI_TYPE_BIT')) {
+    define('MYSQLI_TYPE_BIT', 16);
+}
+
+/**
  * connects to the database server
  *
  * @uses    $GLOBALS['cfg']['Server']
