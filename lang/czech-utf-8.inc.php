@@ -600,6 +600,7 @@ $strPrivDescUpdate = 'Umožňuje měnit data.';
 $strPrivDescUsage = 'Žádná oprávnění.';
 $strPrivileges = 'Oprávnění';
 $strPrivilegesReloaded = 'Oprávnění byla znovunačtena úspěšně.';
+$strProcesses = 'Procesy';
 $strProcesslist = 'Seznam procesů';
 $strProtocolVersion = 'Verze protokolu';
 $strPutColNames = 'Přidat jména sloupců na první řádek';
@@ -686,7 +687,6 @@ $strServer = 'Server';
 $strServerStatusDelayedInserts = 'Odložené inserty';
 $strServerStatus = 'Stav serveru';
 $strServerStatusUptime = 'Tento MySQL server běží %s. Čas spuštění: %s.';
-$strProcesses = 'Procesy';
 $strServerTabVariables = 'Proměnné';
 $strServerTrafficNotes = '<b>Provoz serveru</b>: Informace o&nbsp;síťovém provozu MySQL serveru od jeho spuštění.';
 $strServerVars = 'Proměnné a nastavení serveru';
@@ -875,7 +875,6 @@ $strTableOptions = 'Parametry tabulky';
 $strTables = '%s tabulek';
 $strTableStructure = 'Struktura tabulky';
 $strTable = 'Tabulka';
-$strTableType = 'Typ tabulky';
 $strTakeIt = 'zvolit';
 $strTblPrivileges = 'Oprávnění pro jednotlivé tabulky';
 $strTempData = 'Dočasná data';
@@ -979,6 +978,10 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+// To translate:
+
 $strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+
 ?>

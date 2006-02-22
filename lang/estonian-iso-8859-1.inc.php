@@ -290,8 +290,8 @@ $strFileToImport = 'Imporditav Fail';
 $strFixed = 'parandatud';
 $strFlushPrivilegesNote = 'Märkus: phpMyAdmin võtab kasutajate privileegid otse MySQL privileges tabelist. Tabeli sisu võib erineda sellest, mida server hetkel kasutab, seda juhul kui olete käsitsi muudatusi teinud. Sellisel juhul peaksite te privileegid %staaslaadima%s enne jätkamist.';
 $strFlushQueryCache = 'Tühjenda päringute vahemälu'; 
-$strFlushTables = 'Tühjenda (sulge) kõik tabelid';
 $strFlushTable = 'Ühtlusta tabelid ("FLUSH")';
+$strFlushTables = 'Tühjenda (sulge) kõik tabelid';
 $strFormat = 'Formaat';
 $strFormEmpty = 'Puuduv väärtus vormis !';
 $strFreePages = 'Vabad lehed';
@@ -588,6 +588,7 @@ $strPrivDescUpdate = 'Lubab muuta infot.';
 $strPrivDescUsage = 'Mitte ühtegi privileegi.';
 $strPrivileges = 'Privileegid';
 $strPrivilegesReloaded = 'Privileegid taaslaeti edukalt.';
+$strProcesses = 'Protsessid';
 $strProcesslist = 'Protsessinimekiri';
 $strProtocolVersion = 'Protokolli versioon'; 
 $strPutColNames = 'Pange väljade nimed esimesse ritta';
@@ -674,7 +675,6 @@ $strServer = 'Server';
 $strServerStatusDelayedInserts = 'Ajastatud lisamised';  
 $strServerStatus = 'Jooksev informatsioon';
 $strServerStatusUptime = 'See MySQL server on käinud %s. Käivitusaeg %s.';
-$strProcesses = 'Protsessid';
 $strServerTabVariables = 'Muutujad';
 $strServerTrafficNotes = '<b>Serveri liiklus</b>: Need tabelid näitavad võrguliikluse statistikat selle MySQL serveri jaoks alates tema käivitamisest.';
 $strServerVars = 'Serveri muutujad ja seaded.';
@@ -861,7 +861,6 @@ $strTableOptions = 'Tabeli seaded';
 $strTables = '%s tabel(it)';
 $strTableStructure = 'Struktuur tabelile';
 $strTable = 'Tabel';
-$strTableType = 'Tabeli tüüp';
 $strTakeIt = 'võta see';
 $strTblPrivileges = 'Tabel-spetsiifilised privileegid';
 $strTempData = 'Ajutised andmed ';
@@ -969,6 +968,9 @@ $strImportSuccessfullyFinished = 'Import has been successfully finished, %d quer
 $strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
 $strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
 
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 
@@ -979,6 +981,4 @@ $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

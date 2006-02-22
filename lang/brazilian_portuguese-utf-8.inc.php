@@ -545,6 +545,7 @@ $strPrivDescUpdate = 'Permitir modificar dados.';
 $strPrivDescUsage = 'Sem privilégios.'; 
 $strPrivileges = 'Privilégios'; 
 $strPrivilegesReloaded = 'Os privilégios foram recarregados com sucesso.'; 
+$strProcesses = 'Processos'; 
 $strProcesslist = 'Lista de processos'; 
 $strPutColNames = 'Colocar nome do campo na primeira linha'; 
 
@@ -626,7 +627,6 @@ $strServerNotResponding = 'O servidor não está respondendo';
 $strServer = 'Servidor'; 
 $strServerStatus = 'Informações de Runtime'; 
 $strServerStatusUptime = 'Esse servidor MySQL está rodando por %s. Ele foi iniciado em %s.'; 
-$strProcesses = 'Processos'; 
 $strServerTabVariables = 'Variáveis'; 
 $strServerTrafficNotes = '<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico da rede neste servidor MySQL desde o início.'; 
 $strServerVars = 'Variáveis e configurações do servidor'; 
@@ -699,7 +699,6 @@ $strTableOptions = 'Opções da tabela';
 $strTables = '%s tabela(s)'; 
 $strTableStructure = 'Estrutura da tabela'; 
 $strTable = 'Tabela'; 
-$strTableType = 'Tipo da Tabela'; 
 $strTakeIt = 'tome'; 
 $strTblPrivileges = 'Privilégios específicos da tabela'; 
 $strTextAreaLength = ' Por causa da sua largura,<br /> esse campo pode não ser editável '; 
@@ -787,49 +786,90 @@ $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os li
 $strZip = '"compactado com zip"'; 
 
 // To translate:
+$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
+$strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
 $strAndThen = 'and then';  //to translate
 
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strBookmarkCreated = 'Bookmark %s created';  //to translate
+$strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
+$strBrowseDistinctValues = 'Browse distinct values';  //to translate
 
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
-
-$strInvalidAuthMethod = 'Invalid authentication method set in configuration:';  //to translate
-$strRunSQLQueryOnServer = 'Run SQL query/queries on server %s';  //to translate
-$strCSV = 'CSV';  //to translate
-$strImport = 'Import';  //to translate
-$strImportFormat = 'Format of imported file';  //to translate
-$strFileToImport = 'File to import';  //to translate
-$strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate
+$strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
+$strCSV = 'CSV';  //to translate
 $strCSVImportOptions = 'CSV options';  //to translate
-$strPartialImport = 'Partial import';  //to translate
-$strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
-$strTimeoutPassed = 'Script timeout passed, if you want to finish import, please resubmit same file and import will resume.';  //to translate
-$strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
-$strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
-$strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
-$strNothingToImport = 'You didn\'t enter any data to import!';  //to translate
-$strIgnoreDuplicates = 'Ignore duplicate rows';  //to translate
-$strSkipQueries = 'Number of records(queries) to skip from start';  //to translate
-$strInvalidColumn = 'Invalid column (%s) specified!';  //to translate
-$strNoFilesFoundInZip = 'No files found inside ZIP archive!';  //to translate
+
+$strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
+
 $strErrorInZipFile = 'Error in ZIP archive:';  //to translate
+$strEsperanto = 'Esperanto';  //to translate
+
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
+$strFileToImport = 'File to import';  //to translate
 $strFlushQueryCache = 'Flush query cache';  //to translate
 $strFlushTables = 'Flush (close) all tables';  //to translate
+
 $strHandler = 'Handler';  //to translate
+
+$strIgnoreDuplicates = 'Ignore duplicate rows';  //to translate
+$strImportFormat = 'Format of imported file';  //to translate
+$strImport = 'Import';  //to translate
+$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
+$strInvalidAuthMethod = 'Invalid authentication method set in configuration:';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidColumn = 'Invalid column (%s) specified!';  //to translate
+$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
+$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
+$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+
 $strJoins = 'Joins';  //to translate
+
 $strKeyCache = 'Key cache';  //to translate
+
+$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
+$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
+$strLDI = 'CSV using LOAD DATA';  //to translate
+$strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
+$strLDILocal = 'Use LOCAL keyword';  //to translate
+
 $strMaxConnects = 'max. concurrent connections';  //to translate
+$strMaximalQueryLength = 'Maximal length of created query';  //to translate
+$strMysqlClientVersion = 'MySQL client version';  //to translate
+
+$strNoFilesFoundInZip = 'No files found inside ZIP archive!';  //to translate
+$strNothingToImport = 'You didn\'t enter any data to import!';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
+
+$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
+
+$strPartialImport = 'Partial import';  //to translate
+$strPDFOptions = 'PDF options';  //to translate
+$strPDF = 'PDF';  //to translate
+$strPDFReportTitle = 'Report title';  //to translate
+$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
+$strProtocolVersion = 'Protocol version';  //to translate
+
 $strQueryCache = 'Query cache';  //to translate
+
+$strReloadPrivileges = 'Reload privileges';  //to translate
 $strReplication = 'Replication';  //to translate
+$strRunSQLQueryOnServer = 'Run SQL query/queries on server %s';  //to translate
+
 $strServerStatusDelayedInserts = 'Delayed inserts';  //to translate
+$strShowingBookmark = 'Showing bookmark';  //to translate
 $strShowOpenTables = 'Show open tables';  //to translate
 $strShowSlaveHosts = 'Show slave hosts';  //to translate
 $strShowSlaveStatus = 'Show slave status';  //to translate
-$strShowStatusReset = 'Reset';  //to translate
 $strShowStatusBinlog_cache_disk_useDescr = 'The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.';  //to translate
 $strShowStatusBinlog_cache_useDescr = 'The number of transactions that used the temporary binary log cache.';  //to translate
 $strShowStatusCreated_tmp_disk_tablesDescr = 'The number of temporary tables on disk created automatically by the server while executing statements. If Created_tmp_disk_tables is big, you may want to increase the tmp_table_size  value to cause temporary tables to be memory-based instead of disk-based.';  //to translate
@@ -881,13 +921,13 @@ $strShowStatusInnodb_os_log_fsyncsDescr = 'The number of fsyncs writes done to t
 $strShowStatusInnodb_os_log_pending_fsyncsDescr = 'The number of pending log file fsyncs.';  //to translate
 $strShowStatusInnodb_os_log_pending_writesDescr = 'Pending log file writes.';  //to translate
 $strShowStatusInnodb_os_log_writtenDescr = 'The number of bytes written to the log file.';  //to translate
-$strShowStatusInnodb_page_sizeDescr = 'The compiled-in InnoDB page size (default 16KB). Many values are counted in pages; the page size allows them to be easily converted to bytes.';  //to translate
 $strShowStatusInnodb_pages_createdDescr = 'The number of pages created.';  //to translate
+$strShowStatusInnodb_page_sizeDescr = 'The compiled-in InnoDB page size (default 16KB). Many values are counted in pages; the page size allows them to be easily converted to bytes.';  //to translate
 $strShowStatusInnodb_pages_readDescr = 'The number of pages read.';  //to translate
 $strShowStatusInnodb_pages_writtenDescr = 'The number of pages written.';  //to translate
 $strShowStatusInnodb_row_lock_current_waitsDescr = 'The number of row locks currently being waited for.';  //to translate
-$strShowStatusInnodb_row_lock_timeDescr = 'The total time spent in acquiring row locks, in milliseconds.';  //to translate
 $strShowStatusInnodb_row_lock_time_avgDescr = 'The average time to acquire a row lock, in milliseconds.';  //to translate
+$strShowStatusInnodb_row_lock_timeDescr = 'The total time spent in acquiring row locks, in milliseconds.';  //to translate
 $strShowStatusInnodb_row_lock_time_maxDescr = 'The maximum time to acquire a row lock, in milliseconds.';  //to translate
 $strShowStatusInnodb_row_lock_waitsDescr = 'The number of times a row lock had to be waited for.';  //to translate
 $strShowStatusInnodb_rows_deletedDescr = 'The number of rows deleted from InnoDB tables.';  //to translate
@@ -903,10 +943,10 @@ $strShowStatusKey_write_requestsDescr = 'The number of requests to write a key b
 $strShowStatusKey_writesDescr = 'The number of physical writes of a key block to disk.';  //to translate
 $strShowStatusLast_query_costDescr = 'The total cost of the last compiled query as computed by the query optimizer. Useful for comparing the cost of different query plans for the same query. The default value of 0 means that no query has been compiled yet.';  //to translate
 $strShowStatusNot_flushed_delayed_rowsDescr = 'The number of rows waiting to be written in INSERT DELAY queues.';  //to translate
+$strShowStatusOpened_tablesDescr = 'The number of tables that have been opened. If opened tables is big, your table cache value is probably too small.';  //to translate
 $strShowStatusOpen_filesDescr = 'The number of files that are open.';  //to translate
 $strShowStatusOpen_streamsDescr = 'The number of streams that are open (used mainly for logging).';  //to translate
 $strShowStatusOpen_tablesDescr = 'The number of tables that are open.';  //to translate
-$strShowStatusOpened_tablesDescr = 'The number of tables that have been opened. If opened tables is big, your table cache value is probably too small.';  //to translate
 $strShowStatusQcache_free_blocksDescr = 'The number of free memory blocks in query cache.';  //to translate
 $strShowStatusQcache_free_memoryDescr = 'The amount of free memory for query cache.';  //to translate
 $strShowStatusQcache_hitsDescr = 'The number of cache hits.';  //to translate
@@ -915,11 +955,12 @@ $strShowStatusQcache_lowmem_prunesDescr = 'The number of queries that have been 
 $strShowStatusQcache_not_cachedDescr = 'The number of non-cached queries (not cachable, or not cached due to the query_cache_type setting).';  //to translate
 $strShowStatusQcache_queries_in_cacheDescr = 'The number of queries registered in the cache.';  //to translate
 $strShowStatusQcache_total_blocksDescr = 'The total number of blocks in the query cache.';  //to translate
+$strShowStatusReset = 'Reset';  //to translate
 $strShowStatusRpl_statusDescr = 'The status of failsafe replication (not yet implemented).';  //to translate
 $strShowStatusSelect_full_joinDescr = 'The number of joins that do not use indexes. If this value is not 0, you should carefully check the indexes of your tables.';  //to translate
 $strShowStatusSelect_full_range_joinDescr = 'The number of joins that used a range search on a reference table.';  //to translate
-$strShowStatusSelect_rangeDescr = 'The number of joins that used ranges on the first table. (It\'s normally not critical even if this is big.)';  //to translate
 $strShowStatusSelect_range_checkDescr = 'The number of joins without keys that check for key usage after each row. (If this is not 0, you should carefully check the indexes of your tables.)';  //to translate
+$strShowStatusSelect_rangeDescr = 'The number of joins that used ranges on the first table. (It\'s normally not critical even if this is big.)';  //to translate
 $strShowStatusSelect_scanDescr = 'The number of joins that did a full scan of the first table.';  //to translate
 $strShowStatusSlave_open_temp_tablesDescr = 'The number of temporary tables currently open by the slave SQL thread.';  //to translate
 $strShowStatusSlave_retried_transactionsDescr = 'Total (since startup) number of times the replication slave SQL thread has retried transactions.';  //to translate
@@ -936,55 +977,31 @@ $strShowStatusThreads_cachedDescr = 'The number of threads in the thread cache. 
 $strShowStatusThreads_connectedDescr = 'The number of currently open connections.';  //to translate
 $strShowStatusThreads_createdDescr = 'The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)';  //to translate
 $strShowStatusThreads_runningDescr = 'The number of threads that are not sleeping.';  //to translate
+$strSkipQueries = 'Number of records(queries) to skip from start';  //to translate
 $strSorting = 'Sorting';  //to translate
-$strTempData = 'Temporary data';  //to translate
-$strThreads = 'Threads';  //to translate
-$strLDI = 'CSV using LOAD DATA';  //to translate
-$strLDILocal = 'Use LOCAL keyword';  //to translate
-$strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
-$strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strSQLImportOptions = 'SQL options';  //to translate
+$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
+
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
-$strTransactionCoordinator = 'Transaction coordinator';  //to translate
-$strNumberOfFields = 'Number of fields';  //to translate
-$strShowingBookmark = 'Showing bookmark';  //to translate
-$strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
-$strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
-$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
-$strMaximalQueryLength = 'Maximal length of created query';  //to translate
-$strBookmarkCreated = 'Bookmark %s created';  //to translate
-$strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
-$strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
-$strEsperanto = 'Esperanto';  //to translate
-$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
-$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
-$strFileNameTemplateDescriptionTable = 'table name';  //to translate
-$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
-$strFileNameTemplateDescriptionServer = 'server name';  //to translate
-$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
-$strProtocolVersion = 'Protocol version';  //to translate
-$strMysqlClientVersion = 'MySQL client version';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
-$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
-$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
-$strPDF = 'PDF';  //to translate
-$strPDFOptions = 'PDF options';  //to translate
-$strPDFReportTitle = 'Report title';  //to translate
-$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
-$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
-$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
-$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strThemeNotFound = 'Theme %s not found!';  //to translate
+$strTempData = 'Temporary data';  //to translate
 $strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
+$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
+$strThemeNotFound = 'Theme %s not found!';  //to translate
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
+$strThreads = 'Threads';  //to translate
+$strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
+$strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
+$strTimeoutPassed = 'Script timeout passed, if you want to finish import, please resubmit same file and import will resume.';  //to translate
+$strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
+
+$strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
+$strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
+$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
+
 ?>

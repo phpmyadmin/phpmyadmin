@@ -110,7 +110,7 @@ hungarian-iso-8859-2
 indonesian-iso-8859-1
 italian-iso-8859-1
 japanese-utf-8
-korean-euc-kr
+korean-utf-8
 latvian-windows-1257
 lithuanian-windows-1257
 malay-iso-8859-1
@@ -127,7 +127,7 @@ slovak-iso-8859-2
 spanish-iso-8859-1
 swedish-iso-8859-1
 tatarish-iso-8859-9
-thai-tis-620
+thai-utf-8
 turkish-utf-8
 ukrainian-windows-1251"
 

@@ -348,8 +348,8 @@ $strImportFormat = 'Formato do ficheiro importado';
 $strImport = 'Importar';
 $strIndexes = 'Índices';
 $strIndexHasBeenDropped = 'Eliminouse o índice %s';
-$strIndexName = 'Nome do índice&nbsp;:';
 $strIndex = 'Índice';
+$strIndexName = 'Nome do índice&nbsp;:';
 $strIndexType = 'Tipo de índice&nbsp;:';
 $strIndexWarningMultiple = 'Creouse máis dunha chave %s para a columna `%s`';
 $strIndexWarningPrimary = 'Non se lle deberían asignar ambas as dúas chaves PRIMARY e INDEX á columna `%s`';
@@ -590,6 +590,7 @@ $strPrivDescUpdate = 'Permite modificar datos.';
 $strPrivDescUsage = 'Sen privilexios.';
 $strPrivileges = 'Privilexios';
 $strPrivilegesReloaded = 'Non houbo problemas ao recarregar os privilexios.';
+$strProcesses = 'Procesos';
 $strProcesslist = 'Listaxe dos procesos';
 $strProtocolVersion = 'Versión do protocolo';
 $strPutColNames = 'Pór os nomes dos campos na primeira fileira';
@@ -676,7 +677,6 @@ $strServer = 'Servidor';
 $strServerStatusDelayedInserts = 'Insercións demoradas';
 $strServerStatus = 'Información sobre o runtime';
 $strServerStatusUptime = 'Este servidor de MySQL leva funcionando %s. Iniciouse às %s.';
-$strProcesses = 'Procesos';
 $strServerTabVariables = 'Variábeis';
 $strServerTrafficNotes = '<b>Tráfico do servidor</b>: Estas tabelas mostran as estatísticas do tráfico da rede neste servidor de MySQL desde que se iniciou.';
 $strServerVars = 'Variábeis e configuración do servidor';
@@ -863,7 +863,6 @@ $strTableOptions = 'Opcións de tabela';
 $strTables = '%s tabela(s)';
 $strTableStructure = 'Estrutura da tabela';
 $strTable = 'Tabela';
-$strTableType = 'Tipo da tabela';
 $strTakeIt = 'colle-o';  
 $strTblPrivileges = 'Privilexios proprios de tabela';
 $strTempData = 'Datos temporais';
@@ -963,6 +962,9 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 // To translate:
+$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
+
+$strBrowseDistinctValues = 'Browse distinct values';  //to translate
 
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 $strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
@@ -973,16 +975,17 @@ $strPDFOptions = 'PDF options';  //to translate
 $strPDF = 'PDF';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
 
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strSQLImportOptions = 'SQL options';  //to translate
+$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
+
 $strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
 $strThemeNotFound = 'Theme %s not found!';  //to translate
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
+
 ?>

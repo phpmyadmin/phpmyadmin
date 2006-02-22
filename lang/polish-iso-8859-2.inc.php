@@ -525,8 +525,8 @@ $strPartialImport = 'Import czê¶ciowy';
 $strPartialText = 'Skrócony tekst';
 $strPasswordChanged = 'Has³o dla %s zosta³o pomy¶lnie zmienione.';
 $strPasswordEmpty = 'Puste has³o!';
-$strPassword = 'Has³o';
 $strPasswordHashing = 'Sposób kodowania hase³';
+$strPassword = 'Has³o';
 $strPasswordNotSame = 'Has³a nie s± identyczne!';
 $strPdfDbSchema = 'Schemat bazy danych "%s" - strona %s';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
@@ -593,6 +593,7 @@ $strPrivDescUpdate = 'Pozwól zmieniaæ dane.';
 $strPrivDescUsage = 'Brak uprawnieñ.';
 $strPrivilegesReloaded = 'Uprawnienia zosta³y pomy¶lnie prze³adowane.';
 $strPrivileges = 'Uprawnienia';
+$strProcesses = 'Procesy';
 $strProcesslist = 'Lista procesów';
 $strProtocolVersion = 'Wersja protoko³u';
 $strPutColNames = 'Umie¶æ nazwy pól w pierwszym rekordzie';
@@ -679,7 +680,6 @@ $strServer = 'Serwer';
 $strServerStatusDelayedInserts = 'Opó¼nione dodania';
 $strServerStatus = 'Informacje o dzia³aniu serwera';
 $strServerStatusUptime = 'Serwer MySQL dzia³a przez %s. Pocz±tek pracy: %s.';
-$strProcesses = 'Procesy';
 $strServerTabVariables = 'Zmienne';
 $strServerTrafficNotes = '<b>Ruch na serwerze</b>: Poni¿sze tabele pokazuj± statystyki ruchu na tym serwerze MySQL od rozpoczêcia jego pracy.';
 $strServerVars = 'Zmienne i ustawienia serwera';
@@ -868,7 +868,6 @@ $strTableOptions = 'Opcje tabeli';
 $strTables = '%s tabel(a)';
 $strTableStructure = 'Struktura tabeli dla ';
 $strTable = 'Tabela';
-$strTableType = 'Typ tabeli';
 $strTakeIt = 'u¿yj';
 $strTblPrivileges = 'Uprawnienia specyficzne dla tabel';
 $strTempData = 'Dane tymczasowe';
@@ -972,6 +971,10 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+// To translate:
+
 $strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+
 ?>

@@ -598,6 +598,7 @@ $strPrivDescUpdate = 'Tillater endring av data.';
 $strPrivDescUsage = 'Ingen privilegier.';
 $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Oppfriskingen av privilegiene lyktes.';
+$strProcesses = 'Prosesser';
 $strProcesslist = 'Prosess liste';
 $strProtocolVersion = 'Protokollversjon';
 $strPutColNames = 'Sett inn feltnavn i første rad';
@@ -683,7 +684,6 @@ $strServerNotResponding = 'Tjeneren svarer ikke';
 $strServerStatusDelayedInserts = 'Forsinkede innsettinger';
 $strServerStatus = 'Kjøringsinformasjon';
 $strServerStatusUptime = 'Denne MySQL tjeneren har kjørt i %s. Den startet opp den %s.';
-$strProcesses = 'Prosesser';
 $strServerTabVariables = 'Variabler';
 $strServer = 'Tjener';
 $strServerTrafficNotes = '<b>Tjenertraffikk</b>: Disse tabellene viser statistikk over nettverkstrafikken for denne MySQL-tjeneren siden dens oppstart.';
@@ -871,7 +871,6 @@ $strTableOptions = 'Tabellinnstillinger';
 $strTables = '%s tabell(er)';
 $strTableStructure = 'Tabellstruktur for tabell';
 $strTable = 'Tabell';
-$strTableType = 'Tabelltype';
 $strTakeIt = 'velg';
 $strTblPrivileges = 'Tabell-spesifikke privilegier';
 $strTempData = 'Midlertidige data';
@@ -977,9 +976,10 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
 $strShowStatusHandler_read_prevDescr = 'The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.'; //to translate
 $strShowStatusHandler_read_rndDescr = 'The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'; //to translate
-
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
+
 ?>

@@ -604,6 +604,7 @@ $strPrivDescUpdate = 'Sallii datan muuttamisen.';
 $strPrivDescUsage = 'Ei käyttöoikeuksia.';
 $strPrivileges = 'Käyttöoikeudet';
 $strPrivilegesReloaded = 'Käyttöoikeuksien uudelleen lataus onnistui.';
+$strProcesses = 'Prosessit';
 $strProcesslist = 'Prosessilista';
 $strProtocolVersion = 'Protokollan versio';
 $strPutColNames = 'Laita sarakkeiden nimet ensimmäiselle riville';
@@ -690,7 +691,6 @@ $strServer = 'Palvelin';
 $strServerStatus = 'Ajonaikaiset tiedot';
 $strServerStatusDelayedInserts = 'Viivästetyt insert-lauseet';
 $strServerStatusUptime = 'Tämä MySQL-palvelin on ollut käynnissä %s. Se käynnistettiin %s.';
-$strProcesses = 'Prosessit';
 $strServerTabVariables = 'Muuttujat';
 $strServerTrafficNotes = '<b>Palvelinliikenne</b>: Nämä taulukot näyttävät tämän MySQL-palvelimen verkkoliikennetilastot käynnistyksestä lähtien.';
 $strServerVars = 'Palvelimen muuttujat ja asetukset';
@@ -879,7 +879,6 @@ $strTableOptions = 'Taulun valinnat';
 $strTables = '%s taulu(a)';
 $strTableStructure = 'Rakenne taululle';
 $strTable = 'Taulu';
-$strTableType = 'Taulun muoto';
 $strTakeIt = 'käytä tätä'; 
 $strTblPrivileges = 'Taulukohtaiset käyttöoikeudet';
 $strTempData = 'Väliaikainen data';
@@ -984,8 +983,10 @@ $strZip = '"zip-pakattu"';
 
 // To translate:
 
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
+
 ?>

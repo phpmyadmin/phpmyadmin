@@ -22,6 +22,8 @@ $Source$
       libraries/header.inc.php: Customizable window title (RFE #1408241).
     * main.php, libraries/server_links.inc.php, lang/*: Same title for
       processes link (RFE #1350356).
+    * lang/*: Remove unused strTableType, resorted, added missing strings to
+      various translations (timespanfmt was most often missing).
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

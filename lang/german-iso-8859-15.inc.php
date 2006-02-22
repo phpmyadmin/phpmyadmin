@@ -596,6 +596,7 @@ $strPrivDescUpdate = 'Erlaubt das Verändern von gespeicherten Daten.';
 $strPrivDescUsage = 'Keine Rechte.';
 $strPrivileges = 'Rechte';
 $strPrivilegesReloaded = 'Die Benutzerprofile wurden neu geladen.';
+$strProcesses = 'Prozesse';
 $strProcesslist = 'Prozesse';
 $strProtocolVersion = 'Protokoll-Version';
 $strPutColNames = 'Feldnamen in die erste Zeile setzen';
@@ -682,7 +683,6 @@ $strServer = 'Server';
 $strServerStatusDelayedInserts = 'Verzögertes Einfügen (delayed inserts)';
 $strServerStatus = 'Laufzeit-Informationen';
 $strServerStatusUptime = 'Dieser MySQL-Server läuft bereits %s. Er wurde am %s gestartet.';
-$strProcesses = 'Prozesse';
 $strServerTabVariables = 'Variablen';
 $strServerTrafficNotes = '<b>Servertraffic</b>: In diesen Tabellen wird der Netzwerktraffic dieses MySQL-Servers seit dessen Start aufgeführt.';
 $strServerVars = 'Servervariablen und -einstellungen';
@@ -780,7 +780,6 @@ $strTableOptions = 'Tabellenoptionen';
 $strTables = '%s Tabellen';
 $strTableStructure = 'Tabellenstruktur für Tabelle';
 $strTable = 'Tabelle';
-$strTableType = 'Tabellentyp';
 $strTakeIt = 'auswählen';
 $strTblPrivileges = 'Tabellenspezifische Rechte';
 $strTempData = 'Temporäre Daten';
@@ -891,6 +890,8 @@ $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%
 $strInvalidCSVFieldCount = 'Ungültige Anzahl an Feldern in Zeile %d.';  //recently translated
 $strInvalidCSVFormat = 'Ungültiges Format in Zeile %d.';  //recently translated
 
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
 $strShowingBookmark = 'Showing bookmark';  //to translate
 $strShowStatusInnodb_buffer_pool_pages_dataDescr = 'The number of pages containing data (dirty or clean).';  //to translate
 $strShowStatusInnodb_buffer_pool_pages_dirtyDescr = 'The number of pages currently dirty.';  //to translate
@@ -980,6 +981,7 @@ $strShowStatusThreads_createdDescr = 'Anzahl der Threads, die zur Handhabung von
 $strShowStatusThreads_runningDescr = 'Anzahl der Threads, die nicht schlafen.';  //recently translated
 $strSkipQueries = 'Anzahl der am Anfang zu überspringenden Einträge (Abfragen)';  //recently translated
 $strSorting = 'Sortierung';  //recently translated
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 $strSQLImportOptions = 'SQL Optionen';  //recently translated
 $strStatisticsOverrun = 'Auf stark frequentierten Server kann der Byte-Zähler "überlaufen" (Wieder bei 0 beginnen), deshalb können diese Werte wie sie vom MySQL Server ausgegeben werden falsch sein.';  //recently translated
 
@@ -989,6 +991,4 @@ $strUploadLimit = 'Möglicherweise wurde eine zu große Datei hochgeladen. Bitte s
 
 $strViewMaxExactCount = 'Dieses View hat mehr als %d Zeilen. Bitte schlagen Sie im %sHandbuch%s nach.';  //recently translated
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

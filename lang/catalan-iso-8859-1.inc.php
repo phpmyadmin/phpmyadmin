@@ -336,8 +336,8 @@ $strImport = 'Importar';
 $strImportSuccessfullyFinished = 'Importació finalitzada correctament, %d consultes executades.';
 $strIndexes = 'Indexos';
 $strIndexHasBeenDropped = 'S\'ha esborrat l\'índex %s';
-$strIndex = 'Índex';
 $strIndexName = 'Nom d\'índex:';
+$strIndex = 'Índex';
 $strIndexType = 'Tipus d\'índex:';
 $strIndexWarningMultiple = 'Més d\'una clau %s s\'ha creat per a la columna `%s`';
 $strIndexWarningPrimary = 'Les claus PRIMARY i INDEX no es poden establir alhora per a la columna `%s`';
@@ -581,6 +581,7 @@ $strPrivDescUpdate = 'Permet canviar dades.';
 $strPrivDescUsage = 'Sense permissos.';
 $strPrivileges = 'Permissos';
 $strPrivilegesReloaded = 'Els permissos s\'han recarregat correctament.';
+$strProcesses = 'Processos';
 $strProcesslist = 'Llista de processos';
 $strProtocolVersion = 'Versió del protocol';
 $strPutColNames = 'Posa els noms de camp a la primera fila';
@@ -666,7 +667,6 @@ $strServer = 'Servidor';
 $strServerStatusDelayedInserts = 'Insercions demorades';
 $strServerStatus = 'Informació d\'execució';
 $strServerStatusUptime = 'Aquest servidor MySQL és en marxa durant %s. Es va iniciar en %s.';
-$strProcesses = 'Processos';
 $strServerTabVariables = 'Variables';
 $strServerTrafficNotes = '<b>Ocupació de servidor</b>: Aquestes taules mostren la ocupació de la xarxa d\'aquest servidor MySQL des de l\'últim inici.';
 $strServerVars = 'Variables i configuracions del servidor';
@@ -855,7 +855,6 @@ $strTableOptions = 'Opcions de Taula';
 $strTables = '%s taula(es)';
 $strTableStructure = 'Estructura de la taula';
 $strTable = 'Taula';
-$strTableType = 'Tipus de taula';
 $strTakeIt = 'agafa';
 $strTblPrivileges = 'Permissos especifics de taula';
 $strTempData = 'Dades temporals';
@@ -976,9 +975,10 @@ $strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cac
 $strInnoDBPages = 'pages';  //to translate
 
 $strReadRequests = 'Read requests';  //to translate
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
 ?>

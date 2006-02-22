@@ -576,6 +576,7 @@ $strPrivDescUpdate = 'Povolí menenie dát.';
 $strPrivDescUsage = '®iadne práva.';
 $strPrivileges = 'Oprávnenia';
 $strPrivilegesReloaded = 'Práva boli úspe¹ne znovunaèítané.';
+$strProcesses = 'Procesy';
 $strProcesslist = 'Zoznam procesov';
 $strPutColNames = 'Prida» názvy polí na prvý riadok';
 
@@ -661,7 +662,6 @@ $strServer = 'Server';
 $strServerStatusDelayedInserts = 'Odlo¾ené vlo¾enia';
 $strServerStatus = 'Stav serveru';
 $strServerStatusUptime = 'Tento server be¾í %s. Bol spustený %s.';
-$strProcesses = 'Procesy';
 $strServerTabVariables = 'Premenné';
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVars = 'Premenné a nastavenia serveru';
@@ -848,7 +848,6 @@ $strTableOptions = 'Parametre tabuµky';
 $strTables = '%s tabuµka(y)';
 $strTableStructure = '©truktúra tabuµky pre tabuµku';
 $strTable = 'Tabuµka';
-$strTableType = 'Typ tabuµky';
 $strTakeIt = 'zvoli»';
 $strTblPrivileges = 'Oprávnenia pre jednotlivé tabuµky';
 $strTempData = 'Doèasné dáta';
@@ -945,36 +944,51 @@ $strYes = 'Áno';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
 
-$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
-$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
-$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+// To translate:
+$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
+
+$strBrowseDistinctValues = 'Browse distinct values';  //to translate
+
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
+
 $strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
 $strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
-$strProtocolVersion = 'Protocol version';  //to translate
-$strMysqlClientVersion = 'MySQL client version';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
-$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
-$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
-$strPDF = 'PDF';  //to translate
-$strPDFOptions = 'PDF options';  //to translate
-$strPDFReportTitle = 'Report title';  //to translate
-$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
+
+$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 $strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
 $strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
-$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strThemeNotFound = 'Theme %s not found!';  //to translate
+$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+
+$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
+$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
+
+$strMysqlClientVersion = 'MySQL client version';  //to translate
+
+$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
+
+$strPDFOptions = 'PDF options';  //to translate
+$strPDF = 'PDF';  //to translate
+$strPDFReportTitle = 'Report title';  //to translate
+$strProtocolVersion = 'Protocol version';  //to translate
+
+$strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+$strSQLImportOptions = 'SQL options';  //to translate
+$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
+
 $strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
+$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
+$strThemeNotFound = 'Theme %s not found!';  //to translate
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
+
+$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
+
 ?>

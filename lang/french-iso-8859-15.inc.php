@@ -594,6 +594,7 @@ $strPrivDescUpdate = 'Permission de changer des données.';
 $strPrivDescUsage = 'Pas de privilèges';
 $strPrivileges = 'Privilèges';
 $strPrivilegesReloaded = 'Les privilèges ont été rechargés.';
+$strProcesses = 'Processus';
 $strProcesslist = 'Liste des processus';
 $strProtocolVersion = 'Version du protocole';
 $strPutColNames = 'Afficher les noms de champ en première ligne';
@@ -680,7 +681,6 @@ $strServer = 'Serveur';
 $strServerStatusDelayedInserts = 'Insertions avec délais';
 $strServerStatus = 'Informations sur le serveur';
 $strServerStatusUptime = 'Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s.';
-$strProcesses = 'Processus';
 $strServerTabVariables = 'Variables';
 $strServerTrafficNotes = '<b>Statistiques sur le trafic</b>: Ce tableau indique le trafic réseau observé sur ce serveur MySQL depuis son démarrage.';
 $strServerVars = 'Variables et réglages du serveur';
@@ -869,7 +869,6 @@ $strTableOptions = '<b>Options</b> pour cette table';
 $strTables = '%s table(s)';
 $strTableStructure = 'Structure de la table';
 $strTable = 'Table';
-$strTableType = '<b>Type</b> de la table';
 $strTakeIt = 'utiliser celui-ci';
 $strTblPrivileges = 'Privilèges spécifiques à une table';
 $strTempData = 'Données temporaires';
@@ -973,6 +972,10 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+// To translate:
+
 $strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+
 ?>

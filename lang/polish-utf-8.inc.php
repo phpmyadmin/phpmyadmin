@@ -526,8 +526,8 @@ $strPartialImport = 'Import częściowy';
 $strPartialText = 'Skrócony tekst';
 $strPasswordChanged = 'Hasło dla %s zostało pomyślnie zmienione.';
 $strPasswordEmpty = 'Puste hasło!';
-$strPassword = 'Hasło';
 $strPasswordHashing = 'Sposób kodowania haseł';
+$strPassword = 'Hasło';
 $strPasswordNotSame = 'Hasła nie są identyczne!';
 $strPdfDbSchema = 'Schemat bazy danych "%s" - strona %s';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
@@ -594,6 +594,7 @@ $strPrivDescUpdate = 'Pozwól zmieniać dane.';
 $strPrivDescUsage = 'Brak uprawnień.';
 $strPrivilegesReloaded = 'Uprawnienia zostały pomyślnie przeładowane.';
 $strPrivileges = 'Uprawnienia';
+$strProcesses = 'Procesy';
 $strProcesslist = 'Lista procesów';
 $strProtocolVersion = 'Wersja protokołu';
 $strPutColNames = 'Umieść nazwy pól w pierwszym rekordzie';
@@ -680,7 +681,6 @@ $strServer = 'Serwer';
 $strServerStatusDelayedInserts = 'Opóźnione dodania';
 $strServerStatus = 'Informacje o działaniu serwera';
 $strServerStatusUptime = 'Serwer MySQL działa przez %s. Początek pracy: %s.';
-$strProcesses = 'Procesy';
 $strServerTabVariables = 'Zmienne';
 $strServerTrafficNotes = '<b>Ruch na serwerze</b>: Poniższe tabele pokazują statystyki ruchu na tym serwerze MySQL od rozpoczęcia jego pracy.';
 $strServerVars = 'Zmienne i ustawienia serwera';
@@ -869,7 +869,6 @@ $strTableOptions = 'Opcje tabeli';
 $strTables = '%s tabel(a)';
 $strTableStructure = 'Struktura tabeli dla ';
 $strTable = 'Tabela';
-$strTableType = 'Typ tabeli';
 $strTakeIt = 'użyj';
 $strTblPrivileges = 'Uprawnienia specyficzne dla tabel';
 $strTempData = 'Dane tymczasowe';
@@ -973,6 +972,10 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+// To translate:
+
 $strReloadPrivileges = 'Reload privileges';  //to translate
+
+$strSQLCompatibility = 'SQL compatibility mode';  //to translate
+
 ?>
