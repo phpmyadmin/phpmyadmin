@@ -40,6 +40,7 @@ $Source$
       libraries/dbi/mysql.dbi.lib.php, libraries/dbi/mysqli.dbi.lib.php: Allow
       to use external authentication and use empty MySQL passwords (path
       #1388210, thanks to Patrick MONNERAT - monnerat).
+    * .cvsignore: Do not ignore .htaccess.
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

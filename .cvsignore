@@ -5,7 +5,6 @@ phpmyadmin.wpj
 *.swp
 upload
 save
-.htaccess
 .vimrc
 .project
 .settings
