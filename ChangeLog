@@ -31,6 +31,8 @@ $Source$
     * sql.php, libraries/display_tbl.lib.php, lang/*: Better message for query
       export, move operation above query results into one fieldset (bug
       #1431420).
+    * tbl_properties_operations.php: Enable optimize for InnoDB (bug
+      #1415975).
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

@@ -433,7 +433,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     </li>
         <?php
     }
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB') {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
