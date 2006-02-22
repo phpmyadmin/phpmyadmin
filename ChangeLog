@@ -7,6 +7,7 @@ $Source$
 
 2006-02-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1435303, error on empty BLOB transf.
+    * .htaccess: added a reference to FAQ 1.36
 
 2006-02-22 Michal Čihař  <michal@cihar.com>
     * libraries/iconv_wrapper.lib.php, libraries/charset_conversion.lib.php:
