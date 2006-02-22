@@ -1000,4 +1000,5 @@ $strView = 'View';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
 $strWriteRequests = 'Write requests';  //to translate
 
+$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>

@@ -769,88 +769,6 @@ else {
             }
         } // End INDEX CHECK
 
-        if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {
-            echo "\n";
-            echo '<hr />' . "\n";
-
-            // Displays "Insert a new row" link if required
-            if ($disp_mode[6] == '1') {
-                $lnk_goto  = 'sql.php?'
-                           . PMA_generate_common_url($db, $table)
-                           . '&amp;pos=' . $pos
-                           . '&amp;session_max_rows=' . $session_max_rows
-                           . '&amp;disp_direction=' . $disp_direction
-                           . '&amp;repeat_cells=' . $repeat_cells
-                           . '&amp;dontlimitchars=' . $dontlimitchars
-                           . '&amp;sql_query=' . urlencode($sql_query);
-                $url_query = '?'
-                           . PMA_generate_common_url($db, $table)
-                           . '&amp;pos=' . $pos
-                           . '&amp;session_max_rows=' . $session_max_rows
-                           . '&amp;disp_direction=' . $disp_direction
-                           . '&amp;repeat_cells=' . $repeat_cells
-                           . '&amp;dontlimitchars=' . $dontlimitchars
-                           . '&amp;sql_query=' . urlencode($sql_query)
-                           . '&amp;goto=' . urlencode($lnk_goto);
-
-                echo '    <!-- Insert a new row -->' . "\n";
-                echo PMA_linkOrButton(
-                    'tbl_change.php' . $url_query,
-                    ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" height="16" width="16" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow,
-                    '', true, true, '') . "\n";
-
-                if ($disp_mode[9] == '1') {
-                    echo '&nbsp;&nbsp;';
-                }
-                echo "\n";
-            } // end insert new row
-
-            // Displays "printable view" link if required
-            if ($disp_mode[9] == '1') {
-                $url_query = '?'
-                           . PMA_generate_common_url($db, $table)
-                           . '&amp;pos=' . $pos
-                           . '&amp;session_max_rows=' . $session_max_rows
-                           . '&amp;disp_direction=' . $disp_direction
-                           . '&amp;repeat_cells=' . $repeat_cells
-                           . '&amp;printview=1'
-                           . '&amp;sql_query=' . urlencode($sql_query);
-                echo '    <!-- Print view -->' . "\n";
-                echo PMA_linkOrButton(
-                    'sql.php' . $url_query . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : ''),
-                    ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintView . '"/>' : '') . $strPrintView,
-                    '', true, true, 'print_view') . "\n";
-
-                if (!$dontlimitchars) {
-                    echo   '    &nbsp;&nbsp;' . "\n";
-                    echo PMA_linkOrButton(
-                        'sql.php' . $url_query . '&amp;dontlimitchars=1',
-                        ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
-                        '', true, true, 'print_view') . "\n";
-                }
-            } // end displays "printable view"
-
-            echo "\n";
-        }
-
-        // Export link
-        // (the url_query has extra parameters that won't be used to export)
-        // (the single_table parameter is used in display_export.lib.php
-        //  to hide the SQL and the structure export dialogs)
-        if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
-            if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
-                $single_table   = '&amp;single_table=true';
-            } else {
-                $single_table   = '';
-            }
-            echo '    <!-- Export -->' . "\n";
-            echo   '    &nbsp;&nbsp;' . "\n";
-            echo PMA_linkOrButton(
-                'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
-                ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_tblexport.png" height="16" width="16" alt="' . $strExport . '" />' : '') . $strExport,
-                '', true, true, '') . "\n";
-        }
-
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
             && (isset($cfg['Bookmark']) && $cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
@@ -867,11 +785,6 @@ else {
                   . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;id_bookmark=1';
 
-            if ($disp_mode[3] == '1') {
-                echo '    <i>' . $strOr . '</i>';
-            } else {
-                echo '<br /><br />';
-            }
             ?>
 <form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
 <?php echo PMA_generate_common_hidden_inputs(); ?>

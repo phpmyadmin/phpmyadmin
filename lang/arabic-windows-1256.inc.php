@@ -1005,4 +1005,5 @@ $strView = 'View';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>

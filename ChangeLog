@@ -25,6 +25,9 @@ $Source$
     * lang/*: Remove unused strTableType, resorted, added missing strings to
       various translations (timespanfmt was most often missing).
     * lang/czech: Update.
+    * sql.php, libraries/display_tbl.lib.php, lang/*: Better message for query
+      export, move operation above query results into one fieldset (bug
+      #1431420).
 
 2006-02-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:

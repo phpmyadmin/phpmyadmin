@@ -1667,7 +1667,7 @@ function PMA_displayVerticalTable()
  *
  * @see     PMA_showMessage(), PMA_setDisplayMode(),
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
- *          PMA_displayTableBody()
+ *          PMA_displayTableBody(), PMA_displayResultsOperations()
  */
 function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 {
@@ -1724,6 +1724,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             echo PMA_sanitize(sprintf($GLOBALS['strViewMaxExactCount'], PMA_formatNumber($GLOBALS['cfg']['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
             echo '</div>' . "\n";
         }
+
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_showMessage($GLOBALS['strSQLQuery']);
     }
@@ -1739,6 +1740,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         } else {
             $table = '';
         }
+    }
+    if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+        PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
     }
     if ($is_display['nav_bar'] == '1') {
         PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
@@ -1882,5 +1886,99 @@ function default_function($buffer) {
     $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
 
     return $buffer;
+}
+
+/**
+ * Displays operations that are available on results.
+ *
+ * @param   array   the display mode
+ * @param   array   the analyzed query
+ *
+ * @global  string   $db                the database name
+ * @global  string   $table             the table name
+ * @global  boolean  $dontlimitchars    whether to limit the number of displayed
+ *                                      characters of text type fields or not
+ * @global  integer  $pos               the current postion of the first record
+ *                                      to be displayed
+ * @global  string   $sql_query         the current sql query
+ * @global  integer  $unlim_num_rows    the total number of rows returned by the
+ *                                      sql query without any programmatically
+ *                                      appended "LIMIT" clause
+ * @global  string   $disp_direction    the display mode
+ *                                      (horizontal/vertical/horizontalflipped)
+ * @global  integer  $repeat_cells      the number of row to display between two
+ *                                      table headers
+ *
+ * @access  private
+ *
+ * @see     PMA_showMessage(), PMA_setDisplayMode(),
+ *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
+ *          PMA_displayTableBody(), PMA_displayResultsOperations()
+ */
+function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
+    global $db, $table, $dontlimitchars, $pos, $sql_query, $unlim_num_rows, $disp_direction, $repeat_cells;
+
+    $header_shown = FALSE;
+    $header = '<fieldset><legend>' . $GLOBALS['strQueryResultsOperations'] . '</legend>';
+
+    if ($the_disp_mode[6] == '1' || $the_disp_mode[9] == '1') {
+        // Displays "printable view" link if required
+        if ($the_disp_mode[9] == '1') {
+
+            if (!$header_shown) {
+                echo $header;
+                $header_shown = TRUE;
+            }
+
+            $url_query = '?'
+                       . PMA_generate_common_url($db, $table)
+                       . '&amp;pos=' . $pos
+                       . '&amp;session_max_rows=' . $GLOBALS['session_max_rows']
+                       . '&amp;disp_direction=' . $disp_direction
+                       . '&amp;repeat_cells=' . $repeat_cells
+                       . '&amp;printview=1'
+                       . '&amp;sql_query=' . urlencode($sql_query);
+            echo '    <!-- Print view -->' . "\n";
+            echo PMA_linkOrButton(
+                'sql.php' . $url_query . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : ''),
+                ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintView'] . '"/>' : '') . $GLOBALS['strPrintView'],
+                '', true, true, 'print_view') . "\n";
+
+            if (!$dontlimitchars) {
+                echo   '    &nbsp;&nbsp;' . "\n";
+                echo PMA_linkOrButton(
+                    'sql.php' . $url_query . '&amp;dontlimitchars=1',
+                    ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintViewFull'] . '"/>' : '') . $GLOBALS['strPrintViewFull'],
+                    '', true, true, 'print_view') . "\n";
+            }
+        } // end displays "printable view"
+
+        echo "\n";
+    }
+
+    // Export link
+    // (the url_query has extra parameters that won't be used to export)
+    // (the single_table parameter is used in display_export.lib.php
+    //  to hide the SQL and the structure export dialogs)
+    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
+        if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
+            $single_table   = '&amp;single_table=true';
+        } else {
+            $single_table   = '';
+        }
+        if (!$header_shown) {
+            echo $header;
+            $header_shown = TRUE;
+        }
+        echo '    <!-- Export -->' . "\n";
+        echo   '    &nbsp;&nbsp;' . "\n";
+        echo PMA_linkOrButton(
+            'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
+            ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
+            '', true, true, '') . "\n";
+    }
+    if ($header_shown) {
+        echo '</fieldset><br />';
+    }
 }
 ?>

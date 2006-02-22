@@ -978,4 +978,5 @@ $strReloadPrivileges = 'Reload privileges';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
+$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>

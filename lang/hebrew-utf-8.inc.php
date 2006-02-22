@@ -998,4 +998,5 @@ $strWebServerUploadDirectory = 'web server upload directory';  //to translate
 $strWestEuropean = 'West European';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window, or your browser\'s security settings are configured to block cross-window updates.';  //to translate
 
+$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>

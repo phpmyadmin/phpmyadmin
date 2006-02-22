@@ -605,6 +605,7 @@ $strQBE = 'Query';
 $strQueryCache = 'Query cache';
 $strQueryFrame = 'Query window';
 $strQueryOnDb = 'SQL query on database <b>%s</b>:';
+$strQueryResultsOperations = 'Query results operations';
 $strQuerySQLHistory = 'SQL history';
 $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
 $strQueryTime = 'Query took %01.4f sec';

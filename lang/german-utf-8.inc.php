@@ -992,4 +992,5 @@ $strUploadLimit = 'Möglicherweise wurde eine zu große Datei hochgeladen. Bitte
 
 $strViewMaxExactCount = 'Dieses View hat mehr als %d Zeilen. Bitte schlagen Sie im %sHandbuch%s nach.';  //recently translated
 
+$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>
