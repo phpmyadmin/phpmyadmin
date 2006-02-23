@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Config.class.php: bug #1418769 part 1: stat failed for 
+      ./config.inc.php (under PHP 4)
+
 2006-02-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1435303, error on empty BLOB transf.
     * .htaccess: added a reference to FAQ 1.36
