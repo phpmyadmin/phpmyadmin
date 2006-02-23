@@ -1,9 +1,9 @@
 %define		_myadminpath	/var/www/myadmin
-%define		pkgrelease	pl1
-%define		microrelease	0
+%define		pkgrelease	rc1
+%define		microrelease	1
 
 Name:		phpMyAdmin
-Version:	2.7.0
+Version:	2.8.0
 Release:	%{pkgrelease}.%{microrelease}
 License:	GPL
 Group:		Applications/Databases/Interfaces
@@ -51,7 +51,7 @@ manual. Currently phpMyAdmin can:
 
 #	Create directories.
 
-install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/{css,lang,libraries,themes}
+install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/{css,js,lang,libraries,themes}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/{auth,dbg,dbi,engines}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/{export,fpdf,import}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/transformations
@@ -62,10 +62,15 @@ install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/themes/original/{css,img}
 
 #	Install files.
 
-install config.default.php "${RPM_BUILD_ROOT}%{_myadminpath}"/config.inc.php
+install libraries/config.default.php					\
+		"${RPM_BUILD_ROOT}%{_myadminpath}"/config.inc.php
 install *.{php,ico} "${RPM_BUILD_ROOT}%{_myadminpath}"/
+install ChangeLog LICENSE README "${RPM_BUILD_ROOT}%{_myadminpath}"/
+install Documentation.html docs.css "${RPM_BUILD_ROOT}%{_myadminpath}"/
+install css/* "${RPM_BUILD_ROOT}%{_myadminpath}/css"/
+install js/* "${RPM_BUILD_ROOT}%{_myadminpath}/js"/
 install lang/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/lang"/
-install libraries/*.{js,php} "${RPM_BUILD_ROOT}%{_myadminpath}/libraries"/
+install libraries/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries"/
 install libraries/auth/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries/auth"/
 install libraries/dbg/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries/dbg"/
 install libraries/dbi/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries/dbi"/
@@ -141,8 +146,12 @@ install "%{SOURCE1}"						\
 
 
 %changelog
+* Thu Feb 23 2006 Patrick Monnerat <pm@datasphere.ch>
+- Version 2.8.0-rc1.1.
+
 * Thu Dec 22 2005 Patrick Monnerat <patrick.monnerat@econophone.ch>
-- Version 2.7.0-pl1.0.
+- Path "nullpw" to allow trying connection with null password after failure.
+- Version 2.7.0-pl1.1.
 
 * Mon Aug 22 2005 Patrick Monnerat <patrick.monnerat@econophone.ch>
 - Version 2.6.3-pl1.
