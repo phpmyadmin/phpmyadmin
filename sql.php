@@ -326,7 +326,7 @@ else {
         && !($is_count || $is_export || $is_func || $is_analyse)
         && isset($analyzed_sql[0]['queryflags']['select_from'])
         && !isset($analyzed_sql[0]['queryflags']['offset'])
-        && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
+        && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+(;)?$@i', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'] . " ";
 
         $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
