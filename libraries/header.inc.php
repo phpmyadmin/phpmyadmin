@@ -30,6 +30,8 @@ if (empty($GLOBALS['is_header_sent'])) {
                     array(
                         '@HTTP_HOST@',
                         '@SERVER@',
+                        '@VERBOSE@',
+                        '@VSERVER@',
                         '@DATABASE@',
                         '@TABLE@',
                         '@PHPMYADMIN@',
@@ -37,6 +39,8 @@ if (empty($GLOBALS['is_header_sent'])) {
                     array(
                         isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '',
                         isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
+                        isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
+                        !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
                         isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
                         isset($GLOBALS['table']) ? $GLOBALS['table'] : '',
                         'phpMyAdmin ' . PMA_VERSION,

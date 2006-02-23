@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-23 Michal Čihař  <michal@cihar.com>
+    * libraries/config.default.php, libraries/header.inc.php,
+      Documentation.html: More replacements for page title (RFE #1408241).
+
 2006-02-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1418769 part 1: stat failed for 
       ./config.inc.php (under PHP 4)

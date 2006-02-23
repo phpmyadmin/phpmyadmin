@@ -516,9 +516,9 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 // 2004-05-08 rabus: We need to rearrange these variables.
 
 // Window title settings
-$cfg['TitleTable']          = '@HTTP_HOST@ / @SERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
-$cfg['TitleDatabase']       = '@HTTP_HOST@ / @SERVER@ / @DATABASE@ | @PHPMYADMIN@';
-$cfg['TitleServer']         = '@HTTP_HOST@ / @SERVER@ | @PHPMYADMIN@';
+$cfg['TitleTable']          = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
+$cfg['TitleDatabase']       = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@';
+$cfg['TitleServer']         = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
 $cfg['TitleDefault']        = '@HTTP_HOST@ | @PHPMYADMIN@';
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warning, error and information messages (true|false)?
