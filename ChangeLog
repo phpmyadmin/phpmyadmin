@@ -8,6 +8,7 @@ $Source$
 2006-02-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug #1437754, search combos default to
       key zero
+    * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
 
 2006-02-23 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, libraries/header.inc.php,
