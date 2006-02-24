@@ -25,6 +25,7 @@ $timespanfmt = '%s dagar, %s timmar, %s minuter och %s sekunder';
 $strAbortedClients = 'Avbrutna';
 $strAbsolutePathToDocSqlDir = 'Ange absolut sökväg på webbservern till docSQL-katalog';
 $strAccessDenied = 'Åtkomst nekad';
+$strAccessDeniedCreateConfig = 'Trolig orsak till detta är att du inte skapade en konfigurationsfil. Du vill kanske använda %1$suppsättningsskript%2$s för att skapa en.';
 $strAccessDeniedExplanation = 'phpMyAdmin försökte skapa en förbindelse till MySQL-servern, men servern nekade uppkopplingen. Kontrollera värd, användarnamn och lösenord i config.inc.php och förvissa dig om att de stämmer överens med informationen från administratören av MySQL-servern.';
 $strAction = 'Åtgärd';
 $strAddAutoIncrement = 'Lägg till AUTO_INCREMENT-värde';
@@ -95,6 +96,7 @@ $strBookmarkQuery = 'Bokmärkt SQL-fråga';
 $strBookmarkReplace = 'Ersätt befintligt bokmärke med samma namn';
 $strBookmarkThis = 'Skapa bokmärke för den här SQL-frågan';
 $strBookmarkView = 'Visa endast';
+$strBrowseDistinctValues = 'Visa distinkta värden';
 $strBrowseForeignValues = 'Visa främmande värden';
 $strBrowse = 'Visa';
 $strBufferPoolActivity = 'Buffertaktivitet';
@@ -150,6 +152,7 @@ $strCompatibleHashing = 'Kompatibel med MySQL&nbsp;4.0';
 $strCompleteInserts = 'Kompletta infogningar';
 $strCompression = 'Komprimering';
 $strCompressionWillBeDetected = 'Importerad fils komprimering kommer automatiskt detekteras från: %s';
+$strConfigDefaultFileError = 'Kunde inte ladda standardkonfiguration från: "%1$s"';
 $strConfigFileError = 'phpMyAdmin kunde inte läsa din konfigurationsfil!<br />Detta kan inträffa om PHP hittar ett fel i den eller om PHP inte hittar filen.<br />Anropa konfigurationsfilen direkt mha länken nedan och läs PHP:s felmeddelande(n) som du erhåller. I de flesta fall saknas ett citationstecken eller ett semikolon någonstans.<br />Om du erhåller en tom sida är allt bra.';
 $strConfigureTableCoord = 'Var god ange koordinaterna för tabellen %s';
 $strConnectionError = 'Kan ej skapa förbindelse: ogiltiga inställningar.';
@@ -284,6 +287,10 @@ $strFields = 'Fält';
 $strFieldsTerminatedBy = 'Fälten avslutas med';
 $strFileAlreadyExists = 'Filen %s finns redan på servern. Ändra filnamnet eller kryssa i skriv över-alternativet.';
 $strFileCouldNotBeRead = 'Filen kunde inte läsas';
+$strFileNameTemplateDescriptionDatabase = 'databasnamn';
+$strFileNameTemplateDescription = 'Detta värde tolkas mha %1$sstrftime%2$s, så du kan använda strängar med tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig text behålls som den är.';
+$strFileNameTemplateDescriptionServer = 'servernamn';
+$strFileNameTemplateDescriptionTable = 'tabellnamn';
 $strFileNameTemplate = 'Mall för filnamn';
 $strFileNameTemplateRemember = 'kom ihåg mall';
 $strFileToImport = 'Fil att importera';
@@ -340,6 +347,7 @@ $strImportDocSQL = 'Importera docSQL-filer';
 $strImportFiles = 'Importera filer';
 $strImportFormat = 'Format på importerad fil';
 $strImport = 'Importera';
+$strImportSuccessfullyFinished = 'Importen har avslutats korrekt, %d frågor utförda.';
 $strIndexes = 'Index';
 $strIndexHasBeenDropped = 'Index %s har tagits bort';
 $strIndex = 'Index';
@@ -370,6 +378,9 @@ $strInUse = 'används';
 $strInvalidAuthMethod = 'Ogiltig metod för autentisering angiven i konfiguration:';
 $strInvalidColumnCount = 'Antalet kolumner måste vara större än noll.';
 $strInvalidColumn = 'Ogiltig kolumn (%s) angiven!';
+$strInvalidCSVFieldCount = 'Ogiltigt antal fält i CSV-indata på rad %d.';
+$strInvalidCSVFormat = 'Ogiltigt format i CSV-indata på rad %d.';
+$strInvalidCSVParameter = 'Ogiltig parameter för CSV-import: %s';
 $strInvalidFieldAddCount = 'Du måste lägga till åtminstone ett fält.';
 $strInvalidFieldCount = 'Tabell måste ha åtminstone ett fält.';
 $strInvalidLDIImport = 'Detta tillägg stöder inte komprimerade importer!';
@@ -390,6 +401,8 @@ $strKill = 'Döda';
 $strKorean = 'Koreansk';
 
 $strLandscape = 'Liggande';
+$strLanguageFileNotFound = 'Språkfil "%1$s" hittades inte.';
+$strLanguageUnknown = 'Okänt språk: %1$s.';
 $strLatchedPages = 'Låsta sidor';
 $strLatexCaption = 'Tabellrubrik';
 $strLatexContent = 'Innehåll i tabell __TABLE__';
@@ -456,6 +469,7 @@ $strMyISAMRepairThreads = 'Reparera trådar';
 $strMyISAMSortBufferSizeDesc = 'Bufferten som allokeras vid sortering av MyISAM-index under REPAIR TABLE eller vid skapande av index med CREATE INDEX eller ALTER TABLE.';
 $strMyISAMSortBufferSize = 'Storlek för sorteringsbuffert';
 $strMySQLCharset = 'MySQL teckenuppsättning';
+$strMysqlClientVersion = 'MySQL klientversion';
 $strMySQLConnectionCollation = 'Kollation för MySQL-uppkoppling';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLShowProcess = 'Visa processer';
@@ -501,6 +515,7 @@ $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> träff(ar)';
 $strNumTables = 'Tabeller';
 
 $strOK = 'OK';
+$strOpenNewWindow = 'Öppna nytt phpMyAdmin-fönster';
 $strOperations = 'Operationer';
 $strOperator = 'Operator';
 $strOptimizeTable = 'Optimera tabell';
@@ -521,6 +536,9 @@ $strPasswordNotSame = 'Lösenorden är inte lika!';
 $strPdfDbSchema = 'Schema för databasen "%s" - Sidan %s';
 $strPdfInvalidTblName = 'Tabellen "%s" finns inte!';
 $strPdfNoTables = 'Inga tabeller';
+$strPDFOptions = 'PDF-alternativ';
+$strPDF = 'PDF';
+$strPDFReportTitle = 'Rapportrubrik';
 $strPerHour = 'per timme';
 $strPerMinute = 'per minut';
 $strPerSecond = 'per sekund';
@@ -582,6 +600,7 @@ $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Privilegierna har laddats om.';
 $strProcesses = 'Processer';
 $strProcesslist = 'Processlista';
+$strProtocolVersion = 'Protokollversion';
 $strPutColNames = 'Ange fältnamn på första raden';
 
 $strQBEDel = 'Ta bort';
@@ -607,6 +626,7 @@ $strRelationsForTable = 'RELATIONER FÖR TABELL';
 $strRelations = 'Relationer';
 $strRelationView = 'Visa relationer';
 $strReloadingThePrivileges = 'Laddar om privilegierna';
+$strReloadPrivileges = 'Ladda om privilegier';
 $strRemoveSelectedUsers = 'Ta bort markerade användare';
 $strRenameDatabaseOK = 'Databas %s har döpts om till %s';
 $strRenameTable = 'Döp om tabellen till';
@@ -807,8 +827,10 @@ $strSort = 'Sortering';
 $strSpaceUsage = 'Utrymmesanvändning';
 $strSpanish = 'Spanska';
 $strSplitWordsWithSpace = 'Ord separeras med mellanslag (" ").';
+$strSQLCompatibility = 'SQL-kompatibilitet';
 $strSQLExportCompatibility = 'SQL-export-kompatibilitet';
 $strSQLExportType = 'Export-typ';
+$strSQLImportOptions = 'SQL-alternativ';
 $strSQLOptions = 'SQL-alternativ';
 $strSQLParserBugMessage = 'Det är möjligt att du har hittat en bugg i SQL-analysatorn. Var god granska din fråga noga och kontrollera att citationstecknen är korrekta och matchar varandra. En annan möjlig felorsak kan vara att du överför en fil med binärkod som inte ligger inom citationstecken. Du kan även testa din fråga i MySQL:s kommandoradsgränssnitt. Felmeddelandet från MySQL-servern nedan, om det finns något, kan också hjälpa dig att analysera problemet. Om du fortfarande har problem eller om SQL-analysatorn misslyckas när kommandoradsgränssnittet lyckas, var vänlig reducera din inmatning av SQL-frågor till den enda fråga som orsakar problem och skicka en buggrapport med datastycket i URKLIPP-sektionen nedan:';
 $strSQLParserUserError = 'Det verkar vara ett fel i din SQL-fråga. Felmeddelandet från MySQL-servern nedan, om det finns något, kan också hjälpa dig att analysera problemet.';
@@ -821,6 +843,7 @@ $strSQPBugUnknownPunctuation = 'Okänd interpunktion i sträng';
 $strStatCheckTime = 'Senaste kontroll';
 $strStatCreateTime = 'Skapades';
 $strStatement = 'Uppgift';
+$strStatisticsOverrun = 'På en upptagen server kan byte-räknare spåra ur, varför denna statistik som rapporterats från MySQL-servern kan vara felaktig.';
 $strStatUpdateTime = 'Senaste uppdatering';
 $strStatus = 'Status';
 $strStorageEngine = 'Lagringsmotor';
@@ -857,6 +880,11 @@ $strTblPrivileges = 'Tabellspecifika privilegier';
 $strTempData = 'Temporära data';
 $strTextAreaLength = ' På grund av dess längd,<br /> kanske detta fält inte kan redigeras ';
 $strThai = 'Thailändsk';
+$strThemeDefaultNotFound = 'Standardtema %s hittades inte!';
+$strThemeNoPreviewAvailable = 'Ingen förhandsgranskning tillgänglig.';
+$strThemeNotFound = 'Tema %s hittades inte!';
+$strThemeNoValidImgPath = 'Ingen giltig sökväg till bilder för tema %s hittades!';
+$strThemePathNotFound = 'Temats sökväg för tema %s hittades inte!';
 $strTheme = 'Tema / Stil';
 $strThisHost = 'Denna värd';
 $strThisNotDirectory = 'Detta var inte en katalog';
@@ -904,6 +932,7 @@ $strUpgrade = 'Du bör uppgradera till %s %s eller senare.';
 $strUploadLimit = 'Du försökte förmodligen ladda upp en för stor fil. Se %sdokumentationen%s för metoder att gå runt denna begränsning.';
 $strUsage = 'Användning';
 $strUseBackquotes = 'Använd bakåtcitat runt tabell- och fältnamn';
+$strUsedPhpExtensions = 'Använda PHP-tillägg';
 $strUseHostTable = 'Använd värdtabell';
 $strUserAlreadyExists = 'Användaren %s finns redan!';
 $strUser = 'Användare';
@@ -927,6 +956,7 @@ $strViewDumpDatabases = 'Visa SQL-satser för databaser';
 $strViewDumpDB = 'Visa SQL-satser för databasen';
 $strViewDump = 'Visa SQL-satser för tabellen';
 $strViewHasBeenDropped = 'Vyn %s har tagits bort';
+$strViewMaxExactCount = 'Denna vy har mer än %s rader. Var god se %sdokumentationen%s.';
 $strView = 'Vy';
 
 $strWebServerUploadDirectoryError = 'Katalogen som du konfigurerat för uppladdning kan inte nås';
@@ -949,49 +979,7 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 // To translate:
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
-
-$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
-
-$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
-$strFileNameTemplateDescriptionServer = 'server name';  //to translate
-$strFileNameTemplateDescriptionTable = 'table name';  //to translate
-$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
-
-$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
-$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
-$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
-
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
-
-$strMysqlClientVersion = 'MySQL client version';  //to translate
-
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
-
-$strPDFOptions = 'PDF options';  //to translate
-$strPDF = 'PDF';  //to translate
-$strPDFReportTitle = 'Report title';  //to translate
-$strProtocolVersion = 'Protocol version';  //to translate
-
-$strReloadPrivileges = 'Reload privileges';  //to translate
-
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
-
-$strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
-$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
-$strThemeNotFound = 'Theme %s not found!';  //to translate
-$strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
-$strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
-
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
-
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+
 ?>
