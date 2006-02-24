@@ -806,7 +806,7 @@ function PMA_foreignDropdownBuild($foreign, $data, $mode) {
             $reloption .= ' title="' . $vtitle . '"';
         }
 
-        if ($key == $data) {
+        if ((string) $key == (string) $data) {
            $reloption .= ' selected="selected"';
         }
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-02-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: bug #1437754, search combos default to
+      key zero
+
 2006-02-23 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, libraries/header.inc.php,
       Documentation.html: More replacements for page title (RFE #1408241).
