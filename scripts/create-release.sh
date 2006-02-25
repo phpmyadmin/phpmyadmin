@@ -251,6 +251,10 @@ Todo now:
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
+
+    Don't forget to update the Description section in the announcement,
+    based on Documentation.html.
+
  8. increment rc count or version in CVS :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
