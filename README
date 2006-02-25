@@ -39,18 +39,8 @@ phpMyAdmin - Readme
     a web-browser (doh!)
 
   Summary:
-    phpMyAdmin is intended to handle the administration of MySQL over the WWW.
-    Currently it can:
-      - create and drop databases
-      - create, copy, drop and alter tables
-      - delete, edit and add fields
-      - execute any SQL-statement, even batch-queries
-      - manage keys on fields
-      - load text files into tables
-      - create and read dumps of tables
-      - export and import CSV data
-      - administer one single database as well as a whole database server
-      - communicate in 50 different languages
+    phpMyAdmin is intended to handle the administration of MySQL over the web.
+    For a summary of features, please see the Documentation.txt/.html file.
 
   Download:
     You can get the newest version at http://www.phpmyadmin.net/.
