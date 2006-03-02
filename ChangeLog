@@ -8,6 +8,7 @@ $Source$
 2006-03-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php and removed .htaccess:
       bug #1411996: now we destroy an auto-started session
+    ### 2.8.0-rc2 released from MAINT_2_8_0 branch
 
 2006-03-02 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Fix parameter to transformation (bug
