@@ -1303,7 +1303,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     $blobtext .= ']';
                     if ($blob_size > 0) {
-                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options, $meta) : $default_function($blobtext, array(), $meta));
+                        $blobtext = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($blobtext, array(), $meta));
                     }
                     unset($blob_size);
 
