@@ -981,7 +981,7 @@ $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please
 $strTraditionalSpanish = 'Traditional Spanish';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate

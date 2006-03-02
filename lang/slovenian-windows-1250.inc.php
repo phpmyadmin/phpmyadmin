@@ -984,7 +984,7 @@ $strTimeoutNothingParsed = 'However on last run no data has been parsed, this us
 $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please resubmit same file and import will resume.';  //to translate
 $strTraditionalSpanish = 'Traditional Spanish';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate

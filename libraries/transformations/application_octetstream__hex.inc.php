@@ -5,8 +5,18 @@
 function PMA_transformation_application_octetstream__hex($buffer, $options = array(), $meta = '') {
     // possibly use a global transform and feed it with special options:
     // include('./libraries/transformations/global.inc.php');
+    if (!isset($options[0])) {
+        $options[0] = 2;
+    } else {
+        $options[0] = (int)$options[0];
+    }
 
-    return chunk_split(bin2hex($buffer), 2, ' ');
+    if ($options[0] < 1) {
+        return bin2hex($buffer);
+    } else {
+        return chunk_split(bin2hex($buffer), $options[0], ' ');
+    }
+
 }
 
 ?>
