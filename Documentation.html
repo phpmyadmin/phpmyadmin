@@ -2544,16 +2544,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 </h4>
 <p>
     There can be many explanations to this and a look at your server's
-    error log file might give a clue. Here is a possible explanation.<br />
-    Since version 2.8.0, phpMyAdmin contains a <tt>.htaccess</tt> file
-    inside its main directory. On servers that support the htaccess feature,
-    this file is used to set a PHP behavior that phpMyAdmin relies on;
-    currently, <tt>php_flag session.auto_start 0</tt> is used to ensure
-    that a session is not already active. However, on some servers, usage
-    of <tt>.htaccess</tt> is forbidden, therefore an internal error is 
-    triggered. You can try to remove this <tt>.htaccess</tt> file, hoping
-    that the <tt>session.auto_start</tt> setting is not active on your
-    server.
+    error log file might give a clue.
 </p>
 
 

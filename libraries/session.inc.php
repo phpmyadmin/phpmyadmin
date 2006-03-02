@@ -30,8 +30,8 @@ if (!@function_exists('session_name')) {
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
     exit();
-} elseif (ini_get('session.auto_start') == true) {
-    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+} elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
+/*    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
                  'AllowAnywhereRecoding' => false);
     // Loads the language file
     require_once('./libraries/select_lang.lib.php');
@@ -48,6 +48,13 @@ if (!@function_exists('session_name')) {
             . '&type='  . urlencode('Error') //($strError)
             . '&error=' . urlencode($strSessionAutostartError));
     exit();
+    */
+    $_SESSION = array();
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), '', time()-42000, '/');
+    }
+    session_unset();
+    @session_destroy();
 }
 
 // disable starting of sessions before all settings are done
