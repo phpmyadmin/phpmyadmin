@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-03 Michal Čihař  <michal@cihar.com>
+    * libraries/Theme_Manager.class.php: Fix include path (bug #1442008).
+
 2006-03-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php and removed .htaccess:
       bug #1411996: now we destroy an auto-started session

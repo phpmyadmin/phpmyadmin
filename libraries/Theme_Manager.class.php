@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('libraries/Theme.class.php');
+require_once('./libraries/Theme.class.php');
 
 class PMA_Theme_Manager {
 
