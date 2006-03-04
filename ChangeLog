@@ -9,6 +9,7 @@ $Source$
     * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
     * import.php, libraries/common.lib.php: bug #1413880, page status not
       preserved on Refresh
+    * lang/chinese_traditional: Updates, thanks to Siu Sun.
 
 2006-03-03 Michal Čihař  <michal@cihar.com>
     * libraries/Theme_Manager.class.php: Fix include path (bug #1442008).
