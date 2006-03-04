@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
+
 2006-03-03 Michal Čihař  <michal@cihar.com>
     * libraries/Theme_Manager.class.php: Fix include path (bug #1442008).
 
