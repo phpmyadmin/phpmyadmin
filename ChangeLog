@@ -7,6 +7,8 @@ $Source$
 
 2006-03-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
+    * import.php, libraries/common.lib.php: bug #1413880, page status not
+      preserved on Refresh
 
 2006-03-03 Michal Čihař  <michal@cihar.com>
     * libraries/Theme_Manager.class.php: Fix include path (bug #1442008).

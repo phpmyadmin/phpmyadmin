@@ -1583,6 +1583,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 $refresh_link = 'import.php'
                           . $url_qpart
                           . '&amp;show_query=1'
+                          . (isset($_GET['pos']) ? '&amp;pos=' . $_GET['pos'] : '')
                           . '&amp;sql_query=' . urlencode($local_query);
                 $refresh_link = ' [' . PMA_linkOrButton($refresh_link, $GLOBALS['strRefresh']) . ']';
             } else {
