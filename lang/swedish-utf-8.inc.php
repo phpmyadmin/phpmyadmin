@@ -609,6 +609,7 @@ $strQBE = 'Skapa fråga';
 $strQueryCache = 'Frågecache';
 $strQueryFrame = 'Frågefönster';
 $strQueryOnDb = 'SQL-fråga i databas <b>%s</b>:';
+$strQueryResultsOperations = 'Operationer för frågeresultat';
 $strQuerySQLHistory = 'SQL-historik';
 $strQueryStatistics = '<b>Frågestatistik</b>: %s frågor har skickats till servern sedan den startade.';
 $strQueryTime = 'Frågan tog %01.4f sek';
@@ -902,7 +903,7 @@ $strTraditionalSpanish = 'Traditionell Spanska';
 $strTraffic = 'Trafik';
 $strTransactionCoordinator = 'Transaktionssamordnare';
 $strTransformation_application_octetstream__download = 'Visar en länk för att ladda ner fältets binära data. Du kan använda första parametern för att ange filnamnet eller använda den andra parametern för att ange fältnamnet för en tabellkolumn som innehåller filnamn. Om du anger andra parametern så måste första parametern sättas till en tom sträng.';
-$strTransformation_application_octetstream__hex = 'Visar hexadecimal representation av data. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
+$strTransformation_application_octetstream__hex = 'Visar hexadecimal representation av data. Valfri första parameter anger hur ofta mellanslag läggs till (standardvärde: 2 tecken).';
 $strTransformation_image_jpeg__inline = 'Visar en klickbar tumnagelbild. Parametrarna är maximal bredd och höjd i pixlar. Bildens ursprungliga proportioner bibehålls.';
 $strTransformation_image_jpeg__link = 'Visar en länk för att ladda ner denna bild.';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -977,9 +978,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
-
-// To translate:
-
-$strQueryResultsOperations = 'Query results operations';  //to translate
 
 ?>
