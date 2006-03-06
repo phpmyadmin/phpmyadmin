@@ -10,8 +10,9 @@ $Source$
       libraries/footer.inc.php, libraries/ip_allow_deny.lib.php,
       libraries/common.lib.php, libraries/header.inc.php,
       libraries/grab_globals.lib.php, libraries/auth/cookie.auth.lib.php,
-      libraries/auth/http.auth.lib.php, libraries/fpdf/fdpf.php:
-      replaced $_SERVER with getenv()
+      libraries/auth/http.auth.lib.php, libraries/fpdf/fdpf.php, index.php:
+      replaced $_SERVER and $_ENV with getenv()
+      PMA should now work without registered $_ENV and $_SERVER variables
 
 2006-03-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.

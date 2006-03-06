@@ -33,12 +33,12 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 /**
  * Includes the ThemeManager if it hasn't been included yet
  */
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -46,9 +46,7 @@ session_write_close();
 // Gets the host name
 // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
 if (empty($HTTP_HOST)) {
-    if (!empty($_ENV) && isset($_ENV['HTTP_HOST'])) {
-        $HTTP_HOST = $_ENV['HTTP_HOST'];
-    } elseif (@getenv('HTTP_HOST')) {
+    if (getenv('HTTP_HOST')) {
         $HTTP_HOST = getenv('HTTP_HOST');
     } else {
         $HTTP_HOST = '';
@@ -58,28 +56,28 @@ if (empty($HTTP_HOST)) {
 
 // purge querywindow history
 $cfgRelation = PMA_getRelationsParam();
-if ( $GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork'] ) {
+if ($GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork']) {
     PMA_purgeHistory( $GLOBALS['cfg']['Server']['user'] );
 }
-unset( $cfgRelation );
+unset($cfgRelation);
 
 
 /**
  * pass variables to child pages
  */
-$drops = array( 'lang', 'server', 'convcharset', 'collation_connection',
-    'db', 'table' );
+$drops = array('lang', 'server', 'convcharset', 'collation_connection',
+    'db', 'table');
 
-foreach ( $drops as $each_drop ) {
-    if ( ! array_key_exists( $each_drop, $_GET ) ) {
-        unset( $_GET[$each_drop] );
+foreach ($drops as $each_drop) {
+    if (! array_key_exists($each_drop, $_GET)) {
+        unset($_GET[$each_drop]);
     }
 }
-unset( $drops, $each_drop );
+unset($drops, $each_drop);
 
-if ( ! isset($GLOBALS['db']) || ! strlen($GLOBALS['db']) ) {
+if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
     $main_target = $GLOBALS['cfg']['DefaultTabServer'];
-} elseif ( ! isset($GLOBALS['table']) || ! strlen($GLOBALS['table']) ) {
+} elseif (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
     $_GET['db'] = $GLOBALS['db'];
     $main_target = $GLOBALS['cfg']['DefaultTabDatabase'];
 } else {
@@ -88,11 +86,11 @@ if ( ! isset($GLOBALS['db']) || ! strlen($GLOBALS['db']) ) {
     $main_target = $GLOBALS['cfg']['DefaultTabTable'];
 }
 
-$url_query = PMA_generate_common_url( $_GET );
+$url_query = PMA_generate_common_url($_GET);
 
-if ( ! empty( $GLOBALS['target'] )
-  && preg_match( '@[a-z_]+\.php@', $GLOBALS['target'] )
-  && $GLOBALS['target'] != 'index.php' ) {
+if (! empty( $GLOBALS['target'])
+  && preg_match( '@[a-z_]+\.php@', $GLOBALS['target'])
+  && $GLOBALS['target'] != 'index.php') {
     $main_target = $GLOBALS['target'];
 }
 
@@ -137,7 +135,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <script src="./js/querywindow.js" type="text/javascript" language="javascript">
 </script>
 </head>
-<frameset cols="<?php 
+<frameset cols="<?php
 if ($GLOBALS['text_dir'] === 'rtl') {
     echo '*,';
 }
