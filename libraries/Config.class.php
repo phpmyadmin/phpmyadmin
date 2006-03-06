@@ -2,6 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+/**
+ * Configuration class
+ *
+ */
 class PMA_Config
 {
     /**
@@ -102,15 +106,15 @@ class PMA_Config
     {
         // If zlib output compression is set in the php configuration file, no
         // output buffering should be run
-        if ( @ini_get('zlib.output_compression') ) {
+        if (@ini_get('zlib.output_compression')) {
             $this->set('OBGzip', false);
         }
 
         // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if ( strtolower($this->get('OBGzip')) == 'auto' ) {
-            if ( $this->get('PMA_USR_BROWSER_AGENT') == 'IE'
+        if (strtolower($this->get('OBGzip')) == 'auto') {
+            if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
               && $this->get('PMA_USR_BROWSER_VER') >= 6
-              && $this->get('PMA_USR_BROWSER_VER') < 7 ) {
+              && $this->get('PMA_USR_BROWSER_VER') < 7) {
                 $this->set('OBGzip', false);
             } else {
                 $this->set('OBGzip', true);
@@ -125,8 +129,8 @@ class PMA_Config
      */
     function checkClient()
     {
-        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
-            $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+        if (getenv('HTTP_USER_AGENT')) {
+            $HTTP_USER_AGENT = getenv('HTTP_USER_AGENT');
         } elseif (!isset($HTTP_USER_AGENT)) {
             $HTTP_USER_AGENT = '';
         }
@@ -182,9 +186,9 @@ class PMA_Config
      */
     function checkGd2()
     {
-        if ( $this->get('GD2Available') == 'yes' ) {
+        if ($this->get('GD2Available') == 'yes') {
             $this->set('PMA_IS_GD2', 1);
-        } elseif ( $this->get('GD2Available') == 'no' ) {
+        } elseif ($this->get('GD2Available') == 'no') {
             $this->set('PMA_IS_GD2', 0);
         } else {
             if (!@extension_loaded('gd')) {
@@ -226,8 +230,8 @@ class PMA_Config
      */
     function checkWebServer()
     {
-        if ( isset( $_SERVER['SERVER_SOFTWARE'] )
-          && stristr($_SERVER['SERVER_SOFTWARE'], 'Microsoft/IIS') ) {
+        if (getenv('SERVER_SOFTWARE')
+          && stristr(getenv('SERVER_SOFTWARE'), 'Microsoft/IIS')) {
             $this->set('PMA_IS_IIS', 1);
         } else {
             $this->set('PMA_IS_IIS', 0);
@@ -239,7 +243,7 @@ class PMA_Config
      */
     function checkWebServerOs()
     {
-        if ( defined('PHP_OS') && stristr(PHP_OS, 'win') ) {
+        if (defined('PHP_OS') && stristr(PHP_OS, 'win')) {
             $this->set('PMA_IS_WINDOWS', 1);
         } else {
             $this->set('PMA_IS_WINDOWS', 0);
@@ -252,16 +256,16 @@ class PMA_Config
     function checkPhpVersion()
     {
         $match = array();
-        if ( ! preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
-                phpversion(), $match) ) {
+        if (! preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
+                phpversion(), $match)) {
             $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
                 phpversion(), $match);
         }
-        if ( isset( $match ) && ! empty( $match[1] ) ) {
-            if ( ! isset( $match[2] ) ) {
+        if (isset($match) && ! empty($match[1])) {
+            if (! isset($match[2])) {
                 $match[2] = 0;
             }
-            if ( ! isset( $match[3] ) ) {
+            if (! isset($match[3])) {
                 $match[3] = 0;
             }
             $this->set('PMA_PHP_INT_VERSION',
@@ -273,13 +277,13 @@ class PMA_Config
     }
 
     /**
-     * re-init object after loadiong from session file
+     * re-init object after loading from session file
      * checks config file for changes and relaods if neccessary
      */
     function __wakeup()
     {
         if (file_exists($this->getSource()) && $this->source_mtime !== filemtime($this->getSource())
-          || $this->error_config_file || $this->error_config_default_file ) {
+          || $this->error_config_file || $this->error_config_default_file) {
             $this->settings = array();
             $this->load($this->getSource());
             $this->checkSystem();
@@ -305,14 +309,14 @@ class PMA_Config
     function loadDefaults()
     {
         $cfg = array();
-        if ( ! file_exists($this->default_source) ) {
+        if (! file_exists($this->default_source)) {
             $this->error_config_default_file = true;
             return false;
         }
         include $this->default_source;
 
         $this->default_server = $cfg['Servers'][1];
-        unset( $cfg['Servers'] );
+        unset($cfg['Servers']);
 
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
 
@@ -332,11 +336,11 @@ class PMA_Config
     {
         $this->loadDefaults();
 
-        if ( null !== $source ) {
+        if (null !== $source) {
             $this->setSource($source);
         }
 
-        if ( ! $this->checkConfigSource() ) {
+        if (! $this->checkConfigSource()) {
             return false;
         }
 
@@ -346,16 +350,16 @@ class PMA_Config
          * Parses the configuration file
          */
         $old_error_reporting = error_reporting(0);
-        if ( function_exists('file_get_contents') ) {
+        if (function_exists('file_get_contents')) {
             $eval_result =
-                eval( '?>' . trim(file_get_contents($this->getSource())) );
+                eval('?>' . trim(file_get_contents($this->getSource())));
         } else {
             $eval_result =
-                eval( '?>' . trim(implode('\n', file($this->getSource()))) );
+                eval('?>' . trim(implode('\n', file($this->getSource()))));
         }
         error_reporting($old_error_reporting);
 
-        if ( $eval_result === false ) {
+        if ($eval_result === false) {
             $this->error_config_file = true;
         } else  {
             $this->error_config_file = false;
@@ -365,12 +369,12 @@ class PMA_Config
         /**
          * @TODO check validity of $_COOKIE['pma_collation_connection']
          */
-        if ( ! empty( $_COOKIE['pma_collation_connection'] ) ) {
+        if (! empty($_COOKIE['pma_collation_connection'])) {
             $this->set('collation_connection',
-                strip_tags($_COOKIE['pma_collation_connection']) );
+                strip_tags($_COOKIE['pma_collation_connection']));
         } else {
             $this->set('collation_connection',
-                $this->get('DefaultConnectionCollation') );
+                $this->get('DefaultConnectionCollation'));
         }
 
         $this->checkCollationConnection();
@@ -406,7 +410,7 @@ class PMA_Config
      */
     function checkConfigSource()
     {
-        if ( ! file_exists($this->getSource()) ) {
+        if (! file_exists($this->getSource())) {
             // do not trigger error here
             // https://sf.net/tracker/?func=detail&aid=1370269&group_id=23067&atid=377408
             /*
@@ -418,7 +422,7 @@ class PMA_Config
             return false;
         }
 
-        if ( ! is_readable($this->getSource()) ) {
+        if (! is_readable($this->getSource())) {
             $this->source_mtime = 0;
             die('Existing configuration file (' . $this->getSource() . ') is not readable.');
         }
@@ -444,7 +448,7 @@ class PMA_Config
      */
     function get($setting)
     {
-        if ( isset( $this->settings[$setting] ) ) {
+        if (isset($this->settings[$setting])) {
             return $this->settings[$setting];
         }
         return null;
@@ -491,55 +495,55 @@ class PMA_Config
         // Setup a default value to let the people and lazy syadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        if ( strlen($pma_absolute_uri) < 1 ) {
+        if (strlen($pma_absolute_uri) < 1) {
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URI
-            if ( ! empty($_SERVER['REQUEST_URI'] ) ) {
-                $url = parse_url($_SERVER['REQUEST_URI']);
+            if (getenv('REQUEST_URI')) {
+                $url = parse_url(getenv('REQUEST_URI'));
             }
 
             // If we don't have scheme, we didn't have full URL so we need to
             // dig deeper
-            if ( empty( $url['scheme'] ) ) {
+            if (empty($url['scheme'])) {
                 // Scheme
-                if ( ! empty( $_SERVER['HTTP_SCHEME'] ) ) {
-                    $url['scheme'] = $_SERVER['HTTP_SCHEME'];
+                if (getenv('HTTP_SCHEME')) {
+                    $url['scheme'] = getenv('HTTP_SCHEME');
                 } else {
                     $url['scheme'] =
-                        !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off'
+                        getenv('HTTPS') && strtolower(getenv('HTTPS')) != 'off'
                             ? 'https'
                             : 'http';
                 }
 
                 // Host and port
-                if ( ! empty( $_SERVER['HTTP_HOST'] ) ) {
-                    if ( strpos($_SERVER['HTTP_HOST'], ':') !== false ) {
-                        list( $url['host'], $url['port'] ) =
-                            explode(':', $_SERVER['HTTP_HOST']);
+                if (getenv('HTTP_HOST')) {
+                    if (strpos(getenv('HTTP_HOST'), ':') !== false) {
+                        list($url['host'], $url['port']) =
+                            explode(':', getenv('HTTP_HOST'));
                     } else {
-                        $url['host'] = $_SERVER['HTTP_HOST'];
+                        $url['host'] = getenv('HTTP_HOST');
                     }
-                } elseif ( ! empty( $_SERVER['SERVER_NAME'] ) ) {
-                    $url['host'] = $_SERVER['SERVER_NAME'];
+                } elseif (getenv('SERVER_NAME')) {
+                    $url['host'] = getenv('SERVER_NAME');
                 } else {
                     $this->error_pma_uri = true;
                     return false;
                 }
 
                 // If we didn't set port yet...
-                if ( empty( $url['port'] ) && ! empty( $_SERVER['SERVER_PORT'] ) ) {
-                    $url['port'] = $_SERVER['SERVER_PORT'];
+                if (empty($url['port']) && getenv('SERVER_PORT')) {
+                    $url['port'] = getenv('SERVER_PORT');
                 }
 
                 // And finally the path could be already set from REQUEST_URI
-                if ( empty( $url['path'] ) ) {
-                    if (!empty($_SERVER['PATH_INFO'])) {
-                        $path = parse_url($_SERVER['PATH_INFO']);
+                if (empty($url['path'])) {
+                    if (getenv('PATH_INFO')) {
+                        $path = parse_url(getenv('PATH_INFO'));
                     } else {
                         // PHP_SELF in CGI often points to cgi executable, so use it
                         // as last choice
-                        $path = parse_url($_SERVER['PHP_SELF']);
+                        $path = parse_url(getenv('PHP_SELF'));
                     }
                     $url['path'] = $path['path'];
                 }
@@ -558,9 +562,9 @@ class PMA_Config
             // Add hostname
             $pma_absolute_uri .= $url['host'];
             // Add port, if it not the default one
-            if ( ! empty( $url['port'] )
-              && ( ( $url['scheme'] == 'http' && $url['port'] != 80 )
-                || ( $url['scheme'] == 'https' && $url['port'] != 443 ) ) ) {
+            if (! empty($url['port'])
+              && (($url['scheme'] == 'http' && $url['port'] != 80)
+                || ($url['scheme'] == 'https' && $url['port'] != 443))) {
                 $pma_absolute_uri .= ':' . $url['port'];
             }
             // And finally path, without script name, the 'a' is there not to
@@ -606,10 +610,10 @@ class PMA_Config
 
             // If URI doesn't start with http:// or https://, we will add
             // this.
-            if ( substr($pma_absolute_uri, 0, 7) != 'http://'
-              && substr($pma_absolute_uri, 0, 8) != 'https://' ) {
+            if (substr($pma_absolute_uri, 0, 7) != 'http://'
+              && substr($pma_absolute_uri, 0, 8) != 'https://') {
                 $pma_absolute_uri =
-                    (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off'
+                    (getenv('HTTPS') && strtolower(getenv('HTTPS')) != 'off'
                         ? 'https'
                         : 'http')
                     . ':' . (substr($pma_absolute_uri, 0, 2) == '//' ? '' : '//')
@@ -627,10 +631,10 @@ class PMA_Config
     function checkCollationConnection()
     {
         // (could be improved by executing it after the MySQL connection only if
-        //  PMA_MYSQL_INT_VERSION >= 40100 )
-        if ( ! empty( $_REQUEST['collation_connection'] ) ) {
+        //  PMA_MYSQL_INT_VERSION >= 40100)
+        if (! empty($_REQUEST['collation_connection'])) {
             $this->set('collation_connection',
-                strip_tags($_REQUEST['collation_connection']) );
+                strip_tags($_REQUEST['collation_connection']));
         }
     }
 
@@ -641,8 +645,8 @@ class PMA_Config
     function checkUpload()
     {
         $this->set('enable_upload', true);
-        if ( strtolower(@ini_get('file_uploads')) == 'off'
-          || @ini_get('file_uploads') == 0 ) {
+        if (strtolower(@ini_get('file_uploads')) == 'off'
+          || @ini_get('file_uploads') == 0) {
             $this->set('enable_upload', false);
         }
     }
@@ -655,13 +659,13 @@ class PMA_Config
      */
     function checkUploadSize()
     {
-        if ( ! $filesize = ini_get('upload_max_filesize') ) {
+        if (! $filesize = ini_get('upload_max_filesize')) {
             $filesize = "5M";
         }
 
-        if ( $postsize = ini_get('post_max_size') ) {
+        if ($postsize = ini_get('post_max_size')) {
             $this->set('max_upload_size',
-                min(get_real_size($filesize), get_real_size($postsize)) );
+                min(get_real_size($filesize), get_real_size($postsize)));
         } else {
             $this->set('max_upload_size', get_real_size($filesize));
         }
@@ -685,26 +689,26 @@ class PMA_Config
         $url = array();
 
         // At first we try to parse REQUEST_URI, it might contain full URI
-        if ( ! empty($_SERVER['REQUEST_URI'] ) ) {
-            $url = parse_url($_SERVER['REQUEST_URI']);
+        if (getenv('REQUEST_URI')) {
+            $url = parse_url(getenv('REQUEST_URI'));
         }
 
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
-        if ( empty( $url['scheme'] ) ) {
+        if (empty($url['scheme'])) {
             // Scheme
-            if ( ! empty( $_SERVER['HTTP_SCHEME'] ) ) {
-                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
+            if (getenv('HTTP_SCHEME')) {
+                $url['scheme'] = getenv('HTTP_SCHEME');
             } else {
                 $url['scheme'] =
-                    !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off'
+                    getenv('HTTPS') && strtolower(getenv('HTTPS')) != 'off'
                         ? 'https'
                         : 'http';
             }
         }
 
-        if ( isset( $url['scheme'] )
-          && $url['scheme'] == 'https' ) {
+        if (isset($url['scheme'])
+          && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
@@ -728,27 +732,27 @@ class PMA_Config
     {
         static $cookie_path = null;
 
-        if ( null !== $cookie_path ) {
+        if (null !== $cookie_path) {
             return $cookie_path;
         }
 
-        if ( ! empty($_SERVER['REQUEST_URI'] ) ) {
-            $url = parse_url($_SERVER['REQUEST_URI']);
+        if (getenv('REQUEST_URI')) {
+            $url = parse_url(getenv('REQUEST_URI'));
         }
 
         // If we don't have path
-        if ( empty( $url['path'] ) ) {
-            if (!empty($_SERVER['PATH_INFO'])) {
-                $url = parse_url($_SERVER['PATH_INFO']);
-            } else {
+        if (empty($url['path'])) {
+            if (getenv('PATH_INFO')) {
+                $url = parse_url(getenv('PATH_INFO'));
+            } elseif (getenv('PHP_SELF')) {
                 // PHP_SELF in CGI often points to cgi executable, so use it
                 // as last choice
-                $url = parse_url($_SERVER['PHP_SELF']);
+                $url = parse_url(getenv('PHP_SELF'));
             }
         }
 
-        $cookie_path   = substr($url['path'], 0,
-            strrpos($url['path'], '/')) . '/';
+        $cookie_path   = substr($url['path'], 0, strrpos($url['path'], '/'))
+            . '/';
 
         return $cookie_path;
     }
@@ -778,10 +782,10 @@ class PMA_Config
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
             'PMA_USR_BROWSER_AGENT',
-             );
+            );
 
-        foreach ( $defines as $define ) {
-            if ( ! defined($define) ) {
+        foreach ($defines as $define) {
+            if (! defined($define)) {
                 define($define, $this->get($define));
             }
         }

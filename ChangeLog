@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/Config.class.php: replaced $_SERVER with getenv()
+
 2006-03-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
     * import.php, libraries/common.lib.php: bug #1413880, page status not
@@ -36,7 +39,7 @@ $Source$
     * contrib/packaging/Fedora/phpMyAdmin.spec: Update.
 
 2006-02-23 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/Config.class.php: bug #1418769 part 1: stat failed for 
+    * libraries/Config.class.php: bug #1418769 part 1: stat failed for
       ./config.inc.php (under PHP 4)
     * sql.php: bug #1437499, LIMIT clause when query ends with semicolon
 
