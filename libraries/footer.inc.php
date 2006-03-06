@@ -80,13 +80,13 @@ if (!isset($GLOBALS['checked_special'])) {
     $GLOBALS['checked_special'] = FALSE;
 }
 
-if (isset($_SERVER['SCRIPT_NAME']) && empty($_POST) && !$GLOBALS['checked_special']) {
+if (getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) {
     echo '<div id="selflink" class="print_ignore">' . "\n";
-    $url_params['target'] = basename($_SERVER['SCRIPT_NAME']);
+    $url_params['target'] = basename(getenv('SCRIPT_NAME'));
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
         . ' title="' . $GLOBALS['strOpenNewWindow'] . '" target="_blank">';
     /*
-    echo '<a href="index.php?target=' . basename($_SERVER['SCRIPT_NAME']);
+    echo '<a href="index.php?target=' . basename(getenv('SCRIPT_NAME'));
     $url = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
     if (!empty($url)) {
         echo '&amp;' . $url;

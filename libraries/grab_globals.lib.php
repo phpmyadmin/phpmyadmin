@@ -82,39 +82,38 @@ $_import_blacklist = array(
     //'/^PMA_.*$/i',      // other PMA variables
 );
 
-if ( ! empty( $_GET ) ) {
+if (! empty($_GET)) {
     PMA_gpc_extract($_GET, $GLOBALS);
 }
 
-if ( ! empty( $_POST ) ) {
+if (! empty($_POST)) {
     PMA_gpc_extract($_POST, $GLOBALS);
 }
 
-if ( ! empty( $_FILES ) ) {
-    foreach ( $_FILES AS $name => $value ) {
+if (! empty($_FILES)) {
+    foreach ($_FILES as $name => $value) {
         $$name = $value['tmp_name'];
         ${$name . '_name'} = $value['name'];
     }
-    unset( $name, $value );
+    unset($name, $value);
 }
 
-if ( ! empty( $_SERVER ) ) {
-    $server_vars = array('PHP_SELF', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
-    foreach ( $server_vars as $current ) {
-        // its not important HOW we detect html tags
-        // its more important to prevent XSS
-        // so its not important if we result in an invalid string,
-        // its even better than a XSS capable string
-        if ( isset( $_SERVER[$current] ) && false === strpos($_SERVER[$current], '<') ) {
-            $$current = $_SERVER[$current];
-        // already importet by register_globals?
-        } elseif ( ! isset( $$current ) || false !== strpos($$current, '<') ) {
-            $$current = '';
-        }
+/**
+ * globalize some environment variables
+ */
+$server_vars = array('PHP_SELF', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
+foreach ($server_vars as $current) {
+    // its not important HOW we detect html tags
+    // its more important to prevent XSS
+    // so its not important if we result in an invalid string,
+    // its even better than a XSS capable string
+    if (getenv($current) && false === strpos(getenv($current), '<')) {
+        $$current = getenv($current);
+    // already importet by register_globals?
+    } elseif (! isset($$current) || false !== strpos($$current, '<')) {
+        $$current = '';
     }
-    unset( $server_vars, $current );
-} // end if
-
-unset( $_import_blacklist );
+}
+unset($server_vars, $current, $_import_blacklist);
 
 ?>

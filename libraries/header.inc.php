@@ -2,15 +2,15 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 if (empty($GLOBALS['is_header_sent'])) {
 
     /**
      * Gets a core script and starts output buffering work
      */
-    require_once('./libraries/common.lib.php');
-    require_once('./libraries/ob.lib.php');
+    require_once './libraries/common.lib.php';
+    require_once './libraries/ob.lib.php';
     if ($GLOBALS['cfg']['OBGzip']) {
         $GLOBALS['ob_mode'] = PMA_outBufferModeGet();
         if ($GLOBALS['ob_mode']) {
@@ -22,8 +22,8 @@ if (empty($GLOBALS['is_header_sent'])) {
     // to a seperate file. It can now be included by header.inc.php,
     // querywindow.php.
 
-    require_once('./libraries/header_http.inc.php');
-    require_once('./libraries/header_meta_style.inc.php');
+    require_once './libraries/header_http.inc.php';
+    require_once './libraries/header_meta_style.inc.php';
 
     // generate title
     $title     = str_replace(
@@ -37,7 +37,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                         '@PHPMYADMIN@',
                         ),
                     array(
-                        isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '',
+                        getenv('HTTP_HOST') ? getenv('HTTP_HOST') : '',
                         isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
                         isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
                         !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
@@ -137,7 +137,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     <?php
 
     // Include possible custom headers
-    require_once('./libraries/header_custom.inc.php');
+    require_once './libraries/header_custom.inc.php';
 
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);
@@ -187,7 +187,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     's_db.png' );
 
             if (isset($GLOBALS['table']) && strlen($GLOBALS['table'])) {
-                require_once('./libraries/tbl_properties_table_info.inc.php');
+                require_once './libraries/tbl_properties_table_info.inc.php';
 
                 echo $separator;
                 printf( $item,
@@ -215,7 +215,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 /**
                  * Settings for relations stuff
                  */
-                require_once('./libraries/relation.lib.php');
+                require_once './libraries/relation.lib.php';
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
@@ -241,6 +241,6 @@ if (empty($GLOBALS['is_header_sent'])) {
     /**
      * Sets a variable to remember headers have been sent
      */
-    $GLOBALS['is_header_sent'] = TRUE;
+    $GLOBALS['is_header_sent'] = true;
 }
 ?>

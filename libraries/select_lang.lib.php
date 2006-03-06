@@ -53,8 +53,8 @@ function PMA_langCheck()
     }
 
     // try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE variable
-    if (! empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        foreach (explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']) as $lang) {
+    if (getenv('HTTP_ACCEPT_LANGUAGE')) {
+        foreach (explode(',', getenv('HTTP_ACCEPT_LANGUAGE')) as $lang) {
             if (PMA_langDetect($lang, 1)) {
                 return true;
             }
@@ -62,7 +62,7 @@ function PMA_langCheck()
     }
 
     // try to findout user's language by checking its HTTP_USER_AGENT variable
-    if (PMA_langDetect($_SERVER['HTTP_USER_AGENT'], 2)) {
+    if (PMA_langDetect(getenv('HTTP_USER_AGENT'), 2)) {
         return true;
     }
 
@@ -405,7 +405,7 @@ if (! PMA_langCheck()) {
 
 // Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
-require_once($lang_file);
+require_once $lang_file;
 
 // now, that we have loaded the language strings we can send the errors
 if ($lang_failed_cfg) {

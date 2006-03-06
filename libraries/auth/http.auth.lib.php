@@ -29,11 +29,11 @@ function PMA_auth() {
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     /* HTML header */
     $page_title = $GLOBALS['strAccessDenied'];
-    require('./libraries/header_meta_style.inc.php');
+    require './libraries/header_meta_style.inc.php';
     ?>
 </head>
 <body>
-<?php require('./libraries/header_custom.inc.php'); ?>
+<?php require './libraries/header_custom.inc.php'; ?>
 
 <br /><br />
 <center>
@@ -42,7 +42,7 @@ function PMA_auth() {
 <br />
 <div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
-<?php require('./libraries/footer_custom.inc.php'); ?>
+<?php require './libraries/footer_custom.inc.php'; ?>
 
 </body>
 </html>
@@ -79,23 +79,19 @@ function PMA_auth_check()
     // 'register_globals' and the 'variables_order' directives
     // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_USER)) {
-        if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_USER'])) {
-            $PHP_AUTH_USER = $_SERVER['PHP_AUTH_USER'];
-        }
-        // CGI, might be encoded, see bellow
-        elseif (@getenv('REMOTE_USER')) {
+        if (getenv('PHP_AUTH_USER')) {
+            $PHP_AUTH_USER = getenv('PHP_AUTH_USER');
+        } elseif (getenv('REMOTE_USER')) {
+            // CGI, might be encoded, see bellow
             $PHP_AUTH_USER = getenv('REMOTE_USER');
-        }
-        // WebSite Professional
-        elseif (@getenv('AUTH_USER')) {
+        } elseif (getenv('AUTH_USER')) {
+            // WebSite Professional
             $PHP_AUTH_USER = getenv('AUTH_USER');
-        }
-        // IIS, might be encoded, see bellow
-        elseif (@getenv('HTTP_AUTHORIZATION')) {
+        } elseif (getenv('HTTP_AUTHORIZATION')) {
+            // IIS, might be encoded, see bellow
             $PHP_AUTH_USER = getenv('HTTP_AUTHORIZATION');
-        }
-        // FastCGI, might be encoded, see bellow
-        elseif (@getenv('Authorization')) {
+        } elseif (getenv('Authorization')) {
+            // FastCGI, might be encoded, see bellow
             $PHP_AUTH_USER = getenv('Authorization');
         }
     }
@@ -103,8 +99,8 @@ function PMA_auth_check()
     // 'register_globals' and the 'variables_order' directives
     // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_PW)) {
-        if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_PW'])) {
-            $PHP_AUTH_PW = $_SERVER['PHP_AUTH_PW'];
+        if (getenv('PHP_AUTH_PW')) {
+            $PHP_AUTH_PW = getenv('PHP_AUTH_PW');
         }
         // Apache/CGI
         elseif (@getenv('REMOTE_PASSWORD')) {
@@ -119,7 +115,7 @@ function PMA_auth_check()
     // Decode possibly encoded information (used by IIS/CGI/FastCGI)
     if (strcmp(substr($PHP_AUTH_USER, 0, 6), 'Basic ') == 0) {
         $usr_pass = base64_decode(substr($PHP_AUTH_USER, 6));
-        if (!empty($usr_pass) && strpos($usr_pass, ':') !== FALSE) {
+        if (!empty($usr_pass) && strpos($usr_pass, ':') !== false) {
             list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', $usr_pass);
         }
         unset($usr_pass);
@@ -133,9 +129,9 @@ function PMA_auth_check()
 
     // Returns whether we get authentication settings or not
     if (empty($PHP_AUTH_USER)) {
-        return FALSE;
+        return false;
     } else {
-        return TRUE;
+        return true;
     }
 } // end of the 'PMA_auth_check()' function
 
@@ -175,7 +171,7 @@ function PMA_auth_set_user()
     $cfg['Server']['user']     = $PHP_AUTH_USER;
     $cfg['Server']['password'] = $PHP_AUTH_PW;
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth_set_user()' function
 
 
@@ -190,7 +186,7 @@ function PMA_auth_fails()
 {
     PMA_auth();
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth_fails()' function
 
 ?>
