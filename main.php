@@ -278,7 +278,8 @@ if ( $cfg['ShowPhpInfo'] ) {
     PMA_printListItem( $strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query );
 }
 
-PMA_printListItem( $strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmin.net/' );
+// does not work if no target specified, don't know why
+PMA_printListItem( $strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmin.net/', null, '_blank' );
 ?>
     <li><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
@@ -369,15 +370,21 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
 /**
  * prints list item for main page
  *
- * @param   string  $name   dsiplayed text
+ * @param   string  $name   displayed text
  * @param   string  $id     id, used for css styles
  * @param   string  $url    make item as link with $url as target
+ * @param   string  $mysql_help_page  display a link to MySQL's manual  
+ * @param   string  $target special target for $url 
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null)
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null)
 {
     echo '<li id="' . $id . '">';
     if (null !== $url) {
-        echo '<a href="' . $url . '">';
+        echo '<a href="' . $url . '"';
+        if (null !== $target) {
+           echo ' target="' . $target . '"';
+        }
+        echo '>';
     }
 
     echo $name;

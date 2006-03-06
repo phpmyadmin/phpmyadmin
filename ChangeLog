@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug #1443337, homepage link
+
 2006-03-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php, libraries/select_lang.lib.php,
       libraries/footer.inc.php, libraries/ip_allow_deny.lib.php,
