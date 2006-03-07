@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Config.class.php: bug #1444867, does not load config.inc.php
+      under PHP < 4.3.0, thanks to Julian Ladisch - julianladisch
+
 2006-03-06 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug #1443337, homepage link
     ### 2.8.0 released from branch MAINT_2_8_0
