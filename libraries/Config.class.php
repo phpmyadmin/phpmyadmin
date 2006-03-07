@@ -355,7 +355,7 @@ class PMA_Config
                 eval('?>' . trim(file_get_contents($this->getSource())));
         } else {
             $eval_result =
-                eval('?>' . trim(implode('\n', file($this->getSource()))));
+                eval('?>' . trim(implode("\n", file($this->getSource()))));
         }
         error_reporting($old_error_reporting);
 
