@@ -62,7 +62,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
     if (! empty($_REQUEST['new_tbl_type'])
       && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
-        $table_alters[] = 'TYPE = ' . $_REQUEST['new_tbl_type'];
+        $table_alters[] = PMA_ENGINE_KEYWORD . ' = ' . $_REQUEST['new_tbl_type'];
         $tbl_type = $_REQUEST['new_tbl_type'];
     }
 
@@ -405,7 +405,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     }
     if ($tbl_type == 'INNODB') {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' TYPE=InnoDB'));
+            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ' . PMA_ENGINE_KEYWORD . '=InnoDB'));
         ?>
     <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strDefragment; ?></a>

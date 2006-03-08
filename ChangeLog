@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php, tbl_create.php,
+      tbl_properties_operations.php: bug #1444892, TYPE deprecated in 
+      MySQL 5.1
+
 2006-03-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1444867, does not load config.inc.php
       under PHP < 4.3.0, thanks to Julian Ladisch - julianladisch

@@ -737,6 +737,14 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         }
     }
 
+    if (!defined('PMA_ENGINE_KEYWORD')) {
+        if (PMA_MYSQL_INT_VERSION >= 40102) {
+            define('PMA_ENGINE_KEYWORD','ENGINE');
+        } else {
+            define('PMA_ENGINE_KEYWORD','TYPE');
+        }
+    }
+
     if (PMA_MYSQL_INT_VERSION >= 40100) {
 
         // If $lang is defined and we are on MySQL >= 4.1.x,

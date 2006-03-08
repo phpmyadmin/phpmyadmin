@@ -148,8 +148,8 @@ if (isset($submit_num_fields)) {
 
     // Adds table type, character set and comments
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
-        $sql_query .= ' TYPE = ' . $tbl_type;
-        $query_cpy .= "\n" . 'TYPE = ' . $tbl_type;
+        $sql_query .= ' ' . PMA_ENGINE_KEYWORD  . ' = ' . $tbl_type;
+        $query_cpy .= "\n" . PMA_ENGINE_KEYWORD . ' = ' . $tbl_type;
     }
     if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
         $sql_query .= PMA_generateCharsetQueryPart($tbl_collation);
