@@ -9,6 +9,7 @@ $Source$
     * libraries/database_interface.lib.php, tbl_create.php,
       tbl_properties_operations.php: bug #1444892, TYPE deprecated in 
       MySQL 5.1
+    ### 2.8.0.1 released from branch MAINT_2_8_0
 
 2006-03-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1444867, does not load config.inc.php
