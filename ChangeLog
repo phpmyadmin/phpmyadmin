@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: reactivate in-line image display
+
 2006-03-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, tbl_create.php,
       tbl_properties_operations.php: bug #1444892, TYPE deprecated in 
