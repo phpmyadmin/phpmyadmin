@@ -60,12 +60,11 @@ if (isset($ct) && !empty($ct)) {
 } else {
     $content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace('_', '/', $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
+header($content_type);
 
 if (isset($cn) && !empty($cn)) {
-    $content_type .= "\n" . 'Content-Disposition: attachment; filename=' . urldecode($cn);
+    header('Content-Disposition: attachment; filename=' . urldecode($cn));
 }
-
-header($content_type);
 
 if (!isset($resize)) {
     echo $row[urldecode($transform_key)];

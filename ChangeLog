@@ -7,6 +7,9 @@ $Source$
 
 2006-03-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: reactivate in-line image display
+    * transformation_wrapper.php: bug #1444121, octetstream download fails
+      on versions of PHP accepting only one line per header,
+      thanks to Ryan Schmidt
 
 2006-03-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, tbl_create.php,
