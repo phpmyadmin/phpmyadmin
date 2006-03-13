@@ -231,7 +231,10 @@ class PMA_Config
     function checkWebServer()
     {
         if (getenv('SERVER_SOFTWARE')
-          && stristr(getenv('SERVER_SOFTWARE'), 'Microsoft/IIS')) {
+          // some versions return Microsoft-IIS, some Microsoft/IIS
+          // we could use a preg_match() but it's slower
+          && stristr(getenv('SERVER_SOFTWARE'), 'Microsoft')
+          && stristr(getenv('SERVER_SOFTWARE'), 'IIS')) {
             $this->set('PMA_IS_IIS', 1);
         } else {
             $this->set('PMA_IS_IIS', 0);

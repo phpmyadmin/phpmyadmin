@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Config.class.php, /common.lib.php: bug #1445120, 
+      cookie login not working on IIS
+
 2006-03-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: reactivate in-line image display
     * transformation_wrapper.php: bug #1444121, octetstream download fails

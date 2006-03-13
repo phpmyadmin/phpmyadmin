@@ -1050,7 +1050,12 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                     header('Location: ' . $uri . $separator . SID);
                 }
             } else {
-                header('Location: ' . $uri);
+                session_write_close();
+                if (PMA_IS_IIS) {
+                    header('Refresh: 0; ' . $uri);
+                } else {
+                    header('Location: ' . $uri);
+                }
             }
         }
     }
