@@ -8,6 +8,7 @@ $Source$
 2006-03-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1449715, loading of binary data very slow
     * server_privileges.php: compatibility with MySQL < 4.0.2
+    * server_databases.php: bug #1445991, compatibility with MySQL 3.23.52
 
 2006-03-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php, /common.lib.php: bug #1445120, 

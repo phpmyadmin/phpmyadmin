@@ -124,9 +124,20 @@ if ($server > 0) {
 /**
  * Displays the page
  */
-if (count($databases) > 0) {
-    // sorts the array
-    usort( $databases, 'PMA_dbCmp' );
+
+$tmp_count = count($databases);
+if ($tmp_count > 0) {
+     if ($tmp_count > 1) {
+         // sorts the array
+         usort( $databases, 'PMA_dbCmp' );
+     } else {
+         // when there is only one database, the sort would not happen and
+         // the index would not become numeric (reproduced in MySQL 3.23.52)
+         $tmp_each = each($databases);
+         $databases = array();
+         $databases[0] = $tmp_each['value'];
+         unset($tmp_each);
+     }
 
     // table col order
     // there is no db specific collation or charset prior 4.1.0
@@ -332,6 +343,7 @@ if (count($databases) > 0) {
 } else {
     echo $strNoDatabases;
 }
+unset($tmp_count);
 
 /**
  * Create new database.
