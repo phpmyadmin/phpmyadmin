@@ -1449,11 +1449,17 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
                 $parsed_sql = $GLOBALS['parsed_sql'];
             } else {
-                $parsed_sql = PMA_SQP_parse($query_base);
+                // when the query is large (for example an INSERT of binary
+                // data), the parser chokes; so avoid parsing the query
+                if (strlen($query_base) < 1000) {
+                    $parsed_sql = PMA_SQP_parse($query_base);
+                }
             }
 
             // Analyze it
-            $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
+            if (isset($parsed_sql)) {
+                $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
+            }
 
             // Here we append the LIMIT added for navigation, to
             // enable its display. Adding it higher in the code
@@ -1477,7 +1483,9 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             } elseif (!empty($GLOBALS['validatequery'])) {
                 $query_base = PMA_validateSQL($query_base);
             } else {
-                $query_base = PMA_formatSql($parsed_sql, $query_base);
+                if (isset($parsed_sql)) {
+                    $query_base = PMA_formatSql($parsed_sql, $query_base);
+                }
             }
 
             // Prepares links that may be displayed to edit/explain the query
