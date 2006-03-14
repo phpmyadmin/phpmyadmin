@@ -1110,10 +1110,10 @@ function load_config($config_file) {
         $success_apply_user_config = FALSE;
         $old_error_reporting = error_reporting( 0 );
         if ( function_exists( 'file_get_contents' ) ) {
-            $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
+            $success_apply_user_config = eval('?>' . trim(file_get_contents($config_file)));
         } else {
             $success_apply_user_config =
-                eval( '?>' . implode( '\n', file( $config_file ) ) );
+                eval('?>' . trim(implode("\n", file($config_file))));
         }
         error_reporting( $old_error_reporting );
         unset( $old_error_reporting );
