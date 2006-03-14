@@ -506,7 +506,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
 
         echo $spaces . '    </fieldset>' . "\n";
         // The "Resource limits" box is not displayed for db-specific privs
-        if ($db == '*') {
+        if ($db == '*' && PMA_MYSQL_INT_VERSION >= 40002) {
             echo $spaces . '    <fieldset>' . "\n"
                . $spaces . '        <legend>' . $GLOBALS['strResourceLimits'] . '</legend>' . "\n"
                . $spaces . '        <p><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></p>' . "\n"
