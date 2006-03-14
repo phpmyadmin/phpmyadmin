@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-14 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Use correct binary prefixes for byte units.
+
 2006-03-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1449715, loading of binary data very slow
     * server_privileges.php: compatibility with MySQL < 4.0.2
