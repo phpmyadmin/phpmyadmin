@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-14 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update, use binary prefixes.
+
 2006-03-14 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Use correct binary prefixes for byte units.
 

@@ -14,7 +14,7 @@ $right_font_family = 'tahoma, arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('bajtů', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB');
+$byteUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
 
 $day_of_week = array('Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota');
 $month = array('ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince');
@@ -905,7 +905,7 @@ $strTraditionalSpanish = 'Tradiční španělština';
 $strTraffic = 'Provoz';
 $strTransactionCoordinator = 'Koordinátor transakcí';
 $strTransformation_application_octetstream__download = 'Zobrazí odkaz na stáhnutí dat. První parametr je jméno souboru, druhý jméno sloupce v&nbsp;tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, první musí být prázdný.';
-$strTransformation_application_octetstream__hex = 'Zobrazí data šestnáctkově. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
+$strTransformation_application_octetstream__hex = 'Zobrazí data šestnáctkově. Nepovinný parameter určuje po kolika znacích má být přidána mezera (výchozí hodnota je 2).';
 $strTransformation_image_jpeg__inline = 'Zobrazí náhled obrázku s&nbsp;odkazem na obrázek; parametry šířka a výška v&nbsp;bodech (poměr stran obrázku zůstane zachován)';
 $strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázek (například stáhnutí pole blob).';
 $strTransformation_image_png__inline = 'Viz image/jpeg: inline';
