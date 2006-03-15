@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-15 Michal Čihař  <michal@cihar.com>
+    * libraries/export/htmlexcel.php: Fix output handling (bug #1450555).
+
 2006-03-14 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update, use binary prefixes.
     * lang/english: Nothing to translate here.
