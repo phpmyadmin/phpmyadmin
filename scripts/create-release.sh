@@ -185,7 +185,7 @@ find phpMyAdmin -type f -print0 | xargs -0 chmod 644
 find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 
 # Building Documentation.txt
-lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
+LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
 
 # Renaming directory
 mv phpMyAdmin phpMyAdmin-$target
@@ -233,7 +233,7 @@ Todo now:
 ---------
  1. tag the cvs tree with the new revision number for a plain release or a
     release candidate:
-    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE 
+    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
 
  2. upload the files to SF:

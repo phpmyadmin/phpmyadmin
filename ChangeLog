@@ -17,6 +17,7 @@ $Source$
     * libraries/auth/config.auth.lib.php: Show possible error messages.
     * show_config_errors.php, libraries/common.lib.php: Add wrapper to show
       config errors even with no error reporting (RFE #1447173).
+    * scripts/create-release.sh: Use w3m instead of lynx (bug #1451635).
 
 2006-03-15 Michal Čihař  <michal@cihar.com>
     * libraries/export/htmlexcel.php: Fix output handling (bug #1450555).
