@@ -14,6 +14,7 @@ $Source$
     * libraries/plugin_interface.lib.php: Add support for hidden inputs.
     * libraries/common.lib.php: Do not forget wrongly configured servers,
       otherwise user gets warning only on first access (RFE #1451521).
+    * libraries/auth/config.auth.lib.php: Show possible error messages.
 
 2006-03-15 Michal Čihař  <michal@cihar.com>
     * libraries/export/htmlexcel.php: Fix output handling (bug #1450555).

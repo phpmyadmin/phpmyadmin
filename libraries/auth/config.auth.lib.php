@@ -126,7 +126,12 @@ function PMA_auth_fails()
                 echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
             }
         }
-        PMA_mysqlDie($conn_error, '');
+        PMA_mysqlDie($conn_error, '', true, '', false);
+    }
+    if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
+        foreach ( $GLOBALS['PMA_errors'] as $error ) {
+            echo '<div class="error">' . $error . '</div>' . "\n";
+        }
     }
 ?>
         </td>
