@@ -2839,9 +2839,13 @@ require_once './libraries/select_lang.lib.php';
  */
 if ($_SESSION['PMA_Config']->error_config_file) {
     $GLOBALS['PMA_errors'][] = $strConfigFileError
-        .'<br /><br />'
-        .'<a href="' . $_SESSION['PMA_Config']->getSource() . '"'
-        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>';
+        . '<br /><br />'
+        . ($_SESSION['PMA_Config']->getSource() == './config.inc.php' ? 
+        '<a href="show_config_errors.php"'
+        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>'
+        :
+        '<a href="' . $_SESSION['PMA_Config']->getSource() . '"'
+        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>');
 }
 if ($_SESSION['PMA_Config']->error_config_default_file) {
     $GLOBALS['PMA_errors'][] = sprintf($strConfigDefaultFileError,
