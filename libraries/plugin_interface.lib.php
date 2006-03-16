@@ -205,6 +205,9 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             $ret .= '>' . PMA_getString($val) . '</option>';
         }
         $ret .= '</select>';
+    } elseif ($opt['type'] == 'hidden') {
+        $ret .= '<input type="hidden" name="' . $plugin_name . '_' . $opt['name'] . '"'
+            . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' />';
     } else {
         /* This should be seen only by plugin writers, so I do not thing this
          * needs translation. */
