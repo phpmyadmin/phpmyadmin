@@ -95,11 +95,6 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
     if ($not_only_options) {
         echo '</select>';
-        if ($ommit_fieldset) {
-            echo '<hr />';
-        } else {
-            echo '</fieldset>';
-        }
         ?>
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
@@ -108,6 +103,11 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         echo '<noscript>';
         echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
         echo '</noscript>';
+        if ($ommit_fieldset) {
+            echo '<hr />';
+        } else {
+            echo '</fieldset>';
+        }
         echo '</form>';
     } elseif ($list) {
         // TODO FIXME display server list as 'list'
