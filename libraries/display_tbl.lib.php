@@ -1294,6 +1294,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $blobtext = '[BLOB';
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $blobtext .= ' - NULL';
+                        $blob_size = 0;
                     } elseif (isset($row[$i])) {
                         $blob_size = strlen($row[$i]);
                         $display_blob_size = PMA_formatByteDown($blob_size, 3, 1);
