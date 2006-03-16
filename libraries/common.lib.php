@@ -2865,9 +2865,10 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
     $new_servers = array();
 
     foreach ($cfg['Servers'] as $server_index => $each_server) {
+
+        // Detect wrong configuration
         if (!is_int($server_index) || $server_index < 1) {
             $GLOBALS['PMA_errors'][] = sprintf($strInvalidServerIndex, $server_index);
-            continue;
         }
 
         $each_server = array_merge($default_server, $each_server);
@@ -2875,7 +2876,6 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         // Don't use servers with no hostname
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
             $GLOBALS['PMA_errors'][] = sprintf($strInvalidServerHostname, $server_index);
-            continue;
         }
 
         // Final solution to bug #582890

@@ -12,6 +12,8 @@ $Source$
     * libraries/select_server.lib.php: Move end of fieldset to correct place
       after button (patch #1450559).
     * libraries/plugin_interface.lib.php: Add support for hidden inputs.
+    * libraries/common.lib.php: Do not forget wrongly configured servers,
+      otherwise user gets warning only on first access (RFE #1451521).
 
 2006-03-15 Michal Čihař  <michal@cihar.com>
     * libraries/export/htmlexcel.php: Fix output handling (bug #1450555).
