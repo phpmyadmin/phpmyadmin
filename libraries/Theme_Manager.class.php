@@ -80,9 +80,9 @@ class PMA_Theme_Manager {
     {
         if ( ! $this->checkTheme($theme)) {
             $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strThemeNotFound'],
-                $theme);
+                PMA_sanitize($theme));
             trigger_error(
-                sprintf($GLOBALS['strThemeNotFound'], $theme),
+                sprintf($GLOBALS['strThemeNotFound'], PMA_sanitize($theme)),
                 E_USER_WARNING);
             return false;
         }
