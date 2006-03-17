@@ -51,6 +51,13 @@ if (defined('E_STRICT')) {
     unset($old_error_reporting);
 }
 
+/**
+ * Avoid object cloning errors 
+ */
+
+@ini_set('zend.ze1_compatibility_mode',false);
+
+
 /******************************************************************************/
 /* definition of functions         LABEL_definition_of_functions              */
 /**

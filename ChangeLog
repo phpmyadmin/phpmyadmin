@@ -8,6 +8,9 @@ $Source$
 2006-03-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: undefined variable when a BLOB is NULL
     * libraries/Theme_Manager.class.php: XSS vulnerability
+    * libraries/common.lib.php: bug #1392554, turn off 
+       zend.ze1_compatibility_mode due to mysqli problems
+    ### 2.8.0.2 released from branch MAINT_2_8_0
 
 2006-03-16 Michal Čihař  <michal@cihar.com>
     * libraries/select_server.lib.php: Move end of fieldset to correct place
