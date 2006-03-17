@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/mysqli.dbi.lib.php: if $cfg['Servers'][$i]['nopassword']
+      is not defined (using an older config.inc.php), an error is displayed
+      when login fails
+
 2006-03-17 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Allow empty socket (bug #1452142).
 
