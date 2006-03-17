@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-17 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Allow empty socket (bug #1452142).
+
 2006-03-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: undefined variable when a BLOB is NULL
     * libraries/Theme_Manager.class.php: XSS vulnerability

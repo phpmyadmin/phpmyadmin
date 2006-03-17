@@ -1224,10 +1224,6 @@ switch ($action) {
                 message('error', 'Empty hostname!');
                 $err = TRUE;
             }
-            if ($new_server['connect_type'] == 'socket' && empty($new_server['socket'])) {
-                message('error', 'Empty socket with socket connection seleted!');
-                $err = TRUE;
-            }
             if ($new_server['auth_type'] == 'config' && empty($new_server['user'])) {
                 message('error', 'Empty username while using config authentication method!');
                 $err = TRUE;
