@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: bug #1445853, overhead should use the
+      same display units
+
 2006-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: if $cfg['Servers'][$i]['nopassword']
       is not defined (using an older config.inc.php), an error is displayed
