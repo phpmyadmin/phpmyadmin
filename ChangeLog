@@ -10,6 +10,7 @@ $Source$
       same display units
     * lang/english*, /french*: use IEC binary units; use "B" for Bytes
       and "o" for "Octets" in French
+    * db_details_importdocsql.php: bug #1444025, dead code about DOCUMENT_ROOT
 
 2006-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: if $cfg['Servers'][$i]['nopassword']

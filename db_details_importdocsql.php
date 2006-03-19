@@ -119,22 +119,6 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     }
 
     /**
-     * Try to get the "$DOCUMENT_ROOT" variable whatever is the register_globals
-     * value
-     */
-    if (empty($DOCUMENT_ROOT)) {
-        if (!empty($_SERVER) && isset($_SERVER['DOCUMENT_ROOT'])) {
-            $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
-        } elseif (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
-            $DOCUMENT_ROOT = $_ENV['DOCUMENT_ROOT'];
-        } elseif (@getenv('DOCUMENT_ROOT')) {
-            $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
-        } else {
-            $DOCUMENT_ROOT = '.';
-        }
-    } // end if
-
-    /**
      * Executes import if required
      */
     if (isset($do) && $do == 'import') {
