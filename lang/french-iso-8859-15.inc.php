@@ -8,7 +8,7 @@ $right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('Octets', 'Ko', 'Mo', 'Go', 'To', 'Po', 'Eo');
+$byteUnits = array('o', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio');
 
 $day_of_week = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
 $month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');

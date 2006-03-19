@@ -8,6 +8,8 @@ $Source$
 2006-03-19 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #1445853, overhead should use the
       same display units
+    * lang/english*, /french*: use IEC binary units; use "B" for Bytes
+      and "o" for "Octets" in French
 
 2006-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: if $cfg['Servers'][$i]['nopassword']
