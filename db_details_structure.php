@@ -246,9 +246,9 @@ foreach ($tables as $keyname => $each_table) {
             if ($cfg['ShowStats']) {
                 $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
                 $sum_size                   += $tblsize;
-                list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                 if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                    list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free']);
+                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
                     $overhead_size           += $each_table['Data_free'];
                 }
             }
@@ -259,21 +259,21 @@ foreach ($tables as $keyname => $each_table) {
             if ($cfg['ShowStats']) {
                 $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
                 $sum_size                   += $tblsize;
-                list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
             }
             //$display_rows                   =  ' - ';
             $sum_entries       += $each_table['TABLE_ROWS'];
         } elseif (preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $each_table['ENGINE'])) {
             // Merge or BerkleyDB table: Only row count is accurate.
             if ($cfg['ShowStats']) {
-                $formated_size =  ' - ';
+                $formatted_size =  ' - ';
                 $unit          =  '';
             }
             $sum_entries       += $each_table['TABLE_ROWS'];
         } else {
             // Unknown table type.
             if ($cfg['ShowStats']) {
-                $formated_size =  'unknown';
+                $formatted_size =  'unknown';
                 $unit          =  '';
             }
         }
@@ -289,11 +289,11 @@ foreach ($tables as $keyname => $each_table) {
         }
 
         if ($cfg['ShowStats']) {
-            if (isset($formated_overhead)) {
+            if (isset($formatted_overhead)) {
                 $overhead = '<a href="tbl_properties_structure.php?'
-                    . $tbl_url_query . '#showusage">' . $formated_overhead
+                    . $tbl_url_query . '#showusage">' . $formatted_overhead
                     . ' ' . $overhead_unit . '</a>' . "\n";
-                unset($formated_overhead);
+                unset($formatted_overhead);
                 $overhead_check .=
                     "document.getElementById('checkbox_tbl_$i').checked = true;";
             } else {
@@ -366,7 +366,7 @@ foreach ($tables as $keyname => $each_table) {
         <?php if ($cfg['ShowStats']) { ?>
     <td class="value"><a
         href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>#showusage"
-        ><?php echo $formated_size . ' ' . $unit; ?></a></td>
+        ><?php echo $formatted_size . ' ' . $unit; ?></a></td>
     <td class="value"><?php echo $overhead; ?></td>
         <?php } // end if ?>
     <?php } elseif ($table_is_view) { ?>
@@ -388,8 +388,8 @@ foreach ($tables as $keyname => $each_table) {
 
 // Show Summary
 if ($cfg['ShowStats']) {
-    list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
-    list($overhead_formated, $overhead_unit) =
+    list($sum_formatted, $unit) = PMA_formatByteDown($sum_size, 3, 1);
+    list($overhead_formatted, $overhead_unit) =
         PMA_formatByteDown($overhead_size, 3, 1);
 }
 ?>
@@ -416,8 +416,8 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
 
 if ($cfg['ShowStats']) {
     ?>
-    <th class="value"><?php echo $sum_formated . ' ' . $unit; ?></th>
-    <th class="value"><?php echo $overhead_formated . ' ' . $overhead_unit; ?></th>
+    <th class="value"><?php echo $sum_formatted . ' ' . $unit; ?></th>
+    <th class="value"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
     <?php
 }
 ?>
