@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-20 Alexander M. Turek  <me@derrabus.de>
+    * Documentation.html: Added a note about Connector/PHP to FAQ 1.17.
+
 2006-03-19 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #1445853, overhead should use the
       same display units

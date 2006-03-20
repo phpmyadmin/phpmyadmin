@@ -2294,7 +2294,13 @@ ALTER TABLE `pma_column_comments`
     extension of your choice to a MySQL client library of at least the same
     minor version since the one that is bundled with some php distributions is
     rather old and might cause problems <a href="#faq1_17a">
-       (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.<br />
+       (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.
+    If your webserver is running on a windows system, you might want to try
+    MySQL's
+    <a href="http://dev.mysql.com/downloads/connector/php/">Connector/PHP</a>
+    instead of the MySQL / MySQLi extensions that are bundled with the official
+    php Win32 builds.
+    <br />
     MySQL&nbsp;5.1 is not yet supported.</p>
 
 <h5 id="faq1_17a">
