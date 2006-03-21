@@ -366,13 +366,17 @@ class PMA_Table {
                     . PMA_backquote($table));
             // since counting all rows of a view could be too long
             } else {
-                $result = PMA_DBI_query(
+                // try_query because it can fail ( a VIEW was based on
+                // a table that no longer exists)
+                $result = PMA_DBI_try_query(
                     'SELECT 1 FROM ' . PMA_backquote($db) . '.'
                         . PMA_backquote($table) . ' LIMIT '
                         . $GLOBALS['cfg']['MaxExactCount'],
                     null, PMA_DBI_QUERY_STORE);
-                $row_count = PMA_DBI_num_rows($result);
-                PMA_DBI_free_result($result);
+                if (!PMA_DBI_getError()) {
+                    $row_count = PMA_DBI_num_rows($result);
+                    PMA_DBI_free_result($result);
+                }
             }
         }
 
