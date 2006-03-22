@@ -21,6 +21,7 @@ $timespanfmt = '%s días, %s horas, %s minutos y %s segundos';
 $strAbortedClients = 'Abortado';
 $strAbsolutePathToDocSqlDir = 'Por favor, escriba la ruta absoluta del servidor que lleve al directorio docSQL';
 $strAccessDenied = 'Acceso denegado ';
+$strAccessDeniedCreateConfig = 'La razón más probable es que usted no creó un archivo de configuración. Utilice %1$ssetup script%2$s para crear una.';
 $strAccessDeniedExplanation = 'phpMyAdmin intentó conectarse con el servidor MySQL, y el servidor rechazó esta conexión. Deberá revisar el host, nombre de usuario y contraseña en config.inc.php y asegurarse que corresponden con la información provista por el administrador del servidor MySQL.';
 $strAction = 'Acción';
 $strAddAutoIncrement = 'Añadir el valor AUTO_INCREMENT';
@@ -91,6 +92,7 @@ $strBookmarkQuery = 'Consulta guardada en favoritos';
 $strBookmarkReplace = 'Reemplazar el favorito existente que tenga el mismo nombre';
 $strBookmarkThis = 'Guardar esta consulta en favoritos';
 $strBookmarkView = 'Solamente ver';
+$strBrowseDistinctValues = 'Navegar los valores distintivos';
 $strBrowse = 'Examinar';
 $strBrowseForeignValues = 'Mostrar los valores extranjeros';
 $strBufferPoolActivity = 'Actividad de la memoria (búfer) de tránsito común';
@@ -146,6 +148,7 @@ $strCompatibleHashing = 'Compatible con MySQL&nbsp;4.0';
 $strCompleteInserts = 'Completar los INSERTS';
 $strCompression = 'Compresión';
 $strCompressionWillBeDetected = 'La compresión escogida para el archivo a importar se detectará automáticamente de: %s';
+$strConfigDefaultFileError = 'No fue posible cargar la configuración predeterminada desde: "%1$s"';
 $strConfigFileError = '¡phpMyAdmin no puede leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intente acceder al fichero de configuración directamente mediante el siguiente enlace y compruebe el(los) mensaje(s) de error que reciba. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibe una página en blanco, todo está correcto.';
 $strConfigureTableCoord = 'Configure las coordenadas para la tabla %s';
 $strConnectionError = 'No se estableció la conexión: los parámetros están incorrectos.';
@@ -280,6 +283,10 @@ $strFieldsEscapedBy = 'Caracter de escape';
 $strFieldsTerminatedBy = 'Campos terminados en';
 $strFileAlreadyExists = 'El archivo %s ya existe en el servidor, cambie el nombre del archivo o revise la opción de sobreescritura.';
 $strFileCouldNotBeRead = 'No fue posible leer el archivo';
+$strFileNameTemplateDescriptionDatabase = 'nombre de la base de datos';
+$strFileNameTemplateDescription = 'Este valor es interpretado usando %1$sstrftime%2$s; así, usted puede usar cadenas de caracteres para formatear el tiempo. De manera adicional, sucederán las siguientes transformaciones: %3$s. El texto restante se mantendrá como está.';
+$strFileNameTemplateDescriptionServer = 'nombre del servidor';
+$strFileNameTemplateDescriptionTable = 'nombre de la tabla';
 $strFileNameTemplate = 'Plantilla del nombre del archivo';
 $strFileNameTemplateRemember = 'recordar la plantilla';
 $strFileToImport = 'Archivo a importar';
@@ -336,10 +343,11 @@ $strImportDocSQL = 'Importar archivos docSQL';
 $strImportFiles = 'Importar archivos';
 $strImportFormat = 'Formato del archivo importado';
 $strImport = 'Importar';
+$strImportSuccessfullyFinished = 'La importación se ejecutó exitosamente, se ejecutaron %d consultas.';
 $strIndexes = 'Índices';
 $strIndexHasBeenDropped = 'El índice %s ha sido eliminado';
-$strIndex = 'Índice';
 $strIndexName = 'Nombre del índice&nbsp;:';
+$strIndex = 'Índice';
 $strIndexType = 'Tipo de índice&nbsp;:';
 $strIndexWarningMultiple = 'Se creó más de una clave %s para la columna `%s`';
 $strIndexWarningPrimary = 'Las claves PRIMARIA e ÍNDICE no deben seleccionarse juntas para la columna `%s`';
@@ -366,10 +374,15 @@ $strInUse = 'en uso';
 $strInvalidAuthMethod = 'El método de autenticación no es válido en la configuración actual:';
 $strInvalidColumnCount = 'El número de columnas debe ser superior a cero.';
 $strInvalidColumn = '¡Las columnas especificadas (%s) no son válidas!';
+$strInvalidCSVFieldCount = 'El número de campos de los datos CSV en la línea %d no es válido.';
+$strInvalidCSVFormat = 'El formato de los datos CSV en la línea %d no es válido.';
+$strInvalidCSVParameter = 'Parámetro no válido para importar CSV: %s';
 $strInvalidFieldAddCount = 'Debe añadir al menos un campo.';
 $strInvalidFieldCount = 'La tabla debe tener al menos un campo.';
 $strInvalidLDIImport = '¡Este plugin no tiene soporte para importaciones comprimidas!';
 $strInvalidRowNumber = '%d no es un número de fila válido.';
+$strInvalidServerHostname = 'El nombre del host no es válido para el servidor %1$s. Por favor, revise su configuración.';
+$strInvalidServerIndex = 'No es válido el índice del servidor: "%s"';
 
 $strJapanese = 'Japonés';
 $strJoins = 'Vínculos (Joins)';
@@ -384,6 +397,8 @@ $strKill = 'Matar el proceso';
 $strKorean = 'Coreano';
 
 $strLandscape = 'Orientación horizontal';
+$strLanguageFileNotFound = 'No se halló el archivo de idioma "%1$s".';
+$strLanguageUnknown = 'Idioma desconocido: %1$s.';
 $strLatchedPages = 'Páginas vinculadas';
 $strLatexCaption = 'Subtitulado de la tabla';
 $strLatexContent = 'Contenido de la tabla __TABLE__';
@@ -450,6 +465,7 @@ $strMyISAMRepairThreads = 'Reparar los procesos';
 $strMyISAMSortBufferSizeDesc = 'La cantidad de memoria que se asigna para organizar los índices MyISAM durante la operación REPAIR TABLE o cuando se generan índices con CREATE INDEX o ALTER TABLE.';
 $strMyISAMSortBufferSize = 'Organizar el tamaño del búfer de memoria';
 $strMySQLCharset = 'Juegos de caracteres de MySQL';
+$strMysqlClientVersion = 'Versión del cliente';
 $strMySQLConnectionCollation = 'Cotejamiento de las conexiones MySQL';
 $strMySQLSaid = 'MySQL ha dicho: ';
 $strMySQLShowProcess = 'Mostrar procesos';
@@ -495,6 +511,7 @@ $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
 $strNumTables = 'Tablas';
 
 $strOK = 'OK';
+$strOpenNewWindow = 'Abrir nueva ventana de phpMyAdmin';
 $strOperations = 'Operaciones';
 $strOperator = 'Operador';
 $strOptimizeTable = 'Optimizar la tabla';
@@ -515,6 +532,9 @@ $strPasswordNotSame = '¡Las contraseñas no coinciden!';
 $strPdfDbSchema = 'Esquema de la base de datos "%s" - Página %s';
 $strPdfInvalidTblName = '¡La tabla "%s" no existe!';
 $strPdfNoTables = 'No existen tablas';
+$strPDFOptions = 'Opciones del PDF';
+$strPDF = 'PDF';
+$strPDFReportTitle = 'Título del reporte';
 $strPerHour = 'por hora';
 $strPerMinute = 'por minuto';
 $strPerSecond = 'por segundo';
@@ -576,6 +596,7 @@ $strPrivileges = 'Privilegios';
 $strPrivilegesReloaded = 'Los privilegios fueron cargados nuevamente de manera exitosa.';
 $strProcesses = 'Procesos';
 $strProcesslist = 'Lista de procesos';
+$strProtocolVersion = 'Versión del protocolo';
 $strPutColNames = 'Poner los nombres de campo en la primera hilera';
 
 $strQBEDel = 'Borrar';
@@ -803,6 +824,7 @@ $strSpanish = 'Español';
 $strSplitWordsWithSpace = 'Palabras separadas por un espacio (" ").';
 $strSQLExportCompatibility = 'Compatibilidad con exportación SQL';
 $strSQLExportType = 'Tipo de exportación';
+$strSQLImportOptions = 'Opciones SQL';
 $strSQLOptions = 'Opciones SQL';
 $strSQLParserBugMessage = 'Hay la posibilidad de que usted haya encontrado un error en el intérprete de SQL. Por favor examine cuidadosamente su consulta, y verifique que las comillas están siendo usadas adecuadamente y hacen juego. Otra posible causa del fallo es que usted este subiendo un archivo con datos binarios por fuera del área de texto delimitado. Intente su consulta en la interfaz de comandos de MySQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema. Si aún tiene problemas o el intérprete falla en tanto que en la interfaz de comandos funciona, por favor reduzca la salida de su consulta de SQL a la consulta que genera el problema, y envíe un reporte de error con la cadena de datos en la sección de CORTE indicada abajo:';
 $strSQLParserUserError = 'Parece haber un error en su consulta de SQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema.';
@@ -815,6 +837,7 @@ $strSQPBugUnknownPunctuation = 'Signo de puntuación desconocido';
 $strStatCheckTime = 'Última revisión';
 $strStatCreateTime = 'Creación';
 $strStatement = 'Enunciado';
+$strStatisticsOverrun = 'En un servidor que se encuentra ejecutando procesos, los contadores de bytes pueden excederse.  Por tanto, las estadísticas reportadas por el servidor MySQL pueden estar incorrectas.';
 $strStatUpdateTime = 'Última actualización';
 $strStatus = 'Estado actual';
 $strStorageEngine = 'Motor de almacenamiento';
@@ -851,6 +874,11 @@ $strTblPrivileges = 'Privilegios específicos para la tabla';
 $strTempData = 'Datos temporales';
 $strTextAreaLength = ' Debido a su longitud,<br /> este campo podría no ser editable ';
 $strThai = 'Tailandés';
+$strThemeDefaultNotFound = '¡No se halló la plantilla de interfaz (theme) predeterminada %s!';
+$strThemeNoPreviewAvailable = 'No existe una previsualización disponible.';
+$strThemeNotFound = '¡No se halló la plantilla de interfaz (theme) %s!';
+$strThemeNoValidImgPath = '¡No se halló la ruta de imágenes para la plantilla de interfaz (theme) %s!';
+$strThemePathNotFound = '¡No se halló la ruta de la plantilla de interfaz (theme) para la plantilla %s!';
 $strTheme = 'Tema / Estilo';
 $strThisHost = 'Este Host';
 $strThisNotDirectory = 'Esto no es un directorio';
@@ -868,7 +896,6 @@ $strTraditionalSpanish = 'Español tradicional';
 $strTraffic = 'Tráfico';
 $strTransactionCoordinator = 'Coordinador de transacción';
 $strTransformation_application_octetstream__download = 'Mostrar un enlace para descargar los datos binarios de un campo. La primera opción es el nombre del archivo binario.  La segunda opción es un nombre de campo factible de una fila de la tabla que contiene el nombre del campo. Si usted aporta una segunda opción, necesariamente deberá consignar la primera opción a una cadena de caracteres vacía';
-$strTransformation_application_octetstream__hex = 'Muestra los datos en representación hexadecimal. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_image_jpeg__inline = 'Muestra un thumbnail que puede abrirse mediante un clic; opciones: width, height en píxeles (mantiene la proporción original)';
 $strTransformation_image_jpeg__link = 'Muestra un enlace a esta imagen (i.e., blob descarga directa).';
 $strTransformation_image_png__inline = 'Ver imagen/jpeg: inline';
@@ -898,6 +925,7 @@ $strUpgrade = 'Usted debería actualizar su %s a la versión %s o más reciente.
 $strUploadLimit = 'Usted probablemente intentó cargar un archivo demasiado grande.  Por favor, refiérase a %sdocumentation%s para hallar modos de superar esta limitante.';
 $strUsage = 'Uso';
 $strUseBackquotes = 'Usar "backquotes" con tablas y nombres de campo';
+$strUsedPhpExtensions = 'Extensiones PHP utilizadas';
 $strUseHostTable = 'Usar la tabla Anfitrión (Host)';
 $strUserAlreadyExists = '¡El usuario %s ya existe!';
 $strUserEmpty = '¡El nombre de usuario está vacío!';
@@ -921,6 +949,7 @@ $strViewDumpDatabases = 'Ver el volcado (schema) de la base de datos';
 $strViewDumpDB = 'Ver el volcado esquema de la base de datos';
 $strViewDump = 'Mostrar el volcado esquema de la tabla';
 $strViewHasBeenDropped = 'Se descartó el modo de visualización %s';
+$strViewMaxExactCount = 'Esta visualización tiene más de %s filas. Por favor, refiérase a la %sdocumentation%s.';
 $strView = 'Visualizar';
 
 $strWebServerUploadDirectory = 'directorio en el servidor web para subir los archivos';
@@ -943,51 +972,13 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 
 // To translate:
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
 
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
-
-$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
-
-$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
-$strFileNameTemplateDescriptionServer = 'server name';  //to translate
-$strFileNameTemplateDescriptionTable = 'table name';  //to translate
-$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
-
-$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
-$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
-$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
-$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
-$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
-
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
-
-$strMysqlClientVersion = 'MySQL client version';  //to translate
-
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
-
-$strPDFOptions = 'PDF options';  //to translate
-$strPDF = 'PDF';  //to translate
-$strPDFReportTitle = 'Report title';  //to translate
-$strProtocolVersion = 'Protocol version';  //to translate
+$strQueryResultsOperations = 'Query results operations';  //to translate
 
 $strReloadPrivileges = 'Reload privileges';  //to translate
 
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 
-$strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
-$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
-$strThemeNotFound = 'Theme %s not found!';  //to translate
-$strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
-$strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
+$strTransformation_application_octetstream__hex = 'Muestra los datos en representación hexadecimal. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
-
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
-
-$strQueryResultsOperations = 'Query results operations';  //to translate
 ?>

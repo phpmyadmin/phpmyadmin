@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-22 Alexander M. Turek  <me@derrabus.de>
+    * lang/spanish-*.inc.php: Updates, thanks to Daniel Hinostroza.
+
 2006-03-21 Alexander M. Turek  <me@derrabus.de>
     * libraries/german-*.inc.php:
       - Reviewed recently translated strings;
