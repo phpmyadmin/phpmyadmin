@@ -7,6 +7,7 @@ $Source$
 
 2006-03-22 Alexander M. Turek  <me@derrabus.de>
     * lang/spanish-*.inc.php: Updates, thanks to Daniel Hinostroza.
+    * lang/galician-*.inc.php: Updates, thanks to Xosé Calvo.
 
 2006-03-21 Alexander M. Turek  <me@derrabus.de>
     * libraries/german-*.inc.php:
