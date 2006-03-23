@@ -1311,7 +1311,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     }
                     unset($blob_size);
 
-                    $vertical_display['data'][$row_no][$i]      = '    <td align="center"' . $column_style . $bgcolor . '>' . $blobtext . '</td>';
+                    $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $column_style . $bgcolor . '>' . $blobtext . '</td>';
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $column_style . $bgcolor . '><i>NULL</i></td>' . "\n";
