@@ -72,7 +72,7 @@ if (isset($plugin_list)) {
                 $p4 = 2147483647;
             }
             $p5 = strpos($buffer, '--', $i);
-            if ($p5 === FALSE) {
+            if ($p5 === FALSE || $p5 >= ($len - 2) || $buffer[$p5 + 2] > ' ') {
                 $p5 = 2147483647;
             }
             $p6 = strpos($buffer, '/*', $i);

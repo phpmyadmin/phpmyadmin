@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-23 Michal Čihař  <michal@cihar.com>
+    * libraries/import/sql.php: Fix handling of -- (bug #1453430).
+
 2006-03-23 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates, sync'ed some technical terms with the
       German MySQL manual.
