@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-23 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Updates, sync'ed some technical terms with the
+      German MySQL manual.
+
 2006-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1444417 blobs are centered
     * libraries/common.lib.php: patch #1455286, catch 'permission denied'
