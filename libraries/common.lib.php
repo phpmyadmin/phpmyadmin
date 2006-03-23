@@ -3137,13 +3137,16 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     // here, a PMA_DBI_query() could fail silently
                     // if SHOW DATABASES is disabled
-                    $rs          = PMA_DBI_try_query($local_query, $controllink);
+                    $rs = PMA_DBI_try_query($local_query, $controllink);
 
-                    if ($i == 0
-                      && (substr(PMA_DBI_getError($controllink), 1, 4) == 1045)) {
-                        // "SHOW DATABASES" statement is disabled
-                        $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
-                        $is_show_dbs   = false;
+                    if ($i == 0 && ! $rs) {
+                        $error_code = substr(PMA_DBI_getError($controllink), 1, 4);
+                        if ($error_code == 1227 || $error_code == 1045) {
+                            // "SHOW DATABASES" statement is disabled or not allowed to user
+                            $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
+                            $is_show_dbs   = false;
+                        }
+                        unset($error_code);
                     }
                     // Debug
                     // elseif (PMA_DBI_getError($controllink)) {
