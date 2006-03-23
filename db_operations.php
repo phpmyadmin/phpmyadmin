@@ -254,7 +254,7 @@ if (!$is_information_schema) {
             <?php echo $strCreateDatabaseBeforeCopying; ?></label><br />
         <input type="checkbox" name="drop_if_exists" value="true"
             id="checkbox_drop" style="vertical-align: middle" />
-        <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label><br />
+        <label for="checkbox_drop"><?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
         <input type="checkbox" name="sql_auto_increment" value="1"
             id="checkbox_auto_increment" style="vertical-align: middle" />
         <label for="checkbox_auto_increment">

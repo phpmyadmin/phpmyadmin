@@ -356,7 +356,7 @@ foreach ($dblist as $each_db) {
     <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label><br />
 
     <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
-    <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label><br />
+    <label for="checkbox_drop"><?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
     <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" />
     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
     <?php

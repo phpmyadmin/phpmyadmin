@@ -311,7 +311,7 @@ function show_checked_option() {
             id="checkbox_drop_database"
             <?php PMA_exportCheckboxCheck('sql_drop_database'); ?> />
         <label for="checkbox_drop_database">
-            <?php echo $strAddDropDatabase; ?></label>
+            <?php echo sprintf($strAddClause, 'DROP DATABASE'); ?></label>
     </fieldset>
 <?php } if ( ! $hide_structure ) { /* SQL structure */ ?>
     <fieldset>
@@ -330,13 +330,13 @@ function show_checked_option() {
         <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop"
             <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> />
         <label for="checkbox_dump_drop">
-            <?php echo $strStrucDrop; ?></label><br />
+            <?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
 
         <input type="checkbox" name="if_not_exists" value="1"
             id="checkbox_dump_if_not_exists"
             <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> />
         <label for="checkbox_dump_if_not_exists">
-            <?php echo $strAddIfNotExists; ?></label><br />
+            <?php echo sprintf($strAddClause, 'IF NOT EXISTS'); ?></label><br />
 
         <input type="checkbox" name="sql_auto_increment" value="1"
             id="checkbox_auto_increment"

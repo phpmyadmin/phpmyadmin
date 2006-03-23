@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_export.lib.php, lang/*: start work for bug #1401864,
+      generation of DROP VIEW statements where appropriate
+
 2006-03-23 Michal Čihař  <michal@cihar.com>
     * libraries/import/sql.php: Fix handling of -- (bug #1453430).
 
