@@ -983,4 +983,5 @@ $strZip = 'comprimido no formato "zip"';
 
 $strTransformation_application_octetstream__hex = 'Mostra unha representación hexadecimal dos datos. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 
+$strAddClause = 'Add %s';  //to translate
 ?>

@@ -982,4 +982,5 @@ $strShowStatusHandler_read_rndDescr = 'The number of requests to read a row base
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

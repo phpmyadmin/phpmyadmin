@@ -998,4 +998,5 @@ $strWestEuropean = 'West European';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window, or your browser\'s security settings are configured to block cross-window updates.';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

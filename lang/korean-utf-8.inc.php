@@ -1002,4 +1002,5 @@ $strWritingRelationNotPossible = 'Writing of relation not possible';  //to trans
 $strXML = 'XML';//to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

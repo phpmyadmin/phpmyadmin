@@ -991,4 +991,5 @@ $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

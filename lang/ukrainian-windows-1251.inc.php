@@ -1000,4 +1000,5 @@ $strWindowNotFound = 'The target browser window could not be updated. Maybe you 
 $strWriteRequests = 'Write requests';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

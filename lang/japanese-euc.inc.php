@@ -988,4 +988,5 @@ $strShowStatusTable_locks_waitedDescr = 'The number of times that a table lock c
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
+$strAddClause = 'Add %s';  //to translate
 ?>

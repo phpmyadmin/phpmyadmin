@@ -987,4 +987,5 @@ $strShowStatusInnodb_rows_insertedDescr = 'The number of rows inserted in InnoDB
 
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 
+$strAddClause = 'Add %s';  //to translate
 ?>

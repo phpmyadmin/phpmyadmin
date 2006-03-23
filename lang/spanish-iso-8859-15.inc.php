@@ -980,4 +980,5 @@ $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 
 $strTransformation_application_octetstream__hex = 'Muestra los datos en representación hexadecimal. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 
+$strAddClause = 'Add %s';  //to translate
 ?>

@@ -983,4 +983,5 @@ $strTimeoutNothingParsed = 'However on last run no data has been parsed, this us
 $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please resubmit same file and import will resume.';  //to translate
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 
+$strAddClause = 'Add %s';  //to translate
 ?>
