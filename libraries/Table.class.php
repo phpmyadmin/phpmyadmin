@@ -540,10 +540,10 @@ class PMA_Table {
             $no_constraints_comments = true;
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
-
             $parsed_sql =  PMA_SQP_parse($sql_structure);
 
             /* nijel: Find table name in query and replace it */
+	    // FIXME: does not work for a VIEW
             $i = 0;
             while ($parsed_sql[$i]['type'] != 'quote_backtick') {
                 $i++;
@@ -558,7 +558,13 @@ class PMA_Table {
             $drop_query = '';
             if (isset($GLOBALS['drop_if_exists'])
               && $GLOBALS['drop_if_exists'] == 'true') {
-                $drop_query = 'DROP TABLE IF EXISTS '
+                //TODO: put this logic into a function?
+                if (PMA_Table::_isView($target_db,$target_table)) {
+                    $drop_query = 'DROP VIEW';
+                } else {
+                    $drop_query = 'DROP TABLE';
+                }
+                $drop_query .= ' IF EXISTS '
                     . PMA_backquote($target_db) . '.'
                     . PMA_backquote($target_table);
                 PMA_DBI_query($drop_query);
@@ -632,8 +638,13 @@ class PMA_Table {
             // moving table from replicated one to not replicated one
             PMA_DBI_select_db($source_db);
 
-            $sql_drop_table = 'DROP TABLE ' . $source;
-            PMA_DBI_query($sql_drop_table);
+            if (PMA_Table::_isView($source_db,$source)) {
+                $sql_drop_query = 'DROP VIEW';
+            } else {
+                $sql_drop_query = 'DROP TABLE';
+            }
+            $sql_drop_query .= ' ' . $source;
+            PMA_DBI_query($sql_drop_query);
 
             // garvin: Move old entries from PMA-DBs to new table
             if ($GLOBALS['cfgRelation']['commwork']) {
@@ -648,13 +659,6 @@ class PMA_Table {
 
             // garvin: updating bookmarks is not possible since only a single table is moved,
             // and not the whole DB.
-            // if ($GLOBALS['cfgRelation']['bookmarkwork']) {
-            //     $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['bookmark'])
-            //                   . ' SET     dbase = \'' . PMA_sqlAddslashes($target_db) . '\''
-            //                   . ' WHERE dbase  = \'' . PMA_sqlAddslashes($source_db) . '\'';
-            //     $rmv_rs    = PMA_query_as_cu($remove_query);
-            //     unset($rmv_query);
-            // }
 
             if ($GLOBALS['cfgRelation']['displaywork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info'])
@@ -716,7 +720,7 @@ class PMA_Table {
                 */
             }
 
-            $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_table . ';';
+            $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_query . ';';
         } else {
             // garvin: Create new entries as duplicates from old PMA DBs
             if ($what != 'dataonly' && !isset($maintain_relations)) {

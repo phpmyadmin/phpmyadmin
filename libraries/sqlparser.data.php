@@ -337,6 +337,7 @@ $PMA_SQPdata_reserved_word = array (
     'DAY_HOUR',
     'DAY_MINUTE',
     'DAY_SECOND',
+    'DEFINER',
     'DELAYED',
     'DELAY_KEY_WRITE',
     'DELETE',
@@ -563,7 +564,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 272;
+$PMA_SQPdata_reserved_word_cnt = 273;
 
 // words forbidden to be used as column or table name,
 // as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html

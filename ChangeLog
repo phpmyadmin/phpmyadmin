@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2006-03-25 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/display_export.lib.php libraries/export/sql.php:
+    * db_operations.php, libraries/Table.class.php, 
+      libraries/display_export.lib.php libraries/export/sql.php:
       bug #1401864, DROP VIEW instead of DROP TABLE
 
 2006-03-23 Marc Delisle  <lem9@users.sourceforge.net>

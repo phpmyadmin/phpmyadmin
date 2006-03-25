@@ -234,6 +234,11 @@ if (!$is_information_schema) {
             .' alt="" width="16" height="16" />';
     }
     echo $strDBCopy . ':';
+    if (PMA_MYSQL_INT_VERSION >= 50000) {
+        $drop_clause = 'DROP TABLE / DROP VIEW';
+    } else {
+        $drop_clause = 'DROP TABLE';
+    }
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" /><br />
@@ -254,7 +259,7 @@ if (!$is_information_schema) {
             <?php echo $strCreateDatabaseBeforeCopying; ?></label><br />
         <input type="checkbox" name="drop_if_exists" value="true"
             id="checkbox_drop" style="vertical-align: middle" />
-        <label for="checkbox_drop"><?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
+        <label for="checkbox_drop"><?php echo sprintf($strAddClause, $drop_clause); ?></label><br />
         <input type="checkbox" name="sql_auto_increment" value="1"
             id="checkbox_auto_increment" style="vertical-align: middle" />
         <label for="checkbox_auto_increment">
@@ -264,6 +269,8 @@ if (!$is_information_schema) {
         <label for="checkbox_constraints">
             <?php echo $strAddConstraints; ?></label><br />
     <?php
+    unset($drop_clause);
+
     if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new'])
       && $_COOKIE['pma_switch_to_new'] == 'true') {
         $pma_switch_to_new = 'true';
