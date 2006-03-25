@@ -232,7 +232,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $schema_create .= $new_crlf;
 
     if (!empty($drop)) {
-        $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $use_backquotes) . ';' . $crlf;
+        if (PMA_Table::_isView($db,$table)) {
+            $drop_clause = 'DROP VIEW';
+        } else {
+            $drop_clause = 'DROP TABLE';
+        }
+        $schema_create .= $drop_clause . ' IF EXISTS ' . PMA_backquote($table, $use_backquotes) . ';' . $crlf;
+        unset($drop_clause);
     }
 
     // Steve Alberty's patch for complete table dump,

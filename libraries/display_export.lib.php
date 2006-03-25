@@ -330,7 +330,18 @@ function show_checked_option() {
         <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop"
             <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> />
         <label for="checkbox_dump_drop">
-            <?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
+            <?php if ($export_type == 'table') {
+                      if (PMA_Table::_isView($db,$table)) {
+                          $drop_clause = 'DROP VIEW';
+                      } else {
+                          $drop_clause = 'DROP TABLE';
+                      }
+                  } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
+                      $drop_clause = 'DROP TABLE / DROP VIEW';    
+                  } else {
+                      $drop_clause = 'DROP TABLE';    
+                  }
+                  echo sprintf($strAddClause, $drop_clause); ?></label><br />
 
         <input type="checkbox" name="if_not_exists" value="1"
             id="checkbox_dump_if_not_exists"
