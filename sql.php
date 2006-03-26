@@ -12,6 +12,13 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 /**
+ * Could be coming from a subform ("T" column expander) 
+ */
+if (isset($_REQUEST['dontlimitchars'])) {
+    $dontlimitchars = $_REQUEST['dontlimitchars'];
+}
+
+/**
  * Defines the url to return to in case of error in a sql statement
  */
 // Security checkings

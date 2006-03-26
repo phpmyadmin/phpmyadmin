@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: bug #1448890 Column expander doesn't work
+
 2006-03-25 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php, libraries/Table.class.php, 
       libraries/display_export.lib.php libraries/export/sql.php:
