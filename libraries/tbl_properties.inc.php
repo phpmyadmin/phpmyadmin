@@ -226,7 +226,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     $ci_offset = -1;
 
     if ($is_backup) {
-        $backup_field = (isset($true_selected) && $true_selected[$i] ? $true_selected[$i] : (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : ''));
+        $backup_field = (isset($true_selected) && isset($true_selected[$i]) && $true_selected[$i] ? $true_selected[$i] : (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : ''));
         $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . $backup_field . '" />' . "\n";
     } else {
         $content_cells[$i][$ci] = '';
@@ -347,10 +347,14 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if (isset($row['Field']) && isset($analyzed_sql[0]) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == TRUE) {
+    if (isset($row['Field']) 
+    && isset($analyzed_sql[0]) 
+    && isset($analyzed_sql[0]['create_table_fields'])
+    && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
+    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' 
+    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true) {
         $row['Null'] = '';
     }
-
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
