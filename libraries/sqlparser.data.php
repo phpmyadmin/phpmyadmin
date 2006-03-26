@@ -327,6 +327,7 @@ $PMA_SQPdata_reserved_word = array (
     'COMPRESSED',
     'CONCURRENT',
     'CONSTRAINT',
+    'CONVERT',
     'CREATE',
     'CROSS',
     'CURRENT_TIMESTAMP',
@@ -564,7 +565,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 273;
+$PMA_SQPdata_reserved_word_cnt = 274;
 
 // words forbidden to be used as column or table name,
 // as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html
