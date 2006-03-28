@@ -541,16 +541,31 @@ class PMA_Table {
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
             $parsed_sql =  PMA_SQP_parse($sql_structure);
+            $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+            $i = 0;
+            if (empty($analyzed_sql[0]['create_table_fields'])) {
+            // lem9: this is not a CREATE TABLE, so find the first VIEW
+                $target_for_view = PMA_backquote($target_db);
+                while (true) {
+	            if ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'VIEW') {
+                        break;
+                    }
+                    $i++;
+                }
+            }
+            unset($analyzed_sql);
 
             /* nijel: Find table name in query and replace it */
-	    // FIXME: does not work for a VIEW
-            $i = 0;
             while ($parsed_sql[$i]['type'] != 'quote_backtick') {
                 $i++;
             }
 
             /* no need to PMA_backquote() */
-            $parsed_sql[$i]['data'] = $target;
+	    if (isset($target_for_view)) {
+                $parsed_sql[$i]['data'] = $target_for_view;
+            } else {
+                $parsed_sql[$i]['data'] = $target;
+            }
 
             /* Generate query back */
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
@@ -558,7 +573,6 @@ class PMA_Table {
             $drop_query = '';
             if (isset($GLOBALS['drop_if_exists'])
               && $GLOBALS['drop_if_exists'] == 'true') {
-                //TODO: put this logic into a function?
                 if (PMA_Table::_isView($target_db,$target_table)) {
                     $drop_query = 'DROP VIEW';
                 } else {
@@ -619,9 +633,8 @@ class PMA_Table {
             $GLOBALS['sql_query'] = '';
         }
 
-        // Copy the data
-        //if ($result != false && ($what == 'data' || $what == 'dataonly')) {
-        if ($what == 'data' || $what == 'dataonly') {
+        // Copy the data unless this is a VIEW
+        if (($what == 'data' || $what == 'dataonly') && ! PMA_Table::_isView($target_db,$target_table)) {
             $sql_insert_data =
                 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);

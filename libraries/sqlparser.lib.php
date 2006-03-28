@@ -2210,7 +2210,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 case 'alpha_variable':
                     // other workaround for a problem similar to the one
                     // explained below for quote_single
-                    if (!$in_priv_list) {
+                    if (!$in_priv_list && $typearr[3] != 'quote_backtick') {
                         $after      = ' ';
                     }
                     break;
@@ -2229,10 +2229,10 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     }
                     break;
                 case 'quote_backtick':
-                    if ($typearr[3] != 'punct_qualifier') {
+                    if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable') {
                         $after     .= ' ';
                     }
-                    if ($typearr[1] != 'punct_qualifier') {
+                    if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable') {
                         $before    .= ' ';
                     }
                     break;
