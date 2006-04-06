@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-06 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.0.3 released from branch MAINT_2_8_0
+
 2006-03-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table_class.php, /sqlparser.lib.php: bug #1458245, 
       copy a db containing a VIEW
