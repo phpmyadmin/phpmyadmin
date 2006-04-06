@@ -1,3 +1,9 @@
+<?php
+    // unplanned execution path
+    if (!defined('PMA_MINIMUM_COMMON')) {
+        exit();
+    }
+?> 
 /******************************************************************************/
 /* general tags */
 body {
