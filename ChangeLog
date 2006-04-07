@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-07 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Parse correctly new version numbers.
+
 2006-04-06 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.0.3 released from branch MAINT_2_8_0
     * themes/*/css/theme_left.css.php, /theme_right.css.php:

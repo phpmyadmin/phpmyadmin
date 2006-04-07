@@ -226,11 +226,11 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
  * @return  mixed   FALSE on failure, integer on success
  */
 function version_to_int($version) {
-    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)(-(pl|rc|dev|beta|alpha)(\d+)?)?$/', $version, $matches)) {
+    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)((\.|-(pl|rc|dev|beta|alpha))(\d+)?)?$/', $version, $matches)) {
         return FALSE;
     }
-    if (!empty($matches[5])) {
-        switch ($matches[5]) {
+    if (!empty($matches[6])) {
+        switch ($matches[6]) {
             case 'pl':
                 $added = 60;
                 break;
@@ -254,8 +254,8 @@ function version_to_int($version) {
     } else {
         $added = 50; // for final
     }
-    if (!empty($matches[6])) {
-        $added = $added + $matches[6];
+    if (!empty($matches[7])) {
+        $added = $added + $matches[7];
     }
     return $matches[1] * 1000000 + $matches[2] * 10000 + $matches[3] * 100 + $added;
 }
