@@ -982,4 +982,5 @@ $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 
 $strAddClause = 'Add %s';  //to translate
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 ?>

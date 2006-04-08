@@ -978,4 +978,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strAddClause = 'Add %s';  //to translate
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 ?>

@@ -977,4 +977,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strAddClause = 'Add %s';  //to translate
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 ?>

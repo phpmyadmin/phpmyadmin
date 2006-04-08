@@ -925,6 +925,7 @@ $strUpdateQuery = 'Update Query';
 $strUpdComTab = 'Please see the documentation on how to update your column_comments table';
 $strUpgrade = 'You should upgrade to %s %s or later.';
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
 $strUsedPhpExtensions = 'Used PHP extensions';

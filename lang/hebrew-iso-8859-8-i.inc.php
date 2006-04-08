@@ -996,4 +996,5 @@ $strWindowNotFound = 'The target browser window could not be updated. Maybe you 
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
 $strAddClause = 'Add %s';  //to translate
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 ?>

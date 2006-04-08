@@ -36,6 +36,9 @@ echo PMA_pluginGetJavascript($import_list);
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
 
+        <?php
+        if ($GLOBALS['is_upload']) {
+        ?>
         <div class="formelementrow">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
@@ -43,6 +46,10 @@ echo PMA_pluginGetJavascript($import_list);
         echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
         // some browsers should respect this :)
         echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+        } else {
+            echo '<div class="warning">' . "\n";
+            echo $strUploadsNotAllowed . "\n";
+        }
         ?>
         </div>
 <?php
