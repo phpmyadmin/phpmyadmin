@@ -234,12 +234,16 @@ if (empty($valuelist) && empty($query)) {
 $sql_query = implode(';', $query) . ';';
 $total_affected_rows = 0;
 $last_message = '';
+$warning_message = '';
 
 foreach ($query AS $query_index => $single_query) {
     if ($cfg['IgnoreMultiSubmitErrors']) {
         $result = PMA_DBI_try_query($single_query);
     } else {
         $result = PMA_DBI_query($single_query);
+    }
+    if (isset($GLOBALS['warning'])) {
+        $warning_message .= $GLOBALS['warning'] . '[br]';
     }
     if (!$result) {
         $message .= PMA_DBI_getError();
@@ -265,6 +269,12 @@ if ($total_affected_rows != 0) {
 
 $message .= $last_message;
 
+if (!empty($warning_message)) {
+    // TODO: use a <div class="warning"> in PMA_showMessage()
+    // for this part of the message
+    $message .= '[br]' . $warning_message;
+}
+
 if ($is_gotofile) {
     if ($goto == 'db_details.php' && isset($table)) {
         unset($table);
@@ -274,8 +284,6 @@ if ($is_gotofile) {
     require_once('./libraries/header.inc.php');
     require('./' . PMA_securePath($goto));
 } else {
-    // I don't understand this one:
-    //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
 
     // if we have seen binary,
     // we do not append the query to the Location so it won't be displayed

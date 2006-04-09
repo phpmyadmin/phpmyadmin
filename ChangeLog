@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_replace.php, libraries/dbi/mysqli.dbi.lib.php: bug #1255923,
+      detect and report silent truncation (mysqli only)
+
 2006-04-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_import.lib.php, lang/*: bug #1449793,
       respect file_uploads = Off
