@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-10 Michal Čihař  <michal@cihar.com>
+    * libraries/Config.class.php: Check also default config mtime (bug
+      #1467620).
+
 2006-04-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace.php, libraries/dbi/mysqli.dbi.lib.php: bug #1255923,
       detect and report silent truncation (mysqli only)

@@ -27,6 +27,7 @@ class PMA_Config
      * @var int     source modification time
      */
     var $source_mtime = 0;
+    var $default_source_mtime = 0;
 
     /**
      * @var boolean
@@ -286,6 +287,7 @@ class PMA_Config
     function __wakeup()
     {
         if (file_exists($this->getSource()) && $this->source_mtime !== filemtime($this->getSource())
+          || $this->default_source_mtime !== filemtime($this->default_source)
           || $this->error_config_file || $this->error_config_default_file) {
             $this->settings = array();
             $this->load($this->getSource());
@@ -317,6 +319,8 @@ class PMA_Config
             return false;
         }
         include $this->default_source;
+
+        $this->default_source_mtime = filemtime($this->default_source);
 
         $this->default_server = $cfg['Servers'][1];
         unset($cfg['Servers']);
