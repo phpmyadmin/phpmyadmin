@@ -129,13 +129,14 @@ if ($plugin_param == 'table') {
             $ch = $buffer[$i];
             while ($i < $len) {
                 // Deadlock protection
-                if ($lasti == $i) {
+                if ($lasti == $i && $lastlen == $len) {
                     $message = sprintf($strInvalidCSVFormat, $line);
                     $show_error_header = TRUE;
                     $error = TRUE;
                     break;
                 }
                 $lasti = $i;
+                $lastlen = $len;
 
                 // This can happen with auto EOL and \r at the end of buffer
                 if (!$csv_finish) {
@@ -151,6 +152,7 @@ if ($plugin_param == 'table') {
                     }
 
                     // Grab one field 
+                    $fallbacki = $i;
                     if ($ch == $csv_enclosed) {
                         $need_end = TRUE;
                         if ($i == $len - 1) {
@@ -183,12 +185,15 @@ if ($plugin_param == 'table') {
                         $ch = $buffer[$i];
                     }
                     if ($fail) {
+                        $i = $fallbacki;
+                        $ch = $buffer[$i];
                         break;
                     }
-                    $values[] = $value;
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $csv_enclosed) {
                         if ($i == $len - 1) {
+                            $i = $fallbacki;
+                            $ch = $buffer[$i];
                             break;
                         }
                         $i++;
@@ -201,11 +206,15 @@ if ($plugin_param == 'table') {
                     // Go to next char
                     if ($ch == $csv_terminated) {
                         if ($i == $len - 1) {
+                            $i = $fallbacki;
+                            $ch = $buffer[$i];
                             break;
                         }
                         $i++;
                         $ch = $buffer[$i];
                     }
+                    // If everything went okay, store value
+                    $values[] = $value;
                 }
 
                 // End of line

@@ -10,6 +10,7 @@ $Source$
       #1467620).
     * libraries/Config.class.php: Better check for server system (patch
       #1462738).
+    * libraries/import/csv.php: Fix parsing of large CSV files (bug #1456331).
 
 2006-04-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace.php, libraries/dbi/mysqli.dbi.lib.php: bug #1255923,
