@@ -247,10 +247,17 @@ class PMA_Config
      */
     function checkWebServerOs()
     {
-        if (defined('PHP_OS') && stristr(PHP_OS, 'win')) {
-            $this->set('PMA_IS_WINDOWS', 1);
-        } else {
-            $this->set('PMA_IS_WINDOWS', 0);
+        // Default to Unix or Equiv
+        $this->set('PMA_IS_WINDOWS', 0);
+        // If PHP_OS is defined then continue
+        if (defined('PHP_OS')) {          
+            if (stristr(PHP_OS, 'win') ) {
+                // Is it some version of Windows
+                $this->set('PMA_IS_WINDOWS', 1);
+            } elseif (stristr(PHP_OS, 'OS/2')) {
+                // Is it OS/2 (No file permissions like Windows)
+                $this->set('PMA_IS_WINDOWS', 1);
+            }
         }
     }
 
