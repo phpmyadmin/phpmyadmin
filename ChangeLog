@@ -21,6 +21,8 @@ $Source$
 
 2006-04-11 Michal Čihař  <michal@cihar.com>
     * lang/galician: Fix missing ; (bug #1468439).
+    * libraries/Config.class.php: Fix parsing of paths containing : (patch
+      #1461766).
 
 2006-04-10 Michal Čihař  <michal@cihar.com>
     * libraries/Config.class.php: Check also default config mtime (bug

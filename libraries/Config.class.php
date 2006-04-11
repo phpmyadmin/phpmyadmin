@@ -512,9 +512,12 @@ class PMA_Config
         if (strlen($pma_absolute_uri) < 1) {
             $url = array();
 
-            // At first we try to parse REQUEST_URI, it might contain full URI
+            // At first we try to parse REQUEST_URI, it might contain full URL
             if (PMA_getenv('REQUEST_URI')) {
-                $url = parse_url(PMA_getenv('REQUEST_URI'));
+                $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
+                if ($url === false) {
+                    $url = array( 'path' => $_SERVER['REQUEST_URI'] );
+                }
             }
 
             // If we don't have scheme, we didn't have full URL so we need to
@@ -702,9 +705,12 @@ class PMA_Config
 
         $url = array();
 
-        // At first we try to parse REQUEST_URI, it might contain full URI
+        // At first we try to parse REQUEST_URI, it might contain full URL,
         if (PMA_getenv('REQUEST_URI')) {
-            $url = parse_url(PMA_getenv('REQUEST_URI'));
+            $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
+            if($url === false) {
+                $url = array();
+            }
         }
 
         // If we don't have scheme, we didn't have full URL so we need to
@@ -769,9 +775,12 @@ class PMA_Config
             }
         }
 
-        $url = parse_url($url);
+        $parsed_url = @parse_url($_SERVER['REQUEST_URI']); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
+        if ($parsed_url === false) {
+            $parsed_url = array('path' => $url);
+        }
 
-        $cookie_path   = substr($url['path'], 0, strrpos($url['path'], '/'))  . '/';
+        $cookie_path   = substr($parsed_url['path'], 0, strrpos($parsed_url['path'], '/'))  . '/';
 
         return $cookie_path;
     }
