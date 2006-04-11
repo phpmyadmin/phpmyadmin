@@ -52,7 +52,7 @@ if (defined('E_STRICT')) {
 }
 
 /**
- * Avoid object cloning errors 
+ * Avoid object cloning errors
  */
 
 @ini_set('zend.ze1_compatibility_mode',false);
@@ -543,6 +543,30 @@ function PMA_checkPageValidity(&$page, $whitelist)
         }
     }
     return false;
+}
+
+/**
+ * trys to find the value for the given environment vriable name
+ *
+ * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
+ * in this order
+ *
+ * @param   string  $var_name   variable name
+ * @return  string  value of $var or empty string
+ */
+function PMA_getenv($var_name) {
+    if (isset($_SERVER[$var_name])) {
+        return $_SERVER[$var_name];
+    } elseif (isset($_ENV[$var_name])) {
+        return $_ENV[$var_name];
+    } elseif (getenv($var_name)) {
+        return getenv($var_name);
+    } elseif (function_exists('apache_getenv')
+     && apache_getenv($var_name, true)) {
+        return apache_getenv($var_name, true);
+    }
+
+    return '';
 }
 
 /**
@@ -2847,7 +2871,7 @@ require_once './libraries/select_lang.lib.php';
 if ($_SESSION['PMA_Config']->error_config_file) {
     $GLOBALS['PMA_errors'][] = $strConfigFileError
         . '<br /><br />'
-        . ($_SESSION['PMA_Config']->getSource() == './config.inc.php' ? 
+        . ($_SESSION['PMA_Config']->getSource() == './config.inc.php' ?
         '<a href="show_config_errors.php"'
         .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>'
         :
