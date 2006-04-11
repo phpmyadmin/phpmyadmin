@@ -1,25 +1,6 @@
 <?php
 
-/**
- * @todo    update with mysql manual, last: ???
- */
-define('PMA_DBI_ENGINE_MYISAM',     'MyISAM');
-define('PMA_DBI_ENGINE_ISAM',       'ISAM');
-define('PMA_DBI_ENGINE_INNODB',     'InnoDB');
-define('PMA_DBI_ENGINE_MERGE',      'MERGE');
-define('PMA_DBI_ENGINE_MEMORY',     'MEMORY');
-define('PMA_DBI_ENGINE_HEAP',       'HEAP');
-define('PMA_DBI_ENGINE_BDB',        'BDB');
-define('PMA_DBI_ENGINE_EXAMPLE',    'EXAMPLE');
-define('PMA_DBI_ENGINE_FEDERATED',  'FEDERATED');
-define('PMA_DBI_ENGINE_ARCHIVE',    'ARCHIVE');
-define('PMA_DBI_ENGINE_CSV',        'CSV');
-define('PMA_DBI_ENGINE_BLACKHOLE',  'BLACKHOLE');
 
-/**
- * @todo use classes for Database, Column, Index
- *
- */
 class PMA_Table {
 
     /**
@@ -33,29 +14,29 @@ class PMA_Table {
     var $db_name = '';
 
     /**
+     * @var string  engine (innodb, myisam, bdb, ...)
+     */
+    var $engine = '';
+
+    /**
      * @var string  type (view, base table, system view)
      */
     var $type = '';
 
     /**
-     * @var array   options
+     * @var array   settings
      */
-    var $options = array();
+    var $settings = array();
 
     /**
-     * @var array   errors occured
+     * @var array errors occured
      */
     var $errors = array();
 
     /**
-     * @var array   messages
+     * @var array messages
      */
     var $messages = array();
-
-    /**
-     * @var boolean whether options for this table has been altered or not
-     */
-    var $alter_options = false;
 
     /**
      * Constructor
@@ -75,139 +56,6 @@ class PMA_Table {
     function __toString()
     {
         return $this->getName();
-    }
-
-    function getOptions($engine = null)
-    {
-        if (null === $engine) {
-            $engine = $this->getEnginge();
-        }
-
-        $options = array();
-        $all_options = PMA_Table::getAlterOptions();
-
-        if (($engine === 'myisam' || $engine === 'isam')) {
-            $options['KEYS'] = $all_options['KEYS'];
-        }
-
-        if (($engine === 'myisam')) {
-            $options['checksum'] = $all_options['KEYS'];
-            $options['delay_key_write'] = $all_options['KEYS'];
-        }
-
-        if (($engine === 'myisam' || $engine === 'innodb')) {
-            $options['auto_increment'] = $all_options['KEYS'];
-        }
-    }
-
-    /**
-     * returns all available options for any table engine
-     *
-     * @todo    update with mysql manual, last: ???
-     * @static
-     */
-    function getAlterOptions()
-    {
-        static $options = null;
-
-        if (null === $options) {
-            $options = array(
-                // ENABLE/DISABLE KEY
-                // skipped, makes no sense here
-                'COMMENT'                   => array(
-                    'type' => 'string',
-                    'name' => 'strTableComment',
-                ),
-                'TYPE'                      => array(
-                    'type' => 'string',
-                    'values' => array('PMA_Table', 'getEngines'),
-                    'name' => 'strTableEngine',
-                ),
-                'DEFAULT_CHARSET_COLLATION' => array(
-                    'type' => 'string',
-                    'desc' => 'strTableCharset',
-                ),
-                'pack_keys'                 => array(
-                    'type' => 'string',
-                    'name' => 'pack_keys',
-                    'desc' => '',
-                    'engines' => array(
-                        PMA_DBI_ENGINE_MYISAM,
-                        PMA_DBI_ENGINE_ISAM,
-                        ),
-                ),
-                'checksum'                  => array(
-                    'type' => 'string',
-                    'name' => 'checksum',
-                    'engines' => array(
-                        PMA_DBI_ENGINE_MYISAM,
-                        ),
-                ),
-                'delay_key_write'           => array(
-                    'type' => 'string',
-                    'name' => 'delay_key_write',
-                    'engines' => array(
-                        PMA_DBI_ENGINE_MYISAM,
-                        ),
-                ),
-                'auto_increment'            => array(
-                    'type' => 'int',
-                    'name' => 'auto_increment',
-                    'engines' => array(
-                        PMA_DBI_ENGINE_MYISAM,
-                        PMA_DBI_ENGINE_INNODB,
-                        ),
-                ),
-            );
-        }
-
-        return $options;
-    }
-
-    function setEngine($engine)
-    {
-        $this->set('ENGINE', $engine);
-    }
-
-    function getEngine()
-    {
-        return $this->get('ENGINE');
-    }
-
-    /**
-     * @todo    update with mysql manual, last: ???
-     */
-    function getEngineName($engine = null)
-    {
-        if (null === $engine) {
-            $engine = $this->getEngine();
-        }
-
-        switch ($engine) {
-            case PMA_DBI_ENGINE_MYISAM :
-                return 'MyISAM';
-                break;
-            case PMA_DBI_ENGINE_ISAM :
-                return 'ISAM';
-                break;
-            case PMA_DBI_ENGINE_INNODB :
-                return 'InnoDB';
-                break;
-            case PMA_DBI_ENGINE_MERGE :
-                return 'Merge';
-                break;
-            case PMA_DBI_ENGINE_MEMORY :
-                return 'MEMORY';
-                break;
-            case PMA_DBI_ENGINE_HEAP :
-                return 'HEAP';
-                break;
-            case PMA_DBI_ENGINE_BDB :
-                return 'BerkeleyDB';
-                break;
-            default :
-                return 'UNKNOWN';
-        }
     }
 
     function getLastError()
@@ -296,201 +144,31 @@ class PMA_Table {
     }
 
     /**
-     * sets given $value for given $option
+     * sets given $value for given $param
      *
-     * @uses    $this->options to add or change value
-     * @param   string  $option option name
-     * @param   mixed   $value  option value
+     * @uses    $this->settings to add or change value
+     * @param   string  param name
+     * @param   mixed   param value
      */
-    function set($option, $value)
+    function set($param, $value)
     {
-          $this->options[$option]->value = $value;
-    }
-
-    /**
-     * @static
-     * @param   string  $option
-     * @param   mixed   $value
-     * @return  string
-     */
-    function getAlterOption($option, $value) {
-        switch ($option) {
-            case 'KEYS' :
-                return ($value ? 'ENABLE' : 'DISABLE') . ' KEYS';
-                break;
-            case 'TABLESPACE' :
-                return ($value ? 'IMPORT' : 'DISCARD') . ' TABLESPACE';
-                break;
-            case 'RENAME TO' :
-            case 'RENAME' :
-            case 'CHECK' :
-            case 'ORDER BY' :
-                return $option . ' ' . $value;
-                break;
-            case 'PACK_KEYS' :
-                //{0 | 1 | DEFAULT}
-            case 'CHECKSUM' :
-            case 'DELAY_KEY_WRITE' :
-                return $option . ' = ' . (int) (bool) $value;
-                break;
-            case 'CONVERT CHARACTER SET' :
-                return 'CONVERT ' . PMA_generateCharsetQueryPart($value);
-                break;
-            case 'TABLE_COLLATION' :
-            case 'DEFAULT CHARACTER SET' :
-                return 'DEFAULT ' . PMA_generateCharsetQueryPart($value);
-                break;
-            case 'CHARACTER SET' :
-                return PMA_generateCharsetQueryPart($value);
-                break;
-            case 'INSERT_METHOD' :
-                //{ NO | FIRST | LAST }
-            case 'UNION' :
-            case 'ROW_FORMAT' :
-                //{DEFAULT|DYNAMIC|FIXED|COMPRESSED|REDUNDANT|COMPACT}
-            case 'MIN_ROWS' :
-            case 'MAX_ROWS' :
-            case 'AVG_ROW_LENGTH' :
-            case 'ENGINE' :
-            case 'TYPE' :
-            case 'AUTO_INCREMENT' :
-                return $option . ' = ' . $value;
-                break;
-            case 'CONNECTION' :
-            case 'INDEX DIRECTORY' :
-            case 'DATA DIRECTORY' :
-            case 'CONNECTION' :
-                return $option . ' = \'' . PMA_sqlAddslashes($value) . '\'';
-                break;
-            case 'TABLE_COMMENT' :
-            case 'COMMENT' :
-                return 'COMMENT = \'' . PMA_sqlAddslashes($value) . '\'';
-                break;
-            default :
-                return '-- UNKNOWN OPTION: ' . $option . ' = \'' . PMA_sqlAddslashes($value) . '\'';
-        }
-    }
-
-    /**
-     * set options from given array of options
-     *
-     * @param   array   $options
-     * @return  boolean success
-     */
-    function setOptions($options, $bc = false)
-    {
-        if ($bc) {
-            // backward compatibility
-            $new_engine = strtolower($this->get('ENGINE'));
-            $bc_options = $options;
-            $options = array();
-            if (null !== $this->get('TABLE_COMMENT')
-              && isset($bc_options['comment'])) {
-                $options['TABLE_COMMENT']   = $bc_options['comment'];
-            }
-            if (isset($bc_options['new_tbl_type'])
-              && ! $this->isEngineOneOf($bc_options['new_tbl_type'])) {
-                $options['ENGINE']        = $bc_options['new_tbl_type'];
-                $new_engine = strtolower($options['ENGINE']);
-            } elseif (null !== $this->get('TYPE')
-              && isset($bc_options['new_tbl_type'])) {
-                $options['TYPE']          = $bc_options['new_tbl_type'];
-            }
-            if (null !== $this->get('TABLE_COLLATION')
-              && isset($bc_options['tbl_collation'])) {
-                $options['TABLE_COLLATION'] = $bc_options['tbl_collation'];
-            }
-
-            //if (null !== $this->get('PACK_KEYS')) {
-            if ($new_engine === 'myisam' || $new_engine === 'isam') {
-                $options['PACK_KEYS']       = (int) !empty($bc_options['new_pack_keys']);
-            }
-            //if (null !== $this->get('CHECKSUM')) {
-            if ($new_engine === 'myisam') {
-                $options['CHECKSUM']        = (int) !empty($bc_options['new_checksum']);
-            }
-            //if (null !== $this->get('DELAY_KEY_WRITE')) {
-            if ($new_engine === 'myisam') {
-                $options['DELAY_KEY_WRITE'] = (int) !empty($bc_options['new_delay_key_write']);
-            }
-            //if (null !== $this->get('AUTO_INCREMENT')
-            //  && isset($bc_options['new_auto_increment'])) {
-            if (isset($bc_options['new_auto_increment'])
-              && ($new_engine === 'myisam'
-              // MEMORY in 4.1.0
-              ||  ($new_engine === 'memory' && PMA_MYSQL_INT_VERSION >= 40100)
-              // InnoDB in 4.1.2 and 5.0.3
-              ||  ($new_engine === 'innodb' && PMA_MYSQL_INT_VERSION >= 40102))) {
-                $options['AUTO_INCREMENT']  = (int) $bc_options['new_auto_increment'];
-            }
-        }
-
-        $table_alters = array();
-
-        foreach ($options as $option => $value) {
-            if ($this->get($option) != $value) {
-                $table_alters[] = PMA_Table::getAlterOption($option, $value);
-            }
-        }
-
-        if (count($table_alters)) {
-            $sql_query = '
-                ALTER TABLE ' . $this->getFullName(true) . '
-                ' . implode("\r\n", $table_alters);
-            if (! PMA_DBI_try_query($sql_query)) {
-                $this->errors[] = $GLOBALS['strError'];
-                return false;
-            }
-
-            // display executed query in user interface
-            if (! isset($GLOBALS['sql_query'])) {
-                 $GLOBALS['sql_query'] = '';
-            }
-            $GLOBALS['sql_query'] .= "\r\n" . $sql_query . ';';
-            $this->messages[] = $GLOBALS['strSuccess'];
-        }
-
-        return true;
+        $this->settings[$param] = $value;
     }
 
     /**
      * returns value for given setting/param
      *
-     * @uses    $this->options to return value
-     * @param   string  $option name for value to return
-     * @return  mixed   value for $option
+     * @uses    $this->settings to return value
+     * @param   string  name for value to return
+     * @return  mixed   value for $param
      */
-    function get($option)
+    function get($param)
     {
-        if (isset($this->options[$option])) {
-            return $this->options[$option]->value;
+        if (isset($this->settings[$param])) {
+            return $this->settings[$param];
         }
 
         return null;
-    }
-
-    /**
-     * cleans 'InnoDB free'-string from table comment
-     */
-    function cleanInnodbComment($comment = null)
-    {
-        $return = true;
-
-        if (null === $comment) {
-            if (! $this->isEngineOneOf('innodb')) {
-                return;
-            }
-            $comment = $this->get('TABLE_COMMENT');
-            $return = false;
-        }
-
-        $comment = preg_replace('/(; InnoDB free: .*$)/i', '', $comment);
-
-        if ($return) {
-            return $comment;
-        } else {
-            $this->set('TABLE_COMMENT', $comment);
-        }
     }
 
     /**
@@ -504,94 +182,23 @@ class PMA_Table {
             return false;
         }
 
-        foreach ($table_info[$this->getName()] as $key => $value) {
-            $this->options[$key]->value = $value;
-        }
+        $this->settings = $table_info;
 
-        $this->cleanInnodbComment();
-
-        /**
-         * init some values, check if they exists, if not create them with
-         * standard values
-         */
         if ($this->get('TABLE_ROWS') === null) {
             $this->set('TABLE_ROWS', PMA_Table::countRecords($this->getDbName(),
                 $this->getName(), true, true));
         }
 
-        /*
-        if (null === $this->get('AUTO_INCREMENT')
-          && ($this->isEngineOneOf('myisam')
-            // MEMORY in 4.1.0
-            || ($this->isEngineOneOf('memory') && PMA_MYSQL_INT_VERSION >= 40100)
-            // InnoDB in 4.1.2 and 5.0.3
-            || ($this->isEngineOneOf('innodb') && PMA_MYSQL_INT_VERSION >= 40102))) {
-            $this->set('AUTO_INCREMENT', 0);
-        } else {
-            // do not support this option on others than MyISAM or ISAM
-            $this->removeOption('AUTO_INCREMENT');
-        }
-
-        if (null === $this->get('PACK_KEYS')
-          && $this->isEngineOneOf('myisam', 'isam')) {
-            $this->set('PACK_KEYS', 'DEFAULT');
-            echo __LINE__;
-        } elseif (null !== $this->get('PACK_KEYS')) {
-            // do not support this option on others than MyISAM or ISAM
-            $this->removeOption('PACK_KEYS');
-            echo __LINE__;
-        }
-
-        if (null === $this->get('CHECKSUM')
-          && $this->isEngineOneOf('myisam')) {
-            $this->set('CHECKSUM', 0);
-        } else {
-            // do not support this option on others than MyISAM
-            $this->removeOption('CHECKSUM');
-        }
-
-        if (null === $this->get('DELAY_KEY_WRITE')
-          && $this->isEngineOneOf('myisam')) {
-            $this->set('DELAY_KEY_WRITE', 0);
-        } else {
-            // do not support this option on others than MyISAM
-            $this->removeOption('DELAY_KEY_WRITE');
-        }
-        */
-
-        $create_options = explode(' ', $this->get('CREATE_OPTIONS'));
+        $create_options = explode(' ', $this->get('TABLE_ROWS'));
 
         // export create options by its name as variables into gloabel namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
         foreach ($create_options as $each_create_option) {
             $each_create_option = explode('=', $each_create_option);
             if (isset($each_create_option[1])) {
-                $this->set(strtoupper($each_create_option[0]), $each_create_option[1]);
+                $this->set($$each_create_option[0], $each_create_option[1]);
             }
         }
-    }
-
-    function removeOption($option)
-    {
-        if (isset($this->options[$option])) {
-            unset($this->options[$option]);
-        }
-    }
-
-    /**
-     *
-     * @param   string  $engine,...     engine
-     * @return  boolean whether one of the given engines is equal with current engine
-     */
-    function isEngineOneOf()
-    {
-        foreach (func_get_args() as $engine) {
-            if (strtolower($this->getEngine()) === strtolower($engine)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -888,6 +495,7 @@ class PMA_Table {
 
         return true;
     } // end of 'PMA_Table::duplicateInfo()' function
+
 
     /**
      * Copies or renames table
@@ -1260,20 +868,14 @@ class PMA_Table {
             return false;
         }
 
-        $sql_query = '
+        $GLOBALS['sql_query'] = '
             RENAME TABLE ' . $this->getFullName(true) . '
                       TO ' . $new_table->getFullName(true) . ';';
-        if (! PMA_DBI_query($sql_query)) {
+        if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             // TODO add $GLOBALS['strErrorRenamingTable'];
             $this->errors[] = $GLOBALS['strError'] . ': ' . $new_table->getFullName();
             return false;
         }
-
-        // display executed query in user interface
-        if (! isset( $GLOBALS['sql_query'])) {
-             $GLOBALS['sql_query'] = '';
-        }
-        $GLOBALS['sql_query'] .= "\n\n" . $sql_query;
 
         $old_name = $this->getName();
         $old_db = $this->getDbName();
