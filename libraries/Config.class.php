@@ -752,7 +752,7 @@ class PMA_Config
 
         $url = '';
 
-        if (PMA_PMA_getenv('REQUEST_URI')) {
+        if (PMA_getenv('REQUEST_URI')) {
             $url = PMA_getenv('REQUEST_URI');
         }
 
