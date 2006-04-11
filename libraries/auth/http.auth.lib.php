@@ -79,7 +79,9 @@ function PMA_auth_check()
     // 'register_globals' and the 'variables_order' directives
     // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_USER)) {
-        if (getenv('PHP_AUTH_USER')) {
+        if (isset($_SERVER['PHP_AUTH_USER'])) {
+            $PHP_AUTH_USER = $_SERVER['PHP_AUTH_USER'];
+        } elseif (getenv('PHP_AUTH_USER')) {
             $PHP_AUTH_USER = getenv('PHP_AUTH_USER');
         } elseif (getenv('REMOTE_USER')) {
             // CGI, might be encoded, see bellow
@@ -99,15 +101,15 @@ function PMA_auth_check()
     // 'register_globals' and the 'variables_order' directives
     // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_PW)) {
-        if (getenv('PHP_AUTH_PW')) {
+        if (isset($_SERVER['PHP_AUTH_PW'])) {
+            $PHP_AUTH_PW = $_SERVER['PHP_AUTH_PW'];
+        } elseif (getenv('PHP_AUTH_PW')) {
             $PHP_AUTH_PW = getenv('PHP_AUTH_PW');
-        }
-        // Apache/CGI
-        elseif (@getenv('REMOTE_PASSWORD')) {
+        } elseif (getenv('REMOTE_PASSWORD')) {
+            // Apache/CGI
             $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
-        }
-        // WebSite Professional
-        elseif (@getenv('AUTH_PASSWORD')) {
+        } elseif (getenv('AUTH_PASSWORD')) {
+            // WebSite Professional
             $PHP_AUTH_PW = getenv('AUTH_PASSWORD');
         }
     }
