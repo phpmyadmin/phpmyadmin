@@ -123,8 +123,8 @@ if (isset($destination) && $cfgRelation['relwork']) {
 // u p d a t e s   f o r   I n n o D B
 // ( for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
-if (isset($destination_innodb)) {
-    foreach ($destination_innodb AS $master_field => $foreign_string) {
+if (isset($_REQUEST['destination_innodb'])) {
+    foreach ($_REQUEST['destination_innodb'] as $master_field => $foreign_string) {
         if ($foreign_string != 'nix') {
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (!isset($existrel_innodb[$master_field])) {
@@ -138,24 +138,24 @@ if (isset($destination_innodb)) {
 
                 $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' ADD FOREIGN KEY ('
-                            . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
+                            . PMA_backquote($master_field) . ')'
                             . ' REFERENCES '
-                            . PMA_backquote(PMA_sqlAddslashes($foreign_db) . '.'
-                            . PMA_sqlAddslashes($foreign_table)) . '('
-                            . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
+                            . PMA_backquote($foreign_db) . '.'
+                            . PMA_backquote($foreign_table) . '('
+                            . PMA_backquote($foreign_field) . ')';
 
-                if (${$master_field . '_on_delete'} != 'nix') {
-                    $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
+                if ($_REQUEST['on_delete'][$master_field] != 'nix') {
+                    $upd_query   .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field]];
                 }
-                if (${$master_field . '_on_update'} != 'nix') {
-                    $upd_query   .= ' ON UPDATE ' . $options_array[${$master_field . '_on_update'}];
+                if ($_REQUEST['on_update'][$master_field] != 'nix') {
+                    $upd_query   .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field]];
                 }
 
                 // end repeated code
 
             } elseif (($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string)
-              || ( ${$master_field . '_on_delete'} != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : ''))
-              || ( ${$master_field . '_on_update'} != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : ''))
+              || ( $_REQUEST['on_delete'][$master_field] != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : ''))
+              || ( $_REQUEST['on_update'][$master_field] != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : ''))
                    ) {
                 // another foreign key is already defined for this field
                 // or
@@ -174,26 +174,28 @@ if (isset($destination_innodb)) {
                 // add another
                 $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' ADD FOREIGN KEY ('
-                            . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
+                            . PMA_backquote($master_field) . ')'
                             . ' REFERENCES '
-                            . PMA_backquote(PMA_sqlAddslashes($foreign_db) . '.'
-                            . PMA_sqlAddslashes($foreign_table)) . '('
-                            . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
+                            . PMA_backquote($foreign_db) . '.'
+                            . PMA_backquote($foreign_table) . '('
+                            . PMA_backquote($foreign_field) . ')';
 
-                if (${$master_field . '_on_delete'} != 'nix') {
-                    $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
+                if ($_REQUEST['on_delete'][$master_field] != 'nix') {
+                    $upd_query   .= ' ON DELETE '
+                        . $options_array[$_REQUEST['on_delete'][$master_field]];
                 }
-                if (${$master_field . '_on_update'} != 'nix') {
-                    $upd_query   .= ' ON UPDATE ' . $options_array[${$master_field . '_on_update'}];
+                if ($_REQUEST['on_update'][$master_field] != 'nix') {
+                    $upd_query   .= ' ON UPDATE '
+                        . $options_array[$_REQUEST['on_update'][$master_field]];
                 }
 
             } // end if... else....
         } elseif (isset($existrel_innodb[$master_field])) {
-                if (PMA_MYSQL_INT_VERSION >= 40013) {
-                    $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                            . ' DROP FOREIGN KEY '
-                            . PMA_backquote($existrel_innodb[$master_field]['constraint']);
-                }
+            if (PMA_MYSQL_INT_VERSION >= 40013) {
+                $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
+                        . ' DROP FOREIGN KEY '
+                        . PMA_backquote($existrel_innodb[$master_field]['constraint']);
+            }
         } // end if... else....
 
         if (isset($upd_query)) {
@@ -204,10 +206,10 @@ if (isset($destination_innodb)) {
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
-                echo '<p class="warning">' . $strNoIndex . ' (' . $master_field .')</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                echo '<p class="warning">' . $strNoIndex . ' (' . $master_field
+                    .')</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
-            unset($upd_query);
-            unset($tmp_error);
+            unset($upd_query, $tmp_error);
         }
     } // end while
 } // end if isset($destination_innodb)
@@ -476,7 +478,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             <span class="formelement">
                 <?php
                 PMA_generate_dropdown('ON DELETE',
-                    htmlspecialchars($save_row[$i]['Field']) . '_on_delete',
+                    'on_delete[' . htmlspecialchars($save_row[$i]['Field']) . ']',
                     $options_array,
                     isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '' );
 
@@ -484,7 +486,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                     .'<span class="formelement">' . "\n";
 
                 PMA_generate_dropdown('ON UPDATE',
-                    htmlspecialchars($save_row[$i]['Field']) . '_on_update',
+                    'on_update[' . htmlspecialchars($save_row[$i]['Field']) . ']',
                     $options_array,
                     isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '' );
                 echo '</span>' . "\n";
