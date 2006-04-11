@@ -66,46 +66,13 @@ if (isset($_REQUEST['submitoptions'])) {
         $tbl_type = $_REQUEST['new_tbl_type'];
     }
 
-    if (! empty($_REQUEST['tbl_collation'])
-      && $_REQUEST['tbl_collation'] !== $tbl_collation) {
-        $table_alters[] = 'DEFAULT ' . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
-    }
+    $pma_table->loadStructure();
 
-    $l_tbl_type = strtolower($tbl_type);
-
-    $pack_keys = empty($pack_keys) ? '0' : '1';
-    $_REQUEST['new_pack_keys'] = empty($_REQUEST['new_pack_keys']) ? '0' : '1';
-    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
-      && $_REQUEST['new_pack_keys'] !== $pack_keys) {
-        $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
-    }
-
-    $checksum = empty($checksum) ? '0' : '1';
-    $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-    if (($l_tbl_type === 'myisam')
-      && $_REQUEST['new_checksum'] !== $checksum) {
-        $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
-    }
-
-    $delay_key_write = empty($delay_key_write) ? '0' : '1';
-    $_REQUEST['new_delay_key_write'] = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-    if (($l_tbl_type === 'myisam')
-      && $_REQUEST['new_delay_key_write'] !== $delay_key_write) {
-        $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
-    }
-
-    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'innodb')
-      &&  ! empty($_REQUEST['new_auto_increment'])
-      && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
-        $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
-    }
-
-    if (count($table_alters) > 0) {
-        $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
-        $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
-        $message        .= PMA_DBI_query($sql_query) ? $strSuccess : $strError;
-        $reread_info    = true;
-        unset($table_alters);
+    if ($pma_table->setOptions($_REQUEST, true)) {
+        $message .= $pma_table->getLastMessage();
+    } else {
+        $errors[] = $pma_table->getLastError();
+        $message .= $pma_table->getLastError();
     }
 }
 /**

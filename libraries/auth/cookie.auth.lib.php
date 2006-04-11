@@ -504,8 +504,8 @@ function PMA_auth_fails()
     } elseif (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
         $conn_error = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);
         // Remember where we got timeout to return on same place
-        if (getenv('SCRIPT_NAME')) {
-            $GLOBALS['target'] = basename(getenv('SCRIPT_NAME'));
+        if (PMA_getenv('SCRIPT_NAME')) {
+            $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
         }
     } elseif (PMA_DBI_getError()) {
         $conn_error = PMA_sanitize(PMA_DBI_getError());

@@ -37,7 +37,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                         '@PHPMYADMIN@',
                         ),
                     array(
-                        getenv('HTTP_HOST') ? getenv('HTTP_HOST') : '',
+                        PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
                         isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
                         isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
                         !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),

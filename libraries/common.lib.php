@@ -1911,7 +1911,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             } elseif (!empty($tab['active'])
               || (isset($GLOBALS['active_page'])
                    && $GLOBALS['active_page'] == $tab['link'])
-              || basename(getenv('PHP_SELF')) == $tab['link'])
+              || basename(PMA_getenv('PHP_SELF')) == $tab['link'])
             {
                 $tab['class'] = 'active';
             }
@@ -2623,7 +2623,7 @@ if (isset($_POST['usesubform'])) {
     $_POST      = $subform;
     $_REQUEST   = $subform;
     if (isset($_POST['redirect'])
-      && $_POST['redirect'] != basename(getenv('PHP_SELF'))) {
+      && $_POST['redirect'] != basename(PMA_getenv('PHP_SELF'))) {
         $__redirect = $_POST['redirect'];
         unset($_POST['redirect']);
     } // end if (isset($_POST['redirect']))

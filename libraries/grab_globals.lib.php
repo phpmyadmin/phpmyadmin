@@ -107,8 +107,8 @@ foreach ($server_vars as $current) {
     // its more important to prevent XSS
     // so its not important if we result in an invalid string,
     // its even better than a XSS capable string
-    if (getenv($current) && false === strpos(getenv($current), '<')) {
-        $$current = getenv($current);
+    if (PMA_getenv($current) && false === strpos(PMA_getenv($current), '<')) {
+        $$current = PMA_getenv($current);
     // already importet by register_globals?
     } elseif (! isset($$current) || false !== strpos($$current, '<')) {
         $$current = '';

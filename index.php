@@ -26,7 +26,7 @@
  * @uses    PMA_VERSION
  * @uses    session_write_close()
  * @uses    time()
- * @uses    getenv()
+ * @uses    PMA_getenv()
  * @uses    header()                to send charset
  */
 
@@ -46,8 +46,8 @@ session_write_close();
 // Gets the host name
 // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
 if (empty($HTTP_HOST)) {
-    if (getenv('HTTP_HOST')) {
-        $HTTP_HOST = getenv('HTTP_HOST');
+    if (PMA_getenv('HTTP_HOST')) {
+        $HTTP_HOST = PMA_getenv('HTTP_HOST');
     } else {
         $HTTP_HOST = '';
     }
