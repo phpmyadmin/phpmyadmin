@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: clarification about config.default.php
+
 2006-04-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * index.php, libraries\Table.class.php, libraries\auth\cookie.auth.lib.php,
       libraries\auth\http.auth.lib.php, libraries\common.lib.php,

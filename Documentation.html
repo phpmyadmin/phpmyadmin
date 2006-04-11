@@ -293,6 +293,10 @@ chmod o+w config/config.inc.php     # give it world writable permissions
     tweaking may be required because, as of 2.7.0, using those old config files
     is no longer supported.</p>
 
+<p> You should <strong>not</strong> copy <tt>libraries/config.default.php</tt>
+    over <tt>config.inc.php</tt> because the default configuration file
+    is version-specific.</p>
+
 <h3 id="authentication_modes">Using authentication modes</h3>
 
 <ul><li><abbr title="HyperText Transfer Protocol">HTTP</abbr> and cookie
