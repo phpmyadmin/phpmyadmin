@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-11 Michal Čihař  <michal@cihar.com>
+    * lang/galician: Fix missing ; (bug #1468439).
+
 2006-04-10 Michal Čihař  <michal@cihar.com>
     * libraries/Config.class.php: Check also default config mtime (bug
       #1467620).
