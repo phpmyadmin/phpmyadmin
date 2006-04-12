@@ -32,7 +32,7 @@ $replaces = array(
 
     // linking files
     '/(\s+)([\\/a-z_0-9\.]+\.php)/i'
-    => '\\1<a href="https://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
+    => '\\1<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
 );
 
 header('Content-type: text/html; charset=utf-8');
