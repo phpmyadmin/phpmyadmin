@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php:
+       - added option to PMA_arrayWalkRecursive() to use function also on keys
+       - un-magic_quotes_gpc also keys in GPC arrays
     * libraries/db_table_exists.lib.php:
       cleanup - what a mess; fixed several undefined variables
     * tbl_printview.php:

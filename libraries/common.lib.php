@@ -501,13 +501,21 @@ function PMA_array_merge_recursive()
  * @param   array   $array      array to walk
  * @param   string  $function   function to call for every array element
  */
-function PMA_arrayWalkRecursive(&$array, $function)
+function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
     foreach ($array as $key => $value) {
         if (is_array($value)) {
-            PMA_arrayWalkRecursive($array[$key], $function);
+            PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
         } else {
             $array[$key] = $function($value);
+        }
+
+        if ($apply_to_keys_also && is_string($key)) {
+            $new_key = $function($key);
+            if ($new_key != $key) {
+                $array[$new_key] = $array[$key];
+                unset($array[$key]);
+            }
         }
     }
 }
@@ -2635,10 +2643,10 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 if (get_magic_quotes_gpc()) {
-    PMA_arrayWalkRecursive($_GET, 'stripslashes');
-    PMA_arrayWalkRecursive($_POST, 'stripslashes');
-    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes');
-    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes');
+    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
 require_once './libraries/session.inc.php';
