@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/db_table_exists.lib.php:
+      cleanup - what a mess; fixed several undefined variables
     * tbl_printview.php:
       fixed undefined variable by including libraries/tbl_properties_common.php
     * changelog.php:
