@@ -168,7 +168,7 @@ div#querywindowcontainer fieldset {
 /* Gecko bug */
 div[class=formelementrow],
 div[id=queryfieldscontainer] {
-    border: 1px solid red;
+    border: 1px solid transparent;
 }
 
 div#sqlquerycontainer {

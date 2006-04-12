@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css/phpmyadmin.css.php:
+      fixed bug #1446017 red border in outdated themes
     * libraries/common.lib.php:
        - added option to PMA_arrayWalkRecursive() to use function also on keys
        - un-magic_quotes_gpc also keys in GPC arrays
