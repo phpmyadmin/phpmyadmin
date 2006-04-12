@@ -24,12 +24,16 @@ if (! isset($GLOBALS['no_history']) && isset($GLOBALS['db'])
   && strlen($GLOBALS['db']) && empty($GLOBALS['error_message'])) {
     $table = isset($GLOBALS['table']) ? $GLOBALS['table'] : ''; ?>
 // updates current settings
-window.parent.setAll('<?php echo $GLOBALS['lang']; ?>', '<?php echo $GLOBALS['collation_connection']; ?>', '<?php echo $GLOBALS['server']; ?>', '<?php echo $GLOBALS['db']; ?>', '<?php echo $table; ?>');
+if (window.parent.setAll) {
+    window.parent.setAll('<?php echo $GLOBALS['lang']; ?>', '<?php echo $GLOBALS['collation_connection']; ?>', '<?php echo $GLOBALS['server']; ?>', '<?php echo $GLOBALS['db']; ?>', '<?php echo $table; ?>');
+}
 <?php } ?>
 
 <?php if (! empty($GLOBALS['reload'])) { ?>
 // refresh navigation frame content
-window.parent.refreshLeft();
+if (window.parent.refreshLeft) {
+    window.parent.refreshLeft();
+}
 <?php } ?>
 
 <?php
@@ -48,10 +52,12 @@ if (! isset($GLOBALS['no_history']) && empty($GLOBALS['error_message'])) {
     }
     ?>
 // set current db, table and sql query in the querywindow
-window.parent.reload_querywindow(
-    "<?php echo isset($GLOBALS['db']) ? addslashes($GLOBALS['db']) : '' ?>",
-    "<?php echo isset($GLOBALS['table']) ? addslashes($GLOBALS['table']) : '' ?>",
-    "<?php echo isset($GLOBALS['sql_query']) ? urlencode($GLOBALS['sql_query']) : ''; ?>");
+if (window.parent.refreshLeft) {
+    window.parent.reload_querywindow(
+        "<?php echo isset($GLOBALS['db']) ? addslashes($GLOBALS['db']) : '' ?>",
+        "<?php echo isset($GLOBALS['table']) ? addslashes($GLOBALS['table']) : '' ?>",
+        "<?php echo isset($GLOBALS['sql_query']) ? urlencode($GLOBALS['sql_query']) : ''; ?>");
+}
 <?php } ?>
 
 <?php if (! empty($GLOBALS['focus_querywindow'])) { ?>
@@ -61,16 +67,18 @@ if (parent.querywindow && !parent.querywindow.closed && parent.querywindow.locat
 }
 <?php } ?>
 
-// reset content frame name, as querywindow needs to set a unique name
-// before submitting form data, and navigation frame needs the original name
-if (window.parent.frames[1].name != 'frame_content') {
-    window.parent.frames[1].name = 'frame_content';
+if (window.parent.frames[1]) {
+    // reset content frame name, as querywindow needs to set a unique name
+    // before submitting form data, and navigation frame needs the original name
+    if (window.parent.frames[1].name != 'frame_content') {
+        window.parent.frames[1].name = 'frame_content';
+    }
+    if (window.parent.frames[1].id != 'frame_content') {
+        window.parent.frames[1].id = 'frame_content';
+    }
+    //window.parent.frames[1].setAttribute('name', 'frame_content');
+    //window.parent.frames[1].setAttribute('id', 'frame_content');
 }
-if (window.parent.frames[1].id != 'frame_content') {
-    window.parent.frames[1].id = 'frame_content';
-}
-//window.parent.frames[1].setAttribute('name', 'frame_content');
-//window.parent.frames[1].setAttribute('id', 'frame_content');
 //]]>
 </script>
 <?php
