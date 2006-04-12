@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * changelog.php:
+      link users, files, bugs, rfes and patches
     * libraries/footer.inc.php:
       fixed bug #1454874 Javascript error in new (not framed) print window
     * css/phpmyadmin.css.php, scripts/setup.php, test/theme.php
