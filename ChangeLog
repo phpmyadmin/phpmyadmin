@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * tbl_printview.php:
+      fixed undefined variable by including libraries/tbl_properties_common.php
     * changelog.php:
       link users, files, bugs, rfes and patches
     * libraries/footer.inc.php:

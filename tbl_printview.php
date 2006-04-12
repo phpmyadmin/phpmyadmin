@@ -3,6 +3,8 @@
 
 require_once './libraries/common.lib.php';
 
+require './libraries/tbl_properties_common.php';
+
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
