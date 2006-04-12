@@ -8,15 +8,15 @@ $Source$
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/footer.inc.php:
       fixed bug #1454874 Javascript error in new (not framed) print window
-    * css\phpmyadmin.css.php, scripts\setup.php, test\theme.php
-      themes\darkblue_orange\css\theme_right.css.php,
-      themes\original\css\theme_right.css.php:
+    * css/phpmyadmin.css.php, scripts/setup.php, test/theme.php
+      themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php:
       fixed bug #1444466 theme directory not being processed correctly
-    * libraries\common.lib.php, libraries\Theme_Manager.class.php:
+    * libraries/common.lib.php, libraries/Theme_Manager.class.php:
       fixed bug #1469174 configuration changes not accepted in theme manager
-    * libraries\Theme_Manager.class.php:
+    * libraries/Theme_Manager.class.php:
       fixed bug #1469120 missing property in Theme_Manager class
-    * libraries\common.lib.php:
+    * libraries/common.lib.php:
       fixed bug #1469109 PMA_backquote() issues
 
 2006-04-11 Marc Delisle  <lem9@users.sourceforge.net>
@@ -25,16 +25,16 @@ $Source$
 2006-04-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * tbl_relation.php:
       fixed bug #1459418 Add foreign key fail on column with ' in name
-    * index.php, libraries\auth\cookie.auth.lib.php,
-      libraries\auth\http.auth.lib.php, libraries\common.lib.php,
-      libraries\footer.inc.php, libraries\fpdf\fpdf.php,
-      libraries\grab_globals.lib.php, libraries\header.inc.php,
-      libraries\ip_allow_deny.lib.php, libraries\select_lang.lib.php,
-      libraries\Config.class.php:
+    * index.php, libraries/auth/cookie.auth.lib.php,
+      libraries/auth/http.auth.lib.php, libraries/common.lib.php,
+      libraries/footer.inc.php, libraries/fpdf/fpdf.php,
+      libraries/grab_globals.lib.php, libraries/header.inc.php,
+      libraries/ip_allow_deny.lib.php, libraries/select_lang.lib.php,
+      libraries/Config.class.php:
       use PMA_getenv()
-    * libraries\Config.class.php:
+    * libraries/Config.class.php:
       fixed not initilized variable in getCookiePath();
-    * libraries\common.lib.php:
+    * libraries/common.lib.php:
       added PMA_getenv() as a wrapper to $_SERVER, $_ENV, getenv() and apache_getenv()
 
 2006-04-11 Michal Čihař  <michal@cihar.com>
@@ -304,8 +304,8 @@ $Source$
       moved PMA_generateFieldSpec(), PMA_tableIsView(), PMA_countRecords(),
       PMA_generateAlterTable() into class PMA_Table
     * db_operations.php, tbl_move_copy.php, tbl_properties_operations.php,
-      libraries\Table.class.php, libraries\tbl_move_copy.php:
-      merged libraries\tbl_move_copy.php in class PMA_Table
+      libraries/Table.class.php, libraries/tbl_move_copy.php:
+      merged libraries/tbl_move_copy.php in class PMA_Table
     * libraries/Table.class.php:
       minor fixes and improvements, formating, documentation
     * libraries/relation.lib.php:
@@ -313,7 +313,7 @@ $Source$
       minor tweaks and formating
     * libraries/common.lib.php PMA_getUvaCondition():
       fixed bug #1436058 Notices while browsing table
-    * tbl_properties_operations.php, libraries\Table.class.php:
+    * tbl_properties_operations.php, libraries/Table.class.php:
       make use of PMA_Table object for renaming tables
       (added also some required functionality to PMA_Table class)
 
@@ -532,13 +532,13 @@ $Source$
       in the code)
 
 2006-01-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * pdf_schema.php, db_details_qbe.php, libraries\display_tbl.lib.php,
-      libraries\export\htmlword.php, libraries\export\latex.php,
-      libraries\import.lib.php, libraries\ip_allow_deny.lib.php,
-      libraries\transformations.lib.php,
-      libraries\transformations\text_plain__external.inc.php:
+    * pdf_schema.php, db_details_qbe.php, libraries/display_tbl.lib.php,
+      libraries/export/htmlword.php, libraries/export/latex.php,
+      libraries/import.lib.php, libraries/ip_allow_deny.lib.php,
+      libraries/transformations.lib.php,
+      libraries/transformations/text_plain__external.inc.php:
       fixed bug #1409972 PHP 5.1.2 compatibility
-    * libraries\url_generating.lib.php:
+    * libraries/url_generating.lib.php:
       fixed bug: undefined index server ($GLOBALS['server'])
 
 2006-01-18 Michal Čihař  <michal@cihar.com>
@@ -584,16 +584,16 @@ $Source$
       themes/*/css/theme_right.css.php:
       'fixed' layout of export screen for buggy safari and opera
     * db_operations.php, export.php, index.php, left.php,
-      libraries\auth\cookie.auth.lib.php, libraries\common.lib.php,
-      libraries\db_details_common.inc.php, libraries\db_table_exists.lib.php,
-      libraries\display_export.lib.php, libraries\display_tbl.lib.php,
-      libraries\export\sql.php, libraries\footer.inc.php,
-      libraries\header.inc.php, libraries\left_header.inc.php,
-      libraries\mult_submits.inc.php, libraries\mysql_charsets.lib.php,
-      libraries\relation.lib.php, libraries\server_common.inc.php,
-      libraries\sql_query_form.lib.php, libraries\sqlparser.lib.php,
-      libraries\tbl_indexes.lib.php, libraries\tbl_move_copy.php,
-      libraries\url_generating.lib.php, querywindow.php, scripts\setup.php,
+      libraries/auth/cookie.auth.lib.php, libraries/common.lib.php,
+      libraries/db_details_common.inc.php, libraries/db_table_exists.lib.php,
+      libraries/display_export.lib.php, libraries/display_tbl.lib.php,
+      libraries/export/sql.php, libraries/footer.inc.php,
+      libraries/header.inc.php, libraries/left_header.inc.php,
+      libraries/mult_submits.inc.php, libraries/mysql_charsets.lib.php,
+      libraries/relation.lib.php, libraries/server_common.inc.php,
+      libraries/sql_query_form.lib.php, libraries/sqlparser.lib.php,
+      libraries/tbl_indexes.lib.php, libraries/tbl_move_copy.php,
+      libraries/url_generating.lib.php, querywindow.php, scripts/setup.php,
       server_databases.php, server_privileges.php, server_processlist.php,
       sql.php, tbl_addfield.php, tbl_alter.php, tbl_change.php, tbl_create.php,
       tbl_indexes.php, tbl_replace.php:
@@ -708,8 +708,8 @@ $Source$
 
 2005-12-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_importdocsql.php, db_operations.php,
-      libraries\relation.lib.php, libraries\relation_cleanup.lib.php
-      libraries\tbl_move_copy.php, libraries\transformations.lib.php
+      libraries/relation.lib.php, libraries/relation_cleanup.lib.php
+      libraries/tbl_move_copy.php, libraries/transformations.lib.php
       pdf_pages.php, pdf_schema.php, tbl_alter.php, tbl_relation.php:
       added database name to relation querys
 
@@ -845,12 +845,12 @@ $Source$
     * tbl_rename.php: removed, deprecated by function PMA_table_rename()
     * db_search.php, libraries/common.lib.php, libraries/tbl_move_copy.php,
       pdf_schema.php: removed PMA_isInto(), deprecated by in_array()
-    * libraries\mult_submits.inc.php, sql.php, tbl_addfield.php, tbl_alter.php,
+    * libraries/mult_submits.inc.php, sql.php, tbl_addfield.php, tbl_alter.php,
       tbl_import.php, tbl_properties.php, tbl_properties_structure.php,
       tbl_properties_operations.php, tbl_properties_export.php, tbl_select.php
       tbl_relation.php: moved tbl_properties_common.php into libraries
-    * libraries\common.lib.php, libraries\tbl_properties_common.php,
-      libraries\tbl_properties_links.inc.php, tbl_properties_operations.php:
+    * libraries/common.lib.php, libraries/tbl_properties_common.php,
+      libraries/tbl_properties_links.inc.php, tbl_properties_operations.php:
       global init of $GLOBALS['url_params']
 
 2005-12-07 Michal Čihař  <michal@cihar.com>
