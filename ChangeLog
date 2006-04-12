@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * export.php: bug #1443004 part 1: do not generate INSERT statements
+      for an exported VIEW
+
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php:
       fixed bug #1446017 red border in outdated themes

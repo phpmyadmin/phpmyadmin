@@ -436,7 +436,7 @@ if ($export_type == 'server') {
                         break 3;
                     }
                 }
-                if (isset($GLOBALS[$what . '_data'])) {
+                if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($current_db, $table)) {
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
                     }
@@ -467,7 +467,7 @@ if ($export_type == 'server') {
                     break 2;
                 }
             }
-            if (isset($GLOBALS[$what . '_data'])) {
+            if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($db, $table)) {
                 if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
@@ -508,7 +508,7 @@ if ($export_type == 'server') {
             break;
         }
     }
-    if (isset($GLOBALS[$what . '_data'])) {
+    if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($db, $table)) {
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
             break;
         }
