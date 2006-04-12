@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2006-04-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries\common.lib.php:
       fixed bug #1469109 PMA_backquote() issues
 
