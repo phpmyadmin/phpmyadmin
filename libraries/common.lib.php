@@ -2938,21 +2938,18 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
-if (!isset($_SESSION['PMA_Theme_Manager'])) {
+if (! isset($_SESSION['PMA_Theme_Manager'])) {
     $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
+} else {
+    $_SESSION['PMA_Theme_Manager']->checkConfig();
 }
 
 if (isset($_REQUEST['set_theme'])) {
     // if user submit a theme
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
-} elseif (version_compare(phpversion(), '5', 'lt')) {
-    $_SESSION['PMA_Theme_Manager']->__wakeup();
 }
 
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
-if (version_compare(phpversion(), '5', 'lt')) {
-    $_SESSION['PMA_Theme']->__wakeup();
-}
 
 // BC
 $GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
