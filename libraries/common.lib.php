@@ -1258,35 +1258,38 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * Adds backquotes on both sides of a database, table or field name.
-     * Since MySQL 3.23.6 this allows to use non-alphanumeric characters in
-     * these names.
+     * and escapes backquotes inside the name with another backquote
      *
-     * @param   mixed    the database, table or field name to "backquote" or
-     *                   array of it
-     * @param   boolean  a flag to bypass this function (used by dump
-     *                   functions)
+     * <code>
+     * echo PMA_backquote('owner`s db'); // `owner``s db`
+     * </code>
      *
+     * @param   mixed    $a_name    the database, table or field name to "backquote"
+     *                              or array of it
+     * @param   boolean  $do_it     a flag to bypass this function (used by dump
+     *                              functions)
      * @return  mixed    the "backquoted" database, table or field name if the
      *                   current MySQL release is >= 3.23.6, the original one
      *                   else
-     *
      * @access  public
      */
     function PMA_backquote($a_name, $do_it = true)
     {
-        // '0' is also empty for php :-(
-        if ($do_it
-            && isset($a_name) && !empty($a_name) && $a_name != '*') {
+        if (! $do_it) {
+            return $a_name;
+        }
 
-            if (is_array($a_name)) {
-                 $result = array();
-                 foreach ($a_name as $key => $val) {
-                     $result[$key] = '`' . $val . '`';
-                 }
-                 return $result;
-            } else {
-                return '`' . $a_name . '`';
-            }
+        if (is_array($a_name)) {
+             $result = array();
+             foreach ($a_name as $key => $val) {
+                 $result[$key] = PMA_backquote($val);
+             }
+             return $result;
+        }
+
+        // '0' is also empty for php :-(
+        if (strlen($a_name) && $a_name != '*') {
+            return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
         }

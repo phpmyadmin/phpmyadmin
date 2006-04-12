@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries\common.lib.php:
+      fixed bug #1469109 PMA_backquote() issues
+
 2006-04-11 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification about config.default.php
 
