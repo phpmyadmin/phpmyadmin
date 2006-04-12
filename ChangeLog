@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries\common.lib.php, libraries\Theme_Manager.class.php:
+      fixed bug #1469174 configuration changes not accepted in theme manager
     * libraries\Theme_Manager.class.php:
       fixed bug #1469120 missing property in Theme_Manager class
     * libraries\common.lib.php:

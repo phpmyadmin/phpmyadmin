@@ -8,8 +8,9 @@ class PMA_Theme_Manager {
 
     /**
      * @var string path to theme folder
+     * @protected
      */
-    var $themes_path;
+    var $_themes_path;
 
     /**
      * @var array available themes
@@ -43,15 +44,60 @@ class PMA_Theme_Manager {
 
     function __construct()
     {
-        $this->themes_path = trim($GLOBALS['cfg']['ThemePath']) ;
-        $this->per_server  = (bool) $GLOBALS['cfg']['ThemePerServer'];
-        $this->theme = new PMA_Theme;
+        $this->init();
+    }
 
-        if ( ! $this->_checkThemeFolder($this->themes_path)) {
-            return;
+    /**
+     * sets path to folder containing the themes
+     *
+     * @param   string  $path   path to themes folder
+     * @return  boolean success
+     */
+    function setThemesPath($path)
+    {
+        if (! $this->_checkThemeFolder($path)) {
+            return false;
         }
 
-        $this->loadThemes($this->themes_path);
+        $this->_themes_path = trim($path);
+        return true;
+    }
+
+    /**
+     * @public
+     * @return  string
+     */
+    function getThemesPath()
+    {
+        return $this->_themes_path;
+    }
+
+    /**
+     * sets if there are different themes per server
+     *
+     * @param   boolean $per_server
+     */
+    function setThemePerServer($per_server)
+    {
+        $this->per_server  = (bool) $per_server;
+    }
+
+    function init()
+    {
+        $this->themes = array();
+        $this->theme_default = 'original';
+        $this->active_theme = '';
+
+        if (! $this->setThemesPath($GLOBALS['cfg']['ThemePath'])) {
+            return false;
+        }
+
+        $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
+
+        $this->loadThemes();
+
+        $this->theme = new PMA_Theme;
+
 
         if ( ! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             $GLOBALS['PMA_errors'][] = sprintf( $GLOBALS['strThemeDefaultNotFound'],
@@ -67,18 +113,23 @@ class PMA_Theme_Manager {
 
         // check if user have a theme cookie
         if (! $this->getThemeCookie()
-          || ! $this->setActiveTheme($this->getThemeCookie())) {
+         || ! $this->setActiveTheme($this->getThemeCookie())) {
+            // otherwise use default theme
             if ($GLOBALS['cfg']['ThemeDefault']) {
                 $this->setActiveTheme($GLOBALS['cfg']['ThemeDefault']);
             } else {
+                // or original theme
                 $this->setActiveTheme('original');
             }
         }
     }
 
-    function __wakeup()
+    function checkConfig()
     {
-        $this->loadThemes($this->themes_path);
+        if ($this->_themes_path != trim($GLOBALS['cfg']['ThemePath'])
+         || $this->theme_default != $GLOBALS['cfg']['ThemeDefault']) {
+            $this->init();
+        }
     }
 
     function setActiveTheme($theme = null)
@@ -174,35 +225,34 @@ class PMA_Theme_Manager {
 
     /**
      * read all themes
-     *
-     * @param   string  $folder themes folders
      */
-    function loadThemes($folder)
+    function loadThemes()
     {
-        if ($handleThemes = opendir($folder)) {
+        $this->themes = array();
+
+        if ($handleThemes = opendir($this->getThemesPath())) {
             // check for themes directory
-            while (FALSE !== ($PMA_Theme = readdir($handleThemes))) {
+            while (false !== ($PMA_Theme = readdir($handleThemes))) {
                 if (array_key_exists($PMA_Theme, $this->themes)) {
-                    $new_themes[$PMA_Theme] = $this->themes[$PMA_Theme];
+                    $this->themes[$PMA_Theme] = $this->themes[$PMA_Theme];
                     continue;
                 }
-                $new_theme = PMA_Theme::load($folder . '/' . $PMA_Theme);
+                $new_theme = PMA_Theme::load($this->getThemesPath() . '/' . $PMA_Theme);
                 if ($new_theme) {
                     $new_theme->setId($PMA_Theme);
-                    $new_themes[$PMA_Theme] = $new_theme;
+                    $this->themes[$PMA_Theme] = $new_theme;
                 }
             } // end get themes
             closedir($handleThemes);
         } else {
             trigger_error(
-                'phpMyAdmin-ERROR: can not open themes folder: ' . $folder,
+                'phpMyAdmin-ERROR: can not open themes folder: ' . $this->getThemesPath(),
                 E_USER_WARNING);
             return false;
         } // end check for themes directory
 
-        $this->themes = $new_themes;
-
         ksort($this->themes);
+        return true;
     }
 
     /**
