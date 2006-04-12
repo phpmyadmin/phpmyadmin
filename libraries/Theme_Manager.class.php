@@ -36,6 +36,11 @@ class PMA_Theme_Manager {
      */
     var $theme = null;
 
+    /**
+     * @var string
+     */
+    var $theme_default = 'original';
+
     function __construct()
     {
         $this->themes_path = trim($GLOBALS['cfg']['ThemePath']) ;

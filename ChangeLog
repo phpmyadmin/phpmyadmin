@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries\Theme_Manager.class.php:
+      fixed bug #1469120 missing property in Theme_Manager class
     * libraries\common.lib.php:
       fixed bug #1469109 PMA_backquote() issues
 
