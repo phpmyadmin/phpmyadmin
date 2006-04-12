@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css\phpmyadmin.css.php, scripts\setup.php, test\theme.php
+      themes\darkblue_orange\css\theme_right.css.php,
+      themes\original\css\theme_right.css.php:
+      fixed bug #1444466 theme directory not being processed correctly
     * libraries\common.lib.php, libraries\Theme_Manager.class.php:
       fixed bug #1469174 configuration changes not accepted in theme manager
     * libraries\Theme_Manager.class.php:

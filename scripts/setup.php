@@ -81,7 +81,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.notice {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #FFD700;
-        background-image: url(../themes/original/img/s_notice.png);
+        background-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_notice.png);
         background-repeat: no-repeat;
         background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
@@ -102,7 +102,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.warning {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #CC0000;
-        background-image: url(../themes/original/img/s_warn.png);
+        background-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_warn.png);
         background-repeat: no-repeat;
         background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
@@ -123,7 +123,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.error {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #ff0000;
-        background-image: url(../themes/original/img/s_error.png);
+        background-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_error.png);
         background-repeat: no-repeat;
         background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
@@ -268,7 +268,7 @@ function version_to_int($version) {
  * @return  string  HTML link to documentation
  */
 function get_cfg_doc($anchor) {
-    return '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc"><img class="icon" src="../themes/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" /></a>';
+    return '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc"><img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" /></a>';
 }
 
 /**

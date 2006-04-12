@@ -233,11 +233,11 @@ echo sprintf( $strWelcome,
                     value="1" /></td>
             <th><label for="checkbox_1">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
@@ -246,11 +246,11 @@ echo sprintf( $strWelcome,
                     value="1" /></td>
             <th><label for="checkbox_2">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>
@@ -259,11 +259,11 @@ echo sprintf( $strWelcome,
                     value="1" /></td>
             <th><label for="checkbox_3">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
@@ -272,11 +272,11 @@ echo sprintf( $strWelcome,
                     value="1" /></td>
             <th><label for="checkbox_4">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>

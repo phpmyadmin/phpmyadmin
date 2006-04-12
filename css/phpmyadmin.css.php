@@ -354,10 +354,11 @@ a.tab:hover, .tabactive {
 
 /* disabled drop/empty tabs */
 span.tab, span.tabcaution {
-    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
+    cursor: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/error.ico), url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
+
 
 
 /* data tables */
@@ -494,7 +495,7 @@ form.login label {
 
 /* main page */
 #maincontainer {
-    background-image: url(../themes/original/img/logo_right.png);
+    background-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/logo_right.png);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
     border-bottom: 1px solid silver;
@@ -507,7 +508,7 @@ form.login label {
 }
 
 #maincontainer ul {
-    list-style-image: url(../themes/original/img/item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/item_<?php echo $GLOBALS['text_dir']; ?>.png);
     vertical-align: middle;
 }
 
@@ -520,96 +521,96 @@ form.login label {
 <?php if ( $GLOBALS['cfg']['MainPageIconic'] ) { ?>
 /* iconic view for ul items */
 li#li_create_database {
-    list-style-image: url(../themes/original/img/b_newdb.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_newdb.png);
 }
 
 li#li_select_lang {
-    list-style-image: url(../themes/original/img/s_lang.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_lang.png);
 }
 
 li#li_select_mysql_collation,
 li#li_select_mysql_charset {
-    list-style-image: url(../themes/original/img/s_asci.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_asci.png);
 }
 
 li#li_select_theme{
-    list-style-image: url(../themes/original/img/s_theme.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_theme.png);
 }
 
 li#li_server_info{
-    list-style-image: url(../themes/original/img/s_host.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
 }
 
 li#li_user_info{
-    /* list-style-image: url(../themes/original/img/s_rights.png); */
+    /* list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_rights.png); */
 }
 
 li#li_mysql_status{
-    list-style-image: url(../themes/original/img/s_status.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_status.png);
 }
 
 li#li_mysql_variables{
-    list-style-image: url(../themes/original/img/s_vars.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_vars.png);
 }
 
 li#li_mysql_processes{
-    list-style-image: url(../themes/original/img/s_process.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_process.png);
 }
 
 li#li_mysql_collations{
-    list-style-image: url(../themes/original/img/s_asci.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_asci.png);
 }
 
 li#li_mysql_engines{
-    list-style-image: url(../themes/original/img/b_engine.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_engine.png);
 }
 
 li#li_mysql_binlogs {
-    list-style-image: url(../themes/original/img/s_tbl.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_tbl.png);
 }
 
 li#li_mysql_databases {
-    list-style-image: url(../themes/original/img/s_db.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_db.png);
 }
 
 li#li_export {
-    list-style-image: url(../themes/original/img/b_export.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_export.png);
 }
 
 li#li_import {
-    list-style-image: url(../themes/original/img/b_import.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_import.png);
 }
 
 li#li_change_password {
-    list-style-image: url(../themes/original/img/s_passwd.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_passwd.png);
 }
 
 li#li_log_out {
-    list-style-image: url(../themes/original/img/s_loggoff.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_loggoff.png);
 }
 
 li#li_pma_docs {
-    list-style-image: url(../themes/original/img/b_docs.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_docs.png);
 }
 
 li#li_phpinfo {
-    list-style-image: url(../themes/original/img/php_sym.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/php_sym.png);
 }
 
 li#li_pma_homepage {
-    list-style-image: url(../themes/original/img/b_home.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_home.png);
 }
 
 li#li_mysql_privilegs{
-    list-style-image: url(../themes/original/img/s_rights.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_rights.png);
 }
 
 li#li_switch_dbstats {
-    list-style-image: url(../themes/original/img/b_dbstatistics.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_dbstatistics.png);
 }
 
 li#li_flush_privileges {
-    list-style-image: url(../themes/original/img/s_reload.png);
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_reload.png);
 }
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>

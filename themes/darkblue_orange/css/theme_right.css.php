@@ -65,7 +65,7 @@ th {
     font-weight:        bold;
     color:              #000000;
     background-color:   #ff9900;
-    background-image:   url(../themes/darkblue_orange/img/tbl_th.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/tbl_th.png);
     background-repeat:  repeat-x;
     background-position: top;
     height:             18px;
@@ -341,7 +341,7 @@ div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #FFD700;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/darkblue_orange/img/s_notice.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_notice.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -373,7 +373,7 @@ div.warning {
     width:              90%;
 
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/darkblue_orange/img/s_warn.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_warn.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -404,7 +404,7 @@ div.error {
     border:             0.1em solid #ff0000;
     width:              90%;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/darkblue_orange/img/s_error.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_error.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -435,7 +435,7 @@ fieldset.confirmation legend {
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/darkblue_orange/img/s_really.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_really.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 5px 50%;
@@ -458,7 +458,7 @@ fieldset.confirmation legend {
     font-weight:        bold;
     color:              #ffffff;
     background-color:   #666699;
-    background-image:   url(../themes/darkblue_orange/img/tbl_header.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/tbl_header.png);
     background-repeat:  repeat-x;
     background-position: top;
     height:             18px;
@@ -468,7 +468,7 @@ fieldset.confirmation legend {
     font-weight:        normal;
     color:              #ffffff;
     background-color:   #666699;
-    background-image:   url(../themes/darkblue_orange/img/tbl_header.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/tbl_header.png);
     background-repeat:  repeat-x;
     background-position: top;
 }
@@ -608,7 +608,7 @@ a.tab:hover,
 /* disabled drop/empty tabs */
 span.tab,
 span.tabcaution {
-    cursor:             url(../themes/darkblue_orange/img/error.ico), default;
+    cursor:             url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */

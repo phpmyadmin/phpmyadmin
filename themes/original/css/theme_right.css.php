@@ -11,7 +11,7 @@ body {
     padding:            0;
     font-family:        <?php echo $GLOBALS['right_font_family']; ?>;
     color:              #000000;
-    background-image:   url(../themes/original/img/vertical_line.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/vertical_line.png);
     background-repeat:  repeat-y;
     background-color:   #F5F5F5;
 }
@@ -318,7 +318,7 @@ div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #FFD700;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/original/img/s_notice.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_notice.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -348,7 +348,7 @@ div.warning {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #CC0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/original/img/s_warn.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_warn.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -378,7 +378,7 @@ div.error {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #ff0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/original/img/s_error.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_error.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -409,7 +409,7 @@ fieldset.confirmation legend {
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../themes/original/img/s_really.png);
+    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_really.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 5px 50%;
@@ -573,7 +573,7 @@ a.tab:hover,
 /* disabled drop/empty tabs */
 span.tab,
 span.tabcaution {
-    cursor:             url(../themes/original/img/error.ico), default;
+    cursor:             url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
