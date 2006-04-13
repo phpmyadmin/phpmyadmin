@@ -416,6 +416,8 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
     $limit_offset = 0, $limit_count = false)
 {
+    $sort_order = strtoupper($sort_order);
+
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxDbList'];
     }
@@ -538,7 +540,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         // produces f.e.:
         // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
         $sort_function = '
-            return ' . ($sort_order == 'asc' ? 1 : -1) . ' * ' . $sorter . '($a["' . $sort_by . '"], $b["' . $sort_by . '"]);
+            return ' . ($sort_order == 'ASC' ? 1 : -1) . ' * ' . $sorter . '($a["' . $sort_by . '"], $b["' . $sort_by . '"]);
         ';
 
         usort($databases, create_function('$a, $b', $sort_function));
