@@ -436,7 +436,7 @@ if ($export_type == 'server') {
                         break 3;
                     }
                 }
-                if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($current_db, $table)) {
+                if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($current_db, $table)) {
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
                     }
@@ -457,7 +457,14 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     $i = 0;
+    //$view = array();    
     foreach ($tables as $table) {
+        // if this is a view, collect it for later; views must be exported after
+        // the tables
+        //if (PMA_Table::isView($db, $table)) {
+        //    $views[] = $table;
+        //    continue;
+        //}
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
             || !isset($tmp_select)) {
@@ -467,7 +474,7 @@ if ($export_type == 'server') {
                     break 2;
                 }
             }
-            if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($db, $table)) {
+            if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
                 if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
@@ -508,7 +515,7 @@ if ($export_type == 'server') {
             break;
         }
     }
-    if (isset($GLOBALS[$what . '_data']) && ! PMA_tableIsView($db, $table)) {
+    if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
             break;
         }
