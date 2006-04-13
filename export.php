@@ -429,15 +429,30 @@ if ($export_type == 'server') {
                 break 2;
             }
             $tables = PMA_DBI_get_tables($current_db);
+            $views = array();    
             foreach ($tables as $table) {
+                // if this is a view, collect it for later; views must be exported
+                // after the tables
+                if (PMA_Table::isView($current_db, $table)) {
+                    $views[] = $table;
+                    continue;
+                }
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                 if (isset($GLOBALS[$what . '_structure'])) {
                     if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
                         break 3;
                     }
                 }
-                if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($current_db, $table)) {
+                if (isset($GLOBALS[$what . '_data'])) {
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
+                        break 3;
+                    }
+                }
+            }
+            foreach($views as $view) {
+                // no data export for a view
+                if (isset($GLOBALS[$what . '_structure'])) {
+                    if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
                         break 3;
                     }
                 }
@@ -457,14 +472,14 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     $i = 0;
-    //$view = array();    
+    $views = array();    
     foreach ($tables as $table) {
         // if this is a view, collect it for later; views must be exported after
         // the tables
-        //if (PMA_Table::isView($db, $table)) {
-        //    $views[] = $table;
-        //    continue;
-        //}
+        if (PMA_Table::isView($db, $table)) {
+            $views[] = $table;
+            continue;
+        }
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
             || !isset($tmp_select)) {
@@ -474,13 +489,22 @@ if ($export_type == 'server') {
                     break 2;
                 }
             }
-            if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
+            if (isset($GLOBALS[$what . '_data'])) {
                 if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
             }
         }
     }
+    foreach ($views as $view) {
+        // no data export for a view
+        if (isset($GLOBALS[$what . '_structure'])) {
+            if (!PMA_exportStructure($db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+                break 2;
+            }
+        }
+    }
+
     if (!PMA_exportDBFooter($db)) {
         break;
     }
@@ -515,7 +539,9 @@ if ($export_type == 'server') {
             break;
         }
     }
-    if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
+    // I think we have to export data for a single view; for example PDF report 
+    //if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
+    if (isset($GLOBALS[$what . '_data'])) {
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
             break;
         }

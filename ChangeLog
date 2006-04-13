@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * export.php: bug #1443004 part 2: export views after the tables
+
 2006-04-12 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug #1443004 part 1: do not generate INSERT statements
       for an exported VIEW
