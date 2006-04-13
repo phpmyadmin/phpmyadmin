@@ -351,22 +351,20 @@ if ($databases_count > 0) {
         PMA_buttonOrImage( 'drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', $strDrop, 'b_deltbl.png' );
     }
 
-    if ( PMA_MYSQL_INT_VERSION < 50002 ) {
-        echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-        if ( empty( $dbstats ) ) {
-            echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
-                .' title="' . $strDatabasesStatsEnable . '">' . "\n"
-                .'            ' . $strDatabasesStatsEnable;
-        } else {
-            echo '        <a href="./server_databases.php?' . $url_query . '"'
-                .' title="' . $strDatabasesStatsDisable . '">' . "\n"
-                .'            ' . $strDatabasesStatsDisable;
-        }
-        echo '</a></strong><br />' . "\n"
-            .'        <div class="warning">'
-            . $strDatabasesStatsHeavyTraffic . '</div></li>' . "\n"
-            .'</ul>' . "\n";
+    echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
+    if ( empty( $dbstats ) ) {
+        echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
+            .' title="' . $strDatabasesStatsEnable . '">' . "\n"
+            .'            ' . $strDatabasesStatsEnable;
+    } else {
+        echo '        <a href="./server_databases.php?' . $url_query . '"'
+            .' title="' . $strDatabasesStatsDisable . '">' . "\n"
+            .'            ' . $strDatabasesStatsDisable;
     }
+    echo '</a></strong><br />' . "\n"
+        .'        <div class="warning">'
+        . $strDatabasesStatsHeavyTraffic . '</div></li>' . "\n"
+        .'</ul>' . "\n";
     echo '</form>';
 } else {
     echo $strNoDatabases;

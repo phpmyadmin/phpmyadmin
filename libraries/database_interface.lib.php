@@ -453,7 +453,9 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         // for PMA bc:
         // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
         $sql = '
-             SELECT `information_schema`.`SCHEMATA`.*,
+             SELECT `information_schema`.`SCHEMATA`.*';
+        if ($force_stats) {
+            $sql .= ',
                     COUNT(`information_schema`.`TABLES`.`TABLE_SCHEMA`)
                         AS `SCHEMA_TABLES`,
                     SUM(`information_schema`.`TABLES`.`TABLE_ROWS`)
@@ -468,17 +470,23 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                       + `information_schema`.`TABLES`.`INDEX_LENGTH`)
                         AS `SCHEMA_LENGTH`,
                     SUM(`information_schema`.`TABLES`.`DATA_FREE`)
-                        AS `SCHEMA_DATA_FREE`
-               FROM `information_schema`.`SCHEMATA`
+                        AS `SCHEMA_DATA_FREE`';
+        }
+        $sql .= '
+               FROM `information_schema`.`SCHEMATA`';
+        if ($force_stats) {
+            $sql .= '
           LEFT JOIN `information_schema`.`TABLES`
                  ON `information_schema`.`TABLES`.`TABLE_SCHEMA`
-                  = `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
+                  = `information_schema`.`SCHEMATA`.`SCHEMA_NAME`';
+        }
+        $sql .= '
               ' . $sql_where_schema . '
            GROUP BY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
            ORDER BY ' . PMA_backquote($sort_by) . ' ' . $sort_order
            . $limit;
         $databases = PMA_DBI_fetch_result( $sql, 'SCHEMA_NAME', null, $link );
-        unset( $sql_where_schema, $sql );
+        unset($sql_where_schema, $sql);
     } else {
         foreach ( PMA_DBI_get_dblist( $link ) as $database_name ) {
             // MySQL forward compatibility
