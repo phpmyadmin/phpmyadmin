@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * changelog.php:
+      link also js, html, pl, and sh files, FAQ entries
+      and contributors to their sf.net user page, smaller regex fixes
+
 2006-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug #1443004 part 2: export views after the tables
 
