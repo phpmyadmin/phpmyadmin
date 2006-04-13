@@ -174,9 +174,11 @@ if ($databases_count > 0) {
 
         echo '<form action="./server_databases.php" method="post">' . "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
-        echo PMA_pageselector('server_databases.php?', 100,
-                ($pos / $GLOBALS['cfg']['MaxDbList']) + 1,
-                $databases_count / $GLOBALS['cfg']['MaxDbList']);
+        echo PMA_pageselector(
+                'server_databases.php' . PMA_generate_common_url($_url_params) . '&',
+                $GLOBALS['cfg']['MaxDbList'],
+                floor($pos+1 / $GLOBALS['cfg']['MaxDbList']) + 1,
+                ceil($databases_count / $GLOBALS['cfg']['MaxDbList']));
         echo '</form>';
 
         if ($pos + $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
