@@ -19,20 +19,17 @@ if (empty($_REQUEST['sort_by'])) {
 } else {
     $sort_by = PMA_sanitize($_REQUEST['sort_by']);
 }
-if (empty($_REQUEST['sort_order'])) {
-    if ($sort_by == 'SCHEMA_NAME') {
-        $sort_order = 'asc';
-    } else {
-        $sort_order = 'desc';
-    }
+
+if (isset($_REQUEST['sort_order'])
+ && strtoupper($_REQUEST['sort_order']) == 'DESC') {
+    $sort_order = 'DESC';
 } else {
-    $sort_order = PMA_sanitize($_REQUEST['sort_order']);
+    $sort_order = 'ASC';
 }
 
 $dbstats    = empty($_REQUEST['dbstats']) ? 0 : 1;
 $pos        = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
-$sort_by    = empty($_REQUEST['sort_by']) ? 'SCHEMA_NAME' : $_REQUEST['sort_by'];
-$sort_order = empty($_REQUEST['sort_order']) ? 'ASC' : $_REQUEST['sort_order'];
+
 
 /**
  * Drops multiple databases
@@ -142,9 +139,15 @@ if ($databases_count > 0) {
         'footer'    => 0,
     );
 
+    $_url_params = array(
+        'pos' => $pos,
+        'dbstats' => $dbstats,
+        'sort_by' => $sort_by,
+        'sort_order' => $sort_order,
+    );
+
     if ($GLOBALS['cfg']['MaxDbList']
      && $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
-         $_url_params = array();
         // Move to the beginning or to the previous page
         if ($pos > 0) {
             // loic1: patch #474210 from Gosha Sakovich - part 1
@@ -169,9 +172,10 @@ if ($databases_count > 0) {
                 . $caption2 . '</a>';
         }
 
-        echo '<form action="none">';
+        echo '<form action="./server_databases.php" method="post">' . "\n";
+        echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector('server_databases.php?', 100,
-                ($pos / $GLOBALS['cfg']['MaxDbList']) - 1,
+                ($pos / $GLOBALS['cfg']['MaxDbList']) + 1,
                 $databases_count / $GLOBALS['cfg']['MaxDbList']);
         echo '</form>';
 
@@ -198,16 +202,19 @@ if ($databases_count > 0) {
         }
     }
 
+    $_url_params['pos'] = $pos;
+
     echo '<form action="./server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">' . "\n"
-       . PMA_generate_common_hidden_inputs('', '', 1)
-       . '<input type="hidden" name="dbstats" value="' . $dbstats . '" />' . "\n"
-       . '<input type="hidden" name="sort_by" value="' . $sort_by . '" />' . "\n"
-       . '<input type="hidden" name="sort_order" value="' . $sort_order . '" />' . "\n"
-       . '<table id="tabledatabases" class="data">' . "\n"
+       . PMA_generate_common_hidden_inputs($_url_params);
+
+    $_url_params['sort_by'] = 'SCHEMA_NAME';
+    $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'ASC') ? 'DESC' : 'ASC';
+
+    echo '<table id="tabledatabases" class="data">' . "\n"
        . '<thead>' . "\n"
        . '<tr>' . "\n"
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th>&nbsp;</th>' . "\n" : '')
-       . '    <th><a href="./server_databases.php?' . $url_query . '&amp;dbstats=' . $dbstats . '&amp;sort_by=SCHEMA_NAME&amp;sort_order=' . (($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc') . '">' . "\n"
+       . '    <th><a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
        . '            ' . $strDatabase . "\n"
        . ($sort_by == 'SCHEMA_NAME' ? '                <img class="icon" src="' . $pmaThemeImage . 's_' . $sort_order . '.png" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
        . '        </a></th>' . "\n";
@@ -221,8 +228,10 @@ if ($databases_count > 0) {
                 $table_columns++;
                 $colspan = '';
             }
+            $_url_params['sort_by'] = $stat_name;
+            $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'DESC') ? 'ASC' : 'DESC';
             echo '    <th' . $colspan . '>'
-                .'<a href="./server_databases.php?' . $url_query . '&amp;dbstats=' . (int) $dbstats . '&amp;sort_by=' . urlencode( $stat_name ) . '&amp;sort_order=' . (($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
+                .'<a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 .'            ' . $stat['disp_name'] . "\n"
                 .($sort_by == $stat_name ? '            <img class="icon" src="' . $pmaThemeImage . 's_' . $sort_order . '.png" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
                 .'        </a></th>' . "\n";
