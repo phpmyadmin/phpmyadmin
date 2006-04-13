@@ -123,6 +123,7 @@ $cfg['ServerDefault'] = 1;              // Default server (0 = no default server
 /**
  * Other core phpMyAdmin settings
  */
+$cfg['MaxDbList']               = 100;    // maximum number of db's displayed in left frame and databaes list
 $cfg['OBGzip']                  = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
 $cfg['PersistentConnections']   = FALSE;  // use persistent connections to MySQL database
 $cfg['ForceSSL']                = FALSE;  // whether to force using https
@@ -140,7 +141,7 @@ $cfg['UseDbSearch']             = TRUE;   // whether to enable the "database sea
 $cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues computing multiple-statement queries
                                           // even if one of the queries failed
 $cfg['VerboseMultiSubmit']      = TRUE;   // if set to true, PMA will show the affected rows of EACH statement on
-                                          // multiple-statement queries. See the libraries/import.php file for 
+                                          // multiple-statement queries. See the libraries/import.php file for
                                           // hardcoded defaults on how many queries a statement may contain!
 $cfg['AllowArbitraryServer']    = FALSE;  // allow login to any user entered server in cookie based auth
 
@@ -196,7 +197,7 @@ $cfg['CharEditing']           = 'input';
                                         //  textarea - allows newlines in fields
 $cfg['InsertRows']            = 2;      // How many rows can be inserted at one time
 
-$cfg['ForeignKeyDropdownOrder'] =       // Sort order for items in a foreign-key dropdown box. 
+$cfg['ForeignKeyDropdownOrder'] =       // Sort order for items in a foreign-key dropdown box.
     array( 'content-id', 'id-content'); // 'content' is the referenced data, 'id' is the key value.
 $cfg['ForeignKeyMaxLimit'] = 100;       // A dropdown will be used if fewer items are present
 
@@ -490,7 +491,7 @@ $cfg['ShowBrowseComments']  = TRUE;         // shows stored relation-comments in
 $cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
-$cfg['EditInWindow']        = TRUE;         // Set to TRUE if Edit link should open the query to edit in the query window (assuming Javascript is enabled), and to FALSE if we should edit in the right panel 
+$cfg['EditInWindow']        = TRUE;         // Set to TRUE if Edit link should open the query to edit in the query window (assuming Javascript is enabled), and to FALSE if we should edit in the right panel
 $cfg['QueryWindowWidth']    = 550;          // Width of Query window
 $cfg['QueryWindowHeight']   = 310;          // Height of Query window
 $cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.
@@ -564,7 +565,7 @@ $cfg['SQLQuery']['Refresh']   = TRUE;       // Refresh the results page
  */
 $cfg['UploadDir']             = '';         // Directory for uploaded files that can be executed by
                                             // phpMyAdmin. For example './upload'. Leave empty for
-                                            // no upload directory support. Use %u for username 
+                                            // no upload directory support. Use %u for username
                                             // inclusion.
 $cfg['SaveDir']               = '';         // Directory where phpMyAdmin can save exported data on
                                             // server. For example './save'. Leave empty for no save
@@ -648,7 +649,7 @@ $cfg['ColumnTypes'] = array(
 );
 
 // Attributes
-// Note: the "ON UPDATE CURRENT_TIMESTAMP" attribute is added dynamically 
+// Note: the "ON UPDATE CURRENT_TIMESTAMP" attribute is added dynamically
 // for MySQL >= 4.1.2, in libraries/tbl_properties.inc.php
 
 $cfg['AttributeTypes'] = array(
