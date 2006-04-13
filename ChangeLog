@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/database_interface.lib.php:
+       - extended PMA_DBI_get_databases_full() to allow limiting and sorting
+       - added new function PMA_DBI_get_databases_count()
     * libraries/config.default.php:
       added new paramter to limit maximum displayed databases
     * sql.php:

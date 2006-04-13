@@ -390,19 +390,56 @@ function PMA_DBI_get_tables_full($database, $table = false,
 }
 
 /**
+ * returns count of databases for current server
+ *
+ * @param   string      $database   databases to count
+ * @param   resource    $link       mysql db link
+ */
+function PMA_DBI_get_databases_count($database = null, $link = null)
+{
+    return count(PMA_DBI_get_dblist($link));
+}
+
+/**
  * returns array with databases containing extended infos about them
  *
  * @param   string          $databases      database
  * @param   boolean         $force_stats    retrieve stats also for MySQL < 5
  * @param   resource        $link           mysql link
+ * @param   string          $sort_by        collumn to order by
+ * @param   string          $sort_order     ASC or DESC
+ * @param   integer         $limit_offset   starting offset for LIMIT
+ * @param   bool|int        $limit_count    row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
  * @return  array       $databases
  */
-function PMA_DBI_get_databases_full( $database = null, $force_stats = false, $link = null ) {
+function PMA_DBI_get_databases_full($database = null, $force_stats = false,
+    $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
+    $limit_offset = 0, $limit_count = false)
+{
+    if (true === $limit_count) {
+        $limit_count = $GLOBALS['cfg']['MaxDbList'];
+    }
 
     // initialize to avoid errors when there are no databases
     $databases = array();
 
-    if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
+    $apply_limit_and_order_manual = true;
+
+    if (PMA_MYSQL_INT_VERSION >= 50002) {
+        /**
+         * if $GLOBALS['cfg']['NaturalOrder'] is enabled, we cannot use LIMIT
+         * cause MySQL does not support natural ordering, we have to do it afterward
+         */
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            $limit = '';
+        } else {
+            if ($limit_count) {
+                $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
+            }
+
+            $apply_limit_and_order_manual = false;
+        }
+
         // get table information from information_schema
         if ( $database ) {
             $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
@@ -435,7 +472,9 @@ function PMA_DBI_get_databases_full( $database = null, $force_stats = false, $li
                  ON `information_schema`.`TABLES`.`TABLE_SCHEMA`
                   = `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
               ' . $sql_where_schema . '
-           GROUP BY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`';
+           GROUP BY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
+           ORDER BY ' . PMA_backquote($sort_by) . ' ' . $sort_order
+           . $limit;
         $databases = PMA_DBI_fetch_result( $sql, 'SCHEMA_NAME', null, $link );
         unset( $sql_where_schema, $sql );
     } else {
@@ -481,8 +520,35 @@ function PMA_DBI_get_databases_full( $database = null, $force_stats = false, $li
         }
     }
 
-    if ( $GLOBALS['cfg']['NaturalOrder'] ) {
-        uksort( $databases, 'strnatcasecmp' );
+    /**
+     * apply limit and order manually now
+     * (caused by older MySQL < 5 or $GLOBALS['cfg']['NaturalOrder'])
+     */
+    if ($apply_limit_and_order_manual) {
+
+        /**
+         * first apply ordering
+         */
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            $sorter = 'strnatcasecmp';
+        } else {
+            $sorter = 'strcasecmp';
+        }
+
+        // produces f.e.:
+        // return -1 * strnatcasecmp($a["SCHEMA_TABLES"], $b["SCHEMA_TABLES"])
+        $sort_function = '
+            return ' . ($sort_order == 'asc' ? 1 : -1) . ' * ' . $sorter . '($a["' . $sort_by . '"], $b["' . $sort_by . '"]);
+        ';
+
+        usort($databases, create_function('$a, $b', $sort_function));
+
+        /**
+         * now apply limit
+         */
+        if ($limit_count) {
+            $databases = array_slice($databases, $limit_offset, $limit_count);
+        }
     }
 
     return $databases;
