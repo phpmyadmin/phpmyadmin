@@ -177,7 +177,7 @@ if ($databases_count > 0) {
         echo PMA_pageselector(
                 'server_databases.php' . PMA_generate_common_url($_url_params) . '&',
                 $GLOBALS['cfg']['MaxDbList'],
-                floor($pos+1 / $GLOBALS['cfg']['MaxDbList']) + 1,
+                floor(($pos + 1) / $GLOBALS['cfg']['MaxDbList']) + 1,
                 ceil($databases_count / $GLOBALS['cfg']['MaxDbList']));
         echo '</form>';
 

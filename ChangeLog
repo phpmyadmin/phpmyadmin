@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2006-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_databases.php: need brackets for correct calculation of page
+
+2006-04-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_databases.php, libraries/database_interface.lib.php:
       disable table stats for MySQL 5 by default
     * server_databases.php:
