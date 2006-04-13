@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
+/**
+ * @todo    we must handle the case if sql.php is called directly with a query
+ *          what returns 0 rows - to prevent cyclic redirects or includes
+ */
 
 /**
  * Gets some core libraries
@@ -12,7 +16,7 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 /**
- * Could be coming from a subform ("T" column expander) 
+ * Could be coming from a subform ("T" column expander)
  */
 if (isset($_REQUEST['dontlimitchars'])) {
     $dontlimitchars = $_REQUEST['dontlimitchars'];
@@ -51,16 +55,23 @@ if (isset($fields['dbase'])) {
     $db = $fields['dbase'];
 }
 
-// Default to browse if no query set an we have table (needed for browsing from DefaultTabTable)
-if (!isset($sql_query) && isset($table) && isset($db)) {
+// Default to browse if no query set an we have table
+// (needed for browsing from DefaultTabTable)
+if (! isset($sql_query) && isset($table) && isset($db)) {
     require_once './libraries/bookmark.lib.php';
-    $book_sql_query = PMA_queryBookmarks($db, $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
-    if (!empty($book_sql_query)) {
+    $book_sql_query = PMA_queryBookmarks($db,
+        $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'',
+        'label');
+
+    if (! empty($book_sql_query)) {
         $sql_query = $book_sql_query;
     } else {
         $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
     }
     unset($book_sql_query);
+
+    // set $goto to what will be displayed if query returns 0 rows
+    $goto = 'tbl_properties_structure.php';
 } else {
     // Now we can check the parameters
     PMA_checkParameters(array('sql_query'));
@@ -641,42 +652,23 @@ else {
         if ($is_gotofile) {
             $goto = PMA_securePath($goto);
             // Checks for a valid target script
-            if (isset($table) && $table == '') {
-                unset($table);
-            }
-            if (isset($db) && $db == '') {
-                unset($db);
-            }
             $is_db = $is_table = false;
-            if (strpos(' ' . $goto, 'tbl_properties') == 1) {
-                if (!isset($table)) {
-                    $goto = 'db_details.php';
-                } else {
-                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';', null, PMA_DBI_QUERY_STORE);
-                    if (!($is_table && @PMA_DBI_num_rows($is_table))) {
-                        $goto = 'db_details.php';
-                        unset($table);
-                    }
-                    @PMA_DBI_free_result($is_table);
-                } // end if... else...
-            }
-            if (strpos(' ' . $goto, 'db_details') == 1) {
+            include 'libraries/db_table_exists.lib.php';
+            if (strpos($goto, 'tbl_properties') === 0 && ! $is_table) {
                 if (isset($table)) {
                     unset($table);
                 }
-                if (!isset($db)) {
-                    $goto = 'main.php';
-                } else {
-                    $is_db    = @PMA_DBI_select_db($db);
-                    if (!$is_db) {
-                        $goto = 'main.php';
-                        unset($db);
-                    }
-                } // end if... else...
+                $goto = 'db_details.php';
+            }
+            if (strpos($goto, 'db_details') === 0 && ! $is_db) {
+                if (isset($db)) {
+                    unset($db);
+                }
+                $goto = 'main.php';
             }
             // Loads to target script
-            if (strpos(' ' . $goto, 'db_details') == 1
-                || strpos(' ' . $goto, 'tbl_properties') == 1) {
+            if (strpos($goto, 'db_details') === 0
+             || strpos($goto, 'tbl_properties') === 0) {
                 $js_to_run = 'functions.js';
             }
             if ($goto != 'main.php') {

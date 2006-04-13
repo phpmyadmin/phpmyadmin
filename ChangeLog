@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2006-04-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * sql.php:
+       - fixed bug #1469469 cyclic redirect with sql.php as default table-page
+       - re-use already existing code
     * changelog.php:
       link also js, html, pl, and sh files, FAQ entries
       and contributors to their sf.net user page, smaller regex fixes
