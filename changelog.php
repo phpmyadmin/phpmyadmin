@@ -50,6 +50,10 @@ $replaces = array(
     '/((CAN|CVE)-[0-9]+-[0-9]+)/'
     => '<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
 
+    // Highlight releases
+    '/(    ### )(.*)/'
+    => '\\1<b>\\2</b>',
+
 );
 
 header('Content-type: text/html; charset=utf-8');
