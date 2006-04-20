@@ -46,6 +46,10 @@ $replaces = array(
     '/(?<!BUG|RFE|patch) #?([0-9]{6,})/i'
     => ' <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=\\1&amp;group_id=23067&amp;atid=377408">BUG #\\1</a>',
 
+    // CVE/CAN entries
+    '/((CAN|CVE)-[0-9]+-[0-9]+)/'
+    => '<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
+
 );
 
 header('Content-type: text/html; charset=utf-8');

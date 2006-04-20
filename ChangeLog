@@ -10,6 +10,7 @@ $Source$
     * libraries/url_generating.lib.php, libraries/session.inc.php,
       libraries/common.lib.php: Protect against external links which could
       perform any action (CVE-2006-1804).
+    * changelog.php: Link to CAN/CVE security issues.
 
 2006-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: need brackets for correct calculation of page
