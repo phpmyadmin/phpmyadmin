@@ -88,9 +88,7 @@ if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
 
 $url_query = PMA_generate_common_url($_GET);
 
-if (! empty( $GLOBALS['target'])
-  && preg_match( '@[a-z_]+\.php@', $GLOBALS['target'])
-  && $GLOBALS['target'] != 'index.php') {
+if (!empty($GLOBALS['target']) && in_array($GLOBALS['target'], $goto_whitelist)) {
     $main_target = $GLOBALS['target'];
 }
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-20 Michal Čihař  <michal@cihar.com>
+    * index.php: Check target against goto_whitelist.
+
 2006-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: need brackets for correct calculation of page
 
