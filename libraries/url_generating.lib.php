@@ -64,6 +64,8 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
         $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
 
+    $params['token'] = $_SESSION['PMA_token'];
+
     if (! is_array($skip)) {
         if (isset($params[$skip])) {
             unset($params[$skip]);
@@ -186,6 +188,8 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
       && ! empty($GLOBALS['collation_connection'])) {
         $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
+
+    $params['token'] = $_SESSION['PMA_token'];
 
     $param_strings = array();
     foreach ($params as $key => $val) {

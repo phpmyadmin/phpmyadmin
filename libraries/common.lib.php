@@ -2768,6 +2768,32 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
 }
 
 /**
+ * Check whether user supplied token is valid, if not remove any 
+ * possibly dangerous stuff from request.
+ */
+if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
+    /* List of parameters which are allowed from unsafe source */
+    $allow_list = array(
+        'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
+        /* Session ID */
+        'phpMyAdmin', 
+        /* Cookie preferences */
+        'pma_lang', 'pma_charset', 'pma_collation_connection', 'pma_convcharset',
+    );
+    $keys = array_keys($_REQUEST);
+    /* Remove any non allowed stuff from requests */
+    foreach($keys as $key) {
+        if (!in_array($key, $allow_list)) {
+            unset($_REQUEST[$key]);
+            unset($_GET[$key]);
+            unset($_POST[$key]);
+            unset($GLOBALS[$key]);
+        }
+    }
+}
+
+
+/**
  * @var string $convcharset
  * @see also select_lang.lib.php
  */

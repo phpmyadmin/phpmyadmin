@@ -101,6 +101,13 @@ ini_set('session.save_handler', 'files');
 @session_start();
 
 /**
+ * Token which is used for authenticating access queries.
+ */
+if (!isset($_SESSION['PMA_token'])) {
+    $_SESSION['PMA_token'] = md5(uniqid(rand(), true));
+}
+
+/**
  * trys to secure session from hijacking and fixation
  * should be called before login and after successfull login
  * (only required if sensitive information stored in session)
