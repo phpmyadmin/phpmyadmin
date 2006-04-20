@@ -4,7 +4,6 @@
  * Simple script to set correct charset for changelog
  *
  * @id      $Id$
- * @todo    link release tags
  */
 
 $changelog = htmlspecialchars(file_get_contents('ChangeLog'));
@@ -50,7 +49,13 @@ $replaces = array(
     '/((CAN|CVE)-[0-9]+-[0-9]+)/'
     => '<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=\\1">\\1</a>',
 
-    // Highlight releases
+    // Highlight releases (with links)
+    '/((    ### )(([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+) (.*)))/'
+    => '<a name="\\4_\\5_\\6_\\7"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6_\\7">\\4.\\5.\\6.\\7 \\8</a>',
+    '/((    ### )(([0-9]+)\.([0-9]+)\.([0-9]+) (.*)))/'
+    => '<a name="\\4_\\5_\\6"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6">\\4.\\5.\\6 \\7</a>',
+    
+    // Highlight releases (not linkable)
     '/(    ### )(.*)/'
     => '\\1<b>\\2</b>',
 
