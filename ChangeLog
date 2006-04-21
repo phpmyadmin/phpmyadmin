@@ -10,6 +10,7 @@ $Source$
       (bug #1473944).
     * Documentation.html: Document problems with PMA_blowfish on clusters of
       different architectures (bug #1470912).
+    * Documentation.html: Document LoginCookieValidity (bug #1473357).
 
 2006-04-20 Michal Čihař  <michal@cihar.com>
     * index.php: Check target against goto_whitelist.
