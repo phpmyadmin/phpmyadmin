@@ -191,13 +191,16 @@ if ($plugin_param == 'table') {
                     }
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $csv_enclosed) {
-                        if ($i == $len - 1) {
+                        if ($finished && $i == $len - 1) {
+                            $ch = NULL;
+                        } elseif ($i == $len - 1) {
                             $i = $fallbacki;
                             $ch = $buffer[$i];
                             break;
+                        } else {
+                            $i++;
+                            $ch = $buffer[$i];
                         }
-                        $i++;
-                        $ch = $buffer[$i];
                     }
                     // Are we at the end?
                     if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n")) || ($finished && $i == $len - 1)) {

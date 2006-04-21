@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-04-21 Michal Čihař  <michal@cihar.com>
+    * libraries/import/csv.php: Fix importing files without trailing new line
+      (bug #1473944).
+
 2006-04-20 Michal Čihař  <michal@cihar.com>
     * index.php: Check target against goto_whitelist.
     * libraries/url_generating.lib.php, libraries/session.inc.php,
