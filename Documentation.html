@@ -2347,6 +2347,15 @@ ALTER TABLE `pma_column_comments`
     Please refers to the <a href="http://www.fpdf.org/">FPDF manual</a> to build
     these files.</p>
 
+<h4 id="faq1_20">
+    <a href="#faq1_20">I run phpMyAdmin on cluster of different machines and
+    password encryption in cookie auth doesn't work.</a></h4>
+
+<p> If your cluster consist of different architectures, PHP code used for
+    encryption/decryption won't work correct. This is caused by use of
+    pack/unpack functions in code. Only solution is to use mcrypt extension
+    which works fine in this case.</p>
+
 <h4 id="faqmysql">
     <a href="#faqmysql">I receive the error &quot;cannot load MySQL extension, please
     check PHP Configuration&quot;.</a></h4>
