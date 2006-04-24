@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-03-24 Michal Čihař  <michal@cihar.com>
+    * main.php: Fix logout link (bug #1474694).
+
 2006-04-21 Michal Čihař  <michal@cihar.com>
     * libraries/import/csv.php: Fix importing files without trailing new line
       (bug #1473944).

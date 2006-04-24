@@ -205,7 +205,7 @@ if ( $server > 0 ) {
                      : '';
         PMA_printListItem( '<strong>' . $strLogout . '</strong> ' . $http_logout,
             'li_log_out',
-            './user_password.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) );
+            './index.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER), null, '_parent');
     } // end if
 
     echo '</ul>';
