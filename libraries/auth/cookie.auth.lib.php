@@ -212,13 +212,13 @@ echo sprintf( $GLOBALS['strWelcome'],
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <?php
-    if (isset($GLOBALS['target'])) {
+    if (!empty($GLOBALS['target'])) {
         echo '            <input type="hidden" name="target" value="' . htmlspecialchars($GLOBALS['target']) . '" />' . "\n";
     }
-    if (isset($GLOBALS['db'])) {
+    if (!empty($GLOBALS['db'])) {
         echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
     }
-    if (isset($GLOBALS['table'])) {
+    if (!empty($GLOBALS['table'])) {
         echo '            <input type="hidden" name="table" value="' . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
     }
     ?>
