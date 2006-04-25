@@ -13,7 +13,9 @@ $Source$
 
 2006-04-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_qbe.php, db_printview.php, libraries/display_tbl.lib.php,
-      css/phpmyadmin.css.php, js/functions.js, pdf_pages.php:
+      css/phpmyadmin.css.php, js/functions.js, pdf_pages.php, pdf_schema.php,
+      server_binlog.php, server_variables.php, tbl_change.php,
+      transformation_overview.php:
       style upgrade
 
 2006-04-24 Michal Čihař  <michal@cihar.com>

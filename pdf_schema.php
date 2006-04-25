@@ -1251,7 +1251,6 @@ function PMA_RT_DOC($alltables)
             $pdf->Ln();
         }
 
-        $i = 0;
         $pdf->SetFont('', 'B');
         if (isset($orientation) && $orientation == 'L') {
             $pdf->Cell(25, 8, ucfirst($GLOBALS['strField']), 1, 0, 'C');
@@ -1287,9 +1286,6 @@ function PMA_RT_DOC($alltables)
         $pdf->SetFont('', '');
 
         while ($row = PMA_DBI_fetch_assoc($result)) {
-            $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
-            $i++;
-
             $type = $row['Type'];
             // reformat mysql query output - staybyte - 9. June 2001
             // loic1: set or enum types: slashes single quotes inside options

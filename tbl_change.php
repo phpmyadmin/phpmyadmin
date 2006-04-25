@@ -5,10 +5,10 @@
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 /**
- * Sets global variables. 
+ * Sets global variables.
  * Here it's better to use a if, instead of the '?' operator
  * to avoid setting a variable to '' when it's not present in $_REQUEST
  */
@@ -36,9 +36,9 @@ if (isset($_REQUEST['sql_query'])) {
 
 
 $js_to_run = 'tbl_change.js';
-require_once('./libraries/header.inc.php');
-require_once('./libraries/relation.lib.php'); // foreign keys
-require_once('./libraries/file_listing.php'); // file listing
+require_once './libraries/header.inc.php';
+require_once './libraries/relation.lib.php'; // foreign keys
+require_once './libraries/file_listing.php'; // file listing
 
 
 /**
@@ -93,7 +93,7 @@ if (!preg_match('@^(db_details|tbl_properties|tbl_select|tbl_import)@', $goto)) 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once('./libraries/db_table_exists.lib.php');
+require_once './libraries/db_table_exists.lib.php';
 
 
 /**
@@ -102,15 +102,15 @@ require_once('./libraries/db_table_exists.lib.php');
 $url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php';
 
-require_once('./libraries/tbl_properties_table_info.inc.php');
+require_once './libraries/tbl_properties_table_info.inc.php';
 
 /* Get comments */
 
 $comments_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require_once('./libraries/relation.lib.php');
-    require_once('./libraries/transformations.lib.php');
+    require_once './libraries/relation.lib.php';
+    require_once './libraries/transformations.lib.php';
 
     $cfgRelation = PMA_getRelationsParam();
 
@@ -122,11 +122,11 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * Displays top menu links
  */
-require_once('./libraries/tbl_properties_links.inc.php');
+require_once './libraries/tbl_properties_links.inc.php';
 
 
 /**
- * Get the analysis of SHOW CREATE TABLE for this table 
+ * Get the analysis of SHOW CREATE TABLE for this table
  */
 $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
@@ -176,7 +176,7 @@ if (isset($primary_key)) {
                 unset($sql_query_cpy);
             }
             echo "\n";
-            require_once('./libraries/footer.inc.php');
+            require_once './libraries/footer.inc.php';
         } // end if (no record returned)
     }
 } else {
@@ -318,6 +318,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
 
+    $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
         // Display the submit button after every 15 lines --swix
         // (wanted to use an <a href="#bottom"> and <a name> instead,
@@ -392,13 +393,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
         }
 
-        $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         ?>
-        <tr>
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo $field_name; ?></td>
-        <?php
-        echo "\n";
+        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field_name; ?></td>
 
+        <?php
         // The type column
         $is_binary                  = stristr($row_table_def['Type'], ' binary');
         $is_blob                    = stristr($row_table_def['Type'], 'blob');
@@ -427,11 +426,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 break;
         }
         ?>
-            <td align="center" bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>>
+            <td align="center"<?php echo $type_nowrap; ?>>
                 <?php echo $type; ?>
             </td>
+
         <?php
-        echo "\n";
 
         // Prepares the field value
         $real_null_value = FALSE;
@@ -485,16 +484,15 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         if ($cfg['ShowFunctionFields']) {
             if (($cfg['ProtectBinary'] && $is_blob && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
-                echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
+                echo '        <td align="center">' . $strBinary . '</td>' . "\n";
             } elseif (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
-                echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
+                echo '        <td align="center">--</td>' . "\n";
             } else {
                 ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <select name="funcs<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
                     <option></option>
                 <?php
-                echo "\n";
                 $selected     = '';
 
                 // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
@@ -519,13 +517,13 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     // default function the one defined in config (which
                     // should be NOW() ).
                     // For MySQL >= 4.1.2, we don't set the default function
-                    // if there is a default value for the timestamp 
+                    // if there is a default value for the timestamp
                     // (not including CURRENT_TIMESTAMP)
-                    // and the column does not have the 
+                    // and the column does not have the
                     // ON UPDATE DEFAULT TIMESTAMP attribute.
-                    
-                    if (PMA_MYSQL_INT_VERSION < 40102 
-                    || (PMA_MYSQL_INT_VERSION >= 40102 
+
+                    if (PMA_MYSQL_INT_VERSION < 40102
+                    || (PMA_MYSQL_INT_VERSION >= 40102
                        && !($row_table_def['True_Type'] == 'timestamp' && !empty($row_table_def['Default']) &&  !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
                     $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $dropdown[$j] == $default_function)
@@ -566,11 +564,10 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 <?php
             }
         } // end if ($cfg['ShowFunctionFields'])
-        echo "\n";
 
         // The null column
         // ---------------
-        echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
+        echo '        <td>' . "\n";
         if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
             && $row_table_def['Null'] == 'YES') {
 
@@ -610,11 +607,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         // The value column (depends on type)
         // ----------------
 
-        require('./libraries/get_foreign.lib.php');
+        require './libraries/get_foreign.lib.php';
 
         if (isset($foreign_link) && $foreign_link == true) {
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="foreign" />
             <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo ($idindex); ?>_1" />
@@ -628,7 +625,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             <?php
         } elseif (isset($disp_row) && is_array($disp_row)) {
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="foreign" />
             <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $idindex; ?>_1" />
@@ -640,10 +637,10 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             unset($disp_row);
         } elseif ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
-        <tr>
-            <td colspan="4" align="right" bgcolor="<?php echo $bgcolor; ?>">
+        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+            <td colspan="5" align="right">
                 <?php echo $backup_field . "\n"; ?>
                 <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
@@ -651,7 +648,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
           <?php
         } elseif (strstr($type, 'text')) {
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php echo $backup_field . "\n"; ?>
                 <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
@@ -659,13 +656,13 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             <?php
             echo "\n";
             if (strlen($special_chars) > 32000) {
-                echo '        <td bgcolor="' . $bgcolor . '">' . $strTextAreaLength . '</td>' . "\n";
+                echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
             }
         } elseif ($type == 'enum') {
             $enum        = PMA_getEnumSetOptions($row_table_def['Type']);
             $enum_cnt    = count($enum);
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="enum" />
                 <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
             <?php
@@ -731,7 +728,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             $countset = count($set);
             $size = min(4, $countset);
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php echo $backup_field . "\n"; ?>
                 <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="set" />
                 <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
@@ -759,7 +756,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo "\n";
                 ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php
                     echo $strBinaryDoNotEdit;
                     if (isset($data)) {
@@ -775,7 +772,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             } elseif ($is_blob) {
                 echo "\n";
                 ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php echo $backup_field . "\n"; ?>
                 <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
@@ -790,7 +787,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 }
                 echo "\n";
                 ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php echo $backup_field . "\n"; ?>
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
                 <?php
@@ -856,9 +853,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 $fieldsize = 20;
                 $maxlength = 99;
             } // end if... else...
-            echo "\n";
             ?>
-            <td bgcolor="<?php echo $bgcolor; ?>">
+            <td>
                 <?php echo $backup_field . "\n"; ?>
             <?php
             if ($is_char && isset($cfg['CharEditing']) && ($cfg['CharEditing'] == 'textarea')) {
@@ -868,19 +864,18 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
             } else {
-                echo "\n";
                 ?>
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
                 <?php
                 if ($row_table_def['Extra'] == 'auto_increment') {
-                ?>
-<input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="1" />
-                <?php
+                    ?>
+                    <input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="1" />
+                    <?php
                 } // end if
                 if (substr($type, 0, 9) == 'timestamp') {
-                ?>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="timestamp" />
-                <?php
+                    ?>
+                    <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="timestamp" />
+                    <?php
                 }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
@@ -892,16 +887,14 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     <?php
                 }
             }
-            echo "\n";
             ?>
             </td>
             <?php
         }
-        echo "\n";
         ?>
         </tr>
         <?php
-    echo "\n";
+        $odd_row = !$odd_row;
     } // end for
     $o_rows++;
     echo '  </table><br />';
@@ -970,11 +963,9 @@ if (isset($primary_key)) {
 
 </form>
 
-
 <?php
 /**
  * Displays the footer
  */
-echo "\n";
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>
