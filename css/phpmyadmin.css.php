@@ -375,17 +375,15 @@ table td {
 table tr.odd th,
 table tr.odd {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
-    text-align: left;
 }
 
 /* even table rows 2,4,6,8,... */
 table tr.even th,
 table tr.even {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
-    text-align: left;
 }
 
-/* marked tbale rows */
+/* marked table rows */
 table tr.marked th,
 table tr.marked {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
@@ -705,6 +703,38 @@ div#left_tableList li.marked {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
+
+/* odd items 1,3,5,7,... */
+.odd {
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+}
+
+/* even items 2,4,6,8,... */
+.even {
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+}
+
+/* marked items */
+.marked {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+/* hovered items */
+.odd:hover,
+.even:hover,
+.hover {
+    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+/**
+ * marks table rows/cells if the db field is in a where condition
+ */
+tr.condition th,
+tr.condition td,
+td.condition,
+th.condition {
+    border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
     <?php
 } // end styles 2.9
 

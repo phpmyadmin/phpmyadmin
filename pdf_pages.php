@@ -379,16 +379,18 @@ function resetDrag() {
 
 
         $i = 0;
+        $odd_row = true;
         foreach ($array_sh_page AS $dummy_sh_page => $sh_page) {
             $_mtab       = $sh_page['table_name'];
             $tabExist[$_mtab] = FALSE;
-            echo "\n" . '    <tr ';
-            if ($i % 2 == 0) {
-                echo 'bgcolor="' . $cfg['BgcolorOne'] . '"';
+            echo "\n" . '    <tr class="';
+            if ($odd_row) {
+                echo 'odd';
             } else {
-                echo 'bgcolor="' . $cfg['BgcolorTwo'] . '"';
+                echo 'even';
             }
-            echo '>';
+            echo '">';
+            $odd_row != $odd_row;
             echo "\n" . '        <td>'
                  . "\n" . '            <select name="c_table_' . $i . '[name]">';
             foreach ($selectboxall AS $key => $value) {
@@ -414,13 +416,14 @@ function resetDrag() {
             $i++;
         } // end while
         // Do one more empty row
-        echo "\n" . '    <tr ';
-        if ($i % 2 == 0) {
-            echo 'bgcolor="' . $cfg['BgcolorOne'] . '"';
+        echo "\n" . '    <tr class="';
+        if ($odd_row) {
+            echo 'odd';
         } else {
-            echo 'bgcolor="' . $cfg['BgcolorTwo'] . '"';
+            echo 'even';
         }
-        echo '>';
+        $odd_row != $odd_row;
+        echo '">';
         echo "\n" . '        <td>'
              . "\n" . '            <select name="c_table_' . $i . '[name]">';
         foreach ($selectboxall AS $key => $value) {
