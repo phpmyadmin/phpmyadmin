@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2006-04-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * db_details_qbe.php:
+    * db_details_qbe.php, db_printview.php:
       style upgrade
 
 2006-04-24 Michal Čihař  <michal@cihar.com>

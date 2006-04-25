@@ -2,13 +2,13 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-$print_view = TRUE;
-require_once('./libraries/header.inc.php');
+$print_view = true;
+require_once './libraries/header.inc.php';
 
 
 PMA_checkParameters(array('db'));
@@ -21,7 +21,7 @@ $err_url = 'db_details.php?' . PMA_generate_common_url($db);
 /**
  * Settings for relations stuff
  */
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -30,14 +30,14 @@ $cfgRelation = PMA_getRelationsParam();
  */
 // staybyte: speedup view on locked tables - 11 June 2001
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
-if ($cfg['SkipLockedTables'] == TRUE) {
+if ($cfg['SkipLockedTables'] == true) {
     $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
     // Blending out tables in use
-    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
+    if ($result != false && PMA_DBI_num_rows($result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[0])) {
-                $sot_cache[$tmp[0]] = TRUE;
+                $sot_cache[$tmp[0]] = true;
             }
         }
         PMA_DBI_free_result($result);
@@ -45,7 +45,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
 
         if (isset($sot_cache)) {
             $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
-            if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
+            if ($result != false && PMA_DBI_num_rows($result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($result)) {
                     if (!isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
@@ -57,11 +57,12 @@ if ($cfg['SkipLockedTables'] == TRUE) {
                 }
                 PMA_DBI_free_result($result);
                 unset($result);
-                $sot_ready = TRUE;
+                $sot_ready = true;
             }
         }
     }
 }
+
 if (!isset($sot_ready)) {
     $result      = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';');
     if (PMA_DBI_num_rows($result) > 0) {
@@ -72,7 +73,7 @@ if (!isset($sot_ready)) {
         unset($res);
     }
 }
-$num_tables = (isset($tables) ? count($tables) : 0);
+$num_tables = isset($tables) ? count($tables) : 0;
 
 if ($cfgRelation['commwork']) {
     $comment = PMA_getComments($db);
@@ -84,7 +85,7 @@ if ($cfgRelation['commwork']) {
         ?>
     <!-- DB comment -->
     <p><i>
-        <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
+        <?php echo htmlspecialchars(implode(' ', $comment)); ?>
     </i></p>
         <?php
     } // end if
@@ -104,6 +105,7 @@ else {
 
 <!-- The tables list -->
 <table border="<?php echo $cfg['Border']; ?>">
+<thead>
 <tr>
     <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
     <th><?php echo $strRecords; ?></th>
@@ -112,36 +114,36 @@ else {
     if ($cfg['ShowStats']) {
         echo '<th>' . $strSize . '</th>';
     }
-    echo "\n";
     ?>
     <th><?php echo $strComments; ?></th>
 </tr>
+</thead>
+<tbody>
+
     <?php
     $i = $sum_entries = $sum_size = 0;
-    foreach ($tables AS $keyname => $sts_data) {
+    $odd_row = true;
+    foreach ($tables as $keyname => $sts_data) {
         $table     = $sts_data['Name'];
-        $bgcolor   = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-        echo "\n";
         ?>
-<tr>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+    <td nowrap="nowrap">
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
         <?php
-        echo "\n";
-        $mergetable         = FALSE;
-        $nonisam            = FALSE;
+        $mergetable         = false;
+        $nonisam            = false;
         if (isset($sts_data['Type'])) {
             if ($sts_data['Type'] == 'MRG_MyISAM') {
-                $mergetable = TRUE;
+                $mergetable = true;
             } elseif (!preg_match('@ISAM|HEAP@i', $sts_data['Type'])) {
-                $nonisam    = TRUE;
+                $nonisam    = true;
             }
         }
 
         if (isset($sts_data['Rows'])) {
-            if ($mergetable == FALSE) {
-                if ($cfg['ShowStats'] && $nonisam == FALSE) {
+            if ($mergetable == false) {
+                if ($cfg['ShowStats'] && $nonisam == false) {
                     $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                       += $tblsize;
                     if ($tblsize > 0) {
@@ -156,7 +158,7 @@ else {
                 $sum_entries                        += $sts_data['Rows'];
             }
             // MyISAM MERGE Table
-            elseif ($cfg['ShowStats'] && $mergetable == TRUE) {
+            elseif ($cfg['ShowStats'] && $mergetable == true) {
                 $formated_size = '&nbsp;-&nbsp;';
                 $unit          = '';
             } elseif ($cfg['ShowStats']) {
@@ -164,39 +166,35 @@ else {
                 $unit          = '';
             }
             ?>
-    <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+    <td align="right">
             <?php
-            echo "\n" . '        ';
-            if ($mergetable == TRUE) {
+            if ($mergetable == true) {
                 echo '<i>' . number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . '</i>' . "\n";
             } else {
                 echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n";
             }
             ?>
     </td>
-    <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>">
+    <td nowrap="nowrap">
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
             <?php
             if ($cfg['ShowStats']) {
-                echo "\n";
                 ?>
-    <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+    <td align="right" nowrap="nowrap">
         &nbsp;<?php echo $formated_size . ' ' . $unit . "\n"; ?>
     </td>
                 <?php
-                echo "\n";
             } // end if
         } else {
             ?>
-    <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <?php echo $strInUse . "\n"; ?>
+    <td colspan="3" align="center">
+        <?php echo $strInUse; ?>
     </td>
             <?php
         }
-        echo "\n";
         ?>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td>
         <?php echo $sts_data['Comment']; ?>
         <?php
             if (!empty($sts_data['Comment'])) {
@@ -252,31 +250,29 @@ else {
     if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
     }
-    echo "\n";
     ?>
 <tr>
     <th align="center">
         &nbsp;<b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>&nbsp;
     </th>
     <th align="right" nowrap="nowrap">
-        <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
+        <?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?>
     </th>
     <th align="center">
-        <b>--</b>
+        --
     </th>
     <?php
     if ($cfg['ShowStats']) {
-        echo "\n";
         ?>
     <th align="right" nowrap="nowrap">
-        <b><?php echo $sum_formated . ' ' . $unit; ?></b>
+        <?php echo $sum_formated . ' ' . $unit; ?>
     </th>
         <?php
     }
-    echo "\n";
     ?>
     <th>&nbsp;</th>
 </tr>
+</tbody>
 </table>
     <?php
 }
@@ -284,8 +280,8 @@ else {
 /**
  * Displays the footer
  */
-echo "\n";
 ?>
+
 <script type="text/javascript" language="javascript">
 //<![CDATA[
 function printPage()
@@ -297,8 +293,11 @@ function printPage()
 }
 //]]>
 </script>
-<?php
-echo '<br /><br />&nbsp;<input type="button" class="print_ignore" style="width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()" />' . "\n";
+<br /><br />
 
-require_once('./libraries/footer.inc.php');
+<input type="button" class="print_ignore" style="width: 100px; height: 25px"
+    id="print" value="<?php echo $strPrint; ?>" onclick="printPage()" />
+
+<?php
+require_once './libraries/footer.inc.php';
 ?>
