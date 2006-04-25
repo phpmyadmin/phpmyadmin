@@ -1,5 +1,5 @@
 ﻿----------------------
-phpMyAdmin - Changelog
+phpMyAdmin - ChangeLog
 ----------------------
 
 $Id$
@@ -9,6 +9,7 @@ $Source$
     * libraries/common.lib.php: Make cookie login form work with token
       protection.
     * libraries/auth/cookie.auth.lib.php: Do not include empty values.
+    * changelog.php: Generate proper XHTML.
 
 2006-04-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_qbe.php, db_printview.php, libraries/display_tbl.lib.php,
