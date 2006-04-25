@@ -5,7 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2006-03-24 Michal Čihař  <michal@cihar.com>
+2006-04-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_qbe.php:
+      style upgrade
+
+2006-04-24 Michal Čihař  <michal@cihar.com>
     * main.php: Fix logout link (bug #1474694).
 
 2006-04-21 Michal Čihař  <michal@cihar.com>
