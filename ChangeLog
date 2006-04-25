@@ -17,6 +17,7 @@ $Source$
       server_binlog.php, server_variables.php, tbl_change.php,
       transformation_overview.php:
       style upgrade
+    * changelog.php: replaced php short open tag
 
 2006-04-24 Michal Čihař  <michal@cihar.com>
     * main.php: Fix logout link (bug #1474694).

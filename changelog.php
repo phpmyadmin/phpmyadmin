@@ -57,7 +57,7 @@ $replaces = array(
     => '<a name="\\4_\\5_\\6_\\7"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6_\\7">\\4.\\5.\\6.\\7 \\8</a>',
     '/((    ### )(([0-9]+)\.([0-9]+)\.([0-9]+) (.*)))/'
     => '<a name="\\4_\\5_\\6"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6">\\4.\\5.\\6 \\7</a>',
-    
+
     // Highlight releases (not linkable)
     '/(    ### )(.*)/'
     => '\\1<b>\\2</b>',
@@ -78,7 +78,7 @@ echo '<?xml version="1.0" encoding="utf-8"?'.'>';
 </head>
 <body>
 <h1>phpMyAdmin - ChangeLog</h1>
-<?
+<?php
 echo '<pre>';
 echo preg_replace(array_keys($replaces), $replaces, $changelog);
 echo '</pre>';
