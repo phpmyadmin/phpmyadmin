@@ -999,4 +999,5 @@ $strAddClause = 'Add %s';  //to translate
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
 $strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
+$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
 ?>

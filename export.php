@@ -24,7 +24,21 @@ if (!isset($export_list[$type])) {
 
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
-    die('Must be as file!');
+    $message = $strExportMustBeFile;
+    $GLOBALS['show_error_header'] = true;
+    $js_to_run = 'functions.js';
+    require_once('./libraries/header.inc.php');
+    if ($export_type == 'server') {
+        $active_page = 'server_export.php';
+        require('./server_export.php');
+    } elseif ($export_type == 'database') {
+        $active_page = 'db_details_export.php';
+        require('./db_details_export.php');
+    } else {
+        $active_page = 'tbl_properties_export.php';
+        require('./tbl_properties_export.php');
+    }
+    exit();
 }
 
 // Generate error url and check for needed variables

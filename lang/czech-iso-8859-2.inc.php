@@ -274,6 +274,7 @@ $strExcelOptions = 'Nastavení exportu do Excelu';
 $strExecuteBookmarked = 'Spustit oblíbený dotaz';
 $strExplain = 'Vysvìtlit dotaz';
 $strExport = 'Export';
+$strExportMustBeFile = 'Zvolený export musí být ulo¾en do souboru!';
 $strExtendedInserts = 'Roz¹íøené inserty';
 $strExtra = 'Extra';
 

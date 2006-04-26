@@ -269,6 +269,7 @@ $strExcelOptions = 'Excel options';
 $strExecuteBookmarked = 'Execute bookmarked query';
 $strExplain = 'Explain SQL';
 $strExport = 'Export';
+$strExportMustBeFile = 'Selected export type has to saved in file!';
 $strExtendedInserts = 'Extended inserts';
 $strExtra = 'Extra';
 
