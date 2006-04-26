@@ -21,6 +21,7 @@ if ($xls) {
             'text' => 'strStrucNativeExcel',
             'extension' => 'xls',
             'mime_type' => 'application/vnd.ms-excel',
+            'force_file' => true,
             'options' => array(
                 array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
                 array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'),

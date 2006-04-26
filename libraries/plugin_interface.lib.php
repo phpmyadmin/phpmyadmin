@@ -158,8 +158,11 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
         $ret .= '<!-- ' . $plugin_name . ' -->' . "\n";
         $ret .= '<input type="radio" name="' . $name . '" value="' . $plugin_name . '"'
             . ' id="radio_plugin_' . $plugin_name . '"'
-            . ' onclick="if(this.checked) { hide_them_all();'
-                    .' document.getElementById(\'' . $plugin_name . '_options\').style.display = \'block\'; };'
+            . ' onclick="if(this.checked) { hide_them_all();';
+        if (isset($val['force_file'])) {
+            $ret .= 'document.getElementById(\'checkbox_dump_asfile\').checked = true;';
+        }
+        $ret .= ' document.getElementById(\'' . $plugin_name . '_options\').style.display = \'block\'; };'
                 .' return true"'
             . PMA_pluginIsActive($section, $cfgname, $plugin_name) . '/>' . "\n";
         $ret .= '<label for="radio_plugin_' . $plugin_name . '">'
@@ -322,6 +325,9 @@ function PMA_pluginGetJavascript(&$list) {
         ';
     foreach ($list as $plugin_name => $val) {
         $ret .= 'if (document.getElementById("radio_plugin_' . $plugin_name . '").checked) {' . "\n";
+        if (isset($val['force_file'])) {
+            $ret .= 'document.getElementById(\'checkbox_dump_asfile\').checked = true;' . "\n";
+        }
         $ret .= 'document.getElementById("' . $plugin_name . '_options").style.display = "block";' . "\n";
         $ret .= ' } else ' . "\n";
     }

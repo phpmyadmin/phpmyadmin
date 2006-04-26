@@ -11,6 +11,7 @@ if (isset($plugin_list)) {
         'text' => 'strPDF',
         'extension' => 'pdf',
         'mime_type' => 'application/pdf',
+        'force_file' => true,
         'options' => array(
             array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'),
             array('type' => 'hidden', 'name' => 'data'),

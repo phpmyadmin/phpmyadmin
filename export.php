@@ -22,10 +22,12 @@ if (!isset($export_list[$type])) {
     die('Bad type!');
 }
 
-// Get the functions specific to the export type
-require('./libraries/export/' . PMA_securePath($type) . '.php');
+// Does export require to be into file?
+if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
+    die('Must be as file!');
+}
 
-// Generate error url
+// Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
 } elseif ($export_type == 'database' && isset($db) && strlen($db)) {
@@ -35,6 +37,9 @@ if ($export_type == 'server') {
 } else {
     die('Bad parameters!');
 }
+
+// Get the functions specific to the export type
+require('./libraries/export/' . PMA_securePath($type) . '.php');
 
 /**
  * Increase time limit for script execution and initializes some variables

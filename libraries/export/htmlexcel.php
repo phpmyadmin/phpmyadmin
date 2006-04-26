@@ -11,6 +11,7 @@ if (isset($plugin_list)) {
         'text' => 'strHTMLExcel',
         'extension' => 'xsl',
         'mime_type' => 'application/vnd.ms-excel',
+        'force_file' => true,
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),

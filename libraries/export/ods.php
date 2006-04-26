@@ -11,6 +11,7 @@ if (isset($plugin_list)) {
         'text' => 'strOpenDocumentSpreadsheet',
         'extension' => 'ods',
         'mime_type' => 'application/vnd.oasis.opendocument.spreadsheet',
+        'force_file' => true,
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),

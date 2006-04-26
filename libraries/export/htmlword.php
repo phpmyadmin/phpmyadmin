@@ -11,6 +11,7 @@ if (isset($plugin_list)) {
         'text' => 'strHTMLWord',
         'extension' => 'doc',
         'mime_type' => 'application/vnd.ms-word',
+        'force_file' => true,
         'options' => array(
             array('type' => 'bool', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data'),
             array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure'),
