@@ -421,7 +421,7 @@ function PMA_auth_set_user()
     setcookie('pma_cookie_password-' . $server,
         PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
             $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
-        0,
+        $GLOBALS['cfg']['LoginCookieStore'],
         $GLOBALS['cookie_path'], '',
         $GLOBALS['is_https']);
 
