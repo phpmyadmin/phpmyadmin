@@ -6,7 +6,7 @@
  * Set of functions used to build XML dumps of tables
  */
 
-if (isset($db) && strlen($db)) { /* Can't do server export */
+if (isset($GLOBALS['db']) && strlen($GLOBALS['db'])) { /* Can't do server export */
 
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
