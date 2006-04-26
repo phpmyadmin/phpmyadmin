@@ -13,6 +13,7 @@ $Source$
         - Add support for groupping options.
         - Support for forcing one of two bool/bgroups.
         - Add documentation.
+        - Support for localised texts in defaults.
     * css/phpmyadmin.css.php, themes/darkblue_orange/css/theme_right.css.php,
       themes/original/css/theme_right.css.php: New style for non table forms
       used in plugins.

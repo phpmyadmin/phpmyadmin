@@ -91,7 +91,19 @@ function PMA_pluginGetDefault($section, $opt)
     if (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) {
         return htmlspecialchars($_REQUEST[$opt]);
     } elseif (isset($GLOBALS['cfg'][$section][$opt])) {
-        return htmlspecialchars($GLOBALS['cfg'][$section][$opt]);
+        $matches = array();
+        /* Possibly replace localised texts */
+        if (preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', $GLOBALS['cfg'][$section][$opt], $matches)) {
+            $val = $GLOBALS['cfg'][$section][$opt];
+            foreach($matches[0] as $match) {
+                if (isset($GLOBALS[$match])) {
+                    $val = str_replace($match, $GLOBALS[$match], $val);
+                }
+            }
+            return htmlspecialchars($val);
+        } else {
+            return htmlspecialchars($GLOBALS['cfg'][$section][$opt]);
+        }
     }
     return '';
 }
