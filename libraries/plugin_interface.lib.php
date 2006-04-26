@@ -243,8 +243,12 @@ function PMA_pluginGetOptions($section, &$list)
         if (isset($val['options'])) {
             $ret .= '<table class="form">';
             $ret .= '<tbody>';
-            foreach ($val['options'] as $id => $opt) {
-                $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt);
+            if (count($val['options']) == 0) {
+                $ret .= '<tr><td colspan="2">' . $GLOBALS['strNoOptions'] . '</td></tr>';
+            } else {
+                foreach ($val['options'] as $id => $opt) {
+                    $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt);
+                }
             }
             $ret .= '</tbody>';
             $ret .= '</table>';
