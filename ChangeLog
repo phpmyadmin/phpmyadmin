@@ -11,6 +11,7 @@ $Source$
         - Be more verbose on error.
         - Drop tables used for layout.
         - Add support for groupping options.
+        - Support for forcing one of two bool/bgroups.
     * css/phpmyadmin.css.php, themes/darkblue_orange/css/theme_right.css.php,
       themes/original/css/theme_right.css.php: New style for non table forms
       used in plugins.

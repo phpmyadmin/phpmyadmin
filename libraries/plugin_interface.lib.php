@@ -175,7 +175,15 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '<div class="formelementrow">' . "\n";
         $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
-            . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
+            . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']);
+        if (isset($opt['force'])) {
+            /* Same code is also few lines lower, update both if needed */
+            $ret .= ' onclick="if (!this.checked &amp;&amp; '
+                . '(!document.getElementById(\'checkbox_' . $plugin_name . '_' .$opt['force'] . '\') '
+                . '|| !document.getElementById(\'checkbox_' . $plugin_name . '_' .$opt['force'] . '\').checked)) '
+                . 'return false; else return true;"';
+        }
+        $ret .= ' />';
         $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
             . PMA_getString($opt['text']) . '</label>';
         $ret .= '</div>' . "\n";
@@ -214,7 +222,15 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         if (!empty($opt['name'])) {
             $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
                 . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
-                . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
+                . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']);
+            if (isset($opt['force'])) {
+                /* Same code is also few lines higher, update both if needed */
+                $ret .= ' onclick="if (!this.checked &amp;&amp; '
+                    . '(!document.getElementById(\'checkbox_' . $plugin_name . '_' .$opt['force'] . '\') '
+                    . '|| !document.getElementById(\'checkbox_' . $plugin_name . '_' .$opt['force'] . '\').checked)) '
+                    . 'return false; else return true;"';
+            }
+            $ret .= ' />';
             $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
                 . PMA_getString($opt['text']) . '</label>';
         } else {
