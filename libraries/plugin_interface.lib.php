@@ -135,7 +135,7 @@ function PMA_pluginIsActive($section, $opt, $val)
 }
 
 /**
- * string PMA_pluginGetChoice(string $section, string $name, array &$list)
+ * string PMA_pluginGetChoice(string $section, string $name, array &$list, string $cfgname)
  *
  * returns html radio form element for plugin choice
  *
@@ -145,10 +145,14 @@ function PMA_pluginIsActive($section, $opt, $val)
  *                              $GLOBALS['cfg'][$section] for plugin
  * @param   string  $name       name of radio element
  * @param   array   &$list      array with plugin configuration defined in plugin file
+ * @param   string  $cfgname    name of config value, if none same as $name
  * @return  string              html input radio tag
  */
-function PMA_pluginGetChoice($section, $name, &$list)
+function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
 {
+    if (!isset($cfgname)) {
+        $cfgname = $name;
+    }
     $ret = '';
     foreach ($list as $plugin_name => $val) {
         $ret .= '<!-- ' . $plugin_name . ' -->' . "\n";
@@ -157,7 +161,7 @@ function PMA_pluginGetChoice($section, $name, &$list)
             . ' onclick="if(this.checked) { hide_them_all();'
                     .' document.getElementById(\'' . $plugin_name . '_options\').style.display = \'block\'; };'
                 .' return true"'
-            . PMA_pluginIsActive($section, $name, $plugin_name) . '/>' . "\n";
+            . PMA_pluginIsActive($section, $cfgname, $plugin_name) . '/>' . "\n";
         $ret .= '<label for="radio_plugin_' . $plugin_name . '">'
             . PMA_getString($val['text']) . '</label>' . "\n";
         $ret .= '<br /><br />' . "\n";

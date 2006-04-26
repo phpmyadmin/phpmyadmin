@@ -63,7 +63,7 @@ echo PMA_pluginGetJavascript($export_list);
 <legend><?php echo $export_page_title; ?></legend>
 
 <?php
-/* 
+/*
  * this table is needed to fix rendering in Opera <= 9 and Safari <= 2
  * normaly just the two fieldset would have float: left
  */
@@ -72,7 +72,7 @@ echo PMA_pluginGetJavascript($export_list);
 
 <div id="div_container_exportoptions">
 <fieldset id="exportoptions">
-<?php echo PMA_pluginGetChoice('Export', 'what', $export_list); ?>
+<?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
 </fieldset>
 </div>
 
