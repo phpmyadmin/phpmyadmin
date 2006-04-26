@@ -512,7 +512,7 @@ class PMA_Table {
         }
 
         // set export settings we need
-        $GLOBALS['use_backquotes'] = 1;
+        $GLOBALS['sql_use_backquotes'] = 1;
         $GLOBALS['asfile']         = 1;
 
         // Ensure the target is valid

@@ -20,6 +20,8 @@ $Source$
     * libraries/config.default.php, libraries/display_export.lib.php,
       libraries/export/*: Convert export to plugin architecture, so that
       plugins are independant piece of code (RFE #1325937).
+    * db_operations.php, tbl_properties_operations.php,
+      libraries/Table.class.php: Adapt to changes in export.
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:
