@@ -281,6 +281,14 @@ function PMA_pluginGetOptions($section, &$list)
     return $ret;
 }
 
+/**
+ * string PMA_pluginGetJavascript(array &$list)
+ *
+ * return html/javascript code which is needed for handling plugin stuff
+ *
+ * @param   array   &$list      array with plugin configuration defined in plugin file
+ * @return  string              html fieldset with plugin options
+ */
 function PMA_pluginGetJavascript(&$list) {
     $ret = '
     <script type="text/javascript" language="javascript">
