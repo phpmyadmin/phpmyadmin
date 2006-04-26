@@ -36,6 +36,8 @@ $Source$
     * libraries/auth/cookie.auth.lib.php, Documentation.html,
       libraries/config.default.php: Allow configuration of cookie storage on
       client (RFE #1095227).
+    * server_privileges.php, lang/*: Create database for newly created user
+      (RFE #479640).
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:

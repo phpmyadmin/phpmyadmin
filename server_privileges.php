@@ -833,6 +833,23 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             }
             PMA_DBI_try_query($real_sql_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
             $message = $GLOBALS['strAddUserMessage'];
+
+            /* Create database for new user */
+            if (isset($createdb) && $createdb > 0) {
+                if ($createdb == 1) {
+                    $q = 'CREATE DATABASE ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
+                    $sql_query .= $q;
+                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+
+                    $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+                    $sql_query .= $q;
+                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                } elseif ($createdb == 2) {
+                    $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username) . '_%') . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+                    $sql_query .= $q;
+                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                }
+            }
         } else {
             if ( isset( $create_user_real ) ) {
                 $queries[]             = $create_user_real;
@@ -1342,7 +1359,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
             // for the rights
             $db_rights = array();
 
-            // do not use UNION DISTINCT, as it's not allowed before 
+            // do not use UNION DISTINCT, as it's not allowed before
             // MySQL 4.0.17, and because "it does nothing" (cf manual)
             if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
                 $db_rights_sql = '(' . implode( ') UNION (', $db_rights_sqls ) . ')'
@@ -1495,9 +1512,9 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
                    . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" alt="" />' . "\n" : '' )
                    . '            ' . $GLOBALS['strRemoveSelectedUsers'] . '' . "\n"
                    . '        </legend>' . "\n";
-                   
+
                 // before MySQL 4.1.1, we offer some choices for the delete
-                // mode, but for 4.1.1+, it will be done with REVOKEing the 
+                // mode, but for 4.1.1+, it will be done with REVOKEing the
                 // privileges then a DROP USER (even no REVOKE at all
                 // for MySQL 5), so no need to offer so many options
                 if (PMA_MYSQL_INT_VERSION < 40101) {
@@ -1516,7 +1533,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
                  } else {
                      echo '        <input type="hidden" name="mode" value="2" />' . "\n"
                      . '( ' . $GLOBALS['strRevokeAndDelete'] . ' )<br />' . "\n";
-                 }    
+                 }
 
                  echo '        <input type="checkbox" title="' . $GLOBALS['strDropUsersDb'] . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
                    . '        <label for="checkbox_drop_users_db" title="' . $GLOBALS['strDropUsersDb'] . '">' . "\n"
@@ -1942,6 +1959,21 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
        . '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
        . PMA_generate_common_hidden_inputs('', '', 1);
     PMA_displayLoginInformationFields('new', 2);
+    echo '<fieldset id="fieldset_add_user_database">' . "\n"
+       . '<legend>' . $GLOBALS['strCreateUserDatabase'] . '</legend>' . "\n"
+       . '    <div class="item">' . "\n"
+       . '        <input type="radio" name="createdb" value="0" id="radio_createdb_0" checked="checked" />' . "\n"
+       . '        <label for="radio_createdb_0">' . $GLOBALS['strCreateUserDatabaseNone'] . '</label>' . "\n"
+       . '    </div>' . "\n"
+       . '    <div class="item">' . "\n"
+       . '        <input type="radio" name="createdb" value="1" id="radio_createdb_1" />' . "\n"
+       . '        <label for="radio_createdb_1">' . $GLOBALS['strCreateUserDatabaseName'] . '</label>' . "\n"
+       . '    </div>' . "\n"
+       . '    <div class="item">' . "\n"
+       . '        <input type="radio" name="createdb" value="2" id="radio_createdb_2" />' . "\n"
+       . '        <label for="radio_createdb_2">' . $GLOBALS['strCreateUserDatabaseWildcard'] . '</label>' . "\n"
+       . '    </div>' . "\n"
+       . '</fieldset>' . "\n";
     PMA_displayPrivTable('*', '*', FALSE, 1);
     echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
        . '        <input type="submit" name="adduser_submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
