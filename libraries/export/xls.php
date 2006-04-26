@@ -2,7 +2,32 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('Spreadsheet/Excel/Writer.php');
+// Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
+if (!empty($GLOBALS['cfg']['TempDir'])) {
+    @include_once('Spreadsheet/Excel/Writer.php');
+    if (class_exists('Spreadsheet_Excel_Writer')) {
+        $xls = TRUE;
+    } else {
+        $xls = FALSE;
+    }
+} else {
+    $xls = FALSE;
+}
+
+if ($xls) {
+
+    if (isset($plugin_list)) {
+        $plugin_list['xls'] = array(
+            'text' => 'strStrucNativeExcel',
+            'extension' => 'xls',
+            'options' => array(
+                array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
+                array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'), 
+                array('type' => 'hidden', 'name' => 'data'), 
+                ),
+            'options_text' => 'strStrucNativeExcelOptions',
+            );
+    } else {
 
 /**
  * Set of functions used to build MS Excel dumps of tables
@@ -135,7 +160,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $col         = 0;
 
     // If required, get fields name at the first line
-    if (isset($GLOBALS['xls_shownames']) && $GLOBALS['xls_shownames'] == 'yes') {
+    if (isset($GLOBALS['xls_columns']) && $GLOBALS['xls_columns'] == 'yes') {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
             $worksheet->write(0, $i, stripslashes(PMA_DBI_field_name($result, $i)));
@@ -148,7 +173,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $schema_insert = '';
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
-                $worksheet->write($col, $j, $GLOBALS['xls_replace_null']);
+                $worksheet->write($col, $j, $GLOBALS['xls_null']);
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 // FIXME: we should somehow handle character set here!
                 $worksheet->write($col, $j, $row[$j]);
@@ -161,5 +186,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     PMA_DBI_free_result($result);
 
     return TRUE;
+}
+
+    }
 }
 ?>

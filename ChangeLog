@@ -17,6 +17,9 @@ $Source$
     * css/phpmyadmin.css.php, themes/darkblue_orange/css/theme_right.css.php,
       themes/original/css/theme_right.css.php: New style for non table forms
       used in plugins.
+    * libraries/config.default.php, libraries/display_export.lib.php,
+      libraries/export/*: Convert export to plugin architecture, so that
+      plugins are independant piece of code (RFE #1325937).
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:

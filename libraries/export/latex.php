@@ -6,6 +6,62 @@
  * Set of functions used to build dumps of tables
  */
 
+if (isset($plugin_list)) {
+    $hide_structure = false;
+    if ($plugin_param['export_type'] == 'table' && !$plugin_param['single_table']) {
+        $hide_structure = true;
+    }
+    $plugin_list['latex'] = array(
+        'text' => 'strLaTeX',
+        'extension' => 'tex',
+        'options' => array(
+            array('type' => 'bool', 'name' => 'caption', 'text' => 'strLatexIncludeCaption'),
+            ),
+        'options_text' => 'strLaTeXOptions',
+        );
+    /* Structure options */
+    if (!$hide_structure) {
+        $plugin_list['latex']['options'][] =
+            array('type' => 'bgroup', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data');
+        $plugin_list['latex']['options'][] =
+            array('type' => 'text', 'name' => 'structure_caption', 'text' => 'strLatexCaption');
+        $plugin_list['latex']['options'][] =
+            array('type' => 'text', 'name' => 'structure_continued_caption', 'text' => 'strLatexContinuedCaption');
+        $plugin_list['latex']['options'][] =
+            array('type' => 'text', 'name' => 'structure_label', 'text' => 'strLatexLabel');
+        if (!empty($GLOBALS['cfgRelation']['relation'])) {
+            $plugin_list['latex']['options'][] =
+                array('type' => 'bool', 'name' => 'relation', 'text' => 'strRelations');
+        }
+        if (!empty($GLOBALS['cfgRelation']['commwork']) && PMA_MYSQL_INT_VERSION < 40100) {
+            $plugin_list['latex']['options'][] =
+                array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
+        }
+        if (!empty($GLOBALS['cfgRelation']['mimework'])) {
+            $plugin_list['latex']['options'][] =
+                array('type' => 'bool', 'name' => 'mime', 'text' => 'strMIME_MIMEtype');
+        }
+        $plugin_list['latex']['options'][] =
+            array('type' => 'egroup');
+    }
+    /* Data */
+    $plugin_list['latex']['options'][] =
+        array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'text', 'name' => 'data_caption', 'text' => 'strLatexCaption');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'text', 'name' => 'data_continued_caption', 'text' => 'strLatexContinuedCaption');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'text', 'name' => 'data_label', 'text' => 'strLatexLabel');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy');
+    $plugin_list['latex']['options'][] =
+        array('type' => 'egroup');
+/* FIXME: force either data or structure */
+} else {
+
 /**
  * Escapes some special characters for use in TeX/LaTeX
  *
@@ -155,7 +211,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     }
 
     // show column names
-    if (isset($GLOBALS['latex_showcolumns'])) {
+    if (isset($GLOBALS['latex_columns'])) {
         $buffer = '\\hline ';
         for ($i = 0; $i < $columns_cnt; $i++) {
             $buffer .= '\\multicolumn{1}{|c|}{\\textbf{' . PMA_texEscape(stripslashes($columns[$i])) . '}} & ';
@@ -186,7 +242,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
                 $column_value = PMA_texEscape(stripslashes($record[$columns[$i]]));
             } else {
-                $column_value = $GLOBALS['latex_replace_null'];
+                $column_value = $GLOBALS['latex_null'];
             }
 
             // last column ... no need for & character
@@ -244,7 +300,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         }
     }
     PMA_DBI_free_result($keys_result);
-    
+
     /**
      * Gets fields properties
      */
@@ -414,4 +470,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $buffer = ' \\end{longtable}' . $crlf;
     return PMA_exportOutputHandler($buffer);
 } // end of the 'PMA_getTableStructureLaTeX()' function
+
+}
 ?>

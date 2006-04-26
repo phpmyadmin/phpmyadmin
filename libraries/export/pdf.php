@@ -6,6 +6,17 @@
  * Produce a PDF report (export) from a query 
  */
 
+if (isset($plugin_list)) {
+    $plugin_list['pdf'] = array(
+        'text' => 'strPDF',
+        'extension' => 'pdf',
+        'options' => array(
+            array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'), 
+            array('type' => 'hidden', 'name' => 'data'), 
+            ),
+        'options_text' => 'strPDFOptions',
+        );
+} else {
 
 define('FPDF_FONTPATH', './libraries/fpdf/font/');
 //if ($charset == 'utf-8') {
@@ -399,4 +410,5 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     return TRUE;
 } // end of the 'PMA_exportData()' function
+}
 ?>

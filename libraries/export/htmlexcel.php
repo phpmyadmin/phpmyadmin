@@ -6,6 +6,19 @@
  * Set of functions used to build CSV dumps of tables
  */
 
+if (isset($plugin_list)) {
+    $plugin_list['htmlexcel'] = array(
+        'text' => 'strHTMLExcel',
+        'extension' => 'xsl',
+        'options' => array(
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'), 
+            array('type' => 'hidden', 'name' => 'data'), 
+            ),
+        'options_text' => 'strHTMLExcelOptions',
+        );
+} else {
+
 /**
  * Outputs comment
  *
@@ -130,7 +143,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
-    if (isset($GLOBALS[$what . '_shownames']) && $GLOBALS[$what . '_shownames'] == 'yes') {
+    if (isset($GLOBALS[$what . '_columns'])) {
         $schema_insert = '<tr>';
         for ($i = 0; $i < $fields_cnt; $i++) {
             $schema_insert .= '<td class=xl2216681 nowrap><b>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</b></td>';
@@ -146,7 +159,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $schema_insert = '<tr>';
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
-                $value = $GLOBALS[$what . '_replace_null'];
+                $value = $GLOBALS[$what . '_null'];
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 $value = $row[$j];
             } else {
@@ -162,5 +175,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     PMA_DBI_free_result($result);
 
     return TRUE;
+}
+
 }
 ?>

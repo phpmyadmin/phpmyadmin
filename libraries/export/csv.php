@@ -6,6 +6,23 @@
  * Set of functions used to build CSV dumps of tables
  */
 
+if (isset($plugin_list)) {
+    $plugin_list['csv'] = array(
+        'text' => 'strStrucCSV',
+        'extension' => 'csv',
+        'options' => array(
+            array('type' => 'text', 'name' => 'separator', 'text' => 'strFieldsTerminatedBy'), 
+            array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy'), 
+            array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy'), 
+            array('type' => 'text', 'name' => 'terminated', 'text' => 'strLinesTerminatedBy'), 
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'), 
+            array('type' => 'hidden', 'name' => 'data'), 
+            ),
+        'options_text' => 'strCSVOptions',
+        );
+} else {
+
 /**
  * Outputs comment
  *
@@ -37,29 +54,29 @@ function PMA_exportFooter() {
  */
 function PMA_exportHeader() {
     global $what;
-    global $add_character;
-    global $export_separator;
-    global $enclosed;
-    global $escaped;
+    global $csv_terminated;
+    global $csv_separator;
+    global $csv_enclosed;
+    global $csv_escaped;
 
     // Here we just prepare some values for export
     if ($what == 'excel') {
-        $add_character      = "\015\012";
-        $export_separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
-        $enclosed           = '"';
-        $escaped            = '"';
-        if (isset($GLOBALS['showexcelnames']) && $GLOBALS['showexcelnames'] == 'yes') {
-            $GLOBALS['showcsvnames'] = 'yes';
+        $csv_terminated      = "\015\012";
+        $csv_separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
+        $csv_enclosed           = '"';
+        $csv_escaped            = '"';
+        if (isset($GLOBALS['excel_columns'])) {
+            $GLOBALS['cvs_columns'] = 'yes';
         }
     } else {
-        if (empty($add_character)) {
-            $add_character  = $GLOBALS['crlf'];
+        if (empty($csv_terminated)) {
+            $csv_terminated  = $GLOBALS['crlf'];
         } else {
-            $add_character  = str_replace('\\r', "\015", $add_character);
-            $add_character  = str_replace('\\n', "\012", $add_character);
-            $add_character  = str_replace('\\t', "\011", $add_character);
+            $csv_terminated  = str_replace('\\r', "\015", $csv_terminated);
+            $csv_terminated  = str_replace('\\n', "\012", $csv_terminated);
+            $csv_terminated  = str_replace('\\t', "\011", $csv_terminated);
         } // end if
-        $export_separator          = str_replace('\\t', "\011", $export_separator);
+        $csv_separator          = str_replace('\\t', "\011", $csv_separator);
     }
     return TRUE;
 }
@@ -118,30 +135,30 @@ function PMA_exportDBCreate($db) {
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $what;
-    global $add_character;
-    global $export_separator;
-    global $enclosed;
-    global $escaped;
+    global $csv_terminated;
+    global $csv_separator;
+    global $csv_enclosed;
+    global $csv_escaped;
 
     // Gets the data from the database
     $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
-    if (isset($GLOBALS['showcsvnames']) && $GLOBALS['showcsvnames'] == 'yes') {
+    if (isset($GLOBALS['cvs_columns'])) {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
-            if ($enclosed == '') {
+            if ($csv_enclosed == '') {
                 $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
             } else {
-                $schema_insert .= $enclosed
-                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
-                               . $enclosed;
+                $schema_insert .= $csv_enclosed
+                               . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
+                               . $csv_enclosed;
             }
-            $schema_insert     .= $export_separator;
+            $schema_insert     .= $csv_separator;
         } // end for
         $schema_insert  =trim(substr($schema_insert, 0, -1));
-        if (!PMA_exportOutputHandler($schema_insert . $add_character)) {
+        if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
             return FALSE;
         }
     } // end if
@@ -151,28 +168,28 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $schema_insert = '';
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
-                $schema_insert .= $GLOBALS[$what . '_replace_null'];
+                $schema_insert .= $GLOBALS[$what . '_null'];
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 // loic1 : always enclose fields
                 if ($what == 'excel') {
                     $row[$j]       = ereg_replace("\015(\012)?", "\012", $row[$j]);
                 }
-                if ($enclosed == '') {
+                if ($csv_enclosed == '') {
                     $schema_insert .= $row[$j];
                 } else {
-                    $schema_insert .= $enclosed
-                                   . str_replace($enclosed, $escaped . $enclosed, $row[$j])
-                                   . $enclosed;
+                    $schema_insert .= $csv_enclosed
+                                   . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $row[$j])
+                                   . $csv_enclosed;
                 }
             } else {
                 $schema_insert .= '';
             }
             if ($j < $fields_cnt-1) {
-                $schema_insert .= $export_separator;
+                $schema_insert .= $csv_separator;
             }
         } // end for
 
-        if (!PMA_exportOutputHandler($schema_insert . $add_character)) {
+        if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
             return FALSE;
         }
     } // end while
@@ -180,4 +197,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     return TRUE;
 } // end of the 'PMA_getTableCsv()' function
+
+}
 ?>

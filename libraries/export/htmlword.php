@@ -6,6 +6,21 @@
  * Set of functions used to build CSV dumps of tables
  */
 
+if (isset($plugin_list)) {
+    $plugin_list['htmlword'] = array(
+        'text' => 'strHTMLWord',
+        'extension' => 'doc',
+        'options' => array(
+            array('type' => 'bool', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data'),
+            array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure'),
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'egroup'),
+            ),
+        'options_text' => 'strHTMLWordOptions',
+        );
+} else {
+
 /**
  * Outputs comment
  *
@@ -133,7 +148,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $schema_insert = '<tr class="print-category">';
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j]) || is_null($row[$j])) {
-                $value = $GLOBALS[$what . '_replace_null'];
+                $value = $GLOBALS[$what . '_null'];
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 $value = $row[$j];
             } else {
@@ -319,5 +334,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     PMA_DBI_free_result($result);
 
     return PMA_exportOutputHandler('</table>');
+}
+
 }
 ?>

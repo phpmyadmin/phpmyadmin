@@ -6,6 +6,18 @@
  * Set of functions used to build XML dumps of tables
  */
 
+if (isset($db) && strlen($db)) { /* Can't do server export */
+
+if (isset($plugin_list)) {
+    $plugin_list['xml'] = array(
+        'text' => 'strXML',
+        'extension' => 'xml',
+        'options' => array(
+            ),
+        'options_text' => 'strXMLOptions',
+        );
+} else {
+
 /**
  * Outputs comment
  *
@@ -155,4 +167,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     return TRUE;
 } // end of the 'PMA_getTableXML()' function
+}
+}
 ?>
