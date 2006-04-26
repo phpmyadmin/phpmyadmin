@@ -111,7 +111,6 @@ if (isset($plugin_list)) {
             array('type' => 'select', 'name' => 'type', 'text' => 'strSQLExportType', 'values' => array('INSERT', 'UPDATE', 'REPLACE'));
         $plugin_list['sql']['options'][] =
             array('type' => 'egroup');
-/* FIXME: force either data or structure */
     }
 } else {
 

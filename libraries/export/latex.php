@@ -59,7 +59,6 @@ if (isset($plugin_list)) {
         array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy');
     $plugin_list['latex']['options'][] =
         array('type' => 'egroup');
-/* FIXME: force either data or structure */
 } else {
 
 /**
