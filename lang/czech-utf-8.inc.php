@@ -857,6 +857,7 @@ $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu a data';
 $strStrucExcelCSV = 'CSV pro MS Excel';
 $strStrucNativeExcel = 'Nativní formát MS Excelu';
+$strStrucNativeExcelOptions = 'Nastavení exportu do Excelu';
 $strStrucOnly = 'Pouze strukturu';
 $strStructPropose = 'Navrhnout strukturu tabulky';
 $strStructure = 'Struktura';
@@ -976,6 +977,7 @@ $strWritingCommentNotPossible = 'Nelze zapsat komentář';
 $strWritingRelationNotPossible = 'Nelze zapsat relaci';
 $strWrongUser = 'Špatné uživatelské jméno nebo heslo. Přístup odepřen.';
 
+$strXMLOptions = 'Nastavení exportu do XML';
 $strXML = 'XML';
 
 $strYes = 'Ano';

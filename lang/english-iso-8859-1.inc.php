@@ -850,6 +850,7 @@ $strStrucCSV = 'CSV';
 $strStrucData = 'Structure and data';
 $strStrucExcelCSV = 'CSV for MS Excel';
 $strStrucNativeExcel = 'Native MS Excel format';
+$strStrucNativeExcelOptions = 'Native Excel export options';
 $strStrucOnly = 'Structure only';
 $strStructPropose = 'Propose table structure';
 $strStructure = 'Structure';
@@ -969,6 +970,7 @@ $strWritingCommentNotPossible = 'Writing of comment not possible';
 $strWritingRelationNotPossible = 'Writing of relation not possible';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
+$strXMLOptions = 'XML options';
 $strXML = 'XML';
 
 $strYes = 'Yes';

@@ -1004,4 +1004,6 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
 $strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
 $strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
+$strXMLOptions = 'XML options';  //to translate
+$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
 ?>
