@@ -979,4 +979,6 @@ $strTransformation_application_octetstream__hex = 'Muestra los datos en represen
 
 $strAddClause = 'Add %s';  //to translate
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
+$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
 ?>

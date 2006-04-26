@@ -1017,4 +1017,6 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strQueryResultsOperations = 'Query results operations';  //to translate
 $strAddClause = 'Add %s';  //to translate
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
+$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
 ?>

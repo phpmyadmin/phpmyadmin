@@ -23,6 +23,9 @@ $Source$
     * db_operations.php, tbl_properties_operations.php,
       libraries/Table.class.php: Adapt to changes in export.
     * export.php, libraries/export/*: Use plugins for extension and MIME type.
+    * libraries/export/ods.php, libraries/opendocument.lib.php,
+      libraries/config.default.php, lang/*: Export to OASIS OpenDocument
+      Spreadsheet (RFE #1068007).
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:

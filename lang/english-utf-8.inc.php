@@ -510,6 +510,8 @@ $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';
 $strNumTables = 'Tables';
 
 $strOK = 'OK';
+$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';
+$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';
 $strOpenNewWindow = 'Open new phpMyAdmin window';
 $strOperations = 'Operations';
 $strOperator = 'Operator';

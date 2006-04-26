@@ -245,7 +245,7 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
  * Export defaults
  */
 
-$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls/htmlexcel/htmlword
+$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls/htmlexcel/htmlword/ods
 $cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
 
 $cfg['Export']['asfile']                    = FALSE;
@@ -256,6 +256,9 @@ $cfg['Export']['remember_file_template']    = TRUE;
 $cfg['Export']['file_template_table']       = '__TABLE__';
 $cfg['Export']['file_template_database']    = '__DB__';
 $cfg['Export']['file_template_server']      = '__SERVER__';
+
+$cfg['Export']['ods_columns']               = FALSE;
+$cfg['Export']['ods_null']                  = 'NULL';
 
 $cfg['Export']['htmlexcel_columns']         = FALSE;
 $cfg['Export']['htmlexcel_null']            = 'NULL';
