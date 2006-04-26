@@ -24,21 +24,6 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     require_once './libraries/blowfish.php';
 }
 
-/**
- * Sorts available languages by their true names
- *
- * @param   array   the array to be sorted
- * @param   mixed   a required parameter
- *
- * @return  the sorted array
- *
- * @access  private
- */
-function PMA_cookie_cmp(&$a, $b)
-{
-    return (strcmp($a[1], $b[1]));
-} // end of the 'PMA_cmp()' function
-
 
 /**
  * Displays authentication form

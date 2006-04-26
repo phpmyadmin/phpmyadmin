@@ -32,6 +32,8 @@ $Source$
       textarea ;-).
     * libraries/display_export.lib.php: Reinclude table selection (bug
       #1477226).
+    * libraries/auth/cookie.auth.lib.php: 
+        - Remove unused function.
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:
