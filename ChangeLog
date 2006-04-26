@@ -26,6 +26,7 @@ $Source$
     * libraries/export/ods.php, libraries/opendocument.lib.php,
       libraries/config.default.php, lang/*: Export to OASIS OpenDocument
       Spreadsheet (RFE #1068007).
+    * lang/czech: Update.
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:
