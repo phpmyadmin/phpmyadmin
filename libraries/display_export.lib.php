@@ -72,6 +72,13 @@ echo PMA_pluginGetJavascript($export_list);
 
 <div id="div_container_exportoptions">
 <fieldset id="exportoptions">
+<legend><?php echo $strExport; ?></legend>
+
+    <?php if ( ! empty( $multi_values ) ) { ?>
+    <div class="formelementrow">
+        <?php echo $multi_values; ?>
+    </div>
+    <?php } ?>
 <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
 </fieldset>
 </div>

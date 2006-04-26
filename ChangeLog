@@ -30,6 +30,8 @@ $Source$
     * export.php, libraries/plugin_interface.lib.php, libraries/export/*:
       Allow forcing of export to file, it makes no sense to display PDF in
       textarea ;-).
+    * libraries/display_export.lib.php: Reinclude table selection (bug
+      #1477226).
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:
