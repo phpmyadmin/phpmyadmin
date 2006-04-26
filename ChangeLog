@@ -29,6 +29,9 @@ $Source$
       fixed bug #1452131 Fonts too large;
       fixed bug #1446211 Colors hardcoded in theme css files;
     * libraries/Theme_Manager.class.php: search themes on every script start
+    * libraries/Theme_Manager.class.php, libraries/Theme.class.php:
+      use fallback (original) css file if not found in current theme
+      (no need to include unchanged files into theme, f. e. print.css)
 
 2006-04-25 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Make cookie login form work with token

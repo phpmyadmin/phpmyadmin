@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/Theme.class.php');
+require_once './libraries/Theme.class.php';
 
 class PMA_Theme_Manager {
 
@@ -251,7 +251,7 @@ class PMA_Theme_Manager {
             closedir($handleThemes);
         } else {
             trigger_error(
-                'phpMyAdmin-ERROR: can not open themes folder: ' . $this->getThemesPath(),
+                'phpMyAdmin-ERROR: cannot open themes folder: ' . $this->getThemesPath(),
                 E_USER_WARNING);
             return false;
         } // end check for themes directory
@@ -345,6 +345,37 @@ class PMA_Theme_Manager {
         foreach ($this->themes as $each_theme) {
             $each_theme->printPreview();
         } // end 'open themes'
+    }
+
+    /**
+     * returns PMA_Theme object for fall back theme
+     * @return object   PMA_Theme
+     */
+    function getFallBackTheme()
+    {
+        if (isset($this->themes['Original'])) {
+            return $this->themes['Original'];
+        }
+
+        return false;
+    }
+
+    /**
+     * prints css data
+     */
+    function printCss($type)
+    {
+        if ($this->theme->loadCss($type)) {
+            return true;
+        }
+
+        // load css for this them failed, try default theme css
+        $fallback_theme = $this->getFallBackTheme();
+        if ($fallback_theme && $fallback_theme->loadCss($type)) {
+            return true;
+        }
+
+        return false;
     }
 }
 ?>

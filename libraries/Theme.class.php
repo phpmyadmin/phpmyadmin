@@ -31,42 +31,44 @@ class PMA_Theme {
     /**
      * @var array   valid css types
      */
-    var $types = array( 'left', 'right', 'print' );
+    var $types = array('left', 'right', 'print');
 
     /**
      * @var integer last modification time for info file
      */
     var $mtime_info = 0;
 
-    function __wakeup() {
+    function __wakeup()
+    {
         $this->loadInfo();
         $this->checkImgPath();
     }
 
-    function loadInfo() {
-        if ( ! file_exists( $this->getPath() . '/info.inc.php' ) ) {
+    function loadInfo()
+    {
+        if (! file_exists($this->getPath() . '/info.inc.php')) {
             return false;
         }
 
-        if ( $this->mtime_info === filemtime( $this->getPath() . '/info.inc.php' ) ) {
+        if ($this->mtime_info === filemtime($this->getPath() . '/info.inc.php')) {
             return true;
         }
 
-        @include( $this->getPath() . '/info.inc.php' );
+        @include $this->getPath() . '/info.inc.php';
 
         // did it set correctly?
-        if ( ! isset( $theme_name ) ) {
+        if (! isset($theme_name)) {
             return false;
         }
 
-        $this->mtime_info = filemtime( $this->getPath() . '/info.inc.php' );
+        $this->mtime_info = filemtime($this->getPath() . '/info.inc.php');
 
-        if ( isset( $theme_full_version ) ) {
-            $this->setVersion( $theme_full_version );
-        } elseif ( isset( $theme_generation, $theme_version ) ) {
-            $this->setVersion( $theme_generation . '.' . $theme_version );
+        if (isset($theme_full_version)) {
+            $this->setVersion($theme_full_version);
+        } elseif (isset($theme_generation, $theme_version)) {
+            $this->setVersion($theme_generation . '.' . $theme_version);
         }
-        $this->setName( $theme_name );
+        $this->setName($theme_name);
 
         return true;
     }
@@ -79,13 +81,14 @@ class PMA_Theme {
      * @param   string  path to theme
      * @return  object  PMA_Theme
      */
-    function load( $folder ) {
+    function load($folder)
+    {
 
         $theme = new PMA_Theme();
 
-        $theme->setPath( $folder );
+        $theme->setPath($folder);
 
-        if ( ! $theme->loadInfo() ) {
+        if (! $theme->loadInfo()) {
             return false;
         }
 
@@ -94,19 +97,20 @@ class PMA_Theme {
         return $theme;
     }
 
-    function checkImgPath() {
-        if ( is_dir( $this->getPath() . '/img/' ) ) {
-            $this->setImgPath( $this->getPath() . '/img/' );
+    function checkImgPath()
+    {
+        if (is_dir($this->getPath() . '/img/')) {
+            $this->setImgPath($this->getPath() . '/img/');
             return true;
-        } elseif ( is_dir( $GLOBALS['cfg']['ThemePath'] . '/original/img/' ) ) {
-            $this->setImgPath( $GLOBALS['cfg']['ThemePath'] . '/original/img/' );
+        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/original/img/')) {
+            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/original/img/');
             return true;
         } else {
             $GLOBALS['PMA_errors'][] =
-                sprintf( $GLOBALS['strThemeNoValidImgPath'], $this->getName() );
+                sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName());
             trigger_error(
-                sprintf( $GLOBALS['strThemeNoValidImgPath'], $this->getName() ),
-                E_USER_WARNING );
+                sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName()),
+                E_USER_WARNING);
             return false;
         }
     }
@@ -116,7 +120,8 @@ class PMA_Theme {
      * @uses    $this->$path    as return value
      * @return  string  $path   path to theme
      */
-    function getPath() {
+    function getPath()
+    {
         return $this->path;
     }
 
@@ -125,7 +130,8 @@ class PMA_Theme {
      *
      * @return  string  layout file
      */
-    function getLayoutFile() {
+    function getLayoutFile()
+    {
         return $this->getPath() . '/layout.inc.php';
     }
 
@@ -134,8 +140,9 @@ class PMA_Theme {
      * @uses    $this->$path    to set it
      * @param   string  $path   path to theme
      */
-    function setPath( $path ) {
-        $this->path = trim( $path );
+    function setPath($path)
+    {
+        $this->path = trim($path);
     }
 
     /**
@@ -143,8 +150,9 @@ class PMA_Theme {
      * @uses    $this->version
      * @param   string new version
      */
-    function setVersion( $version ) {
-        $this->version = trim( $version );
+    function setVersion($version)
+    {
+        $this->version = trim($version);
     }
 
     /**
@@ -152,7 +160,8 @@ class PMA_Theme {
      * @uses    $this->version
      * @return  string  version
      */
-    function getVersion() {
+    function getVersion()
+    {
         return $this->version;
     }
 
@@ -165,23 +174,26 @@ class PMA_Theme {
      * @param   string  $version    version to compare to
      * @return  boolean
      */
-    function checkVersion( $version ) {
-        return version_compare( $this->getVersion(), $version, 'lt' );
+    function checkVersion($version)
+    {
+        return version_compare($this->getVersion(), $version, 'lt');
     }
 
     /**
      * sets name
      * @param   string  $name   new name
      */
-    function setName( $name ) {
-        $this->name = trim( $name );
+    function setName($name)
+    {
+        $this->name = trim($name);
     }
 
     /**
      * returns name
      * @return  string name
      */
-    function getName() {
+    function getName()
+    {
         return $this->name;
     }
 
@@ -189,23 +201,27 @@ class PMA_Theme {
      * sets id
      * @param   string  $id   new id
      */
-    function setId( $id ) {
-        $this->id = trim( $id );
+    function setId($id)
+    {
+        $this->id = trim($id);
     }
 
     /**
      * returns id
      * @return  string id
      */
-    function getId() {
+    function getId()
+    {
         return $this->id;
     }
 
-    function setImgPath( $path ) {
+    function setImgPath($path)
+    {
         $this->img_path = $path;
     }
 
-    function getImgPath() {
+    function getImgPath()
+    {
         return $this->img_path;
     }
 
@@ -219,29 +235,33 @@ class PMA_Theme {
      * @uses    in_array()
      * @param   string  $type   left, right or print
      */
-    function loadCss( &$type ) {
-        if ( empty( $type ) || ! in_array( $type, $this->types ) ) {
+    function loadCss(&$type)
+    {
+        if (empty($type) || ! in_array($type, $this->types)) {
             $type = 'left';
         }
 
-        if ( $type == 'right' ) {
+        if ($type == 'right') {
             echo PMA_SQP_buildCssData();
         }
 
         $_css_file = $this->getPath()
                    . '/css/theme_' . $type . '.css.php';
 
-        if ( file_exists( $_css_file ) ) {
-            if ( $GLOBALS['text_dir'] === 'ltr' ) {
-                $right = 'right';
-                $left = 'left';
-            } else {
-                $right = 'left';
-                $left = 'right';
-            }
-
-            include( $_css_file );
+        if (! file_exists($_css_file)) {
+            return false;
         }
+
+        if ($GLOBALS['text_dir'] === 'ltr') {
+            $right = 'right';
+            $left = 'left';
+        } else {
+            $right = 'left';
+            $left = 'right';
+        }
+
+        include $_css_file;
+        return true;
     }
 
     /**
@@ -258,21 +278,22 @@ class PMA_Theme {
      * @uses    file_exists()
      * @uses    htmlspecialchars()
      */
-    function printPreview() {
+    function printPreview()
+    {
         echo '<div class="theme_preview">';
-        echo '<h2>' . htmlspecialchars( $this->getName() )
-            .' (' . htmlspecialchars( $this->getVersion() ) . ')</h2>'
+        echo '<h2>' . htmlspecialchars($this->getName())
+            .' (' . htmlspecialchars($this->getVersion()) . ')</h2>'
             .'<p>'
             .'<a target="_top" href="index.php'
-            .PMA_generate_common_url( array( 'set_theme' => $this->getId() ) ) . '"'
-            .' onclick="takeThis(\'' . addslashes( $this->getId() ) . '\');'
+            .PMA_generate_common_url(array('set_theme' => $this->getId())) . '"'
+            .' onclick="takeThis(\'' . addslashes($this->getId()) . '\');'
             .' return false;">';
-        if ( @file_exists( $this->getPath() . '/screen.png' ) ) {
+        if (@file_exists($this->getPath() . '/screen.png')) {
             // if screen exists then output
 
             echo '<img src="' . $this->getPath() . '/screen.png" border="1"'
-                .' alt="' . htmlspecialchars( $this->getName() ) . '"'
-                .' title="' . htmlspecialchars( $this->getName() ) . '" /><br />';
+                .' alt="' . htmlspecialchars($this->getName()) . '"'
+                .' title="' . htmlspecialchars($this->getName()) . '" /><br />';
         } else {
             echo $GLOBALS['strThemeNoPreviewAvailable'];
         }
