@@ -210,11 +210,16 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' />';
     } elseif ($opt['type'] == 'bgroup') {
         $ret .= '<fieldset><legend>';
-        $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
-            . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
-            . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
-        $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
-            . PMA_getString($opt['text']) . '</label>';
+        /* No checkbox without name */
+        if (!empty($opt['name'])) {
+            $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
+                . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
+                . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
+            $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
+                . PMA_getString($opt['text']) . '</label>';
+        } else {
+            $ret .= PMA_getString($opt['text']);
+        }
         $ret .= '</legend>';
     } elseif ($opt['type'] == 'egroup') {
         $ret .= '</fieldset>';
