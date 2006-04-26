@@ -735,6 +735,11 @@ td.condition,
 th.condition {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
+
+label.desc {
+    width: 30em;
+    float: left;
+}
     <?php
 } // end styles 2.9
 

@@ -1061,3 +1061,8 @@ li#li_flush_privileges {
 #qbe_div_sql_query {
     float: <?php echo $left; ?>;
 }
+
+label.desc {
+    width: 30em;
+    float: left;
+}

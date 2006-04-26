@@ -9,6 +9,10 @@ $Source$
     * libraries/plugin_interface.lib.php:
         - Display information that there are no settings.
         - Be more verbose on error.
+        - Drop tables used for layout.
+    * css/phpmyadmin.css.php, themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php: New style for non table forms
+      used in plugins.
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:
