@@ -3,26 +3,31 @@
     if (!defined('PMA_MINIMUM_COMMON')) {
         exit();
     }
-?> 
+?>
 /******************************************************************************/
 /* general tags */
-body {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    background-color: #666699;
-    color:            #ffffff;
-    margin: 0;
-    padding: 2px 2px 2px 2px;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
+}
+select, input, textarea {
+    font-size:          0.7em;
+}
+<?php } ?>
+
+body, table, tbody, tr, td {
+    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    margin:             0;
+    padding:            2px 2px 2px 2px;
 }
 
 a img {
     border: 0;
-}
-
-/* gecko FIX, font size is not correctly assigned to all child elements */
-body * {
-    font-family:      inherit;
-    font-size:        inherit;
 }
 
 form {
@@ -34,7 +39,7 @@ form {
 select {
     background-color:   #ffffff;
     color:              #000000;
-    width:              150px;
+    width:              100%;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -66,7 +71,7 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid #ffffff;
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
@@ -77,13 +82,13 @@ div#leftframelinks .icon {
 }
 
 div#leftframelinks a {
-    margin:             0.1em;
+    margin:             0;
     padding:            0.2em;
-    border:             0.05em solid #ffffff;
+    border:             0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
 }
 
 div#leftframelinks a:hover {
-    background-color:   #ffffff;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
 }
 
 /* leftdatabaselist */
@@ -93,7 +98,7 @@ div#left_tableList ul {
     margin:             0;
     padding:            0;
     font-size:          80%;
-    background-color:   #666699;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
 div#left_tableList ul ul {
@@ -101,12 +106,12 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    color:              #ffffff;
+    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    color:              #ffffff;
+    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     text-decoration:    underline;
 }
 
@@ -128,9 +133,9 @@ div#left_tableList img {
 }
 
 div#left_tableList ul ul {
-    margin-left:        0em;
+    margin-left:        0;
     padding-left:       0.1em;
-    border-left:        0.1em solid #ffffff;
+    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid #ffffff;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
 }

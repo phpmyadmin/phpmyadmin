@@ -1,15 +1,27 @@
 <?php
-    // unplanned execution path
-    if (!defined('PMA_MINIMUM_COMMON')) {
-        exit();
-    }
-?> 
+// unplanned execution path
+if (!defined('PMA_MINIMUM_COMMON')) {
+    exit();
+}
+?>
 /******************************************************************************/
 /* general tags */
-body {
-    font-family:        <?php echo $GLOBALS['left_font_family']; ?>;
-    background-color:   #D0DCE0;
-    color:              #000000;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
+}
+select, input, textarea {
+    font-size:          0.7em;
+}
+<?php } ?>
+
+body, table, tbody, tr, td {
+    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
 }
 
 a img {
@@ -23,8 +35,9 @@ form {
 }
 
 select {
-    background-color:   #ffffff;
-    color:              #000000;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    width:              100%;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -56,7 +69,7 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid #669999;
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
@@ -66,14 +79,14 @@ div#leftframelinks .icon {
     margin:             0;
 }
 
-div#leftframelinks a {
-    margin:             0.1em;
+div#leftframelinks a img.icon {
+    margin:             0;
     padding:            0.2em;
-    border:             0.05em solid #669999;
+    border:             0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
 }
 
 div#leftframelinks a:hover {
-    background-color:   #669999;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
 }
 
 /* leftdatabaselist */
@@ -83,7 +96,7 @@ div#left_tableList ul {
     margin:             0;
     padding:            0;
     font-size:          80%;
-    background-color:   #D0DCE0;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
 div#left_tableList ul ul {
@@ -108,7 +121,7 @@ div#left_tableList li {
 
 <?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
 div#left_tableList li:hover {
-    background-color:   #CCFFCC;
+    background-color:   <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
 }
 <?php } ?>
 
@@ -118,9 +131,9 @@ div#left_tableList img {
 }
 
 div#left_tableList ul ul {
-    margin-left:        0em;
+    margin-left:        0;
     padding-left:       0.1em;
-    border-left:        0.1em solid #669999;
+    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid #669999;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
 }

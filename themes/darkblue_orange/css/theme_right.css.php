@@ -3,21 +3,31 @@
     if (!defined('PMA_MINIMUM_COMMON')) {
         exit();
     }
-?> 
+?>
 /******************************************************************************/
 /* general tags */
-body {
-    font-family:        Verdana, Arial, Helvetica, sans-serif;
-    font-size:          10px;
-    color:              #000000;
-    background-color:   #ffffff;
-    margin:             5px;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 }
+<?php } if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+textarea {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
+}
+select, input, textarea {
+    font-size:          0.7em;
+}
+<?php } ?>
 
-/* gecko FIX, font size is not correctly assigned to all child elements */
-body * {
-    font-family:        inherit;
-    font-size:          inherit;
+body {
+    margin:             5px;
+    color:              <?php echo $GLOBALS['cfg']['RightColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['RightBgColor']; ?>;
+
 }
 
 h1 {
@@ -63,8 +73,8 @@ dfn:hover {
 
 th {
     font-weight:        bold;
-    color:              #000000;
-    background-color:   #ff9900;
+    color:              <?php echo $GLOBALS['cfg']['RightColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>;
     background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/tbl_th.png);
     background-repeat:  repeat-x;
     background-position: top;
@@ -74,7 +84,7 @@ th {
 th a:link,
 th a:active,
 th a:visited {
-    color:              #000000;
+    color:              <?php echo $GLOBALS['cfg']['RightColor']; ?>;
     text-decoration:    underline;
 }
 
@@ -117,7 +127,7 @@ fieldset fieldset {
 fieldset legend {
     color:              #666699;
     font-weight:        bold;
-    background-color:   #ffffff;
+    background-color:   <?php echo $GLOBALS['cfg']['RightBgColor']; ?>;
     padding:            2px 2px 2px 2px;
 }
 
@@ -175,7 +185,7 @@ button.mult_submit {
 table tr.odd th,
 table tr.odd {
     background-image:   none;
-    background-color:   #E5E5E5;
+    background-color:   <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
     text-align:         left;
 }
 
@@ -183,14 +193,14 @@ table tr.odd {
 table tr.even th,
 table tr.even {
     background-image:   none;
-    background-color:   #D5D5D5;
+    background-color:   <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
     text-align:         left;
 }
 
 /* marked tbale rows */
 table tr.marked th,
 table tr.marked {
-    background-color:   #FFCC99;
+    background-color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
 /* hovered table rows */
@@ -200,7 +210,7 @@ table tr.odd:hover th,
 table tr.even:hover th,
 table tr.hover th,
 table tr.hover {
-    background-color:   #CCFFCC;
+    background-color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 table .value {
@@ -341,7 +351,7 @@ div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #FFD700;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_notice.png);
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -373,7 +383,7 @@ div.warning {
     width:              90%;
 
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_warn.png);
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -404,7 +414,7 @@ div.error {
     border:             0.1em solid #ff0000;
     width:              90%;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_error.png);
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 10px 50%;
@@ -435,7 +445,7 @@ fieldset.confirmation legend {
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image:   url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/s_really.png);
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat:  no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
     background-position: 5px 50%;
@@ -513,6 +523,18 @@ td.disabled {
     background-color:   #cccccc;
 }
 
+body.loginform h1,
+body.loginform a.logo {
+    display: block;
+    text-align: center;
+}
+
+form.login label {
+    float: left;
+    width: 10em;
+    font-weight: bolder;
+}
+
 
 /******************************************************************************/
 /* specific elements */
@@ -557,7 +579,7 @@ span.tabcaution {
 
 /* enabled drop/empty tabs */
 a.tabcaution {
-    color:              FF0000;
+    color:              #FF0000;
 }
 a.tabcaution:hover {
     color: #FFFFFF;
@@ -608,10 +630,11 @@ a.tab:hover,
 /* disabled drop/empty tabs */
 span.tab,
 span.tabcaution {
-    cursor:             url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/darkblue_orange/img/error.ico), default;
+    cursor:             url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
+
 
 /* Calendar */
 table.calendar {
@@ -899,3 +922,200 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 /* end querybox */
 
+/* main page */
+#maincontainer {
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
+    background-position: <?php echo $right; ?> bottom;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid silver;
+}
+
+#mysqlmaininformation,
+#pmamaininformation {
+    float: <?php echo $left; ?>;
+    width: 49%;
+}
+
+#maincontainer ul {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    vertical-align: middle;
+}
+
+#maincontainer li {
+    margin-bottom: 0.3em;
+}
+/* END main page */
+
+
+<?php if ( $GLOBALS['cfg']['MainPageIconic'] ) { ?>
+/* iconic view for ul items */
+li#li_create_database {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
+}
+
+li#li_select_lang {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
+}
+
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_select_theme{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
+}
+
+li#li_server_info{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+li#li_user_info{
+    /* list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png); */
+}
+
+li#li_mysql_status{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
+}
+
+li#li_mysql_variables{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
+}
+
+li#li_mysql_processes{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
+}
+
+li#li_mysql_collations{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_mysql_engines{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
+}
+
+li#li_mysql_binlogs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_tbl.png);
+}
+
+li#li_mysql_databases {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+}
+
+li#li_export {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_export.png);
+}
+
+li#li_import {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_import.png);
+}
+
+li#li_change_password {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_passwd.png);
+}
+
+li#li_log_out {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
+}
+
+li#li_pma_docs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
+}
+
+li#li_phpinfo {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
+}
+
+li#li_pma_homepage {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
+}
+
+li#li_mysql_privilegs{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+}
+
+li#li_switch_dbstats {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_dbstatistics.png);
+}
+
+li#li_flush_privileges {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
+}
+/* END iconic view for ul items */
+<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
+
+
+#body_browse_foreigners {
+    background-color:   <?php echo $cfg['LeftBgColor']; ?>;
+    margin:             5px 5px 0 5px;
+}
+
+#bodyquerywindow {
+    background-color:   <?php echo $cfg['LeftBgColor']; ?>;
+}
+
+#bodythemes {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#bodythemes img {
+    border: 0.1em solid black;
+}
+
+#bodythemes a:hover img {
+    border: 0.1em solid red;
+}
+
+#fieldset_select_fields {
+    float: left;
+}
+
+#selflink {
+    clear: both;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-top: 0.1em solid silver;
+    text-align: <?php echo $right; ?>;
+}
+
+#table_innodb_bufferpool_usage,
+#table_innodb_bufferpool_activity {
+    float: <?php echo $left; ?>;
+}
+
+#div_mysql_charset_collations table {
+    float: <?php echo $left; ?>;
+}
+
+#div_table_order {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_rename {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_copy {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_options {
+    clear: both;
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_table_list {
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_sql_query {
+    float: <?php echo $left; ?>;
+}
