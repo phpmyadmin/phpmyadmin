@@ -10,6 +10,7 @@ if (isset($plugin_list)) {
     $plugin_list['htmlword'] = array(
         'text' => 'strHTMLWord',
         'extension' => 'doc',
+        'mime_type' => 'application/vnd.ms-word',
         'options' => array(
             array('type' => 'bool', 'name' => 'structure', 'text' => 'strStructure', 'force' => 'data'),
             array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure'),

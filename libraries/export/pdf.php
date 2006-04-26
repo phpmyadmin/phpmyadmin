@@ -3,16 +3,17 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * Produce a PDF report (export) from a query 
+ * Produce a PDF report (export) from a query
  */
 
 if (isset($plugin_list)) {
     $plugin_list['pdf'] = array(
         'text' => 'strPDF',
         'extension' => 'pdf',
+        'mime_type' => 'application/pdf',
         'options' => array(
-            array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'), 
-            array('type' => 'hidden', 'name' => 'data'), 
+            array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'),
+            array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strPDFOptions',
         );
@@ -35,14 +36,14 @@ define('FPDF_FONTPATH', './libraries/fpdf/font/');
 
 // Adapted from a LGPL script by Philip Clarke
 
-class PMA_PDF extends PMA_FPDF 
+class PMA_PDF extends PMA_FPDF
 {
     var $tablewidths;
     var $headerset;
     var $footerset;
 
     // overloading of a fpdf function:
-    function _beginpage($orientation) 
+    function _beginpage($orientation)
     {
         $this->page++;
         // solved the problem of overwriting a page, if it already exists
@@ -54,7 +55,7 @@ class PMA_PDF extends PMA_FPDF
         $this->y = $this->tMargin;
         $this->lasth = 0;
         $this->FontFamily = '';
-    
+
         //Page orientation
         if (!$orientation) {
             $orientation = $this->DefOrientation;
@@ -82,7 +83,7 @@ class PMA_PDF extends PMA_FPDF
         }
     }
 
-    function Header() 
+    function Header()
     {
         global $maxY;
 
@@ -122,7 +123,7 @@ class PMA_PDF extends PMA_FPDF
         $this->SetY($maxY);
     }
 
-    function Footer() 
+    function Footer()
     {
     // Check if footer for this page already exists
         if (!isset($this->footerset[$this->page])) {
@@ -135,7 +136,7 @@ class PMA_PDF extends PMA_FPDF
         }
     }
 
-    function morepagestable($lineheight=8) 
+    function morepagestable($lineheight=8)
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -290,7 +291,7 @@ class PMA_PDF extends PMA_FPDF
         $this->morepagestable($this->FontSizePt);
         PMA_DBI_free_result($this->results);
 
-    } // end of mysql_report function 
+    } // end of mysql_report function
 
 } // end of PMA_PDF class
 
@@ -301,7 +302,7 @@ class PMA_PDF extends PMA_FPDF
  *
  * @return  bool        Whether it suceeded
  */
-function PMA_exportComment($text) 
+function PMA_exportComment($text)
 {
     return TRUE;
 }
@@ -313,7 +314,7 @@ function PMA_exportComment($text)
  *
  * @access  public
  */
-function PMA_exportFooter() 
+function PMA_exportFooter()
 {
     return TRUE;
 }
@@ -325,7 +326,7 @@ function PMA_exportFooter()
  *
  * @access  public
  */
-function PMA_exportHeader() 
+function PMA_exportHeader()
 {
     return TRUE;
 }
@@ -339,7 +340,7 @@ function PMA_exportHeader()
  *
  * @access  public
  */
-function PMA_exportDBHeader($db) 
+function PMA_exportDBHeader($db)
 {
     return TRUE;
 }
@@ -353,7 +354,7 @@ function PMA_exportDBHeader($db)
  *
  * @access  public
  */
-function PMA_exportDBFooter($db) 
+function PMA_exportDBFooter($db)
 {
     return TRUE;
 }
@@ -367,7 +368,7 @@ function PMA_exportDBFooter($db)
  *
  * @access  public
  */
-function PMA_exportDBCreate($db) 
+function PMA_exportDBCreate($db)
 {
     return TRUE;
 }
@@ -385,7 +386,7 @@ function PMA_exportDBCreate($db)
  *
  * @access  public
  */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) 
+function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $what;
     global $pdf_report_title;

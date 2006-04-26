@@ -7,14 +7,19 @@
  */
 require_once('./libraries/common.lib.php');
 require_once('./libraries/zip.lib.php');
+require_once('./libraries/plugin_interface.lib.php');
 
 PMA_checkParameters(array('what', 'export_type'));
 
-// What type of export are we doing?
-if ($what == 'excel') {
-    $type = 'csv';
-} else {
-    $type = $what;
+// Scan plugins
+$export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $export_type, 'single_table' => isset($single_table)));
+
+// Backward compatbility
+$type = $what;
+
+// Check export type
+if (!isset($export_list[$type])) {
+    die('Bad type!');
 }
 
 // Get the functions specific to the export type
@@ -224,37 +229,9 @@ if ($asfile) {
         $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
     }
 
-    // Generate basic dump extension
-    if ($type == 'csv') {
-        $filename  .= '.csv';
-        $mime_type = 'text/comma-separated-values';
-    } elseif ($type == 'htmlexcel') {
-        $filename  .= '.xls';
-        $mime_type = 'application/vnd.ms-excel';
-    } elseif ($type == 'htmlword') {
-        $filename  .= '.doc';
-        $mime_type = 'application/vnd.ms-word';
-    } elseif ($type == 'xls') {
-        $filename  .= '.xls';
-        $mime_type = 'application/vnd.ms-excel';
-    } elseif ($type == 'xml') {
-        $filename  .= '.xml';
-        $mime_type = 'text/xml';
-    } elseif ($type == 'latex') {
-        $filename  .= '.tex';
-        $mime_type = 'application/x-tex';
-    } elseif ($type == 'pdf') {
-        $filename  .= '.pdf';
-        $mime_type = 'application/pdf';
-    } else {
-        $filename  .= '.sql';
-        // text/x-sql is correct MIME type, however safari ignores further
-        // Content-Disposition header, so we must force it to download it this
-        // way...
-        $mime_type = PMA_USR_BROWSER_AGENT == 'SAFARI'
-                        ? 'application/octet-stream'
-                        : 'text/x-sql';
-    }
+    // Grab basic dump extension and mime type
+    $filename  .= '.' . $export_list[$type]['extension'];
+    $mime_type  = $export_list[$type]['mime_type'];
 
     // If dump is going to be compressed, set correct encoding or mime_type and add
     // compression to extension
@@ -429,7 +406,7 @@ if ($export_type == 'server') {
                 break 2;
             }
             $tables = PMA_DBI_get_tables($current_db);
-            $views = array();    
+            $views = array();
             foreach ($tables as $table) {
                 // if this is a view, collect it for later; views must be exported
                 // after the tables
@@ -472,7 +449,7 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     $i = 0;
-    $views = array();    
+    $views = array();
     foreach ($tables as $table) {
         // if this is a view, collect it for later; views must be exported after
         // the tables
@@ -539,7 +516,7 @@ if ($export_type == 'server') {
             break;
         }
     }
-    // I think we have to export data for a single view; for example PDF report 
+    // I think we have to export data for a single view; for example PDF report
     //if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
     if (isset($GLOBALS[$what . '_data'])) {
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {

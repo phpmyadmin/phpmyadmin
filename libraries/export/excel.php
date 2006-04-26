@@ -10,11 +10,12 @@ if (isset($plugin_list)) {
     $plugin_list['excel'] = array(
         'text' => 'strStrucExcelCSV',
         'extension' => 'xls',
+        'mime_type' => 'application/vnd.ms-excel',
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'), 
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array('type' => 'select', 'name' => 'edition', 'values' => array('win' => 'Windows', 'mac' => 'Excel 2003 / Macintosh'), 'text' => 'strExcelEdition'),
-            array('type' => 'hidden', 'name' => 'data'), 
+            array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strExcelOptions',
         );

@@ -10,14 +10,15 @@ if (isset($plugin_list)) {
     $plugin_list['csv'] = array(
         'text' => 'strStrucCSV',
         'extension' => 'csv',
+        'mime_type' => 'text/comma-separated-values',
         'options' => array(
-            array('type' => 'text', 'name' => 'separator', 'text' => 'strFieldsTerminatedBy'), 
-            array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy'), 
-            array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy'), 
-            array('type' => 'text', 'name' => 'terminated', 'text' => 'strLinesTerminatedBy'), 
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'), 
-            array('type' => 'hidden', 'name' => 'data'), 
+            array('type' => 'text', 'name' => 'separator', 'text' => 'strFieldsTerminatedBy'),
+            array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy'),
+            array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy'),
+            array('type' => 'text', 'name' => 'terminated', 'text' => 'strLinesTerminatedBy'),
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strCSVOptions',
         );

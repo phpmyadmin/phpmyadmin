@@ -16,6 +16,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql'] = array(
             'text' => 'strSQL',
             'extension' => 'sql',
+            'mime_type' => 'text/x-sql',
             'options' => array(
                 array('type' => 'text', 'name' => 'header_comment', 'text' => 'strAddHeaderComment'),
                 array('type' => 'bool', 'name' => 'use_transaction', 'text' => 'strEncloseInTransaction'),

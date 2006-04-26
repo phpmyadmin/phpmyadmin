@@ -10,10 +10,11 @@ if (isset($plugin_list)) {
     $plugin_list['htmlexcel'] = array(
         'text' => 'strHTMLExcel',
         'extension' => 'xsl',
+        'mime_type' => 'application/vnd.ms-excel',
         'options' => array(
-            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'), 
-            array('type' => 'hidden', 'name' => 'data'), 
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strHTMLExcelOptions',
         );

@@ -12,6 +12,7 @@ if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
         'text' => 'strXML',
         'extension' => 'xml',
+        'mime_type' => 'text/xml',
         'options' => array(
             ),
         'options_text' => 'strXMLOptions',

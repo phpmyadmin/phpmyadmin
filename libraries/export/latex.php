@@ -14,6 +14,7 @@ if (isset($plugin_list)) {
     $plugin_list['latex'] = array(
         'text' => 'strLaTeX',
         'extension' => 'tex',
+        'mime_type' => 'application/x-tex',
         'options' => array(
             array('type' => 'bool', 'name' => 'caption', 'text' => 'strLatexIncludeCaption'),
             ),

@@ -20,10 +20,11 @@ if ($xls) {
         $plugin_list['xls'] = array(
             'text' => 'strStrucNativeExcel',
             'extension' => 'xls',
+            'mime_type' => 'application/vnd.ms-excel',
             'options' => array(
-                array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'), 
-                array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'), 
-                array('type' => 'hidden', 'name' => 'data'), 
+                array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+                array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'),
+                array('type' => 'hidden', 'name' => 'data'),
                 ),
             'options_text' => 'strStrucNativeExcelOptions',
             );
