@@ -171,14 +171,16 @@ function PMA_pluginGetChoice($section, $name, &$list)
 function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
 {
     $ret = "\n";
-    $ret .= '<div class="formelementrow">' . "\n";
     if ($opt['type'] == 'bool') {
+        $ret .= '<div class="formelementrow">' . "\n";
         $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
             . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
         $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
             . PMA_getString($opt['text']) . '</label>';
+        $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'text') {
+        $ret .= '<div class="formelementrow">' . "\n";
         $ret .= '<label for="text_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
             . PMA_getString($opt['text']) . '</label>';
         $ret .= '<input type="text" name="' . $plugin_name . '_' . $opt['name'] . '"'
@@ -186,7 +188,9 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . ' id="text_' . $plugin_name . '_' . $opt['name'] . '"'
             . (isset($opt['size']) ? ' size="' . $opt['size'] . '"' : '' )
             . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '' ) . ' />';
+        $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'select') {
+        $ret .= '<div class="formelementrow">' . "\n";
         $ret .= '<label for="select_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
             . PMA_getString($opt['text']) . '</label>';
         $ret .= '<select name="' . $plugin_name . '_' . $opt['name'] . '"'
@@ -200,9 +204,20 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             $ret .= '>' . PMA_getString($val) . '</option>';
         }
         $ret .= '</select>';
+        $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'hidden') {
         $ret .= '<input type="hidden" name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"' . ' />';
+    } elseif ($opt['type'] == 'bgroup') {
+        $ret .= '<fieldset><legend>';
+        $ret .= '<input type="checkbox" name="' . $plugin_name . '_' . $opt['name'] . '"'
+            . ' value="something" id="checkbox_' . $plugin_name . '_' . $opt['name'] . '"'
+            . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_' . $opt['name']) .' />';
+        $ret .= '<label for="checkbox_' . $plugin_name . '_' . $opt['name'] . '">'
+            . PMA_getString($opt['text']) . '</label>';
+        $ret .= '</legend>';
+    } elseif ($opt['type'] == 'egroup') {
+        $ret .= '</fieldset>';
     } else {
         /* This should be seen only by plugin writers, so I do not thing this
          * needs translation. */
@@ -211,7 +226,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
     if (isset($opt['doc'])) {
         $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
     }
-    $ret .= '</div>' . "\n";
+    $ret .= "\n";
     return $ret;
 }
 
