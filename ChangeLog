@@ -8,6 +8,7 @@ $Source$
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:
         - Display information that there are no settings.
+        - Be more verbose on error.
 
 2006-04-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*:

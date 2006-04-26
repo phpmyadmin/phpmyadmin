@@ -212,7 +212,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         /* This should be seen only by plugin writers, so I do not thing this
          * needs translation. */
         $ret .= '<td colspan="2">';
-        $ret .= 'UNKNOWN OPTION IN IMPORT PLUGIN ' . $plugin_name . '!';
+        $ret .= 'UNKNOWN OPTION ' . $opt['type'] . ' IN IMPORT PLUGIN ' . $plugin_name . '!';
     }
     if (isset($opt['doc'])) {
         $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
