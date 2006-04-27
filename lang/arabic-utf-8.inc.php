@@ -10,8 +10,6 @@
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
-$left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
-$right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

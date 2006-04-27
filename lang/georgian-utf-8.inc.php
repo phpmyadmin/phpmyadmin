@@ -12,8 +12,6 @@
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
-$left_font_family = 'Sylfaen';
-$right_font_family = 'Sylfaen';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

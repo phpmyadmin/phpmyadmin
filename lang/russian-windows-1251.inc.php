@@ -10,8 +10,6 @@
 
 $charset = 'windows-1251';
 $text_dir = 'ltr';
-$left_font_family = 'sans-serif';
-$right_font_family = 'sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

@@ -8,8 +8,6 @@
 
 $charset = 'shift_jis';
 $text_dir = 'ltr';
-$left_font_family = '"MS PGochic", Osaka, verdana, arial, helvetica, geneva, sans-serif';
-$right_font_family = '"MS PGochic", Osaka, arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

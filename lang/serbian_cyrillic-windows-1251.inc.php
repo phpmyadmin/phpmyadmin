@@ -9,8 +9,6 @@
 
 $charset = 'windows-1251';
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
-$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
-$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

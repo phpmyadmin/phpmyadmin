@@ -23,6 +23,7 @@ $Source$
       comments (patch #1459782, thanks to unconed - unconed).
     * Documentation.html: Various fixes in documentation, mostly grammmar
       (patch #1453198, thanks to Isaac Bennetch - ibennetch).
+    * lang/*: Remove *font_family.
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:

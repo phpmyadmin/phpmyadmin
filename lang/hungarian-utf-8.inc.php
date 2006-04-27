@@ -6,8 +6,6 @@
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr': balról jobbra, 'rtl': jobbról balra)
-$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
-$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 // Byte, Kilo, Mega, Giga, Tera, Peta, Exa rövidítései

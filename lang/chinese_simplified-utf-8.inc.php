@@ -9,8 +9,6 @@
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
-$left_font_family = 'simsun, 宋体';
-$right_font_family = 'simsun';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa

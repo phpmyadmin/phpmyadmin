@@ -15,8 +15,6 @@
 
 $charset = 'iso-8859-9';
 $text_dir = 'ltr';
-$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
-$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 
