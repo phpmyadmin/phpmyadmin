@@ -163,6 +163,7 @@ $cfg['ShowTooltipAliasTB']    = FALSE;   // are shown (in the left menu and db_d
                                          // use the Aliases for nested descriptors, not the table itself.
 
 $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
+$cfg['LeftLogoLink']          = 'http://www.phpmyadmin.net/';   // where should logo link point to
 $cfg['LeftDisplayServers']    = FALSE;  // display server choice at top of left frame
 $cfg['DisplayServersList']    = FALSE;  // server choice as links
 

@@ -8,6 +8,8 @@ $Source$
 2006-04-28 Michal Čihař  <michal@cihar.com>
     * Documentation.html, main.php, libraries/config.default.php: Possibility
       to hide creating of database from main (RFE #1370100).
+    * Documentation.html, main.php, libraries/left_header.inc.php:
+      Customizable link under left logo (RFE #1111599).
 
 2006-04-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_printview.php: fixed bug 'no tables found', refactored

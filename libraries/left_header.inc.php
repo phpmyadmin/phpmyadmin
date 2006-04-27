@@ -23,9 +23,9 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
             .'alt="' . $logo . '" id="imgpmalogo" />';
     }
-    
+
     echo '<div id="pmalogo">' . "\n"
-        .'<a href="http://www.phpmyadmin.net/" target="_blank">'
+        .'<a href="' . $GLOBALS['cfg']['LeftLogoLink'] . '" target="_blank">'
         .$logo . '</a>' . "\n"
         .'</div>' . "\n";
 } // end of display logo
@@ -44,7 +44,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         // Logout for advanced authentication
         if ( $GLOBALS['cfg']['Server']['auth_type'] != 'config' ) {
             echo ($GLOBALS['cfg']['MainPageIconic'] ? '' : ' - ');
-            echo '<a href="index.php?' . $query_url . '&amp;old_usr=' 
+            echo '<a href="index.php?' . $query_url . '&amp;old_usr='
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . $strLogout . '" >'
                 .( $GLOBALS['cfg']['MainPageIconic']
@@ -55,9 +55,9 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
 
         $anchor = 'querywindow.php?' . PMA_generate_common_url( $db, $table );
-            
+
         if ($GLOBALS['cfg']['MainPageIconic']) {
-            $query_frame_link_text = 
+            $query_frame_link_text =
                 '<img class="icon" src="' . $pmaThemeImage . 'b_selboard.png"'
                 .' width="16" height="16" alt="' . $strQueryFrame . '" />';
         } else {
