@@ -145,9 +145,11 @@ if ( $server > 0 ) {
            . '    </li>' . "\n";
     }
 
-    echo '<li id="li_create_database">';
-    require('./libraries/display_create_database.lib.php');
-    echo '</li>' . "\n";
+    if ($cfg['ShowCreateDb']) {
+        echo '<li id="li_create_database">';
+        require('./libraries/display_create_database.lib.php');
+        echo '</li>' . "\n";
+    }
 
     PMA_printListItem( $strMySQLShowStatus, 'li_mysql_status',
         './server_status.php?' . $common_url_query );
@@ -373,8 +375,8 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
  * @param   string  $name   displayed text
  * @param   string  $id     id, used for css styles
  * @param   string  $url    make item as link with $url as target
- * @param   string  $mysql_help_page  display a link to MySQL's manual  
- * @param   string  $target special target for $url 
+ * @param   string  $mysql_help_page  display a link to MySQL's manual
+ * @param   string  $target special target for $url
  */
 function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null)
 {

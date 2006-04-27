@@ -170,8 +170,9 @@ $cfg['DisplayServersList']    = FALSE;  // server choice as links
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
                                         // the pages about database details and table
                                         // properties
-$cfg['ShowPhpInfo']           = FALSE;  // information" and "change password" links for
-$cfg['ShowChgPassword']       = FALSE;  // simple users or not
+$cfg['ShowPhpInfo']           = FALSE;  // show php info link
+$cfg['ShowChgPassword']       = FALSE;  // show change password link
+$cfg['ShowCreateDb']          = TRUE;   // show create database form
 $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (false = keep empty)
 
 // In browse mode...
