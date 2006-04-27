@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-04-27 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, libraries/config.default.php,
+      libraries/auth/cookie.auth.lib.php: Logout from all servers by default
+      (RFE #1370874).
+
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:
         - Display information that there are no settings.

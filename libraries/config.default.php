@@ -137,6 +137,7 @@ $cfg['Confirm']                 = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABA
 $cfg['LoginCookieRecall']       = TRUE;   // recall previous login in cookie auth. mode or not
 $cfg['LoginCookieValidity']     = 1800;   // validity of cookie login (in seconds)
 $cfg['LoginCookieStore']        = 0;      // how long login cookie should be stored (in seconds)
+$cfg['LoginCookieDeleteAll']    = TRUE;   // whether to delete all login cookies on logout
 $cfg['UseDbSearch']             = TRUE;   // whether to enable the "database search" feature
                                           // or not
 $cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues computing multiple-statement queries

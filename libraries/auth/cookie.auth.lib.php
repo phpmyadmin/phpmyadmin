@@ -278,9 +278,15 @@ function PMA_auth_check()
     $from_cookie   = false;
     $from_form     = false;
 
-    // The user wants to be logged out -> delete password cookie
+    // The user wants to be logged out -> delete password cookie(s)
     if (!empty($old_usr)) {
-        setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
+            foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
+                setcookie('pma_cookie_password-' . $key, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            }
+        } else {
+            setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+        }
     }
 
     // The user just logged in
