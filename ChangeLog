@@ -11,6 +11,8 @@ $Source$
       (RFE #1370874).
     * sql.php: Show results of REPLACE as affected as it contains both deleted
       and inserted rows count (bug #1475765).
+    * libraries/common.lib.php: Better detection of duplicate rows (bug
+      #1477500).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:

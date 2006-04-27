@@ -974,33 +974,45 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             // special characters that can become high-ascii after editing,
             // depending upon which editor is used by the developer?
             $error_table = array();
-            preg_match('@ALTER\sTABLE\s\`([^\`]+)\`@iu', $the_query, $error_table);
-            $error_table = $error_table[1];
+            if (preg_match('@ALTER\s*TABLE\s*\`([^\`]+)\`@iu', $the_query, $error_table)) {
+                $error_table = $error_table[1];
+            } elseif (preg_match('@INSERT\s*INTO\s*\`([^\`]+)\`@iu', $the_query, $error_table)) {
+                $error_table = $error_table[1];
+            } elseif (preg_match('@UPDATE\s*\`([^\`]+)\`@iu', $the_query, $error_table)) {
+                $error_table = $error_table[1];
+            } elseif (preg_match('@INSERT\s*\`([^\`]+)\`@iu', $the_query, $error_table)) {
+                $error_table = $error_table[1];
+            }
 
             // get fields
             $error_fields = array();
-            preg_match('@\(([^\)]+)\)@i', $the_query, $error_fields);
-            $error_fields = explode(',', $error_fields[1]);
+            if (preg_match('@\(([^\)]+)\)@i', $the_query, $error_fields)) {
+                $error_fields = explode(',', $error_fields[1]);
+            } elseif (preg_match('@(`[^`]+`)\s*=@i', $the_query, $error_fields)) {
+                $error_fields = explode(',', $error_fields[1]);
+            }
+            if (is_array($error_table) || is_array($error_fields)) {
 
-            // duplicate value
-            $duplicate_value = array();
-            preg_match('@\'([^\']+)\'@i', $tmp_mysql_error, $duplicate_value);
-            $duplicate_value = $duplicate_value[1];
+                // duplicate value
+                $duplicate_value = array();
+                preg_match('@\'([^\']+)\'@i', $tmp_mysql_error, $duplicate_value);
+                $duplicate_value = $duplicate_value[1];
 
-            $sql = '
-                 SELECT *
-                   FROM ' . PMA_backquote($error_table) . '
-                  WHERE CONCAT_WS("-", ' . implode(', ', $error_fields) . ')
-                        = "' . PMA_sqlAddslashes($duplicate_value) . '"
-               ORDER BY ' . implode(', ', $error_fields);
-            unset($error_table, $error_fields, $duplicate_value);
+                $sql = '
+                     SELECT *
+                       FROM ' . PMA_backquote($error_table) . '
+                      WHERE CONCAT_WS("-", ' . implode(', ', $error_fields) . ')
+                            = "' . PMA_sqlAddslashes($duplicate_value) . '"
+                   ORDER BY ' . implode(', ', $error_fields);
+                unset($error_table, $error_fields, $duplicate_value);
 
-            echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
-                .'            <input type="hidden" name="sql_query" value="' . htmlentities($sql) . '" />' . "\n"
-                .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
-                .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
-                .'        </form>' . "\n";
-            unset($sql);
+                echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
+                    .'            <input type="hidden" name="sql_query" value="' . htmlentities($sql) . '" />' . "\n"
+                    .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
+                    .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
+                    .'        </form>' . "\n";
+                unset($sql);
+            }
         } // end of show duplicate entry
 
         echo '</div>';
@@ -2768,7 +2780,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
 }
 
 /**
- * Check whether user supplied token is valid, if not remove any 
+ * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
 if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
@@ -2776,7 +2788,7 @@ if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) 
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
         /* Session ID */
-        'phpMyAdmin', 
+        'phpMyAdmin',
         /* Cookie preferences */
         'pma_lang', 'pma_charset', 'pma_collation_connection', 'pma_convcharset',
         /* Possible login form */
