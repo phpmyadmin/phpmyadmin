@@ -353,8 +353,8 @@ class PMA_Theme_Manager {
      */
     function getFallBackTheme()
     {
-        if (isset($this->themes['Original'])) {
-            return $this->themes['Original'];
+        if (isset($this->themes['original'])) {
+            return $this->themes['original'];
         }
 
         return false;
