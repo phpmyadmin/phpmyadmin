@@ -27,6 +27,9 @@ $Source$
     * Documentation.html, import.php, querywindow.php, js/functions.js,
       libraries/header.inc.php, libraries/import.lib.php: Improve
       functionality of limiting DROP DATABASE (bug #1456082).
+    * libraries/language.lib.php, libraries/common.lib.php,
+      libraries/database_interface.lib.php, libraries/select_lang.lib.php:
+      Reload language file after switch to utf-8 translation (bug #1442605).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:

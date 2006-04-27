@@ -835,6 +835,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             if (!empty($GLOBALS['available_languages'][$lang_utf_8_version])) {
                 $GLOBALS['lang'] = $lang_utf_8_version;
                 $GLOBALS['charset'] = 'utf-8';
+                define('PMA_LANG_RELOAD', 1);
             }
         }
 

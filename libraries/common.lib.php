@@ -2913,7 +2913,7 @@ if (file_exists('./lang/added_messages.php')) {
 /**
  * Includes the language file if it hasn't been included yet
  */
-require_once './libraries/select_lang.lib.php';
+require './libraries/language.lib.php';
 
 
 /**
@@ -3168,6 +3168,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
         @ini_set('track_errors', $bkp_track_err);
         unset($bkp_track_err);
+
+        /* If we auto switched to utf-8 we need to reread messages here */
+        if (defined('PMA_LANG_RELOAD')) {
+            require './libraries/language.lib.php';
+        }
 
         /**
          * SQL Parser code
