@@ -134,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
-    if (isset($GLOBALS[$what . '_shownames']) && $GLOBALS[$what . '_shownames'] == 'yes') {
+    if (isset($GLOBALS['htmlword_columns'])) {
         $schema_insert = '<tr class="print-category">';
         for ($i = 0; $i < $fields_cnt; $i++) {
             $schema_insert .= '<td class="print"><b>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</b></td>';
