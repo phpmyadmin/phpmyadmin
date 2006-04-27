@@ -144,7 +144,7 @@ if (isset($plugin_list)) {
                 ) && !$finished) {
                 break;
             }
-            
+
             // Comments
             if ($ch == '#'
                     || ($i < ($len - 1) && $ch == '-' && $buffer[$i + 1] == '-' && (($i < ($len - 2) && $buffer[$i + 2] <= ' ') || ($i == ($len - 1) && $finished)))
@@ -155,6 +155,7 @@ if (isset($plugin_list)) {
                     $sql .= substr($buffer, $start_pos, $i - $start_pos);
                 }
                 // Skip the rest
+                $j = $i;
                 $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
                 // didn't we hit end of string?
                 if ($i === FALSE) {
@@ -166,11 +167,22 @@ if (isset($plugin_list)) {
                 }
                 // Skip *
                 if ($ch == '/') {
+                    // Check for MySQL conditional comments and include them as-is
+                    if ($buffer[$j + 2] == '!') {
+                        $comment = substr($buffer, $j + 3, $i - $j - 3);
+                        if (preg_match('/^[0-9]{5}/', $comment, $version)) {
+                            if ($version[0] <= PMA_MYSQL_INT_VERSION) {
+                                $sql .= substr($comment, 5);
+                            }
+                        } else {
+                            $sql .= $comment;
+                        }
+                    }
                     $i++;
                 }
                 // Skip last char
                 $i++;
-                // Next query part will start here 
+                // Next query part will start here
                 $start_pos = $i;
                 // Aren't we at the end?
                 if ($i == $len) {
