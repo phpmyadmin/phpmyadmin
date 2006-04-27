@@ -9,6 +9,8 @@ $Source$
     * Documentation.html, libraries/config.default.php,
       libraries/auth/cookie.auth.lib.php: Logout from all servers by default
       (RFE #1370874).
+    * sql.php: Show results of REPLACE as affected as it contains both deleted
+      and inserted rows count (bug #1475765).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:
