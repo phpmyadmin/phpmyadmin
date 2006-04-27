@@ -321,7 +321,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
 <br class="clearfloat" />
 <div class="warning"><?php echo $strPrimaryKeyWarning; ?></div>
 
-<table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
+<table>
 <thead>
 <tr><th><?php echo $strField; ?></th>
     <th><?php echo $strSize; ?></th>

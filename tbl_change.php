@@ -297,7 +297,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         echo '<label for="insert_ignore_check_' . $vrowcount . '">' . $strIgnore . '</label><br />' . "\n";
     }
 ?>
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
+    <table>
         <tr>
             <th><?php echo $strField; ?></th>
             <th><?php echo $strType; ?></th>
