@@ -758,7 +758,7 @@ tr.disabled, td.disabled, .disabled td {
     font-weight:         bold;
 }
 #buttonGo {
-    color:               #58580;
+    color:               #585800;
     font-weight:         bold;
 }
 #listTable {
