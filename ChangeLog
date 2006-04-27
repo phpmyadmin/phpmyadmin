@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-04-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_printview.php: fixed bug 'no tables found', refactored
+
 2006-04-27 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/config.default.php,
       libraries/auth/cookie.auth.lib.php: Logout from all servers by default
