@@ -19,12 +19,12 @@ if (!empty($sql_query)) {
     $import_text = $sql_query;
     $import_type = 'query';
     $format = 'sql';
-    
+
     // refresh left frame on changes in table or db structure
     if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $GLOBALS['reload'] = true;
     }
-    
+
     unset($sql_query);
 } elseif (!empty($sql_localfile)) {
     // run SQL file on server
@@ -44,7 +44,7 @@ if (!empty($sql_query)) {
     $format = 'sql';
 }
 
-// If we didn't get any parameters, either user called this directly, or 
+// If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
 if ($_POST == array() && $_GET == array()) {
     require_once('./libraries/header.inc.php');
@@ -137,12 +137,12 @@ if (!empty($id_bookmark)) {
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
                 $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
             }
-            
+
             // refresh left frame on changes in table or db structure
             if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
                 $GLOBALS['reload'] = true;
             }
-            
+
             break;
         case 1: // bookmarked query that have to be displayed
             $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
@@ -178,7 +178,7 @@ if (!empty($bkm_label) && !empty($import_text)) {
     }
 
     PMA_addBookmarks($bfields, $cfg['Bookmark'], isset($bkm_all_users));
-    
+
     $bookmark_created = TRUE;
 } // end store bookmarks
 
@@ -239,7 +239,7 @@ if ($import_file != 'none' && !$error) {
             }
         }
     }
-    
+
     // Handle file compression
     $compression = PMA_detectCompression($import_file);
     if ($compression === FALSE) {

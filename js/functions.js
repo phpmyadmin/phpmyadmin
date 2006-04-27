@@ -138,7 +138,7 @@ function confirmQuery(theForm1, sqlQuery1)
     else {
         // "DROP DATABASE" statement isn't allowed
         if (noDropDbMsg != '') {
-            var drop_re = new RegExp('DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
+            var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
             if (drop_re.test(sqlQuery1.value)) {
                 alert(noDropDbMsg);
                 theForm1.reset();

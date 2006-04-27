@@ -68,7 +68,7 @@ function PMA_detectCompression($filepath)
  */
 function PMA_importRunQuery($sql = '', $full = '')
 {
-    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
+    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser, $message, $show_error_header;
     $read_multiply = 1;
     if (isset($import_run_buffer)) {
         // Should we skip something?
@@ -76,75 +76,75 @@ function PMA_importRunQuery($sql = '', $full = '')
             $skip_queries--;
         } else {
             if (!empty($import_run_buffer['sql']) && trim($import_run_buffer['sql']) != '') {
-                if (!$cfg['AllowUserDropDatabase']
-                    && !$is_superuser
-                    && preg_match('@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
-                    $message = $GLOBALS['strNoDropDatabases'];
-                    $show_error_header = TRUE;
-                    $error = TRUE;
-                    return;
-                }
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
                 if (!$sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
                 }
-                $executed_queries++;
-                if ($run_query && $finished && empty($sql) && !$error && (
-                        (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) ||
-                        ($executed_queries == 1)
-                        )) {
-                    $go_sql = TRUE;
-                    if (!$sql_query_disabled) {
-                        $complete_query = $sql_query;
-                        $display_query = $sql_query;
-                    } else {
-                        $complete_query = '';
-                        $display_query = '';
-                    }
-                    $sql_query = $import_run_buffer['sql'];
-                } elseif ($run_query) {
-                    $result = PMA_DBI_try_query($import_run_buffer['sql']);
-                    $msg = '# ';
-                    if ($result === FALSE) { // execution failed
-                        if (!isset($my_die)) {
-                            $my_die = array();
-                        }
-                        $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
-
-                        if ($cfg['VerboseMultiSubmit']) {
-                            $msg .= $GLOBALS['strError'];
-                        }
-
-                        if (!$cfg['IgnoreMultiSubmitErrors']) {
-                            $error = TRUE;
-                            return;
-                        }
-                    } elseif ($cfg['VerboseMultiSubmit']) {
-                        $a_num_rows = (int)@PMA_DBI_num_rows($result);
-                        $a_aff_rows = (int)@PMA_DBI_affected_rows();
-                        if ($a_num_rows > 0) {
-                            $msg .= $GLOBALS['strRows'] . ': ' . $a_num_rows;
-                        } elseif ($a_aff_rows > 0) {
-                            $a_rows = 
-                            $msg .= $GLOBALS['strAffectedRows'] . ' ' . $a_aff_rows;
+                if (!$cfg['AllowUserDropDatabase']
+                    && !$is_superuser
+                    && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
+                    $message = $GLOBALS['strNoDropDatabases'];
+                    $show_error_header = TRUE;
+                    $error = TRUE;
+                } else {
+                    $executed_queries++;
+                    if ($run_query && $finished && empty($sql) && !$error && (
+                            (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) ||
+                            ($executed_queries == 1)
+                            )) {
+                        $go_sql = TRUE;
+                        if (!$sql_query_disabled) {
+                            $complete_query = $sql_query;
+                            $display_query = $sql_query;
                         } else {
-                            $msg .= $GLOBALS['strEmptyResultSet'];
+                            $complete_query = '';
+                            $display_query = '';
                         }
-                    }
-                    if (!$sql_query_disabled) {
-                        $sql_query .= $msg . "\n";
-                    }
+                        $sql_query = $import_run_buffer['sql'];
+                    } elseif ($run_query) {
+                        $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                        $msg = '# ';
+                        if ($result === FALSE) { // execution failed
+                            if (!isset($my_die)) {
+                                $my_die = array();
+                            }
+                            $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
 
-                    // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                    if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match)) {
-                        $db = trim($match[1]);
-                        $reload = TRUE;
-                    }
+                            if ($cfg['VerboseMultiSubmit']) {
+                                $msg .= $GLOBALS['strError'];
+                            }
 
-                    if ($result != FALSE && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
-                        $reload = TRUE;
-                    }
-                } // end run query
+                            if (!$cfg['IgnoreMultiSubmitErrors']) {
+                                $error = TRUE;
+                                return;
+                            }
+                        } elseif ($cfg['VerboseMultiSubmit']) {
+                            $a_num_rows = (int)@PMA_DBI_num_rows($result);
+                            $a_aff_rows = (int)@PMA_DBI_affected_rows();
+                            if ($a_num_rows > 0) {
+                                $msg .= $GLOBALS['strRows'] . ': ' . $a_num_rows;
+                            } elseif ($a_aff_rows > 0) {
+                                $a_rows =
+                                $msg .= $GLOBALS['strAffectedRows'] . ' ' . $a_aff_rows;
+                            } else {
+                                $msg .= $GLOBALS['strEmptyResultSet'];
+                            }
+                        }
+                        if (!$sql_query_disabled) {
+                            $sql_query .= $msg . "\n";
+                        }
+
+                        // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
+                        if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match)) {
+                            $db = trim($match[1]);
+                            $reload = TRUE;
+                        }
+
+                        if ($result != FALSE && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
+                            $reload = TRUE;
+                        }
+                    } // end run query
+                } // end if not DROP DATABASE
             } // end non empty query
             elseif (!empty($import_run_buffer['full'])) {
                 if ($go_sql) {
@@ -172,7 +172,7 @@ function PMA_importRunQuery($sql = '', $full = '')
             }
         } // end do query (no skip)
     } // end buffer exists
-    
+
     // Do we have something to push into buffer?
     if (!empty($sql) || !empty($full)) {
         $import_run_buffer = array('sql' => $sql, 'full' => $full);
@@ -193,7 +193,7 @@ function PMA_importRunQuery($sql = '', $full = '')
 function PMA_importGetNextChunk($size = 32768)
 {
     global $import_file, $import_text, $finished, $compression, $import_handle, $offset, $charset_conversion, $charset_of_file, $charset, $read_multiply, $read_limit;
-    
+
     // Add some progression while reading large amount of data
     if ($read_multiply <= 8) {
         $size *= $read_multiply;
@@ -226,7 +226,7 @@ function PMA_importGetNextChunk($size = 32768)
             return $r;
         }
     }
-    
+
     switch ($compression) {
         case 'application/bzip2':
             $result = bzread($import_handle, $size);
@@ -247,7 +247,7 @@ function PMA_importGetNextChunk($size = 32768)
             break;
     }
     $offset += $size;
-    
+
     if ($charset_conversion) {
         return PMA_convert_string($charset_of_file, $charset, $result);
     } else {
@@ -264,7 +264,7 @@ function PMA_importGetNextChunk($size = 32768)
                 $result = substr($result, 2);
             }
         }
-        return $result; 
+        return $result;
     }
 }
 

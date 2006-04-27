@@ -24,6 +24,9 @@ $Source$
     * Documentation.html: Various fixes in documentation, mostly grammmar
       (patch #1453198, thanks to Isaac Bennetch - ibennetch).
     * lang/*: Remove *font_family.
+    * Documentation.html, import.php, querywindow.php, js/functions.js,
+      libraries/header.inc.php, libraries/import.lib.php: Improve
+      functionality of limiting DROP DATABASE (bug #1456082).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:

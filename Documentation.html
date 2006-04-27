@@ -1028,7 +1028,13 @@ ALTER TABLE `pma_column_comments`
         delete their own database or not. If set as FALSE, the link &quot;Drop
         Database&quot; will not be shown, and even a &quot;DROP DATABASE
         mydatabase&quot; will be rejected. Quite practical for
-        <abbr title="Internet service provider">ISP</abbr>'s with many customers.</dd>
+        <abbr title="Internet service provider">ISP</abbr>'s with many
+        customers.<br />
+        Please note that this limitation of SQL queries is not as strict as
+        when using MySQL privileges. This is due to nature of SQL queries
+        which might be quite complicated. So this choice should be viewed as
+        help to avoid accidental dropping rather than strict privilege
+        limitation.</dd>
 
     <dt id="cfg_Confirm">$cfg[Confirm] boolean</dt>
     <dd>Whether a warning (&quot;Are your really sure...&quot;) should be
