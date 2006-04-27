@@ -2,7 +2,6 @@
 body, table, th, td {
     color:             #000000;
     background-color:  #ffffff;
-    font-size:         8pt;
 }
 
 img {

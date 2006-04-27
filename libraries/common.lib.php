@@ -3009,9 +3009,14 @@ $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
  */
 if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
     include $_SESSION['PMA_Theme']->getLayoutFile();
+    // @todo remove if all themes are update use Navi instead of Left as frame name
+    if (! isset($GLOBALS['cfg']['NaviWidth'])
+     && isset($GLOBALS['cfg']['LeftWidth'])) {
+        $GLOBALS['cfg']['NaviWidth'] = $GLOBALS['cfg']['LeftWidth'];
+    }
 }
 
-if (!defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Charset conversion.
      */

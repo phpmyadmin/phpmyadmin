@@ -11,7 +11,7 @@
  * @uses    $GLOBALS['cfg']['Server']['user']
  * @uses    $GLOBALS['cfg']['DefaultTabServer']     as src for the mainframe
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']   as src for the mainframe
- * @uses    $GLOBALS['cfg']['LeftWidth']            for left frame width
+ * @uses    $GLOBALS['cfg']['NaviWidth']            for navi frame width
  * @uses    $GLOBALS['collation_connection']    from $_REQUEST (grab_globals.lib.php)
  *                                              or common.lib.php
  * @uses    $GLOBALS['available_languages'] from common.lib.php (select_lang.lib.php)
@@ -137,7 +137,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 if ($GLOBALS['text_dir'] === 'rtl') {
     echo '*,';
 }
-echo $GLOBALS['cfg']['LeftWidth'];
+echo $GLOBALS['cfg']['NaviWidth'];
 if ($GLOBALS['text_dir'] === 'ltr') {
     echo ',*';
 }

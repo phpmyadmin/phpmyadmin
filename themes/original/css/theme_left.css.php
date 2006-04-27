@@ -19,9 +19,11 @@ select, input, textarea {
 }
 <?php } ?>
 
-body, table, tbody, tr, td {
-    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+body {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin:             0;
+    padding:            0.2em 0.2em 0.2em 0.2em;
 }
 
 a img {
@@ -35,8 +37,6 @@ form {
 }
 
 select {
-    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
     width:              100%;
 }
 
@@ -57,10 +57,6 @@ button {
     margin-left:        0.3em;
 }
 
-img.lightbulb {
-    cursor:             pointer;
-}
-
 
 /******************************************************************************/
 /* specific elements */
@@ -69,7 +65,7 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
@@ -82,11 +78,11 @@ div#leftframelinks .icon {
 div#leftframelinks a img.icon {
     margin:             0;
     padding:            0.2em;
-    border:             0.05em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    border:             0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
 div#leftframelinks a:hover {
-    background-color:   <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
 /* leftdatabaselist */
@@ -96,7 +92,7 @@ div#left_tableList ul {
     margin:             0;
     padding:            0;
     font-size:          80%;
-    background-color:   <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
 }
 
 div#left_tableList ul ul {
@@ -104,12 +100,12 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    color:              #333399;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    color:              #FF0000;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    underline;
 }
 
@@ -121,7 +117,7 @@ div#left_tableList li {
 
 <?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
 div#left_tableList li:hover {
-    background-color:   <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
 
@@ -133,7 +129,7 @@ div#left_tableList img {
 div#left_tableList ul ul {
     margin-left:        0;
     padding-left:       0.1em;
-    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['LeftColor']; ?>;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }

@@ -3,11 +3,11 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 chdir('..');
-define( 'PMA_MINIMUM_COMMON', TRUE );
-require_once('./libraries/common.lib.php');
-require_once('./libraries/sqlparser.lib.php');
+define('PMA_MINIMUM_COMMON', true);
+require_once './libraries/common.lib.php';
+require_once './libraries/sqlparser.lib.php';
 
-if ( $GLOBALS['text_dir'] === 'ltr' ) {
+if ($GLOBALS['text_dir'] === 'ltr') {
     $right = 'right';
     $left = 'left';
 } else {
@@ -29,7 +29,7 @@ div.nowrap {
 }
 
 <?php
-if ( $_SESSION['PMA_Theme']->checkVersion( '2.7.0' ) ) {
+if ($_SESSION['PMA_Theme']->checkVersion('2.7.0')) {
     ?>
 
 form {
@@ -75,7 +75,7 @@ div#tablestatistics {
 }
 
 div#tablestatistics table {
-    float: left;
+    float: <?php echo $left; ?>;
     margin-bottom: 0.5em;
     margin-right: 0.5em;
 }
@@ -124,7 +124,7 @@ div#left_tableList li {
     white-space: nowrap;
 }
 
-<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
 div#left_tableList li:hover {
     background-color: <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
 }
@@ -315,7 +315,7 @@ a.tabcaution:hover {
     background-color: #FF0000;
 }
 
-<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
 a.tabactive {
     color: black;
@@ -471,7 +471,7 @@ img.lightbulb {
     <?php
 } // end styles 2.7.0
 
-if ( $_SESSION['PMA_Theme']->checkVersion( '2.7.1' ) ) {
+if ($_SESSION['PMA_Theme']->checkVersion('2.7.1')) {
     ?>
 
 /********************/
@@ -516,7 +516,7 @@ form.login label {
 /* END main page */
 
 
-<?php if ( $GLOBALS['cfg']['MainPageIconic'] ) { ?>
+<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
 /* iconic view for ul items */
 li#li_create_database {
     list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_newdb.png);
@@ -689,16 +689,18 @@ li#li_flush_privileges {
     float: <?php echo $left; ?>;
 }
     <?php
+    $GLOBALS['cfg']['BgOne'] = $GLOBALS['cfg']['BgcolorOne'];
+    $GLOBALS['cfg']['BgTwo'] = $GLOBALS['cfg']['BgcolorTwo'];
 } // end styles 2.7.1
 
-if ( $_SESSION['PMA_Theme']->checkVersion( '2.9' ) ) {
+if ($_SESSION['PMA_Theme']->checkVersion('2.9')) {
     ?>
 
 /********************/
 /* NEW in PMA 2.9   */
 /********************/
 
-<?php if ( $GLOBALS['cfg']['BrowseMarkerColor'] ) { ?>
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
 div#left_tableList li.marked {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
@@ -706,12 +708,12 @@ div#left_tableList li.marked {
 
 /* odd items 1,3,5,7,... */
 .odd {
-    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
 .even {
-    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
 /* marked items */
@@ -738,10 +740,10 @@ th.condition {
 
 label.desc {
     width: 30em;
-    float: left;
+    float: <?php echo $left; ?>;
 }
     <?php
 } // end styles 2.9
 
-$_SESSION['PMA_Theme']->loadCss( $_REQUEST['js_frame'] );
+$_SESSION['PMA_Theme_Manager']->printCss($_REQUEST['js_frame']);
 ?>

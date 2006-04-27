@@ -7,23 +7,33 @@
 /**
  * navi frame
  */
-$GLOBALS['cfg']['LeftWidth']            = 200;          // navi frame width
-/* colors */
-$GLOBALS['cfg']['LeftColor']            = '#000000';    // foreground (text) color for the navi frame
-$GLOBALS['cfg']['LeftBgColor']          = '#D0DCE0';    // background color for the navi frame
-$GLOBALS['cfg']['LeftPointerColor']     = '#CCFFCC';    // color of the pointer in navi frame
+// navi frame width
+$GLOBALS['cfg']['NaviWidth']            = 200;
+
+// foreground (text) color for the navi frame
+$GLOBALS['cfg']['NaviColor']            = '#000000';
+
+// background for the navi frame
+$GLOBALS['cfg']['NaviBackground']       = '#D0DCE0';
+
+// color of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerColor']     = '#CCFFCC';
 
 /**
  * main frame
  */
-$GLOBALS['cfg']['RightColor']           = '#000000';    // foreground (text) color for the Main frame
-$GLOBALS['cfg']['RightBgColor']         = '#F5F5F5';    // background color for the Main frame
+// foreground (text) color for the main frame
+$GLOBALS['cfg']['MainColor']            = '#000000';
 
-/**
- * path to a background image for the Main frame
- * (leave blank for no background image)
- */
-$GLOBALS['cfg']['RightBgImage']         = 'url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png)';
+// background for the main frame
+$GLOBALS['cfg']['MainBackground']       = '#F5F5F5';
+//$GLOBALS['cfg']['MainBackground']       = 'url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png)';
+
+// color of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerColor']   = '#CCFFCC';
+
+// color of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerColor']    = '#FFCC99';
 
 /**
  * fonts
@@ -33,38 +43,45 @@ $GLOBALS['cfg']['RightBgImage']         = 'url(../' . $_SESSION['PMA_Theme']->ge
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily']          = '';
+$GLOBALS['cfg']['FontFamily']           = '';
 /**
  * fixed width font family, used in textarea
  */
-$GLOBALS['cfg']['FontFamilyFixed']     = '';
+$GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 /**
  * font size as a valid css font size value,
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontSize']            = '';
+$GLOBALS['cfg']['FontSize']             = '';
 
 /**
  * tables
  */
-$GLOBALS['cfg']['Border']              = 0;            // border width on tables
-$GLOBALS['cfg']['ThBgcolor']           = '#D3DCE3';    // table header row colour
-$GLOBALS['cfg']['BgcolorOne']          = '#E5E5E5';    // table data row colour
-$GLOBALS['cfg']['BgcolorTwo']          = '#D5D5D5';    // table data row colour, alternate
-$GLOBALS['cfg']['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
-                                            // by clicking on it) in browse mode
+// border
+$GLOBALS['cfg']['Border']               = 0;
+// table header and footer color
+$GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
+// table header and footer background
+$GLOBALS['cfg']['ThColor']              = '#000000';
+// table data row background
+$GLOBALS['cfg']['BgOne']                = '#E5E5E5';
+// table data row background, alternate
+$GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
+
 /**
  * query window
  */
-$GLOBALS['cfg']['QueryWindowWidth']    = 600;          // Width of Query window
-$GLOBALS['cfg']['QueryWindowHeight']   = 400;          // Height of Query window
+// Width of Query window
+$GLOBALS['cfg']['QueryWindowWidth']    = 600;
+// Height of Query window
+$GLOBALS['cfg']['QueryWindowHeight']   = 400;
 
 /**
  * SQL Parser Settings
+ * Syntax colouring data
  */
-$GLOBALS['cfg']['SQP']['fmtColor']     = array(        // Syntax colouring data
+$GLOBALS['cfg']['SQP']['fmtColor']     = array(
     'comment'            => '#808000',
     'comment_mysql'      => '',
     'comment_ansi'       => '',
