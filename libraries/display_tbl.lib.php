@@ -1739,7 +1739,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
                         ? $total - 1
                         : $pos_next - 1;
         PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec (" . PMA_formatNumber($total, 0) . ' ' . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
-        if (PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
+        if (isset($table) && PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
             echo '<div class="notice">' . "\n";
             echo PMA_sanitize(sprintf($GLOBALS['strViewMaxExactCount'], PMA_formatNumber($GLOBALS['cfg']['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
             echo '</div>' . "\n";

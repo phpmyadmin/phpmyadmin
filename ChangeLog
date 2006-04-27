@@ -13,6 +13,8 @@ $Source$
       and inserted rows count (bug #1475765).
     * libraries/common.lib.php: Better detection of duplicate rows (bug
       #1477500).
+    * libraries/display_tbl.lib.php: Do not check for VIEW if no table name
+      (eg. SELECT 1) (bug #1473484).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:
