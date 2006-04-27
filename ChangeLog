@@ -21,6 +21,8 @@ $Source$
       (eg. SELECT 1) (bug #1473484).
     * libraries/import/sql.php: Do not strip MySQL conditional statements in
       comments (patch #1459782, thanks to unconed - unconed).
+    * Documentation.html: Various fixes in documentation, mostly grammmar
+      (patch #1453198, thanks to Isaac Bennetch - ibennetch).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:

@@ -82,7 +82,7 @@
     look up the appropriate part in the MySQL manual.
 </p>
 
-<h3>Currently phpMyAdmin can</h3>
+<h3>Currently phpMyAdmin can:</h3>
 
 <ul><li>browse and drop databases, tables, views, fields and indexes</li>
     <li>create, copy, drop, rename and alter databases, tables, fields and
@@ -171,22 +171,28 @@
         1.26</a> for suggestions.</li>
     <li>Create the file <tt>config.inc.php</tt> in the main (top-level)
         directory (the one that contains <tt>index.php</tt>).
-        You can use setup script provided in distribution (<a
-        href="scripts/setup.php">scripts/setup.php</a>) to create basics of
-        config file. See <a href="#setup_script">Setup</a> chapter for
-        details. If you don't like setup or want to fine tune resulting
+        You can use the setup script provided in <tt><a
+        href="scripts/setup.php">scripts/setup.php</a></tt> to create a basic
+        config file which should be sufficient for most users.
+        See <a href="#setup_script">Setup</a> chapter for
+        details. If you don&#8217;t like setup or want to fine tune your
         configuration, open (or create in case of starting from scratch)
         <tt>config.inc.php</tt> in your favorite editor and fill in there
         values for host, user, password and authentication mode to fit your
-        environment. Look at <tt>libraries/config.default.php</tt> how these
+        environment. Look at <tt>libraries/config.default.php</tt> to see how these
         fields should be defined. Here, &quot;host&quot; means the MySQL
-        server.  Have a look at <a href="#config">Configuration section</a>
-        for an explanation of all values. Please also read the remaining of
+        server.  Have a look at the <a href="#config">Configuration section</a>
+        for an explanation of all values. Please also read the remainder
         this Installation section for information about authentication modes
-        and the linked-tables infrastructure.</li> <li> If you are using the
-        <tt>auth_type</tt> configuration directive, it is suggested that you
-        protect the phpMyAdmin installation directory, for example with
-        HTTP&#8211;AUTH in a <i>.htaccess</i> file. See the
+        and the linked-tables infrastructure.</li>
+    <li>If you are using the
+        <tt>auth_type</tt> &quot;config&quot;, it is suggested that you
+        protect the phpMyAdmin installation directory because using
+        config does not require a user to
+        enter a password to access the phpMyAdmin installation. Use of an alternate
+        authentication method is recommended, for example with
+        HTTP&#8211;AUTH in a <a href="#glossary"><i>.htaccess</i></a> file or switch to using
+        <tt>auth_type</tt> cookie or http. See the
         <a href="#faqmultiuser"> multi&#8211;user sub&#8211;section</a> of this
         <abbr title="Frequently Asked Questions">FAQ</abbr> for additional
         information, especially <a href="#faq4_4">
@@ -244,9 +250,14 @@ chmod o+w config/config.inc.php     # give it world writable permissions
     created <tt>./config</tt> directory.</p>
 
 <p> Then you can open <tt>./scripts/setup.php</tt> in your browser and perform
-    setup. After saving your configuration move generated configuration to top
-    level directory and delete created <tt>./config</tt> directory. Do not
+    setup. After saving your configuration move the generated configuration to the top
+    level directory and delete the <tt>./config</tt> directory. Do not
     forget to remove world write permissions on <tt>./config.inc.php</tt>!</p>
+
+
+<pre>
+chmod o-rw config.inc.php           # remove world read and write permissions
+</pre>
 
 <p> Please note that it does not allow to configure everything, so for some
     additional features you still need to manually edit the configuration file.
@@ -304,7 +315,7 @@ chmod o+w config/config.inc.php     # give it world writable permissions
         where you want to give users access to their own database and don't want
         them to play around with others.<br />
         Nevertheless be aware that MS Internet Explorer seems to be really buggy
-        about cookies, at least till version 6. And PHP 4.1.1 is also a bit buggy
+        about cookies, at least till version 6, and PHP 4.1.1 is also a bit buggy
         in this area!<br />
         Even in a <b>single-user environment</b>, you might prefer to use
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie mode so
@@ -330,16 +341,18 @@ chmod o+w config/config.inc.php     # give it world writable permissions
         `Password`)</i>, <i>`mysql`.`db` (all columns)</i>, <i>`mysql`.`host`
         (all columns)</i> and <i>`mysql`.`tables_priv` (all columns except
         `Grantor` and `Timestamp`)</i> tables.<br /> You must specify the details
-        for the <a href="#controluser">controluser</a> in the <i>config.inc.php</i>
+        for the <a href="#controluser">controluser</a> in the <tt>config.inc.php</tt>
         file under the
-        <a href="#cfg_Servers_controluser" class="configrule">
-            $cfg['Servers'][$i]['controluser']</a> and
-        <a href="#cfg_Servers_controlpass" class="configrule">
-            $cfg['Servers'][$i]['controlpass']</a> settings.<br />
+        <tt><a href="#cfg_Servers_controluser" class="configrule">
+            $cfg['Servers'][$i]['controluser']</a></tt> and
+        <tt><a href="#cfg_Servers_controlpass" class="configrule">
+            $cfg['Servers'][$i]['controlpass']</a></tt> settings.<br />
         The following example assumes you want to use <tt>pma</tt> as the
         controluser and <tt>pmapass</tt> as the controlpass, but <b>this is
-        only an example: use something else in your file!</b><br />
-        Of course you have to replace <tt>localhost</tt> by the webserver's host
+        only an example: use something else in your file!</b> Input these
+        statements from the phpMyAdmin SQL Query window or mysql command&#8211;line
+        client.<br />
+        Of course you have to replace <tt>localhost</tt> with the webserver's host
         if it's not the same as the MySQL server's one.
 
         <pre>
@@ -398,9 +411,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 
 <h4>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication mode</h4>
 
-<ul><li>Was called 'advanced' in versions before 2.2.3.</li>
-    <li>Introduced in 1.3.0, it uses Basic
-        <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication
+<ul><li>Uses <abbr title="HyperText Transfer Protocol">HTTP</abbr> Basic authentication
         method and allows you to login as any valid MySQL user.</li>
     <li>Is supported with most PHP configurations. For
         <abbr title="Internet Information Services">IIS</abbr>
@@ -458,6 +469,13 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <a href="#servers_allowdeny_rules" class="configrule">
             $cfg['Servers'][$i]['AllowDeny']['rules']</a> configuration
         directives.</li>
+    <li>Unlike cookie and http, does not require a user to log in when first
+        loading the phpMyAdmin site. This is by design but could allow any
+        user to access your installation. Use of some restriction method is
+        suggested, perhaps a <a href="#glossary">.htaccess</a> file with the
+        HTTP-AUTH directive or disallowing incoming HTTP requests at
+        one&#8217;s router or firewall will suffice (both of which
+        are beyond the scope of this manual but easily searchable with Google).
 </ul>
 
 <!-- CONFIGURATION -->
@@ -502,7 +520,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 
     <dt id="cfg_PmaNoRelation_DisableWarning">$cfg[PmaNoRelation_DisableWarning] boolean</dt>
     <dd>Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
-        with master / foreign - tables (see
+        with master / foreign &#8211; tables (see
         <a href="#pmadb" class="configrule">$cfg['Servers'][$i]['pmadb']</a>).
         <br />
         If you tried to set this up and it does not work for you, have a look on
@@ -513,11 +531,11 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <tt>TRUE</tt> to stop this message from appearing.</dd>
 
     <dt id="cfg_blowfish_secret">$cfg[blowfish_secret] string</dt>
-    <dd>Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
+    <dd>The &quot;cookie&quot; auth_type uses blowfish
         algorithm to encrypt the password.<br />
-        If you are using the 'cookie' auth_type, enter here a random
+        If you are using the &quot;cookie&quot; auth_type, enter here a random
         passphrase of your choice. It will be used internally by the blowfish
-        algorithm: you won't be prompted for this passphrase. The maximum
+        algorithm: you won&#8217;t be prompted for this passphrase. The maximum
         number of characters for this parameter seems to be 46.</dd>
 
     <dt id="cfg_Servers">$cfg[Servers] array</dt>
@@ -549,7 +567,10 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     </dd>
 
     <dt id="cfg_Servers_socket">$cfg['Servers'][$i]['socket'] string</dt>
-    <dd>The path to the socket to use. Leave blank for default.</dd>
+    <dd>The path to the socket to use. Leave blank for default.<br />
+        To determine the correct socket, check your MySQL configuration or, using the
+        <tt>mysql</tt> command&#8211;line client, issue the <tt>status</tt> command.
+        Among the resulting information displayed will be the socket used.</dd>
 
     <dt id="cfg_Servers_connect_type">$cfg['Servers'][$i]['connect_type'] string</dt>
     <dd>What type connection to use with the MySQL server. Your options are
@@ -711,7 +732,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <dt id="bookmark">
         <span id="cfg_Servers_bookmarktable">$cfg['Servers'][$i]['bookmarktable']</span> string
     </dt>
-    <dd>Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
+    <dd>Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This can be
         useful for queries you often run.<br /><br />
 
         To allow the usage of this functionality:
@@ -895,7 +916,7 @@ ALTER TABLE `pma_column_comments`
         up to date.</dd>
     <dt><span id="cfg_Servers_AllowRoot">$cfg['Servers'][$i]['AllowRoot']</span>
         boolean</dt>
-    <dd>Whether to allow root access, This is just simplification of rules below.
+    <dd>Whether to allow root access. This is just simplification of rules below.
     </dd>
     <dt id="servers_allowdeny_order">
         <span id="cfg_Servers_AllowDeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</span> string
@@ -971,8 +992,8 @@ ALTER TABLE `pma_column_comments`
         speed in <abbr title="HyperText Transfer Protocol">HTTP</abbr> transfers.<br />
         Set to true/false for enabling/disabling. When set to 'auto' (string),
         phpMyAdmin tries to enable output buffering and will automatically disable
-        it, if your browser has some problems with buffering. IE6 with a certain patch
-        is known to cause data corruption having enabled buffering.</dd>
+        it if your browser has some problems with buffering. IE6 with a certain patch
+        is known to cause data corruption when having enabled buffering.</dd>
 
     <dt id="cfg_PersistentConnections">$cfg[PersistentConnections] boolean</dt>
     <dd>Whether persistent connections should be used or not (mysql_connect or
@@ -996,10 +1017,10 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_SkipLockedTables">$cfg[SkipLockedTables] boolean</dt>
     <dd>Mark used tables and make it possible to show databases with locked
-        tables (since 3.23.30).</dd>
+        tables (since MySQL 3.23.30).</dd>
 
     <dt id="cfg_ShowSQL">$cfg[ShowSQL] boolean</dt>
-    <dd>Defines whether <abbr title="structured query language">SQL</abbr>-queries
+    <dd>Defines whether <abbr title="structured query language">SQL</abbr> queries
         generated by phpMyAdmin should be displayed or not.</dd>
 
     <dt id="cfg_AllowUserDropDatabase">$cfg[AllowUserDropDatabase] boolean</dt>
@@ -1045,16 +1066,16 @@ ALTER TABLE `pma_column_comments`
         comments. Defaults to <tt>TRUE</tt>.</dd>
     <dt id="AllowArbitraryServer">
         <span id="cfg_AllowArbitraryServer">$cfg[AllowArbitraryServer]</span> boolean</dt>
-    <dd>If enabled allows you to login to arbitrary server using cookie auth.
+    <dd>If enabled allows you to login to arbitrary servers using cookie auth.
         <br /><br />
 
-        <b>NOTE:</b> Please use this carefully, as this may allow to access
-        MySQL servers behind firewall where your
+        <b>NOTE:</b> Please use this carefully, as this may allow users access to
+        MySQL servers behind the firewall where your
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> server is placed.
     </dd>
 
     <dt id="cfg_LeftFrameLight">$cfg[LeftFrameLight] boolean</dt>
-    <dd>Defines whether to use select-based menu and display only the current
+    <dd>Defines whether to use a select-based menu and display only the current
         tables in the left frame (smaller page). Only in Non-Lightmode you can
         use the feature to display nested folders using
         <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
@@ -1074,14 +1095,14 @@ ALTER TABLE `pma_column_comments`
     <dd>Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
         shown as a three-level hierarchy like: first &gt; second &gt; third.
-        If set to FALSE or empty, the feature is disabled.  NOTE: You shall
-        not use this Separator in a table name at the beginning or end of a
-        table name, or multiple times after another without any other
+        If set to FALSE or empty, the feature is disabled.  NOTE: You should
+        not use this separator at the beginning or end of a
+        table name or multiple times after another without any other
         characters in between.</dd>
 
     <dt id="cfg_LeftFrameTableLevel">$cfg[LeftFrameTableLevel] string</dt>
     <dd>Defines how many sublevels should be displayed when splitting
-        up tables by the above Separator.</dd>
+        up tables by the above separator.</dd>
 
     <dt id="cfg_ShowTooltip">$cfg[ShowTooltip] boolean</dt>
     <dd>Defines whether to display table comment as tool-tip in left frame or
@@ -1089,7 +1110,7 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_ShowTooltipAliasDB">$cfg[ShowTooltipAliasDB] boolean</dt>
     <dd>If tool-tips are enabled and a DB comment is set, this will flip the
-        comment and the real name. That means, if you have a table called
+        comment and the real name. That means that if you have a table called
         'user0001' and add the comment 'MyName' on it, you will see the name
         'MyName' used consequently in the left frame and the tool-tip shows
         the real name of the DB.</dd>
@@ -1104,17 +1125,17 @@ ALTER TABLE `pma_column_comments`
         stays the real tablename.</dd>
 
     <dt id="cfg_LeftDisplayLogo">$cfg[LeftDisplayLogo] boolean</dt>
-    <dd>Defines whether to display the phpMyAdmin logo at the top of the left frame or not.
+    <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <tt>TRUE</tt>.</dd>
     <dt id="cfg_LeftDisplayServers">$cfg[LeftDisplayServers] boolean</dt>
-    <dd>Defines whether to display a server choice at the top of the left frame or not.
+    <dd>Defines whether or not to display a server choice at the top of the left frame.
         Defaults to FALSE.</dd>
     <dt id="cfg_DisplayServersList">$cfg[DisplayServersList] boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
     <dt id="cfg_ShowStats">$cfg[ShowStats] boolean</dt>
-    <dd>Defines whether to display space usage and statistics about databases
-        and tables or not.<br />
+    <dd>Defines whether or not to display space usage and statistics about databases
+        and tables.<br />
         Note that statistics requires at least MySQL 3.23.3 and that, at this
         date, MySQL doesn't return such information for Berkeley DB tables.</dd>
 
@@ -1141,8 +1162,8 @@ ALTER TABLE `pma_column_comments`
         &quot;Create Database&quot; form or to keep the textfield empty.</dd>
 
     <dt id="cfg_ShowBlob">$cfg[ShowBlob] boolean</dt>
-    <dd>Defines whether <tt>BLOB</tt> fields are shown when browsing a table's
-        content or not.</dd>
+    <dd>Defines whether or not <tt>BLOB</tt> fields are shown when browsing a table's
+        content.</dd>
 
     <dt id="cfg_NavigationBarIconic">$cfg[NavigationBarIconic] string</dt>
     <dd>Defines whether navigation bar buttons and the right panel top menu
@@ -1150,12 +1171,12 @@ ALTER TABLE `pma_column_comments`
         displays text and 'both' displays both icons and text.</dd>
 
     <dt id="cfg_ShowAll">$cfg[ShowAll] boolean</dt>
-    <dd>Defines whether an user should be displayed a
+    <dd>Defines whether a user should be displayed a
         &quot;show all (records)&quot; button in browse mode or not.</dd>
 
     <dt id="cfg_MaxRows">$cfg[MaxRows] integer</dt>
     <dd>Number of rows displayed when browsing a result set. If the result set
-        contains more rows, Previous/Next links will be shown.</dd>
+        contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be shown.</dd>
 
     <dt id="cfg_Order">$cfg[Order] string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
     <dd>Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
@@ -1165,7 +1186,7 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_ProtectBinary">$cfg[ProtectBinary] boolean or string</dt>
     <dd>Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
-        from editing when browsing a table's content or not. Valid values are:
+        from editing when browsing a table's content. Valid values are:
         <ul><li><tt>FALSE</tt> to allow editing of all fields;</li>
             <li><tt>'blob'</tt> to allow editing of all fields except <tt>BLOBS</tt>;</li>
             <li><tt>'all'</tt> to disallow editing of all <tt>BINARY</tt> or
@@ -1174,7 +1195,7 @@ ALTER TABLE `pma_column_comments`
     </dd>
 
     <dt id="cfg_ShowFunctionFields">$cfg[ShowFunctionFields] boolean</dt>
-    <dd>Defines whether MySQL functions fields should be displayed or not in
+    <dd>Defines whether or not MySQL functions fields should be displayed in
         edit/insert mode.</dd>
 
     <dt id="cfg_CharEditing">$cfg[CharEditing] string</dt>
@@ -1207,18 +1228,18 @@ ALTER TABLE `pma_column_comments`
         <span id="cfg_BZipDump">$cfg[BZipDump] </span>boolean
     </dt>
     <dd>Defines whether to allow the use of zip/GZip/BZip2 compression when
-        creating a dump file or not.</dd>
+        creating a dump file</dd>
 
     <dt><span id="cfg_CompressOnFly">$cfg[CompressOnFly] </span>boolean<br />
     </dt>
     <dd>Defines whether to allow on the fly compression for GZip/BZip2
-        compressed exports. This doesn't affect smaller dumps and allows to
-        create larger dumps, that won't fit otherwise in memory due to php
+        compressed exports. This doesn't affect smaller dumps and allows users to
+        create larger dumps that won't otherwise fit in memory due to php
         memory limit. Produced files contain more GZip/BZip2 headers, but all
         normal programs handle this correctly.</dd>
 
     <dt id="cfg_LightTabs">$cfg[LightTabs] string</dt>
-    <dd>If set to True, use less graphically intense tabs on the top of the
+    <dd>If set to <tt>TRUE</tt>, use less graphically intense tabs on the top of the
         mainframe.</dd>
 
     <dt id="cfg_PropertiesIconic">$cfg[PropertiesIconic] string</dt>
@@ -1346,7 +1367,7 @@ ALTER TABLE `pma_column_comments`
     </dd>
 
     <dt id="cfg_LeftWidth">$cfg[LeftWidth] integer</dt>
-    <dd>Left frame width in pixel. See <tt>themes/themename/layout.inc.php</tt>.
+    <dd>Left frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
     <dt><span id="cfg_LeftBgColor">$cfg[LeftBgColor]</span> string [HTML color]<br />
@@ -1425,7 +1446,7 @@ ALTER TABLE `pma_column_comments`
         editing.</dd>
 
     <dt id="cfg_LimitChars">$cfg[LimitChars] integer</dt>
-    <dd>Maximal number of Chars showed in any non-numeric field on browse view.
+    <dd>Maximum number of characters showen in any non-numeric field on browse view.
         Can be turned off by a toggle button on the browse page.</dd>
 
     <dt><span id="cfg_ModifyDeleteAtLeft">$cfg[ModifyDeleteAtLeft] </span>boolean
@@ -1524,7 +1545,7 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_TempDir">$cfg[TempDir] string</dt>
     <dd>
-        The name of the directory, where temporary files can be stored.
+        The name of the directory where temporary files can be stored.
         <br /><br />
         This is needed for native MS Excel export, see
         <a href="#faq6_23"><abbr title="Frequently Asked Questions">FAQ</abbr>
@@ -1850,7 +1871,9 @@ ALTER TABLE `pma_column_comments`
     <dd>Operators available for search operations on enum fields.</dd>
 
     <dt id="cfg_NullOperators">$cfg[NullOperators] array</dt>
-    <dd>Additional operators ava</dd>
+    <dd>Additional operators available for search operations when the
+        field can be null.</dd>
+                    
 </dl>
 
 <!-- TRANSFORMATIONS -->
@@ -2084,7 +2107,7 @@ ALTER TABLE `pma_column_comments`
 <p> Please have a look at our
     <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on
     the official phpMyAdmin homepage for in-depth coverage of phpMyAdmin's
-    features and/or interface.</p>
+    features and or interface.</p>
 
 <h3 id="faqserver">Server</h3>
 
