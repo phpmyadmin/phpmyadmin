@@ -73,10 +73,8 @@ if (isset($_REQUEST['submitoptions'])) {
 
     $l_tbl_type = strtolower($tbl_type);
 
-    $pack_keys = empty($pack_keys) ? '0' : '1';
-    $_REQUEST['new_pack_keys'] = empty($_REQUEST['new_pack_keys']) ? '0' : '1';
     if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
-      && $_REQUEST['new_pack_keys'] !== $pack_keys) {
+      && $_REQUEST['new_pack_keys'] != (string)$pack_keys) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
 
@@ -123,7 +121,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 
 
 if ($reread_info) {
-    $pack_keys = $checksum = $delay_key_write = 0;
+    $checksum = $delay_key_write = 0;
     require './libraries/tbl_properties_table_info.inc.php';
 }
 unset($reread_info);
@@ -273,11 +271,17 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
     ?>
     <tr>
         <td><label for="new_pack_keys">pack_keys</label></td>
-        <td><input type="checkbox" name="new_pack_keys" id="new_pack_keys"
-                value="1"
-    <?php echo (isset($pack_keys) && $pack_keys == 1)
-        ? ' checked="checked"'
-        : ''; ?> />
+        <td><select name="new_pack_keys" id="new_pack_keys">
+                <option value="DEFAULT"
+                    <?php if ($pack_keys == 'DEFAULT') echo 'selected="selected"'; ?>
+                    >DEFAULT</option>
+                <option value="0"
+                    <?php if ($pack_keys == '0') echo 'selected="selected"'; ?>
+                    >0</option>
+                <option value="1"
+                    <?php if ($pack_keys == '1') echo 'selected="selected"'; ?>
+                    >1</option>
+            </select>
         </td>
     </tr>
     <?php

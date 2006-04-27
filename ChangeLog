@@ -30,6 +30,9 @@ $Source$
     * libraries/language.lib.php, libraries/common.lib.php,
       libraries/database_interface.lib.php, libraries/select_lang.lib.php:
       Reload language file after switch to utf-8 translation (bug #1442605).
+    * tbl_properties_operations.php,
+      libraries/tbl_properties_table_info.inc.php: Allow to set PACK_KEYS to
+      DEFAULT (bug #1440966).
 
 2006-04-26 Michal Čihař  <michal@cihar.com>
     * libraries/plugin_interface.lib.php:
