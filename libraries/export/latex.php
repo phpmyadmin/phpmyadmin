@@ -34,7 +34,7 @@ if (isset($plugin_list)) {
             $plugin_list['latex']['options'][] =
                 array('type' => 'bool', 'name' => 'relation', 'text' => 'strRelations');
         }
-        if (!empty($GLOBALS['cfgRelation']['commwork']) && PMA_MYSQL_INT_VERSION < 40100) {
+        if (!empty($GLOBALS['cfgRelation']['commwork']) || PMA_MYSQL_INT_VERSION >= 40100) {
             $plugin_list['latex']['options'][] =
                 array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
         }
@@ -339,7 +339,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $columns_cnt++;
         $alignment .= 'l|';
     }
-    if ($do_comments && $cfgRelation['commwork']) {
+    if ($do_comments && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
         $columns_cnt++;
         $alignment .= 'l|';
     }
@@ -377,7 +377,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_continued_caption'])
                    . '} \\\\ ' . $crlf;
     }
-    $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ';
+    $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
 
     if (!PMA_exportOutputHandler($buffer)) {
         return FALSE;
@@ -408,16 +408,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $binary       = eregi('BINARY', $row['Type']);
             $unsigned     = eregi('UNSIGNED', $row['Type']);
             $zerofill     = eregi('ZEROFILL', $row['Type']);
-        }
-        $strAttribute     = '&nbsp;';
-        if ($binary) {
-            $strAttribute = 'BINARY';
-        }
-        if ($unsigned) {
-            $strAttribute = 'UNSIGNED';
-        }
-        if ($zerofill) {
-            $strAttribute = 'UNSIGNED ZEROFILL';
         }
         if (!isset($row['Default'])) {
             if ($row['Null'] != '') {
