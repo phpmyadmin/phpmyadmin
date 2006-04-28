@@ -15,6 +15,7 @@ $Source$
     * libraries/export/ods.php: Use correct charset.
     * libraries/export/odt.php, lang/*, libraries/config.default.php: Add Open
       Document Text export (RFE #1068007).
+    * libraries/opendocument.lib.php: Add document metainformation.
 
 2006-04-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_printview.php: fixed bug 'no tables found', refactored
