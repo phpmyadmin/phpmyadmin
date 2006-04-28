@@ -61,10 +61,7 @@ function PMA_exportFooter() {
  */
 function PMA_exportHeader() {
     $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
-        . '<office:document-content '
-            . 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
-            . 'xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" '
-            . 'xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0">'
+        . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:body>'
         . '<office:spreadsheet>';
     return TRUE;

@@ -16,6 +16,9 @@ $Source$
     * libraries/export/odt.php, lang/*, libraries/config.default.php: Add Open
       Document Text export (RFE #1068007).
     * libraries/opendocument.lib.php: Add document metainformation.
+    * libraries/opendocument.lib.php, libraries/export/ods.php,
+      libraries/export/odt.php: Include styles.xml in Open Document, now it
+      can be opened in KOffice, Gnumeric and OpenOffice.org.
 
 2006-04-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_printview.php: fixed bug 'no tables found', refactored

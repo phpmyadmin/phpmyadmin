@@ -89,10 +89,7 @@ function PMA_exportFooter() {
  */
 function PMA_exportHeader() {
     $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
-        . '<office:document-content '
-            . 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
-            . 'xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" '
-            . 'xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0">'
+        . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:body>'
         . '<office:text>';
     return TRUE;
@@ -108,7 +105,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDatabase'] . ' ' . $db) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDatabase'] . ' ' . $db) . '</text:h>';
     return TRUE;
 }
 
@@ -163,7 +160,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $field_flags[$j] = PMA_DBI_field_flags($result, $j);
     }
 
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDumpingData'] . ' ' . $table) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strDumpingData'] . ' ' . $table) . '</text:h>';
     $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
     $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $fields_cnt . '"/>';
 
@@ -239,7 +236,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     global $cfgRelation;
 
     /* Heading */
-    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strTableStructure'] . ' ' . $table) . '</text:h>';
+    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars($GLOBALS['strTableStructure'] . ' ' . $table) . '</text:h>';
 
     /**
      * Get the unique keys in the table
