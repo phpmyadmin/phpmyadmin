@@ -8,6 +8,7 @@ $Source$
 2006-05-02 Michal Čihař  <michal@cihar.com>
     * libraries/select_lang.lib.php, libraries/Theme_Manager.class.php: Escape
       user input (CVE-2006-2031).
+    * server_databases.php: Fix path to image (needs to be lower case).
 
 2006-04-28 Michal Čihař  <michal@cihar.com>
     * Documentation.html, main.php, libraries/config.default.php: Possibility

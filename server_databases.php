@@ -21,10 +21,10 @@ if (empty($_REQUEST['sort_by'])) {
 }
 
 if (isset($_REQUEST['sort_order'])
- && strtoupper($_REQUEST['sort_order']) == 'DESC') {
-    $sort_order = 'DESC';
+ && strtolower($_REQUEST['sort_order']) == 'desc') {
+    $sort_order = 'desc';
 } else {
-    $sort_order = 'ASC';
+    $sort_order = 'asc';
 }
 
 $dbstats    = empty($_REQUEST['dbstats']) ? 0 : 1;
@@ -210,7 +210,7 @@ if ($databases_count > 0) {
        . PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
-    $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'ASC') ? 'DESC' : 'ASC';
+    $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
 
     echo '<table id="tabledatabases" class="data">' . "\n"
        . '<thead>' . "\n"
@@ -231,7 +231,7 @@ if ($databases_count > 0) {
                 $colspan = '';
             }
             $_url_params['sort_by'] = $stat_name;
-            $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'DESC') ? 'ASC' : 'DESC';
+            $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             echo '    <th' . $colspan . '>'
                 .'<a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 .'            ' . $stat['disp_name'] . "\n"
