@@ -2038,10 +2038,10 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         $tag_params_strings = array();
         foreach ($tag_params as $par_name => $par_value) {
-            // htmlentities() only on non javascript
+            // htmlspecialchars() only on non javascript
             $par_value = substr($par_name, 0, 2) == 'on'
                 ? $par_value
-                : htmlentities($par_value);
+                : htmlspecialchars($par_value);
             $tag_params_strings[] = $par_name . '="' . $par_value . '"';
         }
 
