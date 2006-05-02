@@ -101,10 +101,10 @@ class PMA_Theme_Manager {
 
         if ( ! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             $GLOBALS['PMA_errors'][] = sprintf( $GLOBALS['strThemeDefaultNotFound'],
-                $GLOBALS['cfg']['ThemeDefault'] );
+                htmlspecialchars($GLOBALS['cfg']['ThemeDefault']));
             trigger_error(
                 sprintf($GLOBALS['strThemeDefaultNotFound'],
-                    $GLOBALS['cfg']['ThemeDefault']),
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])),
                 E_USER_WARNING);
             $GLOBALS['cfg']['ThemeDefault'] = false;
         }
@@ -141,9 +141,9 @@ class PMA_Theme_Manager {
     {
         if ( ! $this->checkTheme($theme)) {
             $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strThemeNotFound'],
-                PMA_sanitize($theme));
+                htmlspecialchars($theme));
             trigger_error(
-                sprintf($GLOBALS['strThemeNotFound'], PMA_sanitize($theme)),
+                sprintf($GLOBALS['strThemeNotFound'], htmlspecialchars($theme)),
                 E_USER_WARNING);
             return false;
         }
@@ -217,10 +217,10 @@ class PMA_Theme_Manager {
         if (! is_dir($folder)) {
             $GLOBALS['PMA_errors'][] =
                 sprintf($GLOBALS['strThemePathNotFound'],
-                    $folder);
+                    htmlspecialchars($folder));
             trigger_error(
                 sprintf($GLOBALS['strThemePathNotFound'],
-                    $folder),
+                    htmlspecialchars($folder)),
                 E_USER_WARNING);
             return false;
         }

@@ -409,13 +409,13 @@ require_once $lang_file;
 
 // now, that we have loaded the language strings we can send the errors
 if ($lang_failed_cfg) {
-    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_cfg);
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_cfg));
 }
 if ($lang_failed_cookie) {
-    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_cookie);
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_cookie));
 }
 if ($lang_failed_request) {
-    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, $lang_failed_request);
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_request));
 }
 
 unset($strLanguageFileNotFound, $line, $fall_back_lang,
