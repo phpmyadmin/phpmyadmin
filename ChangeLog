@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-03 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Document OpenDocument export.
+
 2006-05-02 Michal Čihař  <michal@cihar.com>
     * libraries/select_lang.lib.php, libraries/Theme_Manager.class.php: Escape
       user input (CVE-2006-2031).
