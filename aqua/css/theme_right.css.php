@@ -4,40 +4,152 @@
         exit();
     }
 ?> 
-/* Always enabled stylesheets (right frame) */
+/******************************************************************************/
+/* general tags */
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+textarea {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
+}
+select, input, textarea {
+    font-size:          0.7em;
+}
+<?php } ?>
 
 body {
-    color: #000000;
-    background-color: <?php echo $GLOBALS['cfg']['RightBgColor'] . "\n"; ?>
-	background-image: url(../themes/aqua/img/bg_main.png); background-repeat: repeat;
+    padding:            0;
+    margin:             0.5em;
+    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
+h1 {
+    font-size:          140%;
+    font-weight:        bold;
+}
+
+h2 {
+    font-size:          120%;
+    font-weight:        bold;
+}
+
+h3 {
+    font-weight:        bold;
+}
+
+a:link,
+a:visited {
+    text-decoration:    none;
+    color:              #0000FF;
+}
+
+a:hover {
+    text-decoration:    underline;
+    color:              #FF0000;
+}
+
+dfn {
+    font-style:         normal;
+}
+
+dfn:hover {
+    font-style:         normal;
+    cursor:             help;
 }
 
 th {
-    font-weight: bold; color: #000000;
-    background-color: #CACACA;
-    background-image: url(../themes/aqua/img/bg_tblHeaders.png);
-    background-repeat: repeat-x;
+    font-weight: bold;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-form            { padding: 0px; margin: 0px;}
-input.textfield { color: #000000; background-color: #FFFFFF}
-select          { color: #000000; background-color: #FFFFFF}
-textarea        { color: #000000; background-color: #FFFFFF}
-h1              { font-size: <?php echo $font_biggest; ?>; font-weight: bold}
-h2              { font-size: <?php echo $font_bigger; ?>; font-weight: bold}
-h3              { font-weight: bold}
-a:link          { text-decoration: none; color: #0000FF}
-a:visited       { text-decoration: none; color: #0000FF}
-a:hover         { text-decoration: underline; color: #FF0000}
-dfn             { font-style: normal}
-dfn:hover       { font-style: normal; cursor: help}
-.tblcomment     { font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
 
-fieldset        {
-    border:     #686868 solid 1px;
-    padding:    0.5em;
+a img {
+    border:             0;
 }
+
+hr {
+    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    border:             0;
+    height:             1px;
+}
+
+form {
+    padding:            0;
+    margin:             0;
+    display:            inline;
+}
+
+textarea {
+    overflow:           visible;
+    height:             8em;
+}
+
+fieldset {
+    margin-top:         1em;
+    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    padding:            0.5em;
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+}
+
 fieldset fieldset {
-    margin:     0.8em;
+    margin:             0.8em;
+}
+
+fieldset legend {
+    background-color:   transparent;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements,
+   this breaks design */
+button {
+    display:            inline;
+}
+
+table caption,
+table th,
+table td {
+    padding:            0.1em 0.5em 0.1em 0.5em;
+    margin:             0.1em;
+    vertical-align:     top;
+}
+
+img,
+input,
+select,
+button {
+    vertical-align:     middle;
+}
+
+
+/******************************************************************************/
+/* classes */
+
+fieldset.tblFooters {
+    margin-top:         0;
+    margin-bottom:      0.5em;
+    text-align:         <?php echo $right; ?>;
+    float:              none;
+    clear:              both;
+}
+
+fieldset .formelement {
+    float:              <?php echo $left; ?>;
+    margin-<?php echo $right; ?>:       0.5em;
+    /* IE */
+    white-space:        nowrap;
+}
+
+/* revert for Gecko */
+fieldset div[class=formelement] {
+    white-space:        normal;
 }
 
 button.mult_submit {
@@ -45,53 +157,350 @@ button.mult_submit {
     background-color: transparent;
 }
 
+/* odd table rows 1,3,5,7,... */
+table tr.odd th,
+table tr.odd {
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    text-align:         <?php echo $left; ?>;
+}
+
+/* even table rows 2,4,6,8,... */
+table tr.even th,
+table tr.even {
+    background:         <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    text-align:         <?php echo $left; ?>;
+}
+
+/* marked tbale rows */
+table tr.marked th,
+table tr.marked {
+    background-color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+/* hovered table rows */
+table tr.odd:hover,
+table tr.even:hover,
+table tr.odd:hover th,
+table tr.even:hover th,
+table tr.hover th,
+table tr.hover {
+    background-color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table .value {
+    text-align:         <?php echo $right; ?>;
+    white-space:        nowrap;
+}
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space:        pre;
+}
+
+
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+.value {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } ?>
+.value .attention {
+    color:              red;
+    font-weight:        bold;
+}
+.value .allfine {
+    color:              green;
+}
+
+
+img.lightbulb {
+    cursor:             pointer;
+}
+
 .pdflayout {
-    overflow:         hidden;
-    clip:             inherit;
-    background-color: #FFFFFF;
-    display:          none;
-    border:           1px solid #000000;
-    position:         relative;
+    overflow:           hidden;
+    clip:               inherit;
+    background-color:   #FFFFFF;
+    display:            none;
+    border:             1px solid #000000;
+    position:           relative;
 }
 
 .pdflayout_table {
-    background:       <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>;
-    color:            #000000;
-    overflow:         hidden;
-    clip:             inherit;
-    z-index:          2;
-    display:          inline;
-    visibility:       inherit;
-    cursor:           move;
-    position:         absolute;
-    font-size:        <?php echo $font_smaller; ?>;
-    border:           1px dashed #000000;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    color:              #000000;
+    overflow:           hidden;
+    clip:               inherit;
+    z-index:            2;
+    display:            inline;
+    visibility:         inherit;
+    cursor:             move;
+    position:           absolute;
+    font-size:          80%;
+    border:             1px dashed #000000;
 }
-
-.print{font-family:arial;font-size:8pt;}
 
 /* MySQL Parser */
-.syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}
-.syntax_comment            { padding-left: 4pt; padding-right: 4pt;}
-.syntax_digit              {}
-.syntax_digit_hex          {}
-.syntax_digit_integer      {}
-.syntax_digit_float        {}
-.syntax_punct              {}
-.syntax_alpha              {}
-.syntax_alpha_columnType   {text-transform: uppercase;}
-.syntax_alpha_columnAttrib {text-transform: uppercase;}
-.syntax_alpha_reservedWord {text-transform: uppercase; font-weight: bold;}
-.syntax_alpha_functionName {text-transform: uppercase;}
-.syntax_alpha_identifier   {}
-.syntax_alpha_charset      {}
-.syntax_alpha_variable     {}
-.syntax_quote              {white-space: pre;}
-.syntax_quote_backtick     {}
-
-hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
+.syntax {
+    font-size:          80%;
 }
 
+.syntax_comment {
+    padding-left:       4pt;
+    padding-right:      4pt;
+}
+
+.syntax_digit {
+}
+
+.syntax_digit_hex {
+}
+
+.syntax_digit_integer {
+}
+
+.syntax_digit_float {
+}
+
+.syntax_punct {
+}
+
+.syntax_alpha {
+}
+
+.syntax_alpha_columnType {
+    text-transform:     uppercase;
+}
+
+.syntax_alpha_columnAttrib {
+    text-transform:     uppercase;
+}
+
+.syntax_alpha_reservedWord {
+    text-transform:     uppercase;
+    font-weight:        bold;
+}
+
+.syntax_alpha_functionName {
+    text-transform:     uppercase;
+}
+
+.syntax_alpha_identifier {
+}
+
+.syntax_alpha_charset {
+}
+
+.syntax_alpha_variable {
+}
+
+.syntax_quote {
+    white-space:        pre;
+}
+
+.syntax_quote_backtick {
+}
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align:     middle;
+    margin-right:       0.3em;
+    margin-left:        0.3em;
+}
+/* no extra space in table cells */
+td .icon {
+    margin: 0;
+}
+
+.selectallarrow {
+    margin-<?php echo $right; ?>: 0.3em;
+    margin-<?php echo $left; ?>: 0.6em;
+}
+
+/* message boxes: warning, error, confirmation */
+.notice {
+    color: #000000;
+    background-color: #FFFFDD;
+}
+h1.notice,
+div.notice {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #FFD700;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.notice h1 {
+    border-bottom: 0.1em solid #FFD700;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
+.warning {
+    color: #CC0000;
+    background-color: #FFFFCC;
+}
+p.warning,
+h1.warning,
+div.warning {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #CC0000;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.warning h1 {
+    border-bottom: 0.1em solid #cc0000;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
+.error {
+    background-color: #FFFFCC;
+    color: #ff0000;
+}
+
+h1.error,
+div.error {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #ff0000;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+div.error h1 {
+    border-bottom: 0.1em solid #ff0000;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
+.confirmation {
+    background-color: #FFFFCC;
+}
+fieldset.confirmation {
+    border: 0.1em solid #FF0000;
+}
+fieldset.confirmation legend {
+    border-left: 0.1em solid #FF0000;
+    border-right: 0.1em solid #FF0000;
+    font-weight: bold;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 5px 50%;
+    padding: 0.2em 0.2em 0.2em 25px;
+        <?php } else {?>
+    background-position: 97% 50%;
+    padding: 0.2em 25px 0.2em 0.2em;
+        <?php }?>
+    <?php }?>
+}
+/* end messageboxes */
+
+
+.tblHeaders {
+    font-weight: bold;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}
+
+.tblFooters {
+    font-weight:        normal;
+    color:              #000000;
+    background-color:   #DDDDDD;
+    background-image:   url(../themes/aqua/img/AquaStringGreyLarge.png);
+    background-repeat:  repeat-x;
+
+}
+
+.tblHeaders a:link,
+.tblHeaders a:active,
+.tblHeaders a:visited,
+.tblFooters a:link,
+.tblFooters a:active,
+.tblFooters a:visited {
+    color:              #0000FF;
+}
+
+.tblHeaders a:hover,
+.tblFooters a:hover {
+    color:              #FF0000;
+}
+
+/* forbidden, no privilegs */
+.noPrivileges {
+    color:              #FF0000;
+    font-weight:        bold;
+}
+
+/* disabled text */
+.disabled,
+.disabled a:link,
+.disabled a:active,
+.disabled a:visited {
+    color:              #666666;
+}
+
+.disabled a:hover {
+    color:              #666666;
+    text-decoration:    none;
+}
+
+tr.disabled td,
+td.disabled {
+    background-color:   #cccccc;
+}
+
+/**
+ * login form
+ */
+body.loginform h1,
+body.loginform a.logo {
+    display: block;
+    text-align: center;
+}
+
+form.login label {
+    float: <?php echo $left; ?>;
+    width: 10em;
+    font-weight: bolder;
+}
+
+
+/******************************************************************************/
+/* specific elements */
 
 /* topmenu */
 ul#topmenu {
@@ -102,7 +511,7 @@ ul#topmenu {
 }
 
 ul#topmenu li {
-    float: left;
+    float:              <?php echo $left; ?>;
     margin: 0;
     padding: 0;
     vertical-align: middle;
@@ -110,7 +519,7 @@ ul#topmenu li {
 
 #topmenu img {
     vertical-align: middle;
-    margin-right: 0.1em;
+    margin-<?php echo $right; ?>:       0.1em;
 }
 
 /* default tab styles */
@@ -157,10 +566,10 @@ ul#topmenu li {
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    background-image: url(../themes/aqua/img/AquaStringGrey.png); background-repeat: repeat-x;
-    background-color: #E5E5E5;
+    background-image:   url(../themes/aqua/img/AquaStringGrey.png); background-repeat: repeat-x;
+    background-color:   #E5E5E5;
     border: 0.1em solid silver;
-    border-bottom: 0;
+    border-bottom:      0;
     border-radius-topleft: 0.4em;
     border-radius-topright: 0.4em;
     -moz-border-radius-topleft: 0.4em;
@@ -168,7 +577,10 @@ ul#topmenu li {
 }
 
 /* enabled hover/active tabs */
-a.tab:hover, .tabactive {
+a.tab:hover,
+a.tabcaution:hover,
+.tabactive,
+.tabactive:hover {
     margin: 0;
     padding: 0.2em 0.4em 0.2em 0.4em;
     text-decoration: none;
@@ -184,7 +596,8 @@ a.tabcaution:hover {
     background-image: none;
 }
 
-a.tab:hover, .tabactive {
+a.tab:hover,
+.tabactive {
     font-weight:      bold;
     color:            #FFFFFF;
     background-color: #8FBDE9;
@@ -192,222 +605,76 @@ a.tab:hover, .tabactive {
 }
 
 /* disabled drop/empty tabs */
-span.tab, span.tabcaution {
-    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
+span.tab,
+span.tabcaution {
+    cursor:             url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
 
 
-/* message boxes: warning, error, confirmation */
-.notice {
-    color: #000000;
-    background-color: #FFFFDD;
+/* Calendar */
+table.calendar {
+    width:              100%;
 }
-h1.notice,
-div.notice {
-    margin: 0.5em 0 0.5em 0;
-    border: 0.1em solid #FFD700;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_notice.png);
-    background-repeat: no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 36px;
-        <?php } else {?>
-    background-position: 99% 50%;
-    padding: 10px 5% 10px 10px;
-        <?php }?>
-    <?php } else {?>
-    padding: 0.5em;
-    <?php }?>
+table.calendar td {
+    text-align:         center;
 }
-.notice h1 {
-    border-bottom: 0.1em solid #FFD700;
-    font-weight: bold;
-    text-align: <?php echo $left; ?>;
-    margin: 0 0 0.2em 0;
+table.calendar td a {
+    display:            block;
 }
 
-.warning {
-    color: #CC0000;
-    background-color: #FFFFCC;
-}
-h1.warning,
-div.warning {
-    margin: 0.5em 0 0.5em 0;
-    border: 0.1em solid #CC0000;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_warn.png);
-    background-repeat: no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 36px;
-        <?php } else {?>
-    background-position: 99% 50%;
-    padding: 10px 5% 10px 10px;
-        <?php }?>
-    <?php } else {?>
-    padding: 0.5em;
-    <?php }?>
-}
-.warning h1 {
-    border-bottom: 0.1em solid #cc0000;
-    font-weight: bold;
-    text-align: <?php echo $left; ?>;
-    margin: 0 0 0.2em 0;
+table.calendar td a:hover {
+    background-color:   #CCFFCC;
 }
 
-.error {
-    background-color: #FFFFCC;
-    color: #ff0000;
-}
-h1.error,
-div.error {
-    margin: 0.5em 0 0.5em 0;
-    border: 0.1em solid #ff0000;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_error.png);
-    background-repeat: no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 36px;
-        <?php } else {?>
-    background-position: 99% 50%;
-    padding: 10px 5% 10px 10px;
-        <?php }?>
-    <?php } else {?>
-    padding: 0.5em;
-    <?php }?>
-}
-div.error h1 {
-    border-bottom: 0.1em solid #ff0000;
-    font-weight: bold;
-    text-align: <?php echo $left; ?>;
-    margin: 0 0 0.2em 0;
+table.calendar th {
+    background-color:   #D3DCE3;
 }
 
-.confirmation {
-    background-color: #FFFFCC;
-}
-fieldset.confirmation {
-    border: 0.1em solid #FF0000;
-}
-fieldset.confirmation legend {
-    border-left: 0.1em solid #FF0000;
-    border-right: 0.1em solid #FF0000;
-    font-weight: bold;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_really.png);
-    background-repeat: no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
-    background-position: 5px 50%;
-    padding: 0.2em 0.2em 0.2em 25px;
-        <?php } else {?>
-    background-position: 97% 50%;
-    padding: 0.2em 25px 0.2em 0.2em;
-        <?php }?>
-    <?php }?>
-}
-/* end messageboxes */
-
-
-/* data tables */
-table.data caption,
-table.data th,
-table.data td {
-    padding: 0.1em 0.5em 0.1em 0.5em;
-    margin: 0;
-    margin: 0.1em;
-    vertical-align: top;
+table.calendar td.selected {
+    background-color:   #FFCC99;
 }
 
-/* odd table rows 1,3,5,7,... */
-table tr.odd th,
-table tr.odd {
-    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
-    text-align: left;
-    background-image: none;
+img.calendar {
+    border:             none;
 }
-
-/* even table rows 2,4,6,8,... */
-table tr.even th,
-table tr.even {
-    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
-    text-align: left;
-    background-image: none;
+form.clock {
+    text-align:         center;
 }
-
-/* marked tbale rows */
-table tr.marked th,
-table tr.marked {
-    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-    background-image: none;
-}
-
-/* hovered table rows */
-table tr.odd:hover,
-table tr.even:hover,
-table tr.odd:hover th,
-table tr.even:hover th,
-table tr.hover th,
-table tr.hover {
-    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    background-image: none;
-}
-
-table .value {
-    text-align: right;
-    white-space: nowrap;
-    font-family: "Courier New", Courier, monospace;
-}
-/* IE doesnt handles 'pre' right */
-table [class=value] {
-    white-space: pre;
-}
-
-.value .attention {
-    color: red;
-    font-weight: bold;
-}
-
-.value .allfine {
-    color: green;
-}
-/* END data tables */
+/* end Calendar */
 
 
-.tblHeaders {
-    background-color: #cacaca;
-    background-image: url(../themes/aqua/img/bg_tblHeaders.png);
-    background-repeat: repeat-x;
-    font-weight: bold;
-    color: #000000;
-}
-.tblFooters {
-    background-color: #DDDDDD;
-    background-image: url(../themes/aqua/img/AquaStringGreyLarge.png);
-    background-repeat: repeat-x;
-    font-weight: normal;
-    color: #000000;
-}
-.tblHeaders a:link, .tblHeaders a:active, .tblHeaders a:visited, .tblFooters a:link, .tblFooters a:active, .tblFooters a:visited {
-    color: #0000FF;
-}
-.tblHeaders a:hover, .tblFooters a:hover { color: #FF0000; }
-
-/* forbidden, no privilegs */
-.noPrivileges{
-    color: #FF0000;
-    font-weight: bold;
+/* table stats */
+div#tablestatistics {
+    border-bottom: 0.1em solid #669999;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
 }
 
-/* Heading */
+div#tablestatistics table {
+    float: <?php echo $left; ?>;
+    margin-bottom: 0.5em;
+    margin-<?php echo $right; ?>: 0.5em;
+}
 
-img, input, select, button {
+div#tablestatistics table caption {
+    margin-<?php echo $right; ?>: 0.5em;
+}
+/* END table stats */
+
+
+/* server privileges */
+#tableuserrights td,
+#tablespecificuserrights td,
+#tabledatabases td {
     vertical-align: middle;
 }
+/* END server privileges */
 
+
+
+/* Heading */
 #serverinfo {
     font-weight: bold;
     margin-bottom: 0.5em;
@@ -428,23 +695,11 @@ img, input, select, button {
 }
 
 
-/* disabled text */
-.disabled, .disabled a:link, disabled a:active, .disabled a:visited {
-    color:       #666666;
-}
-.disabled a:hover {
-    text-decoration: none;
-}
-
-tr.disabled td, td.disabled {
-    background-color: #cccccc;
-}
-
 #textSQLDUMP {
     width: 95%;
     height: 95%;
     font-family: "Courier New", Courier, mono;
-    font-size:   12px;
+    font-size:          110%;
 }
 
 #TooltipContainer {
@@ -460,18 +715,7 @@ tr.disabled td, td.disabled {
     padding:          0.5em;
 }
 
-fieldset {
-    margin-top: 1em;
-}
-
-fieldset.tblFooters {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    text-align: right;
-    float: none;
-    clear: both;
-}
-
+/* user privileges */
 #fieldset_add_user_login div.item {
     border-bottom: 1px solid silver;
     padding-bottom: 0.3em;
@@ -479,12 +723,12 @@ fieldset.tblFooters {
 }
 
 #fieldset_add_user_login label {
-    float: left;
-    display: block;
-    width: 10em;
-    max-width: 100%;
-    text-align: right;
-    padding-right: 0.5em;
+    float:              <?php echo $left; ?>;
+    display:            block;
+    width:              10em;
+    max-width:          100%;
+    text-align:         <?php echo $right; ?>;
+    padding-<?php echo $right; ?>:      0.5em;
 }
 
 #fieldset_add_user_login span.options #select_pred_username,
@@ -495,16 +739,16 @@ fieldset.tblFooters {
 }
 
 #fieldset_add_user_login span.options {
-    float: left;
+    float: <?php echo $left; ?>;
     display: block;
     width: 12em;
     max-width: 100%;
-    padding-right: 0.5em;
+    padding-<?php echo $right; ?>: 0.5em;
 }
 
 #fieldset_add_user_login input {
     width: 12em;
-    clear: right;
+    clear: <?php echo $right; ?>;
     max-width: 100%;
 }
 
@@ -513,7 +757,7 @@ fieldset.tblFooters {
 }
 
 #fieldset_user_priv div.item {
-    float: left;
+    float: <?php echo $left; ?>;
     width: 9em;
     max-width: 100%;
 }
@@ -531,5 +775,303 @@ fieldset.tblFooters {
 }
 
 #fieldset_user_global_rights fieldset {
-    float: left;
+    float: <?php echo $left; ?>;
+}
+/* END user privileges */
+
+
+/* serverstatus */
+div#serverstatus table caption a.top {
+    float: <?php echo $right; ?>;
+}
+
+div#serverstatus div#serverstatusqueriesdetails table,
+div#serverstatus table#serverstatustraffic,
+div#serverstatus table#serverstatusconnections {
+    float: <?php echo $left; ?>;
+}
+
+#serverstatussection,
+.clearfloat {
+    clear: both;
+}
+div#serverstatussection table {
+    width: 100%;
+    margin-bottom: 1em;
+}
+div#serverstatussection table .name {
+    width: 18em;
+}
+div#serverstatussection table .value {
+    width: 6em;
+}
+
+div#serverstatus table tbody td.descr a,
+div#serverstatus table .tblFooters a {
+    white-space: nowrap;
+}
+div#serverstatus div#statuslinks a:before,
+div#serverstatus div#sectionlinks a:before,
+div#serverstatus table tbody td.descr a:before,
+div#serverstatus table .tblFooters a:before {
+    content: '[';
+}
+div#serverstatus div#statuslinks a:after,
+div#serverstatus div#sectionlinks a:after,
+div#serverstatus table tbody td.descr a:after,
+div#serverstatus table .tblFooters a:after {
+    content: ']';
+}
+/* end serverstatus */
+
+/* querywindow */
+body#bodyquerywindow {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    background-color: #F5F5F5;
+}
+
+div#querywindowcontainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+div#querywindowcontainer fieldset {
+    margin-top: 0;
+}
+/* END querywindow */
+
+
+/* querybox */
+
+div#sqlquerycontainer {
+    float: <?php echo $left; ?>;
+    width: 69%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer {
+    float: <?php echo $right; ?>;
+    width: 29%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer select {
+    width: 100%;
+    /* height: 12em; */
+}
+
+textarea#sqlquery {
+    width: 100%;
+    /* height: 100%; */
+}
+
+div#queryboxcontainer div#bookmarkoptions {
+    margin-top: 0.5em;
+}
+/* end querybox */
+
+/* main page */
+#maincontainer {
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
+    background-position: <?php echo $right; ?> bottom;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid silver;
+}
+
+#mysqlmaininformation,
+#pmamaininformation {
+    float: <?php echo $left; ?>;
+    width: 49%;
+}
+
+#maincontainer ul {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    vertical-align: middle;
+}
+
+#maincontainer li {
+    margin-bottom: 0.3em;
+}
+/* END main page */
+
+
+<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
+/* iconic view for ul items */
+li#li_create_database {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
+}
+
+li#li_select_lang {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
+}
+
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_select_theme{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
+}
+
+li#li_server_info{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+li#li_user_info{
+    /* list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png); */
+}
+
+li#li_mysql_status{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
+}
+
+li#li_mysql_variables{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
+}
+
+li#li_mysql_processes{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
+}
+
+li#li_mysql_collations{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_mysql_engines{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
+}
+
+li#li_mysql_binlogs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_tbl.png);
+}
+
+li#li_mysql_databases {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+}
+
+li#li_export {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_export.png);
+}
+
+li#li_import {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_import.png);
+}
+
+li#li_change_password {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_passwd.png);
+}
+
+li#li_log_out {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
+}
+
+li#li_pma_docs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
+}
+
+li#li_phpinfo {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
+}
+
+li#li_pma_homepage {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
+}
+
+li#li_mysql_privilegs{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+}
+
+li#li_switch_dbstats {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_dbstatistics.png);
+}
+
+li#li_flush_privileges {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
+}
+/* END iconic view for ul items */
+<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
+
+
+#body_browse_foreigners {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    margin:             0.5em 0.5em 0 0.5em;
+}
+
+#bodyquerywindow {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+}
+
+#bodythemes {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#bodythemes img {
+    border: 0.1em solid black;
+}
+
+#bodythemes a:hover img {
+    border: 0.1em solid red;
+}
+
+#fieldset_select_fields {
+    float: <?php echo $left; ?>;
+}
+
+#selflink {
+    clear: both;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-top: 0.1em solid silver;
+    text-align: <?php echo $right; ?>;
+}
+
+#table_innodb_bufferpool_usage,
+#table_innodb_bufferpool_activity {
+    float: <?php echo $left; ?>;
+}
+
+#div_mysql_charset_collations table {
+    float: <?php echo $left; ?>;
+}
+
+#div_table_order {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_rename {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_copy {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_options {
+    clear: both;
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_table_list {
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_sql_query {
+    float: <?php echo $left; ?>;
+}
+
+label.desc {
+    width: 30em;
+    float: <?php echo $left; ?>;
 }

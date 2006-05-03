@@ -2,6 +2,5 @@
 /* $Id$ */
 /* Theme information */
 $theme_name = 'Aqua';
-$theme_version = 2;
-$theme_generation = 2;
+$theme_full_version = '2.8';
 ?>
