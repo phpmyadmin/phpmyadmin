@@ -1,243 +1,138 @@
-/************************************************************************************
- * LEFT FRAME
- ************************************************************************************/
-
-    /**
-     * Add styles for positioned layers
-    **/
-/*
 <?php
-    if (isset($num_dbs) && $num_dbs == '0') {
-?>
-*/
-/* No layer effects neccessary */
-div{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-.heada{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-}
-.parent{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    text-decoration:  none;
-}
-.item, .tblItem, .item:active, .item:hover, .tblItem, .tblItem:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #333399;
-    text-decoration:  none;
-}
-.tblItem:hover{
-    color:            #666666;
-    text-decoration:  underline;
-}
-/*
-<?php
-    } else {
-        if (isset($js_capable) && $js_capable != '0') {
-            // Brian Birtles : This is not the ideal method of doing this
-            // but under the 7th June '00 Mozilla build (and many before
-            // it) Mozilla did not treat text between <style> tags as
-            // style information unless it was written with the one call
-            // to write().
-            if (isset($js_isDOM) && $js_isDOM != '0') {
-?>
-*/
-/* Layer effects neccessary: capable && is_DOM is set. We found a recent CSS-Browser */
-div{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-.heada{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-}
-.headaCnt{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-.parent{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    text-decoration:  none;
-    display:          block;
-}
-bu
-.child{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-    text-decoration:  none;
-    display:          none;
-}
-.item, .item:active, .item:hover, .tblItem, .tblItem:active{
-    font-size:        10px;
-    color:            #333399;
-    text-decoration:  none;
-}
-.tblItem:hover{
-    color:            #666666;
-    text-decoration:  underline;
-}
-/*
-<?php
-            } else {
-?>
-*/
-/* Layer effeccts neccessary: capable, but no is_DOM. We found an older CSS-Browser */
-div{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-}
-.heada{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-}
-.headaCnt{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-/*
-<?php
-            if (isset($js_isIE4) && $js_isIE4 != '0') {
-?>
-*/
-/* Additional effects for IE4 */
-.parent{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    text-decoration:  none;
-    display:          block;
-}
-.child{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-    text-decoration:  none;
-    display:          none;
-}
-.item, .item:active, .item:hover, .tblItem, .tblItem:active{
-    font-size:        10px;
-    color:            #333399;
-    text-decoration:  none;
-}
-.tblItem:hover{
-    color:            #666666;
-    text-decoration:  underline;
-}
-/*
-
-<?php
-                } else {
-?>
-*/
-/* Additional effects for NON-IE4 */
-.parent{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    text-decoration:  none;
-    position:         absolute;   /* don't edit! */
-    visibility:       hidden;     /* don't edit! */
-}
-.child{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-    position:         absolute;   /* don't edit! */
-    visibility:       hidden;     /* don't edit! */
-}
-.item, .tblItem{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #333399;
-    text-decoration:  none;
-}
-/*
-<?php
-                }
-            }
-        } else {
-?>
-*/
-/* Additional effects for left frame not required or not possible because of lacking CSS-capability. */
-div{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-.heada{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-}
-.headaCnt{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-}
-.parent{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    text-decoration:  none;
-}
-.child{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #ffffff;
-    text-decoration:  none;
-}
-.item, .item:active, .item:hover, .tblItem, .tblItem:active{
-    font-size:        10px;
-    color:            #333399;
-    text-decoration:  none;
-}
-.tblItem:hover{
-    color:            #666666;
-    text-decoration:  underline;
-}
-/*
-<?php
-        }
+    // unplanned execution path
+    if (!defined('PMA_MINIMUM_COMMON')) {
+        exit();
     }
-?>
-*/
-/* Always enabled stylesheets (left frame) */
-body{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    background-color: #DDDDDD;
-	background-image: url(../themes/aqua_brushed/img/RightBg.png);
-    margin: 0px;
-    padding: 2px 2px 2px 2px;
+?> 
+/******************************************************************************/
+/* general tags */
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 }
-input{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
 }
-select{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    background-color: #ffffff;
-    color:            #000000;
-    width:            150px;
+select, input, textarea {
+    font-size:          0.7em;
 }
-hr{
-    color:            #ffffff;
-    background-color: #ffffff;
-    border:           0;
-    height:           1px;
+<?php } ?>
+
+body {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin:             0;
+    padding:            0.2em 0 0.2em 0.2em;
 }
-img, input, select, button {
+
+a img {
+    border: 0;
+}
+
+form {
+    margin:             0;
+    padding:            0;
+    display:            inline;
+}
+
+select {
+    width:              100%;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements,
+   this breaks design */
+button {
+    display:            inline;
+}
+
+
+/******************************************************************************/
+/* classes */
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align:     middle;
+    margin-right:       0.3em;
+    margin-left:        0.3em;
+}
+
+
+/******************************************************************************/
+/* specific elements */
+
+div#pmalogo,
+div#leftframelinks,
+div#databaseList {
+    text-align:         center;
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-bottom:      0.5em;
+    padding-bottom:     0.5em;
+}
+
+div#leftframelinks .icon {
+    padding:            0;
+    margin:             0;
+}
+
+div#leftframelinks a img.icon {
+    margin:             0;
+    padding:            0.2em;
+    border:             0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
+div#leftframelinks a:hover {
+    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+/* leftdatabaselist */
+div#left_tableList ul {
+    list-style-type:    none;
+    list-style-position: outside;
+    margin:             0;
+    padding:            0;
+    font-size:          80%;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    width:              100%;
+    overflow:           hidden;
+}
+
+div#left_tableList ul ul {
+    font-size:          100%;
+}
+
+div#left_tableList a {
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    text-decoration:    none;
+}
+
+div#left_tableList a:hover {
+    color:              #FFff00;
+    text-decoration:    underline;
+}
+
+div#left_tableList li {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+div#left_tableList li:hover {
+    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    color:              #3E7BB6;
+}
+<?php } ?>
+
+div#left_tableList img {
+    padding:            0;
     vertical-align: middle;
+}
+
+div#left_tableList ul ul {
+    margin-left:        0;
+    padding-left:       0.1em;
+    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    padding-bottom:     0.1em;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }

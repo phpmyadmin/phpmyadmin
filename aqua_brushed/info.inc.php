@@ -3,6 +3,5 @@
 /* made By Luigi Saraullo <webluigi@gmail.com>*/
 /* Theme information */
 $theme_name = 'Aqua Brushed';
-$theme_version = 1;
-$theme_generation = 2;
+$theme_full_version = '2.8';
 ?>

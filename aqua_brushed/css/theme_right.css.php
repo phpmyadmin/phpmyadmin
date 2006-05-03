@@ -1,46 +1,76 @@
-/************************************************************************************
- * RIGHT FRAME
- ************************************************************************************/
-/* Always enabled stylesheets (right frame) */
-body{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-    background-image: url(../themes/aqua_brushed/img/RightBg.png);
-    background-position: 100% 100%;
-    background-attachment: fixed;
-    background-color: #ffffff;
-    margin: 5px;
+<?php
+    // unplanned execution path
+    if (!defined('PMA_MINIMUM_COMMON')) {
+        exit();
+    }
+?> 
+/******************************************************************************/
+/* general tags */
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+* {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+textarea {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
+body, table, tbody, tr, td {
+    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
+}
+select, input, textarea {
+    font-size:          0.7em;
+}
+<?php } ?>
+
+body {
+    padding:            0;
+    margin:             0.5em;
+    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
-pre, tt, code{
-    font-size:        11px;
+h1 {
+    font-size:          140%;
+    font-weight:        bold;
 }
-a:link, a:visited, a:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    text-decoration:  none;
-    color:            #333399;
 
+h2 {
+    font-size:          120%;
+    font-weight:        bold;
 }
-a:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    text-decoration:  underline;
-    color:            #cc0000;
+
+h3 {
+    font-weight:        bold;
 }
-th{
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
+
+a:link,
+a:visited {
+    text-decoration:    none;
+    color:              #0000FF;
+}
+
+a:hover {
+    text-decoration:    underline;
+    color:              #FF0000;
+}
+
+dfn {
+    font-style:         normal;
+}
+
+dfn:hover {
+    font-style:         normal;
+    cursor:             help;
+}
+
+th {
     font-weight:         bold;
     color:               #000000;
     background-color:    #B5BDC7;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_th.png);
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
-   <?php } ?>
-    height:              18px;
 }
 th a:link, th a:active, th a:visited{
     color:            #000000;
@@ -51,359 +81,463 @@ th a:hover{
     color:            #666666;
     text-decoration:  none;
 }
-.tblcomment{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    font-weight:      normal;
-    color:            #000099;
-}
-th.td{
-    font-weight: normal;
-    color: transparent;
-    background-color: transparent;
-    background-image: none;
-   
-}
-td{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-	/* background-image:url(../themes/aqua_brushed/img/td_BG.png); */
-}
-form{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    padding:          0px 0px 0px 0px;
-    margin:           0px 0px 0px 0px;
-}
-select, textarea, input {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-}
-select, textarea{
-    color:            #000000;
-    background-color: #FFFFFF;
-}
-input.textfield{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    color:            #000000;
-    /*background-color: #FFFFFF;*/
+
+
+a img {
+    border:             0;
 }
 
-h1{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
-    font-weight:      bold;
+hr {
+    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    border:             0;
+    height:             1px;
 }
-h2{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
-    font-weight:      bold;
+
+form {
+    padding:            0;
+    margin:             0;
+    display:            inline;
 }
-h3{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        12px;
-    font-weight:      bold;
+
+textarea {
+    overflow:           visible;
+    height:             8em;
 }
-a.h1:link, a.h1:active, a.h1:visited{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
-    font-weight:      bold;
-    color:            #000000;
-}
-a.h1:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
-    font-weight:      bold;
-    color:            #cc0000;
-}
-a.h2:link, a.h2:active, a.h2:visited{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
-    font-weight:      bold;
-    color:            #000000;
-}
-a.h2:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
-    font-weight:      bold;
-    color:            #cc0000;
-}
-a.drop:link, a.drop:visited, a.drop:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #cc0000;
-}
-a.drop:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    background-color: #cc0000;
-    text-decoration:  none;
-}
-dfn{
-    font-style:       normal;
-}
-dfn:hover{
-    font-style:       normal;
-    cursor:           help;
-}
-.warning{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-    font-weight:      bold;
-    color:            #cc0000;
-}
-td.topline{
-    font-size:        1px;
-}
+
 fieldset {
-    border:     #666699 solid 1px;
-    padding:    0.5em;
+    margin-top:         1em;
+    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    padding:            0.5em;
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
+
 fieldset fieldset {
-    margin:     0.8em;
+    margin:             0.8em;
 }
-legend {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    size:        10px;
-    color:       #666699;
-    font-weight: bold;
-    background-color: #ffffff;
-    padding: 2px 2px 2px 2px;
+
+fieldset legend {
+    background-color:   transparent;
 }
+
+/* buttons in some browsers (eg. Konqueror) are block elements,
+   this breaks design */
+button {
+    display:            inline;
+}
+
+table caption,
+table th,
+table td {
+    padding:            0.1em 0.5em 0.1em 0.5em;
+    margin:             0.1em;
+    vertical-align:     top;
+}
+
+img,
+input,
+select,
+button {
+    vertical-align:     middle;
+}
+
+
+/******************************************************************************/
+/* classes */
+
+fieldset.tblFooters {
+    margin-top:         0;
+    margin-bottom:      0.5em;
+    text-align:         <?php echo $right; ?>;
+    float:              none;
+    clear:              both;
+}
+
+fieldset .formelement {
+    float:              <?php echo $left; ?>;
+    margin-<?php echo $right; ?>:       0.5em;
+    /* IE */
+    white-space:        nowrap;
+}
+
+/* revert for Gecko */
+fieldset div[class=formelement] {
+    white-space:        normal;
+}
+
 button.mult_submit {
     border: none;
     background-color: transparent;
 }
 
+/* odd table rows 1,3,5,7,... */
+table tr.odd th,
+table tr.odd {
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    text-align:         <?php echo $left; ?>;
+}
+
+/* even table rows 2,4,6,8,... */
+table tr.even th,
+table tr.even {
+    background:         <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    text-align:         <?php echo $left; ?>;
+}
+
+/* marked tbale rows */
+table tr.marked th,
+table tr.marked {
+    background-color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+/* hovered table rows */
+table tr.odd:hover,
+table tr.even:hover,
+table tr.odd:hover th,
+table tr.even:hover th,
+table tr.hover th,
+table tr.hover {
+    background-color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table .value {
+    text-align:         <?php echo $right; ?>;
+    white-space:        nowrap;
+}
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space:        pre;
+}
+
+
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+.value {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } ?>
+.value .attention {
+    color:              red;
+    font-weight:        bold;
+}
+.value .allfine {
+    color:              green;
+}
+
+
+img.lightbulb {
+    cursor:             pointer;
+}
+
 .pdflayout {
-    overflow:         hidden;
-    clip:             inherit;
-    background-color: #FFFFFF;
-    display:          none;
-    border:           1px solid #000000;
-    position:         relative;
+    overflow:           hidden;
+    clip:               inherit;
+    background-color:   #FFFFFF;
+    display:            none;
+    border:             1px solid #000000;
+    position:           relative;
 }
 
 .pdflayout_table {
-    background:       #B5BDC7;
-    color:            #000000;
-    overflow:         hidden;
-    clip:             inherit;
-    z-index:          2;
-    display:          inline;
-    visibility:       inherit;
-    cursor:           move;
-    position:         absolute;
-    font-size:        11px;
-    border:           1px dashed #000000;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    color:              #000000;
+    overflow:           hidden;
+    clip:               inherit;
+    z-index:            2;
+    display:            inline;
+    visibility:         inherit;
+    cursor:             move;
+    position:           absolute;
+    font-size:          80%;
+    border:             1px dashed #000000;
 }
-
-/* Warning showing div with right border and optional icon */
-
-div.warning {
-    border: 1px solid #cc0000;
-/*
-<?php if($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-*/
-    background-image: url(../themes/aqua_brushed/img/s_warn.png);
-    background-repeat: no-repeat;
-    background-position: 10px 10px;
-    padding: 10px 10px 10px 36px;
-    margin: 0px;
-/*
-<?php } ?>
-*/
-    width: 90%;
-}
-
-div.error {
-    width: 100%;
-    border: 1px solid #cc0000;
-    background-color: #ffffcc;
-    padding: 0px;
-}
-
-div.error  div.text {
-    padding: 5px;
-}
-
-div.error div.head {
-    background-color: #cc0000;
-    font-weight: bold;
-    color: #ffffff;
-/*
-<?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-*/
-    background-image: url(../themes/aqua_brushed/img/s_error.png);
-    background-repeat: no-repeat;
-    background-position: 2px 50%;
-    padding: 2px 2px 2px 30px;
-/*
-<?php } ?>
-*/
-    margin: 0px;
-}
-.print{font-family:arial;font-size:8pt;}
 
 /* MySQL Parser */
-.syntax {font-family: sans-serif; font-size: 10px;}
-.syntax_comment            { padding-left: 4pt; padding-right: 4pt;}
-.syntax_digit              {}
-.syntax_digit_hex          {}
-.syntax_digit_integer      {}
-.syntax_digit_float        {}
-.syntax_punct              {}
-.syntax_alpha              {}
-.syntax_alpha_columnType   {text-transform: uppercase;}
-.syntax_alpha_columnAttrib {text-transform: uppercase;}
-.syntax_alpha_reservedWord {text-transform: uppercase; font-weight: bold;}
-.syntax_alpha_functionName {text-transform: uppercase;}
-.syntax_alpha_identifier   {}
-.syntax_alpha_charset      {}
-.syntax_alpha_variable     {}
-.syntax_quote              {white-space: pre;}
-.syntax_quote_backtick     {}
+.syntax {
+    font-size:          80%;
+}
 
-/* some new styles added 20047-05-05 by Michael Keck (mkkeck) */
+.syntax_comment {
+    padding-left:       4pt;
+    padding-right:      4pt;
+}
 
-/* tables */
-.tblError {
-    border:           1px solid #cc0000;
-    background-color: #ffffcc;
+.syntax_digit {
 }
-.tblWarn, div.tblWarn {
-    border: 1px solid #cc0000;
-    background-color: #ffffff;
+
+.syntax_digit_hex {
 }
-div.tblWarn {
-    padding: 5px 5px 5px 5px;
-    margin:  2px 0px 2px 0px;
-    width:   100%;
+
+.syntax_digit_integer {
 }
-.tblHeaders{
-    font-weight:         bold;
-    color:               #333333;
-    background-color:    #EEEEEE;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_header.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              18px;
+
+.syntax_digit_float {
 }
-.tblHeaders a:link, .tblHeaders a:visited, .tblHeaders a:active, .tblFooters a:link, tblFooters a:visited, tblFooters a:active{
-    color:            #ffffcc;
-    text-decoration:  underline;
+
+.syntax_punct {
 }
-.tblFooters{
-    font-weight:         normal;
-    color:               #ffffff;
-    background-color:    #DDDDDD;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_header.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
+
+.syntax_alpha {
 }
-.tblHeaders a:hover, tblFooters a:hover{
-    text-decoration: none;
-    color:           #333333;
+
+.syntax_alpha_columnType {
+    text-transform:     uppercase;
 }
-.tblHeadError {
-    font-weight:         bold;
-    color:               #ffffff;
-    background-color:    #cc0000;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_error.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              18px;
+
+.syntax_alpha_columnAttrib {
+    text-transform:     uppercase;
 }
-div.errorhead {
-    font-weight: bold;
-    color: #ffffff;
-    text-align: left;
-    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/aqua_brushed/img/s_error.png);
+
+.syntax_alpha_reservedWord {
+    text-transform:     uppercase;
+    font-weight:        bold;
+}
+
+.syntax_alpha_functionName {
+    text-transform:     uppercase;
+}
+
+.syntax_alpha_identifier {
+}
+
+.syntax_alpha_charset {
+}
+
+.syntax_alpha_variable {
+}
+
+.syntax_quote {
+    white-space:        pre;
+}
+
+.syntax_quote_backtick {
+}
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align:     middle;
+    margin-right:       0.3em;
+    margin-left:        0.3em;
+}
+/* no extra space in table cells */
+td .icon {
+    margin: 0;
+}
+
+.selectallarrow {
+    margin-<?php echo $right; ?>: 0.3em;
+    margin-<?php echo $left; ?>: 0.6em;
+}
+
+/* message boxes: warning, error, confirmation */
+.notice {
+    color: #000000;
+    background-color: #FFFFDD;
+}
+h1.notice,
+div.notice {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #FFD700;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat: no-repeat;
-    background-position: 2px 50%;
-    padding: 2px 2px 2px 20px;
-    <?php } ?>
-    margin: 0px;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.notice h1 {
+    border-bottom: 0.1em solid #FFD700;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
 }
 
-.tblHeadWarn {
-    background-color:    #ffcc00;
-    font-weight:         bold;
-    color:               #000000;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_th.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              18px;
+.warning {
+    color: #CC0000;
+    background-color: #FFFFCC;
 }
-div.warnhead {
-    font-weight: bold;
-    color: #ffffff;
-    text-align: left;
-    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/aqua_brushed/img/s_warn.png);
+p.warning,
+h1.warning,
+div.warning {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #CC0000;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat: no-repeat;
-    background-position: 2px 50%;
-    padding: 2px 2px 2px 20px;
-    <?php } ?>
-    margin: 0px;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.warning h1 {
+    border-bottom: 0.1em solid #cc0000;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
+.error {
+    background-color: #FFFFCC;
+    color: #ff0000;
+}
+
+h1.error,
+div.error {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #ff0000;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+div.error h1 {
+    border-bottom: 0.1em solid #ff0000;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
+.confirmation {
+    background-color: #FFFFCC;
+}
+fieldset.confirmation {
+    border: 0.1em solid #FF0000;
+}
+fieldset.confirmation legend {
+    border-left: 0.1em solid #FF0000;
+    border-right: 0.1em solid #FF0000;
+    font-weight: bold;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 5px 50%;
+    padding: 0.2em 0.2em 0.2em 25px;
+        <?php } else {?>
+    background-position: 97% 50%;
+    padding: 0.2em 25px 0.2em 0.2em;
+        <?php }?>
+    <?php }?>
+}
+/* end messageboxes */
+
+
+.tblHeaders {
+    font-weight: bold;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}
+
+.tblFooters {
+    font-weight:        normal;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}
+
+.tblHeaders a:link,
+.tblHeaders a:active,
+.tblHeaders a:visited,
+.tblFooters a:link,
+.tblFooters a:active,
+.tblFooters a:visited {
+    color:              #0000FF;
+}
+
+.tblHeaders a:hover,
+.tblFooters a:hover {
+    color:              #FF0000;
 }
 
 /* forbidden, no privilegs */
-.noPrivileges{
-    color:            #cc0000;
-    font-weight:      bold;
+.noPrivileges {
+    color:              #FF0000;
+    font-weight:        bold;
 }
 
-/* Heading for server links*/
-#serverinfo {
-    font-weight: bold;
-    margin-bottom: 0.5em;
+/* disabled text */
+.disabled,
+.disabled a:link,
+.disabled a:active,
+.disabled a:visited {
+    color:              #666666;
 }
 
-#serverinfo .item {
-    white-space: nowrap;
+.disabled a:hover {
+    color:              #666666;
+    text-decoration:    none;
 }
 
-#spam_table_comment {
-    font-weight: normal;
-    font-style: italic;
-    white-space: nowrap;
+tr.disabled td,
+td.disabled {
+    background-color:   #cccccc;
 }
 
-#serverinfo img {
-    margin: 0 0.1em 0 0.2em;
+/**
+ * login form
+ */
+body.loginform h1,
+body.loginform a.logo {
+    display: block;
+    text-align: center;
 }
 
-hr{
-    color: #666699; background-color: #6666cc; border: 0; height: 1px;
+form.login label {
+    float: <?php echo $left; ?>;
+    width: 10em;
+    font-weight: bolder;
 }
+
+
+/******************************************************************************/
+/* specific elements */
 
 /* topmenu */
-#topmenu{
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    color:               #000000;
-    background-color:    #DDDDDD;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/aqua_brushed/img/tbl_header.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              22px;
+ul#topmenu {
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul#topmenu li {
+    float:              <?php echo $left; ?>;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#topmenu img {
+    vertical-align: middle;
+    margin-<?php echo $right; ?>:       0.1em;
 }
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    margin-right: 0.1em;
-    margin-left: 0.1em;
+    display: block;
+    margin: 0.2em 0.2em 0 0.2em;
+    padding: 0.2em 0.2em 0 0.2em;
+    white-space: nowrap;
 }
 
 /* disabled tabs */
@@ -418,121 +552,540 @@ span.tabcaution {
 
 /* enabled drop/empty tabs */
 a.tabcaution {
-    color: #ff0000;
+    color: #FF0000;
 }
 a.tabcaution:hover {
-    color: #ffffff;
-    background-color: #ff0000;
+    color: #FFFFFF;
+    background-color: #FF0000;
 }
 
 <?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
 /* active tab */
 a.tabactive {
-    border-bottom: 0.1em solid black;
     color: black;
 }
 <?php } else { ?>
 #topmenu {
     margin-top: 0.5em;
-    border-bottom: 0.1em solid black;
     padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+ul#topmenu li {
+    border-bottom: 1pt solid silver;
 }
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    background-color: #E5E5E5;
+    background-color:   #E5E5E5;
     border: 0.1em solid silver;
-    border-bottom: 0.1em solid black;
-    border-radius-topleft: 0.5em;
-    border-radius-topright: 0.5em;
-    -moz-border-radius-topleft: 0.5em;
-    -moz-border-radius-topright: 0.5em;
-    padding: 0.1em 0.2em 0.1em 0.2em;
+    border-bottom:      0;
+    border-radius-topleft: 0.4em;
+    border-radius-topright: 0.4em;
+    -moz-border-radius-topleft: 0.4em;
+    -moz-border-radius-topright: 0.4em;
+    background-color:    #B5BDC7;
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbl_header.png);
+    background-repeat:   repeat-x;
+    background-position: top;
 }
 
 /* enabled hover/active tabs */
-a.tab:hover, a.tabcaution:hover, .tabactive {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 0.3em 0.3em 0.1em 0.3em;
+a.tab:hover,
+a.tabcaution:hover,
+.tabactive,
+.tabactive:hover {
+    margin: 0;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    text-decoration: none;
+    background-color:    #DDDDDD;
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbl_th.png);
+    background-repeat:   repeat-x;
+    background-position: top;
 }
-a.tab:hover, .tabactive {
-    background-color: #FFFFFF;
+
+a.tabcaution:hover {
+    margin: 0;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    text-decoration: none;
+    background-color: #ff0000;
+    background-image: none;
+}
+
+a.tab:hover,
+.tabactive {
+    font-weight:      bold;
+    color:            #FFFFFF;
+    background-color: #8FBDE9;
 }
 
 /* disabled drop/empty tabs */
-span.tab, span.tabcaution {
-    cursor: url(themes/original/img/error.ico), default;
+span.tab,
+span.tabcaution {
+    cursor:             url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
 
 
-img, input, select, button {
-    vertical-align: middle;
+/* Calendar */
+table.calendar {
+    width:              100%;
+}
+table.calendar td {
+    text-align:         center;
+}
+table.calendar td a {
+    display:            block;
 }
 
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-/* disabled text */
-.disabled, .disabled a:link, disabled a:active, .disabled a:visited {
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
-    color:       #666666;
+table.calendar td a:hover {
+    background-color:   #CCFFCC;
 }
-.disabled a:hover {
-    text-decoration: none;
+
+table.calendar th {
+    background-color:   #D3DCE3;
 }
-tr.disabled td, td.disabled {
-    background-color: #cccccc;
+
+table.calendar td.selected {
+    background-color:   #FFCC99;
 }
-<?php } // end of isDom ?>
+
+img.calendar {
+    border:             none;
+}
+form.clock {
+    text-align:         center;
+}
+/* end Calendar */
+
+
+/* table stats */
+div#tablestatistics {
+    border-bottom: 0.1em solid #669999;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div#tablestatistics table {
+    float: <?php echo $left; ?>;
+    margin-bottom: 0.5em;
+    margin-<?php echo $right; ?>: 0.5em;
+}
+
+div#tablestatistics table caption {
+    margin-<?php echo $right; ?>: 0.5em;
+}
+/* END table stats */
+
+
+/* server privileges */
+#tableuserrights td,
+#tablespecificuserrights td,
+#tabledatabases td {
+    vertical-align: middle;
+}
+/* END server privileges */
+
+
+
+/* Heading */
+#serverinfo {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+#serverinfo .item {
+    white-space: nowrap;
+}
+
+#span_table_comment {
+    font-weight: normal;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+#serverinfo img {
+    margin: 0 0.1em 0 0.2em;
+}
+
+
+#textSQLDUMP {
+    width: 95%;
+    height: 95%;
+    font-family: "Courier New", Courier, mono;
+    font-size:          110%;
+}
+
 #TooltipContainer {
     position:   absolute;
     z-index:    99;
-    width:      250px;
-    height:     50px;
-    overflow:   auto;
+    width:      20em;
+    height:     auto;
+    overflow:   visible;
     visibility: hidden;
     background-color: #ffffcc;
     color:            #006600;
-    border:           1px solid #000000;
-    padding:          5px;
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
+    border:           0.1em solid #000000;
+    padding:          0.5em;
 }
 
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-/* some styles for IDs: */
-#buttonNo{
-    color:            #CC0000;
-    font-size:        10px;
-    font-weight:      bold;
-    padding:          0px 10px 0px 10px;
-}
-#buttonYes{
-    color:            #006600;
-    font-size:        10px;
-    font-weight:      bold;
-    padding:          0px 10px 0px 10px;
-}
-#buttonGo{
-    color:            #006600;
-    font-size:        10px;
-    font-weight:      bold;
-    padding:          0px 10px 0px 10px;
+/* user privileges */
+#fieldset_add_user_login div.item {
+    border-bottom: 1px solid silver;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
 }
 
-#listTable{
-    width:            260px;
+#fieldset_add_user_login label {
+    float:              <?php echo $left; ?>;
+    display:            block;
+    width:              10em;
+    max-width:          100%;
+    text-align:         <?php echo $right; ?>;
+    padding-<?php echo $right; ?>:      0.5em;
 }
 
-#textSqlquery{
-    width:            450px;
+#fieldset_add_user_login span.options #select_pred_username,
+#fieldset_add_user_login span.options #select_pred_hostname,
+#fieldset_add_user_login span.options #select_pred_password {
+    width: 100%;
+    max-width: 100%;
 }
-#textSQLDUMP {
-   width: 95%;
-   height: 95%;
-   font-family: "Courier New", Courier, mono;
-   font-size:   11px;
+
+#fieldset_add_user_login span.options {
+    float: <?php echo $left; ?>;
+    display: block;
+    width: 12em;
+    max-width: 100%;
+    padding-<?php echo $right; ?>: 0.5em;
 }
-<?php } ?>
+
+#fieldset_add_user_login input {
+    width: 12em;
+    clear: <?php echo $right; ?>;
+    max-width: 100%;
+}
+
+#fieldset_add_user_login span.options input {
+    width: auto;
+}
+
+#fieldset_user_priv div.item {
+    float: <?php echo $left; ?>;
+    width: 9em;
+    max-width: 100%;
+}
+
+#fieldset_user_priv div.item div.item {
+    float: none;
+}
+
+#fieldset_user_priv div.item label{
+    white-space: nowrap;
+}
+
+#fieldset_user_priv div.item select {
+    width: 100%;
+}
+
+#fieldset_user_global_rights fieldset {
+    float: <?php echo $left; ?>;
+}
+/* END user privileges */
+
+
+/* serverstatus */
+div#serverstatus table caption a.top {
+    float: <?php echo $right; ?>;
+}
+
+div#serverstatus div#serverstatusqueriesdetails table,
+div#serverstatus table#serverstatustraffic,
+div#serverstatus table#serverstatusconnections {
+    float: <?php echo $left; ?>;
+}
+
+#serverstatussection,
+.clearfloat {
+    clear: both;
+}
+div#serverstatussection table {
+    width: 100%;
+    margin-bottom: 1em;
+}
+div#serverstatussection table .name {
+    width: 18em;
+}
+div#serverstatussection table .value {
+    width: 6em;
+}
+
+div#serverstatus table tbody td.descr a,
+div#serverstatus table .tblFooters a {
+    white-space: nowrap;
+}
+div#serverstatus div#statuslinks a:before,
+div#serverstatus div#sectionlinks a:before,
+div#serverstatus table tbody td.descr a:before,
+div#serverstatus table .tblFooters a:before {
+    content: '[';
+}
+div#serverstatus div#statuslinks a:after,
+div#serverstatus div#sectionlinks a:after,
+div#serverstatus table tbody td.descr a:after,
+div#serverstatus table .tblFooters a:after {
+    content: ']';
+}
+/* end serverstatus */
+
+/* querywindow */
+body#bodyquerywindow {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    background-color: #F5F5F5;
+}
+
+div#querywindowcontainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+div#querywindowcontainer fieldset {
+    margin-top: 0;
+}
+/* END querywindow */
+
+
+/* querybox */
+
+div#sqlquerycontainer {
+    float: <?php echo $left; ?>;
+    width: 69%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer {
+    float: <?php echo $right; ?>;
+    width: 29%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer select {
+    width: 100%;
+    /* height: 12em; */
+}
+
+textarea#sqlquery {
+    width: 100%;
+    /* height: 100%; */
+}
+
+div#queryboxcontainer div#bookmarkoptions {
+    margin-top: 0.5em;
+}
+/* end querybox */
+
+/* main page */
+#maincontainer {
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
+    background-position: <?php echo $right; ?> bottom;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid silver;
+}
+
+#mysqlmaininformation,
+#pmamaininformation {
+    float: <?php echo $left; ?>;
+    width: 49%;
+}
+
+#maincontainer ul {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    vertical-align: middle;
+}
+
+#maincontainer li {
+    margin-bottom: 0.3em;
+}
+/* END main page */
+
+
+<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
+/* iconic view for ul items */
+li#li_create_database {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
+}
+
+li#li_select_lang {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
+}
+
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_select_theme{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
+}
+
+li#li_server_info{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+li#li_user_info{
+    /* list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png); */
+}
+
+li#li_mysql_status{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
+}
+
+li#li_mysql_variables{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
+}
+
+li#li_mysql_processes{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
+}
+
+li#li_mysql_collations{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_mysql_engines{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
+}
+
+li#li_mysql_binlogs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_tbl.png);
+}
+
+li#li_mysql_databases {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+}
+
+li#li_export {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_export.png);
+}
+
+li#li_import {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_import.png);
+}
+
+li#li_change_password {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_passwd.png);
+}
+
+li#li_log_out {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
+}
+
+li#li_pma_docs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
+}
+
+li#li_phpinfo {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
+}
+
+li#li_pma_homepage {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
+}
+
+li#li_mysql_privilegs{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+}
+
+li#li_switch_dbstats {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_dbstatistics.png);
+}
+
+li#li_flush_privileges {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
+}
+/* END iconic view for ul items */
+<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
+
+
+#body_browse_foreigners {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    margin:             0.5em 0.5em 0 0.5em;
+}
+
+#bodyquerywindow {
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+}
+
+#bodythemes {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#bodythemes img {
+    border: 0.1em solid black;
+}
+
+#bodythemes a:hover img {
+    border: 0.1em solid red;
+}
+
+#fieldset_select_fields {
+    float: <?php echo $left; ?>;
+}
+
+#selflink {
+    clear: both;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-top: 0.1em solid silver;
+    text-align: <?php echo $right; ?>;
+}
+
+#table_innodb_bufferpool_usage,
+#table_innodb_bufferpool_activity {
+    float: <?php echo $left; ?>;
+}
+
+#div_mysql_charset_collations table {
+    float: <?php echo $left; ?>;
+}
+
+#div_table_order {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_rename {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_copy {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_options {
+    clear: both;
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_table_list {
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_sql_query {
+    float: <?php echo $left; ?>;
+}
+
+label.desc {
+    width: 30em;
+    float: <?php echo $left; ?>;
+}
