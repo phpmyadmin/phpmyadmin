@@ -440,7 +440,7 @@ fieldset.confirmation legend {
     font-weight:        normal;
     color:              #000000;
     background-color:   #DDDDDD;
-    background-image:   url(../themes/aqua/img/AquaStringGreyLarge.png);
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>AquaStringGreyLarge.png);
     background-repeat:  repeat-x;
 
 }
@@ -566,7 +566,7 @@ ul#topmenu li {
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    background-image:   url(../themes/aqua/img/AquaStringGrey.png); background-repeat: repeat-x;
+    background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>AquaStringGrey.png); background-repeat: repeat-x;
     background-color:   #E5E5E5;
     border: 0.1em solid silver;
     border-bottom:      0;
@@ -585,7 +585,7 @@ a.tabcaution:hover,
     padding: 0.2em 0.4em 0.2em 0.4em;
     text-decoration: none;
     background-color: #E5E5E5;
-    background-image: url(../themes/aqua/img/AquaStringGrey.png); background-repeat: repeat-x;
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>AquaStringGrey.png); background-repeat: repeat-x;
 }
 
 a.tabcaution:hover {
@@ -601,7 +601,7 @@ a.tab:hover,
     font-weight:      bold;
     color:            #FFFFFF;
     background-color: #8FBDE9;
-    background-image: url(../themes/aqua/img/AquaString.png); background-repeat: repeat-x;  
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>AquaString.png); background-repeat: repeat-x;  
 }
 
 /* disabled drop/empty tabs */
