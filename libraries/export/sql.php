@@ -635,7 +635,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             }
         }
 
-        if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
+        if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'UPDATE') {
             // update
             $schema_insert  = 'UPDATE ';
             if (isset($GLOBALS['sql_ignore'])) {
@@ -644,7 +644,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $schema_insert .= PMA_backquote($table, $sql_use_backquotes) . ' SET ';
         } else {
             // insert or replace
-            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'replace') {
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'REPLACE') {
                 $sql_command    = 'REPLACE';
             } else {
                 $sql_command    = 'INSERT';
@@ -658,7 +658,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'insert' && isset($GLOBALS['sql_ignore'])) {
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'INSERT' && isset($GLOBALS['sql_ignore'])) {
                 $insert_delayed .= ' IGNORE';
             }
 
@@ -677,7 +677,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $replace      = array('\0', '\n', '\r', '\Z');
         $current_row  = 0;
         $query_size   = 0;
-        if (isset($GLOBALS['sql_extended'])) {
+        if (isset($GLOBALS['sql_extended']) && (!isset($GLOBALS['sql_type']) || $GLOBALS['sql_type'] != 'UPDATE')) {
             $separator    = ',';
             $schema_insert .= $crlf;
         } else {
@@ -718,7 +718,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             } // end for
 
             // should we make update?
-            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'UPDATE') {
 
                 $insert_line = $schema_insert;
                 for ($i = 0; $i < $fields_cnt; $i++) {

@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-05 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Fix UPDATE export with extended inserts
+      enabled (bug#1482103), fix export type selection.
+
 2006-05-03 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Document OpenDocument export and various fixes.
 
