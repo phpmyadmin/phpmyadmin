@@ -10,6 +10,7 @@ $Source$
       enabled (bug #1482103), fix export type selection.
     * libraries/select_lang.lib.php: Use GET and POST explicitely as cookies
       can override values in REQUEST (bug #1481584).
+    * lang/czech: Updated.
 
 2006-05-03 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Document OpenDocument export and various fixes.
