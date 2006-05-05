@@ -34,12 +34,22 @@ function PMA_langCheck()
         }
     }
 
-    // check user requested language
-    if (! empty($_REQUEST['lang'])) {
-        if (PMA_langSet($_REQUEST['lang'])) {
+    // Don't use REQUEST in following code as it might be confused by cookies with same name
+    // check user requested language (POST)
+    if (! empty($_POST['lang'])) {
+        if (PMA_langSet($_POST['lang'])) {
             return true;
         } else {
-            $GLOBALS['lang_failed_request'] = $_REQUEST['lang'];
+            $GLOBALS['lang_failed_request'] = $_POST['lang'];
+        }
+    }
+
+    // check user requested language (GET)
+    if (! empty($_GET['lang'])) {
+        if (PMA_langSet($_GET['lang'])) {
+            return true;
+        } else {
+            $GLOBALS['lang_failed_request'] = $_GET['lang'];
         }
     }
 
