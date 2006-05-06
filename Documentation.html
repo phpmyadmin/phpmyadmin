@@ -706,7 +706,17 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <dt><span id="cfg_Servers_hide_db">$cfg['Servers'][$i]['hide_db']</span> string
     </dt>
     <dd>Regular expression for hiding some databases. This only hides them
-        from listing, but user is still able to access them.</dd>
+        from listing, but a user is still able to access them (using, for example,
+        the SQL query area). To limit access, use the MySQL privilege system.
+        <br /><br />
+        For example, to hide all databases starting with the letter &#34;a&#34;, use<br />
+        <pre>$cfg['Servers'][$i]['hide_db'] = '^a';</pre>
+        and to hide both &#34;db1&#34; and &#34;db2&#34; use <br />
+        <pre>$cfg['Servers'][$i]['hide_db'] = '(db1|db2)';</pre>
+        More information on regular expressions can be found in the
+        <a href="http://php.net/manual/en/reference.pcre.pattern.syntax.php">
+        PCRE pattern syntax</a> portion of the PHP reference manual.
+        </dd>
 
     <dt id="cfg_Servers_verbose">$cfg['Servers'][$i]['verbose'] string</dt>
     <dd>Only useful when using phpMyAdmin with multiple server entries. If set,
