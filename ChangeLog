@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-12 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.0.4 released from MAINT_2_8_0
+
 2006-05-12 Michal Čihař  <michal@cihar.com>
     * libraries/footer.inc.php: Escape user input to avoid XSS.
     * libraries/common.lib.php, libraries/url_generating.lib.php: Better
