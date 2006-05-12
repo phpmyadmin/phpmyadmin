@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-12 Michal Čihař  <michal@cihar.com>
+    * libraries/footer.inc.php: Escape user input to avoid XSS.
+
 2006-05-06 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Describe better regullar expressions in hide_db
       (patch #1482049, thanks to Isaac Bennetch - ibennetch).
