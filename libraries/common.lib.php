@@ -1088,16 +1088,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 if (strpos($uri, '?') === false) {
                     header('Location: ' . $uri . '?' . SID);
                 } else {
-                    // use seperators defined by php, but prefer ';'
-                    // as recommended by W3C
-                    $php_arg_separator_input = ini_get('arg_separator.input');
-                    if (strpos($php_arg_separator_input, ';') !== false) {
-                        $separator = ';';
-                    } elseif (strlen($php_arg_separator_input) > 0) {
-                        $separator = $php_arg_separator_input{0};
-                    } else {
-                        $separator = '&';
-                    }
+                    $separator = PMA_get_arg_separator();
                     header('Location: ' . $uri . $separator . SID);
                 }
             } else {
@@ -2060,9 +2051,10 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             if (empty($tag_params['class'])) {
                 $tag_params['class'] = 'link';
             }
-            $url         = str_replace('&amp;', '&', $url);
+            $separator   = PMA_get_arg_separator();
+            $url         = str_replace(htmlentities($separator), $separator, $url);
             $url_parts   = parse_url($url);
-            $query_parts = explode('&', $url_parts['query']);
+            $query_parts = explode($separator, $url_parts['query']);
             if ($new_form) {
                 $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                      . ' method="post"' . $target . ' style="display: inline;">';

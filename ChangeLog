@@ -7,6 +7,8 @@ $Source$
 
 2006-05-12 Michal Čihař  <michal@cihar.com>
     * libraries/footer.inc.php: Escape user input to avoid XSS.
+    * libraries/common.lib.php, libraries/url_generating.lib.php: Better
+      handle other URL separator than & (bug #1487365).
 
 2006-05-06 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Describe better regullar expressions in hide_db

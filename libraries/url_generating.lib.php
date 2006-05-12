@@ -155,14 +155,7 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 
     // use seperators defined by php, but prefer ';'
     // as recommended by W3C
-    $php_arg_separator_input = ini_get('arg_separator.input');
-    if (strpos($php_arg_separator_input, ';') !== false) {
-        $separator = ';';
-    } elseif (strlen($php_arg_separator_input) > 0) {
-        $separator = $php_arg_separator_input{0};
-    } else {
-        $separator = '&';
-    }
+    $separator = PMA_get_arg_separator();
 
     // check wether to htmlentity the separator or not
     if ($delim === '&amp;') {
@@ -201,6 +194,28 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
     }
 
     return $questionmark . implode($delim, $param_strings);
+}
+
+/**
+ * Returns url separator
+ *
+ * @return  string   character used for separating url parts
+ *
+ * @access  public
+ *
+ * @author  nijel
+ */
+function PMA_get_arg_separator() {
+    // use seperators defined by php, but prefer ';'
+    // as recommended by W3C
+    $php_arg_separator_input = ini_get('arg_separator.input');
+    if (strpos($php_arg_separator_input, ';') !== false) {
+        return ';';
+    } elseif (strlen($php_arg_separator_input) > 0) {
+        return $php_arg_separator_input{0};
+    } else {
+        return '&';
+    }
 }
 
 ?>
