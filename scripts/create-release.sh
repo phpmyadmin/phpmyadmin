@@ -67,7 +67,7 @@
 # - added release todo list
 #
 
-cvsserver=${cvsserver:-cvs}
+cvsserver=${cvsserver:-phpmyadmin.cvs}
 
 if [ $# = 0 ]
 then
