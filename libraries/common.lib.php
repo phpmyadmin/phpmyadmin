@@ -3207,14 +3207,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // We don't want more than one asterisk inside our 'only_db'.
                     continue;
                 }
-                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                if ($is_show_dbs && preg_match('/(^|[^\\\\])(_|%)/', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     // here, a PMA_DBI_query() could fail silently
                     // if SHOW DATABASES is disabled
-                    $rs = PMA_DBI_try_query($local_query, $controllink);
+                    $rs = PMA_DBI_try_query($local_query, $userlink);
 
                     if ($i == 0 && ! $rs) {
-                        $error_code = substr(PMA_DBI_getError($controllink), 1, 4);
+                        $error_code = substr(PMA_DBI_getError($userlink), 1, 4);
                         if ($error_code == 1227 || $error_code == 1045) {
                             // "SHOW DATABASES" statement is disabled or not allowed to user
                             $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));

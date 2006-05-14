@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-14 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php: Fix reading database list with MySQL wildcards
+      (bug #1487613).
+
 2006-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/import.lib.php: bug #1482841, support USE statement in the import file
 
