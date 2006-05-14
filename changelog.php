@@ -42,11 +42,11 @@ $replaces = array(
 
     // linking bugs
     '/bug\s*#?([0-9]{6,})/i'
-    => '<a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=\\1&amp;group_id=23067&amp;atid=377408">BUG #\\1</a>',
+    => '<a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=\\1&amp;group_id=23067&amp;atid=377408">bug #\\1</a>',
 
     // all other 6+ digit numbers are treated as bugs
     '/(?<!BUG|RFE|patch) #?([0-9]{6,})/i'
-    => ' <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=\\1&amp;group_id=23067&amp;atid=377408">BUG #\\1</a>',
+    => ' <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=\\1&amp;group_id=23067&amp;atid=377408">bug #\\1</a>',
 
     // CVE/CAN entries
     '/((CAN|CVE)-[0-9]+-[0-9]+)/'
