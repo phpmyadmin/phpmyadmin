@@ -15,6 +15,8 @@ $Source$
       themes/darkblue_orange/css/theme_right.css.php,
       themes/original/css/theme_right.css.php: Not so wide login form (RFE
       #1445541).
+    * import.php, export.php: Increase magic contstant to avoid problems with
+      compression of some specific data (bug #1477029).
 
 2006-05-14 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Fix reading database list with MySQL wildcards

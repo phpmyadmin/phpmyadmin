@@ -218,7 +218,7 @@ if ($onfly_compression) {
     }
 
     // Some memory is needed for compression, assume 1/3
-    $memory_limit *= 2/3;
+    $memory_limit /= 8;
 }
 
 // Generate filename and mime type if needed
