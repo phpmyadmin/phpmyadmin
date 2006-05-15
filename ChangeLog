@@ -7,6 +7,7 @@ $Source$
 
 2006-05-15 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Compatibility with security tokens (bug #1488453).
+    * scripts/setup.php: Fix detection of writable config (bug #1488447).
 
 2006-05-14 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Fix reading database list with MySQL wildcards

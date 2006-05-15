@@ -1155,7 +1155,8 @@ if ($action != 'download') {
     // Check whether we can write to configuration
     $fail_dir = FALSE;
     $fail_dir = $fail_dir || !is_dir('./config/');
-    $fail_dir = $fail_dir || !is_writable('./config/config.inc.php');
+    $fail_dir = $fail_dir || !is_writable('./config/');
+    $fail_dir = $fail_dir || (file_exists('./config/config.inc.php') && !is_writable('./config/config.inc.php'));
     $config = @fopen('./config/config.inc.php', 'a');
     $fail_dir = $fail_dir || ($config === FALSE);
     @fclose($config);
