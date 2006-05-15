@@ -307,7 +307,9 @@ class PMA_Table {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
+                if (strlen($default)) {
+                    $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
+                }
             }
         }
 

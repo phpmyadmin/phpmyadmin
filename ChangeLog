@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-15 Marc Delisle  <lem9@users.sourceforge.net>
+   * libraries/Table.class.php: bug #1475949, removing the default value
+
 2006-05-15 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Compatibility with security tokens (bug #1488453).
     * scripts/setup.php: Fix detection of writable config (bug #1488447).
