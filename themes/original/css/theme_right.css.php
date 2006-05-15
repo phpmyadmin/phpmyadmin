@@ -1065,3 +1065,13 @@ label.desc {
     width: 30em;
     float: <?php echo $left; ?>;
 }
+
+body.loginform {
+    text-align: center;
+}
+
+body.loginform div.container {
+    text-align: <?php echo $left; ?>;
+    width: 30em;
+    margin: 0 auto;
+}

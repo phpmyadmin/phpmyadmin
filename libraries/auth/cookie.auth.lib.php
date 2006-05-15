@@ -99,6 +99,7 @@ if (top != self) {
 </head>
 
 <body class="loginform">
+<div class="container">
 
 <?php require './libraries/header_custom.inc.php'; ?>
 
@@ -142,7 +143,8 @@ echo sprintf( $GLOBALS['strWelcome'],
         </div>
 <?php
         require './libraries/footer_custom.inc.php';
-        echo '    </body>' . "\n"
+        echo '</div>' . "\n"
+           . '    </body>' . "\n"
            . '</html>';
         exit();
     }
@@ -234,6 +236,7 @@ if (uname.value == '') {
 
 <?php require './libraries/footer_custom.inc.php'; ?>
 
+</div>
 </body>
 
 </html>
