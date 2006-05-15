@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-15 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Compatibility with security tokens (bug #1488453).
+
 2006-05-14 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Fix reading database list with MySQL wildcards
       (bug #1487613).
