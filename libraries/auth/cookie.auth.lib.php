@@ -99,10 +99,10 @@ if (top != self) {
 </head>
 
 <body class="loginform">
-<div class="container">
 
 <?php require './libraries/header_custom.inc.php'; ?>
 
+<div class="container">
 <a href="http://www.phpmyadmin.net" target="_blank" class="logo"><?php
     $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
     if (@file_exists($logo_image)) {
@@ -142,9 +142,9 @@ echo sprintf( $GLOBALS['strWelcome'],
             <?php echo $GLOBALS['strSecretRequired']; ?>
         </div>
 <?php
+        echo '</div>' . "\n";
         require './libraries/footer_custom.inc.php';
-        echo '</div>' . "\n"
-           . '    </body>' . "\n"
+        echo '    </body>' . "\n"
            . '</html>';
         exit();
     }
@@ -233,10 +233,10 @@ if (uname.value == '') {
 }
 //-->
 </script>
+</div>
 
 <?php require './libraries/footer_custom.inc.php'; ?>
 
-</div>
 </body>
 
 </html>
