@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: bug #1478812, Add user (password containing 
+      a backslash); also minor optimization
+
 2006-05-15 Marc Delisle  <lem9@users.sourceforge.net>
    * libraries/Table.class.php: bug #1475949, removing the default value
 

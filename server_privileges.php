@@ -764,15 +764,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
             . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         if ($pred_password != 'none' && $pred_password != 'keep') {
-            $pma_pw_hidden = '';
-            for ($i = 0; $i < strlen($pma_pw); $i++) {
-                $pma_pw_hidden .= '*';
-            }
+            $pma_pw_hidden = str_repeat('*', strlen($pma_pw));
             $sql_query = $real_sql_query . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
-            $real_sql_query .= ' IDENTIFIED BY \'' . $pma_pw . '\'';
+            $real_sql_query .= ' IDENTIFIED BY \'' . PMA_sqlAddslashes($pma_pw) . '\'';
             if ( isset( $create_user_real ) ) {
                 $create_user_show = $create_user_real . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
-                $create_user_real .= ' IDENTIFIED BY \'' . $pma_pw . '\'';
+                $create_user_real .= ' IDENTIFIED BY \'' . PMA_sqlAddslashes($pma_pw) . '\'';
             }
         } else {
             if ($pred_password == 'keep' && !empty($password)) {
