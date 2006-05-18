@@ -1167,4 +1167,15 @@ function PMA_DBI_getCompatibilities()
     return $compats;
 }
 
+
+/**
+ * returns true (int > 0) if current user is superuser
+ * otherwise 0
+ *
+ * @return integer  $is_superuser
+ */
+function PMA_isSuperuser() {
+    return PMA_DBI_try_query( 'SELECT COUNT(*) FROM mysql.user',
+        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
+}
 ?>

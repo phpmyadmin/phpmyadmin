@@ -6,17 +6,6 @@
 // ($controllink and $userlink are links to MySQL defined in the "common.lib.php" library)
 // Note: if no controluser is defined, $controllink contains $userlink
 
-/**
- * returns true (int > 0) if current user is superuser
- * otherwise 0
- *
- * @return integer  $is_superuser
- */
-function PMA_isSuperuser() {
-    return PMA_DBI_try_query( 'SELECT COUNT(*) FROM mysql.user',
-        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
-}
-
 $is_create_db_priv  = false;
 $is_process_priv = true;
 $is_reload_priv  = false;

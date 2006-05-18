@@ -50,6 +50,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
                     $GLOBALS['cfg']['TitleDefault']))
                     );
+    $is_superuser    = PMA_isSuperuser();
     ?>
     <script type="text/javascript" language="javascript">
     <!--

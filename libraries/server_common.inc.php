@@ -35,19 +35,12 @@ require_once('./libraries/header.inc.php');
 /**
  * Checks for superuser privileges
  */
-// We were checking privileges with 'USE mysql' but users with the global
-// priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
-// (even if they cannot see the tables)
 
-$is_superuser = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user');
+$is_superuser  = PMA_isSuperuser();
 
 // now, select the mysql db
 if ($is_superuser) {
-    PMA_DBI_free_result($is_superuser);
     PMA_DBI_select_db('mysql', $userlink);
-    $is_superuser = TRUE;
-} else {
-    $is_superuser = FALSE;
 }
 
 $has_binlogs = FALSE;
