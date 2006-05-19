@@ -404,12 +404,14 @@ if ($cfg['ShowStats']) {
     <th class="value"><?php echo PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
-    echo '    <th align="center">'
-        .PMA_DBI_get_default_engine() . '</th>' . "\n";
+    $default_engine = PMA_DBI_get_default_engine();
+    echo '    <th align="center">' . "\n"
+       . '        <dfn title="'
+       . sprintf($strDefaultEngine, $default_engine) . '">' .$default_engine . '</th>' . "\n";
     if (! empty($db_collation)) {
         echo '    <th align="center">' . "\n"
            . '        <dfn title="'
-           . PMA_getCollationDescr($db_collation) . '">' . $db_collation
+           . PMA_getCollationDescr($db_collation) . ' (' . $strDefault . ')">' . $db_collation
            . '</dfn></th>';
     }
 }
