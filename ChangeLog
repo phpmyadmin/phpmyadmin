@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: indicate on the Sum line that storage type and
+      collation are the default values
+
 2006-05-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php, /database_interface.lib.php, /db_details_links.inc.php,
       /server_common.inc.php, /header.inc.php: bug #1490193 and code simplification
