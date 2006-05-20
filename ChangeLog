@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-20 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.1 released from MAINT_2_8_1
+
 2006-05-19 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: indicate on the Sum line that storage type and
       collation are the default values
