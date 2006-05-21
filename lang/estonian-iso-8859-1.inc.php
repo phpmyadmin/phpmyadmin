@@ -488,7 +488,6 @@ $strNoRowsSelected = 'Ridu pole valitud';
 $strNoSpace = 'Liiga vähe kettaruumi, et salvestada fail %s.';
 $strNoTablesFound = 'Andmebaasist ei leitud tabeleid.';
 $strNoThemeSupport = 'Teemade tugi puudub, palun kontrollige oma seadeid ja/või oma teemade kataloogi %s.';
-$strNothingToImport = 'Te ei sisestanud andmeid Importimiseks!';  
 $strNotNumber = 'See pole number!';
 $strNotOK = 'Ei ole korras';
 $strNotSet = '<b>%s</b> tabelit ei leitud või ei eksisteeri %s';
@@ -990,4 +989,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

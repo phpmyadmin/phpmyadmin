@@ -480,7 +480,6 @@ $strNoRowsSelected = 'Nebol vybraný ¾iadny riadok';
 $strNoSpace = 'Nedostatok miesta pre ulo¾enie súboru %s.';
 $strNoTablesFound = 'Neboli nájdené ¾iadne tabuµky v tejto datábaze.';
 $strNoThemeSupport = 'Zmena vzhµadu nie je podporovaná, skontrolujte si nastavenia a vzhµady v adresári %s.';
-$strNothingToImport = 'Neboli zadané ¾iadne dáta na import!';
 $strNotNumber = 'Toto nie je èíslo!';
 $strNotOK = 'chyba';
 $strNotSet = 'Tabuµka <b>%s</b> nebola nájdená alebo nie je nastavená v %s';
@@ -1000,4 +999,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

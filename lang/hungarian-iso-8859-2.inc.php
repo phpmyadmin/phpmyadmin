@@ -441,7 +441,6 @@ $strNoRowsSelected = 'Nincs sor kiválasztva';
 $strNoSpace = 'Nincs elég hely elmenteni a fájlt: %s.';  
 $strNoTablesFound = 'Nincs tábla az adatbázisban.';
 $strNoThemeSupport = 'Nincs téma támogatás, ellen&#337;rizd a beállításokat és/vagy a témákat a %s könyvtárban.';
-$strNothingToImport = 'Nem adtál meg importálandó adatot!';
 $strNotNumber = 'Ez nem egy szám!';
 $strNotOK = 'Nincs rendben';
 $strNotSet = '<b>%s</b> táblát nem találtam vagy nincs benne: %s';
@@ -1006,4 +1005,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

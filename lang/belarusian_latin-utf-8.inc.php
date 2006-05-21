@@ -499,7 +499,6 @@ $strNoRowsSelected = 'Nivodny radok nia vybrany';
 $strNoSpace = 'Niedastatkova miesca dla zachavańnia ŭ fajł %s.';
 $strNoTablesFound = 'U bazie dadzienych tablic nia vyjaŭlena.';
 $strNoThemeSupport = 'Temy nie padtrymlivajucca; kali łaska, praviercie vašuju kanfihuracyju i/abo vašyja temy ŭ tečcy %s.';
-$strNothingToImport = 'Dadzienyja dla impartavańnia nia ŭviedzienyja!';
 $strNotNumber = 'Heta nia lik!';
 $strNotOK = 'nie OK';
 $strNotSet = 'Tablica <b>%s</b> nia znojdzienaja abo nia vyznačanaja ŭ %s';
@@ -992,4 +991,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

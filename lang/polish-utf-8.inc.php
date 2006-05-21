@@ -494,7 +494,6 @@ $strNoRowsSelected = 'Żaden rekord nie został zaznaczony';
 $strNoSpace = 'Brak miejsca na zapis pliku %s.';
 $strNoTablesFound = 'Nie znaleziono tabeli w bazie danych.';
 $strNoThemeSupport = 'Brak obsługi motywów graficznych, proszę sprawdzić konfigurację i/lub motywy graficzne w katalogu %s.';
-$strNothingToImport = 'Nie wprowadzono żadnych danych do importu!';
 $strNotNumber = 'To nie jest liczba!';
 $strNotOK = 'błąd';
 $strNotSet = 'Tabela <b>%s</b> nie została znaleziona lub nie jest ustawiona w %s';
@@ -987,4 +986,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

@@ -498,7 +498,6 @@ $strNoRowsSelected = '並無資料列已選擇';
 $strNoSpace = '空間不足儲存檔案 %s.';
 $strNoTablesFound = '資料庫中沒有資料表';
 $strNoThemeSupport = '不支援款式功能, 請查看設定案及儲存款式檔案的資料夾 %s.';
-$strNothingToImport = '你並未填寫資料, 無法載入!';
 $strNotNumber = '這不是一個數字!';
 $strNotOK = '未能確定';
 $strNotSet = '<b>%s</b> 資料表找不到或還未在 %s 設定';
@@ -992,4 +991,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

@@ -496,7 +496,6 @@ $strNoRowsSelected = '行は選択されませんでした。';
 $strNoSpace = 'ファイル「%s」を保存するには空き容量が不十分です。';
 $strNoTablesFound = '現在のデータベースにテーブルはありません。';
 $strNoThemeSupport = 'テーマをサポートしていません。設定とテーマディレクトリ「%s」を確認してください。';
-$strNothingToImport = 'いくつかのデータはインポートしていません!';
 $strNotNumber = 'これは数値ではありません。';
 $strNotOK = 'OK ではありません。';
 $strNotSet = 'テーブル「<b>%s</b>」が見つからないか、%s が設定されていません。';
@@ -996,4 +995,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

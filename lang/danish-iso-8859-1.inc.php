@@ -493,7 +493,6 @@ $strNoRowsSelected = 'Ingen rækker valgt';
 $strNoSpace = 'Utilstrækkeligt plads til at gemme filen %s.';
 $strNoTablesFound = 'Ingen tabeller fundet i databasen.';
 $strNoThemeSupport = 'Ingen tema/layout-understøttelse, tjek venligst din konfiguration og/eller dine temaer i mappen %s.';
-$strNothingToImport = 'Du har ikke angivet nogen data der skal importeres!';
 $strNotNumber = 'Dette er ikke et tal!';
 $strNotOK = 'ikke OK';
 $strNotSet = 'Tabel <b>%s</b> findes ikke eller er ikke sat i %s';
@@ -986,4 +985,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

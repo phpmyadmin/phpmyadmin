@@ -482,7 +482,6 @@ $strNoRowsSelected = 'No s\'han seleccionat files';
 $strNoSpace = 'No hi ha prou espai per guardar  l\'arxiu %s.';
 $strNoTablesFound = 'Base de dades sense taules.';
 $strNoThemeSupport = 'No hi ha suport pels temes, si et plau comprova la teva configuració i/o els teus temes al directori %s.';
-$strNothingToImport = 'No heu entrat dades per importar!';
 $strNotNumber = 'Aquest valor no és un número!';
 $strNotOK = 'Incorrecte';
 $strNotSet = 'Taula <b>%s</b> no trobada o no definida a %s';
@@ -991,4 +990,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

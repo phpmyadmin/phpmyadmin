@@ -497,7 +497,6 @@ $strNoRowsSelected = 'Inga rader valda';
 $strNoSpace = 'Otillräckligt utrymme för att spara filen %s.';
 $strNoTablesFound = 'Inga tabeller funna i databasen.';
 $strNoThemeSupport = 'Stöd för teman saknas. Kontrollera din konfiguration och/eller dina teman i katalog %s.';
-$strNothingToImport = 'Du fyllde inte i några data att importera!';
 $strNotNumber = 'Det är inte ett nummer!';
 $strNotOK = 'Inte OK';
 $strNotSet = '<b>%s</b>-tabellen ej funnen eller ej angiven i %s';
@@ -986,4 +985,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

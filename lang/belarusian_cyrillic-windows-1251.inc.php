@@ -499,7 +499,6 @@ $strNoRowsSelected = 'Ніводны радок ня выбраны';
 $strNoSpace = 'Недастаткова месца для захаваньня ў файл %s.';
 $strNoTablesFound = 'У базе дадзеных табліц ня выяўлена.';
 $strNoThemeSupport = 'Тэмы не падтрымліваюцца; калі ласка, праверце вашую канфігурацыю і/або вашыя тэмы ў тэчцы %s.';
-$strNothingToImport = 'Дадзеныя для імпартаваньня ня ўведзеныя!';
 $strNotNumber = 'Гэта ня лік!';
 $strNotOK = 'не OK';
 $strNotSet = 'Табліца <b>%s</b> ня знойдзеная або ня вызначаная ў %s';
@@ -992,4 +991,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

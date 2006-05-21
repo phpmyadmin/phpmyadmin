@@ -757,7 +757,6 @@ $strMysqlClientVersion = 'MySQL client version';  //to translate
 $strNoActivity = 'No activity within %s seconds; please log in again';  //to translate
 $strNoFilesFoundInZip = 'No files found inside ZIP archive!';  //to translate
 $strNoThemeSupport = 'No themes support; please check your configuration and/or your themes in directory %s.';  //to translate
-$strNothingToImport = 'You didn\'t enter any data to import!';  //to translate
 $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';  //to translate
 
@@ -1007,4 +1006,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

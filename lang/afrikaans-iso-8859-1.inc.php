@@ -676,7 +676,6 @@ $strNoPermission = 'The web server does not have permission to save the file %s.
 $strNoRowsSelected = 'No rows selected';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 $strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
-$strNothingToImport = 'You didn\'t enter any data to import!';  //to translate
 $strNumberOfFields = 'Number of fields';  //to translate
 $strNumTables = 'Tables'; //to translate
 
@@ -1013,4 +1012,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

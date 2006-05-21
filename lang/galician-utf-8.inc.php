@@ -499,7 +499,6 @@ $strNoRowsSelected = 'Non hai fileiras seleccionadas';
 $strNoSpace = 'Non hai espacio para gardar o ficheiro %s.';
 $strNoTablesFound = 'Non se achou nengunha tabela na base de datos';
 $strNoThemeSupport = 'Non ten a funcionalidade dos temas. Comprobe a configuración e/ou os seus temas no directorio %s.';
-$strNothingToImport = 'Non introduciu os datos que quería importar!';
 $strNotNumber = 'Non é un número!';
 $strNotOK = 'non conforme';
 $strNotSet = 'Non se atopou a tabela <b>%s</b>ou non se indicou en %s';
@@ -991,4 +990,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

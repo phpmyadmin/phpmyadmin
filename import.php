@@ -307,7 +307,7 @@ if ($import_file != 'none' && !$error) {
     }
 } elseif (!$error) {
     if (!isset($import_text) || empty($import_text)) {
-        $message = $strNothingToImport;
+        $message = $strNoDataReceived;
         $show_error_header = TRUE;
         $error = TRUE;
     }

@@ -501,7 +501,6 @@ $strNoRowsSelected = 'Es wurden keine Datensätze ausgewählt.';
 $strNoSpace = 'Zu wenig Speicherplatz um die Datei %s zu speichern.';
 $strNoTablesFound = 'Es wurden keine Tabellen in der Datenbank gefunden.';
 $strNoThemeSupport = 'Die Unterstützung für Oberflächendesigns ist deaktiviert. Bitte überprüfen Sie Ihre Konfiguration und / oder Ihre Designs im Verzeichnis %s.';
-$strNothingToImport = 'Keine zu importierenden Daten gefunden!';
 $strNotNumber = 'Das ist keine Zahl!';
 $strNotOK = 'fehlerhaft';
 $strNotSet = 'Die Tabelle <b>%s</b> wurde entweder nicht gefunden oder in der Kofigurationsdatei %s nicht gesetzt.';
@@ -994,4 +993,5 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>

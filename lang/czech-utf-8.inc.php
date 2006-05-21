@@ -506,7 +506,6 @@ $strNoRowsSelected = 'Nebyl vybrán žádný řádek';
 $strNoSpace = 'Nedostatek místa pro uložení souboru %s.';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena žádná tabulka.';
 $strNoThemeSupport = 'Není podporována změna tématu, zkontrolujte nastavení a témata v&nbsp;adresáři %s.';
-$strNothingToImport = 'Nebyla zadána žádná data pro import!';
 $strNotNumber = 'Nebylo zadáno číslo!';
 $strNotOK = 'není v&nbsp;pořádku';
 $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
@@ -989,4 +988,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>
