@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, tbl_replace.php: bug #1438999, updating a multi-table
+      view
+
 2006-05-21 Marc Delisle  <lem9@users.sourceforge.net>
     * import.php, lang/*: bug #1467804, replaced strNothingToImport
       by strNoDataReceived
