@@ -168,13 +168,15 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
         }
 
+        //  i n s e r t
         if ($is_insert) {
-            // insert, no need to add column
+            // no need to add column into the valuelist
             $valuelist .= $cur_value;
-        } elseif (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
-            // field had the null checkbox
+
+        //  u p d a t e
+        } elseif (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
+            // field had the null checkbox before the update
             // field no longer has the null checkbox
-            // field does not have the same value
             $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
         } elseif (empty($me_funcs[$encoded_key])
             && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
@@ -182,8 +184,12 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (!empty($val)) {
-            // TODO: avoid setting a field to NULL when it's already NULL
-            $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
+            // avoid setting a field to NULL when it's already NULL
+            // (field had the null checkbox before the update
+            //  field still has the null checkbox)
+            if (!(isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && isset($me_fields_null[$encoded_key]))) {
+                $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
+            }
         }
     } // end while
 

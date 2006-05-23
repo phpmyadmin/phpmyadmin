@@ -573,7 +573,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
             echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . urlencode($field) . ']"';
             if ($real_null_value && !$first_timestamp) {
-                echo ' checked="checked"';
+                //echo ' checked="checked"';
+                echo ' value="on"';
             }
             echo ' />' . "\n";
 
