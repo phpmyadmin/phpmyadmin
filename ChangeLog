@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: bug #1451426, edit breaks protected BLOB field, 
+      changes it from NULL to empty string
+
 2006-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php: bug #1438999, updating a multi-table
       view

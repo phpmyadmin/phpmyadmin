@@ -565,43 +565,48 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             }
         } // end if ($cfg['ShowFunctionFields'])
 
+
         // The null column
         // ---------------
         echo '        <td>' . "\n";
-        if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
-            && $row_table_def['Null'] == 'YES') {
-
+        if ($row_table_def['Null'] == 'YES') {
             echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . urlencode($field) . ']"';
             if ($real_null_value && !$first_timestamp) {
-                //echo ' checked="checked"';
                 echo ' value="on"';
             }
             echo ' />' . "\n";
 
-            echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-                 . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
-            if ($real_null_value && !$first_timestamp) {
-                echo ' checked="checked"';
-            }
-            echo ' id="field_' . ($idindex) . '_2"';
-            $onclick         = ' onclick="if (this.checked) {nullify(';
-            if (strstr($row_table_def['True_Type'], 'enum')) {
-                if (strlen($row_table_def['Type']) > 20) {
-                    $onclick .= '1, ';
-                } else {
-                    $onclick .= '2, ';
+            if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary)) ) {
+
+                echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
+                     . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
+                if ($real_null_value && !$first_timestamp) {
+                    echo ' checked="checked"';
                 }
-            } elseif (strstr($row_table_def['True_Type'], 'set')) {
-                $onclick     .= '3, ';
-            } elseif ($foreigners && isset($foreigners[$field])) {
-                $onclick     .= '4, ';
+                echo ' id="field_' . ($idindex) . '_2"';
+                $onclick         = ' onclick="if (this.checked) {nullify(';
+                if (strstr($row_table_def['True_Type'], 'enum')) {
+                    if (strlen($row_table_def['Type']) > 20) {
+                        $onclick .= '1, ';
+                    } else {
+                        $onclick .= '2, ';
+                    }
+                } elseif (strstr($row_table_def['True_Type'], 'set')) {
+                    $onclick     .= '3, ';
+                } elseif ($foreigners && isset($foreigners[$field])) {
+                    $onclick     .= '4, ';
+                } else {
+                    $onclick     .= '5, ';
+                }
+                $onclick         .= '\'' . urlencode($field) . '\', \'' . md5($field) . '\', \'' . $vkey . '\'); this.checked = true}; return true" />' . "\n";
+                echo $onclick;
             } else {
-                $onclick     .= '5, ';
+                echo '            <input type="hidden" name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
+                if ($real_null_value && !$first_timestamp) {
+                    echo ' value="on"';
+                }
+                echo ' />' . "\n";
             }
-            $onclick         .= '\'' . urlencode($field) . '\', \'' . md5($field) . '\', \'' . $vkey . '\'); this.checked = true}; return true" />' . "\n";
-            echo $onclick;
-        } else {
-            echo '            &nbsp;' . "\n";
         }
         echo '        </td>' . "\n";
 
