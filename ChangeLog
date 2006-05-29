@@ -11,6 +11,7 @@ $Source$
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
     * lang/italian: Update, thanks to Rebe - rebeluca.
     * lang/estonian: Update, thanks to Marko Ellermaa - uhuu.
+    * lang/finnish: Update, thanks to Yoneh - yoneh.
 
 2006-05-29 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug #1496881, CVS link broken in main.php

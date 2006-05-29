@@ -77,6 +77,7 @@ $strBeginCut = 'BEGIN CUT';
 $strBeginRaw = 'BEGIN RAW';
 $strBinaryDoNotEdit = ' Двоично - не се редактира ';
 $strBinary = ' Двоично ';
+$strBinLogInfo = 'Информация';
 $strBookmarkAllUsers = 'Нека всеки потребител има достъп до този показалец';
 $strBookmarkCreated = 'Показалец %s беше създаден успешно';
 $strBookmarkDeleted = 'Показалецът беше изтрит.';
@@ -91,7 +92,8 @@ $strBulgarian = 'Български';
 $strBzError = 'phpMyAdmin не може да компресира схемата(dump) заради грешка в Bz2 разширението в тази версия на PHP. Горещо се препоръчва да установите стойността на <code>$cfg[\'BZipDump\']</code> директивата в конфигурационния файл на вашия phpMyAdmin на <code>FALSE</code>. Ако искате да се използвате възможностите на Bz2 компресията, ще трябва да ъпгрейднете до по-нова версия на PHP. Вижте съобщение %s за повече информация.';
 $strBzip = '"bzip-нато"';
 
-$strCalendar = 'Календар'; 
+$strCalendar = 'Календар';
+$strCanNotLoadImportPlugins = 'Plugin-ите за импортиране не могат да бъдат заредени, моля проверете инсталацията на phpMyAdmin!';
 $strCannotLogin = 'Не мога да се логна към MySQL сървъра';
 $strCantLoadRecodeIconv = 'Не може да се заредят iconv или recode разширенията необходими за конвертиране на набора от символи(charset), конфигурирайте PHP така, че да позволява използване на тези разширения или отменете конвертирането на набора от символи(charset) в phpMyAdmin.';
 $strCantLoad = 'не мога да заредя разширението %s,<br />моля проверете конфигурацията на PHP';
@@ -129,7 +131,9 @@ $strCommentsForTable = 'КОМЕНТАРИ ЗА ТАБЛИЦА';
 $strComments = 'Коментари';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 съвместимо';
 $strCompleteInserts = 'Пълни INSERT-и';
+$strCompressionWillBeDetected = 'Компресията на файла за импортиране ще бъде автоматично избрана от: %s';
 $strCompression = 'Компресия';
+$strConfigDefaultFileError = 'Конфигурацията по подразбиране не може да бъде заредена от: "%1$s"';
 $strConfigFileError = 'phpMyAdmin не може да прочете конфигурационният Ви файл!<br />Това може да се случи ако PHP открие синтактична грешка в него или не може да открие файла.<br />Моля извикайте конфигурационния файл директно като използвате линка по-долу и прочетете съобщението за грешка което PHP връща. В по-голяма част от случаите, някъде липсват кавички или точка и запетая.<br />Ако се изведе празна страница, всички е наред.';
 $strConfigureTableCoord = 'Моля конфигурирайте координатите за таблица %s';
 $strConnectionError = 'Връзката не може да бъде осъществена: невалидни настройки.';
@@ -174,6 +178,7 @@ $strDatabases = 'Бази от данни';
 $strDatabase = 'БД';
 $strDataDict = 'Речник на данните';
 $strDataOnly = 'Само данни';
+$strDataPages = 'Страници съдържащи данни';
 $strData = 'Данни';
 $strDBComment = 'Коментар към базата от данни: ';
 $strDBCopy = 'Копиране на базата от данни в';
@@ -187,7 +192,7 @@ $strDBGModule = 'Модул';
 $strDBGTimePerHitMs = 'Време/Попадение, ms';
 $strDBGTotalTimeMs = 'Общо време, ms';
 $strDbPrivileges = 'Привилегии специфични за базата от данни';
-$strDBRename = 'Преименуване на базата от данни на'; 
+$strDBRename = 'Преименуване на базата от данни на';
 $strDbSpecific = 'специфични за базата от данни';
 $strDefaultEngine = '%s е хранилището на данни по подразбиране на този MySQL сървър.';
 $strDefaultValueHelp = 'За стойностите по подразбиране, моля въведете само една стойност, без обратни черти или апостроф, използвайки следния формат: a';
@@ -198,6 +203,7 @@ $strDeleteAndFlushDescr = 'Това е най-чистия начин, но пр
 $strDeleteAndFlush = 'Изтриване на потребителите и след това презареждане на привилегиите.';
 $strDeletedRows = 'Изтрити редове:';
 $strDeleted = 'Редът беше изтрит';
+$strDeleteNoUsersSelected = 'Не за избрани потребители за изтриване!';
 $strDelete = 'Изтриване';
 $strDeleting = 'Изтриване на %s';
 $strDelOld = 'Текущата Страница има Референции към Таблици които вече не съществуват. Желаете ли да изтриете тези Референции?';
@@ -306,7 +312,7 @@ $strIgnore = 'Игнориране';
 $strIgnoringFile = 'Игнориране на файл %s';
 $strImportDocSQL = 'Импортирай docSQL файловете';
 $strImportFiles = 'Импортиране на файлове';
-$strImportFormat = 'Формат на инпортирания файл';
+$strImportFormat = 'Формат на импортирания файл';
 $strImport = 'Импортиране';
 $strIndexes = 'Индекси';
 $strIndexHasBeenDropped = 'Индекса %s беше изтрит';
@@ -344,6 +350,7 @@ $strKill = 'СТОП';
 $strKorean = 'Корейски';
 
 $strLandscape = 'Пейзажно';
+$strLanguageFileNotFound = 'Езиковият файл "%1$s" не е намерен.';
 $strLatexCaption = 'Заглавие на таблицата';
 $strLatexContent = 'Съдържание на таблица __TABLE__';
 $strLatexContinuedCaption = 'Продължение на заглавието на таблицата';
@@ -399,6 +406,7 @@ $strMyISAMRecoverOptions = 'Режим на автоматично възста�
 $strMyISAMRepairThreads = 'Поправка на нишките';
 $strMyISAMSortBufferSize = 'Размер на буфера за сортиране';
 $strMySQLCharset = 'Набор от символи на MySQL';
+$strMysqlClientVersion = 'Версия на клиента за MySQL';
 $strMySQLConnectionCollation = 'Колация на MySQL';
 $strMySQLSaid = 'MySQL отговори: ';
 $strMySQLShowProcess = 'MySQL процеси';
@@ -441,6 +449,7 @@ $strNumSearchResultsTotal = '<b>Общо:</b> <i>%s</i> съвпадение(я)
 $strNumTables = 'Таблици';
 
 $strOK = 'OK';
+$strOpenNewWindow = 'Отваряне на нов прозорец с phpMyAdmin';
 $strOperations = 'Операции';
 $strOperator = 'Оператор';
 $strOptimizeTable = 'Оптимизация на таблицата';
@@ -459,6 +468,7 @@ $strPassword = 'Парола';
 $strPdfDbSchema = 'Схемата на база от данни "%s" - Страница %s';
 $strPdfInvalidTblName = 'Таблица "%s" не съществува!';
 $strPdfNoTables = 'Няма таблици';
+$strPDFOptions = 'PDF опции';
 $strPerHour = 'на час';
 $strPerMinute = 'на минута';
 $strPerSecond = 'на секунда';
@@ -519,6 +529,7 @@ $strPrivilegesReloaded = 'Привилегиите бяха презареден
 $strPrivileges = 'Привилегии';
 $strProcesses = 'Процеси';
 $strProcesslist = 'Списък на процесите';
+$strProtocolVersion = 'Версия на протокола';
 $strPutColNames = 'Поставяне имената на полетата на първия ред';
 
 $strQBEDel = 'Изтрий';
@@ -543,6 +554,7 @@ $strRelationsForTable = 'РЕЛАЦИИ ЗА ТАБЛИЦА';
 $strRelations = 'Релации';
 $strRelationView = 'Изглед на релациите';
 $strReloadingThePrivileges = 'Презареждане на привилегиите';
+$strReloadPrivileges = 'Презареждане на привилегиите';
 $strRemoveSelectedUsers = 'Отстраняване на избраните потребители';
 $strRenameDatabaseOK = 'Базата данни %s беше преименувана на %s';
 $strRenameTableOK = 'Таблица %s беше преименувана на %s';
@@ -570,6 +582,7 @@ $strRowsStatistic = 'Статистика за редовете';
 $strRows = 'Редове';
 $strRunning = 'работи на %s';
 $strRunQuery = 'Изпълни заявката';
+$strRunSQLQueryOnServer = 'Изпълняване на SQL заявка/заявки на сървър %s';
 $strRunSQLQuery = 'Стартиране SQL заявка/заявки към база от данни %s';
 $strRussian = 'Руски';
 
@@ -676,6 +689,7 @@ $strTblPrivileges = 'Привилегии специфични за таблиц
 $strTempData = 'Временни данни';
 $strTextAreaLength = ' Поради дължината си,<br /> това поле може да не е редактируемо ';
 $strThai = 'Тайландски';
+$strThemeDefaultNotFound = 'Темата по подразбиране %s не е намерена!';
 $strTheme = 'Тема / Стил';
 $strThisHost = 'Този Хост';
 $strThisNotDirectory = 'Това не беше директория';
@@ -688,7 +702,6 @@ $strTraditionalChinese = 'Традиционен китайски';
 $strTraditionalSpanish = 'Традиционен Испански';
 $strTraffic = 'Трафик';
 $strTransformation_application_octetstream__download = 'Показва връзка за сваляне на двоичните данни нa полето. Първата опция е файловото име на двоичния файл. Втората опция е вероятното име на полето на реда на таблицата съдържащо файловото име. Ако напишете втора опция, трябва първата ви опция да е установена на празен низ.';
-$strTransformation_application_octetstream__hex = 'Показва шестнадесетично представяне на данните. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_image_jpeg__inline = 'Показва thumbnail; опции: ширина, височина в пиксели (запазва оригиналната пропорция)';
 $strTransformation_image_jpeg__link = 'Показва връзката на това изображение (за директно сваляне, i.e.).';
 $strTransformation_image_png__inline = 'Виж image/jpeg: inline';
@@ -715,6 +728,7 @@ $strUpdComTab = 'Моля прегледайте информацията в Д�
 $strUpgrade = 'Трябва да ъпгрейднете към %s %s или по-късно.';
 $strUsage = 'Използвани';
 $strUseBackquotes = 'Използване на обратни кавички около имена на таблици и полета';
+$strUsedPhpExtensions = 'Използвани PHP разширения';
 $strUseHostTable = 'Използвай таблица Host';
 $strUserAlreadyExists = 'Потребител %s вече съществува!';
 $strUserEmpty = 'Потребителското име е празно!';
@@ -733,6 +747,7 @@ $strValidateSQL = 'Валидирай SQL-а';
 $strValidatorError = 'SQL валидатора не може да бъде инициализиран. Моля проверете дали сте инсталирали необходимите PHP разширения, така както е описано в %sдокументацията%s.';
 $strValue = 'Стойност';
 $strVar = 'Променлива';
+$strVersionInformation = 'Информация за весията';
 $strViewDumpDatabases = 'Преглед на схемата на базата от данни';
 $strViewDumpDB = 'Схема на БД';
 $strViewDump = 'Схема на таблицата';
@@ -758,11 +773,11 @@ $strZip = '"zip-нато"';
 
 // To translate:
 $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
+$strAddClause = 'Add %s';  //to translate
 $strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
 
 $strBinaryLog = 'Binary log';  //to translate
 $strBinLogEventType = 'Event type';  //to translate
-$strBinLogInfo = 'Information';  //to translate
 $strBinLogName = 'Log name';  //to translate
 $strBinLogOriginalPosition = 'Original position';  //to translate
 $strBinLogPosition = 'Position';  //to translate
@@ -777,16 +792,16 @@ $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBusyPages = 'Busy pages';  //to translate
 
-$strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate
-$strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
-$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
+$strCreateUserDatabase = 'Database for user';  //to translate
+$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
+$strCreateUserDatabaseNone = 'None';  //to translate
+$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strCSV = 'CSV';  //to translate
 
-$strDataPages = 'Pages containing data';  //to translate
-$strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 $strDirtyPages = 'Dirty pages';  //to translate
 
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
+$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
 
 $strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
 $strFileNameTemplateDescriptionServer = 'server name';  //to translate
@@ -822,8 +837,7 @@ $strJoins = 'Joins';  //to translate
 
 $strKeyCache = 'Key cache';  //to translate
 
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
+$strLanguageUnknown = 'Неразпознат език: %1$s.';  //to translate
 $strLatchedPages = 'Latched pages';  //to translate
 
 $strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
@@ -836,24 +850,25 @@ $strMyISAMMaxSortFileSize = 'Maximum size for temporary sort files';  //to trans
 $strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
 $strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';  //to translate
 $strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';  //to translate
-$strMysqlClientVersion = 'MySQL client version';  //to translate
 
 $strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 $strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
 
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
+$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
+$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
+$strOpenDocumentText = 'Open Document Text';  //to translate
+$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 
 $strPagesToBeFlushed = 'Pages to be flushed';  //to translate
 $strPasswordHashing = 'Password Hashing';  //to translate
-$strPDFOptions = 'PDF options';  //to translate
 $strPDF = 'PDF';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
-$strProtocolVersion = 'Protocol version';  //to translate
+
+$strQueryResultsOperations = 'Query results operations';  //to translate
 
 $strReadRequests = 'Read requests';  //to translate
-$strReloadPrivileges = 'Reload privileges';  //to translate
-$strRunSQLQueryOnServer = 'Run SQL query/queries on server %s';  //to translate
 
 $strServerStatusDelayedInserts = 'Delayed inserts';  //to translate
 $strShowingBookmark = 'Showing bookmark';  //to translate
@@ -969,14 +984,14 @@ $strShowStatusThreads_runningDescr = 'The number of threads that are not sleepin
 $strSkipQueries = 'Number of records(queries) to skip from start';  //to translate
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
+$strSQLImportOptions = 'SQL опции';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
+$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
 
 $strTakeIt = 'take it';  //to translate
-$strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
 $strThemeNoPreviewAvailable = 'No preview available.';  //to translate
-$strThemeNotFound = 'Theme %s not found!';  //to translate
+$strThemeNotFound = 'Тема %s не е намерена!';  //to translate
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
@@ -984,31 +999,18 @@ $strTimeoutNothingParsed = 'However on last run no data has been parsed, this us
 $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please resubmit same file and import will resume.';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strTransformation_application_octetstream__hex = 'Показва шестнадесетично представяне на данните. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 
-$strVersionInformation = 'Version information';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strView = 'View';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
-$strQueryResultsOperations = 'Query results operations';  //to translate
-$strAddClause = 'Add %s';  //to translate
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
-$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
 $strXMLOptions = 'XML options';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
-$strOpenDocumentText = 'Open Document Text';  //to translate
-$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+
 ?>
