@@ -605,6 +605,7 @@ $strQBE = 'Query da esempio';
 $strQueryCache = 'Cache delle query';
 $strQueryFrame = 'Finestra della Query';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
+$strQueryResultsOperations = 'Risultato delle operazioni di Query';
 $strQuerySQLHistory = 'Storico dell\'SQL';
 $strQueryStatistics = '<b>Query delle Statistiche</b>: Dall\'avvio, %s queries sono state effettuate sul server.';
 $strQueryTime = 'La query ha impiegato %01.4f sec';
@@ -622,6 +623,7 @@ $strRelationsForTable = 'RELATIONS FOR TABLE';
 $strRelations = 'Relazioni';
 $strRelationView = 'Vedi relazioni';
 $strReloadingThePrivileges = 'Caricamento dei privilegi in corso';
+$strReloadPrivileges = 'Ricarica i privilegi';
 $strRemoveSelectedUsers = 'Rimuove gli utenti selezionati';
 $strRenameDatabaseOK = 'Il DataBase %s è stato rinominato in %s';
 $strRenameTableOK = 'La tabella %s è stata rinominata %s';
@@ -822,6 +824,7 @@ $strSort = 'Ordinamento';
 $strSpaceUsage = 'Spazio utilizzato';
 $strSpanish = 'Spagnolo';
 $strSplitWordsWithSpace = 'Le parole sono spezzate sulle spaziature (" ").';
+$strSQLCompatibility = 'Modalità compatibilità SQL';
 $strSQLExportCompatibility = 'Compatibilità dell\'esportazione SQL';
 $strSQLExportType = 'Tipo di esportazione';
 $strSQLImportOptions = 'Opzioni SQL';
@@ -895,7 +898,6 @@ $strTraditionalSpanish = 'Spagnolo tradizionale';
 $strTraffic = 'Traffico';
 $strTransactionCoordinator = 'Coordinatore delle transazioni';
 $strTransformation_application_octetstream__download = 'Visualizza un collegamento per trasferire i dati di un campo in formato binario.  La prima opzione è il nome del file binario.  La seconda opzione è un nome di campo possibile di una riga della tabella che contiene il nome di schedario.  Se fornite una seconda opzione dovete avere la prima opzione settata ad una stringa vuota';
-$strTransformation_application_octetstream__hex = 'Mostra una rappresentazione esadecimale dei dati. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_image_jpeg__inline = 'Mostra un thumbnalil cliccabile; opzioni: larghezza,altezza in pixel (mantiere la proporzione iniziale)';
 $strTransformation_image_jpeg__link = 'Mostra un link a questa immagine (download blob diretto, i.e.).';
 $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';
@@ -972,24 +974,28 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
 // To translate:
-
-$strReloadPrivileges = 'Reload privileges';  //to translate
-
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-
-$strQueryResultsOperations = 'Query results operations';  //to translate
 $strAddClause = 'Add %s';  //to translate
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+
+$strCreateUserDatabase = 'Database for user';  //to translate
+$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
+$strCreateUserDatabaseNone = 'None';  //to translate
+$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
+
+$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
+
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
 $strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
-$strXMLOptions = 'XML options';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+
+$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
+
+$strTransformation_application_octetstream__hex = 'Mostra una rappresentazione esadecimale dei dati. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
+
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+
+$strXMLOptions = 'XML options';  //to translate
+
 ?>
