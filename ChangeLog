@@ -13,6 +13,7 @@ $Source$
     * lang/estonian: Update, thanks to Marko Ellermaa - uhuu.
     * lang/finnish: Update, thanks to Yoneh - yoneh.
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+    * lang/czech: Update.
 
 2006-05-29 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug #1496881, CVS link broken in main.php

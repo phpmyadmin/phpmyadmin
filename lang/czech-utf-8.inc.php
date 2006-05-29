@@ -485,6 +485,7 @@ $strNext = 'Další';
 $strNoActivity = 'Byli jste příliš dlouho neaktivní (déle než %s sekund), prosím přihlaste se znovu';
 $strNoDatabasesSelected = 'Nebyla vybrána žádná databáze.';
 $strNoDatabases = 'Žádné databáze';
+$strNoDataReceived = 'Nepodařilo se načíst žádná data k importu. Buďto nebyl odeslán žádný soubor, nebo jeho velikost překročila velikost povolenou v nastavení PHP. Viz FAQ 1.16.';
 $strNoDescription = 'žádný popisek';
 $strNoDetailsForEngine = 'Nejsou dostupné podrobnější informace o tomto úložišti.';
 $strNoDropDatabases = 'Příkaz &bdquo;DROP DATABASE&ldquo; je vypnutý.';
@@ -988,5 +989,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 ?>
