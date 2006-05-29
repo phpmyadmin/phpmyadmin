@@ -7,6 +7,7 @@ $Source$
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
+    * lang/japanese: Update, thanks to Ishigaki Kenichi - tcool.
 
 2006-05-29 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug #1496881, CVS link broken in main.php

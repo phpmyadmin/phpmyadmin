@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by Sven-Erik Andersen <sven-erik.andersen at pkf107.no>
+ * Translated by Sven-Erik Andersen <sven DOT erik DOT andersen AT gmail DOT com>
  */
 
 $charset = 'iso-8859-1';
@@ -603,6 +603,7 @@ $strQBE = 'Spørring ved eksempel (Query by Example)';
 $strQueryCache = 'Spørringsmellomlager';
 $strQueryFrame = 'Spørringsvindu';
 $strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
+$strQueryResultsOperations = 'Spørringsresultatshandlinger';
 $strQuerySQLHistory = 'SQL-historie';
 $strQueryStatistics = '<b>Spørrings statistikk</b>: Siden oppstart, har %s spørringer blitt sendt til tjeneren.';
 $strQueryTime = 'Spørring tok %01.4f sek';
@@ -620,6 +621,7 @@ $strRelationsForTable = 'RELASJONER FOR TABELLEN';
 $strRelations = 'Relasjoner';
 $strRelationView = 'Relasjonsvisning';
 $strReloadingThePrivileges = 'Oppfrisker privilegiene';
+$strReloadPrivileges = 'Oppfrisk privilegier';
 $strRemoveSelectedUsers = 'Fjern valgte brukere';
 $strRenameDatabaseOK = 'Databasen %s har endret navn til %s';
 $strRenameTable = 'Endre tabellens navn';
@@ -711,6 +713,8 @@ $strShowStatusHandler_discoverDescr = 'MySQL tjeneren kan spørre NDB Cluster lag
 $strShowStatusHandler_read_firstDescr = 'Antall ganger det første innlegget ble lest fra en index. Hvis dette tallet er høyt tyder det på at tjeneren utfører en god del fullindekssøk; for eksempel, SELECT col1 FROM foo, da forutsatt at col1 er indeksert.';
 $strShowStatusHandler_read_keyDescr = 'Antall forespørsler for å lese en rad basert på en nøkkel. Hvis dette tallet er høyt gir dette en god indikasjon på at dine spørringer og tabeller er riktig indeksert.';
 $strShowStatusHandler_read_nextDescr = 'Antall forespørsler for å lese en rad basert på en fast posisjon. Denne er høy hvis du utører mange spørringer som behøver sortering av resultatet. Du har sansynligvis mange spørringer som krever at MySQL leser hele tabeller eller du har joins som ikke bruker nøkler korrekt.';
+$strShowStatusHandler_read_prevDescr = 'Antall forespørsler for å lese den forrige raden i nøkkelrekkefølge. Denne lesemetoden er hovedsakelig brukt for å optimalisere ORDER BY ... DESC.';
+$strShowStatusHandler_read_rndDescr = 'Antall forespørsler for å lese en rad basert på en fast posisjon. Denne er høy om du utfører mange spørringer som behøver sorteringer av resultatet. Du har mest sansynlig mange spørringer som krever at MySQL leser hele tabeller eller du har joins som som ikke bruker nøkler korrekt.';
 $strShowStatusHandler_read_rnd_nextDescr = 'Antall forespørsler for å lese neste rad i datafila. Dette tallet er høyt hvis du utfører mange tabellskanninger. Vanligvis betyr dette at dine tabeller ikke er rett indeksert eller at dine spørringer ikke er skrevet for å utnytte de indeksene du har.';
 $strShowStatusHandler_rollbackDescr = 'Antall interne ROLLBACK kommandoer.';
 $strShowStatusHandler_updateDescr = 'Antall forespørsler for å oppdatere en rad i en tabell.';
@@ -818,6 +822,7 @@ $strSort = 'Sorter';
 $strSpaceUsage = 'Plassbruk';
 $strSpanish = 'Spansk';
 $strSplitWordsWithSpace = 'Ord er separert med et mellomrom (" ").';
+$strSQLCompatibility = 'SQL kompatibilitetsmodus';
 $strSQLExportCompatibility = 'SQL eksportkompabilitet';
 $strSQLExportType = 'Eksporttype';
 $strSQLImportOptions = 'SQL innstillinger';
@@ -891,7 +896,6 @@ $strTraditionalSpanish = 'Tradisjonell spansk';
 $strTraffic = 'Trafikk';
 $strTransactionCoordinator = 'Transaksjonskoordinator';
 $strTransformation_application_octetstream__download = 'Vis en link for å kunne laste ned de binære dataene til et felt. Den første opsjonen er filnavnet til den binære fila. Den andre opsjonen er et potensielt feltnavn i en tabell som inneholder filnavnet. Hvis du velger den andre opsjonen så må den første være satt til en tom strengverdi';
-$strTransformation_application_octetstream__hex = 'Vis dataene i heksadesimal. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 $strTransformation_image_jpeg__inline = 'Viser et klikkbart tommelfingerbilde; valg: bredde, høyde i piksler (bevarer originale forhold)';
 $strTransformation_image_jpeg__link = 'Viser en link til dette bildet (m.a.o. direkte blob-nedlasting).';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -968,26 +972,28 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensn
 $strZip = 'Komprimert (zip)';
 
 // To translate:
-
-$strReloadPrivileges = 'Reload privileges';  //to translate
-
-$strShowStatusHandler_read_prevDescr = 'The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.'; //to translate
-$strShowStatusHandler_read_rndDescr = 'The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.'; //to translate
-$strSQLCompatibility = 'SQL compatibility mode';  //to translate
-
-$strQueryResultsOperations = 'Query results operations';  //to translate
 $strAddClause = 'Add %s';  //to translate
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+
+$strCreateUserDatabase = 'Database for user';  //to translate
+$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
+$strCreateUserDatabaseNone = 'None';  //to translate
+$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
+
+$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
+
+$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
 $strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
-$strXMLOptions = 'XML options';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+
+$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
+
+$strTransformation_application_octetstream__hex = 'Vis dataene i heksadesimal. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
+
+$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
+
+$strXMLOptions = 'XML options';  //to translate
+
 ?>
