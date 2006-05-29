@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug #1496881, CVS link broken in main.php
+
 2006-05-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1451426, edit breaks protected BLOB field, 
       changes it from NULL to empty string
