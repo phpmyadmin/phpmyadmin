@@ -55,9 +55,9 @@ if (!empty($log)) {
 }
 
 /**
- * Sends the query and buffers the result
+ * Sends the query
  */
-$serverProcesses = PMA_DBI_fetch_result($sql_query);
+$result = PMA_DBI_query($sql_query);
 
 PMA_showMessage($GLOBALS['strSuccess']);
 
@@ -85,7 +85,7 @@ PMA_showMessage($GLOBALS['strSuccess']);
 </tr>
 <?php
 $odd_row = true;
-foreach ($serverProcesses as $value) {
+while($value = PMA_DBI_fetch_assoc($result)) {
     if (empty($full) && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']) {
         $value['Info'] = PMA_substr($value['Info'], 0, $GLOBALS['cfg']['LimitChars']) . '...';
     }

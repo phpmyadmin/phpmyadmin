@@ -11,6 +11,8 @@ $Source$
     * libraries/plugin_interface.lib.php: Show that plugin has no option if it
       has only hidden inputs.
     * sql.php: Do not compare db if not defined.
+    * server_binlog.php, server_processlist.php: No need to grab all results
+      to memory.
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
