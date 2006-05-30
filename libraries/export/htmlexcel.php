@@ -9,7 +9,7 @@
 if (isset($plugin_list)) {
     $plugin_list['htmlexcel'] = array(
         'text' => 'strHTMLExcel',
-        'extension' => 'xsl',
+        'extension' => 'xls',
         'mime_type' => 'application/vnd.ms-excel',
         'force_file' => true,
         'options' => array(
