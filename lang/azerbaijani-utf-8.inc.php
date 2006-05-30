@@ -268,7 +268,6 @@ $strInsertAsNewRow = 'Yeni setir olaraq elave et';
 $strInsertedRowId = 'Elave edilen setir nömresi (id):';
 $strInsertedRows = 'Elave edilen setir sayı:';
 $strInsert = 'Elave et';
-$strInsertNewRow = 'Yeni setir elave et';
 $strInUse = 'istifadede';
 
 $strJumpToDB = '&quot;%s&quot; me\'lumat bazasına keç.';
@@ -949,7 +948,6 @@ $strSortByKey = 'Sort by key';  //to translate
 $strSorting = 'Sorting';  //to translate
 $strSpanish = 'Spanish';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
@@ -1010,4 +1008,5 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

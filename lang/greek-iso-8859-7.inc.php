@@ -262,7 +262,6 @@ $strInsert = 'Εισαγωγή';
 $strInsertAsNewRow = 'Εισαγωγή ως νέα εγγραφές';
 $strInsertedRowId = 'id εισαγμένης εγγραφής:';  
 $strInsertedRows = 'Εισαγόμενες εγγραφές:';
-$strInsertNewRow = 'Εισαγωγή νέας εγγραφής';
 $strInUse = 'σε χρήση';
 
 $strJapanese = 'Ιαπωνικά';  
@@ -955,7 +954,6 @@ $strSortByKey = 'Sort by key';  //to translate
 $strSorting = 'Sorting';  //to translate
 $strSpanish = 'Spanish';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
 $strSQLExportType = 'Export type';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
@@ -1011,4 +1009,5 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

@@ -369,7 +369,6 @@ $strInsertAsNewRow = 'Sauvegarder un nouvel enregistrement';
 $strInsertedRowId = 'Identifiant de l\'enregistrement inséré:';
 $strInsertedRows = 'Nombre d\'enregistrements insérés :';
 $strInsert = 'Insérer';
-$strInsertNewRow = 'Insérer un nouvel enregistrement';
 $strInternalNotNecessary = '* Si une relation existe dans InnoDB, il n\'est pas nécessaire de la définir dans les relations internes.';
 $strInternalRelations = 'Relations internes';
 $strInUse = 'utilisé';
@@ -831,7 +830,6 @@ $strSpaceUsage = 'Espace utilisé';
 $strSpanish = 'espagnol';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
 $strSQLCompatibility = 'Mode de compatibilité SQL';
-$strSQLExportCompatibility = 'Compatibilité de l\'exportation';
 $strSQLExportType = 'Type d\'exportation';
 $strSQLImportOptions = 'Options SQL';
 $strSQLOptions = 'options SQL';
@@ -988,4 +986,5 @@ $strCreateUserDatabaseWildcard = 'Donner les privilèges passepartout ("%")';  /
 
 $strTransformation_application_octetstream__hex = 'Affiche une représentation hexadécimale des données. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

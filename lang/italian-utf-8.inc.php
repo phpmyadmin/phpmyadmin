@@ -369,7 +369,6 @@ $strInsertAsNewRow = 'Inserisci come nuova riga';
 $strInsertedRowId = 'Inserito id riga:';
 $strInsertedRows = 'Righe inserite:';
 $strInsert = 'Inserisci';
-$strInsertNewRow = 'Inserisci una nuova riga';
 $strInternalNotNecessary = '* Non è necessaria una relazione interna quando già esiste in InnoDB.';
 $strInternalRelations = 'Relazioni interne';
 $strInUse = 'in uso';
@@ -826,7 +825,6 @@ $strSpaceUsage = 'Spazio utilizzato';
 $strSpanish = 'Spagnolo';
 $strSplitWordsWithSpace = 'Le parole sono spezzate sulle spaziature (" ").';
 $strSQLCompatibility = 'Modalità compatibilità SQL';
-$strSQLExportCompatibility = 'Compatibilità dell\'esportazione SQL';
 $strSQLExportType = 'Tipo di esportazione';
 $strSQLImportOptions = 'Opzioni SQL';
 $strSQLOptions = 'Opzioni SQL';
@@ -999,4 +997,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

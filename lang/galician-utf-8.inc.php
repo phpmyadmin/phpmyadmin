@@ -374,7 +374,6 @@ $strInsertAsNewRow = 'Inserir unha nova columna';
 $strInsertedRowId = 'Identificador da fileira inserida:';
 $strInsertedRows = 'Fileiras inseridas:';
 $strInsert = 'Inserir';
-$strInsertNewRow = 'Inserir un novo rexistro';
 $strInternalNotNecessary = '* Non se precisa dunha relación interna cando existe tamén en InnoDB.';
 $strInternalRelations = 'Relacións internas';
 $strInUse = 'en uso';
@@ -835,7 +834,6 @@ $strSpaceUsage = 'Uso do espazo';
 $strSpanish = 'Español';
 $strSplitWordsWithSpace = 'As palabras divídense cun carácter de espazo (" ").';
 $strSQLCompatibility = 'Modo de compatiblidade SQL';
-$strSQLExportCompatibility = 'Compatibilidade coa exportación SQL';
 $strSQLExportType = 'Tipo de exportación';
 $strSQLImportOptions = 'Opcións de SQL';
 $strSQLOptions = 'Opcións SQL';
@@ -991,4 +989,5 @@ $strZip = 'comprimido no formato "zip"';
 
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

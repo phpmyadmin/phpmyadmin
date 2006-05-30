@@ -262,7 +262,6 @@ $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
 $strInsertedRowId = 'แทรกเลขประจำแถว:';
 $strInsertedRows = 'แถวที่ถูกแทรก:';
-$strInsertNewRow = 'แทรกแถวใหม่';
 $strInternalRelations = 'รีเลชันภายใน';
 $strInUse = 'ใช้อยู่';
 
@@ -947,7 +946,6 @@ $strSkipQueries = 'Number of records(queries) to skip from start';  //to transla
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
 $strSorting = 'Sorting';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
 $strSQLExportType = 'Export type';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
@@ -1010,4 +1008,5 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

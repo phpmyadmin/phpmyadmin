@@ -177,7 +177,6 @@ $strInsecureMySQL = '환경설정파일에 MySQL 관리자 암호가 없습니�
 $strInsert = '삽입';
 $strInsertAsNewRow = '새 열을 삽입합니다';
 $strInsertedRows = '삽입된 열:';
-$strInsertNewRow = '새 열을 삽입';
 $strInUse = '사용중';
 
 $strJumpToDB = '데이터베이스 &quot;%s&quot; 로 이동.';
@@ -919,7 +918,6 @@ $strSortByKey = 'Sort by key';  //to translate
 $strSorting = 'Sorting';  //to translate
 $strSpanish = 'Spanish';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
 $strSQLExportType = 'Export type';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
@@ -1010,4 +1008,5 @@ $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (usernam
 $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

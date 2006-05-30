@@ -368,7 +368,6 @@ $strInsecureMySQL = 'あなたのコンフィグレーションファイルの設定が MySQL デフォル
 $strInsertAsNewRow = '新しい行として追加する';
 $strInsertedRowId = 'インサートした行 ID:';
 $strInsertedRows = '追加された行数:';
-$strInsertNewRow = '新しい行を追加する';
 $strInsert = '追加';
 $strInternalNotNecessary = '* InnoDB が存在する場合、内部リレーションは必要ではありません。';
 $strInternalRelations = '内部リレーション';
@@ -827,7 +826,6 @@ $strSpaceUsage = 'ディスク使用量';
 $strSpanish = 'スペイン語';
 $strSplitWordsWithSpace = '各単語はスペース文字(" ")で区切って下さい。';
 $strSQLCompatibility = 'SQL互換モード';
-$strSQLExportCompatibility = 'SQL 互換エクスポート';
 $strSQLExportType = 'エクスポート形式';
 $strSQLImportOptions = 'SQL オプション';
 $strSQLOptions = 'SQL オプション';
@@ -1000,4 +998,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

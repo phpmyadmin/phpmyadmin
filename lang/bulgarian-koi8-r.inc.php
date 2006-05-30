@@ -327,7 +327,6 @@ $strInsecureMySQL = 'Вашият конфигурационен файл съдържа настройки (root без пар
 $strInsertAsNewRow = 'Вмъкване като нов ред';
 $strInsertedRowId = 'Вмъкнато ID на реда:';
 $strInsertedRows = 'Вмъкнати реда:';
-$strInsertNewRow = 'Вмъкване на нов ред';
 $strInsert = 'Вмъкване';
 $strInternalNotNecessary = '* Вътрешната релация не е необходима когато съществува също в InnoDB.';
 $strInternalRelations = 'Вътрешни релации';
@@ -641,7 +640,6 @@ $strSort = 'Сортиране';
 $strSpaceUsage = 'Използвано място';
 $strSpanish = 'Испански';
 $strSplitWordsWithSpace = 'Думите трябва да се разделят с интервал (" ").';
-$strSQLExportCompatibility = 'Съвместимост на експортирания SQL';
 $strSQLExportType = 'Тип на експортирането';
 $strSQLOptions = 'Опции на експортирания SQL';
 $strSQLParserBugMessage = 'Има известна вероятност да сте намерили бъг в SQL парсера. Моля проучете по-добре, и проверете коректността на кавичките. Друга вероятна причина за грешката може да бъде, че ъплоудвате файл с изпълним код извън областта заградена с кавички. Можете също така да се опитате да изпълните заявката чрез интерфейса за команден ред на MySQL. Грешката генерирана от MySQL сървъра по-долу, ако има такава, може също да ви помогне при откриването на проблема. Ако все още имате проблеми или парсера дава грешка там където интерфейса на командния ред не връща такава, моля ограничете вашите SQL заявки само до проблемната заявка, и изпратете съобщение за бъг с парчето от данните в CUT секцията по-долу:';
@@ -1012,4 +1010,5 @@ $strWriteRequests = 'Write requests';  //to translate
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

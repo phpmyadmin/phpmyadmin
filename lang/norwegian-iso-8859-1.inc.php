@@ -365,7 +365,6 @@ $strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten p
 $strInsertAsNewRow = 'Sett inn som ny rad';
 $strInsertedRowId = 'Satt inn rad id:';
 $strInsertedRows = 'Innsatte rader:';
-$strInsertNewRow = 'Sett inn ny rad';
 $strInsert = 'Sett inn';
 $strInternalNotNecessary = '* En intern relasjon er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelations = 'Interne relasjoner';
@@ -823,7 +822,6 @@ $strSpaceUsage = 'Plassbruk';
 $strSpanish = 'Spansk';
 $strSplitWordsWithSpace = 'Ord er separert med et mellomrom (" ").';
 $strSQLCompatibility = 'SQL kompatibilitetsmodus';
-$strSQLExportCompatibility = 'SQL eksportkompabilitet';
 $strSQLExportType = 'Eksporttype';
 $strSQLImportOptions = 'SQL innstillinger';
 $strSQLOptions = 'SQL valg';
@@ -996,4 +994,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

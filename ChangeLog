@@ -19,6 +19,8 @@ $Source$
       to memory.
     * libraries/export/htmlexcel.php: Fix extension (bug #1497239).
     * libraries/export/csv.php: Handle correctly AUTO (bug #1497239).
+    * lang/*: Remove obsolete messages, add missing ones.
+    * lang/czech: Updated.
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.

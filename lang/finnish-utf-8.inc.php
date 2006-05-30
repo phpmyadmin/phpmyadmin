@@ -372,7 +372,6 @@ $strInsertAsNewRow = 'Lisää uutena rivinä';
 $strInsertedRowId = 'Sijoitetun rivin id:';
 $strInsertedRows = 'Lisätyt rivit:';
 $strInsert = 'Lisää rivi';
-$strInsertNewRow = 'Lisää uusi rivi';
 $strInternalNotNecessary = '* Sisäistä relaatiota ei tarvita silloin, kun sellainen on jo InnoDB:ssä.';
 $strInternalRelations = 'Sisäiset relaatiot';
 $strInUse = 'käytössä';
@@ -829,7 +828,6 @@ $strSpaceUsage = 'Levytilan käyttö';
 $strSpanish = 'Espanjalainen';
 $strSplitWordsWithSpace = 'Sanat erotellaan välilyönnillä.';
 $strSQLCompatibility = 'SQL-yhteensopiva tila';
-$strSQLExportCompatibility = 'SQL-viennin yhteensopivuus';
 $strSQLExportType = 'Vientityyppi';
 $strSQLImportOptions = 'SQL-valinnat';
 $strSQLOptions = 'SQL-valinnat';
@@ -1001,4 +999,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>

@@ -370,7 +370,6 @@ $strInsertAsNewRow = 'Lisa uue reana';
 $strInsertedRowId = 'Lisatud rea id:';
 $strInsertedRows = 'Lisatud read:';
 $strInsert = 'Lisa';
-$strInsertNewRow = 'Lisa uus rida';
 $strInternalNotNecessary = '* Sisene seos ei ole vajalik kui ta eksisteerib ka InnoDB-s.';
 $strInternalRelations = 'Sisesed seosed';
 $strInUse = 'kasutusel';
@@ -827,7 +826,6 @@ $strSpaceUsage = 'Ruumivõtt';
 $strSpanish = 'Hispaania';
 $strSplitWordsWithSpace = 'Sõnad on eraldatud tühikuga (" ").';
 $strSQLCompatibility = 'SQL ühilduvus viis';
-$strSQLExportCompatibility = 'SQL ekspordiga ühilduvus';
 $strSQLExportType = 'Ekspordi tüüp';
 $strSQLImportOptions = 'SQL seaded';
 $strSQLOptions = 'SQL seaded';
@@ -999,4 +997,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 ?>
