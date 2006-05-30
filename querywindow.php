@@ -4,6 +4,8 @@
 
 require_once('./libraries/common.lib.php');
 
+$is_superuser = PMA_isSuperuser();
+
 /**
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
