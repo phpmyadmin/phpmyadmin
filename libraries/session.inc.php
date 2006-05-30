@@ -31,24 +31,6 @@ if (!@function_exists('session_name')) {
             . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
     exit();
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
-/*    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
-                 'AllowAnywhereRecoding' => false);
-    // Loads the language file
-    require_once('./libraries/select_lang.lib.php');
-    // Displays the error message
-    // (do not use &amp; for parameters sent by header)
-    // TODO FIXME replace with locale string
-    $strSessionAutostartError = 'phpMyAdmin cannot run with'
-        . ' [a@http://php.net/session#ini.session.auto-start@php]session.auto_start[/a]'
-        . ' enabled. Check your php configuration.';
-    header('Location: error.php'
-            . '?lang='  . urlencode('en') //($available_languages[$lang][2])
-            . '&char='  . urlencode($charset)
-            . '&dir='   . urlencode('ltr') //($text_dir)
-            . '&type='  . urlencode('Error') //($strError)
-            . '&error=' . urlencode($strSessionAutostartError));
-    exit();
-    */
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
         setcookie(session_name(), '', time()-42000, '/');
