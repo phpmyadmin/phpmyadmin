@@ -986,4 +986,8 @@ $strCreateUserDatabaseWildcard = 'Donner les privilèges passepartout ("%")';  //
 $strTransformation_application_octetstream__hex = 'Affiche une représentation hexadécimale des données. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
 
 $strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
+$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
+$strInvalidTableName = 'Invalid table name';  //to translate
+$strInvalidDatabase = 'Invalid database';  //to translate
+$strServers = 'Servers';  //to translate
 ?>

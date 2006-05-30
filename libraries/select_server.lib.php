@@ -41,8 +41,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
         echo '<select name="server" id="select_server"'
             . ' onchange="if (this.value != \'\') this.form.submit();">';
-        // TODO FIXME replace with $GLOBALS['strServers']
-        echo '<option value="">(' . $GLOBALS['strServer'] . ') ...</option>' . "\n";
+        echo '<option value="">(' . $GLOBALS['strServers'] . ') ...</option>' . "\n";
     } elseif ($list) {
         echo $GLOBALS['strServer'] . ':<br />';
         // TODO FIXME display server list as 'list'

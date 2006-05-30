@@ -850,8 +850,7 @@ class PMA_Table {
             // Ensure the target is valid
             if (count($GLOBALS['dblist']) > 0
               && ! in_array($new_db, $GLOBALS['dblist'])) {
-                // TODO add string $strInvalidDatabase
-                $this->errors[] = $GLOBALS['strError'] . ': ' . $new_db;
+                $this->errors[] = $GLOBALS['strInvalidDatabase'] . ': ' . $new_db;
                 return false;
             }
         } else {
@@ -865,8 +864,7 @@ class PMA_Table {
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            // TODO add string $strInvalidTableName
-            $this->errors[] = $GLOBALS['strError'] . ': ' . $new_table->getFullName();
+            $this->errors[] = $GLOBALS['strInvalidTableName'] . ': ' . $new_table->getFullName();
             return false;
         }
 
@@ -874,8 +872,7 @@ class PMA_Table {
             RENAME TABLE ' . $this->getFullName(true) . '
                       TO ' . $new_table->getFullName(true) . ';';
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
-            // TODO add $GLOBALS['strErrorRenamingTable'];
-            $this->errors[] = $GLOBALS['strError'] . ': ' . $new_table->getFullName();
+            $this->errors[] = sprintf($GLOBALS['strErrorRenamingTable'], $this->getFullName(), $new_table->getFullName());
             return false;
         }
 

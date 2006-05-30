@@ -1011,4 +1011,8 @@ $strWriteRequests = 'Write requests';  //to translate
 $strXMLOptions = 'XML options';  //to translate
 
 $strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
+$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
+$strInvalidTableName = 'Invalid table name';  //to translate
+$strInvalidDatabase = 'Invalid database';  //to translate
+$strServers = 'Servers';  //to translate
 ?>

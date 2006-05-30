@@ -991,4 +991,8 @@ $strOpenDocumentText = 'Open Document Text';  //to translate
 $strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 $strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
+$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
+$strInvalidTableName = 'Invalid table name';  //to translate
+$strInvalidDatabase = 'Invalid database';  //to translate
+$strServers = 'Servers';  //to translate
 ?>

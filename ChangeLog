@@ -22,6 +22,8 @@ $Source$
     * lang/*: Remove obsolete messages, add missing ones.
     * lang/czech: Updated.
     * libraries/session.inc.php: Remove unused code.
+    * libraries/Table.class.php, libraries/select_lang.lib.php, lang/*: Add
+      todo translations (bug #1436564).
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
