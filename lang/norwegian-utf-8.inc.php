@@ -980,7 +980,7 @@ $strCreateUserDatabaseName = 'Create database with same name and grant all privi
 $strCreateUserDatabaseNone = 'None';  //to translate
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
 
-$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
+$strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
 
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 

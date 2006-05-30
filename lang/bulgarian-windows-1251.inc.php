@@ -800,7 +800,7 @@ $strCSV = 'CSV';  //to translate
 $strDirtyPages = 'Dirty pages';  //to translate
 
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
-$strExportMustBeFile = 'Selected export type has to saved in file!';  //to translate
+$strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
 
 $strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
 $strFileNameTemplateDescriptionServer = 'server name';  //to translate
