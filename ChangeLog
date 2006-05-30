@@ -8,6 +8,7 @@ $Source$
 2006-05-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french*: updates
     * querywindow.php: $is_superuser was not defined
+    * sql.php: bug #1490422, lost connection to MySQL server (SELECT DISTINCT)
 
 2006-05-30 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix handling of backquotes (bug #1497239).

@@ -520,6 +520,11 @@ else {
                             $count_query .= ' SQL_CALC_FOUND_ROWS ';
                             // add everything that was after the first SELECT
                             $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
+                            // ensure there is no semicolon at the end of the 
+                            // count query because we'll probably add
+                            // a LIMIT 1 clause after it
+                            $count_query = rtrim($count_query);
+                            $count_query = rtrim($count_query, ';');
                     } else { // PMA_MYSQL_INT_VERSION < 40000
 
                         if (!empty($analyzed_sql[0]['from_clause'])) {
