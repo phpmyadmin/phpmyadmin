@@ -70,7 +70,7 @@ function PMA_exportHeader() {
             $GLOBALS['cvs_columns'] = 'yes';
         }
     } else {
-        if (empty($csv_terminated)) {
+        if (empty($csv_terminated) || strtolower($csv_terminated) == 'auto') {
             $csv_terminated  = $GLOBALS['crlf'];
         } else {
             $csv_terminated  = str_replace('\\r', "\015", $csv_terminated);

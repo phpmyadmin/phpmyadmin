@@ -17,7 +17,8 @@ $Source$
     * sql.php: Do not compare db if not defined.
     * server_binlog.php, server_processlist.php: No need to grab all results
       to memory.
-    * libraries/export/htmlexcel.php: Fix extension.
+    * libraries/export/htmlexcel.php: Fix extension (bug #1497239).
+    * libraries/export/csv.php: Handle correctly AUTO (bug #1497239).
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
