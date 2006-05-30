@@ -14,6 +14,7 @@ if (isset($plugin_list)) {
         'extension' => 'xml',
         'mime_type' => 'text/xml',
         'options' => array(
+            array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strXMLOptions',
         );
