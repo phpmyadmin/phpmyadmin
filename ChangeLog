@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-05-30 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Fix handling of backquotes (bug #1497239).
+
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
     * lang/japanese: Update, thanks to Ishigaki Kenichi - tcool.

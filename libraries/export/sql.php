@@ -67,7 +67,7 @@ if (isset($plugin_list)) {
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'auto_increment', 'text' => 'strAddAutoIncrement');
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'use_backquotes', 'text' => 'strUseBackquotes');
+                array('type' => 'bool', 'name' => 'backquotes', 'text' => 'strUseBackquotes');
 
             /* MIME stuff etc. */
             $plugin_list['sql']['options'][] =
@@ -123,8 +123,8 @@ $GLOBALS['comment_marker'] = '-- ';
 /**
  * Avoids undefined variables, use NULL so isset() returns false
  */
-if ( ! isset( $sql_use_backquotes ) ) {
-    $sql_use_backquotes = null;
+if ( ! isset( $sql_backquotes ) ) {
+    $sql_backquotes = null;
 }
 
 /**
@@ -224,11 +224,11 @@ function PMA_exportDBCreate($db)
 {
     global $crlf;
     if (isset($GLOBALS['sql_drop_database'])) {
-        if (!PMA_exportOutputHandler('DROP DATABASE ' . (isset($GLOBALS['sql_use_backquotes']) ? PMA_backquote($db) : $db) . ';' . $crlf)) {
+        if (!PMA_exportOutputHandler('DROP DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db) . ';' . $crlf)) {
             return FALSE;
         }
     }
-    $create_query = 'CREATE DATABASE ' . (isset($GLOBALS['sql_use_backquotes']) ? PMA_backquote($db) : $db);
+    $create_query = 'CREATE DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db);
     if (PMA_MYSQL_INT_VERSION >= 40101) {
         $collation = PMA_getDbCollation($db);
         if (strpos($collation, '_')) {
@@ -241,7 +241,7 @@ function PMA_exportDBCreate($db)
     if (!PMA_exportOutputHandler($create_query)) {
         return FALSE;
     }
-    if (isset($GLOBALS['sql_use_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] == 'NONE') {
+    if (isset($GLOBALS['sql_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] == 'NONE') {
         return PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
     }
     return PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -260,7 +260,7 @@ function PMA_exportDBHeader($db)
 {
     global $crlf;
     $head = $GLOBALS['comment_marker'] . $crlf
-          . $GLOBALS['comment_marker'] . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['sql_use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+          . $GLOBALS['comment_marker'] . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
           . $GLOBALS['comment_marker'] . $crlf;
     return PMA_exportOutputHandler($head);
 }
@@ -304,7 +304,7 @@ function PMA_exportDBFooter($db)
 function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 {
     global $sql_drop;
-    global $sql_use_backquotes;
+    global $sql_backquotes;
     global $cfgRelation;
     global $sql_constraints;
 
@@ -347,13 +347,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         } else {
             $drop_clause = 'DROP TABLE';
         }
-        $schema_create .= $drop_clause . ' IF EXISTS ' . PMA_backquote($table, $sql_use_backquotes) . ';' . $crlf;
+        $schema_create .= $drop_clause . ' IF EXISTS ' . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
         unset($drop_clause);
     }
 
     // Steve Alberty's patch for complete table dump,
     // Whether to quote table and fields names or not
-    if ($sql_use_backquotes) {
+    if ($sql_backquotes) {
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 1');
     } else {
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 0');
@@ -467,7 +467,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comments = false, $do_mime = false)
 {
     global $cfgRelation;
-    global $sql_use_backquotes;
+    global $sql_backquotes;
     global $sql_constraints;
 
     $schema_create = '';
@@ -502,32 +502,32 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
 
     if (isset($comments_map) && count($comments_map) > 0) {
         $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
-                       . $GLOBALS['comment_marker'] . $GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $sql_use_backquotes) . ':' . $crlf;
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $sql_backquotes) . ':' . $crlf;
         foreach ($comments_map AS $comment_field => $comment) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($comment_field, $sql_use_backquotes) . $crlf
-                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($comment, $sql_use_backquotes) . $crlf;
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($comment_field, $sql_backquotes) . $crlf
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($comment, $sql_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
         $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
-                       . $GLOBALS['comment_marker'] . $GLOBALS['strMIMETypesForTable']. ' ' . PMA_backquote($table, $sql_use_backquotes) . ':' . $crlf;
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strMIMETypesForTable']. ' ' . PMA_backquote($table, $sql_backquotes) . ':' . $crlf;
         @reset($mime_map);
         foreach ($mime_map AS $mime_field => $mime) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($mime_field, $sql_use_backquotes) . $crlf
-                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($mime['mimetype'], $sql_use_backquotes) . $crlf;
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($mime_field, $sql_backquotes) . $crlf
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($mime['mimetype'], $sql_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if ($have_rel) {
         $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
-                       . $GLOBALS['comment_marker'] . $GLOBALS['strRelationsForTable']. ' ' . PMA_backquote($table, $sql_use_backquotes) . ':' . $crlf;
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strRelationsForTable']. ' ' . PMA_backquote($table, $sql_backquotes) . ':' . $crlf;
         foreach ($res_rel AS $rel_field => $rel) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $sql_use_backquotes) . $crlf
-                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $sql_use_backquotes)
-                            . ' -> ' . PMA_backquote($rel['foreign_field'], $sql_use_backquotes) . $crlf;
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $sql_backquotes) . $crlf
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $sql_backquotes)
+                            . ' -> ' . PMA_backquote($rel['foreign_field'], $sql_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
@@ -553,7 +553,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
  */
 function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE)
 {
-    $formatted_table_name = (isset($GLOBALS['sql_use_backquotes']))
+    $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $dump = $crlf
@@ -593,11 +593,11 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
-    global $sql_use_backquotes;
+    global $sql_backquotes;
     global $rows_cnt;
     global $current_row;
 
-    $formatted_table_name = (isset($GLOBALS['sql_use_backquotes']))
+    $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $head = $crlf
@@ -629,9 +629,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $sql_use_backquotes);
+                $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $sql_backquotes);
             } else {
-                $field_set[$j] = PMA_backquote($fields_meta[$j]->name, $sql_use_backquotes);
+                $field_set[$j] = PMA_backquote($fields_meta[$j]->name, $sql_backquotes);
             }
         }
 
@@ -641,7 +641,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['sql_ignore'])) {
                 $schema_insert .= 'IGNORE ';
             }
-            $schema_insert .= PMA_backquote($table, $sql_use_backquotes) . ' SET ';
+            $schema_insert .= PMA_backquote($table, $sql_backquotes) . ' SET ';
         } else {
             // insert or replace
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'REPLACE') {
@@ -665,10 +665,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             // scheme for inserting fields
             if (isset($GLOBALS['sql_columns'])) {
                 $fields        = implode(', ', $field_set);
-                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_use_backquotes)
+                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
                                . ' (' . $fields . ') VALUES ';
             } else {
-                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_use_backquotes)
+                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
                                . ' VALUES ';
             }
         }
