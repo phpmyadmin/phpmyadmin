@@ -288,11 +288,14 @@ function PMA_pluginGetOptions($section, &$list)
     foreach ($list as $plugin_name => $val) {
         $ret .= '<fieldset id="' . $plugin_name . '_options" class="options">';
         $ret .= '<legend>' . PMA_getString($val['options_text']) . '</legend>';
+        $count = 0;
         if (isset($val['options']) && count($val['options']) > 0) {
             foreach ($val['options'] as $id => $opt) {
+                if ($opt['type'] != 'hidden') $count++;
                 $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt);
             }
-        } else {
+        }
+        if ($count == 0) {
             $ret .= $GLOBALS['strNoOptions'];
         }
         $ret .= '</fieldset>';

@@ -8,6 +8,8 @@ $Source$
 2006-05-30 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix handling of backquotes (bug #1497239).
     * libraries/export/xml.php: Fix export to XML (bug #1497239).
+    * libraries/plugin_interface.lib.php: Show that plugin has no option if it
+      has only hidden inputs.
 
 2006-05-29 Michal Čihař  <michal@cihar.com>
     * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
