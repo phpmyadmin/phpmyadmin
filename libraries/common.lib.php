@@ -123,7 +123,11 @@ function PMA_getDbList()
             && $GLOBALS['cfg']['LeftFrameDBSeparator']
             && strstr($db, $GLOBALS['cfg']['LeftFrameDBSeparator']))
         {
-            $pos            = strrpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
+            // use strpos instead of strrpos; it seems more common to
+            // have the db name, the separator, then the rest which
+            // might contain a separator
+            // like dbname_the_rest 
+            $pos            = strpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
             $group          = substr($db, 0, $pos);
             $disp_name_cut  = substr($db, $pos);
         } else {
