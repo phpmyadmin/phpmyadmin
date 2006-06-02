@@ -141,6 +141,13 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Include possible custom headers
     require_once './libraries/header_custom.inc.php';
 
+    // message of "Cookies required" displayed for auth_type http or config
+    // note: here, the decoration won't work because without cookies,
+    // our standard CSS is not operational
+    if (empty($_COOKIE)) {
+         echo '<div class="notice">' . $GLOBALS['strCookiesRequired'] . '</div>' . "\n";
+    }
+
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);
     }
