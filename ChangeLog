@@ -8,6 +8,7 @@ $Source$
 2006-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: for auth_type='cookie', avoid
       showing the "cookies must be enabled" message if they are enabled
+    * Documentation.html: requirements: web browser with cookies enabled
 
 2006-05-31 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1498108, support twice the separator
