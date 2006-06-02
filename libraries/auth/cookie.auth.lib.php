@@ -212,9 +212,12 @@ echo sprintf( $GLOBALS['strWelcome'],
     </fieldset>
 </form>
 
-<div class="notice"><?php echo $GLOBALS['strCookiesRequired']; ?></div>
-
 <?php
+// show the "Cookies required" message only if cookies are disabled
+// (we previously tried to set some cookies)
+if (empty($_COOKIE)) {
+    echo '<div class="notice">' . $GLOBALS['strCookiesRequired'] . '</div>' . "\n";
+}
 if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
     foreach ( $GLOBALS['PMA_errors'] as $error ) {
         echo '<div class="error">' . $error . '</div>' . "\n";
