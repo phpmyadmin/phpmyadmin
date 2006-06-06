@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: various fixes, thanks to Cedric Corazza
+
 2006-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: for auth_type='cookie', avoid
       showing the "cookies must be enabled" message if they are enabled
