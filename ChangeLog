@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/header.inc.php: bug #1501891, undefined PMA_isSuperuser() when 
+      the default server is 0
+
 2006-06-06 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: various fixes, thanks to Cedric Corazza
 

@@ -50,7 +50,8 @@ if (empty($GLOBALS['is_header_sent'])) {
                     (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
                     $GLOBALS['cfg']['TitleDefault']))
                     );
-    $is_superuser    = PMA_isSuperuser();
+    // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0; 
+    $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
     ?>
     <script type="text/javascript" language="javascript">
     <!--
