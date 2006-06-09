@@ -10,7 +10,11 @@ $Source$
     * libraries/import.lib.php: support display of HANDLER statement results
     * libraries/header.inc.php, libraries/auth/http.auth.lib.php,
       /cookie.auth.lib.php, removed header_custom.inc.php: 
-      patch #1502453, unnecessary disk access, thanks to Juergen Wind
+      patch #1502453, unnecessary disk access,
+      thanks to Juergen Wind (windkiel)
+    * libraries/footer.inc.php, libraries/auth/http.auth.lib.php,
+      /cookie.auth.lib.php, removed footer_custom.inc.php: 
+      applied the same optimization 
 
 2006-06-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/header.inc.php: bug #1501891, undefined PMA_isSuperuser() when 

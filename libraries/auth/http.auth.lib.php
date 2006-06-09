@@ -45,7 +45,10 @@ function PMA_auth() {
 <br />
 <div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
-<?php require './libraries/footer_custom.inc.php'; ?>
+<?php if (file_exists('./config.footer.inc.php')) {
+         require('./config.footer.inc.php');
+      }
+ ?>
 
 </body>
 </html>

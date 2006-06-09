@@ -123,7 +123,10 @@ if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
 }
 
 // Include possible custom footers
-require_once './libraries/footer_custom.inc.php';
+if (file_exists('./config.footer.inc.php')) {
+    require('./config.footer.inc.php');
+}
+
 
 /**
  * Generates profiling data if requested

@@ -146,7 +146,10 @@ echo sprintf( $GLOBALS['strWelcome'],
         </div>
 <?php
         echo '</div>' . "\n";
-        require './libraries/footer_custom.inc.php';
+        if (file_exists('./config.footer.inc.php')) {
+            require('./config.footer.inc.php');
+        }
+
         echo '    </body>' . "\n"
            . '</html>';
         exit();
