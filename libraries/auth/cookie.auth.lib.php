@@ -244,7 +244,10 @@ if (uname.value == '') {
 </script>
 </div>
 
-<?php require './libraries/footer_custom.inc.php'; ?>
+<?php if (file_exists('./config.footer.inc.php')) {
+         require('./config.footer.inc.php');
+      }
+ ?>
 
 </body>
 
