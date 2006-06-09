@@ -140,7 +140,10 @@ if (empty($GLOBALS['is_header_sent'])) {
     <?php
 
     // Include possible custom headers
-    require_once './libraries/header_custom.inc.php';
+    if (file_exists('./config.header.inc.php')) {
+        require('./config.header.inc.php');
+    }
+
 
     // message of "Cookies required" displayed for auth_type http or config
     // note: here, the decoration won't work because without cookies,
