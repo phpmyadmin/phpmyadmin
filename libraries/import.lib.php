@@ -60,7 +60,7 @@ function PMA_detectCompression($filepath)
 
 /**
  *  Runs query inside import buffer. This is needed to allow displaying
- *  of last SELECT or SHOW results and simmilar nice stuff.
+ *  of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
  *  @param  string query to run
  *  @param  string query to display, this might be commented
@@ -89,7 +89,7 @@ function PMA_importRunQuery($sql = '', $full = '')
                 } else {
                     $executed_queries++;
                     if ($run_query && $finished && empty($sql) && !$error && (
-                            (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) ||
+                            (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql'])) ||
                             ($executed_queries == 1)
                             )) {
                         $go_sql = TRUE;

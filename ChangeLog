@@ -7,6 +7,7 @@ $Source$
 
 2006-06-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php: bug #1490569, search with LIKE on numeric fields
+    * libraries/import.lib.php: support display of HANDLER statement results
 
 2006-06-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/header.inc.php: bug #1501891, undefined PMA_isSuperuser() when 
