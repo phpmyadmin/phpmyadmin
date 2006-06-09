@@ -100,7 +100,10 @@ if (top != self) {
 
 <body class="loginform">
 
-<?php require './libraries/header_custom.inc.php'; ?>
+<?php if (file_exists('./config.header.inc.php')) {
+          require('./config.header.inc.php');
+      } 
+?>
 
 <div class="container">
 <a href="http://www.phpmyadmin.net" target="_blank" class="logo"><?php

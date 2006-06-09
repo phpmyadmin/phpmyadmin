@@ -33,7 +33,10 @@ function PMA_auth() {
     ?>
 </head>
 <body>
-<?php require './libraries/header_custom.inc.php'; ?>
+<?php if (file_exists('./config.header.inc.php')) {
+          require('./config.header.inc.php');
+      } 
+ ?>
 
 <br /><br />
 <center>
