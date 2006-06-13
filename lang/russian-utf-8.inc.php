@@ -1018,4 +1018,5 @@ $strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
 $strInvalidTableName = 'Invalid table name';  //to translate
 $strInvalidDatabase = 'Invalid database';  //to translate
 $strServers = 'Servers';  //to translate
+$strDelimiter = 'Delimiter';  //to translate
 ?>

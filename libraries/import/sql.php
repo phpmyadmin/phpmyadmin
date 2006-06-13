@@ -27,6 +27,12 @@ if (isset($plugin_list)) {
     $sql = '';
     $start_pos = 0;
     $i = 0;
+    if (isset($_POST['sql_delimiter'])) {
+        $sql_delimiter = $_POST['sql_delimiter'];
+    } else {
+        $sql_delimiter = ';';
+    }
+
     // Handle compatibility option
     if (isset($_REQUEST['sql_compatibility'])) {
         PMA_DBI_try_query('SET SQL_MODE="' . $_REQUEST['sql_compatibility'] . '"');
@@ -43,7 +49,7 @@ if (isset($plugin_list)) {
             // Append new data to buffer
             $buffer .= $data;
             // Do not parse string when we're not at the end and don't have ; inside
-            if ((strpos($buffer, ';') === FALSE) && !$finished) {
+            if ((strpos($buffer, $sql_delimiter) === FALSE) && !$finished) {
                 continue;
             }
         }
@@ -51,6 +57,7 @@ if (isset($plugin_list)) {
         $len = strlen($buffer);
         // Grab some SQL queries out of it
         while ($i < $len) {
+            $found_delimiter = false;
             // Find first interesting character, several strpos seem to be faster than simple loop in php:
             //while (($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
             //if ($i == $len) break;
@@ -63,9 +70,11 @@ if (isset($plugin_list)) {
             if ($p2 === FALSE) {
                 $p2 = 2147483647;
             }
-            $p3 = strpos($buffer, ';', $i);
+            $p3 = strpos($buffer, $sql_delimiter, $i);
             if ($p3 === FALSE) {
                 $p3 = 2147483647;
+            } else {
+                $found_delimiter = true;
             }
             $p4 = strpos($buffer, '#', $i);
             if ($p4 === FALSE) {
@@ -84,6 +93,7 @@ if (isset($plugin_list)) {
                 $p7 = 2147483647;
             }
             $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7);
+            unset($p1, $p2, $p3, $p4, $p5, $p6, $p7);
             if ($i == 2147483647) {
                 $i = $oi;
                 if (!$finished) {
@@ -193,23 +203,29 @@ if (isset($plugin_list)) {
             }
 
             // End of SQL
-            if ($ch == ';' || ($finished && ($i == $len - 1))) {
+            if ($found_delimiter || ($finished && ($i == $len - 1))) {
                 $tmp_sql = $sql;
                 if ($start_pos < $len) {
-                    $tmp_sql .= substr($buffer, $start_pos, $i - $start_pos + 1);
+                    $length_to_grab = $i - $start_pos;
+                    if (!$found_delimiter) {
+                        $length_to_grab++;
+                    }
+                    $tmp_sql .= substr($buffer, $start_pos, $length_to_grab);
+                    unset($length_to_grab);
                 }
                 // Do not try to execute empty SQL
                 if (!preg_match('/^([\s]*;)*$/', trim($tmp_sql))) {
                     $sql = $tmp_sql;
-                    PMA_importRunQuery($sql, substr($buffer, 0, $i + 1));
-                    $buffer = substr($buffer, $i + 1);
+                    PMA_importRunQuery($sql, substr($buffer, 0, $i + strlen($sql_delimiter)));
+                    $buffer = substr($buffer, $i + strlen($sql_delimiter));
                     // Reset parser:
                     $len = strlen($buffer);
                     $sql = '';
                     $i = 0;
                     $start_pos = 0;
                     // Any chance we will get a complete query?
-                    if ((strpos($buffer, ';') === FALSE) && !$finished) {
+                    //if ((strpos($buffer, ';') === FALSE) && !$finished) {
+                    if ((strpos($buffer, $sql_delimiter) === FALSE) && !$finished) {
                         break;
                     }
                 } else {

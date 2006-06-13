@@ -354,10 +354,16 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
     }
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
+    echo '<label for="id_sql_delimiter">[ ' . $GLOBALS['strDelimiter']
+        .'</label>' . "\n";
+    echo '<input type="text" name="sql_delimiter" size="3" value=";" '
+        .'id="id_sql_delimiter" /> ]' . "\n";
+
     echo '<input type="checkbox" name="show_query" value="1" '
         .'id="checkbox_show_query" checked="checked" />' . "\n"
         .'<label for="checkbox_show_query">' . $GLOBALS['strShowThisQuery']
         .'</label>' . "\n";
+
     echo '</div>' . "\n";
     echo '<input type="submit" name="SQL" value="' . $GLOBALS['strGo'] . '" />'
         ."\n";

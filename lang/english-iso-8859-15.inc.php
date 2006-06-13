@@ -223,6 +223,7 @@ $strDeletedRows = 'Deleted rows:';
 $strDeleted = 'The row has been deleted';
 $strDeleteNoUsersSelected = 'No users selected for deleting!';
 $strDeleting = 'Deleting %s';
+$strDelimiter = 'Delimiter';
 $strDelOld = 'The current page has references to tables that no longer exist. Would you like to delete those references?';
 $strDescending = 'Descending';
 $strDescription = 'Description';
