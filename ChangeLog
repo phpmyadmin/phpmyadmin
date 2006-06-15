@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sql_query_form.lib.php: Delimiter only if MySQL supports it
+
 2006-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sql_query_form.lib.php, libraries/import/sql.php, lang/*:
       bug # 1469699, can't create a stored procedure
