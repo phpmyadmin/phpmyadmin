@@ -1,4 +1,12 @@
+/**
+ * holds the browser query window
+ */
 var querywindow = '';
+
+/**
+ * holds the query to be load from a new query window
+ */
+var query_to_load = '';
 
 /**
  * sets current selected db
@@ -198,8 +206,19 @@ function reload_querywindow( db, table, sql_query ) {
     }
 }
 
+/**
+ * brings query window to front and inserts query to be edited
+ */
 function focus_querywindow( sql_query ) {
-    if ( querywindow && !querywindow.closed && querywindow.location) {
+    /* if ( querywindow && !querywindow.closed && querywindow.location) { */
+    if ( !querywindow || querywindow.closed || !querywindow.location) {
+        // we need first to open the window and cannot pass the query with it
+        // as we dont know if the query exceeds max url length
+        /* url = 'querywindow.php?' + common_query + '&db=' + db + '&table=' + table + '&sql_query=SELECT * FROM'; */
+        query_to_load = sql_query;
+        open_querywindow();
+        insertQuery(0);
+    } else {
         //var querywindow = querywindow;
         if ( querywindow.document.querywindow.querydisplay_tab != 'sql' ) {
             querywindow.document.querywindow.querydisplay_tab.value = "sql";
@@ -209,10 +228,21 @@ function focus_querywindow( sql_query ) {
         } else {
             querywindow.focus();
         }
-    } else {
-        url = 'querywindow.php?' + common_query + '&db=' + db + '&table=' + table + '&sql_query=' + sql_query;
-        open_querywindow( url );
     }
+    return true;
+}
+
+/**
+ * inserts query string into query window textarea
+ * called from script tag in querywindow
+ */
+function insertQuery() {
+    if (query_to_load != '' && querywindow.document && querywindow.document.getElementById && querywindow.document.getElementById('sqlquery')) {
+        querywindow.document.getElementById('sqlquery').value = query_to_load;
+        query_to_load = '';
+        return true;
+    }
+    return false;
 }
 
 function open_querywindow( url ) {

@@ -1330,8 +1330,8 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             $a_string = str_replace('\\', '\\\\', $a_string);
             $a_string = str_replace('\'', '\\\'', $a_string);
             $a_string = str_replace('#', '\\#', $a_string);
-            $a_string = str_replace("\012", '\\\\n', $a_string);
-            $a_string = str_replace("\015", '\\\\r', $a_string);
+            $a_string = str_replace("\012", '\n', $a_string);
+            $a_string = str_replace("\015", '\r', $a_string);
         }
 
         return (($add_backquotes) ? PMA_backquote($a_string) : $a_string);
@@ -1556,7 +1556,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 && (!empty($edit_target))) {
 
                 if ($cfg['EditInWindow'] == true) {
-                    $onclick = 'window.parent.focus_querywindow(\'' . urlencode($local_query) . '\'); return false;';
+                    $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($local_query, false) . '\'); return false;';
                 } else {
                     $onclick = '';
                 }

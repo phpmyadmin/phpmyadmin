@@ -157,6 +157,17 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
     }
 
     echo '</form>' . "\n";
+    if ($is_querywindow) {
+        ?>
+        <script type="text/javascript" language="javascript">
+        //<![CDATA[
+            if (window.opener) {
+                window.opener.parent.insertQuery();
+            }
+        //]]>
+        </script>
+        <?php
+    }
 }
 
 /**
