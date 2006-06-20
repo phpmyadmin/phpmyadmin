@@ -126,7 +126,7 @@ function PMA_getDbList()
             // use strpos instead of strrpos; it seems more common to
             // have the db name, the separator, then the rest which
             // might contain a separator
-            // like dbname_the_rest 
+            // like dbname_the_rest
             $pos            = strpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
             $group          = substr($db, 0, $pos);
             $disp_name_cut  = substr($db, $pos);
@@ -2055,8 +2055,18 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             if (empty($tag_params['class'])) {
                 $tag_params['class'] = 'link';
             }
+
+            // decode encoded url separators
             $separator   = PMA_get_arg_separator();
+            // on most places separator is still hard coded ...
+            if ($separator !== '&') {
+                // ... so always replace & with $separator
+                $url         = str_replace(htmlentities('&'), $separator, $url);
+                $url         = str_replace('&', $separator, $url);
+            }
             $url         = str_replace(htmlentities($separator), $separator, $url);
+            // end decode
+
             $url_parts   = parse_url($url);
             $query_parts = explode($separator, $url_parts['query']);
             if ($new_form) {
