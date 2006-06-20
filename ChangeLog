@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Table.class.php: a typo disabled table copy operation
+
 2006-06-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php: bug #1449845 Nowrap in character sets
     * libraries/common.lib.php::PMA_linkOrButton():
