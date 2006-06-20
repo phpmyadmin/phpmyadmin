@@ -189,11 +189,11 @@ table tr.hover {
 
 table .value {
     text-align:         <?php echo $right; ?>;
-    white-space:        nowrap;
+    white-space:        normal;
 }
 /* IE doesnt handles 'pre' right */
 table [class=value] {
-    white-space:        pre;
+    white-space:        normal;
 }
 
 

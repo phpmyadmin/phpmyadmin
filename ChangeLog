@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * themes/*/css/theme_right.css.php: bug #1449845 Nowrap in character sets
+
 2006-06-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sql_query_form.lib.php: Delimiter only if MySQL supports it
 
@@ -12,7 +15,7 @@ $Source$
     * libraries/sql_query_form.lib.php, libraries/import/sql.php, lang/*:
       bug # 1469699, can't create a stored procedure
       Experimental, please test! I added a Delimiter field in the query form
-      so user can specify his special delimiter; 
+      so user can specify his special delimiter;
       TODO: fix the display of the query which has a special delimiter
             because for now it's empty
 
@@ -20,15 +23,15 @@ $Source$
     * tbl_select.php: bug #1490569, search with LIKE on numeric fields
     * libraries/import.lib.php: support display of HANDLER statement results
     * libraries/header.inc.php, libraries/auth/http.auth.lib.php,
-      /cookie.auth.lib.php, removed header_custom.inc.php: 
+      /cookie.auth.lib.php, removed header_custom.inc.php:
       patch #1502453, unnecessary disk access,
       thanks to Juergen Wind (windkiel)
     * libraries/footer.inc.php, libraries/auth/http.auth.lib.php,
-      /cookie.auth.lib.php, removed footer_custom.inc.php: 
-      applied the same optimization 
+      /cookie.auth.lib.php, removed footer_custom.inc.php:
+      applied the same optimization
 
 2006-06-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/header.inc.php: bug #1501891, undefined PMA_isSuperuser() when 
+    * libraries/header.inc.php: bug #1501891, undefined PMA_isSuperuser() when
       the default server is 0
 
 2006-06-06 Marc Delisle  <lem9@users.sourceforge.net>
@@ -80,7 +83,7 @@ $Source$
     * main.php: bug #1496881, CVS link broken in main.php
 
 2006-05-26 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_change.php: bug #1451426, edit breaks protected BLOB field, 
+    * tbl_change.php: bug #1451426, edit breaks protected BLOB field,
       changes it from NULL to empty string
 
 2006-05-23 Marc Delisle  <lem9@users.sourceforge.net>
@@ -103,7 +106,7 @@ $Source$
       /server_common.inc.php, /header.inc.php: bug #1490193 and code simplification
 
 2006-05-17 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_privileges.php: bug #1478812, Add user (password containing 
+    * server_privileges.php: bug #1478812, Add user (password containing
       a backslash); also minor optimization
 
 2006-05-15 Marc Delisle  <lem9@users.sourceforge.net>
