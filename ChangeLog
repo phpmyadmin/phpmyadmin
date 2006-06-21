@@ -8,6 +8,7 @@ $Source$
 2006-06-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
     * lang/slovak: update, thanks to Tomas Tatransky - droopytsf
+    * lang/tatarish: update, thanks to Albert Fazlí
 
 2006-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table.class.php: a typo disabled table copy operation
