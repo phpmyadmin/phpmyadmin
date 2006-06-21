@@ -9,6 +9,7 @@ $Source$
     * lang/french: update
     * lang/slovak: update, thanks to Tomas Tatransky - droopytsf
     * lang/tatarish: update, thanks to Albert Fazlí
+    * libraries/auth/http.auth.lib.php: bug #1504662, display server message
 
 2006-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table.class.php: a typo disabled table copy operation
