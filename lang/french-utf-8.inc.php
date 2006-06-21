@@ -106,6 +106,7 @@ $strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'un
 $strBzip = '"bzippé"';
 
 $strCalendar = 'Calendrier';
+$strCanNotLoadExportPlugins = 'Erreur lors du chargement des modules d\'exportation!';
 $strCanNotLoadImportPlugins = 'Chargement impossible des greffons d\'importation, veuillez vérifier votre installation!';
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
 $strCantLoad = 'PHP ne peut charger l\'extension %s, [br]veuillez vérifier votre configuration de PHP';
@@ -171,6 +172,7 @@ $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCreateUserDatabase = 'Base de données pour cet utilisateur';
 $strCreateUserDatabaseName = 'Créer une base portant son nom et donner à cet utilisateur tous les privilèges sur cette base';
 $strCreateUserDatabaseNone = 'Aucune';
+$strCreateUserDatabaseWildcard = 'Donner les privilèges passepartout ("%")';
 $strCreationDates = 'Dates de création/modification/vérification';
 $strCriteria = 'Critère';
 $strCroatian = 'croate';
@@ -223,6 +225,7 @@ $strDeletedRows = 'Nombre d\'enregistrements effacés :';
 $strDelete = 'Effacer';
 $strDeleteNoUsersSelected = 'Aucun utilisateur n\'a été choisi en vue de le détruire!';
 $strDeleting = 'Destruction de %s';
+$strDelimiter = 'Délimiteur';
 $strDelOld = 'Cette page fait référence à des tables qui n\'existent plus. Voulez-vous effacer ces références?';
 $strDescending = 'Décroissant';
 $strDescription = 'Description';
@@ -263,6 +266,7 @@ $strEnglish = 'anglais';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
 $strErrorInZipFile = 'Erreur rencontrée dans l\'archive ZIP :';
+$strErrorRenamingTable = 'Erreur lors du renommage de %1$s en %2$s';
 $strEscapeWildcards = 'Préfixer avec \ les passepartouts _ et % pour un usage littéral';
 $strEsperanto = 'Espéranto';
 $strEstonian = 'estonien';
@@ -378,12 +382,14 @@ $strInvalidColumn = 'La colonne %s est invalide!';
 $strInvalidCSVFieldCount = 'Nombre de champs invalide dans les données CSV à la ligne %d';
 $strInvalidCSVFormat = 'Format invalide pour les données CSV à la ligne %d.';
 $strInvalidCSVParameter = 'Paramètres invalides pour l\'importation CSV: %s';
+$strInvalidDatabase = 'Nom de base de données invalide';
 $strInvalidFieldAddCount = 'Vous devez ajouter au moins un champ';
 $strInvalidFieldCount = 'La table doit comporter au moins un champ';
 $strInvalidLDIImport = 'Ce greffon ne supporte pas les importations en format comprimé!';
 $strInvalidRowNumber = '%d n\'est pas un numéro d\'enregistrement valable.';
 $strInvalidServerHostname = 'Nom d\'hôte (hostname) invalide pour le serveur %1$s. Veuillez vérifier votre configuration.';
 $strInvalidServerIndex = 'Indice de serveur invalide: "%s"';
+$strInvalidTableName = 'Nom de table invalide';
 
 $strJapanese = 'japonais';
 $strJoins = 'Jointures';
@@ -685,6 +691,7 @@ $strSent = 'Envoyé';
 $strServerChoice = 'Choix du serveur';
 $strServerNotResponding = 'Le serveur ne répond pas.';
 $strServer = 'Serveur';
+$strServers = 'Serveurs';
 $strServerStatusDelayedInserts = 'Insertions avec délais';
 $strServerStatus = 'Informations sur le serveur';
 $strServerStatusUptime = 'Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s.';
@@ -903,6 +910,7 @@ $strTraditionalSpanish = 'espagnol traditionnel';
 $strTraffic = 'Trafic';
 $strTransactionCoordinator = 'Coordonnateur des transactions';
 $strTransformation_application_octetstream__download = 'Affiche un lien pour télécharger le contenu binaire d\'une colonne. La première option est le nom du fichier binaire. La seconde option est le nom de la colonne contenant le nom du fichier. Si vous utilisez la seconde option, veuillez laisser la première option vide.';
+$strTransformation_application_octetstream__hex = 'Affiche une représentation hexadécimale des données. Le premier paramètre est optionnel et spécifie combien d\'espaces seront ajoutés.';
 $strTransformation_image_jpeg__inline = 'Affiche une image timbre-poste cliquable; les options sont: largeur,hauteur en pixels (conserve le rapport original)';
 $strTransformation_image_jpeg__link = 'Affiche un lien vers cette image';
 $strTransformation_image_png__inline = 'Voir image/jpeg: inline';
@@ -980,16 +988,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-// To translate:
-
-$strCreateUserDatabaseWildcard = 'Donner les privilèges passepartout ("%")';  //to translate
-
-$strTransformation_application_octetstream__hex = 'Affiche une représentation hexadécimale des données. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
-
-$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
-$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
-$strInvalidTableName = 'Invalid table name';  //to translate
-$strInvalidDatabase = 'Invalid database';  //to translate
-$strServers = 'Servers';  //to translate
-$strDelimiter = 'Delimiter';  //to translate
 ?>
