@@ -188,9 +188,23 @@ function PMA_auth_set_user()
  */
 function PMA_auth_fails()
 {
-    PMA_auth();
+    if (PMA_DBI_getError() && $GLOBALS['errno'] != 1045) {
+        $conn_error = PMA_sanitize(PMA_DBI_getError());
+        header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+        $page_title = 'phpMyAdmin ' . PMA_VERSION;
+        require './libraries/header_meta_style.inc.php';
 
-    return true;
+        echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+        echo $conn_error . '</div>' . "\n";
+        // no footer here, would not make sense
+        echo '</body></html>' . "\n";
+        // exit immediately to avoid warnings from the db library
+        exit;
+    } else {
+        PMA_auth();
+        return true;
+    }
+
 } // end of the 'PMA_auth_fails()' function
 
 ?>
