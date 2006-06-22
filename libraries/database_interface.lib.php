@@ -1201,4 +1201,22 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
     }
     return($result);
 }
+
+/**
+ * returns the definition of a specific PROCEDURE or FUNCTION 
+ *
+ * @uses    PMA_DBI_fetch_value()
+ * @param   string              $db     db name
+ * @param   string              $which  PROCEDURE | FUNCTION 
+ * @param   string              $proc_or_function_name  the procedure name or function name
+ * @param   resource            $link   mysql link
+ *
+ * @return  string              the procedure's or function's definition 
+ */
+function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_name, $link = null) {
+
+    $returned_field = array('PROCEDURE' => 'Create Procedure', 'FUNCTION' => 'Create Function');
+    $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($proc_or_function_name);
+    return(PMA_DBI_fetch_value( $query, 0, $returned_field[$which]));
+}
 ?>
