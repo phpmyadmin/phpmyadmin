@@ -1178,4 +1178,27 @@ function PMA_isSuperuser() {
     return PMA_DBI_try_query( 'SELECT COUNT(*) FROM mysql.user',
         $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
 }
+
+
+/**
+ * returns an array of PROCEDURE or FUNCTION names for a db 
+ *
+ * @uses    PMA_DBI_free_result()
+ * @param   string              $db     db name
+ * @param   string              $which  PROCEDURE | FUNCTION 
+ * @param   resource            $link   mysql link
+ *
+ * @return  array   the procedure names or function names 
+ */
+function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
+
+    $shows = PMA_DBI_fetch_result('SHOW ' . $which . ' STATUS;', null, null, $link);
+    $result = array();
+    foreach ($shows as $one_show) {
+        if ($one_show['Db'] == $db && $one_show['Type'] == $which) {
+            $result[] = $one_show['Name'];
+        }
+    }
+    return($result);
+}
 ?>
