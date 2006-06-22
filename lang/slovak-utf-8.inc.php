@@ -1002,4 +1002,6 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strXMLOptions = 'XML options';  //to translate
 
+$strFunctions = 'Functions';  //to translate
+$strProcedures = 'Procedures';  //to translate
 ?>

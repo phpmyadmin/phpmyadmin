@@ -5,6 +5,14 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php, /export/sql.php, lang/*:
+    export of procedures and functions. Note: this needs improvement
+    because currently the DELIMITER for procedures is exported as a
+    comment. Users could remove the comment marker and feed this 
+    to command-line mysql but it would be better to generate DELIMITER
+    not as a comment and parse it while importing.
+
 2006-06-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
     * lang/slovak: update, thanks to Tomas Tatransky - droopytsf

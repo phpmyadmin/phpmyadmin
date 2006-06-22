@@ -988,4 +988,6 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strFunctions = 'Functions';  //to translate
+$strProcedures = 'Procedures';  //to translate
 ?>

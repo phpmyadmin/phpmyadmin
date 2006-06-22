@@ -993,4 +993,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strDelimiter = 'Delimiter';  //to translate
+$strFunctions = 'Functions';  //to translate
+$strProcedures = 'Procedures';  //to translate
 ?>

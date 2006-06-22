@@ -276,11 +276,50 @@ function PMA_exportDBHeader($db)
  */
 function PMA_exportDBFooter($db)
 {
+    global $crlf, $comment_marker;
+
     $result = TRUE;
     if (isset($GLOBALS['sql_constraints'])) {
         $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
         unset($GLOBALS['sql_constraints']);
     }
+
+    if (PMA_MYSQL_INT_VERSION >= 50000) {
+        $procs_funcs = '';
+
+        $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+        if ($procedure_names) {
+            $delimiter = '$$';
+            $procs_funcs = $crlf
+              . $comment_marker . $crlf
+              . $comment_marker . $GLOBALS['strProcedures'] . $crlf 
+              . $comment_marker . $crlf
+              . $comment_marker . 'DELIMITER ' . $delimiter . $crlf
+              . $comment_marker . $crlf;
+
+            foreach($procedure_names as $procedure_name) {
+                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
+            }
+
+            $procs_funcs .= $comment_marker . $crlf
+              . $comment_marker . 'DELIMITER ;' . $crlf
+              . $comment_marker . $crlf;
+        }
+
+        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+
+        if ($function_names) {
+            $procs_funcs .= $comment_marker . $GLOBALS['strFunctions'] . $crlf
+              . $comment_marker . $crlf . $crlf;
+
+            foreach($function_names as $function_name) {
+                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $crlf . $crlf;
+            }
+        }
+        if ( !empty($procs_funcs)) {
+            $result = PMA_exportOutputHandler($procs_funcs);
+        }
+    } 
     return $result;
 }
 

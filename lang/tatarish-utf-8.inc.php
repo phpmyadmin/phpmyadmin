@@ -1005,4 +1005,6 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
+$strFunctions = 'Functions';  //to translate
+$strProcedures = 'Procedures';  //to translate
 ?>

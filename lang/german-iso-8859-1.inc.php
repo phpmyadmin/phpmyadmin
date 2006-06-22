@@ -998,4 +998,6 @@ $strInvalidTableName = 'Invalid table name';  //to translate
 $strInvalidDatabase = 'Invalid database';  //to translate
 $strServers = 'Servers';  //to translate
 $strDelimiter = 'Delimiter';  //to translate
+$strFunctions = 'Functions';  //to translate
+$strProcedures = 'Procedures';  //to translate
 ?>
