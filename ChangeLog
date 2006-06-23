@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-23 Marc Delisle  <lem9@users.sourceforge.net>
+   * libraries/Config.class.php: bug #1501027, possible user/password
+     disclosure when switching from http to https
+
 2006-06-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, /export/sql.php, lang/*:
     export of procedures and functions. Note: this needs improvement

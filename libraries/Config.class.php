@@ -509,7 +509,9 @@ class PMA_Config
         // Setup a default value to let the people and lazy syadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        if (strlen($pma_absolute_uri) < 1) {
+        // by recomputing $pma_absolute_uri when is_https, we ensure
+        // that a user switching from http to https stays in https
+        if (strlen($pma_absolute_uri) < 1 || $this->get('is_https')) {
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URL
