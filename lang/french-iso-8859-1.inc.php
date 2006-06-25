@@ -305,6 +305,7 @@ $strFormEmpty = 'Formulaire incomplet !';
 $strFreePages = 'Pages libres';
 $strFullText = 'Textes complets';
 $strFunction = 'Fonction';
+$strFunctions = 'Fonctions';
 
 $strGenBy = 'Généré par';
 $strGeneralRelationFeat = 'Fonctions relationnelles';
@@ -544,6 +545,7 @@ $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
 $strPdfNoTables = 'Pas de table !';
 $strPDFOptions = 'Options PDF';
 $strPDF = 'PDF';
+$strPDFReportExplanation = '(Génère un rapport contenant les données d\'une seule table)';
 $strPDFReportTitle = 'Titre du rapport';
 $strPerHour = 'par heure';
 $strPerMinute = 'par minute';
@@ -604,6 +606,7 @@ $strPrivDescUpdate = 'Permission de changer des données.';
 $strPrivDescUsage = 'Pas de privilèges';
 $strPrivileges = 'Privilèges';
 $strPrivilegesReloaded = 'Les privilèges ont été rechargés.';
+$strProcedures = 'Procédures';
 $strProcesses = 'Processus';
 $strProcesslist = 'Liste des processus';
 $strProtocolVersion = 'Version du protocole';
@@ -987,7 +990,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strFunctions = 'Functions';  //to translate
-$strProcedures = 'Procedures';  //to translate
-$strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
 ?>
