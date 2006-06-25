@@ -1007,4 +1007,5 @@ $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocu
 
 $strFunctions = 'Functions';  //to translate
 $strProcedures = 'Procedures';  //to translate
+$strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
 ?>

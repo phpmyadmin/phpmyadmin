@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:
+      bug #1504218: display an explanation for what is a PDF export
+
 2006-06-23 Marc Delisle  <lem9@users.sourceforge.net>
    * libraries/Config.class.php: bug #1501027, possible user/password
      disclosure when switching from http to https

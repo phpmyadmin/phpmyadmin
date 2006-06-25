@@ -994,4 +994,5 @@ $strZip = '&bdquo;zazipováno&ldquo;';
 $strDelimiter = 'Delimiter';  //to translate
 $strFunctions = 'Functions';  //to translate
 $strProcedures = 'Procedures';  //to translate
+$strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
 ?>

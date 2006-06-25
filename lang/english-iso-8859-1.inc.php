@@ -544,6 +544,7 @@ $strPdfInvalidTblName = 'The "%s" table doesn\'t exist!';
 $strPdfNoTables = 'No tables';
 $strPDFOptions = 'PDF options';
 $strPDF = 'PDF';
+$strPDFReportExplanation = '(Generates a report containing the data of a single table)';
 $strPDFReportTitle = 'Report title';
 $strPerHour = 'per hour';
 $strPerMinute = 'per minute';

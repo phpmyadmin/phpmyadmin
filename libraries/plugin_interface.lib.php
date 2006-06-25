@@ -216,6 +216,11 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . (isset($opt['size']) ? ' size="' . $opt['size'] . '"' : '' )
             . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '' ) . ' />';
         $ret .= '</div>' . "\n";
+    } elseif ($opt['type'] == 'message_only') {
+        $ret .= '<div class="formelementrow">' . "\n";
+        $ret .= '<label for="text_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
+            . PMA_getString($opt['text']) . '</label>';
+        $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'select') {
         $ret .= '<div class="formelementrow">' . "\n";
         $ret .= '<label for="select_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
