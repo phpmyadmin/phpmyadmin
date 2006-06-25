@@ -8,10 +8,13 @@ $Source$
 2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:
       bug #1504218: display an explanation for what is a PDF export
+    * libraries/database_interface.lib.php: when a db directory has
+      wrong permissions/ownership, information_shema does not work
+      for all databases so we revert to SHOW TABLE STATUS
 
 2006-06-23 Marc Delisle  <lem9@users.sourceforge.net>
-   * libraries/Config.class.php: bug #1501027, possible user/password
-     disclosure when switching from http to https
+    * libraries/Config.class.php: bug #1501027, possible user/password
+      disclosure when switching from http to https
 
 2006-06-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, /export/sql.php, lang/*:

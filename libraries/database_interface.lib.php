@@ -297,7 +297,11 @@ function PMA_DBI_get_tables_full($database, $table = false,
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
             null, $link);
         unset( $sql_where_table, $sql );
-    } else {
+    }
+    // If permissions are wrong on even one database directory,
+    // information_schema does not return any table info for any database
+    // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
+    if ( PMA_MYSQL_INT_VERSION < 50002 || empty($tables)) {
         foreach ( $databases as $each_database ) {
             if ( true === $tbl_is_group ) {
                 $sql = 'SHOW TABLE STATUS FROM '
