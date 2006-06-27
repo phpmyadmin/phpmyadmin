@@ -8,6 +8,9 @@ $Source$
 2006-06-27 Michal Čihař  <michal@cihar.com>
     * libraries/import/csv.php: Fix special case of Excel export with ; at the
       end (bug #1511046).
+    * scripts/setup.php, libraries/compat/var_export.php: Add var_export
+      compatibility wrapper from PEAR PHP_Compat to make setup.php work on PHP
+      4.1 (bug #1513007).
 
 2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:

@@ -9,6 +9,9 @@ define( 'PMA_MINIMUM_COMMON', TRUE );
 chdir('..');
 require_once('./libraries/common.lib.php');
 
+// var_export for older PHP
+require_once('./libraries/compat/var_export.php');
+
 // Grab configuration defaults
 $PMA_Config = new PMA_Config();
 
