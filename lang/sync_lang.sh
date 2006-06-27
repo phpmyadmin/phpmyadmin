@@ -123,7 +123,7 @@ russian-windows-1251
 serbian_cyrillic-windows-1251
 serbian_latin-windows-1250
 slovenian-iso-8859-2
-slovak-iso-8859-2
+slovak-utf-8
 spanish-iso-8859-1
 swedish-iso-8859-1
 tatarish-iso-8859-9

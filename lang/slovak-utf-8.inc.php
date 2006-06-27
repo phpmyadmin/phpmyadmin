@@ -109,12 +109,13 @@ $strBzError = 'nepodarilo sa skomprimovať výstup z dôvodu chybného rozšíre
 $strBzip = '"bzipped"';
 
 $strCalendar = 'Kalendár';
+$strCanNotLoadExportPlugins = 'Nepodarilo sa načítať exportné pluginy, skontrolujte prosím vašu inštaláciu!';
 $strCanNotLoadImportPlugins = 'Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu inštaláciu!';
 $strCannotLogin = 'Nedá sa prihlásiť k MySQL serveru';
 $strCantLoad = 'nedá sa nahrať rozšírenie %s,<br />prosím skontrolujte konfiguráciu PHP';
 $strCantLoadRecodeIconv = 'Nie je možné nahrať rozšírenie iconv alebo recode potrebné pre prevod znakových sad. Upravte nastavenie php tak aby umožňovalo použiť tieto rozšírenia alebo vypnite túto vlastnosť v konfigurácii phpMyAdmina.';
 $strCantRenameIdxToPrimary = 'Nie je možné premenovať index na PRIMARY!';
-$strCantUseRecodeIconv = 'Nie je možné použiť funkcie iconv,libiconv a recode_string aj napriek tomu, že rozšírenia sú nahrané. Skontrolujte prosím nastavenie PHP.';
+$strCantUseRecodeIconv = 'Nie je možné použiť funkcie iconv, libiconv a recode_string aj napriek tomu, že rozšírenia sú nahrané. Skontrolujte prosím nastavenie PHP.';
 $strCardinality = 'Mohutnosť';
 $strCaseInsensitive = 'nerozlišovať veľké a malé písmená';
 $strCaseSensitive = 'rozlišovať veľké a malé písmená';
@@ -170,6 +171,10 @@ $strCreateNewDatabase = 'Vytvoriť novú databázu';
 $strCreateNewTable = 'Vytvoriť novú tabuľku v databáze %s';
 $strCreatePage = 'Vytvoriť novú Stránku';
 $strCreatePdfFeat = 'Vytváranie PDF';
+$strCreateUserDatabase = 'Databáza pre používateľa';
+$strCreateUserDatabaseName = 'Vytvoriť databázu s rovnakým menom a prideliť všetky oprávnenia';
+$strCreateUserDatabaseNone = 'Žiadna';
+$strCreateUserDatabaseWildcard = 'Prideliť všetky oprávnenia pomocou masky (používateľ_%)';
 $strCreate = 'Vytvoriť';
 $strCreationDates = 'Dátum vytvorenia, poslednej zmeny a kontroly';
 $strCriteria = 'Kritéria';
@@ -220,9 +225,10 @@ $strDeleteAndFlushDescr = 'Toto je najčistejšie riešenie, ale znovunačítani
 $strDeleteAndFlush = 'Odstrániť používateľov a znovunačítať práva.';
 $strDeleted = 'Riadok bol zmazaný';
 $strDeletedRows = 'Zmazané riadky:';
-$strDeleteNoUsersSelected = 'Na odstránenie neboli vybraní žiadni užívatelia!';
+$strDeleteNoUsersSelected = 'Na odstránenie neboli vybraní žiadni používatelia!';
 $strDelete = 'Zmazať';
 $strDeleting = 'Odstraňuje sa %s';
+$strDelimiter = 'Oddeľovač';
 $strDelOld = 'Aktuálna stránka sa odkazuje na tabuľky, ktoré už neexistujú, želáte si odstrániť tieto odkazy?';
 $strDescending = 'Zostupne';
 $strDescription = 'Popis';
@@ -263,6 +269,7 @@ $strEnglish = 'Anglicky';
 $strEnglishPrivileges = ' Poznámka: názvy MySQL oprávnení sú uvádzané v angličtine. ';
 $strError = 'Chyba';
 $strErrorInZipFile = 'Chyba v ZIP archíve:';
+$strErrorRenamingTable = 'Chyba pri premenovaní tabuľky %1$s na %2$s';
 $strEscapeWildcards = 'Náhradzujúcim znakom _ a % by mal predchádzať znak \, pokiaľ ich nechcete použiť doslovne';
 $strEsperanto = 'Esperanto';
 $strEstonian = 'Estónsky';
@@ -271,6 +278,7 @@ $strExcelOptions = 'Nastavenia CSV pre Excel';
 $strExecuteBookmarked = 'Spustiť obľúbený dopyt';
 $strExplain = 'Vysvetliť SQL';
 $strExport = 'Exportovať';
+$strExportMustBeFile = 'Vybraný typ exportu musí byť uložený do súboru!';
 $strExtendedInserts = 'Rozšírené vkladanie';
 $strExtra = 'Extra';
 
@@ -301,6 +309,7 @@ $strFormEmpty = 'Chýbajúca položka vo formulári !';
 $strFreePages = 'Prázdnych stránok';
 $strFullText = 'Plné texty';
 $strFunction = 'Funkcia';
+$strFunctions = 'Funkcie';
 
 $strGenBy = 'Vygenerované';
 $strGeneralRelationFeat = 'Možnosti všeobecných vzťahov';
@@ -377,12 +386,14 @@ $strInvalidColumnCount = 'Počet stĺpcov musí byť väčší ako nula.';
 $strInvalidCSVFieldCount = 'Chybný počet položiek v CSV vstupe na riadku %d.';
 $strInvalidCSVFormat = 'Chybný formát v CSV vstupe na riadku %d.';
 $strInvalidCSVParameter = 'Chybný parameter pre CSV import: %s';
+$strInvalidDatabase = 'Chybná databáza';
 $strInvalidFieldAddCount = 'Musíte pridať aspoň jeden stĺpec.';
 $strInvalidFieldCount = 'Tabuľka musí obsahovať aspoň jeden stĺpec.';
 $strInvalidLDIImport = 'Tento plug-in nepodporuje import komprimovaných súborov!';
 $strInvalidRowNumber = '%d nie je platné číslo riadku.';
 $strInvalidServerHostname = 'Chybný názov hostu pre server %1$s. Prosím, skontrolujte konfiguráciu.';
 $strInvalidServerIndex = 'Chybný index serveru: "%s"';
+$strInvalidTableName = 'Chybné meno tabuľky';
 
 $strJapanese = 'Japončina';
 $strJoins = 'Zjednotenia';
@@ -475,8 +486,9 @@ $strMySQLShowVars = 'Zobraziť MySQL systémové premenné';
 $strName = 'Názov';
 $strNext = 'Ďalší';
 $strNoActivity = 'Boli ste neaktívni viac ako %s sekúnd, prihláste sa prosím znovu';
-$strNoDatabases = 'Žiadne databázy';
 $strNoDatabasesSelected = 'Neboli vybrané žiadne databázy.';
+$strNoDatabases = 'Žiadne databázy';
+$strNoDataReceived = 'Neboli prijaté žiadne dáta na import. Buď nebol načítaný žiadny súbor alebo jeho veľkosť prekročila maximálnu veľkosť povolenú v PHP. Pozri FAQ 1.16.';
 $strNoDescription = 'bez Popisu';
 $strNoDetailsForEngine = 'Pre tento úložný systém nie sú dostupné žiadne podrobnejšie informácie.';
 $strNoDropDatabases = 'Možnosť "DROP DATABASE" vypnutá.';
@@ -510,6 +522,10 @@ $strNumSearchResultsTotal = '<b>Celkovo:</b> <i>%s</i> výskyt(ov)';
 $strNumTables = 'Tabuľky';
 
 $strOK = 'OK';
+$strOpenDocumentSpreadsheetOptions = 'Nastavenia pre tabuľkový procesor Open Document';
+$strOpenDocumentSpreadsheet = 'Tabuľkový procesor Open Document';
+$strOpenDocumentText = 'Open Document Text';
+$strOpenDocumentTextOptions = 'Nastavenia pre Open Document Text';
 $strOpenNewWindow = 'Otvoriť nové okno phpMyAdmina';
 $strOperations = 'Operácie';
 $strOperator = 'Operátor';
@@ -562,7 +578,7 @@ $strPrivDescCreateDb = 'Povolí vytváranie nových databáz a tabuliek.';
 $strPrivDescCreateRoutine = 'Umožňuje vytvárať uložené procedúry.';
 $strPrivDescCreateTbl = 'Povolí vytváranie nových tabuliek.';
 $strPrivDescCreateTmpTable = 'Povolí vytváranie dočasných tabuliek.';
-$strPrivDescCreateUser = 'Umožňuje vytvárať, odstraňovať a premenovávať užívateľské kontá.';
+$strPrivDescCreateUser = 'Umožňuje vytvárať, odstraňovať a premenovávať používateľské kontá.';
 $strPrivDescCreateView = 'Umožňuje vytvárať nové pohľady.';
 $strPrivDescDelete = 'Povolí mazanie dát.';
 $strPrivDescDropDb = 'Povolí odstraňovanie databáz a tabuliek.';
@@ -577,7 +593,7 @@ $strPrivDescLockTables = 'Povolí zmaknutie tabuliek pre aktuálne vlákno.';
 $strPrivDescMaxConnections = 'Obmedzí počet nových spojení, ktoré môže používateľ vytvoriť za hodinu.';
 $strPrivDescMaxQuestions = 'Obmedzí počet dopytov, ktoré môže používateľ odoslať za hodinu.';
 $strPrivDescMaxUpdates = 'Obmedzí počet príkazov meniacich tabuľku alebo databázu, ktorá môže používateľ odoslať za hodinu.';
-$strPrivDescMaxUserConnections = 'Obmedzuje počet simultánnych pripojení užívateľa.';
+$strPrivDescMaxUserConnections = 'Obmedzuje počet simultánnych pripojení používateľa.';
 $strPrivDescProcess3 = 'Povolí zabíjanie procesov iným používateľlom.';
 $strPrivDescProcess4 = 'Povolí prezeranie kompletných dopytov v zozname procesov.';
 $strPrivDescReferences = 'Nefunguje v tejto verzii MySQL.';
@@ -593,6 +609,7 @@ $strPrivDescUpdate = 'Povolí menenie dát.';
 $strPrivDescUsage = 'Žiadne práva.';
 $strPrivileges = 'Oprávnenia';
 $strPrivilegesReloaded = 'Práva boli úspešne znovunačítané.';
+$strProcedures = 'Procedúry';
 $strProcesses = 'Procesy';
 $strProcesslist = 'Zoznam procesov';
 $strProtocolVersion = 'Verzia protokolu';
@@ -679,6 +696,7 @@ $strSent = 'Odoslané';
 $strServerChoice = 'Voľba serveru';
 $strServerNotResponding = 'Server neodpovedá';
 $strServer = 'Server';
+$strServers = 'Servery';
 $strServerStatusDelayedInserts = 'Odložené vloženia';
 $strServerStatus = 'Stav serveru';
 $strServerStatusUptime = 'Tento server beží %s. Bol spustený %s.';
@@ -847,6 +865,7 @@ $strStrucCSV = 'CSV dáta';
 $strStrucData = 'Štruktúru a dáta';
 $strStrucExcelCSV = 'CSV pre MS Excel dáta';
 $strStrucNativeExcel = 'Natívne dáta MS Excel';
+$strStrucNativeExcelOptions = 'Nastavenia pre natívny Excel';
 $strStrucOnly = 'Iba štruktúru';
 $strStructPropose = 'Navrhnúť štruktúru tabuľky';
 $strStructure = 'Štruktúra';
@@ -924,6 +943,7 @@ $strUpdateQuery = 'Aktualizovať dopyt';
 $strUpdComTab = 'Prosím prečítajte si dokumentáciu ako aktualizovať tabuľku s informáciami o stĺpcoch (Column_comments Table)';
 $strUpgrade = 'Mali by ste aktualizovať %s na verziu %s alebo vyššiu.';
 $strUploadLimit = 'Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť.';
+$strUploadsNotAllowed = 'Ukladanie súborov na server nie je povolené.';
 $strUsage = 'Využitie';
 $strUseBackquotes = ' Použiť opačný apostrof pri názvoch tabuliek a polí ';
 $strUsedPhpExtensions = 'Použité rozšírenia PHP';
@@ -932,9 +952,9 @@ $strUserAlreadyExists = 'Používateľ %s už existuje!';
 $strUserEmpty = 'Meno používateľa je prázdne!';
 $strUserName = 'Meno používateľa';
 $strUserNotFound = 'Zvolený používateľ nebol nájdený v tabuľke práv.';
-$strUserOverview = 'Prehľad užívatelov';
+$strUserOverview = 'Prehľad používatelov';
 $strUser = 'Používateľ';
-$strUsersDeleted = 'Vybraní užívatelia bol úspešne odstránený.';
+$strUsersDeleted = 'Vybraní používatelia bol úspešne odstránený.';
 $strUsersHavingAccessToDb = 'Používatelia majúci prístup k &quot;%s&quot;';
 $strUseTabKey = 'Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými smermi klávesy CTRL+šípky';
 $strUseTables = 'Použiť tabuľky';
@@ -965,44 +985,16 @@ $strWritingCommentNotPossible = 'Komentár sa nedá zapísať';
 $strWritingRelationNotPossible = 'Vzťah sa nedá zapísať';
 $strWrongUser = 'Zlé používateľské meno alebo heslo. Prístup zamietnutý.';
 
+$strXMLOptions = 'Nastavenia pre XML';
 $strXML = 'XML';
 
 $strYes = 'Áno';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
-$strZip = '"zo zipované"';
+$strZip = '"zozipované"';
 
 // To translate:
 
-$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
-
-$strDelimiter = 'Delimiter';  //to translate
-
-$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
-$strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
-
-$strInvalidDatabase = 'Invalid database';  //to translate
-$strInvalidTableName = 'Invalid table name';  //to translate
-
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
-
-$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strOpenDocumentText = 'Open Document Text';  //to translate
-$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-
-$strServers = 'Servers';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
-
-$strXMLOptions = 'XML options';  //to translate
-
-$strFunctions = 'Functions';  //to translate
-$strProcedures = 'Procedures';  //to translate
 $strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
+
 ?>

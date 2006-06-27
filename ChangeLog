@@ -13,6 +13,7 @@ $Source$
       4.1 (bug #1513007).
     * libraries/Config.class.php: Recalculate URL only if needed not all times
       when using https.
+    * lang/slovak: Updated, thanks to Tomas Tatransky - droopytsf.
 
 2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:
