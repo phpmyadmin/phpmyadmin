@@ -11,6 +11,8 @@ $Source$
     * scripts/setup.php, libraries/compat/var_export.php: Add var_export
       compatibility wrapper from PEAR PHP_Compat to make setup.php work on PHP
       4.1 (bug #1513007).
+    * libraries/Config.class.php: Recalculate URL only if needed not all times
+      when using https.
 
 2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:
