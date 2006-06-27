@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-06-27 Michal Čihař  <michal@cihar.com>
+    * libraries/import/csv.php: Fix special case of Excel export with ; at the
+      end (bug #1511046).
+
 2006-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php, libraries/plugin_interface.lib.php, lang/*:
       bug #1504218: display an explanation for what is a PDF export

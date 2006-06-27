@@ -236,10 +236,15 @@ if ($plugin_param == 'table') {
                     }
                     // Do we have correct count of values?
                     if (count($values) != $required_fields) {
-                        $message = sprintf($strInvalidCSVFieldCount, $line);
-                        $show_error_header = TRUE;
-                        $error = TRUE;
-                        break;
+                        // Hack for excel
+                        if ($values[count($values) - 1] == ';') {
+                            unset($values[count($values) - 1]);
+                        } else {
+                            $message = sprintf($strInvalidCSVFieldCount, $line);
+                            $show_error_header = TRUE;
+                            $error = TRUE;
+                            break;
+                        }
                     }
                     
                     $first = TRUE;
