@@ -515,7 +515,6 @@ class PMA_Config
             || ($is_https && substr($pma_absolute_uri, 0, 6) != 'https:')
             || (!$is_https && substr($pma_absolute_uri, 0, 5) != 'http:')
         ) {
-            echo "recheck";
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URL
