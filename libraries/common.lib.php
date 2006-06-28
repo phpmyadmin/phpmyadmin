@@ -2808,6 +2808,9 @@ if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) 
             unset($_GET[$key]);
             unset($_POST[$key]);
             unset($GLOBALS[$key]);
+        } else {
+            // allowed stuff could be compromised so escape it
+            $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key]);
         }
     }
 }

@@ -7,6 +7,8 @@ $Source$
 
 2006-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: remove debug code
+    * libraries/common.lib.php: escape allowed parameters from non-token 
+      requests
 
 2006-06-27 Michal Čihař  <michal@cihar.com>
     * libraries/import/csv.php: Fix special case of Excel export with ; at the
