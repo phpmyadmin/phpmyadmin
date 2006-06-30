@@ -7,6 +7,7 @@ $Source$
 
 2006-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: escape also single quotes   
+    ### 2.8.2 released from QA_2_8 
 
 2006-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: remove debug code
