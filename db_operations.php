@@ -295,7 +295,7 @@ if (!$is_information_schema) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
         echo '<form method="post" action="./db_operations.php">' . "\n"
-           . PMA_generate_common_hidden_inputs($db, $table)
+           . PMA_generate_common_hidden_inputs($db, isset($table) ? $table : '')
            . '<fieldset>' . "\n"
            . '    <legend>';
         if ($cfg['PropertiesIconic']) {
@@ -324,8 +324,10 @@ if (!$is_information_schema) {
 
 
 // not sure about leaving the PDF dialog for information_schema
-if ($num_tables > 0) {
+if ($num_tables > 0 && isset($table)) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
+} else {
+    $takeaway = '';
 }
 
 if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>

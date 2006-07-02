@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: undefined $table when copying a db
+
 2006-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: escape also single quotes   
     ### 2.8.2 released from QA_2_8 
