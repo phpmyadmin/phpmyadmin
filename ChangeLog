@@ -5,16 +5,20 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/footer.inc.php: bug #1477576 with rtl langs, navi links open in
+      wrong frame
+
 2006-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: undefined $table when copying a db
 
 2006-06-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/common.lib.php: escape also single quotes   
-    ### 2.8.2 released from QA_2_8 
+    * libraries/common.lib.php: escape also single quotes
+    ### 2.8.2 released from QA_2_8
 
 2006-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: remove debug code
-    * libraries/common.lib.php: escape allowed parameters from non-token 
+    * libraries/common.lib.php: escape allowed parameters from non-token
       requests
 
 2006-06-27 Michal Čihař  <michal@cihar.com>
@@ -43,7 +47,7 @@ $Source$
     * libraries/database_interface.lib.php, /export/sql.php, lang/*:
     export of procedures and functions. Note: this needs improvement
     because currently the DELIMITER for procedures is exported as a
-    comment. Users could remove the comment marker and feed this 
+    comment. Users could remove the comment marker and feed this
     to command-line mysql but it would be better to generate DELIMITER
     not as a comment and parse it while importing.
 

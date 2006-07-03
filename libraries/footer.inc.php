@@ -65,19 +65,26 @@ if (window.parent.refreshLeft) {
 if (parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
     self.focus();
 }
-<?php } ?>
+<?php }
 
-if (window.parent.frames[1]) {
+if ($GLOBALS['text_dir'] === 'ltr') {
+    $mainframe_number = 1;
+} else {
+    $mainframe_number = 0;
+}
+?>
+
+if (window.parent.frames[<?php echo $mainframe_number; ?>]) {
     // reset content frame name, as querywindow needs to set a unique name
     // before submitting form data, and navigation frame needs the original name
-    if (window.parent.frames[1].name != 'frame_content') {
-        window.parent.frames[1].name = 'frame_content';
+    if (window.parent.frames[<?php echo $mainframe_number; ?>].name != 'frame_content') {
+        window.parent.frames[<?php echo $mainframe_number; ?>].name = 'frame_content';
     }
-    if (window.parent.frames[1].id != 'frame_content') {
-        window.parent.frames[1].id = 'frame_content';
+    if (window.parent.frames[<?php echo $mainframe_number; ?>].id != 'frame_content') {
+        window.parent.frames[<?php echo $mainframe_number; ?>].id = 'frame_content';
     }
-    //window.parent.frames[1].setAttribute('name', 'frame_content');
-    //window.parent.frames[1].setAttribute('id', 'frame_content');
+    //window.parent.frames[<?php echo $mainframe_number; ?>].setAttribute('name', 'frame_content');
+    //window.parent.frames[<?php echo $mainframe_number; ?>].setAttribute('id', 'frame_content');
 }
 //]]>
 </script>
