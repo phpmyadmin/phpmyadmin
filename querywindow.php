@@ -56,7 +56,7 @@ require_once('./libraries/header_meta_style.inc.php');
 <script type="text/javascript" language="javascript">
 //<![CDATA[
 function query_auto_commit() {
-    document.getElementById( 'sqlqueryform' ).target = window.opener.frames[1].name;
+    document.getElementById( 'sqlqueryform' ).target = window.opener.frame_content.name;
     document.getElementById( 'sqlqueryform' ).submit();
     return;
 }

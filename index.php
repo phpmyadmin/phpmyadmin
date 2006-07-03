@@ -128,6 +128,13 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var db    = '<?php echo $GLOBALS['db']; ?>';
     var text_dir = '<?php echo $GLOBALS['text_dir']; ?>';
     var pma_absolute_uri = '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>';
+<?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    var frame_content = window.frames[1];
+    var frame_navigation = window.frames[0];
+<?php } else { ?>
+    var frame_content = window.frames[0];
+    var frame_navigation = window.frames[1];
+<?php } ?>
 // ]]>
 </script>
 <script src="./js/querywindow.js" type="text/javascript" language="javascript">

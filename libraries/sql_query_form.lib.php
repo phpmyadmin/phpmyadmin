@@ -104,9 +104,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
         ?>
         <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="var save_name = window.opener.parent.frames[1].name;
-                        window.opener.parent.frames[1].name = save_name + '<?php echo time(); ?>';
-                        this.target = window.opener.parent.frames[1].name;
+              onsubmit="var save_name = window.opener.parent.frame_content.name;
+                        window.opener.parent.frame_content.name = save_name + '<?php echo time(); ?>';
+                        this.target = window.opener.parent.frame_content.name;
                         return checkSqlQuery( this );" >
         <?php
     } else {
@@ -223,7 +223,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
             . '?' . PMA_generate_common_url($db) . '"';
         if ($is_querywindow) {
             $strDBLink .= ' target="_self"'
-                . ' onclick="this.target=window.opener.frames[1].name"';
+                . ' onclick="this.target=window.opener.frame_content.name"';
         }
         $strDBLink .= '>'
             . htmlspecialchars($db) . '</a>';
@@ -248,7 +248,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
             . '?' . PMA_generate_common_url($db) . '"';
         if ($is_querywindow) {
             $strDBLink .= ' target="_self"'
-                . ' onclick="this.target=window.opener.frames[1].name"';
+                . ' onclick="this.target=window.opener.frame_content.name"';
         }
         $strDBLink .= '>'
             . htmlspecialchars($db) . '</a>';

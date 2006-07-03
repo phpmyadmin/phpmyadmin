@@ -22,7 +22,7 @@ function setDb( new_db ) {
         var old_db = db;
         db = new_db;
 
-        if ( window.frames[0].document.getElementById(db) == null ) {
+        if ( window.frame_navigation.document.getElementById(db) == null ) {
             // db is unknown, reload complete left frame
             refreshLeft();
         } else {
@@ -50,7 +50,7 @@ function setTable( new_table ) {
 
         table = new_table;
 
-        if ( window.frames[0].document.getElementById( db + '.' + table ) == null
+        if ( window.frame_navigation.document.getElementById( db + '.' + table ) == null
          && table != '' ) {
             // table is unknown, reload complete left frame
             refreshLeft();
@@ -114,13 +114,13 @@ function removeClass(element, classname)
 
 function unmarkDbTable(db, table)
 {
-    var element_reference = window.frames[0].document.getElementById(db);
+    var element_reference = window.frame_navigation.document.getElementById(db);
     if (element_reference != null) {
         //alert('remove from: ' + db);
         removeClass(element_reference.parentNode, 'marked');
     }
 
-    element_reference = window.frames[0].document.getElementById(db + '.' + table);
+    element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
     if (element_reference != null) {
         //alert('remove from: ' + db + '.' + table);
         removeClass(element_reference.parentNode, 'marked');
@@ -129,7 +129,7 @@ function unmarkDbTable(db, table)
 
 function markDbTable(db, table)
 {
-    var element_reference = window.frames[0].document.getElementById(db);
+    var element_reference = window.frame_navigation.document.getElementById(db);
     if (element_reference != null) {
         addClass(element_reference.parentNode, 'marked');
         // scrolldown
@@ -138,7 +138,7 @@ function markDbTable(db, table)
         element_reference.blur();
     }
 
-    element_reference = window.frames[0].document.getElementById(db + '.' + table);
+    element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
     if (element_reference != null) {
         addClass(element_reference.parentNode, 'marked');
         // scrolldown
@@ -148,7 +148,7 @@ function markDbTable(db, table)
     }
 
     // return to main frame ...
-    window.frames[1].focus();
+    window.frame_content.focus();
 }
 
 /**
@@ -172,8 +172,8 @@ function setAll( new_lang, new_collation_connection, new_server, new_db, new_tab
         db        = new_db;
         table     = new_table;
 
-        if ( window.frames[0].document.getElementById( db ) == null
-          && window.frames[0].document.getElementById( db + '.' + table ) == null ) {
+        if ( window.frame_navigation.document.getElementById( db ) == null
+          && window.frame_navigation.document.getElementById( db + '.' + table ) == null ) {
             // table or db is unknown, reload complete left frame
             refreshLeft();
         } else {
@@ -292,20 +292,12 @@ function refreshQuerywindow( url ) {
 function goTo( targeturl, target ) {
     //alert('goto');
     if ( target == 'main' ) {
-        if (text_dir == 'ltr') {
-            target = window.frames[1];
-        } else {
-            target = window.frames[0];
-        }
+        target = window.frame_content;
     } else if ( target == 'query' ) {
         target = querywindow;
         //return open_querywindow( targeturl );
     } else if ( ! target ) {
-        if (text_dir == 'ltr') {
-            target = window.frames[0];
-        } else {
-            target = window.frames[1];
-        }
+        target = window.frame_content;
     }
 
     if ( target ) {
@@ -336,8 +328,8 @@ function openDb( new_db ) {
 
 function updateTableTitle( table_link_id, new_title ) {
     //alert('updateTableTitle');
-    if ( window.parent.frames[0].document.getElementById(table_link_id) ) {
-        var left = window.parent.frames[0].document;
+    if ( window.parent.frame_navigation.document.getElementById(table_link_id) ) {
+        var left = window.parent.frame_navigation.document;
         left.getElementById(table_link_id).title = new_title;
         new_title = left.getElementById('icon_' + table_link_id).alt + ': ' + new_title;
         left.getElementById('browse_' + table_link_id).title = new_title;

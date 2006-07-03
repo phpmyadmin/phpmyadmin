@@ -1386,7 +1386,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 <script type="text/javascript" language="javascript">
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
-    && typeof(window.parent.frames[0]) != 'undefined') {
+    && typeof(window.parent.frame_navigation) != 'undefined') {
     window.parent.goTo('<?php echo $reload_url; ?>');
 }
 //]]>

@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2006-07-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/footer.inc.php: bug #1477576 with rtl langs, navi links open in
-      wrong frame
+    * index.php, js\querywindow.js, querywindow.php, libraries\common.lib.php,
+      libraries\footer.inc.php, libraries\sql_query_form.lib.php:
+      bug #1477576 with rtl langs, navi links open in wrong frame
 
 2006-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: undefined $table when copying a db
