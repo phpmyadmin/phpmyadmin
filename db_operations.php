@@ -46,6 +46,10 @@ if (isset($db) &&
             PMA_DBI_query($local_query);
         }
 
+        if (isset($GLOBALS['add_constraints'])) {
+            $GLOBALS['sql_constraints_query_full_db'] = '';
+        }
+
         $tables_full = PMA_DBI_get_tables_full($db);
         foreach ($tables_full as $table => $tmp) {
             $back = $sql_query;
@@ -70,12 +74,24 @@ if (isset($db) &&
 
             if ($this_what != 'nocopy') {
                 PMA_Table::moveCopy($db, $table, $newname, $table,
-                    isset($this_what) ? $this_what : 'data', $move);
+                    isset($this_what) ? $this_what : 'data', $move, 'db_copy');
+                if (isset($GLOBALS['add_constraints'])) {
+                    $GLOBALS['sql_constraints_query_full_db'] .= $GLOBALS['sql_constraints_query'];
+                    unset($GLOBALS['sql_constraints_query']);
+                }
             }
 
             $sql_query = $back . $sql_query;
         }
         unset($table);
+
+        // now that all tables exist, create all the accumulated constraints 
+        if (isset($GLOBALS['add_constraints'])) {
+            PMA_DBI_query($GLOBALS['sql_constraints_query_full_db']);
+            // and prepare to display them
+            $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query_full_db'];
+            unset($GLOBALS['sql_constraints_query_full_db']);
+        }
 
         // Duplicate the bookmarks for this db (done once for each db)
         if ($db != $newname) {

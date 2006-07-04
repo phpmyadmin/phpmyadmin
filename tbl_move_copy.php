@@ -30,7 +30,7 @@ if (isset($new_name) && trim($new_name) != '') {
     if ($db == $target_db && $table == $new_name) {
         $message   = (isset($submit_move) ? $strMoveTableSameNames : $strCopyTableSameNames);
     } else {
-        PMA_Table::moveCopy($db, $table, $target_db, $new_name, $what, isset($submit_move));
+        PMA_Table::moveCopy($db, $table, $target_db, $new_name, $what, isset($submit_move), 'one_table');
         $js_to_run = 'functions.js';
         $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
         $message   = sprintf($message, htmlspecialchars($table), htmlspecialchars($new_name));

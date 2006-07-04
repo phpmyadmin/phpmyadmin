@@ -505,7 +505,7 @@ class PMA_Table {
      *
      * @author          Michal Cihar <michal@cihar.com>
      */
-    function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move)
+    function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
         global $dblist, $err_url;
 
@@ -541,13 +541,14 @@ class PMA_Table {
 
             $no_constraints_comments = true;
 	    $GLOBALS['sql_constraints_query'] = '';
+
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
             $parsed_sql =  PMA_SQP_parse($sql_structure);
             $analyzed_sql = PMA_SQP_analyze($parsed_sql);
             $i = 0;
             if (empty($analyzed_sql[0]['create_table_fields'])) {
-            // lem9: this is not a CREATE TABLE, so find the first VIEW
+            // this is not a CREATE TABLE, so find the first VIEW
                 $target_for_view = PMA_backquote($target_db);
                 while (true) {
 	            if ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'VIEW') {
@@ -597,13 +598,17 @@ class PMA_Table {
             $GLOBALS['sql_query'] .= "\n" . $sql_structure . ';';
 
             if (($move || isset($GLOBALS['add_constraints']))
-              && isset($GLOBALS['sql_constraints_query'])) {
+              && !empty($GLOBALS['sql_constraints_query'])) {
                 $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints_query']);
                 $i = 0;
 
                 // find the first quote_backtick, it must be the source table name
                 while ($parsed_sql[$i]['type'] != 'quote_backtick') {
                     $i++;
+		    // maybe someday we should guard against going over limit
+                    //if ($i == $parsed_sql['len']) {
+                    //    break;
+                    //}
                 }
 
                 // replace it by the target table name, no need to PMA_backquote()
@@ -623,13 +628,16 @@ class PMA_Table {
                     }
                 }
 
-
                 // Generate query back
                 $GLOBALS['sql_constraints_query'] = PMA_SQP_formatHtml($parsed_sql,
                     'query_only');
-                PMA_DBI_query($GLOBALS['sql_constraints_query']);
+	        if ($mode == 'one_table') {
+                    PMA_DBI_query($GLOBALS['sql_constraints_query']);
+		}
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-                unset($GLOBALS['sql_constraints_query']);
+	        if ($mode == 'one_table') {
+                    unset($GLOBALS['sql_constraints_query']);
+		}
             }
 
         } else {
