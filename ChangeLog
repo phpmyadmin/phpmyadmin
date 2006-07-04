@@ -10,7 +10,7 @@ $Source$
       libraries/Table.class.php, libraries/export/sql.php,
       tbl_move_copy.php:
       a single-table copy did not copy the constraints;
-      also bug #1388048, contraints copied too early when copying a db
+      also bug #1388048, constraints copied too early when copying a db
 
 2006-07-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * js\querywindow.js, libraries\footer.inc.php: renamed JavaScript function
