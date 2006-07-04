@@ -71,7 +71,7 @@ function refreshMain(url) {
             url = 'main.php';
         }
     }
-    goTo( url + '?&server=' + server +
+    goTo( url + '?server=' + server +
         '&db=' + db +
         '&table=' + table +
         '&lang=' + lang +
@@ -80,7 +80,7 @@ function refreshMain(url) {
 }
 
 function refreshNavigation() {
-    goTo('left.php?&server=' + server +
+    goTo('left.php?server=' + server +
         '&db=' + db +
         '&table=' + table +
         '&lang=' + lang +
@@ -289,7 +289,7 @@ function refreshQuerywindow( url ) {
  * @param    string    targeturl    new url to load
  * @param    string    target       frame where to load the new url
  */
-function goTo( targeturl, target ) {
+function goTo(targeturl, target) {
     //alert('goto');
     if ( target == 'main' ) {
         target = window.frame_content;
@@ -297,7 +297,7 @@ function goTo( targeturl, target ) {
         target = querywindow;
         //return open_querywindow( targeturl );
     } else if ( ! target ) {
-        target = window.frame_content;
+        target = window.frame_navigation;
     }
 
     if ( target ) {
@@ -318,11 +318,11 @@ function goTo( targeturl, target ) {
 }
 
 // opens selected db in main frame
-function openDb( new_db ) {
+function openDb(new_db) {
     //alert('opendb(' +  new_db + ')');
-    setDb( new_db );
-    setTable( '' );
-    refreshMain( opendb_url );
+    setDb(new_db);
+    setTable('');
+    refreshMain(opendb_url);
     return true;
 }
 
