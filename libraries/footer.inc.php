@@ -31,8 +31,8 @@ if (window.parent.setAll) {
 
 <?php if (! empty($GLOBALS['reload'])) { ?>
 // refresh navigation frame content
-if (window.parent.refreshLeft) {
-    window.parent.refreshLeft();
+if (window.parent.refreshNavigation) {
+    window.parent.refreshNavigation();
 }
 <?php } ?>
 
@@ -52,7 +52,7 @@ if (! isset($GLOBALS['no_history']) && empty($GLOBALS['error_message'])) {
     }
     ?>
 // set current db, table and sql query in the querywindow
-if (window.parent.refreshLeft) {
+if (window.parent.refreshNavigation) {
     window.parent.reload_querywindow(
         "<?php echo isset($GLOBALS['db']) ? htmlspecialchars(addslashes($GLOBALS['db'])) : '' ?>",
         "<?php echo isset($GLOBALS['table']) ? htmlspecialchars(addslashes($GLOBALS['table'])) : '' ?>",

@@ -13,18 +13,18 @@ var query_to_load = '';
  *
  * @param    string    db name
  */
-function setDb( new_db ) {
+function setDb(new_db) {
     //alert('setDb(' + new_db + ')');
-    if ( new_db != db ) {
+    if (new_db != db) {
         // db has changed
         //alert( new_db + '(' + new_db.length + ') : ' + db );
 
         var old_db = db;
         db = new_db;
 
-        if ( window.frame_navigation.document.getElementById(db) == null ) {
+        if (window.frame_navigation.document.getElementById(db) == null) {
             // db is unknown, reload complete left frame
-            refreshLeft();
+            refreshNavigation();
         } else {
             unmarkDbTable(old_db);
             markDbTable(db);
@@ -42,18 +42,18 @@ function setDb( new_db ) {
  *
  * @param    string    table name
  */
-function setTable( new_table ) {
+function setTable(new_table) {
     //alert('setTable(' + new_table + ')');
-    if ( new_table != table ) {
+    if (new_table != table) {
         // table has changed
         //alert( new_table + '(' + new_table.length + ') : ' + table );
 
         table = new_table;
 
-        if ( window.frame_navigation.document.getElementById( db + '.' + table ) == null
-         && table != '' ) {
+        if (window.frame_navigation.document.getElementById(db + '.' + table) == null
+         && table != '') {
             // table is unknown, reload complete left frame
-            refreshLeft();
+            refreshNavigation();
 
         }
         // TODO: add code to expand table in lightview mode
@@ -63,9 +63,9 @@ function setTable( new_table ) {
     }
 }
 
-function refreshMain( url ) {
-    if ( ! url ) {
-        if ( db ) {
+function refreshMain(url) {
+    if (! url) {
+        if (db) {
             url = opendb_url;
         } else {
             url = 'main.php';
@@ -79,7 +79,7 @@ function refreshMain( url ) {
         'main' );
 }
 
-function refreshLeft() {
+function refreshNavigation() {
     goTo('left.php?&server=' + server +
         '&db=' + db +
         '&table=' + table +
@@ -156,26 +156,26 @@ function markDbTable(db, table)
  */
 function setAll( new_lang, new_collation_connection, new_server, new_db, new_table ) {
     //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ' )');
-    if ( new_server != server || new_lang != lang
-      || new_collation_connection != collation_connection ) {
+    if (new_server != server || new_lang != lang
+      || new_collation_connection != collation_connection) {
         // something important has changed
         server = new_server;
         db     = new_db;
         table  = new_table;
         collation_connection  = new_collation_connection;
         lang  = new_lang;
-        refreshLeft();
-    } else if ( new_db != db || new_table != table ) {
+        refreshNavigation();
+    } else if (new_db != db || new_table != table) {
         // save new db and table
         var old_db    = db;
         var old_table = table;
         db        = new_db;
         table     = new_table;
 
-        if ( window.frame_navigation.document.getElementById( db ) == null
-          && window.frame_navigation.document.getElementById( db + '.' + table ) == null ) {
+        if (window.frame_navigation.document.getElementById(db) == null
+          && window.frame_navigation.document.getElementById(db + '.' + table) == null ) {
             // table or db is unknown, reload complete left frame
-            refreshLeft();
+            refreshNavigation();
         } else {
             unmarkDbTable(old_db, old_table);
             markDbTable(db, table);
