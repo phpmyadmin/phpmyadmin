@@ -8,6 +8,8 @@ $Source$
 2006-07-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * js\querywindow.js, libraries\footer.inc.php: renamed JavaScript function
       refreshLeft() to refreshNavigation()
+    * libraries/Config.class.php: reload default configuration if config.inc.php
+      is removed
 
 2006-07-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * index.php, js\querywindow.js, querywindow.php, libraries\common.lib.php,

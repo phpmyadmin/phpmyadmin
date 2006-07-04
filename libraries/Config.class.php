@@ -293,11 +293,13 @@ class PMA_Config
      */
     function __wakeup()
     {
-        if (file_exists($this->getSource()) && $this->source_mtime !== filemtime($this->getSource())
+        if (! $this->checkConfigSource()
+          || $this->source_mtime !== filemtime($this->getSource())
           || $this->default_source_mtime !== filemtime($this->default_source)
-          || $this->error_config_file || $this->error_config_default_file) {
+          || $this->error_config_file
+          || $this->error_config_default_file) {
             $this->settings = array();
-            $this->load($this->getSource());
+            $this->load();
             $this->checkSystem();
         }
 
@@ -424,6 +426,11 @@ class PMA_Config
      */
     function checkConfigSource()
     {
+        if (! $this->getSource()) {
+            // no configuration file set at all
+            return false;
+        }
+
         if (! file_exists($this->getSource())) {
             // do not trigger error here
             // https://sf.net/tracker/?func=detail&aid=1370269&group_id=23067&atid=377408
