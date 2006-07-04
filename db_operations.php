@@ -264,7 +264,7 @@ if (!$is_information_schema) {
             id="checkbox_auto_increment" style="vertical-align: middle" />
         <label for="checkbox_auto_increment">
             <?php echo $strAddAutoIncrement; ?></label><br />
-        <input type="checkbox" name="sql_constraints" value="1"
+        <input type="checkbox" name="add_constraints" value="1"
             id="checkbox_constraints" style="vertical-align: middle" />
         <label for="checkbox_constraints">
             <?php echo $strAddConstraints; ?></label><br />

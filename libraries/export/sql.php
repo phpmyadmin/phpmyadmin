@@ -346,6 +346,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     global $sql_backquotes;
     global $cfgRelation;
     global $sql_constraints;
+    global $sql_constraints_query; // just the text of the query
 
     $schema_create = '';
     $auto_increment = '';
@@ -456,7 +457,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 }
 
                 // let's do the work
-                $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
+                $sql_constraints_query .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
 
                 $first = TRUE;
                 for ($j = $i; $j < $sql_count; $j++) {
@@ -465,9 +466,11 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                             $sql_constraints .= $crlf;
                         }
                         if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
-                            $sql_constraints .= preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints .= $sql_constraints_query; 
                         } else {
-                            $sql_constraints .= preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints .= $sql_constraints_query; 
                         }
                         $first = FALSE;
                     } else {
@@ -475,6 +478,8 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                     }
                 }
                 $sql_constraints .= ';' . $crlf;
+                $sql_constraints_query .= ';';
+
                 $create_query = implode($crlf, array_slice($sql_lines, 0, $i)) . $crlf . implode($crlf, array_slice($sql_lines, $j, $sql_count - 1));
                 unset($sql_lines);
             }

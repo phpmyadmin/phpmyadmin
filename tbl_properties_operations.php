@@ -368,7 +368,7 @@ foreach ($dblist as $each_db) {
         // foreign keys
         if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'innodb')) {
         ?>
-    <input type="checkbox" name="sql_constraints" value="1" id="checkbox_constraints" />
+    <input type="checkbox" name="add_constraints" value="1" id="checkbox_constraints" />
     <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
         <?php
         } // endif

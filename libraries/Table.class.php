@@ -540,6 +540,7 @@ class PMA_Table {
             require_once './libraries/export/sql.php';
 
             $no_constraints_comments = true;
+	    $GLOBALS['sql_constraints_query'] = '';
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
             $parsed_sql =  PMA_SQP_parse($sql_structure);
@@ -595,9 +596,9 @@ class PMA_Table {
             @PMA_DBI_query($sql_structure);
             $GLOBALS['sql_query'] .= "\n" . $sql_structure . ';';
 
-            if (($move || isset($GLOBALS['constraints']))
-              && isset($GLOBALS['sql_constraints'])) {
-                $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints']);
+            if (($move || isset($GLOBALS['add_constraints']))
+              && isset($GLOBALS['sql_constraints_query'])) {
+                $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints_query']);
                 $i = 0;
 
                 // find the first quote_backtick, it must be the source table name
@@ -624,11 +625,11 @@ class PMA_Table {
 
 
                 // Generate query back
-                $GLOBALS['sql_constraints'] = PMA_SQP_formatHtml($parsed_sql,
+                $GLOBALS['sql_constraints_query'] = PMA_SQP_formatHtml($parsed_sql,
                     'query_only');
-                PMA_DBI_query($GLOBALS['sql_constraints']);
-                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints'];
-                unset($GLOBALS['sql_constraints']);
+                PMA_DBI_query($GLOBALS['sql_constraints_query']);
+                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
+                unset($GLOBALS['sql_constraints_query']);
             }
 
         } else {

@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php, tbl_properties_operations.php, 
+      libraries/Table.class.php, libraries/export/sql.php:
+      a single-table copy did not copy the constraints
+
 2006-07-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * js\querywindow.js, libraries\footer.inc.php: renamed JavaScript function
       refreshLeft() to refreshNavigation()
