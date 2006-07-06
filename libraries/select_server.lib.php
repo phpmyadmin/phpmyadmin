@@ -43,7 +43,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         echo '<option value="">(' . $GLOBALS['strServers'] . ') ...</option>' . "\n";
     } elseif ($list) {
         echo $GLOBALS['strServer'] . ':<br />';
-        echo '<ul>';
+        echo '<ul id="list_server">';
     }
 
     foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
