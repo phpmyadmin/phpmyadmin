@@ -59,7 +59,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
  * @uses    PMA_showHint()
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $GLOBALS['cfg']['PropertiesNumColumns']
- * @uses    $GLOBALS['cfg']['ShowStats']
+ * @uses    $GLOBALS['is_show_stats']
  * @uses    $GLOBALS['strTable']
  * @uses    $GLOBALS['strAction']
  * @uses    $GLOBALS['strRecords']
@@ -99,7 +99,7 @@ function PMA_TableHeader($db_is_information_schema = false)
             $cnt++;
         }
     }
-    if ($GLOBALS['cfg']['ShowStats']) {
+    if ($GLOBALS['is_show_stats']) {
         echo '    <th>' . $GLOBALS['strSize'] . '</th>' . "\n"
            . '    <th>' . $GLOBALS['strOverhead'] . '</th>' . "\n";
         $cnt += 2;
@@ -108,7 +108,7 @@ function PMA_TableHeader($db_is_information_schema = false)
     echo '</thead>' . "\n";
     echo '<tbody>' . "\n";
     $GLOBALS['structure_tbl_col_cnt'] = $cnt + $action_colspan + 3;
-}
+} // end function PMA_TableHeader()
 
 $titles = array();
 if (true == $cfg['PropertiesIconic']) {
@@ -243,7 +243,7 @@ foreach ($tables as $keyname => $each_table) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // is accurate.
         if (preg_match('@^(MyISAM|ISAM|HEAP|MEMORY)$@', $each_table['ENGINE'])) {
-            if ($cfg['ShowStats']) {
+            if ($is_show_stats) {
                 $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
                 $sum_size                   += $tblsize;
                 list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
@@ -256,7 +256,7 @@ foreach ($tables as $keyname => $each_table) {
         } elseif ($each_table['ENGINE'] == 'InnoDB') {
             // InnoDB table: Row count is not accurate but data and index
             // sizes are.
-            if ($cfg['ShowStats']) {
+            if ($is_show_stats) {
                 $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
                 $sum_size                   += $tblsize;
                 list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
@@ -265,14 +265,14 @@ foreach ($tables as $keyname => $each_table) {
             $sum_entries       += $each_table['TABLE_ROWS'];
         } elseif (preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $each_table['ENGINE'])) {
             // Merge or BerkleyDB table: Only row count is accurate.
-            if ($cfg['ShowStats']) {
+            if ($is_show_stats) {
                 $formatted_size =  ' - ';
                 $unit          =  '';
             }
             $sum_entries       += $each_table['TABLE_ROWS'];
         } else {
             // Unknown table type.
-            if ($cfg['ShowStats']) {
+            if ($is_show_stats) {
                 $formatted_size =  'unknown';
                 $unit          =  '';
             }
@@ -288,7 +288,7 @@ foreach ($tables as $keyname => $each_table) {
             }
         }
 
-        if ($cfg['ShowStats']) {
+        if ($is_show_stats) {
             if (isset($formatted_overhead)) {
                 $overhead = '<a href="tbl_properties_structure.php?'
                     . $tbl_url_query . '#showusage">' . $formatted_overhead
@@ -363,7 +363,7 @@ foreach ($tables as $keyname => $each_table) {
             <?php } ?>
         <?php } ?>
 
-        <?php if ($cfg['ShowStats']) { ?>
+        <?php if ($is_show_stats) { ?>
     <td class="value"><a
         href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo $formatted_size . ' ' . $unit; ?></a></td>
@@ -373,7 +373,7 @@ foreach ($tables as $keyname => $each_table) {
     <td class="value">-</td>
     <td><?php echo $strView; ?></td>
     <td>---</td>
-        <?php if ($cfg['ShowStats']) { ?>
+        <?php if ($is_show_stats) { ?>
     <td class="value">-</td>
     <td class="value">-</td>
         <?php } ?>
@@ -387,7 +387,7 @@ foreach ($tables as $keyname => $each_table) {
 } // end foreach
 
 // Show Summary
-if ($cfg['ShowStats']) {
+if ($is_show_stats) {
     list($sum_formatted, $unit) = PMA_formatByteDown($sum_size, 3, 1);
     list($overhead_formatted, $overhead_unit) =
         PMA_formatByteDown($overhead_size, 3, 1);
@@ -416,7 +416,7 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     }
 }
 
-if ($cfg['ShowStats']) {
+if ($is_show_stats) {
     ?>
     <th class="value"><?php echo $sum_formatted . ' ' . $unit; ?></th>
     <th class="value"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>

@@ -9,8 +9,10 @@ require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
+$is_show_stats = $cfg['ShowStats'];
+
 if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
-    $cfg['ShowStats'] = false;
+    $is_show_stats = false;
     $db_is_information_schema = true;
 } else {
     $db_is_information_schema = false;

@@ -6,6 +6,12 @@ $Id$
 $Source$
 
 
+2006-07-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php, libraries/db_details_common.inc.php
+      libraries/db_details_db_info.inc.php:
+      bug #1518147, after displaying information_schema, displaying other
+      dbs does not show size
+
 2006-07-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/select_server.lib.php, css/phpmyadmin.css.php:
       make serverlist a real html-list
