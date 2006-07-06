@@ -752,6 +752,20 @@ body.loginform div.container {
     width: 30em;
     margin: 0 auto;
 }
+
+#body_leftFrame #list_server {
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#body_leftFrame #list_server li {
+    margin: 0;
+    padding: 0;
+    font-size:          80%;
+}
     <?php
 } // end styles 2.9
 
