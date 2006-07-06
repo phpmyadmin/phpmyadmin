@@ -11,6 +11,8 @@ $Source$
       libraries/db_details_db_info.inc.php:
       bug #1518147, after displaying information_schema, displaying other
       dbs does not show size
+    * libraries/auth/config.auth.lib.php: bug #1477402, if default server fails
+      you cannot switch in config auth
 
 2006-07-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/select_server.lib.php, css/phpmyadmin.css.php:

@@ -136,8 +136,17 @@ function PMA_auth_fails()
 ?>
         </td>
     </tr>
-</table>
 <?php
+    if (count($GLOBALS['cfg']['Servers']) > 1) {
+        // offer a chance to login to other servers if the current one failed
+        require_once('./libraries/select_server.lib.php');
+        echo '<tr>' . "\n";
+        echo ' <td>' . "\n";
+        PMA_select_server(TRUE, TRUE);
+        echo ' </td>' . "\n";
+        echo '</tr>' . "\n";
+    }
+    echo '</table>' . "\n";
     require_once('./libraries/footer.inc.php');
     return TRUE;
 } // end of the 'PMA_auth_fails()' function
