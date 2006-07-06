@@ -7,7 +7,6 @@
 /**
  * display server selection in list or selectbox form, or option tags only
  *
- * @todo    make serverlist a real html-list
  * @globals $lang
  * @globals $convcharset
  * @uses    $GLOBALS['cfg']['DisplayServersList']
@@ -44,8 +43,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         echo '<option value="">(' . $GLOBALS['strServers'] . ') ...</option>' . "\n";
     } elseif ($list) {
         echo $GLOBALS['strServer'] . ':<br />';
-        // TODO FIXME display server list as 'list'
-        // echo '<ol>';
+        echo '<ul>';
     }
 
     foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
@@ -79,14 +77,13 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         }
 
         if ($list) {
-            // TODO FIXME display server list as 'list'
-            // echo '<li>';
+            echo '<li>';
             if ($selected && !$ommit_fieldset) {
-                echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
+                echo '<b>' . htmlspecialchars($label) . '</b>';
             } else {
-                echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
+                echo '<a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a>';
             }
-            // echo '</li>';
+            echo '</li>';
         } else {
             echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
         }
@@ -109,8 +106,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         }
         echo '</form>';
     } elseif ($list) {
-        // TODO FIXME display server list as 'list'
-        // echo '</ol>';
+        echo '</ul>';
     }
 }
 ?>
