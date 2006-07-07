@@ -90,8 +90,9 @@ if (!empty($TableList)) {
 } // end if
 
 
-$columns = PMA_DBI_get_columns_full($GLOBALS['db']);
-$tables  = PMA_DBI_get_columns_full($GLOBALS['db']);
+// this was a work in progress, deactivated for now
+//$columns = PMA_DBI_get_columns_full($GLOBALS['db']);
+//$tables  = PMA_DBI_get_columns_full($GLOBALS['db']);
 
 
 /**

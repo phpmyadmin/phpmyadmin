@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2006-07-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_qbe.php: deactivated some work in progress
+
 2006-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php, libraries/db_details_common.inc.php
       libraries/db_details_db_info.inc.php:
