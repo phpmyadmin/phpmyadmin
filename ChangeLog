@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * left.php, libraries/header_meta_style.inc.php, libraries/header.inc.php:
+      fix to remove scrollbar bug in IE without quirks mode
+
 2006-07-07 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_qbe.php: deactivated some work in progress
 

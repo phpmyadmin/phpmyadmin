@@ -50,11 +50,11 @@ if (empty($GLOBALS['is_header_sent'])) {
                     (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
                     $GLOBALS['cfg']['TitleDefault']))
                     );
-    // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0; 
+    // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
     $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
     ?>
     <script type="text/javascript" language="javascript">
-    <!--
+    // <![CDATA[
     // Updates the title of the frameset if possible (ns4 does not allow this)
     if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
         && typeof(parent.document.title) == 'string') {
@@ -72,7 +72,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         ? str_replace('\'', '\\\'', $GLOBALS['strNoDropDatabases']) : ''; ?>';
     var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDoYouReally']) : ''); ?>';
     var confirmMsgDropDB  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDropDatabaseStrongWarning']) : ''); ?>';
-    //-->
+    // ]]>
     </script>
     <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
         <?php
@@ -84,7 +84,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
     var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
     var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
-    //-->
+    // ]]>
     </script>
     <script src="./js/user_password.js" type="text/javascript" language="javascript"></script>
         <?php
@@ -96,7 +96,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
     var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
     var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
-    //-->
+    // ]]>
     </script>
     <script src="./js/server_privileges.js" type="text/javascript" language="javascript"></script>
     <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
@@ -107,21 +107,21 @@ if (empty($GLOBALS['is_header_sent'])) {
     // js index validation stuff
     var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strFormEmpty']); ?>';
     var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']); ?>';
-    //-->
+    // ]]>
     </script>
     <script src="./js/indexes.js" type="text/javascript" language="javascript"></script>
         <?php
     } elseif (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
         echo "\n";
         ?>
-    //-->
+    // ]]>
     </script>
     <script src="./js/tbl_change.js" type="text/javascript" language="javascript"></script>
         <?php
     } else {
         echo "\n";
         ?>
-    //-->
+    // ]]>
     </script>
         <?php
     }
@@ -130,18 +130,28 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Reloads the navigation frame via JavaScript if required
     PMA_reloadNavigation();
     ?>
-        <script src="./js/tooltip.js" type="text/javascript"
-            language="javascript"></script>
-        <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
-    </head>
+    <script src="./js/tooltip.js" type="text/javascript"
+        language="javascript"></script>
+    <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
+    <?php /* remove vertical scroll bar bug in ie */ ?>
+    <!--[if gte IE 6]>
+    <style type="text/css">
+    /* <![CDATA[ */
+    html {
+        overflow-y: scroll;
+    }
+    /* ]]> */
+    </style>
+    <![endif]-->
+</head>
 
-    <body>
-    <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
+<body>
+<div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
 
     // Include possible custom headers
     if (file_exists('./config.header.inc.php')) {
-        require('./config.header.inc.php');
+        require './config.header.inc.php';
     }
 
 

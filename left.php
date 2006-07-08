@@ -2,18 +2,18 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
- * display db and table selection
+ * the navigation frame - displays server, db and table selection tree
  */
 
 /**
  * Gets a core script and starts output buffering work
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 // free the session file, for the other frames to be loaded
 session_write_close();
 
-require_once('./libraries/ob.lib.php');
+require_once './libraries/ob.lib.php';
 if ($GLOBALS['cfg']['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
@@ -21,8 +21,8 @@ if ($GLOBALS['cfg']['OBGzip']) {
     }
 }
 
-require_once('./libraries/bookmark.lib.php');
-require_once('./libraries/relation.lib.php');
+require_once './libraries/bookmark.lib.php';
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -52,13 +52,13 @@ $db_start = $db;
 // to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.
 
-require_once('./libraries/header_http.inc.php');
+require_once './libraries/header_http.inc.php';
 
 /**
  * Displays the frame
  */
-// remove vertical scroll bar bug in ie
-echo '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?>';
+// xml declaration moves IE into quirks mode, making much trouble with CSS
+/* echo '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?>'; */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,6 +103,16 @@ echo '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?>';
     }
     //]]>
     </script>
+    <?php /* remove vertical scroll bar bug in ie */ ?>
+    <!--[if gte IE 6]>
+    <style type="text/css">
+    /* <![CDATA[ */
+    html {
+        overflow-y: scroll;
+    }
+    /* ]]> */
+    </style>
+    <![endif]-->
 </head>
 
 <body id="body_leftFrame">
