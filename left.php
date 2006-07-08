@@ -103,7 +103,11 @@ require_once './libraries/header_http.inc.php';
     }
     //]]>
     </script>
-    <?php /* remove vertical scroll bar bug in ie */ ?>
+    <?php
+    /**
+     * remove horizontal scroll bar bug in IE by forcing a vertical scroll bar
+     */
+    ?>
     <!--[if gte IE 6]>
     <style type="text/css">
     /* <![CDATA[ */
