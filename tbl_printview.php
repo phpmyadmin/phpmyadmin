@@ -113,7 +113,7 @@ foreach ($the_tables as $key => $table) {
 // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
 // SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
 // and SHOW CREATE TABLE says NOT NULL (tested
-// in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/bug.php?id=20910).
+// in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
     $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
