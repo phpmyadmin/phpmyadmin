@@ -504,7 +504,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <i>config.footer.inc.php</i> and <i>config.header.inc.php</i> files to add
     your site specific code to be included on start and end of each page.</p>
 
-<dl><dt id="cfg_PmaAbsoluteUri">$cfg[PmaAbsoluteUri] string</dt>
+<dl><dt id="cfg_PmaAbsoluteUri">$cfg['PmaAbsoluteUri'] string</dt>
     <dd>Sets here the complete <abbr title="Uniform Resource Locator">URL</abbr>
         (with full path) to your phpMyAdmin installation's directory.
         E.g. <tt>http://www.your_web.net/path_to_your_phpMyAdmin_directory/</tt>.
@@ -522,7 +522,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         the autodetect code fails to detect your path, please post a bug
         report on our bug tracker so we can improve the code.</dd>
 
-    <dt id="cfg_PmaNoRelation_DisableWarning">$cfg[PmaNoRelation_DisableWarning] boolean</dt>
+    <dt id="cfg_PmaNoRelation_DisableWarning">$cfg['PmaNoRelation_DisableWarning'] boolean</dt>
     <dd>Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
         with master / foreign &#8211; tables (see
         <a href="#pmadb" class="configrule">$cfg['Servers'][$i]['pmadb']</a>).
@@ -534,7 +534,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         If you do not want to use those features set this variable to
         <tt>TRUE</tt> to stop this message from appearing.</dd>
 
-    <dt id="cfg_blowfish_secret">$cfg[blowfish_secret] string</dt>
+    <dt id="cfg_blowfish_secret">$cfg['blowfish_secret'] string</dt>
     <dd>The &quot;cookie&quot; auth_type uses blowfish
         algorithm to encrypt the password.<br />
         If you are using the &quot;cookie&quot; auth_type, enter here a random
@@ -542,7 +542,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         algorithm: you won&#8217;t be prompted for this passphrase. The maximum
         number of characters for this parameter seems to be 46.</dd>
 
-    <dt id="cfg_Servers">$cfg[Servers] array</dt>
+    <dt id="cfg_Servers">$cfg['Servers'] array</dt>
     <dd>Since version 1.4.2, phpMyAdmin supports the administration of multiple
         MySQL servers. Therefore, a
         <a href="#cfg_Servers" class="configrule">$cfg['Servers']</a>-array has
@@ -899,7 +899,7 @@ ALTER TABLE `pma_column_comments`
         window.<br /><br />
 
         Using
-        <a href="#cfg_QueryHistoryMax" class="configrule">$cfg[QueryHistoryMax]</a>
+        <a href="#cfg_QueryHistoryMax" class="configrule">$cfg['QueryHistoryMax']</a>
         you can specify an amount of history items you want to have on hold. On
         every login, this list gets cut to the maximum amount.<br /><br />
 
@@ -993,7 +993,7 @@ ALTER TABLE `pma_column_comments`
         <abbr title="Internet Protocol">IP</abbr> address range)
     </dd>
 
-    <dt id="cfg_ServerDefault">$cfg[ServerDefault] integer</dt>
+    <dt id="cfg_ServerDefault">$cfg['ServerDefault'] integer</dt>
     <dd>If you have more than one server configured, you can set
         <tt>$cfg['ServerDefault']</tt> to any one of them to autoconnect to
         that server when phpMyAdmin is started, or set it to 0 to be given a
@@ -1001,7 +1001,7 @@ ALTER TABLE `pma_column_comments`
         If you have only one server configured, <tt>$cfg['ServerDefault']</tt>
         MUST be set to that server.</dd>
 
-    <dt id="cfg_OBGzip">$cfg[OBGzip] string/boolean</dt>
+    <dt id="cfg_OBGzip">$cfg['OBGzip'] string/boolean</dt>
     <dd>Defines whether to use GZip output buffering for increased
         speed in <abbr title="HyperText Transfer Protocol">HTTP</abbr> transfers.<br />
         Set to true/false for enabling/disabling. When set to 'auto' (string),
@@ -1009,35 +1009,35 @@ ALTER TABLE `pma_column_comments`
         it if your browser has some problems with buffering. IE6 with a certain patch
         is known to cause data corruption when having enabled buffering.</dd>
 
-    <dt id="cfg_PersistentConnections">$cfg[PersistentConnections] boolean</dt>
+    <dt id="cfg_PersistentConnections">$cfg['PersistentConnections'] boolean</dt>
     <dd>Whether persistent connections should be used or not (mysql_connect or
         mysql_pconnect).</dd>
 
-    <dt id="cfg_ForceSSL">$cfg[ForceSSL] boolean</dt>
+    <dt id="cfg_ForceSSL">$cfg['ForceSSL'] boolean</dt>
     <dd>Whether to force using https while accessing phpMyAdmin.</dd>
 
-    <dt id="cfg_ExecTimeLimit">$cfg[ExecTimeLimit] integer [number of seconds]</dt>
+    <dt id="cfg_ExecTimeLimit">$cfg['ExecTimeLimit'] integer [number of seconds]</dt>
     <dd>Set the number of seconds a script is allowed to run. If seconds is set
         to zero, no time limit is imposed.<br />
         This setting is used while importing/exporting dump files but has no
         effect when PHP is running in safe mode.</dd>
 
-    <dt id="cfg_MemoryLimit">$cfg[MemoryLimit] integer [number of bytes]</dt>
+    <dt id="cfg_MemoryLimit">$cfg['MemoryLimit'] integer [number of bytes]</dt>
     <dd>Set the number of bytes a script is allowed to allocate. If number set
         to zero, no limit is imposed.<br />
         This setting is used while importing/exporting dump files but has no
         effect when PHP is running in safe mode.<br />
         You can also use any string as in php.ini, eg. '16M'.</dd>
 
-    <dt id="cfg_SkipLockedTables">$cfg[SkipLockedTables] boolean</dt>
+    <dt id="cfg_SkipLockedTables">$cfg['SkipLockedTables'] boolean</dt>
     <dd>Mark used tables and make it possible to show databases with locked
         tables (since MySQL 3.23.30).</dd>
 
-    <dt id="cfg_ShowSQL">$cfg[ShowSQL] boolean</dt>
+    <dt id="cfg_ShowSQL">$cfg['ShowSQL'] boolean</dt>
     <dd>Defines whether <abbr title="structured query language">SQL</abbr> queries
         generated by phpMyAdmin should be displayed or not.</dd>
 
-    <dt id="cfg_AllowUserDropDatabase">$cfg[AllowUserDropDatabase] boolean</dt>
+    <dt id="cfg_AllowUserDropDatabase">$cfg['AllowUserDropDatabase'] boolean</dt>
     <dd>Defines whether normal users (non-administrator) are allowed to
         delete their own database or not. If set as FALSE, the link &quot;Drop
         Database&quot; will not be shown, and even a &quot;DROP DATABASE
@@ -1050,42 +1050,42 @@ ALTER TABLE `pma_column_comments`
         help to avoid accidental dropping rather than strict privilege
         limitation.</dd>
 
-    <dt id="cfg_Confirm">$cfg[Confirm] boolean</dt>
+    <dt id="cfg_Confirm">$cfg['Confirm'] boolean</dt>
     <dd>Whether a warning (&quot;Are your really sure...&quot;) should be
         displayed when you're about to lose data.</dd>
 
-    <dt id="cfg_LoginCookieRecall">$cfg[LoginCookieRecall] boolean</dt>
+    <dt id="cfg_LoginCookieRecall">$cfg['LoginCookieRecall'] boolean</dt>
     <dd>Define whether the previous login should be recalled or not in cookie
         authentication mode.</dd>
 
-    <dt id="cfg_LoginCookieValidity">$cfg[LoginCookieValidity] integer [number of seconds]</dt>
+    <dt id="cfg_LoginCookieValidity">$cfg['LoginCookieValidity'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie valid.</dd>
 
-    <dt id="cfg_LoginCookieStore">$cfg[LoginCookieStore] integer [number of seconds]</dt>
+    <dt id="cfg_LoginCookieStore">$cfg['LoginCookieStore'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie should be stored in browser. Default 0
         means that it will be kept for existing session. This is recommended
         for not trusted environments.</dd>
 
-    <dt id="cfg_LoginCookieDeleteAll">$cfg[LoginCookieDeleteAll] boolean</dt>
+    <dt id="cfg_LoginCookieDeleteAll">$cfg['LoginCookieDeleteAll'] boolean</dt>
     <dd>If enabled (default), logout deletes cookies for all servers,
         otherwise only for current one. Setting this to false makes it easy to
         forget to logout from other server, when you are using more of
         them.</dd>
 
-    <dt id="cfg_UseDbSearch">$cfg[UseDbSearch] boolean</dt>
+    <dt id="cfg_UseDbSearch">$cfg['UseDbSearch'] boolean</dt>
     <dd>Define whether the "search string inside database" is enabled or not.</dd>
 
-    <dt id="cfg_IgnoreMultiSubmitErrors">$cfg[IgnoreMultiSubmitErrors] boolean</dt>
+    <dt id="cfg_IgnoreMultiSubmitErrors">$cfg['IgnoreMultiSubmitErrors'] boolean</dt>
     <dd>Define whether phpMyAdmin will continue executing a multi-query
         statement if one of the queries fails. Default is to abort execution.</dd>
 
-    <dt id="cfg_VerboseMultiSubmit">$cfg[VerboseMultiSubmit] boolean</dt>
+    <dt id="cfg_VerboseMultiSubmit">$cfg['VerboseMultiSubmit'] boolean</dt>
     <dd>Define whether phpMyAdmin will output the results of each query of a
         multi-query statement embedded into the
         <abbr title="structured query language">SQL</abbr> output as inline
         comments. Defaults to <tt>TRUE</tt>.</dd>
     <dt id="AllowArbitraryServer">
-        <span id="cfg_AllowArbitraryServer">$cfg[AllowArbitraryServer]</span> boolean</dt>
+        <span id="cfg_AllowArbitraryServer">$cfg['AllowArbitraryServer']</span> boolean</dt>
     <dd>If enabled allows you to login to arbitrary servers using cookie auth.
         <br /><br />
 
@@ -1094,24 +1094,24 @@ ALTER TABLE `pma_column_comments`
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> server is placed.
     </dd>
 
-    <dt id="cfg_LeftFrameLight">$cfg[LeftFrameLight] boolean</dt>
+    <dt id="cfg_LeftFrameLight">$cfg['LeftFrameLight'] boolean</dt>
     <dd>Defines whether to use a select-based menu and display only the current
         tables in the left frame (smaller page). Only in Non-Lightmode you can
         use the feature to display nested folders using
         <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
     </dd>
 
-    <dt id="cfg_LeftFrameDBTree">$cfg[LeftFrameDBTree] boolean</dt>
+    <dt id="cfg_LeftFrameDBTree">$cfg['LeftFrameDBTree'] boolean</dt>
     <dd>In light mode, defines whether to display the names of databases (in the
         selector) using a tree, see also
         <a href="#cfg_LeftFrameDBSeparator" class="configrule">$cfg['LeftFrameDBSeparator']</a>.
     </dd>
 
-    <dt id="cfg_LeftFrameDBSeparator">$cfg[LeftFrameDBSeparator] string</dt>
+    <dt id="cfg_LeftFrameDBSeparator">$cfg['LeftFrameDBSeparator'] string</dt>
     <dd>The string used to separate the parts of the database name when showing
         them in a tree.</dd>
 
-    <dt id="cfg_LeftFrameTableSeparator">$cfg[LeftFrameTableSeparator] string</dt>
+    <dt id="cfg_LeftFrameTableSeparator">$cfg['LeftFrameTableSeparator'] string</dt>
     <dd>Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
         shown as a three-level hierarchy like: first &gt; second &gt; third.
@@ -1120,22 +1120,22 @@ ALTER TABLE `pma_column_comments`
         table name or multiple times after another without any other
         characters in between.</dd>
 
-    <dt id="cfg_LeftFrameTableLevel">$cfg[LeftFrameTableLevel] string</dt>
+    <dt id="cfg_LeftFrameTableLevel">$cfg['LeftFrameTableLevel'] string</dt>
     <dd>Defines how many sublevels should be displayed when splitting
         up tables by the above separator.</dd>
 
-    <dt id="cfg_ShowTooltip">$cfg[ShowTooltip] boolean</dt>
+    <dt id="cfg_ShowTooltip">$cfg['ShowTooltip'] boolean</dt>
     <dd>Defines whether to display table comment as tool-tip in left frame or
         not.</dd>
 
-    <dt id="cfg_ShowTooltipAliasDB">$cfg[ShowTooltipAliasDB] boolean</dt>
+    <dt id="cfg_ShowTooltipAliasDB">$cfg['ShowTooltipAliasDB'] boolean</dt>
     <dd>If tool-tips are enabled and a DB comment is set, this will flip the
         comment and the real name. That means that if you have a table called
         'user0001' and add the comment 'MyName' on it, you will see the name
         'MyName' used consequently in the left frame and the tool-tip shows
         the real name of the DB.</dd>
 
-    <dt id="cfg_ShowTooltipAliasTB">$cfg[ShowTooltipAliasTB] boolean/string</dt>
+    <dt id="cfg_ShowTooltipAliasTB">$cfg['ShowTooltipAliasTB'] boolean/string</dt>
     <dd>Same as <a href="#cfg_ShowTooltipAliasDB" class="configrule">$cfg['ShowTooltipAliasDB']</a>, except this works for table names.
 
         When setting this to 'nested', the Alias of the Tablename is only used
@@ -1144,27 +1144,27 @@ ALTER TABLE `pma_column_comments`
         directive. So only the folder is called like the Alias, the tablename itself
         stays the real tablename.</dd>
 
-    <dt id="cfg_LeftDisplayLogo">$cfg[LeftDisplayLogo] boolean</dt>
+    <dt id="cfg_LeftDisplayLogo">$cfg['LeftDisplayLogo'] boolean</dt>
     <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <tt>TRUE</tt>.</dd>
-    <dt id="cfg_LeftLogoLink">$cfg[LeftLogoLink] string</dt>
+    <dt id="cfg_LeftLogoLink">$cfg['LeftLogoLink'] string</dt>
     <dd>Enter URL where logo in left frame will point to. For use especially
         with self made theme which changes this.</dd>
-    <dt id="cfg_LeftDisplayServers">$cfg[LeftDisplayServers] boolean</dt>
+    <dt id="cfg_LeftDisplayServers">$cfg['LeftDisplayServers'] boolean</dt>
     <dd>Defines whether or not to display a server choice at the top of the left frame.
         Defaults to FALSE.</dd>
-    <dt id="cfg_DisplayServersList">$cfg[DisplayServersList] boolean</dt>
+    <dt id="cfg_DisplayServersList">$cfg['DisplayServersList'] boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
-    <dt id="cfg_ShowStats">$cfg[ShowStats] boolean</dt>
+    <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />
         Note that statistics requires at least MySQL 3.23.3 and that, at this
         date, MySQL doesn't return such information for Berkeley DB tables.</dd>
 
-    <dt><span id="cfg_ShowPhpInfo">$cfg[ShowPhpInfo] </span>boolean<br />
-        <span id="cfg_ShowChgPassword">$cfg[ShowChgPassword] </span>boolean<br />
-        <span id="cfg_ShowCreateDb">$cfg[ShowCreateDb] </span>boolean
+    <dt><span id="cfg_ShowPhpInfo">$cfg['ShowPhpInfo'] </span>boolean<br />
+        <span id="cfg_ShowChgPassword">$cfg['ShowChgPassword'] </span>boolean<br />
+        <span id="cfg_ShowCreateDb">$cfg['ShowCreateDb'] </span>boolean
     </dt>
     <dd>Defines whether to display the &quot;PHP information&quot; and
         &quot;Change password &quot; links and form for creating database or
@@ -1181,34 +1181,34 @@ ALTER TABLE `pma_column_comments`
         hard coded password value in the configuration file, end users can't
         be allowed to change their passwords.</dd>
 
-    <dt id="cfg_SuggestDBName">$cfg[SuggestDBName] boolean</dt>
+    <dt id="cfg_SuggestDBName">$cfg['SuggestDBName'] boolean</dt>
     <dd>Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.</dd>
 
-    <dt id="cfg_ShowBlob">$cfg[ShowBlob] boolean</dt>
+    <dt id="cfg_ShowBlob">$cfg['ShowBlob'] boolean</dt>
     <dd>Defines whether or not <tt>BLOB</tt> fields are shown when browsing a table's
         content.</dd>
 
-    <dt id="cfg_NavigationBarIconic">$cfg[NavigationBarIconic] string</dt>
+    <dt id="cfg_NavigationBarIconic">$cfg['NavigationBarIconic'] string</dt>
     <dd>Defines whether navigation bar buttons and the right panel top menu
         contain text or symbols only. A value of TRUE displays icons, FALSE
         displays text and 'both' displays both icons and text.</dd>
 
-    <dt id="cfg_ShowAll">$cfg[ShowAll] boolean</dt>
+    <dt id="cfg_ShowAll">$cfg['ShowAll'] boolean</dt>
     <dd>Defines whether a user should be displayed a
         &quot;show all (records)&quot; button in browse mode or not.</dd>
 
-    <dt id="cfg_MaxRows">$cfg[MaxRows] integer</dt>
+    <dt id="cfg_MaxRows">$cfg['MaxRows'] integer</dt>
     <dd>Number of rows displayed when browsing a result set. If the result set
         contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be shown.</dd>
 
-    <dt id="cfg_Order">$cfg[Order] string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
+    <dt id="cfg_Order">$cfg['Order'] string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
     <dd>Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
         in descending (<tt>DESC</tt>) order or in a &quot;smart&quot;
         (<tt>SMART</tt>) order - I.E. descending order for fields of type TIME,
         DATE, DATETIME and TIMESTAMP, ascending order else- by default.</dd>
 
-    <dt id="cfg_ProtectBinary">$cfg[ProtectBinary] boolean or string</dt>
+    <dt id="cfg_ProtectBinary">$cfg['ProtectBinary'] boolean or string</dt>
     <dd>Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
         from editing when browsing a table's content. Valid values are:
         <ul><li><tt>FALSE</tt> to allow editing of all fields;</li>
@@ -1218,11 +1218,11 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
-    <dt id="cfg_ShowFunctionFields">$cfg[ShowFunctionFields] boolean</dt>
+    <dt id="cfg_ShowFunctionFields">$cfg['ShowFunctionFields'] boolean</dt>
     <dd>Defines whether or not MySQL functions fields should be displayed in
         edit/insert mode.</dd>
 
-    <dt id="cfg_CharEditing">$cfg[CharEditing] string</dt>
+    <dt id="cfg_CharEditing">$cfg['CharEditing'] string</dt>
     <dd>Defines which type of editing controls should be used for CHAR and
         VARCHAR fields. Possible values are:
         <ul><li>input - this allows to limit size of text to size of field in
@@ -1232,29 +1232,29 @@ ALTER TABLE `pma_column_comments`
         </ul>
         Default is old behavior so input.</dd>
 
-    <dt id="cfg_InsertRows">$cfg[InsertRows] integer</dt>
+    <dt id="cfg_InsertRows">$cfg['InsertRows'] integer</dt>
     <dd>Defines the maximum number of concurrent entries for the Insert page.</dd>
 
-    <dt id="cfg_ForeignKeyMaxLimit">$cfg[ForeignKeyMaxLimit] integer</dt>
+    <dt id="cfg_ForeignKeyMaxLimit">$cfg['ForeignKeyMaxLimit'] integer</dt>
     <dd>If there are fewer items than this in the set of foreign keys, then a
         drop-down box of foreign keys is presented, in the style described by the
-        <a href="#cfg_ForeignKeyDropdownOrder" class="configrule">$cfg[ForeignKeyDropdownOrder]</a>
+        <a href="#cfg_ForeignKeyDropdownOrder" class="configrule">$cfg['ForeignKeyDropdownOrder']</a>
         setting.</dd>
 
-    <dt id="cfg_ForeignKeyDropdownOrder">$cfg[ForeignKeyDropdownOrder] array</dt>
+    <dt id="cfg_ForeignKeyDropdownOrder">$cfg['ForeignKeyDropdownOrder'] array</dt>
     <dd>For the foreign key drop-down fields, there are several methods of
         display, offering both the key and value data. The contents of the
         array should be one or both of the following strings:
         <i>'content-id'</i>, <i>'id-content'</i>.</dd>
 
-    <dt><span id="cfg_ZipDump">$cfg[ZipDump] </span>boolean<br />
-        <span id="cfg_GZipDump">$cfg[GZipDump] </span>boolean<br />
-        <span id="cfg_BZipDump">$cfg[BZipDump] </span>boolean
+    <dt><span id="cfg_ZipDump">$cfg['ZipDump'] </span>boolean<br />
+        <span id="cfg_GZipDump">$cfg['GZipDump'] </span>boolean<br />
+        <span id="cfg_BZipDump">$cfg['BZipDump'] </span>boolean
     </dt>
     <dd>Defines whether to allow the use of zip/GZip/BZip2 compression when
         creating a dump file</dd>
 
-    <dt><span id="cfg_CompressOnFly">$cfg[CompressOnFly] </span>boolean<br />
+    <dt><span id="cfg_CompressOnFly">$cfg['CompressOnFly'] </span>boolean<br />
     </dt>
     <dd>Defines whether to allow on the fly compression for GZip/BZip2
         compressed exports. This doesn't affect smaller dumps and allows users to
@@ -1262,42 +1262,42 @@ ALTER TABLE `pma_column_comments`
         memory limit. Produced files contain more GZip/BZip2 headers, but all
         normal programs handle this correctly.</dd>
 
-    <dt id="cfg_LightTabs">$cfg[LightTabs] string</dt>
+    <dt id="cfg_LightTabs">$cfg['LightTabs'] string</dt>
     <dd>If set to <tt>TRUE</tt>, use less graphically intense tabs on the top of the
         mainframe.</dd>
 
-    <dt id="cfg_PropertiesIconic">$cfg[PropertiesIconic] string</dt>
+    <dt id="cfg_PropertiesIconic">$cfg['PropertiesIconic'] string</dt>
     <dd>If set to <tt>TRUE</tt>, will display icons instead of text for db and table
         properties links (like 'Browse', 'Select', 'Insert', ...).<br /> Can be
         set to <tt>'both'</tt> if you want icons AND text.<br />
         When set to <tt>FALSE</tt>, will only show text.</dd>
 
-    <dt id="cfg_PropertiesNumColumns">$cfg[PropertiesNumColumns] integer</dt>
+    <dt id="cfg_PropertiesNumColumns">$cfg['PropertiesNumColumns'] integer</dt>
     <dd>How many columns will be utilized to display the tables on the
         database property view?  Default is 1 column. When setting this to a
         value larger than 1, the type of the database will be omitted for more
         display space.</dd>
 
 
-    <dt id="cfg_DefaultTabServer">$cfg[DefaultTabServer] string</dt>
+    <dt id="cfg_DefaultTabServer">$cfg['DefaultTabServer'] string</dt>
     <dd>Defines the tab displayed by default on server view. Possible
         values: &quot;main.php&quot; (recommended for multi-user setups),
         &quot;server_databases.php&quot;, &quot;server_status.php&quot;,
         &quot;server_variables.php&quot;, &quot;server_privileges.php&quot;
         or &quot;server_processlist.php&quot;.</dd>
 
-    <dt id="cfg_DefaultTabDatabase">$cfg[DefaultTabDatabase] string</dt>
+    <dt id="cfg_DefaultTabDatabase">$cfg['DefaultTabDatabase'] string</dt>
     <dd>Defines the tab displayed by default on database view. Possible
         values: &quot;db_details_structure.php&quot;,
         &quot;db_details.php&quot; or &quot;db_search.php&quot;.</dd>
 
-    <dt id="cfg_DefaultTabTable">$cfg[DefaultTabTable] string</dt>
+    <dt id="cfg_DefaultTabTable">$cfg['DefaultTabTable'] string</dt>
     <dd>Defines the tab displayed by default on table view. Possible
         values: &quot;tbl_properties_structure.php&quot;,
         &quot;tbl_properties.php&quot;, &quot;tbl_select.php&quot;,
         &quot;tbl_change.php&quot; or &quot;sql.php&quot;.</dd>
 
-    <dt id="cfg_MySQLManualBase">$cfg[MySQLManualBase] string</dt>
+    <dt id="cfg_MySQLManualBase">$cfg['MySQLManualBase'] string</dt>
     <dd>If set to an <abbr title="Uniform Resource Locator">URL</abbr> which
         points to the MySQL documentation (type depends
         on <a href="#cfg_MySQLManualType" class="configrule">$cfg['MySQLManualType']</a>), appropriate help links are
@@ -1305,7 +1305,7 @@ ALTER TABLE `pma_column_comments`
         See <a href="http://dev.mysql.com/doc/">MySQL Documentation page</a>
         for more information about MySQL manuals and their types.</dd>
 
-    <dt id="cfg_MySQLManualType">$cfg[MySQLManualType] string</dt>
+    <dt id="cfg_MySQLManualType">$cfg['MySQLManualType'] string</dt>
     <dd>Type of MySQL documentation:
         <ul><li>viewable - &quot;viewable online&quot;, current one used on MySQL website</li>
             <li>searchable - &quot;Searchable, with user comments&quot;</li>
@@ -1315,28 +1315,28 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
-    <dt id="cfg_DefaultLang">$cfg[DefaultLang] string</dt>
+    <dt id="cfg_DefaultLang">$cfg['DefaultLang'] string</dt>
     <dd>Defines the default language to use, if not browser-defined or
         user-defined.<br />
         See the <i>select_lang.lib.php</i> script to know the valid values for
         this setting.</dd>
 
-    <dt id="cfg_DefaultConnectionCollation">$cfg[DefaultConnectionCollation] string</dt>
+    <dt id="cfg_DefaultConnectionCollation">$cfg['DefaultConnectionCollation'] string</dt>
     <dd>Defines the default connection collation to use, if not
         user-defined.<br />
         See the <a href="http://dev.mysql.com/doc/mysql/en/charset-charsets.html">MySQL
         documentation</a> for list of possible values.</dd>
 
-    <dt id="cfg_Lang">$cfg[Lang] string</dt>
+    <dt id="cfg_Lang">$cfg['Lang'] string</dt>
     <dd>Force: always use this language (must be defined in the
         <i>select_lang.lib.php</i> script).</dd>
 
-    <dt id="cfg_FilterLanguages">$cfg[FilterLanguages] string</dt>
+    <dt id="cfg_FilterLanguages">$cfg['FilterLanguages'] string</dt>
     <dd>Limit list of available languages to those matching the given regular
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.</dd>
 
-    <dt id="cfg_DefaultCharset">$cfg[DefaultCharset] string</dt>
+    <dt id="cfg_DefaultCharset">$cfg['DefaultCharset'] string</dt>
     <dd>Default character set to use for recoding of MySQL queries. This must be
         enabled and it's described by
         <a href="#cfg_AllowAnywhereRecoding" class="configrule">$cfg['AllowAnywhereRecoding']</a>
@@ -1345,7 +1345,7 @@ ALTER TABLE `pma_column_comments`
         <a href="#cfg_AvailableCharsets" class="configrule">$cfg['AvailableCharsets']</a>
         array and this is just default choice, user can select any of them.</dd>
 
-    <dt id="cfg_AllowAnywhereRecoding">$cfg[AllowAnywhereRecoding] boolean</dt>
+    <dt id="cfg_AllowAnywhereRecoding">$cfg['AllowAnywhereRecoding'] boolean</dt>
     <dd>Allow character set recoding of MySQL queries. You need recode or iconv
         support (compiled in or module) in PHP to allow MySQL queries recoding
         and used language file must have it enabled (by default only these
@@ -1355,7 +1355,7 @@ ALTER TABLE `pma_column_comments`
         in the Export page, to choose the character set when exporting a file.
     </dd>
 
-    <dt id="cfg_RecodingEngine">$cfg[RecodingEngine] string</dt>
+    <dt id="cfg_RecodingEngine">$cfg['RecodingEngine'] string</dt>
     <dd>You can select here which functions will be used for character set
         conversion. Possible values are:
         <ul><li>auto   - automatically use available one (first is tested
@@ -1365,19 +1365,19 @@ ALTER TABLE `pma_column_comments`
         </ul>
         Default is auto.</dd>
 
-    <dt id="cfg_IconvExtraParams">$cfg[IconvExtraParams] string</dt>
+    <dt id="cfg_IconvExtraParams">$cfg['IconvExtraParams'] string</dt>
     <dd>Specify some parameters for iconv used in charset conversion. See
         <a href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
         documentation</a> for details. By default <code>//TRANSLIT</code> is
         used, so that invalid characters will be transliterated.</dd>
 
-    <dt id="cfg_AvailableCharsets">$cfg[AvailableCharsets] array</dt>
+    <dt id="cfg_AvailableCharsets">$cfg['AvailableCharsets'] array</dt>
     <dd>Available character sets for MySQL conversion. You can add your own (any of
         supported by recode/iconv) or remove these which you don't use.
         Character sets will be shown in same order as here listed, so if you
         frequently use some of these move them to the top.</dd>
 
-    <dt id="cfg_GD2Available">$cfg[GD2Available] string</dt>
+    <dt id="cfg_GD2Available">$cfg['GD2Available'] string</dt>
     <dd>Specifies whether GD &gt;= 2 is available. If yes it can be used for
         MIME transformations.<br />
         Possible values are:
@@ -1390,46 +1390,46 @@ ALTER TABLE `pma_column_comments`
         Default is auto.
     </dd>
 
-    <dt id="cfg_LeftWidth">$cfg[LeftWidth] integer</dt>
+    <dt id="cfg_LeftWidth">$cfg['LeftWidth'] integer</dt>
     <dd>Left frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><span id="cfg_LeftBgColor">$cfg[LeftBgColor]</span> string [HTML color]<br />
-        <span id="cfg_RightBgColor">$cfg[RightBgColor]</span> string [HTML color]
+    <dt><span id="cfg_LeftBgColor">$cfg['LeftBgColor']</span> string [HTML color]<br />
+        <span id="cfg_RightBgColor">$cfg['RightBgColor']</span> string [HTML color]
     </dt>
     <dd>The background colors (HTML) used for both the frames.
         See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt><span id="cfg_RightBgImage">$cfg[RightBgImage]</span> string</dt>
+    <dt><span id="cfg_RightBgImage">$cfg['RightBgImage']</span> string</dt>
     <dd>The URI of the background image used for the right frame. It must be
         an absolute URI. See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt id="cfg_LeftPointerColor">$cfg[LeftPointerColor] string [HTML color]</dt>
+    <dt id="cfg_LeftPointerColor">$cfg['LeftPointerColor'] string [HTML color]</dt>
     <dd>The color (HTML) used for the pointer in the left frame (does not work
         with Netscape 4). See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt id="cfg_LeftPointerEnable">$cfg[LeftPointerEnable] boolean</dt>
+    <dt id="cfg_LeftPointerEnable">$cfg['LeftPointerEnable'] boolean</dt>
     <dd>A value of <tt>TRUE</tt> activates the left pointer (when LeftFrameLight
         is <tt>FALSE</tt>).</dd>
 
-    <dt id="cfg_Border">$cfg[Border] integer</dt>
+    <dt id="cfg_Border">$cfg['Border'] integer</dt>
     <dd>The size of a table's border. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt id="cfg_ThBgcolor">$cfg[ThBgcolor] string [HTML color]</dt>
+    <dt id="cfg_ThBgcolor">$cfg['ThBgcolor'] string [HTML color]</dt>
     <dd>The color (HTML) used for table headers. See
         <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt id="cfg_BgcolorOne">$cfg[BgcolorOne] string [HTML color]</dt>
+    <dt id="cfg_BgcolorOne">$cfg['BgcolorOne'] string [HTML color]</dt>
     <dd>The color (HTML) #1 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt id="cfg_BgcolorTwo">$cfg[BgcolorTwo] string [HTML color]</dt>
+    <dt id="cfg_BgcolorTwo">$cfg['BgcolorTwo'] string [HTML color]</dt>
     <dd>The color (HTML) #2 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><span id="cfg_BrowsePointerColor">$cfg[BrowsePointerColor] </span>string [HTML color]<br />
-        <span id="cfg_BrowseMarkerColor">$cfg[BrowseMarkerColor] </span>string [HTML color]
+    <dt><span id="cfg_BrowsePointerColor">$cfg['BrowsePointerColor'] </span>string [HTML color]<br />
+        <span id="cfg_BrowseMarkerColor">$cfg['BrowseMarkerColor'] </span>string [HTML color]
     </dt>
     <dd>The colors (HTML) uses for the pointer and the marker in browse mode
         (does not work with Netscape 4).<br />
@@ -1438,16 +1438,16 @@ ALTER TABLE `pma_column_comments`
         them.<br />
         See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt id="cfg_BrowsePointerEnable">$cfg[BrowsePointerEnable] boolean</dt>
+    <dt id="cfg_BrowsePointerEnable">$cfg['BrowsePointerEnable'] boolean</dt>
     <dd>Whether to activate the browse pointer or not.</dd>
 
-    <dt id="cfg_BrowseMarkerEnable">$cfg[BrowseMarkerEnable] boolean</dt>
+    <dt id="cfg_BrowseMarkerEnable">$cfg['BrowseMarkerEnable'] boolean</dt>
     <dd>Whether to activate the browse marker or not.</dd>
 
-    <dt><span id="cfg_TextareaCols">$cfg[TextareaCols] </span>integer<br />
-        <span id="cfg_TextareaRows">$cfg[TextareaRows] </span>integer<br />
-        <span id="cfg_CharTextareaCols">$cfg[CharTextareaCols] </span>integer<br />
-        <span id="cfg_CharTextareaRows">$cfg[CharTextareaRows] </span>integer
+    <dt><span id="cfg_TextareaCols">$cfg['TextareaCols'] </span>integer<br />
+        <span id="cfg_TextareaRows">$cfg['TextareaRows'] </span>integer<br />
+        <span id="cfg_CharTextareaCols">$cfg['CharTextareaCols'] </span>integer<br />
+        <span id="cfg_CharTextareaRows">$cfg['CharTextareaRows'] </span>integer
     </dt>
     <dd>Number of columns and rows for the textareas.<br />
         This value will be emphasized (*2) for <abbr title="structured query language">SQL</abbr> query textareas and (*1.25) for
@@ -1455,26 +1455,26 @@ ALTER TABLE `pma_column_comments`
         The Char* values are used for CHAR and VARCHAR editing (if configured
         via <a href="#cfg_CharEditing">$cfg['CharEditing']</a>).</dd>
 
-    <dt><span id="cfg_LongtextDoubleTextarea">$cfg[LongtextDoubleTextarea] </span>boolean
+    <dt><span id="cfg_LongtextDoubleTextarea">$cfg['LongtextDoubleTextarea'] </span>boolean
     </dt>
     <dd>Defines whether textarea for LONGTEXT fields should have double size.</dd>
 
-    <dt><span id="cfg_TextareaAutoSelect">$cfg[TextareaAutoSelect] </span>boolean
+    <dt><span id="cfg_TextareaAutoSelect">$cfg['TextareaAutoSelect'] </span>boolean
     </dt>
     <dd>Defines if the whole textarea of the query box will be selected on
         click.</dd>
     <dt id="CtrlArrowsMoving">
-        <span id="cfg_CtrlArrowsMoving">$cfg[CtrlArrowsMoving] </span>boolean
+        <span id="cfg_CtrlArrowsMoving">$cfg['CtrlArrowsMoving'] </span>boolean
     </dt>
     <dd>Enable Ctrl+Arrows (Option+Arrows in Safari) moving between fields when
         editing.</dd>
 
-    <dt id="cfg_LimitChars">$cfg[LimitChars] integer</dt>
+    <dt id="cfg_LimitChars">$cfg['LimitChars'] integer</dt>
     <dd>Maximum number of characters showen in any non-numeric field on browse view.
         Can be turned off by a toggle button on the browse page.</dd>
 
-    <dt><span id="cfg_ModifyDeleteAtLeft">$cfg[ModifyDeleteAtLeft] </span>boolean
-        <span id="cfg_ModifyDeleteAtRight">$cfg[ModifyDeleteAtRight] </span>boolean
+    <dt><span id="cfg_ModifyDeleteAtLeft">$cfg['ModifyDeleteAtLeft'] </span>boolean
+        <span id="cfg_ModifyDeleteAtRight">$cfg['ModifyDeleteAtRight'] </span>boolean
     </dt>
     <dd>Defines the place where modify and delete links would be put when
         tables contents are displayed (you may have them displayed both at the
@@ -1482,8 +1482,8 @@ ALTER TABLE `pma_column_comments`
         &quot;Left&quot; and &quot;right&quot; are parsed as &quot;top&quot;
         and &quot;bottom&quot; with vertical display mode.</dd>
 
-    <dt id="cfg_DefaultDisplay">$cfg[DefaultDisplay] string
-        <span id="cfg_HeaderFlipType">$cfg[HeaderFlipType] </span>string
+    <dt id="cfg_DefaultDisplay">$cfg['DefaultDisplay'] string
+        <span id="cfg_HeaderFlipType">$cfg['HeaderFlipType'] </span>string
     </dt>
     <dd>There are 3 display modes: horizontal, horizontalflipped and vertical.
         Define which one is displayed by default. The first mode displays each
@@ -1498,15 +1498,15 @@ ALTER TABLE `pma_column_comments`
         does not look as good as CSS.</dd>
 
     <dt id="DefaultPropDisplay">
-        <span id="cfg_DefaultPropDisplay">$cfg[DefaultPropDisplay]</span> string</dt>
+        <span id="cfg_DefaultPropDisplay">$cfg['DefaultPropDisplay']</span> string</dt>
     <dd>When editing/creating new columns in a table all fields normally get
         lined up one field a line. (default: 'horizontal'). If you set this to
         'vertical' you can have each field lined up vertically beneath each
         other. You can save up a lot of place on the horizontal direction and
         no longer have to scroll.</dd>
 
-    <dt id="cfg_ShowBrowseComments">$cfg[ShowBrowseComments] boolean<br />
-        <span id="cfg_ShowPropertyComments">$cfg[ShowPropertyComments] </span>boolean
+    <dt id="cfg_ShowBrowseComments">$cfg['ShowBrowseComments'] boolean<br />
+        <span id="cfg_ShowPropertyComments">$cfg['ShowPropertyComments'] </span>boolean
     </dt>
     <dd>By setting the corresponding variable to <tt>TRUE</tt> you can enable the
         display of column comments in Browse or Property display. In browse
@@ -1515,7 +1515,7 @@ ALTER TABLE `pma_column_comments`
         name of the field. The comment is shown as a tool-tip for that field.
     </dd>
 
-    <dt id="cfg_UploadDir">$cfg[UploadDir] string</dt>
+    <dt id="cfg_UploadDir">$cfg['UploadDir'] string</dt>
     <dd>
         The name of the directory where
         <abbr title="structured query language">SQL</abbr> files have been
@@ -1544,7 +1544,7 @@ ALTER TABLE `pma_column_comments`
         alternatives.
     </dd>
 
-    <dt id="cfg_docSQLDir">$cfg[docSQLDir] string</dt>
+    <dt id="cfg_docSQLDir">$cfg['docSQLDir'] string</dt>
     <dd>
         The name of the directory where docSQL files can be uploaded for
         import into phpMyAdmin.
@@ -1553,7 +1553,7 @@ ALTER TABLE `pma_column_comments`
         be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
 
-    <dt id="cfg_SaveDir">$cfg[SaveDir] string</dt>
+    <dt id="cfg_SaveDir">$cfg['SaveDir'] string</dt>
     <dd>
         The name of the directory where dumps can be saved.<br /><br />
 
@@ -1567,7 +1567,7 @@ ALTER TABLE `pma_column_comments`
         be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
 
-    <dt id="cfg_TempDir">$cfg[TempDir] string</dt>
+    <dt id="cfg_TempDir">$cfg['TempDir'] string</dt>
     <dd>
         The name of the directory where temporary files can be stored.
         <br /><br />
@@ -1576,31 +1576,31 @@ ALTER TABLE `pma_column_comments`
         6.23</a>
     </dd>
 
-    <dt id="cfg_Export">$cfg[Export] array</dt>
+    <dt id="cfg_Export">$cfg['Export'] array</dt>
     <dd>
         In this array are defined default parameters for export, names of
         items are similar to texts seen on export page, so you can easily
         identify what they mean.
     </dd>
 
-    <dt id="cfg_Import">$cfg[Import] array</dt>
+    <dt id="cfg_Import">$cfg['Import'] array</dt>
     <dd>
         In this array are defined default parameters for import, names of
         items are similar to texts seen on import page, so you can easily
         identify what they mean.
     </dd>
 
-    <dt id="cfg_RepeatCells">$cfg[RepeatCells] integer</dt>
+    <dt id="cfg_RepeatCells">$cfg['RepeatCells'] integer</dt>
     <dd>
         Repeat the headers every X cells, or 0 to deactivate.
     </dd>
 
-    <dt id="cfg_EditInWindow">$cfg[EditInWindow] boolean<br />
-        <span id="cfg_QueryWindowWidth">$cfg[QueryWindowWidth] </span>integer<br />
-        <span id="cfg_QueryWindowHeight">$cfg[QueryWindowHeight] </span>integer<br />
-        <span id="cfg_QueryHistoryDB">$cfg[QueryHistoryDB] </span>boolean<br />
-        <span id="cfg_QueryWindowDefTab">$cfg[QueryWindowDefTab] </span>string<br />
-        <span id="cfg_QueryHistoryMax">$cfg[QueryHistoryMax] </span>integer
+    <dt id="cfg_EditInWindow">$cfg['EditInWindow'] boolean<br />
+        <span id="cfg_QueryWindowWidth">$cfg['QueryWindowWidth'] </span>integer<br />
+        <span id="cfg_QueryWindowHeight">$cfg['QueryWindowHeight'] </span>integer<br />
+        <span id="cfg_QueryHistoryDB">$cfg['QueryHistoryDB'] </span>boolean<br />
+        <span id="cfg_QueryWindowDefTab">$cfg['QueryWindowDefTab'] </span>string<br />
+        <span id="cfg_QueryHistoryMax">$cfg['QueryHistoryMax'] </span>integer
     </dt>
     <dd>
         All those variables affect the query window feature. A <tt><abbr title="structured query language">SQL</abbr></tt> link
@@ -1653,10 +1653,10 @@ ALTER TABLE `pma_column_comments`
         default tab to be used when opening the query window. It can be set to
         either 'sql', 'files', 'history' or 'full'.</dd>
 
-    <dt id="cfg_BrowseMIME">$cfg[BrowseMIME] boolean</dt>
+    <dt id="cfg_BrowseMIME">$cfg['BrowseMIME'] boolean</dt>
     <dd>Enable <a href="#transformations">MIME-transformations</a>.</dd>
 
-    <dt id="cfg_MaxExactCount">$cfg[MaxExactCount] integer</dt>
+    <dt id="cfg_MaxExactCount">$cfg['MaxExactCount'] integer</dt>
     <dd><ul><li>For InnoDB tables, determines for how large tables phpMyAdmin
                 should get the exact row count using <code>SELECT COUNT</code>.
                 If the approximate row count as returned by
@@ -1670,7 +1670,7 @@ ALTER TABLE `pma_column_comments`
     </dd>
 
     <dt id="wysiwyg">
-        <span id="cfg_WYSIWYG-PDF">$cfg[WYSIWYG-PDF] </span>boolean</dt>
+        <span id="cfg_WYSIWYG-PDF">$cfg['WYSIWYG-PDF'] </span>boolean</dt>
     <dd>Utilizes a WYSIWYG editing control to easily place elements of a
         <abbr title="Portable Document Format">PDF</abbr>
         page.  By clicking on the button 'toggle scratchboard' on the page
@@ -1695,15 +1695,15 @@ ALTER TABLE `pma_column_comments`
         was kindly borrowed from www.youngpup.net and is underlying so
         specific license.</dd>
 
-    <dt id="cfg_NaturalOrder">$cfg[NaturalOrder] boolean</dt>
+    <dt id="cfg_NaturalOrder">$cfg['NaturalOrder'] boolean</dt>
     <dd>Sorts database and table names according to natural order (for example,
         t1, t2, t10). Currently implemented in the left panel (Light mode)
         and in Database view, for the table list.</dd>
 
-    <dt id="cfg_TitleTable">$cfg[TitleTable] string</dt>
-    <dt id="cfg_TitleDatabase">$cfg[TitleDatabase] string</dt>
-    <dt id="cfg_TitleServer">$cfg[TitleServer] string</dt>
-    <dt id="cfg_TitleDefault">$cfg[TitleDefault] string</dt>
+    <dt id="cfg_TitleTable">$cfg['TitleTable'] string</dt>
+    <dt id="cfg_TitleDatabase">$cfg['TitleDatabase'] string</dt>
+    <dt id="cfg_TitleServer">$cfg['TitleServer'] string</dt>
+    <dt id="cfg_TitleDefault">$cfg['TitleDefault'] string</dt>
     <dd>Allows you to specify window's title bar. Following magic string can
         be used to get special values:
         <dl>
@@ -1724,47 +1724,47 @@ ALTER TABLE `pma_column_comments`
         </dl>
     </dd>
 
-    <dt id="cfg_ErrorIconic">$cfg[ErrorIconic] boolean</dt>
+    <dt id="cfg_ErrorIconic">$cfg['ErrorIconic'] boolean</dt>
     <dd>Uses icons for warnings, errors and informations.</dd>
 
-    <dt id="cfg_MainPageIconic">$cfg[MainPageIconic] boolean</dt>
+    <dt id="cfg_MainPageIconic">$cfg['MainPageIconic'] boolean</dt>
     <dd>Uses icons on main page in lists and menu tabs.</dd>
 
-    <dt id="cfg_ReplaceHelpImg">$cfg[ReplaceHelpImg] boolean</dt>
+    <dt id="cfg_ReplaceHelpImg">$cfg['ReplaceHelpImg'] boolean</dt>
     <dd>Shows a help button instead of the &quot;Documentation&quot; message.
     </dd>
 
-    <dt id="cfg_ThemePath">$cfg[ThemePath] string</dt>
+    <dt id="cfg_ThemePath">$cfg['ThemePath'] string</dt>
     <dd>If theme manager is active, use this as the path of the subdirectory
         containing all the themes.</dd>
 
-    <dt id="cfg_ThemeManager">$cfg[ThemeManager] boolean</dt>
+    <dt id="cfg_ThemeManager">$cfg['ThemeManager'] boolean</dt>
     <dd>Enables user-selectable themes. See <a href="#faqthemes">
         <abbr title="Frequently Asked Questions">FAQ</abbr> 2.7</a>.</dd>
 
-    <dt id="cfg_ThemeDefault">$cfg[ThemeDefault] string</dt>
+    <dt id="cfg_ThemeDefault">$cfg['ThemeDefault'] string</dt>
     <dd>The default theme (a subdirectory under <tt>cfg['ThemePath']</tt>).</dd>
 
-    <dt id="cfg_ThemePerServer">$cfg[ThemePerServer] boolean</dt>
+    <dt id="cfg_ThemePerServer">$cfg['ThemePerServer'] boolean</dt>
     <dd>Whether to allow different theme for each server.</dd>
 
-    <dt id="cfg_DefaultQueryTable">$cfg[DefaultQueryTable] string<br />
-        <span id="cfg_DefaultQueryDatabase">$cfg[DefaultQueryDatabase]</span> string
+    <dt id="cfg_DefaultQueryTable">$cfg['DefaultQueryTable'] string<br />
+        <span id="cfg_DefaultQueryDatabase">$cfg['DefaultQueryDatabase']</span> string
     </dt>
     <dd>Default queries that will be displayed in query boxes when user didn't
         specify any. Use %d for database name, %t for table name and %f for a
         comma separated list of field names. Note that %t and %f are only
         applicable to <tt>$cfg['DefaultQueryTable']</tt>.</dd>
 
-    <dt id="cfg_SQP_fmtType">$cfg[SQP]['fmtType'] string [<tt>html</tt>|<tt>none</tt>]</dt>
+    <dt id="cfg_SQP_fmtType">$cfg['SQP']['fmtType'] string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
         The main use of the new <abbr title="structured query language">SQL</abbr> Parser is to pretty-print <abbr title="structured query language">SQL</abbr> queries. By
         default we use HTML to format the query, but you can disable this by
         setting this variable to <tt>'none'</tt>.
     </dd>
 
-    <dt id="cfg_SQP_fmtInd">$cfg[SQP]['fmtInd'] float<br />
-        <span id="cfg_SQP">$cfg[SQP]['fmtIndUnit']</span> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
+    <dt id="cfg_SQP_fmtInd">$cfg['SQP']['fmtInd'] float<br />
+        <span id="cfg_SQP">$cfg['SQP']['fmtIndUnit']</span> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
     <dd>For the pretty-printing of <abbr title="structured query language">SQL</abbr> queries, under some cases the part of a
         query inside a bracket is indented. By changing
         <tt>$cfg['SQP']['fmtInd']</tt> you can change the amount of this indent.
@@ -1772,7 +1772,7 @@ ALTER TABLE `pma_column_comments`
         specifies the units of the indent amount that you specified. This is
         used via stylesheets.</dd>
 
-    <dt id="cfg_SQP_fmtColor">$cfg[SQP]['fmtColor'] array of string tuples</dt>
+    <dt id="cfg_SQP_fmtColor">$cfg['SQP']['fmtColor'] array of string tuples</dt>
     <dd>This array is used to define the colours for each type of element of
         the pretty-printed <abbr title="structured query language">SQL</abbr> queries. The tuple format is<br />
         <i>class</i> =&gt; [<i>HTML colour code</i> | <i>empty string</i>]<br />
@@ -1808,8 +1808,8 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
-    <dt id="cfg_SQLValidator">$cfg[SQLValidator] boolean</dt>
-    <dd><dl><dt id="cfg_SQLValidator_use">$cfg[SQLValidator]['use'] boolean</dt>
+    <dt id="cfg_SQLValidator">$cfg['SQLValidator'] boolean</dt>
+    <dd><dl><dt id="cfg_SQLValidator_use">$cfg['SQLValidator']['use'] boolean</dt>
             <dd>phpMyAdmin now supports use of the <a href="http://developer.mimer.com/validator/index.htm">Mimer <abbr title="structured query language">SQL</abbr> Validator</a> service,
                 as originally published on
                 <a  href="http://developers.slashdot.org/article.pl?sid=02/02/19/1720246">Slashdot</a>.
@@ -1818,8 +1818,8 @@ ALTER TABLE `pma_column_comments`
                 <a href="#faqsqlvalidator"><abbr title="Frequently Asked Questions">FAQ</abbr> 6.14</a>.
             </dd>
 
-            <dt id="cfg_SQLValidator_username">$cfg[SQLValidator]['username'] string<br />
-                <span id="cfg_SQLValidator_password">$cfg[SQLValidator]['password']</span> string</dt>
+            <dt id="cfg_SQLValidator_username">$cfg['SQLValidator']['username'] string<br />
+                <span id="cfg_SQLValidator_password">$cfg['SQLValidator']['password']</span> string</dt>
             <dd>The SOAP service allows you to login with <tt>anonymous</tt>
                 and any password, so we use those by default. Instead, if
                 you have an account with them, you can put your login details
@@ -1827,17 +1827,17 @@ ALTER TABLE `pma_column_comments`
         </dl>
     </dd>
 
-    <dt id="cfg_DBG">$cfg[DBG]</dt>
+    <dt id="cfg_DBG">$cfg['DBG']</dt>
     <dd><b>DEVELOPERS ONLY!</b></dd>
 
-    <dt id="cfg_DBG_enable">$cfg[DBG]['enable'] boolean</dt>
+    <dt id="cfg_DBG_enable">$cfg['DBG']['enable'] boolean</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
         Enable the DBG extension for debugging phpMyAdmin. Required for profiling
         the code.<br />
         For help in setting up your system to this, see the
         <a href="#developersdbg">Developers</a> section.</dd>
 
-    <dt id="cfg_DBG_profile_enable">$cfg[DBG]['profile']['enable'] boolean</dt>
+    <dt id="cfg_DBG_profile_enable">$cfg['DBG']['profile']['enable'] boolean</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
         Enable profiling support for phpMyAdmin. This will append a chunk of data
         to the end of every page displayed in the main window with profiling
@@ -1845,7 +1845,7 @@ ALTER TABLE `pma_column_comments`
         You may need to increase the maximum execution time for this to
         complete successfully.</dd>
 
-    <dt id="cfg_DBG_profile_threshold">$cfg[DBG]['profile']['threshold'] float (units in milliseconds)</dt>
+    <dt id="cfg_DBG_profile_threshold">$cfg['DBG']['profile']['threshold'] float (units in milliseconds)</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
         When profiling data is displayed, this variable controls the threshold of
         display for any profiling data, based on the average time each time has
@@ -1853,48 +1853,48 @@ ALTER TABLE `pma_column_comments`
         displayed. This takes a value in milliseconds. In most cases you don't need
         to edit this.</dd>
 
-    <dt id="cfg_ColumnTypes">$cfg[ColumnTypes] array</dt>
+    <dt id="cfg_ColumnTypes">$cfg['ColumnTypes'] array</dt>
     <dd>All possible types of a MySQL column. In most cases you don't need to
         edit this.</dd>
 
-    <dt id="cfg_AttributeTypes">$cfg[AttributeTypes] array</dt>
+    <dt id="cfg_AttributeTypes">$cfg['AttributeTypes'] array</dt>
     <dd>Possible attributes for fields. In most cases you don't need to edit
         this.</dd>
 
-    <dt id="cfg_Functions">$cfg[Functions] array</dt>
+    <dt id="cfg_Functions">$cfg['Functions'] array</dt>
     <dd>A list of functions MySQL supports. In most cases you don't need to
         edit this.</dd>
 
-    <dt id="cfg_RestrictColumnTypes">$cfg[RestrictColumnTypes] array</dt>
+    <dt id="cfg_RestrictColumnTypes">$cfg['RestrictColumnTypes'] array</dt>
     <dd>Mapping of column types to meta types used for preferring displayed
         functions. In most cases you don't need to edit this.</dd>
 
-    <dt id="cfg_RestrictFunctions">$cfg[RestrictFunctions] array</dt>
+    <dt id="cfg_RestrictFunctions">$cfg['RestrictFunctions'] array</dt>
     <dd>Functions preferred for column meta types as defined in
         <a href="#cfg_RestrictColumnTypes" class="configrule">$cfg['RestrictColumnTypes']</a>. In most cases you don't need
         to edit this.</dd>
 
-    <dt id="cfg_DefaultFunctions">$cfg[DefaultFunctions] array</dt>
+    <dt id="cfg_DefaultFunctions">$cfg['DefaultFunctions'] array</dt>
     <dd>Functions selected by default when inserting/changing row, Functions
         are defined for meta types from
         <a href="#cfg_RestrictColumnTypes" class="configrule">$cfg['RestrictColumnTypes']</a> and for
         <code>first_timestamp</code>, which is used for first timestamp column
         in table.</dd>
 
-    <dt id="cfg_NumOperators">$cfg[NumOperators] array</dt>
+    <dt id="cfg_NumOperators">$cfg['NumOperators'] array</dt>
     <dd>Operators available for search operations on numeric and date fields.
     </dd>
 
-    <dt id="cfg_TextOperators">$cfg[TextOperators] array</dt>
+    <dt id="cfg_TextOperators">$cfg['TextOperators'] array</dt>
     <dd>Operators available for search operations on character fields.
         Note that we put <code>LIKE</code> by default instead of
         <code>LIKE %...%</code>, to avoid unintended performance problems
         in case of huge tables.</dd>
 
-    <dt id="cfg_EnumOperators">$cfg[EnumOperators] array</dt>
+    <dt id="cfg_EnumOperators">$cfg['EnumOperators'] array</dt>
     <dd>Operators available for search operations on enum fields.</dd>
 
-    <dt id="cfg_NullOperators">$cfg[NullOperators] array</dt>
+    <dt id="cfg_NullOperators">$cfg['NullOperators'] array</dt>
     <dd>Additional operators available for search operations when the
         field can be null.</dd>
                     
