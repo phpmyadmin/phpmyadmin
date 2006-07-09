@@ -99,9 +99,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         echo '<noscript>';
         echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
         echo '</noscript>';
-        if ($ommit_fieldset) {
-            echo '<hr />';
-        } else {
+        if (! $ommit_fieldset) {
             echo '</fieldset>';
         }
         echo '</form>';

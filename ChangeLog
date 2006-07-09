@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/select_server.lib.php, main.php, libraries/left_header.inc.php:
+      move server selection in main to the 'right' (below 'phpMyAdmin')
+
 2006-07-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php, libraries/header_meta_style.inc.php, libraries/header.inc.php:
       fix to remove scrollbar bug in IE without quirks mode

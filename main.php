@@ -54,15 +54,6 @@ if ($server > 0) {
 
     <div id="mysqlmaininformation">
 <?php
-/**
- * Displays the MySQL servers choice form
- */
-if (!$cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
-    require_once './libraries/select_server.lib.php';
-    PMA_select_server(true, false);
-}
-
-
 if ($server > 0) {
     // robbat2: Use the verbose name of the server instead of the hostname
     //          if a value is set
@@ -222,6 +213,16 @@ echo '<h1 xml:lang="en" dir="ltr">phpMyAdmin - ' . PMA_VERSION . '</h1>'
     . "\n";
 
 echo '<ul>' . "\n";
+
+/**
+ * Displays the MySQL servers choice form
+ */
+if (!$cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
+    echo '<li id="li_select_server">';
+    require_once './libraries/select_server.lib.php';
+    PMA_select_server(true, true);
+    echo '</li>';
+}
 
 if ($server > 0) {
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),

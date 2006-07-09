@@ -85,6 +85,7 @@ echo '</div>' . "\n";
  */
 if ($GLOBALS['cfg']['LeftDisplayServers'] && (count($GLOBALS['cfg']['Servers']) > 1 || $server == 0 && count($GLOBALS['cfg']['Servers']) == 1)) {
     include('./libraries/select_server.lib.php');
-    PMA_select_server(TRUE, TRUE);
+    PMA_select_server(true, true);
+    echo '<hr />';
 } // end if LeftDisplayServers
 ?>
