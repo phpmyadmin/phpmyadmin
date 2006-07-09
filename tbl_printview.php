@@ -109,6 +109,17 @@ foreach ($the_tables as $key => $table) {
         PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
+    
+// We need this to correctly learn if a TIMESTAMP is NOT NULL, since
+// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+// and SHOW CREATE TABLE says NOT NULL (tested
+// in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/bug.php?id=20910).
+
+    $show_create_table = PMA_DBI_fetch_value(
+        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+        0, 1);
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
@@ -204,6 +215,17 @@ foreach ($the_tables as $key => $table) {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
         $field_name = htmlspecialchars($row['Field']);
+
+        // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+        // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+        // the latter.
+	// TODO: merge this logic with the one in tbl_properties_structure.php
+	// or move it in a function similar to PMA_DBI_get_columns_full()
+	// but based on SHOW CREATE TABLE because information_schema
+	// cannot be trusted in this case (MySQL bug)
+        if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type']) && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
+            $row['Null'] = '';
+        }
         ?>
 
 <tr><td>

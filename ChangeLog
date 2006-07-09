@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2006-07-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_printview.php: bug #1398748, print view and TIMESTAMP NULL
+
 2006-07-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/select_server.lib.php, main.php, libraries/left_header.inc.php:
       move server selection in main to the 'right' (below 'phpMyAdmin')
