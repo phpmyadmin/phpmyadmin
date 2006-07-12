@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: patch #1519351, security alerts,
+      thanks to Juergen Wind - windkiel
+
 2006-07-09 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Readd accidentally removed quotes.
 

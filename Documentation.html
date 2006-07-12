@@ -3769,86 +3769,11 @@ chmod o+rwx tmp
 <h3 id="faqsecurity">Security</h3>
 
 <h4 id="faq8_1">
-    <a href="#faq8_1">Security alert, dated 2003-06-18.</a></h4>
+    <a href="#faq8_1">Where can I get information about the security alerts issued for phpMyAdmin?</a></h4>
 
-<p> Last update of this <abbr title="Frequently Asked Questions">FAQ</abbr>:
-    2003-07-22.<br /><br />
-
-    The phpMyAdmin development team received notice of this security alert:
-    <a href="http://www.securityfocus.com/archive/1/325641">http://www.securityfocus.com/archive/1/325641.</a>
-    <br /><br />
-
-    The team regrets that the author did not communicate with us before
-    sending this alert. However, here is our current reply to the points mentioned:
+<p> Please refer to  
+    <a href="http://www.phpmyadmin.net/home_page/security.php">http://www.phpmyadmin.net/home_page/security.php</a>
 </p>
-
-<ul><li>&quot;Directory transversal attack&quot;<br /><br />
-
-        This problem had been fixed in version 2.5.0, even if the author reports
-        the 2.5.2 development version as vulnerable, which we could not reproduce.
-        </li>
-
-    <li>&quot;Remote local file retrieving&quot;<br /><br />
-
-        This is a misleading title, as the author tells in his text:
-        &quot;Note that you can't request files ( only dirs )&quot;.</li>
-
-    <li>&quot;Remote internal directory listing&quot;<br /><br />
-
-        It was possible to retrieve the list of phpMyAdmin's directory (which we
-        doubt can cause any damage), but we fixed this in the 2.5.2 version.</li>
-
-    <li>&quot;XSS and Path disclosures&quot;<br /><br />
-
-        Most of the XSS problems have been fixed in version 2.5.0. The rest
-        have been fixed in the 2.5.2 version.<br /><br />
-
-        We believe that the Path disclosures problems have also been fixed
-        in version 2.5.2.</li>
-
-    <li>&quot;Information encoding weakness&quot;<br /><br />
-
-        We believe that an exploit for this weakness would be difficult
-        to achieve.  However version 2.5.2 now encrypts the password
-        with the well-known blowfish algorithm.</li>
-</ul>
-
-<h4 id="faq8_2">
-    <a href="#faq8_2">Security alert, dated 2004-06-29.</a></h4>
-
-<p> Last update of this <abbr title="Frequently Asked Questions">FAQ</abbr>: 2004-06-30.
-    <br /><br />
-    The phpMyAdmin development team received notice of this security alert:
-    <a href="http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0">
-        http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0</a>
-    <br /><br />
-    We would like to put emphasis on the disappointment we feel when a
-    bugreporter does not contact the authors of a software first, before
-    posting any exploits. The common way to report this, is to give the
-    developers a reasonable amount of time to respond to an exploit before
-    it is made public.<br /><br />
-
-    We acknowledge that phpMyAdmin versions 2.5.1 to 2.5.7 are vulnerable
-    to this problem, if each of the following conditions are met:</p>
-
-<ul><li>The Web server hosting phpMyAdmin is not running in safe mode.</li>
-    <li>In config.inc.php,
-        <a href="#cfg_LeftFrameLight" class="configrule">$cfg['LeftFrameLight']</a>
-        is set to FALSE
-        (the default value of this parameter is <tt>TRUE</tt>).</li>
-    <li>There is no firewall blocking requests from the Web server to the
-        attacking host.</li>
-</ul>
-
-<p> Version 2.5.7-pl1 was released with a fix for this vulnerability.</p>
-
-<h4 id="faq8_3">
-    <a href="#faq8_3">About new security alerts
-</a></h4>
-
-<p> Please refer to
-    <a href="http://www.phpmyadmin.net">http://www.phpmyadmin.net</a>
-    for the complete list of security alerts.</p>
 
 <!-- DEVELOPERS -->
 <h2 id="developers">Developers Information</h2>
