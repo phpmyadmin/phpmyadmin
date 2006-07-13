@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2006-07-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: put emphasis on server name
+
 2006-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1519351, security alerts,
       thanks to Juergen Wind - windkiel

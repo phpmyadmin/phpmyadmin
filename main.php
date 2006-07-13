@@ -74,16 +74,22 @@ if ($server > 0) {
     // }
     $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
 
-    echo '<h1 xml:lang="en" dir="ltr">MySQL - ' . PMA_MYSQL_STR_VERSION
-        .'</h1>' . "\n";
+
+    // should we add the port info here?
+    $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+                        ? $GLOBALS['cfg']['Server']['verbose']
+                        : $GLOBALS['cfg']['Server']['host']);
+    echo '<h1 xml:lang="en" dir="ltr">' . $short_server_info .'</h1>' . "\n";
+    unset($short_server_info);
 } else {
     // Case when no server selected
-    echo '<h1 xml:lang="en" dir="ltr">MySQL</h1>' . "\n";
+    //echo '<h1 xml:lang="en" dir="ltr">MySQL</h1>' . "\n";
 }
 
 if ($server > 0) {
     echo '<ul>' . "\n";
 
+    PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
     PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto');
     PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
