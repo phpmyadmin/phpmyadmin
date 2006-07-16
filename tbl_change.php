@@ -942,7 +942,10 @@ if (isset($primary_key)) {
                 <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertSame; ?></option>
     <?php
     // If we have just numeric primary key, we can also edit next
-    if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
+    // in 2.8.2, we were looking for `field_name` = numeric_value 
+    //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
+    // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value 
+    if (preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
         ?>
                 <option value="edit_next"><?php echo $strAfterInsertNext; ?></option>
         <?php
