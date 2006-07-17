@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/mysql.dbi.lib.php: 
+      bug #1523623, BIGINT auto_increment and mysql extension
+
 2006-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: Edit next row did not work in 2.9.0-dev
 
