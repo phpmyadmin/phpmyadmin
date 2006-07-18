@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-18 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php: Fix extension loading on HP-UX (bug #1524776),
+      thanks to Francois Laupretre - flp1.
+
 2006-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: 
       bug #1523623, BIGINT auto_increment and mysql extension
