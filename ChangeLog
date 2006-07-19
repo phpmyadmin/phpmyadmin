@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2006-07-19 Michal Čihař  <michal@cihar.com>
+    * libraries/compat/var_export.php: Update to fixed version.
+
 2006-07-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/german: updated, typos
 
