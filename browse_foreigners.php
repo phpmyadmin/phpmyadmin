@@ -55,19 +55,19 @@ if (isset($pk)) {
 
 $gotopage = '';
 $showall = '';
+// $the_total comes from get_foreign.lib.php
 
 if (isset($disp_row) && is_array($disp_row)) {
-    $count = count( $disp_row );
 
-    if ( $cfg['ShowAll'] && ($count > $per_page) ) {
+    if ( $cfg['ShowAll'] && ($the_total > $per_page) ) {
         $showall = '<input type="submit" name="foreign_navig" value="' . $strShowAll . '" />';
     }
 
     $session_max_rows = $per_page;
     $pageNow = @floor($pos / $session_max_rows) + 1;
-    $nbTotalPage = @ceil($count / $session_max_rows);
+    $nbTotalPage = @ceil($the_total / $session_max_rows);
 
-    if ( $count > $per_page ) {
+    if ( $the_total > $per_page ) {
         $gotopage = PMA_pageselector(
                       'browse_foreigners.php?field='    . urlencode($field) .
                                        '&amp;'          . PMA_generate_common_url($db, $table)

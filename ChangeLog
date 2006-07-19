@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * browse_foreigners.php: bug #1525393, no page selector in foreign key 
+      browse page
+
 2006-07-19 Michal Čihař  <michal@cihar.com>
     * libraries/compat/var_export.php: Update to fixed version.
 
