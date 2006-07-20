@@ -9,9 +9,6 @@ define( 'PMA_MINIMUM_COMMON', TRUE );
 chdir('..');
 require_once('./libraries/common.lib.php');
 
-// var_export for older PHP
-require_once('./libraries/compat/var_export.php');
-
 // Grab configuration defaults
 $PMA_Config = new PMA_Config();
 
@@ -411,6 +408,39 @@ function get_server_name($val, $id = FALSE) {
     return $ret;
 }
 
+
+/**
+ * Exports variable to PHP code, very limited version of var_export
+ *
+ * @param   string  data to export
+ *
+ * @see var_export
+ *
+ * @return  string  PHP code containing variable value
+ */
+function PMA_var_export($input) {
+    $output = '';
+    if (is_null($input)) {
+        $output .= 'NULL';
+    } elseif (is_array($input)) {
+        $output .= "array (\n";
+        foreach($input as $key => $value) {
+            $output .= PMA_var_export($key) . ' => ' . PMA_var_export($value);
+            $output .= ",\n";
+        }
+        $output .= ')';
+    } elseif (is_string($input)) {
+        $output .= '\'' . addslashes($input) . '\'';
+    } elseif (is_int($input) || is_double($input)) {
+        $output .= (string) $input;
+    } elseif (is_bool($input)) {
+        $output .= $input ? 'true' : 'false';
+    } else {
+        die('Unknown type for PMA_var_export: ' . $input);
+    }
+    return $output;
+}	
+
 /**
  * Creates configuration code for one variable
  *
@@ -432,23 +462,26 @@ function get_cfg_val($name, $val) {
                     $ret .= $name . " = array(\n";
                 } else {
                     // Something unknown...
-                    $ret .= $name. ' = ' . var_export($val, TRUE) . ";\n";
+                    $ret .= $name. ' = ' . PMA_var_export($val) . ";\n";
                     break;
                 }
             }
             if ($type == 'string') {
-                $ret .= $name. "['$k'] = " . var_export($v, TRUE) . ";\n";
+                $ret .= get_cfg_val($name . "['$k']", $v);
             } elseif ($type == 'int') {
-                $ret .= "    " . var_export($v, TRUE) . ",\n";
+                $ret .= "    " . PMA_var_export($v) . ",\n";
             }
         }
-        if ($type == 'int') {
+        if (!isset($type)) {
+            /* Empty array */
+            $ret .= $name . " = array();\n";
+        } elseif ($type == 'int') {
             $ret .= ");\n";
         }
         $ret .= "\n";
         unset($type);
     } else {
-        $ret .= $name . ' = ' . var_export($val, TRUE) . ";\n";
+        $ret .= $name . ' = ' . PMA_var_export($val) . ";\n";
     }
     return $ret;
 }
