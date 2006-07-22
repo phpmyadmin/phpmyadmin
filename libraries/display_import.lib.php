@@ -86,8 +86,7 @@ echo '<div class="formelementrow">' . "\n";
 if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     $temp_charset = reset($cfg['AvailableCharsets']);
-    echo $strCharsetOfFile . "\n"
-         . '    <select id="charset_of_file" name="charset_of_file" size="1">' . "\n"
+    echo '    <select id="charset_of_file" name="charset_of_file" size="1">' . "\n"
          . '            <option value="' . htmlentities( $temp_charset ) . '"';
     if ($temp_charset == $charset) {
         echo ' selected="selected"';
