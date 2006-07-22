@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_import.lib.php: the Character set of the file
+      could appear twice
+
 2006-07-20 Michal Čihař  <michal@cihar.com>
     * libraries/compat/var_export.php: Dropped due to license problems.
     * scripts/setup.php: Implement own var_export.
