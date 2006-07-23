@@ -196,7 +196,7 @@ foreach ($dblist as $each_db) {
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" />
+    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" checked="checked" />
     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
 </fieldset>
 <fieldset class="tblFooters">
