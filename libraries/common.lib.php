@@ -1100,11 +1100,13 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 }
             } else {
                 session_write_close();
-                if (PMA_IS_IIS) {
-                    header('Refresh: 0; ' . $uri);
-                } else {
+                // bug #1523784: IE6 does not like 'Refresh: 0', it
+                // results in a blank page
+                //if (PMA_IS_IIS) {
+                //    header('Refresh: 0; ' . $uri);
+                //} else {
                     header('Location: ' . $uri);
-                }
+                //}
             }
         }
     }
