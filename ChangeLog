@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: bug #1526557, display error when admin 
+      lacks some privileges and tries to do a privilege change
+
 2006-07-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_import.lib.php: the Character set of the file
       could appear twice

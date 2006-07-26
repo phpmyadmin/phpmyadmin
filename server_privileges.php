@@ -1022,6 +1022,10 @@ if (!empty($update_privs)) {
     }
     $sql_query2 .= ';';
     if (!PMA_DBI_try_query($sql_query0)) { // this query may fail, but this does not matter :o)
+        // a case when it can fail is when the admin does not have all
+        // privileges: he can't do a REVOKE ALL PRIVILEGES !
+        // so at least we display the error
+        echo PMA_DBI_getError();
         unset($sql_query0);
     }
     if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) { // this one may fail, too...
