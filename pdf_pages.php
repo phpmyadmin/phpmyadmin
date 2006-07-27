@@ -83,7 +83,7 @@ if ($cfgRelation['pdfwork']) {
                 //
                 // TODO: support InnoDB
 
-                if (isset($autolayout)) {
+                if (isset($auto_layout_internal)) {
                     // save the page number
                     $pdf_page_number = PMA_DBI_insert_id((isset($controllink)?$controllink:''));
 
@@ -167,7 +167,7 @@ if ($cfgRelation['pdfwork']) {
                     } // end if there are master tables
 
                     $chpage = $pdf_page_number;
-                } // end if isset autolayout
+                } // end if isset auto_layout_internal
 
                 break;
 
@@ -257,7 +257,7 @@ if ($cfgRelation['pdfwork']) {
     <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /><label for="radio_choose1">
 <?php echo $strDelete; ?> </label>
 
-    <input type="submit" value="<?php echo $strGo; ?>" />
+<input type="submit" value="<?php echo $strGo; ?>" /><br />
 </form>
         <?php
     }
@@ -270,8 +270,8 @@ if ($cfgRelation['pdfwork']) {
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
-    <input type="checkbox" name="autolayout" />
-    <?php echo '(' . $strAutomaticLayout . ')' . "\n"; ?>
+    <input type="checkbox" name="auto_layout_internal" />
+    <?php echo '(' . $strAutomaticLayout . ' / ' . $strInternalRelations . ')' . "\n"; ?>
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
     <?php
