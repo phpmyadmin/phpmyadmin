@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php: prepare implementation for automatic layout on InnoDB
+    * tbl_properties_operations.php: problem switching from InnoDB to MyISAM
+
 2006-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug #1526557, display error when admin 
       lacks some privileges and tries to do a privilege change

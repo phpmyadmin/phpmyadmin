@@ -74,6 +74,7 @@ if (isset($_REQUEST['submitoptions'])) {
     $l_tbl_type = strtolower($tbl_type);
 
     if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
+      && isset($_REQUEST['new_pack_keys']) 
       && $_REQUEST['new_pack_keys'] != (string)$pack_keys) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
