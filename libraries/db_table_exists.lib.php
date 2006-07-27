@@ -28,7 +28,7 @@ if (empty($is_db)) {
     }
 } // end if (ensures db exists)
 
-if (empty($is_table)) {
+if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
     // Not a valid table name -> back to the db_details.php
     if (isset($table) && strlen($table)) {
         $_result = PMA_DBI_try_query(

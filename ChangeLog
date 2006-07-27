@@ -9,6 +9,9 @@ $Source$
 2006-07-27 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: automatic layout for InnoDB tables
     * tbl_properties_operations.php: problem switching from InnoDB to MyISAM
+    * tbl_printview.php, libraries/mult_submits.inc.php,
+      libraries/db_table_exists.lib.php:
+      bug #1521910, with selected ... print view
 
 2006-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug #1526557, display error when admin 

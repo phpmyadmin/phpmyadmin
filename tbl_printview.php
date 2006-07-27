@@ -45,7 +45,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview thanks to Christophe Gesch� from the "MySQL Form
+ * Multi-tables printview thanks to Christophe Gesche from the "MySQL Form
  * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
@@ -92,6 +92,7 @@ foreach ($the_tables as $key => $table) {
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     PMA_DBI_free_result($result);
 
+    $tbl_is_view = PMA_Table::isView($db, $table);
 
     //  Gets table keys and store them in arrays
     $indexes      = array();

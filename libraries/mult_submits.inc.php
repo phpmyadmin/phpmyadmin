@@ -13,7 +13,7 @@ if (!empty($submit_mult)
        || ( isset($selected_fld) && !empty($selected_fld) )
        || !empty($rows_to_delete)
          )) {
-
+    define('PMA_SUBMIT_MULT', 1);
     if (isset($selected_db) && !empty($selected_db)) {
         $selected     = $selected_db;
         $what         = 'drop_db';
