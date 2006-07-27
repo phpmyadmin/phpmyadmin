@@ -80,13 +80,31 @@ if ($cfgRelation['pdfwork']) {
                 PMA_query_as_cu($ins_query, FALSE, $query_default_option);
 
                 // A u t o m a t i c    l a y o u t
-                //
-                // TODO: support InnoDB
-
-                if (isset($auto_layout_internal)) {
+                // ================================
+                if (isset($auto_layout_internal) || isset($auto_layout_innodb)) {
                     // save the page number
                     $pdf_page_number = PMA_DBI_insert_id((isset($controllink)?$controllink:''));
+                    $all_tables = array();
+                }
+              
+                if (isset($auto_layout_innodb)) {
+                    // get the tables list
+                    $tables = PMA_DBI_get_tables_full($db);
+                    // find the InnoDB ones
+                    $innodb_tables = array();
+                    foreach($tables as $table_name => $table_properties) {
+                        if ($table_properties['ENGINE'] == 'InnoDB') {
+                            $innodb_tables[] = $table_name;
+                        }
+                    }
+                    $all_tables = $innodb_tables;
+                    // could be improved by finding the tables which have the
+                    // most references keys and place them at the beginning
+                    // of the array (so that they are all center of schema)
+                    unset($tables, $innodb_tables);
+                } // endif auto_layout_innodb
 
+                if (isset($auto_layout_internal)) {
                     // get the tables that have relations, by descending
                     // number of links
                     $master_tables = 'SELECT COUNT(master_table), master_table'
@@ -124,50 +142,53 @@ if ($cfgRelation['pdfwork']) {
                                 $all_tables[] = $foreign_table;
                             }
                         }
-                        // now generate the coordinates for the schema,
-                        // in a clockwise spiral
+                    } // endif there are master tables
+                } // endif auto_layout_internal
 
-                        $pos_x = 300;
-                        $pos_y = 300;
-                        $delta = 110;
-                        $delta_mult = 1.10;
-                        $direction = "right";
-                        foreach ($all_tables AS $current_table) {
+                if (isset($auto_layout_internal) || isset($auto_layout_innodb)) {
+                    // now generate the coordinates for the schema,
+                    // in a clockwise spiral
 
-                            // save current table's coordinates
-                            $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
-                                          . '(db_name, table_name, pdf_page_number, x, y) '
-                                          . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pdf_page_number . ',' . $pos_x . ',' . $pos_y . ')';
-                            PMA_query_as_cu($insert_query, FALSE, $query_default_option);
+                    $pos_x = 300;
+                    $pos_y = 300;
+                    $delta = 110;
+                    $delta_mult = 1.10;
+                    $direction = "right";
+                    foreach ($all_tables AS $current_table) {
 
-                            // compute for the next table
-                            switch ($direction) {
-                                case 'right':
-                                    $pos_x += $delta;
-                                    $direction = "down";
-                                    $delta *= $delta_mult;
-                                    break;
-                                case 'down':
-                                    $pos_y += $delta;
-                                    $direction = "left";
-                                    $delta *= $delta_mult;
-                                    break;
-                                case 'left':
-                                    $pos_x -= $delta;
-                                    $direction = "up";
-                                    $delta *= $delta_mult;
-                                    break;
-                                case 'up':
-                                    $pos_y -= $delta;
-                                    $direction = "right";
-                                    $delta *= $delta_mult;
-                                    break;
-                            } // end switch
-                        } // end while
-                    } // end if there are master tables
+                        // save current table's coordinates
+                        $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
+                                      . '(db_name, table_name, pdf_page_number, x, y) '
+                                      . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pdf_page_number . ',' . $pos_x . ',' . $pos_y . ')';
+                        PMA_query_as_cu($insert_query, FALSE, $query_default_option);
 
-                    $chpage = $pdf_page_number;
-                } // end if isset auto_layout_internal
+                        // compute for the next table
+                        switch ($direction) {
+                            case 'right':
+                                $pos_x += $delta;
+                                $direction = "down";
+                                $delta *= $delta_mult;
+                                break;
+                            case 'down':
+                                $pos_y += $delta;
+                                $direction = "left";
+                                $delta *= $delta_mult;
+                                break;
+                            case 'left':
+                                $pos_x -= $delta;
+                                $direction = "up";
+                                $delta *= $delta_mult;
+                                break;
+                            case 'up':
+                                $pos_y -= $delta;
+                                $direction = "right";
+                                $delta *= $delta_mult;
+                                break;
+                        } // end switch
+                    } // end foreach 
+                } // end if some auto-layout to do 
+
+                $chpage = $pdf_page_number;
 
                 break;
 
@@ -236,7 +257,10 @@ if ($cfgRelation['pdfwork']) {
     if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
         ?>
 <form method="get" action="pdf_pages.php" name="selpage">
+    <fieldset>
+     <legend>
     <?php echo $strChoosePage . "\n"; ?>
+     </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="choosepage" />
     <select name="chpage" onchange="this.form.submit()">
@@ -256,8 +280,8 @@ if ($cfgRelation['pdfwork']) {
 <?php echo $strEdit; ?> </label>
     <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /><label for="radio_choose1">
 <?php echo $strDelete; ?> </label>
-
-<input type="submit" value="<?php echo $strGo; ?>" /><br />
+       <input type="submit" value="<?php echo $strGo; ?>" /><br />
+    </fieldset>
 </form>
         <?php
     }
@@ -266,13 +290,19 @@ if ($cfgRelation['pdfwork']) {
     // Possibility to create a new page:
     ?>
 <form method="post" action="pdf_pages.php" name="crpage">
+    <fieldset>
+     <legend>
     <?php echo $strCreatePage . "\n"; ?>
+     </legend>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
-    <input type="checkbox" name="auto_layout_internal" />
-    <?php echo '(' . $strAutomaticLayout . ' / ' . $strInternalRelations . ')' . "\n"; ?>
-    <input type="submit" value="<?php echo $strGo; ?>" />
+       <input type="checkbox" name="auto_layout_internal" />
+   <?php echo '(' . $strAutomaticLayout . ' / ' . $strInternalRelations . ')' . "\n"; ?>
+        <input type="checkbox" name="auto_layout_innodb" />
+    <?php echo '(' . $strAutomaticLayout . ' / InnoDB)' . "\n"; ?>
+        <input type="submit" value="<?php echo $strGo; ?>" />
+    </fieldset>
 </form>
     <?php
     // Now if we already have chosen a page number then we should show the
