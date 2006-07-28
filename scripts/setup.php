@@ -395,17 +395,21 @@ function get_server_auth($val) {
  *
  * @return  string  fancy server name
  */
-function get_server_name($val, $id = FALSE) {
+function get_server_name($val, $id = FALSE, $escape = true) {
     if (!empty($val['verbose'])) {
-        $ret = htmlspecialchars($val['verbose']);
+        $ret = $val['verbose'];
     } else {
-        $ret = htmlspecialchars($val['host']);
+        $ret = $val['host'];
     }
     $ret .= ' (' . get_server_auth($val) . ')';
     if ($id !== FALSE) {
         $ret .= ' [' . ($id + 1) . ']' ;
     }
-    return $ret;
+    if ($escape) {
+        return htmlspecialchars($ret);
+    } else {
+        return $ret;
+    }
 }
 
 
@@ -502,7 +506,7 @@ function get_cfg_string($cfg) {
     if (count($c['Servers']) > 0) {
         $ret .= "/* Servers configuration */\n\$i = 0;\n";
         foreach ($c['Servers'] as $cnt => $srv) {
-            $ret .= "\n/* Server " . get_server_name($srv, $cnt) . " */\n\$i++;\n";
+            $ret .= "\n/* Server " . strtr(get_server_name($srv, $cnt, false), '*', '-') . " */\n\$i++;\n";
             foreach ($srv as $key => $val) {
                 $ret .= get_cfg_val("\$cfg['Servers'][\$i]['$key']", $val);
             }

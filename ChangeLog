@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2006-07-28 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Protect against php code input from user (bug
+      #1530370).
+
 2006-07-27 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: automatic layout for InnoDB tables
     * tbl_properties_operations.php: problem switching from InnoDB to MyISAM
