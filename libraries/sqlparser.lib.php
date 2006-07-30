@@ -2093,6 +2093,12 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         $after     .= ' ';
                     }
                     // workaround for
+                    // AUTO_INCREMENT = 31DEFAULT_CHARSET = utf-8
+
+                    if ($typearr[2] == 'alpha_columnAttrib' && $typearr[3] == 'alpha_reservedWord') {
+                        $before .= ' ';
+                    }
+                    // workaround for
                     // select * from mysql.user where binary user="root"
                     // binary is marked as alpha_columnAttrib
                     // but should be marked as a reserved word
