@@ -9,6 +9,7 @@ $Source$
     * lang/czech: Updated.
 
 2006-07-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * lang/german: Updated.
     * libraries/common.lib.php: use PMA_Config class for cookie needs,
       do not unset not set cookie
     * css\phpmyadmin.css.php, libraries\Config.class.php, main.php,
