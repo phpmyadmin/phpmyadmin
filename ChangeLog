@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: bug #1526000, copy table on MySQL 5.0.23+,
+      thanks to Rapsys Phoenix - rapsys
 
 2006-07-28 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Protect against php code input from user (bug
