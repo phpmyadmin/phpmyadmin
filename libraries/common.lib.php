@@ -2544,8 +2544,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     /**
      * removes cookie
      *
-     * @uses    $GLOBALS['cookie_path']
-     * @uses    $GLOBALS['is_https']
+     * @uses    PMA_Config::isHttps()
+     * @uses    PMA_Config::getCookiePath()
      * @uses    setcookie()
      * @uses    time()
      * @param   string  $cookie     name of cookie to remove
@@ -2554,15 +2554,15 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     function PMA_removeCookie($cookie)
     {
         return setcookie($cookie, '', time() - 3600,
-            $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
     }
 
     /**
      * sets cookie if value is different from current cokkie value,
      * or removes if value is equal to default
      *
-     * @uses    $GLOBALS['cookie_path']
-     * @uses    $GLOBALS['is_https']
+     * @uses    PMA_Config::isHttps()
+     * @uses    PMA_Config::getCookiePath()
      * @uses    $_COOKIE
      * @uses    PMA_removeCookie()
      * @uses    setcookie()
@@ -2574,7 +2574,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      */
     function PMA_setCookie($cookie, $value, $default = null)
     {
-        if (strlen($value) && null !== $default && $value === $default) {
+        if (strlen($value) && null !== $default && $value === $default
+         && isset($_COOKIE[$cookie])) {
             // remove cookie, default value is used
             return PMA_removeCookie($cookie);
         }
@@ -2587,7 +2588,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
             return setcookie($cookie, $value, time() + 60*60*24*30,
-                $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+                PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
         }
 
         // cookie has already $value as value
