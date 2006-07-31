@@ -305,6 +305,7 @@ $strFlushPrivilegesNote = 'Poznámka: phpMyAdmin získává oprávnìní pøímo z&nbsp;t
 $strFlushQueryCache = 'Vyprázdnit vyrovnávací pamì» dotazù';
 $strFlushTables = 'Zavøít v¹echny tabulky';
 $strFlushTable = 'Vyprázdnit vyrovnávací pamì» pro tabulku (&bdquo;FLUSH&ldquo;)';
+$strFontSize = 'Velikost písma';
 $strFormat = 'Formát';
 $strFormEmpty = 'Chybìjící hodnota ve formuláøi!';
 $strFreePages = 'Volných stránek';
@@ -995,5 +996,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strFontSize = 'Font size';  //to translate
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-31 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2006-07-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css\phpmyadmin.css.php, libraries\Config.class.php, main.php,
       themes\*: make font size user configurable
