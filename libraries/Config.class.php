@@ -931,7 +931,7 @@ class PMA_Config
         $current_size = $_SESSION['PMA_Config']->get('fontsize');
         $options = PMA_Config::getFontsizeOptions($current_size);
 
-        $return = '<label for="select_fontsize">' . $GLOBALS['strFont_size'] . ':</label>' . "\n";
+        $return = '<label for="select_fontsize">' . $GLOBALS['strFontSize'] . ':</label>' . "\n";
         $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
