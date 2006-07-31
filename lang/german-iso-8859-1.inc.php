@@ -1001,4 +1001,5 @@ $strDelimiter = 'Begrenzer';  //recently translated
 $strFunctions = 'Funktionen';  //recently translated
 $strProcedures = 'Procedures';  //recently translated
 $strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
+$strFontSize = 'Font size';  //to translate
 ?>

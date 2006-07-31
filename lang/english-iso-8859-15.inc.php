@@ -299,6 +299,7 @@ $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly
 $strFlushQueryCache = 'Flush query cache';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFlushTables = 'Flush (close) all tables';
+$strFontSize = 'Font size';
 $strFormat = 'Format';
 $strFormEmpty = 'Missing value in the form!';
 $strFreePages = 'Free pages';

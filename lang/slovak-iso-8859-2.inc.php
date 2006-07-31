@@ -996,4 +996,5 @@ $strZip = '"zozipované"';
 
 $strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
 
+$strFontSize = 'Font size';  //to translate
 ?>
