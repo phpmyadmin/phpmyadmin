@@ -669,6 +669,18 @@ class PMA_Config
         }
     }
 
+    /**
+     * checks for font size configuration, and sets font size as requested by user
+     *
+     * @uses    $_GET
+     * @uses    $_POST
+     * @uses    $_COOKIE
+     * @uses    preg_match()
+     * @uses    function_exists()
+     * @uses    PMA_Config::set()
+     * @uses    PMA_Config::get()
+     * @uses    PMA_setCookie()
+     */
     function checkFontsize()
     {
         $new_fontsize = '';
@@ -864,6 +876,9 @@ class PMA_Config
     /**
      * returns options for font size selection
      *
+     * @uses    preg_replace()
+     * @uses    ksort()
+     * @static
      * @param   string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
      */
@@ -923,6 +938,11 @@ class PMA_Config
     /**
      * returns html selectbox for font sizes
      *
+     * @uses    $_SESSION['PMA_Config']
+     * @uses    PMA_Config::get()
+     * @uses    PMA_Config::getFontsizeOptions()
+     * @uses    $GLOBALS['strFontSize']
+     * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
@@ -948,6 +968,10 @@ class PMA_Config
     /**
      * return complete font size selection form
      *
+     * @uses    PMA_generate_common_hidden_inputs()
+     * @uses    PMA_Config::getFontsizeSelection()
+     * @uses    $GLOBALS['strGo']
+     * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
