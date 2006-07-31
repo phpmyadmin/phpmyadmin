@@ -309,6 +309,7 @@ class PMA_Config
         $this->checkIsHttps();
 
         $this->checkCollationConnection();
+        $this->checkFontsize();
     }
 
     /**
@@ -394,6 +395,7 @@ class PMA_Config
         }
 
         $this->checkCollationConnection();
+        $this->checkFontsize();
         //$this->checkPmaAbsoluteUri();
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
         return true;
@@ -667,6 +669,29 @@ class PMA_Config
         }
     }
 
+    function checkFontsize()
+    {
+        $new_fontsize = '';
+
+        if (isset($_GET['fontsize'])) {
+            $new_fontsize = $_GET['fontsize'];
+        } elseif (isset($_POST['fontsize'])) {
+            $new_fontsize = $_POST['fontsize'];
+        } elseif (isset($_COOKIE['pma_fontsize'])) {
+            $new_fontsize = $_COOKIE['pma_fontsize'];
+        }
+
+        if (preg_match('/^[0-9.]+(px|em|pt|\%)$/', $new_fontsize)) {
+            $this->set('fontsize', $new_fontsize);
+        } elseif (! $this->get('fontsize')) {
+            $this->set('fontsize', '100%');
+        }
+
+        if (function_exists('PMA_setCookie')) {
+            PMA_setCookie('pma_fontsize', $this->get('fontsize'), '100%');
+        }
+    }
+
     /**
      * checks if upload is enabled
      *
@@ -835,5 +860,107 @@ class PMA_Config
      * @todo finish
      */
     function save() {}
+
+    /**
+     * returns options for font size selection
+     *
+     * @param   string  $current_size   current selected font size with unit
+     * @return  array   selectable font sizes
+     */
+    function getFontsizeOptions($current_size = '100%')
+    {
+        $unit = preg_replace('/[0-9.]*/', '', $current_size);
+        $value = preg_replace('/[^0-9.]*/', '', $current_size);
+
+        $factors = array();
+        $options = array();
+        $options["$value"] = $value . $unit;
+
+        if ($unit === '%') {
+            $factors[] = 1;
+            $factors[] = 5;
+            $factors[] = 10;
+        } elseif ($unit === 'em') {
+            $factors[] = 0.05;
+            $factors[] = 0.2;
+            $factors[] = 1;
+        } elseif ($unit === 'pt') {
+            $factors[] = 0.5;
+            $factors[] = 2;
+        } elseif ($unit === 'px') {
+            $factors[] = 1;
+            $factors[] = 5;
+            $factors[] = 10;
+        } else {
+            //unknown font size unit
+            $factors[] = 0.05;
+            $factors[] = 0.2;
+            $factors[] = 1;
+            $factors[] = 5;
+            $factors[] = 10;
+        }
+
+        foreach ($factors as $key => $factor) {
+            $option_inc = $value + $factor;
+            $option_dec = $value - $factor;
+            while (count($options) < 21) {
+                $options["$option_inc"] = $option_inc . $unit;
+                if ($option_dec > $factors[0]) {
+                    $options["$option_dec"] = $option_dec . $unit;
+                }
+                $option_inc += $factor;
+                $option_dec -= $factor;
+                if (isset($factors[$key + 1])
+                 && $option_inc >= $value + $factors[$key + 1]) {
+                    break;
+                }
+            }
+        }
+        ksort($options);
+        return $options;
+    }
+
+    /**
+     * returns html selectbox for font sizes
+     *
+     * @param   string  $current_size   currently slected font size with unit
+     * @return  string  html selectbox
+     */
+    function getFontsizeSelection()
+    {
+        $current_size = $_SESSION['PMA_Config']->get('fontsize');
+        $options = PMA_Config::getFontsizeOptions($current_size);
+
+        $return = '<label for="select_fontsize">' . $GLOBALS['strFont_size'] . ':</label>' . "\n";
+        $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
+        foreach ($options as $option) {
+            $return .= '<option value="' . $option . '"';
+            if ($option == $current_size) {
+                $return .= ' selected="selected"';
+            }
+            $return .= '>' . $option . '</option>' . "\n";
+        }
+        $return .= '</select>';
+
+        return $return;
+    }
+
+    /**
+     * return complete font size selection form
+     *
+     * @param   string  $current_size   currently slected font size with unit
+     * @return  string  html selectbox
+     */
+    function getFontsizeForm()
+    {
+        return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
+            . ' method="post" action="index.php" target="_parent">' . "\n"
+            . PMA_generate_common_hidden_inputs() . "\n"
+            . PMA_Config::getFontsizeSelection() . "\n"
+            . '<noscript>' . "\n"
+            . '<input type="submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
+            . '</noscript>' . "\n"
+            . '</form>';
+    }
 }
 ?>

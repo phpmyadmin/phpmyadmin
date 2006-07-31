@@ -6,29 +6,21 @@
 ?>
 /******************************************************************************/
 /* general tags */
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
-* {
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-}
-<?php } if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-textarea {
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
-}
-<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
-body, table, tbody, tr, td {
-    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
-}
-select, input, textarea {
-    font-size:          0.7em;
-}
-<?php } ?>
-
 body {
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
     padding:            0;
     margin:             0.5em;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
+
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+textarea, tt, pre, code {
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+}
+<?php } ?>
 
 h1 {
     font-size:          140%;

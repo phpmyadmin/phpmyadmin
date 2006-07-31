@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-07-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css\phpmyadmin.css.php, libraries\Config.class.php, main.php,
+      themes\*: make font size user configurable
+
 2006-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1526000, copy table on MySQL 5.0.23+,
       thanks to Rapsys Phoenix - rapsys
@@ -21,9 +25,9 @@ $Source$
       bug #1521910, with selected ... print view
 
 2006-07-26 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_privileges.php: bug #1526557, display error when admin 
+    * server_privileges.php: bug #1526557, display error when admin
       lacks some privileges and tries to do a privilege change
-    * libraries/common.lib.php: bug #1523784, blank page after Edit 
+    * libraries/common.lib.php: bug #1523784, blank page after Edit
       in IE6 via IIS
 
 2006-07-22 Marc Delisle  <lem9@users.sourceforge.net>
@@ -37,7 +41,7 @@ $Source$
     * scripts/setup.php: Implement own var_export.
 
 2006-07-19 Marc Delisle  <lem9@users.sourceforge.net>
-    * browse_foreigners.php: bug #1525393, no page selector in foreign key 
+    * browse_foreigners.php: bug #1525393, no page selector in foreign key
       browse page
 
 2006-07-19 Michal Čihař  <michal@cihar.com>

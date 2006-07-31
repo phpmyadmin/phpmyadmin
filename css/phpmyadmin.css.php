@@ -19,6 +19,14 @@ if ($GLOBALS['text_dir'] === 'ltr') {
 header('Content-Type: text/css; charset=ISO-8859-1');
 
 ?>
+html {
+    font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;
+}
+
+input, select, textarea {
+    font-size: 1em;
+}
+
 /* @deprecated */
 .nowrap {
     white-space: nowrap;

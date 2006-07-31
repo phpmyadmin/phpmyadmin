@@ -6,20 +6,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 ?>
 /******************************************************************************/
 /* general tags */
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
-* {
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-}
-<?php } if (! empty($GLOBALS['cfg']['FontSize'])) { ?>
-body, table, tbody, tr, td {
-    font-size:          <?php echo $GLOBALS['cfg']['FontSize']; ?>;
-}
-select, input, textarea {
-    font-size:          0.7em;
-}
-<?php } ?>
 
 body {
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;

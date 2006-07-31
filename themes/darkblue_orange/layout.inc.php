@@ -53,7 +53,7 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontSize']            = '8pt';
+$GLOBALS['cfg']['FontSize']            = '';
 
 /**
  * tables

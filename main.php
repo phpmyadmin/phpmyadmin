@@ -282,6 +282,9 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
 }
+echo '<li id="li_select_fontsize">';
+echo PMA_Config::getFontsizeForm();
+echo '</li>';
 PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html');
 
 if ($cfg['ShowPhpInfo']) {
