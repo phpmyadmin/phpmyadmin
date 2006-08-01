@@ -34,7 +34,7 @@ $replaces = array(
 
     // linking files
     '/(\s+)([\\/a-z_0-9\.]+\.(?:php3?|html|pl|js|sh))/i'
-    => '\\1<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
+    => '\\1<a href="http://phpmyadmin.cvs.sourceforge.net/phpmyadmin/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
@@ -54,9 +54,9 @@ $replaces = array(
 
     // Highlight releases (with links)
     '/((    ### )(([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+) (.*)))/'
-    => '<a name="\\4_\\5_\\6_\\7"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6_\\7">\\4.\\5.\\6.\\7 \\8</a>',
+    => '<a name="\\4_\\5_\\6_\\7"></a>\\2<a href="http://phpmyadmin.cvs.sourceforge.net/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6_\\7">\\4.\\5.\\6.\\7 \\8</a>',
     '/((    ### )(([0-9]+)\.([0-9]+)\.([0-9]+) (.*)))/'
-    => '<a name="\\4_\\5_\\6"></a>\\2<a href="http://cvs.sourceforge.net/viewcvs.py/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6">\\4.\\5.\\6 \\7</a>',
+    => '<a name="\\4_\\5_\\6"></a>\\2<a href="http://phpmyadmin.cvs.sourceforge.net/phpmyadmin/phpMyAdmin/?only_with_tag=RELEASE_\\4_\\5_\\6">\\4.\\5.\\6 \\7</a>',
 
     // Highlight releases (not linkable)
     '/(    ### )(.*)/'
