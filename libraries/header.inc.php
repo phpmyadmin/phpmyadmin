@@ -134,7 +134,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         language="javascript"></script>
     <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
     <?php /* remove vertical scroll bar bug in ie */ ?>
-    <!--[if gte IE 6]>
+    <!--[if IE 6]>
     <style type="text/css">
     /* <![CDATA[ */
     html {
