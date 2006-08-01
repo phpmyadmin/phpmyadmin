@@ -10,7 +10,7 @@ $Source$
       do not apply 'vertical scrollbar bug'-fix to IE 7
     * changelog.php: updatet CVS URL
     * libraries/dbi/mysqli.dbi.lib.php:
-      bug #1532111 dbi/mysqli: MYSQLI_* constants thanks to lierduh
+      bug #1532111 dbi/mysqli: MYSQLI_* constants thanks to Lierduh - lierduh
 
 2006-07-31 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
