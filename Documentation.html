@@ -124,6 +124,14 @@
         </li>
 </ul>
 
+<h4>A word about users:</h4>
+<p> Many people have difficulty
+    understanding the concept of user management with regards to phpMyAdmin. When
+    a user logs in to phpMyAdmin, that username and password are passed directly
+    to MySQL. phpMyAdmin does no account management on its own (other than
+    allowing one to manipulate the MySQL user account information); all users
+    must be valid MySQL users.</p>
+
 <p class="footnote" id="footnote_1">
     <sup>1)</sup> phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
     dumps and <abbr title="comma seperated values">CSV</abbr> exports if you use
@@ -159,7 +167,6 @@
     (&quot;<tt>\r</tt>&quot;).</p>
 
 <h3 id="quick_install">Quick Install</h3>
-
 <ol><li>Untar or unzip the distribution (be sure to unzip the subdirectories):
         <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
         document root. If you don't have direct access to your document root,
@@ -172,22 +179,82 @@
         <abbr title="Frequently Asked Questions">FAQ</abbr> 4.2</a> and
         <a href="#faq1_26"><abbr title="Frequently Asked Questions">FAQ</abbr>
         1.26</a> for suggestions.</li>
-    <li>Create the file <tt>config.inc.php</tt> in the main (top-level)
-        directory (the one that contains <tt>index.php</tt>).
-        You can use the setup script provided in <tt><a
-        href="scripts/setup.php">scripts/setup.php</a></tt> to create a basic
-        config file which should be sufficient for most users.
-        See <a href="#setup_script">Setup</a> chapter for
-        details. If you don&#8217;t like setup or want to fine tune your
-        configuration, open (or create in case of starting from scratch)
-        <tt>config.inc.php</tt> in your favorite editor and fill in there
-        values for host, user, password and authentication mode to fit your
-        environment. Look at <tt>libraries/config.default.php</tt> to see how these
-        fields should be defined. Here, &quot;host&quot; means the MySQL
-        server.  Have a look at the <a href="#config">Configuration section</a>
-        for an explanation of all values. Please also read the remainder
-        this Installation section for information about authentication modes
-        and the linked-tables infrastructure.</li>
+    <li>Now we must configure your installation. There are two methods that
+        can be used. Traditionally, users have hand-edited a copy of
+        config.inc.php, but now a wizard-style setup script is provided for
+        those who prefer a graphical installation. Creating a config.inc.php is
+        still a quick way to get started and needed for some advanced features.
+        <ul><li>To manually create the file, simply use your text editor to
+                create the file <tt>config.inc.php</tt> in the main (top-level)
+                phpMyAdmin directory (the one that contains <tt>index.php</tt>.
+                phpMyAdmin first loads <tt>libraries/config.default.php</tt>
+                and then overrides those values with anything found in
+                <tt>config.inc.php</tt>. If the default value is okay for a particular
+                setting, there is no need to include it in <tt>config.inc.php</tt>.
+                You'll need a few directives to get going, a simple configuration
+                may look like this:
+<pre>
+&lt;?php
+$cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
+
+$i=0;
+$i++;
+$cfg['Servers'][$i]['auth_type']     = 'cookie';
+?&gt;
+</pre>
+                Or, if you prefer to not be prompted every time you log in:
+<pre>
+&lt;?php
+
+$i=0;
+$i++;
+$cfg['Servers'][$i]['user']          = 'root';
+$cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
+?&gt;
+</pre>
+                For a full explanation of possible configuration values, see the
+                <a href="#config">Configuration Section</a> of this document.</li>
+            <li id="setup_script">Instead of manually editing
+                <tt>config.inc.php</tt>, you can use the
+                <a href="scripts/setup.php">Setup Script</a>. First you must
+                manually create a folder <tt>config</tt> in the phpMyAdmin
+                directory. This is a security measure. On a Linux/Unix system you
+                can use the following commands:
+<pre>
+cd phpMyAdmin
+mkdir config                        # create directory for saving
+chmod o+rw config                   # give it world writable permissions
+</pre>
+                And to edit an existing configuration, copy it over first:
+<pre>
+cp config.inc.php config/           # copy current configuration for editing
+chmod o+w config/config.inc.php     # give it world writable permissions
+</pre>
+                On other platforms, simply create the folder and ensure that your
+                web server has read and write access to it. <a href="#faq1_26">FAQ
+                1.26</a> can help with this.<br /><br />
+
+                Next, open <tt><a href="scripts/setup.php">scripts/setup.php</a>
+                </tt>in your browser. Note that <strong>changes are not saved to
+                disk until explicitly choose <tt>Save</tt></strong> from the
+                <i>Configuration</i> area of the screen. Normally the script saves
+                the new config.inc.php to the <tt>config/</tt> directory, but if
+                the webserver does not have the proper permissions you may see the
+                error "Cannot load or save configuration." Ensure that the <tt>
+                config/</tt> directory exists and has the proper permissions - 
+                or use the <tt>Download</tt> link to save the config file locally
+                and upload (via FTP or some similar means) to the proper location.<br /><br />
+
+                Once the file has been saved, it must be moved out of the <tt>
+                config/</tt> directory and the permissions must be reset, again
+                as a security measure:
+<pre>
+mv config/config.inc.php .         # move file to current directory
+chmod o-rw config.inc.php          # remove world read and write permissions
+</pre>
+                Now the file is ready to be used. You can choose to review or edit
+                the file with your favorite editor, if you prefer to set some
+                advanced options which the setup script does not provide.</li></ul></li>
     <li>If you are using the
         <tt>auth_type</tt> &quot;config&quot;, it is suggested that you
         protect the phpMyAdmin installation directory because using
@@ -200,8 +267,7 @@
         <abbr title="Frequently Asked Questions">FAQ</abbr> for additional
         information, especially <a href="#faq4_4">
         <abbr title="Frequently Asked Questions">FAQ</abbr> 4.4</a>.</li>
-    <li>Open the file
-        <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php</i>
+    <li>Open the <a href="index.php">main phpMyAdmin directory</a>
         in your browser. phpMyAdmin should now display a welcome screen
         and your databases, or a login dialog if using
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie
@@ -212,59 +278,6 @@
         Such configuration prevents from possible path exposure and cross side
         scripting vulnerabilities that might happen to be found in that code.</li>
 </ol>
-
-<h3 id="setup_script">Setup script usage</h3>
-
-<p> Since 2.8.0 phpMyAdmin comes with a setup script that can help you with
-    creating configuration. This script is located in <tt>./scripts</tt> folder:
-    <a href="scripts/setup.php">./scripts/setup.php</a>. Its usage is quite
-    simple. You follow the dialogs and this script prepares in memory the
-    configuration directives. You then have two choices for saving the
-    configuration file:</p>
-
-<ol><li>Download it to your local workstation, then upload (for example with ftp)
-        to your main phpMyAdmin directory. In this case, you don't have to
-        prepare a special <tt>./config</tt> directory, so no further actions are
-        necessary.</li>
-    <li>Save the file to your webserver into <tt>./config</tt> directory.</li>
-</ol>
-
-<p> For saving file on webserver, or loading
-    previous configuration you have to create <tt>./config</tt> directory in
-    phpMyAdmin's top level directory and make it writable to web server. For
-    loading previous configuration, place it there (and make sure it has write
-    permissions for webserver). On a Linux/UNIX server you can use the
-    following commands:</p>
-
-<pre>
-cd phpMyAdmin
-mkdir config                        # create directory for saving
-chmod o+rw config                   # give it world writable permissions
-# if you want to edit existing configuration:
-cp config.inc.php config/           # copy current configuration
-chmod o+w config/config.inc.php     # give it world writable permissions
-</pre>
-
-<p> On a Windows system, create a <tt>./config</tt> in the main phpMyAdmin
-    directory and ensure that your web server has read/write access to it.
-    <a href="#faq1_26"><abbr title="Frequently Asked Questions">FAQ</abbr>
-    1.26</a> can help you about this. If you already have an existing
-    <tt>./config.inc.php</tt> in your main directory, copy it to the newly
-    created <tt>./config</tt> directory.</p>
-
-<p> Then you can open <tt>./scripts/setup.php</tt> in your browser and perform
-    setup. After saving your configuration move the generated configuration to the top
-    level directory and delete the <tt>./config</tt> directory. Do not
-    forget to remove world write permissions on <tt>./config.inc.php</tt>!</p>
-
-
-<pre>
-chmod o-rw config.inc.php           # remove world read and write permissions
-</pre>
-
-<p> Please note that it does not allow to configure everything, so for some
-    additional features you still need to manually edit the configuration file.
-    </p>
 
 <h3 id="linked-tables">Linked-tables infrastructure</h3>
 
@@ -302,14 +315,18 @@ chmod o-rw config.inc.php           # remove world read and write permissions
 
 <h3 id="upgrading">Upgrading from an older version</h3>
 
-<p> Just copy <i>./config.inc.php</i> from previous installation into a newly
-    unpacked one. If your previous phpMyAdmin version was 2.3.0 or older, some
-    tweaking may be required because, as of 2.7.0, using those old config files
-    is no longer supported.</p>
+<p> Simply copy <i>./config.inc.php</i> from your previous installation into the newly
+    unpacked one. Configuration files from very old versions (2.3.0 or older) may
+    require some tweaking as some options have been changed or removed.</p>
 
 <p> You should <strong>not</strong> copy <tt>libraries/config.default.php</tt>
     over <tt>config.inc.php</tt> because the default configuration file
     is version-specific.</p>
+
+<p> If you have upgraded your MySQL server from a version older than 4.1.2 to
+    version 4.1.2 or newer and if you use the pmadb/linked table infrastructure,
+    you should run the SQL script found in
+    <tt>scripts/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
 
 <h3 id="authentication_modes">Using authentication modes</h3>
 
