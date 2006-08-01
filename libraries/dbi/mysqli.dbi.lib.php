@@ -531,6 +531,7 @@ function PMA_DBI_affected_rows($link = null)
  * @uses    MYSQLI_ZEROFILL_FLAG
  * @uses    MYSQLI_NUM_FLAG
  * @uses    MYSQLI_TYPE_BLOB
+ * @uses    MYSQLI_BLOB_FLAG
  * @uses    defined()
  * @uses    mysqli_fetch_fields()
  * @uses    is_array()
@@ -566,7 +567,11 @@ function PMA_DBI_get_fields_meta($result)
     $typeAr[MYSQLI_TYPE_BLOB]        = 'blob';
     $typeAr[MYSQLI_TYPE_VAR_STRING]  = 'string';
     $typeAr[MYSQLI_TYPE_STRING]      = 'string';
-    $typeAr[MYSQLI_TYPE_CHAR]        = 'string';
+    // MySQL returns MYSQLI_TYPE_STRING for CHAR
+    // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
+    // so this would override TINYINT and mark all TINYINT as string
+    // https://sf.net/tracker/?func=detail&aid=1532111&group_id=23067&atid=377408
+    //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
     $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'unknown';
 
     $fields = mysqli_fetch_fields($result);
@@ -577,6 +582,7 @@ function PMA_DBI_get_fields_meta($result)
     }
 
     foreach ($fields as $k => $field) {
+        $fields[$k]->_type = $field->type;
         $fields[$k]->type = $typeAr[$field->type];
         $fields[$k]->_flags = $field->flags;
         $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
@@ -599,7 +605,7 @@ function PMA_DBI_get_fields_meta($result)
         $fields[$k]->numeric
             = (int) (bool) ($fields[$k]->_flags & MYSQLI_NUM_FLAG);
         $fields[$k]->blob
-            = (int) (bool) ($fields[$k]->_flags & MYSQLI_TYPE_BLOB);
+            = (int) (bool) ($fields[$k]->_flags & MYSQLI_BLOB_FLAG);
     }
     return $fields;
 }
@@ -658,7 +664,7 @@ function PMA_DBI_field_name($result, $i)
  * @uses    MYSQLI_BINARY_FLAG
  * @uses    MYSQLI_ZEROFILL_FLAG
  * @uses    MYSQLI_UNSIGNED_FLAG
- * @uses    MYSQLI_TYPE_BLOB
+ * @uses    MYSQLI_BLOB_FLAG
  * @uses    MYSQLI_MULTIPLE_KEY_FLAG
  * @uses    MYSQLI_UNIQUE_KEY_FLAG
  * @uses    MYSQLI_PRI_KEY_FLAG
@@ -685,7 +691,7 @@ function PMA_DBI_field_flags($result, $i)
     if ($f & MYSQLI_BINARY_FLAG)         { $flags .= 'binary ';}
     if ($f & MYSQLI_ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
     if ($f & MYSQLI_UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
-    if ($f & MYSQLI_TYPE_BLOB)           { $flags .= 'blob ';}
+    if ($f & MYSQLI_BLOB_FLAG)           { $flags .= 'blob ';}
     if ($f & MYSQLI_MULTIPLE_KEY_FLAG)   { $flags .= 'multiple_key ';}
     if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique_key ';}
     if ($f & MYSQLI_PRI_KEY_FLAG)        { $flags .= 'primary_key ';}
