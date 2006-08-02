@@ -12,6 +12,7 @@ $Source$
       themes\original\css\theme_right.css.php:
       added variables to define (text) color for marked and hovered objects
       thanks to Juergen Wind - windkiel for hinting this bug (patch #1503529)
+    * Documentation.html: updated style config option descriptions
 
 2006-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1532493 + light editing from me,

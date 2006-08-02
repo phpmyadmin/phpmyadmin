@@ -70,7 +70,7 @@
         the &quot;cookie&quot; authentication method, having the <tt>mcrypt</tt>
         PHP extension on your web server accelerates not only the login
         phase but every other action that you do in phpMyAdmin.</li>
-	<li><b>Web browser</b> with cookies enabled.</li>
+    <li><b>Web browser</b> with cookies enabled.</li>
 </ul>
 
 <!-- INTRODUCTION -->
@@ -97,13 +97,13 @@
         </li>
     <li>export<a href="#footnote_1"><sup>1</sup></a> data to various formats:
         <abbr title="comma separated values">CSV</abbr>,
-	<abbr title="Extensible Markup Language">XML</abbr>,
-	<abbr title="Portable Document Format">PDF</abbr>,
+    <abbr title="Extensible Markup Language">XML</abbr>,
+    <abbr title="Portable Document Format">PDF</abbr>,
     <abbr title="International Standards Organisation">ISO</abbr>/<abbr
     title="International Electrotechnical Commission">IEC</abbr> 26300 -
     OpenDocument Text and Spreadsheet,
-	<abbr title="Microsoft Word 2000">Word</abbr>,
-	<abbr title="Microsoft Excel 2000">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
+    <abbr title="Microsoft Word 2000">Word</abbr>,
+    <abbr title="Microsoft Excel 2000">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
         </li>
     <li>administer multiple servers</li>
     <li>manage MySQL users and privileges</li>
@@ -241,7 +241,7 @@ chmod o+w config/config.inc.php     # give it world writable permissions
                 the new config.inc.php to the <tt>config/</tt> directory, but if
                 the webserver does not have the proper permissions you may see the
                 error "Cannot load or save configuration." Ensure that the <tt>
-                config/</tt> directory exists and has the proper permissions - 
+                config/</tt> directory exists and has the proper permissions -
                 or use the <tt>Download</tt> link to save the config file locally
                 and upload (via FTP or some similar means) to the proper location.<br /><br />
 
@@ -455,8 +455,8 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication
         (for example, if you're running
         <abbr title="Internet Information Services">IIS</abbr>).</li>
-    <li>Obviously, the user must enable cookies in the browser, but this is 
-	now a requirement for all authentication modes.</li>
+    <li>Obviously, the user must enable cookies in the browser, but this is
+    now a requirement for all authentication modes.</li>
     <li>With this mode, the user can truly logout of phpMyAdmin and login back
         with the same username.</li>
     <li>If you want to login to arbitrary server see
@@ -496,7 +496,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         suggested, perhaps a <a href="#glossary">.htaccess</a> file with the
         HTTP-AUTH directive or disallowing incoming HTTP requests at
         one&#8217;s router or firewall will suffice (both of which
-	are beyond the scope of this manual but easily searchable with Google).</li>
+    are beyond the scope of this manual but easily searchable with Google).</li>
 </ul>
 
 <!-- CONFIGURATION -->
@@ -1407,49 +1407,48 @@ ALTER TABLE `pma_column_comments`
         Default is auto.
     </dd>
 
-    <dt id="cfg_LeftWidth">$cfg['LeftWidth'] integer</dt>
-    <dd>Left frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
+    <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
+    <dd>Navi frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><span id="cfg_LeftBgColor">$cfg['LeftBgColor']</span> string [HTML color]<br />
-        <span id="cfg_RightBgColor">$cfg['RightBgColor']</span> string [HTML color]
+    <dt><span id="cfg_NaviBackground">$cfg['NaviBackground']</span> string [valid css code for background]<br />
+        <span id="cfg_MainBackground">$cfg['MainBackground']</span> string [valid css code for background]
     </dt>
-    <dd>The background colors (HTML) used for both the frames.
+    <dd>The background styles used for both the frames.
         See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt><span id="cfg_RightBgImage">$cfg['RightBgImage']</span> string</dt>
-    <dd>The URI of the background image used for the right frame. It must be
-        an absolute URI. See <tt>themes/themename/layout.inc.php</tt>.</dd>
-
-    <dt id="cfg_LeftPointerColor">$cfg['LeftPointerColor'] string [HTML color]</dt>
-    <dd>The color (HTML) used for the pointer in the left frame (does not work
-        with Netscape 4). See <tt>themes/themename/layout.inc.php</tt>.</dd>
+    <dt id="cfg_NaviPointerBackground">$cfg['NaviPointerBackground'] string [valid css code for background]<br />
+        <span id="cfg_NaviPointerColor">$cfg['NaviPointerColor']</span> string [valid css color]</dt>
+    <dd>The style used for the pointer in the navi frame.
+        See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
     <dt id="cfg_LeftPointerEnable">$cfg['LeftPointerEnable'] boolean</dt>
-    <dd>A value of <tt>TRUE</tt> activates the left pointer (when LeftFrameLight
+    <dd>A value of <tt>TRUE</tt> activates the navi pointer (when LeftFrameLight
         is <tt>FALSE</tt>).</dd>
 
     <dt id="cfg_Border">$cfg['Border'] integer</dt>
     <dd>The size of a table's border. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt id="cfg_ThBgcolor">$cfg['ThBgcolor'] string [HTML color]</dt>
-    <dd>The color (HTML) used for table headers. See
+    <dt id="cfg_ThBackground">$cfg['ThBackground'] string [valid css code for background]<br />
+        <span id="cfg_ThColor">$cfg['ThColor']</span> string [valid css color]</dt>
+    <dd>The style used for table headers. See
         <tt>themes/themename/layout.inc.php</tt>.</dd>
 
-    <dt id="cfg_BgcolorOne">$cfg['BgcolorOne'] string [HTML color]</dt>
+    <dt id="cfg_BgcolorOne">$cfg['BgOne'] string [HTML color]</dt>
     <dd>The color (HTML) #1 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt id="cfg_BgcolorTwo">$cfg['BgcolorTwo'] string [HTML color]</dt>
+    <dt id="cfg_BgcolorTwo">$cfg['BgTwo'] string [HTML color]</dt>
     <dd>The color (HTML) #2 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><span id="cfg_BrowsePointerColor">$cfg['BrowsePointerColor'] </span>string [HTML color]<br />
+    <dt><span id="cfg_BrowsePointerColor">$cfg['BrowsePointerBackground'] </span>string [HTML color]<br />
+        <span id="cfg_BrowsePointerColor">$cfg['BrowsePointerColor'] </span>string [HTML color]<br />
+        <span id="cfg_BrowseMarkerColor">$cfg['BrowseMarkerBackground'] </span>string [HTML color]<br />
         <span id="cfg_BrowseMarkerColor">$cfg['BrowseMarkerColor'] </span>string [HTML color]
     </dt>
-    <dd>The colors (HTML) uses for the pointer and the marker in browse mode
-        (does not work with Netscape 4).<br />
+    <dd>The colors (HTML) uses for the pointer and the marker in browse mode.<br />
         The former feature highlights the row over which your mouse is passing
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
@@ -1914,7 +1913,7 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_NullOperators">$cfg['NullOperators'] array</dt>
     <dd>Additional operators available for search operations when the
         field can be null.</dd>
-                    
+
 </dl>
 
 <!-- TRANSFORMATIONS -->
@@ -2637,7 +2636,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 </pre>
 
 <h4 id="faq1_36">
-	<a href="#faq1_36"> I get an error &quot;500 Internal Server Error&quot;.</a> 
+    <a href="#faq1_36"> I get an error &quot;500 Internal Server Error&quot;.</a>
 </h4>
 <p>
     There can be many explanations to this and a look at your server's
@@ -3626,7 +3625,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     positioned &quot;/**/&quot; comments.</p>
 
 <h4 id="faq6_19">
-	<a href="#faq6_19">How can I create simple L<sup>A</sup>T<sub><big>E</big></sub>X document to
+    <a href="#faq6_19">How can I create simple L<sup>A</sup>T<sub><big>E</big></sub>X document to
     include exported table?</a></h4>
 
 <p> You can simply include table in your L<sup>A</sup>T<sub><big>E</big></sub>X documents, minimal sample
@@ -3787,7 +3786,7 @@ chmod o+rwx tmp
 <h4 id="faq8_1">
     <a href="#faq8_1">Where can I get information about the security alerts issued for phpMyAdmin?</a></h4>
 
-<p> Please refer to  
+<p> Please refer to
     <a href="http://www.phpmyadmin.net/home_page/security.php">http://www.phpmyadmin.net/home_page/security.php</a>
 </p>
 
