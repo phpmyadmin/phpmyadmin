@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-02 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.2.1 released from MAINT_2_8_2
+
 2006-08-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css\phpmyadmin.css.php, themes\darkblue_orange\css\theme_right.css.php
       themes\darkblue_orange\layout.inc.php, themes\original\layout.inc.php
