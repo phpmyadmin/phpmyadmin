@@ -746,10 +746,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
         foreach ($quotes as $quote) {
             if (substr($quoted_string, 0, 1) === $quote
-             && substr($quoted_string, 1, 1) !== $quote
-             && substr($quoted_string, -1, 1) === $quote
-             && substr($quoted_string, -2, 1) !== $quote ) {
-                 return substr($quoted_string, 1, -1);
+             && substr($quoted_string, -1, 1) === $quote ) {
+                 $unquoted_string = substr($quoted_string, 1, -1);
+                 // replace escaped quotes
+                 $unquoted_string = str_replace($quote . $quote, $quote, $unquoted_string);
              }
         }
 
@@ -3360,5 +3360,4 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     require $__redirect;
     exit();
 }
-
 ?>
