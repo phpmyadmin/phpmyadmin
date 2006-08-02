@@ -18,6 +18,7 @@ $Source$
       - added PMA_unQuote() to remove quotes from strings
     * libraries/footer.inc.php: correctly escape strings inside JavaScript
       (part of bug #1532721)
+    * libraries/sqlparser.lib.php: correctly unquote identifiers
 
 2006-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1532493 + light editing from me,

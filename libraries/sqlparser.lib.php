@@ -601,29 +601,29 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     $t_suffix = '_functionName';
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
                     $t_suffix = '_columnType';
-    
+
                     // Temporary fix for BUG #621357
                     //TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
                     if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
                         $t_suffix = '_reservedWord';
                     }
                     //END OF TEMPORARY FIX
-    
+
                     // CHARACTER is a synonym for CHAR, but can also be meant as
                     // CHARACTER SET. In this case, we have a reserved word.
                     if ($d_cur_upper == 'CHARACTER' && $d_next_upper == 'SET') {
                         $t_suffix = '_reservedWord';
                     }
-    
+
                     // experimental
                     // current is a column type, so previous must not be
                     // a reserved word but an identifier
                     // CREATE TABLE SG_Persons (first varchar(64))
-    
+
                     //if ($sql_array[$i-1]['type'] =='alpha_reservedWord') {
                     //    $sql_array[$i-1]['type'] = 'alpha_identifier';
                     //}
-    
+
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
                     $t_suffix = '_reservedWord';
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
@@ -633,7 +633,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     if ($d_cur_upper == 'INNODB' && $d_prev_upper == 'SHOW' && $d_next_upper == 'STATUS') {
                         $t_suffix = '_reservedWord';
                     }
-    
+
                     if ($d_cur_upper == 'DEFAULT' && $d_next_upper == 'CHARACTER') {
                         $t_suffix = '_reservedWord';
                     }
@@ -1022,16 +1022,10 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         $identifier = $arr[$i]['data'];
                         break;
 
-                //TODO: check embedded double quotes or backticks?
-                // and/or remove just the first and last character?
                     case 'quote_backtick':
-                        $identifier = str_replace('`', '', $arr[$i]['data']);
-                        break;
                     case 'quote_double':
-                        $identifier = str_replace('"', '', $arr[$i]['data']);
-                        break;
                     case 'quote_single':
-                        $identifier = str_replace("'", "", $arr[$i]['data']);
+                        $identifier = PMA_unQuote($arr[$i]['data']);
                         break;
                 } // end switch
 
@@ -1732,7 +1726,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
                 if ($arr[$i]['type'] == 'quote_backtick') {
                     // remove backquotes
-                    $identifier = str_replace('`', '', $arr[$i]['data']);
+                    $identifier = PMA_unQuote($arr[$i]['data']);
                 } else {
                     $identifier = $arr[$i]['data'];
                 }
