@@ -25,7 +25,12 @@ if (! isset($GLOBALS['no_history']) && isset($GLOBALS['db'])
     $table = isset($GLOBALS['table']) ? $GLOBALS['table'] : ''; ?>
 // updates current settings
 if (window.parent.setAll) {
-    window.parent.setAll('<?php echo $GLOBALS['lang']; ?>', '<?php echo htmlspecialchars($GLOBALS['collation_connection']); ?>', '<?php echo $GLOBALS['server']; ?>', '<?php echo htmlspecialchars($GLOBALS['db']); ?>', '<?php echo htmlspecialchars($table); ?>');
+    window.parent.setAll('<?php
+        echo PMA_escapeJsString($GLOBALS['lang']) . "', '";
+        echo PMA_escapeJsString($GLOBALS['collation_connection']) . "', '";
+        echo PMA_escapeJsString($GLOBALS['server']) . "', '";
+        echo PMA_escapeJsString($GLOBALS['db']) . "', '";
+        echo PMA_escapeJsString($table); ?>');
 }
 <?php } ?>
 
@@ -54,9 +59,9 @@ if (! isset($GLOBALS['no_history']) && empty($GLOBALS['error_message'])) {
 // set current db, table and sql query in the querywindow
 if (window.parent.refreshNavigation) {
     window.parent.reload_querywindow(
-        "<?php echo isset($GLOBALS['db']) ? htmlspecialchars(addslashes($GLOBALS['db'])) : '' ?>",
-        "<?php echo isset($GLOBALS['table']) ? htmlspecialchars(addslashes($GLOBALS['table'])) : '' ?>",
-        "<?php echo isset($GLOBALS['sql_query']) ? htmlspecialchars(urlencode($GLOBALS['sql_query'])) : ''; ?>");
+        '<?php echo isset($GLOBALS['db']) ? PMA_escapeJsString($GLOBALS['db']) : '' ?>',
+        '<?php echo isset($GLOBALS['table']) ? PMA_escapeJsString($GLOBALS['table']) : '' ?>',
+        '<?php echo isset($GLOBALS['sql_query']) ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
 }
 <?php } ?>
 
