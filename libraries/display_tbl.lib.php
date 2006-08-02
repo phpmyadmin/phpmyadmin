@@ -741,7 +741,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       isn't aliased, or in queries like
             //       SELECT `1`.`master_field` , `2`.`master_field`
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
-
+            /**
+             * we prefer always using table if existing
+             * and second this code does not correctly check $fields_meta[$i]->table
             if (($is_join
                 && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . strtr($fields_meta[$i]->name, array('[' => '\\[', '~' => '\\~', '\\' => '\\\\')) . '~i', $select_expr, $parts))
                || (isset($analyzed_sql[0]['select_expr'][$i]['expr'])
@@ -749,10 +751,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
                    $analyzed_sql[0]['select_expr'][$i]['column']
                   && isset($fields_meta[$i]->table) && strlen($fields_meta[$i]->table))) {
-                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . ' . ';
+            */
+            if (isset($fields_meta[$i]->table) && strlen($fields_meta[$i]->table)) {
+                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
             } else {
                 $sort_tbl = '';
             }
+
             // 2.1.2 Checks if the current column is used to sort the
             //       results
             if (empty($sort_expression)) {
@@ -769,8 +774,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // 2.1.3 Check the field name for backquotes.
             //       If it contains some, it's probably a function column
             //       like 'COUNT(`field`)'
-            if (strpos(' ' . $fields_meta[$i]->name, '`') > 0) {
-                $sort_order = ' ORDER BY \'' . $fields_meta[$i]->name . '\' ';
+            if (strpos($fields_meta[$i]->name, '`') !== false) {
+                $sort_order = ' ORDER BY ' . PMA_backquote($fields_meta[$i]->name) . ' ';
             } else {
                 $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ';
             }

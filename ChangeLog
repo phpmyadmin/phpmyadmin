@@ -19,6 +19,9 @@ $Source$
     * libraries/footer.inc.php: correctly escape strings inside JavaScript
       (part of bug #1532721)
     * libraries/sqlparser.lib.php: correctly unquote identifiers
+      (part of bug #1532721)
+    * libraries/display_tbl.lib.php:
+      bug #1524387 incorrectly detects table name for result field
 
 2006-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1532493 + light editing from me,
