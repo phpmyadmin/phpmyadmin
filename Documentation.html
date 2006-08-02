@@ -136,7 +136,8 @@
     <sup>1)</sup> phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
     dumps and <abbr title="comma seperated values">CSV</abbr> exports if you use
     PHP with Zlib support (<tt>--with-zlib</tt>) and/or Bzip2 support
-    (<tt>--with-bz2</tt>).</p>
+    (<tt>--with-bz2</tt>). Proper support may also need changes in
+    <tt>php.ini</tt>.</p>
 
 <!-- INSTALLATION -->
 <h2 id="setup">Installation</h2>
@@ -179,14 +180,14 @@
         <abbr title="Frequently Asked Questions">FAQ</abbr> 4.2</a> and
         <a href="#faq1_26"><abbr title="Frequently Asked Questions">FAQ</abbr>
         1.26</a> for suggestions.</li>
-    <li>Now we must configure your installation. There are two methods that
+    <li>Now you must configure your installation. There are two methods that
         can be used. Traditionally, users have hand-edited a copy of
         config.inc.php, but now a wizard-style setup script is provided for
         those who prefer a graphical installation. Creating a config.inc.php is
         still a quick way to get started and needed for some advanced features.
         <ul><li>To manually create the file, simply use your text editor to
                 create the file <tt>config.inc.php</tt> in the main (top-level)
-                phpMyAdmin directory (the one that contains <tt>index.php</tt>.
+                phpMyAdmin directory (the one that contains <tt>index.php</tt>).
                 phpMyAdmin first loads <tt>libraries/config.default.php</tt>
                 and then overrides those values with anything found in
                 <tt>config.inc.php</tt>. If the default value is okay for a particular
