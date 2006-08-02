@@ -239,7 +239,8 @@ class PMA_Theme_Manager {
             // check for themes directory
             while (false !== ($PMA_Theme = readdir($handleThemes))) {
                 if (array_key_exists($PMA_Theme, $this->themes)) {
-                    $this->themes[$PMA_Theme] = $this->themes[$PMA_Theme];
+                    // this does nothing!
+                    //$this->themes[$PMA_Theme] = $this->themes[$PMA_Theme];
                     continue;
                 }
                 $new_theme = PMA_Theme::load($this->getThemesPath() . '/' . $PMA_Theme);
