@@ -724,6 +724,39 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     } // end of the 'PMA_unescape_mysql_wildcards()' function
 
     /**
+     * removes quotes (',",`) from a quoted string
+     *
+     * checks if the sting is quoted and removes this quotes
+     *
+     * @param   string  $quoted_string  string to remove quotes from
+     * @param   string  $quote          type of quote to remove
+     * @return  string  unqoted string
+     */
+    function PMA_unQuote($quoted_string, $quote = null)
+    {
+        $quotes = array();
+
+        if (null === $quote) {
+            $quotes[] = '`';
+            $quotes[] = '"';
+            $quotes[] = "'";
+        } else {
+            $quotes[] = $quote;
+        }
+
+        foreach ($quotes as $quote) {
+            if (substr($quoted_string, 0, 1) === $quote
+             && substr($quoted_string, 1, 1) !== $quote
+             && substr($quoted_string, -1, 1) === $quote
+             && substr($quoted_string, -2, 1) !== $quote ) {
+                 return substr($quoted_string, 1, -1);
+             }
+        }
+
+        return $quoted_string;
+    }
+
+    /**
      * format sql strings
      *
      * @param   mixed    pre-parsed SQL structure

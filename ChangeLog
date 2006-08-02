@@ -13,8 +13,9 @@ $Source$
       added variables to define (text) color for marked and hovered objects
       thanks to Juergen Wind - windkiel for hinting this bug (patch #1503529)
     * Documentation.html: updated style config option descriptions
-    * libraries/common.lib.php: added PMA_escapeJsString() to escape strings for
-      JavaScript inside CDATA blocks
+    * libraries/common.lib.php:
+      - added PMA_escapeJsString() to escape strings for JavaScript inside CDATA blocks
+      - added PMA_unQuote() to remove quotes from strings
     * libraries/footer.inc.php: correctly escape strings inside JavaScript
       (part of bug #1532721)
 
