@@ -8,32 +8,40 @@
  * navi frame
  */
 // navi frame width
-$GLOBALS['cfg']['NaviWidth']            = 200;
+$GLOBALS['cfg']['NaviWidth']                = 200;
 
 // foreground (text) color for the navi frame
-$GLOBALS['cfg']['NaviColor']            = '#000000';
+$GLOBALS['cfg']['NaviColor']                = '#000000';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']       = '#D0DCE0';
+$GLOBALS['cfg']['NaviBackground']           = '#D0DCE0';
 
-// color of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerColor']     = '#CCFFCC';
+// foreground (text) color of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerColor']         = '#CCFFCC';
+// background of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerBackground']    = '#9999CC';
 
 /**
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']            = '#000000';
+$GLOBALS['cfg']['MainColor']                = '#000000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']       = '#F5F5F5';
+$GLOBALS['cfg']['MainBackground']           = '#F5F5F5';
 //$GLOBALS['cfg']['MainBackground']       = 'url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png)';
 
-// color of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerColor']   = '#CCFFCC';
+// foreground (text) color of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
 
-// color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']    = '#FFCC99';
+// background of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerBackground']  = '#CCFFCC';
+
+// foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
 
 /**
  * fonts
@@ -73,15 +81,15 @@ $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
  * query window
  */
 // Width of Query window
-$GLOBALS['cfg']['QueryWindowWidth']    = 600;
+$GLOBALS['cfg']['QueryWindowWidth']     = 600;
 // Height of Query window
-$GLOBALS['cfg']['QueryWindowHeight']   = 400;
+$GLOBALS['cfg']['QueryWindowHeight']    = 400;
 
 /**
  * SQL Parser Settings
  * Syntax colouring data
  */
-$GLOBALS['cfg']['SQP']['fmtColor']     = array(
+$GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'comment'            => '#808000',
     'comment_mysql'      => '',
     'comment_ansi'       => '',

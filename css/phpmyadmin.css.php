@@ -709,8 +709,10 @@ if ($_SESSION['PMA_Theme']->checkVersion('2.9')) {
 /********************/
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
-div#left_tableList li.marked {
-    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+/* marked items */
+.marked {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
 
@@ -724,16 +726,12 @@ div#left_tableList li.marked {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
-/* marked items */
-.marked {
-    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-
 /* hovered items */
 .odd:hover,
 .even:hover,
 .hover {
-    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 /**
@@ -743,7 +741,7 @@ tr.condition th,
 tr.condition td,
 td.condition,
 th.condition {
-    border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+    border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
 }
 
 label.desc {

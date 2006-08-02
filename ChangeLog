@@ -5,6 +5,14 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css\phpmyadmin.css.php, themes\darkblue_orange\css\theme_right.css.php
+      themes\darkblue_orange\layout.inc.php, themes\original\layout.inc.php
+      themes\original\css\theme_left.css.php,
+      themes\original\css\theme_right.css.php:
+      added variables to define (text) color for marked and hovered objects
+      thanks to Juergen Wind - windkiel for hinting this bug (patch #1503529)
+
 2006-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1532493 + light editing from me,
       thanks to Isaac Bennetch

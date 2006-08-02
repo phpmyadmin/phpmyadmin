@@ -73,7 +73,8 @@ div#leftframelinks a img.icon {
 }
 
 div#leftframelinks a:hover {
-    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
 /* leftdatabaselist */
@@ -91,12 +92,12 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    color:              inherit;
     text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    color:              inherit;
     text-decoration:    underline;
 }
 
@@ -108,7 +109,8 @@ div#left_tableList li {
 
 <?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
 div#left_tableList li:hover {
-    background-color:   <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
 

@@ -189,7 +189,8 @@ table tr.even {
 /* marked tbale rows */
 table tr.marked th,
 table tr.marked {
-    background-color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+    background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
 /* hovered table rows */
@@ -199,7 +200,8 @@ table tr.odd:hover th,
 table tr.even:hover th,
 table tr.hover th,
 table tr.hover {
-    background-color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+    background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 table .value {

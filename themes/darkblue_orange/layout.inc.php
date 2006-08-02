@@ -8,32 +8,41 @@
  * navi frame
  */
 // navi frame width
-$GLOBALS['cfg']['NaviWidth']            = 180;
+$GLOBALS['cfg']['NaviWidth']                = 180;
 
 // foreground (text) color for the navi frame
-$GLOBALS['cfg']['NaviColor']            = '#ffffff';
+$GLOBALS['cfg']['NaviColor']                = '#ffffff';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']       = '#666699';
+$GLOBALS['cfg']['NaviBackground']           = '#666699';
 
-// color of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerColor']     = '#9999CC';
+// foreground (text) color of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerColor']         = '#ffffff';
+
+// background of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerBackground']    = '#9999cc';
 
 /**
  * main frame
  */
 // foreground (text) color for the main frame
-$GLOBALS['cfg']['MainColor']            = '#000000';
+$GLOBALS['cfg']['MainColor']                = '#000000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']       = '#FFFFFF';
+$GLOBALS['cfg']['MainBackground']           = '#ffffff';
 //$GLOBALS['cfg']['MainBackground']       = 'url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png)';
 
-// color of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerColor']   = '#CCFFCC';
+// foreground (text) color of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
 
-// color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor']    = '#FFCC99';
+// background of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerBackground']  = '#ccffcc';
+
+// foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerBackground']   = '#ffcc99';
 
 /**
  * fonts
@@ -43,7 +52,7 @@ $GLOBALS['cfg']['BrowseMarkerColor']    = '#FFCC99';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily']          = 'Verdana, Arial, Helvetica, sans-serif';
+$GLOBALS['cfg']['FontFamily']           = 'Verdana, Arial, Helvetica, sans-serif';
 /**
  * fixed width font family, used in textarea
  */
@@ -53,7 +62,7 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontSize']            = '';
+$GLOBALS['cfg']['FontSize']             = '';
 
 /**
  * tables
@@ -73,15 +82,15 @@ $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
  * query window
  */
 // Width of Query window
-$GLOBALS['cfg']['QueryWindowWidth']    = 600;
+$GLOBALS['cfg']['QueryWindowWidth']     = 600;
 // Height of Query window
-$GLOBALS['cfg']['QueryWindowHeight']   = 400;
+$GLOBALS['cfg']['QueryWindowHeight']    = 400;
 
 /**
  * SQL Parser Settings
  * Syntax colouring data
  */
-$GLOBALS['cfg']['SQP']['fmtColor']     = array(
+$GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'comment'            => '#808000',
     'comment_mysql'      => '',
     'comment_ansi'       => '',
