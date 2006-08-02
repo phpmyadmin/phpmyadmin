@@ -1317,12 +1317,18 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
 
     /**
-     * Format a string so it can be passed to a javascript function.
+     * Format a string so it can be a string inside JavaScript code inside an
+     * eventhandler (onclick, onchange, on..., ).
      * This function is used to displays a javascript confirmation box for
      * "DROP/DELETE/ALTER" queries.
      *
-     * @param   string   the string to format
-     * @param   boolean  whether to add backquotes to the string or not
+     * @uses    PMA_escapeJsString()
+     * @uses    PMA_backquote()
+     * @uses    is_string()
+     * @uses    htmlspecialchars()
+     * @uses    str_replace()
+     * @param   string   $a_string          the string to format
+     * @param   boolean  $add_backquotes    whether to add backquotes to the string or not
      *
      * @return  string   the formated string
      *
@@ -1332,16 +1338,31 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     {
         if (is_string($a_string)) {
             $a_string = htmlspecialchars($a_string);
-            $a_string = str_replace('\\', '\\\\', $a_string);
-            $a_string = str_replace('\'', '\\\'', $a_string);
+            $a_string = PMA_escapeJsString($a_string);
+            // TODO: what is this good for?
             $a_string = str_replace('#', '\\#', $a_string);
-            $a_string = str_replace("\012", '\n', $a_string);
-            $a_string = str_replace("\015", '\r', $a_string);
         }
 
         return (($add_backquotes) ? PMA_backquote($a_string) : $a_string);
     } // end of the 'PMA_jsFormat()' function
 
+    /**
+     * escapes a string to be inserted as string a JavaScript block
+     * enclosed by <![CDATA[ ... ]]>
+     * this requires only to escape ' with \'
+     *
+     * @uses    str_replace()
+     * @param   string  $string the string to be escaped
+     * @return  string  the escaped string
+     */
+    function PMA_escapeJsString($string)
+    {
+        $string = str_replace('\\', '\\\\', $string);
+        $string = str_replace('\'', '\\\'', $string);
+        $string = str_replace("\012", '\n', $string);
+        $string = str_replace("\015", '\r', $string);
+        return $string;
+    }
 
     /**
      * Defines the <CR><LF> value depending on the user OS.
