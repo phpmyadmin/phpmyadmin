@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /*
- * Translated by Jouni Kähkönen, <yoneh at users.sourceforge.net>
+ * Translated by Jouni Kähkönen, <address withdrawn>
  * Previous translations by Visa Kopu, <visa@visakopu.net>
  */
 
