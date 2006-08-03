@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    *  libraries/dbi/mysqli.dbi.lib.php PMA_DBI_try_query(): do not force
+       MYSQLI_USE_RESULT if not requested, makes PMA_DBI_num_rows() not to work
+
 2006-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.2.1 released from MAINT_2_8_2
 
