@@ -196,14 +196,15 @@ foreach ($dblist as $each_db) {
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
-value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" />
+value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
     <?php
-    // after MySQL 5.0.22, SHOW CREATE TABLE includes the AUTO_INCREMENT
-    // next value of the table so we won't have to add it ourselves
-    if (PMA_MYSQL_INT_VERSION < 50023) {
-        echo '<input type="hidden" name="sql_auto_increment" value="1" />' . "\n";
-    }
+    // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
+    // next value but users can decide if they want it or not for the operation 
     ?> 
+    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" checked="checked" />
+    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+</fieldset>
+<fieldset class="tblFooters">
     <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
 </fieldset>
 </form>

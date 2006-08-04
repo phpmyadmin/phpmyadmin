@@ -357,6 +357,9 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     if ($result != FALSE) {
         if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_DBI_fetch_assoc($result);
+            // Here we optionally add the AUTO_INCREMENT next value,
+            // but starting with MySQL 5.0.24, the clause is already included
+            // in SHOW CREATE TABLE so we'll remove it below
             if (isset($GLOBALS['sql_auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
@@ -487,6 +490,10 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         $schema_create .= $create_query;
     }
 
+    // remove a possible "AUTO_INCREMENT = value" clause
+    // that could be there starting with MySQL 5.0.24
+    $schema_create = preg_replace('/AUTO_INCREMENT\s*=\s*([0-9])+/', '', $schema_create);
+    
     $schema_create .= $auto_increment;
 
     PMA_DBI_free_result($result);
