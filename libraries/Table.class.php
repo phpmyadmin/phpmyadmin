@@ -501,7 +501,12 @@ class PMA_Table {
 
     /**
      * Copies or renames table
-     * FIXME: use RENAME
+     * FIXME: use RENAME for move operations
+     *        - works only if the databases are on the same filesystem,
+     *          how can we check that? try the operation and
+     *          catch an error? 
+     *        - for views, only if MYSQL > 50013
+     *        - still have to handle pmadb synch.
      *
      * @author          Michal Cihar <michal@cihar.com>
      */
