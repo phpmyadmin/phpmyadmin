@@ -614,7 +614,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
           .  $GLOBALS['comment_marker'] . $crlf
           .  PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf
           .  PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
-
+    // this one is built by PMA_getTableDef() to use in table copy/move
+    // but not in the case of export
+    unset($GLOBALS['sql_constraints_query']);
 
     return PMA_exportOutputHandler($dump);
 }

@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php: bug #1527862, export foreign keys is broken
+    in latest CVS
+
 2006-08-04 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php, libraries/export/sql.php:
       bug #1526000, copying table to another db (MYSQL 5.0.24)
