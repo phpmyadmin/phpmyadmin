@@ -87,7 +87,12 @@ if (isset($db) &&
 
         // now that all tables exist, create all the accumulated constraints 
         if (isset($GLOBALS['add_constraints'])) {
+            // FIXME: this works with mysqli but not with mysql,
+            // because mysql extension does not accept more than one
+            // statement; maybe interface with the sql import plugin
+            // that handles statement delimiter
             PMA_DBI_query($GLOBALS['sql_constraints_query_full_db']);
+
             // and prepare to display them
             $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query_full_db'];
             unset($GLOBALS['sql_constraints_query_full_db']);

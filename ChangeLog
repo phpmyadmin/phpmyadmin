@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: added a FIXME for db copy with Add Constraints 
+      and mysql extension
+
 2006-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1527862, export foreign keys is broken
     in latest CVS
