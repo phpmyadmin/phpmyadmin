@@ -405,6 +405,7 @@ $strKorean = 'Korean';
 
 $strLandscape = 'Landscape';
 $strLanguageFileNotFound = 'Language file "%1$s" not found.';
+$strLanguage = 'Language';
 $strLanguageUnknown = 'Unknown language: %1$s.';
 $strLatchedPages = 'Latched pages';
 $strLatexCaption = 'Table caption';

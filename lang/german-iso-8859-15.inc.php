@@ -1002,4 +1002,5 @@ $strFunctions = 'Funktionen';  //recently translated
 $strProcedures = 'Prozeduren';  //recently translated
 $strPDFReportExplanation = '(Erstellt einen Report mit den Daten einer Tabelle)';  //recently translated
 $strFontSize = 'Schriftgröße';  //recently translated
+$strLanguage = 'Language';  //to translate
 ?>
