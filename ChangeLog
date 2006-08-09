@@ -10,6 +10,7 @@ $Source$
       MySQL 4.1.13 and double quotes in SHOW VARIABLES,
       thanks to Herve Pages
     * docs.css, Documentation.html: bug #1446538, FAQ numbers missing
+    * libraries/display_select_lang.lib.php, lang/*: $strLanguage
 
 2006-08-08 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: added a FIXME for db copy with Add Constraints 
