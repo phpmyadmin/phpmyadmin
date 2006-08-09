@@ -406,6 +406,7 @@ $strKorean = 'coréen';
 
 $strLandscape = 'Paysage';
 $strLanguageFileNotFound = 'Fichier de langue "%1$s" inexistant.';
+$strLanguage = 'Langue';
 $strLanguageUnknown = 'Langue inconnue: %1$s.';
 $strLatchedPages = 'Pages verrouillées';
 $strLatexCaption = 'Sous-titre de la table';
@@ -991,5 +992,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strLanguage = 'Language';  //to translate
 ?>
