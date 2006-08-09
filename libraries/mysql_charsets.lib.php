@@ -121,7 +121,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
             PMA_DBI_select_db( $db );
-            $return = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE "collation_database"', 0, 1 );
+            // we got one case in 4.1.13 where the query does not work 
+            // if this string is in double quotes
+            $return = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'collation_database\'', 0, 1 );
             if ( isset( $GLOBALS['db'] ) && $db !== $GLOBALS['db'] ) {
                 PMA_DBI_select_db( $GLOBALS['db'] );
             }
