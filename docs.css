@@ -118,13 +118,13 @@ h2 {
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
     clear: both;
-    counter-reset: heading3;
-    counter-increment: heading2;
+    /* counter-reset: heading3;
+    counter-increment: heading2; */
 }
 
-h2:before {
+/*h2:before {
     content: counter(heading2) '. ';
-}
+} */
 
 h3 {
     padding-left: 10%;
@@ -136,13 +136,13 @@ h3 {
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
     clear: both;
-    counter-reset: heading4;
-    counter-increment: heading3;
+/*    counter-reset: heading4;
+    counter-increment: heading3; */
 }
 
-h3:before {
+/*h3:before {
     content: counter(heading2) '.' counter(heading3) '. ';
-}
+} */
 
 h4, h5 {
     padding: 3em 0 0 0;
@@ -150,12 +150,12 @@ h4, h5 {
     font-weight: bold;
     color: #000099;
     background-color: #ffffff;
-    counter-increment: heading4;
+/*    counter-increment: heading4; */
 }
 
-h4:before {
+/* h4:before {
     content: counter(heading2) '.' counter(heading3) '.' counter(heading4) '. ';
-}
+} 
 
 h5 {
     counter-increment: heading5;
@@ -163,7 +163,7 @@ h5 {
 
 h5:before {
     content: counter(heading2) '.' counter(heading3) '.' counter(heading4) counter(heading5,lower-alpha);
-}
+} */
 
 p {
     margin: 2px 5% 1em 5%;
