@@ -300,6 +300,7 @@ $strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges dire
 $strFlushQueryCache = 'Vider la cache des requêtes';
 $strFlushTable = 'Recharger la table ("FLUSH")';
 $strFlushTables = 'Fermer toutes les tables';
+$strFontSize = 'Taille du texte';
 $strFormat = 'format';
 $strFormEmpty = 'Formulaire incomplet !';
 $strFreePages = 'Pages libres';
@@ -990,5 +991,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strFontSize = 'Font size';  //to translate
 ?>
