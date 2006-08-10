@@ -2859,7 +2859,7 @@ if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) 
         /* Cookie preferences */
         'pma_lang', 'pma_charset', 'pma_collation_connection', 'pma_convcharset',
         /* Possible login form */
-        'pma_username', 'pma_password',
+        'pma_servername', 'pma_username', 'pma_password',
     );
     $keys = array_keys($_REQUEST);
     /* Remove any non allowed stuff from requests */
