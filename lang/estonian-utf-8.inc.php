@@ -30,6 +30,7 @@ $strAccessDeniedExplanation = 'phpMyAdmin proovis ühenduda MySQL serveriga ja s
 $strAccessDenied = 'Ligipääs keelatud';
 $strAction = 'Tegevus';
 $strAddAutoIncrement = 'Lisa AUTO_INCREMENT väärtus';
+$strAddClause = 'Lisa %s';  
 $strAddConstraints = 'Lisa piirangud';
 $strAddDeleteColumn = 'Lisa/Kustuta välja veerud';
 $strAddDeleteRow = 'Lisa/Kustuta kriteeriumirida';
@@ -111,8 +112,9 @@ $strBzError = 'phpMyAdmin ei suutnud pakkida seda andmebaasiväljundit kuna Bz2 
 $strBzip = '"bzipitud"';
 
 $strCalendar = 'Kalender';
+$strCanNotLoadExportPlugins = 'Viga eksportimis moodulite laadimisel, palun kontrolli seadeid!';
 $strCanNotLoadImportPlugins = 'Pole võimalik Importida mooduleid (plugins), palun kontrolli seadeid!';
-$strCannotLogin = 'Eei suuda MySQL serverisse logida';
+$strCannotLogin = 'Ei suuda MySQL serverisse logida';
 $strCantLoad = 'ei suutnud lugeda moodulit %s,<br />palun kontrollige PHP konfiguratsiooni';
 $strCantLoadRecodeIconv = 'Ei suuda lugeda iconv või recode moodulit mida on vaja tähetabeli konvertimiseks, konfigureerige PHP-d nii, et see sisaldaks antud mooduleid või keelake tähetabeli konvertimine phpMyAdminis.';
 $strCantRenameIdxToPrimary = 'Ei suuda muuta indeksit PRIMAARSEKS!';
@@ -173,6 +175,10 @@ $strCreateNewDatabase = 'Loo uus andmebaas';
 $strCreateNewTable = 'Loo uus tabel andmebaasi %s';
 $strCreatePage = 'Loo uus leht';
 $strCreatePdfFeat = 'PDF-ide tegemine';
+$strCreateUserDatabase = 'Andmebaas kasutajale';  
+$strCreateUserDatabaseName = 'Loo sama nimega andmebaas ja anna kõik õigused'; 
+$strCreateUserDatabaseNone = 'Puudub';  
+$strCreateUserDatabaseWildcard = 'Anna kõik õigused Metanimele (username_%)';
 $strCreationDates = 'Loo/muuda/kontrolli kuupäevi';
 $strCriteria = 'Kriteerium';
 $strCroatian = 'Horvaatia';
@@ -225,6 +231,7 @@ $strDeletedRows = 'Kustuta read:';
 $strDelete = 'Kustuta';
 $strDeleteNoUsersSelected = 'Ühtegi kasutajat pole valitud kustutamiseks!';
 $strDeleting = 'Kustutan %s';
+$strDelimiter = 'Eraldaja'; 
 $strDelOld = 'Antud lehel on viiteid tabelitele mida enam ei ole. Kas te soovite kustutada need viited?';
 $strDescending = 'Kahanev';
 $strDescription = 'Kirjeldus';
@@ -264,6 +271,7 @@ $strEngineUnsupported = 'See MySQL server ei toeta %s varundusmootorit.';
 $strEnglish = 'Inglise';
 $strEnglishPrivileges = ' Märkus: MySQL privileegide nimed on ingliskeelsed ';
 $strErrorInZipFile = 'Viga ZIP arhiivis:';
+$strErrorRenamingTable = 'Viga tabeli nime %1$s muutimsel %2$s';  
 $strError = 'Viga';
 $strEscapeWildcards = 'Metamärgid _ ja % peaksid olema varjestatud märgiga \, kui soovite neid sisestada';
 $strEsperanto = 'Esperanto';
@@ -273,6 +281,7 @@ $strExcelOptions = 'Excel\'i seaded';
 $strExecuteBookmarked = 'Käivita salvestatud päring';
 $strExplain = 'Seleta SQL-i';
 $strExport = 'Ekspordi';
+$strExportMustBeFile = 'Valitud eksportimise tüüp tuleb salvestada faili!';
 $strExtendedInserts = 'Laiendatud lisamised';
 $strExtra = 'Ekstra';
 
@@ -296,13 +305,15 @@ $strFileToImport = 'Imporditav Fail';
 $strFixed = 'parandatud';
 $strFlushPrivilegesNote = 'Märkus: phpMyAdmin võtab kasutajate privileegid otse MySQL privileges tabelist. Tabeli sisu võib erineda sellest, mida server hetkel kasutab, seda juhul kui olete käsitsi muudatusi teinud. Sellisel juhul peaksite te privileegid %staaslaadima%s enne jätkamist.';
 $strFlushQueryCache = 'Tühjenda päringute vahemälu';
-$strFlushTable = 'Ühtlusta tabelid ("FLUSH")';
 $strFlushTables = 'Tühjenda (sulge) kõik tabelid';
+$strFlushTable = 'Ühtlusta tabelid ("FLUSH")';
+$strFontSize = 'Fondi suurus';
 $strFormat = 'Formaat';
 $strFormEmpty = 'Puuduv väärtus vormis !';
 $strFreePages = 'Vabad lehed';
 $strFullText = 'Täistekstid';
 $strFunction = 'Funktsioon';
+$strFunctions = 'Funktsioonid';  
 
 $strGenBy = 'Genereerija ';
 $strGeneralRelationFeat = 'Peamised seoste võimalused';
@@ -379,12 +390,14 @@ $strInvalidColumn = 'Vigased välja veerud (%s) valitud!';
 $strInvalidCSVFieldCount = 'Vigane väljade arv CSV sisendis real %d.';
 $strInvalidCSVFormat = 'Vigane formaat CSV sisendis real %d.';
 $strInvalidCSVParameter = 'Vigane parameeter CSV importimisel: %s';
+$strInvalidDatabase = 'Vigane andmebaas';  
 $strInvalidFieldAddCount = 'Peate lisama vähemalt ühe välja.';
 $strInvalidFieldCount = 'Tabelil peab olema vähemalt üks väli.';
 $strInvalidLDIImport = 'See plugin ei toeta pakitud importe!';
 $strInvalidRowNumber = '%d ei ole õige reanumber.';
 $strInvalidServerHostname = 'Vigane hostname serverile %1$s. Palun kontrolli seadeid.';
 $strInvalidServerIndex = 'Vigane serveri indeks: "%s"';
+$strInvalidTableName = 'Vigane tabeli nimi'; 
 
 $strJapanese = 'Jaapani';
 $strJoins = 'Liited';
@@ -479,6 +492,7 @@ $strNext = 'Järgmine';
 $strNoActivity = 'Ebaaktiivne %s sekundit või rohkem, palun sisenege uuesti';
 $strNoDatabases = 'Pole andmebaase';
 $strNoDatabasesSelected = 'Ühtegi andmebaasi ei ole valitud.';
+$strNoDataReceived = 'Andmeid ei saadud importimisel. Võimalik et faili nime ei saadetud, või faili suurus ületab maksimaalset suurust lubatud PHP seadetes. Vaata FAQ 1.16.';
 $strNoDescription = 'pole kirjeldust';
 $strNoDetailsForEngine = 'Detailne seisuinformatsioon antud varundusmootori kohta puudub.';
 $strNoDropDatabases = '"DROP DATABASE" käsud keelatud.';
@@ -512,6 +526,10 @@ $strNumSearchResultsTotal = '<b>Kokku:</b> <i>%s</i> vaste(t)';
 $strNumTables = 'Tabelid';
 
 $strOK = 'Korras';
+$strOpenDocumentSpreadsheet = 'Ava dokumendi arvutustabel';
+$strOpenDocumentSpreadsheetOptions = 'Ava dokumendi arvutustabeli seaded';
+$strOpenDocumentText = 'Ava dokumendi tekst';  
+$strOpenDocumentTextOptions = 'Ava dokumendi teksti seaded';
 $strOpenNewWindow = 'Ava uus phpMyAdmin aken';
 $strOperations = 'Tegevused';
 $strOperator = 'Operaator';
@@ -535,6 +553,7 @@ $strPdfInvalidTblName = '"%s" tabel ei eksisteeri!';
 $strPdfNoTables = 'Pole tabeleid';
 $strPDFOptions = 'PDF seaded';
 $strPDF = 'PDF';
+$strPDFReportExplanation = '(Genereerib aruande sisaldades andmeid üksikust tabelist)';
 $strPDFReportTitle = 'Raporti pealkiri';
 $strPerHour = 'tunni kohta';
 $strPerMinute = 'minutis';
@@ -595,6 +614,7 @@ $strPrivDescUpdate = 'Lubab muuta infot.';
 $strPrivDescUsage = 'Mitte ühtegi privileegi.';
 $strPrivileges = 'Privileegid';
 $strPrivilegesReloaded = 'Privileegid taaslaeti edukalt.';
+$strProcedures = 'Toimingud';
 $strProcesses = 'Protsessid';
 $strProcesslist = 'Protsessinimekiri';
 $strProtocolVersion = 'Protokolli versioon';
@@ -681,6 +701,7 @@ $strSent = 'Saadetud';
 $strServerChoice = 'Serveri valik';
 $strServerNotResponding = 'Server ei vasta';
 $strServer = 'Server';
+$strServers = 'Serverid';  
 $strServerStatusDelayedInserts = 'Ajastatud lisamised';
 $strServerStatus = 'Jooksev informatsioon';
 $strServerStatusUptime = 'See MySQL server on käinud %s. Käivitusaeg %s.';
@@ -840,6 +861,7 @@ $strSQPBugUnknownPunctuation = 'Tundmatu suunav tekst';
 $strStatCheckTime = 'Viimane vaatamine';
 $strStatCreateTime = 'Loodud';
 $strStatement = 'Parameerid';
+$strStatisticsOverrun = 'Koormusega serveris, baitide lugeja võib lugeda vigadega (overrun), st. see statistika mida näitab MySQL server ei pruugi olla täpne.';
 $strStatUpdateTime = 'Viimane muudatus';
 $strStatus = 'Staatus';
 $strStorageEngines = 'Varundusmootorid';
@@ -848,6 +870,7 @@ $strStrucCSV = 'CSV andmed';
 $strStrucData = 'Struktuur ja andmed';
 $strStrucExcelCSV = 'CSV MS Exceli jaoks';
 $strStrucNativeExcel = 'Loomulikud MS Exceli andmed';
+$strStrucNativeExcelOptions = 'Põlised Exceli eksportimise seaded';
 $strStrucOnly = 'Ainult struktuur';
 $strStructPropose = 'Soovita tabeli struktuuri';
 $strStructure = 'Struktuur';
@@ -925,6 +948,7 @@ $strUpdateQuery = 'Uuenda päringut';
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';
 $strUpgrade = 'Te peaksite uuendama %s -i versioonini %s või uuemaks.';
 $strUploadLimit = 'Te kindlasti proovisite laadida liiga suurt faili. Palun uuri dokumentatsiooni %sdocumentation%s selle limiidi seadmiseks.';
+$strUploadsNotAllowed = 'Faile pole lubatud laadida sellesse serverisse.';  
 $strUsage = 'Kasutus';
 $strUseBackquotes = 'Kasutage tagurpidi kaldkriipse tabelites või tabelinimedes';
 $strUsedPhpExtensions = 'Kasutatud PHP laiendid';
@@ -966,46 +990,16 @@ $strWritingCommentNotPossible = 'Kommentaaride kirjutamine ei ole võimalik.';
 $strWritingRelationNotPossible = 'Sõltuvuse kirjutamine ei ole võimalik';
 $strWrongUser = 'Vale kasutajanimi/parool. Ligipääs keelatud.';
 
+$strXMLOptions = 'XML seaded';  
 $strXML = 'XML';
 
 $strYes = 'Jah';
 
-$strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
+$strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null), eemaldate limiidi.';
 $strZip = '"zipitud"';
 
 // To translate:
-$strAddClause = 'Add %s';  //to translate
 
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
-
-$strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
-
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
-
-$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strOpenDocumentText = 'Open Document Text';  //to translate
-$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-
-$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
-
-$strXMLOptions = 'XML options';  //to translate
-
-$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
-$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
-$strInvalidTableName = 'Invalid table name';  //to translate
-$strInvalidDatabase = 'Invalid database';  //to translate
-$strServers = 'Servers';  //to translate
-$strDelimiter = 'Delimiter';  //to translate
-$strFunctions = 'Functions';  //to translate
-$strProcedures = 'Procedures';  //to translate
-$strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
-$strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
+
 ?>
