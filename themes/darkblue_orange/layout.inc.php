@@ -17,7 +17,7 @@ $GLOBALS['cfg']['NaviColor']                = '#ffffff';
 $GLOBALS['cfg']['NaviBackground']           = '#666699';
 
 // foreground (text) color of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerColor']         = '#ffffff';
+$GLOBALS['cfg']['NaviPointerColor']         = '#000000';
 
 // background of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerBackground']    = '#9999cc';

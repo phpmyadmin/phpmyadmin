@@ -2,5 +2,5 @@
 /* $Id$ */
 /* Theme information */
 $theme_name = 'Original';
-$theme_full_version = '2.8';
+$theme_full_version = '2.9';
 ?>

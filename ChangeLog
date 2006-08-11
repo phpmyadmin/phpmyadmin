@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css\phpmyadmin.css.php, themes\*:
+      updated themes to 2.9 and some minor fixes
+      thanks to Juergen Wind - windkiel for hinting this (patch #1535169)
+
 2006-08-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
     * lang/catalan update, thanks to Xavier Navarro (xavin)
@@ -21,7 +26,7 @@ $Source$
     * libraries/display_select_lang.lib.php, lang/*: $strLanguage
 
 2006-08-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_operations.php: added a FIXME for db copy with Add Constraints 
+    * db_operations.php: added a FIXME for db copy with Add Constraints
       and mysql extension
 
 2006-08-05 Marc Delisle  <lem9@users.sourceforge.net>
@@ -31,7 +36,7 @@ $Source$
 2006-08-04 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php, libraries/export/sql.php:
       bug #1526000, copying table to another db (MYSQL 5.0.24)
-    * db_details_structure.php: bug #1530574, misaligned HTML 
+    * db_details_structure.php: bug #1530574, misaligned HTML
       when db_collation is empty
 
 2006-08-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
