@@ -387,6 +387,10 @@ if ($timeout_passed) {
     }
 }
 
+// Parse and analyze the query, for correct db and table name 
+// in case of a query typed in the query window
+require_once('./libraries/parse_analyze.lib.php');
+
 // Display back import page
 require_once('./libraries/header.inc.php');
 

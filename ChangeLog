@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php, import.php, libraries/parse_analyze.lib.php: 
+      bug #1533945, wrong table name in header (SELECT from query window) 
+
 2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css\phpmyadmin.css.php, themes\*:
       updated themes to 2.9 and some minor fixes
