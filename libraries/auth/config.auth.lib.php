@@ -107,24 +107,21 @@ function PMA_auth_fails()
     <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
 
-    // if we display the "Server not responding" error, do not confuse users
-    // by telling them they have a settings problem
-    // (note: it's true that they could have a badly typed host name, but
-    //  anyway the current $strAccessDeniedExplanation tells that the server
-    //  rejected the connection, which is not really what happened)
-    // 2002 is the error given by mysqli
-    // 2003 is the error given by mysql
-
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         echo '<p>' . $GLOBALS['strAccessDenied'] . '</p>' . "\n";
     } else {
-        if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
-            // Check whether user has configured something
-            if ($_SESSION['PMA_Config']->source_mtime == 0) {
-                echo '<p>' . sprintf($GLOBALS['strAccessDeniedCreateConfig'], '<a href="scripts/setup.php">', '</a>') . '</p>' . "\n";
-            } else {
-                echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
-            }
+        // Check whether user has configured something
+        if ($_SESSION['PMA_Config']->source_mtime == 0) {
+            echo '<p>' . sprintf($GLOBALS['strAccessDeniedCreateConfig'], '<a href="scripts/setup.php">', '</a>') . '</p>' . "\n";
+        } elseif (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
+        // if we display the "Server not responding" error, do not confuse users
+        // by telling them they have a settings problem
+        // (note: it's true that they could have a badly typed host name, but
+        //  anyway the current $strAccessDeniedExplanation tells that the server
+        //  rejected the connection, which is not really what happened)
+        // 2002 is the error given by mysqli
+        // 2003 is the error given by mysql
+            echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
         }
         PMA_mysqlDie($conn_error, '', true, '', false);
     }

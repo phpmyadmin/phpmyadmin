@@ -8,6 +8,8 @@ $Source$
 2006-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, import.php, libraries/parse_analyze.lib.php: 
       bug #1533945, wrong table name in header (SELECT from query window) 
+    * libraries/auth/config.auth.lib.php: bug #1536112, config not loaded
+      (MySQL error 2002 or 2003)
 
 2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css\phpmyadmin.css.php, themes\*:
