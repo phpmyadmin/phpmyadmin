@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php: bug #1492772, parsing EXTRACT YEAR_MONTH
+      (there were sorting errors in the function names array)
+
 2006-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, import.php, libraries/parse_analyze.lib.php: 
       bug #1533945, wrong table name in header (SELECT from query window) 

@@ -15,7 +15,11 @@
  *
  * Note: before adding a value in the arrays, ensure that you respect
  * proper sorting, especially with underscores. And don't forget to
- * update the _cnt variable at the end of each array.
+ * update the _cnt variable at the end of each array. 
+ * (It's slower to have PHP do the count).
+ *
+ * It's easier to use only uppercase for proper sorting. In case of
+ * doubt, use the DEBUG code after this function's definition. 
  */
 
 $PMA_SQPdata_function_name = array (
@@ -25,7 +29,7 @@ $PMA_SQPdata_function_name = array (
     'ADDTIME',
     'AES_DECRYPT',
     'AES_ENCRYPT',
-    'Area',                     // polygon-property-functions.html
+    'AREA',                     // polygon-property-functions.html
     'ASCII',
     'ASIN',
     'ATAN',
@@ -42,7 +46,7 @@ $PMA_SQPdata_function_name = array (
     'CAST',
     'CEIL',
     'CEILING',
-    'Centroid',                 // multipolygon-property-functions.html
+    'CENTROID',                 // multipolygon-property-functions.html
     'CHAR',                     // string-functions.html
     'CHARACTER_LENGTH',
     'CHARSET',                  // information-functions.html
@@ -84,15 +88,15 @@ $PMA_SQPdata_function_name = array (
     'DEGREES',
     'DES_DECRYPT',
     'DES_ENCRYPT',
-    'Dimension',                // general-geometry-property-functions.html
+    'DIMENSION',                // general-geometry-property-functions.html
     'ELT',
     'ENCODE',
     'ENCRYPT',
-    'EndPoint',                 // linestring-property-functions.html
-    'Envelope',                 // general-geometry-property-functions.html
+    'ENDPOINT',                 // linestring-property-functions.html
+    'ENVELOPE',                 // general-geometry-property-functions.html
     'EXP',
     'EXPORT_SET',
-    'ExteriorRing',             // polygon-property-functions.html
+    'EXTERIORRING',             // polygon-property-functions.html
     'EXTRACT',
     'FIELD',
     'FIND_IN_SET',
@@ -101,11 +105,11 @@ $PMA_SQPdata_function_name = array (
     'FOUND_ROWS',
     'FROM_DAYS',
     'FROM_UNIXTIME',
-    'GeometryN',                // geometrycollection-property-functions.html
-    'GeometryType',             // general-geometry-property-functions.html
+    'GEOMETRYN',                // geometrycollection-property-functions.html
+    'GEOMETRYTYPE',             // general-geometry-property-functions.html
     'GET_FORMAT',
     'GET_LOCK',
-    'GLength',                  // linestring-property-functions.html
+    'GLENGTH',                  // linestring-property-functions.html
     'GREATEST',
     'GROUP_CONCAT',
     'GROUP_UNIQUE_USERS',
@@ -117,13 +121,13 @@ $PMA_SQPdata_function_name = array (
     'INET_NTOA',
     'INSERT',                   // string-functions.html
     'INSTR',
-    'InteriorRingN',            // polygon-property-functions.html
+    'INTERIORRINGN',            // polygon-property-functions.html
     'INTERVAL',
+    'ISCLOSED',                 // multilinestring-property-functions.html
+    'ISEMPTY',                  // general-geometry-property-functions.html
     'ISNULL',
-    'IsClosed',                 // multilinestring-property-functions.html
-    'IsEmpty',                  // general-geometry-property-functions.html
-    'IsRing',                   // linestring-property-functions.html
-    'IsSimple',                 // general-geometry-property-functions.html
+    'ISRING',                   // linestring-property-functions.html
+    'ISSIMPLE',                 // general-geometry-property-functions.html
     'IS_FREE_LOCK',
     'IS_USED_LOCK',             // miscellaneous-functions.html
     'LAST_DAY',
@@ -158,9 +162,9 @@ $PMA_SQPdata_function_name = array (
     'MONTHNAME',
     'NOW',
     'NULLIF',
-    'NumGeometries',            // geometrycollection-property-functions.html
-    'NumInteriorRings',         // polygon-property-functions.html
-    'NumPoints',                // linestring-property-functions.html
+    'NUMGEOMETRIES',            // geometrycollection-property-functions.html
+    'NUMINTERIORRINGS',         // polygon-property-functions.html
+    'NUMPOINTS',                // linestring-property-functions.html
     'OCT',
     'OCTET_LENGTH',
     'OLD_PASSWORD',
@@ -169,8 +173,8 @@ $PMA_SQPdata_function_name = array (
     'PERIOD_ADD',
     'PERIOD_DIFF',
     'PI',
-    'PointN',                   // linestring-property-functions.html
-    'PointOnSurface',           // multipolygon-property-functions.html
+    'POINTN',                   // linestring-property-functions.html
+    'POINTONSURFACE',           // multipolygon-property-functions.html
     'POSITION',
     'POW',
     'POWER',
@@ -200,7 +204,7 @@ $PMA_SQPdata_function_name = array (
     'SPACE',
     'SQRT',
     'SRID',                     // general-geometry-property-functions.html
-    'StartPoint',               // linestring-property-functions.html
+    'STARTPOINT',               // linestring-property-functions.html
     'STD',
     'STDDEV',
     'STDDEV_POP',               // group-by-functions.html
@@ -251,6 +255,15 @@ $PMA_SQPdata_function_name = array (
 );
 //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
 $PMA_SQPdata_function_name_cnt = 229;
+// DEBUG
+//$test_PMA_SQPdata_function_name = $PMA_SQPdata_function_name;
+//sort($PMA_SQPdata_function_name);
+//if ($PMA_SQPdata_function_name != $test_PMA_SQPdata_function_name) {
+//    echo 'sort properly like this<pre>';
+//    print_r($PMA_SQPdata_function_name);
+//    echo '</pre>';
+//}
+
 
 $PMA_SQPdata_column_attrib = array (
     'ARCHIVE',          // Engine
