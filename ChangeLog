@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2006-08-13 Marc Delisle  <lem9@users.sourceforge.net>
-    * library/display_tbl.lib.php: bug #1519799, imagelink error
+    * libraries/display_tbl.lib.php: bug #1519799, imagelink error
 
 2006-08-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php: bug #1492772, parsing EXTRACT YEAR_MONTH
