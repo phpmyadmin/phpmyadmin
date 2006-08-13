@@ -1354,7 +1354,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $relation_id = $row[$i];
 
                     // nijel: Cut all fields to $GLOBALS['cfg']['LimitChars']
-                    if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                    // lem9: (unless it's a link-type transformation)
+                    if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1) && !strpos($transform_function, 'link') === true) {
                         $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
 
