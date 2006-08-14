@@ -759,7 +759,7 @@ function show_security_form($defaults = array()) {
             array('Show phpinfo output', 'ShowPhpInfo', 'Whether to allow users to see phpinfo() output', FALSE),
             array('Show password change form', 'ShowChgPassword', 'Whether to show form for changing password, this does not limit ability to execute the same command directly', FALSE),
             array('Allow login to any MySQL server', 'AllowArbitraryServer', 'If enabled user can enter any MySQL server in login form for cookie auth.', FALSE),
-            array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name while using cookie auth.', TRUE),
+            array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name on log in prompt while using cookie auth.', TRUE),
             array('Login cookie validity', 'LoginCookieValidity', 'How long is login valid without performing any action.'),
             ),
             'Configure security features',
@@ -872,7 +872,7 @@ function show_relation_form($defaults = array()) {
             array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $PMA_Config->get('PDFPageSizes')),
             ),
             'Configure MIME/relation/history',
-            'phpMyAdmin can provide additional featrues like MIME transformation, internal relations, permanent history and PDF pages generating. You have to configure database and tables that will store such information on server page. Behaviour of those functions is configured here.',
+            'phpMyAdmin can provide additional features like MIME transformation, internal relations, permanent history and PDF pages generation. You have to configure the database and tables that will store this information on the server page. Behaviour of those functions is configured here.',
             $defaults);
     ?>
 </form>
@@ -931,9 +931,9 @@ function show_server_form($defaults = array(), $number = FALSE) {
         }
         show_config_form(array(
             array('Server hostname', 'host', 'Hostname where MySQL server is running'),
-            array('Server port', 'port', 'Port on which MySQL server is listening, leave empty if don\'t know'),
-            array('Server socket', 'socket', 'Socket on which MySQL server is listening, leave empty if don\'t know'),
-            array('Connection type', 'connect_type', 'How to connect to server, keep tcp if don\'t know', array('tcp', 'socket')),
+            array('Server port', 'port', 'Port on which MySQL server is listening, leave empty for default'),
+            array('Server socket', 'socket', 'Socket on which MySQL server is listening, leave empty for default'),
+            array('Connection type', 'connect_type', 'How to connect to server, keep tcp if unsure', array('tcp', 'socket')),
             array('PHP extension to use', 'extension', 'What PHP extension to use, use mysqli if supported', array('mysql', 'mysqli')),
             array('Compress connection', 'compress', 'Whether to compress connection to MySQL server', FALSE),
             array('Authentication type', 'auth_type', 'Authentication method to use', array('cookie', 'http', 'config')),
@@ -972,13 +972,13 @@ function show_left_form($defaults = array()) {
             array('Display databases in tree', 'LeftFrameDBTree', 'Whether to display databases in tree (determined by separator defined lower)', TRUE),
             array('Databases tree separator', 'LeftFrameDBSeparator', 'String that separates databases into different tree level'),
             array('Table tree separator', 'LeftFrameTableSeparator', 'String that separates tables into different tree level'),
-            array('Maximum table tree nesting', 'LeftFrameTableLevel', 'Maximum number of childs in table tree'),
+            array('Maximum table tree nesting', 'LeftFrameTableLevel', 'Maximum number of children in table tree'),
             array('Show logo', 'LeftDisplayLogo', 'Whether to show logo in left frame', TRUE),
             array('Display servers selection', 'LeftDisplayServers', 'Whether to show server selection in left frame', FALSE),
             array('Enable pointer highlighting', 'LeftPointerEnable', 'Whether you want to highlight server under mouse', TRUE),
             ),
             'Configure left frame',
-            'Choose how do you like left frame.',
+            'Customize the appears of the navigation frame.',
             $defaults);
     ?>
 </form>
@@ -1094,7 +1094,7 @@ function show_edit_form($defaults = array()) {
             array('Textarea columns', 'TextareaCols', 'Number of columns in textarea while editing TEXT fields'),
             array('Textarea rows', 'TextareaRows', 'Number of rows in textarea while editing TEXT fields'),
             array('Double textarea for LONGTEXT', 'LongtextDoubleTextarea', 'Whether to double textarea size for LONGTEXT fields', TRUE),
-            array('Edit CHAR fields in textarea', 'CharEditing', 'Whether to edit CHAR fields in textaread', array('input', 'textarea')),
+            array('Edit CHAR fields in textarea', 'CharEditing', 'Whether to edit CHAR fields in textarea', array('input', 'textarea')),
             array('CHAR textarea columns', 'CharTextareaCols', 'Number of columns in textarea while editing CHAR fields (must be enabled above)'),
             array('CHAR textarea rows', 'CharTextareaRows', 'Number of rows in textarea while editing CHAR fields (must be enabled above)'),
             ),
@@ -1357,7 +1357,7 @@ switch ($action) {
         } elseif (function_exists('mysql_get_client_info')) {
             $defaults['extension'] = 'mysql';
         } else {
-            message('warning', 'Could not load neither mysql nor mysqli extension, you might not be able to use phpMyAdmin!');
+            message('warning', 'Could not load either mysql or mysqli extension, you might not be able to use phpMyAdmin! Check your PHP configuration.');
         }
         if (isset($defaults['extension'])) {
             message('notice', 'Autodetected MySQL extension to use: ' . $defaults['extension']);
@@ -1467,7 +1467,7 @@ switch ($action) {
             $vals = grab_values('MySQLManualBase;MySQLManualType');
             $err = FALSE;
             if ($vals['MySQLManualType'] != 'none' && empty($vals['MySQLManualBase'])) {
-                message('error', 'You need to set manual base URL or choone none type.');
+                message('error', 'You need to set manual base URL or choose type \'none\'.');
                 $err = TRUE;
             }
             if ($err) {
@@ -1512,7 +1512,7 @@ switch ($action) {
                 if (!@extension_loaded('iconv')) {
                     PMA_dl('recode');
                     if (!@extension_loaded('recode')) {
-                        message('warning', 'Could not load neither recode nor iconv so charset conversion will most likely not work.');
+                        message('warning', 'Neither recode nor iconv could be loaded so charset conversion will most likely not work.');
                     } else {
                         $d['RecodingEngine'] = 'recode';
                     }
@@ -1569,7 +1569,7 @@ switch ($action) {
             $vals = grab_values('QueryHistoryDB:bool;QueryHistoryMax:int;BrowseMIME:bool;PDFDefaultPageSize');
             $err = FALSE;
             if (isset($vals['QueryHistoryMax']) && $vals['QueryHistoryMax'] < 1) {
-                message('error', 'Invalid value for query maximal history size!');
+                message('error', 'Invalid value for query maximum history size!');
                 $err = TRUE;
             }
             if ($err) {
@@ -1787,7 +1787,7 @@ switch ($action) {
             curl_close($ch);
         }
         if (empty($data)) {
-            message('error', 'Reading of version failed. Maybe you\'re offline or server does not respond.');
+            message('error', 'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.');
             break;
         }
 
