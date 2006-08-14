@@ -411,6 +411,7 @@ $strKorean = 'Korej¹tina';
 
 $strLandscape = 'Na ¹íøku';
 $strLanguageFileNotFound = 'Jazykový soubor "%1$s" nebyl nalezen.';
+$strLanguage = 'Jazyk';
 $strLanguageUnknown = 'Neznámý jazyk: %1$s.';
 $strLatchedPages = 'Zamèených stránek';
 $strLatexCaption = 'Titulek tabulky';
@@ -996,5 +997,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strLanguage = 'Language';  //to translate
 ?>
