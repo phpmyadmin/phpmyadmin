@@ -8,6 +8,7 @@ $Source$
 2006-08-14 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Improve readibility (patch #1539976), thanks to Isaac
       Bennetch - ibennetch.
+    * lang/czech: Updated.
 
 2006-08-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1519799, imagelink error
