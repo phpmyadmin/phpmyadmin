@@ -343,10 +343,8 @@ ul#topmenu li {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
     border: 1pt solid <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
     border-bottom: 0;
-    border-radius-topleft: 0.4em;
-    border-radius-topright: 0.4em;
-    -moz-border-radius-topleft: 0.4em;
-    -moz-border-radius-topright: 0.4em;
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
 }
 
 /* enabled hover/active tabs */
@@ -710,6 +708,7 @@ if ($_SESSION['PMA_Theme']->checkVersion('2.9')) {
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
 /* marked items */
+.marked a,
 .marked {
     background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
