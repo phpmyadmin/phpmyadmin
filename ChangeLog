@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-14 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.2.2 released from MAINT_2_8_2
+
 2006-08-14 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Improve readibility (patch #1539976), thanks to Isaac
       Bennetch - ibennetch.
