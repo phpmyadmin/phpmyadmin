@@ -4,6 +4,13 @@
 
 require_once './libraries/common.lib.php';
 require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/relation.lib.php';
+
+/**
+ * Gets the relation settings
+ */
+$cfgRelation = PMA_getRelationsParam();
+
 
 /**
  * Drop multiple fields if required
@@ -531,11 +538,11 @@ echo $strPrintView;
 ?></a>
 
 <?php
-    if (! $tbl_is_view && ! $db_is_information_schema) {
-        // if internal relations are available, or the table type is INNODB
-    // ($tbl_type comes from libraries/tbl_properties_table_info.inc.php)
+if (! $tbl_is_view && ! $db_is_information_schema) {
 
-    if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
+    // if internal relations are available, or the table type is INNODB
+    // ($tbl_type comes from libraries/tbl_properties_table_info.inc.php)
+    if ($cfgRelation['relwork'] || $tbl_type=="INNODB") {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         if ($cfg['PropertiesIconic']) {
