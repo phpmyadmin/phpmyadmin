@@ -13,6 +13,7 @@ $Source$
 2006-08-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php: more complete check before showing
       Relation View
+    ### 2.8.2.2 released from MAINT_2_8_2
 
 2006-08-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1519799, imagelink error
