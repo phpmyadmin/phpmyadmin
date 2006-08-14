@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-14 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Improve readibility (patch #1539976), thanks to Isaac
+      Bennetch - ibennetch.
+
 2006-08-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php: more complete check before showing
       Relation View
