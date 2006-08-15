@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-15 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * lang/german: Updated
+
 2006-08-14 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.8.2.2 released from MAINT_2_8_2
 
