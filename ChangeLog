@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-15 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * lang/german: Updated
+
 2006-08-14 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Improve readibility (patch #1539976), thanks to Isaac
       Bennetch - ibennetch.
@@ -30,8 +33,8 @@ $Source$
     * lang/belarusian updates, thanks to Jaska Zedlik
 
 2006-08-11 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php, import.php, libraries/parse_analyze.lib.php: 
-      bug #1533945, wrong table name in header (SELECT from query window) 
+    * sql.php, import.php, libraries/parse_analyze.lib.php:
+      bug #1533945, wrong table name in header (SELECT from query window)
     * libraries/auth/config.auth.lib.php: bug #1536112, config not loaded
       (MySQL error 2002 or 2003)
 
