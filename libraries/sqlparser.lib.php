@@ -1512,7 +1512,12 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                $group_by_clause .= $arr[$i]['data'] . $sep;
            }
            if ($in_order_by && $upper_data != 'ORDER' && $upper_data != 'BY') {
-               $order_by_clause .= $arr[$i]['data'] . $sep;
+               // add a space only before ASC or DESC
+               // not around the dot between dbname and tablename
+               if ($arr[$i]['type'] == 'alpha_reservedWord') {
+                  $order_by_clause .= $sep;
+               }
+               $order_by_clause .= $arr[$i]['data'];
            }
            if ($in_having && $upper_data != 'HAVING') {
                $having_clause .= $arr[$i]['data'] . $sep;
