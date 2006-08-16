@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-16 Michal Čihař  <michal@cihar.com>
+    * libraries/export/htmlexcel.php: Fix charset header of exported HTML/XLS
+      file (bug #1541100).
+
 2006-08-15 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/german: Updated
 
