@@ -7,6 +7,8 @@ $Source$
 
 2006-08-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php: do not display BLOBs on PDF export
+    * lang/brazilian-portuguese: update, thanks to thedarkness
+    * lang/catalan update, thanks to Xavier Navarro (xavin)
 
 2006-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: sorting on column header
