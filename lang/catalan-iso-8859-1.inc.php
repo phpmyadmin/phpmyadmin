@@ -2,14 +2,14 @@
 /* $Id$ */
 
 $charset = 'iso-8859-1';
-$text_dir = 'ltr';
+$text_dir = 'ltr'; // ('ltr' d'esquerra a dreta, 'rtl' de dreta a esquerra)
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 // abreviatures de Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 $timespanfmt = '%s dies, %s hores, %s minuts i %s segons';
 
-$day_of_week = array('Diu', 'Dll', 'Dma', 'Dcr', 'Djs', 'Div', 'Dis');
+$day_of_week = array('Diu', 'Dll', 'Dma', 'Dcr', 'Dij', 'Div', 'Dis');
 $month = array('Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dec');
 // Veure http://www.php.net/manual/es/function.strftime.php per a definir
 // la variable seguent
@@ -299,6 +299,7 @@ $strFlushPrivilegesNote = 'Nota: phpMyAdmin obté els permissos de l\'usuari dire
 $strFlushQueryCache = 'Buidar la memòria intermèdia de consultes';
 $strFlushTable = 'Buidar la memòria cau de la taula ("FLUSH")';
 $strFlushTables = 'Sincronitzar (tancar) totes les taules';
+$strFontSize = 'Tamany de lletra';
 $strFormat = 'Format';
 $strFormEmpty = 'Falta un valor al formulari !';
 $strFreePages = 'Pàgines lliures';
@@ -404,6 +405,7 @@ $strKorean = 'Coreà';
 
 $strLandscape = 'Horitzontal';
 $strLanguageFileNotFound = 'Arxiu d\'idioma "%1$s" no trobat.';
+$strLanguage = 'Idioma';
 $strLanguageUnknown = 'Idioma desconegut: %1$s.';
 $strLatchedPages = 'Pàgines inalterables';
 $strLatexCaption = 'Titol de Taula';
@@ -911,6 +913,7 @@ $strTraditionalSpanish = 'Espanyol Tradicional';
 $strTraffic = 'Tràfic';
 $strTransactionCoordinator = 'Coordinador de transaccions';
 $strTransformation_application_octetstream__download = 'Mostra un enllaç per descarregar les dades binàries d\'un camp. La primera dada és el nom d\'arxiu binari. La segona dada és un possible nom de camp d\'una taula que contingui el nom d\'arxiu. Si es facilita la segona dada és necessari tenir la primera dada buida';
+$strTransformation_application_octetstream__hex = 'Mostra la representació hexadecimal de les dades. El primer paràmetre és opcional i especifica cóm de sovint s\'afegirá l\'espai (per defecte a 2 \"nibbles\").';
 $strTransformation_image_jpeg__inline = 'Mostra una miniatura amb enllaç; opcions: ample,alt en pixels (respecta la proporció original)';
 $strTransformation_image_jpeg__link = 'Es mostra com a enllaç a la imatge.';
 $strTransformation_image_png__inline = 'Veure image/jpeg: en linia';
@@ -987,13 +990,5 @@ $strYes = 'Si';
 
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
-
-// To translate:
-
-$strFontSize = 'Font size';  //to translate
-
-$strLanguage = 'Language';  //to translate
-
-$strTransformation_application_octetstream__hex = 'Mostra la representació hexadecimal de les dades. El primer paràmetre és opcional i especifica cóm s\'afegirá l\'espai (per defecte a 2 nibbles).';  //to translate
 
 ?>
