@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+
 2006-08-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/pdf.php: do not display BLOBs on PDF export
     * lang/brazilian-portuguese: update, thanks to thedarkness
