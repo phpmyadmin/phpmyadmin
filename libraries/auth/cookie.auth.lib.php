@@ -483,6 +483,7 @@ function PMA_auth_set_user()
             $url_params['target'] = $GLOBALS['target'];
         }
 
+        define('PMA_COMING_FROM_COOKIE_LOGIN',1);
         PMA_sendHeaderLocation( $redirect_url . PMA_generate_common_url( $url_params, '&' ) );
         exit();
     } // end if
