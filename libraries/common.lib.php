@@ -1136,11 +1136,12 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 session_write_close();
                 // bug #1523784: IE6 does not like 'Refresh: 0', it
                 // results in a blank page
-                //if (PMA_IS_IIS) {
-                //    header('Refresh: 0; ' . $uri);
-                //} else {
+                // but we need it when coming from the cookie login panel)
+                if (PMA_IS_IIS && defined('PMA_COMING_FROM_COOKIE_LOGIN')) {
+                    header('Refresh: 0; ' . $uri);
+                } else {
                     header('Location: ' . $uri);
-                //}
+                }
             }
         }
     }
