@@ -8,6 +8,10 @@ $Source$
 2006-08-22 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/setup.php: bug #1536112, better fix (in case of 
       register_globals enabled), thanks to Michal
+    ### 2.8.2.3 released from MAINT_2_8_2
+    * scripts/setup.php: bug #1544692, version 2.8.2.3 breaks setup.php
+      on a server with register_globals enabled, thanks to Juergen Windkiel
+    ### 2.8.2.4 released from MAINT_2_8_2
 
 2006-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/auth/cookie.auth.lib.php:
