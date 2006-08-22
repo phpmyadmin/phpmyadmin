@@ -1808,7 +1808,7 @@ switch ($action) {
             break;
         }
 
-        $version_local = version_to_int( $GLOBALS['PMA_Config']->get('PMA_VERSION') );
+        $version_local = version_to_int( $PMA_Config_Setup->get('PMA_VERSION') );
         if ($version_local === FALSE) {
             message('error', 'Unparsable version string.');
             break;
@@ -1833,7 +1833,7 @@ switch ($action) {
     case '':
         message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html#config">documentation</a> to see full description of all configuration directives.', 'Welcome');
 
-        if ( $GLOBALS['PMA_Config']->get( 'PMA_PHP_INT_VERSION' ) < 40100) {
+        if ( $PMA_Config_Setup->get( 'PMA_PHP_INT_VERSION' ) < 40100) {
             message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.', 'Too old PHP');
         }
 
