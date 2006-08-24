@@ -47,6 +47,12 @@ function PMA_auth()
 {
     global $cfg, $lang, $server, $convcharset, $conn_error;
 
+    /* Perform logout to custom URL */
+    if (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
+        PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
+        exit;
+    }
+
     // Tries to get the username from cookie whatever are the values of the
     // 'register_globals' and the 'variables_order' directives if last login
     // should be recalled, else skip the IE autocomplete feature.
