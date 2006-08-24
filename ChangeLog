@@ -5,6 +5,12 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-24 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, libraries/config.default.php,
+      libraries/auth/signon.auth.lib.php, scripts/signon.php,
+      scripts/setup.php: Add single signon authentication method (patch
+      #1545366, patch #1541379, patch #1531302 and RFE #1031391).
+
 2006-08-22 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/setup.php: bug #1536112, better fix (in case of 
       register_globals enabled), thanks to Michal

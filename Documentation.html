@@ -667,6 +667,16 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
             <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions)
                 (<tt>$auth_type&nbsp;=&nbsp;'<abbr title="HyperText Transfer Protocol">HTTP</abbr>'</tt>) as introduced in 1.3.0
                 allows you to log in as any valid MySQL user via HTTP-Auth.</li>
+            <li>'signon' authentication mode 
+                (<tt>$auth_type&nbsp;=&nbsp;'signon'</tt>)
+                as introduced in 2.10.0 allows you to login from prepared PHP
+                session data. This is useful for implementing single signon
+                from another application. Sample way how to seed session is in
+                signon example: <code>scripts/signon.php</code>. You need to
+                configure <a href="#cfg_Servers_SignonSession"
+                class="configrule">session name</a> and <a
+                href="#cfg_Servers_SignonURL" class="configrule">signon
+                URL</a> to use this authentication method.
         </ul>
 
         Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
@@ -1009,6 +1019,15 @@ ALTER TABLE `pma_column_comments`
         But the following does not work:<br />
         <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial
         <abbr title="Internet Protocol">IP</abbr> address range)
+    </dd>
+    <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
+    <dd>Name of session which will be used for signon authentication method.
+    </dd>
+    <dt><span id="cfg_Servers_SignonURL">$cfg['Servers'][$i]['SignonURL']</span> string</dt>
+    <dd>URL where user will be redirected for login for signon authentication method. Should be absolute including protocol.
+    </dd>
+    <dt><span id="cfg_Servers_LogoutURL">$cfg['Servers'][$i]['LogoutURL']</span> string</dt>
+    <dd>URL where user will be redirected after logout (doesn't affect config authentication method). Should be absolute including protocol.
     </dd>
 
     <dt id="cfg_ServerDefault">$cfg['ServerDefault'] integer</dt>

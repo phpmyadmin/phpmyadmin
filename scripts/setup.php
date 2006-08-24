@@ -938,7 +938,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
             array('Connection type', 'connect_type', 'How to connect to server, keep tcp if unsure', array('tcp', 'socket')),
             array('PHP extension to use', 'extension', 'What PHP extension to use, use mysqli if supported', array('mysql', 'mysqli')),
             array('Compress connection', 'compress', 'Whether to compress connection to MySQL server', FALSE),
-            array('Authentication type', 'auth_type', 'Authentication method to use', array('cookie', 'http', 'config')),
+            array('Authentication type', 'auth_type', 'Authentication method to use', array('cookie', 'http', 'config', 'signon')),
             array('User for config auth', 'user', 'Leave empty if not using config auth'),
             array('Password for config auth', 'password', 'Leave empty if not using config auth', 'password'),
             array('Only database to show', 'only_db', 'Limit listing of databases in left frame to this one'),
@@ -946,6 +946,9 @@ function show_server_form($defaults = array(), $number = FALSE) {
             array('phpMyAdmin control user', 'controluser', 'User which phpMyAdmin can use for various actions'),
             array('phpMyAdmin control user password', 'controlpass', 'Password for user which phpMyAdmin can use for various actions', 'password'),
             array('phpMyAdmin database for advanced features', 'pmadb', 'phpMyAdmin will allow much more when you enable this. Table names are filled in automatically.'),
+            array('Session name for signon auth', 'SignonSession', 'Leave empty if not using signon auth'),
+            array('Login URL for signon auth', 'SignonURL', 'Leave empty if not using signon auth'),
+            array('Logout URL', 'LogoutURL', 'Where to redirect user after logout'),
             ),
             'Configure server',
             ($number === FALSE) ? 'Enter new server connection parameters.' : 'Editing server ' . get_server_name($defaults, $number),
@@ -1276,7 +1279,7 @@ switch ($action) {
 
     case 'addserver_real':
         if (isset($_POST['submit_save'])) {
-            $new_server = grab_values('host;extension;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;history:serialized;AllowDeny:serialized');
+            $new_server = grab_values('host;extension;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;history:serialized;AllowDeny:serialized;SignonSession;SignonURL;LogoutURL');
             $err = FALSE;
             if (empty($new_server['host'])) {
                 message('error', 'Empty hostname!');
@@ -1284,6 +1287,14 @@ switch ($action) {
             }
             if ($new_server['auth_type'] == 'config' && empty($new_server['user'])) {
                 message('error', 'Empty username while using config authentication method!');
+                $err = TRUE;
+            }
+            if ($new_server['auth_type'] == 'signon' && empty($new_server['SignonSession'])) {
+                message('error', 'Empty signon session name while using signon authentication method!');
+                $err = TRUE;
+            }
+            if ($new_server['auth_type'] == 'signon' && empty($new_server['SignonURL'])) {
+                message('error', 'Empty signon URL while using signon authentication method!');
                 $err = TRUE;
             }
             if ( isset($new_server['pmadb']) && strlen($new_server['pmadb'])) {
