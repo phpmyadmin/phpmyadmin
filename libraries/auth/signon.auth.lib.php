@@ -93,7 +93,7 @@ function PMA_auth_check()
             $pma_token = $_SESSION['PMA_single_signon_token'];
         }
 
-        /* End signle signon session */
+        /* End single signon session */
         session_write_close();
 
         /* Restart phpMyAdmin session */
