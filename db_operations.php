@@ -35,6 +35,7 @@ if (isset($db) &&
     if (!isset($newname) || !strlen($newname)) {
         $message = $strDatabaseEmpty;
     } else {
+        $sql_query = ''; // in case target db exists
         if ($move ||
            (isset($create_database_before_copying) && $create_database_before_copying)) {
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);

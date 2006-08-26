@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: bug #1544799, undefined variable on db copy
+
 2006-08-24 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0-beta1 released from QA_2_9
 
