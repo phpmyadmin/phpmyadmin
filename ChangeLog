@@ -10,6 +10,8 @@ $Source$
     * libraries/common.lib.php: bug #1544734, error messages link outdated,
       thanks to René Leonhardt
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
+    * libraries/tbl_properties.inc.php: bug #1543996, wrong link for message,
+      thanks to GerardW
 
 2006-08-24 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0-beta1 released from QA_2_9
