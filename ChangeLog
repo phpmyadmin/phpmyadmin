@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: bug #1544799, undefined variable on db copy
+
 2006-08-24 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/config.default.php,
       libraries/auth/signon.auth.lib.php, scripts/signon.php,
