@@ -983,9 +983,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
         // modified to show me the help on error-returns (Michael Keck)
+        // (now error-messages-server)
         echo '<p>' . "\n"
                 . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
-                . PMA_showMySQLDocu('Error-returns', 'Error-returns')
+                . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
                 . "\n"
                 . '</p>' . "\n";
 
