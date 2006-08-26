@@ -9,6 +9,7 @@ $Source$
     * db_operations.php: bug #1544799, undefined variable on db copy
     * libraries/common.lib.php: bug #1544734, error messages link outdated,
       thanks to René Leonhardt
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
 
 2006-08-24 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/config.default.php,
