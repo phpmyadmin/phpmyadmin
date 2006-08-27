@@ -433,7 +433,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 <h4>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication mode</h4>
 
 <ul><li>Uses <abbr title="HyperText Transfer Protocol">HTTP</abbr> Basic authentication
-        method and allows you to login as any valid MySQL user.</li>
+        method and allows you to log in as any valid MySQL user.</li>
     <li>Is supported with most PHP configurations. For
         <abbr title="Internet Information Services">IIS</abbr>
         (<abbr title="Internet Server Application Programming Interface">ISAPI</abbr>)
@@ -458,9 +458,9 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <abbr title="Internet Information Services">IIS</abbr>).</li>
     <li>Obviously, the user must enable cookies in the browser, but this is
     now a requirement for all authentication modes.</li>
-    <li>With this mode, the user can truly logout of phpMyAdmin and login back
+    <li>With this mode, the user can truly log out of phpMyAdmin and log in back
         with the same username.</li>
-    <li>If you want to login to arbitrary server see
+    <li>If you want to log in to arbitrary server see
         <a href="#AllowArbitraryServer" class="configrule">
         $cfg['AllowArbitraryServer']</a> directive.</li>
     <li>As mentioned in the <a href="#require">requirements</a> section, having
@@ -661,7 +661,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
                 2.2.3 allows you to log in as any valid MySQL user with the
                 help of cookies. Username and password are stored in
                 cookies during the session and password is deleted when it
-                ends. This can also allow you to login in arbitrary server if
+                ends. This can also allow you to log in in arbitrary server if
                 <tt><a href="#AllowArbitraryServer" class="configrule">$cfg['AllowArbitraryServer']</a></tt> enabled.
             </li>
             <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions)
@@ -669,7 +669,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
                 allows you to log in as any valid MySQL user via HTTP-Auth.</li>
             <li>'signon' authentication mode 
                 (<tt>$auth_type&nbsp;=&nbsp;'signon'</tt>)
-                as introduced in 2.10.0 allows you to login from prepared PHP
+                as introduced in 2.10.0 allows you to log in from prepared PHP
                 session data. This is useful for implementing single signon
                 from another application. Sample way how to seed session is in
                 signon example: <code>scripts/signon.php</code>. You need to
@@ -696,7 +696,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         id="cfg_Servers_nopassword">$cfg['Servers'][$i]['nopassword']</span> boolean
     </dt>
     <dd>
-        Allow attempt to login without password when login with password
+        Allow attempt to log in without password when a login with password
         fails. This can be used together with http authentication, when
         authentication is done some other way and phpMyAdmin gets user name
         from auth and uses empty password for connecting to MySQL. Password
@@ -1024,7 +1024,7 @@ ALTER TABLE `pma_column_comments`
     <dd>Name of session which will be used for signon authentication method.
     </dd>
     <dt><span id="cfg_Servers_SignonURL">$cfg['Servers'][$i]['SignonURL']</span> string</dt>
-    <dd>URL where user will be redirected for login for signon authentication method. Should be absolute including protocol.
+    <dd>URL where user will be redirected to log in for signon authentication method. Should be absolute including protocol.
     </dd>
     <dt><span id="cfg_Servers_LogoutURL">$cfg['Servers'][$i]['LogoutURL']</span> string</dt>
     <dd>URL where user will be redirected after logout (doesn't affect config authentication method). Should be absolute including protocol.
@@ -1106,7 +1106,7 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_LoginCookieDeleteAll">$cfg['LoginCookieDeleteAll'] boolean</dt>
     <dd>If enabled (default), logout deletes cookies for all servers,
         otherwise only for current one. Setting this to false makes it easy to
-        forget to logout from other server, when you are using more of
+        forget to log out from other server, when you are using more of
         them.</dd>
 
     <dt id="cfg_UseDbSearch">$cfg['UseDbSearch'] boolean</dt>
@@ -1123,7 +1123,7 @@ ALTER TABLE `pma_column_comments`
         comments. Defaults to <tt>TRUE</tt>.</dd>
     <dt id="AllowArbitraryServer">
         <span id="cfg_AllowArbitraryServer">$cfg['AllowArbitraryServer']</span> boolean</dt>
-    <dd>If enabled allows you to login to arbitrary servers using cookie auth.
+    <dd>If enabled allows you to log in to arbitrary servers using cookie auth.
         <br /><br />
 
         <b>NOTE:</b> Please use this carefully, as this may allow users access to
@@ -1856,7 +1856,7 @@ ALTER TABLE `pma_column_comments`
 
             <dt id="cfg_SQLValidator_username">$cfg['SQLValidator']['username'] string<br />
                 <span id="cfg_SQLValidator_password">$cfg['SQLValidator']['password']</span> string</dt>
-            <dd>The SOAP service allows you to login with <tt>anonymous</tt>
+            <dd>The SOAP service allows you to log in with <tt>anonymous</tt>
                 and any password, so we use those by default. Instead, if
                 you have an account with them, you can put your login details
                 here, and it will be used in place of the anonymous login.</dd>
@@ -2460,7 +2460,7 @@ ALTER TABLE `pma_column_comments`
 <h4 id="faq1_21">
     <a href="#faq1_21">1.21 I am running the
     <abbr title="Common Gateway Interface">CGI</abbr> version of PHP under Unix,
-    and I cannot login using cookie auth.</a></h4>
+    and I cannot log in using cookie auth.</a></h4>
 
 <p> In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.</p>
 
@@ -2738,7 +2738,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <h4 id="faq2_5">
     <a href="#faq2_5">2.5 Each time I want to insert or change a record or drop a database
     or a table, an error 404 (page not found) is displayed or, with <abbr title="HyperText Transfer Protocol">HTTP</abbr> or
-    cookie authentication, I'm asked to login again. What's wrong?</a></h4>
+    cookie authentication, I'm asked to log in again. What's wrong?</a></h4>
 
 <p> Check the value you set for the
     <a href="#cfg_PmaAbsoluteUri" class="configrule">$cfg['PmaAbsoluteUri']</a>
@@ -2836,7 +2836,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <h4 id="login_bug">
     <a href="#login_bug">3.1 When using
     <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication, an user
-    who logged out can not relogin in with the same nick.</a></h4>
+    who logged out can not log in again in with the same nick.</a></h4>
 
 <p> This is related to the authentication mechanism (protocol) used by
     phpMyAdmin. To bypass this problem: just close all the opened
@@ -3052,7 +3052,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
         and/or
         <a href="#cfg_Servers_controlpass" class="configrule">$cfg['Servers'][$i]['controlpass']</a>
         are wrong.</li>
-    <li>The username/password you specify in the login-dialog are invalid.</li>
+    <li>The username/password you specify in the login dialog are invalid.</li>
     <li>You have already setup a security mechanism for the
         phpMyAdmin-directory, eg. a .htaccess file. This would interfere with
         phpMyAdmin's authentication, so remove it.</li>
@@ -3227,8 +3227,8 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 
 <h4 id="faq5_13">
     <a href="#faq5_13">5.13 With Internet Explorer 5.5 or 6, and <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication type,
-    I cannot manage two servers: I login to the first one, then the other one,
-    but if I switch back to the first, I have to login on each operation.</a></h4>
+    I cannot manage two servers: I log in to the first one, then the other one,
+    but if I switch back to the first, I have to log in on each operation.</a></h4>
 
 <p> This is a bug in Internet Explorer, other browsers do not behave this way.</p>
 
