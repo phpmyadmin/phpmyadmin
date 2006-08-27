@@ -10,24 +10,24 @@
 
 /* Was data posted? */
 if (isset($_POST['user'])) {
-	/* Need to have cookie visible from parent directory */
-	session_set_cookie_params(0, '/', '', 0);
-	/* Create signon session */
-	$session_name = 'SignonSession';
+    /* Need to have cookie visible from parent directory */
+    session_set_cookie_params(0, '/', '', 0);
+    /* Create signon session */
+    $session_name = 'SignonSession';
     session_name($session_name); 
-	session_start();
-	/* Store there credentials */
-	$_SESSION['PMA_single_signon_user'] = $_POST['user'];
-	$_SESSION['PMA_single_signon_password'] = $_POST['password'];
-	$id = session_id();
-	/* Close that session */
-	session_write_close();
-	/* Redirect to phpMyAdmin (should use absolute URL here!) */
-	header('Location: ../index.php');
+    session_start();
+    /* Store there credentials */
+    $_SESSION['PMA_single_signon_user'] = $_POST['user'];
+    $_SESSION['PMA_single_signon_password'] = $_POST['password'];
+    $id = session_id();
+    /* Close that session */
+    session_write_close();
+    /* Redirect to phpMyAdmin (should use absolute URL here!) */
+    header('Location: ../index.php');
 } else {
-	/* Show simple form */
-	header('Content-Type: text/html; charset=utf-8');
-	echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+    /* Show simple form */
+    header('Content-Type: text/html; charset=utf-8');
+    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
