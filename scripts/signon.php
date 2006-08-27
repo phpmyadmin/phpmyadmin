@@ -4,8 +4,8 @@
 
 // Single signon for phpMyAdmin
 //
-// This is just example how to use signle signon with phpMyAdmin, it is 
-// not intented to be perfect code and look, only shows how you can 
+// This is just example how to use single signon with phpMyAdmin, it is 
+// not intended to be perfect code and look, only shows how you can 
 // integrate this functionality in your application.
 
 /* Was data posted? */
@@ -14,7 +14,7 @@ if (isset($_POST['user'])) {
 	session_set_cookie_params(0, '/', '', 0);
 	/* Create signon session */
 	$session_name = 'SignonSession';
-        session_name($session_name); 
+    session_name($session_name); 
 	session_start();
 	/* Store there credentials */
 	$_SESSION['PMA_single_signon_user'] = $_POST['user'];
@@ -35,7 +35,7 @@ if (isset($_POST['user'])) {
 <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin signle signon example</title>
+    <title>phpMyAdmin single signon example</title>
 <html>
 <body>
 <form action="signon.php" method="post">
