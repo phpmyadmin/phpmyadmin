@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * themes/*/layout.inc.php: patch #1523543, possibility of vertical
+      solid line between frames, thanks to Juergen Windkiel
+
 2006-08-26 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: bug #1544799, undefined variable on db copy
     * libraries/common.lib.php: bug #1544734, error messages link outdated,

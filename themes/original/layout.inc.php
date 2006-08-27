@@ -29,7 +29,7 @@ $GLOBALS['cfg']['MainColor']                = '#000000';
 
 // background for the main frame
 $GLOBALS['cfg']['MainBackground']           = '#F5F5F5';
-//$GLOBALS['cfg']['MainBackground']       = 'url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png)';
+//$GLOBALS['cfg']['MainBackground']       = '#F5F5F5 url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
 
 // foreground (text) color of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
@@ -56,12 +56,6 @@ $GLOBALS['cfg']['FontFamily']           = '';
  * fixed width font family, used in textarea
  */
 $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
-/**
- * font size as a valid css font size value,
- * if not set the browser default will be used
- * (depending on browser, DTD and system settings)
- */
-$GLOBALS['cfg']['FontSize']             = '';
 
 /**
  * tables
