@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-28 Michal Čihař  <michal@cihar.com>
+    * config.sample.inc.php, Documentation.html: Add minimal sample
+      configuration, so that lazy people won't copy
+      libraries/config.default.php (RFE #1544570).
+
 2006-08-27 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/*/layout.inc.php: patch #1523543, possibility of vertical
       solid line between frames, thanks to Juergen Windkiel
