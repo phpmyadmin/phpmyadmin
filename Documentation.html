@@ -186,14 +186,16 @@
         those who prefer a graphical installation. Creating a config.inc.php is
         still a quick way to get started and needed for some advanced features.
         <ul><li>To manually create the file, simply use your text editor to
-                create the file <tt>config.inc.php</tt> in the main (top-level)
-                phpMyAdmin directory (the one that contains <tt>index.php</tt>).
-                phpMyAdmin first loads <tt>libraries/config.default.php</tt>
-                and then overrides those values with anything found in
-                <tt>config.inc.php</tt>. If the default value is okay for a particular
-                setting, there is no need to include it in <tt>config.inc.php</tt>.
-                You'll need a few directives to get going, a simple configuration
-                may look like this:
+                create the file <tt>config.inc.php</tt> (you can copy
+                <tt>config.sample.inc.php</tt> to get minimal configuration
+                file) in the main (top-level) phpMyAdmin directory (the one
+                that contains <tt>index.php</tt>).  phpMyAdmin first loads
+                <tt>libraries/config.default.php</tt> and then overrides those
+                values with anything found in <tt>config.inc.php</tt>. If the
+                default value is okay for a particular setting, there is no
+                need to include it in <tt>config.inc.php</tt>.  You'll need a
+                few directives to get going, a simple configuration may look
+                like this:
 <pre>
 &lt;?php
 $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
