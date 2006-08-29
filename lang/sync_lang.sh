@@ -94,7 +94,7 @@ bulgarian-utf-8
 catalan-iso-8859-1
 chinese_traditional-utf-8
 chinese_simplified-gb2312
-croatian-iso-8859-2
+croatian-windows-1250
 czech-utf-8
 danish-iso-8859-1
 dutch-iso-8859-1
@@ -233,7 +233,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$replace_charset/$charset/" > $TEMPFILE
         fi
         if [ -s $TEMPFILE ] ; then
-            sed "s/\\\\';[[:space:]]*$/\\\\\\\\';/" $TEMPFILE > $file
+            sed "s/\\\\';[[:space:]]\+$/\\\\\\\\';/" $TEMPFILE > $file
             echo -n 'done)'
         else
             FAILED="$FAILED $file"
