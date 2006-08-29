@@ -12,7 +12,7 @@ $Source$
 
 2006-08-27 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/*/layout.inc.php: patch #1523543, possibility of vertical
-      solid line between frames, thanks to Juergen Windkiel
+      solid line between frames, thanks to Juergen Wind
 
 2006-08-26 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: bug #1544799, undefined variable on db copy
@@ -30,7 +30,7 @@ $Source$
       register_globals enabled), thanks to Michal
     ### 2.8.2.3 released from MAINT_2_8_2
     * scripts/setup.php: bug #1544692, version 2.8.2.3 breaks setup.php
-      on a server with register_globals enabled, thanks to Juergen Windkiel
+      on a server with register_globals enabled, thanks to Juergen Wind
     ### 2.8.2.4 released from MAINT_2_8_2
 
 2006-08-21 Marc Delisle  <lem9@users.sourceforge.net>
