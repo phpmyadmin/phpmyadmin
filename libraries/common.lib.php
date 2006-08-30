@@ -3074,8 +3074,18 @@ if (! isset($_SESSION['PMA_Theme_Manager'])) {
     $_SESSION['PMA_Theme_Manager']->checkConfig();
 }
 
+// for the theme per server feature
+if (isset($_REQUEST['server']) && !isset($_REQUEST['set_theme'])) {
+    $GLOBALS['server'] = $_REQUEST['server'];
+    $tmp = $_SESSION['PMA_Theme_Manager']->getThemeCookie();
+    if (empty($tmp)) {
+        $tmp = $_SESSION['PMA_Theme_Manager']->theme_default;
+    }
+    $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
+    unset($tmp);
+}
 if (isset($_REQUEST['set_theme'])) {
-    // if user submit a theme
+    // if user selected a theme
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
 }
 
@@ -3362,7 +3372,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {

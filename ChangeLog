@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1542865, themes not switching
+      when ThemePerServer is true
+
 2006-08-30 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, lang/*: Internationalise link to MySQL
       documentation when translation exists, this needs to be defined in
