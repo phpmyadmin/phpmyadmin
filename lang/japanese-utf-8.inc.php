@@ -14,6 +14,8 @@ $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('バイト', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
 
+$mysql_4_1_doc_lang = 'ja';
+
 $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1 月','2 月','3 月','4 月','5 月','6 月','7 月','8 月','9 月','10 月','11 月','12 月');
 // See http://www.php.net/manual/ja/function.strftime.php to define the

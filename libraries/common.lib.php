@@ -861,16 +861,26 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                     $link = 'index';
                 }
                 $mysql = '5.0';
+                $lang = 'en';
                 if (defined('PMA_MYSQL_INT_VERSION')) {
                     if (PMA_MYSQL_INT_VERSION < 50000) {
                         $mysql = '4.1';
+                        if (!empty($GLOBALS['mysql_4_1_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_4_1_doc_lang'];
+                        }
                     } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
                         $mysql = '5.1';
+                        if (!empty($GLOBALS['mysql_5_1_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_5_1_doc_lang'];
+                        }
                     } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                         $mysql = '5.0';
+                        if (!empty($GLOBALS['mysql_5_0_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_5_0_doc_lang'];
+                        }
                     }
                 }
-                $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/en/' . $link . '.html';
+                $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
                 break;
         }
 
