@@ -10,6 +10,7 @@ $Source$
       documentation when translation exists, this needs to be defined in
       language file (RFE #1547130).
     * lang/belarusian_latin-utf-8.inc.php: Fix charset information.
+    * scripts/setup.php: Add link to wiki explaining configuration options.
 
 2006-08-29 Michal Čihař  <michal@cihar.com>
     * lang/croatian: Updated, thanks to Renato Pavicic - babalui.

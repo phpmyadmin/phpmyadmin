@@ -206,10 +206,13 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     code:before, code:after {
         content: '"';
     }
-    a.doc {
+    span.doc {
         margin: 0 1em 0 1em;
     }
-    a.doc img {
+    span.doc a {
+        margin: 0 0.1em 0 0.1em;
+    }
+    span.doc a img {
         border: none;
     }
     </style>
@@ -270,7 +273,21 @@ function version_to_int($version) {
  * @return  string  HTML link to documentation
  */
 function get_cfg_doc($anchor) {
-    return '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc"><img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" /></a>';
+    /* Link for wiki */
+    $wiki = $anchor;
+    if (strncmp($anchor, 'Servers_', 8) == 0) {
+        $wiki = substr($anchor, 8);
+    }
+    return 
+        '<span class="doc">' .
+        '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc">' .
+        '<img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" />' .
+        '</a>' .
+        '<a href="http://wiki.cihar.com/pma/Config#' . $wiki . '" target="pma_doc" class="doc">' .
+        '<img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" />' .
+        '</a>' .
+        '</span>'
+        ;
 }
 
 /**
