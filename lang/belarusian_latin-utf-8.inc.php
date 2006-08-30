@@ -7,7 +7,7 @@
 * http://www.zedlik.com
 */
 
-$charset = 'windows-1251';
+$charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
 $number_thousands_separator = ',';
