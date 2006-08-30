@@ -14,6 +14,9 @@ $number_decimal_separator = '.';
 
 // abreviações para Byte, Kilo, Mega, Giga, Tera, Peta, Exa 
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'); 
+
+$mysql_4_1_doc_lang = 'pt';
+
 $day_of_week = array('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'); 
 $month = array('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'); 
 
