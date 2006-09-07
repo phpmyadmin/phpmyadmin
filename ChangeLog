@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish: update, thanks to Burak Yavuz - bourock
+
 2006-08-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1542865, themes not switching
       when ThemePerServer is true
