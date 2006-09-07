@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish: update, thanks to Burak Yavuz - bourock
+
 2006-08-30 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, lang/*: Internationalise link to MySQL
       documentation when translation exists, this needs to be defined in
