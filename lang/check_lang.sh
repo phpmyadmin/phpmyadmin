@@ -12,7 +12,7 @@ MASTER="english-iso-8859-1.inc.php"
 TMPDIR="tmp-check"
 FILEPAT="*.inc.php"
 STRINGMATCH='^[[:space:]]*\$[[:alnum:]_]+[[:blank:]]+='
-IGNOREMATCH='strEncto|strKanjiEncodConvert|strXkana|allow_recoding'
+IGNOREMATCH='strEncto|strKanjiEncodConvert|strXkana|allow_recoding|doc_lang'
 
 if [ "`which diffstat`" = "" ] ; then
     echo 'You need diffstat to use this!'
