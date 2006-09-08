@@ -283,8 +283,8 @@ if ( count( $_sql_history ) > 0
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'query_history_latest.value = \''
-                . preg_replace('/(\r|\n)+/i', '\\n',
-                    htmlentities( $sql, ENT_QUOTES ) ) . '\';'
+               . preg_replace('/(\r|\n)+/i', '\\n',
+                    PMA_jsFormat($sql, false) ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'auto_commit.value = \'false\';'
                .' document.getElementById(\'hiddenqueryform\').'
@@ -305,8 +305,8 @@ if ( count( $_sql_history ) > 0
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'query_history_latest.value = \''
-                . preg_replace('/(\r|\n)+/i', '\\r\\n',
-                    htmlentities( $sql, ENT_QUOTES ) ) . '\';'
+               . preg_replace('/(\r|\n)+/i', '\\r\\n',
+                    PMA_jsFormat($sql, false) ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'auto_commit.value = \'true\';'
                .' document.getElementById(\'hiddenqueryform\').'

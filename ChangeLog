@@ -9,6 +9,7 @@ $Source$
     * lang/check_lang.sh: ignore differences in doc_lang
     * lang/italian: Update, thanks to Rebe - rebeluca.
     ### 2.9.0-rc1 released from QA_2_9
+    * querywindow.php: bug #1549824, SQL history and quote escaping
 
 2006-09-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish: update, thanks to Burak Yavuz - bourock
