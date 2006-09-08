@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/check_lang.sh: ignore differences in doc_lang
+
 2006-09-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish: update, thanks to Burak Yavuz - bourock
 
