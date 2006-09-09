@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1554166, magic_quotes_runtime
+
 2006-09-08 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/check_lang.sh: ignore differences in doc_lang
     * lang/italian: Update, thanks to Rebe - rebeluca.

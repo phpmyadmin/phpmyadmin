@@ -57,6 +57,12 @@ if (defined('E_STRICT')) {
 
 @ini_set('zend.ze1_compatibility_mode',false);
 
+/**
+ * Avoid problems with magic_quotes_runtime
+ */
+
+@ini_set('magic_quotes_runtime',false);
+
 
 /******************************************************************************/
 /* definition of functions         LABEL_definition_of_functions              */
