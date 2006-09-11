@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php: bug #1555760, export default parameter broken
+
 2006-09-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1554166, magic_quotes_runtime
 

@@ -61,7 +61,7 @@ if (isset($plugin_list)) {
                 $drop_clause = 'DROP TABLE';
             }
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'drop', 'text' => sprintf($GLOBALS['strAddClause'], $drop_clause));
+                array('type' => 'bool', 'name' => 'drop_table', 'text' => sprintf($GLOBALS['strAddClause'], $drop_clause));
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'if_not_exists', 'text' => sprintf($GLOBALS['strAddClause'], 'IF NOT EXISTS'));
             $plugin_list['sql']['options'][] =
@@ -342,7 +342,7 @@ function PMA_exportDBFooter($db)
  */
 function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 {
-    global $sql_drop;
+    global $sql_drop_table;
     global $sql_backquotes;
     global $cfgRelation;
     global $sql_constraints;
@@ -384,7 +384,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
     $schema_create .= $new_crlf;
 
-    if (!empty($sql_drop)) {
+    if (!empty($sql_drop_table)) {
         if (PMA_Table::_isView($db,$table)) {
             $drop_clause = 'DROP VIEW';
         } else {
