@@ -310,7 +310,7 @@ $cfg['Export']['latex_structure_label']     = 'tab:__TABLE__-structure';
 
 $cfg['Export']['sql_structure']             = TRUE;
 $cfg['Export']['sql_data']                  = TRUE;
-$cfg['Export']['sql_compat']                = 'NONE';
+$cfg['Export']['sql_compatibility']         = 'NONE';
 $cfg['Export']['sql_disable_fk']            = FALSE;
 $cfg['Export']['sql_use_transaction']       = FALSE;
 $cfg['Export']['sql_drop_database']         = FALSE;

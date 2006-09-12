@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/config.default.php, libraries/export/sql.php:
+      bug #1556934, sql compatibility mode on export
+
 2006-09-08 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/check_lang.sh: ignore differences in doc_lang
     * lang/italian: Update, thanks to Rebe - rebeluca.
