@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/config.default.php, libraries/export/sql.php:
+      bug #1556934, sql compatibility mode on export
+
 2006-09-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1555760, export default parameter broken
 
