@@ -408,14 +408,17 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     echo '    <th align="center">' . "\n"
        . '        <dfn title="'
        . sprintf($strDefaultEngine, $default_engine) . '">' .$default_engine . '</th>' . "\n";
-    // we got a case where $db_collation was empty
-    echo '    <th align="center">' . "\n";
-    if (! empty($db_collation)) {
-        echo '        <dfn title="'
-           . PMA_getCollationDescr($db_collation) . ' (' . $strDefault . ')">' . $db_collation
-           . '</dfn>';
+    // Have to account for old MySQL with no collation (bug 1554885)
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        // we got a case where $db_collation was empty
+        echo '    <th align="center">' . "\n";
+        if (! empty($db_collation)) {
+            echo '        <dfn title="'
+                . PMA_getCollationDescr($db_collation) . ' (' . $strDefault . ')">' . $db_collation
+                . '</dfn>';
+        }
+        echo '</th>';
     }
-    echo '</th>';
 }
 
 if ($is_show_stats) {
