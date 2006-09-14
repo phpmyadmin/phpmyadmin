@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-14 Michal Čihař  <michal@cihar.com>
+    * db_details_structure.php: Fix table footer when MySQL does not support
+      collations (bug #1554885, patch #1557269, thanks to Isaac Bennetch -
+      ibennetch).
+
 2006-09-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/config.default.php, libraries/export/sql.php:
       bug #1556934, sql compatibility mode on export
