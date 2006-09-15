@@ -357,11 +357,14 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink,
 
 /**
  * Converts numbers like 10M into bytes
+ * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+ * (renamed with PMA prefix to avoid double definition when embedded
+ * in Moodle)
  *
  * @param   string  $size
  * @return  integer $size
  */
-function get_real_size($size = 0)
+function PMA_get_real_size($size = 0)
 {
     if (!$size) {
         return 0;
@@ -383,7 +386,7 @@ function get_real_size($size = 0)
         }
     }
     return $size;
-} // end function get_real_size()
+} // end function PMA_get_real_size()
 
 /**
  * loads php module

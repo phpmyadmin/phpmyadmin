@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php libraries/Config.class.php:
+      rename a function borrowed from Moodle to avoid double definition 
+      when PMA is called by Moodle
+
 2006-09-14 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Fix table footer when MySQL does not support
       collations (bug #1554885, patch #1557269, thanks to Isaac Bennetch -
