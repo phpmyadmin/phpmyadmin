@@ -10,6 +10,7 @@ $Source$
       rename a function borrowed from Moodle to avoid double definition 
       when PMA is called by Moodle
     * lang/finnish: Update, thanks to Yoneh - yoneh.
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
 
 2006-09-14 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Fix table footer when MySQL does not support
