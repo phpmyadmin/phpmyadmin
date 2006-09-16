@@ -26,23 +26,23 @@ textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
 h2              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 h3              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
-a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #666633}
-a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #666633}
-a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #666633}
-a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #666633}
-a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #666633}
-a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #666633}
-a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #666633}
-a.h1:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #666633}
-a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #666633}
-a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #666633}
-a.h2:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #666633}
-a.h2:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #666633}
-a.h2:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #666633}
-a.h2:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #666633}
-a.drop:link     {font-family: <?php echo $right_font_family; ?>; color: #cc0000}
-a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #cc0000;}
-a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #cc0000; text-decoration: none}
+a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
+a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
+a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
+a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
+a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
+a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
+a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #FF0000}
+a.h2:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
+a.h2:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
+a.h2:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
+a.h2:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #FF0000}
+a.drop:link     {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
+a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
+a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
 dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
@@ -136,19 +136,19 @@ hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
     border-top: none;
     border-right: none;
     border-left: none;
-    border-bottom: 1px solid #666666;
+    border-bottom: 1px solid #666;
 }
 .navSpacer {
-    width:            2px;
+    width:            5px;
     height:           16px;
 }
 .navNormal, .navDrop, .navActive {
     font-family:      <?php echo $right_font_family; ?>;
     font-size:        <?php echo $font_size; ?>;
     font-weight:      bold;
-    border-top: 1px solid #999999;
-    border-right: 1px solid #666666;
-    border-left: 1px solid #999999;
+    border-top: 1px solid #999;
+    border-right: 1px solid #666;
+    border-left: 1px solid #999;
     border-bottom: none;
     border-radius: 2px;
     -moz-border-radius: 2px;
@@ -166,21 +166,22 @@ hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
     background-color: #EAE6D0;
 }
 .navDrop{
-    color: #cc0000;
+    color: #000000;
     background-color: #E5E5E5;
 }
 .navNormal a:link, .navNormal a:active, .navNormal a:visited, .navActive a:link, .navActive a:active, .navActive a:visited{
-    color: #666633;
+    color: #0000FF;
 }
 
 .navDrop a:link, .navDrop a:active, .navDrop a:visited{
-    color: #cc0000;
+    color: #FF0000;
 }
 .navDrop a:hover{
-    color: #cc0000;
+    color: #FFFFFF;
+    background-color: #FF0000;
 }
 .navNormal a:hover, .navActive a:hover{
-    color: #000000;
+    color: #FF0000;
 }
 
 /* Warning showing div with right border and optional icon */
@@ -190,7 +191,7 @@ div.errorhead {
     color: #ffffff;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/xp_dirty/img/s_error.png);
+    background-image: url(../themes/original/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 5px 50%;
     padding: 0px 0px 0px 25px;
@@ -223,9 +224,9 @@ div.tblWarn {
     color: #000000;
 }
 .tblHeaders a:link, .tblHeaders a:active, .tblHeaders a:visited, .tblFooters a:link, .tblFooters a:active, .tblFooters a:visited {
-    color: #F8F8F1;
+    color: #0000FF;
 }
-.tblHeaders a:hover, .tblFooters a:hover { color: #F8F8F1; }
+.tblHeaders a:hover, .tblFooters a:hover { color: #FF0000; }
 .tblHeadError {
     background-color: #FF0000;
     font-weight: bold;
@@ -268,7 +269,7 @@ img, input, select, button {
     margin: 0px 1px 0px 2px;
 }
 .serverinfo div{
-    background-image:    url(../themes/xp_dirty/img/item_ltr.png);
+    background-image:    url(../themes/original/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width: 20px;

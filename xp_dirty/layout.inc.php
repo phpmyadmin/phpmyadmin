@@ -11,8 +11,8 @@ $cfg['Border']              = 0;            // border width on tables
 $cfg['ThBgcolor']           = '#EAE6D0';    // table header row colour
 $cfg['BgcolorOne']          = '#EAE6D0';    // table data row colour
 $cfg['BgcolorTwo']          = '#F8F8F1';    // table data row colour, alternate
-$cfg['BrowsePointerColor']  = '#FAE195';    // color of the pointer in browse mode
-$cfg['BrowseMarkerColor']   = '#FAC295';    // color of the marker (visually marks row
+$cfg['BrowsePointerColor']  = '';    // color of the pointer in browse mode
+$cfg['BrowseMarkerColor']   = 'yellow';    // color of the marker (visually marks row
                                             // by clicking on it) in browse mode
 /**
  * SQL Parser Settings
