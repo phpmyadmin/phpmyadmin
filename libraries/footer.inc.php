@@ -136,15 +136,19 @@ if (file_exists('./config.footer.inc.php')) {
 /**
  * Generates profiling data if requested
  */
+
+// profiling deactivated due to licensing issues 
 if (! empty($GLOBALS['cfg']['DBG']['enable'])
   && ! empty($GLOBALS['cfg']['DBG']['profile']['enable'])) {
     //run the basic setup code first
     require_once './libraries/dbg/setup.php';
     //if the setup ran fine, then do the profiling
+    /*
     if (! empty($GLOBALS['DBG'])) {
         require_once './libraries/dbg/profiling.php';
         dbg_dump_profiling_results();
     }
+    */
 }
 
 ?>
