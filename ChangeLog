@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, libraries/footer.inc.php, 
+      libraries/dbg/profiling.php: remove profiling feature
+      due to licensing issues (non GPL code)
+
 2006-09-15 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/finnish: Update, thanks to Yoneh - yoneh.
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
