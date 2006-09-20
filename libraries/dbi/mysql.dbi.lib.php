@@ -61,12 +61,12 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
     }
 
     $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
-    
+
     // Retry with empty password if we're allowed to
     if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
         $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
     }
-    
+
     if (empty($link)) {
         PMA_auth_fails();
     } // end if
@@ -249,7 +249,7 @@ function PMA_DBI_get_client_info() {
  */
 function PMA_DBI_getError($link = null)
 {
-    unset($GLOBALS['errno']);
+    $GLOBALS['errno'] = 0;
     if (null === $link && isset($GLOBALS['userlink'])) {
         $link =& $GLOBALS['userlink'];
 

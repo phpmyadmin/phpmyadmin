@@ -403,19 +403,12 @@ $do_dates   = isset($GLOBALS[$what . '_dates']);
  */
 // Gets the number of tables if a dump of a database has been required
 if ($export_type == 'server') {
-    /**
-     * Gets the databases list - if it has not been built yet
-     */
-    if ($server > 0 && empty($dblist)) {
-        PMA_availableDatabases();
-    }
-
     if (isset($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
     }
     // Walk over databases
-    foreach ($dblist AS $current_db) {
+    foreach ($GLOBALS['PMA_List_Database']->items as $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
             if (!PMA_exportDBHeader($current_db)) {

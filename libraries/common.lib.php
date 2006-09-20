@@ -89,17 +89,15 @@ function PMA_securePath($path)
 /**
  * returns array with dbs grouped with extended infos
  *
- * @uses    $GLOBALS['dblist'] from PMA_availableDatabases()
- * @uses    $GLOBALS['num_dbs'] from PMA_availableDatabases()
+ * @todo move into PMA_List_Databases
+ * @uses    $GLOBALS['PMA_List_Database']
  * @uses    $GLOBALS['cfgRelation']['commwork']
  * @uses    $GLOBALS['cfg']['ShowTooltip']
  * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
  * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
  * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
- * @uses    PMA_availableDatabases()
  * @uses    PMA_getTableCount()
  * @uses    PMA_getComments()
- * @uses    PMA_availableDatabases()
  * @uses    is_array()
  * @uses    implode()
  * @uses    strstr()
@@ -108,13 +106,9 @@ function PMA_securePath($path)
  */
 function PMA_getDbList()
 {
-    if (empty($GLOBALS['dblist'])) {
-        PMA_availableDatabases();
-    }
-    $dblist     = $GLOBALS['dblist'];
     $dbgroups   = array();
     $parts      = array();
-    foreach ($dblist as $key => $db) {
+    foreach ($GLOBALS['PMA_List_Database']->items as $key => $db) {
         // garvin: Get comments from PMA comments table
         $db_tooltip = '';
         if ($GLOBALS['cfg']['ShowTooltip']
@@ -155,18 +149,18 @@ function PMA_getDbList()
             'comment'       => $db_tooltip,
             'num_tables'    => PMA_getTableCount($db),
        );
-    } // end foreach ($dblist as $db)
+    } // end foreach ($GLOBALS['PMA_List_Database']->items as $db)
     return $dbgroups;
 }
 
 /**
  * returns html code for select form element with dbs
  *
+ * @todo move into PMA_List_Databases
  * @return  string  html code select
  */
 function PMA_getHtmlSelectDb($selected = '')
 {
-    $dblist = PMA_getDbList();
     // TODO: IE can not handle different text directions in select boxes
     // so, as mostly names will be in english, we set the whole selectbox to LTR
     // and EN
@@ -174,7 +168,7 @@ function PMA_getHtmlSelectDb($selected = '')
         .' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
         .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
         ."\n";
-    foreach ($dblist as $group => $dbs) {
+    foreach (PMA_getDbList() as $group => $dbs) {
         if (count($dbs) > 1) {
             $return .= '<optgroup label="' . htmlspecialchars($group)
                 . '">' . "\n";
@@ -221,138 +215,6 @@ function PMA_getTableCount($db)
     }
 
     return $num_tables;
-}
-
-
-/**
- * Get the complete list of Databases a user can access
- *
- * @param   boolean   whether to include check on failed 'only_db' operations
- * @param   resource  database handle (superuser)
- * @param   integer   amount of databases inside the 'only_db' container
- * @param   resource  possible resource from a failed previous query
- * @param   resource  database handle (user)
- * @param   array     configuration
- * @param   array     previous list of databases
- *
- * @return  array     all databases a user has access to
- *
- * @access  private
- */
-function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink,
-    $cfg, $dblist)
-{
-    if ($only_db_check == false) {
-        // try to get the available dbs list
-        // use userlink by default
-        $dblist = PMA_DBI_get_dblist();
-        $dblist_cnt   = count($dblist);
-
-        // PMA_DBI_get_dblist() relies on the ability to run "SHOW DATABASES".
-        // On servers started with --skip-show-database, this is not possible
-        // so we have here a fallback method, which relies on the controluser
-        // being able to access the "mysql" db, as explained in the doc.
-
-        if (!$dblist_cnt) {
-            $auth_query   = 'SELECT User, Select_priv '
-                          . 'FROM mysql.user '
-                          . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs           = PMA_DBI_try_query($auth_query, $controllink);
-        } // end
-    }
-
-    // Access to "mysql" db allowed and dblist still empty -> gets the
-    // usable db list
-    if (!$dblist_cnt && ($rs && @PMA_DBI_num_rows($rs))) {
-        $row = PMA_DBI_fetch_assoc($rs);
-        PMA_DBI_free_result($rs);
-        // Correction uva 19991215
-        // Previous code assumed database "mysql" admin table "db" column
-        // "db" contains literal name of user database, and works if so.
-        // Mysql usage generally (and uva usage specifically) allows this
-        // column to contain regular expressions (we have all databases
-        // owned by a given student/faculty/staff beginning with user i.d.
-        // and governed by default by a single set of privileges with
-        // regular expression as key). This breaks previous code.
-        // This maintenance is to fix code to work correctly for regular
-        // expressions.
-        if ($row['Select_priv'] != 'Y') {
-
-            // 1. get allowed dbs from the "mysql.db" table
-            // lem9: User can be blank (anonymous user)
-            $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-            $rs          = PMA_DBI_try_query($local_query, $controllink);
-            if ($rs && @PMA_DBI_num_rows($rs)) {
-                // Will use as associative array of the following 2 code
-                // lines:
-                //   the 1st is the only line intact from before
-                //     correction,
-                //   the 2nd replaces $dblist[] = $row['Db'];
-                $uva_mydbs = array();
-                // Code following those 2 lines in correction continues
-                // populating $dblist[], as previous code did. But it is
-                // now populated with actual database names instead of
-                // with regular expressions.
-                while ($row = PMA_DBI_fetch_assoc($rs)) {
-                    // loic1: all databases cases - part 1
-                    if ( !isset($row['Db']) || ! strlen($row['Db']) || $row['Db'] == '%') {
-                        $uva_mydbs['%'] = 1;
-                        break;
-                    }
-                    // loic1: avoid multiple entries for dbs
-                    if (!isset($uva_mydbs[$row['Db']])) {
-                        $uva_mydbs[$row['Db']] = 1;
-                    }
-                } // end while
-                PMA_DBI_free_result($rs);
-                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
-                // loic1: all databases cases - part 2
-                if (isset($uva_mydbs['%'])) {
-                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                        $dblist[] = $uva_row[0];
-                    } // end while
-                } else {
-                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                        $uva_db = $uva_row[0];
-                        if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
-                            $dblist[]           = $uva_db;
-                            $uva_mydbs[$uva_db] = 0;
-                        } elseif (!isset($dblist[$uva_db])) {
-                            foreach ($uva_mydbs as $uva_matchpattern => $uva_value) {
-                                // loic1: fixed bad regexp
-                                // TODO: db names may contain characters
-                                //       that are regexp instructions
-                                $re        = '(^|(\\\\\\\\)+|[^\])';
-                                $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
-                                // Fixed db name matching
-                                // 2000-08-28 -- Benjamin Gandon
-                                if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                    $dblist[] = $uva_db;
-                                    break;
-                                }
-                            } // end while
-                        } // end if ... elseif ...
-                    } // end while
-                } // end else
-                PMA_DBI_free_result($uva_alldbs);
-                unset($uva_mydbs);
-            } // end if
-
-            // 2. get allowed dbs from the "mysql.tables_priv" table
-            $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs          = PMA_DBI_try_query($local_query, $controllink);
-            if ($rs && @PMA_DBI_num_rows($rs)) {
-                while ($row = PMA_DBI_fetch_assoc($rs)) {
-                    if (!in_array($row['Db'], $dblist)) {
-                        $dblist[] = $row['Db'];
-                    }
-                } // end while
-                PMA_DBI_free_result($rs);
-            } // end if
-        } // end if
-    } // end building available dbs from the "mysql" db
-
-    return $dblist;
 }
 
 /**
@@ -635,11 +497,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      *
      * @access  public
      */
-     function PMA_displayMaximumUploadSize($max_upload_size)
-     {
-         list($max_size, $max_unit) = PMA_formatByteDown($max_upload_size);
-         return '(' . sprintf($GLOBALS['strMaximumSize'], $max_size, $max_unit) . ')';
-     }
+    function PMA_displayMaximumUploadSize($max_upload_size)
+    {
+        list($max_size, $max_unit) = PMA_formatByteDown($max_upload_size);
+        return '(' . sprintf($GLOBALS['strMaximumSize'], $max_size, $max_unit) . ')';
+    }
 
     /**
      * Generates a hidden field which should indicate to the browser
@@ -1165,50 +1027,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             }
         }
     }
-
-    /**
-     * Get the list and number of available databases.
-     *
-     * @param   string   the url to go back to in case of error
-     *
-     * @return  boolean  always true
-     *
-     * @global  array    the list of available databases
-     * @global  integer  the number of available databases
-     * @global  array    current configuration
-     */
-    function PMA_availableDatabases($error_url = '')
-    {
-        global $dblist;
-        global $num_dbs;
-        global $cfg;
-
-        // 1. A list of allowed databases has already been defined by the
-        //    authentication process -> gets the available databases list
-        if (count($dblist)) {
-            foreach ($dblist as $key => $db) {
-                if (!@PMA_DBI_select_db($db) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
-                    unset($dblist[$key]);
-                } // end if
-            } // end for
-        } // end if
-        // 2. Allowed database list is empty -> gets the list of all databases
-        //    on the server
-        elseif (empty($cfg['Server']['only_db'])) {
-            $dblist = PMA_DBI_get_dblist(); // needed? or PMA_mysqlDie('', 'SHOW DATABASES;', false, $error_url);
-        } // end else
-
-        $num_dbs = count($dblist);
-
-        // natural order for db list; but do not sort if user asked
-        // for a specific order with the 'only_db' mechanism
-        if (!is_array($GLOBALS['cfg']['Server']['only_db'])
-            && $GLOBALS['cfg']['NaturalOrder']) {
-            natsort($dblist);
-        }
-
-        return true;
-    } // end of the 'PMA_availableDatabases()' function
 
     /**
      * returns array with tables of given db with extended infomation and grouped
@@ -2715,15 +2533,34 @@ $variables_whitelist = array (
 );
 
 foreach (get_defined_vars() as $key => $value) {
-    if (!in_array($key, $variables_whitelist)) {
+    if (! in_array($key, $variables_whitelist)) {
         unset($$key);
     }
 }
-unset($key, $value);
+unset($key, $value, $variables_whitelist);
 
 
 /**
- * check if a subform is submitted
+ * Subforms - some functions need to be called by form, cause of the limited url
+ * length, but if this functions inside another form you cannot just open a new
+ * form - so phpMyAdmin uses 'arrays' inside this form
+ *
+ * <code>
+ * <form ...>
+ * ... main form elments ...
+ * <intput type="hidden" name="subform[action1][id]" value="1" />
+ * ... other subform data ...
+ * <intput type="submit" name="usesubform[action1]" value="do action1" />
+ * ... other subforms ...
+ * <intput type="hidden" name="subform[actionX][id]" value="X" />
+ * ... other subform data ...
+ * <intput type="submit" name="usesubform[actionX]" value="do actionX" />
+ * ... main form elments ...
+ * <intput type="submit" name="main_action" value="submit form" />
+ * </form>
+ * </code
+ *
+ * so we now check if a subform is submitted
  */
 $__redirect = null;
 if (isset($_POST['usesubform'])) {
@@ -2733,15 +2570,21 @@ if (isset($_POST['usesubform'])) {
     $subform    = $_POST['subform'][$subform_id];
     $_POST      = $subform;
     $_REQUEST   = $subform;
+    /**
+     * some subforms need another page than the main form, so we will just
+     * include this page at the end of this script - we use $__redirect to
+     * track this
+     */
     if (isset($_POST['redirect'])
       && $_POST['redirect'] != basename(PMA_getenv('PHP_SELF'))) {
         $__redirect = $_POST['redirect'];
         unset($_POST['redirect']);
-    } // end if (isset($_POST['redirect']))
+    }
     unset($subform_id, $subform);
-} // end if (isset($_POST['usesubform']))
+}
 // end check if a subform is submitted
 
+// remove quotes added by php
 if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
@@ -2749,6 +2592,7 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
+// start session
 require_once './libraries/session.inc.php';
 
 /**
@@ -2868,10 +2712,17 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
 }
 
 /**
- * Check whether user supplied token is valid, if not remove any
- * possibly dangerous stuff from request.
+ * Check whether user supplied token is valid, if not remove any possibly
+ * dangerous stuff from request.
+ *
+ * remember that some objects in the session with session_start and __wakeup()
+ * could acces this variables before we reach this point
+ * f.e. PMA_Config: fontsize
+ *
+ * @todo: variables should be handled by their respective owners (objects)
+ * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
-if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
+if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2882,19 +2733,16 @@ if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) 
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
     );
-    $keys = array_keys($_REQUEST);
     /* Remove any non allowed stuff from requests */
-    foreach($keys as $key) {
+    foreach($_REQUEST as $key => $dummy) {
         if (!in_array($key, $allow_list)) {
-            unset($_REQUEST[$key]);
-            unset($_GET[$key]);
-            unset($_POST[$key]);
-            unset($GLOBALS[$key]);
+            unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
         } else {
             // allowed stuff could be compromised so escape it
             $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
         }
     }
+    unset($key, $dummy);
 }
 
 
@@ -2919,7 +2767,7 @@ if (isset($_REQUEST['db'])) {
 }
 
 /**
- * @var string $db current selected database
+ * @var string $table current selected table
  */
 if (isset($_REQUEST['table'])) {
     // can we strip tags from this?
@@ -2967,6 +2815,9 @@ if (empty($_SESSION['PMA_Config'])) {
     $_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
 
 } elseif (version_compare(phpversion(), '5', 'lt')) {
+    /**
+     * @todo: move all __wakeup() functionality into session.inc.php
+     */
     $_SESSION['PMA_Config']->__wakeup();
 }
 
@@ -2974,7 +2825,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     $_SESSION['PMA_Config']->checkPmaAbsoluteUri();
 }
 
-// BC
+/**
+ * BC - enable backward compatibility
+ * exports all config settings into $GLOBALS ($GLOBALS['cfg'])
+ */
 $_SESSION['PMA_Config']->enableBc();
 
 
@@ -3009,6 +2863,7 @@ require './libraries/language.lib.php';
 
 /**
  * check for errors occured while loading config
+ * this check is done here after loading lang files to present errors in locale
  */
 if ($_SESSION['PMA_Config']->error_config_file) {
     $GLOBALS['PMA_errors'][] = $strConfigFileError
@@ -3080,6 +2935,9 @@ unset($default_server);
 if (! isset($_SESSION['PMA_Theme_Manager'])) {
     $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
 } else {
+    /**
+     * @todo: move all __wakeup() functionality into session.inc.php
+     */
     $_SESSION['PMA_Theme_Manager']->checkConfig();
 }
 
@@ -3093,6 +2951,9 @@ if (isset($_REQUEST['server']) && !isset($_REQUEST['set_theme'])) {
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($tmp);
     unset($tmp);
 }
+/**
+ * @todo: move into PMA_Theme_Manager::__wakeup()
+ */
 if (isset($_REQUEST['set_theme'])) {
     // if user selected a theme
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
@@ -3129,11 +2990,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     require_once './libraries/string.lib.php';
 
     /**
-     * @var array database list
-     */
-    $dblist       = array();
-
-    /**
      * If no server is selected, make sure that $cfg['Server'] is empty (so
      * that nothing will work), and skip server authentication.
      * We do NOT exit here, but continue on without logging into any server.
@@ -3141,7 +2997,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (!empty($_REQUEST['server']) && !empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
@@ -3156,7 +3012,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['url_params']['server'] = $GLOBALS['server'];
 
 
-    if (!empty($cfg['Server'])) {
+    if (! empty($cfg['Server'])) {
 
         /**
          * Loads the proper database interface for this server
@@ -3239,15 +3095,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($allowDeny_forbidden); //Clean up after you!
         }
 
-        // The user can work with only some databases
-        if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
-            if (is_array($cfg['Server']['only_db'])) {
-                $dblist   = $cfg['Server']['only_db'];
-            } else {
-                $dblist[] = $cfg['Server']['only_db'];
-            }
-        } // end if
-
         $bkp_track_err = @ini_set('track_errors', 1);
 
         // Try to connect MySQL with the control user profile (will be used to
@@ -3290,80 +3137,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         require_once './libraries/sqlvalidator.lib.php';
 
-        // if 'only_db' is set for the current user, there is no need to check for
-        // available databases in the "mysql" db
-        $dblist_cnt = count($dblist);
-        if ($dblist_cnt) {
-            $true_dblist  = array();
-            $is_show_dbs  = true;
-
-            $dblist_asterisk_bool = false;
-            for ($i = 0; $i < $dblist_cnt; $i++) {
-
-                // The current position
-                if ($dblist[$i] == '*' && $dblist_asterisk_bool == false) {
-                    $dblist_asterisk_bool = true;
-                    $dblist_full = PMA_safe_db_list(false, $controllink, false,
-                        $userlink, $cfg, $dblist);
-                    foreach ($dblist_full as $dbl_val) {
-                        if (!in_array($dbl_val, $dblist)) {
-                            $true_dblist[] = $dbl_val;
-                        }
-                    }
-
-                    continue;
-                } elseif ($dblist[$i] == '*') {
-                    // We don't want more than one asterisk inside our 'only_db'.
-                    continue;
-                }
-                if ($is_show_dbs && preg_match('/(^|[^\\\\])(_|%)/', $dblist[$i])) {
-                    $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
-                    // here, a PMA_DBI_query() could fail silently
-                    // if SHOW DATABASES is disabled
-                    $rs = PMA_DBI_try_query($local_query, $userlink);
-
-                    if ($i == 0 && ! $rs) {
-                        $error_code = substr(PMA_DBI_getError($userlink), 1, 4);
-                        if ($error_code == 1227 || $error_code == 1045) {
-                            // "SHOW DATABASES" statement is disabled or not allowed to user
-                            $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
-                            $is_show_dbs   = false;
-                        }
-                        unset($error_code);
-                    }
-                    // Debug
-                    // elseif (PMA_DBI_getError($controllink)) {
-                    //    PMA_mysqlDie(PMA_DBI_getError($controllink), $local_query, false);
-                    // }
-                    while ($row = @PMA_DBI_fetch_row($rs)) {
-                        $true_dblist[] = $row[0];
-                    } // end while
-                    if ($rs) {
-                        PMA_DBI_free_result($rs);
-                    }
-                } else {
-                    $true_dblist[] = str_replace('\\_', '_',
-                        str_replace('\\%', '%', $dblist[$i]));
-                } // end if... else...
-            } // end for
-            $dblist       = $true_dblist;
-            unset($true_dblist, $i, $dbl_val);
-            $only_db_check = true;
-        } // end if
-
-        // 'only_db' is empty for the current user...
-        else {
-            $only_db_check = false;
-        } // end if (!$dblist_cnt)
-
-        if (isset($dblist_full) && !count($dblist_full)) {
-            $dblist = PMA_safe_db_list($only_db_check, $controllink,
-                $dblist_cnt, $userlink, $cfg, $dblist);
-        }
-        unset($only_db_check, $dblist_full);
+        /**
+         * database list
+         */
+        require_once './libraries/PMA_List_Database.class.php';
+        $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
 
     } // end server connecting
-
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
     if (@function_exists('mb_convert_encoding')
@@ -3375,6 +3155,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
+     * @todo: should be done in PMA_Config
      */
     PMA_setCookie('pma_lang', $GLOBALS['lang']);
     PMA_setCookie('pma_charset', $GLOBALS['convcharset']);

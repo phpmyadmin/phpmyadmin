@@ -173,30 +173,6 @@ function PMA_DBI_convert_message( $message ) {
 }
 
 /**
- * returns array with database names
- *
- * @return  array   $databases
- */
-function PMA_DBI_get_dblist($link = null)
-{
-    $dbs_array = PMA_DBI_fetch_result('SHOW DATABASES;', $link);
-
-    // Before MySQL 4.0.2, SHOW DATABASES could send the
-    // whole list, so check if we really have access:
-    if (PMA_MYSQL_INT_VERSION < 40002 || !empty($GLOBALS['cfg']['Server']['hide_db'])) {
-        foreach ($dbs_array as $key => $db) {
-            if (!@PMA_DBI_select_db($db, $link) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
-                unset( $dbs_array[$key] );
-            }
-        }
-        // re-index values
-        $dbs_array = array_values( $dbs_array );
-    }
-
-    return $dbs_array;
-}
-
-/**
  * returns array with table names for given db
  *
  * @param   string  $database   name of database
@@ -394,26 +370,16 @@ function PMA_DBI_get_tables_full($database, $table = false,
 }
 
 /**
- * returns count of databases for current server
- *
- * @param   string      $database   databases to count
- * @param   resource    $link       mysql db link
- */
-function PMA_DBI_get_databases_count($database = null, $link = null)
-{
-    return count(PMA_DBI_get_dblist($link));
-}
-
-/**
  * returns array with databases containing extended infos about them
  *
- * @param   string          $databases      database
- * @param   boolean         $force_stats    retrieve stats also for MySQL < 5
- * @param   resource        $link           mysql link
- * @param   string          $sort_by        collumn to order by
- * @param   string          $sort_order     ASC or DESC
- * @param   integer         $limit_offset   starting offset for LIMIT
- * @param   bool|int        $limit_count    row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
+ * @todo    move into PMA_List_Database?
+ * @param   string      $databases      database
+ * @param   boolean     $force_stats    retrieve stats also for MySQL < 5
+ * @param   resource    $link           mysql link
+ * @param   string      $sort_by        collumn to order by
+ * @param   string      $sort_order     ASC or DESC
+ * @param   integer     $limit_offset   starting offset for LIMIT
+ * @param   bool|int    $limit_count    row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
  * @return  array       $databases
  */
 function PMA_DBI_get_databases_full($database = null, $force_stats = false,
@@ -490,9 +456,19 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
            ORDER BY ' . PMA_backquote($sort_by) . ' ' . $sort_order
            . $limit;
         $databases = PMA_DBI_fetch_result( $sql, 'SCHEMA_NAME', null, $link );
+
+        // display only databases also in official database list
+        // f.e. to apply hide_db and only_db
+        $drops = array_diff(array_keys($databases), $GLOBALS['PMA_List_Database']->items);
+        if (count($drops)) {
+            foreach ($drops as $drop) {
+                unset($databases[$drop]);
+            }
+        }
+
         unset($sql_where_schema, $sql);
     } else {
-        foreach ( PMA_DBI_get_dblist( $link ) as $database_name ) {
+        foreach ($GLOBALS['PMA_List_Database']->items as $database_name) {
             // MySQL forward compatibility
             // so pma could use this array as if every server is of version >5.0
             $databases[$database_name]['SCHEMA_NAME']      = $database_name;
@@ -625,8 +601,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         unset( $sql_wheres, $sql );
     } else {
         if ( null === $database ) {
-            $databases = PMA_DBI_get_dblist();
-            foreach ( $databases as $database ) {
+            foreach ($GLOBALS['PMA_List_Database']->items as $database) {
                 $columns[$database] = PMA_DBI_get_columns_full($database, null,
                     null, $link);
             }
@@ -1185,14 +1160,14 @@ function PMA_isSuperuser() {
 
 
 /**
- * returns an array of PROCEDURE or FUNCTION names for a db 
+ * returns an array of PROCEDURE or FUNCTION names for a db
  *
  * @uses    PMA_DBI_free_result()
  * @param   string              $db     db name
- * @param   string              $which  PROCEDURE | FUNCTION 
+ * @param   string              $which  PROCEDURE | FUNCTION
  * @param   resource            $link   mysql link
  *
- * @return  array   the procedure names or function names 
+ * @return  array   the procedure names or function names
  */
 function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
 
@@ -1207,15 +1182,15 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
 }
 
 /**
- * returns the definition of a specific PROCEDURE or FUNCTION 
+ * returns the definition of a specific PROCEDURE or FUNCTION
  *
  * @uses    PMA_DBI_fetch_value()
  * @param   string              $db     db name
- * @param   string              $which  PROCEDURE | FUNCTION 
+ * @param   string              $which  PROCEDURE | FUNCTION
  * @param   string              $proc_or_function_name  the procedure name or function name
  * @param   resource            $link   mysql link
  *
- * @return  string              the procedure's or function's definition 
+ * @return  string              the procedure's or function's definition
  */
 function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_name, $link = null) {
 

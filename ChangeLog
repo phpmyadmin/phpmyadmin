@@ -5,8 +5,16 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * export.php, left.php, libraries\Table.class.php, libraries\common.lib.php,
+      libraries\database_interface.lib.php, libraries\dbi\mysql.dbi.lib.php,
+      libraries\dbi\mysqli.dbi.lib.php, libraries\sql_query_form.lib.php,
+      querywindow.php, server_databases.php, server_export.php,
+      tbl_properties_operations.php:
+      replaced $dblist with new PMA_List_Database class
+
 2006-09-19 Marc Delisle  <lem9@users.sourceforge.net>
-    * Documentation.html, libraries/footer.inc.php, 
+    * Documentation.html, libraries/footer.inc.php,
       libraries/dbg/profiling.php: remove profiling feature
       due to licensing issues (non GPL code)
 
@@ -16,7 +24,7 @@ $Source$
 
 2006-09-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php libraries/Config.class.php:
-      rename a function borrowed from Moodle to avoid double definition 
+      rename a function borrowed from Moodle to avoid double definition
       when PMA is called by Moodle
     * lang/finnish: Update, thanks to Yoneh - yoneh.
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
@@ -85,7 +93,7 @@ $Source$
       Add support for LogoutURL.
 
 2006-08-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * scripts/setup.php: bug #1536112, better fix (in case of 
+    * scripts/setup.php: bug #1536112, better fix (in case of
       register_globals enabled), thanks to Michal
     ### 2.8.2.3 released from MAINT_2_8_2
     * scripts/setup.php: bug #1544692, version 2.8.2.3 breaks setup.php

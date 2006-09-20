@@ -180,11 +180,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
  * @uses    $GLOBALS['cfg']['TextareaRows']
  * @uses    $GLOBALS['strShowThisQuery']
  * @uses    $GLOBALS['strGo']
- * @uses    PMA_availableDatabases()
  * @uses    PMA_USR_OS
  * @uses    PMA_USR_BROWSER_AGENT
  * @uses    PMA_USR_BROWSER_VER
- * @uses    PMA_availableDatabases()
  * @uses    htmlspecialchars()
  * @param   string      $query          query to display in the textarea
  * @param   boolean     $is_querywindow if inside querywindow or not

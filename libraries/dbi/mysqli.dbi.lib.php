@@ -405,7 +405,7 @@ function PMA_DBI_get_client_info()
  */
 function PMA_DBI_getError($link = null)
 {
-    unset($GLOBALS['errno']);
+    $GLOBALS['errno'] = 0;
 
     if (null === $link && isset($GLOBALS['userlink'])) {
         $link =& $GLOBALS['userlink'];

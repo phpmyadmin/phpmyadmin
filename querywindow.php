@@ -35,17 +35,6 @@ $cfgRelation = PMA_getRelationsParam();
 $_sql_history = array();
 $_input_query_history = array();
 
-/**
- * Get the list and number of available databases.
- * Skipped if no server selected: in this case no database should be displayed
- * before the user choose among available ones at the welcome screen.
- */
-if ($server > 0) {
-    PMA_availableDatabases(); // this function is defined in "common.lib.php"
-} else {
-    $num_dbs = 0;
-}
-
 // garvin: For re-usability, moved http-headers and stylesheets
 // to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.

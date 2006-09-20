@@ -504,7 +504,7 @@ class PMA_Table {
      * FIXME: use RENAME for move operations
      *        - works only if the databases are on the same filesystem,
      *          how can we check that? try the operation and
-     *          catch an error? 
+     *          catch an error?
      *        - for views, only if MYSQL > 50013
      *        - still have to handle pmadb synch.
      *
@@ -512,7 +512,7 @@ class PMA_Table {
      */
     function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
-        global $dblist, $err_url;
+        global $err_url;
 
         if (! isset($GLOBALS['sql_query'])) {
             $GLOBALS['sql_query'] = '';
@@ -523,9 +523,8 @@ class PMA_Table {
         $GLOBALS['asfile']         = 1;
 
         // Ensure the target is valid
-        if (count($dblist) > 0 &&
-          (! in_array($source_db, $dblist) || ! in_array($target_db, $dblist))) {
-              // TODO exit really needed here? or just a return?
+        if (! $GLOBALS['PMA_List_Database']->exists($source_db, $target_db)) {
+            // @TODO exit really needed here? or just a return?
             exit;
         }
 
@@ -545,7 +544,7 @@ class PMA_Table {
             require_once './libraries/export/sql.php';
 
             $no_constraints_comments = true;
-	    $GLOBALS['sql_constraints_query'] = '';
+        $GLOBALS['sql_constraints_query'] = '';
 
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
@@ -556,7 +555,7 @@ class PMA_Table {
             // this is not a CREATE TABLE, so find the first VIEW
                 $target_for_view = PMA_backquote($target_db);
                 while (true) {
-	            if ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'VIEW') {
+                if ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'VIEW') {
                         break;
                     }
                     $i++;
@@ -570,7 +569,7 @@ class PMA_Table {
             }
 
             /* no need to PMA_backquote() */
-	    if (isset($target_for_view)) {
+        if (isset($target_for_view)) {
                 $parsed_sql[$i]['data'] = $target_for_view;
             } else {
                 $parsed_sql[$i]['data'] = $target;
@@ -610,7 +609,7 @@ class PMA_Table {
                 // find the first quote_backtick, it must be the source table name
                 while ($parsed_sql[$i]['type'] != 'quote_backtick') {
                     $i++;
-		    // maybe someday we should guard against going over limit
+            // maybe someday we should guard against going over limit
                     //if ($i == $parsed_sql['len']) {
                     //    break;
                     //}
@@ -636,13 +635,13 @@ class PMA_Table {
                 // Generate query back
                 $GLOBALS['sql_constraints_query'] = PMA_SQP_formatHtml($parsed_sql,
                     'query_only');
-	        if ($mode == 'one_table') {
+            if ($mode == 'one_table') {
                     PMA_DBI_query($GLOBALS['sql_constraints_query']);
-		}
+        }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-	        if ($mode == 'one_table') {
+            if ($mode == 'one_table') {
                     unset($GLOBALS['sql_constraints_query']);
-		}
+        }
             }
 
         } else {
@@ -862,8 +861,7 @@ class PMA_Table {
     {
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
-            if (count($GLOBALS['dblist']) > 0
-              && ! in_array($new_db, $GLOBALS['dblist'])) {
+            if (! $GLOBALS['PMA_List_Database']->exists($new_db)) {
                 $this->errors[] = $GLOBALS['strInvalidDatabase'] . ': ' . $new_db;
                 return false;
             }

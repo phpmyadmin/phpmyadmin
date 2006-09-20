@@ -74,7 +74,7 @@ if (isset($_REQUEST['submitoptions'])) {
     $l_tbl_type = strtolower($tbl_type);
 
     if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
-      && isset($_REQUEST['new_pack_keys']) 
+      && isset($_REQUEST['new_pack_keys'])
       && $_REQUEST['new_pack_keys'] != (string)$pack_keys) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
@@ -183,24 +183,15 @@ unset($columns);
 <fieldset id="fieldset_table_rename">
     <legend><?php echo $strMoveTable; ?></legend>
     <select name="target_db">
-<?php
-// The function used below is defined in "common.lib.php"
-PMA_availableDatabases('main.php?' . PMA_generate_common_url());
-foreach ($dblist as $each_db) {
-    echo '        ';
-    echo '<option value="' . htmlspecialchars($each_db) . '">'
-        . htmlspecialchars($each_db) . '</option>';
-    echo "\n";
-} // end foreach $dblist
-?>
+        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(); ?>
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
     <?php
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
-    // next value but users can decide if they want it or not for the operation 
-    ?> 
+    // next value but users can decide if they want it or not for the operation
+    ?>
     <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" checked="checked" />
     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
 </fieldset>
@@ -346,17 +337,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 <fieldset>
     <legend><?php echo $strCopyTable; ?></legend>
     <select name="target_db">
-<?php
-foreach ($dblist as $each_db) {
-    echo '        ';
-    echo '<option value="' . htmlspecialchars($each_db) . '"';
-    if ($each_db === $GLOBALS['db']) {
-        echo ' selected="selected"';
-    }
-    echo '>' . htmlspecialchars($each_db) . '</option>';
-    echo "\n";
-} // end foreach $dblist
-?>
+        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true); ?>
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
@@ -480,7 +461,8 @@ $this_url_params = array_merge($url_params,
 if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
 
     // we need this PMA_DBI_select_db if the user has access to more than one db
-    // and $GLOBALS['db'] is not the last of the list, because PMA_availableDatabases()
+    // and $GLOBALS['db'] is not the last of the list, because
+    // PMA_List_Database::_checkAccess()
     // has made a PMA_DBI_select_db() on the last one
     PMA_DBI_select_db($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);

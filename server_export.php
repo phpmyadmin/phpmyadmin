@@ -14,22 +14,11 @@ $js_to_run = 'functions.js';
  */
 require('./libraries/server_links.inc.php');
 
-/**
- * Gets the databases list - if it has not been built yet
- */
-if ($server > 0 && empty($dblist)) {
-    PMA_availableDatabases();
-}
-?>
-
-
-<!-- Dump of a server -->
-<?php 
 $export_page_title = $strViewDumpDatabases . "\n";
 $multi_values = '<div align="center"><select name="db_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
-foreach ($dblist AS $current_db) {
+foreach ($GLOBALS['PMA_List_Database']->items as $current_db) {
     if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
         $is_selected = ' selected="selected"';
     } else {
