@@ -17,6 +17,7 @@ $Source$
       replaced $dblist with new PMA_List_Database class
     * libraries\database_interface.lib.php: added error reporting if dblist
       retrieval from information_schema fails
+    * left.php: remember navigation frame width
 
 2006-09-19 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/footer.inc.php,

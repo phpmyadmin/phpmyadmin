@@ -70,7 +70,10 @@ require_once './libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left" />
     <script type="text/javascript" language="javascript">
-    //<![CDATA[
+    // <![CDATA[
+    var today = new Date();
+    var expires = new Date(today.getTime() + (56 * 86400000));
+
     function toggle(id, only_open) {
         var el = document.getElementById('subel' + id);
         if (! el) {
@@ -94,11 +97,47 @@ require_once './libraries/header_http.inc.php';
         }
         return true;
     }
-    //]]>
+
+    function PMA_saveFrameSize()
+    {
+        var frame_size = parent.document.getElementById('frame_navigation').offsetWidth
+        PMA_setCookie('frame_size', frame_size, expires);
+    }
+
+    function PMA_setFrameSize()
+    {
+        var frame_size = PMA_getCookie('frame_size');
+        parent.document.getElementById('mainFrameset').cols = frame_size + ',*';
+    }
+
+    function PMA_getCookie(name) {
+        var start = document.cookie.indexOf(name + "=");
+        var len = start + name.length + 1;
+        if ((!start) && (name != document.cookie.substring(0, name.length))) {
+            return null;
+        }
+        if (start == -1) {
+            return null;
+        }
+        var end = document.cookie.indexOf(";", len);
+        if (end == -1) {
+            end = document.cookie.length;
+        }
+        return unescape(document.cookie.substring(len,end));
+    }
+
+    function PMA_setCookie(name, value, expires, path, domain, secure) {
+        document.cookie = name + "=" + escape(value) +
+            ( (expires) ? ";expires=" + expires.toGMTString() : "") +
+            ( (path)    ? ";path=" + path : "") +
+            ( (domain)  ? ";domain=" + domain : "") +
+            ( (secure)  ? ";secure" : "");
+    }
+    // ]]>
     </script>
     <?php
     /**
-     * remove horizontal scroll bar bug in IE by forcing a vertical scroll bar
+     * remove horizontal scroll bar bug in IE 6 by forcing a vertical scroll bar
      */
     ?>
     <!--[if IE 6]>
@@ -112,7 +151,7 @@ require_once './libraries/header_http.inc.php';
     <![endif]-->
 </head>
 
-<body id="body_leftFrame">
+<body id="body_leftFrame" onload="PMA_setFrameSize();" onresize="PMA_saveFrameSize();">
 <?php
 require './libraries/left_header.inc.php';
 
