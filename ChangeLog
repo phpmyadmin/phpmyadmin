@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.0 released from QA_2_9
+
 2006-09-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * export.php, left.php, libraries\Table.class.php, libraries\common.lib.php,
       libraries\database_interface.lib.php, libraries\dbi\mysql.dbi.lib.php,
