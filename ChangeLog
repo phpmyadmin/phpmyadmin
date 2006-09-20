@@ -5,13 +5,15 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
-2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2006-09-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * export.php, left.php, libraries\Table.class.php, libraries\common.lib.php,
       libraries\database_interface.lib.php, libraries\dbi\mysql.dbi.lib.php,
       libraries\dbi\mysqli.dbi.lib.php, libraries\sql_query_form.lib.php,
       querywindow.php, server_databases.php, server_export.php,
       tbl_properties_operations.php:
       replaced $dblist with new PMA_List_Database class
+    * libraries\database_interface.lib.php: added error reporting if dblist
+      retrieval from information_schema fails
 
 2006-09-19 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/footer.inc.php,

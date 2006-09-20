@@ -455,7 +455,12 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
            GROUP BY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
            ORDER BY ' . PMA_backquote($sort_by) . ' ' . $sort_order
            . $limit;
-        $databases = PMA_DBI_fetch_result( $sql, 'SCHEMA_NAME', null, $link );
+        $databases = PMA_DBI_fetch_result($sql, 'SCHEMA_NAME', null, $link);
+
+        $mysql_error = PMA_DBI_getError($link);
+        if (! count($databases) && $GLOBALS['errno']) {
+            PMA_mysqlDie($mysql_error, $sql);
+        }
 
         // display only databases also in official database list
         // f.e. to apply hide_db and only_db
@@ -464,9 +469,9 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
             }
+            unset($drop);
         }
-
-        unset($sql_where_schema, $sql);
+        unset($sql_where_schema, $sql, $drops);
     } else {
         foreach ($GLOBALS['PMA_List_Database']->items as $database_name) {
             // MySQL forward compatibility
