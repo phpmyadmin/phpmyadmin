@@ -75,6 +75,12 @@ require_once './libraries/header_http.inc.php';
     var expires = new Date(today.getTime() + (56 * 86400000));
     var pma_navi_width;
 
+    /**
+     * opens/closes (hides/shows) tree elements
+     *
+     * @param   string  id          id of the element in the DOM
+     * @param   boolean only_open   do not close/hide element
+     */
     function toggle(id, only_open) {
         var el = document.getElementById('subel' + id);
         if (! el) {
@@ -99,20 +105,40 @@ require_once './libraries/header_http.inc.php';
         return true;
     }
 
+    /**
+     * saves current navigation frame width in a cookie
+     * usally called on resize of the navigation frame
+     */
     function PMA_saveFrameSize()
     {
-        pma_navi_width = parent.document.getElementById('frame_navigation').offsetWidth
-        PMA_setCookie('pma_navi_width', pma_navi_width, expires);
-    }
-
-    function PMA_setFrameSize()
-    {
-        pma_navi_width = PMA_getCookie('pma_navi_width');
-        if (pma_navi_width != null) {
-            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+        pma_navi_width = document.getElementById('body_leftFrame').offsetWidth
+        //alert('from DOM: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
+        if (pma_navi_width > 0) {
+            PMA_setCookie('pma_navi_width', pma_navi_width, expires);
+            //alert('framesize saved');
         }
     }
 
+    /**
+     * sets navigation frame width to the value stored in the cookie
+     * usally called on document load
+     */
+    function PMA_setFrameSize()
+    {
+        pma_navi_width = PMA_getCookie('pma_navi_width');
+        //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
+        if (pma_navi_width != null) {
+            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+            //alert('framesize set');
+        }
+    }
+
+    /**
+     * retrieves a named value from cookie
+     *
+     * @param   string  name    name of the value to retrieve
+     * @return  string  value   value for the given name from cookie
+     */
     function PMA_getCookie(name) {
         var start = document.cookie.indexOf(name + "=");
         var len = start + name.length + 1;
@@ -129,6 +155,16 @@ require_once './libraries/header_http.inc.php';
         return unescape(document.cookie.substring(len,end));
     }
 
+    /**
+     * stores a named value into cookie
+     *
+     * @param   string  name    name of value
+     * @param   string  value   value to be stored
+     * @param   Date    expires expire time
+     * @param   string  path
+     * @param   string  domain
+     * @param   boolean secure
+     */
     function PMA_setCookie(name, value, expires, path, domain, secure) {
         document.cookie = name + "=" + escape(value) +
             ( (expires) ? ";expires=" + expires.toGMTString() : "") +
