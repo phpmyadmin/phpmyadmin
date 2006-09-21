@@ -2,44 +2,27 @@
 /**
  * holds the PMA_List_Database class
  *
- * possible at a later stage we could abstratc this a little bit more:
- *
- * PMA
- *  -> PMA_Config
- *  -> PMA_Theme
- *  -> ...
- *  -> PMA_List
- *    -> PMA_List_Table
- *    -> PMA_List_Server
- *    -> PMA_List_Database
- *      -> PMA_List_Database_Mysql
- *        -> PMA_List_Database_Mysql_3
- *        -> PMA_List_Database_Mysql_4
- *        -> PMA_List_Database_Mysql_5
- *      -> PMA_List_Database_OtherDbms
- *      -> ...
- *
  */
-//require_once 'PMA_List.class.php';
+
+/**
+ * the list base class
+ */
+require_once './libraries/PMA_List.class.php';
 
 /**
  * handles database lists
  *
- * @todo this object should be attached to the server object
- * @todo make use of INFORMATION_SCHEMA !?
- * @todo support --skip-showdatabases and user has only global rights?
- * @todo add caching
+ * @todo this object should be attached to the PMA_Server object
+ * @todo ? make use of INFORMATION_SCHEMA
+ * @todo ? support --skip-showdatabases and user has only global rights
+ * <code>
+ * $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
+ * </code>
  * @access public
+ * @since phpMyAdmin 2.9.10
  */
-/*public*/ class PMA_List_Database /* extends PMA_List */ {
-
-    /**
-     * @var array   the list items
-     * @access public
-     * @todo move into PMA_List
-     */
-    var $items = array();
-
+/*public*/ class PMA_List_Database extends PMA_List
+{
     /**
      * @var mixed   database link resource|object to be used
      * @access protected
@@ -57,12 +40,6 @@
      * @access protected
      */
     var $_db_link_control = null;
-
-    /**
-     * @var bool    whether we need to re-index the database list for consistency keys
-     * @access protected
-     */
-    var $_need_to_reindex = false;
 
     /**
      * @var boolean whether SHOW DATABASES is disabled or not
@@ -121,11 +98,16 @@
     /**
      * checks if the configuration wants to hide some databases
      *
+     * @todo temporaly use this docblock to test how to doc $GLOBALS
      * @access  protected
      * @uses    PMA_List_Database::$items
      * @uses    PMA_List_Database::$_need_to_reindex to set it if reuqired
      * @uses    preg_match()
-     * @global  $cfg
+     * @uses    $GLOBALS['cfg']
+     * @uses    $GLOBALS['cfg']['Server']
+     * @uses    $GLOBALS['cfg']['Server']['hide_db']
+     * @global  array $GLOBALS['cfg']
+     * @global  array $cfg
      */
     function _checkHideDatabase()
     {
@@ -152,8 +134,8 @@
      * @uses    PMA_List_Database::$_db_link_control in case of SHOW DATABASES is disabled for userlink
      * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_DBI_getError()
-     * @global  $error_showdatabases to alert not allowed SHOW DATABASE
-     * @global  $errno from PMA_DBI_getError()
+     * @global  boolean $error_showdatabases to alert not allowed SHOW DATABASE
+     * @global  integer $errno from PMA_DBI_getError()
      * @param   string  $like_db_name   usally a db_name containing wildcards
      */
     function _retrieve($like_db_name = '')
@@ -203,7 +185,7 @@
      * @uses    PMA_MYSQL_INT_VERSION
      * @uses    array_values()
      * @uses    natsort()
-     * @global  $cfg
+     * @global  array   $cfg
      */
     function build()
     {
@@ -244,7 +226,7 @@
      * @uses    is_array()
      * @uses    strlen()
      * @uses    is_string()
-     * @global  $cfg
+     * @global  array   $cfg
      * @return  boolean false if there is no only_db, otherwise true
      */
     function _checkOnlyDatabase()
@@ -289,104 +271,133 @@
     }
 
     /**
-     * returns first item from list
+     * returns default item
      *
-     * @todo move into PMA_List
-     * @uses    PMA_List_Database::$items
-     * @uses    reset()
-     * @return  string  value of first item
-     */
-    function getFirst()
-    {
-        return reset($this->items);
-    }
-
-    /**
-     * returns item only if there is only one in the list
-     *
-     * @todo move into PMA_List
-     * @uses    PMA_List_Database::count()
-     * @uses    PMA_List_Database::getFirst()
-     * @uses    PMA_List_Database::emptyItem()
-     * @return  single item
-     */
-    function getSingleItem()
-    {
-        if ($this->count() === 1) {
-            return $this->getFirst();
-        }
-
-        return $this->emptyItem();
-    }
-
-    /**
-     * returns list item count
-     *
-     * @todo move into PMA_List
-     * @uses    PMA_List_Database::$items
-     * @uses    count()
-     */
-    function count()
-    {
-        return count($this->items);
-    }
-
-    /**
-     * defines what is an empty item (0, '', false or null)
-     *
-     * @todo add as abstract into PMA_List
-     */
-    function emptyItem()
-    {
-        return '';
-    }
-
-    /**
-     * checks if the given db names exists in the current list, if there is
-     * missing at least one item it reutrns false other wise true
-     *
-     * @uses    PMA_List_Database::$items
-     * @uses    func_get_args()
-     * @uses    in_array()
-     * @param   string  $db_name,..     one or more mysql result resources
-     * @return  boolean true if all items exists, otheriwse false
-     */
-    function exists()
-    {
-        foreach (func_get_args() as $result) {
-            if (! in_array($result, $this->items)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * returns HTML <option>-tags to be used inside <select></select>
-     *
-     * @uses    PMA_List_Database::$items
-     * @uses    htmlspecialchars()
+     * @uses    PMA_List::getEmpty()
      * @uses    strlen()
-     * @global  $db
-     * @param   mixed   $selected   the selected db or true for selecting current db
-     * @return  string  HTML option tags
+     * @global  string  $db
+     * @return  string  default item
      */
-    function getHtmlOptions($selected = '')
+    function getDefault()
     {
-        if (true === $selected && strlen($GLOBALS['db'])) {
-            $selected = $GLOBALS['db'];
-        }
-        $options = '';
-        foreach ($this->items as $each_db) {
-            $options .= '<option value="' . htmlspecialchars($each_db) . '"';
-            if ($selected === $each_db) {
-                $options .= ' selected="selected"';
-            }
-            $options .= '>' . htmlspecialchars($each_db) . '</option>' . "\n";
+        if (strlen($GLOBALS['db'])) {
+            return $GLOBALS['db'];
         }
 
-        return $options;
+        return $this->getEmpty();
+    }
+
+    /**
+     * returns array with dbs grouped with extended infos
+     *
+     * @uses    $GLOBALS['PMA_List_Database']
+     * @uses    $GLOBALS['cfgRelation']['commwork']
+     * @uses    $GLOBALS['cfg']['ShowTooltip']
+     * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
+     * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
+     * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
+     * @uses    PMA_getTableCount()
+     * @uses    PMA_getComments()
+     * @uses    is_array()
+     * @uses    implode()
+     * @uses    strstr()
+     * @uses    explode()
+     * @return  array   db list
+     */
+    function getGroupedDetails()
+    {
+        $dbgroups   = array();
+        $parts      = array();
+        foreach ($this->items as $key => $db) {
+            // garvin: Get comments from PMA comments table
+            $db_tooltip = '';
+            if ($GLOBALS['cfg']['ShowTooltip']
+              && $GLOBALS['cfgRelation']['commwork']) {
+                $_db_tooltip = PMA_getComments($db);
+                if (is_array($_db_tooltip)) {
+                    $db_tooltip = implode(' ', $_db_tooltip);
+                }
+            }
+
+            if ($GLOBALS['cfg']['LeftFrameDBTree']
+                && $GLOBALS['cfg']['LeftFrameDBSeparator']
+                && strstr($db, $GLOBALS['cfg']['LeftFrameDBSeparator']))
+            {
+                // use strpos instead of strrpos; it seems more common to
+                // have the db name, the separator, then the rest which
+                // might contain a separator
+                // like dbname_the_rest
+                $pos            = strpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
+                $group          = substr($db, 0, $pos);
+                $disp_name_cut  = substr($db, $pos);
+            } else {
+                $group          = $db;
+                $disp_name_cut  = $db;
+            }
+
+            $disp_name  = $db;
+            if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
+                $disp_name      = $db_tooltip;
+                $disp_name_cut  = $db_tooltip;
+                $db_tooltip     = $db;
+            }
+
+            $dbgroups[$group][$db] = array(
+                'name'          => $db,
+                'disp_name_cut' => $disp_name_cut,
+                'disp_name'     => $disp_name,
+                'comment'       => $db_tooltip,
+                'num_tables'    => PMA_getTableCount($db),
+            );
+        } // end foreach ($GLOBALS['PMA_List_Database']->items as $db)
+        return $dbgroups;
+    }
+
+    /**
+     * returns html code for select form element with dbs
+     *
+     * @todo IE can not handle different text directions in select boxes so,
+     * as mostly names will be in english, we set the whole selectbox to LTR
+     * and EN
+     *
+     * @return  string  html code select
+     */
+    function getHtmlSelectGrouped($selected = '')
+    {
+        if (true === $selected) {
+            $selected = $this->getDefault();
+        }
+
+        $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
+            . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
+            . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
+            . '(' . $GLOBALS['strDatabases'] . ') ...</option>' . "\n";
+        foreach ($this->getGroupedDetails() as $group => $dbs) {
+            if (count($dbs) > 1) {
+                $return .= '<optgroup label="' . htmlspecialchars($group)
+                    . '">' . "\n";
+                // wether display db_name cuted by the group part
+                $cut = true;
+            } else {
+                // .. or full
+                $cut = false;
+            }
+            foreach ($dbs as $db) {
+                $return .= '<option value="' . $db['name'] . '"'
+                    .' title="' . $db['comment'] . '"';
+                if ($db['name'] == $selected) {
+                    $return .= ' selected="selected"';
+                }
+                $return .= '>' . ($cut ? $db['disp_name_cut'] : $db['disp_name'])
+                    .' (' . $db['num_tables'] . ')</option>' . "\n";
+            }
+            if (count($dbs) > 1) {
+                $return .= '</optgroup>' . "\n";
+            }
+        }
+        $return .= '</select>';
+
+        return $return;
     }
 
     /**

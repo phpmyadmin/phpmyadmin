@@ -87,116 +87,6 @@ function PMA_securePath($path)
 } // end function
 
 /**
- * returns array with dbs grouped with extended infos
- *
- * @todo move into PMA_List_Databases
- * @uses    $GLOBALS['PMA_List_Database']
- * @uses    $GLOBALS['cfgRelation']['commwork']
- * @uses    $GLOBALS['cfg']['ShowTooltip']
- * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
- * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
- * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
- * @uses    PMA_getTableCount()
- * @uses    PMA_getComments()
- * @uses    is_array()
- * @uses    implode()
- * @uses    strstr()
- * @uses    explode()
- * @return  array   db list
- */
-function PMA_getDbList()
-{
-    $dbgroups   = array();
-    $parts      = array();
-    foreach ($GLOBALS['PMA_List_Database']->items as $key => $db) {
-        // garvin: Get comments from PMA comments table
-        $db_tooltip = '';
-        if ($GLOBALS['cfg']['ShowTooltip']
-          && $GLOBALS['cfgRelation']['commwork']) {
-            $_db_tooltip = PMA_getComments($db);
-            if (is_array($_db_tooltip)) {
-                $db_tooltip = implode(' ', $_db_tooltip);
-            }
-        }
-
-        if ($GLOBALS['cfg']['LeftFrameDBTree']
-            && $GLOBALS['cfg']['LeftFrameDBSeparator']
-            && strstr($db, $GLOBALS['cfg']['LeftFrameDBSeparator']))
-        {
-            // use strpos instead of strrpos; it seems more common to
-            // have the db name, the separator, then the rest which
-            // might contain a separator
-            // like dbname_the_rest
-            $pos            = strpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
-            $group          = substr($db, 0, $pos);
-            $disp_name_cut  = substr($db, $pos);
-        } else {
-            $group          = $db;
-            $disp_name_cut  = $db;
-        }
-
-        $disp_name  = $db;
-        if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
-            $disp_name      = $db_tooltip;
-            $disp_name_cut  = $db_tooltip;
-            $db_tooltip     = $db;
-        }
-
-        $dbgroups[$group][$db] = array(
-            'name'          => $db,
-            'disp_name_cut' => $disp_name_cut,
-            'disp_name'     => $disp_name,
-            'comment'       => $db_tooltip,
-            'num_tables'    => PMA_getTableCount($db),
-       );
-    } // end foreach ($GLOBALS['PMA_List_Database']->items as $db)
-    return $dbgroups;
-}
-
-/**
- * returns html code for select form element with dbs
- *
- * @todo move into PMA_List_Databases
- * @return  string  html code select
- */
-function PMA_getHtmlSelectDb($selected = '')
-{
-    // TODO: IE can not handle different text directions in select boxes
-    // so, as mostly names will be in english, we set the whole selectbox to LTR
-    // and EN
-    $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
-        .' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
-        .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
-        ."\n";
-    foreach (PMA_getDbList() as $group => $dbs) {
-        if (count($dbs) > 1) {
-            $return .= '<optgroup label="' . htmlspecialchars($group)
-                . '">' . "\n";
-            // wether display db_name cuted by the group part
-            $cut = true;
-        } else {
-            // .. or full
-            $cut = false;
-        }
-        foreach ($dbs as $db) {
-            $return .= '<option value="' . $db['name'] . '"'
-                .' title="' . $db['comment'] . '"';
-            if ($db['name'] == $selected) {
-                $return .= ' selected="selected"';
-            }
-            $return .= '>' . ($cut ? $db['disp_name_cut'] : $db['disp_name'])
-                .' (' . $db['num_tables'] . ')</option>' . "\n";
-        }
-        if (count($dbs) > 1) {
-            $return .= '</optgroup>' . "\n";
-        }
-    }
-    $return .= '</select>';
-
-    return $return;
-}
-
-/**
  * returns count of tables in given db
  *
  * @param   string  $db database to count tables for
@@ -459,11 +349,25 @@ function PMA_getenv($var_name) {
  * include here only libraries which contain only function definitions
  * no code im main()!
  */
-/* Input sanitizing */
+/**
+ * Input sanitizing
+ */
 require_once './libraries/sanitizing.lib.php';
+/**
+ * the PMA_Theme class
+ */
 require_once './libraries/Theme.class.php';
+/**
+ * the PMA_Theme_Manager class
+ */
 require_once './libraries/Theme_Manager.class.php';
+/**
+ * the PMA_Config class
+ */
 require_once './libraries/Config.class.php';
+/**
+ * the PMA_Table class
+ */
 require_once './libraries/Table.class.php';
 
 
@@ -796,6 +700,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     {
         global $cfg, $table, $db, $sql_query;
 
+        /**
+         * start http output, display html headers
+         */
         require_once './libraries/header.inc.php';
 
         if (!$error_message) {
@@ -947,6 +854,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         }
         echo '    </fieldset>' . "\n\n";
         if ($exit) {
+            /**
+             * display footer and exit
+             */
             require_once './libraries/footer.inc.php';
         }
     } // end of the 'PMA_mysqlDie()' function
@@ -1035,7 +945,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * @uses    $GLOBALS['cfg']['LeftFrameTableLevel']
      * @uses    $GLOBALS['cfg']['ShowTooltipAliasTB']
      * @uses    $GLOBALS['cfg']['NaturalOrder']
-     * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_backquote()
      * @uses    count()
      * @uses    array_merge
@@ -2138,6 +2047,9 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             }
         }
         if ($found_error) {
+            /**
+             * display html meta tags
+             */
             require_once './libraries/header_meta_style.inc.php';
             echo '</head><body><p>' . $error_message . '</p></body></html>';
             if ($die) {
@@ -2592,7 +2504,9 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
-// start session
+/**
+ * start session
+ */
 require_once './libraries/session.inc.php';
 
 /**
@@ -2607,17 +2521,17 @@ if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 
 /**
- * @var array   $GLOBALS['PMA_errors']  holds errors
+ * @global array $GLOBALS['PMA_errors']  holds errors
  */
 $GLOBALS['PMA_errors'] = array();
 
 /**
- * @var array   $GLOBALS['url_params']  holds params to be passed to next page
+ * @global array   $GLOBALS['url_params']  holds params to be passed to next page
  */
 $GLOBALS['url_params'] = array();
 
 /**
- * @var array   whitelist for $goto
+ * @global array $goto_whitelist the whitelist for $GLOBALS['goto']
  */
 $goto_whitelist = array(
     //'browse_foreigners.php',
@@ -2691,7 +2605,7 @@ if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
 }
 
 /**
- * @var string  $goto   holds page that should be displayed
+ * @global string  $GLOBALS['goto']   holds page that should be displayed
  */
 // Security fix: disallow accessing serious server files via "?goto="
 if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
@@ -2703,7 +2617,7 @@ if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
 }
 
 /**
- * @var string $back returning page
+ * @global string $GLOBALS['back'] returning page
  */
 if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
     $GLOBALS['back'] = $_REQUEST['back'];
@@ -2747,7 +2661,7 @@ if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token'])
 
 
 /**
- * @var string $convcharset
+ * @global string $convcharset
  * @see also select_lang.lib.php
  */
 if (isset($_REQUEST['convcharset'])) {
@@ -2755,7 +2669,7 @@ if (isset($_REQUEST['convcharset'])) {
 }
 
 /**
- * @var string $db current selected database
+ * @global string $GLOBALS['db'] current selected database
  */
 if (isset($_REQUEST['db'])) {
     // can we strip tags from this?
@@ -2767,7 +2681,7 @@ if (isset($_REQUEST['db'])) {
 }
 
 /**
- * @var string $table current selected table
+ * @global string $GLOBALS['table'] current selected table
  */
 if (isset($_REQUEST['table'])) {
     // can we strip tags from this?
@@ -2779,7 +2693,7 @@ if (isset($_REQUEST['table'])) {
 }
 
 /**
- * @var string $sql_query sql query to be executed
+ * @global string $GLOBALS['sql_query'] sql query to be executed
  */
 if (isset($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
@@ -3038,7 +2952,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     );
             exit();
         }
+        /**
+         * the required auth type plugin
+         */
         require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
+
         if (!PMA_auth_check()) {
             PMA_auth();
         } else {
@@ -3054,6 +2972,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($cfg['Server']['AllowDeny'])
           && isset($cfg['Server']['AllowDeny']['order'])) {
 
+            /**
+             * ip based access library
+             */
             require_once './libraries/ip_allow_deny.lib.php';
 
             $allowDeny_forbidden         = false; // default
@@ -3122,7 +3043,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         @ini_set('track_errors', $bkp_track_err);
         unset($bkp_track_err);
 
-        /* If we auto switched to utf-8 we need to reread messages here */
+        /**
+         * If we auto switched to utf-8 we need to reread messages here
+         */
         if (defined('PMA_LANG_RELOAD')) {
             require './libraries/language.lib.php';
         }
@@ -3138,14 +3061,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         require_once './libraries/sqlvalidator.lib.php';
 
         /**
-         * database list
+         * the PMA_List_Database class
          */
         require_once './libraries/PMA_List_Database.class.php';
         $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
 
     } // end server connecting
 
-    // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
+    /**
+     * Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
+     */
     if (@function_exists('mb_convert_encoding')
         && strpos(' ' . $lang, 'ja-')
         && file_exists('./libraries/kanji-encoding.lib.php')) {
@@ -3169,6 +3094,9 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     if (isset($_GET['is_js_confirmed'])) {
         $is_js_confirmed = 1;
     }
+    /**
+     * include subform target page
+     */
     require $__redirect;
     exit();
 }

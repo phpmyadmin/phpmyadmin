@@ -230,7 +230,7 @@ if (! $GLOBALS['PMA_List_Database']->count()) {
     <label for="lightm_db"><?php echo $strDatabase; ?></label>
     <?php
     echo PMA_generate_common_hidden_inputs() . "\n";
-    echo PMA_getHtmlSelectDb($db) . "\n";
+    echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true) . "\n";
     echo '<noscript>' . "\n"
         .'<input type="submit" name="Go" value="' . $strGo . '" />' . "\n"
         .'</noscript>' . "\n"
@@ -306,7 +306,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && isset($db) && strlen($db)) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
 } else {
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList(PMA_getDbList());
+    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails());
 }
 
 /**
