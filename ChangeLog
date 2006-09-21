@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/PMA_List.class.php: new PMA_List class
+
 2006-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0 released from QA_2_9
 
