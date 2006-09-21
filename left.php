@@ -73,6 +73,7 @@ require_once './libraries/header_http.inc.php';
     // <![CDATA[
     var today = new Date();
     var expires = new Date(today.getTime() + (56 * 86400000));
+    var pma_navi_width;
 
     function toggle(id, only_open) {
         var el = document.getElementById('subel' + id);
@@ -100,14 +101,18 @@ require_once './libraries/header_http.inc.php';
 
     function PMA_saveFrameSize()
     {
-        var frame_size = parent.document.getElementById('frame_navigation').offsetWidth
-        PMA_setCookie('frame_size', frame_size, expires);
+        pma_navi_width = parent.document.getElementById('frame_navigation').offsetWidth
+        PMA_setCookie('pma_navi_width', pma_navi_width, expires);
     }
 
     function PMA_setFrameSize()
     {
-        var frame_size = PMA_getCookie('frame_size');
-        parent.document.getElementById('mainFrameset').cols = frame_size + ',*';
+        pma_navi_width = PMA_getCookie('pma_navi_width');
+        alert(typeof(pma_navi_width) + ' : ' + pma_navi_width);
+        if (pma_navi_width != null) {
+            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+            alert('framesize set');
+        }
     }
 
     function PMA_getCookie(name) {
