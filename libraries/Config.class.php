@@ -384,7 +384,7 @@ class PMA_Config
         }
 
         /**
-         * @TODO check validity of $_COOKIE['pma_collation_connection']
+         * @todo check validity of $_COOKIE['pma_collation_connection']
          */
         if (! empty($_COOKIE['pma_collation_connection'])) {
             $this->set('collation_connection',
@@ -657,7 +657,7 @@ class PMA_Config
 
     /**
      * check selected collation_connection
-     * @TODO check validity of $_REQUEST['collation_connection']
+     * @todo check validity of $_REQUEST['collation_connection']
      */
     function checkCollationConnection()
     {

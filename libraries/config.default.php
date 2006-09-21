@@ -535,8 +535,9 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04
 //    some specials for new icons and scrollings
-// FIXME:
-// 2004-05-08 rabus: We need to rearrange these variables.
+/**
+ * @todo 2004-05-08 rabus: We need to rearrange these variables.
+ */
 
 // Window title settings
 $cfg['TitleTable']          = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';

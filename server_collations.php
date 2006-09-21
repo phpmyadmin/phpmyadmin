@@ -34,10 +34,10 @@ echo '<h2>' . "\n"
 
 
 /**
- * Checks the MySQL version
+ * exits if wrong MySQL version
+ * @todo Some nice Message :-)
  */
 if (PMA_MYSQL_INT_VERSION < 40100) {
-    // TODO: Some nice Message :-)
     require_once('./libraries/footer.inc.php');
 }
 

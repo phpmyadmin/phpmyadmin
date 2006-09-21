@@ -217,8 +217,10 @@ class PMA_PDF extends PMA_FPDF
             $this->$key = $val ;
         }
 
-        // Pass 1 for column widths
-        // TODO: force here a LIMIT to speed up pass 1 ?
+        /**
+         * Pass 1 for column widths
+         * @todo force here a LIMIT to speed up pass 1 ?
+         */
         $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->numFields  = PMA_DBI_num_fields($this->results);
         $this->fields = PMA_DBI_get_fields_meta($this->results);
@@ -248,8 +250,10 @@ class PMA_PDF extends PMA_FPDF
                 case 'tinyblob':
                 case 'mediumblob':
                 case 'longblob':
-                    //TODO: do not deactivate completely the display
-                    // but show the field's name and [BLOB]
+                    /**
+                     * @todo do not deactivate completely the display
+                     * but show the field's name and [BLOB]
+                     */
                     if (stristr($this->fields[$i]->flags, 'BINARY')) {
                         $this->display_column[$i] = false;
                         unset($this->colTitles[$i]);
@@ -263,7 +267,7 @@ class PMA_PDF extends PMA_FPDF
 
             // loop through the data, any column whose contents is bigger
             // than the col size is resized
-            // TODO: force here a LIMIT to avoid reading all rows 
+            // TODO: force here a LIMIT to avoid reading all rows
             while ($row = PMA_DBI_fetch_row($this->results)) {
                 foreach ($colFits as $key => $val) {
                     $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
@@ -396,6 +400,7 @@ function PMA_exportDBCreate($db)
 /**
  * Outputs the content of a table in PDF format
  *
+ * @todo    user-defined page orientation, paper size
  * @param   string      the database name
  * @param   string      the table name
  * @param   string      the end of line sequence
@@ -411,7 +416,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     global $what;
     global $pdf_report_title;
 
-    // TODO: user-defined page orientation, paper size
     $pdf = new PMA_PDF('L', 'pt', 'A3');
 
     $pdf->AddFont('FreeSans', '', 'FreeSans.php');

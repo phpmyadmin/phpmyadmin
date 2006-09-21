@@ -783,7 +783,9 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
                 $create_user_show = $create_user_real;
             }
         }
-        // FIXME: similar code appears twice in this script
+        /**
+         * @todo similar code appears twice in this script
+         */
         if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
             $real_sql_query .= 'WITH';
             $sql_query .= 'WITH';
@@ -989,7 +991,9 @@ if (!empty($update_privs)) {
         . ' ON ' . $db_and_table
         . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
-        // FIXME: similar code appears twice in this script
+    /**
+     * @todo similar code appears twice in this script
+     */
     if ( ( isset($Grant_priv) && $Grant_priv == 'Y')
       || ( ( ! isset($dbname) || ! strlen($dbname) ) && PMA_MYSQL_INT_VERSION >= 40002
         && ( isset($max_questions) || isset($max_connections)

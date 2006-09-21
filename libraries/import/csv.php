@@ -44,7 +44,7 @@ if ($plugin_param == 'table') {
             $message = sprintf($strInvalidCSVParameter, $strFieldsEscapedBy);
             $show_error_header = TRUE;
             $error = TRUE;
-        } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') { 
+        } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
             $message = sprintf($strInvalidCSVParameter, $strLinesTerminatedBy);
             $show_error_header = TRUE;
             $error = TRUE;
@@ -60,9 +60,9 @@ if ($plugin_param == 'table') {
             }
         }
         $sql_template .= ' INTO ' . PMA_backquote($table);
-        
+
         $tmp_fields = PMA_DBI_get_fields($db, $table);
-        
+
         if (empty($csv_columns)) {
             $fields = $tmp_fields;
         } else {
@@ -151,7 +151,7 @@ if ($plugin_param == 'table') {
                         continue;
                     }
 
-                    // Grab one field 
+                    // Grab one field
                     $fallbacki = $i;
                     if ($ch == $csv_enclosed) {
                         $need_end = TRUE;
@@ -246,7 +246,7 @@ if ($plugin_param == 'table') {
                             break;
                         }
                     }
-                    
+
                     $first = TRUE;
                     $sql = $sql_template;
                     foreach ($values as $key => $val) {
@@ -258,7 +258,9 @@ if ($plugin_param == 'table') {
                     }
                     $sql .= ')';
 
-                    // FIXME: maybe we could add original line to verbose SQL in comment
+                    /**
+                     * @todo maybe we could add original line to verbose SQL in comment
+                     */
                     PMA_importRunQuery($sql, $sql);
                     $line++;
                     $csv_finish = FALSE;
@@ -274,7 +276,7 @@ if ($plugin_param == 'table') {
 
         // Commit any possible data in buffers
         PMA_importRunQuery();
-        
+
         if (count($values) != 0 && !$error) {
             $message = sprintf($strInvalidCSVFormat, $line);
             $show_error_header = TRUE;

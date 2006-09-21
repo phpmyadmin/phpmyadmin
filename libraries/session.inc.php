@@ -4,8 +4,8 @@
 /**
  * session handling
  *
- * @TODO    add failover or warn if sessions are not configured properly
- * @TODO    add an option to use mm-module for session handler
+ * @todo    add failover or warn if sessions are not configured properly
+ * @todo    add an option to use mm-module for session handler
  * @see     http://www.php.net/session
  * @uses    session_name()
  * @uses    session_start()

@@ -38,8 +38,10 @@ if ( ! PMA_DBI_checkAndLoadMysqlExtension( $GLOBALS['cfg']['Server']['extension'
     // if it fails try alternative extension ...
     // and display an error ...
 
-    // TODO 2.7.1: add different messages for alternativ extension
-    // and complete fail (no alternativ extension too)
+    /**
+     * @todo 2.7.1: add different messages for alternativ extension
+     * and complete fail (no alternativ extension too)
+     */
     $GLOBALS['PMA_errors'][] =
         sprintf( PMA_sanitize( $GLOBALS['strCantLoad'] ),
             $GLOBALS['cfg']['Server']['extension'] )
@@ -165,8 +167,9 @@ function PMA_DBI_convert_message( $message ) {
             }
         }
     } else {
-        // lang not found, try all
-        // what TODO ?
+        /**
+         * @todo lang not found, try all, what TODO ?
+         */
     }
 
     return $message;
@@ -334,8 +337,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 if ( strtoupper( $each_tables[$table_name]['Comment'] ) === 'VIEW' ) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
-                    // TODO difference between 'TEMPORARY' and 'BASE TABLE'
-                    // but how to detect?
+                    /**
+                     * @todo difference between 'TEMPORARY' and 'BASE TABLE' but how to detect?
+                     */
                     $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
                 }
             }
@@ -650,9 +654,13 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
             $columns[$column_name]['DATA_TYPE']                   =
                 substr($columns[$column_name]['COLUMN_TYPE'], 0,
                     strpos($columns[$column_name]['COLUMN_TYPE'], '('));
-            // @TODO guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
+            /**
+             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
+             */
             $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH']    = null;
-            // @TODO guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
+            /**
+             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
+             */
             $columns[$column_name]['CHARACTER_OCTET_LENGTH']      = null;
             $columns[$column_name]['NUMERIC_PRECISION']           = null;
             $columns[$column_name]['NUMERIC_SCALE']               = null;
@@ -673,7 +681,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 }
 
 /**
- * @TODO should only return columns names, for more info use PMA_DBI_get_columns_full()
+ * @todo should only return columns names, for more info use PMA_DBI_get_columns_full()
  *
  * @deprecated by PMA_DBI_get_columns() or PMA_DBI_get_columns_full()
  * @param   string  $database   name of database

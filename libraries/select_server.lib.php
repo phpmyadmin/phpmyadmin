@@ -69,7 +69,9 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         //        value, displaying such informations may not be a so good
         //        idea
         if (!empty($server['only_db'])) {
-            // TODO FIXME this can become a really big/long/wide selectbox ...
+            /**
+             * @todo this can become a really big/long/wide selectbox ...
+             */
             $label .= ' - ' . (is_array($server['only_db']) ? implode(', ', $server['only_db']) : $server['only_db']);
         }
         if (!empty($server['user']) && $server['auth_type'] == 'config') {

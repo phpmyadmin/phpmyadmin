@@ -177,7 +177,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (!isset($row[$j]) || is_null($row[$j])) {
                 $worksheet->write($col, $j, $GLOBALS['xls_null']);
             } elseif ($row[$j] == '0' || $row[$j] != '') {
-                // FIXME: we should somehow handle character set here!
+                /**
+                 * @todo we should somehow handle character set here!
+                 */
                 $worksheet->write($col, $j, $row[$j]);
             } else {
                 $worksheet->write($col, $j, '');

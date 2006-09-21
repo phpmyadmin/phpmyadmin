@@ -1265,7 +1265,9 @@ function PMA_RT_DOC($alltables)
                 $comments_width = 67;
             } else {
                 // this is really intended for 'letter'
-                // TODO: find optimal width for all formats
+                /**
+                 * @todo find optimal width for all formats
+                 */
                 $comments_width = 50;
             }
             $pdf->Cell($comments_width, 8, ucfirst($GLOBALS['strComments']), 1, 0, 'C');

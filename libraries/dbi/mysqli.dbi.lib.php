@@ -171,7 +171,9 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
     $result = mysqli_query($link, $query, $method);
 
     if (mysqli_warning_count($link)) {
-        // TODO: check $method ?
+        /**
+         * @todo check $method ?
+         */
         $warning_result = mysqli_query($link, 'SHOW WARNINGS');
         if ($warning_result) {
             $warning_row = mysqli_fetch_row($warning_result);
@@ -520,7 +522,7 @@ function PMA_DBI_affected_rows($link = null)
 /**
  * returns metainfo for fields in $result
  *
- * @TODO preserve orignal flags value
+ * @todo preserve orignal flags value
  * @uses    PMA_DBI_field_flags()
  * @uses    MYSQLI_TYPE_*
  * @uses    MYSQLI_MULTIPLE_KEY_FLAG

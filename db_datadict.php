@@ -42,7 +42,7 @@ if ($cfgRelation['commwork']) {
      */
     if (is_array($comment)) {
         ?>
-    <p> <?php echo $strDBComment; ?> 
+    <p> <?php echo $strDBComment; ?>
         <i><?php echo htmlspecialchars( implode( ' ', $comment ) ); ?></i></p>
         <?php
     } // end if
@@ -168,7 +168,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     /**
      * Displays the table structure
      */
-    ?> 
+    ?>
 
 <table width="100%" class="print">
 <tr><th width="50"><?php echo $strField; ?></th>
@@ -238,14 +238,16 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
         // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
         // the latter.
-	// TODO: merge this logic with the one in tbl_properties_structure.php
-	// or move it in a function similar to PMA_DBI_get_columns_full()
-	// but based on SHOW CREATE TABLE because information_schema
-	// cannot be trusted in this case (MySQL bug)
+        /**
+         * @todo merge this logic with the one in tbl_properties_structure.php
+         * or move it in a function similar to PMA_DBI_get_columns_full()
+         * but based on SHOW CREATE TABLE because information_schema
+         * cannot be trusted in this case (MySQL bug)
+         */
         if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type']) && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
             $row['Null'] = '';
         }
-        ?> 
+        ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
     <td nowrap="nowrap">
         <?php
@@ -254,7 +256,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         } else {
             echo $field_name;
         }
-        ?> 
+        ?>
     </td>
     <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $strAttribute; ?></td>*/ ?>
@@ -291,7 +293,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     } // end while
     PMA_DBI_free_result( $result );
     $count++;
-    ?> 
+    ?>
 </table>
 </div>
     <?php
@@ -300,7 +302,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
 /**
  * Displays the footer
  */
-?> 
+?>
 <script type="text/javascript" language="javascript">
 //<![CDATA[
 function printPage()

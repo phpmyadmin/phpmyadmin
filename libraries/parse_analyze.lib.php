@@ -25,11 +25,12 @@ $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 // db and table name may be enclosed with backquotes, db is optionnal,
 // query may contain aliases.
 
-// (TODO: if there are more than one table name in the Select:
-// - do not extract the first table name
-// - do not show a table name in the page header
-// - do not display the sub-pages links)
-
+/**
+ * @todo if there are more than one table name in the Select:
+ * - do not extract the first table name
+ * - do not show a table name in the page header
+ * - do not display the sub-pages links)
+ */
 if ($is_select) {
     $prev_db = $db;
     if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])) {

@@ -99,10 +99,12 @@ function PMA_auth_fails()
     echo "\n";
     $GLOBALS['is_header_sent'] = TRUE;
 
-    //TODO: I have included this div from libraries/header.inc.php to work around
-    //      an undefined variable in tooltip.js, when the server
-    //      is not responding. Work has to be done to merge all code that
-    //      starts the page (DOCTYPE and this div) to one place
+    /**
+     * @todo I have included this div from libraries/header.inc.php to work around
+     * an undefined variable in tooltip.js, when the server is not responding.
+     * Work has to be done to merge all code that starts the page (DOCTYPE and
+     * this div) to one place
+     */
     ?>
     <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php

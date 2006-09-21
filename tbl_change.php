@@ -80,7 +80,9 @@ if (!empty($disp_message)) {
 if (empty($goto)) {
     $goto    = 'db_details.php';
 }
-// TODO: check if we could replace by "db_details|tbl"
+/**
+ * @todo check if we could replace by "db_details|tbl"
+ */
 if (!preg_match('@^(db_details|tbl_properties|tbl_select|tbl_import)@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
@@ -808,7 +810,10 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($idindex) . '_3" size="10" />&nbsp;';
 
                 // find maximum upload size, based on field type
-                // FIXME: with functions this is not so easy, as you can basically process any data with function like MD5
+                /**
+                 * @todo with functions this is not so easy, as you can basically
+                 * process any data with function like MD5
+                 */
                 $max_field_sizes = array(
                     'tinyblob'   =>        '256',
                     'blob'       =>      '65536',
@@ -942,9 +947,9 @@ if (isset($primary_key)) {
                 <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertSame; ?></option>
     <?php
     // If we have just numeric primary key, we can also edit next
-    // in 2.8.2, we were looking for `field_name` = numeric_value 
+    // in 2.8.2, we were looking for `field_name` = numeric_value
     //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
-    // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value 
+    // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
     if (preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
         ?>
                 <option value="edit_next"><?php echo $strAfterInsertNext; ?></option>

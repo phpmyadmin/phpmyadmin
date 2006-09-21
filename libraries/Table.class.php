@@ -215,6 +215,7 @@ class PMA_Table {
      * Checks if this "table" is a view
      *
      * @deprecated
+     * @todo see what we could do with the possible existence of $table_is_view
      * @param   string   the database name
      * @param   string   the table name
      *
@@ -224,8 +225,6 @@ class PMA_Table {
      */
     function _isView($db, $table) {
         // maybe we already know if the table is a view
-        // TODO: see what we could do with the possible existence
-        // of $table_is_view
         if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
             return true;
         }
@@ -244,6 +243,8 @@ class PMA_Table {
      * generates column/field specification for ALTER or CREATE TABLE syntax
      *
      * @todo    move into class PMA_Column
+     * @todo on the interface, some js to clear the default value when the default
+     * current_timestamp is checked
      * @static
      * @param   string  $name       name
      * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
@@ -269,10 +270,10 @@ class PMA_Table {
     {
 
         // $default_current_timestamp has priority over $default
-        // TODO: on the interface, some js to clear the default value
-        // when the default current_timestamp is checked
 
-        // TODO: include db-name
+        /**
+         * @todo include db-name
+         */
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
@@ -401,7 +402,7 @@ class PMA_Table {
     } // end of the 'PMA_Table::countRecords()' function
 
     /**
-     * @TODO    add documentation
+     * @todo    add documentation
      */
     function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default, $default_current_timestamp,
@@ -501,7 +502,7 @@ class PMA_Table {
 
     /**
      * Copies or renames table
-     * FIXME: use RENAME for move operations
+     * @todo use RENAME for move operations
      *        - works only if the databases are on the same filesystem,
      *          how can we check that? try the operation and
      *          catch an error?
@@ -524,7 +525,9 @@ class PMA_Table {
 
         // Ensure the target is valid
         if (! $GLOBALS['PMA_List_Database']->exists($source_db, $target_db)) {
-            // @TODO exit really needed here? or just a return?
+            /**
+             * @todo exit really needed here? or just a return?
+             */
             exit;
         }
 
@@ -716,10 +719,12 @@ class PMA_Table {
                 unset($table_query);
             }
 
-            // garvin: [TODO] Can't get moving PDFs the right way. The page numbers always
-            // get screwed up independently from duplication because the numbers do not
-            // seem to be stored on a per-database basis. Would the author of pdf support
-            // please have a look at it?
+            /**
+             * @todo garvin: Can't get moving PDFs the right way. The page numbers
+             * always get screwed up independently from duplication because the
+             * numbers do not seem to be stored on a per-database basis. Would
+             * the author of pdf support please have a look at it?
+             */
 
             if ($GLOBALS['cfgRelation']['pdfwork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
@@ -799,11 +804,13 @@ class PMA_Table {
                 $new_fields = array('foreign_db' => $target_db, 'foreign_table' => $target_table);
                 PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
 
-                // garvin: [TODO] Can't get duplicating PDFs the right way. The page numbers always
-                // get screwed up independently from duplication because the numbers do not
-                // seem to be stored on a per-database basis. Would the author of pdf support
-                // please have a look at it?
-                /*
+                /**
+                 * @todo garvin: Can't get duplicating PDFs the right way. The
+                 * page numbers always get screwed up independently from
+                 * duplication because the numbers do not seem to be stored on a
+                 * per-database basis. Would the author of pdf support please
+                 * have a look at it?
+                 *
                 $get_fields = array('page_descr');
                 $where_fields = array('db_name' => $source_db);
                 $new_fields = array('db_name' => $target_db);
@@ -815,7 +822,7 @@ class PMA_Table {
                     $new_fields = array('db_name' => $target_db, 'table_name' => $target_table, 'pdf_page_number' => $last_id);
                     PMA_Table::duplicateInfo('pdfwork', 'table_coords', $get_fields, $where_fields, $new_fields);
                 }
-                */
+                 */
             }
         }
 
@@ -893,8 +900,9 @@ class PMA_Table {
         $this->setName($new_name);
         $this->setDbName($new_db);
 
-        // TODO move into extra function
-        // PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
+        /**
+         * @todo move into extra function PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
+         */
         // garvin: Move old entries from comments to new table
         require_once './libraries/relation.lib.php';
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();

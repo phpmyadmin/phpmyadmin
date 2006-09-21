@@ -381,10 +381,11 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@') || ($c == '.' && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)))) {
                 $count2 ++;
 
-                //TODO: a @ can also be present in expressions like
-                // FROM 'user'@'%'
-                // or  TO 'user'@'%'
-                // in this case, the @ is wrongly marked as alpha_variable
+                /**
+                 * @todo a @ can also be present in expressions like
+                 * FROM 'user'@'%' or  TO 'user'@'%'
+                 * in this case, the @ is wrongly marked as alpha_variable
+                 */
 
                 $is_sql_variable         = ($c == '@');
                 $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
@@ -523,9 +524,11 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
                         $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
-                    // TODO: for negation operator, split in 2 tokens ?
-                    // "select x&~1 from t"
-                    // becomes "select x & ~ 1 from t" ?
+                    /**
+                     * @todo for negation operator, split in 2 tokens ?
+                     * "select x&~1 from t"
+                     * becomes "select x & ~ 1 from t" ?
+                     */
 
                     } elseif ($last != '~') {
                         $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
@@ -593,17 +596,22 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     $t_suffix = '_identifier';
                 } elseif (($t_next == 'punct_bracket_open_round')
                   && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
-                    // FIXME-2005-10-16: in the case of a CREATE TABLE containing a TIMESTAMP,
-                    // since TIMESTAMP() is also a function, it's found here and
-                    // the token is wrongly marked as alpha_functionName. But we
-                    // compensate for this when analysing for timestamp_not_null
-                    // later in this script.
+                    /**
+                     * @todo 2005-10-16: in the case of a CREATE TABLE containing
+                     * a TIMESTAMP, since TIMESTAMP() is also a function, it's
+                     * found here and the token is wrongly marked as alpha_functionName.
+                     * But we compensate for this when analysing for timestamp_not_null
+                     * later in this script.
+                     */
                     $t_suffix = '_functionName';
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
                     $t_suffix = '_columnType';
 
-                    // Temporary fix for BUG #621357
-                    //TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
+                    /**
+                     * Temporary fix for BUG #621357
+                     *
+                     * @todo FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
+                     */
                     if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
                         $t_suffix = '_reservedWord';
                     }
@@ -915,10 +923,10 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 } // end if (type == punct_queryend)
             } // end if ($seek_queryend)
 
-            // TODO: when we find a UNION, should we split
-            // in another subresult?
-            // Note: do not split if this is a punct_queryend for the
-            // first and only query
+            /**
+             * Note: do not split if this is a punct_queryend for the first and only query
+             * @todo when we find a UNION, should we split in another subresult?
+             */
             if ($arr[$i]['type'] == 'punct_queryend' && ($i + 1 != $size)) {
                 $result[]  = $subresult;
                 $subresult = $subresult_empty;
@@ -980,7 +988,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
                 // upper once
                 $upper_data = strtoupper($arr[$i]['data']);
-                //TODO: reset for each query?
+                /**
+                 * @todo reset for each query?
+                 */
 
                 if ($upper_data == 'SELECT') {
                     $seen_from = FALSE;
@@ -1011,14 +1021,13 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 switch ($arr[$i]['type']) {
                     case 'alpha_identifier':
                     case 'alpha_reservedWord':
-                        // this is not a real reservedWord, because
-                        // it's not present in the list of forbidden words,
-                        // for example "storage" which can be used as
-                        // an identifier
-                        //
-                        // TODO: avoid the pretty printing in color
-                        //       in this case
-
+                        /**
+                         * this is not a real reservedWord, because it's not
+                         * present in the list of forbidden words, for example
+                         * "storage" which can be used as an identifier
+                         *
+                         * @todo avoid the pretty printing in color in this case
+                         */
                         $identifier = $arr[$i]['data'];
                         break;
 
@@ -1067,7 +1076,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 continue;
             } // end if (punct_qualifier)
 
-            // TODO: check if 3 identifiers following one another -> error
+            /**
+             * @todo check if 3 identifiers following one another -> error
+             */
 
             //    s a v e    a    s e l e c t    e x p r
             // finding a list separator or FROM
@@ -1122,7 +1133,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 } // end if ($size_chain > 2)
                 unset($chain);
 
-                // TODO: explain this:
+                /**
+                 * @todo explain this:
+                 */
                 if (($arr[$i]['type'] == 'alpha_reservedWord')
                  && ($upper_data != 'FROM')) {
                     $previous_was_identifier = TRUE;
@@ -1137,9 +1150,11 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // maybe we just saw the end of table refs
             // but the last table ref has to be saved
-            // or we are at the last token (TODO: there could be another
-            // query after this one)
+            // or we are at the last token
             // or we just got a reserved word
+            /**
+             * @todo there could be another query after this one
+             */
 
             if (isset($chain) && $seen_from && $save_table_ref
              && ($arr[$i]['type'] == 'punct_listsep'
@@ -1204,62 +1219,65 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             } // end if (set the true names)
 
 
-           // e n d i n g    l o o p  #1
-           // set the $previous_was_identifier to FALSE if the current
-           // token is not an identifier
-           if (($arr[$i]['type'] != 'alpha_identifier')
-            && ($arr[$i]['type'] != 'quote_double')
-            && ($arr[$i]['type'] != 'quote_single')
-            && ($arr[$i]['type'] != 'quote_backtick')) {
-               $previous_was_identifier = FALSE;
-           } // end if
+            // e n d i n g    l o o p  #1
+            // set the $previous_was_identifier to FALSE if the current
+            // token is not an identifier
+            if (($arr[$i]['type'] != 'alpha_identifier')
+             && ($arr[$i]['type'] != 'quote_double')
+             && ($arr[$i]['type'] != 'quote_single')
+             && ($arr[$i]['type'] != 'quote_backtick')) {
+                $previous_was_identifier = FALSE;
+            } // end if
 
-           // however, if we are on AS, we must keep the $previous_was_identifier
-           if (($arr[$i]['type'] == 'alpha_reservedWord')
-            && ($upper_data == 'AS'))  {
-               $previous_was_identifier = TRUE;
-           }
+            // however, if we are on AS, we must keep the $previous_was_identifier
+            if (($arr[$i]['type'] == 'alpha_reservedWord')
+             && ($upper_data == 'AS'))  {
+                $previous_was_identifier = TRUE;
+            }
 
-           if (($arr[$i]['type'] == 'alpha_reservedWord')
-            && ($upper_data =='ON' || $upper_data =='USING')) {
-               $save_table_ref = FALSE;
-           } // end if (data == ON)
+            if (($arr[$i]['type'] == 'alpha_reservedWord')
+             && ($upper_data =='ON' || $upper_data =='USING')) {
+                $save_table_ref = FALSE;
+            } // end if (data == ON)
 
-           if (($arr[$i]['type'] == 'alpha_reservedWord')
-            && ($upper_data =='JOIN' || $upper_data =='FROM')) {
-               $save_table_ref = TRUE;
-           } // end if (data == JOIN)
+            if (($arr[$i]['type'] == 'alpha_reservedWord')
+             && ($upper_data =='JOIN' || $upper_data =='FROM')) {
+                $save_table_ref = TRUE;
+            } // end if (data == JOIN)
 
-           // no need to check the end of table ref if we already did
-           // TODO: maybe add "&& $seen_from"
-           if (!$seen_end_of_table_ref) {
-               // if this is the last token, it implies that we have
-               // seen the end of table references
-               // Check for the end of table references
-               //
-               // Note: if we are analyzing a GROUP_CONCAT clause,
-               // we might find a word that seems to indicate that
-               // we have found the end of table refs (like ORDER)
-               // but it's a modifier of the GROUP_CONCAT so
-               // it's not the real end of table refs
-               if (($i == $size-1)
+            /**
+             * no need to check the end of table ref if we already did
+             *
+             * @todo maybe add "&& $seen_from"
+             */
+            if (!$seen_end_of_table_ref) {
+                // if this is the last token, it implies that we have
+                // seen the end of table references
+                // Check for the end of table references
+                //
+                // Note: if we are analyzing a GROUP_CONCAT clause,
+                // we might find a word that seems to indicate that
+                // we have found the end of table refs (like ORDER)
+                // but it's a modifier of the GROUP_CONCAT so
+                // it's not the real end of table refs
+                if (($i == $size-1)
                  || ($arr[$i]['type'] == 'alpha_reservedWord'
                  && !$in_group_concat
                  && PMA_STR_binarySearchInArr($upper_data, $words_ending_table_ref, $words_ending_table_ref_cnt))) {
-                   $seen_end_of_table_ref = TRUE;
-                   // to be able to save the last table ref, but do not
-                   // set it true if we found a word like "ON" that has
-                   // already set it to false
-                   if (isset($save_table_ref) && $save_table_ref != FALSE) {
-                      $save_table_ref = TRUE;
-                   } //end if
+                    $seen_end_of_table_ref = TRUE;
+                    // to be able to save the last table ref, but do not
+                    // set it true if we found a word like "ON" that has
+                    // already set it to false
+                    if (isset($save_table_ref) && $save_table_ref != FALSE) {
+                        $save_table_ref = TRUE;
+                    } //end if
 
-               } // end if (check for end of table ref)
-           } //end if (!$seen_end_of_table_ref)
+                } // end if (check for end of table ref)
+            } //end if (!$seen_end_of_table_ref)
 
-           if ($seen_end_of_table_ref) {
-               $save_table_ref = FALSE;
-           } // end if
+            if ($seen_end_of_table_ref) {
+                $save_table_ref = FALSE;
+            } // end if
 
         } // end for $i (loop #1)
 
@@ -1320,237 +1338,237 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
-           // need_confirm
-           //
-           // check for reserved words that will have to generate
-           // a confirmation request later in sql.php
-           // the cases are:
-           //   DROP TABLE
-           //   DROP DATABASE
-           //   ALTER TABLE... DROP
-           //   DELETE FROM...
-           //
-           // this code is not used for confirmations coming from functions.js
+            // need_confirm
+            //
+            // check for reserved words that will have to generate
+            // a confirmation request later in sql.php
+            // the cases are:
+            //   DROP TABLE
+            //   DROP DATABASE
+            //   ALTER TABLE... DROP
+            //   DELETE FROM...
+            //
+            // this code is not used for confirmations coming from functions.js
 
-           // TODO: check for punct_queryend
+            /**
+             * @todo check for punct_queryend
+             * @todo verify C-style comments?
+             */
+            if ($arr[$i]['type'] == 'comment_ansi') {
+                $collect_section_before_limit = FALSE;
+            }
 
+            if ($arr[$i]['type'] == 'alpha_reservedWord') {
+                $upper_data = strtoupper($arr[$i]['data']);
+                if (!$seen_reserved_word) {
+                    $first_reserved_word = $upper_data;
+                    $subresult['querytype'] = $upper_data;
+                    $seen_reserved_word = TRUE;
 
-           // TODO: verify C-style comments?
-           if ($arr[$i]['type'] == 'comment_ansi') {
-               $collect_section_before_limit = FALSE;
-           }
+                    // if the first reserved word is DROP or DELETE,
+                    // we know this is a query that needs to be confirmed
+                    if ($first_reserved_word=='DROP'
+                     || $first_reserved_word == 'DELETE'
+                     || $first_reserved_word == 'TRUNCATE') {
+                        $subresult['queryflags']['need_confirm'] = 1;
+                    }
 
-           if ($arr[$i]['type'] == 'alpha_reservedWord') {
-               $upper_data = strtoupper($arr[$i]['data']);
-               if (!$seen_reserved_word) {
-                   $first_reserved_word = $upper_data;
-                   $subresult['querytype'] = $upper_data;
-                   $seen_reserved_word = TRUE;
+                    if ($first_reserved_word=='SELECT'){
+                        $position_of_first_select = $i;
+                    }
 
-                   // if the first reserved word is DROP or DELETE,
-                   // we know this is a query that needs to be confirmed
-                   if ($first_reserved_word=='DROP'
-                       || $first_reserved_word == 'DELETE'
-                       || $first_reserved_word == 'TRUNCATE') {
-                      $subresult['queryflags']['need_confirm'] = 1;
-                   }
+                } else {
+                    if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
+                        $subresult['queryflags']['need_confirm'] = 1;
+                    }
+                }
 
-                   if ($first_reserved_word=='SELECT'){
-                       $position_of_first_select = $i;
-                   }
+                if ($upper_data == 'PROCEDURE') {
+                    $collect_section_before_limit = FALSE;
+                }
+                /**
+                 * @todo set also to FALSE if we find FOR UPDATE or LOCK IN SHARE MODE
+                 */
+                if ($upper_data == 'SELECT') {
+                    $in_select_expr = TRUE;
+                    $select_expr_clause = '';
+                }
+                if ($upper_data == 'DISTINCT' && !$in_group_concat) {
+                    $subresult['queryflags']['distinct'] = 1;
+                }
 
-               } else {
-                   if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
-                      $subresult['queryflags']['need_confirm'] = 1;
-                   }
-               }
+                if ($upper_data == 'UNION') {
+                    $subresult['queryflags']['union'] = 1;
+                }
 
-               if ($upper_data == 'PROCEDURE') {
-                   $collect_section_before_limit = FALSE;
-               }
-               // TODO: set also to FALSE if we find
-               //      FOR UPDATE
-               //      LOCK IN SHARE MODE
+                if ($upper_data == 'JOIN') {
+                    $subresult['queryflags']['join'] = 1;
+                }
 
-               if ($upper_data == 'SELECT') {
-                   $in_select_expr = TRUE;
-                   $select_expr_clause = '';
-               }
-               if ($upper_data == 'DISTINCT' && !$in_group_concat) {
-                      $subresult['queryflags']['distinct'] = 1;
-               }
+                if ($upper_data == 'OFFSET') {
+                    $subresult['queryflags']['offset'] = 1;
+                }
 
-               if ($upper_data == 'UNION') {
-                      $subresult['queryflags']['union'] = 1;
-               }
-
-               if ($upper_data == 'JOIN') {
-                      $subresult['queryflags']['join'] = 1;
-               }
-
-               if ($upper_data == 'OFFSET') {
-                      $subresult['queryflags']['offset'] = 1;
-               }
-
-               // if this is a real SELECT...FROM
-               if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
-                   $in_from = TRUE;
-                   $from_clause = '';
-                   $in_select_expr = FALSE;
-               }
-
-
-               // (we could have less resetting of variables to FALSE
-               // if we trust that the query respects the standard
-               // MySQL order for clauses)
-
-               // we use $seen_group and $seen_order because we are looking
-               // for the BY
-               if ($upper_data == 'GROUP') {
-                   $seen_group = TRUE;
-                   $seen_order = FALSE;
-                   $in_having = FALSE;
-                   $in_order_by = FALSE;
-                   $in_where = FALSE;
-                   $in_select_expr = FALSE;
-                   $in_from = FALSE;
-               }
-               if ($upper_data == 'ORDER' && !$in_group_concat) {
-                   $seen_order = TRUE;
-                   $seen_group = FALSE;
-                   $in_having = FALSE;
-                   $in_group_by = FALSE;
-                   $in_where = FALSE;
-                   $in_select_expr = FALSE;
-                   $in_from = FALSE;
-               }
-               if ($upper_data == 'HAVING') {
-                   $in_having = TRUE;
-                   $having_clause = '';
-                   $seen_group = FALSE;
-                   $seen_order = FALSE;
-                   $in_group_by = FALSE;
-                   $in_order_by = FALSE;
-                   $in_where = FALSE;
-                   $in_select_expr = FALSE;
-                   $in_from = FALSE;
-               }
-
-               if ($upper_data == 'WHERE') {
-                   $in_where = TRUE;
-                   $where_clause = '';
-                   $where_clause_identifiers = array();
-                   $seen_group = FALSE;
-                   $seen_order = FALSE;
-                   $in_group_by = FALSE;
-                   $in_order_by = FALSE;
-                   $in_having = FALSE;
-                   $in_select_expr = FALSE;
-                   $in_from = FALSE;
-               }
-
-               if ($upper_data == 'BY') {
-                   if ($seen_group) {
-                       $in_group_by = TRUE;
-                       $group_by_clause = '';
-                   }
-                   if ($seen_order) {
-                       $in_order_by = TRUE;
-                       $order_by_clause = '';
-                   }
-               }
-
-               // if we find one of the words that could end the clause
-               if (PMA_STR_binarySearchInArr($upper_data, $words_ending_clauses, $words_ending_clauses_cnt)) {
-
-                   $in_group_by = FALSE;
-                   $in_order_by = FALSE;
-                   $in_having   = FALSE;
-                   $in_where    = FALSE;
-                   $in_select_expr = FALSE;
-                   $in_from = FALSE;
-               }
-
-           } // endif (reservedWord)
+                // if this is a real SELECT...FROM
+                if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
+                    $in_from = TRUE;
+                    $from_clause = '';
+                    $in_select_expr = FALSE;
+                }
 
 
-           // do not add a blank after a function name
-           // TODO: can we combine loop 2 and loop 1?
-           // some code is repeated here...
+                // (we could have less resetting of variables to FALSE
+                // if we trust that the query respects the standard
+                // MySQL order for clauses)
 
-           $sep=' ';
-           if ($arr[$i]['type'] == 'alpha_functionName') {
-               $sep='';
-               $upper_data = strtoupper($arr[$i]['data']);
-               if ($upper_data =='GROUP_CONCAT') {
-                   $in_group_concat = TRUE;
-                   $number_of_brackets_in_group_concat = 0;
-               }
-           }
+                // we use $seen_group and $seen_order because we are looking
+                // for the BY
+                if ($upper_data == 'GROUP') {
+                    $seen_group = TRUE;
+                    $seen_order = FALSE;
+                    $in_having = FALSE;
+                    $in_order_by = FALSE;
+                    $in_where = FALSE;
+                    $in_select_expr = FALSE;
+                    $in_from = FALSE;
+                }
+                if ($upper_data == 'ORDER' && !$in_group_concat) {
+                    $seen_order = TRUE;
+                    $seen_group = FALSE;
+                    $in_having = FALSE;
+                    $in_group_by = FALSE;
+                    $in_where = FALSE;
+                    $in_select_expr = FALSE;
+                    $in_from = FALSE;
+                }
+                if ($upper_data == 'HAVING') {
+                    $in_having = TRUE;
+                    $having_clause = '';
+                    $seen_group = FALSE;
+                    $seen_order = FALSE;
+                    $in_group_by = FALSE;
+                    $in_order_by = FALSE;
+                    $in_where = FALSE;
+                    $in_select_expr = FALSE;
+                    $in_from = FALSE;
+                }
 
-           if ($arr[$i]['type'] == 'punct_bracket_open_round') {
-               if ($in_group_concat) {
-                  $number_of_brackets_in_group_concat++;
-               }
-           }
-           if ($arr[$i]['type'] == 'punct_bracket_close_round') {
-               if ($in_group_concat) {
-                  $number_of_brackets_in_group_concat--;
-                  if ($number_of_brackets_in_group_concat == 0) {
-                     $in_group_concat = FALSE;
-                  }
-               }
-           }
+                if ($upper_data == 'WHERE') {
+                    $in_where = TRUE;
+                    $where_clause = '';
+                    $where_clause_identifiers = array();
+                    $seen_group = FALSE;
+                    $seen_order = FALSE;
+                    $in_group_by = FALSE;
+                    $in_order_by = FALSE;
+                    $in_having = FALSE;
+                    $in_select_expr = FALSE;
+                    $in_from = FALSE;
+                }
 
-           if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
-               $select_expr_clause .= $arr[$i]['data'] . $sep;
-           }
-           if ($in_from && $upper_data != 'FROM') {
-               $from_clause .= $arr[$i]['data'] . $sep;
-           }
-           if ($in_group_by && $upper_data != 'GROUP' && $upper_data != 'BY') {
-               $group_by_clause .= $arr[$i]['data'] . $sep;
-           }
-           if ($in_order_by && $upper_data != 'ORDER' && $upper_data != 'BY') {
-               // add a space only before ASC or DESC
-               // not around the dot between dbname and tablename
-               if ($arr[$i]['type'] == 'alpha_reservedWord') {
-                  $order_by_clause .= $sep;
-               }
-               $order_by_clause .= $arr[$i]['data'];
-           }
-           if ($in_having && $upper_data != 'HAVING') {
-               $having_clause .= $arr[$i]['data'] . $sep;
-           }
-           if ($in_where && $upper_data != 'WHERE') {
-               $where_clause .= $arr[$i]['data'] . $sep;
+                if ($upper_data == 'BY') {
+                    if ($seen_group) {
+                        $in_group_by = TRUE;
+                        $group_by_clause = '';
+                    }
+                    if ($seen_order) {
+                        $in_order_by = TRUE;
+                        $order_by_clause = '';
+                    }
+                }
 
-               if (($arr[$i]['type'] == 'quote_backtick')
-                || ($arr[$i]['type'] == 'alpha_identifier')) {
-                   $where_clause_identifiers[] = $arr[$i]['data'];
-               }
-           }
+                // if we find one of the words that could end the clause
+                if (PMA_STR_binarySearchInArr($upper_data, $words_ending_clauses, $words_ending_clauses_cnt)) {
 
-           if (isset($subresult['queryflags']['select_from'])
+                    $in_group_by = FALSE;
+                    $in_order_by = FALSE;
+                    $in_having   = FALSE;
+                    $in_where    = FALSE;
+                    $in_select_expr = FALSE;
+                    $in_from = FALSE;
+                }
+
+            } // endif (reservedWord)
+
+
+            // do not add a blank after a function name
+            /**
+             * @todo can we combine loop 2 and loop 1? some code is repeated here...
+             */
+
+            $sep = ' ';
+            if ($arr[$i]['type'] == 'alpha_functionName') {
+                $sep='';
+                $upper_data = strtoupper($arr[$i]['data']);
+                if ($upper_data =='GROUP_CONCAT') {
+                    $in_group_concat = TRUE;
+                    $number_of_brackets_in_group_concat = 0;
+                }
+            }
+
+            if ($arr[$i]['type'] == 'punct_bracket_open_round') {
+                if ($in_group_concat) {
+                    $number_of_brackets_in_group_concat++;
+                }
+            }
+            if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+                if ($in_group_concat) {
+                    $number_of_brackets_in_group_concat--;
+                    if ($number_of_brackets_in_group_concat == 0) {
+                        $in_group_concat = FALSE;
+                    }
+                }
+            }
+
+            if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
+                $select_expr_clause .= $arr[$i]['data'] . $sep;
+            }
+            if ($in_from && $upper_data != 'FROM') {
+                $from_clause .= $arr[$i]['data'] . $sep;
+            }
+            if ($in_group_by && $upper_data != 'GROUP' && $upper_data != 'BY') {
+                $group_by_clause .= $arr[$i]['data'] . $sep;
+            }
+            if ($in_order_by && $upper_data != 'ORDER' && $upper_data != 'BY') {
+                // add a space only before ASC or DESC
+                // not around the dot between dbname and tablename
+                if ($arr[$i]['type'] == 'alpha_reservedWord') {
+                    $order_by_clause .= $sep;
+                }
+                $order_by_clause .= $arr[$i]['data'];
+            }
+            if ($in_having && $upper_data != 'HAVING') {
+                $having_clause .= $arr[$i]['data'] . $sep;
+            }
+            if ($in_where && $upper_data != 'WHERE') {
+                $where_clause .= $arr[$i]['data'] . $sep;
+
+                if (($arr[$i]['type'] == 'quote_backtick')
+                 || ($arr[$i]['type'] == 'alpha_identifier')) {
+                    $where_clause_identifiers[] = $arr[$i]['data'];
+                }
+            }
+
+            if (isset($subresult['queryflags']['select_from'])
              && $subresult['queryflags']['select_from'] == 1
              && !$seen_order) {
-               $unsorted_query .= $arr[$i]['data'];
+                $unsorted_query .= $arr[$i]['data'];
 
-               if ($arr[$i]['type'] != 'punct_bracket_open_round'
-               && $arr[$i]['type'] != 'punct_bracket_close_round'
-               && $arr[$i]['type'] != 'punct') {
-                   $unsorted_query .= $sep;
-               }
-           }
+                if ($arr[$i]['type'] != 'punct_bracket_open_round'
+                 && $arr[$i]['type'] != 'punct_bracket_close_round'
+                 && $arr[$i]['type'] != 'punct') {
+                    $unsorted_query .= $sep;
+                }
+            }
 
-           // clear $upper_data for next iteration
-           $upper_data='';
+            // clear $upper_data for next iteration
+            $upper_data='';
 
-           if ($collect_section_before_limit  && $arr[$i]['type'] != 'punct_queryend') {
-               $section_before_limit .= $arr[$i]['data'] . $sep;
-           } else {
-               $section_after_limit .= $arr[$i]['data'] . $sep;
-           }
+            if ($collect_section_before_limit  && $arr[$i]['type'] != 'punct_queryend') {
+                $section_before_limit .= $arr[$i]['data'] . $sep;
+            } else {
+                $section_after_limit .= $arr[$i]['data'] . $sep;
+            }
 
 
         } // end for $i (loop #2)
@@ -1712,8 +1730,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 }
             }
 
-            // note: the "or" part here is a workaround for a bug
-            // (see FIXME-2005-10-16)
+            /**
+             * @see @todo 2005-10-16 note: the "or" part here is a workaround for a bug
+             */
             if (($arr[$i]['type'] == 'alpha_columnType') || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)) {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
@@ -1835,6 +1854,8 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Colorizes SQL queries html formatted
      *
+     * @todo check why adding a "\n" after the </span> would cause extra blanks
+     * to be displayed: SELECT p . person_name
      * @param  array   The SQL queries html formatted
      *
      * @return array   The colorized SQL queries
@@ -1850,10 +1871,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
 
         $class     .= 'syntax_' . $arr['type'];
-
-        //TODO: check why adding a "\n" after the </span> would cause extra
-        //      blanks to be displayed:
-        //      SELECT p . person_name
 
         return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>';
     } // end of the "PMA_SQP_formatHtml_colorize()" function
@@ -2137,8 +2154,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                             // the quote_single exception is there to
                             // catch cases like
                             // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
-                            //
-                            // TODO: fix all cases and find why this happens
+                            /**
+                             * @todo fix all cases and find why this happens
+                             */
 
                             if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
                                 $before    .= $space_alpha_reserved_word;
@@ -2201,7 +2219,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 case 'digit_integer':
                 case 'digit_float':
                 case 'digit_hex':
-                    //TODO: could there be other types preceding a digit?
+                    /**
+                     * @todo could there be other types preceding a digit?
+                     */
                     if ($typearr[1] == 'alpha_reservedWord') {
                         $after .= ' ';
                     }
@@ -2335,6 +2355,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Gets SQL queries in text format
      *
+     * @todo WRITE THIS!
      * @param  array   The SQL queries list
      *
      * @return string  The SQL queries in text format
@@ -2343,9 +2364,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
      */
     function PMA_SQP_formatText($arr)
     {
-        /**
-         * TODO WRITE THIS!
-         */
          return PMA_SQP_formatNone($arr);
     } // end of the "PMA_SQP_formatText()" function
 } // end if: minimal common.lib needed?

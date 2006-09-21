@@ -252,10 +252,13 @@ function PMA_importGetNextChunk($size = 32768)
     if ($charset_conversion) {
         return PMA_convert_string($charset_of_file, $charset, $result);
     } else {
-        // Skip possible byte order marks (I do not think we need more
-        // charsets, but feel free to add more, you can use wikipedia for
-        // reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
-        // @TODO: BOM could be used for charset autodetection
+        /**
+         * Skip possible byte order marks (I do not think we need more
+         * charsets, but feel free to add more, you can use wikipedia for
+         * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
+         *
+         * @todo BOM could be used for charset autodetection
+         */
         if ($offset == $size) {
             // UTF-8
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {

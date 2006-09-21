@@ -800,9 +800,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             // get the duplicate entry
 
             // get table name
-            // TODO: what would be the best delimiter, while avoiding
-            // special characters that can become high-ascii after editing,
-            // depending upon which editor is used by the developer?
+            /**
+             * @todo what would be the best delimiter, while avoiding special
+             * characters that can become high-ascii after editing, depending
+             * upon which editor is used by the developer?
+             */
             $error_table = array();
             if (preg_match('@ALTER\s*TABLE\s*\`([^\`]+)\`@iu', $the_query, $error_table)) {
                 $error_table = $error_table[1];
@@ -1121,7 +1123,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         if (is_string($a_string)) {
             $a_string = htmlspecialchars($a_string);
             $a_string = PMA_escapeJsString($a_string);
-            // TODO: what is this good for?
+            /**
+             * @todo what is this good for?
+             */
             $a_string = str_replace('#', '\\#', $a_string);
         }
 
@@ -1325,8 +1329,10 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
             // Only append it on SELECTs.
 
-            // FIXME: what would be the best to do when someone
-            // hits Refresh: use the current LIMITs ?
+            /**
+             * @todo what would be the best to do when someone hits Refresh:
+             * use the current LIMITs ?
+             */
 
             if (isset($analyzed_display_query[0]['queryflags']['select_from'])
              && isset($GLOBALS['sql_limit_to_append'])) {
@@ -2308,7 +2314,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     } // end function
 
     /**
-     * @TODO    add documentation
+     * @todo add documentation
      */
     function PMA_userDir($dir)
     {
@@ -2521,17 +2527,20 @@ if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 
 /**
- * @global array $GLOBALS['PMA_errors']  holds errors
+ * holds errors
+ * @global array $GLOBALS['PMA_errors']
  */
 $GLOBALS['PMA_errors'] = array();
 
 /**
- * @global array   $GLOBALS['url_params']  holds params to be passed to next page
+ * holds params to be passed to next page
+ * @global array $GLOBALS['url_params']
  */
 $GLOBALS['url_params'] = array();
 
 /**
- * @global array $goto_whitelist the whitelist for $GLOBALS['goto']
+ * the whitelist for $GLOBALS['goto']
+ * @global array $goto_whitelist
  */
 $goto_whitelist = array(
     //'browse_foreigners.php',
@@ -2605,7 +2614,8 @@ if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
 }
 
 /**
- * @global string  $GLOBALS['goto']   holds page that should be displayed
+ * holds page that should be displayed
+ * @global string $GLOBALS['goto']
  */
 // Security fix: disallow accessing serious server files via "?goto="
 if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
@@ -2617,7 +2627,8 @@ if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
 }
 
 /**
- * @global string $GLOBALS['back'] returning page
+ * returning page
+ * @global string $GLOBALS['back']
  */
 if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
     $GLOBALS['back'] = $_REQUEST['back'];
@@ -2633,7 +2644,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * could acces this variables before we reach this point
  * f.e. PMA_Config: fontsize
  *
- * @todo: variables should be handled by their respective owners (objects)
+ * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
 if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
@@ -2662,14 +2673,15 @@ if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token'])
 
 /**
  * @global string $convcharset
- * @see also select_lang.lib.php
+ * @see select_lang.lib.php
  */
 if (isset($_REQUEST['convcharset'])) {
     $convcharset = strip_tags($_REQUEST['convcharset']);
 }
 
 /**
- * @global string $GLOBALS['db'] current selected database
+ * current selected database
+ * @global string $GLOBALS['db']
  */
 if (isset($_REQUEST['db'])) {
     // can we strip tags from this?
@@ -2681,7 +2693,8 @@ if (isset($_REQUEST['db'])) {
 }
 
 /**
- * @global string $GLOBALS['table'] current selected table
+ * current selected table
+ * @global string $GLOBALS['table']
  */
 if (isset($_REQUEST['table'])) {
     // can we strip tags from this?
@@ -2693,7 +2706,8 @@ if (isset($_REQUEST['table'])) {
 }
 
 /**
- * @global string $GLOBALS['sql_query'] sql query to be executed
+ * sql query to be executed
+ * @global string $GLOBALS['sql_query']
  */
 if (isset($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
@@ -2730,7 +2744,7 @@ if (empty($_SESSION['PMA_Config'])) {
 
 } elseif (version_compare(phpversion(), '5', 'lt')) {
     /**
-     * @todo: move all __wakeup() functionality into session.inc.php
+     * @todo move all __wakeup() functionality into session.inc.php
      */
     $_SESSION['PMA_Config']->__wakeup();
 }
@@ -2850,7 +2864,7 @@ if (! isset($_SESSION['PMA_Theme_Manager'])) {
     $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
 } else {
     /**
-     * @todo: move all __wakeup() functionality into session.inc.php
+     * @todo move all __wakeup() functionality into session.inc.php
      */
     $_SESSION['PMA_Theme_Manager']->checkConfig();
 }
@@ -2866,7 +2880,7 @@ if (isset($_REQUEST['server']) && !isset($_REQUEST['set_theme'])) {
     unset($tmp);
 }
 /**
- * @todo: move into PMA_Theme_Manager::__wakeup()
+ * @todo move into PMA_Theme_Manager::__wakeup()
  */
 if (isset($_REQUEST['set_theme'])) {
     // if user selected a theme
@@ -2885,7 +2899,9 @@ $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
  */
 if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
     include $_SESSION['PMA_Theme']->getLayoutFile();
-    // @todo remove if all themes are update use Navi instead of Left as frame name
+    /**
+     * @todo remove if all themes are update use Navi instead of Left as frame name
+     */
     if (! isset($GLOBALS['cfg']['NaviWidth'])
      && isset($GLOBALS['cfg']['LeftWidth'])) {
         $GLOBALS['cfg']['NaviWidth'] = $GLOBALS['cfg']['LeftWidth'];
@@ -3080,7 +3096,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
-     * @todo: should be done in PMA_Config
+     * @todo should be done in PMA_Config
      */
     PMA_setCookie('pma_lang', $GLOBALS['lang']);
     PMA_setCookie('pma_charset', $GLOBALS['convcharset']);

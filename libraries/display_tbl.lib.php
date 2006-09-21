@@ -104,7 +104,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         }
         // 2.2 Statement is a "SHOW..."
         elseif ($GLOBALS['is_show']) {
-            // 2.2.1 TODO : defines edit/delete links depending on show statement
+            /**
+             * 2.2.1
+             * @todo defines edit/delete links depending on show statement
+             */
             $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS)@i', $GLOBALS['sql_query'], $which);
             if (isset($which[1]) && strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                 $do_display['edit_lnk'] = 'nn'; // no edit link
@@ -138,8 +141,9 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                     && ($fields_meta[$i]->table == '' || $fields_meta[$i]->table != $prev_table)) {
                     $do_display['edit_lnk'] = 'nn'; // don't display links
                     $do_display['del_lnk']  = 'nn';
-                    // TODO: May be problematic with same fields names in
-                    //       two joined table.
+                    /**
+                     * @todo May be problematic with same fields names in two joined table.
+                     */
                     // $do_display['sort_lnk'] = (string) '0';
                     $do_display['ins_row']  = (string) '0';
                     if ($do_display['text_btn'] == '1') {
@@ -219,8 +223,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     global $is_innodb;
     global $showtable;
 
-    // FIXME: move this to a central place
-    // FIXME: for other future table types
+    /**
+     * @todo move this to a central place
+     * @todo for other future table types
+     */
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
 
     ?>
@@ -479,7 +485,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         $sort_expression = trim(str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause']));
 
-        // Get rid of ASC|DESC (TODO: analyzer)
+        /**
+         * Get rid of ASC|DESC
+         * @todo analyzer
+         */
         preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
         $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 

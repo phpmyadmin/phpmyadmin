@@ -165,7 +165,9 @@ if ($abort == FALSE) {
         $selected_cnt = count($selected);
     }
 
-    // TODO: optimize in case of multiple fields to modify
+    /**
+     * @todo optimize in case of multiple fields to modify
+     */
     for ($i = 0; $i < $selected_cnt; $i++) {
         if (!empty($submit_mult)) {
             $field = PMA_sqlAddslashes(urldecode($selected[$i]), TRUE);
@@ -184,11 +186,13 @@ if ($abort == FALSE) {
     // but later, if the analyser returns more information, it
     // could be executed for any MySQL version and replace
     // the info given by SHOW FULL FIELDS FROM.
-    // TODO: put this code into a require()
-    // or maybe make it part of PMA_DBI_get_fields();
+    /**
+     * @todo put this code into a require()
+     * or maybe make it part of PMA_DBI_get_fields();
+     */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested 
+    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
     $show_create_table = PMA_DBI_fetch_value(

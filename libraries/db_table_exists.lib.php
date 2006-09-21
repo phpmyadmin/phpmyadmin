@@ -47,7 +47,9 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
                 // (as it can happen just in case temporary table, it should be
                 // fast):
 
-                // @todo should this check really only happen if IS_TRANSFORMATION_WRAPPER?
+                /**
+                 * @todo should this check really only happen if IS_TRANSFORMATION_WRAPPER?
+                 */
                 $_result = PMA_DBI_try_query(
                     'SELECT COUNT(*) FROM `' . PMA_sqlAddslashes($table, true) . '`;',
                     null, PMA_DBI_QUERY_STORE);

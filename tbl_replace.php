@@ -276,8 +276,9 @@ if ($total_affected_rows != 0) {
 $message .= $last_message;
 
 if (!empty($warning_message)) {
-    // TODO: use a <div class="warning"> in PMA_showMessage()
-    // for this part of the message
+    /**
+     * @todo use a <div class="warning"> in PMA_showMessage() for this part of the message
+     */
     $message .= '[br]' . $warning_message;
 }
 

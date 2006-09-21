@@ -7,7 +7,7 @@ require_once './libraries/Table.class.php';
 /**
  * extracts table properties from create statement
  *
- * @TODO this should be recoded as functions,
+ * @todo this should be recoded as functions,
  * to avoid messing with global variables
  */
 

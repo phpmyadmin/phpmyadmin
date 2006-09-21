@@ -191,7 +191,11 @@ if ($server > 0) {
     PMA_printListItem($strImport, 'li_import',
         './server_import.php?' . $common_url_query);
 
-    // Change password (TODO ? needs another message)
+    /**
+     * Change password
+     *
+     * @todo ? needs another message
+     */
     if ($cfg['ShowChgPassword']) {
         PMA_printListItem($strChangePassword, 'li_change_password',
             './user_password.php?' . $common_url_query);
