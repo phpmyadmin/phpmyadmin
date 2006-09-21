@@ -12,12 +12,13 @@ require_once './libraries/PMA_List.class.php';
 /**
  * handles database lists
  *
- * @todo this object should be attached to the PMA_Server object
- * @todo ? make use of INFORMATION_SCHEMA
- * @todo ? support --skip-showdatabases and user has only global rights
  * <code>
  * $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
  * </code>
+ *
+ * @todo this object should be attached to the PMA_Server object
+ * @todo ? make use of INFORMATION_SCHEMA
+ * @todo ? support --skip-showdatabases and user has only global rights
  * @access public
  * @since phpMyAdmin 2.9.10
  */
