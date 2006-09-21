@@ -108,10 +108,8 @@ require_once './libraries/header_http.inc.php';
     function PMA_setFrameSize()
     {
         pma_navi_width = PMA_getCookie('pma_navi_width');
-        alert(typeof(pma_navi_width) + ' : ' + pma_navi_width);
         if (pma_navi_width != null) {
             parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
-            alert('framesize set');
         }
     }
 
