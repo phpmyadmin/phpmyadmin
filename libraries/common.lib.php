@@ -2617,13 +2617,13 @@ if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
  * holds page that should be displayed
  * @global string $GLOBALS['goto']
  */
+$GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
 if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
     unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto'], $_COOKIE['goto']);
-    $GLOBALS['goto'] = '';
 }
 
 /**
@@ -2683,26 +2683,24 @@ if (isset($_REQUEST['convcharset'])) {
  * current selected database
  * @global string $GLOBALS['db']
  */
+$GLOBALS['db'] = '';
 if (isset($_REQUEST['db'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in db names for MySQL
     $GLOBALS['db'] = $_REQUEST['db'];
     $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-} else {
-    $GLOBALS['db'] = '';
 }
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
+$GLOBALS['table'] = '';
 if (isset($_REQUEST['table'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in table names for MySQL
     $GLOBALS['table'] = $_REQUEST['table'];
     $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-} else {
-    $GLOBALS['table'] = '';
 }
 
 /**
@@ -2740,6 +2738,9 @@ if (empty($_SESSION['PMA_Config'])) {
         exit();
     }
 
+    /**
+     * @global PMA_Config $_SESSION['PMA_Config']
+     */
     $_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
 
 } elseif (version_compare(phpversion(), '5', 'lt')) {
@@ -2812,6 +2813,12 @@ if ($_SESSION['PMA_Config']->error_pma_uri) {
 }
 
 /**
+ * current server
+ * @global integer $GLOBALS['server']
+ */
+$GLOBALS['server'] = 0;
+
+/**
  * Servers array fixups.
  * $default_server comes from PMA_Config::enableBc()
  * @todo merge into PMA_Config
@@ -2860,6 +2867,9 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
+/**
+ * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
+ */
 if (! isset($_SESSION['PMA_Theme_Manager'])) {
     $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
 } else {
@@ -2887,11 +2897,27 @@ if (isset($_REQUEST['set_theme'])) {
     $_SESSION['PMA_Theme_Manager']->setActiveTheme($_REQUEST['set_theme']);
 }
 
+/**
+ * the theme object
+ * @global PMA_Theme $_SESSION['PMA_Theme']
+ */
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
 
 // BC
+/**
+ * the active theme
+ * @global string $GLOBALS['theme']
+ */
 $GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
+/**
+ * the theme path
+ * @global string $GLOBALS['pmaThemePath']
+ */
 $GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
+/**
+ * the theme image path
+ * @global string $GLOBALS['pmaThemeImage']
+ */
 $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
 
 /**
