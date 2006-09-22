@@ -8,6 +8,7 @@ $Source$
 2006-09-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/ob.lib.php: refactored
     * left.php: cleanup
+    * js/navigation.js: *new* JavaScript from left.php
 
 2006-09-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/PMA_List.class.php: new PMA_List class
