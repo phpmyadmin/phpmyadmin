@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/ob.lib.php: refactored
+
 2006-09-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/PMA_List.class.php: new PMA_List class
     * libraries/PMA_List_Database.class.php, left.php, libraries\common.lib.php:

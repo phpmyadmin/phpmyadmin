@@ -18,38 +18,41 @@
  * because both header and footer functions must know what each other is
  * doing.
  *
+ * @uses    $GLOBALS['cfg']['OBGzip']
+ * @uses    function_exists()
+ * @uses    ini_get()
+ * @uses    ob_get_level()
+ * @uses    header()
+ * @staticvar integer remember last calculated value
  * @return  integer  the output buffer mode
  */
 function PMA_outBufferModeGet()
 {
-    if (@function_exists('ob_start')) {
-        $mode = 1;
-    } else {
-        $mode = 0;
+    static $mode = null;
+
+    if (null !== $mode) {
+        return $mode;
     }
 
-    // If a user sets the output_handler in php.ini to ob_gzhandler, then
-    // any right frame file in phpMyAdmin will not be handled properly by
-    // the browser. My fix was to check the ini file within the
-    // PMA_outBufferModeGet() function.
-    //
-    // (Patch by Garth Gillespie, modified by Marc Delisle)
-    if (@ini_get('output_handler') == 'ob_gzhandler') {
-        $mode = 0;
-    }
-    if (@get_cfg_var('output_handler') == 'ob_gzhandler') {
-        $mode = 0;
-    }
-    // End patch
+    $mode = 0;
 
-    // If output buffering is enabled in php.ini it's not possible to
-    // add the ob_gzhandler without a warning message from php 4.3.0.
-    // Being better safe than sorry, check for any existing output handler
-    // instead of just checking the 'output_buffering' setting.
-    //
-    if (@function_exists('ob_get_level')) {
-        if (ob_get_level() > 0) {
+    if ($GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {
+        if (ini_get('output_handler') == 'ob_gzhandler') {
+            // If a user sets the output_handler in php.ini to ob_gzhandler, then
+            // any right frame file in phpMyAdmin will not be handled properly by
+            // the browser. My fix was to check the ini file within the
+            // PMA_outBufferModeGet() function.
+            //
+            // (Patch by Garth Gillespie, modified by Marc Delisle)
             $mode = 0;
+        } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
+            // If output buffering is enabled in php.ini it's not possible to
+            // add the ob_gzhandler without a warning message from php 4.3.0.
+            // Being better safe than sorry, check for any existing output handler
+            // instead of just checking the 'output_buffering' setting.
+            $mode = 0;
+        } else {
+            $mode = 1;
         }
     }
 
@@ -69,26 +72,23 @@ function PMA_outBufferModeGet()
  * output buffering is turned on.  It also needs to be passed $mode from
  * the PMA_outBufferModeGet() function or it will be useless.
  *
- * @param   integer  the output buffer mode
- *
+ * @uses    PMA_outBufferModeGet()
+ * @uses    ob_start()
+ * @param   integer  $mode  DEPRECATED
  * @return  boolean  whether output buffering is enabled or not
  */
-function PMA_outBufferPre($mode)
+function PMA_outBufferPre($mode = null)
 {
-    switch($mode)
+    switch(PMA_outBufferModeGet())
     {
         case 1:
             ob_start('ob_gzhandler');
-            $retval = TRUE;
+            $retval = true;
             break;
 
         case 0:
-            $retval = FALSE;
-            break;
-
-        // loic1: php3 fix
         default:
-            $retval = FALSE;
+            $retval = false;
             break;
     } // end switch
 
@@ -101,26 +101,26 @@ function PMA_outBufferPre($mode)
  * buffering is turned on.  It also needs to be passed $mode from the
  * PMA_outBufferModeGet() function or it will be useless.
  *
- * @param   integer  the output buffer mode
- *
+ * @uses    PMA_outBufferModeGet()
+ * @uses    ob_flush()
+ * @uses    flush()
+ * @param   integer  $mode  DEPRECATED
  * @return  boolean  whether data has been send from the buffer or not
  */
-function PMA_outBufferPost($mode)
+function PMA_outBufferPost($mode = null)
 {
-    switch($mode)
+    switch(PMA_outBufferModeGet())
     {
         case 1:
             # This output buffer doesn't need a footer.
-            $retval = TRUE;
+            ob_flush();
+            $retval = true;
             break;
 
         case 0:
-            $retval = FALSE;
-            break;
-
-        // loic1: php3 fix
         default:
-            $retval = FALSE;
+            flush();
+            $retval = false;
             break;
     } // end switch
 
