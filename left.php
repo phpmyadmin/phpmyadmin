@@ -3,6 +3,43 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
  * the navigation frame - displays server, db and table selection tree
+ *
+ * @uses $GLOBALS['PMA_List_Database']
+ * @uses $GLOBALS['server']
+ * @uses $GLOBALS['db']
+ * @uses $GLOBALS['table']
+ * @uses $GLOBALS['available_languages']
+ * @uses $GLOBALS['lang']
+ * @uses $GLOBALS['text_dir']
+ * @uses $GLOBALS['charset']
+ * @uses $GLOBALS['pmaThemeImage']
+ * @uses $GLOBALS['strNoDatabases']
+ * @uses $GLOBALS['strDatabase']
+ * @uses $GLOBALS['strGo']
+ * @uses $GLOBALS['strSelectADb']
+ * @uses $GLOBALS['strNoTablesFound']
+ * @uses $GLOBALS['cfg']['LeftFrameLight']
+ * @uses $GLOBALS['cfg']['ShowTooltip']
+ * @uses $GLOBALS['cfg']['ShowTooltipAliasDB']
+ * @uses $GLOBALS['cfg']['DefaultTabDatabase']
+ * @uses $GLOBALS['cfgRelation']['commwork']) {
+ * @uses PMA_List_Database::getSingleItem()
+ * @uses PMA_List_Database::count()
+ * @uses PMA_List_Database::getHtmlSelectGrouped()
+ * @uses PMA_List_Database::getGroupedDetails()
+ * @uses PMA_generate_common_url()
+ * @uses PMA_generate_common_hidden_inputs()
+ * @uses PMA_getComments();
+ * @uses PMA_getTableCount()
+ * @uses PMA_getTableList()
+ * @uses PMA_getRelationsParam()
+ * @uses PMA_outBufferPre()
+ * @uses session_write_close()
+ * @uses strlen()
+ * @uses session_write_close()
+ * @uses is_array()
+ * @uses implode()
+ * @uses htmlspecialchars()
  */
 
 /**
@@ -10,44 +47,69 @@
  */
 require_once './libraries/common.lib.php';
 
+/**
+ * finish and cleanup left.php script execution
+ *
+ * @uses $GLOBALS['controllink'] to close it
+ * @uses $GLOBALS['userlink'] to close it
+ * @uses PMA_outBufferPost()
+ * @uses PMA_DBI_close()
+ * @access private only to be used in left.php
+ */
+function PMA_exitLeftFrame()
+{
+    echo '</body></html>';
+
+    /**
+     * Close MySQL connections
+     */
+    if (isset($GLOBALS['controllink']) && $GLOBALS['controllink']) {
+        @PMA_DBI_close($GLOBALS['controllink']);
+    }
+    if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
+        @PMA_DBI_close($GLOBALS['userlink']);
+    }
+
+    /**
+     * Sends bufferized data
+     */
+    PMA_outBufferPost();
+
+    exit();
+}
+
 // free the session file, for the other frames to be loaded
 session_write_close();
 
+/**
+ * the output compression library
+ */
 require_once './libraries/ob.lib.php';
-if ($GLOBALS['cfg']['OBGzip']) {
-    $ob_mode = PMA_outBufferModeGet();
-    if ($ob_mode) {
-        PMA_outBufferPre($ob_mode);
-    }
+
+PMA_outBufferPre();
+
+/*
+ * selects the database if there is only one on current server
+ */
+if ($GLOBALS['server'] && ! strlen($GLOBALS['db'])) {
+    $GLOBALS['db'] = $GLOBALS['PMA_List_Database']->getSingleItem();
 }
 
-require_once './libraries/bookmark.lib.php';
+$db_start = $GLOBALS['db'];
+
+/**
+ * the relation library
+ */
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * Get the list and number of available databases.
- * Skipped if no server selected: in this case no database should be displayed
- * before the user choose among available ones at the welcome screen.
+ * garvin: For re-usability, moved http-headers to a seperate file.
+ * It can now be included by libraries/header.inc.php, querywindow.php.
  */
-if ($server > 0) {
-    if (! isset($db) || ! strlen($db)) {
-        $db = $GLOBALS['PMA_List_Database']->getSingleItem();
-    }
-}
-
-$db       = isset($db)    ? $db    : '';
-$table    = isset($table) ? $table : '';
-$db_start = $db;
-
-
-// garvin: For re-usability, moved http-headers
-// to a seperate file. It can now be included by libraries/header.inc.php,
-// querywindow.php.
-
 require_once './libraries/header_http.inc.php';
 
-/**
+/*
  * Displays the frame
  */
 // xml declaration moves IE into quirks mode, making much trouble with CSS
@@ -58,124 +120,26 @@ require_once './libraries/header_http.inc.php';
 <html xmlns="http://www.w3.org/1999/xhtml"
     xml:lang="<?php echo $available_languages[$lang][2]; ?>"
     lang="<?php echo $available_languages[$lang][2]; ?>"
-    dir="<?php echo $text_dir; ?>">
+    dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type"
-        content="text/html; charset=<?php echo $charset; ?>" />
+        content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left" />
-    <script type="text/javascript" language="javascript">
+    <script type="text/javascript" src="js/navigation.js">
+    <script type="text/javascript">
     // <![CDATA[
-    var today = new Date();
-    var expires = new Date(today.getTime() + (56 * 86400000));
-    var pma_navi_width;
-
-    /**
-     * opens/closes (hides/shows) tree elements
-     *
-     * @param   string  id          id of the element in the DOM
-     * @param   boolean only_open   do not close/hide element
-     */
-    function toggle(id, only_open) {
-        var el = document.getElementById('subel' + id);
-        if (! el) {
-            return false;
-        }
-
-        var img = document.getElementById('el' + id + 'Img');
-
-        if (el.style.display == 'none' || only_open) {
-            el.style.display = '';
-            if (img) {
-                img.src = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
-                img.alt = '-';
-            }
-        } else {
-            el.style.display = 'none';
-            if (img) {
-                img.src = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_plus.png';
-                img.alt = '+';
-            }
-        }
-        return true;
-    }
-
-    /**
-     * saves current navigation frame width in a cookie
-     * usally called on resize of the navigation frame
-     */
-    function PMA_saveFrameSize()
-    {
-        pma_navi_width = document.getElementById('body_leftFrame').offsetWidth
-        //alert('from DOM: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
-        if (pma_navi_width > 0) {
-            PMA_setCookie('pma_navi_width', pma_navi_width, expires);
-            //alert('framesize saved');
-        }
-    }
-
-    /**
-     * sets navigation frame width to the value stored in the cookie
-     * usally called on document load
-     */
-    function PMA_setFrameSize()
-    {
-        pma_navi_width = PMA_getCookie('pma_navi_width');
-        //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
-        if (pma_navi_width != null) {
-            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
-            //alert('framesize set');
-        }
-    }
-
-    /**
-     * retrieves a named value from cookie
-     *
-     * @param   string  name    name of the value to retrieve
-     * @return  string  value   value for the given name from cookie
-     */
-    function PMA_getCookie(name) {
-        var start = document.cookie.indexOf(name + "=");
-        var len = start + name.length + 1;
-        if ((!start) && (name != document.cookie.substring(0, name.length))) {
-            return null;
-        }
-        if (start == -1) {
-            return null;
-        }
-        var end = document.cookie.indexOf(";", len);
-        if (end == -1) {
-            end = document.cookie.length;
-        }
-        return unescape(document.cookie.substring(len,end));
-    }
-
-    /**
-     * stores a named value into cookie
-     *
-     * @param   string  name    name of value
-     * @param   string  value   value to be stored
-     * @param   Date    expires expire time
-     * @param   string  path
-     * @param   string  domain
-     * @param   boolean secure
-     */
-    function PMA_setCookie(name, value, expires, path, domain, secure) {
-        document.cookie = name + "=" + escape(value) +
-            ( (expires) ? ";expires=" + expires.toGMTString() : "") +
-            ( (path)    ? ";path=" + path : "") +
-            ( (domain)  ? ";domain=" + domain : "") +
-            ( (secure)  ? ";secure" : "");
-    }
+    var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
+    var image_plus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_plus.png';
     // ]]>
     </script>
     <?php
-    /**
+    /*
      * remove horizontal scroll bar bug in IE 6 by forcing a vertical scroll bar
      */
     ?>
@@ -193,28 +157,13 @@ require_once './libraries/header_http.inc.php';
 <body id="body_leftFrame" onload="PMA_setFrameSize();" onresize="PMA_saveFrameSize();">
 <?php
 require './libraries/left_header.inc.php';
-
-if (! $GLOBALS['PMA_List_Database']->count()) {
+if (! $GLOBALS['server']) {
+    // no server selected
+    PMA_exitLeftFrame();
+} elseif (! $GLOBALS['PMA_List_Database']->count()) {
     // no database available, so we break here
-    echo '<p>' . $strNoDatabases . '</p></body></html>';
-
-    /**
-     * Close MySql connections
-     */
-    if (isset($controllink) && $controllink) {
-        @PMA_DBI_close($controllink);
-    }
-    if (isset($userlink) && $userlink) {
-        @PMA_DBI_close($userlink);
-    }
-
-    /**
-     * Sends bufferized data
-     */
-    if ($GLOBALS['cfg']['OBGzip'] && isset($ob_mode) && $ob_mode) {
-         PMA_outBufferPost($ob_mode);
-    }
-    exit();
+    echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
+    PMA_exitLeftFrame();
 } elseif ($GLOBALS['cfg']['LeftFrameLight'] && $GLOBALS['PMA_List_Database']->count() > 1) {
     // more than one database available and LeftFrameLight is true
     // display db selectbox
@@ -227,12 +176,12 @@ if (! $GLOBALS['PMA_List_Database']->count()) {
 
     <div id="databaseList">
     <form method="post" action="index.php" target="_parent" id="left">
-    <label for="lightm_db"><?php echo $strDatabase; ?></label>
+    <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
     echo PMA_generate_common_hidden_inputs() . "\n";
     echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true) . "\n";
     echo '<noscript>' . "\n"
-        .'<input type="submit" name="Go" value="' . $strGo . '" />' . "\n"
+        .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
         .'</noscript>' . "\n"
         .'</form>' . "\n"
         .'</div>' . "\n";
@@ -242,7 +191,7 @@ if (! $GLOBALS['PMA_List_Database']->count()) {
 <div id="left_tableList">
 <?php
 // Don't display expansible/collapsible database info if:
-// 1. $server == 0 (no server selected)
+// 1. $GLOBALS['server'] == 0 (no server selected)
 //    This is the case when there are multiple servers and
 //    '$GLOBALS['cfg']['ServerDefault'] = 0' is set. In that case, we want the welcome
 //    screen to appear with no database info displayed.
@@ -260,25 +209,26 @@ $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
 
 $element_counter = 0;
 
-if ($GLOBALS['cfg']['LeftFrameLight'] && isset($db) && strlen($db)) {
+if ($GLOBALS['cfg']['LeftFrameLight'] && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
-    $common_url_query = PMA_generate_common_url($db);
+    $common_url_query = PMA_generate_common_url($GLOBALS['db']);
 
     $db_tooltip = '';
+
     if ($GLOBALS['cfg']['ShowTooltip']
       && $GLOBALS['cfgRelation']['commwork']) {
-        $_db_tooltip = PMA_getComments($db);
+        $_db_tooltip = PMA_getComments($GLOBALS['db']);
         if (is_array($_db_tooltip)) {
             $db_tooltip = implode(' ', $_db_tooltip);
         }
     }
 
-    $disp_name  = $db;
+    $disp_name  = $GLOBALS['db'];
     if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
         $disp_name      = $db_tooltip;
         $disp_name_cut  = $db_tooltip;
-        $db_tooltip     = $db;
+        $db_tooltip     = $GLOBALS['db'];
     }
 
     ?>
@@ -287,19 +237,19 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && isset($db) && strlen($db)) {
         title="<?php echo htmlspecialchars($db_tooltip); ?>" >
     <?php
     if ($GLOBALS['text_dir'] === 'rtl') {
-        echo ' <bdo dir="ltr">(' . PMA_getTableCount($db) . ')</bdo> ';
+        echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
     }
     echo htmlspecialchars($disp_name);
     if ($GLOBALS['text_dir'] === 'ltr') {
-        echo ' <bdo dir="ltr">(' . PMA_getTableCount($db) . ')</bdo> ';
+        echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
     }
     echo '</a></p>';
 
-    $table_list = PMA_getTableList($db);
+    $table_list = PMA_getTableList($GLOBALS['db']);
     if (count($table_list) > 0) {
-        PMA_displayTableList($table_list, true, '', $db);
+        PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
     } else {
-        echo $strNoTablesFound;
+        echo $GLOBALS['strNoTablesFound'];
     }
     unset($table_list);
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
@@ -498,10 +448,10 @@ function PMA_displayDbList($ext_dblist) {
  * @uses    $GLOBALS['cfg']['DefaultTabTable']
  * @uses    $GLOBALS['strRows']
  * @uses    $GLOBALS['strBrowse']
- * @global  $element_counter
- * @global  $img_minus
- * @global  $img_plus
- * @global  $href_left
+ * @global  integer the element counter
+ * @global  string  html code for '-' image
+ * @global  string  html code for '+' image
+ * @global  string  html code for self link
  * @param   array   $tables         array of tables/tablegroups
  * @param   boolean $visible        wether the list is visible or not
  * @param   string  $tab_group_full full tab group name
@@ -612,25 +562,7 @@ function PMA_displayTableList($tables, $visible = false,
     }
     echo '</ul>';
 }
-?>
-</div>
-</body>
-</html>
-<?php
-/**
- * Close MySql connections
- */
-if (isset($controllink) && $controllink) {
-    @PMA_DBI_close($controllink);
-}
-if (isset($userlink) && $userlink) {
-    @PMA_DBI_close($userlink);
-}
 
-/**
- * Sends bufferized data
- */
-if ($GLOBALS['cfg']['OBGzip'] && isset($ob_mode) && $ob_mode) {
-     PMA_outBufferPost($ob_mode);
-}
+echo '</div>';
+PMA_exitLeftFrame();
 ?>
