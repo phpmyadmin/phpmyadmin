@@ -17,7 +17,8 @@ require_once('./libraries/bookmark.lib.php');
 /**
  * Set parameters for links
  */
-if (empty($url_query)) {
+if (empty($url_query) 
+|| (isset($_POST['table']) && isset($_POST['new_name']) && $_POST['table'] != $_POST['new_name'])) {
     $url_query = PMA_generate_common_url($db, $table);
 }
 $url_params['db']    = $db;

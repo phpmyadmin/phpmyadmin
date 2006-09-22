@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/tbl_properties_links.inc.php: bug #1560152, 
+      after renaming a table the navigation does not work
+
 2006-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0 released from QA_2_9
 
