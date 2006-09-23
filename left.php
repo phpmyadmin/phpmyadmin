@@ -131,7 +131,7 @@ require_once './libraries/header_http.inc.php';
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left" />
-    <script type="text/javascript" src="js/navigation.js">
+    <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript">
     // <![CDATA[
     var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
