@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1519859, avoid overflow on 64-bit machines
+
 2006-09-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1560152, 
       after renaming a table the navigation does not work

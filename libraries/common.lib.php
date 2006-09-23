@@ -1534,7 +1534,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
             if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * pow(10, $ex)) {
-                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
+                // use 1024.0 to avoid integer overflow on 64-bit machines
+                $value = round($value / (pow(1024.0, $d) / $dh)) /$dh;
                 $unit = $GLOBALS['byteUnits'][$d];
                 break 1;
             } // end if
@@ -1623,16 +1624,16 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         if ($value >= 1) {
             for ($d = 8; $d >= 0; $d--) {
-                if (isset($units[$d]) && $value >= $li * pow(1000, $d-1)) {
-                    $value = round($value / (pow(1000, $d) / $dh)) /$dh;
+                if (isset($units[$d]) && $value >= $li * pow(1000.0, $d-1)) {
+                    $value = round($value / (pow(1000.0, $d) / $dh)) /$dh;
                     $unit = $units[$d];
                     break 1;
                 } // end if
             } // end for
         } elseif (!$only_down && (float) $value !== 0.0) {
             for ($d = -8; $d <= 8; $d++) {
-                if (isset($units[$d]) && $value <= $li * pow(1000, $d-1)) {
-                    $value = round($value / (pow(1000, $d) / $dh)) /$dh;
+                if (isset($units[$d]) && $value <= $li * pow(1000.0, $d-1)) {
+                    $value = round($value / (pow(1000.0, $d) / $dh)) /$dh;
                     $unit = $units[$d];
                     break 1;
                 } // end if
