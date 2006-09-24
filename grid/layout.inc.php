@@ -1,27 +1,26 @@
 <?php
-/** 
- * derived from original layout cvs60811
- * modifications by windkiel 20060819/0917 marked with "*jw"
- * works with pma >= 2.7
+/**
+ * derived from theme "original" pma 2.9, HEAD
+ * modifications by windkiel 20060819~0922 marked with "*jw"
+ * works with pma 2.8 (still experimental)
  * no '' allowed, except for Font.. ..Link.. ..Marke...
- * reuse original pics if img folder lacking
  * for detailed layout configuration please refer to the css files
+ * comments, suggestions, bugreports are welcome:
+ * http://sourceforge.net/users/windkiel/
  */
 
 /**
  * navi frame
  */
-// navi frame width
-$GLOBALS['cfg']['NaviWidth']                = 200;
-//backword compatibility for index.php <pma2.9
-#$cfg['LeftWidth'] = $GLOBALS['cfg']['NaviWidth'];
-$GLOBALS['cfg']['LeftWidth'] = $GLOBALS['cfg']['NaviWidth'];
+// navi frame width for index.php :
+$GLOBALS['cfg']['NaviWidth'] = 200; //only for >= 2.9
+$GLOBALS['cfg']['LeftWidth'] = 200; //backword compatibility 2.8
 
 // foreground (text) color for the navi frame
 $GLOBALS['cfg']['NaviColor']                = '#000';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']           = '#D3DCE3';//'#eee';
+$GLOBALS['cfg']['NaviBackground']           = '#D3DCE3';#dee
 
 // link color
 $GLOBALS['cfg']['NaviLinkColor']        = '#00a';/*jw*/
@@ -51,7 +50,7 @@ $GLOBALS['cfg']['NaviFontPercentage']       = '90%';/*jw*/
 $GLOBALS['cfg']['MainColor']                = '#000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#ccc';
+$GLOBALS['cfg']['MainBackground']           = '#d3d3d3';
 
 if ( PMA_USR_BROWSER_AGENT != 'MOZILLA' ) { 	/*jw index.php: NO frameborder="0"*/
 $GLOBALS['cfg']['MainBackground'] .=
@@ -74,7 +73,6 @@ $GLOBALS['cfg']['BrowseMarkerColor']        = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode
 $GLOBALS['cfg']['BrowseMarkerBackground']   = '#fc9';
-
 /**
  * fonts
  */
@@ -98,7 +96,7 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
  */
 
 // for pma <= 2.8 :
-$GLOBALS['cfg']['FontSize']             = '80%';
+$GLOBALS['cfg']['FontSize']             = '90%';
 
 /**
  * tables
@@ -106,17 +104,20 @@ $GLOBALS['cfg']['FontSize']             = '80%';
 /*jw*/
 // border strenght ONLY FF(Gecko, e.g. .05em(min!)|1px|3pt| 0 but NOT 1)
 $GLOBALS['cfg']['Border'] = '1px';
-//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!?
-$GLOBALS['cfg']['MainGridColor'] = '#cccccd';
+//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!
+$GLOBALS['cfg']['MainGridColor'] = '#d3d3d2';
 
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
+$GLOBALS['cfg']['ThBackground'] = $GLOBALS['cfg']['NaviBackground'];#def';//'#D3DCE3';
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000';
 // table data row background
-$GLOBALS['cfg']['BgOne']                = '#f7f7f7';#E5E5E5';
+$GLOBALS['cfg']['BgOne']                = '#f7f7f7';
 // table data row background, alternate
-$GLOBALS['cfg']['BgTwo']                = 'white';//'#D5D5D5';//'#ffff99';
+$GLOBALS['cfg']['BgTwo']                = '#fff';
+//needed for pma2.8 only (if E_NOTICE=1 , but no effect) :
+$GLOBALS['cfg']['BgcolorOne']='#f7f7f7';
+$GLOBALS['cfg']['BgcolorTwo']='#fff';
 
 /**
  * query window

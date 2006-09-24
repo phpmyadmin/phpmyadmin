@@ -1,13 +1,12 @@
-<?php /*jw <-- diff from original 	*/
+<?php /*jw <-- diff from original/theme_right.css.php 20060922 */
+	// 2do: replace ../ with $oneUp
 	// unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
 	exit();
 }
-/*jw (pma <2.9:experimental) */
-$VER = substr(PMA_VERSION,0,3);
-if (('2.7'==$VER)or('2.8'==$VER)) {
-
-	echo "/*$VER*/
+/*jw*/
+if ('2.8' == substr(PMA_VERSION,0,3)) {
+	echo "/* 2.8 (experimental) */
 html {
 	font-size:	", $GLOBALS['cfg']['FontSize'],'
 }
@@ -19,7 +18,7 @@ table {
 
 } //<2.9
 ?>
-/** Grid right general tags v.2.9 20060917 windkiel **/
+/** Grid right general tags v. 2.9 20060922 windkiel **/
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
 	font-family:		<?php echo $GLOBALS['cfg']['FontFamily']; ?>;
@@ -154,7 +153,7 @@ button {
 }
 
 
-<?php/* * * * * * * * * * * * * * * * * * * * * * * * * */?>
+<?php /* * * * * * * * * * * * * * * * * * * * * * * * * */ ?>
 /* classes */
 
 fieldset.tblFooters {
@@ -534,7 +533,7 @@ form.login label {
 }
 
 
-<?php/* * * * * * * * * * * * * * * * * * * * * * * * * */?>
+<?php /* * * * * * * * * * * * * * * * * * * * * * * * * */ ?>
 /* specific elements */
 
 /* topmenu */
@@ -546,8 +545,12 @@ ul#topmenu {
 }
 
 ul#topmenu li {
-	float:		<?php echo $left; 
-/*thx to Ci-Dev on irc "dot problem" :   */?>;
+	float:		<?php echo $left;
+/* "dot problem"
+lem9: xp, ff1507
+C-Dev:
+Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.7.12) Gecko/20051218 Firefox/1.0.7
+thx to Ci-Dev on irc , workaround : (gecko flaw? should be inherited, ok in original)  */?>;
 	list-style-type: none;
 	margin:		0;
 	padding:		0;
@@ -612,7 +615,7 @@ ul#topmenu li {
 	-moz-border-radius-topright:.6em';
 	}
 /**
-MSIE: 
+MSIE:
 Sebastian removed the wrong lines from "original" :(
 neither border-radius-topleft nor border-top-left-radius is css compliant
 http://blogs.msdn.com/ie/archive/2005/06/23/431980.aspx

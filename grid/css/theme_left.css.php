@@ -1,4 +1,4 @@
-<?php /*jw <-- diff from original  */
+<?php /*jw <-- diff from original  20060922 */
 // 2do: hover background in Gecko not fitting the img size , a hint somebody?
 // unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
@@ -70,13 +70,17 @@ div#leftframelinks {
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
-<?php if ($GLOBALS['cfg']['ServerLeft']) {
-	echo 'text-align:	left'; // looks nicer if leftserver=true
-	}; ?>
 	border-bottom:	1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 	margin-bottom:	.5em;
 	padding-bottom:	.5em;
 }
+<?php if( ($GLOBALS['cfg']['LeftDisplayServers'])&&($GLOBALS['cfg']['LeftFrameLight']) ) {
+	echo '
+div#databaseList {
+	text-align:	left;
+}'; // looks nicer if LeftDisplayServers==true
+	}; ?>
+
 
 div#leftframelinks a img.icon {
 	padding:	.2em;
