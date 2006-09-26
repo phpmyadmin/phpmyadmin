@@ -2887,7 +2887,9 @@ if (!isset($_REQUEST['token']) || empty($_SESSION[' PMA_token ']) || $_SESSION['
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
     );
-    $keys = array_keys($_REQUEST);
+    //$keys = array_keys($_REQUEST);
+    // do not check only $_REQUEST because it could have been overwritten
+    $keys = array_keys(array_merge($_REQUEST, $_GET, $_POST, $_COOKIE));
     /* Remove any non allowed stuff from requests */
     foreach($keys as $key) {
         if (!in_array($key, $allow_list)) {
