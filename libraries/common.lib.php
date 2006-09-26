@@ -2876,7 +2876,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (!isset($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (!isset($_REQUEST['token']) || empty($_SESSION[' PMA_token ']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
