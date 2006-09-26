@@ -2740,7 +2740,16 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
-require_once './libraries/session.inc.php';
+/**
+ * Check for numeric keys 
+ * (if register_globals is on, we'll find a numeric key here)
+ */
+
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        die('numeric key detected');
+    }
+}
 
 /**
  * include deprecated grab_globals only if required
@@ -2748,6 +2757,11 @@ require_once './libraries/session.inc.php';
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
     require './libraries/grab_globals.lib.php';
 }
+
+/**
+ * include session handling after the globals, to avoid overwriting 
+ */
+require_once './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -2862,7 +2876,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
+if (!isset($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
