@@ -11,6 +11,7 @@ $Source$
       thanks to Sebastian Mendel and Stefan Esser
     * libraries/.htaccess: remove potential vulnerability (allow from none),
       thanks to Michael Heimpold
+    ### 2.9.1-rc1 released from QA_2_9
 
 2006-09-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1560152, 
