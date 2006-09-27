@@ -2876,7 +2876,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (!isset($_REQUEST['token']) || empty($_SESSION[' PMA_token ']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2887,9 +2887,11 @@ if (!isset($_REQUEST['token']) || empty($_SESSION[' PMA_token ']) || $_SESSION['
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
     );
-    //$keys = array_keys($_REQUEST);
     // do not check only $_REQUEST because it could have been overwritten
-    $keys = array_keys(array_merge($_REQUEST, $_GET, $_POST, $_COOKIE));
+    // and use type casting because the variables could have become 
+    // strings
+    $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
+
     /* Remove any non allowed stuff from requests */
     foreach($keys as $key) {
         if (!in_array($key, $allow_list)) {
