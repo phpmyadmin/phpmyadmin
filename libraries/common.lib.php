@@ -2689,6 +2689,16 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
     die('GLOBALS overwrite attempt');
 }
 
+/**
+ * Check for numeric keys 
+ * (if register_globals is on, numeric key can be found in $GLOBALS)
+ */
+
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        die('numeric key detected');
+    }
+}
 
 /**
  * just to be sure there was no import (registering) before here
@@ -2739,17 +2749,6 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
     PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
-}
-
-/**
- * Check for numeric keys 
- * (if register_globals is on, numeric key can be found in $GLOBALS)
- */
-
-foreach ($GLOBALS as $key => $dummy) {
-    if (is_numeric($key)) {
-        die('numeric key detected');
-    }
 }
 
 /**
