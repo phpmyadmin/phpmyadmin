@@ -9,6 +9,8 @@ $Source$
     * libraries/common.lib.php, /session.inc.php, /url_generating.lib.php:
       security fixes (announcement will come later),
       thanks to Sebastian Mendel and Stefan Esser
+    * libraries/.htaccess: remove potential vulnerability (allow from none),
+      thanks to Michael Heimpold
 
 2006-09-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1560152, 
