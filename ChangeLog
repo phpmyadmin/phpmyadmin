@@ -13,6 +13,7 @@ $Source$
     * libraries/common.lib.php, /session.inc.php, /url_generating.lib.php:
       security fixes (announcement will come later),
       thanks to Sebastian Mendel and Stefan Esser
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
 
 2006-09-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/.htaccess: remove potential vulnerability (allow from none),
