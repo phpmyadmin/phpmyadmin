@@ -10,6 +10,9 @@ $Source$
       thanks to Björn Wiberg - bwiberg.
     * libraries/grab_globals.lib.php: fix attack via _FILES,
       thanks to Stefan Esser
+    * libraries/common.lib.php, /session.inc.php, /url_generating.lib.php:
+      security fixes (announcement will come later),
+      thanks to Sebastian Mendel and Stefan Esser
 
 2006-09-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/.htaccess: remove potential vulnerability (allow from none),

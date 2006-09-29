@@ -2436,6 +2436,17 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
+ * Check for numeric keys 
+ * (if register_globals is on, numeric key can be found in $GLOBALS)
+ */
+
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        die('numeric key detected');
+    }
+}
+
+/**
  * just to be sure there was no import (registering) before here
  * we empty the global space
  */
@@ -2512,16 +2523,16 @@ if (get_magic_quotes_gpc()) {
 }
 
 /**
- * start session
- */
-require_once './libraries/session.inc.php';
-
-/**
  * include deprecated grab_globals only if required
  */
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
     require './libraries/grab_globals.lib.php';
 }
+
+/**
+ * include session handling after the globals, to prevent overwriting 
+ */
+require_once './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -2642,13 +2653,13 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * dangerous stuff from request.
  *
  * remember that some objects in the session with session_start and __wakeup()
- * could acces this variables before we reach this point
+ * could access this variables before we reach this point
  * f.e. PMA_Config: fontsize
  *
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
-if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
+if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2660,7 +2671,12 @@ if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token'])
         'pma_servername', 'pma_username', 'pma_password',
     );
     /* Remove any non allowed stuff from requests */
-    foreach($_REQUEST as $key => $dummy) {
+    // do not check only $_REQUEST because it could have been overwritten
+    // and use type casting because the variables could have become 
+    // strings
+    $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
+
+    foreach($keys as $key) {
         if (!in_array($key, $allow_list)) {
             unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
         } else {
@@ -2668,7 +2684,7 @@ if (! isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token'])
             $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
         }
     }
-    unset($key, $dummy);
+    unset($key, $keys);
 }
 
 
