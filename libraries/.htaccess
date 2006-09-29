@@ -1,4 +1,3 @@
 # This folder does not require access over HTTP
-Order deny,allow
-Deny from all
-Allow from none
+# (the following directive denies access by default)
+Order allow,deny

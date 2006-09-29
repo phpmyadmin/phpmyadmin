@@ -15,6 +15,8 @@ $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
+$mysql_4_1_doc_lang = 'pt';
+
 $day_of_week = array('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab');
 $month = array('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez');
 // See http://www.php.net/manual/en/function.strftime.php to define the
@@ -256,8 +258,8 @@ $strImportDocSQL = 'Importar ficheiros docSQL';
 $strImportFiles = 'Importar';
 $strIndexes = 'Índices';
 $strIndexHasBeenDropped = 'O Índice %s foi eliminado';
-$strIndex = 'Índice';
 $strIndexName = 'Nome do Índice&nbsp;:';
+$strIndex = 'Índice';
 $strIndexType = 'Tipo de Índice&nbsp;:';
 $strInnodbStat = 'Estado da InnoDB';
 $strInsecureMySQL = 'O seu ficheiro de configuração contem configurações (root sem palavra-passe) que correspondem à conta privilegiada por defeito do MySQL. O servidor MySQL está a correr com este valor por defeito, assim aberto a intrusões, deveria corrigir este buraco de segurança.';
@@ -338,8 +340,8 @@ $strNoFrames = 'O phpMyAdmin torna-se mais agradável se usado num browser que s
 $strNoIndex = 'Nenhum indíce definido!';
 $strNoIndexPartsDefined = 'Nenhuma parte do índice definida!';
 $strNoModification = 'Sem alterações';
-$strNo = 'Não';
 $strNone = 'Nenhum';
+$strNo = 'Não';
 $strNoOptions = 'Este formato não tem opções';
 $strNoPassword = 'Sem palavra-passe';
 $strNoPermission = 'O servidor web não tem permissões para gravar o ficheiro %s.';

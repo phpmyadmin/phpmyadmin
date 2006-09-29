@@ -310,7 +310,7 @@ $cfg['Export']['latex_structure_label']     = 'tab:__TABLE__-structure';
 
 $cfg['Export']['sql_structure']             = TRUE;
 $cfg['Export']['sql_data']                  = TRUE;
-$cfg['Export']['sql_compat']                = 'NONE';
+$cfg['Export']['sql_compatibility']         = 'NONE';
 $cfg['Export']['sql_disable_fk']            = FALSE;
 $cfg['Export']['sql_use_transaction']       = FALSE;
 $cfg['Export']['sql_drop_database']         = FALSE;
@@ -553,7 +553,7 @@ $cfg['ThemeManager']        = TRUE;          // if you want to use selectable th
 $cfg['ThemeDefault']        = 'original';         // set up default theme, if ThemePath not empty
                                              // you can set up here an valid path to themes or 'original' for
                                              // the original pma-theme
-$cfg['ThemePerServer']      = FALSE;         // allow diferent theme for each configured server
+$cfg['ThemePerServer']      = FALSE;         // allow different theme for each configured server
 
 //-----------------------------------------------------------------------------
 

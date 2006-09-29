@@ -5,6 +5,151 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-09-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/grab_globals.lib.php: fix attack via _FILES,
+      thanks to Stefan Esser
+    * libraries/database_interface.lib.php, bug #1566904, typo in require,
+      thanks to Björn Wiberg - bwiberg.
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
+
+2006-09-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php, /session.inc.php, /url_generating.lib.php:
+      security fixes (announcement will come later),
+      thanks to Sebastian Mendel and Stefan Esser
+    * libraries/.htaccess: remove potential vulnerability (allow from none),
+      thanks to Michael Heimpold
+    ### 2.9.1-rc1 released from QA_2_9
+
+2006-09-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/tbl_properties_links.inc.php: bug #1560152, 
+      after renaming a table the navigation does not work
+
+2006-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.0 released from QA_2_9
+
+2006-09-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, libraries/footer.inc.php, 
+      libraries/dbg/profiling.php: remove profiling feature
+      due to licensing issues (non GPL code)
+
+2006-09-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/finnish: Update, thanks to Yoneh - yoneh.
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+
+2006-09-14 Michal Čihař  <michal@cihar.com>
+    * db_details_structure.php: Fix table footer when MySQL does not support
+      collations (bug #1554885, patch #1557269, thanks to Isaac Bennetch -
+      ibennetch).
+
+2006-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/config.default.php, libraries/export/sql.php:
+      bug #1556934, sql compatibility mode on export
+
+2006-09-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/check_lang.sh: ignore differences in doc_lang
+    * lang/italian: Update, thanks to Rebe - rebeluca.
+    ### 2.9.0-rc1 released from QA_2_9
+
+2006-09-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish: update, thanks to Burak Yavuz - bourock
+
+2006-08-30 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php, lang/*: Internationalise link to MySQL
+      documentation when translation exists, this needs to be defined in
+      language file (RFE #1547130).
+    * lang/belarusian_latin-utf-8.inc.php: Fix charset information.
+
+2006-08-29 Michal Čihař  <michal@cihar.com>
+    * lang/croatian: Updated, thanks to Renato Pavicic - babalui.
+
+2006-08-28 Michal Čihař  <michal@cihar.com>
+    * config.sample.inc.php, Documentation.html: Add minimal sample
+      configuration, so that lazy people won't copy
+      libraries/config.default.php (RFE #1544570).
+
+2006-08-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * themes/*/layout.inc.php: patch #1523543, possibility of vertical
+      solid line between frames, thanks to Juergen Wind
+
+2006-08-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: bug #1544799, undefined variable on db copy
+    * libraries/common.lib.php: bug #1544734, error messages link outdated,
+      thanks to René Leonhardt
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
+    * libraries/tbl_properties.inc.php: bug #1543996, wrong link for message,
+      thanks to GerardW
+
+2006-08-24 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.0-beta1 released from QA_2_9
+
+2006-08-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/setup.php: bug #1536112, better fix (in case of 
+      register_globals enabled), thanks to Michal
+    ### 2.8.2.3 released from MAINT_2_8_2
+    * scripts/setup.php: bug #1544692, version 2.8.2.3 breaks setup.php
+      on a server with register_globals enabled, thanks to Juergen Wind
+    ### 2.8.2.4 released from MAINT_2_8_2
+
+2006-08-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php, libraries/auth/cookie.auth.lib.php:
+      bug #1542875, Cookie auth on IIS
+
+2006-08-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+
+2006-08-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/pdf.php: do not display BLOBs on PDF export
+    * lang/brazilian-portuguese: update, thanks to thedarkness
+    * lang/catalan update, thanks to Xavier Navarro (xavin)
+
+2006-08-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: sorting on column header
+
+2006-08-16 Michal Čihař  <michal@cihar.com>
+    * libraries/export/htmlexcel.php: Fix charset header of exported HTML/XLS
+      file (bug #1541100).
+
+2006-08-15 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * lang/german: Updated
+
+2006-08-14 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.8.2.2 released from MAINT_2_8_2
+
+2006-08-14 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Improve readibility (patch #1539976), thanks to Isaac
+      Bennetch - ibennetch.
+    * lang/czech: Updated.
+
+2006-08-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: bug #1519799, imagelink error
+
+2006-08-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php: bug #1492772, parsing EXTRACT YEAR_MONTH
+      (there were sorting errors in the function names array)
+      also bug #1534007, STD function not working
+    * lang/polish: updates, thanks to Jakub Wilk - ubanus
+    * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
+    * lang/italian: Update, thanks to Rebe - rebeluca.
+    * lang/japanese: Update, thanks to Ishigaki Kenichi - tcool.
+    * lang/belarusian updates, thanks to Jaska Zedlik
+
+2006-08-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/config.auth.lib.php: bug #1536112, config not loaded
+      (MySQL error 2002 or 2003)
+
+2006-08-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css\phpmyadmin.css.php, themes\*:
+      updated themes to 2.9 and some minor fixes
+      thanks to Juergen Wind - windkiel for hinting this (patch #1535169)
+
+2006-08-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
+    * lang/catalan update, thanks to Xavier Navarro (xavin)
+    * lang/galician: Update, thanks to Xosé Calvo - xosecalvo.
+    * lang/estonian: Update, thanks to Marko Ellermaa - uhuu
+    * lang/russian: update, thanks to Gosha Sakovich - gt2
+    * libraries/common.lib.php: bug #1534475, arbitrary server
+
 2006-08-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php: bug #1530574:
       MySQL 4.1.13 and double quotes in SHOW VARIABLES,

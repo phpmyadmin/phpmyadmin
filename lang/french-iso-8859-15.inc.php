@@ -8,6 +8,8 @@ $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('o', 'Kio', 'Mio', 'Gio', 'Tio', 'Pio', 'Eio');
 
+$mysql_5_0_doc_lang = 'fr';
+
 $day_of_week = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
 $month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
 // Voir http://www.php.net/manual/en/function.strftime.php pour la variable

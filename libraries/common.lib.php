@@ -861,16 +861,26 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                     $link = 'index';
                 }
                 $mysql = '5.0';
+                $lang = 'en';
                 if (defined('PMA_MYSQL_INT_VERSION')) {
                     if (PMA_MYSQL_INT_VERSION < 50000) {
                         $mysql = '4.1';
+                        if (!empty($GLOBALS['mysql_4_1_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_4_1_doc_lang'];
+                        }
                     } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
                         $mysql = '5.1';
+                        if (!empty($GLOBALS['mysql_5_1_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_5_1_doc_lang'];
+                        }
                     } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                         $mysql = '5.0';
+                        if (!empty($GLOBALS['mysql_5_0_doc_lang'])) {
+                            $lang = $GLOBALS['mysql_5_0_doc_lang'];
+                        }
                     }
                 }
-                $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/en/' . $link . '.html';
+                $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
                 break;
         }
 
@@ -983,9 +993,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
         // modified to show me the help on error-returns (Michael Keck)
+        // (now error-messages-server)
         echo '<p>' . "\n"
                 . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
-                . PMA_showMySQLDocu('Error-returns', 'Error-returns')
+                . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
                 . "\n"
                 . '</p>' . "\n";
 
@@ -1136,11 +1147,12 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 session_write_close();
                 // bug #1523784: IE6 does not like 'Refresh: 0', it
                 // results in a blank page
-                //if (PMA_IS_IIS) {
-                //    header('Refresh: 0; ' . $uri);
-                //} else {
+                // (but we need it when coming from the cookie login panel)
+                if (PMA_IS_IIS && defined('PMA_COMING_FROM_COOKIE_LOGIN')) {
+                    header('Refresh: 0; ' . $uri);
+                } else {
                     header('Location: ' . $uri);
-                //}
+                }
             }
         }
     }
@@ -2678,6 +2690,17 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
+ * Check for numeric keys 
+ * (if register_globals is on, numeric key can be found in $GLOBALS)
+ */
+
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        die('numeric key detected');
+    }
+}
+
+/**
  * just to be sure there was no import (registering) before here
  * we empty the global space
  */
@@ -2728,14 +2751,17 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
-require_once './libraries/session.inc.php';
-
 /**
  * include deprecated grab_globals only if required
  */
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
     require './libraries/grab_globals.lib.php';
 }
+
+/**
+ * include session handling after the globals, to avoid overwriting 
+ */
+require_once './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -2850,7 +2876,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) {
+if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2859,9 +2885,13 @@ if (!isset($_REQUEST['token']) || $_SESSION['PMA_token'] != $_REQUEST['token']) 
         /* Cookie preferences */
         'pma_lang', 'pma_charset', 'pma_collation_connection', 'pma_convcharset',
         /* Possible login form */
-        'pma_username', 'pma_password',
+        'pma_servername', 'pma_username', 'pma_password',
     );
-    $keys = array_keys($_REQUEST);
+    // do not check only $_REQUEST because it could have been overwritten
+    // and use type casting because the variables could have become 
+    // strings
+    $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
+
     /* Remove any non allowed stuff from requests */
     foreach($keys as $key) {
         if (!in_array($key, $allow_list)) {

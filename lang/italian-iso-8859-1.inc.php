@@ -4,7 +4,7 @@
 /**
  * translated by: Pietro Danesi <danone at users.sourceforge.net>  2002-03-29
  * Revised by:    "DPhantom" <dphantom at users.sourceforge.net>  2002-04-16
- * Revised by:    "Luca Rebellato" <rebeluca at users.sourceforge.net>  2005-11-27
+ * Revised by:    "Luca Rebellato" <rebeluca at users.sourceforge.net>  2006-08-10
  */
 
 $charset = 'iso-8859-1';
@@ -12,7 +12,7 @@ $text_dir = 'ltr';
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
+$byteUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
 
 $day_of_week = array('Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'); //italian days
 $month = array('Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'); //italian months
@@ -22,12 +22,13 @@ $datefmt = '%d %B, %Y at %I:%M %p'; //italian time
 $timespanfmt = '%s giorni, %s ore, %s minuti e %s secondi';
 
 $strAbortedClients = 'Fallito';
-$strAbsolutePathToDocSqlDir = 'Prego, immettere il path assoluto sul webserver alla directory di docSQL';
+$strAbsolutePathToDocSqlDir = 'Prego, immettere il path assoluto sul webserver della  directory di docSQL';
 $strAccessDenied = 'Accesso negato';
 $strAccessDeniedCreateConfig = 'La ragione di questo è che probabilmente non hai creato alcun file di configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno.';
 $strAccessDeniedExplanation = 'phpMyAdmin ha provato a connettersi al server MySQL, e il server ha rifiutato la connessione. Si dovrebbe controllare il nome dell\'host, l\'username e la password nel file config.inc.php ed assicurarsi che corrispondano alle informazioni fornite dall\'amministratore del server MySQL.';
 $strAction = 'Azione';
 $strAddAutoIncrement = 'Aggiungi valore AUTO_INCREMENT';
+$strAddClause = 'Aggiungi %s';
 $strAddConstraints = 'Aggiungi vincoli';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
@@ -40,7 +41,7 @@ $strAddNewField = 'Aggiungi un nuovo campo';
 $strAddPrivilegesOnDb = 'Aggiungi privilegi sul seguente database';
 $strAddPrivilegesOnTbl = 'Aggiungi privilegi sulla seguente tabella';
 $strAddSearchConditions = 'Aggiungi condizioni di ricerca (corpo della clausola "where"):';
-$strAddToIndex = 'Aggiungi all\'indice &nbsp;%s&nbsp;colonna/e';
+$strAddToIndex = 'Aggiungi all\'indice&nbsp;%s&nbsp;colonna/e';
 $strAddUser = 'Aggiungi un nuovo utente';
 $strAddUserMessage = 'Hai aggiunto un nuovo utente.';
 $strAdministration = 'Amministrazione';
@@ -55,7 +56,7 @@ $strAllTableSameWidth = 'mostra tutte le Tabelle con la stessa larghezza?';
 $strAll = 'Tutti';
 $strAlterOrderBy = 'Altera tabella ordinata per';
 $strAnalyzeTable = 'Analizza tabella';
-$strAnd = 'E';
+$strAnd = 'e';
 $strAndThen = 'e quindi';
 $strAnIndex = 'Un indice è stato aggiunto in %s';
 $strAnyHost = 'Qualsiasi host';
@@ -93,7 +94,7 @@ $strBookmarkQuery = 'Query SQL aggiunte ai preferiti';
 $strBookmarkReplace = 'Sostituzione dei segnalibri esistenti con lo stesso nome';
 $strBookmarkThis = 'Aggiungi ai preferiti questa query SQL';
 $strBookmarkView = 'Visualizza solo';
-$strBrowseDistinctValues = 'Nviga tra i valori DISTINCT';
+$strBrowseDistinctValues = 'Naviga tra i valori DISTINCT';
 $strBrowseForeignValues = 'Sfoglia le opzioni straniere';
 $strBrowse = 'Mostra';
 $strBufferPoolActivity = 'Attività del Buffer Pool';
@@ -109,6 +110,7 @@ $strBzError = 'phpMyAdmin non è capace di comprimere il dump a causa dell\'esten
 $strBzip = '"compresso con bzip2"';
 
 $strCalendar = 'Calendario';
+$strCanNotLoadExportPlugins = 'Non posso caricare i plugins di esportazione. Controlla l\'installazione!';
 $strCanNotLoadImportPlugins = 'Non posso caricare i plugins di importazione, controlla la tua configurazione!';
 $strCannotLogin = 'Impossibile eseguire il login nel server MySQL';
 $strCantLoad = 'Impossibile caricare l\'estensione %s,<br />prego controllare la configurazione di PHP';
@@ -144,8 +146,8 @@ $strColumnNames = 'Nomi delle colonne';
 $strColumnPrivileges = 'Privilegi relativi alle colonne';
 $strCommand = 'Comando';
 $strComments = 'Commenti';
-$strCommentsForTable = 'COMMENTS FOR TABLE';
-$strCompatibleHashing = 'Compatibile con MySQL&nbsp;4.0';
+$strCommentsForTable = 'Commenti per la tabella';
+$strCompatibleHashing = 'Compatibile con MySQL 4.0';
 $strCompleteInserts = 'Inserimenti completi';
 $strCompression = 'Compressione';
 $strCompressionWillBeDetected = 'Il tipo di compressione del file importato sarà automaticamente rilevato da: %s';
@@ -165,12 +167,16 @@ $strCopyTableSameNames = 'Impossibile copiare la tabella su se stessa!';
 $strCouldNotKill = 'phpMyAdmin non è in grado di terminare il thread %s. Probabilmente è già stato terminato.';
 $strCreate = 'Crea';
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE prima di copiare';
-$strCreateIndex = 'Crea un indice su &nbsp;%s&nbsp;columns';
+$strCreateIndex = 'Crea un indice su&nbsp;%s&nbsp;columns';
 $strCreateIndexTopic = 'Crea un nuovo indice';
 $strCreateNewDatabase = 'Crea un nuovo database';
 $strCreateNewTable = 'Crea una nuova tabella nel database %s';
-$strCreatePage = 'Crea una nuova Page';
+$strCreatePage = 'Crea una nuova pagina';
 $strCreatePdfFeat = 'Creazione di PDF';
+$strCreateUserDatabase = 'Database per l\'utente';
+$strCreateUserDatabaseName = 'Crea un database con lo stesso nome e concedi tutti i privilegi';
+$strCreateUserDatabaseNone = 'None';
+$strCreateUserDatabaseWildcard = 'Concedi tutti i privilegi al nome con caratteri jolly (username_%)';
 $strCreationDates = 'Creazione/Aggiornamento/Controllo date';
 $strCriteria = 'Criterio';
 $strCroatian = 'Croato';
@@ -223,6 +229,7 @@ $strDeleted = 'La riga è stata cancellata';
 $strDeletedRows = 'Righe cancellate:';
 $strDeleteNoUsersSelected = 'Nessun utente selezionato per la cancellazione!';
 $strDeleting = 'Cancellazione in corso di %s';
+$strDelimiter = 'Delimitatori';
 $strDelOld = 'La Pagina corrente contiene Riferimenti a Tabelle che non esistono più. Volete cancellare questi Riferimenti?';
 $strDescending = 'Decrescente';
 $strDescription = 'Descrizione';
@@ -263,6 +270,7 @@ $strEnglish = 'Inglese';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
 $strErrorInZipFile = 'Errore nell\'archivio ZIP:';
+$strErrorRenamingTable = 'Errore nel rinominare la tabella %1$s in %2$s';
 $strEscapeWildcards = 'I caratteri jolly _ e % dovrebbero essere preceduti da un \ per l\'utilizzo letterale';
 $strEsperanto = 'Esperanto';
 $strEstonian = 'Estone';
@@ -271,6 +279,7 @@ $strExcelOptions = 'Opzioni di Excel';
 $strExecuteBookmarked = 'Esegue la query dalle preferite';
 $strExplain = 'Spiega SQL';
 $strExport = 'Esporta';
+$strExportMustBeFile = 'Il tipo di esportazione selezionato necessita di essere salvato in un file!';
 $strExtendedInserts = 'Inserimenti estesi';
 $strExtra = 'Extra';
 
@@ -296,11 +305,13 @@ $strFlushPrivilegesNote = 'N.B.: phpMyAdmin legge i privilegi degli utenti diret
 $strFlushQueryCache = 'Rinfresca la cache delle query';
 $strFlushTable = 'Inizializza ("FLUSH") la tabella';
 $strFlushTables = 'Rinfresca (chiudi) tutte le tabelle';
+$strFontSize = 'Dimensione font';
 $strFormat = 'Formato';
 $strFormEmpty = 'Valore mancante nel form!';
 $strFreePages = 'Pagine libere';
 $strFullText = 'Testo completo';
 $strFunction = 'Funzione';
+$strFunctions = 'Funzioni';
 
 $strGenBy = 'Generato da';
 $strGeneralRelationFeat = 'Caratteristiche Generali di Relazione';
@@ -377,12 +388,14 @@ $strInvalidColumnCount = 'Il contatore delle colonne deve essere superiore a 0.'
 $strInvalidCSVFieldCount = 'Contatore di campo non valido nell\'input CSV alla linea %d.';
 $strInvalidCSVFormat = 'Formato non valido per l\'input CSV alla linea %d.';
 $strInvalidCSVParameter = 'Parametro non valido per importazione CSV: %s';
+$strInvalidDatabase = 'Database non valido';
 $strInvalidFieldAddCount = 'Deviaggiungere come minimo un campo.';
 $strInvalidFieldCount = 'la tabella deve avere come minimo un dato.';
 $strInvalidLDIImport = 'Questo plugin non supporta importazioni di dati compressi!';
 $strInvalidRowNumber = '%d non è un numero valido di righe.';
 $strInvalidServerHostname = 'Nome host per il server %1$s non valido. Controlla la tua configurazione.';
 $strInvalidServerIndex = 'Server index non valido: "%s"';
+$strInvalidTableName = 'Nome tabella non valido';
 
 $strJapanese = 'Giapponese';
 $strJoins = 'Joins';
@@ -398,6 +411,7 @@ $strKorean = 'Coreano';
 
 $strLandscape = 'Orizzontale';
 $strLanguageFileNotFound = 'File di lingua "%1$s" non trovato.';
+$strLanguage = 'Lingua';
 $strLanguageUnknown = 'Lingua non conosciuta : %1$s.';
 $strLatchedPages = 'Latched pages';
 $strLatexCaption = 'Sottotitolo della tabella';
@@ -477,6 +491,7 @@ $strNext = 'Prossimo';
 $strNoActivity = 'Nessuna attività da %s secondi o più, si prega di autenticarsi nuovamente';
 $strNoDatabases = 'Nessun database';
 $strNoDatabasesSelected = 'Nessun database selezionato.';
+$strNoDataReceived = 'Non sono stati ricevuti dati da importare. O non è stato indicato alcun nome file, oppure è stato superata la dimensione massima consentita per il file, impostata nella configurazione di PHP. Vedi FAQ 1.16.';
 $strNoDescription = 'nessuna Description';
 $strNoDetailsForEngine = 'Non è disponibile nessuna informazione dettagliata sullo stato di questo motore di memorizzazione.';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
@@ -510,6 +525,10 @@ $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
 $strNumTables = 'Tabelle';
 
 $strOK = 'OK';
+$strOpenDocumentSpreadsheet = 'Foglio di calcolo nel formato Open Document';
+$strOpenDocumentSpreadsheetOptions = 'Opzioni Open Document Spreadsheet';
+$strOpenDocumentTextOptions = 'Opzioni testo nel formato Open Document';
+$strOpenDocumentText = 'Testo nel formato Open Document';
 $strOpenNewWindow = 'Apri una nuova finestra di PhpMyAdmin';
 $strOperations = 'Operazioni';
 $strOperator = 'Operatore';
@@ -533,6 +552,7 @@ $strPdfInvalidTblName = 'La tabella "%s" non esiste!';
 $strPdfNoTables = 'Nessuna Tabella';
 $strPDFOptions = 'Opzioni PDF';
 $strPDF = 'PDF';
+$strPDFReportExplanation = '(Genera un report contenete i dati di una singola tabella)';
 $strPDFReportTitle = 'Titolo del Report';
 $strPerHour = 'all\'ora';
 $strPerMinute = 'al minuto';
@@ -593,6 +613,7 @@ $strPrivDescUpdate = 'Permette di cambiare i dati.';
 $strPrivDescUsage = 'Nessun privilegio.';
 $strPrivileges = 'Privilegi';
 $strPrivilegesReloaded = 'I privilegi sono stati ricaricati con successo.';
+$strProcedures = 'Procedure';
 $strProcesses = 'Processi';
 $strProcesslist = 'Lista Processi';
 $strProtocolVersion = 'Versione protocollo';
@@ -679,6 +700,7 @@ $strSent = 'Spediti';
 $strServerChoice = 'Scelta del server';
 $strServerNotResponding = 'Il server non risponde';
 $strServer = 'Server';
+$strServers = 'Servers';
 $strServerStatusDelayedInserts = 'Inserimento ritardato';
 $strServerStatus = 'Informazioni di Runtime';
 $strServerStatusUptime = 'Questo server MySQL sta girando da %s. E\' stato avviato il %s.';
@@ -823,7 +845,7 @@ $strSort = 'Ordinamento';
 $strSpaceUsage = 'Spazio utilizzato';
 $strSpanish = 'Spagnolo';
 $strSplitWordsWithSpace = 'Le parole sono spezzate sulle spaziature (" ").';
-$strSQLCompatibility = 'Modalità compatibilità SQL';
+$strSQLCompatibility = 'Modo di compatibilità SQL';
 $strSQLExportType = 'Tipo di esportazione';
 $strSQLImportOptions = 'Opzioni SQL';
 $strSQLOptions = 'Opzioni SQL';
@@ -847,6 +869,7 @@ $strStrucCSV = 'dati CSV';
 $strStrucData = 'Struttura e dati';
 $strStrucExcelCSV = 'CSV per dati MS Excel';
 $strStrucNativeExcel = 'Dati nativi di MS Excel';
+$strStrucNativeExcelOptions = 'Opzioni di esportazione Excel native';
 $strStrucOnly = 'Solo struttura';
 $strStructPropose = 'Proponi la struttura della tabella';
 $strStructure = 'Struttura';
@@ -896,6 +919,7 @@ $strTraditionalSpanish = 'Spagnolo tradizionale';
 $strTraffic = 'Traffico';
 $strTransactionCoordinator = 'Coordinatore delle transazioni';
 $strTransformation_application_octetstream__download = 'Visualizza un collegamento per trasferire i dati di un campo in formato binario.  La prima opzione è il nome del file binario.  La seconda opzione è un nome di campo possibile di una riga della tabella che contiene il nome di schedario.  Se fornite una seconda opzione dovete avere la prima opzione settata ad una stringa vuota';
+$strTransformation_application_octetstream__hex = 'Mostra una rappresentazione esadecimale dei dati. Il primo parametro, opzionale, specifica ogni quanto deve essere aggiunto uno spazio (default a 2 nibbles).';
 $strTransformation_image_jpeg__inline = 'Mostra un thumbnalil cliccabile; opzioni: larghezza,altezza in pixel (mantiere la proporzione iniziale)';
 $strTransformation_image_jpeg__link = 'Mostra un link a questa immagine (download blob diretto, i.e.).';
 $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';
@@ -923,6 +947,7 @@ $strUpdateQuery = 'Aggiorna Query';
 $strUpdComTab = 'Prego leggere la documentazione su come aggiornare la vostra tabella Column_comments';
 $strUpgrade = 'Si dovrebbe aggiornare %s alla versione %s o successiva.';
 $strUploadLimit = 'Stai probabilmente cercando di uplodare un file troppo grosso. Fai riferimento alla documentazione %sdocumentation%s Per i modi di aggirare questo limite.';
+$strUploadsNotAllowed = 'Non è permesso l\'upload dei files su questo server.';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
 $strUsedPhpExtensions = 'Estensioni PHP usate';
@@ -964,6 +989,7 @@ $strWritingCommentNotPossible = 'Impossibile scrivere il commento';
 $strWritingRelationNotPossible = 'Impossibile scrivere la Relazione';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 
+$strXMLOptions = 'Opzioni XML';
 $strXML = 'XML';
 
 $strYes = 'Sì';
@@ -971,40 +997,4 @@ $strYes = 'Sì';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
-// To translate:
-$strAddClause = 'Add %s';  //to translate
-
-$strCreateUserDatabase = 'Database for user';  //to translate
-$strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseNone = 'None';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
-
-$strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
-
-$strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
-
-$strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
-$strOpenDocumentText = 'Open Document Text';  //to translate
-$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
-
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
-
-$strTransformation_application_octetstream__hex = 'Mostra una rappresentazione esadecimale dei dati. Optional first parameter specifies how often space will be added (defaults to 2 nibbles).';  //to translate
-
-$strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
-
-$strXMLOptions = 'XML options';  //to translate
-
-$strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
-$strErrorRenamingTable = 'Error renaming table %1$s to %2$s';  //to translate
-$strInvalidTableName = 'Invalid table name';  //to translate
-$strInvalidDatabase = 'Invalid database';  //to translate
-$strServers = 'Servers';  //to translate
-$strDelimiter = 'Delimiter';  //to translate
-$strFunctions = 'Functions';  //to translate
-$strProcedures = 'Procedures';  //to translate
-$strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
-$strFontSize = 'Font size';  //to translate
-$strLanguage = 'Language';  //to translate
 ?>

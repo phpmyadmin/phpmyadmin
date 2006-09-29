@@ -13,6 +13,8 @@ $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('字节', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
+$mysql_5_1_doc_lang = 'zh';
+
 $day_of_week = array('周日', '周一', '周二', '周三', '周四', '周五', '周六');
 $month = array('一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月');
 // See http://www.php.net/manual/en/function.strftime.php to define the

@@ -164,9 +164,10 @@ class PMA_PDF extends PMA_FPDF
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
                 $this->SetXY($l, $h);
-                $this->MultiCell($this->tablewidths[$col], $lineheight, $txt, 0, $this->colAlign[$col]);
-
-                $l += $this->tablewidths[$col];
+                if ($this->tablewidths[$col] > 0) {
+                    $this->MultiCell($this->tablewidths[$col], $lineheight, $txt, 0, $this->colAlign[$col]);
+                    $l += $this->tablewidths[$col];
+                }
 
                 if (!isset($tmpheight[$row.'-'.$this->page])) {
                     $tmpheight[$row.'-'.$this->page] = 0;
@@ -237,17 +238,32 @@ class PMA_PDF extends PMA_FPDF
                     $colFits[$i] = $stringWidth ;
                 }
                 $this->colTitles[$i] = $this->fields[$i]->name;
+                $this->display_column[$i] = true;
+
                 switch ($this->fields[$i]->type){
                 case 'int':
                     $this->colAlign[$i] = 'R';
+                    break;
+                case 'blob':
+                case 'tinyblob':
+                case 'mediumblob':
+                case 'longblob':
+                    //TODO: do not deactivate completely the display
+                    // but show the field's name and [BLOB]
+                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                        $this->display_column[$i] = false;
+                        unset($this->colTitles[$i]);
+                    }
+                    $this->colAlign[$i] = 'L';
                     break;
                 default:
                     $this->colAlign[$i] = 'L';
                 }
             }
 
-            // loop through the data, any column whose contents is bigger i
-            // that the col size is resized
+            // loop through the data, any column whose contents is bigger
+            // than the col size is resized
+            // TODO: force here a LIMIT to avoid reading all rows 
             while ($row = PMA_DBI_fetch_row($this->results)) {
                 foreach ($colFits as $key => $val) {
                     $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
@@ -257,7 +273,7 @@ class PMA_PDF extends PMA_FPDF
                     } else {
                     // if text is not bigger than the current column width setting enlarge the column
                         if ($stringWidth > $val) {
-                            $colFits[$key] = ($stringWidth) ;
+                            $colFits[$key] = $stringWidth ;
                         }
                     }
                 }
@@ -276,10 +292,12 @@ class PMA_PDF extends PMA_FPDF
                 if (!in_array($i, array_keys($colFits))) {
                     $this->tablewidths[$i] = $this->sColWidth + ($surplus / ($this->numFields - sizeof($colFits)));
                 }
+                if ($this->display_column[$i] == false) {
+                    $this->tablewidths[$i] = 0;
+                }
             }
 
             ksort($this->tablewidths);
-
         }
 
         PMA_DBI_free_result($this->results);

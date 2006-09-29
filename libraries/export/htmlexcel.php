@@ -68,7 +68,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-type" content="text/html;charset=<?php echo isset($charset_of_file) ? $charset_of_file : $charset; ?>" />
+	<meta http-equiv="Content-type" content="text/html;charset=' . ( isset($charset_of_file) ? $charset_of_file : $charset ) .'" />
 <style id="Classeur1_16681_Styles">
 </style>
 

@@ -9,6 +9,8 @@ $number_decimal_separator = '.';
 // Atajos para Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
+$mysql_5_0_doc_lang = 'es';
+
 $day_of_week = array('Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab');
 $month = array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic');
 // Ver http://www.php.net/manual/es/function.strftime.php para definir

@@ -175,8 +175,8 @@ function PMA_exportHeader()
     global $crlf;
     global $cfg;
 
-    if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] != 'NONE') {
-        PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compat'] . '"');
+    if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] != 'NONE') {
+        PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compatibility'] . '"');
     }
 
     $head  =  $GLOBALS['comment_marker'] . 'phpMyAdmin SQL Dump' . $crlf
@@ -241,7 +241,7 @@ function PMA_exportDBCreate($db)
     if (!PMA_exportOutputHandler($create_query)) {
         return FALSE;
     }
-    if (isset($GLOBALS['sql_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] == 'NONE') {
+    if (isset($GLOBALS['sql_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') {
         return PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
     }
     return PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);

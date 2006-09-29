@@ -91,9 +91,12 @@ if (! empty($_POST)) {
 }
 
 if (! empty($_FILES)) {
-    foreach ($_FILES as $name => $value) {
-        $$name = $value['tmp_name'];
-        ${$name . '_name'} = $value['name'];
+    $_valid_variables = preg_replace($GLOBALS['_import_blacklist'], '', array_keys($_FILES));
+    foreach ($_valid_variables as $name) {
+        if (strlen($name) != 0) {
+            $$name = $_FILES[$name]['tmp_name'];
+            ${$name . '_name'} = $_FILES[$name]['name'];
+        }
     }
     unset($name, $value);
 }
