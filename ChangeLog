@@ -10,6 +10,7 @@ $Source$
       thanks to Stefan Esser
     * libraries/database_interface.lib.php, bug #1566904, typo in require,
       thanks to Björn Wiberg - bwiberg.
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
 
 2006-09-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, /session.inc.php, /url_generating.lib.php:
