@@ -11,6 +11,8 @@ $Source$
       case sensitivity in database names
     * tbl_relation.php: trap error 1452 when adding a foreign key
       and a constraint fails
+    * libraries/export/sql.php: bug #1550690, wrong export of constraints,
+      thanks to Robert Vock
 
 2006-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php: fix attack via _FILES,

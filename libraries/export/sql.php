@@ -461,6 +461,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
                 // let's do the work
                 $sql_constraints_query .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
+                $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
 
                 $first = TRUE;
                 for ($j = $i; $j < $sql_count; $j++) {
@@ -469,11 +470,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                             $sql_constraints .= $crlf;
                         }
                         if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
-                            $sql_constraints_query .= preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
-                            $sql_constraints .= $sql_constraints_query; 
+                            $str_tmp = preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= $str_tmp;
+                            $sql_constraints .= $str_tmp;
                         } else {
-                            $sql_constraints_query .= preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
-                            $sql_constraints .= $sql_constraints_query; 
+                            $str_tmp = preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
+                            $sql_constraints_query .= $str_tmp;
+                            $sql_constraints .= $str_tmp;
                         }
                         $first = FALSE;
                     } else {
