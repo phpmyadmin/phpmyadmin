@@ -269,6 +269,10 @@ function PMA_DBI_get_tables_full($database, $table = false,
 
         // for PMA bc:
         // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        //
+        // added BINARY in the WHERE clause to force a case sensitive
+        // comparison (if we are looking for the db AA we don't want
+        // to find the db aa)
         $sql = '
              SELECT *,
                     `TABLE_SCHEMA`       AS `Db`,
@@ -292,12 +296,13 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                FROM `information_schema`.`TABLES`
-              WHERE `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
+              WHERE BINARY `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
                 ' . $sql_where_table;
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
             null, $link);
         unset( $sql_where_table, $sql );
     }
+
     // If permissions are wrong on even one database directory,
     // information_schema does not return any table info for any database
     // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
