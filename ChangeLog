@@ -7,6 +7,8 @@ $Source$
 
 2006-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0.1 released from MAINT_2_9_0
+    * libraries/database_interface.lib.php: bug #1568341, 
+      case sensitivity in database names
     * tbl_relation.php: trap error 1452 when adding a foreign key
       and a constraint fails
     * libraries/export/sql.php: bug #1550690, wrong export of constraints,
