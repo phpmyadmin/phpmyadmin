@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-01 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.0.1 released from MAINT_2_9_0
+    * tbl_relation.php: trap error 1452 when adding a foreign key
+      and a constraint fails
+
 2006-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, bug #1566904, typo in require,
       thanks to Björn Wiberg - bwiberg.

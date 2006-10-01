@@ -201,7 +201,8 @@ if (isset($_REQUEST['destination_innodb'])) {
         if (isset($upd_query)) {
             $upd_rs    = PMA_DBI_try_query($upd_query);
             $tmp_error = PMA_DBI_getError();
-            if (substr($tmp_error, 1, 4) == '1216') {
+            if (substr($tmp_error, 1, 4) == '1216'
+            ||  substr($tmp_error, 1, 4) == '1452') {
                 PMA_mysqlDie($tmp_error, $upd_query, FALSE, '', FALSE);
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
