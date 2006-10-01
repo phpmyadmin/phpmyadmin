@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-01 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.0.1 released from MAINT_2_9_0
+
 2006-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php: fix attack via _FILES,
       thanks to Stefan Esser
