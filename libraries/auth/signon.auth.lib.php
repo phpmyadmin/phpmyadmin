@@ -105,7 +105,7 @@ function PMA_auth_check()
 
         /* Restore our token */
         if (!empty($pma_token)) { 
-            $_SESSION['PMA_token'] = $pma_token;
+            $_SESSION[' PMA_token '] = $pma_token;
         }
     }
 

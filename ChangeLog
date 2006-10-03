@@ -9,6 +9,7 @@ $Source$
 2006-10-03 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Sync token name, move it's definition to one place
       (bug #1569612).
+    * libraries/auth/signon.auth.lib.php: Sync token name.
 
 2006-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0.1 released from MAINT_2_9_0
