@@ -305,6 +305,15 @@ function get_hidden_cfg() {
 }
 
 /**
+ * Returns needed hidden input for forms.
+ *
+ * @return  string HTML with hidden inputs
+ */
+function get_hidden_inputs() {
+    return '<input type="hidden" name="token" value="' . $_SESSION[' PMA_token '] . '" />';
+}
+
+/**
  * Creates form for some action
  *
  * @param   string  action name
@@ -316,7 +325,7 @@ function get_hidden_cfg() {
 function get_action($name, $title, $added = '', $enabled = TRUE) {
     $ret = '';
     $ret .= '<form class="action" method="post" action="">';
-    $ret .= '<input type="hidden" name="token" value="' . $_SESSION['PMA_token'] . '" />';
+    $ret .= get_hidden_inputs();
     $ret .= '<input type="hidden" name="action" value="' . $name . '" />';
     $ret .= $added;
     $ret .= '<input type="submit" value="' . $title . '"';
@@ -342,7 +351,7 @@ function get_action($name, $title, $added = '', $enabled = TRUE) {
 function get_url_action($url, $title, $params = array()) {
     $ret = '';
     $ret .= '<form class="action" method="get" action="' . $url . '" target="_blank">';
-    $ret .= '<input type="hidden" name="token" value="' . $_SESSION['PMA_token'] . '" />';
+    $ret .= get_hidden_inputs();
     foreach ($params as $key => $val) {
         $ret .= '<input type="hidden" name="' . $key . '" value="' . $val . '" />';
     }
@@ -751,7 +760,7 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
 function show_security_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_security_real" />
     <?php
         echo get_hidden_cfg();
@@ -782,7 +791,7 @@ function show_security_form($defaults = array()) {
 function show_manual_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_manual_real" />
     <?php
         echo get_hidden_cfg();
@@ -809,7 +818,7 @@ function show_charset_form($defaults = array()) {
     global $PMA_Config_Setup;
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_charset_real" />
     <?php
         echo get_hidden_cfg();
@@ -837,7 +846,7 @@ function show_charset_form($defaults = array()) {
 function show_extensions_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_extensions_real" />
     <?php
         echo get_hidden_cfg();
@@ -863,7 +872,7 @@ function show_relation_form($defaults = array()) {
     global $PMA_Config_Setup;
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_relation_real" />
     <?php
         echo get_hidden_cfg();
@@ -891,7 +900,7 @@ function show_relation_form($defaults = array()) {
 function show_upload_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_upload_real" />
     <?php
         echo get_hidden_cfg();
@@ -918,7 +927,7 @@ function show_upload_form($defaults = array()) {
 function show_server_form($defaults = array(), $number = FALSE) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="addserver_real" />
     <?php
         echo get_hidden_cfg();
@@ -965,7 +974,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
 function show_left_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_left_real" />
     <?php
         echo get_hidden_cfg();
@@ -997,7 +1006,7 @@ function show_left_form($defaults = array()) {
 function show_tabs_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_tabs_real" />
     <?php
         echo get_hidden_cfg();
@@ -1025,7 +1034,7 @@ function show_tabs_form($defaults = array()) {
 function show_icons_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_icons_real" />
     <?php
         echo get_hidden_cfg();
@@ -1054,7 +1063,7 @@ function show_icons_form($defaults = array()) {
 function show_browse_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_browse_real" />
     <?php
         echo get_hidden_cfg();
@@ -1084,7 +1093,7 @@ function show_browse_form($defaults = array()) {
 function show_edit_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_edit_real" />
     <?php
         echo get_hidden_cfg();
@@ -1118,7 +1127,7 @@ function show_edit_form($defaults = array()) {
 function show_window_form($defaults = array()) {
     ?>
 <form method="post" action="">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['PMA_token']; ?>" />
+    <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_window_real" />
     <?php
         echo get_hidden_cfg();
