@@ -162,7 +162,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
             $cur_value = $val . ', ';
         } elseif (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
-        } elseif (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
+        } elseif (preg_match('@^(NOW|CURDATE|CURTIME|UTC_DATE|UTC_TIME|UTC_TIMESTAMP|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
             $cur_value = $me_funcs[$encoded_key] . '(), ';
         } else {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
