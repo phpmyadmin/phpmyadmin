@@ -12,6 +12,7 @@ $Source$
     * tbl_replace.php, libraries/config.default.php: Add support for UTC_DATE,
       UTC_TIME and UTC_TIMESTAMP functions, based on patch #1563585, thanks to
       Alexander Schuch - ci-dev.
+    * tbl_alter.php: Fix order of includes (bug #1569277).
 
 2006-10-03 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.0.2 released from MAINT_2_9_0

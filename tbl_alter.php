@@ -2,12 +2,12 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once './libraries/Table.class.php';
-
 /**
  * Gets some core libraries
  */
 require_once('./libraries/common.lib.php');
+require_once('./libraries/Table.class.php');
+
 
 $js_to_run = 'functions.js';
 require_once('./libraries/header.inc.php');
