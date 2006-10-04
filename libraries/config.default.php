@@ -701,6 +701,9 @@ if ($cfg['ShowFunctionFields']) {
        'SUM',
        'CURDATE',
        'CURTIME',
+       'UTC_DATE',
+       'UTC_TIME',
+       'UTC_TIMESTAMP',
        'FROM_DAYS',
        'FROM_UNIXTIME',
        'PERIOD_ADD',
@@ -771,6 +774,9 @@ if ($cfg['ShowFunctionFields']) {
             'PERIOD_DIFF',
             'TO_DAYS',
             'UNIX_TIMESTAMP',
+            'UTC_DATE',
+            'UTC_TIME',
+            'UTC_TIMESTAMP',
             'WEEKDAY'
         ),
 
