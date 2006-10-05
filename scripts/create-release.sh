@@ -191,10 +191,40 @@ LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
 mv phpMyAdmin phpMyAdmin-$target
 
 # Building distribution kits
-zip -9 -r phpMyAdmin-${target}.zip phpMyAdmin-${target}
-tar cvf phpMyAdmin-${target}.tar phpMyAdmin-${target}
-bzip2 -9kv phpMyAdmin-${target}.tar
-gzip -9v phpMyAdmin-${target}.tar
+
+suffix="-all-languages"
+zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
+tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
+bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
+gzip -9v phpMyAdmin-${target}${suffix}.tar
+
+cd phpMyAdmin-${target}/lang
+mkdir tmp 
+mv *utf-8.inc.php tmp 
+rm *.inc.php
+mv tmp/* .
+rmdir tmp 
+
+cd ../..
+suffix="-all-languages-utf-8-only"
+zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
+tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
+bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
+gzip -9v phpMyAdmin-${target}${suffix}.tar
+
+cd phpMyAdmin-${target}/lang
+mkdir tmp 
+mv english-utf-8.inc.php tmp 
+rm *.inc.php
+mv tmp/* .
+rmdir tmp 
+
+cd ../..
+suffix="-english"
+zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
+tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
+bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
+gzip -9v phpMyAdmin-${target}${suffix}.tar
 
 # Cleanup
 rm -rf phpMyAdmin-${target}
