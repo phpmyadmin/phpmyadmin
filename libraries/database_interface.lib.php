@@ -270,6 +270,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
         // for PMA bc:
         // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
         //
+        // on non-Windows servers,
         // added BINARY in the WHERE clause to force a case sensitive
         // comparison (if we are looking for the db AA we don't want
         // to find the db aa)
@@ -296,8 +297,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                FROM `information_schema`.`TABLES`
-              WHERE BINARY `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
+              WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . '  `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
                 ' . $sql_where_table;
+
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
             null, $link);
         unset( $sql_where_table, $sql );

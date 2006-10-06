@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php, bug #1568341, last part of
+      the fix to avoid problems on Windows servers, thanks to Juergen Wind
+
 2006-10-05 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: starting changes for new kits
       TODO: - trimming of libraries/select_lang.lib.php in the kit
