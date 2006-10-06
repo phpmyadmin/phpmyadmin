@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # $Id$
+# vim: expandtab sw=4 ts=4 sts=4:
 #
 # 2005-09-13, lem9@users.sourceforge.net
 # - no longer create a config.default.php from config.inc.php
@@ -67,7 +68,9 @@
 # - added release todo list
 #
 
-cvsserver=${cvsserver:-phpmyadmin.cvs}
+cvsserver=${cvsserver:-phpmyadmin.cvs.sourceforge.net}
+KITS="all-languages-utf-8-only all-languages english"
+COMPRESSIONS="zip-7z tbz tgz 7z"
 
 if [ $# = 0 ]
 then
@@ -153,14 +156,17 @@ fi
 mkdir cvs
 cd cvs
 
-if [ "$mode" != "snapshot" ]
-then
- echo "Press [ENTER]!"
- cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
- if [ $? -ne 0 ] ; then
-     echo "CVS login failed, bailing out"
-     exit 1
- fi
+if [ "$mode" != "snapshot" ] ; then
+    if grep -Fq ':pserver:anonymous@phpmyadmin.cvs.sourceforge.net:2401/cvsroot/phpmyadmin' ~/.cvspass ; then
+        echo "You seem to be already logged into phpMyAdmin CVS, skipping that"
+    else
+        echo "Press [ENTER]!"
+        cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
+        if [ $? -ne 0 ] ; then
+            echo "CVS login failed, bailing out"
+            exit 1
+        fi
+    fi
 fi
 
 cvs -q -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
@@ -190,41 +196,55 @@ LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
 # Renaming directory
 mv phpMyAdmin phpMyAdmin-$target
 
-# Building distribution kits
+# Prepare all kits
+for kit in $KITS ; do
+    # Copy all files
+	name=phpMyAdmin-$target-$kit
+	cp -r phpMyAdmin-$target $name
 
-suffix="-all-languages"
-zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
-tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
-bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
-gzip -9v phpMyAdmin-${target}${suffix}.tar
+	# Cleanup translations
+    cd phpMyAdmin-$target-$kit
+    # FIXME: maybe this is wrong path, use script from kit?
+    ../../scripts/lang-cleanup.sh $kit
+    cd ..
 
-cd phpMyAdmin-${target}/lang
-mkdir tmp 
-mv *utf-8.inc.php tmp 
-rm *.inc.php
-mv tmp/* .
-rmdir tmp 
+    # Prepare distributions
+    for comp in $COMPRESSIONS ; do
+        case $comp in
+            tbz|tgz)
+                echo "Creating $name.tar"
+                tar cf $name.tar $name
+                if [ $comp = tbz ] ; then
+                    echo "Creating $name.tar.bz2"
+                    bzip2 -9k $name.tar
+                fi
+                if [ $comp = tgz ] ; then
+                    echo "Creating $name.tar.gz"
+                    gzip -9c $name.tar > $name.tar.gz
+                fi
+                rm $name.tar
+                ;;
+            zip)
+                echo "Creating $name.zip"
+                zip -q -9 -r $name.zip $name
+                ;;
+            zip-7z)
+                echo "Creating $name.zip"
+                7za a -bd -tzip $name.zip $name > /dev/null
+                ;;
+            7z)
+                echo "Creating $name.7z"
+                7za a -bd $name.7z $name > /dev/null
+                ;;
+            *)
+                echo "WARNING: ignoring compression '$comp', not known!"
+                ;;
+        esac
+    done
 
-cd ../..
-suffix="-all-languages-utf-8-only"
-zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
-tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
-bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
-gzip -9v phpMyAdmin-${target}${suffix}.tar
-
-cd phpMyAdmin-${target}/lang
-mkdir tmp 
-mv english-utf-8.inc.php tmp 
-rm *.inc.php
-mv tmp/* .
-rmdir tmp 
-
-cd ../..
-suffix="-english"
-zip -9 -r phpMyAdmin-${target}${suffix}.zip phpMyAdmin-${target}
-tar cvf phpMyAdmin-${target}${suffix}.tar phpMyAdmin-${target}
-bzip2 -9kv phpMyAdmin-${target}${suffix}.tar
-gzip -9v phpMyAdmin-${target}${suffix}.tar
+    # Remove directory with current dist set
+    rm -rf $name
+done
 
 # Cleanup
 rm -rf phpMyAdmin-${target}
@@ -245,13 +265,13 @@ echo
 echo "MD5 sums:"
 echo "--------"
 
-md5sum *.{gz,zip,bz2} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
+md5sum *.{gz,zip,bz2,7z} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
 
 echo
 echo "Sizes:"
 echo "------"
 
-ls -l --block-size=k *.{gz,zip,bz2} | sed -r "s/[a-z-]+[[:space:]]+[0-9]+[[:space:]]+[^[:space:]]+[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]*)K.*[[:space:]]([^[:space:]]+)\$/\$size['\2'] = \1;/"
+ls -l --block-size=k *.{gz,zip,bz2,7z} | sed -r "s/[a-z-]+[[:space:]]+[0-9]+[[:space:]]+[^[:space:]]+[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]*)K.*[[:space:]]([^[:space:]]+)\$/\$size['\2'] = \1;/"
 
 echo
 echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/files.inc.php on sf"

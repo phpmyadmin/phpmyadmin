@@ -5,6 +5,16 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-06 Michal Čihař  <michal@cihar.com>
+    * scripts/lang-cleanup.sh: Script for removing not installed languages
+      from libraries/select_lang.lib.php.
+    * scripts/create-release.sh: Make it better :-):
+        - Create 7z archives
+        - Make compression list configurable
+        - Allow to define which kits to build
+        - Call scripts/lang-cleanup.sh to remove not wanted languages
+        - Do not login to cvs if already logged in
+
 2006-10-05 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: starting changes for new kits
       TODO: - trimming of libraries/select_lang.lib.php in the kit
