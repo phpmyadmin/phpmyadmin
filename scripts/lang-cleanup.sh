@@ -5,11 +5,6 @@
 #
 # Script for removing language selection from phpMyAdmin
 
-TYPES=<<EOT
-all-languages:-false
-all-languages-utf-8-only:-not -name '*-utf-8.inc.php'
-EOT
-
 if [ $# -lt 1 ] ; then
     echo "Usage: lang-cleanup.sh type ..."
     echo "Type can be one of:"
