@@ -258,7 +258,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.bz2
+ls -la *.gz *.zip *.bz2 *.7z
 
 echo
 echo "MD5 sums:"
