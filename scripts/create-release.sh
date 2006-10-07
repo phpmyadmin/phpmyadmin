@@ -72,22 +72,32 @@ cvsserver=${cvsserver:-phpmyadmin.cvs.sourceforge.net}
 KITS="all-languages-utf-8-only all-languages english"
 COMPRESSIONS="zip-7z tbz tgz 7z"
 
+# third param is the user; when creating a release we don't want
+# to suffer from the delay between anonymous cvs and developer cvs
+
 if [ $# = 0 ]
 then
-  echo "Usage: create-release.sh version from_branch"
+  echo "Usage: create-release.sh version from_branch devname"
   echo "  (no spaces allowed!)"
   echo ""
-  echo "Example: create-release.sh 2.2.7-rc1 v2_2_7-branch"
+  echo "Example: create-release.sh 2.9.0-rc1 QA_2_9 lem9"
   exit 65
 fi
 
 if [ "$1" = "snapshot" ]
 then
   branch=''
-elif [ "$#" = 2 ]
+elif [ "$#" -ge 2 ]
 then
   branch="-r $2"
 fi
+
+user="anonymous"
+if [ "$#" -eq 3 ]
+then
+    user=$3
+fi
+
 
 if [ $1 = "snapshot" ]
 then
@@ -160,16 +170,22 @@ if [ "$mode" != "snapshot" ] ; then
     if grep -Fq ':pserver:anonymous@phpmyadmin.cvs.sourceforge.net:2401/cvsroot/phpmyadmin' ~/.cvspass ; then
         echo "You seem to be already logged into phpMyAdmin CVS, skipping that"
     else
-        echo "Press [ENTER]!"
-        cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
-        if [ $? -ne 0 ] ; then
-            echo "CVS login failed, bailing out"
-            exit 1
+        if [ $user = "anonymous" ] ; then
+            echo "Press [ENTER]!"
+            cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
+            if [ $? -ne 0 ] ; then
+                echo "CVS login failed, bailing out"
+                exit 1
+            fi
         fi
     fi
 fi
 
-cvs -q -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+if [ $user = "anonymous" ] ; then
+    cvs -q -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+else
+    cvs -q -z3 -d:ext:$user@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+fi
 
 if [ $? -ne 0 ] ; then
     echo "CVS checkout failed, bailing out"
