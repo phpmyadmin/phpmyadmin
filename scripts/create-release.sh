@@ -204,8 +204,7 @@ for kit in $KITS ; do
 
 	# Cleanup translations
     cd phpMyAdmin-$target-$kit
-    # FIXME: maybe this is wrong path, use script from kit?
-    ../../scripts/lang-cleanup.sh $kit
+    scripts/lang-cleanup.sh $kit
     cd ..
 
     # Prepare distributions
