@@ -51,7 +51,7 @@ $GLOBALS['cfg']['BrowseMarkerBackground']   = '#FFCC99';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily']           = '';
+$GLOBALS['cfg']['FontFamily']           = 'sans-serif';
 /**
  * fixed width font family, used in textarea
  */
