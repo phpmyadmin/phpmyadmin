@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-09 Michal Čihař  <michal@cihar.com>
+    * lang/german: Fix typo (translation #1570611).
+
 2006-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1562533, problems with unbuffered queries
     * Documentation.html: FontFamily, FontFamilyFixed
