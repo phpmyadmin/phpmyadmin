@@ -7,6 +7,7 @@ $Source$
 
 2006-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1562533, problems with unbuffered queries
+    * Documentation.html: FontFamily, FontFamilyFixed
 
 2006-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: use lang-cleanup.sh from the kit,
