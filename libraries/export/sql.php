@@ -402,7 +402,12 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 0');
     }
 
-    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
+    // I don't see the reason why this unbuffered query could cause problems,
+    // because SHOW CREATE TABLE returns only one row, and we free the
+    // results below. Nonetheless, we got 2 user reports about this
+    // (see bug 1562533) so I remove the unbuffered mode.
+    //$result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
+    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
     if ($result != FALSE && ($row = PMA_DBI_fetch_row($result))) {
         $create_query = $row[1];
         unset($row);
