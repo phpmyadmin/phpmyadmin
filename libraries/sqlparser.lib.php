@@ -602,8 +602,13 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                      * found here and the token is wrongly marked as alpha_functionName.
                      * But we compensate for this when analysing for timestamp_not_null
                      * later in this script.
+                     *
+                     * Same applies to CHAR vs. CHAR() function.
                      */
                     $t_suffix = '_functionName';
+                    /* There are functions which might be as well column types */
+                    if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
+                    }
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
                     $t_suffix = '_columnType';
 
@@ -713,7 +718,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
      *
      * @access public
      */
-    function PMA_SQP_analyze($arr)
+    function PMA_SQP_analyze(&$arr)
     {
         if ($arr == array()) {
             return array();
@@ -1738,9 +1743,13 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
                     $create_table_fields[$current_identifier]['type'] = $upper_data;
                     if ($upper_data == 'TIMESTAMP') {
+                        $arr[$i]['type'] = 'alpha_columnType';
                         $in_timestamp_options = TRUE;
                     } else {
                         $in_timestamp_options = FALSE;
+                        if ($upper_data == 'CHAR') {
+                            $arr[$i]['type'] = 'alpha_columnType';
+                        }
                     }
                 }
             }

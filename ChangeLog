@@ -14,6 +14,8 @@ $Source$
       this case.
     * libraries/export/excel.php: Fix MIME type and extension to state before
       plugins were introduced (patch #1570742, thanks to ssevennm - ssevennm).
+    * libraries/sqlparser.lib.php: Fix parsing of CHAR column type (bug
+      #1573502).
 
 2006-10-09 Michal Čihař  <michal@cihar.com>
     * lang/german: Fix typo (translation #1570611).
