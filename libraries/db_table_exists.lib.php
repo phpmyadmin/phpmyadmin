@@ -62,6 +62,12 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
                 if (isset($message)) {
                     $url_params['message'] = $message;
                 }
+                if (isset($sql_query)) {
+                    $url_params['sql_query'] = $sql_query;
+                }
+                if (isset($display_query)) {
+                    $url_params['display_query'] = $display_query;
+                }
                 PMA_sendHeaderLocation(
                     $cfg['PmaAbsoluteUri'] . 'db_details.php'
                         . PMA_generate_common_url($url_params, '&'));

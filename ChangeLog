@@ -9,6 +9,7 @@ $Source$
     * lang/german: Fix typo (translation #1467138).
     * libraries/import.lib.php: Correctly fail if file is too short (bug
       #1574340).
+    * libraries/db_table_exists.lib.php: Fix displaying of entered query.
 
 2006-10-09 Michal Čihař  <michal@cihar.com>
     * lang/german: Fix typo (translation #1570611).
