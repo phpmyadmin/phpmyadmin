@@ -928,6 +928,14 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 }
             } else {
                 session_write_close();
+                if (headers_sent()) {
+                    if (function_exists(debug_print_backtrace)) {
+                        echo '<pre>';
+                        debug_print_backtrace();
+                        echo '</pre>';
+                    }
+                    trigger_error('PMA_sendHeaderLocation called when headers are already sent!', E_USER_ERROR);
+                }
                 // bug #1523784: IE6 does not like 'Refresh: 0', it
                 // results in a blank page
                 // but we need it when coming from the cookie login panel)
