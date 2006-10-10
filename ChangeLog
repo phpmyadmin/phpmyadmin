@@ -12,6 +12,8 @@ $Source$
     * libraries/db_table_exists.lib.php: Fix displaying of entered query.
     * libraries/common.lib.php: Check for sent headers, provide backtrace in
       this case.
+    * libraries/export/excel.php: Fix MIME type and extension to state before
+      plugins were introduced (patch #1570742, thanks to ssevennm - ssevennm).
 
 2006-10-09 Michal Čihař  <michal@cihar.com>
     * lang/german: Fix typo (translation #1570611).

@@ -9,8 +9,8 @@
 if (isset($plugin_list)) {
     $plugin_list['excel'] = array(
         'text' => 'strStrucExcelCSV',
-        'extension' => 'xls',
-        'mime_type' => 'application/vnd.ms-excel',
+        'extension' => 'csv',
+        'mime_type' => 'text/comma-separated-values',
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
