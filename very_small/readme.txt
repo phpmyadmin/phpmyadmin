@@ -1,5 +1,5 @@
 
-    README FILE FOR THE VERY SMALL THEME USED WITH PHPMAYADMIN
+    README FILE FOR THE VERY SMALL THEME USED WITH PHPMYADMIN
 ----------------------------------------------------------------------
 
 CHANGE LOG:
@@ -30,6 +30,39 @@ CHANGE LOG:
 			
   Note:
     [whatever] is any path to your phpMyAdmin-Installation.
+
+1b. OPTIONAL
+-----------------------------------------------------------------------
+  in your config.inc.php you should set the configuration 
+	$cfg['LeftDisplayLogo']       =FALSE;
+  to save space on the left frame at the top
+
+  Optional for Internet Explorer:
+	In mozilla it looks very small now ;)
+	but in Internet Explorer the new style is not valid so it is ignored (but its
+	still smaller than the original already)
+	
+	To get an even smaller view in IE, you need a small hack:
+	(use an editor with a replace function where you can 
+	replace text inside all documents inside your PMA folder [whatever])
+	
+	1. 
+	replace all occurrences of 
+	`type="checkbox" `
+	 ----------------
+	with
+	`type="checkbox" class="inpcheck" `
+	 ---------------------------------
+	(take care that you also replace the spaces after the quotes)
+
+	
+	2. 
+	replace all  occurrences of 
+	`height="16"`
+	 -----------
+	with
+	`height="14"`
+	 -----------
 
 ----------------------------------------------------------------------
 
