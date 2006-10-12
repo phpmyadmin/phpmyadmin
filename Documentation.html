@@ -3777,9 +3777,9 @@ chmod o+rwx tmp
     <a href="#faq7_2">7.2 I want to translate the messages to a new language or upgrade an
     existing language, where do I start?</a></h4>
 
-<p> Always use the current CVS version of your language file.
+<p> Always use the current SVN version of your language file.
     For a new language, start from <i>english-iso-8859-1.inc.php</i>. If you
-    don't  know how to get the CVS version, please ask one of the developers.
+    don't  know how to get the SVN version, please ask one of the developers.
     <br />
     Please note that we try not to use HTML entities like &amp;eacute; in
     the translations, since we define the right character set in the file.
@@ -3798,19 +3798,20 @@ chmod o+rwx tmp
 
 <p> The following method is preferred for new developers:</p>
 
-<ol><li>fetch the current CVS tree over anonymous CVS:<br />
-        <tt>cvs -d:pserver:anonymous@phpmyadmin.cvs.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
-        [Password: simply press the Enter key]<br />
-        <tt>cvs -z3 -d:pserver:anonymous@phpmyadmin.cvs.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin</tt><br />
-        [This will create a new sub-directory named phpMyAdmin]</li>
+<ol><li>fetch the current SVN tree over anonymous SVN:<br />
+    <tt>svn co https://svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin</tt><br />
+    </li>
     <li>add your stuff</li>
-    <li>put the modified files (tar'ed and gzip'ed) inside the patch tracker of
-        the
-        <a href="http://sf.net/projects/phpmyadmin/">phpMyAdmin SourceForge account</a>.
+    <li>generate patch with your changes:
+    <tt>svn diff</tt><br />
+    </li>
+    <li>put the patch inside the <a
+        href="https://sourceforge.net/tracker/?group_id=23067&atid=377410">patch
+        tracker of the phpMyAdmin project</a>.
     </li>
 </ol>
 
-<p> Write access to the CVS tree is granted only to experienced developers who
+<p> Write access to the SVN tree is granted only to experienced developers who
     have already contributed something useful to phpMyAdmin.<br />
     Also, have a look at the <a href="#developers">Developers section</a>.</p>
 

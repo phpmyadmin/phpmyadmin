@@ -5,6 +5,20 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-12 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Change CVS instructions to SVN.
+    * scripts/create-release.sh: Switch to SVN:
+        - use svn instead of cvs
+        - remove chmod (we can have correct permissions in svn)
+        - some cleanup
+        - use export and thus remove need for removing files
+        - fix help instructions to contain correct version
+        - CHANGE: you have to prepend "tags" or "branches" to tag or branch
+          specification
+    * */.cvsignore: Removed, this is now stored in svn:ignore property (use
+      svn propget/propset to work with them).
+    * many files: Fix permissions.
+
 2006-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     ### Migration to Subversion
 

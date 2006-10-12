@@ -77,52 +77,32 @@ COMPRESSIONS="zip-7z tbz tgz 7z"
 
 if [ $# = 0 ]
 then
-  echo "Usage: create-release.sh version from_branch devname"
+  echo "Usage: create-release.sh version from_branch"
   echo "  (no spaces allowed!)"
   echo ""
-  echo "Example: create-release.sh 2.9.0-rc1 QA_2_9 lem9"
+  echo "Examples:"
+  echo "  create-release.sh 2.9.0-rc1 branches/QA_2_9"
+  echo "  create-release.sh 2.9.0 tags/RELEASE_2_9_0"
   exit 65
 fi
 
-if [ "$1" = "snapshot" ]
-then
-  branch=''
-elif [ "$#" -ge 2 ]
-then
-  branch="-r $2"
-fi
+branch='trunk'
 
-user="anonymous"
-if [ "$#" -eq 3 ]
-then
-    user=$3
-fi
-
-
-if [ $1 = "snapshot" ]
-then
-  mode="snapshot"
-  date_snapshot=`date +%Y%m%d-%H%M%S`
-fi
-
-# Set target name
-if [ "$mode" != "snapshot" ]
-then
- target=$1
+if [ "$1" = "snapshot" ] ; then
+    mode="snapshot"
+    date_snapshot=`date +%Y%m%d-%H%M%S`
+    target=$date_snapshot
 else
- target=$date_snapshot
-fi
-
-
-if [ "$mode" != "snapshot" ]
-then
-
- cat <<END
+    if [ "$#" -ge 2 ] ; then
+        branch="$2"
+    fi
+    target="$1"
+    cat <<END
 
 Please ensure you have:
-  1. incremented rc count or version in CVS :
+  1. incremented rc count or version in subversion :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
-          " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
+          " \$this->set( 'PMA_VERSION', '$1' ); "
      - in Documentation.html the 2 lines
           " <title>phpMyAdmin $1 - Documentation</title> "
           " <h1>phpMyAdmin $1 Documentation</h1> "
@@ -136,14 +116,14 @@ Please ensure you have:
 
 Continue (y/n)?
 END
- printf "\a"
- read do_release
+    read do_release
 
- if [ "$do_release" != 'y' ]; then
-   exit
- fi
+    if [ "$do_release" != 'y' ]; then
+        exit
+    fi
 fi
 
+# FIXME: this was kept, but actually this is not used
 if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
 # Goto project dir
     cd /home/groups/p/ph/phpmyadmin/htdocs
@@ -162,49 +142,21 @@ if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
     mv cvs cvs-prev
 fi
 
-# Do CVS checkout
-mkdir cvs
-cd cvs
+# Do SVNcheckout
+mkdir -p ./svn 
+cd svn
 
-if [ "$mode" != "snapshot" ] ; then
-    if grep -Fq ':pserver:anonymous@phpmyadmin.cvs.sourceforge.net:2401/cvsroot/phpmyadmin' ~/.cvspass ; then
-        echo "You seem to be already logged into phpMyAdmin CVS, skipping that"
-    else
-        if [ $user = "anonymous" ] ; then
-            echo "Press [ENTER]!"
-            cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
-            if [ $? -ne 0 ] ; then
-                echo "CVS login failed, bailing out"
-                exit 1
-            fi
-        fi
-    fi
-fi
+echo "Exporting repository from subversion"
 
-if [ $user = "anonymous" ] ; then
-    cvs -q -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
-else
-    cvs -q -z3 -d:ext:$user@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
-fi
+svn export -q https://svn.sourceforge.net/svnroot/phpmyadmin/$branch/phpMyAdmin
 
 if [ $? -ne 0 ] ; then
-    echo "CVS checkout failed, bailing out"
+    echo "Subversion checkout failed, bailing out"
     exit 2
 fi
 
 # Cleanup release dir
 LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-${target}
-
-# Olivier asked to keep those in the cvs release, to allow testers to use
-# cvs update on it
-if [ "$mode" != "snapshot" ]
-then
- find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf
-fi
-
-find phpMyAdmin -type d -print0 | xargs -0 chmod 755
-find phpMyAdmin -type f -print0 | xargs -0 chmod 644
-find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 
 # Building Documentation.txt
 LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
@@ -296,8 +248,8 @@ cat <<END
 
 Todo now:
 ---------
- 1. tag the cvs tree with the new revision number for a plain release or a
-    release candidate:
+ 1. tag the subversion tree with the new revision number for a plain release
+    or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
 
@@ -305,7 +257,7 @@ Todo now:
         ftp upload.sourceforge.net
         cd incoming
         binary
-        mput cvs/*.gz *.zip *.bz2
+        mput svn/*.gz *.zip *.bz2
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
  5. update web page:
@@ -320,7 +272,7 @@ Todo now:
     Don't forget to update the Description section in the announcement,
     based on Documentation.html.
 
- 8. increment rc count or version in CVS :
+ 8. increment rc count or version in subversion :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html the 2 lines
@@ -337,12 +289,6 @@ Todo now:
 
 END
 
-fi
-
-if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
-    cd ..
-    find cvs -type d -print0 | xargs -0 chmod 775
-    find cvs -type f -print0 | xargs -0 chmod 664
 fi
 
 # Removed due to not needed thanks to clever scripting by Robbat2
