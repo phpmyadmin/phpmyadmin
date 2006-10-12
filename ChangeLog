@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-11 Marc Delisle  <lem9@users.sourceforge.net>
+    ### Migration to Subversion
+
 2006-10-10 Michal Čihař  <michal@cihar.com>
     * lang/german: Fix typo (translation #1467138).
     * libraries/import.lib.php: Correctly fail if file is too short (bug
