@@ -9,7 +9,7 @@
  * @author     Michal Čihař <michal@cihar.com>
  * @copyright  2006 Michal Čihař <michal@cihar.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    CVS: $Id$
+ * @version    Subversion $Id$
  */
 /* $Id$ */
 //vim: expandtab sw=4 ts=4 sts=4:
@@ -1865,7 +1865,7 @@ switch ($action) {
             message('notice', 'New version of phpMyAdmin is available, you should consider upgrade. New version is ' . htmlspecialchars($version) . '.');
         } else {
             if ($version_local % 100 == 0) {
-                message('notice', 'You are using CVS version, run <code>cvs update</code> :-). However latest released version is ' . htmlspecialchars($version) . '.');
+                message('notice', 'You are using subversion version, run <code>svn update</code> :-). However latest released version is ' . htmlspecialchars($version) . '.');
             } else {
                 message('notice', 'No newer stable version is available.');
             }
