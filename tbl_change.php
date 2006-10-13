@@ -457,7 +457,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             } // end if... else...
             // loic1: if a timestamp field value is not included in an update
             //        statement MySQL auto-update it to the current timestamp
-            $backup_field  = ($row_table_def['True_Type'] == 'timestamp')
+            // lem9:  however, things have changed since MySQL 4.1, so
+            //        it's better to set a fields_prev in this situation
+            $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $row_table_def['True_Type'] == 'timestamp')
                            ? ''
                            : '<input type="hidden" name="fields_prev' . $vkey . '[' . urlencode($field) . ']" value="' . urlencode($vrow[$rowfield]) . '" />';
         } else {
