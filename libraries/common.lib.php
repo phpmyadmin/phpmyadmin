@@ -2668,7 +2668,9 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
 if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
-    /* List of parameters which are allowed from unsafe source */
+    /**
+     *  List of parameters which are allowed from unsafe source
+     */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
         /* Session ID */
@@ -2678,21 +2680,15 @@ if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token'])
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
     );
-    /* Remove any non allowed stuff from requests */
-    // do not check only $_REQUEST because it could have been overwritten
-    // and use type casting because the variables could have become 
-    // strings
-    $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
+    /** 
+     * Require cleanup functions 
+     */
+    require_once('./libraries/cleanup.lib.php');
+    /**
+     * Do actual cleanup
+     */
+    PMA_remove_request_vars($allow_list);
 
-    foreach($keys as $key) {
-        if (!in_array($key, $allow_list)) {
-            unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
-        } else {
-            // allowed stuff could be compromised so escape it
-            $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
-        }
-    }
-    unset($key, $keys);
 }
 
 

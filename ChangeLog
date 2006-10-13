@@ -8,6 +8,8 @@ $Source$
 2006-10-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Mention wiki.
     * scripts/create-release.sh: Readd snapshot support.
+    * libraries/cleanup.lib.php, libraries/common.lib.php: Move cleanup to
+      separate function (bug #1569123).
 
 2006-10-12 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1566219, automated timestamp values
