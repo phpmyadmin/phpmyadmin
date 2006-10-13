@@ -40,12 +40,12 @@ foreach ( $tables as $each_table ) {
         // Don't offer to export views yet.
         continue;
     }
-    if ( ! empty( $selectall )
+    if ( ! empty( $unselectall )
       || ( isset( $tmp_select ) 
            && false !== strpos( $tmp_select, '|' . $each_table['Name'] . '|') ) ) {
-        $is_selected = ' selected="selected"';
-    } else {
         $is_selected = '';
+    } else {
+        $is_selected = ' selected="selected"';
     }
     $table_html   = htmlspecialchars( $each_table['Name'] );
     $multi_values .= '                <option value="' . $table_html . '"' 
@@ -59,9 +59,9 @@ $checkall_url = 'db_details_export.php?'
               . '&amp;goto=db_details_export.php';
 
 $multi_values .= '<br />
-        <a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>
+        <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>
         /
-        <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
+        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
 
 $export_type = 'database';
 require_once('./libraries/display_export.lib.php');
