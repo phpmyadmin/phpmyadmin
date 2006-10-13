@@ -68,16 +68,14 @@
 # - added release todo list
 #
 
-cvsserver=${cvsserver:-phpmyadmin.cvs.sourceforge.net}
 KITS="all-languages-utf-8-only all-languages english"
 COMPRESSIONS="zip-7z tbz tgz 7z"
 
-# third param is the user; when creating a release we don't want
-# to suffer from the delay between anonymous cvs and developer cvs
-
 if [ $# = 0 ]
 then
-  echo "Usage: create-release.sh version from_branch"
+  echo "Usages:"
+  echo "  create-release.sh <version> [from_branch]"
+  echo "  create-release.sh snapshot [sf]"
   echo "  (no spaces allowed!)"
   echo ""
   echo "Examples:"
@@ -123,23 +121,15 @@ END
     fi
 fi
 
-# FIXME: this was kept, but actually this is not used
-if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
-# Goto project dir
+if [ "$mode" = "snapshot" -a "$2" = "sf" ] ; then
+    # Goto project dir
     cd /home/groups/p/ph/phpmyadmin/htdocs
 
-## Move old cvs dir
-#if [ -e cvs ];
-#then
-#    mv cvs cvs-`date +%s`
-#fi
-
-# Keep one previous version of the cvs directory
-    if [ -e cvs-prev ];
-    then
-        rm -rf cvs-prev
+    # Keep one previous version of the cvs directory
+    if [ -e svn-prev ] ; then
+        rm -rf svn-prev
     fi
-    mv cvs cvs-prev
+    mv svn svn-prev
 fi
 
 # Do SVNcheckout
