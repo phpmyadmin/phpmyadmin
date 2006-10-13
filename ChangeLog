@@ -9,6 +9,8 @@ $Source$
     * css/phpmyadmin.css.php: bug #1517428, some IE 6 versions have
       problems loading CSS when zlip.output_compression is on,
       thanks to Juergen Wind
+    * db_details_export.php: select all tables by default to reflect
+      the default export behavior
 
 2006-10-12 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1566219, automated timestamp values
