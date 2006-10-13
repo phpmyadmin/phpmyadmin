@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * css/phpmyadmin.css.php: bug #1517428, some IE 6 versions have
+      problems loading CSS when zlip.output_compression is on,
+      thanks to Juergen Wind
+
 2006-10-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Mention wiki.
     * scripts/create-release.sh: Readd snapshot support.
