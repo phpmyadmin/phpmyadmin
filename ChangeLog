@@ -13,6 +13,7 @@ $Source$
     * changelog.php: Switch to subversion.
     * main.php: 
         - Mention wiki.
+        - Switch to subversion.
 
 2006-10-12 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1566219, automated timestamp values
