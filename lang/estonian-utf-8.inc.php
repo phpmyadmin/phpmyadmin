@@ -1002,4 +1002,5 @@ $strZip = '"zipitud"';
 
 $strLanguage = 'Language';  //to translate
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

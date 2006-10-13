@@ -1019,4 +1019,5 @@ $strUnsupportedCompressionDetected = 'You attempted to load file with unsupporte
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

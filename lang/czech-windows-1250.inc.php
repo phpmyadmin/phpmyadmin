@@ -564,6 +564,7 @@ $strPHPVersion = 'Verze PHP';
 $strPhp = 'Zobrazit PHP kód';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
 $strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaven v&nbsp;konfiguraèním souboru!';
+$strPmaWiki = 'wiki phpMyAdmina';
 $strPolish = 'Polština';
 $strPortrait = 'Na výšku';
 $strPos1 = 'Zaèátek';

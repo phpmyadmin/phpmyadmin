@@ -998,4 +998,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie.';
 $strZip = 'archivavany ŭ zip';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

@@ -997,4 +997,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

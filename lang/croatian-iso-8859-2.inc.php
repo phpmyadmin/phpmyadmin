@@ -996,4 +996,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na vrijednost 0 (nula) uklanja ogranièenje.';
 $strZip = '"zipano"';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

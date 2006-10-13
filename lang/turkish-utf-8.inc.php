@@ -1004,4 +1004,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sıfır)\'a ayarlanması sınırı kaldırır.';
 $strZip = '"zip olarak"';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

@@ -1002,4 +1002,5 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zip 方式"';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

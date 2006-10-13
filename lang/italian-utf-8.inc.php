@@ -998,4 +998,5 @@ $strYes = 'Sì';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

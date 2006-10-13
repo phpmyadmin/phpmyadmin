@@ -1001,4 +1001,5 @@ $strFontSize = 'Font size';  //to translate
 
 $strLanguage = 'Language';  //to translate
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>

@@ -564,6 +564,7 @@ $strPhp = 'Create PHP Code';
 $strPHPVersion = 'PHP Version';
 $strPmaDocumentation = 'phpMyAdmin documentation';
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
+$strPmaWiki = 'phpMyAdmin wiki';
 $strPolish = 'Polish';
 $strPortrait = 'Portrait';
 $strPos1 = 'Begin';

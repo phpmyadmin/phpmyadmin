@@ -1019,4 +1019,5 @@ $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocu
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 ?>
