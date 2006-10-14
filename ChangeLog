@@ -5,6 +5,13 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * export.php, db_details_export.php: bug #1541189, views are not displayed
+      in export list;
+      However I'm still not sure what should be done if a user only chooses
+      a view. In the past we ensured to avoid exporting data from a view 
+      because it would create redundant data in the export file
+
 2006-10-13 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php: bug #1517428, some IE 6 versions have
       problems loading CSS when zlip.output_compression is on,

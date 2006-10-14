@@ -36,10 +36,11 @@ $multi_values = '<div align="center"><select name="table_select[]" size="6" mult
 $multi_values .= "\n";
 
 foreach ( $tables as $each_table ) {
-    if ( PMA_MYSQL_INT_VERSION >= 50000 && is_null($each_table['Engine']) ) {
+    // ok we show also views
+    //if ( PMA_MYSQL_INT_VERSION >= 50000 && is_null($each_table['Engine']) ) {
         // Don't offer to export views yet.
-        continue;
-    }
+    //    continue;
+    //}
     if ( ! empty( $unselectall )
       || ( isset( $tmp_select ) 
            && false !== strpos( $tmp_select, '|' . $each_table['Name'] . '|') ) ) {
