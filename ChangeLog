@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Table.class.php: bug #1567316, renaming a db containing view
+      (but still some work to ensure proper sequence of renaming)
+
 2006-10-13 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php: bug #1517428, some IE 6 versions have
       problems loading CSS when zlip.output_compression is on,

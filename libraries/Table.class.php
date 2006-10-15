@@ -667,7 +667,7 @@ class PMA_Table {
             // moving table from replicated one to not replicated one
             PMA_DBI_select_db($source_db);
 
-            if (PMA_Table::_isView($source_db,$source)) {
+            if (PMA_Table::_isView($source_db,$source_table)) {
                 $sql_drop_query = 'DROP VIEW';
             } else {
                 $sql_drop_query = 'DROP TABLE';
