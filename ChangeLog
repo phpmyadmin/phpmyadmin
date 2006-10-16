@@ -10,6 +10,8 @@ $HeadURL$
       Documentation.html, index.php, libraries/common.lib.php: Rename left.php
       to navigation.php and modify all calls to that. Only config variables
       are kept as Left*.
+    * libraries/common.lib.php: Switch to \n on Mac, as it is reported to be
+      common EOL there now (bug #1577590).
 
 2006-10-14 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php, db_details_export.php: bug #1541189, views are not displayed

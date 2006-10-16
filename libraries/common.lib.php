@@ -1174,10 +1174,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         if (PMA_USR_OS == 'Win') {
             $the_crlf = "\r\n";
         }
-        // Mac case
-        elseif (PMA_USR_OS == 'Mac') {
-            $the_crlf = "\r";
-        }
         // Others
         else {
             $the_crlf = "\n";
