@@ -1005,7 +1005,7 @@ function show_left_form($defaults = array()) {
     ?>
 <form method="post" action="">
     <?php echo get_hidden_inputs();?>
-    <input type="hidden" name="action" value="lay_left_real" />
+    <input type="hidden" name="action" value="lay_navigation_real" />
     <?php
         echo get_hidden_cfg();
         show_config_form(array(
@@ -1018,7 +1018,7 @@ function show_left_form($defaults = array()) {
             array('Display servers selection', 'LeftDisplayServers', 'Whether to show server selection in left frame', FALSE),
             array('Enable pointer highlighting', 'LeftPointerEnable', 'Whether you want to highlight server under mouse', TRUE),
             ),
-            'Configure left frame',
+            'Configure navigation frame',
             'Customize the appears of the navigation frame.',
             $defaults);
     ?>
@@ -1636,7 +1636,7 @@ switch ($action) {
         show_relation_form($configuration);
         break;
 
-    case 'lay_left_real':
+    case 'lay_navigation_real':
         if (isset($_POST['submit_save'])) {
             $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDisplayServers:bool;LeftPointerEnable:bool');
             $err = FALSE;
@@ -1655,7 +1655,7 @@ switch ($action) {
             $show_info = TRUE;
         }
         break;
-    case 'lay_left':
+    case 'lay_navigation':
         show_left_form($configuration);
         break;
 
@@ -1941,7 +1941,7 @@ if (!empty($servers)) {
 echo '</fieldset>' . "\n\n";
 
 echo '<fieldset class="toolbar"><legend>Layout</legend>' . "\n";
-echo get_action('lay_left', 'Left frame');
+echo get_action('lay_navigation', 'Navigation frame');
 echo get_action('lay_tabs', 'Tabs');
 echo get_action('lay_icons', 'Icons');
 echo get_action('lay_browse', 'Browsing');

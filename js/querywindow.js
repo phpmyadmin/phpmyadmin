@@ -38,7 +38,7 @@ function setDb(new_db) {
 }
 
 /**
- * sets current selected table (called from left.php)
+ * sets current selected table (called from navigation.php)
  *
  * @param    string    table name
  */
@@ -80,7 +80,7 @@ function refreshMain(url) {
 }
 
 function refreshNavigation() {
-    goTo('left.php?server=' + server +
+    goTo('navigation.php?server=' + server +
         '&db=' + db +
         '&table=' + table +
         '&lang=' + lang +

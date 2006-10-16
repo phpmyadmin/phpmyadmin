@@ -1201,7 +1201,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
-            $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
+            $reload_url = './navigation.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
             ?>
 <script type="text/javascript" language="javascript">
 //<![CDATA[
@@ -2583,7 +2583,7 @@ $goto_whitelist = array(
     'export.php',
     'import.php',
     //'index.php',
-    //'left.php',
+    //'navigation.php',
     //'license.php',
     'main.php',
     'pdf_pages.php',

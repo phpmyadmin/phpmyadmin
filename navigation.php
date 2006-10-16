@@ -48,15 +48,15 @@
 require_once './libraries/common.lib.php';
 
 /**
- * finish and cleanup left.php script execution
+ * finish and cleanup navigation.php script execution
  *
  * @uses $GLOBALS['controllink'] to close it
  * @uses $GLOBALS['userlink'] to close it
  * @uses PMA_outBufferPost()
  * @uses PMA_DBI_close()
- * @access private only to be used in left.php
+ * @access private only to be used in navigation.php
  */
-function PMA_exitLeftFrame()
+function PMA_exitNavigationFrame()
 {
     echo '</body></html>';
 
@@ -159,18 +159,18 @@ require_once './libraries/header_http.inc.php';
 require './libraries/left_header.inc.php';
 if (! $GLOBALS['server']) {
     // no server selected
-    PMA_exitLeftFrame();
+    PMA_exitNavigationFrame();
 } elseif (! $GLOBALS['PMA_List_Database']->count()) {
     // no database available, so we break here
     echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
-    PMA_exitLeftFrame();
+    PMA_exitNavigationFrame();
 } elseif ($GLOBALS['cfg']['LeftFrameLight'] && $GLOBALS['PMA_List_Database']->count() > 1) {
     // more than one database available and LeftFrameLight is true
     // display db selectbox
     //
     // Light mode -> beginning of the select combo for databases
     // Note: When javascript is active, the frameset will be changed from
-    // within left.php. With no JS (<noscript>) the whole frameset will
+    // within navigation.php. With no JS (<noscript>) the whole frameset will
     // be rebuilt with the new target frame.
     ?>
 
@@ -205,7 +205,7 @@ $img_minus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_minus.
     .' width="9" height="9" alt="-" />';
 
 $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
-    .' href="left.php?%s" target="_self">';
+    .' href="navigation.php?%s" target="_self">';
 
 $element_counter = 0;
 
@@ -354,7 +354,7 @@ function PMA_displayDbList($ext_dblist) {
                     title="<?php echo htmlspecialchars($db['comment']); ?>"
                     onclick="
                         if (! toggle('<?php echo $element_counter; ?>', true))
-                            window.parent.goTo('./left.php?<?php echo $common_url_query; ?>');
+                            window.parent.goTo('./navigation.php?<?php echo $common_url_query; ?>');
                         window.parent.goTo('./<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
                             . '?' . $common_url_query; ?>', 'main');
                         return false;">
@@ -499,7 +499,7 @@ function PMA_displayTableList($tables, $visible = false,
                 target="_parent"
                 onclick="
                     if (! toggle('<?php echo $element_counter; ?>', true))
-                        window.parent.goTo('./left.php?<?php echo $common_url_query; ?>');
+                        window.parent.goTo('./navigation.php?<?php echo $common_url_query; ?>');
                     window.parent.goTo('./<?php echo $GLOBALS['cfg']['DefaultTabDatabase']
                         . '?' . $common_url_query; ?>', 'main');
                     return false;">
@@ -564,5 +564,5 @@ function PMA_displayTableList($tables, $visible = false,
 }
 
 echo '</div>';
-PMA_exitLeftFrame();
+PMA_exitNavigationFrame();
 ?>

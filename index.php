@@ -144,7 +144,7 @@ if ($GLOBALS['text_dir'] === 'ltr') {
 ?>" rows="*" id="mainFrameset">
     <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     <frame frameborder="0" id="frame_navigation"
-        src="left.php<?php echo $url_query; ?>"
+        src="navigation.php<?php echo $url_query; ?>"
         name="frame_navigation" />
     <?php } ?>
     <frame frameborder="0" id="frame_content"
@@ -152,7 +152,7 @@ if ($GLOBALS['text_dir'] === 'ltr') {
         name="frame_content" />
     <?php if ($GLOBALS['text_dir'] === 'rtl') { ?>
     <frame frameborder="0" id="frame_navigation"
-        src="left.php<?php echo $url_query; ?>"
+        src="navigation.php<?php echo $url_query; ?>"
         name="frame_navigation" />
     <?php } ?>
     <noframes>
