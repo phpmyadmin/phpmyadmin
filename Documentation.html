@@ -39,6 +39,8 @@
             phpMyAdmin homepage</a></li>
     <li><a href="https://sf.net/projects/phpmyadmin/">
             SourceForge phpMyAdmin project page</a></li>
+    <li><a href="http://wiki.cihar.com">
+            Official phpMyAdmin wiki</a></li>
     <li>Local documents:
         <ul><li>Version history: <a href="changelog.php">ChangeLog</a></li>
             <li>General notes: <a href="readme.php">README</a></li>
@@ -435,7 +437,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 <h4>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication mode</h4>
 
 <ul><li>Uses <abbr title="HyperText Transfer Protocol">HTTP</abbr> Basic authentication
-        method and allows you to login as any valid MySQL user.</li>
+        method and allows you to log in as any valid MySQL user.</li>
     <li>Is supported with most PHP configurations. For
         <abbr title="Internet Information Services">IIS</abbr>
         (<abbr title="Internet Server Application Programming Interface">ISAPI</abbr>)
@@ -460,9 +462,9 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <abbr title="Internet Information Services">IIS</abbr>).</li>
     <li>Obviously, the user must enable cookies in the browser, but this is
     now a requirement for all authentication modes.</li>
-    <li>With this mode, the user can truly logout of phpMyAdmin and login back
+    <li>With this mode, the user can truly log out of phpMyAdmin and log in back
         with the same username.</li>
-    <li>If you want to login to arbitrary server see
+    <li>If you want to log in to arbitrary server see
         <a href="#AllowArbitraryServer" class="configrule">
         $cfg['AllowArbitraryServer']</a> directive.</li>
     <li>As mentioned in the <a href="#require">requirements</a> section, having
@@ -663,7 +665,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
                 2.2.3 allows you to log in as any valid MySQL user with the
                 help of cookies. Username and password are stored in
                 cookies during the session and password is deleted when it
-                ends. This can also allow you to login in arbitrary server if
+                ends. This can also allow you to log in in arbitrary server if
                 <tt><a href="#AllowArbitraryServer" class="configrule">$cfg['AllowArbitraryServer']</a></tt> enabled.
             </li>
             <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions)
@@ -688,7 +690,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         id="cfg_Servers_nopassword">$cfg['Servers'][$i]['nopassword']</span> boolean
     </dt>
     <dd>
-        Allow attempt to login without password when login with password
+        Allow attempt to log in without password when a login with password
         fails. This can be used together with http authentication, when
         authentication is done some other way and phpMyAdmin gets user name
         from auth and uses empty password for connecting to MySQL. Password
@@ -1089,7 +1091,7 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_LoginCookieDeleteAll">$cfg['LoginCookieDeleteAll'] boolean</dt>
     <dd>If enabled (default), logout deletes cookies for all servers,
         otherwise only for current one. Setting this to false makes it easy to
-        forget to logout from other server, when you are using more of
+        forget to log out from other server, when you are using more of
         them.</dd>
 
     <dt id="cfg_UseDbSearch">$cfg['UseDbSearch'] boolean</dt>
@@ -1106,7 +1108,7 @@ ALTER TABLE `pma_column_comments`
         comments. Defaults to <tt>TRUE</tt>.</dd>
     <dt id="AllowArbitraryServer">
         <span id="cfg_AllowArbitraryServer">$cfg['AllowArbitraryServer']</span> boolean</dt>
-    <dd>If enabled allows you to login to arbitrary servers using cookie auth.
+    <dd>If enabled allows you to log in to arbitrary servers using cookie auth.
         <br /><br />
 
         <b>NOTE:</b> Please use this carefully, as this may allow users access to
@@ -1456,6 +1458,7 @@ ALTER TABLE `pma_column_comments`
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
         See <tt>themes/themename/layout.inc.php</tt>.</dd>
+
 
     <dt id="cfg_FontFamily">$cfg['FontFamily'] string</dt>
     <dd>You put here a valid CSS font family value, for example
@@ -1849,7 +1852,7 @@ ALTER TABLE `pma_column_comments`
 
             <dt id="cfg_SQLValidator_username">$cfg['SQLValidator']['username'] string<br />
                 <span id="cfg_SQLValidator_password">$cfg['SQLValidator']['password']</span> string</dt>
-            <dd>The SOAP service allows you to login with <tt>anonymous</tt>
+            <dd>The SOAP service allows you to log in with <tt>anonymous</tt>
                 and any password, so we use those by default. Instead, if
                 you have an account with them, you can put your login details
                 here, and it will be used in place of the anonymous login.</dd>
@@ -1872,8 +1875,8 @@ ALTER TABLE `pma_column_comments`
         to the end of every page displayed in the main window with profiling
         statistics for that page.<br />
         You may need to increase the maximum execution time for this to
-	complete successfully. <i>Profiling was removed from the code
-	for version 2.9.0 due to licensing issues.</i></dd>
+	complete successfully.<i>Profiling was removed from the code for
+	version 2.9.0 due to licensing issues.</i></dd>
 
     <dt id="cfg_DBG_profile_threshold">$cfg['DBG']['profile']['threshold'] float (units in milliseconds)</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
@@ -2231,7 +2234,7 @@ ALTER TABLE `pma_column_comments`
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
     declarations (2 lines) from the scripts <i>libraries/header.inc.php</i>,
     <i>libraries/header_printview.inc.php</i>, <i>index.php</i>,
-    <i>left.php</i> and <i>libraries/common.lib.php</i>.</p>
+    <i>navigation.php</i> and <i>libraries/common.lib.php</i>.</p>
 
 <h4 id="faq1_7">
     <a href="#faq1_7">1.7 How can I GZip or Bzip a dump or a
@@ -2454,7 +2457,7 @@ ALTER TABLE `pma_column_comments`
 <h4 id="faq1_21">
     <a href="#faq1_21">1.21 I am running the
     <abbr title="Common Gateway Interface">CGI</abbr> version of PHP under Unix,
-    and I cannot login using cookie auth.</a></h4>
+    and I cannot log in using cookie auth.</a></h4>
 
 <p> In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.</p>
 
@@ -2567,7 +2570,7 @@ SetInputFilter PHP
 </pre>
 
 <h4 id="faq1_30">
-    <a href="#faq1_30">1.30 I get the error &quot;left.php: Missing hash&quot;.</a></h4>
+    <a href="#faq1_30">1.30 I get the error &quot;navigation.php: Missing hash&quot;.</a></h4>
 
 <p> This problem is known to happen when the server is running Turck MMCache
     but upgrading MMCache to version 2.3.21 solves the problem.</p>
@@ -2732,7 +2735,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <h4 id="faq2_5">
     <a href="#faq2_5">2.5 Each time I want to insert or change a record or drop a database
     or a table, an error 404 (page not found) is displayed or, with <abbr title="HyperText Transfer Protocol">HTTP</abbr> or
-    cookie authentication, I'm asked to login again. What's wrong?</a></h4>
+    cookie authentication, I'm asked to log in again. What's wrong?</a></h4>
 
 <p> Check the value you set for the
     <a href="#cfg_PmaAbsoluteUri" class="configrule">$cfg['PmaAbsoluteUri']</a>
@@ -2830,7 +2833,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <h4 id="login_bug">
     <a href="#login_bug">3.1 When using
     <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication, an user
-    who logged out can not relogin in with the same nick.</a></h4>
+    who logged out can not log in again in with the same nick.</a></h4>
 
 <p> This is related to the authentication mechanism (protocol) used by
     phpMyAdmin. To bypass this problem: just close all the opened
@@ -3046,7 +3049,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
         and/or
         <a href="#cfg_Servers_controlpass" class="configrule">$cfg['Servers'][$i]['controlpass']</a>
         are wrong.</li>
-    <li>The username/password you specify in the login-dialog are invalid.</li>
+    <li>The username/password you specify in the login dialog are invalid.</li>
     <li>You have already setup a security mechanism for the
         phpMyAdmin-directory, eg. a .htaccess file. This would interfere with
         phpMyAdmin's authentication, so remove it.</li>
@@ -3221,8 +3224,8 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 
 <h4 id="faq5_13">
     <a href="#faq5_13">5.13 With Internet Explorer 5.5 or 6, and <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication type,
-    I cannot manage two servers: I login to the first one, then the other one,
-    but if I switch back to the first, I have to login on each operation.</a></h4>
+    I cannot manage two servers: I log in to the first one, then the other one,
+    but if I switch back to the first, I have to log in on each operation.</a></h4>
 
 <p> This is a bug in Internet Explorer, other browsers do not behave this way.</p>
 
@@ -3757,9 +3760,9 @@ chmod o+rwx tmp
     <a href="#faq7_2">7.2 I want to translate the messages to a new language or upgrade an
     existing language, where do I start?</a></h4>
 
-<p> Always use the current CVS version of your language file.
+<p> Always use the current SVN version of your language file.
     For a new language, start from <i>english-iso-8859-1.inc.php</i>. If you
-    don't  know how to get the CVS version, please ask one of the developers.
+    don't  know how to get the SVN version, please ask one of the developers.
     <br />
     Please note that we try not to use HTML entities like &amp;eacute; in
     the translations, since we define the right character set in the file.
@@ -3778,19 +3781,20 @@ chmod o+rwx tmp
 
 <p> The following method is preferred for new developers:</p>
 
-<ol><li>fetch the current CVS tree over anonymous CVS:<br />
-        <tt>cvs -d:pserver:anonymous@phpmyadmin.cvs.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
-        [Password: simply press the Enter key]<br />
-        <tt>cvs -z3 -d:pserver:anonymous@phpmyadmin.cvs.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin</tt><br />
-        [This will create a new sub-directory named phpMyAdmin]</li>
+<ol><li>fetch the current SVN tree over anonymous SVN:<br />
+    <tt>svn co https://svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin</tt><br />
+    </li>
     <li>add your stuff</li>
-    <li>put the modified files (tar'ed and gzip'ed) inside the patch tracker of
-        the
-        <a href="http://sf.net/projects/phpmyadmin/">phpMyAdmin SourceForge account</a>.
+    <li>generate patch with your changes:
+    <tt>svn diff</tt><br />
+    </li>
+    <li>put the patch inside the <a
+        href="https://sourceforge.net/tracker/?group_id=23067&atid=377410">patch
+        tracker of the phpMyAdmin project</a>.
     </li>
 </ol>
 
-<p> Write access to the CVS tree is granted only to experienced developers who
+<p> Write access to the SVN tree is granted only to experienced developers who
     have already contributed something useful to phpMyAdmin.<br />
     Also, have a look at the <a href="#developers">Developers section</a>.</p>
 
