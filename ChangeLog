@@ -7,6 +7,8 @@ $HeadURL$
 
 2006-10-17 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Fix HTML errors.
+    * libraries/sqlparser.data.php, libraries/sqlparser.lib.php: Add support
+      for ON DUPLICATE KEY (bug #1576226).
 
 2006-10-16 Michal Čihař  <michal@cihar.com>
     * left.php, navigation.php, scripts/setup.php, js/querywindow.js,

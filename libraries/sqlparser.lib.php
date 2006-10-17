@@ -1960,6 +1960,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             'ASC',
             'DESC',
             'DISTINCT',
+            'DUPLICATE',
             'HOUR',
             'INTERVAL',
             'IS',
