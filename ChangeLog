@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-17 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Fix HTML errors.
+
 2006-10-16 Michal Čihař  <michal@cihar.com>
     * left.php, navigation.php, scripts/setup.php, js/querywindow.js,
       Documentation.html, index.php, libraries/common.lib.php: Rename left.php
