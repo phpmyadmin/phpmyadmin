@@ -1203,6 +1203,12 @@ ALTER TABLE `pma_column_comments`
         Note that statistics requires at least MySQL 3.23.3 and that, at this
         date, MySQL doesn't return such information for Berkeley DB tables.</dd>
 
+    <dt><span id="cfg_ShowServerInfo">$cfg['ShowServerInfo'] </span>boolean</dt>
+    <dd>Defines whether to display detailed server information on main page.
+        You can additionally hide more information by using 
+        <tt><a href="#cfg_Servers_verbose">$cfg['Servers'][$i]['verbose']</a></tt>.
+        </dd>
+
     <dt><span id="cfg_ShowPhpInfo">$cfg['ShowPhpInfo'] </span>boolean<br />
         <span id="cfg_ShowChgPassword">$cfg['ShowChgPassword'] </span>boolean<br />
         <span id="cfg_ShowCreateDb">$cfg['ShowCreateDb'] </span>boolean

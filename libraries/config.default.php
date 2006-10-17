@@ -175,6 +175,7 @@ $cfg['ShowStats']             = TRUE;   // allow to display statistics and space
                                         // the pages about database details and table
                                         // properties
 $cfg['ShowPhpInfo']           = FALSE;  // show php info link
+$cfg['ShowServerInfo']        = TRUE;   // show MySQL server information
 $cfg['ShowChgPassword']       = FALSE;  // show change password link
 $cfg['ShowCreateDb']          = TRUE;   // show create database form
 $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (false = keep empty)

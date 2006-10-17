@@ -59,12 +59,16 @@ if ($server > 0) {
     //          if a value is set
     $server_info = '';
     if (!empty($cfg['Server']['verbose'])) {
-        $server_info .= $cfg['Server']['verbose'];
-        $server_info .= ' (';
+        $server_info .= htmlspecialchars($cfg['Server']['verbose']);
+        if ($GLOBALS['cfg']['ShowServerInfo']) {
+            $server_info .= ' (';
+        }
     }
-    $server_info .= PMA_DBI_get_host_info();
+    if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
+        $server_info .= PMA_DBI_get_host_info();
+    }
 
-    if (!empty($cfg['Server']['verbose'])) {
+    if (!empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
     }
     // loic1: skip this because it's not a so good idea to display sockets
@@ -89,12 +93,17 @@ if ($server > 0) {
 if ($server > 0) {
     echo '<ul>' . "\n";
 
-    PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
-    PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
-        'li_mysql_proto');
-    PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
-    PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
-        'li_user_info');
+    if ($GLOBALS['cfg']['ShowServerInfo']) {
+        PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
+        PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
+            'li_mysql_proto');
+        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+        PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
+            'li_user_info');
+    } else {
+        PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
+        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+    }
 
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
         echo '<li id="li_select_mysql_charset">';
