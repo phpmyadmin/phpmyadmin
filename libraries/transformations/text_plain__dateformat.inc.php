@@ -40,7 +40,11 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
         }
     // If all fails, assume one of the dozens of valid strtime() syntaxes (http://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
     } else {
-        $timestamp = strtotime($buffer);
+        if (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
+            $timestamp = (int)$buffer;
+        } else {
+            $timestamp = strtotime($buffer);
+        }
     }
 
     // If all above failed, maybe it's a Unix timestamp already?

@@ -11,6 +11,8 @@ $HeadURL$
       for ON DUPLICATE KEY (bug #1576226).
     * Documentation.html, main.php, libraries/config.default.php: Add support
       for hiding server information.
+    * libraries/transformations/text_plain__dateformat.inc.php: Correctly
+      handle unix timestamp (RFE #1440386).
 
 2006-10-16 Michal Čihař  <michal@cihar.com>
     * left.php, navigation.php, scripts/setup.php, js/querywindow.js,
