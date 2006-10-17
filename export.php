@@ -337,6 +337,23 @@ if (!$save_on_server) {
         }
     } else {
         // HTML
+        // Check if we have something to export
+        if ($export_type == 'database') {
+            if (isset($table_select)) {
+                $tables = $table_select; 
+            } else {
+            $tables = array();
+            }
+            $num_tables = count($tables);
+            if ($num_tables == 0) {
+                $message = $strNoTablesFound;
+                $js_to_run = 'functions.js';
+                require_once('./libraries/header.inc.php');
+                $active_page = 'db_details_export.php';
+                require('./db_details_export.php');
+                exit();
+            }
+        }
         $backup_cfgServer = $cfg['Server'];
         require_once('./libraries/header.inc.php');
         $cfg['Server'] = $backup_cfgServer;
@@ -350,33 +367,6 @@ if (!$save_on_server) {
            //. '        <textarea name="sqldump" cols="50" rows="30" onclick="this.select();" id="textSQLDUMP" wrap="OFF">' . "\n";
            . '        <textarea name="sqldump" cols="50" rows="30" id="textSQLDUMP" wrap="OFF">' . "\n";
     } // end download
-}
-
-// Check if we have something to export
-if ($export_type == 'database') {
-    if (isset($table_select)) {
-        $tables = $table_select; 
-    } else {
-        // not sure if this can happen, let's play safe
-        $tables     = PMA_DBI_get_tables($db);
-    }
-    $num_tables = count($tables);
-    if ($num_tables == 0) {
-        $message = $strNoTablesFound;
-        $js_to_run = 'functions.js';
-        require_once('./libraries/header.inc.php');
-        //if ($export_type == 'server') {
-        //    $active_page = 'server_export.php';
-        //    require('./server_export.php');
-        //} elseif ($export_type == 'database') {
-            $active_page = 'db_details_export.php';
-            require('./db_details_export.php');
-        //} else {
-        //    $active_page = 'tbl_properties_export.php';
-        //    require('./tbl_properties_export.php');
-        //}
-        exit();
-    }
 }
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
