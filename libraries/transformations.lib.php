@@ -15,7 +15,13 @@ function PMA_transformation_getOptions($string) {
             $nextToken = $nextToken{strlen($nextToken) - 1} == '\'' ? substr($nextToken, 1, -1) : substr($nextToken, 1) . ' ' . strtok('\'');
             $transform_options[] = $nextToken;
         } else {
-            $transform_options[] = $nextToken;
+            $trimmed = trim($nextToken);
+            if ($trimmed{0} == '\'') {
+                $trimmed = $nextToken{strlen($nextToken) - 1} == '\'' ? substr($nextToken, 1, -1) : substr($nextToken, 1) . ' ' . strtok('\'');
+                $transform_options[] = $trimmed;
+            } else {
+                $transform_options[] = $nextToken;
+            }
         }
     }
 
