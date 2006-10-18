@@ -14,6 +14,8 @@ $HeadURL$
 
 2006-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: export nothing if no tables are selected
+    * libraries/Table.class.php: bug #1567316, renaming a db containing view
+      (but still some work to ensure proper sequence of renaming)
 
 2006-10-17 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Fix HTML errors.
