@@ -69,6 +69,8 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
             $text = PMA_localisedDate($timestamp, $options[1]);
         } elseif ($options[2] == 'utc') {
             $text = gmdate($options[1], $timestamp);
+        } else {
+            $text = 'INVALID DATE TYPE';
         }
         $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="' . $source . '">' . $text . '</dfn>';
     }
