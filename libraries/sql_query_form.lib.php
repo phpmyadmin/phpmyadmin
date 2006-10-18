@@ -201,8 +201,10 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
     if ($is_querywindow) {
         $locking = ' onkeypress="document.sqlform.elements[\'LockFromUpdate\'].'
             .'checked = true;"';
+        $height = $GLOBALS['cfg']['TextareaRows'] * 1.25;
     } else {
         $locking = '';
+        $height = $GLOBALS['cfg']['TextareaRows'] * 2;
     }
 
     $table          = '';
@@ -283,7 +285,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
     echo '<div id="' . $sqlquerycontainer_id . '">' . "\n"
         .'<textarea name="sql_query" id="sqlquery"'
         .'  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
-        .'  rows="' . $GLOBALS['cfg']['TextareaRows'] . '"'
+        .'  rows="' . $height . '"'
         .'  dir="' . $GLOBALS['text_dir'] . '"'
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     echo '</div>' . "\n";

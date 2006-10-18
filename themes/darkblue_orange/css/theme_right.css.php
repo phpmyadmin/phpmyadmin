@@ -99,7 +99,6 @@ form {
 
 textarea {
     overflow:           visible;
-    height:             8em;
 }
 
 fieldset {
