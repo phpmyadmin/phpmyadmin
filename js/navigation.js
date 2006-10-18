@@ -80,7 +80,7 @@ function PMA_setFrameSize()
     pma_navi_width = PMA_getCookie('pma_navi_width');
     //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
     if (pma_navi_width != null) {
-	    if (parent.document.getElementById('text_dir') == 'ltr) {
+	    if (parent.text_dir == 'ltr') {
             parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
         } else {
             parent.document.getElementById('mainFrameset').cols = '*,' + pma_navi_width;
