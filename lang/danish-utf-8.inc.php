@@ -924,7 +924,6 @@ $strTransformation_application_octetstream__hex = 'Viser hexadecimal udgave af d
 $strTransformation_image_jpeg__inline = 'Viser et klikbart minibillede; indstillinger: bredde,højde i pixel. Det originale perspektiv bevares.';
 $strTransformation_image_jpeg__link = 'Viser et link til dette billede (f.eks. direkte blob-download).';
 $strTransformation_image_png__inline = 'Se under image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Tager et TIME, TIMESTAMP eller DATETIME-felt og formatterer det til dit lokale datoformat. Første parameter er offset (i timer) som lægges til tidsstemplet (Default: 0). Andet parameter er et andet datoformat ud fra PHPs strftime() definition.';
 $strTransformation_text_plain__external = 'KUN LINUX: Starter en ekstern applikation og føder feltdata via standard input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til manuelt at redigere filen libraries/transformations/text_plain__external.inc.php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er så nummeret på det program du vil bruge og den anden indstilling er parametrene for dette program. Tredie parameter vil, hvis sat til 1, konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele outputtet bliver vist uden omformattering (Standard 1)';
 $strTransformation_text_plain__formatted = 'Bevarer original formattering af feltet. Der laves ikke nogen Escaping.';
 $strTransformation_text_plain__imagelink = 'Viser et billede og et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er bredde i pixel, tredie er højden.';
@@ -999,4 +998,5 @@ $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fj
 $strZip = '"zippet"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

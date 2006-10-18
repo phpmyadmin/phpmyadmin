@@ -562,7 +562,6 @@ $strTraffic = 'Κίνηση';
 $strTransformation_image_jpeg__inline = 'Εμφανίζει μια εικόνα προεπισκόπησης με σύνδεσμο; επιλογές: πλάτος, ύψος σε pixels (διατηρεί τις αρχικές αναλογίες)';
 $strTransformation_image_jpeg__link = 'Εμφανίζει έναν σύνδεσμο για αυτήν την εικόνα.';
 $strTransformation_image_png__inline = 'Δείτε image/jpeg: inline';  
-$strTransformation_text_plain__dateformat = 'Παίρνει ένα πεδίο TIME, TIMESTAMP ή DATETIME και το μορφοποιεί χρησιμοποιώντας την τοπική μορφή. Η πρώτη επιλογή είναι η διαφορά (σε ώρες) που θα προστεθεί στην ώρα (Εξ\' ορισμού: 0). Η δεύτερη επιλογή είναι μορφή ημερομηνίας όπως ορίζεται από τις διαθέσιμες παραμέτρους της εντολής strftime() της PHP.';
 $strTransformation_text_plain__external = 'ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω \'standard input\'. Επιστρέφει το αποτέλεσμα της εφαρμογής. Εξ\' ορισμού τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Εξ\' ορισμού τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη (Εξ\' ορισμού τιμή: 1)';
 $strTransformation_text_plain__formatted = 'Διατηρεί την αρχική μορφοποίηση του πεδίου. Δεν χρησιμοποιούνται χαρακτήρες διαφυγής.';
 $strTransformation_text_plain__imagelink = 'Εμφανίζει μία εικόνα και ένα σύνδεσμο, το πεδίο περιέχει το όνομα αρχείου. Η πρώτη επιλογή είναι ένα πρόθεμα όπως "http://domain.com/", η δεύτερη επιλογή είναι το πλάτος σε pixels, η τρίτη είναι το ύψος.';  
@@ -1022,4 +1021,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

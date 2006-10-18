@@ -918,7 +918,6 @@ $strTransformation_application_octetstream__hex = 'Mostra la representació hexa
 $strTransformation_image_jpeg__inline = 'Mostra una miniatura amb enllaç; opcions: ample,alt en pixels (respecta la proporció original)';
 $strTransformation_image_jpeg__link = 'Es mostra com a enllaç a la imatge.';
 $strTransformation_image_png__inline = 'Veure image/jpeg: en linia';
-$strTransformation_text_plain__dateformat = 'Pren un camp TIME, TIMESTAMP o DATETIME i li dona format utilitzant el format d\'hora local. La primera opció es la diferència (en hores) que s\'ha d\'afegir a l\'hora (Per defecte: 0). La segona opció és un format de data diferent d\'acord als paràmetres disponibles per a la funció de PHP strftime().';
 $strTransformation_text_plain__external = 'NOMÉS LINUX: Llença una aplicació externa i facilita el camp de dades via standard input. Retorna per standard output de l\'aplicació. El defecte és Tidy, per interpretar codi HTML. Per raons de seguretat, has d\' editar manualment l\'arxiu libraries/transformations/text_plain__external.inc.php i afegir les eines que vulguis fer servir. La primera opció és, llavors, el numero del programa que vols fer servir i la segona opció són els paràmetres per el programa. El tercer paràmetre, si es posa a 1, convertirà la sortida fent servir htmlspecialchars() (El defecte és 1). El quart paràmetre, si val 1, posarà un NOWRAP al contingut de les cel.les de forma que la sortida sencera es mostrarà sense reformatejar (Per defecte 1)';
 $strTransformation_text_plain__formatted = 'Conserva el format original del camp. No es fa cap canvi.';
 $strTransformation_text_plain__imagelink = 'Mostra una imatge i un enllaç, el camp conté el nom de l\'arxiu; la primera opció és un prefixe com "http://domini.com/", la segona opció és l\'amplada en pixels, la tercera és l\'alçada.';
@@ -993,4 +992,5 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

@@ -7,13 +7,22 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     // include('./libraries/transformations/global.inc.php');
 
     // further operations on $buffer using the $options[] array.
-    if (!isset($options[0]) || $options[0] == '') {
+    if (empty($options[0])) {
         $options[0] = 0;
     }
 
-    if (!isset($options[1]) || $options[1] == '') {
-        $options[1] = $GLOBALS['datefmt'];
+    if (empty($options[2])) {
+        $options[2] = 'local';
+    } else {
+        $options[2] = strtolower($options[2]);
+    }
 
+    if (empty($options[1])) {
+        if ($options[2] == 'local') {
+            $options[1] = $GLOBALS['datefmt'];
+        } else {
+            $options[1] = 'Y-m-d  H:i:s';
+        }
     }
 
     $timestamp = -1;
@@ -56,7 +65,12 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     if ($timestamp >= 0) {
         $timestamp -= $options[0] * 60 * 60;
         $source = $buffer;
-        $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="' . $source . '">' . PMA_localisedDate($timestamp, $options[1]) . '</dfn>';
+        if ($options[2] == 'local') {
+            $text = PMA_localisedDate($timestamp, $options[1]);
+        } elseif ($options[2] == 'utc') {
+            $text = gmdate($options[1], $timestamp);
+        }
+        $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="' . $source . '">' . $text . '</dfn>';
     }
 
     return $buffer;

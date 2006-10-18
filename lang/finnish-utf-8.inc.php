@@ -924,7 +924,6 @@ $strTransformation_application_octetstream__hex = 'Näyttää tiedon heksalukuin
 $strTransformation_image_jpeg__inline = 'Näyttää klikattavan pikkukuvan; valinnat: leveyden,korkeuden pikseleinä (säilyttää alkuperäisen suhteen)';
 $strTransformation_image_jpeg__link = 'Näyttää linkin tähän kuvaan (eli suora blob-imurointi).';
 $strTransformation_image_png__inline = 'Katso image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Ottaa TIME-, TIMESTAMP- tai DATETIME-kentän ja muotoilee sen paikallisen päiväysformaatin mukaiseksi. Ensimmäinen valinta on siirros (tunteina), joka lisätään aikamerkintään (Oletus: 0). Jälkimmäinen valinta on toisenlainen päiväysformaatti, jonka parametrit ovat PHP:n strftime()-funktion mukaisia.';
 $strTransformation_text_plain__external = 'VAIN LINUXILLE: Käynnistää ulkoisen ohjelman ja syöttää kenttädatan oletusarvoisen syötteen kautta. Palauttaa ohjelman oletusarvoisen tulosteen. Oletusarvona on Tidy, HTML-koodin tulostamiseksi siististi. Tietoturvasyistä joudut manuaalisesti muokkaamaan tiedostoa libraries/transformations/text_plain__external.inc.php ja lisäämään ajettavaksi sallimasi työkalut. Ensimmäinen valinta on silloin haluamasi ohjelman numero ja toinen valinta määrittää ohjelmalle annettavat parametrit. Kolmannen parametrin ollessa yksi (1) tuloste konvertataan käyttäen htmlspecialchars()-funktiota (Oletus on 1). Neljännen parametrin ollessa yksi (1) sisältökennoon lisätään NOWRAP, jotta koko tuloste näkyy ilman mitään ennakkomuotoiluja (Oletus 1)';
 $strTransformation_text_plain__formatted = 'Säilyttää kentän alkuperäiset muotoilut. Kenoviivoja ei käytetä erikoismerkkien edellä.';
 $strTransformation_text_plain__imagelink = 'Näyttää kuvan ja linkin, kenttä sisältää tiedostonimen; ensimmäinen valinta on etuliite, eli esimerkiksi "http://domain.com/", toinen valinta on leveys pikseleinä, kolmas on korkeus.';
@@ -999,4 +998,5 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poi
 $strZip = '"zip-pakattu"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

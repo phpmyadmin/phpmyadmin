@@ -927,7 +927,6 @@ $strTransformation_application_octetstream__hex = 'データの 16 進数表示です。';
 $strTransformation_image_jpeg__inline = 'クリック可能なサムネイルを表示します; オプション: width・height をピクセルで指定 (元の比率を保ちます)';
 $strTransformation_image_jpeg__link = 'この画像へのリンクを表示 (例えば blob を直接ダウンロード).';
 $strTransformation_image_png__inline = '「image/jpeg: inlineを参照してください。';
-$strTransformation_text_plain__dateformat = 'TIME、TIMESTAMP あるいは DATETIME フィールドで、ローカルの日付表示形式を用いて書式化します。1 つ目のオプションはタイムスタンプに加算するオフセット時間(単位:時間)です(デフォルト: 0)2 つ目のオプションは、PHP の strftime()で利用可能なパラメーターでのさまざまな日付表示形式です。';
 $strTransformation_text_plain__external = 'LINUX のみ: 外部アプリケーションを起動し、標準入力からフィールドデータを入力します。アプリケーションの標準出力が返ります。デフォルトは Tidy で、綺麗な HTML コードを出力します。セキュリティの理由で、手動でファイル「libraries/text_plain__external.inc.phpを編集し、実行するを許可するツールを挿入しなければなりません。最初のオプションは、使用するプログラムの数で、2 つ目のオプションはプログラムのパラメータです。3 つ目のオプションが 1 に設定されていた場合、htmlspecialchars() を用いて出力を変換するでしょう(デフォルト: 1)4 つ目 オプションが 1 に設定されていた場合、禁則処理を防ぎ、出力がすべて 1 行に見えることを保証するでしょう(デフォルト: 1).';
 $strTransformation_text_plain__formatted = 'フィールドの元の書式を保存します。エスケープせずに終了します。';
 $strTransformation_text_plain__imagelink = '画像とリンク、ファイルを含むフィールドを表示します; 1 つ目のオプションは "http://domain.com/" のような接頭語で、2 つ目のオプションはピクセル指定の幅、3 つ目は高さです。';
@@ -1003,4 +1002,5 @@ $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなり
 $strZip = '"zip 方式"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

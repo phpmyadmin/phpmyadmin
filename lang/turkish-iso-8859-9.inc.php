@@ -929,7 +929,6 @@ $strTransformation_application_octetstream__hex = 'Verinin onaltýlýk gösterimini
 $strTransformation_image_jpeg__inline = 'Týklanabilir küçük resim görüntüler. Seçenekler piksel cinsinden en fazla geniþlik ve yüksekliktir. Orijinal en-boy oraný korunur.';
 $strTransformation_image_jpeg__link = 'Bu resmi indirme için baðlantý görüntüler.';
 $strTransformation_image_png__inline = 'Resme/jpeg\'e bakýn: satýriçi';
-$strTransformation_text_plain__dateformat = 'Yerel tarih/zaman\'ýnýza göre TIME, TIMESTAMP veya DATETIME alanýný görüntüler. Ýlk seçenek zaman damgasýna eklenecek olan karþýlýktýr (saat cinsinden) (Varsayýlan: 0). Farklý tarih/saat biçimi dizgisi belirlemek için ikinci seçeneði kullanýn; PHP\'nin strftime() iþlevi için belgelere bakýn.';
 $strTransformation_text_plain__external = 'SADECE LINUX: Harici bir uygulama çalýþtýrýr ve alan verisini standart giriþ yoluyla besler. Uygulamanýn standart çýktýsý döner. Düzgün HTML kodu baskýsý için varsayýlan düzenlidir. Güvenlik nedeniyle libraries/transformations/text_plain__external.inc.php dosyasýný elle düzenlemeli ve olmasýný istediðiniz araçlarý listelemelisiniz. Ýlk seçenek kullanmak istediðiniz program sayýsý ve ikinci seçenek program için parametrelerdir. Üçüncü seçenek, eðer 1\'e ayarlanýrsa, htmlspecialchars() iþlevi kullanýlarak çýktýyý dönüþtürecektir (Varsayýlan 1). Dördüncü seçenek, eðer 1\'e ayarlanýrsa, sözcük kaydýrma korunacak ve tüm çýktý tek bir satýrda görünecektir (Varsayýlan 1).';
 $strTransformation_text_plain__formatted = 'Alanýn içeriðini, htmlspecialchars() iþlevini çalýþtýrmadan olduðu gibi görüntüler. Bu, geçerli HTML içerdiði var sayýlan alandýr.';
 $strTransformation_text_plain__imagelink = 'Bir resim ve bir baðlantý görüntüler; alan dosya adýný içerir. Ýlk seçenek "http://www.adresim.com/" gibi bir URL ön ekidir. Ýkinci ve üçüncü seçenekler piksel cinsinden geniþlik ve yüksekliktir.';
@@ -1004,4 +1003,5 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sýfýr)\'a ayarlanmasý sýnýrý 
 $strZip = '"zip olarak"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

@@ -917,7 +917,6 @@ $strTransformation_application_octetstream__hex = 'Wy¶wietla szesnastkow± reprez
 $strTransformation_image_jpeg__inline = 'Wy¶wietla klikaln± miniaturkê; opcje: szeroko¶æ,wysoko¶æ w pikselach (oryginalne proporcje zostan± zachowane)';
 $strTransformation_image_jpeg__link = 'Wy¶wietla link do tego obrazu (bezpo¶rednie ¶ci±gniêcie bloba).';
 $strTransformation_image_png__inline = 'Zobacz image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Bierze pole TIME, TIMESTAMP lub DATETIME i formatuje je u¿ywaj±c lokalnego formatu daty. Pierwsza opcja to liczba godzin, jaka zostanie dodana do daty (domy¶lnie: 0). Druga opcja to inny format daty, zgodny z parametrami dostêpnymi dla funkcji PHP strftime().';
 $strTransformation_text_plain__external = 'TYLKO LINUX: Uruchamia zewnêtrzn± aplikacjê i przekazuje dane pól na standardowe wej¶cie. Zwraca standardowe wyj¶cie tej aplikacji. Domy¶lnie jest to Tidy, którzy porz±dkuje kod HTML. Ze wzglêdu na bezpieczeñstwo, nale¿y rêcznie zmodyfikowaæ plik libraries/transformations/text_plain__external.inc.php i dodaæ narzêdzie, na którego uruchamianie pozwalasz. Pierwsz± opcj± jest liczba programów, których chcesz u¿yæ, a drug± s± parametry programu. Je¿eli trzeci parametr jest ustawiony na 1, zostanie dokonana konwersja wyj¶cia poprzez u¿ycie htmlspecialchars() (Domy¶ln± warto¶ci± jest 1). Je¿eli czwarty parametr zosta³ ustawiony na 1, zawarto¶æ komórki nie bêdzie zawijana, tak ¿e ca³e wyj¶cie zostanie pokazane bez zmian formatu (domy¶ln± warto¶ci± jest 1)';
 $strTransformation_text_plain__formatted = 'Zachowuje oryginalne formatowanie pola. Neutralizowanie znaków niespecjalnych nie jest dokonywane.';
 $strTransformation_text_plain__imagelink = 'Wy¶wietla obrazek i link, pole zawiera nazwê pliku; pierwsz± opcjê jest prefiks, taki jak "http://domena.com/", drug± opcj± jest szeroko¶æ w pikselach, trzeci± opcj± jest wysoko¶æ.';
@@ -992,4 +991,5 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

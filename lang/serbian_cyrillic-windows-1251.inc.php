@@ -714,7 +714,6 @@ $strTransformation_application_octetstream__hex = 'Приказује хексадецимални прик
 $strTransformation_image_jpeg__inline = 'Приказује умањену слику на коју је могуће кликнути; опције: ширина, висина у пикселима (чува оригинални однос)';
 $strTransformation_image_jpeg__link = 'Приказује линк ка овој снимци (нпр. директно преузимање из BLOB-а).';
 $strTransformation_image_png__inline = 'Прикажи JPEG слике на страни';
-$strTransformation_text_plain__dateformat = 'Узима TIME, TIMESTAMP или DATETIME поље и форматира га користећи локални облик приказивања датума. Прва опција је офсет (у сатима) који се додаје временској ознаци (подразумевано: 0). Друга опција је различит формат датума према параметрима који су доступни за PHP-ov strftime().';
 $strTransformation_text_plain__external = 'САМО LINUX: Покреће екстерну апликацију и попуњава податке у пољима преко стандардног улаза. Враћа стандардни излаз апликације. Подразумевано је Tidy, за лепши приказ HTML кода. Због сигурносних разлога, морате ручно изменити датотеку libraries/transformations/text_plain__external.inc.php и додати алате које желите да користите. Прва опГ¶ија је број програма које желите да користите, а друга су параметри програма. Ако се трећи параметар постави на 1 излаз ће бити конвертован користећи htmlspecialchars() (подразумевано је 1). Ако је четврти параметар постављен на 1, NOWRAP ће бити додато ћелији са садржајем тако да ће излаз бити приказан без измена. (подразумевано 1)';
 $strTransformation_text_plain__formatted = 'Чува оригинално форматирање поља. Escaping се не врши.';
 $strTransformation_text_plain__imagelink = 'Приказује слику и линк, поље садржи назив датотеке; прва опција је префикс као "http://domain.com/", друга опција је ширина у пикселима, трећа је висина.';
@@ -1020,4 +1019,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

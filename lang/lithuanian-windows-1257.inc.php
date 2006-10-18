@@ -676,7 +676,6 @@ $strTransformation_application_octetstream__download = 'Áðvesti nuorodà dvejetai
 $strTransformation_image_jpeg__inline = 'Parodo aktyvø maþiná; nustatymai: plotis,aukðtis pikseliais (iðsaugo originalø santyká)';
 $strTransformation_image_jpeg__link = 'Iðvedama nuoroda á ðá paveikslëlá (tiesioginis blob atsisiuntimas ir pan.).';
 $strTransformation_image_png__inline = 'Þr. image/jpeg: vidø';
-$strTransformation_text_plain__dateformat = 'Pasiima TIME, TIMESTAMP arba DATETIME laukø reikðmes ir apipavidalina jas pagal naudojamà lokalø datos formatà. Pirmas parametras reikðmë valandomis, kuri bus pridëta prie laiko þymës (nutylint: 0). Antras parametras tai kitoks datos apipavidalinimo formatas pateiktas pagal strftime() fukcijà.';
 $strTransformation_text_plain__external = 'LINUX VARTOTOJAMS: Paleidþiama iðorinë aplikacija ir duomenys imami ið standartinio ávedimo. Iðvedama ið aplikacijos gauta informacija. Nutylint: bus Tidy korektiðkam HTML kodo iðvedimui. Saugumo sumetimais Jûs turite paredaguoti libraries/transformations/text_plain__external.inc.php bylà ir ávesti tas aplikacijas, kurias naudosite. Pirmas parametras yra leidþiamø aplikacijø kiekis, kurias naudosite. Antras parametras yra specifiniai aplikacijø raktai. Jeigu treèias parametras lygus 1, tai iðvedama informacija bus apdorota su htmlspecialchars() (nutylint: reikðmë lygi 1). Jeigu ketvirtas parametras lygus 1, tai iðvedimo lentelës celë turës atributà NOWRAP, tam kad iðvedama bûtø atvaizduota be perkëlimø á kitas eilutes (nutylint: reikðmë lygi 1).';
 $strTransformation_text_plain__formatted = 'Iðsaugo originalø lauko apipavidalinimà. Nevykdomas iðvengimas.';
 $strTransformation_text_plain__imagelink = 'Graþinamas paveikslëlis ir nuoroda á ávedimo lauke áraðytà bylos pavadinimà; argumentai: prefiksas (pvz "http://domain.com/"), plotis (pikseliais), aukðtis (pikseliais).';
@@ -1014,4 +1013,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

@@ -918,7 +918,6 @@ $strTransformation_application_octetstream__hex = 'Zobrazí dáta v ich hexadecimá
 $strTransformation_image_jpeg__inline = 'Zobrazí náhµad obrázku s odkazom na obrázok; parametre ¹írka a vý¹ka v bodoch (pomer strán obrázku zostane zachovaný)';
 $strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázok (napr. stiahnutie poµa blob).';
 $strTransformation_image_png__inline = 'Zobrazí image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Zobrazí dátum alebo èas (TIME, TIMESTAMP alebo DATETIME) podµa miestneho nastavenia. Prvý parameter je posun (v hodinách), ktorá bude pridaný k zadanému èasu (predvolený je 0). Druhý parameter je formátovací re»azec pre php funkciu strftime().';
 $strTransformation_text_plain__external = 'PLATÍ IBA PRE LINUX: Spustí externú aplikáciu, na jej ¹tandardný vstup po¹le pole a zobrazí výstup programu. Predvolený program je Tidy, ktorý pekne sformátuje HTML. Z bezpeènostných dôvodov musíte ruène upravi» obsah súboru libraries/transformations/text_plain__external.inc.php a prida» do neho povolené aplikácie. Prvý parameter je èíslo aplikácie, ktorú chcete pou¾i» a druhý parametre sú parametre tejto aplikácie. Ak je tretí parameter nastavený na 1, výstup bude skonvertovaný funkciou htmlspecialchars() (predvolený je 1). ©tvrtý parameter v prípade, ¾e je nastavený na 1 pridá k výstupnému textu parameter NOWRAP, èím zabezpeèí zachovanie formátovania (predvolený je 1)';
 $strTransformation_text_plain__formatted = 'Zachová pôvodné formátovanie poµa tak ako je ulo¾ené v databáze.';
 $strTransformation_text_plain__imagelink = 'Zobrazí obrázok a odkaz z poµa obsahujúceho odkaz na obrázok. Prvý parameter je prefix URL (napr. "http://domena.sk/"), druhý a tretí parameter urèujú ¹írku a vý¹ku obrázku.';
@@ -999,4 +998,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

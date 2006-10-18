@@ -742,7 +742,6 @@ $strTransformation_application_octetstream__download = 'Egy linket jelenít meg a
 $strTransformation_image_jpeg__inline = 'Kattintható ikon mutatása; beállítások: szélesség,magasság pixelben (megtartja az eredeti képarányt)';  
 $strTransformation_image_jpeg__link = 'Egy linket mutat a képhez (közvetlen ablakos letöltés).';
 $strTransformation_image_png__inline = 'image/jpeg megtekintése: bent';  
-$strTransformation_text_plain__dateformat = 'A TIME, TIMESTAMP vagy DATETIME mez&#337;k és formátumok az ön helyi dátumformátumát használják. Els&#337; opció az eltérés (órában), ami hozzáadódik az id&#337;höz (alapértelmezett: 0). A második egy különböz&#337; id&#337;formátum a PHP strftime() paramétere szerint.';
 $strTransformation_text_plain__external = 'Csak LINUX: Elindít egy küls&#337; programot, ami megkapja az adatokat a standard inputon. Visszatér a program standard outputján. Alapértelmezett a Tidy, csinos HTML kódot kap. Biztonsági megfontolásokból kézzel kell szerkeszteni a libraries/transformations/text_plain__external.inc.php fájlt, és beírni a program nevét, amit futtatni akar. Az els&#337; opció a program száma, amit futtatni akar, a második a program paramáterei. A harmadik opció ha egyenl&#337; eggyel, akkor a kimenet konvertálva lesz a htmlspecialchars() eljárással (alapértelmezett 1). A negyedik opció ha egyre van beállítva, egy NOWRAP formázást ad minden mez&#337;höz, így a kimenet újratördelés nélkül látszik (alapértelmezett 1)';
 $strTransformation_text_plain__formatted = 'A mez&#337; eredeti formázásának meg&#337;rzése. Nincs kivétel.';
 $strTransformation_text_plain__imagelink = 'Egy képet es egy linket jelenít meg, a mez&#337; tartalmazza a fájlnevet; az els&#337; opcíó egy el&#337;tag, mint pl.: "http://domain.com/", a második a szélesség pixelben, a harmadik pedig a magasság.';  
@@ -1016,4 +1015,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

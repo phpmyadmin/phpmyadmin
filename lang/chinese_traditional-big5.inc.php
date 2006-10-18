@@ -791,7 +791,6 @@ $strTransformation_application_octetstream__hex = '以十六進制方式顯示.';
 $strTransformation_image_jpeg__inline = '顯示可按式圖像; 選項; 寬度,高度[以像素為單位] (保時原有比例)';
 $strTransformation_image_jpeg__link = '顯示圖像的連線 (直接下載).';
 $strTransformation_image_png__inline = '參看 image/jpeg: 內建';
-$strTransformation_text_plain__dateformat = '使用 TIME, TIMESTAMP 或 DATETIME 並以本地時區時間顯示. 第一個選項是修正 (以小時為單位) 來調整顯示之時間 (預設: 0). 第二個選項是日期格式 [跟據 PHPs strftime() 的參數].';
 $strTransformation_text_plain__external = '只限於 LINUX : 執行外部程式及將內容以標準輸入模式輸入. 輸出程式之標準輸出. 預設是整齊的, 方便顯示 HTML 碼. 由於保安理由, 您需要自行編輯 libraries/transformations/text_plain__external.inc.php 及加入需要使用工具作為執行. 第一個選項為有多少個程式需要使用, 第二個選項為這式程式的參數, 第三個選項, 如設定為 1 將會使用 htmlspecialchars() 轉換輸出 (預設: 1). 第四個選項, 如設定為 1 將會加入 NOWRAP 於內容的表格內, 令輸出之所有內容都不會重新排位 (預設: 1)';
 $strTransformation_text_plain__formatted = '保存原本內容之格式. 不進行任何 Escaping 處理.';
 $strTransformation_text_plain__imagelink = '顯示圖像及連結, 數據內容是檔案名稱; 第一個選項是網址前段 (例 "http://domain.com/" ), 第二個選項是寬度的像素,第三個選項是高度的像素.';
@@ -1003,4 +1002,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

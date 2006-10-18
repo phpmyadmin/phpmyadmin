@@ -591,7 +591,6 @@ $strTraffic = 'بيانات سير';
 $strTransformation_image_jpeg__inline = 'يظهر صورة مصغرة للضغط عليها، الخيارات:  العرض، الارتفاع بالبكسل )ويبقي التناسب الأصلي للحجم(.';
 $strTransformation_image_jpeg__link = 'يظهر رابطاً لهذه الصورة (direct blob download, i.e.).';
 $strTransformation_image_png__inline = 'إعرض صور/jpeg: بنفس السطر';
-$strTransformation_text_plain__dateformat = 'يتطلّب TIME, TIMESTAMP أو DATETIME والتنسيق باستخدام تنسيق التاريخ المحلي الخاص بك. الخيار الأول هو التعديل )بالساعات) والذي سوف يضاف إلى timestamp )صفر بشكل افتراضي(. الخيار الثاني هو تنسيق تاريخ مختلف بناءً على المتغيرات المتوفرة لـPHP strftime().';
 $strTransformation_text_plain__external = 'لينكس فقط: يشغّل تطبيقاً خارجياً و يقوم بتغذية بيانات الحقل عبر المدخل الافتراضي. يسترجع مخرجات التطبيق الافتراضية. القيمة الافتراضية هي Tidy، كي تطبع شيفرة نص HTML بشكل جميل. لأسباب أمنية، عليك أن تقوم بتعديل الملف libraries/transformations/text_plain__external.inc.php وإضافة الأدوات التي تريد أن تسمح لها بالعمل. الخيار الأول عند ذلك هو رقم البرنامج الذي تريد أن تستخدمه والخيار الثاني هو المتغيرات للبرنامج. سوف يقوم الخيار الثالث، إن حدد بقيمة 1، بتحويل المخرجات باستخدام htmlspecialchars() )القيمة الافتراضية 1(. متغير رابع، إن حدد بقيمة 1 سوف يضيف الصفة NOWRAP إلى الخلية الحاوية حتى يصبح المخرج بأكمله بدن إعادة تنسيق )القيمة الافتراضية 1(.';
 $strTransformation_text_plain__formatted = 'يُبقي التنسيق الأصلي للحقل. لا يتم عمل أي Escaping.';
 $strTransformation_text_plain__imagelink = 'تظهر صورة ورابط، يتحوي الحقل على إسم الملف، الخيار الأول هو سابقة مثل "http://domain.com/"، والخيار الثاني هو العرض بالبكسل، والثالث هو الارتفاع.';
@@ -1025,4 +1024,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

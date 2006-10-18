@@ -714,7 +714,6 @@ $strTransformation_application_octetstream__hex = 'Өгөгдлийн дүрсл
 $strTransformation_image_jpeg__inline = 'Дарагдхуйц эрхийхумс-ыг харуулж байна. сонголт: өргөн,өндөр цэгээр (эх хэмжээ нь хадгалагдана)';
 $strTransformation_image_jpeg__link = 'Уг зургийн холбоосыг харуулж байна (direct blob download, i.e.).';
 $strTransformation_image_png__inline = 'See image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'TIME, TIMESTAMP эсвэл DATETIME талбар ба тогтнол нь таны дотоод цагийн тогтлыг хэрэглэнэ. Эхний сонголт - нэмэгдэх timestamp -ын байрлал (цагаар) (Анхдагч: 0). Хоёр дахь сонголт - PHP strftime()-ын идэвхтэй өгөгдлөөр ялгаатай dateformat авна.';
 $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';
 $strTransformation_text_plain__formatted = 'Талбарын жинхэнэ тогтнолыг хамгаалах. Өөр дуусна.';
 $strTransformation_text_plain__imagelink = 'Зураг болон холбоосыг харуулж байна, талбар нь файлнэр агуулна; эхний сонголт - энэ нь өмнө нь тавигдах "http://domain.com/", хоёр дахь сонголт - өргөн цэгээр, гурав дахь - өндөр.';
@@ -1020,4 +1019,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

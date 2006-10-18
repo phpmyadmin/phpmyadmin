@@ -590,7 +590,6 @@ $strTraffic = 'ÈíÇäÇÊ ÓíÑ';
 $strTransformation_image_jpeg__inline = 'íÙåÑ ÕæÑÉ ãÕÛÑÉ ááÖÛØ ÚáíåÇ¡ ÇáÎíÇÑÇÊ:  ÇáÚÑÖ¡ ÇáÇÑÊÝÇÚ ÈÇáÈßÓá )æíÈÞí ÇáÊäÇÓÈ ÇáÃÕáí ááÍÌã(.';
 $strTransformation_image_jpeg__link = 'íÙåÑ ÑÇÈØÇð áåÐå ÇáÕæÑÉ (direct blob download, i.e.).';
 $strTransformation_image_png__inline = 'ÅÚÑÖ ÕæÑ/jpeg: ÈäÝÓ ÇáÓØÑ';
-$strTransformation_text_plain__dateformat = 'íÊØáøÈ TIME, TIMESTAMP Ãæ DATETIME æÇáÊäÓíÞ ÈÇÓÊÎÏÇã ÊäÓíÞ ÇáÊÇÑíÎ ÇáãÍáí ÇáÎÇÕ Èß. ÇáÎíÇÑ ÇáÃæá åæ ÇáÊÚÏíá )ÈÇáÓÇÚÇÊ) æÇáÐí ÓæÝ íÖÇÝ Åáì timestamp )ÕÝÑ ÈÔßá ÇÝÊÑÇÖí(. ÇáÎíÇÑ ÇáËÇäí åæ ÊäÓíÞ ÊÇÑíÎ ãÎÊáÝ ÈäÇÁð Úáì ÇáãÊÛíÑÇÊ ÇáãÊæÝÑÉ áÜPHP strftime().';
 $strTransformation_text_plain__external = 'áíäßÓ ÝÞØ: íÔÛøá ÊØÈíÞÇð ÎÇÑÌíÇð æ íÞæã ÈÊÛÐíÉ ÈíÇäÇÊ ÇáÍÞá ÚÈÑ ÇáãÏÎá ÇáÇÝÊÑÇÖí. íÓÊÑÌÚ ãÎÑÌÇÊ ÇáÊØÈíÞ ÇáÇÝÊÑÇÖíÉ. ÇáÞíãÉ ÇáÇÝÊÑÇÖíÉ åí Tidy¡ ßí ÊØÈÚ ÔíÝÑÉ äÕ HTML ÈÔßá Ìãíá. áÃÓÈÇÈ ÃãäíÉ¡ Úáíß Ãä ÊÞæã ÈÊÚÏíá ÇáãáÝ libraries/transformations/text_plain__external.inc.php æÅÖÇÝÉ ÇáÃÏæÇÊ ÇáÊí ÊÑíÏ Ãä ÊÓãÍ áåÇ ÈÇáÚãá. ÇáÎíÇÑ ÇáÃæá ÚäÏ Ðáß åæ ÑÞã ÇáÈÑäÇãÌ ÇáÐí ÊÑíÏ Ãä ÊÓÊÎÏãå æÇáÎíÇÑ ÇáËÇäí åæ ÇáãÊÛíÑÇÊ ááÈÑäÇãÌ. ÓæÝ íÞæã ÇáÎíÇÑ ÇáËÇáË¡ Åä ÍÏÏ ÈÞíãÉ 1¡ ÈÊÍæíá ÇáãÎÑÌÇÊ ÈÇÓÊÎÏÇã htmlspecialchars() )ÇáÞíãÉ ÇáÇÝÊÑÇÖíÉ 1(. ãÊÛíÑ ÑÇÈÚ¡ Åä ÍÏÏ ÈÞíãÉ 1 ÓæÝ íÖíÝ ÇáÕÝÉ NOWRAP Åáì ÇáÎáíÉ ÇáÍÇæíÉ ÍÊì íÕÈÍ ÇáãÎÑÌ ÈÃßãáå ÈÏä ÅÚÇÏÉ ÊäÓíÞ )ÇáÞíãÉ ÇáÇÝÊÑÇÖíÉ 1(.';
 $strTransformation_text_plain__formatted = 'íõÈÞí ÇáÊäÓíÞ ÇáÃÕáí ááÍÞá. áÇ íÊã Úãá Ãí Escaping.';
 $strTransformation_text_plain__imagelink = 'ÊÙåÑ ÕæÑÉ æÑÇÈØ¡ íÊÍæí ÇáÍÞá Úáì ÅÓã ÇáãáÝ¡ ÇáÎíÇÑ ÇáÃæá åæ ÓÇÈÞÉ ãËá "http://domain.com/"¡ æÇáÎíÇÑ ÇáËÇäí åæ ÇáÚÑÖ ÈÇáÈßÓá¡ æÇáËÇáË åæ ÇáÇÑÊÝÇÚ.';
@@ -1024,4 +1023,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

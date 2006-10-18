@@ -923,7 +923,6 @@ $strTransformation_application_octetstream__hex = 'Prikazuje podatke u heksadeci
 $strTransformation_image_jpeg__inline = 'Prikazuje sličicu s mogućnošću klikanja. Opcije su najveća širina i visina u pikselima. Izvorne proporcije su očuvane.';
 $strTransformation_image_jpeg__link = 'Prikazuje vezu za preuzimanje ove slike.';
 $strTransformation_image_png__inline = 'Pogledajte slika/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Prikazuje polja TIME, TIMESTAMP ili DATETIME (vrijeme, oznaka vremena, datum) sukladno lokalnom obliku datuma i vremena. Prva opcija je razlika (u satima) koja će biti pridodana oznaci vremena (zadano: 0). Upotrijebite drugu opciju za određivanje različitog oblikovanja datuma i vremena. Detalje potražite u PHP dokumentaciji, funkcija strftime().';
 $strTransformation_text_plain__external = 'SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja putem standardnog unosa. Vraća standardan ispis aplikacije. Zadana aplikacija je Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih razloga morate ručno urediti datoteku libraries/transformations/text_plain__external.inc.php i izraditi popis alata koje želite učiniti raspoloživim. Prva opcija će biti redni broj programa kojeg želite upotrebljavati a druga opcija su parametri programa. Ako je treća opcija postavljena na vrijednost 1, pretvorit će ispis pomoću htmlspecialchars(), (zadano: 1). Ako je četvrta opcija postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa u jednom retku (zadano: 1).';
 $strTransformation_text_plain__formatted = 'Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja kroz htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne sadrži valjani HTML kod.';
 $strTransformation_text_plain__imagelink = 'Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, poput "http://www.example.com/". Druga i treća opcija predstavljaju širinu i visinu u pikselima.';
@@ -998,4 +997,5 @@ $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na vrijednost 0 (n
 $strZip = '"zipano"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

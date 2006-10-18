@@ -892,7 +892,6 @@ $strTransformation_application_octetstream__download = 'Mostrar un enlace para d
 $strTransformation_image_jpeg__inline = 'Muestra un thumbnail que puede abrirse mediante un clic; opciones: width, height en píxeles (mantiene la proporción original)';
 $strTransformation_image_jpeg__link = 'Muestra un enlace a esta imagen (i.e., blob descarga directa).';
 $strTransformation_image_png__inline = 'Ver imagen/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Toma un campo TIME, TIMESTAMP o DATETIME y lo formatea usando su formato de fechas local. La primera opción es el offset (en horas) que se añadirá al timestamp (Predeterminado: 0). La segunda opción es un dateformat diferente de acuerdo con los parámetros disponibles para el strftime() del PHP.';
 $strTransformation_text_plain__external = 'LINUX SOLAMENTE: Ejecuta una aplicación externa y alimenta el fielddata mediante input estándar. Retorna el output estándar de la aplicación. El predeterminado es Tidy, para mostrar código HTML agradable para la impresión. Por razones de seguridad, debe editar manualmente el archivo libraries/transformations/text_plain__external.inc.php e insertar las herramientas que permitirá se ejecuten. La primera opción será el número del programa que querrá utilizar y la segunda opción son los parámetros para el programa. El tercer parámetro, de ser 1 convertirá el output usando htmlspecialchars() (el predeterminado es 1). Un cuarto parámetro, de ser 1 pondrá un NOWRAP a la celda de contenido para que todo el output se muestre sin reformatear (Predeterminado 1)';
 $strTransformation_text_plain__formatted = 'Mantiene el formato original del campo. No se puede hacer Escape.';
 $strTransformation_text_plain__imagelink = 'Muestra una imagen y un enlace, el campo contiene el nombre del archivo; la primera opción es un prefijo como "http://dominio.com/", la segunda opción es el ancho en píxeles, el tercero es el alto.';
@@ -1000,4 +999,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

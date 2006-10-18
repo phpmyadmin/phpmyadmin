@@ -665,7 +665,6 @@ $strTransformation_application_octetstream__download = 'Afiseaza un link pentru 
 $strTransformation_image_jpeg__inline = 'Afiseaza o imagine mica clicabila ; optiuni: latime, inaltime in pixeli (metine dimensiunile originale)';
 $strTransformation_image_jpeg__link = 'Afiseaza un link la imagine (direct blob download, i.e.).';
 $strTransformation_image_png__inline = 'Vezi imagine/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Ia un camp TIME, TIMESTAMP sau DATETIME si il formateaza folosind format local de data. Prima optiune este offsetul (in ore) care se va adauga la (Default: 0).  A doua optiune este un forma de data diferit bazat pe parametri disponibili pentru PHP strftime().';
 $strTransformation_text_plain__external = 'NUMAI LINUX: Lanseaza o aplicatie externa si trimite datele prin input standard. Returneaza standard output a aplicatiei. Default este Tidy, pentru listarea codului HTML. Din motive de securitate, va trebui sa editati manual fisierul libraries/transformations/text_plain__external.inc.php si sa inserati uneltele permise sa ruleze. Prima optiune este apoi numarul de programe care vor fi utilizate si a doua optiune sunt  parametri pentru program. Al treilea parametru, daca este setat la 1 va transforma outputul folosind htmlspecialchars() (Default este 1). Un al patrulea parametru, daca este setat la 1 va aplica NOWRAP la continut, astfel incat intregul output va fi afisat fara reformatare (Default 1)';
 $strTransformation_text_plain__formatted = 'Mentine formatarea originala a campului.';
 $strTransformation_text_plain__imagelink = 'Afiseaza o imagine si un link, campul contine denumirea fisierului; prima optiune este un prefix cum ar fi "http://domain.com/", a doua optiune este latimea in pixeli, iar a treia este inaltimea.';
@@ -1018,4 +1017,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

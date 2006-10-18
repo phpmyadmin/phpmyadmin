@@ -923,7 +923,6 @@ $strTransformation_application_octetstream__hex = 'Kuvab andmed kuueteistkümnend
 $strTransformation_image_jpeg__inline = 'Kuvab lingitud väikepildi; seaded: laius,kõrgus pikslites (hoiab alles originaalpildi laiuse-kõrguse suhte)';
 $strTransformation_image_jpeg__link = 'Kuvab lingi sellele pildile (otsene binaarne allalaadimine, jne.).';
 $strTransformation_image_png__inline = 'Vaata image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Võtab TIME, TIMESTAMP või DATETIME tüüpi välja ja teisendab selle Teie lokaalse ajaseade järgi. Esimene seade on lisa (tundides) , mis lisatakse ajale (vaikimisi: 0). Teine seade on teistsugune ajamäärang vastavalt PHP  strftime() funktsioonile.';
 $strTransformation_text_plain__external = 'AINULT LINUXILE: Käivitab välise aplikatsiooni ja annab talle standard sisendisse ette välja sisu. Tagastab aplikatsiooni standard väljundi. Vaikimisi on selleks Tidy, et kuvada ilusti formaaditud HTML koodi. Turvariskide maandamiseks peate te käsitsi muutma faili libraries/transformations/text_plain__external.inc.php ja lisama sinna programmid mida te lasete käivitada. Esimene seade on siis kasutatava programmi number, teine seade on programmi parameetrid. Kui kolmas seade on 1 siis töödeldakse väljund funktsiooniga htmlspecialchars() (vaikimisi 1). Kui neljas seade on  1 pannakse NOWRAP sisu lahtrile nii, et kogu väljund kuvatakse ilma formaati muutmata(vaikimisi 1)';
 $strTransformation_text_plain__formatted = 'Hoiab alles originaalset välja formaati. Ei varjestata.';
 $strTransformation_text_plain__imagelink = 'Kuvab pildi ja lingi, väli sisaldab failinime; esimene seade on eelnev tekst nagu "http://domain.com/", teine seade on laius pikslites, kolmas on kõrgus.';
@@ -1002,4 +1001,5 @@ $strZip = '"zipitud"';
 $strLanguage = 'Language';  //to translate
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

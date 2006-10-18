@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-18 Michal Čihař  <michal@cihar.com>
+    * libraries/transformations/text_plain__dateformat.inc.php, lang/*:
+      Support displaying in UTC (RFE #1440386).
+
 2006-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: export nothing if no tables are selected
 

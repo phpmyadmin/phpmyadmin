@@ -576,7 +576,6 @@ $strTraffic = 'Trafikoa';
 $strTransformation_image_jpeg__inline = 'Miniatura klikagarri bat erakusten du; aukerak: luzera,altuera pixeletan (jatorrizko erlazioa mantentzen du)';
 $strTransformation_image_jpeg__link = 'Irudi honi zuzendutako esketa bat erakusten du(blob deskarga zuzena, i.e.).';
 $strTransformation_image_png__inline = 'Ikusi image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'TIME, TIMESTAMP edo DATETIME eremu bat hartu eta zure data lokalaren formateo mota erabiliz formateatzen du. Lehenengo aukera orduari gehitu beharreko aldea (orduetan) da (Lehenetsia: 0). Bigarren aukera dataren formateo ezberdin bat da, PHPren strftime() funtzioaren eskuragarri dauden parametroen arabera.';
 $strTransformation_text_plain__external = 'LINUX SOILIK: Kanpoko aplikazio bat abiaratzen du eta datu-eremua sarrera estandarraren bidez osatzen du. Aplikazioaren irteera estandarra itzultzen du. Lehenetsitakoa Tidy da, HTML kodea txukun pantailaratzeko. Segurtasun arrazoiengatik, libraries/transformations/text_plain__external.inc.php fitxategia eskuz editatu beharko duzu eta hor zehaztu zein tresna exekutatzea baimentzen duzun. Lehenengo aukera erabili nahi duzun programaren zenbakia da eta bigarren aukera programarentzako parametroak dira . Hirugarren parametroa, 1 izanez gero irteera bihurtuko du  htmlspecialchars() funtzioa erabiliz (Lehenetsia: 1). Laugarren parametroa, 1 izanez gero NOWRAP bat ezarriko dio edukin-gelaxkari, beraz irteera osoa berformateatu barik erakutsiko da(Lehenetsi 1)';
 $strTransformation_text_plain__formatted = 'Eremuaren jatorrizko formateoa mantentzen du. Aldaketarik egin gabe.';
 $strTransformation_text_plain__imagelink = 'Irudi eta esteka bana erakusten ditu, eremuak fitxategiaren izena dauka; lehenengo aukera "http://domain.com/" moduko aurrizki bat da, bigarren aukera pixeletan neurtutako zabalera da, hirugarrena altuera da.';
@@ -1016,4 +1015,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

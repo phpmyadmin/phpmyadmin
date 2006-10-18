@@ -647,7 +647,6 @@ $strTransformation_application_octetstream__download = 'Rādīt saiti uz lauka b
 $strTransformation_image_jpeg__inline = 'Parāda klikšķināmo sīktēlu; opcijas: platums, augstums pikseļos (saglabājot oriģinālās proporcijas)';
 $strTransformation_image_jpeg__link = 'Parāda linku uz šo attēlu (tieša blob lauka lajuplāde).';
 $strTransformation_image_png__inline = 'Skatīties image/jpeg: kā ierindotu attēlu';
-$strTransformation_text_plain__dateformat = 'Ņem TIME, TIMESTAMP vai DATETIME lauku, un formatē to izmantojot Jūsu lokālo datuma formatu. Pirmā opcija ir nobīde (stundās), kas tiks pievienota timestamp laukam (noklusētā: 0). Otrā opcija ir datuma formats, saskaņā ar PHP finkcijas strftime() parametriem.';
 $strTransformation_text_plain__external = 'Tikai LINUX: Palaiž ārējo aplikāciju un padod lauka datus tās standartievadā. Atgriež aplikācijas standartizvadi. Noklusējums ir Tidy, kas izskaistina HTML kodu. Drošības apsvērumu dēļ, nepieciešams manuāli rediģēt failu libraries/transformations/text_plain__external.inc.php un ielikt rīkus, kurus Jūs atļaujat palaist. Pirmā opcija ir programmas numurs, ko Jūs vēlaties lietot, otrā opcija ir parametri šai programmai. Trešā opcija, ja ir vienāda ar 1, konvertē izvadi, izmantojot htmlspecialchars() (noklusējums ir 1). Ceturtais parametrs, ja vienāds ar 1, liek NOWRAP parametru satura šūnai, tā kā izvade tiks attēlota bez pārformatēšanas. (noklusējums ir 1)';
 $strTransformation_text_plain__formatted = 'Saglabā lauka oriģinālo formatējumu. Speciālo rakstzīmju pasargāšana netiek veikta.';
 $strTransformation_text_plain__imagelink = 'Parāda attēlu un linku, lauks satur faila nosauumu; pirmā opcija ir prefikss, piemēram, "http://domens.lv/", otrā opcija ir platums pikseļos, trešā ir augstums.';
@@ -1022,4 +1021,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

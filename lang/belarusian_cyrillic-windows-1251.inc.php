@@ -924,7 +924,6 @@ $strTransformation_application_octetstream__hex = 'ѕаказвае дадзены€ Ґ шаснаццат
 $strTransformation_image_jpeg__inline = 'ѕаказвае нац≥скальны эск≥з; ќпцы≥ Ч максымальна€ шырын€ ≥ вышын€ Ґ п≥ксэлах. «ахоҐваюцца пачатковы€ прапорцы≥.';
 $strTransformation_image_jpeg__link = 'ѕаказвае спасылку дл€ загрузк≥ гэтага малюнку.';
 $strTransformation_image_png__inline = 'ѕрагл€дзець малюнак image/jpeg: убудаваны';
-$strTransformation_text_plain__dateformat = 'ѕаказвае дадзены€ з пол€ TIME, TIMESTAMP або DATETIME ≥ фарматуе ≥х згодна вашага л€кальнага фармату даты. ѕерша€ опцы€ Ч прамежак часу (у гадз≥нах), €к≥ будзе дададзены да метк≥ часу (ѕа змоҐчаньн≥: 0). ¬ыкарыстоҐвайце другую опцыю, каб вызначыць ≥ншы фармат даты; гл€дз≥це дакумэнтацыю да функцы≥ PHP strftime().';
 $strTransformation_text_plain__external = '“ќЋ№ ≤ ƒЋя LINUX: «апускае зьнешнюю праграму ≥ перадае Єй дадзены€ пол€ праз стандартны Ґвод. ¬€ртае стандартны вывад праграмы. ѕраграма па змоҐчаньн≥ Ч Tidy, €ка€ друкуе чысты HTML-код. «ь меркаваньн€Ґ б€сьпек≥, вам трэба Ґручную адрэдагаваць файл libraries/transformations/text_plain__external.inc.php ≥ пазначыць сьп≥с праграмаҐ, €к≥€ вы хочаце зраб≥ць даступным≥. ѕерша€ опцы€ Ч тады нумар праграмы, €кую вы хочаце выкарыстоҐваць, друга€ опцы€ Ч парамэтры дл€ праграмы. “рэц€€ опцы€, кал≥ вызначана€ €к 1, сканвэртуе дадзены€ з стандартнага вываду выкарыстоҐваючы htmlspecialchars() (ѕа змоҐчаньн≥ 1). „ацьверта€ опцы€, кал≥ вызначана€ €к 1, прадух≥л≥ць перанос па словах, каб пераканацца, што Ґвесь выхадны паток будзе выведзены Ґ адз≥н радок (ѕа змоҐчаньн≥ 1).';
 $strTransformation_text_plain__formatted = 'ѕаказвае зьмесьц≥ва пол€ €к-Єсьць, без апрацоҐк≥ €го функцы€й htmlspecialchars(). “аму разумеецца, што поле Ґтрымл≥вае карэктны HTML-код.';
 $strTransformation_text_plain__imagelink = 'ѕаказвае малюнак ≥ спасылку, поле зьм€шчае назву файла. ѕерша€ опцы€ Ч прэф≥кс адрасу кшталту "http://www.example.com/". ƒруга€ ≥ трэц€€ опцы≥ Ч шырын€ ≥ вышын€ Ґ п≥ксэлах.';
@@ -999,4 +998,5 @@ $strZeroRemovesTheLimit = '«аҐвага: ѕазначэньне гэтых опцы€Ґ €к 0 (нуль) здымае 
 $strZip = 'арх≥ваваны Ґ zip';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

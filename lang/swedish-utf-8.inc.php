@@ -922,7 +922,6 @@ $strTransformation_application_octetstream__hex = 'Visar hexadecimal representat
 $strTransformation_image_jpeg__inline = 'Visar en klickbar tumnagelbild. Parametrarna är maximal bredd och höjd i pixlar. Bildens ursprungliga proportioner bibehålls.';
 $strTransformation_image_jpeg__link = 'Visar en länk för att ladda ner denna bild.';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Visar ett TIME, TIMESTAMP eller DATETIME-fält enligt ditt lokala datum-/tidsformat. Första parametern är förskjutningen (i timmar) som kommer att läggas till tidsstämpeln (standardvärde: 0). Använd andra parametern för att ange ett annat datum-/tidsformat; se dokumentationen för PHP:s funktion strftime().';
 $strTransformation_text_plain__external = 'ENDAST LINUX: Startar en extern applikation och skickar fältdata till den via standard-indata. Returnerar applikationens standard-utdata. Standard är Tidy, för att snygga till HTML-kod. Av säkerhetsskäl måste du manuellt redigera filen libraries/transformations/text_plain__external.inc.php och infoga verktygen du vill tillåta ska få köras. Den första parametern är då numret för det program som du vill använda och den andra parametern är parametrarna för programmet. Om den tredje parametern sätts till 1 kommer utdata konverteras mha htmlspecialchars() (standardvärde: 1). Om den fjärde parametern sätts till 1 kommer radbrytning att undvikas så att all utdata kommer att visas på en rad (standardvärde: 1).';
 $strTransformation_text_plain__formatted = 'Visar innehållet i fältet som det är, utan att köra det genom htmlspecialchars(). Det innebär att fältet antas innehålla korrekt HTML-kod.';
 $strTransformation_text_plain__imagelink = 'Visar en bild och en länk; fältet innehåller filnamnet. Första parametern är ett URL-prefix såsom "http://www.example.com/". Andra och tredje parametern är bredden och höjden i pixlar.';
@@ -997,4 +996,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>

@@ -603,7 +603,6 @@ $strTransformation_application_octetstream__download = 'Prikaži povezavo za pre
 $strTransformation_image_jpeg__inline = 'Prikaže sličico, na katero lahko kliknete; možnosti: širina, višina v slikovnih pikah (obdrži prvotna razmerja)';
 $strTransformation_image_jpeg__link = 'Pokaže povezavo na grafiko (neposredni BLOB prenos, ipd.).';
 $strTransformation_image_png__inline = 'Pokaži sliko/jpeg: vključeno';
-$strTransformation_text_plain__dateformat = 'Oblikuje polje TIME, TIMESTAMP ali DATETIME glede na lokalne oblike za prikaz časa. Prva možnost je odmik (v urah), ki bo dodan polju timestamp (Privzeto: 0). Druga možnost je drugačna oblika prikaza datuma, glede na parametre za PHP strftime().';
 $strTransformation_text_plain__external = 'SAMO ZA LINUX: Zažene zunanjo aplikacijo in podaja podatke za fielddata preko standardnega vhoda. Vrne standardni izhod aplikacije. Privzeto je Tidy, za tiskanje HTML-kode. Zaradi varnostnih razlogov morate ročno urediti datoteko libraries/transformations/text_plain__external.inc.php in vstaviti orodja za zaganjanje. Prva možnost je številka programa, ki ga želite uporabiti, druga možnost pa so parametri za program. Če tretji parameter nastavite na 1, bo s pomočjo htmlspecialchars() pretvoril izhod (Privzeto: 1). Če nastavite četrti parameter na 1, bo v celico z vsebino (content cell) vnesel NOWRAP in tako prikazal celoten izhod brez preoblikovanja (Privzeto: 1)';
 $strTransformation_text_plain__formatted = 'Ohrani izvirno oblikovanje polja, brez izgubljanja vsebine.';
 $strTransformation_text_plain__imagelink = 'Prikaže sliko in povezavo, polje vsebuje ime datoteke; najprej je predpona, npr. "http://domena.com/", druga možnost je širina v slikovnih pikah, tretja pa višina.';
@@ -1019,4 +1018,5 @@ $strPDFReportExplanation = '(Generates a report containing the data of a single 
 $strFontSize = 'Font size';  //to translate
 $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
+$strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formated date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 ?>
