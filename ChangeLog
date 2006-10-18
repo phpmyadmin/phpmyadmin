@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php, libraries/Table.class.php: bug #1567316,
+      renaming a db containing a view
+          
 2006-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/transformations/text_plain__dateformat.inc.php, lang/*:
       Support displaying in UTC (RFE #1440386).

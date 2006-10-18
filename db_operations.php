@@ -52,7 +52,19 @@ if (isset($db) &&
         }
 
         $tables_full = PMA_DBI_get_tables_full($db);
+        $views = array();
         foreach ($tables_full as $table => $tmp) {
+            // to be able to rename a db containing views, we
+            // first collect in $views all the views we find and we
+            // will handle them after the tables
+            /** 
+             * @todo support a view of a view 
+             */
+            if (PMA_Table::isView($db, $table)) {
+                $views[] = $table;
+                continue;
+            }
+
             $back = $sql_query;
             $sql_query = '';
 
@@ -83,10 +95,17 @@ if (isset($db) &&
             }
 
             $sql_query = $back . $sql_query;
-        }
+        } // end (foreach)
         unset($table);
 
-        // now that all tables exist, create all the accumulated constraints
+        // handle the views
+        foreach ($views as $view) {
+            PMA_Table::moveCopy($db, $view, $newname, $view,
+                'structure', $move, 'db_copy');
+        }
+        unset($view, $views);
+        
+        // now that all tables exist, create all the accumulated constraints 
         if (isset($GLOBALS['add_constraints'])) {
             /**
              * @todo this works with mysqli but not with mysql, because
