@@ -8,6 +8,8 @@ $HeadURL$
 2006-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/transformations/text_plain__dateformat.inc.php, lang/*:
       Support displaying in UTC (RFE #1440386).
+    * libraries/transformations.lib.php: Write own parser so that quoting is
+      optional (RFE #1579163).
 
 2006-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: export nothing if no tables are selected

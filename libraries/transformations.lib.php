@@ -9,11 +9,13 @@
 function PMA_transformation_getOptions($string) {
     $transform_options = array();
 
-    if ($string != '') {
-        if ($string{0} == "'" && $string{strlen($string)-1} == "'") {
-            $transform_options = explode('\',\'', substr($string, 1, strlen($string)-2));
+    /* Parse options */
+    for ($nextToken = strtok($string, ','); $nextToken !== false; $nextToken = strtok(',')) {
+        if ($nextToken{0} == '\'') {
+            $nextToken = $nextToken{strlen($nextToken) - 1} == '\'' ? substr($nextToken, 1, -1) : substr($nextToken, 1) . ' ' . strtok('\'');
+            $transform_options[] = $nextToken;
         } else {
-            $transform_options = array(0 => $string);
+            $transform_options[] = $nextToken;
         }
     }
 
