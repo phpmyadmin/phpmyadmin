@@ -56,9 +56,10 @@ if (isset($db) &&
         foreach ($tables_full as $table => $tmp) {
             // to be able to rename a db containing views, we
             // first collect in $views all the views we find and we
-            // will handle them after the tables; however, this
-            // does not support the case when a view is based on a view
-
+            // will handle them after the tables
+            /** 
+             * @todo support a view of a view 
+             */
             if (PMA_Table::isView($db, $table)) {
                 $views[] = $table;
                 continue;
@@ -106,10 +107,11 @@ if (isset($db) &&
         
         // now that all tables exist, create all the accumulated constraints 
         if (isset($GLOBALS['add_constraints'])) {
-            // FIXME: this works with mysqli but not with mysql,
-            // because mysql extension does not accept more than one
-            // statement; maybe interface with the sql import plugin
-            // that handles statement delimiter
+            /**
+             * @todo this works with mysqli but not with mysql, because
+             * mysql extension does not accept more than one statement; maybe
+             * interface with the sql import plugin that handles statement delimiter
+             */
             PMA_DBI_query($GLOBALS['sql_constraints_query_full_db']);
 
             // and prepare to display them
