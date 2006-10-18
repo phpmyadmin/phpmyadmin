@@ -45,6 +45,9 @@ if (isset($db) &&
             $local_query .= ';';
             $sql_query = $local_query;
             PMA_DBI_query($local_query);
+            // rebuild the database list because PMA_Table::moveCopy
+            // checks in this list if the target db exists
+            $GLOBALS['PMA_List_Database']->build();
         }
 
         if (isset($GLOBALS['add_constraints'])) {
