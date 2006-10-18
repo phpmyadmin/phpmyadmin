@@ -1,3 +1,4 @@
+// vim: expandtab sw=4 ts=4 sts=4:
 var today = new Date();
 var expires = new Date(today.getTime() + (56 * 86400000));
 var pma_navi_width;
@@ -79,7 +80,11 @@ function PMA_setFrameSize()
     pma_navi_width = PMA_getCookie('pma_navi_width');
     //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
     if (pma_navi_width != null) {
-        parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+	    if (parent.document.getElementById('text_dir') == 'ltr) {
+            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+        } else {
+            parent.document.getElementById('mainFrameset').cols = '*,' + pma_navi_width;
+        }
         //alert('framesize set');
     }
 }

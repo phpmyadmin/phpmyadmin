@@ -21,6 +21,8 @@ $HeadURL$
       #1465906).
     * libraries/export/sql.php: Keep 0 in exported auto_increment fields (bug
       #1440544).
+    * js/navigation.js: Fix setting of navigation width when using RTL lang
+      (bug #1579750).
 
 2006-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: export nothing if no tables are selected
