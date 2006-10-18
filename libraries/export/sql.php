@@ -203,10 +203,17 @@ function PMA_exportHeader()
         $head .=  $crlf . 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
     }
 
+    /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
+    if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') { 
+        $head .=  $crlf . 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
+    }
+
     if (isset($GLOBALS['sql_use_transaction'])) {
         $head .=  $crlf .'SET AUTOCOMMIT=0;' . $crlf
-                . 'START TRANSACTION;' . $crlf . $crlf;
+                . 'START TRANSACTION;' . $crlf;
     }
+   
+    $head .= $crlf;
 
     return PMA_exportOutputHandler($head);
 }
