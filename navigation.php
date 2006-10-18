@@ -156,7 +156,7 @@ require_once './libraries/header_http.inc.php';
 
 <body id="body_leftFrame" onload="PMA_setFrameSize();" onresize="PMA_saveFrameSize();">
 <?php
-require './libraries/left_header.inc.php';
+require './libraries/navigation_header.inc.php';
 if (! $GLOBALS['server']) {
     // no server selected
     PMA_exitNavigationFrame();
