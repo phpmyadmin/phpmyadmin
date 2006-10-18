@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php, libraries/Table.class.php: bug #1567316,
+      renaming a db containing a view
+
 2006-10-10 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Sync with trunk.
 

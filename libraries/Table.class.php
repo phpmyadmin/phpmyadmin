@@ -502,7 +502,7 @@ class PMA_Table {
     /**
      * Copies or renames table
      * FIXME: use RENAME for move operations
-     *        - works only if the databases are on the same filesystem,
+     *        - would work only if the databases are on the same filesystem,
      *          how can we check that? try the operation and
      *          catch an error? 
      *        - for views, only if MYSQL > 50013
@@ -571,7 +571,21 @@ class PMA_Table {
 
             /* no need to PMA_backquote() */
 	    if (isset($target_for_view)) {
+		// this a view definition; we just found the first db name
+		// that follows DEFINER VIEW
+		// so change it for the new db name
                 $parsed_sql[$i]['data'] = $target_for_view;
+		// then we have to find all references to the source db 
+		// and change them to the target db, ensuring we stay into
+		// the $parsed_sql limits
+		$last = $parsed_sql['len'] - 1;
+		$backquoted_source_db = PMA_backquote($source_db);
+		for (++$i; $i <= $last; $i++) { 
+            	    if ($parsed_sql[$i]['type'] == 'quote_backtick' && $parsed_sql[$i]['data'] == $backquoted_source_db) {
+                        $parsed_sql[$i]['data'] = $target_for_view;
+		    }
+		}
+		unset($last,$backquoted_source_db);
             } else {
                 $parsed_sql[$i]['data'] = $target;
             }
