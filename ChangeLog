@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-10-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php, /database_interface.lib.php,/session.inc.php:
+      wrong parameter "char" when calling error.php, should be "charset"
+
 2006-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: use lang-cleanup.sh from the kit,
       list all files, and allow non-anonymous access
