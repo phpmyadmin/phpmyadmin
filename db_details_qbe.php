@@ -35,7 +35,7 @@ if (isset($_REQUEST['submit_sql'])
     require './libraries/db_details_common.inc.php';
     $url_query .= '&amp;goto=db_details_qbe.php';
     $url_params['goto'] = 'db_details_qbe.php';
-    require './libraries/db_details_db_info.inc.php';
+    require './libraries/db_info.inc.php';
 }
 
 if (isset($_REQUEST['submit_sql'])

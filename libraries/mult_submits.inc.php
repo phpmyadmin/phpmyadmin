@@ -132,7 +132,7 @@ if ( !empty($submit_mult) && !empty($what)) {
         require('./libraries/tbl_properties_table_info.inc.php');
     } elseif (isset($db) && strlen($db)) {
         require('./libraries/db_details_common.inc.php');
-        require('./libraries/db_details_db_info.inc.php');
+        require('./libraries/db_info.inc.php');
     }
     // Builds the query
     $full_query     = '';

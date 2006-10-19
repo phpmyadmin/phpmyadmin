@@ -14,7 +14,7 @@ require_once './libraries/sql_query_form.lib.php';
  * Gets informations about the database and, if it is empty, move to the
  * "db_details_structure.php" script where table can be created
  */
-require('./libraries/db_details_db_info.inc.php');
+require('./libraries/db_info.inc.php');
 if ( $num_tables == 0 && empty( $db_query_force ) ) {
     $sub_part   = '';
     $is_info    = TRUE;

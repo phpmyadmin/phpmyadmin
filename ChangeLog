@@ -5,6 +5,13 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-19 Michal Čihař  <michal@cihar.com>
+    * db_import.php, db_details.php, db_details_export.php,
+      db_details_structure.php, db_details_qbe.php, db_operations.php,
+      sql.php, libraries/db_info.inc.php, libraries/mult_submits.inc.php,
+      libraries/header.inc.php, libraries/db_details_db_info.inc.php: Rename
+      db_details_db_info.inc.php to db_info.inc.php.
+
 2006-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php, libraries/Table.class.php: bug #1567316,
       renaming a db containing a view

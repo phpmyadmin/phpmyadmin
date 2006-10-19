@@ -671,7 +671,7 @@ else {
             require './libraries/tbl_properties_links.inc.php';
         } elseif (isset($db) && strlen($db)) {
             require './libraries/db_details_common.inc.php';
-            require './libraries/db_details_db_info.inc.php';
+            require './libraries/db_info.inc.php';
         } else {
             require './libraries/server_common.inc.php';
             require './libraries/server_links.inc.php';
