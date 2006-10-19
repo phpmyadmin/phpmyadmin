@@ -25,7 +25,7 @@ if (!@function_exists('session_name')) {
     // (do not use &amp; for parameters sent by header)
     header('Location: error.php'
             . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&char='  . urlencode($charset)
+            . '&charset='  . urlencode($charset)
             . '&dir='   . urlencode($text_dir)
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(sprintf($strCantLoad, 'session')));

@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php, /database_interface.lib.php,/session.inc.php:
+      wrong parameter "char" when calling error.php, should be "charset"
+
 2006-10-19 Michal Čihař  <michal@cihar.com>
     * db_import.php, db_details.php, db_details_export.php,
       db_details_structure.php, db_details_qbe.php, db_operations.php,
