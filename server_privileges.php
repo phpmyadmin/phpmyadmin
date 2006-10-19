@@ -1230,7 +1230,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
      // Gets the database structure
      $sub_part = '_structure';
-     require('./libraries/db_details_db_info.inc.php');
+     require('./libraries/db_info.inc.php');
      echo "\n";
 } else {
     require('./libraries/server_links.inc.php');
