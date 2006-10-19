@@ -2971,7 +2971,7 @@ if (empty($_SESSION['PMA_Config'])) {
     if (!function_exists('preg_replace')) {
         header('Location: error.php'
             . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&char='  . urlencode($charset)
+            . '&charset='  . urlencode($charset)
             . '&dir='   . urlencode($text_dir)
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(
@@ -3180,7 +3180,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
             header('Location: error.php'
                     . '?lang='  . urlencode($available_languages[$lang][2])
-                    . '&char='  . urlencode($charset)
+                    . '&charset='  . urlencode($charset)
                     . '&dir='   . urlencode($text_dir)
                     . '&type='  . urlencode($strError)
                     . '&error=' . urlencode(
