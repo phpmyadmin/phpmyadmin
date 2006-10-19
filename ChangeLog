@@ -12,6 +12,8 @@ $HeadURL$
       libraries/header.inc.php, libraries/db_details_db_info.inc.php,
       server_privileges.php: Rename db_details_db_info.inc.php to
       db_info.inc.php.
+    * libraries/common.lib.php: Fix escaping of long query with js (thanks to
+      Erwin for report).
 
 2006-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php, libraries/Table.class.php: bug #1567316,
