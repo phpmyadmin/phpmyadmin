@@ -1395,19 +1395,20 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * escapes a string to be inserted as string a JavaScript block
      * enclosed by <![CDATA[ ... ]]>
-     * this requires only to escape ' with \'
+     * this requires only to escape ' with \' and end of script block
      *
-     * @uses    str_replace()
+     * @uses    strtr()
      * @param   string  $string the string to be escaped
      * @return  string  the escaped string
      */
     function PMA_escapeJsString($string)
     {
-        $string = str_replace('\\', '\\\\', $string);
-        $string = str_replace('\'', '\\\'', $string);
-        $string = str_replace("\012", '\n', $string);
-        $string = str_replace("\015", '\r', $string);
-        return $string;
+        return strtr($string, array(
+                            '\\' => '\\\\',
+                            '\'' => '\\\'',
+                            "\n" => '\n',
+                            "\r" => '\r',
+                            '</script' => '<\' + \'script'));
     }
 
     /**
@@ -1544,7 +1545,15 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         if ($cfg['ShowSQL'] == true
           && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
-            $local_query = !empty($GLOBALS['display_query']) ? $GLOBALS['display_query'] : (($cfg['SQP']['fmtType'] == 'none' && isset($GLOBALS['unparsed_sql']) && $GLOBALS['unparsed_sql'] != '') ? $GLOBALS['unparsed_sql'] : $GLOBALS['sql_query']);
+            if (!empty($GLOBALS['display_query'])) {
+                $local_query = $GLOBALS['display_query'];
+            } else {
+                if ($cfg['SQP']['fmtType'] == 'none' && !empty($GLOBALS['unparsed_sql'])) {
+                    $local_query = $GLOBALS['unparsed_sql'];
+                } else {
+                    $local_query = $GLOBALS['sql_query'];
+                }
+            }
             // Basic url query part
             $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
 
@@ -1563,7 +1572,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                  /* SQL-Parser-Analyzer */
                 $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
             } else {
-                $query_base = $local_query;
+                $query_base = htmlspecialchars($local_query);
             }
 
             // Parse SQL if needed
@@ -2690,7 +2699,7 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
- * Check for numeric keys 
+ * Check for numeric keys
  * (if register_globals is on, numeric key can be found in $GLOBALS)
  */
 
@@ -2759,7 +2768,7 @@ if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 
 /**
- * include session handling after the globals, to avoid overwriting 
+ * include session handling after the globals, to avoid overwriting
  */
 require_once './libraries/session.inc.php';
 
@@ -2888,7 +2897,7 @@ if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token'])
         'pma_servername', 'pma_username', 'pma_password',
     );
     // do not check only $_REQUEST because it could have been overwritten
-    // and use type casting because the variables could have become 
+    // and use type casting because the variables could have become
     // strings
     $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
 
