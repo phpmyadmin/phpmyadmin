@@ -131,7 +131,7 @@ if ( !empty($submit_mult) && !empty($what)) {
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         require('./libraries/tbl_info.inc.php');
     } elseif (isset($db) && strlen($db)) {
-        require('./libraries/db_details_common.inc.php');
+        require('./libraries/db_common.inc.php');
         require('./libraries/db_info.inc.php');
     }
     // Builds the query
@@ -229,7 +229,7 @@ if ( !empty($submit_mult) && !empty($what)) {
 <form action="<?php echo $action; ?>" method="post">
 <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
     <?php
-    if (strpos(' ' . $action, 'db_details') == 1) {
+    if (strpos(' ' . $action, 'db_') == 1) {
         echo PMA_generate_common_hidden_inputs($db);
     } elseif (strpos(' ' . $action, 'tbl_') == 1
               || $what == 'row_delete') {

@@ -31,7 +31,7 @@ PMA_checkParameters(array('db'));
 if (isset($table)) {
     $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
 } else {
-    $err_url = 'db_details.php?' . PMA_generate_common_url($db);
+    $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
 }
 
 if ($cfgRelation['commwork']) {

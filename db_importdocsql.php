@@ -207,7 +207,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
      */
     ?>
 
-    <form method="post" action="db_details_importdocsql.php" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
+    <form method="post" action="db_importdocsql.php" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
         <?php echo PMA_generate_common_hidden_inputs($db); ?>
         <input type="hidden" name="submit_show" value="true" />
         <input type="hidden" name="do" value="import" />

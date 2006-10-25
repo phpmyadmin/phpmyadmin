@@ -180,7 +180,7 @@ if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
  * because there is no table in the database ($is_info is true)
  */
 if (empty($is_info)) {
-    require './libraries/db_details_common.inc.php';
+    require './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
@@ -475,7 +475,7 @@ if ($num_tables > 0
      * import docSQL files
      */
     echo '<ul>' . "\n"
-        .'<li><a href="db_details_importdocsql.php?' . $takeaway . '">' . "\n";
+        .'<li><a href="db_importdocsql.php?' . $takeaway . '">' . "\n";
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_docsql.png"'
             .' alt="" width="16" height="16" />';

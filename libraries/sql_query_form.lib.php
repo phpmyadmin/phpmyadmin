@@ -5,7 +5,7 @@
  * functions for displaying the sql query form
  *
  * @usedby  server_sql.php
- * @usedby  db_details.php
+ * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
  * @usedby  querywindow.php
@@ -18,7 +18,7 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * prints the sql query boxes
  *
  * @usedby  server_sql.php
- * @usedby  db_details.php
+ * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
  * @usedby  querywindow.php
@@ -90,7 +90,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
-                    'db_details.php' : $GLOBALS['goto'];
+                    'db_sql.php' : $GLOBALS['goto'];
     } else {
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];

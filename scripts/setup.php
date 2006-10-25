@@ -1042,7 +1042,7 @@ function show_tabs_form($defaults = array()) {
         echo get_hidden_cfg();
         show_config_form(array(
             array('Default tab for server', 'DefaultTabServer', 'Tab that is displayed when entering server', array('main.php', 'server_databases.php', 'server_status.php', 'server_variables.php', 'server_privileges.php', 'server_processlist.php')),
-            array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_details_structure.php', 'db_details.php', 'db_search.php', 'db_operations.php')),
+            array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_structure.php', 'db_sql.php', 'db_search.php', 'db_operations.php')),
             array('Default tab for table', 'DefaultTabTable', 'Tab that is displayed when entering table', array('tbl_structure.php', 'sql.php', 'tbl_sql.php', 'tbl_select.php', 'tbl_change.php')),
             array('Use lighter tabs', 'LightTabs', 'If you want simpler tabs enable this', FALSE),
             ),

@@ -245,7 +245,7 @@ class PMA_PDF extends PMA_FPDF {
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
 
-        echo '<a href="db_details_structure.php?' . PMA_generate_common_url($db)
+        echo '<a href="db_structure.php?' . PMA_generate_common_url($db)
          . '">' . $GLOBALS['strBack'] . '</a>';
         echo "\n";
 

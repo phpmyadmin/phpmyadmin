@@ -1335,8 +1335,8 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_DefaultTabDatabase">$cfg['DefaultTabDatabase'] string</dt>
     <dd>Defines the tab displayed by default on database view. Possible
-        values: &quot;db_details_structure.php&quot;,
-        &quot;db_details.php&quot; or &quot;db_search.php&quot;.</dd>
+        values: &quot;db_structure.php&quot;,
+        &quot;db_sql.php&quot; or &quot;db_search.php&quot;.</dd>
 
     <dt id="cfg_DefaultTabTable">$cfg['DefaultTabTable'] string</dt>
     <dd>Defines the tab displayed by default on table view. Possible
@@ -2550,7 +2550,7 @@ ALTER TABLE `pma_column_comments`
 
 <h4 id="faq1_27">
     <a href="#faq1_27">1.27 I get empty page when I want to view huge page (eg.
-    db_details_structure.php with plenty of tables).</a></h4>
+    db_structure.php with plenty of tables).</a></h4>
 
 <p> This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering is enabled. If you turn off it (by

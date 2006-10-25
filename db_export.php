@@ -4,7 +4,7 @@
 /**
  * dumps a database
  *
- * @uses    libraries/db_details_common.inc.php
+ * @uses    libraries/db_common.inc.php
  * @uses    libraries/db_info.inc.php
  * @uses    libraries/display_export.lib.php
  * @uses    $tables     from libraries/db_info.inc.php
@@ -16,8 +16,8 @@
 require_once('./libraries/common.lib.php');
 
 $sub_part  = '_export';
-require_once('./libraries/db_details_common.inc.php');
-$url_query .= '&amp;goto=db_details_export.php';
+require_once('./libraries/db_common.inc.php');
+$url_query .= '&amp;goto=db_export.php';
 require_once('./libraries/db_info.inc.php');
 
 /**
@@ -55,9 +55,9 @@ foreach ( $tables as $each_table ) {
 $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
-$checkall_url = 'db_details_export.php?'
+$checkall_url = 'db_export.php?'
               . PMA_generate_common_url( $db )
-              . '&amp;goto=db_details_export.php';
+              . '&amp;goto=db_export.php';
 
 $multi_values .= '<br />
         <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>

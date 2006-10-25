@@ -28,7 +28,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
     $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);
     $tab_drop['args']['zero_rows']  = sprintf($GLOBALS['strDatabaseHasBeenDropped'], htmlspecialchars(PMA_backquote($db)));
     $tab_drop['args']['goto']       = 'main.php';
-    $tab_drop['args']['back']       = 'db_details' . $sub_part . '.php';
+    $tab_drop['args']['back']       = 'db' . $sub_part . '.php';
     $tab_drop['args']['reload']     = 1;
     $tab_drop['args']['purge']      = 1;
     $tab_drop['attr'] = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
@@ -38,16 +38,16 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
  * export, search and qbe links if there is at least one table
  */
 if ( $num_tables > 0 ) {
-    $tab_export['link'] = 'db_details_export.php';
+    $tab_export['link'] = 'db_export.php';
     $tab_search['link'] = 'db_search.php';
-    $tab_qbe['link']    = 'db_details_qbe.php';
+    $tab_qbe['link']    = 'db_qbe.php';
 }
 
-$tab_structure['link']  = 'db_details_structure.php';
+$tab_structure['link']  = 'db_structure.php';
 $tab_structure['text']  = $GLOBALS['strStructure'];
 $tab_structure['icon']  = 'b_props.png';
 
-$tab_sql['link']        = 'db_details.php';
+$tab_sql['link']        = 'db_sql.php';
 $tab_sql['args']['db_query_force'] = 1;
 $tab_sql['text']        = $GLOBALS['strSQL'];
 $tab_sql['icon']        = 'b_sql.png';

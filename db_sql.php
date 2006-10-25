@@ -7,18 +7,18 @@ require_once('./libraries/common.lib.php');
 /**
  * Runs common work
  */
-require('./libraries/db_details_common.inc.php');
+require('./libraries/db_common.inc.php');
 require_once './libraries/sql_query_form.lib.php';
 
 /**
  * Gets informations about the database and, if it is empty, move to the
- * "db_details_structure.php" script where table can be created
+ * "db_structure.php" script where table can be created
  */
 require('./libraries/db_info.inc.php');
 if ( $num_tables == 0 && empty( $db_query_force ) ) {
     $sub_part   = '';
     $is_info    = TRUE;
-    require './db_details_structure.php';
+    require './db_structure.php';
     exit();
 }
 

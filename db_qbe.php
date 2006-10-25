@@ -25,16 +25,16 @@ $cfgRelation = PMA_getRelationsParam();
  */
 if (isset($_REQUEST['submit_sql'])
  && preg_match('@^SELECT@i', $_REQUEST['encoded_sql_query'])) {
-    $goto      = 'db_details.php';
+    $goto      = 'db_sql.php';
     $zero_rows = htmlspecialchars($GLOBALS['strSuccess']);
     $sql_query = urldecode($_REQUEST['encoded_sql_query']);
     require './sql.php';
     exit;
 } else {
     $sub_part  = '_qbe';
-    require './libraries/db_details_common.inc.php';
-    $url_query .= '&amp;goto=db_details_qbe.php';
-    $url_params['goto'] = 'db_details_qbe.php';
+    require './libraries/db_common.inc.php';
+    $url_query .= '&amp;goto=db_qbe.php';
+    $url_params['goto'] = 'db_qbe.php';
     require './libraries/db_info.inc.php';
 }
 
@@ -170,7 +170,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 
 ?>
 
-<form action="db_details_qbe.php" method="post">
+<form action="db_qbe.php" method="post">
 <table class="data" style="width: 100%;">
 <tr class="odd noclick">
     <th><?php echo $strField; ?>:</th>

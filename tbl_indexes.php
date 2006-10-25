@@ -33,7 +33,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
             . PMA_generate_common_url($uri_params, '&'));
         exit;
     }
-    // Not a valid table name -> back to the default db_details sub-page
+    // Not a valid table name -> back to the default db sub-page
     if ( isset($table) && strlen($table) ) {
         $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
             . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
@@ -64,7 +64,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
  * Gets fields and indexes informations
  */
 if (!defined('PMA_IDX_INCLUDED')) {
-    $err_url_0 = 'db_details.php?' . PMA_generate_common_url($db);
+    $err_url_0 = 'db_sql.php?' . PMA_generate_common_url($db);
 }
 
 //  Gets table keys and store them in arrays

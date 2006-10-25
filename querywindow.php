@@ -229,7 +229,7 @@ if (isset($no_js) && $no_js) {
     if ( isset( $table ) && strlen($table) ) {
         require './tbl_sql.php';
     } elseif ( isset($db) && strlen($db) ) {
-        require './db_details.php';
+        require './db_sql.php';
     } else {
         require './server_sql.php';
     }

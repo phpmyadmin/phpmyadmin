@@ -13,13 +13,13 @@ if (empty($is_info)) {
     // Drops/deletes/etc. multiple tables if required
     if ((!empty($submit_mult) && isset($selected_tbl))
       || isset($mult_btn)) {
-        $action = 'db_details_structure.php';
-        $err_url = 'db_details_structure.php?'. PMA_generate_common_url($db);
+        $action = 'db_structure.php';
+        $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
         require './libraries/mult_submits.inc.php';
         $message = $strSuccess;
     }
-    require './libraries/db_details_common.inc.php';
-    $url_query .= '&amp;goto=db_details_structure.php';
+    require './libraries/db_common.inc.php';
+    $url_query .= '&amp;goto=db_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
@@ -155,7 +155,7 @@ if (true == $cfg['PropertiesIconic']) {
  * Displays the tables list
  */
 ?>
-<form method="post" action="db_details_structure.php" name="tablesForm" id="tablesForm">
+<form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
 <?php
 echo PMA_generate_common_hidden_inputs($db);
 
@@ -435,7 +435,7 @@ if ($is_show_stats) {
 <div class="clearfloat">
 <?php
 // Check all tables url
-$checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
+$checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
 ?>
 <img class="selectallarrow" src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
     width="38" height="22" alt="<?php echo $strWithChecked; ?>" />

@@ -161,7 +161,7 @@ $cfg['LeftFrameTableLevel']   = '1';     // How many sublevels should be display
                                          // up tables by the above Separator
 $cfg['ShowTooltip']           = TRUE;    // display table comment as tooltip in left frame
 $cfg['ShowTooltipAliasDB']    = FALSE;   // if ShowToolTip is enabled, this defines that table/db comments
-$cfg['ShowTooltipAliasTB']    = FALSE;   // are shown (in the left menu and db_details_structure) instead of
+$cfg['ShowTooltipAliasTB']    = FALSE;   // are shown (in the left menu and db_structure) instead of
                                          // table/db names. Setting ShowTooltipAliasTB to 'nested' will only
                                          // use the Aliases for nested descriptors, not the table itself.
 
@@ -235,10 +235,10 @@ $cfg['DefaultTabServer']      = 'main.php';
                                    // 'server_variables.php' = MySQL server variables
                                    // 'server_privileges.php' = user management
                                    // 'server_processlist.php' = process list
-$cfg['DefaultTabDatabase']    = 'db_details_structure.php';
+$cfg['DefaultTabDatabase']    = 'db_structure.php';
                                    // Possible values:
-                                   // 'db_details_structure.php' = tables list
-                                   // 'db_details.php' = sql form
+                                   // 'db_structure.php' = tables list
+                                   // 'db_sql.php' = sql form
                                    // 'db_search.php' = search query
                                    // 'db_operations.php' = operations on database
 $cfg['DefaultTabTable']       = 'tbl_structure.php';

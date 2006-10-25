@@ -77,7 +77,7 @@ if ($import_type == 'table') {
         if (isset($table) && isset($db)) {
             $goto = 'tbl_structure.php';
         } elseif (isset($db)) {
-            $goto = 'db_details_structure.php';
+            $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }

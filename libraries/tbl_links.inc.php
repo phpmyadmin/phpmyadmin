@@ -105,7 +105,7 @@ if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
     $tabs['drop']['args']['purge']      = 1;
     $drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
     $tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
-    $tabs['drop']['args']['goto']       = 'db_details_structure.php';
+    $tabs['drop']['args']['goto']       = 'db_structure.php';
     $tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
     $tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
     unset($drop_command);

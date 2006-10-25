@@ -78,12 +78,12 @@ if (!empty($disp_message)) {
  * (at this point, $goto might be set but empty)
  */
 if (empty($goto)) {
-    $goto    = 'db_details.php';
+    $goto    = 'db_sql.php';
 }
 /**
- * @todo check if we could replace by "db_details|tbl"
+ * @todo check if we could replace by "db_|tbl_"
  */
-if (!preg_match('@^(db_details|tbl_)@', $goto)) {
+if (!preg_match('@^(db|tbl)_@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'

@@ -29,7 +29,7 @@ if (empty($is_db)) {
 } // end if (ensures db exists)
 
 if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
-    // Not a valid table name -> back to the db_details.php
+    // Not a valid table name -> back to the db_sql.php
     if (isset($table) && strlen($table)) {
         $_result = PMA_DBI_try_query(
             'SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';',
@@ -69,7 +69,7 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
                     $url_params['display_query'] = $display_query;
                 }
                 PMA_sendHeaderLocation(
-                    $cfg['PmaAbsoluteUri'] . 'db_details.php'
+                    $cfg['PmaAbsoluteUri'] . 'db_sql.php'
                         . PMA_generate_common_url($url_params, '&'));
             }
         }
