@@ -744,7 +744,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             }
             if ($is_modify_link && isset($db)) {
                 if (isset($table)) {
-                    $doedit_goto = '<a href="tbl_properties.php?' . PMA_generate_common_url($db, $table) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                    $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($db, $table) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
                 } else {
                     $doedit_goto = '<a href="db_details.php?' . PMA_generate_common_url($db) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
                 }
@@ -1371,7 +1371,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
             //if (!isset($GLOBALS['goto'])) {
                 //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
-            $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_properties.php' : 'db_details.php') : 'server_sql.php';
+            $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_sql.php' : 'db_details.php') : 'server_sql.php';
             //} elseif ($GLOBALS['goto'] != 'main.php') {
             //    $edit_target = $GLOBALS['goto'];
             //} else {
@@ -2616,10 +2616,10 @@ $goto_whitelist = array(
     'tbl_indexes.php',
     'tbl_move_copy.php',
     'tbl_printview.php',
-    'tbl_properties.php',
-    'tbl_properties_export.php',
-    'tbl_properties_operations.php',
-    'tbl_properties_structure.php',
+    'tbl_sql.php',
+    'tbl_export.php',
+    'tbl_operations.php',
+    'tbl_structure.php',
     'tbl_relation.php',
     'tbl_replace.php',
     'tbl_row_action.php',

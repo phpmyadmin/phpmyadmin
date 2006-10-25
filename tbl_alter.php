@@ -17,20 +17,20 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Gets tables informations
  */
-require_once('./libraries/tbl_properties_common.php');
-require_once('./libraries/tbl_properties_table_info.inc.php');
+require_once('./libraries/tbl_common.php');
+require_once('./libraries/tbl_info.inc.php');
 /**
  * Displays top menu links
  */
-$active_page = 'tbl_properties_structure.php';
+$active_page = 'tbl_structure.php';
 // I don't see the need to display the links here, they will be displayed later
-//require('./libraries/tbl_properties_links.inc.php');
+//require('./libraries/tbl_links.inc.php');
 
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
+$err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 
 
 /**
@@ -40,7 +40,7 @@ $abort = false;
 if (isset($do_save_data)) {
     $field_cnt = count($field_orig);
     for ($i = 0; $i < $field_cnt; $i++) {
-        // to "&quot;" in tbl_properties.php
+        // to "&quot;" in tbl_sql.php
         $field_orig[$i]     = urldecode($field_orig[$i]);
         if (strcmp(str_replace('"', '&quot;', $field_orig[$i]), $field_name[$i]) == 0) {
             $field_name[$i] = $field_orig[$i];
@@ -137,8 +137,8 @@ if (isset($do_save_data)) {
             }
         }
 
-        $active_page = 'tbl_properties_structure.php';
-        require('./tbl_properties_structure.php');
+        $active_page = 'tbl_structure.php';
+        require('./tbl_structure.php');
     } else {
         PMA_mysqlDie('', '', '', $err_url, FALSE);
         // garvin: An error happened while inserting/updating a table definition.

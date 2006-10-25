@@ -1132,7 +1132,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                           . '?' . str_replace('&amp;', '&', $url_query)
                           . '&sql_query=' . urlencode($url_sql_query)
                           . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
-                          . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
+                          . '&goto=' . (empty($goto) ? 'tbl_sql.php' : $goto);
                 $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . '+LIMIT+1';
                 $del_url  = 'sql.php'
                           . '?' . $url_query
@@ -2008,7 +2008,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         echo '    <!-- Export -->' . "\n";
         echo   '    &nbsp;&nbsp;' . "\n";
         echo PMA_linkOrButton(
-            'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
+            'tbl_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
             '', true, true, '') . "\n";
     }

@@ -98,8 +98,8 @@ if (!empty($submit_mult)) {
                 $primary_key[] = urldecode($i_primary_key);
             }
 
-            $active_page = 'tbl_properties_export.php';
-            include './tbl_properties_export.php';
+            $active_page = 'tbl_export.php';
+            include './tbl_export.php';
             break;
 
         case 'row_delete':
@@ -113,7 +113,7 @@ if (!empty($submit_mult)) {
             }
             require('./libraries/mult_submits.inc.php');
             $url_query = PMA_generate_common_url($db, $table)
-                       . '&amp;goto=tbl_properties.php';
+                       . '&amp;goto=tbl_sql.php';
 
 
             /**
@@ -137,7 +137,7 @@ if (!empty($submit_mult)) {
                 $pos       = $original_pos;
             }
 
-            // this is because sql.php could call tbl_properties_structure
+            // this is because sql.php could call tbl_structure
             // which would think it needs to call mult_submits.inc.php:
             unset($submit_mult);
             unset($mult_btn);

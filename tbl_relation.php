@@ -6,16 +6,16 @@
  * Gets some core libraries
  */
 require_once('./libraries/common.lib.php');
-require_once('./libraries/tbl_properties_common.php');
-$url_query .= '&amp;goto=tbl_properties.php';
+require_once('./libraries/tbl_common.php');
+$url_query .= '&amp;goto=tbl_sql.php';
 
 
 /**
  * Gets tables informations
  */
-require_once('./libraries/tbl_properties_table_info.inc.php');
+require_once('./libraries/tbl_info.inc.php');
 
-// Note: in libraries/tbl_properties_links.inc.php we get and display the table comment.
+// Note: in libraries/tbl_links.inc.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
 // has not been done yet (will be done in tbl_relation.php later).
 $avoid_show_comment = TRUE;
@@ -23,7 +23,7 @@ $avoid_show_comment = TRUE;
 /**
  * Displays top menu links
  */
-require_once('./libraries/tbl_properties_links.inc.php');
+require_once('./libraries/tbl_links.inc.php');
 
 require_once('./libraries/relation.lib.php');
 

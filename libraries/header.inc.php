@@ -210,7 +210,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     's_db.png' );
 
             if (isset($GLOBALS['table']) && strlen($GLOBALS['table'])) {
-                require_once './libraries/tbl_properties_table_info.inc.php';
+                require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;
                 printf( $item,
@@ -222,7 +222,7 @@ if (empty($GLOBALS['is_header_sent'])) {
 
                 /**
                  * Displays table comment
-                 * @uses $show_comment from libraries/tbl_properties_table_info.inc.php
+                 * @uses $show_comment from libraries/tbl_info.inc.php
                  * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                  */
                 if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {

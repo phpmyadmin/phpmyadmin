@@ -10,9 +10,9 @@ $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 /**
  * Runs common work
  */
-require './libraries/tbl_properties_common.php';
-$url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_operations.php';
-$url_params['goto'] = $url_params['back'] = 'tbl_properties_operations.php';
+require './libraries/tbl_common.php';
+$url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
+$url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 
 /**
  * Gets relation settings
@@ -34,7 +34,7 @@ PMA_DBI_select_db($GLOBALS['db']);
  * Gets tables informations
  */
 
-require './libraries/tbl_properties_table_info.inc.php';
+require './libraries/tbl_info.inc.php';
 
 $reread_info = false;
 $errors = array();
@@ -123,17 +123,17 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 
 if ($reread_info) {
     $checksum = $delay_key_write = 0;
-    require './libraries/tbl_properties_table_info.inc.php';
+    require './libraries/tbl_info.inc.php';
 }
 unset($reread_info);
 
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_properties_links.inc.php';
+require_once './libraries/tbl_links.inc.php';
 
-$url_params['goto'] = 'tbl_properties_operations.php';
-$url_params['back'] = 'tbl_properties_operations.php';
+$url_params['goto'] = 'tbl_operations.php';
+$url_params['back'] = 'tbl_operations.php';
 
 /**
  * Get columns names
@@ -151,7 +151,7 @@ unset($local_query);
 ?>
 <!-- Order the table -->
 <div id="div_table_order">
-<form method="post" action="tbl_properties_operations.php">
+<form method="post" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset id="fieldset_table_order">
     <legend><?php echo $strAlterOrderBy; ?></legend>
@@ -226,7 +226,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 
 <!-- Table options -->
 <div id="div_table_options">
-<form method="post" action="tbl_properties_operations.php">
+<form method="post" action="tbl_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>

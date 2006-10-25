@@ -6,8 +6,8 @@
  *
  * @usedby  server_sql.php
  * @usedby  db_details.php
- * @usedby  tbl_properties.php
- * @usedby  tbl_properties_structure.php
+ * @usedby  tbl_sql.php
+ * @usedby  tbl_structure.php
  * @usedby  querywindow.php
  */
 
@@ -19,8 +19,8 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  *
  * @usedby  server_sql.php
  * @usedby  db_details.php
- * @usedby  tbl_properties.php
- * @usedby  tbl_properties_structure.php
+ * @usedby  tbl_sql.php
+ * @usedby  tbl_structure.php
  * @usedby  querywindow.php
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']
@@ -95,7 +95,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
-                    'tbl_properties.php' : $GLOBALS['goto'];
+                    'tbl_sql.php' : $GLOBALS['goto'];
     }
 
 

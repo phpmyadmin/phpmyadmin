@@ -227,7 +227,7 @@ if (isset($no_js) && $no_js) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if ( isset( $table ) && strlen($table) ) {
-        require './tbl_properties.php';
+        require './tbl_sql.php';
     } elseif ( isset($db) && strlen($db) ) {
         require './db_details.php';
     } else {

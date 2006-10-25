@@ -45,11 +45,11 @@ $tabs['browse']['icon'] = 'b_browse.png';
 $tabs['browse']['text'] = $strBrowse;
 
 $tabs['structure']['icon'] = 'b_props.png';
-$tabs['structure']['link'] = 'tbl_properties_structure.php';
+$tabs['structure']['link'] = 'tbl_structure.php';
 $tabs['structure']['text'] = $strStructure;
 
 $tabs['sql']['icon'] = 'b_sql.png';
-$tabs['sql']['link'] = 'tbl_properties.php';
+$tabs['sql']['link'] = 'tbl_sql.php';
 $tabs['sql']['text'] = $strSQL;
 
 $tabs['search']['icon'] = 'b_search.png';
@@ -62,7 +62,7 @@ if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
 }
 
 $tabs['export']['icon'] = 'b_tblexport.png';
-$tabs['export']['link'] = 'tbl_properties_export.php';
+$tabs['export']['link'] = 'tbl_export.php';
 $tabs['export']['args']['single_table'] = 'true';
 $tabs['export']['text'] = $strExport;
 
@@ -76,7 +76,7 @@ if ( ! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information
     $tabs['import']['text'] = $strImport;
 
     $tabs['operation']['icon'] = 'b_tblops.png';
-    $tabs['operation']['link'] = 'tbl_properties_operations.php';
+    $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = $strOperations;
 
     if ($table_info_num_rows > 0) {
@@ -87,7 +87,7 @@ if ( ! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information
         $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
         $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
         $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
-        $tabs['empty']['args']['goto'] = 'tbl_properties_structure.php';
+        $tabs['empty']['args']['goto'] = 'tbl_structure.php';
         $tabs['empty']['class'] = 'caution';
     }
     $tabs['empty']['icon'] = 'b_empty.png';

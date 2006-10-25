@@ -241,10 +241,10 @@ $cfg['DefaultTabDatabase']    = 'db_details_structure.php';
                                    // 'db_details.php' = sql form
                                    // 'db_search.php' = search query
                                    // 'db_operations.php' = operations on database
-$cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
+$cfg['DefaultTabTable']       = 'tbl_structure.php';
                                    // Possible values:
-                                   // 'tbl_properties_structure.php' = fields list
-                                   // 'tbl_properties.php' = sql form
+                                   // 'tbl_structure.php' = fields list
+                                   // 'tbl_sql.php' = sql form
                                    // 'tbl_select.php' = select page
                                    // 'tbl_change.php' = insert row page
                                    // 'sql.php' = browse page

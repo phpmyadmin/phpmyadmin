@@ -3,7 +3,7 @@
 
 require_once './libraries/common.lib.php';
 
-require './libraries/tbl_properties_common.php';
+require './libraries/tbl_common.php';
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
@@ -32,7 +32,7 @@ $cfgRelation = PMA_getRelationsParam();
  * Defines the url to return to in case of error in a sql statement
  */
 if (isset($table)) {
-    $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
 } else {
     $err_url = 'db_details.php?' . PMA_generate_common_url($db);
 }
@@ -221,7 +221,7 @@ foreach ($the_tables as $key => $table) {
         // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
         // the latter.
         /**
-         * @todo merge this logic with the one in tbl_properties_structure.php
+         * @todo merge this logic with the one in tbl_structure.php
          * or move it in a function similar to PMA_DBI_get_columns_full()
          * but based on SHOW CREATE TABLE because information_schema
          * cannot be trusted in this case (MySQL bug)

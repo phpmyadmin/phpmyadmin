@@ -35,8 +35,8 @@ if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
         $active_page = 'db_details_export.php';
         require('./db_details_export.php');
     } else {
-        $active_page = 'tbl_properties_export.php';
-        require('./tbl_properties_export.php');
+        $active_page = 'tbl_export.php';
+        require('./tbl_export.php');
     }
     exit();
 }
@@ -47,7 +47,7 @@ if ($export_type == 'server') {
 } elseif ($export_type == 'database' && isset($db) && strlen($db)) {
     $err_url = 'db_details_export.php?' . PMA_generate_common_url($db);
 } elseif ($export_type == 'table' && isset($db) && strlen($db) && isset($table) && strlen($table)) {
-    $err_url = 'tbl_properties_export.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
     die('Bad parameters!');
 }
@@ -303,8 +303,8 @@ if ($save_on_server) {
             $active_page = 'db_details_export.php';
             require('./db_details_export.php');
         } else {
-            $active_page = 'tbl_properties_export.php';
-            require('./tbl_properties_export.php');
+            $active_page = 'tbl_export.php';
+            require('./tbl_export.php');
         }
         exit();
     }
@@ -552,8 +552,8 @@ if ($save_on_server && isset($message)) {
         $active_page = 'db_details_export.php';
         require('./db_details_export.php');
     } else {
-        $active_page = 'tbl_properties_export.php';
-        require('./tbl_properties_export.php');
+        $active_page = 'tbl_export.php';
+        require('./tbl_export.php');
     }
     exit();
 }
@@ -614,8 +614,8 @@ if (!empty($asfile)) {
             $active_page = 'db_details_export.php';
             require_once('./db_details_export.php');
         } else {
-            $active_page = 'tbl_properties_export.php';
-            require_once('./tbl_properties_export.php');
+            $active_page = 'tbl_export.php';
+            require_once('./tbl_export.php');
         }
         exit();
     } else {

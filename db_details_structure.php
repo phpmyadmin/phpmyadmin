@@ -290,7 +290,7 @@ foreach ($tables as $keyname => $each_table) {
 
         if ($is_show_stats) {
             if (isset($formatted_overhead)) {
-                $overhead = '<a href="tbl_properties_structure.php?'
+                $overhead = '<a href="tbl_structure.php?'
                     . $tbl_url_query . '#showusage">' . $formatted_overhead
                     . ' ' . $overhead_unit . '</a>' . "\n";
                 unset($formatted_overhead);
@@ -324,7 +324,7 @@ foreach ($tables as $keyname => $each_table) {
     </th>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
-        <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
+        <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Structure']; ?></a></td>
     <td align="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
@@ -365,7 +365,7 @@ foreach ($tables as $keyname => $each_table) {
 
         <?php if ($is_show_stats) { ?>
     <td class="value"><a
-        href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>#showusage"
+        href="tbl_structure.php?<?php echo $tbl_url_query; ?>#showusage"
         ><?php echo $formatted_size . ' ' . $unit; ?></a></td>
     <td class="value"><?php echo $overhead; ?></td>
         <?php } // end if ?>

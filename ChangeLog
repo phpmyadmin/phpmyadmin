@@ -9,6 +9,7 @@ $HeadURL$
     * Documentation.html, libraries/tbl_properties.inc.php,
       libraries/config.default.php: Allow to edit small number of fields
       vertically and lange number horizontally (RFE #1581773).
+    * [too much files]: Rename tbl_* files to drop useless _properties part.
 
 2006-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, /database_interface.lib.php,/session.inc.php:

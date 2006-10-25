@@ -71,7 +71,7 @@ if (! isset($sql_query) && isset($table) && isset($db)) {
     unset($book_sql_query);
 
     // set $goto to what will be displayed if query returns 0 rows
-    $goto = 'tbl_properties_structure.php';
+    $goto = 'tbl_structure.php';
 } else {
     // Now we can check the parameters
     PMA_checkParameters(array('sql_query'));
@@ -368,7 +368,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     // Displays an error message if required and stop parsing the script
     if ($error        = PMA_DBI_getError()) {
         require_once './libraries/header.inc.php';
-        $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
+        $full_err_url = (preg_match('@^(db_details|tbl_)@', $err_url))
                       ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                       : $err_url;
         PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
@@ -625,7 +625,7 @@ if ($num_rows < 1 || $is_affected) {
         // Checks for a valid target script
         $is_db = $is_table = false;
         include 'libraries/db_table_exists.lib.php';
-        if (strpos($goto, 'tbl_properties') === 0 && ! $is_table) {
+        if (strpos($goto, 'tbl_') === 0 && ! $is_table) {
             if (isset($table)) {
                 unset($table);
             }
@@ -639,7 +639,7 @@ if ($num_rows < 1 || $is_affected) {
         }
         // Loads to target script
         if (strpos($goto, 'db_details') === 0
-         || strpos($goto, 'tbl_properties') === 0) {
+         || strpos($goto, 'tbl_') === 0) {
             $js_to_run = 'functions.js';
         }
         if ($goto != 'main.php') {
@@ -665,10 +665,10 @@ else {
         $js_to_run = 'functions.js';
         unset($message);
         if (isset($table) && strlen($table)) {
-            require './libraries/tbl_properties_common.php';
-            $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
-            require './libraries/tbl_properties_table_info.inc.php';
-            require './libraries/tbl_properties_links.inc.php';
+            require './libraries/tbl_common.php';
+            $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
+            require './libraries/tbl_info.inc.php';
+            require './libraries/tbl_links.inc.php';
         } elseif (isset($db) && strlen($db)) {
             require './libraries/db_details_common.inc.php';
             require './libraries/db_info.inc.php';

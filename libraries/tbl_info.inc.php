@@ -62,7 +62,7 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
         $tbl_type        = isset($showtable['Type'])
             ? strtoupper($showtable['Type'])
             : '';
-        // a new comment could be coming from tbl_properties_operations.php
+        // a new comment could be coming from tbl_operations.php
         // and we want to show it in the header
         if (isset($submitcomment) && isset($comment)) {
             $show_comment = $comment;

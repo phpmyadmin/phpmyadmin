@@ -28,19 +28,19 @@ if ( $GLOBALS['cfg']['PropertiesIconic'] == true ) {
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
-    require_once('./libraries/tbl_properties_common.php');
+    require_once('./libraries/tbl_common.php');
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
     /**
      * Gets tables informations
      */
-    require_once('./libraries/tbl_properties_table_info.inc.php');
+    require_once('./libraries/tbl_info.inc.php');
 
     /**
      * Displays top menu links
      */
-    require_once('./libraries/tbl_properties_links.inc.php');
+    require_once('./libraries/tbl_links.inc.php');
 
     if (!isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];

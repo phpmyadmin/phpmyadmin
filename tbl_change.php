@@ -47,7 +47,7 @@ require_once './libraries/file_listing.php'; // file listing
 if (!empty($disp_message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
-        $goto          = 'tbl_properties.php?'
+        $goto          = 'tbl_sql.php?'
                        . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
                        . '&amp;sql_query=' . (isset($disp_query) ? urlencode($disp_query) : '');
@@ -83,12 +83,12 @@ if (empty($goto)) {
 /**
  * @todo check if we could replace by "db_details|tbl"
  */
-if (!preg_match('@^(db_details|tbl_properties|tbl_select|tbl_import)@', $goto)) {
+if (!preg_match('@^(db_details|tbl_)@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'
              . PMA_generate_common_url($db)
-             . ((preg_match('@^(tbl_properties|tbl_select)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
+             . ((preg_match('@^(tbl_)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
@@ -102,9 +102,9 @@ require_once './libraries/db_table_exists.lib.php';
  * Sets parameters for links
  */
 $url_query = PMA_generate_common_url($db, $table)
-           . '&amp;goto=tbl_properties.php';
+           . '&amp;goto=tbl_sql.php';
 
-require_once './libraries/tbl_properties_table_info.inc.php';
+require_once './libraries/tbl_info.inc.php';
 
 /* Get comments */
 
@@ -124,7 +124,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_properties_links.inc.php';
+require_once './libraries/tbl_links.inc.php';
 
 
 /**
@@ -161,7 +161,7 @@ if (isset($primary_key)) {
             unset($row[$rowcount]);
             unset($primary_key_array[$rowcount]);
             $goto_cpy          = $goto;
-            $goto              = 'tbl_properties.php?'
+            $goto              = 'tbl_sql.php?'
                                . PMA_generate_common_url($db, $table)
                                . '&amp;$show_query=1'
                                . '&amp;sql_query=' . urlencode($local_query);

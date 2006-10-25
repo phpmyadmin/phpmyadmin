@@ -17,7 +17,7 @@ $index_types_cnt   = count($index_types);
 /**
  * Ensures the db & table are valid, then loads headers and gets indexes
  * informations.
- * Skipped if this script is called by "tbl_properties.php"
+ * Skipped if this script is called by "tbl_sql.php"
  */
 if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
@@ -71,7 +71,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 $indexes      = array();
 $indexes_info = array();
 $indexes_data = array();
-// keys had already been grabbed in "tbl_properties.php"
+// keys had already been grabbed in "tbl_sql.php"
 if (!defined('PMA_IDX_INCLUDED')) {
     $ret_keys = PMA_get_indexes($table, $err_url_0);
 }
@@ -79,7 +79,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
 
 // Get fields and stores their name/type
-// fields had already been grabbed in "tbl_properties.php"
+// fields had already been grabbed in "tbl_sql.php"
 if (!defined('PMA_IDX_INCLUDED')) {
     $fields_rs   = PMA_DBI_query('SHOW FIELDS FROM '
         . PMA_backquote($table) . ';');
@@ -110,7 +110,7 @@ if ($fields_rs) {
 
 /**
  * Do run the query to build the new index and moves back to
- * "tbl_properties.php"
+ * "tbl_sql.php"
  */
 if (!defined('PMA_IDX_INCLUDED')
     && (isset($index) && isset($do_save_data))) {
@@ -183,8 +183,8 @@ if (!defined('PMA_IDX_INCLUDED')
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' '
         . $strHasBeenAltered;
 
-    $active_page = 'tbl_properties_structure.php';
-    require('./tbl_properties_structure.php');
+    $active_page = 'tbl_structure.php';
+    require('./tbl_structure.php');
 } // end builds the new index
 
 

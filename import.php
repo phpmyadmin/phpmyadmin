@@ -75,7 +75,7 @@ if ($import_type == 'table') {
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
         if (isset($table) && isset($db)) {
-            $goto = 'tbl_properties_structure.php';
+            $goto = 'tbl_structure.php';
         } elseif (isset($db)) {
             $goto = 'db_details_structure.php';
         } else {
@@ -91,7 +91,7 @@ if ($import_type == 'table') {
     }
     $err_url  = $goto
               . '?' . $common
-              . (preg_match('@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
+              . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
 }
 
 

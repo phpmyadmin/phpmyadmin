@@ -33,16 +33,16 @@ if (isset($submit_mult_change_x)) {
 
 if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
-    $action = 'tbl_properties_structure.php';
-    $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
+    $action = 'tbl_structure.php';
+    $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
     require './libraries/mult_submits.inc.php';
 }
 
 /**
  * Runs common work
  */
-require_once './libraries/tbl_properties_common.php';
-$url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php';
+require_once './libraries/tbl_common.php';
+$url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 
 /**
  * Prepares the table structure display
@@ -51,7 +51,7 @@ $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_st
 /**
  * Gets tables informations
  */
-require_once './libraries/tbl_properties_table_info.inc.php';
+require_once './libraries/tbl_info.inc.php';
 
 /**
  * Show result of multi submit operation
@@ -64,7 +64,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 /**
  * Displays top menu links
  */
-require_once './libraries/tbl_properties_links.inc.php';
+require_once './libraries/tbl_links.inc.php';
 
 // 2. Gets table keys and retains them
 $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table) . ';');
@@ -187,7 +187,7 @@ if ($cfg['PropertiesIconic'] == true) {
 // table header
 $i = 0;
 ?>
-<form method="post" action="tbl_properties_structure.php" name="fieldsForm" id="fieldsForm">
+<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <table id="tablestructure" class="data">
 <thead>
@@ -469,7 +469,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
 
-$checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
+$checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 ?>
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
@@ -541,7 +541,7 @@ echo $strPrintView;
 if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // if internal relations are available, or the table type is INNODB
-    // ($tbl_type comes from libraries/tbl_properties_table_info.inc.php)
+    // ($tbl_type comes from libraries/tbl_info.inc.php)
     if ($cfgRelation['relwork'] || $tbl_type=="INNODB") {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
@@ -592,7 +592,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
  * links again
  */
 if ($fields_cnt > 20) {
-    require './libraries/tbl_properties_links.inc.php';
+    require './libraries/tbl_links.inc.php';
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 
