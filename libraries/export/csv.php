@@ -67,7 +67,7 @@ function PMA_exportHeader() {
         $csv_enclosed           = '"';
         $csv_escaped            = '"';
         if (isset($GLOBALS['excel_columns'])) {
-            $GLOBALS['cvs_columns'] = 'yes';
+            $GLOBALS['csv_columns'] = 'yes';
         }
     } else {
         if (empty($csv_terminated) || strtolower($csv_terminated) == 'auto') {
@@ -146,7 +146,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
-    if (isset($GLOBALS['cvs_columns'])) {
+    if (isset($GLOBALS['csv_columns'])) {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
             if ($csv_enclosed == '') {
