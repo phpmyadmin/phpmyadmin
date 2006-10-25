@@ -504,9 +504,10 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
                                             // (or at the bottom with vertical browse)
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction
                                             // (horizontal|vertical|horizontalflipped)
-$cfg['DefaultPropDisplay']  = 'horizontal'; // default display direction for altering/
+$cfg['DefaultPropDisplay']  = 3;            // default display direction for altering/
                                             // creating columns (tbl_properties)
-                                            // (horizontal|vertical)
+                                            // (horizontal|vertical|<number>)
+                                            // number indicates maximal number for which vertical model is used
 
 $cfg['HeaderFlipType']      = 'css';        // table-header rotation via faking or css? (css|fake)
                                             // NOTE: CSS only works in IE browsers!

@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-10-25 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, libraries/tbl_properties.inc.php,
+      libraries/config.default.php: Allow to edit small number of fields
+      vertically and lange number horizontally (RFE #1581773).
+
 2006-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, /database_interface.lib.php,/session.inc.php:
       wrong parameter "char" when calling error.php, should be "charset"

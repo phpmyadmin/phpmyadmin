@@ -11,12 +11,22 @@ PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 require_once('./libraries/mysql_charsets.lib.php');
 require_once('./libraries/storage_engines.lib.php');
 
+if (is_int($cfg['DefaultPropDisplay'])) {
+    if ($num_fields <= $cfg['DefaultPropDisplay']) {
+        $display_type = 'vertical';
+    } else {
+        $display_type = 'horizontal';
+    }
+} else {
+    $display_type = $cfg['DefaultPropDisplay'];
+}
+
 if ($cfg['CtrlArrowsMoving']) {
     ?>
 <script src="./js/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
-var switch_movement = <?php echo $cfg['DefaultPropDisplay'] == 'horizontal' ? '0' : '1'; ?>;
+var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
@@ -549,7 +559,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
     $empty_row = array_pop( $content_cells );
 
     echo '<table id="table_columns">';
-    if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
+    if ( $display_type == 'horizontal' ) {
         ?>
 <tr>
         <?php foreach ( $header_cells as $header_val ) { ?>
@@ -602,7 +612,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
  * needs to be finished
  *
  *
-if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
+if ( $display_type == 'horizontal' ) {
     $new_field = '';
     foreach ( $empty_row as $content_row_val ) {
         $new_field .= '<td align="center">' . $content_row_val . '</td>';

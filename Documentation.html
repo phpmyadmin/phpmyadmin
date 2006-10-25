@@ -1555,12 +1555,16 @@ ALTER TABLE `pma_column_comments`
         does not look as good as CSS.</dd>
 
     <dt id="DefaultPropDisplay">
-        <span id="cfg_DefaultPropDisplay">$cfg['DefaultPropDisplay']</span> string</dt>
+        <span id="cfg_DefaultPropDisplay">$cfg['DefaultPropDisplay']</span>
+        string or integer</dt>
     <dd>When editing/creating new columns in a table all fields normally get
         lined up one field a line. (default: 'horizontal'). If you set this to
         'vertical' you can have each field lined up vertically beneath each
         other. You can save up a lot of place on the horizontal direction and
-        no longer have to scroll.</dd>
+        no longer have to scroll. If you set this to integer, editing of fewer
+        columns will appear in 'vertical' mode, while editing of more fields
+        still in 'horizontal' mode. This way you can still effectively edit
+        large number of fields, while having full view on few of them.</dd>
 
     <dt id="cfg_ShowBrowseComments">$cfg['ShowBrowseComments'] boolean<br />
         <span id="cfg_ShowPropertyComments">$cfg['ShowPropertyComments'] </span>boolean
