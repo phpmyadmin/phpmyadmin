@@ -90,7 +90,7 @@ $HeadURL$
     * main.php: 
         - Mention wiki.
         - Switch to subversion.
-    * libraries/export/csv.php: Fix cvs/csv typo.
+    * libraries/export/csv.php: Fix cvs/csv typo (bug #1583509).
     * ChangeLog, libraries/sqlvalidator.class.php: Use HeadURL instead of
       Source keyword.
     * scripts/setup.php, libraries/sqlparser.lib.php: Remove last CVS
