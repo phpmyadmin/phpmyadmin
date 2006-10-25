@@ -12,6 +12,8 @@ $HeadURL$
     * [too much files]: 
         - Rename tbl_* files to drop useless _properties part.
         - Rename db_* files to drop useless _details part.
+    * libraries/Config.class.php: Add backward compatibility code to affect
+      above renaming.
 
 2006-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, /database_interface.lib.php,/session.inc.php:

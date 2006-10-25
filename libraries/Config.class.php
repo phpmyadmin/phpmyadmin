@@ -384,6 +384,16 @@ class PMA_Config
         }
 
         /**
+         * Backward compatibility code
+         */
+        if (!empty($cfg['DefaultTabTable'])) {
+            $cfg['DefaultTabTable'] = str_replace('_properties', '', str_replace('tbl_properties.php', 'tbl_sql.php', $cfg['DefaultTabTable']));
+        }
+        if (!empty($cfg['DefaultTabDatabase'])) {
+            $cfg['DefaultTabDatabase'] = str_replace('_details', '', str_replace('db_details.php', 'db_sql.php', $cfg['DefaultTabDatabase']));
+        }
+
+        /**
          * @todo check validity of $_COOKIE['pma_collation_connection']
          */
         if (! empty($_COOKIE['pma_collation_connection'])) {
