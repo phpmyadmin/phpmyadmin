@@ -543,7 +543,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
  */
 function PMA_checkPageValidity(&$page, $whitelist)
 {
-    if (! isset($page)) {
+    if (! isset($page) || !is_string($page)) {
         return false;
     }
 
@@ -2885,7 +2885,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (!is_string($_REQUEST['token']) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2909,8 +2909,27 @@ if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token'])
             unset($_POST[$key]);
             unset($GLOBALS[$key]);
         } else {
-            // allowed stuff could be compromised so escape it
-            $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
+            // we require it to be a string
+            if (is_string($_REQUEST[$key])) {
+                $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
+            } else {
+                unset($_REQUEST[$key]);
+            }
+            if (is_string($_POST[$key])) {
+                $_POST[$key] = htmlspecialchars($_POST[$key], ENT_QUOTES);
+            } else {
+                unset($_POST[$key]);
+            }
+            if (is_string($_COOKIE[$key])) {
+                $_COOKIE[$key] = htmlspecialchars($_COOKIE[$key], ENT_QUOTES);
+            } else {
+                unset($_COOKIE[$key]);
+            }
+            if (is_string($_GET[$key])) {
+                $_GET[$key] = htmlspecialchars($_GET[$key], ENT_QUOTES);
+            } else {
+                unset($_GET[$key]);
+            }
         }
     }
 }
@@ -3148,7 +3167,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (!empty($_REQUEST['server']) && !empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (is_string($_REQUEST['sever']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
