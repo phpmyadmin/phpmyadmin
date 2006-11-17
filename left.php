@@ -533,8 +533,8 @@ function PMA_displayTableList($tables, $visible = false,
             }
             echo ' id="icon_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
                 .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n"
-                .'<a href="' . $href . '" title="' . $table['Comment']
-                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
+                .'<a href="' . $href . '" title="' . htmlspecialchars($table['Comment']
+                .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'
                 .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
                 . htmlspecialchars($table['disp_name']) . '</a>';
             echo '</li>' . "\n";

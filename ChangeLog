@@ -8,6 +8,7 @@ $Source$
 2006-11-17 Michal Čihař  <michal@cihar.com>
     * sql.php, libraries/display_tbl.lib.php: Force pos to be integer to avoid
       XSS.
+    * left.php: Fix XSS on table comment.
 
 2006-11-09 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.1 released from MAINT_2_9_1
