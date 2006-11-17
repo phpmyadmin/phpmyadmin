@@ -16,7 +16,7 @@
  */
 function PMA_remove_request_vars(&$whitelist) {
     // do not check only $_REQUEST because it could have been overwritten
-    // and use type casting because the variables could have become 
+    // and use type casting because the variables could have become
     // strings
     $keys = array_keys(array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE));
 
@@ -25,7 +25,27 @@ function PMA_remove_request_vars(&$whitelist) {
             unset($_REQUEST[$key], $_GET[$key], $_POST[$key], $GLOBALS[$key]);
         } else {
             // allowed stuff could be compromised so escape it
-            $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
+            // we require it to be a string
+            if (is_string($_REQUEST[$key])) {
+                $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
+            } else {
+                unset($_REQUEST[$key]);
+            }
+            if (is_string($_POST[$key])) {
+                $_POST[$key] = htmlspecialchars($_POST[$key], ENT_QUOTES);
+            } else {
+                unset($_POST[$key]);
+            }
+            if (is_string($_COOKIE[$key])) {
+                $_COOKIE[$key] = htmlspecialchars($_COOKIE[$key], ENT_QUOTES);
+            } else {
+                unset($_COOKIE[$key]);
+            }
+            if (is_string($_GET[$key])) {
+                $_GET[$key] = htmlspecialchars($_GET[$key], ENT_QUOTES);
+            } else {
+                unset($_GET[$key]);
+            }
         }
     }
 }

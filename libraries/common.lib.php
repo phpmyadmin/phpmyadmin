@@ -304,7 +304,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
  */
 function PMA_checkPageValidity(&$page, $whitelist)
 {
-    if (! isset($page)) {
+    if (! isset($page) || !is_string($page)) {
         return false;
     }
 
@@ -2697,7 +2697,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
-if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (!is_string($_REQUEST['token']) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /**
      *  List of parameters which are allowed from unsafe source
      */
@@ -3003,7 +3003,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (is_string($_REQUEST['sever']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
