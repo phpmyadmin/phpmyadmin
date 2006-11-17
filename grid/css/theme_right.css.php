@@ -1,4 +1,4 @@
-<?php /*jw <-- diff from original/theme_right.css.php 20060922 */
+<?php /*jw <-- diff from original/theme_right.css.php 20061018 Let's again obey TextareaRows (bug #1465906).*/
 	// 2do: replace ../ with $oneUp
 	// unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
@@ -104,7 +104,6 @@ form {
 
 textarea {
 	overflow:	visible;
-	height:	8em;
 }
 
 fieldset {
@@ -639,8 +638,9 @@ a.tab:hover,
 	background:	<?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
-/* disabled drop/empty tabs */
+/* disabled drop/empty tabs 61031*/
 span.tab,
+a.warning,
 span.tabcaution {
 	<?php
 	if (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') < 0) {

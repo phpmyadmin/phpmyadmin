@@ -1,7 +1,7 @@
 <?php
 /**
  * derived from theme "original" pma 2.9, HEAD
- * modifications by windkiel 20060819~0922 marked with "*jw"
+ * modifications by windkiel 2006-08-19 ~ 10-31 marked with "*jw"
  * works with pma 2.8 (still experimental)
  * no '' allowed, except for Font.. ..Link.. ..Marke...
  * for detailed layout configuration please refer to the css files
@@ -50,7 +50,7 @@ $GLOBALS['cfg']['NaviFontPercentage']       = '90%';/*jw*/
 $GLOBALS['cfg']['MainColor']                = '#000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#d3d3d3';
+$GLOBALS['cfg']['MainBackground']           = '#e7e7e7';
 
 if ( PMA_USR_BROWSER_AGENT != 'MOZILLA' ) { 	/*jw index.php: NO frameborder="0"*/
 $GLOBALS['cfg']['MainBackground'] .=
@@ -82,7 +82,7 @@ $GLOBALS['cfg']['BrowseMarkerBackground']   = '#fc9';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily']           = 'Arial, sans-serif';
+$GLOBALS['cfg']['FontFamily']           = 'sans-serif'; //was:Arial
 /**
  * fixed width font family, used in textarea
  */
@@ -95,18 +95,18 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
  * pma >2.8 uses font size stored in cookie
  */
 
-// for pma <= 2.8 :
+// for pma 2.8 :
 $GLOBALS['cfg']['FontSize']             = '90%';
 
 /**
  * tables
  */
 /*jw*/
-// border strenght ONLY FF(Gecko, e.g. .05em(min!)|1px|3pt| 0 but NOT 1)
+// border strenght ( e.g. .05em(min!)|1px|3pt| 0 but NOT 1)
 $GLOBALS['cfg']['Border'] = '1px';
-//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!
-$GLOBALS['cfg']['MainGridColor'] = '#d3d3d2';
 
+//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!
+$GLOBALS['cfg']['MainGridColor'] = '#e7e7e8';
 // table header and footer color
 $GLOBALS['cfg']['ThBackground'] = $GLOBALS['cfg']['NaviBackground'];#def';//'#D3DCE3';
 // table header and footer background
@@ -115,6 +115,9 @@ $GLOBALS['cfg']['ThColor']              = '#000';
 $GLOBALS['cfg']['BgOne']                = '#f7f7f7';
 // table data row background, alternate
 $GLOBALS['cfg']['BgTwo']                = '#fff';
+// table outer border color
+//$GLOBALS['cfg']['TblBorderColor'] = 'blue';//60928 test
+
 //needed for pma2.8 only (if E_NOTICE=1 , but no effect) :
 $GLOBALS['cfg']['BgcolorOne']='#f7f7f7';
 $GLOBALS['cfg']['BgcolorTwo']='#fff';
@@ -142,10 +145,10 @@ $GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'digit_float'        => 'aqua',
     'punct'              => 'fuchsia',
     'alpha'              => '',
-    'alpha_columnType'   => '#FF9900',
-    'alpha_columnAttrib' => '#0000FF',
-    'alpha_reservedWord' => '#990099',
-    'alpha_functionName' => '#FF0000',
+    'alpha_columnType'   => '#F90',
+    'alpha_columnAttrib' => 'blue',
+    'alpha_reservedWord' => '#909',
+    'alpha_functionName' => 'red',
     'alpha_identifier'   => 'black',
     'alpha_charset'      => '#6495ed',
     'alpha_variable'     => '#800000',

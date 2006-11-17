@@ -12,7 +12,7 @@ html {
 ';
 ?>
 
-/** Navi general v.2.0 for pma2.7+ windkiel 20060917 **/
+/** Navi general v.2.9 for pma2.8+ windkiel 20060917 **/
 * { <?php /*jw general reset and corrected later, if needed (f.e. hr) */ ?>
 	margin:	0;
 	padding:	0
@@ -83,8 +83,9 @@ div#databaseList {
 
 
 div#leftframelinks a img.icon {
-	padding:	.2em;
-	border:	1px solid <?php echo $GLOBALS['cfg']['NaviColor']; //top links ?>;
+	padding:	.1em;
+	border:	0 <?php /*1px solid */ 
+	//echo $GLOBALS['cfg']['NaviColor']; //top links ?>;
 }
 
 div#leftframelinks a:hover {
