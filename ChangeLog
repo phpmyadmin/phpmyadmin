@@ -12,6 +12,9 @@ $HeadURL$
     * index.php, libraries/cleanup.lib.php, libraries/url_generating.lib.php,
       libraries/common.lib.php, libraries/select_lang.lib.php: Fix path
       disclossure while passing array as some params.
+    * Documentation.html, libraries/ip_allow_deny.lib.php,
+      libraries/config.default.php: Trust only listed proxies for IP
+      Allow/Deny.
 
 2006-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd_pdf.php: export coordinates to PDF page even if the tables
