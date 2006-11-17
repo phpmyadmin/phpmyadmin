@@ -15,7 +15,7 @@ if (!isset($pos)) {
     $pos = 0;
 } else {
     /* We need this to be a integer */
-    $pos = (int)$pos
+    $pos = (int)$pos;
 }
 
 /**
