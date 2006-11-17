@@ -604,6 +604,8 @@ $cfg['GD2Available']          = 'auto';     // Is GD >= 2 available? Set to yes/
                                             // does autodetection, which is a bit expensive for
                                             // php < 4.3.0, but it is the only safe vay how to
                                             // determine GD version.
+$cfg['TrustedProxies']        = array();    // List of trusted proxies for IP allow/deny
+
 /**
  * SQL Parser Settings
  */
