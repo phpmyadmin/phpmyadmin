@@ -186,7 +186,10 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 
     $param_strings = array();
     foreach ($params as $key => $val) {
-        $param_strings[] = urlencode($key) . '=' . urlencode($val);
+        /* We ignore arrays as we don't use them! */
+        if (!is_array($val)) {
+            $param_strings[] = urlencode($key) . '=' . urlencode($val);
+        }
     }
 
     if (empty($param_strings)) {
