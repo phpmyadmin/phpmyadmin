@@ -21,30 +21,23 @@ if (isset($plugin_list)) {
         );
 } else {
 
-define('FPDF_FONTPATH', './libraries/fpdf/font/');
-//if ($charset == 'utf-8') {
-    define('PMA_PDF_FONT', 'FreeSans');
-    require_once('./libraries/fpdf/ufpdf.php');
-    class PMA_FPDF extends UFPDF
-    {
-    };
-//} else {
-//    define('PMA_PDF_FONT', 'Arial');
-//    require_once('./libraries/fpdf/fpdf.php');
-//    class PMA_FPDF extends FPDF {
-//    };
-//}
-
+/**
+ * Font used in PDF.
+ *
+ * @todo Make this configuratble (at least Sans/Serif).
+ */
+define('PMA_PDF_FONT', 'DejaVuSans');
+require_once('./libraries/tcpdf/tcpdf.php');
 
 // Adapted from a LGPL script by Philip Clarke
 
-class PMA_PDF extends PMA_FPDF
+class PMA_PDF extends TCPDF
 {
     var $tablewidths;
     var $headerset;
     var $footerset;
 
-    // overloading of a fpdf function:
+    // overloading of a tcpdf function:
     function _beginpage($orientation)
     {
         $this->page++;
@@ -418,8 +411,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     $pdf = new PMA_PDF('L', 'pt', 'A3');
 
-    $pdf->AddFont('FreeSans', '', 'FreeSans.php');
-    $pdf->AddFont('FreeSans', 'B', 'FreeSansBold.php');
+    $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
+    $pdf->AddFont('DejaVuSans', 'B', 'dejavusans-bold.php');
+    $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
+    $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserif-bold.php');
     $pdf->SetFont(PMA_PDF_FONT, '', 11.5);
     $pdf->AliasNbPages();
     $attr=array('titleFontSize' => 18, 'titleText' => $pdf_report_title);

@@ -98,6 +98,7 @@ $PMA_SQPdata_function_name = array (
     'EXPORT_SET',
     'EXTERIORRING',             // polygon-property-functions.html
     'EXTRACT',
+    'EXTRACTVALUE',             // xml-functions.html
     'FIELD',
     'FIND_IN_SET',
     'FLOOR',
@@ -235,6 +236,7 @@ $PMA_SQPdata_function_name = array (
     'UNHEX',                    // string-functions.html
     'UNIQUE_USERS',
     'UNIX_TIMESTAMP',
+    'UPDATEXML',                // xml-functions.html
     'UPPER',
     'USER',
     'UTC_DATE',
@@ -254,7 +256,7 @@ $PMA_SQPdata_function_name = array (
     'YEARWEEK'
 );
 //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
-$PMA_SQPdata_function_name_cnt = 229;
+$PMA_SQPdata_function_name_cnt = 231;
 // DEBUG
 //$test_PMA_SQPdata_function_name = $PMA_SQPdata_function_name;
 //sort($PMA_SQPdata_function_name);

@@ -647,6 +647,7 @@ a.tab:hover,
 
 /* disabled drop/empty tabs */
 span.tab,
+a.warning,
 span.tabcaution {
     cursor:             url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
 }

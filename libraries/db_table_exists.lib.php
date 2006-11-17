@@ -20,6 +20,12 @@ if (empty($is_db)) {
             if (isset($message)) {
                 $url_params['message'] = $message;
             }
+            if (isset($sql_query)) {
+                $url_params['sql_query'] = $sql_query;
+            }
+            if (isset($show_as_php)) {
+                $url_params['show_as_php'] = $show_as_php;
+            }
             PMA_sendHeaderLocation(
                 $cfg['PmaAbsoluteUri'] . 'main.php'
                     . PMA_generate_common_url($url_params, '&'));

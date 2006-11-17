@@ -23,8 +23,7 @@
 -- 
 -- Database : `phpmyadmin`
 -- 
-DROP DATABASE IF EXISTS `phpmyadmin`;
-CREATE DATABASE `phpmyadmin`
+CREATE DATABASE IF NOT EXISTS `phpmyadmin`
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE phpmyadmin;
 
@@ -33,8 +32,9 @@ USE phpmyadmin;
 -- 
 -- Privileges
 -- 
-GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
-    'pma'@localhost;
+-- (activate this statement if necessary)
+-- GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
+--    'pma'@localhost;
 
 -- --------------------------------------------------------
 
@@ -42,7 +42,7 @@ GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
 -- Table structure for table `pma_bookmark`
 -- 
 
-CREATE TABLE `pma_bookmark` (
+CREATE TABLE IF NOT EXISTS `pma_bookmark` (
   `id` int(11) NOT NULL auto_increment,
   `dbase` varchar(255) NOT NULL default '',
   `user` varchar(255) NOT NULL default '',
@@ -59,7 +59,7 @@ CREATE TABLE `pma_bookmark` (
 -- Table structure for table `pma_column_info`
 -- 
 
-CREATE TABLE `pma_column_info` (
+CREATE TABLE IF NOT EXISTS `pma_column_info` (
   `id` int(5) unsigned NOT NULL auto_increment,
   `db_name` varchar(64) NOT NULL default '',
   `table_name` varchar(64) NOT NULL default '',
@@ -80,7 +80,7 @@ CREATE TABLE `pma_column_info` (
 -- Table structure for table `pma_history`
 -- 
 
-CREATE TABLE `pma_history` (
+CREATE TABLE IF NOT EXISTS `pma_history` (
   `id` bigint(20) unsigned NOT NULL auto_increment,
   `username` varchar(64) NOT NULL default '',
   `db` varchar(64) NOT NULL default '',
@@ -99,7 +99,7 @@ CREATE TABLE `pma_history` (
 -- Table structure for table `pma_pdf_pages`
 -- 
 
-CREATE TABLE `pma_pdf_pages` (
+CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
   `db_name` varchar(64) NOT NULL default '',
   `page_nr` int(10) unsigned NOT NULL auto_increment,
   `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL default '',
@@ -115,7 +115,7 @@ CREATE TABLE `pma_pdf_pages` (
 -- Table structure for table `pma_relation`
 -- 
 
-CREATE TABLE `pma_relation` (
+CREATE TABLE IF NOT EXISTS `pma_relation` (
   `master_db` varchar(64) NOT NULL default '',
   `master_table` varchar(64) NOT NULL default '',
   `master_field` varchar(64) NOT NULL default '',
@@ -134,7 +134,7 @@ CREATE TABLE `pma_relation` (
 -- Table structure for table `pma_table_coords`
 -- 
 
-CREATE TABLE `pma_table_coords` (
+CREATE TABLE IF NOT EXISTS `pma_table_coords` (
   `db_name` varchar(64) NOT NULL default '',
   `table_name` varchar(64) NOT NULL default '',
   `pdf_page_number` int(11) NOT NULL default '0',
@@ -151,11 +151,29 @@ CREATE TABLE `pma_table_coords` (
 -- Table structure for table `pma_table_info`
 -- 
 
-CREATE TABLE `pma_table_info` (
+CREATE TABLE IF NOT EXISTS `pma_table_info` (
   `db_name` varchar(64) NOT NULL default '',
   `table_name` varchar(64) NOT NULL default '',
   `display_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`db_name`,`table_name`)
 )
   ENGINE=MyISAM COMMENT='Table information for phpMyAdmin'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `pma_designer_coords`
+-- 
+
+CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
+  `db_name` varchar(64) NOT NULL default '',
+  `table_name` varchar(64) NOT NULL default '',
+  `x` INT,
+  `y` INT,
+  `v` TINYINT,
+  `h` TINYINT,
+  PRIMARY KEY (`db_name`,`table_name`)
+)
+  ENGINE=MyISAM COMMENT='Table coordinates for Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

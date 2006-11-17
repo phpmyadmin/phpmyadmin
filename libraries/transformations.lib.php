@@ -11,14 +11,19 @@ function PMA_transformation_getOptions($string) {
 
     /* Parse options */
     for ($nextToken = strtok($string, ','); $nextToken !== false; $nextToken = strtok(',')) {
-        if ($nextToken{0} == '\'') {
-            $nextToken = $nextToken{strlen($nextToken) - 1} == '\'' ? substr($nextToken, 1, -1) : substr($nextToken, 1) . ' ' . strtok('\'');
-            $transform_options[] = $nextToken;
+        $trimmed = trim($nextToken);
+        if ($trimmed{0} == '\'' && $trimmed{strlen($trimmed) - 1} == '\'') {
+            $transform_options[] = substr($trimmed, 1, -1);
         } else {
-            $trimmed = trim($nextToken);
             if ($trimmed{0} == '\'') {
-                $trimmed = $nextToken{strlen($nextToken) - 1} == '\'' ? substr($nextToken, 1, -1) : substr($nextToken, 1) . ' ' . strtok('\'');
-                $transform_options[] = $trimmed;
+                $trimmed= ltrim($nextToken);
+                while ($nextToken !== false) {
+                    $nextToken = strtok(',');
+                    $trimmed .= $nextToken;
+                    $rtrimmed = rtrim($trimmed);
+                    if ($rtrimmed{strlen($rtrimmed) - 1} == '\'') break;
+                }
+                $transform_options[] = substr($rtrimmed, 1, -1);
             } else {
                 $transform_options[] = $nextToken;
             }

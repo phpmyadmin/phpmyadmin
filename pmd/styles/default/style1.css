@@ -1,0 +1,114 @@
+/* $Id$ */
+
+body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#EAEEF0; }
+/*.left_panel{ background-color:#EAEEF0;  background-image:url(images/left_panel_tab.png);  background-repeat:repeat-y; }*/
+.input_tab { background-color:#A6C7E1;}
+/*-------------------------------------------------------------*/
+/*.general_body { background-image:url(images/top_panel.png); background-position:top; background-repeat:repeat-x; }*/
+table { font-size:12px; }
+#canvas { background-color:#FFFFFF; }
+.tab { -moz-user-select: none; background:#FFFFFF; border-collapse: collapse; border: 1px solid #AAAAAA; font-family:Tahoma; font-size:10px; z-index:1; }
+.tab_zag { background-image:url(images/Header.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
+.tab_zag_2 { background-image:url(images/Header_Linked.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
+.tab_zag_3 { background-color:#FF0000; background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
+#tab_field { background:#FFFFFF; cursor:default; }
+#tab_field_2 { background-color:#CCFFCC; background-repeat:repeat-x; cursor:default;}
+#hint{ white-space:nowrap; position:absolute;  background:#99FF99;  left: 200px;  top: 50px;  z-index:3;  border:#00CC66 solid 1px;  visibility:hidden;}
+/*
+.L_butt,.L_butt:visited {  font-size:12px;  padding:4px;  text-decoration: none;  color:#000000;  vertical-align:middle;  cursor:default;}
+.L_butt:hover{  font-size:12px;  padding:3px;  border:#0099CC solid 1px;  background:#FFEE99;  text-decoration: none;  color:#000000;  cursor:default;}
+*/
+a.M_butt img, a.M_butt_Selected img 
+{
+  width: 20px;
+  height: 20px;
+  cursor: default;
+  border-width: 0px;
+  padding:2px;
+}
+
+a.M_butt img:hover, a.M_butt_Selected img:hover 
+{
+  padding:1px;
+  border: 1px solid #0099CC;
+  cursor: default;
+  background-color: #FFEE99;
+}
+
+.M_butt_Selected_down img
+{
+  padding:1px;
+  border: 1px solid #0A246A;
+  cursor: default;
+  background-color:#99FF99;/*#C6CDE2;*/
+}
+
+.M_bord 
+{
+  border: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom:4px;
+}
+
+
+
+
+
+form{margin:0px;}
+.scroll_tab{  overflow:scroll;   width:100%; height:500px; }
+.Tabs{  font-family:Tahoma;  font-size:10px;  color:#0055bb;  white-space:nowrap;  text-decoration: none;  text-indent:3px;  font-weight:bold;
+  margin-left:2px;  text-align:left;  background-color:#FFFFFF;  background-image:url(images/left_panel_butt.png);  border:#CCCCCC solid 1px;}
+.owner{  font-family:Tahoma;  font-size:9px;  font-weight:normal;  color:#888888;}
+.Tabs2{  font-family:Tahoma;  font-size:10px;  color:#0055bb;  background:#FFEE99;  text-indent:3px;  font-weight:bold;  white-space:nowrap;
+  text-decoration: none;  border:#9999FF solid 1px;  text-align:left;}
+.small_tab{ vertical-align:top;  color:#FFFFFF;  border:#0066FF solid 1px;  background-image:url(images/small_tab.png);  cursor:default;
+  text-align:center;  font-weight:bold;  padding-left:2px;  padding-right:2px;  width:1px;  text-decoration:none;}
+.small_tab2{  vertical-align:top;  color:#FFFFFF;  background-color:#FF9966;  border:#0066FF solid 1px;  cursor:default;  padding-left:2px;
+  padding-right:2px;  text-align:center;  font-weight:bold;  width:1px;  text-decoration:none;}
+.small_tab_pref{  background-image:url(images/Header.png);  background-repeat:repeat-x;  text-align:center;  width:1px;}
+.small_tab_pref2{  vertical-align:top;  color:#FFFFFF;  background-color:#FF9966;  border:#0066FF solid 1px;  cursor:default;
+  text-align:center;  font-weight:bold;  width:1px;  text-decoration:none;}
+input,select,textarea{ font-family:Arial, Helvetica, sans-serif; font-size:12px; border:#6699CC solid 1px;  background-color:#FFFFFF;}
+#butt{ border:#4477aa solid 1px; font-size:11;  font-weight:bold; height:19px; width:70px; background-color:#FFFFFF; vertical-align:baseline;}
+.L_butt2_1{  font-size:12px;  padding:1px;  text-decoration: none;  color:#000000;  vertical-align:middle;  cursor:default;}
+.L_butt2_2{  font-size:12px;  padding:0px;  border:#0099CC solid 1px;  background:#FFEE99;  text-decoration: none;  color:#000000;  cursor:default;}
+/* -----------------------------------------------------------------------------------------------------------*/
+.bor{  width:10px;   height:10px;}
+#frams1 { background: url(images/1.png) no-repeat right bottom; } 
+#frams2 { background: url(images/2.png) no-repeat left bottom;  }
+#frams3 { background: url(images/3.png) no-repeat left top;     } 
+#frams4 { background: url(images/4.png) no-repeat right top;    }
+#frams5 { background: url(images/5.png) repeat-x center top;    }	
+#frams6 { background: url(images/6.png) repeat-y left; } 
+#frams7 { background: url(images/7.png) repeat-x bottom;  }
+#frams8 { background: url(images/8.png) repeat-y right; } 
+
+#osn_tab { background-color:#FFFFFF; border:#A9A9A9 solid 1px;}
+
+ul.header {
+    width: 300px;
+    background-color: #EAEEF0;
+    color: #000000;
+    text-align: center;
+  /*  padding: 0 0 2px 0;*/
+    /*border-bottom: 1px solid #000000;*/
+    font-weight: bold;
+    left: 0;
+    top: 0;
+    position: fixed;
+    margin: 0;
+   
+    z-index:1001;
+    padding:2px; 
+    background-image:url(images/top_panel.png);
+    background-position:top;
+    background-repeat:repeat-x;
+    border-left:#999999 solid 1px;
+    border-right:#999999 solid 1px;
+    /* following MSIE hack was originally written by Riki Fridrich
+     * <http://www.fczbkk.com> */
+/*    position: expression("absolute");*/
+/*    width: expression(document.body.clientWidth);*/
+/*    top: expression(document.body.scrollTop + this.offsetHeight - this.offsetHeight);*/
+}

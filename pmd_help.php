@@ -1,0 +1,22 @@
+<?php
+/* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
+
+require_once 'pmd_session.php';
+?>
+<html>
+<head>
+<?php if(0){ ?>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<link rel="stylesheet" type="text/css" href="./libraries/pmd/styles/default/style1.css">
+<?php } ?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset ?>" />
+<link rel="stylesheet" type="text/css" href="./libraries/pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css">
+<title>phpMyDesigner</title>
+</head>
+
+<body>
+<?php echo $GLOBALS['strToSelectRelation']; ?><br>
+      <img src="pmd/images/help_relation.png" border="1">
+</body>
+</html>

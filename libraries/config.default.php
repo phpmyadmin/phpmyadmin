@@ -57,6 +57,7 @@ $i++;
 $cfg['Servers'][$i]['host']          = 'localhost'; // MySQL hostname or IP address
 $cfg['Servers'][$i]['port']          = '';          // MySQL port - leave blank for default port
 $cfg['Servers'][$i]['socket']        = '';          // Path to the socket - leave blank for default socket
+$cfg['Servers'][$i]['ssl']           = true;        // Use SSL for connecting to MySQL server?
 $cfg['Servers'][$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
 $cfg['Servers'][$i]['extension']     = 'mysql';     // The php MySQL extension to use ('mysql' or 'mysqli')
 $cfg['Servers'][$i]['compress']      = FALSE;       // Use compressed protocol for the MySQL connection
@@ -107,6 +108,9 @@ $cfg['Servers'][$i]['column_info']   = '';          // table to store column inf
 $cfg['Servers'][$i]['history']       = '';          // table to store SQL history
                                                     //   - leave blank for no SQL query history
                                                     //     DEFAULT: 'pma_history'
+$cfg['Servers'][$i]['designer_coords'] = '';        // table to store the coordinates for Designer
+                                                    //   - leave blank for no Designer feature
+                                                    //     DEFAULT: 'pma_designer_coords'
 $cfg['Servers'][$i]['verbose_check'] = TRUE;        // set to FALSE if you know that your pma_* tables
                                                     // are up to date. This prevents compatibility
                                                     // checks and thereby increases performance.
@@ -169,6 +173,7 @@ $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 $cfg['LeftLogoLink']          = 'http://www.phpmyadmin.net/';   // where should logo link point to
 $cfg['LeftDisplayServers']    = FALSE;  // display server choice at top of left frame
 $cfg['DisplayServersList']    = FALSE;  // server choice as links
+$cfg['DisplayDatabasesList']  = FALSE;  // database choice in light as links
 
 // In the main frame, at startup...
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
@@ -595,9 +600,6 @@ $cfg['UploadDir']             = '';         // Directory for uploaded files that
 $cfg['SaveDir']               = '';         // Directory where phpMyAdmin can save exported data on
                                             // server. For example './save'. Leave empty for no save
                                             // directory support. Use %u for username inclusion.
-$cfg['docSQLDir']             = '';         // Directory for docSQL imports, phpMyAdmin can import
-                                            // docSQL files from that directory. For example
-                                            // './docSQL'. Leave empty for no docSQL import support.
 $cfg['TempDir']               = '';         // Directory where phpMyAdmin can save temporary files.
                                             // This is needed for MS Excel export, see documentation
                                             // how to enable that.

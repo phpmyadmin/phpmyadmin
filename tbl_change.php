@@ -868,9 +868,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             } // end if... else...
             ?>
             <td>
-                <?php echo $backup_field . "\n"; ?>
             <?php
-            if ($is_char && isset($cfg['CharEditing']) && ($cfg['CharEditing'] == 'textarea')) {
+            echo $backup_field . "\n";
+            if ($is_char && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
                 echo "\n";
                 ?>
                 <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"

@@ -165,26 +165,30 @@ if (! $GLOBALS['server']) {
     echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
     PMA_exitNavigationFrame();
 } elseif ($GLOBALS['cfg']['LeftFrameLight'] && $GLOBALS['PMA_List_Database']->count() > 1) {
-    // more than one database available and LeftFrameLight is true
-    // display db selectbox
-    //
-    // Light mode -> beginning of the select combo for databases
-    // Note: When javascript is active, the frameset will be changed from
-    // within navigation.php. With no JS (<noscript>) the whole frameset will
-    // be rebuilt with the new target frame.
+    if (!$cfg['DisplayDatabasesList']) {
+        // more than one database available and LeftFrameLight is true
+        // display db selectbox
+        //
+        // Light mode -> beginning of the select combo for databases
+        // Note: When javascript is active, the frameset will be changed from
+        // within navigation.php. With no JS (<noscript>) the whole frameset will
+        // be rebuilt with the new target frame.
     ?>
 
     <div id="databaseList">
     <form method="post" action="index.php" target="_parent" id="left">
     <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
-    echo PMA_generate_common_hidden_inputs() . "\n";
-    echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true) . "\n";
-    echo '<noscript>' . "\n"
-        .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
-        .'</noscript>' . "\n"
-        .'</form>' . "\n"
-        .'</div>' . "\n";
+        echo PMA_generate_common_hidden_inputs() . "\n";
+        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true) . "\n";
+        echo '<noscript>' . "\n"
+            .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
+            .'</noscript>' . "\n"
+            .'</form>' . "\n"
+            .'</div>' . "\n";
+    } else {
+        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true) . "\n";
+    }
 }
 ?>
 

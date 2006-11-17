@@ -86,6 +86,7 @@ function PMA_getRelationsParam($verbose = false)
     $cfgRelation['commwork']    = false;
     $cfgRelation['mimework']    = false;
     $cfgRelation['historywork'] = false;
+    $cfgRelation['designerwork'] = false;
     $cfgRelation['allworks']    = false;
 
     // No server selected -> no bookmark table
@@ -127,6 +128,8 @@ function PMA_getRelationsParam($verbose = false)
                 $cfgRelation['table_info']      = $curr_table[0];
             } elseif ($curr_table[0] == $cfg['Server']['table_coords']) {
                 $cfgRelation['table_coords']    = $curr_table[0];
+            } elseif ($curr_table[0] == $cfg['Server']['designer_coords']) {
+                $cfgRelation['designer_coords']    = $curr_table[0];
             } elseif ($curr_table[0] == $cfg['Server']['column_info']) {
                 $cfgRelation['column_info'] = $curr_table[0];
             } elseif ($curr_table[0] == $cfg['Server']['pdf_pages']) {
@@ -186,6 +189,12 @@ function PMA_getRelationsParam($verbose = false)
         $cfgRelation['historywork']     = true;
     }
 
+    // we do not absolutely need that the internal relations or the PDF
+    // schema feature be activated
+    if (isset($cfgRelation['designer_coords'])) {
+        $cfgRelation['designerwork']     = true;
+    }
+
     if (isset($cfgRelation['bookmark'])) {
         $cfgRelation['bookmarkwork']     = true;
     }
@@ -193,7 +202,7 @@ function PMA_getRelationsParam($verbose = false)
     if ($cfgRelation['relwork'] == true && $cfgRelation['displaywork'] == true
         && $cfgRelation['pdfwork'] == true && $cfgRelation['commwork'] == true
         && $cfgRelation['mimework'] == true && $cfgRelation['historywork'] == true
-        && $cfgRelation['bookmarkwork'] == true) {
+        && $cfgRelation['bookmarkwork'] == true && $cfgRelation['designerwork'] == true) {
         $cfgRelation['allworks'] = true;
     }
 
@@ -251,15 +260,22 @@ function PMA_getRelationsParam($verbose = false)
              . (($cfgRelation['mimework'] == true) ? $hit : sprintf($shit, 'col_com'))
              . '</td></tr>' . "\n";
 
-             if (($cfgRelation['commwork'] == true) && ($cfgRelation['mimework'] != true)) {
-                 echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
-             }
+        if (($cfgRelation['commwork'] == true) && ($cfgRelation['mimework'] != true)) {
+            echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
+        }
 
         echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'history\'] ... </th><td align="right">'
              . ((isset($cfgRelation['history'])) ? $hit : sprintf($shit, 'history'))
              . '</td></tr>' . "\n";
         echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strQuerySQLHistory'] . ': '
              . (($cfgRelation['historywork'] == true) ? $enabled : $disabled)
+             . '</td></tr>' . "\n";
+
+        echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'designer_coords\'] ... </th><td align="right">'
+             . ((isset($cfgRelation['designer_coords'])) ? $hit : sprintf($shit, 'designer_coords'))
+             . '</td></tr>' . "\n";
+        echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strDesigner'] . ': '
+             . (($cfgRelation['designerwork'] == true) ? $enabled : $disabled)
              . '</td></tr>' . "\n";
 
         echo '</table>' . "\n";

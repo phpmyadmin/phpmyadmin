@@ -929,7 +929,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             } else {
                 session_write_close();
                 if (headers_sent()) {
-                    if (function_exists(debug_print_backtrace)) {
+                    if (function_exists('debug_print_backtrace')) {
                         echo '<pre>';
                         debug_print_backtrace();
                         echo '</pre>';
@@ -1277,11 +1277,13 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             <?php
         }
 
+        echo '<div class="notice">';
         echo $message;
         if (isset($GLOBALS['special_message'])) {
             echo PMA_sanitize($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
         }
+        echo '</div>';
 
         if (!empty($GLOBALS['show_error_header'])) {
             echo '</div>';
@@ -1451,7 +1453,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 }
                 $php_link = ' [' . PMA_linkOrButton($php_link, $message) . ']';
 
-                if (isset($GLOBALS['show_as_php']) && $GLOBALS['show_as_php'] == '1') {
+                if (isset($GLOBALS['show_as_php'])) {
                     $runquery_link
                          = 'import.php'
                          . $url_qpart
@@ -1738,13 +1740,14 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     {
         // default values
         $defaults = array(
-            'text'   => '',
-            'class'  => '',
-            'active' => false,
-            'link'   => '',
-            'sep'    => '?',
-            'attr'   => '',
-            'args'   => '',
+            'text'      => '',
+            'class'     => '',
+            'active'    => false,
+            'link'      => '',
+            'sep'       => '?',
+            'attr'      => '',
+            'args'      => '',
+            'warning'   => '',
        );
 
         $tab = array_merge($defaults, $tab);
@@ -1761,6 +1764,11 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             {
                 $tab['class'] = 'active';
             }
+        }
+
+        if (!empty($tab['warning'])) {
+            $tab['class'] .= ' warning';
+            $tab['attr'] .= ' title="' . htmlspecialchars($tab['warning']) . '"';
         }
 
         // build the link
@@ -2396,10 +2404,15 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      * @param   string  $cookie     name of cookie to remove
      * @param   mixed   $value      new cookie value
      * @param   string  $default    default value
+     * @param   int     $validity   validity of cookie in seconds (default is one month)
+     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
      * @return  boolean result of setcookie()
      */
-    function PMA_setCookie($cookie, $value, $default = null)
+    function PMA_setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
     {
+        if ($validity == null) {
+            $validity = 2592000;
+        }
         if (strlen($value) && null !== $default && $value === $default
          && isset($_COOKIE[$cookie])) {
             // remove cookie, default value is used
@@ -2413,8 +2426,20 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
-            return setcookie($cookie, $value, time() + 60*60*24*30,
-                PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
+            /* Calculate cookie validity */
+            if ($validity == 0) {
+                $v = 0;
+            } else {
+                $v = time() + $validity;
+            }
+            /* Use native support for httponly cookies if available */
+            if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
+                return setcookie($cookie, $value, $v,
+                    PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
+            } else {
+                return setcookie($cookie, $value, $v,
+                    PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
+            }
         }
 
         // cookie has already $value as value
@@ -2681,7 +2706,7 @@ if (empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token'])
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */
-        'pma_lang', 'pma_charset', 'pma_collation_connection', 'pma_convcharset',
+        'pma_lang', 'pma_charset', 'pma_collation_connection',
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
     );
@@ -2753,7 +2778,6 @@ if (empty($_SESSION['PMA_Config'])) {
     if (!function_exists('preg_replace')) {
         header('Location: error.php'
             . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&charset='  . urlencode($charset)
             . '&dir='   . urlencode($text_dir)
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(
@@ -3010,7 +3034,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
             header('Location: error.php'
                     . '?lang='  . urlencode($available_languages[$lang][2])
-                    . '&charset='  . urlencode($charset)
                     . '&dir='   . urlencode($text_dir)
                     . '&type='  . urlencode($strError)
                     . '&error=' . urlencode(

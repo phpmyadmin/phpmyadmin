@@ -4,6 +4,12 @@
 
 require_once('./libraries/common.lib.php');
 
+require_once './libraries/relation.lib.php';
+/**
+ * Gets the relation settings
+ */
+$cfgRelation = PMA_getRelationsParam();
+
 /**
  * If coming from a Show MySQL link on the home page,
  * put something in $sub_part
@@ -37,10 +43,10 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
 /**
  * export, search and qbe links if there is at least one table
  */
-if ( $num_tables > 0 ) {
-    $tab_export['link'] = 'db_export.php';
-    $tab_search['link'] = 'db_search.php';
-    $tab_qbe['link']    = 'db_qbe.php';
+if ( $num_tables == 0 ) {
+    $tab_qbe['warning'] = $strDbIsEmpty;
+    $tab_search['warning'] = $strDbIsEmpty;
+    $tab_export['warning'] = $strDbIsEmpty;
 }
 
 $tab_structure['link']  = 'db_structure.php';
@@ -54,12 +60,22 @@ $tab_sql['icon']        = 'b_sql.png';
 
 $tab_export['text']     = $GLOBALS['strExport'];
 $tab_export['icon']     = 'b_export.png';
+$tab_export['link']     = 'db_export.php';
+
 $tab_search['text']     = $GLOBALS['strSearch'];
 $tab_search['icon']     = 'b_search.png';
+$tab_search['link']     = 'db_search.php';
 
 $tab_qbe['text']        = $GLOBALS['strQBE'];
 $tab_qbe['icon']        = 's_db.png';
+$tab_qbe['link']        = 'db_qbe.php';
 
+if ($cfgRelation['designerwork']) {
+    $tab_designer['text']   = $GLOBALS['strDesigner'];
+    // find something better (like pmd/images/relation.png) 
+    $tab_designer['icon']   = 'b_edit.png';
+    $tab_designer['link']   = 'pmd_general.php';
+}
 
 if ( ! $db_is_information_schema ) {
     $tab_import['link']     = 'db_import.php';
@@ -92,6 +108,9 @@ $tabs[] =& $tab_qbe;
 $tabs[] =& $tab_export;
 if ( ! $db_is_information_schema ) {
     $tabs[] =& $tab_import;
+    if ($cfgRelation['designerwork']) {
+        $tabs[] =& $tab_designer;
+    }
     $tabs[] =& $tab_operation;
     if ( $is_superuser ) {
         $tabs[] =& $tab_privileges;

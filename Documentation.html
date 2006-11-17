@@ -598,6 +598,10 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <tt>mysql</tt> command&#8211;line client, issue the <tt>status</tt> command.
         Among the resulting information displayed will be the socket used.</dd>
 
+    <dt id="cfg_Servers_ssl">$cfg['Servers'][$i]['ssl'] boolean</dt>
+    <dd>Whether to enable SSL for connection to MySQL server.
+    </dd>
+
     <dt id="cfg_Servers_connect_type">$cfg['Servers'][$i]['connect_type'] string</dt>
     <dd>What type connection to use with the MySQL server. Your options are
         <tt>'socket'</tt> and <tt>'tcp'</tt>. It defaults to 'tcp' as that
@@ -947,6 +951,22 @@ ALTER TABLE `pma_column_comments`
         </ul>
     </dd>
 
+    <dt id="designer_coords">
+        <span id="cfg_Servers_designer_coords">$cfg['Servers'][$i]['designer_coords']</span> string
+    </dt>
+    <dd>Since release 2.10.0 a Designer interface is available; it permits
+        to visually manage the relations. 
+        <br /><br />
+
+        To allow the usage of this functionality:
+
+        <ul><li>set up <a href="#pmadb">pmadb</a> and the linked-tables
+                infrastructure</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['designer_coords']</tt>
+                </li>
+        </ul>
+    </dd>
+
     <dt><span id="cfg_Servers_verbose_check">$cfg['Servers'][$i]['verbose_check']</span> boolean
     </dt>
     <dd>Because release 2.5.0 introduced the new MIME-transformation support, the
@@ -1197,6 +1217,9 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_DisplayServersList">$cfg['DisplayServersList'] boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
+    <dt id="cfg_DisplayDatabasesList">$cfg['DisplayDatabasesList'] boolean</dt>
+    <dd>Defines whether to display database choice in light navigation frame as links 
+        instead of in a drop-down. Defaults to FALSE (drop-down).</dd>
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />
@@ -1603,15 +1626,6 @@ ALTER TABLE `pma_column_comments`
         See also <a href="#faq1_16">
         <abbr title="Frequently Asked Questions">FAQ</abbr> 1.16</a> for
         alternatives.
-    </dd>
-
-    <dt id="cfg_docSQLDir">$cfg['docSQLDir'] string</dt>
-    <dd>
-        The name of the directory where docSQL files can be uploaded for
-        import into phpMyAdmin.
-        <br /><br />
-        Please note that if PHP is running in safe mode, this directory must
-        be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
 
     <dt id="cfg_SaveDir">$cfg['SaveDir'] string</dt>
@@ -2855,6 +2869,10 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     <li>In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
         of &quot;;&quot; will cause this error. Replace it with &quot;&amp;;&quot;.
     </li>
+    <li>If you are using <a href="http://www.hardened-php.net/">Hardened-PHP</a>, 
+       you might want to increase 
+       <a href="http://www.hardened-php.net/hphp/troubleshooting.html">request limits</a>.
+    </li>
 </ul>
 
 <h3 id="faqlimitations">Known limitations</h3>
@@ -4023,6 +4041,9 @@ CREDITS, in chronological order
 - Sebastian Mendel &lt;cybot_tm_at_users.sourceforge.net&gt;
     * interface improvements
     * various bugfixes
+
+- Ivan A Kirillov
+    * new relations Designer
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:

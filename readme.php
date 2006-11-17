@@ -5,6 +5,6 @@
 // Note: please do not fold this script into a general script
 // that would read any file using a GET parameter, it would open a hole
 
-header('Content-type: text/plain; charset=iso-8859-1');
+header('Content-type: text/plain; charset=utf-8');
 readfile('README');
 ?>

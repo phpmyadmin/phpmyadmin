@@ -3,14 +3,23 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 function PMA_transformation_application_octetstream__download(&$buffer, $options = array(), $meta = '') {
-global $row;
+    global $row, $fields_meta;
 
     if (isset($options[0]) && !empty($options[0])) {
         $cn = $options[0]; // filename
     } else {
-        if (isset($options[1]) && !empty($options[1]) && isset($row[$options[1]])) {
-            $cn = $row[$options[1]];
-        } else {
+        if (isset($options[1]) && !empty($options[1])) {
+            foreach($fields_meta as $key => $val) {
+                if ($val->name == $options[1]) {
+                    $pos = $key;
+                    break;
+                }
+            }
+            if (isset($pos)) {
+                $cn = $row[$pos];
+            }
+        } 
+        if (empty($cn)) {
             $cn = 'binary_file.dat';
         }
     }

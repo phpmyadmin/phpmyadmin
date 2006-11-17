@@ -42,11 +42,11 @@ if (isset($new_name) && trim($new_name) != '') {
         } else {
             $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
             if (isset($switch_to_new) && $switch_to_new == 'true') {
-                setcookie('pma_switch_to_new', 'true', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+                PMA_setCookie('pma_switch_to_new', 'true');
                 $db        = $target_db;
                 $table     = $new_name;
             } else {
-                setcookie('pma_switch_to_new', '', 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+                PMA_removeCookie('pma_switch_to_new');
             }
         }
     }

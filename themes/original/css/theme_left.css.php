@@ -61,6 +61,29 @@ div#databaseList {
     padding-bottom:     0.5em;
 }
 
+ul#databaseList {
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-bottom:      0.5em;
+    padding-bottom:     0.5em;
+    padding-left: 	1.5em;
+}
+
+ul#databaseList a {
+    display: block;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
+ul#databaseList a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+ul#databaseList li.selected a {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
 div#leftframelinks .icon {
     padding:            0;
     margin:             0;

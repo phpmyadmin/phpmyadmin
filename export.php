@@ -46,6 +46,12 @@ if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
 } elseif ($export_type == 'database' && isset($db) && strlen($db)) {
     $err_url = 'db_export.php?' . PMA_generate_common_url($db);
+    // Check if we have something to export
+    if (isset($table_select)) {
+        $tables = $table_select; 
+    } else {
+        $tables = array();
+    }
 } elseif ($export_type == 'table' && isset($db) && strlen($db) && isset($table) && strlen($table)) {
     $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
@@ -226,17 +232,17 @@ if ($asfile) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if ($export_type == 'server') {
         if (isset($remember_template)) {
-            setcookie('pma_server_filename_template', $filename_template, 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            PMA_setCookie('pma_server_filename_template', $filename_template);
         }
         $filename = str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template));
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
-            setcookie('pma_db_filename_template', $filename_template, 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            PMA_setCookie('pma_db_filename_template', $filename_template);
         }
         $filename = str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template)));
     } else {
         if (isset($remember_template)) {
-            setcookie('pma_table_filename_template', $filename_template, 0, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            PMA_setCookie('pma_table_filename_template', $filename_template);
         }
         $filename = str_replace('__TABLE__', $table, str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template))));
     }
@@ -337,13 +343,7 @@ if (!$save_on_server) {
         }
     } else {
         // HTML
-        // Check if we have something to export
         if ($export_type == 'database') {
-            if (isset($table_select)) {
-                $tables = $table_select; 
-            } else {
-            $tables = array();
-            }
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = $strNoTablesFound;
@@ -450,11 +450,6 @@ if ($export_type == 'server') {
     if (!PMA_exportDBHeader($db)) {
         break;
     }
-
-    //if (isset($table_select)) {
-    //    $tmp_select = implode($table_select, '|');
-    //    $tmp_select = '|' . $tmp_select . '|';
-    //}
     $i = 0;
     $views = array();
     // $tables contains the choices from the user (via $table_select)

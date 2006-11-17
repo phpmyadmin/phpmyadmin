@@ -9,13 +9,13 @@ plugins for your use, you can use directly texts in plugin.
 
 /* Demo import plugin for phpMyAdmin */
 
-if (isset($import_list)) {
-    $import_list['name'] = array(           // set name of your plugin
+if (isset($plugin_list)) {
+    $plugin_list['name'] = array(           // set name of your plugin
         'text' => 'strName',                // text to be displayed as choice
         'extension' => '',                  // extension this plugin can handle
         'options' => array(                 // array of options for your plugin (optional)
             array('type' => '', 'name' => '', 'text' => ''), // type: bool or text, name: form element name, text: description in GUI, size: size of text element (optional). len: maximal size of input (optional)
-        );
+        ),
         'options_text' => 'strNameImportOptions', // text to describe plugin options (must be set if options are used)
         );
 } else {

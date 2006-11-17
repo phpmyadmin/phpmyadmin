@@ -52,12 +52,23 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
                    ? ''
                    : ':' . $cfg['Server']['socket'];
 
+    $client_flags = 0;
+
     if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
-        $client_flags = $cfg['Server']['compress'] && defined('MYSQL_CLIENT_COMPRESS') ? MYSQL_CLIENT_COMPRESS : 0;
         // always use CLIENT_LOCAL_FILES as defined in mysql_com.h
         // for the case where the client library was not compiled
         // with --enable-local-infile
         $client_flags |= 128;
+    }
+
+    /* Optionally compress connection */
+    if (defined('MYSQL_CLIENT_COMPRESS') && $cfg['Server']['compress']) {
+        $client_flags |= MYSQL_CLIENT_COMPRESS;
+    }
+
+    /* Optionally enable SSL */
+    if (defined('MYSQL_CLIENT_SSL') && $cfg['Server']['ssl']) {
+        $client_flags |= MYSQL_CLIENT_SSL;
     }
 
     $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);

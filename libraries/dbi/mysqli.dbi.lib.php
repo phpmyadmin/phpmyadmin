@@ -87,7 +87,17 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
 
     mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, true);
 
-    $client_flags = $GLOBALS['cfg']['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS') ? MYSQLI_CLIENT_COMPRESS : 0;
+    $client_flags = 0;
+
+    /* Optionally compress connection */
+    if ($GLOBALS['cfg']['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
+        $client_flags |= MYSQLI_CLIENT_COMPRESS;
+    }
+
+    /* Optionally enable SSL */
+    if ($GLOBALS['cfg']['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
+        $client_flags |= MYSQLI_CLIENT_SSL;
+    }
 
     $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
 

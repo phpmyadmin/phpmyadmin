@@ -43,6 +43,8 @@ $tabs = array();
 
 $tabs['browse']['icon'] = 'b_browse.png';
 $tabs['browse']['text'] = $strBrowse;
+$tabs['browse']['link'] = 'sql.php';
+$tabs['browse']['args']['pos'] = 0;
 
 $tabs['structure']['icon'] = 'b_props.png';
 $tabs['structure']['link'] = 'tbl_structure.php';
@@ -54,6 +56,7 @@ $tabs['sql']['text'] = $strSQL;
 
 $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = $strSearch;
+$tabs['search']['link'] = 'tbl_select.php';
 
 if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
     $tabs['insert']['icon'] = 'b_insrow.png';
@@ -79,19 +82,20 @@ if ( ! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = $strOperations;
 
-    if ($table_info_num_rows > 0) {
-        $ln8_stt = (PMA_MYSQL_INT_VERSION >= 40000)
-                 ? 'TRUNCATE TABLE '
-                 : 'DELETE FROM ';
-        $tabs['empty']['link']  = 'sql.php';
-        $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
-        $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
-        $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
-        $tabs['empty']['args']['goto'] = 'tbl_structure.php';
-        $tabs['empty']['class'] = 'caution';
-    }
+    $ln8_stt = (PMA_MYSQL_INT_VERSION >= 40000)
+             ? 'TRUNCATE TABLE '
+             : 'DELETE FROM ';
+    $tabs['empty']['link']  = 'sql.php';
+    $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
+    $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
+    $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
+    $tabs['empty']['args']['goto'] = 'tbl_structure.php';
+    $tabs['empty']['class'] = 'caution';
     $tabs['empty']['icon'] = 'b_empty.png';
     $tabs['empty']['text'] = $strEmpty;
+    if ($table_info_num_rows == 0) {
+        $tabs['empty']['warning'] = $strTableIsEmpty;
+    }
 }
 
 /**
@@ -112,10 +116,9 @@ if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
     $tabs['drop']['class'] = 'caution';
 }
 
-if ($table_info_num_rows > 0 || $tbl_is_view) {
-    $tabs['browse']['link'] = 'sql.php';
-    $tabs['browse']['args']['pos'] = 0;
-    $tabs['search']['link'] = 'tbl_select.php';
+if ($table_info_num_rows == 0 && !$tbl_is_view) {
+    $tabs['browse']['warning'] = $strTableIsEmpty;
+    $tabs['search']['warning'] = $strTableIsEmpty;
 }
 
 echo PMA_getTabs( $tabs );

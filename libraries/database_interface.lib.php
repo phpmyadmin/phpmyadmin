@@ -58,7 +58,6 @@ if ( ! PMA_DBI_checkAndLoadMysqlExtension( $GLOBALS['cfg']['Server']['extension'
         // if alternativ fails too ...
         header( 'Location: error.php'
                 . '?lang='  . urlencode( $available_languages[$lang][2] )
-                . '&charset='  . urlencode( $charset )
                 . '&dir='   . urlencode( $text_dir )
                 . '&type='  . urlencode( $strError )
                 . '&error=' . urlencode(

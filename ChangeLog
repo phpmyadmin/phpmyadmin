@@ -5,6 +5,132 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-17 Michal Čihař  <michal@cihar.com>
+    * sql.php, libraries/display_tbl.lib.php: Force pos to be integer to avoid
+      XSS.
+
+2006-11-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd_pdf.php: export coordinates to PDF page even if the tables
+      were not defined on this PDF page
+
+2006-11-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: verify the presence of designer_coords
+
+2006-11-13 Michal Čihař  <michal@cihar.com>
+    * server_status.php: Check for divison by zero (bug #1594460).
+    * db_operations.php: Change information about not configured pmadb to
+      notice (bug #1589294).
+    * scripts/setup.php: Configure also designer table.
+
+2006-11-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd_get_info.php: avoid error if no index defined for a table
+
+2006-11-11 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+
+2006-11-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd_general.php, pmd_get_info.php, pmd/scripts/move.js, lang/*:
+      in InnoDB, it's allowed to create a relation even if it's not on 
+      a primary key, so display the InnoDB-related options (ON UPDATE,
+      ON CASCADE)
+
+2006-11-10 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Translate designer.
+    * config.sample.inc.php: Comment out pmadb and controluser to avoid
+      confusion when they are not properly created.
+
+2006-11-09 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.1 released from MAINT_2_9_1
+
+2006-11-07 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Translate designer.
+
+2006-11-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * (many files) new Designer feature, thanks to Ivan A Kirillov
+
+2006-11-03 Michal Čihař  <michal@cihar.com>
+    * config.sample.inc.php: Make it use CRLF to make Windows users happy.
+
+2006-11-02 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Mention problems with Hardened-PHP.
+    * user_password.php, tbl_move_copy.php, export.php,
+      libraries/session.inc.php, libraries/mcrypt.lib.php,
+      libraries/auth/cookie.auth.lib.php: Use PMA_{set,remove}Cookie functions
+      instead of PHP ones (no need to define params on all places).
+    * libraries/common.lib.php, libraries/session.inc.php: Make all cookies
+      httponly as default - this protects them from usage in javascript in
+      modern browsers (RFE #1586078).
+    * pdf_schema.php, contrib/packaging/Fedora/phpMyAdmin.spec,
+      libraries/export/pdf.php, libraries/fpdf, libraries/tcpdf: Switch to
+      TCPDF for PDF generating (RFE #1501452).
+    * readme.php, README: Make README utf-8.
+    * Documentation.html, libraries/dbi/mysqli.dbi.lib.php,
+      libraries/dbi/mysql.dbi.lib.php, libraries/config.default.php: Add
+      support for SSL connections (based on patch #1588882).
+    * libraries/sqlparser.data.php: Add support for XML manipulating functions
+      - UpdateXML and ExtractValue (RFE #1532712).
+    * scripts/setup.php: Make end of line in generated file configurable (RFE
+      #1493897).
+    * server_status.php: Calculate key read/write ration (RFE #1466287).
+    * Documentation.html, navigation.php,
+      themes/original/css/theme_left.css.php,
+      libraries/PMA_List_Database.class.php, libraries/config.default.php:
+      Optional display of databases in navigation frame as list instead of
+      dropdown (RFE #1435922).
+    * scripts/setup.php: Configuration for list/drop down choice.
+    * tbl_change.php: Automatically edit text in textarea if it contains new
+      lines (RFE #1224791).
+    * lang/dutch: Fix typo, thanks to Thijs Kinkhorst - kink.
+
+2006-10-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/fpdf/font: replace broken binary files
+
+2006-10-27 Michal Čihař  <michal@cihar.com>
+    * export.php: Define $tables on correct place (bug #1585374).
+    * import.php: Do not load header to soon to avoid reading table stats
+      before query gets executed (bug #1441833).
+    * libraries/tbl_links.inc.php, libraries/db_links.inc.php,
+      libraries/common.lib.php, lang/*,
+      themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php: Do not disable tabs for empty
+      tables/databases, only make them look different (RFE #1584296).
+    * libraries/common.lib.php: Show messages in notice div to make them look
+      better and more visible.
+    * sql.php, lang/*: Better message when showing as PHP code.
+    * libraries/common.lib.php: Add missing quotes.
+    * import.php, libraries/db_common.inc.php: Avoid query execution when
+      showing PHP code (bug #1567314).
+    * sql.php, libraries/common.lib.php, lang/*: Correct behaviour when
+      switching from PHP to SQL display mode (no execution of query).
+
+2006-10-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * error.php, libraries/common.lib.php, /database_interface.lib.php,
+      /session.inc.php: force utf-8 charset to avoid XSS with crafted URL
+      and utf-7 in charset; error messages won't display correctly if
+      the chosen lang is not utf-8
+
+2006-10-26 Michal Čihař  <michal@cihar.com>
+    * libraries/import/csv.php: Fix wrong import when ;; is at buffer boundary
+      (bug #1584836).
+    * tbl_operations.php: Fix duplicate ID for checkbox (bug #1584770).
+    * libraries/import/README: Fix example import plugin to match current
+      state.
+    * libraries/import.lib.php: Add support for running queries as control
+      user.
+    * db_importdocsql.php, Documentation.html, scripts/setup.php,
+      db_operations.php, libraries/read_dump.lib.php,
+      libraries/import/docsql.php, libraries/config.default.php, lang/*:
+      Convert DocSQL import to import plugin, remove not needed messages and
+      files it used.
+    * lang/*: Remove profiling messages as profiling extension has been
+      dropped some time ago.
+    * libraries/common.lib.php: pma_convcharset never existed :-).
+    * libraries/tbl_properties.inc.php: Check form only when saving table
+      fields (bug #1566222).
+    * libraries/transformations.lib.php: Improve options parser.
+    * libraries/transformations/application_octetstream__download.inc.php:
+      Again accept column name (bug #1562864).
+
 2006-10-25 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/tbl_properties.inc.php,
       libraries/config.default.php: Allow to edit small number of fields

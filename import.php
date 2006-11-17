@@ -157,6 +157,12 @@ if (!empty($id_bookmark)) {
     }
 } // end bookmarks reading
 
+// Do no run query if we show PHP code
+if (isset($GLOBALS['show_as_php'])) {
+    $run_query = FALSE;
+    $go_sql = TRUE;
+}
+
 // Store the query as a bookmark before executing it if bookmarklabel was given
 if (!empty($bkm_label) && !empty($import_text)) {
     require_once('./libraries/bookmark.lib.php');
@@ -391,14 +397,10 @@ if ($timeout_passed) {
 // in case of a query typed in the query window
 require_once('./libraries/parse_analyze.lib.php');
 
-// Display back import page
-require_once('./libraries/header.inc.php');
-
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die AS $key => $die) {
         PMA_mysqlDie($die['error'], $die['sql'], '', $err_url, $error);
-        echo '<hr />';
     }
 }
 

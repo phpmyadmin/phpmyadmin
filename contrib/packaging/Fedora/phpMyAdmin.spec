@@ -53,9 +53,9 @@ manual. Currently phpMyAdmin can:
 
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/{css,js,lang,libraries,themes}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/{auth,dbg,dbi,engines}
-install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/{export,fpdf,import}
+install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/{export,tcpdf,import}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/transformations
-install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/fpdf/font
+install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/libraries/tcpdf/font
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/themes/{darkblue_orange,original}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/themes/darkblue_orange/{css,img}
 install -d "${RPM_BUILD_ROOT}%{_myadminpath}"/themes/original/{css,img}
@@ -78,9 +78,9 @@ install libraries/engines/*.php					\
 		"${RPM_BUILD_ROOT}%{_myadminpath}/libraries/engines"/
 install libraries/export/*.php					\
 		"${RPM_BUILD_ROOT}%{_myadminpath}/libraries/export"/
-install libraries/fpdf/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries/fpdf"/
-install libraries/fpdf/font/*.{php,z}				\
-		"${RPM_BUILD_ROOT}%{_myadminpath}/libraries/fpdf/font"/
+install libraries/tcpdf/*.php "${RPM_BUILD_ROOT}%{_myadminpath}/libraries/tcpdf"/
+install libraries/tcpdf/font/*.{php,z}				\
+		"${RPM_BUILD_ROOT}%{_myadminpath}/libraries/tcpdf/font"/
 install libraries/import/*.php					\
 		"${RPM_BUILD_ROOT}%{_myadminpath}/libraries/import"/
 install libraries/transformations/*.php				\
@@ -113,7 +113,7 @@ install Documentation.* docs.css "${DOCROOT}"/
 install translators.html "${DOCROOT}"/
 install lang/*.sh "${DOCROOT}"/lang/
 install scripts/* "${DOCROOT}"/scripts/
-install libraries/fpdf/README "${DOCROOT}"/README.fpdf
+install libraries/tcpdf/README "${DOCROOT}"/README.tcpdf
 install libraries/import/README "${DOCROOT}"/README.import
 install libraries/transformations/README "${DOCROOT}"/transformations/
 install libraries/transformations/TEMPLATE* "${DOCROOT}"/transformations/

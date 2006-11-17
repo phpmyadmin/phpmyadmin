@@ -25,7 +25,6 @@ if (!@function_exists('session_name')) {
     // (do not use &amp; for parameters sent by header)
     header('Location: error.php'
             . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&charset='  . urlencode($charset)
             . '&dir='   . urlencode($text_dir)
             . '&type='  . urlencode($strError)
             . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
@@ -33,7 +32,7 @@ if (!@function_exists('session_name')) {
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
-        setcookie(session_name(), '', time()-42000, '/');
+        PMA_removeCookie(session_name());
     }
     session_unset();
     @session_destroy();
@@ -44,7 +43,7 @@ if (!@function_exists('session_name')) {
 //ini_set('session.auto_start', 0);
 
 // session cookie settings
-session_set_cookie_params(0, PMA_Config::getCookiePath(),
+session_set_cookie_params(0, PMA_Config::getCookiePath() . '; HttpOnly',
     '', PMA_Config::isHttps());
 
 // cookies are safer

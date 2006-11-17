@@ -65,9 +65,10 @@ function PMA_detectCompression($filepath)
  *
  *  @param  string query to run
  *  @param  string query to display, this might be commented
+ *  @param  bool   whether to use control user for queries
  *  @access public
  */
-function PMA_importRunQuery($sql = '', $full = '')
+function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 {
     global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser, $message, $show_error_header;
     $read_multiply = 1;
@@ -103,7 +104,11 @@ function PMA_importRunQuery($sql = '', $full = '')
                         }
                         $sql_query = $import_run_buffer['sql'];
                     } elseif ($run_query) {
-                        $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                        if ($controluser) {
+                            $result = PMA_query_as_cu($import_run_buffer['sql']);
+                        } else {
+                            $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                        }
                         $msg = '# ';
                         if ($result === FALSE) { // execution failed
                             if (!isset($my_die)) {

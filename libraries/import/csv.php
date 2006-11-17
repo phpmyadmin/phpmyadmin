@@ -142,10 +142,10 @@ if ($plugin_param == 'table') {
                 if (!$csv_finish) {
                     // Grab empty field
                     if ($ch == $csv_terminated) {
-                        $values[] = '';
                         if ($i == $len - 1) {
                             break;
                         }
+                        $values[] = '';
                         $i++;
                         $ch = $buffer[$i];
                         continue;
@@ -154,10 +154,10 @@ if ($plugin_param == 'table') {
                     // Grab one field
                     $fallbacki = $i;
                     if ($ch == $csv_enclosed) {
-                        $need_end = TRUE;
                         if ($i == $len - 1) {
                             break;
                         }
+                        $need_end = TRUE;
                         $i++;
                         $ch = $buffer[$i];
                     } else {

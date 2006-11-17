@@ -110,6 +110,9 @@ if (isset($find_real_end) && $find_real_end) {
  */
 elseif (!isset($pos)) {
     $pos = 0;
+} else {
+    /* We need this to be a integer */
+    $pos = (int)$pos;
 }
 
 /**
@@ -611,7 +614,10 @@ if ($num_rows < 1 || $is_affected) {
     } elseif (!empty($zero_rows) && !$is_select) {
         $message = $zero_rows;
     } elseif (!empty($GLOBALS['show_as_php'])) {
-        $message = $strPhp;
+        $message = $strShowingPhp;
+    } elseif (isset($GLOBALS['show_as_php'])) {
+        /* User disable showing as PHP, query is only displayed */
+        $message = $strShowingSQL;
     } elseif (!empty($GLOBALS['validatequery'])) {
         $message = $strValidateSQL;
     } else {
