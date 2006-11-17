@@ -50,6 +50,8 @@ function PMA_getIp()
     // Gets the default ip sent by the user
     if (!empty($REMOTE_ADDR)) {
         $direct_ip = $REMOTE_ADDR;
+    } else {
+        $direct_ip = '';
     }
 
     // Gets the proxy ip sent by the user
@@ -71,7 +73,7 @@ function PMA_getIp()
     } // end if... elseif...
 
     // Returns the true IP if it has been found, else false
-    if (empty($proxy_ip)) {
+    if (empty($proxy_ip) || !in_array($direct_ip, $GLOBALS['cfg']['TrustedProxies'])) {
         // True IP without proxy
         return $direct_ip;
     } else {

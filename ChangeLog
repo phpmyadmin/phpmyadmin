@@ -12,6 +12,9 @@ $Source$
     * index.php, libraries/url_generating.lib.php, libraries/common.lib.php,
       libraries/select_lang.lib.php: Fix path disclossure while passing array
       as some params.
+    * Documentation.html, libraries/ip_allow_deny.lib.php,
+      libraries/config.default.php: Trust only listed proxies for IP
+      Allow/Deny.
 
 2006-11-09 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.1 released from MAINT_2_9_1
