@@ -201,8 +201,8 @@ value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
     // next value but users can decide if they want it or not for the operation 
     ?> 
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" checked="checked" />
-    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_mv" checked="checked" />
+    <label for="checkbox_auto_increment_mv"><?php echo $strAddAutoIncrement; ?></label><br />
 </fieldset>
 <fieldset class="tblFooters">
     <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
@@ -370,8 +370,8 @@ foreach ($dblist as $each_db) {
 
     <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
     <label for="checkbox_drop"><?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" />
-    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_cp" />
+    <label for="checkbox_auto_increment_cp"><?php echo $strAddAutoIncrement; ?></label><br />
     <?php
         // display "Add constraints" choice only if there are
         // foreign keys

@@ -5,6 +5,40 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-17 Michal Čihař  <michal@cihar.com>
+    * sql.php, libraries/display_tbl.lib.php: Force pos to be integer to avoid
+      XSS.
+
+2006-11-09 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.1 released from MAINT_2_9_1
+
+2006-11-03 Michal Čihař  <michal@cihar.com>
+    * config.sample.inc.php: Make it use CRLF to make Windows users happy.
+
+2006-11-02 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Mention problems with Hardened-PHP.
+    * lang/dutch: Fix typo, thanks to Thijs Kinkhorst - kink.
+
+2006-11-01 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.1-rc2 released from QA_2_9
+
+2006-10-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/fpdf/font: replace broken binary files
+
+2006-10-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * error.php, libraries/common.lib.php, /database_interface.lib.php,
+      /session.inc.php: force utf-8 charset to avoid XSS with crafted URL
+      and utf-7 in charset; error messages won't display correctly
+      if the chosen lang is not utf-8
+
+2006-10-26 Michal Čihař  <michal@cihar.com>
+    * libraries/import/csv.php: Fix wrong import when ;; is at buffer boundary
+      (bug #1584836).
+    * tbl_properties_operations.php: Fix duplicate ID for checkbox (bug
+      #1584770).
+    * libraries/tbl_properties.inc.php: Check form only when saving table
+      fields (bug #1566222).
+
 2006-10-25 Michal Čihař  <michal@cihar.com>
     * libraries/export/csv.php: Fix cvs/csv typo (bug #1583509).
 

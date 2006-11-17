@@ -14,7 +14,8 @@ require_once('./libraries/sanitizing.lib.php');
 /* Get variables */
 $lang    = isset( $_REQUEST['lang'] ) ?     htmlspecialchars($_REQUEST['lang'])     : 'en';
 $dir     = isset( $_REQUEST['dir']  ) ?     htmlspecialchars($_REQUEST['dir'])      : 'ltr';
-$charset = isset( $_REQUEST['charset'] ) ?  htmlspecialchars($_REQUEST['charset'])  : 'utf-8';
+// force utf-8 to avoid XSS with crafted URL and utf-7 in charset parameter
+$charset = 'utf-8';
 $type    = isset( $_REQUEST['type'] ) ?     htmlspecialchars($_REQUEST['type'])     : 'error';
 
 header('Content-Type: text/html; charset=' . $charset);
