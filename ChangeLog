@@ -8,6 +8,7 @@ $HeadURL$
 2006-11-17 Michal Čihař  <michal@cihar.com>
     * sql.php, libraries/display_tbl.lib.php: Force pos to be integer to avoid
       XSS.
+    * navigation.php: Fix XSS on table comment.
 
 2006-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd_pdf.php: export coordinates to PDF page even if the tables
