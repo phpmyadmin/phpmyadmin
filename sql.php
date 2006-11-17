@@ -110,6 +110,9 @@ if (isset($find_real_end) && $find_real_end) {
  */
 elseif (!isset($pos)) {
     $pos = 0;
+} else {
+    /* We need this to be a integer */
+    $pos = (int)$pos
 }
 
 /**

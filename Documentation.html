@@ -11,7 +11,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.9.1-dev - Documentation</title>
+    <title>phpMyAdmin 2.9.1 - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
 
@@ -33,7 +33,7 @@
     <li><a href="#glossary">Glossary</a></li>
 </ul>
 
-<h1>phpMyAdmin 2.9.1-dev Documentation</h1>
+<h1>phpMyAdmin 2.9.1 Documentation</h1>
 
 <ul><li><a href="http://www.phpmyadmin.net/">
             phpMyAdmin homepage</a></li>
@@ -2825,6 +2825,10 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     </li>
     <li>In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
         of &quot;;&quot; will cause this error. Replace it with &quot;&amp;;&quot;.
+    </li>
+    <li>If you are using <a href="http://www.hardened-php.net/">Hardened-PHP</a>, 
+       you might want to increase 
+       <a href="http://www.hardened-php.net/hphp/troubleshooting.html">request limits</a>.
     </li>
 </ul>
 

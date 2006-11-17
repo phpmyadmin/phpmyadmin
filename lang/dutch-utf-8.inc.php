@@ -347,7 +347,7 @@ $strLogin = 'Inloggen';
 $strLogout = 'Uitloggen';
 $strLogPassword = 'Wachtwoord:';
 $strLogServer = 'Server';
-$strLogUsername = 'Gebruikers naam:';
+$strLogUsername = 'Gebruikersnaam:';
 
 $strMaximumSize = 'Maximale grootte: %s%s';
 $strMbExtensionMissing = 'De mbstring PHP extensie werd niet gevonden en u lijkt een multibyte charset te gebruiken. Zonder de mbstring extensie kan phpMyAdmin strings niet correct splitsen wat tot onverwachte resultaten kan leiden.';
