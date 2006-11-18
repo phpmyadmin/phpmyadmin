@@ -424,12 +424,12 @@ require_once './libraries/PMA_List.class.php';
                 $cut = false;
             }
             foreach ($dbs as $db) {
-                $return .= '<option value="' . $db['name'] . '"'
-                    .' title="' . $db['comment'] . '"';
+                $return .= '<option value="' . htmlspecialchars($db['name']) . '"'
+                    .' title="' . htmlspecialchars($db['comment']) . '"';
                 if ($db['name'] == $selected) {
                     $return .= ' selected="selected"';
                 }
-                $return .= '>' . ($cut ? $db['disp_name_cut'] : $db['disp_name'])
+                $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name'])
                     .' (' . $db['num_tables'] . ')</option>' . "\n";
             }
             if (count($dbs) > 1) {
