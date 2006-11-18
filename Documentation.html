@@ -1459,7 +1459,7 @@ ALTER TABLE `pma_column_comments`
         Following example enables use of X-Forwarded-For header for proxy
         1.2.3.4 and Coming-From header from 5.6.7.8:
         <pre>
-$cfg['TrustedProxyVariables'] =
+$cfg['TrustedProxies'] =
 	array('1.2.3.4' =&gt; 'HTTP_X_FORWARDED_FOR',
 	      '5.6.7.8' =&gt; 'HTTP_COMING_FROM');
         </pre>
