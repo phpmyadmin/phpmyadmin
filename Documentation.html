@@ -1456,13 +1456,15 @@ ALTER TABLE `pma_column_comments`
         href="#servers_allowdeny_order">IP Allow/Deny</a>. This list is by
         default empty, you need to fill in some trusted proxy servers if you
         want to use rules for IP addresses behind proxy.<br /><br />
-        Following example enables use of X-Forwarded-For header for proxy
-        1.2.3.4 and Coming-From header from 5.6.7.8:
-        <pre>
+
+        The following example specifies that phpMyAdmin should trust a 
+        HTTP_X_FORWARDED_FOR (<tt>X-Forwared-For</tt>) header coming from the proxy 1.2.3.4:
+<pre>
 $cfg['TrustedProxies'] =
-	array('1.2.3.4' =&gt; 'HTTP_X_FORWARDED_FOR',
-	      '5.6.7.8' =&gt; 'HTTP_COMING_FROM');
-        </pre>
+     array('1.2.3.4' =&gt; 'HTTP_X_FORWARDED_FOR');
+</pre>
+        The $cfg['Servers'][$i]['AllowDeny']['rules'] directive uses the 
+        client's IP address as usual.
     </dd>
 
     <dt id="cfg_GD2Available">$cfg['GD2Available'] string</dt>
