@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-18 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
+      which to trust in configuration, thanks for help with this to Christian
+      Schmidt, Peytz & Co.
+
 2006-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: undefined index
 
