@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * index.php, libraries/common.lib.php: undefined index
+
 2006-11-17 Michal Čihař  <michal@cihar.com>
     * sql.php, libraries/display_tbl.lib.php: Force pos to be integer to avoid
       XSS.

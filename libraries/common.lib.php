@@ -2885,7 +2885,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * Check whether user supplied token is valid, if not remove any
  * possibly dangerous stuff from request.
  */
-if (!is_string($_REQUEST['token']) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if ((isset($_REQUEST['token']) && !is_string($_REQUEST['token'])) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /* List of parameters which are allowed from unsafe source */
     $allow_list = array(
         'db', 'table', 'lang', 'server', 'convcharset', 'collation_connection', 'target',
@@ -2910,22 +2910,22 @@ if (!is_string($_REQUEST['token']) || empty($_REQUEST['token']) || $_SESSION[' P
             unset($GLOBALS[$key]);
         } else {
             // we require it to be a string
-            if (is_string($_REQUEST[$key])) {
+            if (isset($_REQUEST[$key]) && is_string($_REQUEST[$key])) {
                 $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
             } else {
                 unset($_REQUEST[$key]);
             }
-            if (is_string($_POST[$key])) {
+            if (isset($_POST[$key]) && is_string($_POST[$key])) {
                 $_POST[$key] = htmlspecialchars($_POST[$key], ENT_QUOTES);
             } else {
                 unset($_POST[$key]);
             }
-            if (is_string($_COOKIE[$key])) {
+            if (isset($_COOKIE[$key]) && is_string($_COOKIE[$key])) {
                 $_COOKIE[$key] = htmlspecialchars($_COOKIE[$key], ENT_QUOTES);
             } else {
                 unset($_COOKIE[$key]);
             }
-            if (is_string($_GET[$key])) {
+            if (isset($_GET[$key]) && is_string($_GET[$key])) {
                 $_GET[$key] = htmlspecialchars($_GET[$key], ENT_QUOTES);
             } else {
                 unset($_GET[$key]);
@@ -3167,7 +3167,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (is_string($_REQUEST['sever']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (isset($_REQUEST['server']) && is_string($_REQUEST['server']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
