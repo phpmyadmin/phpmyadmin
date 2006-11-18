@@ -9,6 +9,8 @@ $Source$
     * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
       which to trust in configuration, thanks for help with this to Christian
       Schmidt, Peytz & Co.
+    * libraries/common.lib.php: Fix XSS on database comment, thanks to laurent
+      gaffié.
 
 2006-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: undefined index
