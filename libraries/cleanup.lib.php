@@ -26,22 +26,22 @@ function PMA_remove_request_vars(&$whitelist) {
         } else {
             // allowed stuff could be compromised so escape it
             // we require it to be a string
-            if (is_string($_REQUEST[$key])) {
+            if (isset($_REQUEST[$key]) && is_string($_REQUEST[$key])) {
                 $_REQUEST[$key] = htmlspecialchars($_REQUEST[$key], ENT_QUOTES);
             } else {
                 unset($_REQUEST[$key]);
             }
-            if (is_string($_POST[$key])) {
+            if (isset($_POST[$key]) && is_string($_POST[$key])) {
                 $_POST[$key] = htmlspecialchars($_POST[$key], ENT_QUOTES);
             } else {
                 unset($_POST[$key]);
             }
-            if (is_string($_COOKIE[$key])) {
+            if (isset($_COOKIE[$key]) && is_string($_COOKIE[$key])) {
                 $_COOKIE[$key] = htmlspecialchars($_COOKIE[$key], ENT_QUOTES);
             } else {
                 unset($_COOKIE[$key]);
             }
-            if (is_string($_GET[$key])) {
+            if (isset($_GET[$key]) && is_string($_GET[$key])) {
                 $_GET[$key] = htmlspecialchars($_GET[$key], ENT_QUOTES);
             } else {
                 unset($_GET[$key]);

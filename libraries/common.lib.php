@@ -1122,7 +1122,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * @param   string   $a_string          the string to format
      * @param   boolean  $add_backquotes    whether to add backquotes to the string or not
      *
-     * @return  string   the formated string
+     * @return  string   the formatted string
      *
      * @access  public
      */
@@ -2697,7 +2697,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
-if (!is_string($_REQUEST['token']) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if ((isset($_REQUEST['token']) && !is_string($_REQUEST['token'])) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /**
      *  List of parameters which are allowed from unsafe source
      */
@@ -3003,7 +3003,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (is_string($_REQUEST['sever']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
+    if (isset($_REQUEST['server']) && is_string($_REQUEST['server']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
