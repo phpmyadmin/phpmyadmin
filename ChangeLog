@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/upgrade.pl: bug #1599173, adapt for new filename structure,
+      thanks to Linas Gricius
+
 2006-11-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
       which to trust in configuration, thanks for help with this to Christian
