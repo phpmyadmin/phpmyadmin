@@ -10,6 +10,7 @@ $HeadURL$
       themes/original/css/theme_right.css.php,
       libraries/database_interface.lib.php: Fix typos (bug #1597137).
     * libraries/unzip.lib.php: Fix check for encrypted file (bug #1596304).
+    * lang/czech: Update.
 
 2006-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd_general.php, pmd_get_info.php, pmd/scripts/move.js,

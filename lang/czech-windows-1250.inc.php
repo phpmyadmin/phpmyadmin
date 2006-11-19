@@ -305,6 +305,7 @@ $strFlushQueryCache = 'Vyprázdnit vyrovnávací pamì dotazù';
 $strFlushTables = 'Zavøít všechny tabulky';
 $strFlushTable = 'Vyprázdnit vyrovnávací pamì pro tabulku (&bdquo;FLUSH&ldquo;)';
 $strFontSize = 'Velikost písma';
+$strForeignKeyError = 'Chyba pøi vytváøení cizího klíèe (zkontrolujte typ dat)';
 $strFormat = 'Formát';
 $strFormEmpty = 'Chybìjící hodnota ve formuláøi!';
 $strFreePages = 'Volnıch stránek';
@@ -567,6 +568,7 @@ $strPhoneBook = 'adresáø';
 $strPHP40203 = 'Pouíváte PHP 4.2.3, které má závanou chybu pøi práci s&nbsp;vícebajtovımi znaky (mbstring), jedná se o&nbsp;chybu PHP èíslo 19404. Nedoporuèujeme pouívat tuto verzi PHP s&nbsp;phpMyAdminem.';
 $strPHPVersion = 'Verze PHP';
 $strPhp = 'Vytvoøit PHP kód';
+$strPleaseSelectPrimaryOrUniqueKey = 'Zvolte, prosím, primární nebo unikátní klíè';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
 $strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ bıt nastaven v&nbsp;konfiguraèním souboru!';
 $strPmaWiki = 'wiki phpMyAdmina';
@@ -1014,6 +1016,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
-$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 ?>
