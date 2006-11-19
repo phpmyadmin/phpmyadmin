@@ -1015,4 +1015,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
+$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 ?>

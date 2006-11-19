@@ -1037,4 +1037,5 @@ $strRecommended = 'recommended';  //to translate
 $strToFromPage = 'to/from page';  //to translate
 $strSelectReferencedKey = 'Select referenced key';  //to translate
 $strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
+$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 ?>

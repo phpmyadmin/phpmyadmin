@@ -207,8 +207,8 @@ if (isset($_REQUEST['destination_innodb'])) {
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
-                echo '<p class="warning">' . $strNoIndex . ' (' . $master_field
-                    .')</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                echo '<p class="warning">' . $strForeignKeyError . ' : ' . $master_field
+                    .'</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             unset($upd_query, $tmp_error);
         }

@@ -305,6 +305,7 @@ $strFlushQueryCache = 'Flush query cache';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFlushTables = 'Flush (close) all tables';
 $strFontSize = 'Font size';
+$strForeignKeyError = 'Error creating foreign key (check data types)';
 $strFormat = 'Format';
 $strFormEmpty = 'Missing value in the form!';
 $strFreePages = 'Free pages';

@@ -11,6 +11,8 @@ $HeadURL$
       on unique keys, not only on primary keys
     * scripts/upgrade.pl: bug #1599173, adapt for new filename structure,
       thanks to Linas Gricius
+    * tbl_relation.php, lang/*: bug #1597019, wrong error message when foreign
+      key is not the same data type as referenced key
 
 2006-11-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
