@@ -72,8 +72,8 @@ if (open(LATEST, "wget -o /dev/null -O - $source_url|")) {
 
 	$version = <LATEST>; chomp($version);
 	$releasedate = <LATEST>; chomp($releasedate);
-	$filename = "phpMyAdmin-" . $version . ".tar.gz";
-	$directory = "phpMyAdmin-" . $version;
+	$filename = "phpMyAdmin-" . $version . "-all-languages.tar.gz";
+	$directory = "phpMyAdmin-" . $version . "-all-languages";
 
 	my $i = 0;
 

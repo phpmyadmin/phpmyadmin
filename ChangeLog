@@ -9,6 +9,8 @@ $HeadURL$
     * pmd_general.php, pmd_get_info.php, pmd/scripts/move.js,
       pmd_relation_new.php, lang/*: support internal relations also
       on unique keys, not only on primary keys
+    * scripts/upgrade.pl: bug #1599173, adapt for new filename structure,
+      thanks to Linas Gricius
 
 2006-11-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
