@@ -1410,7 +1410,7 @@ ALTER TABLE `pma_column_comments`
         want to use rules for IP addresses behind proxy.<br /><br />
 
         The following example specifies that phpMyAdmin should trust a 
-        HTTP_X_FORWARDED_FOR (<tt>X-Forwared-For</tt>) header coming from the proxy 1.2.3.4:
+        HTTP_X_FORWARDED_FOR (<tt>X-Forwarded-For</tt>) header coming from the proxy 1.2.3.4:
 <pre>
 $cfg['TrustedProxies'] =
      array('1.2.3.4' =&gt; 'HTTP_X_FORWARDED_FOR');
