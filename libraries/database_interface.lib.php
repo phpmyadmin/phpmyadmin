@@ -215,7 +215,7 @@ function PMA_DBI_get_tables($database, $link = null)
  * @param   string          $table          table
  * @param   boolean|string  $tbl_is_group   $table is a table group
  * @param   resource        $link           mysql link
- * @return  array           list of tbales in given db(s)
+ * @return  array           list of tables in given db(s)
  */
 function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false, $link = null)

@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-19 Michal Čihař  <michal@cihar.com>
+    * themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php,
+      libraries/database_interface.lib.php: Fix typos (bug #1597137).
+
 2006-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd_general.php, pmd_get_info.php, pmd/scripts/move.js,
       pmd_relation_new.php, lang/*: support internal relations also

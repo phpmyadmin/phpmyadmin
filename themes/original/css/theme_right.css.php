@@ -169,7 +169,7 @@ table tr.even {
     text-align:         <?php echo $left; ?>;
 }
 
-/* marked tbale rows */
+/* marked table rows */
 table tr.marked th,
 table tr.marked {
     background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
