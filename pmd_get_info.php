@@ -98,27 +98,29 @@ function get_script_contr() {
     return $script_contr;
 }
 
-function get_p_k_contr() {
+function get_pk_or_unique_keys() {
     global $db;
+    require_once('./libraries/tbl_indexes.lib.php');
+
     PMA_DBI_select_db($db);
-    //$tabs = get_tabs();
-    $tab_pk = array();
-    // this is not used? :
-    //$script_contr = "<script> var contr = new Array();";
+    $tables_pk_or_unique_keys = array();
   
     for( $I=0; $I<sizeof($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
-        $stmt = PMA_DBI_query("SHOW CREATE TABLE ".PMA_backquote($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]));
-        while ($create_table = PMA_DBI_fetch_array($stmt)) {
-            preg_match_all ("/PRIMARY KEY\s*\(([\w`,\s]+)\)/im", $create_table[1], $m);
-            if (isset($m[1][0])) {
-                preg_match_all ("/[`,\s]*(\w+)[`,\s]*/im", $m[1][0], $k); // FK
-                foreach ($k[1] as $key => $value) {
-                    $tab_pk[$GLOBALS['PMD']['OWNER'][$I].'.'.$GLOBALS['PMD']['TABLE_NAME_SMALL'][$I].'.'.$value]=1; // 1 - in oracle name contrains
+        $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
+        if (! empty($ret_keys)) {
+            // reset those as the function uses them by reference
+            $indexes = $indexes_info = $indexes_data = array();
+            PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
+            // for now, take into account only the first index segment
+            foreach ($indexes_data as $key_name => $one_index) {
+                $column_name = $one_index[1]['Column_name'];
+                if (isset($indexes_info[$key_name]) && $indexes_info[$key_name]['Non_unique'] == 0) {
+                    $tables_pk_or_unique_keys[$GLOBALS['PMD']['OWNER'][$I] . '.' .$GLOBALS['PMD']['TABLE_NAME_SMALL'][$I] . '.' . $column_name] = 1;
                 }
             }
         }
     }
-    return $tab_pk;
+    return $tables_pk_or_unique_keys;
 }
 
 function get_all_keys() {
@@ -131,6 +133,8 @@ function get_all_keys() {
     for( $I=0; $I<sizeof($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
         $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
         if (! empty($ret_keys)) {
+            // reset those as the function uses them by reference
+            $indexes = $indexes_info = $indexes_data = array();
             PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
             // for now, take into account only the first index segment
             foreach ($indexes_data as $one_index) {

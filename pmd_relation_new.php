@@ -14,6 +14,7 @@ $type_T1 = strtoupper($tables[$T1]['ENGINE']);
 $tables = PMA_DBI_get_tables_full($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
+//  I n n o D B
 if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
     // relation exists?
     $existrel_innodb = PMA_getForeigners($db, $T2, '', 'innodb'); 
@@ -54,19 +55,12 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
         PMA_DBI_try_query($upd_query) or PMD_return(0,'ERROR : Relation not added!!!');
     PMD_return(1,$strInnoDBRelationAdded);
     }
-} else {
-    $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($T1) . ';');
-    $pk_array1   = array(); // will be use to emphasis prim. keys in the table view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        if ($row['Key_name'] == 'PRIMARY') {
-            $pk_array1[$row['Column_name']] = 1;
-        }
-    }
-    PMA_DBI_free_result($result);
 
-    if (! isset($pk_array1[$F1])) {
-        PMD_return(0,'ERROR : Relation not added! First field is not Primary Key!');
-    }
+//  n o n - I n n o D B
+} else {
+    // no need to recheck if the keys are primary or unique at this point,
+    // this was checked on the interface part
+
     $q = "INSERT INTO ".PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])." 
        (master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
        VALUES ('".$db."','".$T2."','$F2','".

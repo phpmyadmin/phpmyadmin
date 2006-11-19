@@ -521,7 +521,6 @@ $strNoThemeSupport = 'Není podporována změna tématu, zkontrolujte nastavení
 $strNotNumber = 'Nebylo zadáno číslo!';
 $strNotOK = 'není v&nbsp;pořádku';
 $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
-$strNotThePrimaryKey = 'Toto není primární klíč!';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNull = 'Nulový';
@@ -1016,4 +1015,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
 ?>

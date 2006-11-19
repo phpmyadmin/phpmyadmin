@@ -340,7 +340,7 @@ function Click_field(T,f,PK) // table field
   {
     if(!click_field)
     {//.style.display=='none'    .style.visibility = "hidden"
-      if(!PK) { alert(LangNotThePrimaryKey); return 0; }//PK
+      if(!PK) { alert(LangPleaseSelectPrimaryOrUniqueKey); return 0; }//PK
       if(j_tabs[db+'.'+T]!='INNODB') document.getElementById('InnoDB_relation').style.display='none';
       click_field = 1;
       link_relation = "T1=" + T + "&F1=" + f;

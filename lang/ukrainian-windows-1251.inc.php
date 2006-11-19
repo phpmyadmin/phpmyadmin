@@ -1029,10 +1029,10 @@ $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
 $strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
-$strNotThePrimaryKey = 'This is not the primary key!';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
 $strRecommended = 'recommended';  //to translate
 $strToFromPage = 'to/from page';  //to translate
 $strSelectReferencedKey = 'Select referenced key';  //to translate
+$strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
 ?>

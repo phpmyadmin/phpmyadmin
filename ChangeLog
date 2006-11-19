@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd_general.php, pmd_get_info.php, pmd/scripts/move.js,
+      pmd_relation_new.php, lang/*: support internal relations also
+      on unique keys, not only on primary keys
+
 2006-11-18 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/ip_allow_deny.lib.php: Define headers
       which to trust in configuration, thanks for help with this to Christian

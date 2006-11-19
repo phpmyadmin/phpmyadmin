@@ -12,7 +12,7 @@ $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();
 $script_contr     = get_script_contr();
 $tab_pos          = get_tab_pos();
-$tab_pk           = get_p_k_contr();
+$tables_pk_or_unique_keys = get_pk_or_unique_keys();
 $tables_all_keys  = get_all_keys();
 $hidden           = "hidden";
 
@@ -38,7 +38,7 @@ var db = '".$db."';
 var token = '".$token."';
 var LangSelectReferencedKey = '$strSelectReferencedKey';
 var LangSelectForeignKey = '$strSelectForeignKey';
-var LangNotThePrimaryKey = '$strNotThePrimaryKey';
+var LangPleaseSelectPrimaryOrUniqueKey = '$strPleaseSelectPrimaryOrUniqueKey';
 </script>"; 
 ?>
 <script language=javascript src="pmd/scripts/ajax.js" type=text/javascript></script>
@@ -156,7 +156,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
     <tr onMouseOver="this.id = 'tab_field_2'" onMouseOut="this.id = 'tab_field'" onMouseDown="Click_field('<?php
         echo $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]."','".$tab_column[$t_n]["COLUMN_NAME"][$j]."',";
         if ($GLOBALS['PMD']['TABLE_TYPE'][$i] != 'INNODB') {
-            echo (isset( $tab_pk[ $t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j] ] ) ? 1 : 0);
+            echo (isset( $tables_pk_or_unique_keys[ $t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j] ] ) ? 1 : 0);
         } else {
       // if this is an InnoDB table, it's not necessary that the
       // index is a primary key
@@ -165,7 +165,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
 ?>)">
         <td width="10px" colspan="3" id="<?php echo $t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j] ?>"
         ><div style="white-space:nowrap">
-       <?php if(isset($tab_pk[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])){?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/FieldKey_small.png" alt="*"><?php } else {?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small.png" alt="*"><?php } ?> 
+       <?php if(isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])){?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/FieldKey_small.png" alt="*"><?php } else {?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small.png" alt="*"><?php } ?> 
        <?php echo $tab_column[$t_n]["COLUMN_NAME"][$j]." : ".$tab_column[$t_n]["TYPE"][$j] ?>
         </div>
        </td>
