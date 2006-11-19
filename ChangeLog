@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-19 Michal Čihař  <michal@cihar.com>
+    * libraries/unzip.lib.php: Fix check for encrypted file (bug #1596304).
+
 2006-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/upgrade.pl: bug #1599173, adapt for new filename structure,
       thanks to Linas Gricius
