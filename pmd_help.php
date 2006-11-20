@@ -12,7 +12,7 @@ require_once 'pmd_session.php';
 <?php } ?>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset ?>" />
 <link rel="stylesheet" type="text/css" href="./libraries/pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css">
-<title>phpMyDesigner</title>
+<title>Designer</title>
 </head>
 
 <body>

@@ -4,7 +4,6 @@
 
 /*
 @author  Ivan A Kirillov (develop.php@gmail.com)
-www.phpMyDesigner.net
 */
 
 require_once './libraries/common.lib.php';
