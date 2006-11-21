@@ -331,6 +331,7 @@ $strHasBeenAltered = 'a été modifié(e).';
 $strHasBeenCreated = 'a été créé(e).';
 $strHaveToShow = 'Vous devez choisir au moins une colonne à afficher';
 $strHebrew = 'hébreu';
+$strHelp = 'Aide';
 $strHexForBinary = 'Encoder les champs binaires en hexadécimal';
 $strHide         = 'Cacher';
 $strHideShowAll = 'Cacher/montrer tout';

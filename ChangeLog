@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd_general.php, lang/*: added $strHelp
+
 2006-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     * french updates
     * remove references to phpMyDesigner.net, asked by Ivan

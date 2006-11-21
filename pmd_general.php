@@ -59,7 +59,7 @@ echo $script_tabs.$script_contr;
           href="javascript:Start_table_new();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strCreateTable ?>"     src="pmd/images/table.png"></a><a 
           href="javascript:Start_relation();" onMouseDown="return false;" class="M_butt" id="rel_button" target="_self"><img title="<?php echo $strCreateRelation ?>"  src="pmd/images/relation.png"></a><a 
           href="javascript:location.reload();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png"></a><a 
-          href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="Help" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
+          href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
       href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a>
       <a href="javascript:PDF_save();" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/pdf.png" alt="key" width="20" height="20" title="<?php echo $strImportExportCoords; ?>"></a>        </td>
         <td width="10%" align="right">

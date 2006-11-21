@@ -334,6 +334,7 @@ $strHasBeenAltered = 'has been altered.';
 $strHasBeenCreated = 'has been created.';
 $strHaveToShow = 'You have to choose at least one column to display';
 $strHebrew = 'Hebrew';
+$strHelp = 'Help';
 $strHexForBinary = 'Use hexadecimal for binary fields';
 $strHide         = 'Hide';
 $strHideShowAll = 'Hide/Show all';
