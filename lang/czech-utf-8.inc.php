@@ -1018,4 +1018,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strHelp = 'Help';  //to translate
+$strCancel = 'Cancel';  //to translate
+$strDeleteRelation = 'Delete relation';  //to translate
 ?>

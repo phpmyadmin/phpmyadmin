@@ -106,6 +106,7 @@ $strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'une
 $strBzip = '"bzippé"';
 
 $strCalendar = 'Calendrier';
+$strCancel = 'Annuler';
 $strCanNotLoadExportPlugins = 'Erreur lors du chargement des modules d\'exportation!';
 $strCanNotLoadImportPlugins = 'Chargement impossible des greffons d\'importation, veuillez vérifier votre installation!';
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
@@ -218,6 +219,7 @@ $strDeleted = 'L\'enregistrement a été effacé';
 $strDeletedRows = 'Nombre d\'enregistrements effacés :';
 $strDelete = 'Effacer';
 $strDeleteNoUsersSelected = 'Aucun utilisateur n\'a été choisi en vue de le détruire!';
+$strDeleteRelation = 'Effacer la relation';
 $strDeleting = 'Destruction de %s';
 $strDelimiter = 'Délimiteur';
 $strDelOld = 'Cette page fait référence à des tables qui n\'existent plus. Voulez-vous effacer ces références?';

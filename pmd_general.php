@@ -221,8 +221,8 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
           </tbody>
           <tr>
             <td colspan="2" align="center" nowrap>
-              <input type="button" id="butt" name="Button" value="OK" onClick="New_relation()" > 
-              <input type="button" id="butt" name="Button" value="Cancel" onClick="document.getElementById('layer_new_relation').style.visibility = 'hidden';">
+        <input type="button" id="butt" name="Button" value="<?php echo $strOK; ?>" onClick="New_relation()" > 
+          <input type="button" id="butt" name="Button" value="<?php echo $strCancel; ?>" onClick="document.getElementById('layer_new_relation').style.visibility = 'hidden';">
             </td>
           </tr>
       </table></td>
@@ -244,12 +244,12 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
       <td id="frams8"></td>
       <td class="input_tab"><table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
           <tr>
-            <td colspan="3" align="center" nowrap><b>Update relation</b></td>
+      <td colspan="3" align="center" nowrap><b><?php echo $strDeleteRelation; ?></b></td>
           </tr>
           <tr>
             <td colspan="3" align="center" nowrap>
-              <input name="Button" type="button" id="butt" onClick="Upd_relation()" value="Delete" >
-              <input type="button" id="butt" name="Button" value="Cancel" onClick="document.getElementById('layer_upd_relation').style.visibility = 'hidden'; Re_load();">
+        <input name="Button" type="button" id="butt" onClick="Upd_relation()" value="<?php echo $strDelete; ?>" >
+          <input type="button" id="butt" name="Button" value="<?php echo $strCancel; ?>" onClick="document.getElementById('layer_upd_relation').style.visibility = 'hidden'; Re_load();">
             </td>
           </tr>
       </table></td>

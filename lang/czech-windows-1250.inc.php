@@ -1017,4 +1017,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strHelp = 'Help';  //to translate
+$strCancel = 'Cancel';  //to translate
+$strDeleteRelation = 'Delete relation';  //to translate
 ?>

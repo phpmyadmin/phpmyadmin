@@ -110,6 +110,7 @@ $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz
 $strBzip = '"bzipped"';
 
 $strCalendar = 'Calendar';
+$strCancel = 'Cancel';
 $strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';
 $strCannotLogin = 'Cannot log in to the MySQL server';
@@ -222,6 +223,7 @@ $strDelete = 'Delete';
 $strDeletedRows = 'Deleted rows:';
 $strDeleted = 'The row has been deleted';
 $strDeleteNoUsersSelected = 'No users selected for deleting!';
+$strDeleteRelation = 'Delete relation';
 $strDeleting = 'Deleting %s';
 $strDelimiter = 'Delimiter';
 $strDelOld = 'The current page has references to tables that no longer exist. Would you like to delete those references?';
