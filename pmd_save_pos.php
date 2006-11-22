@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-include_once 'pmd_session.php';
+include_once 'pmd_common.php';
 require_once './libraries/relation.lib.php';
 PMA_getRelationsParam();
       

@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-include_once 'pmd_session.php';
+include_once 'pmd_common.php';
 if ( ! isset($scale)) {
     $no_die_save_pos = 1;
     include_once 'pmd_save_pos.php';

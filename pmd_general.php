@@ -5,7 +5,7 @@
 /*
 @author  Ivan A Kirillov (develop.php@gmail.com)
 */
-include_once "./pmd_session.php";
+include_once "./pmd_common.php";
 
 $tab_column       = get_tab_info();
 $script_tabs      = get_script_tabs();

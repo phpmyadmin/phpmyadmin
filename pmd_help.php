@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once 'pmd_session.php';
+require_once 'pmd_common.php';
 ?>
 <html>
 <head>
