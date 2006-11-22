@@ -8,7 +8,6 @@ if ( ! isset($scale)) {
     include_once 'pmd_save_pos.php';
 }
 require_once './libraries/relation.lib.php';
-require_once 'pmd_config.php';
 
 if (isset($scale)) {
     if (empty($pdf_page_number)) {

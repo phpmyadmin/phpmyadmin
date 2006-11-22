@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * Designer: get rid of pmd_config.php
+
 2006-11-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd_general.php, lang/*: added $strHelp
 
