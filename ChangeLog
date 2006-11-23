@@ -7,6 +7,9 @@ $HeadURL$
 
 2006-11-23 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: fix a few js errors
+    * pmd*.php: remove unneeded calls to getRelationsParam(); 
+      verify if the internal relations are enabled before trying to
+      create one
 
 2006-11-22 Marc Delisle  <lem9@users.sourceforge.net>
     * Designer: get rid of pmd_config.php and pmd_get_info.php,

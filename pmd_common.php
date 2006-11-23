@@ -10,6 +10,8 @@ require_once './libraries/common.lib.php';
 $GLOBALS['PMD']['STYLE']          = 'default'; 
 
 require_once './libraries/relation.lib.php';
+$cfgRelation = PMA_getRelationsParam();
+
 function get_tabs() // PMA_DBI
 {
     global $db;
@@ -56,7 +58,6 @@ function get_script_contr() {
     global $db;
     PMA_DBI_select_db($db);
     $con["C_NAME"] = array();
-    PMA_getRelationsParam();
     $i = 0;
     $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db), NULL, PMA_DBI_QUERY_STORE);
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
@@ -159,7 +160,6 @@ function get_script_tabs() {
 }
 
 function get_tab_pos() { 
-    PMA_getRelationsParam();
     $stmt = PMA_query_as_cu("SELECT * FROM " . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']), FALSE, PMA_DBI_QUERY_STORE); 
     if ( $stmt ) // exist table repository
     {

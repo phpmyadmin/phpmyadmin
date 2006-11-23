@@ -7,7 +7,6 @@ $die_save_pos = 0;
 include_once 'pmd_save_pos.php';
 require_once './libraries/relation.lib.php';
 extract($_POST); 
-PMA_getRelationsParam();
 
 $tables = PMA_DBI_get_tables_full($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
@@ -58,16 +57,20 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
 
 //  n o n - I n n o D B
 } else {
-    // no need to recheck if the keys are primary or unique at this point,
-    // this was checked on the interface part
+    if ($GLOBALS['cfgRelation']['relwork'] == false) {
+        PMD_return(0, $strGeneralRelationFeat . ' : ' . $strDisabled); 
+    } else {
+        // no need to recheck if the keys are primary or unique at this point,
+        // this was checked on the interface part
 
-    $q = "INSERT INTO ".PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])." 
-       (master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
-       VALUES ('".$db."','".$T2."','$F2','".
-       $db."','".$T1."','$F1')";
-       PMA_query_as_cu( $q , true, PMA_DBI_QUERY_STORE);// or PMD_return(0,'ERROR : Relation not added!'); 
+        $q = "INSERT INTO ".PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])." 
+        (master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
+        VALUES ('".$db."','".$T2."','$F2','".
+        $db."','".$T1."','$F1')";
+        PMA_query_as_cu( $q , true, PMA_DBI_QUERY_STORE);// or PMD_return(0,'ERROR : Relation not added!'); 
        
-   PMD_return(1, $strInternalRelationAdded); 
+        PMD_return(1, $strInternalRelationAdded); 
+   }
 }
 
 function PMD_return($b,$ret)

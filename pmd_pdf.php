@@ -13,7 +13,6 @@ if (isset($scale)) {
     if (empty($pdf_page_number)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
-    $cfgRelation = PMA_getRelationsParam();
   
     $pmd_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']);

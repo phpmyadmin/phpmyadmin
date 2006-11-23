@@ -4,7 +4,6 @@
 
 include_once 'pmd_common.php';
 require_once './libraries/relation.lib.php';
-PMA_getRelationsParam();
       
 $alltab_rs = PMA_query_as_cu('SHOW TABLES FROM '.PMA_backquote($cfg['Server']['pmadb']),FALSE,PMA_DBI_QUERY_STORE) or PMD_err_sav(); 
 

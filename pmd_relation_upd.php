@@ -11,8 +11,6 @@ include_once 'pmd_save_pos.php';
 list($DB1,$T1) = explode(".",$T1);
 list($DB2,$T2) = explode(".",$T2);
 
-PMA_getRelationsParam();
-
 //++++++++++++++++++++++++++++++++++++++++++++++++++++ InnoDB ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
