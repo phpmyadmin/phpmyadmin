@@ -95,8 +95,8 @@ function MouseMove(e)
 
   if (ON_relation) 
   {
-    hint.style.left = e.pageX + 20;
-    hint.style.top  = e.pageY + 20;
+    document.getElementById('hint').style.left = e.pageX + 20;
+    document.getElementById('hint').style.top  = e.pageY + 20;
   }
 
   if(layer_menu_cur_click)
@@ -320,14 +320,14 @@ function Start_relation()
   {
     document.getElementById('InnoDB_relation').style.display = '';
     ON_relation = 1;
-    hint.innerHTML = LangSelectReferencedKey;
-    hint.style.visibility = "visible";
+    document.getElementById('hint').innerHTML = LangSelectReferencedKey;
+    document.getElementById('hint').style.visibility = "visible";
     document.getElementById('rel_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
   }
   else
   {
-    hint.innerHTML = "";
-    hint.style.visibility = "hidden";
+    document.getElementById('hint').innerHTML = "";
+    document.getElementById('hint').style.visibility = "hidden";
     document.getElementById('rel_button').className = 'M_butt_Selected';
     click_field = 0; 
     ON_relation = 0;  
@@ -344,7 +344,7 @@ function Click_field(T,f,PK) // table field
       if(j_tabs[db+'.'+T]!='INNODB') document.getElementById('InnoDB_relation').style.display='none';
       click_field = 1;
       link_relation = "T1=" + T + "&F1=" + f;
-      hint.innerHTML = LangSelectForeignKey;
+      document.getElementById('hint').innerHTML = LangSelectForeignKey;
     }
     else 
     {
