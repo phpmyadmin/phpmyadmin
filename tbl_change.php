@@ -33,6 +33,9 @@ if (isset($_REQUEST['primary_key'])) {
 if (isset($_REQUEST['sql_query'])) {
     $sql_query = $_REQUEST['sql_query'];
 }
+if (isset($_REQUEST['ShowFunctionFields'])) {
+    $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
+}
 
 
 $js_to_run = 'tbl_change.js';
@@ -264,7 +267,9 @@ $fields_cnt     = PMA_DBI_num_rows($table_def);
 $insert_mode = (!isset($row) ? TRUE : FALSE);
 if ($insert_mode) {
     $loop_array  = array();
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) $loop_array[] = FALSE;
+    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
+        $loop_array[] = FALSE;
+    }
 } else {
     $loop_array  = $row;
 }
@@ -279,6 +284,24 @@ $tabindex_for_null     = +2000;
 $tabindex_for_value    = 0;
 $o_rows   = 0;
 $biggest_max_file_size = 0;
+
+// user can toggle the display of Function column
+// (currently does not work for multi-edits)
+$url_params['db'] = $db;
+$url_params['table'] = $table;
+if (isset($primary_key)) {
+    $url_params['primary_key'] = $primary_key;
+}
+if (isset($sql_query)) {
+    $url_params['sql_query'] = $sql_query;
+}
+
+if (! $cfg['ShowFunctionFields']) {
+    $this_url_params = array_merge($url_params,
+        array('ShowFunctionFields' => 1));
+    echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
+}
+
 foreach ($loop_array AS $vrowcount => $vrow) {
     if ($vrow === FALSE) {
         unset($vrow);
@@ -305,7 +328,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             <th><?php echo $strType; ?></th>
 <?php
     if ($cfg['ShowFunctionFields']) {
-        echo '          <th>' . $strFunction . '</th>' . "\n";
+        $this_url_params = array_merge($url_params,
+            array('ShowFunctionFields' => 0));
+        echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strFunction . '</a></th>' . "\n";
     }
 ?>
             <th><?php echo $strNull; ?></th>

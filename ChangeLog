@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, Documentation.html: users can now toggle the display
+      of the Function column from the interface
+
 2006-11-23 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: fix a few js errors
     * pmd*.php: remove unneeded calls to getRelationsParam(); 
