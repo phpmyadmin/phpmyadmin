@@ -38,7 +38,7 @@ function PMD_err_sav() {
 
 if(! empty($die_save_pos)) {
 ?>
-<root act='save_pos' return='Saved!'></root>
+<root act='save_pos' return='<?php echo $strModifications; ?>'></root>
 <? 
 }
 ?>
