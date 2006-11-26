@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-11-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_structure.php: bug #1602335, browse distinct values
+      and name containing a quote
+
 2006-11-24 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, Documentation.html: users can now toggle the display
       of the Function column from the interface
