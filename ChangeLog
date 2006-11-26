@@ -8,6 +8,8 @@ $Source$
 2006-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php: bug #1602335, browse distinct values
       and name containing a quote
+    * libraries/bookmark.lib.php: bug #1579701: error listing bookmarks
+      when dropping a table and no pmadb
 
 2006-11-19 Michal Čihař  <michal@cihar.com>
     * libraries/unzip.lib.php: Fix check for encrypted file (bug #1596304).

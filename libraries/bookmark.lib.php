@@ -51,6 +51,10 @@ function PMA_listBookmarks($db, $cfgBookmark)
 {
     global $controllink;
 
+    if (empty($cfgBookmark['db']) || empty($cfgBookmark['table'])) {
+        return '';
+    }
+
     $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
             . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
             . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
@@ -203,6 +207,16 @@ function PMA_deleteBookmarks($db, $cfgBookmark, $id)
 /**
  * Bookmark Support
  */
-$cfg['Bookmark'] = PMA_getBookmarksParam();
+
+if (! isset($GLOBALS['cfgRelation'])) {
+    require_once './libraries/relation.lib.php';
+    $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+}
+
+if ($GLOBALS['cfgRelation']['bookmarkwork']) {
+    $cfg['Bookmark'] = PMA_getBookmarksParam();
+} else {
+    $cfg['Bookmark'] = array();
+}
 
 ?>
