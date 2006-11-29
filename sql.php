@@ -745,9 +745,9 @@ else {
         }
     } // End INDEX CHECK
 
-    // Bookmark Support if required
+    // Bookmark support if required
     if ($disp_mode[7] == '1'
-        && (isset($cfg['Bookmark']) && $cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
+        && (isset($cfg['Bookmark']) && ! empty($cfg['Bookmark']['db']) && ! empty($cfg['Bookmark']['table']) && empty($id_bookmark))
         && !empty($sql_query)) {
         echo "\n";
 

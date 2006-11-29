@@ -7,6 +7,8 @@ $HeadURL$
 
 2006-11-29 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish update, thanks to Daniel Hinostroza
+    * sql.php, libraries/display_tbl.lib.php: patch #1605032, checks for
+      undefined index, thanks to Arpad Borsos
 
 2006-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_structure.php: bug #1602335, browse distinct values
