@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish update, thanks to Daniel Hinostroza
+
 2006-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php: bug #1602335, browse distinct values
       and name containing a quote
