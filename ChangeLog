@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-11-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish update, thanks to Daniel Hinostroza
+
 2006-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: undefined index
     ### 2.9.1.1 released from MAINT_2_9_1
