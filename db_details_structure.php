@@ -407,7 +407,7 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_get_default_engine();
     echo '    <th align="center">' . "\n"
        . '        <dfn title="'
-       . sprintf($strDefaultEngine, $default_engine) . '">' .$default_engine . '</th>' . "\n";
+       . sprintf($strDefaultEngine, $default_engine) . '">' .$default_engine . '</dfn></th>' . "\n";
     // Have to account for old MySQL with no collation (bug 1554885)
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         // we got a case where $db_collation was empty
