@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_structure.php, bug #1605985, missing HTML tag
+
 2006-11-29 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish update, thanks to Daniel Hinostroza
     * sql.php, libraries/display_tbl.lib.php: patch #1605032, checks for
