@@ -836,9 +836,11 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             /* Create database for new user */
             if (isset($createdb) && $createdb > 0) {
                 if ($createdb == 1) {
-                    $q = 'CREATE DATABASE ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
+                    $q = 'CREATE DATABASE IF NOT EXISTS ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
                     $sql_query .= $q;
                     PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                    $GLOBALS['reload'] = TRUE;
+                    PMA_reloadNavigation();
 
                     $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
                     $sql_query .= $q;
