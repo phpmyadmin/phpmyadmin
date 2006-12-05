@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-12-05 Michal Čihař  <michal@cihar.com>
+    * server_privileges.php: Add IF NOT EXISTS to CREATE DATABASE query (RFE
+      #1608372), reload navigation after creating database.
+    * server_privileges.php: Use correct links (patch #1607236).
+
 2006-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php, bug #1605985, missing HTML tag
 

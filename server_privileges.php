@@ -470,8 +470,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '<fieldset id="fieldset_user_global_rights">' . "\n"
            . $spaces . '    <legend>' . "\n"
            . $spaces . '        ' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . "\n"
-           . $spaces . '        ( <a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a> /' . "\n"
-           . $spaces . '        <a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '" onclick="setCheckboxes(\'usersForm\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a> )' . "\n"
+           . $spaces . '        ( <a href="server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a> /' . "\n"
+           . $spaces . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] .  '" onclick="setCheckboxes(\'usersForm\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a> )' . "\n"
            . $spaces . '    </legend>' . "\n"
            . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n"
            . $spaces . '    <fieldset>' . "\n"
@@ -834,9 +834,11 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             /* Create database for new user */
             if (isset($createdb) && $createdb > 0) {
                 if ($createdb == 1) {
-                    $q = 'CREATE DATABASE ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
+                    $q = 'CREATE DATABASE IF NOT EXISTS ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
                     $sql_query .= $q;
                     PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                    $GLOBALS['reload'] = TRUE;
+                    PMA_reloadNavigation();
 
                     $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
                     $sql_query .= $q;
@@ -1413,12 +1415,12 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
             echo '<table cellspacing="5"><tr>';
             foreach ($array_initials as $tmp_initial => $initial_was_found) {
                 if ($initial_was_found) {
-                    echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
+                    echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
                 } else {
                     echo '<td>' . $tmp_initial . '</td>';
                 }
             }
-            echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . $GLOBALS['strShowAll'] . ']</a></td>' . "\n";
+            echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . $GLOBALS['strShowAll'] . ']</a></td>' . "\n";
             echo '</tr></table>';
 
             /**
@@ -1494,7 +1496,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
                    .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
                    .' width="38" height="22"'
                    .' alt="' . $GLOBALS['strWithChecked'] . '" />' . "\n"
-                   .'<a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1"'
+                   .'<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1"'
                    .' onclick="if ( markAllRows(\'usersForm\') ) return false;">'
                    . $GLOBALS['strCheckAll'] . '</a>' . "\n"
                    .'/' . "\n"
