@@ -1318,7 +1318,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                  /* SQL-Parser-Analyzer */
                 $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
             } else {
-                $query_base = htmlspecialchars($local_query);
+                $query_base = $local_query;
             }
 
             // Parse SQL if needed
