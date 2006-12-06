@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-12-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/import.lib.php, /common.lib.php: bug #1603660, 
+      incorrect escaping of ">"
+
 2006-12-05 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: Grant all privileges on wildcard name: we should
       really grant on username\_ instead of username_
