@@ -72,7 +72,7 @@ foreach ($serverVars as $name => $value) {
     <th nowrap="nowrap">
         <?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
     <td class="value"><?php
-    if (is_numeric($value)) {
+    if (strlen($value) < 16 && is_numeric($value)) {
         echo PMA_formatNumber($value, 0);
         $is_numeric = true;
     } else {
