@@ -70,7 +70,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
             $res            = PMA_DBI_query($local_query);
             $row            = PMA_DBI_fetch_row($res);
             $meta           = PMA_DBI_get_fields_meta($res);
-            $goto .= '&primary_key[]=' . urlencode(PMA_getUvaCondition($res, count($row), $meta, $row));
+            $goto .= '&primary_key[]=' . urlencode(PMA_getUniqueCondition($res, count($row), $meta, $row));
         }
     }
 } elseif ($goto == 'sql.php') {

@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * many scripts: we were using "uva" in variables and function names,
+      this was code suggested by University of Virginia; I improved the code
+      by removing this uva prefix
+
 2006-12-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/ip_allow_deny.lib.php: checks that the header contains
       only one IP address, thanks to Christian Schmidt

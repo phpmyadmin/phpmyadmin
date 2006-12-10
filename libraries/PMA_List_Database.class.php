@@ -456,9 +456,9 @@ require_once './libraries/PMA_List.class.php';
             WHERE `Select_priv` = 'Y'
             AND `User`
             IN ('" . PMA_sqlAddslashes($GLOBALS['cfg']['Server']['user']) . "', '')";
-        $uva_mydbs = PMA_DBI_fetch_result($local_query, null, null,
+        $tmp_mydbs = PMA_DBI_fetch_result($local_query, null, null,
             $GLOBALS['controllink']);
-        if ($uva_mydbs) {
+        if ($tmp_mydbs) {
             // Will use as associative array of the following 2 code
             // lines:
             //   the 1st is the only line intact from before
@@ -469,38 +469,38 @@ require_once './libraries/PMA_List.class.php';
             // populating $dblist[], as previous code did. But it is
             // now populated with actual database names instead of
             // with regular expressions.
-            var_dump($uva_mydbs);
-            $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
+            var_dump($tmp_mydbs);
+            $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
             // loic1: all databases cases - part 2
-            if (isset($uva_mydbs['%'])) {
-                while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                    $dblist[] = $uva_row[0];
+            if (isset($tmp_mydbs['%'])) {
+                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                    $dblist[] = $tmp_row[0];
                 } // end while
             } else {
-                while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                    $uva_db = $uva_row[0];
-                    if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
-                        $dblist[]           = $uva_db;
-                        $uva_mydbs[$uva_db] = 0;
-                    } elseif (!isset($dblist[$uva_db])) {
-                        foreach ($uva_mydbs as $uva_matchpattern => $uva_value) {
+                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                    $tmp_db = $tmp_row[0];
+                    if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
+                        $dblist[]           = $tmp_db;
+                        $tmp_mydbs[$tmp_db] = 0;
+                    } elseif (!isset($dblist[$tmp_db])) {
+                        foreach ($tmp_mydbs as $tmp_matchpattern => $tmp_value) {
                             // loic1: fixed bad regexp
                             // TODO: db names may contain characters
                             //       that are regexp instructions
                             $re        = '(^|(\\\\\\\\)+|[^\])';
-                            $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                            $tmp_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $tmp_matchpattern));
                             // Fixed db name matching
                             // 2000-08-28 -- Benjamin Gandon
-                            if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                $dblist[] = $uva_db;
+                            if (ereg('^' . $tmp_regex . '$', $tmp_db)) {
+                                $dblist[] = $tmp_db;
                                 break;
                             }
                         } // end while
                     } // end if ... elseif ...
                 } // end while
             } // end else
-            PMA_DBI_free_result($uva_alldbs);
-            unset($uva_mydbs);
+            PMA_DBI_free_result($tmp_alldbs);
+            unset($tmp_mydbs);
         } // end if
 
         // 2. get allowed dbs from the "mysql.tables_priv" table

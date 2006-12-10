@@ -2106,11 +2106,11 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      * @author  Michal Cihar (michal@cihar.com)
      * @return  string      calculated condition
      */
-    function PMA_getUvaCondition($handle, $fields_cnt, $fields_meta, $row)
+    function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row)
     {
-        $primary_key              = '';
-        $unique_key               = '';
-        $uva_nonprimary_condition = '';
+        $primary_key          = '';
+        $unique_key           = '';
+        $nonprimary_condition = '';
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $field_flags = PMA_DBI_field_flags($handle, $i);
@@ -2185,25 +2185,25 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             } elseif ($meta->unique_key > 0) {
                 $unique_key  .= $condition;
             }
-            $uva_nonprimary_condition .= $condition;
+            $nonprimary_condition .= $condition;
         } // end for
 
-        // Correction uva 19991216: prefer primary or unique keys
-        // for condition, but use conjunction of all values if no
-        // primary key
+        // Correction University of Virginia 19991216: 
+        // prefer primary or unique keys for condition, 
+        // but use conjunction of all values if no primary key
         if ($primary_key) {
-            $uva_condition = $primary_key;
+            $preferred_condition = $primary_key;
         } elseif ($unique_key) {
-            $uva_condition = $unique_key;
+            $preferred_condition = $unique_key;
         } else {
-            $uva_condition = $uva_nonprimary_condition;
+            $preferred_condition = $nonprimary_condition;
         }
 
-        return preg_replace('|\s?AND$|', '', $uva_condition);
+        return preg_replace('|\s?AND$|', '', $preferred_condition);
     } // end function
 
     /**
-     * Function to generate unique condition for specified row.
+     * Generate a button or image tag 
      *
      * @param   string      name of button element
      * @param   string      class of button element

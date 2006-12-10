@@ -796,7 +796,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                 }
 
-                $insert_line .= ' WHERE ' . PMA_getUvaCondition($result, $fields_cnt, $fields_meta, $row);
+                $insert_line .= ' WHERE ' . PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $row);
 
             } else {
 

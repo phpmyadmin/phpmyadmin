@@ -12,7 +12,7 @@ if ( $doWriteModifyAt == 'left' ){
 
     if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
         echo '    <td align="center">' . "\n"
-           . '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '" name="rows_to_delete[' . $uva_condition . ']"'
+           . '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '" name="rows_to_delete[' . $unique_condition . ']"'
            . ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'l\');"'
            . ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
            . '    </td>' . "\n";
@@ -42,7 +42,7 @@ if ( $doWriteModifyAt == 'left' ){
     }
     if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
         echo '    <td align="center">' . "\n"
-           . '        <input type="checkbox" id="id_rows_to_delete' . $row_no . 'r" name="rows_to_delete[' . $uva_condition . ']"'
+           . '        <input type="checkbox" id="id_rows_to_delete' . $row_no . 'r" name="rows_to_delete[' . $unique_condition . ']"'
            . ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'r\');"'
            . ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
            . '    </td>' . "\n";

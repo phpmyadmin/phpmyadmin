@@ -1011,7 +1011,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['data']       = array();
     $vertical_display['row_delete'] = array();
 
-    // Correction uva 19991216 in the while below
+    // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
     // the phpMyAdmin GUI should support row delete/edit only for such
     // tables.
@@ -1068,7 +1068,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         // 1. Prepares the row (gets primary keys to use)
         // 1.1 Results from a "SELECT" statement -> builds the
         //     "primary" key to use in links
-        $uva_condition     = urlencode(PMA_getUvaCondition($dt_result, $fields_cnt, $fields_meta, $row));
+        $unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
 
         // 1.2 Defines the urls for the modify/delete link(s)
         $url_query  = PMA_generate_common_url($db, $table)
@@ -1093,7 +1093,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 $edit_url = 'tbl_change.php'
                           . '?' . $url_query
-                          . '&amp;primary_key=' . $uva_condition
+                          . '&amp;primary_key=' . $unique_condition
                           . '&amp;sql_query=' . urlencode($url_sql_query)
                           . '&amp;goto=' . urlencode($lnk_goto);
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
@@ -1136,14 +1136,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                           . '&sql_query=' . urlencode($url_sql_query)
                           . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                           . '&goto=' . (empty($goto) ? 'tbl_sql.php' : $goto);
-                $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . '+LIMIT+1';
+                $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $unique_condition . '+LIMIT+1';
                 $del_url  = 'sql.php'
                           . '?' . $url_query
                           . '&amp;sql_query=' . $del_query
                           . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                           . '&amp;goto=' . urlencode($lnk_goto);
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
-                          . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), false))
+                          . ' WHERE ' . trim(PMA_jsFormat(urldecode($unique_condition), false))
                           . ' LIMIT 1';
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
                     $del_str = $GLOBALS['strDelete'];
@@ -1236,7 +1236,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             $transform_options['wrapper_link'] = '?'
                                                 . (isset($url_query) ? $url_query : '')
-                                                . '&amp;primary_key=' . (isset($uva_condition) ? $uva_condition : '')
+                                                . '&amp;primary_key=' . (isset($unique_condition) ? $unique_condition : '')
                                                 . '&amp;sql_query=' . (isset($sql_query) ? urlencode($url_sql_query) : '')
                                                 . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
                                                 . '&amp;transform_key=' . urlencode($meta->name);
@@ -1485,7 +1485,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
-                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $uva_condition . ']"'
+                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $unique_condition . ']"'
                                                      .  ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
                                                      .  ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
                                                      .  '    </td>' . "\n";
