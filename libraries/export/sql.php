@@ -149,6 +149,7 @@ function PMA_exportComment($text)
 function PMA_exportFooter()
 {
     global $crlf;
+    global $mysql_charset_map;
 
     $foot = '';
 
@@ -158,6 +159,15 @@ function PMA_exportFooter()
 
     if (isset($GLOBALS['sql_use_transaction'])) {
         $foot .=  $crlf . 'COMMIT;' . $crlf;
+    }
+
+    // restore connection settings
+    $charset_of_file = $GLOBALS['charset_of_file'];
+    if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
+        $foot .=  $crlf
+               . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf 
+               . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf 
+               . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;' . $crlf;
     }
 
     return PMA_exportOutputHandler($foot);
@@ -174,6 +184,7 @@ function PMA_exportHeader()
 {
     global $crlf;
     global $cfg;
+    global $mysql_charset_map;
 
     if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] != 'NONE') {
         PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compatibility'] . '"');
@@ -214,6 +225,16 @@ function PMA_exportHeader()
     }
    
     $head .= $crlf;
+
+    $charset_of_file = $GLOBALS['charset_of_file'];
+    if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
+        $head .=  $crlf
+               . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
+               . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
+               . '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;' . $crlf
+               . '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;' . $crlf
+               . '/*!40101 SET NAMES ' . $mysql_charset_map[$charset_of_file] . ' */;' . $crlf . $crlf;
+    }
 
     return PMA_exportOutputHandler($head);
 }
