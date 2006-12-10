@@ -28,6 +28,7 @@ class PMA_Config
      */
     var $source_mtime = 0;
     var $default_source_mtime = 0;
+    var $set_mtime = 0;
 
     /**
      * @var boolean
@@ -496,7 +497,10 @@ class PMA_Config
      */
     function set($setting, $value)
     {
-        $this->settings[$setting] = $value;
+        if (!isset($this->settings[$setting]) || $this->settings[$setting] != $value) {
+            $this->settings[$setting] = $value;
+            $this->set_mtime = time();
+        }
     }
 
     /**
@@ -516,6 +520,15 @@ class PMA_Config
     function PMA_Config($source = null)
     {
         $this->__construct($source);
+    }
+
+    /**
+     * returns time of last config change.
+     * @return  int  Unix timestamp
+     */
+    function getMtime()
+    {
+        return max($this->source_mtime, $this->default_source_mtime, $this->set_mtime);
     }
 
     /**

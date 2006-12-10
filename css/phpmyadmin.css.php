@@ -25,6 +25,10 @@ if ($GLOBALS['text_dir'] === 'ltr') {
 // Send correct type:
 header('Content-Type: text/css; charset=ISO-8859-1');
 
+// Cache output in client - the nocache query parameter makes sure that this
+// file is reloaded when config changes
+header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+
 ?>
 html {
     font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;

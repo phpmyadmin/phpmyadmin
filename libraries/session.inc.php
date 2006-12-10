@@ -70,6 +70,10 @@ if (version_compare(PHP_VERSION, '5.0.0', 'ge')
     ini_set('session.hash_bits_per_character', 6);
 }
 
+// some pages (e.g. stylesheet) may be cached on clients, but not in shared
+// proxy servers
+session_cache_limiter('private');
+
 // start the session
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
