@@ -230,7 +230,6 @@ function PMA_exportHeader()
     if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
         $head .=  $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
-               . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;' . $crlf
                . '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;' . $crlf
                . '/*!40101 SET NAMES ' . $mysql_charset_map[$charset_of_file] . ' */;' . $crlf . $crlf;
