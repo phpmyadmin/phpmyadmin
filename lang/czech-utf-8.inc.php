@@ -110,6 +110,7 @@ $strBzError = 'phpMyAdminovi se nepodařilo zkomprimovat výpis, protože rozš�
 $strBzip = '&bdquo;zabzipováno&ldquo;';
 
 $strCalendar = 'Kalendář';
+$strCancel = 'Zrušit';
 $strCanNotLoadExportPlugins = 'Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!';
 $strCanNotLoadImportPlugins = 'Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!';
 $strCannotLogin = 'Nepodařilo se přihlášení k&nbsp;MySQL serveru';
@@ -222,6 +223,7 @@ $strDeleted = 'Řádek byl smazán';
 $strDeletedRows = 'Smazané řádky:';
 $strDeleteNoUsersSelected = 'Musíte vybrat uživatele, které chcete odstranit!';
 $strDelete = 'Odstranit';
+$strDeleteRelation = 'Odstranit relaci';
 $strDeleting = 'Odstraňuji %s';
 $strDelimiter = 'Oddělovač';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete odstranit tyto odkazy?';
@@ -334,6 +336,7 @@ $strHasBeenAltered = 'byla změněna.';
 $strHasBeenCreated = 'byla vytvořena.';
 $strHaveToShow = 'Musíte zvolit alespoň jeden sloupec, který chcete zobrazit.';
 $strHebrew = 'Hebrejština';
+$strHelp = 'Nápověda';
 $strHexForBinary = 'Binární pole vypisovat šestnáctkově';
 $strHideShowAll = 'Skrýt/Zobrazit vše';
 $strHideShowNoRelation = 'Skrýt/Zobrazit tabulky bez relací';
@@ -1017,7 +1020,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strHelp = 'Help';  //to translate
-$strCancel = 'Cancel';  //to translate
-$strDeleteRelation = 'Delete relation';  //to translate
 ?>

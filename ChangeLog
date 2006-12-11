@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-11 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2006-12-10 Marc Delisle  <lem9@users.sourceforge.net>
     * many scripts: we were using "uva" in variables and function names,
       this was code suggested by University of Virginia; I improved the code
