@@ -426,7 +426,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
         <?php
         // The type column
-        $is_binary                  = stristr($row_table_def['Type'], ' binary');
+        $is_binary                  = stristr($row_table_def['Type'], 'binary');
         $is_blob                    = stristr($row_table_def['Type'], 'blob');
         $is_char                    = stristr($row_table_def['Type'], 'char');
         switch ($row_table_def['True_Type']) {

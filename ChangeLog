@@ -7,6 +7,7 @@ $HeadURL$
 
 2006-12-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table.class.php: problem changing a TIMESTAMP to DEFAULT 0
+    * tbl_change.php: bug #1610314, incomplete detection of binary column
 
 2006-12-11 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
