@@ -1,5 +1,6 @@
 <?php
-
+/* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
 
 class PMA_Table {
 
@@ -268,6 +269,8 @@ class PMA_Table {
         &$field_primary, $index, $default_orig = false)
     {
 
+        $is_timestamp = strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1;
+
         // $default_current_timestamp has priority over $default
         // TODO: on the interface, some js to clear the default value
         // when the default current_timestamp is checked
@@ -298,8 +301,7 @@ class PMA_Table {
             }
         }
 
-        if ($default_current_timestamp
-          && strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1) {
+        if ($default_current_timestamp && $is_timestamp) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
         // auto_increment field cannot have a default value
         } elseif ($extra !== 'AUTO_INCREMENT'
@@ -308,7 +310,13 @@ class PMA_Table {
                 $query .= ' DEFAULT NULL';
             } else {
                 if (strlen($default)) {
-                    $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
+                    if ($is_timestamp) {
+                        // a TIMESTAMP does not accept DEFAULT '0'
+                        // but DEFAULT 0  works
+                        $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
+                    } else {
+                        $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
+                    }
                 }
             }
         }
