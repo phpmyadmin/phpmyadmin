@@ -2446,6 +2446,21 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
         return true;
     }
 
+    /**
+     * Displays a lightbulb hint explaining a known external bug
+     * that affects a functionality 
+     *
+     * @uses    PMA_showHint()
+     * @param   string  $functionality localized message explaining the func. 
+     * @param   string  $component  'mysql' (eventually, 'php') 
+     * @param   string  $minimum_version of this component
+     * @param   string  $bugref  bug reference for this component 
+     */
+    function PMA_externalBug($functionality, $component, $minimum_version, $bugref) {
+        if ($component == 'mysql' && PMA_MYSQL_INT_VERSION < $minimum_version) {
+            echo PMA_showHint(sprintf($GLOBALS['strKnownExternalBug'], $functionality, 'http://bugs.mysql.com/' . $bugref));
+        }
+    }
 
     /**
      * include here only libraries which contain only function definitions

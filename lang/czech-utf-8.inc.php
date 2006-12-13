@@ -1020,4 +1020,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 ?>

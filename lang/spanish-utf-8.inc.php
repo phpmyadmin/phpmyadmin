@@ -1030,4 +1030,5 @@ $strToFromPage = 'to/from page';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strTransformation_text_plain__dateformat = 'Toma un campo TIME, TIMESTAMP o DATETIME y lo formatea usando su formato de fechas local. La primera opción es el offset (en horas) que se añadirá al timestamp (Predeterminado: 0). La segunda opción es un dateformat diferente de acuerdo con los parámetros disponibles para el strftime() del PHP. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 
+$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 ?>

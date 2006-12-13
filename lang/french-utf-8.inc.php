@@ -1017,4 +1017,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 ?>

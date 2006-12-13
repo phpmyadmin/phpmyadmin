@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_export.lib.php, /common.lib.php, lang/*:
+      bug #1607282, bug in older MySQL removes auto_increment when asking
+      for MYSQL40 compatibility mode
+
 2006-12-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table.class.php: problem changing a TIMESTAMP to DEFAULT 0
     * tbl_change.php: bug #1610314, incomplete detection of binary column

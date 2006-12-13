@@ -1024,4 +1024,5 @@ $strForeignKeyError = 'Error creating foreign key (check data types)';  //to tra
 $strHelp = 'Help';  //to translate
 $strCancel = 'Cancel';  //to translate
 $strDeleteRelation = 'Delete relation';  //to translate
+$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 ?>

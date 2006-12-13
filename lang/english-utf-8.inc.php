@@ -415,6 +415,7 @@ $strKeepPass = 'Do not change the password';
 $strKeyCache = 'Key cache';
 $strKeyname = 'Keyname';
 $strKill = 'Kill';
+$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';
 $strKorean = 'Korean';
 
 $strLandscape = 'Landscape';

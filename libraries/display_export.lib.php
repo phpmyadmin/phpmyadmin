@@ -242,6 +242,7 @@ if ( $is_zip || $is_gzip || $is_bzip ) { ?>
 <?php } ?>
 
 <fieldset class="tblFooters">
+<?php PMA_externalBug($GLOBALS['strSQLCompatibility'], 'mysql', '50027', '14515'); ?>
     <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
 </fieldset>
 </form>
