@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-15 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2006-12-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_export.lib.php, /common.lib.php, lang/*:
       bug #1607282, bug in older MySQL removes auto_increment when asking
