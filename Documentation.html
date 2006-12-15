@@ -653,7 +653,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         &quot;stduser/stdpass&quot;.</dd>
 
     <dt id="cfg_Servers_auth_type">$cfg['Servers'][$i]['auth_type'] string
-        <tt>['<abbr title="HyperText Transfer Protocol">HTTP</abbr>'|'cookie'|'config']</tt></dt>
+        <tt>['<abbr title="HyperText Transfer Protocol">HTTP</abbr>'|'http'|'cookie'|'config']</tt></dt>
     <dd>Whether config or cookie or
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> authentication
         should be used for this server.
@@ -668,7 +668,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
                 ends. This can also allow you to log in in arbitrary server if
                 <tt><a href="#AllowArbitraryServer" class="configrule">$cfg['AllowArbitraryServer']</a></tt> enabled.
             </li>
-            <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions)
+            <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions and can be written also as 'http')
                 (<tt>$auth_type&nbsp;=&nbsp;'<abbr title="HyperText Transfer Protocol">HTTP</abbr>'</tt>) as introduced in 1.3.0
                 allows you to log in as any valid MySQL user via HTTP-Auth.</li>
         </ul>
