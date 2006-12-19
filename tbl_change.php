@@ -1,6 +1,8 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/**
+ * vim: expandtab sw=4 ts=4 sts=4:
+ * @version $Id$
+ */
 
 /**
  * Gets the variables sent or posted to this script and displays the header
@@ -153,7 +155,7 @@ if (isset($primary_key)) {
 
     $row = array();
     $result = array();
-    foreach ($primary_key_array AS $rowcount => $primary_key) {
+    foreach ($primary_key_array as $rowcount => $primary_key) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
         $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
@@ -221,19 +223,19 @@ document.onkeydown = onKeyDownArrowsHandler;
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo urlencode($goto); ?>" />
+    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
     <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />
     <input type="hidden" name="disp_direction" value="<?php echo isset($disp_direction) ? $disp_direction : ''; ?>" />
     <input type="hidden" name="repeat_cells" value="<?php echo isset($repeat_cells) ? $repeat_cells : ''; ?>" />
     <input type="hidden" name="dontlimitchars" value="<?php echo (isset($dontlimitchars) ? $dontlimitchars : 0); ?>" />
-    <input type="hidden" name="err_url" value="<?php echo urlencode($err_url); ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
+    <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? htmlspecialchars($sql_query) : ''; ?>" />
 <?php
 if (isset($primary_key_array)) {
-    foreach ($primary_key_array AS $primary_key) {
+    foreach ($primary_key_array as $primary_key) {
         ?>
-    <input type="hidden" name="primary_key[]" value="<?php echo urlencode($primary_key); ?>" />
+    <input type="hidden" name="primary_key[]" value="<?php echo htmlspecialchars(trim($primary_key)); ?>" />
 <?php
     }
 }
@@ -290,7 +292,7 @@ $biggest_max_file_size = 0;
 $url_params['db'] = $db;
 $url_params['table'] = $table;
 if (isset($primary_key)) {
-    $url_params['primary_key'] = $primary_key;
+    $url_params['primary_key'] = trim($primary_key);
 }
 if (isset($sql_query)) {
     $url_params['sql_query'] = $sql_query;
@@ -302,7 +304,7 @@ if (! $cfg['ShowFunctionFields']) {
     echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
 }
 
-foreach ($loop_array AS $vrowcount => $vrow) {
+foreach ($loop_array as $vrowcount => $vrow) {
     if ($vrow === FALSE) {
         unset($vrow);
     }
@@ -311,8 +313,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         $jsvkey = $vrowcount;
         $browse_foreigners_uri = '&amp;pk=' . $vrowcount;
     } else {
-        $jsvkey = urlencode($primary_keys[$vrowcount]);
-        $browse_foreigners_uri = '&amp;pk=' . urlencode($primary_keys[$vrowcount]);
+        $jsvkey = htmlspecialchars(trim($primary_keys[$vrowcount]));
+        $browse_foreigners_uri = '&amp;pk=' . urlencode(trim($primary_keys[$vrowcount]));
     }
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
@@ -365,7 +367,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         $row_table_def   = $trow_table_def[$i];
         $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
 
-        $field           = $row_table_def['Field'];
+        $field      = $row_table_def['Field'];
+        $field_html = $field;
 
         // removed previous PHP3-workaround that caused a problem with
         // field names like '000'
@@ -415,7 +418,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                          : PMA_DBI_field_len($vresult, $i);
         $first_timestamp = 0;
 
-        $field_name = htmlspecialchars($field);
+        $field_name = $field_html;
         if (isset($comments_map[$field])) {
             $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
         }
@@ -486,7 +489,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             //        it's better to set a fields_prev in this situation
             $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $row_table_def['True_Type'] == 'timestamp')
                            ? ''
-                           : '<input type="hidden" name="fields_prev' . $vkey . '[' . urlencode($field) . ']" value="' . urlencode($vrow[$rowfield]) . '" />';
+                           : '<input type="hidden" name="fields_prev' . $vkey . '[' . $field_html . ']" value="' . htmlspecialchars($vrow[$rowfield]) . '" />';
         } else {
             // loic1: display default values
             if (!isset($row_table_def['Default'])) {
@@ -519,7 +522,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             } else {
                 ?>
             <td>
-                <select name="funcs<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
+                <select name="funcs<?php echo $vkey; ?>[<?php echo $field_html; ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
                     <option></option>
                 <?php
                 $selected     = '';
@@ -599,7 +602,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         // ---------------
         echo '        <td>' . "\n";
         if ($row_table_def['Null'] == 'YES') {
-            echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . urlencode($field) . ']"';
+            echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . $field_html . ']"';
             if ($real_null_value && !$first_timestamp) {
                 echo ' value="on"';
             }
@@ -608,7 +611,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary)) ) {
 
                 echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-                     . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
+                     . ' name="fields_null' . $vkey . '[' . $field_html . ']"';
                 if ($real_null_value && !$first_timestamp) {
                     echo ' checked="checked"';
                 }
@@ -627,10 +630,10 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 } else {
                     $onclick     .= '5, ';
                 }
-                $onclick         .= '\'' . urlencode($field) . '\', \'' . md5($field) . '\', \'' . $vkey . '\'); this.checked = true}; return true" />' . "\n";
+                $onclick         .= '\'' . $field_html . '\', \'' . md5($field) . '\', \'' . $vkey . '\'); this.checked = true}; return true" />' . "\n";
                 echo $onclick;
             } else {
-                echo '            <input type="hidden" name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
+                echo '            <input type="hidden" name="fields_null' . $vkey . '[' . $field_html . ']"';
                 if ($real_null_value && !$first_timestamp) {
                     echo ' value="on"';
                 }
@@ -648,12 +651,16 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             ?>
             <td>
             <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="foreign" />
-            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo ($idindex); ?>_1" />
-            <input type="text"   name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" value="<?php echo htmlspecialchars($data); ?>" />
+            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="foreign" />
+            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" id="field_<?php echo ($idindex); ?>_1" />
+            <input type="text"   name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" value="<?php echo htmlspecialchars($data); ?>" />
             <script type="text/javascript" language="javascript">
             //<![CDATA[
-                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field) . $browse_foreigners_uri; ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
+                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"');
+                document.writeln(' href="browse_foreigners.php?');
+                document.writeln('<?php echo PMA_generate_common_url($db, $table); ?>');
+                document.writeln('&amp;field=<?php echo urlencode($field) . $browse_foreigners_uri; ?>">');
+                document.writeln('<?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
             //]]>
             </script>
             </td>
@@ -662,9 +669,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             ?>
             <td>
             <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="foreign" />
-            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $idindex; ?>_1" />
-            <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="foreign" />
+            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" id="field_<?php echo $idindex; ?>_1" />
+            <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
                 <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, $cfg['ForeignKeyMaxLimit']); ?>
             </select>
             </td>
@@ -677,16 +684,16 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
             <td colspan="5" align="right">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
             </td>
           <?php
         } elseif (strstr($type, 'text')) {
             ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
             </td>
             <?php
             echo "\n";
@@ -698,8 +705,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             $enum_cnt    = count($enum);
             ?>
             <td>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="enum" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
+                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="enum" />
+                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
             <?php
             echo "\n" . '            ' . $backup_field;
 
@@ -707,7 +714,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if (strlen($row_table_def['Type']) > 20) {
                 echo "\n";
                 ?>
-                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
                     <option value=""></option>
                 <?php
                 echo "\n";
@@ -717,7 +724,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                     echo '                ';
                     //echo '<option value="' . htmlspecialchars($enum_atom) . '"';
-                    echo '<option value="' . urlencode($enum_atom) . '"';
+                    echo '<option value="' . htmlspecialchars($enum_atom) . '"';
                     if ($data == $enum_atom
                         || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
@@ -735,7 +742,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     // Removes automatic MySQL escape format
                     $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                     echo '            ';
-                    echo '<input type="radio" name="field_' . md5($field) . $vkey . '[]" value="' . urlencode($enum_atom) . '" id="field_' . ($idindex) . '_3_'  . $j . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . urlencode($field) .']\'].checked = false}"';
+                    echo '<input type="radio" name="field_' . md5($field) . $vkey . '[]" value="' . htmlspecialchars($enum_atom) . '" id="field_' . ($idindex) . '_3_'  . $j . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . $field_html . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . $field_html .']\'].checked = false}"';
                     if ($data == $enum_atom
                         || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
@@ -765,15 +772,15 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="set" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
-                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="set" />
+                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
+                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
             <?php
             echo "\n";
             for ($j = 0; $j < $countset; $j++) {
                 echo '                ';
                 //echo '<option value="'. htmlspecialchars($set[$j]) . '"';
-                echo '<option value="'. urlencode($set[$j]) . '"';
+                echo '<option value="'. htmlspecialchars($set[$j]) . '"';
                 if (isset($vset[$set[$j]]) && $vset[$set[$j]]) {
                     echo ' selected="selected"';
                 }
@@ -801,16 +808,16 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     }
                     echo "\n";
                 ?>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="protected" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
+                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="protected" />
+                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
                 <?php
             } elseif ($is_blob) {
                 echo "\n";
                 ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
 
             } else {
@@ -824,7 +831,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
+                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
                 <?php
             } // end if...elseif...else
 
@@ -834,7 +841,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
             if ($is_upload && $is_blob) {
                 echo '<br />';
-                echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($idindex) . '_3" size="10" />&nbsp;';
+                echo '<input type="file" name="fields_upload_' . $field_html . $vkey . '" class="textfield" id="field_' . ($idindex) . '_3" size="10" />&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
@@ -867,7 +874,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 } elseif (!empty($files)) {
                     echo "<br />\n";
                     echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
-                    echo '        <select size="1" name="fields_uploadlocal_' . urlencode($field) . $vkey . '">' . "\n";
+                    echo '        <select size="1" name="fields_uploadlocal_' . $field_html . $vkey . '">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                     echo $files;
                     echo '        </select>' . "\n";
@@ -898,21 +905,21 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             if ($is_char && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
                 echo "\n";
                 ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
             } else {
                 ?>
-                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
+                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
                 <?php
                 if ($row_table_def['Extra'] == 'auto_increment') {
                     ?>
-                    <input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="1" />
+                    <input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="1" />
                     <?php
                 } // end if
                 if (substr($type, 0, 9) == 'timestamp') {
                     ?>
-                    <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="timestamp" />
+                    <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="timestamp" />
                     <?php
                 }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {

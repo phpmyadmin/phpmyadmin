@@ -1,249 +1,309 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/**
+ * manipulation of table data like inserting, replacing and updating
+ *
+ * usally called as form action from tbl_change.php to insert or update table rows
+ *
+ * vim: expandtab sw=4 ts=4 sts=4:
+ *
+ * @version $Id$
+ *
+ * @todo 'edit_next' tends to not work as expected if used ... at least there is no order by
+ *       it needs the original query and the row number and than replace the LIMIT clause
+ * @uses    PMA_checkParameters()
+ * @uses    PMA_DBI_select_db()
+ * @uses    PMA_DBI_query()
+ * @uses    PMA_DBI_fetch_row()
+ * @uses    PMA_DBI_get_fields_meta()
+ * @uses    PMA_DBI_free_result()
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_getError()
+ * @uses    PMA_DBI_affected_rows()
+ * @uses    PMA_DBI_insert_id()
+ * @uses    PMA_backquote()
+ * @uses    PMA_getUvaCondition()
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_securePath()
+ * @uses    PMA_sendHeaderLocation()
+ * @uses    str_replace()
+ * @uses    urlencode()
+ * @uses    count()
+ * @uses    file_exists()
+ * @uses    strlen()
+ * @uses    str_replace()
+ * @uses    preg_replace()
+ * @uses    is_array()
+ * @uses    $GLOBALS['db']
+ * @uses    $GLOBALS['table']
+ * @uses    $GLOBALS['goto']
+ * @uses    $GLOBALS['sql_query']
+ */
 
+/**
+ * do not import request variable into global scope
+ *
+ * cannot be used as long as it could happen that the $goto file that is included
+ * at the end of this script is not updated to work without imported request variables
+ *
+ * @todo uncomment this if all possible included files to rely on import request variables
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
+}
+ */
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 // Check parameters
 PMA_checkParameters(array('db', 'table', 'goto'));
 
-PMA_DBI_select_db($db);
+PMA_DBI_select_db($GLOBALS['db']);
 
 /**
  * Initializes some variables
  */
-// Defines the url to return in case of success of the query
-if (isset($sql_query)) {
-    $sql_query = urldecode($sql_query);
+if (isset($_REQUEST['dontlimitchars'])) {
+    $url_params['dontlimitchars'] = $_REQUEST['dontlimitchars'];
 }
-if (!isset($dontlimitchars)) {
-    $dontlimitchars = 0;
+if (isset($_REQUEST['pos'])) {
+    $url_params['pos'] = (int) $_REQUEST['pos'];
 }
-if (!isset($pos)) {
-    $pos = 0;
+if (isset($_REQUEST['session_max_rows'])) {
+    $url_params['session_max_rows'] = (int) $_REQUEST['session_max_rows'];
 }
-$is_gotofile = FALSE;
-if (isset($after_insert) && $after_insert == 'new_insert') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-} elseif (isset($after_insert) && $after_insert == 'same_insert') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-    if (isset($primary_key)) {
-        foreach ($primary_key AS $pk) {
-            $goto .= '&primary_key[]=' . $pk;
+if (isset($_REQUEST['disp_direction'])) {
+    $url_params['disp_direction'] = $_REQUEST['disp_direction'];
+}
+if (isset($_REQUEST['repeat_cells'])) {
+    $url_params['repeat_cells'] = (int) $_REQUEST['repeat_cells'];
+}
+
+$goto_include = false;
+if (isset($_REQUEST['after_insert'])
+ && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))) {
+    $url_params['after_insert'] = $_REQUEST['after_insert'];
+    //$GLOBALS['goto'] = 'tbl_change.php';
+    $goto_include = 'tbl_change.php';
+
+    if (isset($_REQUEST['primary_key'])) {
+        if ($_REQUEST['after_insert'] == 'same_insert') {
+            foreach ($_REQUEST['primary_key'] as $pk) {
+                $url_params['primary_key'][] = $pk;
+            }
+        } elseif ($_REQUEST['after_insert'] == 'edit_next') {
+            foreach ($_REQUEST['primary_key'] as $pk) {
+                $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+                                . ' WHERE ' . str_replace('` =', '` >', $pk)
+                                . ' LIMIT 1;';
+                $res            = PMA_DBI_query($local_query);
+                $row            = PMA_DBI_fetch_row($res);
+                $meta           = PMA_DBI_get_fields_meta($res);
+                $url_params['primary_key'][] = PMA_getUvaCondition($res, count($row), $meta, $row);
+            }
         }
     }
-} elseif (isset($after_insert) && $after_insert == 'edit_next') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-    if (isset($primary_key)) {
-        foreach ($primary_key AS $pk) {
-            $local_query    = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . str_replace('` =', '` >', urldecode($pk)) . ' LIMIT 1;';
-            $res            = PMA_DBI_query($local_query);
-            $row            = PMA_DBI_fetch_row($res);
-            $meta           = PMA_DBI_get_fields_meta($res);
-            $goto .= '&primary_key[]=' . urlencode(PMA_getUniqueCondition($res, count($row), $meta, $row));
-        }
-    }
-} elseif ($goto == 'sql.php') {
-    $goto = 'sql.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&sql_query=' . urlencode($sql_query);
-} elseif (!empty($goto)) {
-    // Security checkings
-    $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
-    if (!@file_exists('./' . $is_gotofile)) {
-        $goto        = (! isset($table) || ! strlen($table)) ? 'db_sql.php' : 'tbl_sql.php';
-        $is_gotofile = TRUE;
+} elseif (! empty($GLOBALS['goto'])) {
+    if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
+        // this should NOT happen
+        //$GLOBALS['goto'] = false;
+        $goto_include = false;
     } else {
-        $is_gotofile = ($is_gotofile == $goto);
+        $goto_include = $GLOBALS['goto'];
+    }
+    if ($GLOBALS['goto'] == 'db_sql.php' && isset($GLOBALS['table'])) {
+        unset($GLOBALS['table']);
+    }
+}
+
+if (! $goto_include) {
+    if (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
+        $goto_include = 'db_sql.php';
+    } else {
+        $goto_include = 'tbl_sql.php';
     }
 }
 
 // Defines the url to return in case of failure of the query
-if (isset($err_url)) {
-    $err_url = urldecode($err_url);
+if (isset($_REQUEST['err_url'])) {
+    $err_url = $_REQUEST['err_url'];
 } else {
-    $err_url = str_replace('&', '&amp;', $goto)
-             . (empty($primary_key) ? '' : '&amp;primary_key=' . (is_array($primary_key) ? $primary_key[0] : $primary_key));
+    $err_url = 'tbl_change.php' . PMA_generate_common_url($url_params);
 }
 
 // Misc
-$seen_binary = FALSE;
+$seen_binary = false;
 
 /**
  * Prepares the update/insert of a row
  */
-if (isset($primary_key)) {
+if (isset($_REQUEST['primary_key'])) {
     // we were editing something => use primary key
-    $loop_array = (is_array($primary_key) ? $primary_key : array(0 => $primary_key));
-    $using_key  = TRUE;
-    $is_insert  = ($submit_type == $strInsertAsNewRow);
+    $loop_array = (is_array($_REQUEST['primary_key']) ? $_REQUEST['primary_key'] : array($_REQUEST['primary_key']));
+    $using_key  = true;
+    $is_insert  = ($_REQUEST['submit_type'] == $GLOBALS['strInsertAsNewRow']);
 } else {
     // new row => use indexes
     $loop_array = array();
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) $loop_array[$i] = $i;
-    $using_key  = FALSE;
-    $is_insert  = TRUE;
+    foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
+        $loop_array[] = $key;
+    }
+    $using_key  = false;
+    $is_insert  = true;
 }
 
 $query = array();
 $message = '';
+$value_sets = array();
+$func_no_param = array(
+    'NOW',
+    'CURDATE',
+    'CURTIME',
+    'UTC_DATE',
+    'UTC_TIME',
+    'UTC_TIMESTAMP',
+    'UNIX_TIMESTAMP',
+    'RAND',
+    'USER',
+    'LAST_INSERT_ID',
+);
 
-foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
+foreach ($loop_array as $primary_key) {
     // skip fields to be ignored
-    if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) {
+    if (! $using_key && isset($_REQUEST['insert_ignore_' . $primary_key])) {
         continue;
     }
 
-    // Restore the "primary key" to a convenient format
-    $primary_key = urldecode($enc_primary_key);
-
     // Defines the SET part of the sql query
-    $valuelist = '';
-    $fieldlist = '';
+    $query_values = array();
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-    $me_fields      = isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : null;
-    $me_fields_prev = isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : null;
-    $me_funcs       = isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : null;
-    $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
-    $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
-    $me_fields_null_prev = isset($fields_null_prev['multi_edit']) && isset($fields_null_prev['multi_edit'][$enc_primary_key]) ? $fields_null_prev['multi_edit'][$enc_primary_key] : null;
-    $me_auto_increment  = isset($auto_increment['multi_edit']) && isset($auto_increment['multi_edit'][$enc_primary_key])       ? $auto_increment['multi_edit'][$enc_primary_key]       : null;
+    $me_fields =
+        isset($_REQUEST['fields']['multi_edit'][$primary_key])
+        ? $_REQUEST['fields']['multi_edit'][$primary_key]
+        : array();
+    $me_fields_prev =
+        isset($_REQUEST['fields_prev']['multi_edit'][$primary_key])
+        ? $_REQUEST['fields_prev']['multi_edit'][$primary_key]
+        : null;
+    $me_funcs =
+        isset($_REQUEST['funcs']['multi_edit'][$primary_key])
+        ? $_REQUEST['funcs']['multi_edit'][$primary_key]
+        : null;
+    $me_fields_type =
+        isset($_REQUEST['fields_type']['multi_edit'][$primary_key])
+        ? $_REQUEST['fields_type']['multi_edit'][$primary_key]
+        : null;
+    $me_fields_null =
+        isset($_REQUEST['fields_null']['multi_edit'][$primary_key])
+        ? $_REQUEST['fields_null']['multi_edit'][$primary_key]
+        : null;
+    $me_fields_null_prev =
+        isset($_REQUEST['fields_null_prev']['multi_edit'][$primary_key])
+        ? $_REQUEST['fields_null_prev']['multi_edit'][$primary_key]
+        : null;
+    $me_auto_increment =
+        isset($_REQUEST['auto_increment']['multi_edit'][$primary_key])
+        ? $_REQUEST['auto_increment']['multi_edit'][$primary_key]
+        : null;
 
-    if ($using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) {
-        $prot_result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
-        $prot_row         = PMA_DBI_fetch_assoc($prot_result);
-        PMA_DBI_free_result($prot_result);
-        unset($prot_result);
-    }
+    foreach ($me_fields as $key => $val) {
 
-    foreach ($me_fields AS $encoded_key => $val) {
-        $key         = urldecode($encoded_key);
-        $fieldlist   .= PMA_backquote($key) . ', ';
+        require './libraries/tbl_replace_fields.inc.php';
 
-        require('./libraries/tbl_replace_fields.inc.php');
-
-        if (empty($me_funcs[$encoded_key])) {
-            $cur_value = $val . ', ';
-        } elseif (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
-            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
-        } elseif (preg_match('@^(NOW|CURDATE|CURTIME|UTC_DATE|UTC_TIME|UTC_TIMESTAMP|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
-            $cur_value = $me_funcs[$encoded_key] . '(), ';
+        if (empty($me_funcs[$key])) {
+            $cur_value = $val;
+        } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
+            $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } elseif (in_array($me_funcs[$key], $func_no_param)) {
+            $cur_value = $me_funcs[$key] . '()';
         } else {
-            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
+            $cur_value = $me_funcs[$key] . '(' . $val . ')';
         }
 
         //  i n s e r t
         if ($is_insert) {
             // no need to add column into the valuelist
-            $valuelist .= $cur_value;
+            $query_values[] = $cur_value;
 
         //  u p d a t e
-        } elseif (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
+        } elseif (!empty($me_fields_null_prev[$key])
+         && !isset($me_fields_null[$key])) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
-        } elseif (empty($me_funcs[$encoded_key])
-            && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
-            && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
+            $query_values[] = PMA_backquote($key) . ' = ' . $cur_value;
+        } elseif (empty($me_funcs[$key])
+         && isset($me_fields_prev[$key])
+         && ("'" . PMA_sqlAddslashes($me_fields_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
-        } elseif (!empty($val)) {
+        } elseif (! empty($val)) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
-            if (!(isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && isset($me_fields_null[$encoded_key]))) {
-                $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
+            if (!(! empty($me_fields_null_prev[$key])
+             && isset($me_fields_null[$key]))) {
+                $query_values[] = PMA_backquote($key) . ' = ' . $cur_value;
             }
         }
-    } // end while
+    } // end foreach ($me_fields as $key => $val)
 
-    // get rid of last ,
-    $valuelist    = preg_replace('@, $@', '', $valuelist);
+    if (count($query_values) > 0) {
+        if ($is_insert) {
+            $value_sets[] = implode(', ', $query_values);
+        } else {
+            // build update query
+            $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+                    . ' SET ' . implode(', ', $query_values) . ' WHERE ' . $primary_key . ' LIMIT 1';
 
-    // Builds the sql query
-    if ($is_insert) {
-        if (empty($query)) {
-            // first inserted row -> prepare template
-            $fieldlist = preg_replace('@, $@', '', $fieldlist);
-            $query = array('INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES ');
         }
-        // append current values
-        $query[0]  .= '(' . $valuelist . '), ';
-        $message   = $strInsertedRows . '&nbsp;';
-    } elseif (!empty($valuelist)) {
-        // build update query
-        $query[]   = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key . ' LIMIT 1';
-
-        $message  = $strAffectedRows . '&nbsp;';
     }
-} // end for
+} // end foreach ($loop_array as $primary_key)
+unset($me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_null_prev,
+    $me_auto_increment, $cur_value, $key, $val, $loop_array, $primary_key, $using_key,
+    $func_no_param);
 
-// trim last , from insert query
-if ($is_insert) {
-    $query[0] = preg_replace('@, $@', '', $query[0]);
-}
 
-if (empty($valuelist) && empty($query)) {
+// Builds the sql query
+if ($is_insert && count($value_sets) > 0) {
+    // first inserted row -> prepare template
+    foreach ($me_fields as $key => $val) {
+        $query_fields[]   = PMA_backquote($key);
+    }
+    $query[] = 'INSERT INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+        . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
+
+    unset($query_fields, $value_sets);
+
+    $message = $GLOBALS['strInsertedRows'] . '&nbsp;';
+} elseif (! empty($query)) {
+    $message = $GLOBALS['strAffectedRows'] . '&nbsp;';
+} else {
     // No change -> move back to the calling script
-    $message = $strNoModification;
-    if ($is_gotofile) {
-        $js_to_run = 'functions.js';
-        require_once('./libraries/header.inc.php');
-        require('./' . PMA_securePath($goto));
-    } else {
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
-
-    }
-    exit();
+    $message = $GLOBALS['strNoModification'];
+    $js_to_run = 'functions.js';
+    $active_page = $goto_include;
+    require_once './libraries/header.inc.php';
+    require './' . PMA_securePath($goto_include);
+    exit;
 }
+unset($me_fields, $is_insert);
 
 /**
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-$sql_query = implode(';', $query) . ';';
+if (! empty($GLOBALS['sql_query'])) {
+    $url_params['sql_query'] = $GLOBALS['sql_query'];
+    $return_to_sql_query = $GLOBALS['sql_query'];
+}
+$GLOBALS['sql_query'] = implode('; ', $query) . ';';
 $total_affected_rows = 0;
 $last_message = '';
 $warning_message = '';
 
-foreach ($query AS $query_index => $single_query) {
-    if ($cfg['IgnoreMultiSubmitErrors']) {
+foreach ($query as $single_query) {
+    if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
         $result = PMA_DBI_try_query($single_query);
     } else {
         $result = PMA_DBI_query($single_query);
@@ -251,7 +311,7 @@ foreach ($query AS $query_index => $single_query) {
     if (isset($GLOBALS['warning'])) {
         $warning_message .= $GLOBALS['warning'] . '[br]';
     }
-    if (!$result) {
+    if (! $result) {
         $message .= PMA_DBI_getError();
     } else {
         if (@PMA_DBI_affected_rows()) {
@@ -260,44 +320,41 @@ foreach ($query AS $query_index => $single_query) {
 
         $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {
-            $last_message .= '[br]'.$strInsertedRowId . '&nbsp;' . $insert_id;
+            // insert_id is id of FIRST record inserted in one insert, so if we
+            // inserted multiple rows, we had to increment this
+
+            if ($total_affected_rows > 0) {
+                $insert_id = $insert_id + $total_affected_rows - 1;
+            }
+            $last_message .= '[br]' . $GLOBALS['strInsertedRowId'] . '&nbsp;' . $insert_id;
         }
+        PMA_DBI_free_result($result);
     } // end if
-    PMA_DBI_free_result($result);
     unset($result);
 }
+unset($single_query, $query);
 
-if ($total_affected_rows != 0) {
-    $message .= $total_affected_rows;
-} else {
-    $message .= $strModifications;
-}
+$message .= $total_affected_rows . $last_message;
 
-$message .= $last_message;
-
-if (!empty($warning_message)) {
+if (! empty($warning_message)) {
     /**
-     * @todo use a <div class="warning"> in PMA_showMessage() for this part of the message
+     * @todo use a <div class="warning"> in PMA_showMessage() for this part of
+     * the message
      */
     $message .= '[br]' . $warning_message;
 }
+unset($warning_message, $total_affected_rows, $last_message);
 
-if ($is_gotofile) {
-    if ($goto == 'db_sql.php' && isset($table)) {
-        unset($table);
-    }
-    $js_to_run = 'functions.js';
-    $active_page = $goto;
-    require_once('./libraries/header.inc.php');
-    require('./' . PMA_securePath($goto));
-} else {
-
-    // if we have seen binary,
-    // we do not append the query to the Location so it won't be displayed
-    // on the resulting page
-    // Nijel: we also need to limit size of url...
-    $add_query = (!$seen_binary && strlen($sql_query) < 1024 ? '&disp_query=' . urlencode($sql_query) : '');
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
+if (isset($return_to_sql_query)) {
+    $disp_query = $GLOBALS['sql_query'];
+    $disp_message = $message;
+    unset($message);
+    $GLOBALS['sql_query'] = $return_to_sql_query;
 }
-exit();
+
+$js_to_run = 'functions.js';
+$active_page = $goto_include;
+require_once './libraries/header.inc.php';
+require './' . PMA_securePath($goto_include);
+exit;
 ?>
