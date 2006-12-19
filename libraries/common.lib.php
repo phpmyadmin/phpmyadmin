@@ -1214,22 +1214,31 @@ if (typeof(window.parent) != 'undefined'
     }
 
     /**
-     * Displays a message at the top of the "main" (right) frame
+     * dsiplays the message und the query
+     * usally the message is the result of the query executed
      *
-     * @param   string  the message to display
-     *
+     * @param   string  $message    the message to display
+     * @param   string  $sql_query  the query to display
      * @global  array   the configuration array
-     *
+     * @uses    $GLOBALS['cfg']
      * @access  public
      */
-    function PMA_showMessage($message)
+    function PMA_showMessage($message, $sql_query = null)
     {
         global $cfg;
 
-        // Sanitizes $message
-        $message = PMA_sanitize($message);
+        if (null === $sql_query) {
+            if (! empty($GLOBALS['display_query'])) {
+                $sql_query = $GLOBALS['display_query'];
+            } elseif ($cfg['SQP']['fmtType'] == 'none' && ! empty($GLOBALS['unparsed_sql'])) {
+                $sql_query = $GLOBALS['unparsed_sql'];
+            } else {
+                $sql_query = $GLOBALS['sql_query'];
+            }
+        }
 
         // Corrects the tooltip text via JS if required
+        // @todo this is REALLY the wrong place to do this - very unexpected here
         if ( isset($GLOBALS['table']) && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
             $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
             if ($result) {
@@ -1241,17 +1250,17 @@ if (typeof(window.parent) != 'undefined'
                 PMA_DBI_free_result($result);
                 $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
                 echo "\n";
-                ?>
-<script type="text/javascript" language="javascript">
-//<![CDATA[
-window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFormat($tooltip, false); ?>');
-//]]>
-</script>
-                <?php
+                echo '<script type="text/javascript" language="javascript">' . "\n";
+                echo '//<![CDATA[' . "\n";
+                echo "window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
+                echo '//]]>' . "\n";
+                echo '</script>' . "\n";
             } // end if
         } // end if ... elseif
 
         // Checks if the table needs to be repaired after a TRUNCATE query.
+        // @todo this should only be done if isset($GLOBALS['sql_query']), what about $GLOBALS['display_query']???
+        // @todo this is REALLY the wrong place to do this - very unexpected here
         if (isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
             && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
             if (!isset($tbl_status)) {
@@ -1266,19 +1275,16 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             }
         }
         unset($tbl_status);
-        ?>
-<br />
-<div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-        <?php
+        echo '<br />' . "\n";
+
+        echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
         if (!empty($GLOBALS['show_error_header'])) {
-            ?>
-    <div class="error">
-        <h1><?php echo $GLOBALS['strError']; ?></h1>
-            <?php
+            echo '<div class="error">' . "\n";
+            echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
         }
 
         echo '<div class="notice">';
-        echo $message;
+        echo PMA_sanitize($message);
         if (isset($GLOBALS['special_message'])) {
             echo PMA_sanitize($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
@@ -1289,17 +1295,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             echo '</div>';
         }
 
-        if ($cfg['ShowSQL'] == true
-          && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
-            if (!empty($GLOBALS['display_query'])) {
-                $local_query = $GLOBALS['display_query'];
-            } else {
-                if ($cfg['SQP']['fmtType'] == 'none' && !empty($GLOBALS['unparsed_sql'])) {
-                    $local_query = $GLOBALS['unparsed_sql'];
-                } else {
-                    $local_query = $GLOBALS['sql_query'];
-                }
-            }
+        if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
             // Basic url query part
             $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
 
@@ -1314,11 +1310,11 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             }
             if (isset($new_line)) {
                  /* SQL-Parser-Analyzer */
-                $query_base = PMA_sqlAddslashes(htmlspecialchars($local_query), false, false, true);
+                $query_base = PMA_sqlAddslashes(htmlspecialchars($sql_query), false, false, true);
                  /* SQL-Parser-Analyzer */
                 $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
             } else {
-                $query_base = $local_query;
+                $query_base = $sql_query;
             }
 
             // Parse SQL if needed
@@ -1339,7 +1335,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
             // Here we append the LIMIT added for navigation, to
             // enable its display. Adding it higher in the code
-            // to $local_query would create a problem when
+            // to $sql_query would create a problem when
             // using the Refresh or Edit links.
 
             // Only append it on SELECTs.
@@ -1385,14 +1381,14 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 && (!empty($edit_target))) {
 
                 if ($cfg['EditInWindow'] == true) {
-                    $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($local_query, false) . '\'); return false;';
+                    $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
                 } else {
                     $onclick = '';
                 }
 
                 $edit_link = $edit_target
                            . $url_qpart
-                           . '&amp;sql_query=' . urlencode($local_query)
+                           . '&amp;sql_query=' . urlencode($sql_query)
                            . '&amp;show_query=1#querybox';
                 $edit_link = ' [' . PMA_linkOrButton($edit_link, $GLOBALS['strEdit'], array('onclick' => $onclick)) . ']';
             } else {
@@ -1418,11 +1414,11 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                               . $explain_link_validate
                               . '&amp;sql_query=';
 
-                if (preg_match('@^SELECT[[:space:]]+@i', $local_query)) {
-                    $explain_link .= urlencode('EXPLAIN ' . $local_query);
+                if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
+                    $explain_link .= urlencode('EXPLAIN ' . $sql_query);
                     $message = $GLOBALS['strExplain'];
-                } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $local_query)) {
-                    $explain_link .= urlencode(substr($local_query, 8));
+                } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
+                    $explain_link .= urlencode(substr($sql_query, 8));
                     $message = $GLOBALS['strNoExplain'];
                 } else {
                     $explain_link = '';
@@ -1441,7 +1437,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 $php_link = 'import.php'
                           . $url_qpart
                           . '&amp;show_query=1'
-                          . '&amp;sql_query=' . urlencode($local_query)
+                          . '&amp;sql_query=' . urlencode($sql_query)
                           . '&amp;show_as_php=';
 
                 if (!empty($GLOBALS['show_as_php'])) {
@@ -1458,7 +1454,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                          = 'import.php'
                          . $url_qpart
                          . '&amp;show_query=1'
-                         . '&amp;sql_query=' . urlencode($local_query);
+                         . '&amp;sql_query=' . urlencode($sql_query);
                     $php_link .= ' [' . PMA_linkOrButton($runquery_link, $GLOBALS['strRunQuery']) . ']';
                 }
 
@@ -1469,13 +1465,13 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             // Refresh query
             if (isset($cfg['SQLQuery']['Refresh'])
                 && $cfg['SQLQuery']['Refresh']
-                && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
+                && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)) {
 
                 $refresh_link = 'import.php'
                           . $url_qpart
                           . '&amp;show_query=1'
                           . (isset($_GET['pos']) ? '&amp;pos=' . $_GET['pos'] : '')
-                          . '&amp;sql_query=' . urlencode($local_query);
+                          . '&amp;sql_query=' . urlencode($sql_query);
                 $refresh_link = ' [' . PMA_linkOrButton($refresh_link, $GLOBALS['strRefresh']) . ']';
             } else {
                 $refresh_link = '';
@@ -1488,7 +1484,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 $validate_link = 'import.php'
                                . $url_qpart
                                . '&amp;show_query=1'
-                               . '&amp;sql_query=' . urlencode($local_query)
+                               . '&amp;sql_query=' . urlencode($sql_query)
                                . '&amp;validatequery=';
                 if (!empty($GLOBALS['validatequery'])) {
                     $validate_link .= '0';
@@ -1501,7 +1497,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             } else {
                 $validate_link = '';
             } //validator
-            unset($local_query);
+            unset($sql_query);
 
             // Displays the message
             echo '<fieldset class="">' . "\n";
@@ -1520,9 +1516,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                 echo '</fieldset>';
             }
         }
-        ?>
-</div><br />
-        <?php
+        echo '</div><br />' . "\n";
     } // end of the 'PMA_showMessage()' function
 
 
@@ -2188,8 +2182,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             $nonprimary_condition .= $condition;
         } // end for
 
-        // Correction University of Virginia 19991216: 
-        // prefer primary or unique keys for condition, 
+        // Correction University of Virginia 19991216:
+        // prefer primary or unique keys for condition,
         // but use conjunction of all values if no primary key
         if ($primary_key) {
             $preferred_condition = $primary_key;
@@ -2203,7 +2197,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
     } // end function
 
     /**
-     * Generate a button or image tag 
+     * Generate a button or image tag
      *
      * @param   string      name of button element
      * @param   string      class of button element
@@ -2448,13 +2442,13 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
     /**
      * Displays a lightbulb hint explaining a known external bug
-     * that affects a functionality 
+     * that affects a functionality
      *
      * @uses    PMA_showHint()
-     * @param   string  $functionality localized message explaining the func. 
-     * @param   string  $component  'mysql' (eventually, 'php') 
+     * @param   string  $functionality localized message explaining the func.
+     * @param   string  $component  'mysql' (eventually, 'php')
      * @param   string  $minimum_version of this component
-     * @param   string  $bugref  bug reference for this component 
+     * @param   string  $bugref  bug reference for this component
      */
     function PMA_externalBug($functionality, $component, $minimum_version, $bugref) {
         if ($component == 'mysql' && PMA_MYSQL_INT_VERSION < $minimum_version) {
