@@ -49,32 +49,11 @@ require_once './libraries/file_listing.php'; // file listing
 /**
  * Displays the query submitted and its result
  */
-if (!empty($disp_message)) {
-    if (isset($goto)) {
-        $goto_cpy      = $goto;
-        $goto          = 'tbl_sql.php?'
-                       . PMA_generate_common_url($db, $table)
-                       . '&amp;$show_query=1'
-                       . '&amp;sql_query=' . (isset($disp_query) ? urlencode($disp_query) : '');
-    } else {
-        $show_query = '1';
+if (! empty($disp_message)) {
+    if (! isset($disp_query)) {
+        $disp_query     = null;
     }
-    if (isset($sql_query)) {
-        $sql_query_cpy = $sql_query;
-        unset($sql_query);
-    }
-    if (isset($disp_query)) {
-        $sql_query     = $disp_query;
-    }
-    PMA_showMessage($disp_message);
-    if (isset($goto_cpy)) {
-        $goto          = $goto_cpy;
-        unset($goto_cpy);
-    }
-    if (isset($sql_query_cpy)) {
-        $sql_query     = $sql_query_cpy;
-        unset($sql_query_cpy);
-    }
+    PMA_showMessage($disp_message, $disp_query);
 }
 
 
@@ -156,38 +135,21 @@ if (isset($primary_key)) {
     $row = array();
     $result = array();
     foreach ($primary_key_array as $rowcount => $primary_key) {
-        $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
+        $local_query             = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
         $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
         $primary_keys[$rowcount] = $primary_key;
 
         // No row returned
         if (!$row[$rowcount]) {
-            unset($row[$rowcount]);
-            unset($primary_key_array[$rowcount]);
-            $goto_cpy          = $goto;
-            $goto              = 'tbl_sql.php?'
-                               . PMA_generate_common_url($db, $table)
-                               . '&amp;$show_query=1'
-                               . '&amp;sql_query=' . urlencode($local_query);
-            if (isset($sql_query)) {
-                $sql_query_cpy = $sql_query;
-                unset($sql_query);
-            }
-            $sql_query         = $local_query;
-            PMA_showMessage($strEmptyResultSet);
-            $goto              = $goto_cpy;
-            unset($goto_cpy);
-            if (isset($sql_query_cpy)) {
-                $sql_query    = $sql_query_cpy;
-                unset($sql_query_cpy);
-            }
+            unset($row[$rowcount], $primary_key_array[$rowcount]);
+            PMA_showMessage($strEmptyResultSet, $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
         } // end if (no record returned)
     }
 } else {
-    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
     unset($row);
 }
 

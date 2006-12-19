@@ -6,14 +6,13 @@ $Id$
 $HeadURL$
 
 2006-12-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libarsies/common.lib.php::PMA_showMessage():
-      added second optional parameter: $sql_query
-
-2006-12-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, include/tbl_replace_fields.inc.php:
       refactored: made register_globals independent; added documentation;
       removed unused code; fixed bug #1597686 last insert id message wrong;
       much more i don't remember ...
+    * libarsies/common.lib.php::PMA_showMessage():
+      added second optional parameter: $sql_query
+    * tbl_change.php: make use of new second PMA_showMessage() parameter
 
 2006-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/common.lib.php, config.default.php:
