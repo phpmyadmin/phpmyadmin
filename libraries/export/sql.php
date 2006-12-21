@@ -284,7 +284,7 @@ function PMA_exportDBFooter($db)
         unset($GLOBALS['sql_constraints']);
     }
 
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
+    if (PMA_MYSQL_INT_VERSION >= 50000 && isset($GLOBALS['sql_structure'])) {
         $procs_funcs = '';
 
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');

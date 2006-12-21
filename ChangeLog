@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2006-12-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php: bug #1619647, export of query results
+      should not contain procedure definitions
+
 2006-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/common.lib.php, config.default.php:
       bug #1615313, doc referred to HTTP so enable the code to accept
