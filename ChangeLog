@@ -8,6 +8,9 @@ $HeadURL$
 2006-12-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1619647, export of query results
       should not contain procedure definitions
+    * navigation.php, test/theme.php,  browse_foreigners.php,
+      libraries/header_printview.inc.php: patch #1611684 part 2, client 
+      caching of phpmyadmin.css.php, thanks to Christian Schmidt
 
 2006-12-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, include/tbl_replace_fields.inc.php:

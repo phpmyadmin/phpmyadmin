@@ -31,7 +31,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <link rel="stylesheet" type="text/css"
-        href="../css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right" />
+        href="../css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $_SESSION['PMA_Config']->getMtime(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../css/print.css?<?php echo PMA_generate_common_url(); ?>" />
     <script src="../js/functions.js" type="text/javascript"
