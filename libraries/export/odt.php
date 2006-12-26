@@ -216,7 +216,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 }
 
 /**
- * Returns $table's structure as LaTeX
+ * Returns $table's structure as Open Document Text
  *
  * @param   string   the database name
  * @param   string   the table name
@@ -407,7 +407,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
     $GLOBALS['odt_buffer'] .= '</table:table>';
     return TRUE;
-} // end of the 'PMA_getTableStructureLaTeX()' function
+} // end of the 'PMA_exportStructure' function
 
-}
+} // end else
 ?>

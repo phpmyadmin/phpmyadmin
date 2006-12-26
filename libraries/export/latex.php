@@ -459,7 +459,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
     $buffer = ' \\end{longtable}' . $crlf;
     return PMA_exportOutputHandler($buffer);
-} // end of the 'PMA_getTableStructureLaTeX()' function
+} // end of the 'PMA_exportStructure' function
 
-}
+} // end else
 ?>
