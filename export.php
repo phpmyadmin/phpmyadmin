@@ -421,13 +421,13 @@ if ($export_type == 'server') {
                     $views[] = $table;
                     continue;
                 }
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                 if (isset($GLOBALS[$what . '_structure'])) {
                     if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
                         break 3;
                     }
                 }
                 if (isset($GLOBALS[$what . '_data'])) {
+                    $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
                     }
@@ -460,21 +460,17 @@ if ($export_type == 'server') {
             $views[] = $table;
             continue;
         }
-        $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        //if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
-            //|| !isset($tmp_select)) {
-
-            if (isset($GLOBALS[$what . '_structure'])) {
-                if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
-                    break 2;
-                }
+        if (isset($GLOBALS[$what . '_structure'])) {
+            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+                break 2;
             }
-            if (isset($GLOBALS[$what . '_data'])) {
-                if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
-                    break 2;
-                }
+        }
+        if (isset($GLOBALS[$what . '_data'])) {
+            $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+            if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+                break 2;
             }
-        //}
+        }
     }
     foreach ($views as $view) {
         // no data export for a view
@@ -502,26 +498,25 @@ if ($export_type == 'server') {
         $add_query  = '';
     }
 
-    if (!empty($sql_query)) {
-        // only preg_replace if needed
-        if (!empty($add_query)) {
-            // remove trailing semicolon before adding a LIMIT
-            $sql_query = preg_replace('%;\s*$%', '', $sql_query);
-        }
-        $local_query = $sql_query . $add_query;
-        PMA_DBI_select_db($db);
-    } else {
-        $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-    }
-
     if (isset($GLOBALS[$what . '_structure'])) {
         if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
             break;
         }
     }
-    // I think we have to export data for a single view; for example PDF report
-    //if (isset($GLOBALS[$what . '_data']) && ! PMA_table::isView($db, $table)) {
+    // If this is an export of a single view, we have to export data;
+    // for example, a PDF report
     if (isset($GLOBALS[$what . '_data'])) {
+        if (!empty($sql_query)) {
+            // only preg_replace if needed
+            if (!empty($add_query)) {
+                // remove trailing semicolon before adding a LIMIT
+                $sql_query = preg_replace('%;\s*$%', '', $sql_query);
+            }
+            $local_query = $sql_query . $add_query;
+            PMA_DBI_select_db($db);
+        } else {
+            $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        }
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
             break;
         }
