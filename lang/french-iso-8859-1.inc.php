@@ -411,6 +411,7 @@ $strKeepPass = 'Conserver le mot de passe';
 $strKeyCache = 'Cache des clés';
 $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
+$strKnownExternalBug = 'La fonctionnalité %s est affectée par une anomalie connue, voir %s';
 $strKorean = 'coréen';
 
 $strLandscape = 'Paysage';
@@ -875,6 +876,7 @@ $strSQL = 'SQL';
 $strSQPBugInvalidIdentifer = 'Identificateur invalide';
 $strSQPBugUnclosedQuote = 'Apostrophe non fermé';
 $strSQPBugUnknownPunctuation = 'Ponctuation invalide';
+$strStandInStructureForView = 'Doublure de structure pour la vue';
 $strStatCheckTime = 'Dernière vérification';
 $strStatCreateTime = 'Création';
 $strStatement = 'Information';
@@ -890,6 +892,7 @@ $strStrucNativeExcel = 'Données MS Excel (format natif)';
 $strStrucNativeExcelOptions = 'Options pour Excel natif';
 $strStrucOnly = 'Structure seule';
 $strStructPropose = 'Suggérer des optimisations quant à la structure de la table';
+$strStructureForView = 'Structure de la vue';
 $strStructure = 'Structure';
 $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';
@@ -1016,7 +1019,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
-$strStructureForView = 'Structure for view';  //to translate
-$strStandInStructureForView = 'Stand-in structure for view';  //to translate
 ?>
