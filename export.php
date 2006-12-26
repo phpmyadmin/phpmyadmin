@@ -417,16 +417,18 @@ if ($export_type == 'server') {
             foreach ($tables as $table) {
                 // if this is a view, collect it for later; views must be exported
                 // after the tables
-                if (PMA_Table::isView($current_db, $table)) {
+                $is_view = PMA_Table::isView($current_db, $table);
+                if ($is_view) {
                     $views[] = $table;
-                    continue;
                 }
                 if (isset($GLOBALS[$what . '_structure'])) {
-                    if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+                    // for a view, export a stand-in definition of the table
+                    // to resolve view dependencies
+                    if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table')) {
                         break 3;
                     }
                 }
-                if (isset($GLOBALS[$what . '_data'])) {
+                if (isset($GLOBALS[$what . '_data']) && ! $is_view) {
                     $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
@@ -436,7 +438,7 @@ if ($export_type == 'server') {
             foreach($views as $view) {
                 // no data export for a view
                 if (isset($GLOBALS[$what . '_structure'])) {
-                    if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+                    if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view')) {
                         break 3;
                     }
                 }
@@ -456,16 +458,18 @@ if ($export_type == 'server') {
     foreach ($tables as $table) {
         // if this is a view, collect it for later; views must be exported after
         // the tables
-        if (PMA_Table::isView($db, $table)) {
+        $is_view = PMA_Table::isView($db, $table);
+        if ($is_view) {
             $views[] = $table;
-            continue;
         }
         if (isset($GLOBALS[$what . '_structure'])) {
-            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+            // for a view, export a stand-in definition of the table
+            // to resolve view dependencies
+            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'stand_in' : 'create_table')) {
                 break 2;
             }
         }
-        if (isset($GLOBALS[$what . '_data'])) {
+        if (isset($GLOBALS[$what . '_data']) && ! $is_view) {
             $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
             if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break 2;
@@ -475,7 +479,7 @@ if ($export_type == 'server') {
     foreach ($views as $view) {
         // no data export for a view
         if (isset($GLOBALS[$what . '_structure'])) {
-            if (!PMA_exportStructure($db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+            if (!PMA_exportStructure($db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view')) {
                 break 2;
             }
         }
@@ -498,8 +502,9 @@ if ($export_type == 'server') {
         $add_query  = '';
     }
 
+    $is_view = PMA_Table::isView($db, $table);
     if (isset($GLOBALS[$what . '_structure'])) {
-        if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates)) {
+        if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, $is_view ? 'create_view' : 'create_table')) {
             break;
         }
     }

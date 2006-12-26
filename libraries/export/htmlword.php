@@ -171,7 +171,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     return TRUE;
 }
 
-function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false)
+function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
 {
     global $cfgRelation;
 

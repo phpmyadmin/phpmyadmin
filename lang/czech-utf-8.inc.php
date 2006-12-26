@@ -1021,4 +1021,6 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strStructureForView = 'Structure for view';  //to translate
+$strStandInStructureForView = 'Stand-in structure for view';  //to translate
 ?>

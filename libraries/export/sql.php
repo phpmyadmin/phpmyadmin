@@ -350,6 +350,29 @@ function PMA_exportDBFooter($db)
     return $result;
 }
 
+
+/**
+ * Returns a stand-in CREATE definition to resolve view dependencies
+ *
+ * @param   string   the database name
+ * @param   string   the vew name
+ * @param   string   the end of line sequence
+ *
+ * @return  string   resulting definition 
+ *
+ * @access  public
+ */
+function PMA_getTableDefStandIn($db, $view, $crlf) {
+    $create_query = 'CREATE TABLE ' . PMA_backquote($view) . ' (' . $crlf;
+    $tmp = array();
+    $columns = PMA_DBI_get_columns_full($db, $view);
+    foreach($columns as $column_name => $definition) {
+        $tmp[] = PMA_backquote($column_name) . ' ' . $definition['Type'] . $crlf;
+    }
+    $create_query .= implode(',', $tmp) . ');'; 
+    return($create_query);
+}
+
 /**
  * Returns $table's CREATE definition
  *
@@ -632,23 +655,42 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
  * @param   boolean  whether to include relation comments
  * @param   boolean  whether to include column comments
  * @param   boolean  whether to include mime comments
+ * @param   string   'stand_in', 'create_table', 'create_view' 
  *
  * @return  bool     Whether it suceeded
  *
  * @access  public
  */
-function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE)
+function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE, $export_mode)
 {
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $dump = $crlf
           .  $GLOBALS['comment_marker'] . '--------------------------------------------------------' . $crlf
-          .  $crlf . $GLOBALS['comment_marker'] . $crlf
-          .  $GLOBALS['comment_marker'] . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
-          .  $GLOBALS['comment_marker'] . $crlf
-          .  PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf
-          .  PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
+          .  $crlf . $GLOBALS['comment_marker'] . $crlf;
+
+    switch($export_mode) {
+        case 'create_table':
+            $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
+                  .  $GLOBALS['comment_marker'] . $crlf;
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
+            break;
+        case 'create_view':
+            $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strStructureForView'] . ' ' . $formatted_table_name . $crlf
+                  .  $GLOBALS['comment_marker'] . $crlf;
+            // delete the stand-in table previously created
+            $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
+            break;
+        case 'stand_in':
+            $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strStandInStructureForView'] . ' ' . $formatted_table_name . $crlf
+                .  $GLOBALS['comment_marker'] . $crlf;
+            // export a stand-in definition to resolve view dependencies
+            $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
+    } // end switch
+
+    $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
     // this one is built by PMA_getTableDef() to use in table copy/move
     // but not in the case of export
     unset($GLOBALS['sql_constraints_query']);

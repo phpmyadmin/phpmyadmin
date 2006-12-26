@@ -7,6 +7,8 @@ $HeadURL$
 
 2006-12-26 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: set $local_query only if we are exporting data
+    * export.php, libraries/export/latex.php, /sql.php, /htmlword.php,
+      /odt.php, lang/*: bug #1621280, VIEW dependencies during export
 
 2006-12-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1619647, export of query results
