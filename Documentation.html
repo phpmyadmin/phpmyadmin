@@ -3169,6 +3169,11 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
     For example, a missing &quot;www&quot;, or entering with an <abbr title="Internet Protocol">IP</abbr> address
     while a domain name is defined in the config file.</p>
 
+<h4 id="faq4_8">
+	<a href="#faq4_8">4.8 Which parameters can I use in the URL that starts phpMyAdmin?</a></h4>
+
+<p>When starting phpMyAdmin, you can use the <tt>db</tt>, <tt>pma_username</tt>, <tt>pma_password</tt> and <tt>server</tt> parameters. This last one can contain either the numeric host index (from <tt>$i</tt> of the configuration file) or one of the host names present in the configuration file. Using <tt>pma_username</tt> and <tt>pma_password</tt> has been tested along with the usage of 'cookie' <tt>auth_type</tt>.</p>
+
 <h3 id="faqbrowsers">Browsers or client <abbr title="operating system">OS</abbr></h3>
 
 <h4 id="faq5_1">

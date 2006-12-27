@@ -3005,6 +3005,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     require_once './libraries/string.lib.php';
 
     /**
+     * Lookup server by name
+     * by Arnold - Helder Hosting
+     * (see FAQ 4.8)
+     */
+    if (! empty($_REQUEST['server']) && is_string($_REQUEST['server']) && ! ctype_digit($_REQUEST['server'])) {
+        foreach ($cfg['Servers'] as $i => $server) {
+            if ($server['host'] == $_REQUEST['server']) {
+                $_REQUEST['server'] = $i;
+                break;
+            }
+        }
+        if (is_string($_REQUEST['server'])) {
+            unset($_REQUEST['server']);
+        }
+        unset($i);
+    }
+
+    /**
      * If no server is selected, make sure that $cfg['Server'] is empty (so
      * that nothing will work), and skip server authentication.
      * We do NOT exit here, but continue on without logging into any server.
@@ -3012,7 +3030,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if (isset($_REQUEST['server']) && is_string($_REQUEST['server']) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
+
+    if (isset($_REQUEST['server']) && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server'])) && ! empty($_REQUEST['server']) && ! empty($cfg['Servers'][$_REQUEST['server']])) {
         $GLOBALS['server'] = $_REQUEST['server'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {

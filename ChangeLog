@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, libraries/common.lib.php: patch #1592366,
+     possibility of using the host name as a parameter in the URL,
+     thanks to Arnold Daniels
+
 2006-12-26 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: set $local_query only if we are exporting data
     * export.php, libraries/export/latex.php, /sql.php, /htmlword.php,
