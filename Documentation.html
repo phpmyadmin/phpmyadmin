@@ -2930,7 +2930,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     <a href="#faq3_4">3.4 I am unable to import dumps I created with the mysqldump tool
     bundled with the MySQL server distribution.</a></h4>
 
-<p> The problem is that mysqldump creates invalid comments like this:</p>
+<p> The problem is that older versions of mysqldump created invalid comments like this:</p>
 
 <pre>
 -- MySQL dump 8.22
