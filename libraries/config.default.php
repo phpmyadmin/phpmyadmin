@@ -771,7 +771,9 @@ if ($cfg['ShowFunctionFields']) {
             'UNCOMPRESS',
             'LAST_INSERT_ID',
             'USER',
-            'CONCAT'
+            'CONCAT',
+	    'HEX',
+	    'UNHEX'
         ),
 
         'FUNC_DATE'   => array(
