@@ -1214,8 +1214,8 @@ if (typeof(window.parent) != 'undefined'
     }
 
     /**
-     * dsiplays the message und the query
-     * usally the message is the result of the query executed
+     * displays the message and the query
+     * usually the message is the result of the query executed
      *
      * @param   string  $message    the message to display
      * @param   string  $sql_query  the query to display
