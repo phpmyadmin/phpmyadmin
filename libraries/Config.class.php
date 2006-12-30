@@ -394,6 +394,15 @@ class PMA_Config
             $cfg['DefaultTabDatabase'] = str_replace('_details', '', str_replace('db_details.php', 'db_sql.php', $cfg['DefaultTabDatabase']));
         }
 
+        $this->checkFontsize();
+        //$this->checkPmaAbsoluteUri();
+        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+
+        // Handling of the collation must be done after merging of $cfg
+        // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
+        // can have an effect. Note that the presence of collation
+        // information in a cookie has priority over what is defined
+        // in the default or user's config files. 
         /**
          * @todo check validity of $_COOKIE['pma_collation_connection']
          */
@@ -404,11 +413,13 @@ class PMA_Config
             $this->set('collation_connection',
                 $this->get('DefaultConnectionCollation'));
         }
-
+        // Now, a collation information could come from REQUEST
+        // (an example of this: the collation selector in main.php)
+        // so the following handles the setting of collation_connection
+        // and later, in common.lib.php, the cookie will be set
+        // according to this.
         $this->checkCollationConnection();
-        $this->checkFontsize();
-        //$this->checkPmaAbsoluteUri();
-        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+
         return true;
     }
 
