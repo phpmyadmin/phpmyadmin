@@ -880,6 +880,7 @@ $strSQL = 'SQL';
 $strSQPBugInvalidIdentifer = 'Chybný identifikátor';
 $strSQPBugUnclosedQuote = 'Neuzavřené uvozovky';
 $strSQPBugUnknownPunctuation = 'Neznámé interpunkční znaménko';
+$strStandInStructureForView = 'Zástupná struktura pro pohled';
 $strStatCheckTime = 'Poslední kontrola';
 $strStatCreateTime = 'Vytvoření';
 $strStatement = 'Údaj';
@@ -895,6 +896,7 @@ $strStrucNativeExcel = 'Nativní formát MS Excelu';
 $strStrucNativeExcelOptions = 'Nastavení exportu do Excelu';
 $strStrucOnly = 'Pouze strukturu';
 $strStructPropose = 'Navrhnout strukturu tabulky';
+$strStructureForView = 'Struktura pro pohled';
 $strStructure = 'Struktura';
 $strSubmit = 'Provést';
 $strSuccess = 'Váš SQL-dotaz byl úspěšně vykonán';
@@ -1021,6 +1023,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strStructureForView = 'Structure for view';  //to translate
-$strStandInStructureForView = 'Stand-in structure for view';  //to translate
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-30 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2006-12-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php: RFE #1621025, show SQL statement in Relation View
       (I only implemented the display of InnoDB-related statements)
