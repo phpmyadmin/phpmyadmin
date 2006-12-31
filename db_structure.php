@@ -348,7 +348,7 @@ foreach ($tables as $keyname => $each_table) {
     //  that needs to be repaired
 
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) { 
-        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCount']) {
+        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews']) {
             $at_least_one_view_exceeds_max_count = true;
             $show_superscript = '<sup>1</sup>';
         } else {
@@ -489,7 +489,7 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 
 if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
     echo '<div class="notice">' . "\n";
-    echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
+    echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCountViews'], 0), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')) . "\n";
     echo '</div>' . "\n";
 }
 ?>

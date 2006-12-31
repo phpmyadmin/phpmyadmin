@@ -370,23 +370,34 @@ class PMA_Table {
 
         $tbl_is_view = PMA_Table::isView($db, $table);
 
+        // for a VIEW, $row_count is always false at this point
         if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
             if (! $tbl_is_view) {
                 $row_count = PMA_DBI_fetch_value(
                     'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
                     . PMA_backquote($table));
-            // since counting all rows of a view could be too long
             } else {
-                // try_query because it can fail ( a VIEW was based on
-                // a table that no longer exists)
-                $result = PMA_DBI_try_query(
-                    'SELECT 1 FROM ' . PMA_backquote($db) . '.'
-                        . PMA_backquote($table) . ' LIMIT '
-                        . $GLOBALS['cfg']['MaxExactCount'],
-                    null, PMA_DBI_QUERY_STORE);
-                if (!PMA_DBI_getError()) {
-                    $row_count = PMA_DBI_num_rows($result);
-                    PMA_DBI_free_result($result);
+                // For complex views, even trying to get a partial record
+                // count could bring down a server, so we offer an
+                // alternative: setting MaxExactCountViews to 0 will bypass
+                // completely the record counting for views
+
+                if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
+                    $row_count = 0;
+                } else {
+                    // Counting all rows of a VIEW could be too long, so use
+                    // a LIMIT clause.
+                    // Use try_query because it can fail ( a VIEW is based on
+                    // a table that no longer exists)
+                    $result = PMA_DBI_try_query(
+                        'SELECT 1 FROM ' . PMA_backquote($db) . '.'
+                            . PMA_backquote($table) . ' LIMIT '
+                            . $GLOBALS['cfg']['MaxExactCountViews'],
+                            null, PMA_DBI_QUERY_STORE);
+                    if (!PMA_DBI_getError()) {
+                        $row_count = PMA_DBI_num_rows($result);
+                        PMA_DBI_free_result($result);
+                    }
                 }
             }
         }

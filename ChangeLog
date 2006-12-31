@@ -8,6 +8,9 @@ $HeadURL$
 2006-12-31 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: RFE #1602243, another cause for Missing parameter,
       thanks to Dave Nolan
+    * Documentation.html, db_structure.php, libraries/Table.class.php,
+     /config.default.php: RFE #1548637, MaxExactCountViews (default 0)
+     so by default, row count is not done for views
 
 2006-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1590083, 

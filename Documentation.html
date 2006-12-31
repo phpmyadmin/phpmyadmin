@@ -1754,16 +1754,18 @@ $cfg['TrustedProxies'] =
     <dd>Enable <a href="#transformations">MIME-transformations</a>.</dd>
 
     <dt id="cfg_MaxExactCount">$cfg['MaxExactCount'] integer</dt>
-    <dd><ul><li>For InnoDB tables, determines for how large tables phpMyAdmin
+    <dd>For InnoDB tables, determines for how large tables phpMyAdmin
                 should get the exact row count using <code>SELECT COUNT</code>.
                 If the approximate row count as returned by
                 <code>SHOW TABLE STATUS</code> is smaller than this value,
                 <code>SELECT COUNT</code> will be used, otherwise the approximate
-                count will be used.</li>
-            <li>For VIEWs, since obtaining the exact count could have an
-                impact on performance, this value is the maximum to be displayed.
-            </li>
-        </ul>
+                count will be used.
+    </dd>
+    <dt id="cfg_MaxExactCountViews">$cfg['MaxExactCountViews'] integer</dt>
+    <dd>For VIEWs, since obtaining the exact count could have an
+    impact on performance, this value is the maximum to be displayed, using
+    a <code>SELECT COUNT ... LIMIT</code>. The default value of 0 bypasses 
+    any row counting.
     </dd>
 
     <dt id="wysiwyg">

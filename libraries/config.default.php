@@ -531,8 +531,8 @@ $cfg['QueryWindowDefTab']   = 'sql';        // which tab to display in the query
 $cfg['QueryHistoryMax']     = 25;           // When using DB-based query history, how many entries
                                             // should be kept?
 $cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
-$cfg['MaxExactCount']       = 20000;        // When approximate count < this, PMA will get exact count for
-                                            // table rows.
+$cfg['MaxExactCount']       = 20000;        // When approximate count < this, PMA will get exact count for table rows.
+$cfg['MaxExactCountViews']  = 0;            // Zero means that no row count is done for views; see the doc 
 $cfg['WYSIWYG-PDF']         = TRUE;         // Utilize DHTML/JS capabilities to allow WYSIWYG editing of
                                             // the PDF page editor. Requires an IE6/Mozilla based browser.
 
