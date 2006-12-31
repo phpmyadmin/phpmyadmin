@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2006-12-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: RFE #1602243, another cause for Missing parameter,
+      thanks to Dave Nolan
+
 2006-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Config.class.php: bug #1590083, 
     $cfg['DefaultConnectionCollation'] ignored in config.inc.php

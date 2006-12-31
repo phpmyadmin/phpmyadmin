@@ -2895,6 +2895,8 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
        you might want to increase 
        <a href="http://www.hardened-php.net/hphp/troubleshooting.html">request limits</a>.
     </li>
+    <li>The directory specified in the <tt>php.ini</tt> directive <tt>session.save_path</tt> does not exist or is read-only.
+    </li>
 </ul>
 
 <h3 id="faqlimitations">Known limitations</h3>
