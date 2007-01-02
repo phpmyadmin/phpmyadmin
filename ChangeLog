@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-01-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php: undefined $pdf_page_number when no auto layout
+
 2007-01-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: DELIMITER should not be commented out (bug
       #1612870).
