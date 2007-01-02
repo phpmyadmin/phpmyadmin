@@ -9,6 +9,8 @@ $HeadURL$
     * Designer: various fixes and improvements (for example support
       for MSIE 6), thanks to Ivan Kirillov
     * pdf_pages.php: undefined $pdf_page_number when no auto layout
+    * server_privileges.php: bug #1614087, deleting a user having a
+      global GRANT privilege fails under MySQL 4.1.x
 
 2007-01-02 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Add <div> to allow selecting whole SQL by
