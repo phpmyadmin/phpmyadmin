@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-01-02 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: DELIMITER should not be commented out (bug
+      #1612870).
+
 2006-12-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1619647, export of query results
       should not contain procedure definitions
