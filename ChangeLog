@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-02 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php: Add <div> to allow selecting whole SQL by
+      tripple click (patch #1611591).
+
 2006-12-31 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: RFE #1602243, another cause for Missing parameter,
       thanks to Dave Nolan

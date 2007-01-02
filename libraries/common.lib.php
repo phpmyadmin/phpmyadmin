@@ -1502,12 +1502,14 @@ if (typeof(window.parent) != 'undefined'
             // Displays the message
             echo '<fieldset class="">' . "\n";
             echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
+            echo '    <div>';
             echo '    ' . $query_base;
 
             //Clean up the end of the PHP
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '\';';
             }
+            echo '    </div>';
             echo '</fieldset>' . "\n";
 
             if (!empty($edit_target)) {
