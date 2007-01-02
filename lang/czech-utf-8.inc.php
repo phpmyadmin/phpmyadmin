@@ -53,7 +53,6 @@ $strAllowInterrupt = 'Povolit přerušení importu v&nbsp;případě že skript 
 $strAllTableSameWidth = 'Použít pro všechny tabulky stejnou šířku';
 $strAll = 'Všechno';
 $strAlterOrderBy = 'Změnit pořadí tabulky podle';
-$strAlwaysShowLinks = 'Vždy zobrazovat spoje';
 $strAnalyzeTable = 'Analyzovat tabulku';
 $strAnd = 'a';
 $strAndThen = 'a poté';
@@ -235,7 +234,6 @@ $strDirectLinks = 'Přímé spoje';
 $strDirtyPages = 'Změněných stránek';
 $strDisabled = 'Vypnuto';
 $strDisableForeignChecks = 'Vypnout kontrolu cizích klíčů';
-$strDisableForFasterScrolling = 'Vypněte pro rychlejší posun';
 $strDisplayFeat = 'Zobrazení funkcí';
 $strDisplayOrder = 'Seřadit podle:';
 $strDisplayPDF = 'Zobrazit jako schéma v&nbsp;PDF';
@@ -1023,4 +1021,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strToggleSmallBig = 'Toggle small/big';  //to translate
 ?>

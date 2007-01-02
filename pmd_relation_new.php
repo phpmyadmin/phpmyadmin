@@ -11,6 +11,8 @@ extract($_POST);
 $tables = PMA_DBI_get_tables_full($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
 $tables = PMA_DBI_get_tables_full($db, $T2);
+//print_r($tables);
+//die();
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 //  I n n o D B
@@ -19,7 +21,7 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
     $existrel_innodb = PMA_getForeigners($db, $T2, '', 'innodb'); 
     if (isset($existrel_innodb[$F2]) 
      && isset($existrel_innodb[$F2]['constraint'])) {
-	     PMD_return(0,'ERROR : Relation already exists!');
+	     PMD_return(0,'strErrorRelationExists');
     }
 // note: in InnoDB, the index does not requires to be on a PRIMARY
 // or UNIQUE key
@@ -51,31 +53,46 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
         if ($on_update != 'nix') {
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
-        PMA_DBI_try_query($upd_query) or PMD_return(0,'ERROR : Relation not added!!!');
-    PMD_return(1,$strInnoDBRelationAdded);
+        PMA_DBI_try_query($upd_query) or PMD_return(0,'strErrorRelationAdded');
+    PMD_return(1,'strInnoDBRelationAdded');
     }
 
 //  n o n - I n n o D B
 } else {
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
-        PMD_return(0, $strGeneralRelationFeat . ' : ' . $strDisabled); 
+        PMD_return(0, 'strGeneralRelationFeat:strDisabled');
     } else {
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
 
-        $q = "INSERT INTO ".PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])." 
-        (master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
-        VALUES ('".$db."','".$T2."','$F2','".
-        $db."','".$T1."','$F1')";
+        $q  = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
+                            . ' values('
+                            . '\'' . PMA_sqlAddslashes($db) . '\', '
+                            . '\'' . PMA_sqlAddslashes($T2) . '\', '
+                            . '\'' . PMA_sqlAddslashes($F2) . '\', '
+                            . '\'' . PMA_sqlAddslashes($db) . '\', '
+                            . '\'' . PMA_sqlAddslashes($T1) . '\','
+                            . '\'' . PMA_sqlAddslashes($F1) . '\')';
+        
         PMA_query_as_cu( $q , true, PMA_DBI_QUERY_STORE);// or PMD_return(0,'ERROR : Relation not added!'); 
        
-        PMD_return(1, $strInternalRelationAdded); 
+        PMD_return(1, 'strInternalRelationAdded'); 
    }
 }
 
 function PMD_return($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;
-    die('<root act="relation_new" return="'.$ret.'" b="'.$b.'" DB1="'.$db.'" T1="'.$T1.'" F1="'.$F1.'" DB2="'.$db.'" T2="'.$T2.'" F2="'.$F2.'"></root>');
+    header("Content-Type: text/xml; charset=utf-8");//utf-8 .$_GLOBALS['charset']
+    header("Cache-Control: no-cache");
+    die('<root act="relation_new" return="'.$ret.'" b="'.$b.
+    '" DB1="'.urlencode($db).
+    '" T1="'.urlencode($T1).
+    '" F1="'.urlencode($F1).
+    '" DB2="'.urlencode($db).
+    '" T2="'.urlencode($T2).
+    '" F2="'.urlencode($F2).
+    '"></root>');
 }
 ?>

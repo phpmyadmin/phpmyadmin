@@ -31,15 +31,23 @@ if ($type_T1 == 'INNODB' && $type_T2 == 'INNODB') {
 }
 //---------------------------------------------------------------------------------------------------  
 
-PMA_query_as_cu("DELETE FROM ".$cfg['Server']['relation']." WHERE 
-                 master_db = '$DB2' AND master_table = '$T2' AND master_field = '$F2' 
-                 AND foreign_db = '$DB1' AND foreign_table = '$T1' AND foreign_field = '$F1'", FALSE, PMA_DBI_QUERY_STORE);
 
-PMD_return(1, $strRelationDeleted); 
+PMA_query_as_cu('DELETE FROM '.$cfg['Server']['relation'].' WHERE '
+              . 'master_db = \'' . PMA_sqlAddslashes($DB2) . '\'' 
+              . 'AND master_table = \'' . PMA_sqlAddslashes($T2) . '\'' 
+              . 'AND master_field = \'' . PMA_sqlAddslashes($F2) . '\'' 
+              . 'AND foreign_db = \'' . PMA_sqlAddslashes($DB1) . '\'' 
+              . 'AND foreign_table = \'' . PMA_sqlAddslashes($T1) . '\'' 
+              . 'AND foreign_field = \'' . PMA_sqlAddslashes($F1) . '\''
+              , FALSE, PMA_DBI_QUERY_STORE);
+
+PMD_return(1, 'strRelationDeleted'); 
 
 function PMD_return($b,$ret)
 {
   global $K;
+  header("Content-Type: text/xml; charset=utf-8");
+  header("Cache-Control: no-cache");
   die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
 }
 ?>

@@ -23,80 +23,77 @@ var Glob_X, Glob_Y;
 var relation_style = 0;
 var timeoutID;
 var layer_menu_cur_click = 0;
- 
-window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP); 
-window.onmousedown = MouseDown; 
-window.onmouseup   = MouseUp; 
-window.onmousemove = MouseMove; 
-window.onscroll  = function(){General_scroll();} 
+
+//---------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
+
+
+//window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP); 
+//---CROSS
+document.onmousedown = MouseDown; 
+document.onmouseup   = MouseUp; 
+document.onmousemove = MouseMove;
+
+isIE = document.all && !window.opera;
+isNN = !document.all && document.getElementById;
+isN4 = document.layers;
+
+if(isIE) window.onscroll = General_scroll; 
+
 //document.onmouseup = function(){General_scroll_end();}
-
-function ToInt(s)
-{
-  return s.substring(0,s.length-2)*1; //re = /(\d+)\w*/; newstr = str.replace(re, "$1");
-}
-
-function Canvas_pos()
-{
-  canvas_width  = document.getElementById('canvas').width  = osn_tab_width  - 3;
-  canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
-}
-
-function Osn_tab_pos()
-{
-  osn_tab_width  = ToInt(document.getElementById('osn_tab').style.width);
-  osn_tab_height = ToInt(document.getElementById('osn_tab').style.height);
-}
-
-
-function Main()
-{ //alert( document.getElementById('osn_tab').offsetTop);
-  document.getElementById("layer_menu").style.top = -1000;
-  sm_x += document.getElementById('osn_tab').offsetLeft;
-  sm_y += document.getElementById('osn_tab').offsetTop;
-  Osn_tab_pos(); 
-  Canvas_pos(); 
-  Small_tab_refresh();
-  Re_load();
-  id_hint = document.getElementById('hint');
-  General_scroll();
-}
-
 function MouseDown(e) 
 { 
   if (cur_click != null) 
   { 
+    offsetx=isIE ? event.clientX + document.body.scrollLeft : e.pageX;
+    offsety=isIE ? event.clientY + document.body.scrollTop : e.pageY;
+    dx = offsetx - parseInt(cur_click.style.left);
+    dy = offsety - parseInt(cur_click.style.top);
+    //alert(" dx = " + dx + " dy = " +dy);
     document.getElementById("canvas").style.visibility = 'hidden';
-    var left = ToInt(cur_click.style.left);
-    var top  = ToInt(cur_click.style.top);
+    /*
+    var left = parseInt(cur_click.style.left);
+    var top  = parseInt(cur_click.style.top);
     dx = e.pageX - left; 
     dy = e.pageY - top;
-    cur_click.style.zIndex = 2;
+    
+    alert(" dx = " + dx + " dy = " +dy);*/
+    cur_click.style.zIndex = 2;    
   }
   if(layer_menu_cur_click)
   {
-    dx = e.pageX - ToInt(document.getElementById("layer_menu").style.width); 
-    //dy = e.pageY - ToInt(document.getElementById("layer_menu").style.height);
-    //dy2 = e.pageY - ToInt(document.getElementById("id_scroll_tab").style.height);
+    offsetx=isIE ? event.clientX + document.body.scrollLeft: e.pageX;
+    dx = offsetx - parseInt(document.getElementById("layer_menu").style.width); 
   }
 } 
 
 function MouseMove(e)
 { 
-  Glob_X = e.pageX; 
-  Glob_Y = e.pageY;
+  
+  //Glob_X = e.pageX; 
+  //Glob_Y = e.pageY;
+  Glob_X = isIE ? event.clientX + document.body.scrollLeft: e.pageX; 
+  Glob_Y = isIE ? event.clientY + document.body.scrollTop: e.pageY;
+
+  // mouseX= (bw.ns4||bw.ns6)? e.pageX: bw.ie&&bw.win&&!bw.ie4? (event.clientX-2)+document.body.scrollLeft : event.clientX+document.body.scrollLeft;
+  //mouseY= (bw.ns4||bw.ns6)? e.pageY: bw.ie&&bw.win&&!bw.ie4? (event.clientY-2)+document.body.scrollTop : event.clientY+document.body.scrollTop;
+  
+  //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
+  
+  
   if (cur_click != null) 
   {
-    if((e.pageX - dx)>0)
-    cur_click.style.left = e.pageX - dx;
-    if((e.pageY - dy)>0)
-    cur_click.style.top  = e.pageY - dy;
+    if((Glob_X - dx)>0)
+    cur_click.style.left = Glob_X - dx;
+    if((Glob_Y - dy)>0)
+    cur_click.style.top  = Glob_Y - dy;
   }
 
   if (ON_relation) 
   {
-    document.getElementById('hint').style.left = e.pageX + 20;
-    document.getElementById('hint').style.top  = e.pageY + 20;
+    document.getElementById('hint').style.left = Glob_X + 20;
+    document.getElementById('hint').style.top  = Glob_Y + 20;
   }
 
   if(layer_menu_cur_click)
@@ -104,7 +101,6 @@ function MouseMove(e)
     document.getElementById("layer_menu").style.width = Glob_X - dx>=150?Glob_X - dx:150;
     //document.getElementById("layer_menu").style.height = Glob_Y - dy>=200?Glob_Y - dy:200;
     //document.getElementById("id_scroll_tab").style.height = Glob_Y - dy2;
-    
   }
 }
 
@@ -118,7 +114,55 @@ function MouseUp(e)
     cur_click = null; 
   }
   layer_menu_cur_click=0;
-  window.releaseEvents(Event.MOUSEMOVE); 
+  //window.releaseEvents(Event.MOUSEMOVE); 
+}
+//---------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
+
+
+//function ToInt(s)
+//{
+ // return s.substring(0,s.length-2)*1; //re = /(\d+)\w*/; newstr = str.replace(re, "$1");
+//}
+
+function Canvas_pos()
+{
+  canvas_width  = document.getElementById('canvas').width  = osn_tab_width  - 3;
+  canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
+
+   if(isIE)
+  { 
+    document.getElementById('canvas').style.width  = (osn_tab_width  - 3)?(osn_tab_width  - 3):0;
+    document.getElementById('canvas').style.height = (osn_tab_height - 3)?(osn_tab_height - 3):0;
+  }
+}
+
+function Osn_tab_pos()
+{
+  osn_tab_width  = parseInt(document.getElementById('osn_tab').style.width);
+  osn_tab_height = parseInt(document.getElementById('osn_tab').style.height);
+}
+
+
+function Main()
+{ //alert( document.getElementById('osn_tab').offsetTop);
+ //---CROSS 
+  if(isIE)
+  {
+    document.getElementById('top_menu').style.position = 'absolute';
+    document.getElementById('layer_menu').style.position = 'absolute';
+  }
+
+  document.getElementById("layer_menu").style.top = -1000; //fast scroll
+  sm_x += document.getElementById('osn_tab').offsetLeft;
+  sm_y += document.getElementById('osn_tab').offsetTop;
+  Osn_tab_pos(); 
+  Canvas_pos(); 
+  Small_tab_refresh();
+  Re_load();
+  id_hint = document.getElementById('hint');
+  General_scroll();
 }
 
 
@@ -128,8 +172,8 @@ function Rezize_osn_tab()
   var max_X = max_Y = 0;
   for (key in j_tabs)
   { 
-    k_x = ToInt(document.getElementById(key).style.left) + document.getElementById(key).offsetWidth;
-    k_y = ToInt(document.getElementById(key).style.top) + document.getElementById(key).offsetHeight;
+    k_x = parseInt(document.getElementById(key).style.left) + document.getElementById(key).offsetWidth;
+    k_y = parseInt(document.getElementById(key).style.top) + document.getElementById(key).offsetHeight;
     max_X = max_X < k_x ? k_x : max_X;
     max_Y = max_Y < k_y ? k_y : max_Y;
   }
@@ -168,16 +212,18 @@ function Re_load()
           if(n==2){ x1 = x1_right+sm_s; x2 = x2_left-sm_s;  if(x1>x2)n=0;}
           if(n==3){ x1 = x1_right+sm_s; x2 = x2_right+sm_s; s_right = 1; }
           if(n==0){ x1 = x1_left-sm_s;  x2 = x2_left-sm_s;  s_left = 1;  }
-     
+    // alert(key2+"."+key3);
           var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2+"."+key3).offsetTop + height_field;
+      //    alert(1);
           var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop + 
                    document.getElementById(contr[K][key][key2][key3][0]+"."+contr[K][key][key2][key3][1]).offsetTop + height_field;
           Line0(x1-sm_x,y1-sm_y,x2-sm_x,y2-sm_y,"rgba(0,100,150,1)");
+          
         }
 }
 
 function Line(x1,y1,x2,y2,color_line) 
-{  
+{ 
   var canvas = document.getElementById("canvas");
   var ctx    = canvas.getContext("2d");
   ctx.strokeStyle = color_line;
@@ -285,8 +331,8 @@ function Save(url) // (del?) no for pdf
 {
   for (key in j_tabs)
   {
-    document.getElementById('t_x['+key+']').value=ToInt(document.getElementById(key).style.left);
-    document.getElementById('t_y['+key+']').value=ToInt(document.getElementById(key).style.top);
+    document.getElementById('t_x['+key+']').value=parseInt(document.getElementById(key).style.left);
+    document.getElementById('t_y['+key+']').value=parseInt(document.getElementById(key).style.top);
     document.getElementById('t_v['+key+']').value=document.getElementById('_|_tbody_'+key).style.display=='none'?0:1;
     document.getElementById('t_h['+key+']').value=document.getElementById('check_vis_'+key).checked?1:0;
   }
@@ -299,8 +345,8 @@ function Get_url_pos()
   var poststr = '';
   for (key in j_tabs)
   {
-    poststr += '&t_x['+key+']=' + ToInt(document.getElementById(key).style.left);
-    poststr += '&t_y['+key+']=' + ToInt(document.getElementById(key).style.top);
+    poststr += '&t_x['+key+']=' + parseInt(document.getElementById(key).style.left);
+    poststr += '&t_y['+key+']=' + parseInt(document.getElementById(key).style.top);
     poststr += '&t_v['+key+']=' + (document.getElementById('_|_tbody_'+key).style.display == 'none' ? 0 : 1);
     poststr += '&t_h['+key+']=' + (document.getElementById('check_vis_'+key).checked ? 1 : 0);
   }
@@ -323,12 +369,16 @@ function Start_relation()
     document.getElementById('hint').innerHTML = LangSelectReferencedKey;
     document.getElementById('hint').style.visibility = "visible";
     document.getElementById('rel_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
+    
+    if(isIE) { // correct for IE
+      document.getElementById('rel_button').className = 'M_butt_Selected_down_IE';
+    }
   }
   else
   {
     document.getElementById('hint').innerHTML = "";
     document.getElementById('hint').style.visibility = "hidden";
-    document.getElementById('rel_button').className = 'M_butt_Selected';
+    document.getElementById('rel_button').className = 'M_butt';
     click_field = 0; 
     ON_relation = 0;  
   }
@@ -364,6 +414,8 @@ function New_relation()
   link_relation += '&db=' + db + '&token=' + token + '&die_save_pos=0';
   link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
   link_relation += Get_url_pos();
+  
+  //alert(link_relation);
   makeRequest('pmd_relation_new.php', link_relation);
 }
 
@@ -382,6 +434,10 @@ function Start_tab_upd(table)
 
 function Small_tab_all(id_this) // max/min all tables
 {
+  if(isIE) {
+    alert(LangIEnotSupport);
+    return;
+  }
   if(id_this.alt=="v")
   {
     for (key in j_tabs)
@@ -403,6 +459,10 @@ function Small_tab_all(id_this) // max/min all tables
 
 function Small_tab_invert() // invert max/min all tables
 {
+  if(isIE) {
+    alert(LangIEnotSupport);
+    return;
+  }
   for (key in j_tabs)
     Small_tab(key,0);
   Re_load();
@@ -427,6 +487,8 @@ function Small_tab(t,re_load)
   id_t.style.width = id_t.offsetWidth;
   if(id_this.innerHTML=="v")
   {
+    //---CROSS
+    if(isIE) return; //IE not supported
     id.style.display = 'none';
     id_this.innerHTML = '>';
   }
@@ -442,9 +504,14 @@ function Select_tab(t)
 {
   var id_zag = document.getElementById('_|_zag_'+t);
   if(id_zag.className != 'tab_zag_3')
-    document.getElementById('_|_zag_'+t).className = 'tab_zag_3';
+    document.getElementById('_|_zag_'+t).className = 'tab_zag_2';
   else
     document.getElementById('_|_zag_'+t).className = 'tab_zag';
+  //----------
+  var id_t    = document.getElementById(t);
+  window.scrollTo( parseInt(id_t.style.left)-300, parseInt(id_t.style.top)-300 );
+  
+  setTimeout(function(){document.getElementById('_|_zag_'+t).className = 'tab_zag';},800);
 }
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -576,20 +643,41 @@ function PDF_save()
 
 function General_scroll()
 {
+   /*
   if(!document.getElementById('show_relation_olways').checked)
   {
     document.getElementById("canvas").style.visibility = 'hidden';
     clearTimeout(timeoutID);
     timeoutID = setTimeout(General_scroll_end,500);
-  }
+  }*/
+  //if(timeoutID)
+  clearTimeout(timeoutID);
+  timeoutID = setTimeout
+  (
+    function()
+    {  
+      document.getElementById('top_menu').style.left = document.body.scrollLeft;
+      document.getElementById('top_menu').style.top  = document.body.scrollTop;
+      document.getElementById('layer_menu').style.left = document.body.scrollLeft;
+      document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
+    }
+    ,200
+  );
 } 
 
+/*
 function General_scroll_end()
 { 
-  //document.getElementById('layer_menu').style.left = document.body.scrollLeft;
-  //document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
+//  document.getElementById('layer_menu').style.left = document.body.scrollLeft;
+//  document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
+  //if(isIE)
+  //{
+  //  document.getElementById('layer_menu').style.left = document.body.scrollLeft;
+  //  document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
+  //}
   document.getElementById("canvas").style.visibility = 'visible';
 }
+*/
 
 function Show_left_menu(id_this) // max/min all tables
 {
@@ -599,10 +687,11 @@ function Show_left_menu(id_this) // max/min all tables
     document.getElementById("layer_menu").style.visibility = 'visible';
     id_this.alt = ">";
     id_this.src="pmd/images/uparrow2_m.png";
+    if(isIE) General_scroll();
   }
   else
   {  
-    document.getElementById("layer_menu").style.top = -1000;
+    document.getElementById("layer_menu").style.top = -1000; //fast scroll
     document.getElementById("layer_menu").style.visibility = 'hidden';
     id_this.alt = "v";
     id_this.src="pmd/images/downarrow2_m.png";

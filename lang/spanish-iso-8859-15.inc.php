@@ -976,7 +976,6 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 
 $strZip = '"comprimido con zip"';
 
 // To translate:
-$strAlwaysShowLinks = 'Always show links';  //to translate
 $strAngularLinks = 'Angular links';  //to translate
 
 $strCancel = 'Cancel';  //to translate
@@ -987,7 +986,6 @@ $strDbIsEmpty = 'Database seems to be empty!';  //to translate
 $strDeleteRelation = 'Delete relation';  //to translate
 $strDesigner = 'Designer';  //to translate
 $strDirectLinks = 'Direct links';  //to translate
-$strDisableForFasterScrolling = 'Disable for faster scrolling';  //to translate
 $strDocSQL = 'DocSQL';  //to translate
 $strDocSQLOptions = 'DocSQL options';  //to translate
 
@@ -1032,4 +1030,5 @@ $strTransformation_text_plain__dateformat = 'Toma un campo TIME, TIMESTAMP o DAT
 $strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 $strStructureForView = 'Structure for view';  //to translate
 $strStandInStructureForView = 'Stand-in structure for view';  //to translate
+$strToggleSmallBig = 'Toggle small/big';  //to translate
 ?>

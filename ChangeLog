@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * Designer: various fixes and improvements (for example support
+      for MSIE 6), thanks to Ivan Kirillov
+
 2007-01-02 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Add <div> to allow selecting whole SQL by
       tripple click (patch #1611591).

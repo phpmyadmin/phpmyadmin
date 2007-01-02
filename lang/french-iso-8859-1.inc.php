@@ -49,7 +49,6 @@ $strAllowInterrupt = 'Permettre l\'interruption de l\'importation si la limite d
 $strAllTableSameWidth = 'Afficher toutes les tables avec une largeur identique';
 $strAll = 'Tout';
 $strAlterOrderBy = '<b>Ordonner</b> la table par';
-$strAlwaysShowLinks = 'Toujours afficher les liens';
 $strAnalyzeTable = 'Analyser la table';
 $strAnd = 'et';
 $strAndThen = 'et ensuite';
@@ -231,7 +230,6 @@ $strDirectLinks = 'Liens directs';
 $strDirtyPages = 'Pages modifiées';
 $strDisabled = 'désactivé';
 $strDisableForeignChecks = 'Désactiver la vérification des clés étrangères';
-$strDisableForFasterScrolling = 'Désactiver pour un rendu plus fluide';
 $strDisplayFeat = 'Affichage infobulle';
 $strDisplayOrder = 'Ordre d\'affichage :';
 $strDisplayPDF = '<b>Afficher le schéma</b> en PDF';
@@ -1019,4 +1017,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strToggleSmallBig = 'Toggle small/big';  //to translate
 ?>

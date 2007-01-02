@@ -19,7 +19,7 @@ if (isset($scale)) {
 
     if (isset($exp)) {
 
-        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number . ", x, y FROM " . $pmd_table . " WHERE db_name = '" . $db . "'";
+        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number . ", ROUND(x/" . $scale . ") , ROUND(y/" . $scale . ") y FROM " . $pmd_table . " WHERE db_name = '" . $db . "'";
 
         PMA_query_as_cu($sql,TRUE,PMA_DBI_QUERY_STORE);
     }

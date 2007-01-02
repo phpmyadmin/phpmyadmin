@@ -1004,8 +1004,6 @@ $strImportExportCoords = 'Import/Export coordinates for PDF schema';  //to trans
 $strMoveMenu = 'Move Menu';  //to translate
 $strAngularLinks = 'Angular links';  //to translate
 $strDirectLinks = 'Direct links';  //to translate
-$strAlwaysShowLinks = 'Always show links';  //to translate
-$strDisableForFasterScrolling = 'Disable for faster scrolling';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
@@ -1024,4 +1022,5 @@ $strDeleteRelation = 'Delete relation';  //to translate
 $strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
 $strStructureForView = 'Structure for view';  //to translate
 $strStandInStructureForView = 'Stand-in structure for view';  //to translate
+$strToggleSmallBig = 'Toggle small/big';  //to translate
 ?>

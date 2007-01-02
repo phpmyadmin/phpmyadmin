@@ -48,12 +48,13 @@ function alertContents()
   }
   if (http_request.readyState == 2 ) document.getElementById("layer_action").innerHTML  = 'Loaded';
   if (http_request.readyState == 3 ) document.getElementById("layer_action").innerHTML  = 'Loading 99%';
-  if (http_request.readyState == 4) 
+  if (http_request.readyState == 4 ) 
   {
     if (http_request.status == 200) 
     {
-      xmldoc  = http_request.responseXML;
-      textdoc = http_request.responseText; 
+      textdoc = http_request.responseText;
+      //alert(textdoc);
+      xmldoc  = http_request.responseXML; 
       PrintXML();
       document.getElementById("layer_action").style.visibility = 'hidden';
     } 
@@ -67,7 +68,7 @@ function alertContents()
 function PrintXML()
 {
   var root = xmldoc.getElementsByTagName('root').item(0);  //root
-  
+  //alert(xmldoc.getElementsByTagName('root').item(1));
   if(root==null) // if error
   {
     myWin=window.open('','Report','width=400, height=250, resizable=1, scrollbars=1, status=1');
@@ -79,27 +80,30 @@ function PrintXML()
   {
     //alert(xmldoc.getElementsByTagName('root')[0]);
     //alert(root.attributes[0].nodeValue);
-    if(root.attributes['act'].nodeValue == 'save_pos')
-      alert(root.attributes['return'].nodeValue);
-    if(root.attributes['act'].nodeValue == 'relation_upd')
+    //alert(xmldoc.getElementsByTagName('root')[0].attributes[0].nodeValue);
+    //xmldoc.getElementsByTagName('root')[0].getAttribute("act")
+    
+    if(root.getAttribute('act') == 'save_pos')
+      alert(strLang[root.getAttribute('return')]);
+    if(root.getAttribute('act') == 'relation_upd')
     {
-      alert(root.attributes['return'].nodeValue);
-      if(root.attributes['b'].nodeValue=='1')
+      alert(strLang[root.getAttribute('return')]);
+      if(root.getAttribute('b')=='1')
       {
-        contr.splice(root.attributes['K'].nodeValue, 1);
+        contr.splice(root.getAttribute('K'), 1);
         Re_load();
       }
     }
-    if(root.attributes['act'].nodeValue == 'relation_new')
+    if(root.getAttribute('act') == 'relation_new')
     {
-      alert(root.attributes['return'].nodeValue);
-      if(root.attributes['b'].nodeValue=='1')
+      alert(strLang[root.getAttribute('return')]);
+      if(root.getAttribute('b')=='1')
       {
         var i  = contr.length;
-        var t1 = root.attributes['DB1'].nodeValue + '.' + root.attributes['T1'].nodeValue;
-        var f1 = root.attributes['F1'].nodeValue;
-        var t2 = root.attributes['DB2'].nodeValue + '.' + root.attributes['T2'].nodeValue;
-        var f2 = root.attributes['F2'].nodeValue;
+        var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');
+        var f1 = root.getAttribute('F1');
+        var t2 = root.getAttribute('DB2') + '.' + root.getAttribute('T2');
+        var f2 = root.getAttribute('F2');
         contr[i] = new Array();
         contr[i][''] = new Array();
          contr[i][''][t2] = new Array();

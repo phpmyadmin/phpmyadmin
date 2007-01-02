@@ -7,6 +7,9 @@
 */
 
 require_once './libraries/common.lib.php';
+// not understand
+require_once './libraries/header_http.inc.php';
+
 $GLOBALS['PMD']['STYLE']          = 'default'; 
 
 require_once './libraries/relation.lib.php';
@@ -26,7 +29,16 @@ function get_tabs() // PMA_DBI
     foreach ($tables as $one_table) {
         $GLOBALS['PMD']['TABLE_NAME'][$i] = $db . "." . $one_table['TABLE_NAME'];
         $GLOBALS['PMD']['OWNER'][$i] = $db;
-        $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];  
+        $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
+        
+        $GLOBALS['PMD_URL']['TABLE_NAME'][$i] = urlencode($db . "." . $one_table['TABLE_NAME']);
+        $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($db);
+        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i] = urlencode($one_table['TABLE_NAME']);
+        
+        $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars($db . "." . $one_table['TABLE_NAME'], ENT_QUOTES);
+        $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars($db, ENT_QUOTES);
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);
+               
         $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
         $i++;
     } 
@@ -62,24 +74,28 @@ function get_script_contr() {
     $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db), NULL, PMA_DBI_QUERY_STORE);
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($db,$val[0],'','internal');
+        //echo "<br> internal ".$db." - ".$val[0]." - ";
+        //print_r($row );
         if ($row !== false) {
             foreach ($row as $field => $value) { 
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = $db . "." . $val[0];
-                $con['DCN'][$i]    = $field;
-                $con['STN'][$i]    = $value['foreign_db'] . "." . $value['foreign_table'];
-                $con['SCN'][$i]    = $value['foreign_field'];
+                $con['DTN'][$i]    = urlencode($db . "." . $val[0]);
+                $con['DCN'][$i]    = urlencode($field);
+                $con['STN'][$i]    = urlencode($value['foreign_db'] . "." . $value['foreign_table']);
+                $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
         }
         $row = PMA_getForeigners($db,$val[0],'','innodb');
+        //echo "<br> INNO ";
+        //print_r($row );
         if ($row !== false) {
             foreach ($row as $field => $value) { 
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = $db.".".$val[0];
-                $con['DCN'][$i]    = $field;
-                $con['STN'][$i]    = $value['foreign_db'].".".$value['foreign_table'];
-                $con['SCN'][$i]    = $value['foreign_field'];
+                $con['DTN'][$i]    = urlencode($db.".".$val[0]);
+                $con['DCN'][$i]    = urlencode($field);
+                $con['STN'][$i]    = urlencode($value['foreign_db'].".".$value['foreign_table']);
+                $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
         }
@@ -90,7 +106,7 @@ function get_script_contr() {
     for ( $i=0; $i < sizeof( $con["C_NAME"] ); $i++ ) {
         $script_contr .= " contr[$ti] = new Array();\n";
         $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."'] = new Array();\n";
-        if (in_array($con['DTN'][$i],$GLOBALS['PMD']["TABLE_NAME"]) && in_array($con['STN'][$i],$GLOBALS['PMD']["TABLE_NAME"])) {
+        if (in_array($con['DTN'][$i],$GLOBALS['PMD_URL']["TABLE_NAME"]) && in_array($con['STN'][$i],$GLOBALS['PMD_URL']["TABLE_NAME"])) {
             $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."'] = new Array();\n";$m_col = array();//}
             $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'] = new Array();\n";//}
             $script_contr .= "    contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'][0] = '".$con['STN'][$i]."';\n"; // 
@@ -153,7 +169,7 @@ function get_all_keys() {
 function get_script_tabs() {
     $script_tabs = "<script> var j_tabs = new Array();\n";
     for ( $i=0; $i < sizeof( $GLOBALS['PMD']['TABLE_NAME'] ); $i++ ) {
-        $script_tabs .= "j_tabs['".$GLOBALS['PMD']['TABLE_NAME'][$i]."'] = '".$GLOBALS['PMD']['TABLE_TYPE'][$i]."';\n";
+        $script_tabs .= "j_tabs['".$GLOBALS['PMD_URL']['TABLE_NAME'][$i]."'] = '".$GLOBALS['PMD']['TABLE_TYPE'][$i]."';\n";
     }
     $script_tabs .= "</script>";
     return $script_tabs;
