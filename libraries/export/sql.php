@@ -321,7 +321,7 @@ function PMA_exportDBFooter($db)
               . $comment_marker . $crlf
               . $comment_marker . $GLOBALS['strProcedures'] . $crlf 
               . $comment_marker . $crlf
-              . $comment_marker . 'DELIMITER ' . $delimiter . $crlf
+              . 'DELIMITER ' . $delimiter . $crlf
               . $comment_marker . $crlf;
 
             foreach($procedure_names as $procedure_name) {
@@ -329,7 +329,7 @@ function PMA_exportDBFooter($db)
             }
 
             $procs_funcs .= $comment_marker . $crlf
-              . $comment_marker . 'DELIMITER ;' . $crlf
+              . 'DELIMITER ;' . $crlf
               . $comment_marker . $crlf;
         }
 
