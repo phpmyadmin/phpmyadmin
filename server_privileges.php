@@ -1143,6 +1143,9 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                 unset($res);
             }
             if ( PMA_MYSQL_INT_VERSION >= 40101 ) {
+                if (PMA_MYSQL_INT_VERSION < 50002) {
+                    $queries[] = 'REVOKE GRANT OPTION ON *.* FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+                }
                 $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
             } else {
                 $queries[] = 'DELETE FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
