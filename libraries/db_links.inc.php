@@ -72,8 +72,7 @@ $tab_qbe['link']        = 'db_qbe.php';
 
 if ($cfgRelation['designerwork']) {
     $tab_designer['text']   = $GLOBALS['strDesigner'];
-    // find something better (like pmd/images/relation.png) 
-    $tab_designer['icon']   = 'b_edit.png';
+    $tab_designer['icon']   = 'b_relations.png';
     $tab_designer['link']   = 'pmd_general.php';
 }
 

@@ -8,6 +8,7 @@ $HeadURL$
 2007-01-04 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: avoid text selection when moving a table object
       under MSIE 6, thanks to Ivan Kirillov
+    * libraries/db_links.inc.php: better icon for Designer, thanks to I.K.
 
 2007-01-02 Marc Delisle  <lem9@users.sourceforge.net>
     * Designer: various fixes and improvements (for example support
