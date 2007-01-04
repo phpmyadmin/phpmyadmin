@@ -39,7 +39,10 @@ isIE = document.all && !window.opera;
 isNN = !document.all && document.getElementById;
 isN4 = document.layers;
 
-if(isIE) window.onscroll = General_scroll; 
+if (isIE) {
+  window.onscroll = General_scroll; 
+  document.onselectstart = function () {return false;};
+}
 
 //document.onmouseup = function(){General_scroll_end();}
 function MouseDown(e) 
