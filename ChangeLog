@@ -8,6 +8,9 @@ $HeadURL$
 2007-01-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: bug #1538132, remove the setting of
       session.save_handler to 'files'
+    * pmd_general.php: patch #1627831,
+      English language improvements, thanks to Isaac Bennetch
+    * pmd_general.php, pmd_relation_new.php, lang/*: abstract messages 
 
 2007-01-04 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: avoid text selection when moving a table object

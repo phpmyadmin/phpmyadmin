@@ -1027,4 +1027,8 @@ $strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s'
 $strStructureForView = 'Structure for view';  //to translate
 $strStandInStructureForView = 'Stand-in structure for view';  //to translate
 $strToggleSmallBig = 'Toggle small/big';  //to translate
+$strIEUnsupported = 'Internet Explorer does not support this function.';  //to translate
+$strErrorRelationAdded = 'Error: Relation not added.';  //to translate
+$strErrorRelationExists = 'Error: relation already exists.';  //to translate
+$strErrorSaveTable = 'Error saving coordinates for Designer.';  //to translate
 ?>

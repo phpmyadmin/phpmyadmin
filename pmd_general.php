@@ -38,7 +38,7 @@ var token = '".$token."';
 var LangSelectReferencedKey = '$strSelectReferencedKey';
 var LangSelectForeignKey = '$strSelectForeignKey';
 var LangPleaseSelectPrimaryOrUniqueKey = '$strPleaseSelectPrimaryOrUniqueKey';
-var LangIEnotSupport = 'Internet Explorer not support!';
+var LangIEnotSupport = '$strIEUnsupported';
 //---
 var strLang = Array();
 strLang['strModifications'] = '$strModifications';
@@ -46,12 +46,10 @@ strLang['strRelationDeleted'] = '$strRelationDeleted';
 strLang['strInnoDBRelationAdded'] = '$strInnoDBRelationAdded';
 strLang['strGeneralRelationFeat:strDisabled'] = '$strGeneralRelationFeat : $strDisabled';
 strLang['strInternalRelationAdded'] = '$strInternalRelationAdded';
-strLang['strErrorRelationAdded'] = 'ERROR : Relation not added!!!';   
-strLang['strErrorRelationExists'] = 'ERROR : Relation already exists!';   
-strLang['strErrorSaveTable'] = 'Problem on table " . $GLOBALS['cfgRelation']['designer_coords'] . "';                   
+strLang['strErrorRelationAdded'] = '$strErrorRelationAdded';   
+strLang['strErrorRelationExists'] = '$strErrorRelationExists';   
+strLang['strErrorSaveTable'] = '$strErrorSaveTable';                   
 </script>";  
-// need $strErrorRelationAdded strErrorRelationExists strErrorSaveTable
-
 ?>
 <script language=javascript src="pmd/scripts/ajax.js" type=text/javascript></script>
 <script language=javascript src="pmd/scripts/move.js" type=text/javascript></script>

@@ -1022,4 +1022,8 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strToggleSmallBig = 'Toggle small/big';  //to translate
+$strIEUnsupported = 'Internet Explorer does not support this function.';  //to translate
+$strErrorRelationAdded = 'Error: Relation not added.';  //to translate
+$strErrorRelationExists = 'Error: relation already exists.';  //to translate
+$strErrorSaveTable = 'Error saving coordinates for Designer.';  //to translate
 ?>
