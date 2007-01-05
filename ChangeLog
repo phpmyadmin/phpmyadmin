@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-01-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/session.inc.php: bug #1538132, remove the setting of
+      session.save_handler to 'files'
+
 2007-01-02 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: undefined $pdf_page_number when no auto layout
     * server_privileges.php: bug #1614087, deleting a user having a
