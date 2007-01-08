@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-01-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/session.inc.php: prevent attack on session name cookie
+
 2007-01-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: bug #1538132, remove the setting of
       session.save_handler to 'files'
