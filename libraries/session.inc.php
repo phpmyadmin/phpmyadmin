@@ -81,7 +81,14 @@ session_cache_limiter('private');
 // See bug #1538132. This would block normal behavior on a cluster
 //ini_set('session.save_handler', 'files');
 
-@session_name('phpMyAdmin');
+$session_name = 'phpMyAdmin';
+@session_name($session_name);
+// strictly, PHP 4 since 4.4.2 would not need a verification 
+if (version_compare(PHP_VERSION, '5.1.2', 'lt') 
+ && isset($_COOKIE[$session_name]) 
+ && eregi("\r|\n", $_COOKIE[$session_name])) {
+    die('attacked'); 
+}
 @session_start();
 
 /**
@@ -93,7 +100,7 @@ if (!isset($_SESSION[' PMA_token '])) {
 }
 
 /**
- * trys to secure session from hijacking and fixation
+ * tries to secure session from hijacking and fixation
  * should be called before login and after successfull login
  * (only required if sensitive information stored in session)
  *
