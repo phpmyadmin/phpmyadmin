@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-01-09 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.2-rc1 released from QA_2_9
+
 2007-01-09 Michal Čihař  <michal@cihar.com>
     * index.php: Properly escape strings written in JS code.
     * libraries/Theme_Manager.class.php: Avoid trigger error here, parameter
