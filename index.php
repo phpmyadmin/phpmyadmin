@@ -116,18 +116,18 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <script type="text/javascript" language="javascript">
 // <![CDATA[
     // definitions used in querywindow.js
-    var common_query = '<?php echo PMA_generate_common_url('', '', '&');?>';
-    var opendb_url = '<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>';
+    var common_query = '<?php echo PMA_escapeJsString(PMA_generate_common_url('', '', '&'));?>';
+    var opendb_url = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['DefaultTabDatabase']); ?>';
     var safari_browser = <?php echo PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false' ?>;
-    var querywindow_height = <?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>;
-    var querywindow_width = <?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>;
-    var collation_connection = '<?php echo $GLOBALS['collation_connection']; ?>';
-    var lang = '<?php echo $GLOBALS['lang']; ?>';
-    var server = '<?php echo $GLOBALS['server']; ?>';
-    var table = '<?php echo $GLOBALS['table']; ?>';
-    var db    = '<?php echo $GLOBALS['db']; ?>';
-    var text_dir = '<?php echo $GLOBALS['text_dir']; ?>';
-    var pma_absolute_uri = '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>';
+    var querywindow_height = <?php echo PMA_escapeJsString($GLOBALS['cfg']['QueryWindowHeight']); ?>;
+    var querywindow_width = <?php echo PMA_escapeJsString($GLOBALS['cfg']['QueryWindowWidth']); ?>;
+    var collation_connection = '<?php echo PMA_escapeJsString($GLOBALS['collation_connection']); ?>';
+    var lang = '<?php echo PMA_escapeJsString($GLOBALS['lang']); ?>';
+    var server = '<?php echo PMA_escapeJsString($GLOBALS['server']); ?>';
+    var table = '<?php echo PMA_escapeJsString($GLOBALS['table']); ?>';
+    var db    = '<?php echo PMA_escapeJsString($GLOBALS['db']); ?>';
+    var text_dir = '<?php echo PMA_escapeJsString($GLOBALS['text_dir']); ?>';
+    var pma_absolute_uri = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['PmaAbsoluteUri']); ?>';
 // ]]>
 </script>
 <script src="./js/querywindow.js" type="text/javascript" language="javascript">

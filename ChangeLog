@@ -5,6 +5,14 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-09 Michal Čihař  <michal@cihar.com>
+    * index.php: Properly escape strings written in JS code.
+    * libraries/Theme_Manager.class.php: Avoid trigger error here, parameter
+      comes from user and it might lead to path disclossure.
+    * libraries/common.lib.php:
+        - Properly escape </script> in JS code.
+        - Check db, table and sql_query params to be string.
+
 2007-01-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: prevent attack on session name cookie
 

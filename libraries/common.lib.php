@@ -1156,7 +1156,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                             '\'' => '\\\'',
                             "\n" => '\n',
                             "\r" => '\r',
-                            '</script' => '<\' + \'script'));
+                            '</script' => '</\' + \'script'));
     }
 
     /**
@@ -2746,7 +2746,7 @@ if (isset($_REQUEST['convcharset'])) {
  * @global string $GLOBALS['db']
  */
 $GLOBALS['db'] = '';
-if (isset($_REQUEST['db'])) {
+if (isset($_REQUEST['db']) && is_string($_REQUEST['db'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in db names for MySQL
     $GLOBALS['db'] = $_REQUEST['db'];
@@ -2758,7 +2758,7 @@ if (isset($_REQUEST['db'])) {
  * @global string $GLOBALS['table']
  */
 $GLOBALS['table'] = '';
-if (isset($_REQUEST['table'])) {
+if (isset($_REQUEST['table']) && is_string($_REQUEST['table'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in table names for MySQL
     $GLOBALS['table'] = $_REQUEST['table'];
@@ -2769,7 +2769,7 @@ if (isset($_REQUEST['table'])) {
  * sql query to be executed
  * @global string $GLOBALS['sql_query']
  */
-if (isset($_REQUEST['sql_query'])) {
+if (isset($_REQUEST['sql_query']) && is_string($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
