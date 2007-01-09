@@ -142,9 +142,10 @@ class PMA_Theme_Manager {
         if ( ! $this->checkTheme($theme)) {
             $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strThemeNotFound'],
                 htmlspecialchars($theme));
-            trigger_error(
+            /* Following code can lead to path disclossure, because headers will be sent later */
+/*          trigger_error(
                 sprintf($GLOBALS['strThemeNotFound'], htmlspecialchars($theme)),
-                E_USER_WARNING);
+                E_USER_WARNING);*/
             return false;
         }
 
