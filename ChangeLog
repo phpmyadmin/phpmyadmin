@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/estonian: Update, thanks to Marko Ellermaa - uhuu
+
 2007-01-09 Michal Čihař  <michal@cihar.com>
     * index.php: Properly escape strings written in JS code.
     * libraries/Theme_Manager.class.php: Avoid trigger error here, parameter
