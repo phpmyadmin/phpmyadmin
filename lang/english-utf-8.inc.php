@@ -863,6 +863,7 @@ $strSkipQueries = 'Number of records(queries) to skip from start';
 $strSlovak = 'Slovak';
 $strSlovenian = 'Slovenian';
 $strSmallBigAll = 'Small/Big All';
+$strSnapToGrid = 'Snap to grid';
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';
 $strSortByKey = 'Sort by key';
 $strSorting = 'Sorting';

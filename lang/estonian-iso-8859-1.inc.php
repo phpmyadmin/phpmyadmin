@@ -1031,4 +1031,5 @@ $strIEUnsupported = 'Internet Explorer does not support this function.';  //to t
 
 $strToggleSmallBig = 'Toggle small/big';  //to translate
 
+$strSnapToGrid = 'Snap to grid';  //to translate
 ?>

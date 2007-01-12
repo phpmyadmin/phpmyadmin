@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * (many files): Designer, two features (snap to grid / display field)
+      thanks to Ivan Kirillov
+
 2007-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Update, thanks to Marko Ellermaa - uhuu
 

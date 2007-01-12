@@ -1,7 +1,6 @@
 /*
 $Id$
-@author  Ivan A Kirillov (develop.php@gmail.com)
-www.phpMyDesigner.net
+@author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
 */
 var dx, dy, dy2;
 var cur_click;
@@ -11,6 +10,8 @@ var sm_add         = 10;
 var s_left         = 0;
 var s_right        = 0;
 var ON_relation    = 0;
+var ON_grid        = 0;
+var ON_display_field = 0;
 var click_field    = 0;
 var link_relation  = "";
 var id_hint;
@@ -20,9 +21,10 @@ var osn_tab_width  = 0;
 var osn_tab_height = 0;
 var height_field   = 7;
 var Glob_X, Glob_Y;
-var relation_style = 0;
+var relation_style = 0; // relation_style: 0 - angular 1 - direct
 var timeoutID;
 var layer_menu_cur_click = 0;
+var step = 10;
 
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
@@ -84,16 +86,25 @@ function MouseMove(e)
   
   //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
   
-  
+  var mGx, mGy;
   if (cur_click != null) 
   {
-    if((Glob_X - dx)>0)
-    cur_click.style.left = Glob_X - dx;
-    if((Glob_Y - dy)>0)
-    cur_click.style.top  = Glob_Y - dy;
+    mGx = Glob_X - dx;
+    mGy = Glob_Y - dy;
+    mGx = mGx > 0 ? mGx : 0;
+    mGy  = mGy > 0 ? mGy : 0;
+ 
+    if(ON_grid)
+    {
+      mGx = mGx % step < step / 2 ? mGx - mGx % step : mGx - mGx % step + step;
+      mGy = mGy % step < step / 2 ? mGy - mGy % step : mGy - mGy % step + step;
+    }
+    
+    cur_click.style.left = mGx;
+    cur_click.style.top  = mGy;
   }
 
-  if (ON_relation) 
+  if (ON_relation || ON_display_field) 
   {
     document.getElementById('hint').style.left = Glob_X + 20;
     document.getElementById('hint').style.top  = Glob_Y + 20;
@@ -362,9 +373,29 @@ function Save2()
   poststr += Get_url_pos();
   makeRequest('pmd_save_pos.php', poststr);
 }
+
+function Grid()
+{
+  if(!ON_grid )
+  {
+    ON_grid = 1;
+    document.getElementById('grid_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
+  
+    if(isIE) { // correct for IE
+      document.getElementById('grid_button').className = 'M_butt_Selected_down_IE';
+    }
+  }
+  else
+  {
+    document.getElementById('grid_button').className = 'M_butt';
+    ON_grid = 0;  
+  }
+}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function Start_relation()
 {
+  if(ON_display_field) return; 
+
   if(!ON_relation )
   {
     document.getElementById('InnoDB_relation').style.display = '';
@@ -408,6 +439,14 @@ function Click_field(T,f,PK) // table field
       document.getElementById('layer_new_relation').style.visibility = "visible";
       link_relation += '&T2=' + T + '&F2=' + f;   
     }
+  }
+  
+  if(ON_display_field)
+  {
+    document.getElementById('hint').innerHTML = "";
+    document.getElementById('hint').style.visibility = "hidden";
+    document.getElementById('display_field_button').className = 'M_butt';
+    makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&db=' + db + '&token=' + token );
   }
 }
 
@@ -715,4 +754,27 @@ function Top_menu_right(id_this)
     id_this.alt = ">";
     id_this.src="pmd/images/2rightarrow_m.png";
   } 
+}
+//----------------------------------------------------------------------------------------
+function Start_display_field()
+{
+  if( ON_relation ) return;
+  if( !ON_display_field )
+  {
+    ON_display_field = 1;
+    document.getElementById('hint').innerHTML = LangChangeDisplay;
+    document.getElementById('hint').style.visibility = "visible";
+    document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
+
+    if(isIE) { // correct for IE
+      document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
+    }
+  }
+  else
+  {
+    document.getElementById('hint').innerHTML = "";
+    document.getElementById('hint').style.visibility = "hidden";
+    document.getElementById('display_field_button').className = 'M_butt';
+    ON_display_field = 0;  
+  }
 }

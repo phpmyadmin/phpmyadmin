@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /*
-@author  Ivan A Kirillov (develop.php@gmail.com)
+@author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
 */
 include_once "./pmd_common.php";
 
@@ -26,7 +26,6 @@ $hidden           = "hidden";
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset ?>" />
 <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css">
 
-
 <title>Designer</title>
 </head>
 
@@ -39,6 +38,7 @@ var LangSelectReferencedKey = '$strSelectReferencedKey';
 var LangSelectForeignKey = '$strSelectForeignKey';
 var LangPleaseSelectPrimaryOrUniqueKey = '$strPleaseSelectPrimaryOrUniqueKey';
 var LangIEnotSupport = '$strIEUnsupported';
+var LangChangeDisplay = '$strChangeDisplay';   
 //---
 var strLang = Array();
 strLang['strModifications'] = '$strModifications';
@@ -67,6 +67,8 @@ echo $script_tabs . $script_contr;
           href="javascript:Save2();" onMouseDown="return false;" class="M_butt" target="_self"><img  title="<?php echo $strSavePosition ?>" src="pmd/images/save.png"></a><a 
           href="javascript:Start_table_new();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strCreateTable ?>"     src="pmd/images/table.png"></a><a 
           href="javascript:Start_relation();" onMouseDown="return false;" class="M_butt" id="rel_button" target="_self"><img title="<?php echo $strCreateRelation ?>"  src="pmd/images/relation.png"></a><a 
+          href="javascript:Start_display_field();" onMouseDown="return false;" class="M_butt" id="display_field_button" target="_self"><img title="<?php echo $strChangeDisplay ?>"  src="pmd/images/display_field.png"></a><a 
+          href="javascript:Grid();" onMouseDown="return false;" class="M_butt" id="grid_button" target="_self"><img title="<?php echo $strSnapToGrid ?>"  src="pmd/images/grid.png"></a><a 
           href="javascript:location.reload();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png"></a><a 
           href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
           href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a><a 

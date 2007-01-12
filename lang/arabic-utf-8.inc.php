@@ -1052,4 +1052,5 @@ $strIEUnsupported = 'Internet Explorer does not support this function.';  //to t
 $strErrorRelationAdded = 'Error: Relation not added.';  //to translate
 $strErrorRelationExists = 'Error: relation already exists.';  //to translate
 $strErrorSaveTable = 'Error saving coordinates for Designer.';  //to translate
+$strSnapToGrid = 'Snap to grid';  //to translate
 ?>

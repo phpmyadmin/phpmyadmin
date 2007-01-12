@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /*
-@author  Ivan A Kirillov (develop.php@gmail.com)
+@author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
 */
 
 require_once './libraries/common.lib.php';
