@@ -8,6 +8,9 @@ $HeadURL$
 2007-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * (many files): Designer, two features (snap to grid / display field)
       thanks to Ivan Kirillov
+    * libraries/Theme_Manager.class.php: patch #1611684, force a change
+      of a session variable to avoid phpmyadmin.css.php caching problems,
+      thanks to Christian Schmidt
 
 2007-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Update, thanks to Marko Ellermaa - uhuu
