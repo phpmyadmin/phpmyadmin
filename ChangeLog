@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-16 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.9.2 released from QA_2_9
+
 2007-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * (many files): Designer, two features (snap to grid / display field)
       thanks to Ivan Kirillov
