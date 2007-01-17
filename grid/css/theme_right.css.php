@@ -1,5 +1,4 @@
-<?php /*jw <-- diff from original/theme_right.css.php 20061018 Let's again obey TextareaRows (bug #1465906).*/
-	// 2do: replace ../ with $oneUp
+<?php /*jw <-- diff from original/theme_right.css.php 2006-12-29 IE6 sql window fix */
 	// unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
 	exit();
@@ -103,11 +102,12 @@ form {
 }
 
 textarea {
-	overflow:	visible;
+	overflow:	visible;<?php if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6') > 0) echo 'height:8em;'; ?>
+
 }
 
 fieldset {
-	margin:	1em 0 1px;
+	margin:	1em 0 1px 1px;
 	border:	<?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
 	padding:	.5em;
 	background:	<?php echo $GLOBALS['cfg']['BgOne']; ?>;
@@ -200,7 +200,7 @@ table tr.even {
 	text-align:	<?php echo $left; ?>;
 }
 
-/* marked tbale rows */
+/* marked table rows */
 table tr.marked th,
 table tr.marked {
 	background:	<?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;

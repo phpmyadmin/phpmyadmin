@@ -2,7 +2,7 @@
 /**
  * derived from theme "original" pma 2.9, HEAD
  * modifications by windkiel 2006-08-19 ~ 10-31 marked with "*jw"
- * works with pma 2.8 (still experimental)
+ * works with pma 2.8
  * no '' allowed, except for Font.. ..Link.. ..Marke...
  * for detailed layout configuration please refer to the css files
  * comments, suggestions, bugreports are welcome:
@@ -14,13 +14,13 @@
  */
 // navi frame width for index.php :
 $GLOBALS['cfg']['NaviWidth'] = 200; //only for >= 2.9
-$GLOBALS['cfg']['LeftWidth'] = 200; //backword compatibility 2.8
+$GLOBALS['cfg']['LeftWidth'] = 200; //backward compatibility 2.8
 
 // foreground (text) color for the navi frame
 $GLOBALS['cfg']['NaviColor']                = '#000';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']           = '#D3DCE3';#dee
+$GLOBALS['cfg']['NaviBackground']           = '#D3DCE6';#dee
 
 // link color
 $GLOBALS['cfg']['NaviLinkColor']        = '#00a';/*jw*/
@@ -50,7 +50,7 @@ $GLOBALS['cfg']['NaviFontPercentage']       = '90%';/*jw*/
 $GLOBALS['cfg']['MainColor']                = '#000';
 
 // background for the main frame
-$GLOBALS['cfg']['MainBackground']           = '#e7e7e7';
+$GLOBALS['cfg']['MainBackground']           = '#d0d0d0';//e7
 
 if ( PMA_USR_BROWSER_AGENT != 'MOZILLA' ) { 	/*jw index.php: NO frameborder="0"*/
 $GLOBALS['cfg']['MainBackground'] .=
@@ -106,13 +106,13 @@ $GLOBALS['cfg']['FontSize']             = '90%';
 $GLOBALS['cfg']['Border'] = '1px';
 
 //at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!
-$GLOBALS['cfg']['MainGridColor'] = '#e7e7e8';
+$GLOBALS['cfg']['MainGridColor'] = '#d0d0d1';
 // table header and footer color
-$GLOBALS['cfg']['ThBackground'] = $GLOBALS['cfg']['NaviBackground'];#def';//'#D3DCE3';
+$GLOBALS['cfg']['ThBackground'] = $GLOBALS['cfg']['NaviBackground'];#dee
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000';
 // table data row background
-$GLOBALS['cfg']['BgOne']                = '#f7f7f7';
+$GLOBALS['cfg']['BgOne']                = '#f8f8fa';
 // table data row background, alternate
 $GLOBALS['cfg']['BgTwo']                = '#fff';
 // table outer border color
@@ -128,7 +128,7 @@ $GLOBALS['cfg']['BgcolorTwo']='#fff';
 // Width of Query window
 $GLOBALS['cfg']['QueryWindowWidth']     = 600;
 // Height of Query window
-$GLOBALS['cfg']['QueryWindowHeight']    = 400;
+$GLOBALS['cfg']['QueryWindowHeight']    = 300;
 
 /**
  * SQL Parser Settings
