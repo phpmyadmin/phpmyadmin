@@ -413,15 +413,18 @@ function PMA_auth_set_user()
     // Ensures valid authentication mode, 'only_db', bookmark database and
     // table names and relation table name are used
     if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
-        $servers_cnt = count($cfg['Servers']);
-        for ($i = 1; $i <= $servers_cnt; $i++) {
-            if (isset($cfg['Servers'][$i])
-                && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
-                $server        = $i;
-                $cfg['Server'] = $cfg['Servers'][$i];
+        foreach ($cfg['Servers'] as $idx => $current) {
+            if ($current['host'] == $cfg['Server']['host'] 
+                    && $current['port'] == $cfg['Server']['port'] 
+                    && $current['socket'] == $cfg['Server']['socket'] 
+                    && $current['ssl'] == $cfg['Server']['ssl'] 
+                    && $current['connect_type'] == $cfg['Server']['connect_type'] 
+                    && $current['user'] == $PHP_AUTH_USER) {
+                $server        = $idx;
+                $cfg['Server'] = $current;
                 break;
             }
-        } // end for
+        } // end foreach
     } // end if
 
     $pma_server_changed = false;

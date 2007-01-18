@@ -7,6 +7,8 @@ $HeadURL$
 
 2007-01-18 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
+    * libraries/auth/cookie.auth.lib.php: Make server switching honour more
+      server settings (patch #1630104).
 
 2007-01-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish: update, thanks to Burak Yavuz - bourock
