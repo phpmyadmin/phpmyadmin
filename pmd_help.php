@@ -16,7 +16,10 @@ require_once 'pmd_common.php';
 </head>
 
 <body>
-<?php echo $GLOBALS['strToSelectRelation']; ?><br>
-      <img src="pmd/images/help_relation.png" border="1">
+<?php
+    echo '<p>' . $GLOBALS['strToSelectRelation'] . '<br />';
+    echo '<img src="pmd/images/help_relation.png" border="1"></p>';
+    echo '<p>' . $GLOBALS['strDesignerHelpDisplayField'] . '</p>';
+?>
 </body>
 </html>

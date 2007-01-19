@@ -56,7 +56,7 @@ strLang['strErrorSaveTable'] = '$strErrorSaveTable';
 <!--[if IE]><script type="text/javascript" src="pmd/scripts/iecanvas.js"></script><![endif]-->
 
 <?php
-echo $script_tabs . $script_contr;
+echo $script_tabs . $script_contr . $script_display_field;
 ?>
 <body onLoad="Main()" class="general_body" marginheight="0" marginwidth="0">
   <ul class="header" id="top_menu"><table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -73,7 +73,7 @@ echo $script_tabs . $script_contr;
           href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
           href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a><a 
           href="javascript:Small_tab_invert();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strToggleSmallBig; ?>" alt="key" src="pmd/images/bottom.png" ></a><img class="M_bord" src="pmd/images/bord.png"><a
-	        href="javascript:PDF_save();" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/pdf.png" alt="key" width="20" height="20" title="<?php echo $strImportExportCoords; ?>"></a></td>
+          href="javascript:PDF_save();" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/pdf.png" alt="key" width="20" height="20" title="<?php echo $strImportExportCoords; ?>"></a></td>
         <td width="10%" align="right"><a
           href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/2rightarrow_m.png" id="key_Left_Right" alt=">" title="<?php echo $strMoveMenu; ?>"></a></td>
       </tr>
@@ -157,11 +157,15 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
   </tr>
   <tbody id="_|_tbody_<?php echo $t_n_url ?>" 
          style="display:<?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["V"]?"":"none"; ?>;">
-    <?php
+  <?php
+  $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
   for ( $j=0; $j < sizeof( $tab_column[$t_n]["COLUMN_ID"] ); $j++ ) 
   {
   ?>
-    <tr onMouseOver="this.id = 'tab_field_2'" onMouseOut="this.id = 'tab_field'" onMouseDown="Click_field('<?php
+    <tr id = "_|_tr_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i].'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>"
+    <? if($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) echo ' class="tab_field_3" '; else  echo ' class="tab_field" '; ?>
+    onMouseOver="old_class = this.className; this.className = 'tab_field_2';" onMouseOut="this.className = old_class;" 
+    onMouseDown="Click_field('<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
         if ($GLOBALS['PMD']['TABLE_TYPE'][$i] != 'INNODB') {
             echo (isset( $tables_pk_or_unique_keys[ $t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j] ] ) ? 1 : 0);

@@ -25,6 +25,7 @@ var relation_style = 0; // relation_style: 0 - angular 1 - direct
 var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
+var old_class;
 
 //---------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
@@ -443,6 +444,27 @@ function Click_field(T,f,PK) // table field
   
   if(ON_display_field)
   {
+    if(display_field[T] == f) // if is display field
+    { //alert(T);
+      //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ',';alert(s);
+      old_class = 'tab_field';
+      //display_field.splice(T, 1);
+      delete display_field[T];
+      //s = '';for(k in display_field)s += k + ' = ' + display_field[k] + ', ';alert(s);
+      //n = 0;for(k in display_field)n++;alert(n);
+    }
+    else
+    { 
+      old_class = 'tab_field_3';
+      if(display_field[T])
+      {
+        document.getElementById('_|_tr_' + T + '.' + display_field[T]).className = 'tab_field';
+        //display_field.splice(T, 1);
+        delete display_field[T];
+      }
+      display_field[T] = f;
+    }
+    ON_display_field = 0;
     document.getElementById('hint').innerHTML = "";
     document.getElementById('hint').style.visibility = "hidden";
     document.getElementById('display_field_button').className = 'M_butt';

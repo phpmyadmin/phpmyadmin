@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd*, lang/*: Designer now supports set/unset of the display field,
+      thanks to Ivan Kirillov
+
 2007-01-18 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * libraries/auth/cookie.auth.lib.php: Make server switching honour more

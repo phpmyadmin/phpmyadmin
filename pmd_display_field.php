@@ -17,7 +17,7 @@ if ($cfgRelation['displaywork']) {
     
     $disp     = PMA_getDisplayField($db, $table);
     if ($disp) {
-        if ($display_field != '') {
+        if ($display_field != $disp) {
             $upd_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                        . ' SET display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''

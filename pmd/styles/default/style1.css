@@ -17,8 +17,9 @@ canvas *{behavior:url(#default#VML)}
 .tab_zag { background-image:url(images/Header.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
 .tab_zag_2 { background-image:url(images/Header_Linked.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
 /*.tab_zag_3 { background-color:#FF0000; background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }*/
-#tab_field { background:#FFFFFF; cursor:default; }
-#tab_field_2 { background-color:#CCFFCC; background-repeat:repeat-x; cursor:default;}
+.tab_field { background:#FFFFFF; cursor:default; }
+.tab_field_2 { background-color:#CCFFCC; background-repeat:repeat-x; cursor:default;}
+.tab_field_3 { background-color:#FFE6E6;/*#DDEEFF*/ cursor:default; }
 #hint{ white-space:nowrap; position:absolute;  background:#99FF99;  left: 200px;  top: 50px;  z-index:3;  border:#00CC66 solid 1px;  visibility:hidden;}
 /*
 .L_butt,.L_butt:visited {  font-size:12px;  padding:4px;  text-decoration: none;  color:#000000;  vertical-align:middle;  cursor:default;}

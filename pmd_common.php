@@ -15,9 +15,11 @@ $GLOBALS['PMD']['STYLE']          = 'default';
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
+$script_display_field = "<script>\n var display_field = new Array();\n";
+
 function get_tabs() // PMA_DBI
 {
-    global $db;
+    global $db, $script_display_field;
     $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
     $GLOBALS['PMD']['OWNER'] = array(); 
     $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array(); 
@@ -37,11 +39,17 @@ function get_tabs() // PMA_DBI
         
         $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars($db . "." . $one_table['TABLE_NAME'], ENT_QUOTES);
         $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars($db, ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);
-               
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);   
+          
         $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
+        
+        $DF = PMA_getDisplayField($db, $one_table['TABLE_NAME']);
+        if($DF!='')
+        $script_display_field .= "  display_field['" . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "'] = '" . urlencode($DF) . "';\n";
+        
         $i++;
     } 
+    $script_display_field .= "</script>\n";
     //  return $GLOBALS['PMD'];       // many bases // not use ??????
 }
 
@@ -102,7 +110,7 @@ function get_script_contr() {
     } 
   
     $ti = 0;
-    $script_contr = "<script> var contr = new Array();";
+    $script_contr = "<script>\n var contr = new Array();\n";
     for ( $i=0; $i < sizeof( $con["C_NAME"] ); $i++ ) {
         $script_contr .= " contr[$ti] = new Array();\n";
         $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."'] = new Array();\n";
@@ -114,7 +122,7 @@ function get_script_contr() {
         }
     $ti++;
     }
-    $script_contr .= "</script>";
+    $script_contr .= "</script>\n";
     return $script_contr;
 }
 
@@ -167,11 +175,11 @@ function get_all_keys() {
 }
 
 function get_script_tabs() {
-    $script_tabs = "<script> var j_tabs = new Array();\n";
+    $script_tabs = "<script>\n var j_tabs = new Array();\n";
     for ( $i=0; $i < sizeof( $GLOBALS['PMD']['TABLE_NAME'] ); $i++ ) {
         $script_tabs .= "j_tabs['".$GLOBALS['PMD_URL']['TABLE_NAME'][$i]."'] = '".$GLOBALS['PMD']['TABLE_TYPE'][$i]."';\n";
     }
-    $script_tabs .= "</script>";
+    $script_tabs .= "</script>\n";
     return $script_tabs;
 }
 
