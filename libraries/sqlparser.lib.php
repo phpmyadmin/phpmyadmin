@@ -680,6 +680,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // operation.
         $sql_array['len'] = $arraysize;
 
+        // DEBUG echo 'After parsing<pre>'; print_r($sql_array); echo '</pre>';
         // Sends the data back
         return $sql_array;
     } // end of the "PMA_SQP_parse()" function
@@ -917,7 +918,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "trace loop1 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
+//DEBUG echo "Loop1 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -1341,7 +1342,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         $current_identifier = '';
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
+//DEBUG echo "Loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
             // need_confirm
             //
@@ -1496,7 +1497,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             } // endif (reservedWord)
 
 
-            // do not add a blank after a function name
+            // do not add a space after a function name
             /**
              * @todo can we combine loop 2 and loop 1? some code is repeated here...
              */
@@ -1523,6 +1524,16 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         $in_group_concat = FALSE;
                     }
                 }
+            }
+
+            // do not add a space after an identifier if followed by a dot
+            if ($arr[$i]['type'] == 'alpha_identifier' && $i < $size - 1 && $arr[$i + 1]['data'] == '.') {
+                $sep = '';
+            }
+
+            // do not add a space after a dot if followed by an identifier
+            if ($arr[$i]['data'] == '.' && $i < $size - 1 && $arr[$i + 1]['type'] == 'alpha_identifier') {
+                $sep = '';
             }
 
             if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
@@ -1604,7 +1615,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         $seen_default = FALSE;
 
         for ($i = 0; $i < $size; $i++) {
-        // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+        // DEBUG echo "Loop 3 <b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
 
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 $upper_data = strtoupper($arr[$i]['data']);
@@ -1900,6 +1911,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
+        //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
         if (!is_array($arr)) {
             return htmlspecialchars($arr);
@@ -1995,7 +2007,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
         $in_priv_list = FALSE;
         for ($i = $start_token; $i < $arraysize; $i++) {
-// DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+// DEBUG echo "Loop format <b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             $indent = 0;

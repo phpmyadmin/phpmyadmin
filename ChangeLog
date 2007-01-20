@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: bug #1638267, wrong reserved word
+      recognition
+
 2007-01-19 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd*, lang/*: Designer now supports set/unset of the display field,
       thanks to Ivan Kirillov
