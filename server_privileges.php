@@ -1582,10 +1582,12 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
             } else {
             echo '    - ' . $GLOBALS['strDatabase'];
             }
-            echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
+            $url_dbname = urlencode(str_replace('\_', '_', $dbname));
+            echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if ( isset( $tablename ) && strlen($tablename) ) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
+                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
             }
+            unset($url_dbname);
         }
         echo ' : ' . $GLOBALS['strEditPrivileges'] . '</h2>' . "\n";
         $res = PMA_DBI_query('SELECT \'foo\' FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';', null, PMA_DBI_QUERY_STORE);
