@@ -233,11 +233,20 @@ class PMA_Table {
         if (PMA_MYSQL_INT_VERSION < 50000) {
             return false;
         }
-        if (false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM `information_schema`.`VIEWS` WHERE `TABLE_SCHEMA` = \'' . $db . '\' AND `TABLE_NAME` = \'' . $table . '\';')) {
+        // This would be the correct way of doing the check but at least in
+        // MySQL 5.0.33 it's too slow when there are hundreds of databases
+        // and/or tables (more than 3 minutes for 400 tables)
+        /*if (false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM `information_schema`.`VIEWS` WHERE `TABLE_SCHEMA` = \'' . $db . '\' AND `TABLE_NAME` = \'' . $table . '\';')) {
             return false;
         } else {
             return true;
-        }
+        } */
+        // A more complete verification would be to check if all columns
+        // from the result set are NULL except Name and Comment.
+        // MySQL from 5.0.0 to 5.0.12 returns 'view',
+        // from 5.0.13 returns 'VIEW'.
+        $comment = strtoupper(PMA_DBI_fetch_value('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'', 0, 'Comment'));
+        return ($comment == 'VIEW');
     }
 
     /**

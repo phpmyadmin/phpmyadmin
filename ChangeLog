@@ -5,6 +5,13 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/Table.class.php: on a MySQL 5.0.33 server with 4400 databases,
+      one of which having 400 tables, it took more than 3 minutes just to
+      see the database structure (some accesses to INFORMATION_SCHEMA are
+      just too slow) so I changed PMA_Table::isView() to avoid calling
+      INFORMATION_SCHEMA
+
 2007-01-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1638267, wrong reserved word
       recognition
