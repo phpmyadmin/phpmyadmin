@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd/*: button for direct/angular links, thanks to Ivan Kirillov
+
 2007-01-22 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
 

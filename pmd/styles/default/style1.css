@@ -1,10 +1,7 @@
 /* $Id$ */
 
 body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#EAEEF0; margin:0px; }
-/*.left_panel{ background-color:#EAEEF0;  background-image:url(images/left_panel_tab.png);  background-repeat:repeat-y; }*/
 .input_tab { background-color:#A6C7E1;}
-/*-------------------------------------------------------------*/
-/*.general_body { background-image:url(images/top_panel.png); background-position:top; background-repeat:repeat-x; }*/
 table { font-size:12px; }
 #canvas { background-color:#FFFFFF; }
 
@@ -16,15 +13,10 @@ canvas *{behavior:url(#default#VML)}
 .tab { -moz-user-select: none; background:#FFFFFF; border-collapse: collapse; border: 1px solid #AAAAAA; font-family:Tahoma; font-size:10px; z-index:1; }
 .tab_zag { background-image:url(images/Header.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
 .tab_zag_2 { background-image:url(images/Header_Linked.png); background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }
-/*.tab_zag_3 { background-color:#FF0000; background-repeat:repeat-x; text-align:center; cursor:move; padding:1px; font-weight:bold; }*/
 .tab_field { background:#FFFFFF; cursor:default; }
 .tab_field_2 { background-color:#CCFFCC; background-repeat:repeat-x; cursor:default;}
 .tab_field_3 { background-color:#FFE6E6;/*#DDEEFF*/ cursor:default; }
 #hint{ white-space:nowrap; position:absolute;  background:#99FF99;  left: 200px;  top: 50px;  z-index:3;  border:#00CC66 solid 1px;  visibility:hidden;}
-/*
-.L_butt,.L_butt:visited {  font-size:12px;  padding:4px;  text-decoration: none;  color:#000000;  vertical-align:middle;  cursor:default;}
-.L_butt:hover{  font-size:12px;  padding:3px;  border:#0099CC solid 1px;  background:#FFEE99;  text-decoration: none;  color:#000000;  cursor:default;}
-*/
 
 
 form{margin:0px;}
@@ -61,7 +53,7 @@ input,select,textarea{ font-family:Arial, Helvetica, sans-serif; font-size:12px;
 #osn_tab { background-color:#FFFFFF; border:#A9A9A9 solid 1px;}
 
 ul.header {
-    width: 300px;
+    width: 350px;
     background-color: #EAEEF0;
     color: #000000;
     text-align: center;
@@ -86,52 +78,52 @@ ul.header {
 /* Button CSS rules */
 
 a.M_butt img, a.M_butt_Selected_down img {
-	width: 20px;
-	height: 20px;
-	cursor: default;
-  margin-top: 3px;
-	margin-left: 1px;
-	margin-bottom: 3px;
+width: 20px;
+height: 20px;
+cursor: default;
+margin-top: 3px;
+margin-left: 1px;
+margin-bottom: 3px;
 }
 
 a.M_butt img{
-	border: 1px dotted #F0F0EE !important;
+border: 1px dotted #F0F0EE !important;
 }
 
 a.M_butt_Selected_down img {
-	border: 1px solid #C0C0BB !important;
-	background-color: #99FF99;
+border: 1px solid #C0C0BB !important;
+background-color: #99FF99;
 }
 
 a.M_butt img:hover {
-	border: 1px solid #0099CC !important;
-	cursor: default;
-	background-color: #FFEE99;
+border: 1px solid #0099CC !important;
+cursor: default;
+background-color: #FFEE99;
 }
 
 /* for IE */
 
 * html a.M_butt img, a.M_butt_Selected_down_IE {
-	border: 0px !important;
-	margin-top: 4px;
-	margin-bottom: 1px;
+border: 0px !important;
+margin-top: 4px;
+margin-bottom: 1px;
 }
 
 * html a.M_butt{
-	/*border: 1px dotted #F0F0EE;*/
-	border: 1px dotted #FFFFFF;
-	cursor: default;
+/*border: 1px dotted #F0F0EE;*/
+border: 1px dotted #FFFFFF;
+cursor: default;
 }
 
 a.M_butt_Selected_down_IE {
-	border: 1px solid #C0C0BB;
-	background-color: #99FF99;
+border: 1px solid #C0C0BB;
+background-color: #99FF99;
 }
 
 * html a.M_butt:hover {
-	border: 1px solid #0099CC;
-	cursor: default;
-	background-color: #FFEE99;
+border: 1px solid #0099CC;
+cursor: default;
+background-color: #FFEE99;
 }
 
 .M_bord 

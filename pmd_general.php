@@ -68,9 +68,10 @@ echo $script_tabs . $script_contr . $script_display_field;
           href="javascript:Start_table_new();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strCreateTable ?>"     src="pmd/images/table.png"></a><a 
           href="javascript:Start_relation();" onMouseDown="return false;" class="M_butt" id="rel_button" target="_self"><img title="<?php echo $strCreateRelation ?>"  src="pmd/images/relation.png"></a><a 
           href="javascript:Start_display_field();" onMouseDown="return false;" class="M_butt" id="display_field_button" target="_self"><img title="<?php echo $strChangeDisplay ?>"  src="pmd/images/display_field.png"></a><a 
-          href="javascript:Grid();" onMouseDown="return false;" class="M_butt" id="grid_button" target="_self"><img title="<?php echo $strSnapToGrid ?>"  src="pmd/images/grid.png"></a><a 
           href="javascript:location.reload();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png"></a><a 
           href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
+          href="javascript:Angular_direct();" onMouseDown="return false;" class="M_butt" id="angular_direct_button" target="_self"><img title="<?php echo $strAngularLinks.' / '.$strDirectLinks; ?>"  src="pmd/images/ang_direct.png"></a><a 
+          href="javascript:Grid();" onMouseDown="return false;" class="M_butt" id="grid_button" target="_self"><img title="<?php echo $strSnapToGrid ?>"  src="pmd/images/grid.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
           href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a><a 
           href="javascript:Small_tab_invert();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strToggleSmallBig; ?>" alt="key" src="pmd/images/bottom.png" ></a><img class="M_bord" src="pmd/images/bord.png"><a
           href="javascript:PDF_save();" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/pdf.png" alt="key" width="20" height="20" title="<?php echo $strImportExportCoords; ?>"></a></td>
@@ -88,14 +89,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
   <td height="1px">
-  <div align="center" style="padding-top:5px;">
-    <select name="view_relation" style=" vertical-align:text-top;" id="view_relation" onChange="relation_style = this.value; Re_load();">
-      <option value="0"><?php echo $strAngularLinks; ?></option>
-      <option value="1"><?php echo $strDirectLinks; ?></option>
-    </select> 
-  </div>
-  <div align="center">
-  </div>
+
   <div align="center" style="padding-top:5px">
       <a 
   href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHideShowAll; ?>" alt="v" src="pmd/images/downarrow1.png" id='key_HS_all' ></a><a 

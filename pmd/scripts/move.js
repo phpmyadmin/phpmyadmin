@@ -12,6 +12,7 @@ var s_right        = 0;
 var ON_relation    = 0;
 var ON_grid        = 0;
 var ON_display_field = 0;
+var ON_angular_direct = 0;// relation_style: 0 - angular 1 - direct
 var click_field    = 0;
 var link_relation  = "";
 var id_hint;
@@ -21,7 +22,6 @@ var osn_tab_width  = 0;
 var osn_tab_height = 0;
 var height_field   = 7;
 var Glob_X, Glob_Y;
-var relation_style = 0; // relation_style: 0 - angular 1 - direct
 var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
@@ -251,7 +251,7 @@ function Line(x1,y1,x2,y2,color_line)
 
 function Line0(x1,y1,x2,y2,color_line)
 {
-  if(relation_style*1)
+  if(ON_angular_direct)
   Line2(x1,y1,x2,y2,color_line);
   else
   Line3(x1,y1,x2,y2,color_line);
@@ -377,8 +377,7 @@ function Save2()
 
 function Grid()
 {
-  if(!ON_grid )
-  {
+  if(!ON_grid ) {
     ON_grid = 1;
     document.getElementById('grid_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
   
@@ -386,11 +385,27 @@ function Grid()
       document.getElementById('grid_button').className = 'M_butt_Selected_down_IE';
     }
   }
-  else
-  {
+  else  {
     document.getElementById('grid_button').className = 'M_butt';
     ON_grid = 0;  
   }
+}
+
+function Angular_direct()
+{
+  if(!ON_angular_direct ) {
+    ON_angular_direct = 1;
+    document.getElementById('angular_direct_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
+  
+    if(isIE) { // correct for IE
+      document.getElementById('angular_direct_button').className = 'M_butt_Selected_down_IE';
+    }
+  }
+  else {
+    ON_angular_direct = 0;  
+    document.getElementById('angular_direct_button').className = 'M_butt';
+  }
+  Re_load();
 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++ RELATION ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function Start_relation()
@@ -766,7 +781,7 @@ function Top_menu_right(id_this)
 { 
   if(id_this.alt==">")
   {
-    document.getElementById('top_menu').style.marginLeft = 300;
+    document.getElementById('top_menu').style.marginLeft = document.getElementById('top_menu').offsetWidth; // = 350
     id_this.alt = "<";
     id_this.src="pmd/images/2leftarrow_m.png";
   }
