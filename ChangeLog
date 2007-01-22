@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-01-22 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2007-01-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/Table.class.php: on a MySQL 5.0.33 server with 4400 databases,
       one of which having 400 tables, it took more than 3 minutes just to

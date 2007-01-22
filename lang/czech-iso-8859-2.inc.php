@@ -227,6 +227,7 @@ $strDelimiter = 'Oddìlovaè';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které ji¾ neexistují. Chcete odstranit tyto odkazy?';
 $strDescending = 'Sestupnì';
 $strDescription = 'Popis';
+$strDesignerHelpDisplayField = 'Zobrazované pole je oznaèeno rù¾ovou barvou. Pro jeho zmìnu kliknìte na ikonu "Zvolte které sloupce zobrazit" a poté zvolte odpovídající sloupec.';
 $strDesigner = 'Návrháø';
 $strDictionary = 'slovník';
 $strDirectLinks = 'Pøímé spoje';
@@ -1026,5 +1027,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strDesignerHelpDisplayField = 'The display field is shown in pink. To set/unset a field as the display field, click the "Choose field to display" icon, then click on the appropriate field name.';  //to translate
 ?>
