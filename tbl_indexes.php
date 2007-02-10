@@ -416,11 +416,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
         $edit_link_text = '';
         $drop_link_text = '';
 
-        // We need to copy the value or else the == 'both' check will always
-        // return true
-        $propicon = (string) $cfg['PropertiesIconic'];
-
-        if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
+        if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
             $edit_link_text = '<img class="icon" src="' . $pmaThemeImage
                 . 'b_edit.png" width="16" height="16" title="' . $strEdit
                 . '" alt="' . $strEdit . '" />';
@@ -428,11 +424,11 @@ elseif (!defined('PMA_IDX_INCLUDED')
                 . 'b_drop.png" width="16" height="16" title="' . $strDrop
                 . '" alt="' . $strDrop . '" />';
         }
-        if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
+        if ($cfg['PropertiesIconic'] === false || $cfg['PropertiesIconic'] === 'both') {
             $edit_link_text .= $strEdit;
             $drop_link_text .= $strDrop;
         }
-        if ($propicon == 'both') {
+        if ($cfg['PropertiesIconic'] === 'both') {
             $edit_link_text = '<nobr>' . $edit_link_text . '</nobr>';
             $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
         }

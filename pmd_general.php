@@ -29,27 +29,27 @@ $hidden           = "hidden";
 <title>Designer</title>
 </head>
 
-<?php 
-echo "
+<?php
+echo '
 <script>
-var db = '".$db."';
-var token = '".$token."';
-var LangSelectReferencedKey = '$strSelectReferencedKey';
-var LangSelectForeignKey = '$strSelectForeignKey';
-var LangPleaseSelectPrimaryOrUniqueKey = '$strPleaseSelectPrimaryOrUniqueKey';
-var LangIEnotSupport = '$strIEUnsupported';
-var LangChangeDisplay = '$strChangeDisplay';   
-//---
+var db = "' . $db . '";
+var token = "' . $token . '";
+var LangSelectReferencedKey = "' . $strSelectReferencedKey . '";
+var LangSelectForeignKey = "' . $strSelectForeignKey . '";
+var LangPleaseSelectPrimaryOrUniqueKey = "' . $strPleaseSelectPrimaryOrUniqueKey . '";
+var LangIEnotSupport = "' . $strIEUnsupported . '";
+var LangChangeDisplay = "' . $strChangeDisplay . '";
+
 var strLang = Array();
-strLang['strModifications'] = '$strModifications';
-strLang['strRelationDeleted'] = '$strRelationDeleted';
-strLang['strInnoDBRelationAdded'] = '$strInnoDBRelationAdded';
-strLang['strGeneralRelationFeat:strDisabled'] = '$strGeneralRelationFeat : $strDisabled';
-strLang['strInternalRelationAdded'] = '$strInternalRelationAdded';
-strLang['strErrorRelationAdded'] = '$strErrorRelationAdded';   
-strLang['strErrorRelationExists'] = '$strErrorRelationExists';   
-strLang['strErrorSaveTable'] = '$strErrorSaveTable';                   
-</script>";  
+strLang["strModifications"] = "' . $strModifications . '";
+strLang["strRelationDeleted"] = "' . $strRelationDeleted . '";
+strLang["strInnoDBRelationAdded"] = "' . $strInnoDBRelationAdded . '";
+strLang["strGeneralRelationFeat:strDisabled"] = "' . $strGeneralRelationFeat . ' : ' . $strDisabled . '";
+strLang["strInternalRelationAdded"] = "' . $strInternalRelationAdded . '";
+strLang["strErrorRelationAdded"] = "' . $strErrorRelationAdded . '";
+strLang["strErrorRelationExists"] = "' . $strErrorRelationExists . '";
+strLang["strErrorSaveTable"] = "' . $strErrorSaveTable . '";
+</script>';
 ?>
 <script language=javascript src="pmd/scripts/ajax.js" type=text/javascript></script>
 <script language=javascript src="pmd/scripts/move.js" type=text/javascript></script>
@@ -61,27 +61,27 @@ echo $script_tabs . $script_contr . $script_display_field;
 <body onLoad="Main()" class="general_body" marginheight="0" marginwidth="0">
   <ul class="header" id="top_menu"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="10%" align="left"><a 
+        <td width="10%" align="left"><a
           href="javascript:Show_left_menu(document.getElementById('key_Show_left_menu'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_Show_left_menu' title="<?php echo $strShowHideLeftMenu; ?>" alt="v" src="pmd/images/downarrow2_m.png" ></a></td>
         <td width="80%" align="center" nowrap><a
-          href="javascript:Save2();" onMouseDown="return false;" class="M_butt" target="_self"><img  title="<?php echo $strSavePosition ?>" src="pmd/images/save.png"></a><a 
-          href="javascript:Start_table_new();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strCreateTable ?>"     src="pmd/images/table.png"></a><a 
-          href="javascript:Start_relation();" onMouseDown="return false;" class="M_butt" id="rel_button" target="_self"><img title="<?php echo $strCreateRelation ?>"  src="pmd/images/relation.png"></a><a 
-          href="javascript:Start_display_field();" onMouseDown="return false;" class="M_butt" id="display_field_button" target="_self"><img title="<?php echo $strChangeDisplay ?>"  src="pmd/images/display_field.png"></a><a 
-          href="javascript:location.reload();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png"></a><a 
-          href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
-          href="javascript:Angular_direct();" onMouseDown="return false;" class="M_butt" id="angular_direct_button" target="_self"><img title="<?php echo $strAngularLinks.' / '.$strDirectLinks; ?>"  src="pmd/images/ang_direct.png"></a><a 
-          href="javascript:Grid();" onMouseDown="return false;" class="M_butt" id="grid_button" target="_self"><img title="<?php echo $strSnapToGrid ?>"  src="pmd/images/grid.png"></a><img class="M_bord" src="pmd/images/bord.png"><a 
-          href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a><a 
+          href="javascript:Save2();" onMouseDown="return false;" class="M_butt" target="_self"><img  title="<?php echo $strSavePosition ?>" src="pmd/images/save.png"></a><a
+          href="javascript:Start_table_new();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strCreateTable ?>"     src="pmd/images/table.png"></a><a
+          href="javascript:Start_relation();" onMouseDown="return false;" class="M_butt" id="rel_button" target="_self"><img title="<?php echo $strCreateRelation ?>"  src="pmd/images/relation.png"></a><a
+          href="javascript:Start_display_field();" onMouseDown="return false;" class="M_butt" id="display_field_button" target="_self"><img title="<?php echo $strChangeDisplay ?>"  src="pmd/images/display_field.png"></a><a
+          href="javascript:location.reload();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strReload; ?>" src="pmd/images/reload.png"></a><a
+          href="javascript:Help();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHelp; ?>" src="pmd/images/help.png"></a><img class="M_bord" src="pmd/images/bord.png"><a
+          href="javascript:Angular_direct();" onMouseDown="return false;" class="M_butt" id="angular_direct_button" target="_self"><img title="<?php echo $strAngularLinks.' / '.$strDirectLinks; ?>"  src="pmd/images/ang_direct.png"></a><a
+          href="javascript:Grid();" onMouseDown="return false;" class="M_butt" id="grid_button" target="_self"><img title="<?php echo $strSnapToGrid ?>"  src="pmd/images/grid.png"></a><img class="M_bord" src="pmd/images/bord.png"><a
+          href="javascript:Small_tab_all(document.getElementById('key_SB_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img id='key_SB_all' title="<?php echo $strSmallBigAll; ?>" alt="v" src="pmd/images/downarrow1.png" ></a><a
           href="javascript:Small_tab_invert();" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strToggleSmallBig; ?>" alt="key" src="pmd/images/bottom.png" ></a><img class="M_bord" src="pmd/images/bord.png"><a
           href="javascript:PDF_save();" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/pdf.png" alt="key" width="20" height="20" title="<?php echo $strImportExportCoords; ?>"></a></td>
         <td width="10%" align="right"><a
           href="javascript:Top_menu_right(document.getElementById('key_Left_Right'));" onMouseDown="return false;" class="M_butt" target="_self"><img src="pmd/images/2rightarrow_m.png" id="key_Left_Right" alt=">" title="<?php echo $strMoveMenu; ?>"></a></td>
       </tr>
     </table></ul>
-  
+
 <div id="osn_tab">
-  <CANVAS id="canvas" width="100" height="100" onClick="Canvas_click(this)"></CANVAS>    
+  <CANVAS id="canvas" width="100" height="100" onClick="Canvas_click(this)"></CANVAS>
 </div>
 
 <form action="" method="post" name="form1">
@@ -91,9 +91,9 @@ echo $script_tabs . $script_contr . $script_display_field;
   <td height="1px">
 
   <div align="center" style="padding-top:5px">
-      <a 
-  href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHideShowAll; ?>" alt="v" src="pmd/images/downarrow1.png" id='key_HS_all' ></a><a 
-  href="javascript:No_have_constr(document.getElementById('key_HS'));" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHideShowNoRelation; ?>" alt="v" src="pmd/images/downarrow2.png" id='key_HS'></a>      
+      <a
+  href="javascript:Hide_tab_all(document.getElementById('key_HS_all'));" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHideShowAll; ?>" alt="v" src="pmd/images/downarrow1.png" id='key_HS_all' ></a><a
+  href="javascript:No_have_constr(document.getElementById('key_HS'));" onMouseDown="return false;" class="M_butt" target="_self"><img title="<?php echo $strHideShowNoRelation; ?>" alt="v" src="pmd/images/downarrow2.png" id='key_HS'></a>
   </div>
   </td>
 </tr>
@@ -102,7 +102,7 @@ echo $script_tabs . $script_contr . $script_display_field;
     <div id="id_scroll_tab" class="scroll_tab">
         <table width="100%" style="padding-left:3px;">
           <?php
-        for ( $i=0; $i < sizeof( $GLOBALS['PMD']['TABLE_NAME'] ); $i++ ) 
+        for ( $i=0; $i < sizeof( $GLOBALS['PMD']['TABLE_NAME'] ); $i++ )
         {
         ?>
           <tr>
@@ -110,12 +110,12 @@ echo $script_tabs . $script_contr . $script_display_field;
             <td width="1px"><input onClick="VisibleTab(this,'<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>')" title="<?php echo $strHide ?>" id="check_vis_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>" style="margin:0px;" type="checkbox" value="<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"  <?php if( isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]) ) echo $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"]?"checked":""; else echo "checked"; ?>></td>
             <td class="Tabs" onMouseOver="this.className='Tabs2'" onMouseOut="this.className='Tabs'" onClick="Select_tab('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>');"><?php echo $GLOBALS['PMD_OUT']["TABLE_NAME"][$i]; ?></td>
           </tr>
-          <?php 
+          <?php
         }
         ?>
         </table>
   </div>
-  </td> 
+  </td>
 </tr>
 <tr>
   <td height="1px">
@@ -126,7 +126,7 @@ echo $script_tabs . $script_contr . $script_display_field;
 </table>
 </div>
 <?php
-for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ ) 
+for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
 {
   $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
   $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i];
@@ -136,9 +136,9 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
 <input name="t_v[<?php echo $t_n_url ?>]" type="hidden" id="t_v[<?php echo $t_n_url ?>]">
 <input name="t_h[<?php echo $t_n_url ?>]" type="hidden" id="t_h[<?php echo $t_n_url ?>]">
 
-<table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="tab" 
-       style="position:absolute; 
-              left: <?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["X"]; else echo rand(180,800); ?>; 
+<table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="tab"
+       style="position:absolute;
+              left: <?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["X"]; else echo rand(180,800); ?>;
               top:  <?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["Y"]; else echo rand(30,500); ?>;
               visibility:  <?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["H"]?"visible":"hidden"; ?>;
              ">
@@ -149,16 +149,16 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
     onMouseOver="this.className = 'tab_zag_2'" onMouseOut="this.className = 'tab_zag'"
     ><?php echo "<span class='owner'>".strtolower($GLOBALS['PMD_OUT']["OWNER"][$i]).".</span>".$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]; ?></td>
   </tr>
-  <tbody id="_|_tbody_<?php echo $t_n_url ?>" 
+  <tbody id="_|_tbody_<?php echo $t_n_url ?>"
          style="display:<?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["V"]?"":"none"; ?>;">
   <?php
   $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
-  for ( $j=0; $j < sizeof( $tab_column[$t_n]["COLUMN_ID"] ); $j++ ) 
+  for ( $j=0; $j < sizeof( $tab_column[$t_n]["COLUMN_ID"] ); $j++ )
   {
   ?>
     <tr id = "_|_tr_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i].'.'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>"
-    <? if($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) echo ' class="tab_field_3" '; else  echo ' class="tab_field" '; ?>
-    onMouseOver="old_class = this.className; this.className = 'tab_field_2';" onMouseOut="this.className = old_class;" 
+    <?php if($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) echo ' class="tab_field_3" '; else  echo ' class="tab_field" '; ?>
+    onMouseOver="old_class = this.className; this.className = 'tab_field_2';" onMouseOut="this.className = old_class;"
     onMouseDown="Click_field('<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
         if ($GLOBALS['PMD']['TABLE_TYPE'][$i] != 'INNODB') {
@@ -171,13 +171,13 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
 ?>)">
         <td width="10px" colspan="3" id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>"
         ><div style="white-space:nowrap">
-      <?php 
+      <?php
       if(isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
       ?>
       <img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']
-      ?>/images/FieldKey_small.png" alt="*"><?php 
+      ?>/images/FieldKey_small.png" alt="*"><?php
       } else {
-      ?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small<? 
+      ?><img src="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE']?>/images/Field_small<?php
         if(strstr($tab_column[$t_n]["TYPE"][$j],'char')
         || strstr($tab_column[$t_n]["TYPE"][$j],'text')  ) echo '_char';
         elseif(strstr($tab_column[$t_n]["TYPE"][$j],'int')
@@ -187,7 +187,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
         elseif(strstr($tab_column[$t_n]["TYPE"][$j],'date')
             || strstr($tab_column[$t_n]["TYPE"][$j],'time')
             || strstr($tab_column[$t_n]["TYPE"][$j],'year') ) echo '_date';
-       ?>.png" alt="*"><?php } ?> 
+       ?>.png" alt="*"><?php } ?>
       <?php echo htmlspecialchars($tab_column[$t_n]["COLUMN_NAME"][$j]." : ".$tab_column[$t_n]["TYPE"][$j], ENT_QUOTES); ?>
         </div>
        </td>
@@ -202,7 +202,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
 ?>
 </form>
 <div id="hint"></div>
-<div id='layer_action' style="position:absolute; left:638px; top:52px; z-index:1000; 
+<div id='layer_action' style="position:absolute; left:638px; top:52px; z-index:1000;
                               visibility:<?PHP echo $hidden ?>; background-color:#CCFF99; padding:3px; border:#009933 solid 1px; white-space:nowrap; font-weight:bold">Load...</div>
 
   <table id="layer_new_relation" style="visibility:<?PHP echo $hidden ?>; position:absolute; left:636px; top:85px; z-index:1000; width: 153px;" width="5%" border="0" cellpadding="0" cellspacing="0">
@@ -244,7 +244,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
           </tbody>
           <tr>
             <td colspan="2" align="center" nowrap>
-        <input type="button" id="butt" name="Button" value="<?php echo $strOK; ?>" onClick="New_relation()" > 
+        <input type="button" id="butt" name="Button" value="<?php echo $strOK; ?>" onClick="New_relation()" >
           <input type="button" id="butt" name="Button" value="<?php echo $strCancel; ?>" onClick="document.getElementById('layer_new_relation').style.visibility = 'hidden';">
             </td>
           </tr>

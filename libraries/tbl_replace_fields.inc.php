@@ -1,4 +1,5 @@
 <?php
+// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * f i e l d    u p l o a d e d    f r o m    a    f i l e
  *
@@ -47,6 +48,7 @@
  * @uses PMA_checkParameters()
  * @uses PMA_sqlAddslashes()
  * @uses PMA_userDir()
+ * @todo there are also file uploads in the import dialog - possible we can merge this
  */
 
 /**
@@ -63,7 +65,6 @@ require_once './libraries/common.lib.php';
 $valid_file_was_uploaded = false;
 
 // Check if a multi-edit row was found
-
 $me_fields_upload =
     (isset($_FILES['fields_upload_' . $key]['tmp_name']['multi_edit'][$primary_key])
     ? $_FILES['fields_upload_' . $key]['tmp_name']['multi_edit'][$primary_key]
@@ -93,16 +94,18 @@ if ($me_fields_upload != 'none') {
         // before opening it. The FAQ 1.11 explains how to create the "./tmp"
         // directory - if needed
         if ('' != ini_get('open_basedir')) {
-            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+            $tmp_subdir = (PMA_IS_WINDOWS ? 'tmp' : 'tmp');
 
             if (! is_dir($tmp_subdir)) {
                 // try to create the tmp directory if not exists
-                if (mkdir($tmp_subdir, 0777)) {
+                if (@mkdir($tmp_subdir, 0777)) {
                     chmod($tmp_subdir, 0777);
                 }
             }
 
             if (! is_writable($tmp_subdir)) {
+                // cannot create directory or access, point user to FAQ 1.11
+                $message .= $GLOBALS['strFieldInsertFromFileTempDirNotExists'] . '<br />';
                 // if we cannot move the file don't change blob fields
                 $file_to_insert = false;
             } else {
@@ -148,7 +151,37 @@ if ($me_fields_upload != 'none') {
     }
 
     unset($file_to_insert, $file_to_insert_size, $unlink);
-}
+} elseif (isset($_FILES['fields_upload_' . $key]['error']['multi_edit'][$primary_key])) {
+    // check for file upload errors
+    switch ($_FILES['fields_upload_' . $key]['error']['multi_edit'][$primary_key]) {
+        // cybot_tm: we do not use the PHP constants here cause not all constants
+        // are defined in all versions of PHP - but the correct constants names
+        // are given as comment
+        case 0: //UPLOAD_ERR_OK:
+        case 4: //UPLOAD_ERR_NO_FILE:
+            break;
+        case 1: //UPLOAD_ERR_INI_SIZE:
+            $message .= $GLOBALS['strUploadErrorIniSize'] . '<br />';
+            break;
+        case 2: //UPLOAD_ERR_FORM_SIZE:
+            $message .= $GLOBALS['strUploadErrorFormSize'] . '<br />';
+            break;
+        case 3: //UPLOAD_ERR_PARTIAL:
+            $message .= $GLOBALS['strUploadErrorPartial'] . '<br />';
+            break;
+        case 6: //UPLOAD_ERR_NO_TMP_DIR:
+            $message .= $GLOBALS['strUploadErrorNoTempDir'] . '<br />';
+            break;
+        case 7: //UPLOAD_ERR_CANT_WRITE:
+            $message .= $GLOBALS['strUploadErrorCantWrite'] . '<br />';
+            break;
+        case 8: //UPLOAD_ERR_EXTENSION:
+            $message .= $GLOBALS['strUploadErrorExtension'] . '<br />';
+            break;
+        default:
+            $message .= $GLOBALS['strUploadErrorUnknown'] . '<br />';
+    } // end switch
+} // end else
 
 if (false === $valid_file_was_uploaded) {
 

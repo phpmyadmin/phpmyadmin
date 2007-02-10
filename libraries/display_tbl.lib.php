@@ -793,17 +793,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             }
 
             // 2.1.4 Do define the sorting url
-            if (!$is_in_sort) {
+            if (! $is_in_sort) {
                 // loic1: patch #455484 ("Smart" order)
-                $GLOBALS['cfg']['Order']  = strtoupper($GLOBALS['cfg']['Order']);
-                if ($GLOBALS['cfg']['Order'] == 'SMART') {
-                    $GLOBALS['cfg']['Order'] = (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
+                $GLOBALS['cfg']['Order'] = strtoupper($GLOBALS['cfg']['Order']);
+                if ($GLOBALS['cfg']['Order'] === 'SMART') {
+                    $sort_order .= (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
+                } else {
+                    $sort_order .= $GLOBALS['cfg']['Order'];
                 }
-                $sort_order .= $GLOBALS['cfg']['Order'];
                 $order_img   = '';
-            } elseif (preg_match('@[[:space:]]ASC$@i', $sort_expression)) {
-                $sort_order .= ' DESC';
-                $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
             } elseif (preg_match('@[[:space:]]DESC$@i', $sort_expression)) {
                 $sort_order .= ' ASC';
                 $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
@@ -1720,9 +1718,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     //     displayed
     $total      = '';
     $is_display = PMA_setDisplayMode($the_disp_mode, $total);
-    if ($total == '') {
-        unset($total);
-    }
+    // what was this for? 
+    // $total can be 0 if $cfg['MaxExactCountViews'] = 0
+    //if ($total == '') {
+    //    unset($total);
+    //}
 
     // 1.2 Defines offsets for the next and previous pages
     if ($is_display['nav_bar'] == '1') {
@@ -2015,6 +2015,27 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
             '', true, true, '') . "\n";
     }
+
+    // CREATE VIEW
+    /**
+     *
+     * @todo detect privileges to create a view 
+     *       (but see 2006-01-19 note in display_create_table.lib.php,
+     *        I think we cannot detect db-specific privileges reliably)
+     */
+    if (PMA_MYSQL_INT_VERSION >= 50000) {
+        if (!$header_shown) {
+            echo $header;
+            $header_shown = TRUE;
+        }
+        echo '    <!-- Create View -->' . "\n";
+        echo   '    &nbsp;&nbsp;' . "\n";
+        echo PMA_linkOrButton(
+            'view_create.php' . $url_query,
+            ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_views.png" height="16" width="16" alt="CREATE VIEW" />' : '') . 'CREATE VIEW',
+            '', true, true, '') . "\n";
+    }
+
     if ($header_shown) {
         echo '</fieldset><br />';
     }

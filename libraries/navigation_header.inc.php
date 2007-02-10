@@ -25,8 +25,15 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
     }
 
     echo '<div id="pmalogo">' . "\n"
-        .'<a href="' . $GLOBALS['cfg']['LeftLogoLink'] . '" target="_blank">'
-        .$logo . '</a>' . "\n"
+        .'<a href="' . $GLOBALS['cfg']['LeftLogoLink'];
+    switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
+        case 'new':
+            echo '" target="_blank"';
+            break;
+        case 'main':
+            echo '?' . $query_url . '" target="frame_content"';
+    }
+    echo '>' . $logo . '</a>' . "\n"
         .'</div>' . "\n";
 } // end of display logo
 ?>

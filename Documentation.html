@@ -11,7 +11,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.10.0-dev - Documentation</title>
+    <title>phpMyAdmin 2.11.0-dev - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
 
@@ -33,7 +33,7 @@
     <li><a href="#glossary">Glossary</a></li>
 </ul>
 
-<h1>phpMyAdmin 2.10.0-dev Documentation</h1>
+<h1>phpMyAdmin 2.11.0-dev Documentation</h1>
 
 <ul><li><a href="http://www.phpmyadmin.net/">
             phpMyAdmin homepage</a></li>
@@ -1213,8 +1213,14 @@ ALTER TABLE `pma_column_comments`
     <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <tt>TRUE</tt>.</dd>
     <dt id="cfg_LeftLogoLink">$cfg['LeftLogoLink'] string</dt>
-    <dd>Enter URL where logo in left frame will point to. For use especially
-        with self made theme which changes this.</dd>
+    <dd>Enter URL where logo in the navigation frame will point to. 
+    For use especially with self made theme which changes this.
+    The default value for this is <tt>main.php</tt>.</dd>
+
+    <dt id="cfg_LeftLogoLinkWindow">$cfg['LeftLogoLinkWindow'] string</dt>
+    <dd>Whether to open the linked page in the main window (<tt>main</tt>)
+    or in a new one (<tt>new</tt>).</dd>
+
     <dt id="cfg_LeftDisplayServers">$cfg['LeftDisplayServers'] boolean</dt>
     <dd>Defines whether or not to display a server choice at the top of the left frame.
         Defaults to FALSE.</dd>

@@ -321,6 +321,7 @@ function Circle(x,y,r,w,color)
 {   
   var ctx = document.getElementById('canvas').getContext('2d');   
   ctx.beginPath(); 
+  ctx.moveTo(x, y);
   ctx.lineWidth = w;
   ctx.strokeStyle = color;
   ctx.arc(x, y, r, 0, 2*Math.PI, true);   

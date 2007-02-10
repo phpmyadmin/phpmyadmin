@@ -1,13 +1,11 @@
 <?php
-/* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
 /**
- * Misc stuff and functions used by almost all the scripts.
+ * Misc stuff and functions used by ALL the scripts.
+ * MUST be included by every script
+ *
  * Among other things, it contains the advanced authentication work.
- */
-
-/**
+ *
  * Order of sections for common.lib.php:
  *
  * the include of libraries/defines_mysql.lib.php must be after the connection
@@ -34,13 +32,14 @@
  * - authentication work
  * - load of the libraries/defines_mysql.lib.php library to get the MySQL
  *   release number
+ *
+ * @version $Id$
  */
 
 /**
  * For now, avoid warnings of E_STRICT mode
  * (this must be done before function definitions)
  */
-
 if (defined('E_STRICT')) {
     $old_error_reporting = error_reporting(0);
     if ($old_error_reporting & E_STRICT) {
@@ -54,14 +53,12 @@ if (defined('E_STRICT')) {
 /**
  * Avoid object cloning errors
  */
-
-@ini_set('zend.ze1_compatibility_mode',false);
+@ini_set('zend.ze1_compatibility_mode', false);
 
 /**
  * Avoid problems with magic_quotes_runtime
  */
-
-@ini_set('magic_quotes_runtime',false);
+@ini_set('magic_quotes_runtime', false);
 
 
 /******************************************************************************/
@@ -87,8 +84,77 @@ function PMA_securePath($path)
 } // end function
 
 /**
+ * displays the given error message on phpMyAdmin error page in foreign language,
+ * ends script execution and closes session
+ *
+ * @todo    use detected argument separator (PMA_Config)
+ * @uses    $GLOBALS['session_name']
+ * @uses    $GLOBALS['text_dir']
+ * @uses    $GLOBALS['strError']
+ * @uses    $GLOBALS['available_languages']
+ * @uses    $GLOBALS['lang']
+ * @uses    PMA_removeCookie()
+ * @uses    select_lang.lib.php
+ * @uses    $_COOKIE
+ * @uses    substr()
+ * @uses    header()
+ * @uses    urlencode()
+ * @param string    $error_message the error message or named error message
+ */
+function PMA_fatalError($error_message, $message_args = null)
+{
+    if (! isset($GLOBALS['available_languages'])) {
+        $GLOBALS['cfg'] = array('DefaultLang'           => 'en-iso-8859-1',
+                     'AllowAnywhereRecoding' => false);
+        // Loads the language file
+        require_once './libraries/select_lang.lib.php';
+        if (isset($strError)) {
+            $GLOBALS['strError'] = $strError;
+        }
+        if (isset($text_dir)) {
+            $GLOBALS['text_dir'] = $text_dir;
+        }
+    }
+
+    if (substr($error_message, 0, 3) === 'str') {
+        if (isset($$error_message)) {
+            $error_message = $$error_message;
+        } elseif (isset($GLOBALS[$error_message])) {
+            $error_message = $GLOBALS[$error_message];
+        }
+    }
+
+    if (is_string($message_args)) {
+        $error_message = sprintf($error_message, $message_args);
+    } elseif (is_array($message_args)) {
+        $error_message = vsprintf($error_message, $message_args);
+    }
+    $error_message = strtr($error_message, array('<br />' => '[br]'));
+
+    // Displays the error message
+    // (do not use &amp; for parameters sent by header)
+    header('Location: error.php'
+            . '?lang='  . urlencode($GLOBALS['available_languages'][$GLOBALS['lang']][2])
+            . '&dir='   . urlencode($GLOBALS['text_dir'])
+            . '&type='  . urlencode($GLOBALS['strError'])
+            . '&error=' . urlencode($error_message));
+
+    // on fatal errors it cannot hurt to always delete the current session
+    if (isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
+        PMA_removeCookie($GLOBALS['session_name']);
+    }
+
+    exit;
+}
+
+/**
  * returns count of tables in given db
  *
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_backquote()
+ * @uses    PMA_DBI_QUERY_STORE()
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_free_result()
  * @param   string  $db database to count tables for
  * @return  integer count of tables in $db
  */
@@ -113,6 +179,9 @@ function PMA_getTableCount($db)
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
+ * @uses    each()
+ * @uses    strlen()
+ * @uses    substr()
  * @param   string  $size
  * @return  integer $size
  */
@@ -266,6 +335,9 @@ function PMA_array_merge_recursive()
 /**
  * calls $function vor every element in $array recursively
  *
+ * @uses    PMA_arrayWalkRecursive()
+ * @uses    is_array()
+ * @uses    is_string()
  * @param   array   $array      array to walk
  * @param   string  $function   function to call for every array element
  */
@@ -327,6 +399,11 @@ function PMA_checkPageValidity(&$page, $whitelist)
  * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
  * in this order
  *
+ * @uses    $_SERVER
+ * @uses    $_ENV
+ * @uses    getenv()
+ * @uses    function_exists()
+ * @uses    apache_getenv()
  * @param   string  $var_name   variable name
  * @return  string  value of $var or empty string
  */
@@ -347,7 +424,7 @@ function PMA_getenv($var_name) {
 
 /**
  * include here only libraries which contain only function definitions
- * no code im main()!
+ * no code in main()!
  */
 /**
  * Input sanitizing
@@ -371,8 +448,12 @@ require_once './libraries/Config.class.php';
 require_once './libraries/Table.class.php';
 
 
-
 if (!defined('PMA_MINIMUM_COMMON')) {
+
+    /**
+     * Java script escaping.
+     */
+    require_once './libraries/js_escape.lib.php';
 
     /**
      * string PMA_getIcon(string $icon)
@@ -395,6 +476,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * Displays the maximum size for an upload
      *
+     * @uses    $GLOBALS['strMaximumSize']
+     * @uses    PMA_formatByteDown()
+     * @uses    sprintf()
      * @param   integer  the size
      *
      * @return  string   the message
@@ -426,6 +510,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * Add slashes before "'" and "\" characters so a value containing them can
      * be used in a sql comparison.
      *
+     * @uses    str_replace()
      * @param   string   the string to slash
      * @param   boolean  whether the string will be used in a 'LIKE' clause
      *                   (it then requires two more escaped sequences) or not
@@ -468,6 +553,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * database, table and field names.
      * Note: This function does not escape backslashes!
      *
+     * @uses    str_replace()
      * @param   string   the string to escape
      *
      * @return  string   the escaped string
@@ -486,6 +572,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * removes slashes before "_" and "%" characters
      * Note: This function does not unescape backslashes!
      *
+     * @uses    str_replace()
      * @param   string   $name  the string to escape
      * @return  string   the escaped string
      * @access  public
@@ -503,6 +590,8 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      *
      * checks if the sting is quoted and removes this quotes
      *
+     * @uses    str_replace()
+     * @uses    substr()
      * @param   string  $quoted_string  string to remove quotes from
      * @param   string  $quote          type of quote to remove
      * @return  string  unqoted string
@@ -535,6 +624,11 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * format sql strings
      *
+     * @todo    move into PMA_Sql
+     * @uses    PMA_SQP_isError()
+     * @uses    PMA_SQP_formatHtml()
+     * @uses    PMA_SQP_formatNone()
+     * @uses    is_array()
      * @param   mixed    pre-parsed SQL structure
      *
      * @return  string   the formatted sql
@@ -594,6 +688,17 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * Displays a link to the official MySQL documentation
      *
+     * @uses    $cfg['MySQLManualType']
+     * @uses    $cfg['MySQLManualBase']
+     * @uses    $cfg['ReplaceHelpImg']
+     * @uses    $GLOBALS['mysql_4_1_doc_lang']
+     * @uses    $GLOBALS['mysql_5_1_doc_lang']
+     * @uses    $GLOBALS['mysql_5_0_doc_lang']
+     * @uses    $GLOBALS['strDocu']
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @uses    PMA_MYSQL_INT_VERSION
+     * @uses    strtolower()
+     * @uses    str_replace()
      * @param string  chapter of "HTML, one page per chapter" documentation
      * @param string  contains name of page/anchor that is being linked
      * @param bool    whether to use big icon (like in left frame)
@@ -671,34 +776,71 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * Displays a hint icon, on mouse over show the hint
      *
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @uses    PMA_jsFormat()
      * @param   string   the error message
      *
      * @access  public
      */
-     function PMA_showHint($hint_message)
-     {
-         //return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, false) . '\');" />';
-         return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" alt="Tip" title="Tip" onmouseover="pmaTooltip(\'' .  PMA_jsFormat($hint_message, false) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
-     }
+    function PMA_showHint($hint_message)
+    {
+        //return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, false) . '\');" />';
+        return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage']
+            . 'b_tipp.png" width="16" height="16" alt="Tip" title="Tip" onmouseover="pmaTooltip(\''
+            .  PMA_jsFormat($hint_message, false) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
+    }
 
     /**
      * Displays a MySQL error message in the right frame.
      *
+     * @uses    footer.inc.php
+     * @uses    header.inc.php
+     * @uses    $GLOBALS['sql_query']
+     * @uses    $GLOBALS['strError']
+     * @uses    $GLOBALS['strSQLQuery']
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @uses    $GLOBALS['strEdit']
+     * @uses    $GLOBALS['strMySQLSaid']
+     * @uses    $cfg['PropertiesIconic']
+     * @uses    PMA_backquote()
+     * @uses    PMA_DBI_getError()
+     * @uses    PMA_formatSql()
+     * @uses    PMA_generate_common_hidden_inputs()
+     * @uses    PMA_generate_common_url()
+     * @uses    PMA_showMySQLDocu()
+     * @uses    PMA_sqlAddslashes()
+     * @uses    PMA_SQP_isError()
+     * @uses    PMA_SQP_parse()
+     * @uses    PMA_SQP_getErrorString()
+     * @uses    strtolower()
+     * @uses    urlencode()
+     * @uses    str_replace()
+     * @uses    nl2br()
+     * @uses    substr()
+     * @uses    preg_replace()
+     * @uses    preg_match()
+     * @uses    explode()
+     * @uses    implode()
+     * @uses    is_array()
+     * @uses    function_exists()
+     * @uses    htmlspecialchars()
+     * @uses    trim()
+     * @uses    strstr()
      * @param   string   the error message
      * @param   string   the sql query that failed
      * @param   boolean  whether to show a "modify" link or not
      * @param   string   the "back" link url (full path is not required)
      * @param   boolean  EXIT the page?
      *
-     * @global  array    the configuration array
+     * @global  string    the curent table
+     * @global  string    the current db
      *
      * @access  public
      */
     function PMA_mysqlDie($error_message = '', $the_query = '',
-                            $is_modify_link = true, $back_url = '',
-                            $exit = true)
+                            $is_modify_link = true, $back_url = '', $exit = true)
     {
-        global $cfg, $table, $db, $sql_query;
+        global $table, $db;
 
         /**
          * start http output, display html headers
@@ -839,7 +981,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                 unset($error_table, $error_fields, $duplicate_value);
 
                 echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
-                    .'            <input type="hidden" name="sql_query" value="' . htmlentities($sql) . '" />' . "\n"
+                    .'            <input type="hidden" name="sql_query" value="' . htmlspecialchars($sql) . '" />' . "\n"
                     .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
                     .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
                     .'        </form>' . "\n";
@@ -867,6 +1009,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * Returns a string formatted with CONVERT ... USING
      * if MySQL supports it
      *
+     * @uses    PMA_MYSQL_INT_VERSION
+     * @uses    $GLOBALS['collation_connection']
+     * @uses    explode()
      * @param   string  the string itself
      * @param   string  the mode: quoted or unquoted (this one by default)
      *
@@ -894,6 +1039,19 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * Send HTTP header, taking IIS limits into account (600 seems ok)
      *
+     * @uses    PMA_IS_IIS
+     * @uses    PMA_COMING_FROM_COOKIE_LOGIN
+     * @uses    PMA_get_arg_separator()
+     * @uses    SID
+     * @uses    strlen()
+     * @uses    strpos()
+     * @uses    header()
+     * @uses    session_write_close()
+     * @uses    headers_sent()
+     * @uses    function_exists()
+     * @uses    debug_print_backtrace()
+     * @uses    trigger_error()
+     * @uses    defined()
      * @param   string   $uri the header to send
      * @return  boolean  always true
      */
@@ -951,10 +1109,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * returns array with tables of given db with extended infomation and grouped
      *
-     * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
-     * @uses    $GLOBALS['cfg']['LeftFrameTableLevel']
-     * @uses    $GLOBALS['cfg']['ShowTooltipAliasTB']
-     * @uses    $GLOBALS['cfg']['NaturalOrder']
+     * @uses    $cfg['LeftFrameTableSeparator']
+     * @uses    $cfg['LeftFrameTableLevel']
+     * @uses    $cfg['ShowTooltipAliasTB']
+     * @uses    $cfg['NaturalOrder']
      * @uses    PMA_backquote()
      * @uses    count()
      * @uses    array_merge
@@ -1072,10 +1230,16 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * Adds backquotes on both sides of a database, table or field name.
      * and escapes backquotes inside the name with another backquote
      *
+     * example:
      * <code>
      * echo PMA_backquote('owner`s db'); // `owner``s db`
+     *
      * </code>
      *
+     * @uses    PMA_backquote()
+     * @uses    is_array()
+     * @uses    strlen()
+     * @uses    str_replace()
      * @param   mixed    $a_name    the database, table or field name to "backquote"
      *                              or array of it
      * @param   boolean  $do_it     a flag to bypass this function (used by dump
@@ -1100,7 +1264,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) && $a_name != '*') {
+        if (strlen($a_name) && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         } else {
             return $a_name;
@@ -1109,59 +1273,9 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
 
     /**
-     * Format a string so it can be a string inside JavaScript code inside an
-     * eventhandler (onclick, onchange, on..., ).
-     * This function is used to displays a javascript confirmation box for
-     * "DROP/DELETE/ALTER" queries.
-     *
-     * @uses    PMA_escapeJsString()
-     * @uses    PMA_backquote()
-     * @uses    is_string()
-     * @uses    htmlspecialchars()
-     * @uses    str_replace()
-     * @param   string   $a_string          the string to format
-     * @param   boolean  $add_backquotes    whether to add backquotes to the string or not
-     *
-     * @return  string   the formatted string
-     *
-     * @access  public
-     */
-    function PMA_jsFormat($a_string = '', $add_backquotes = true)
-    {
-        if (is_string($a_string)) {
-            $a_string = htmlspecialchars($a_string);
-            $a_string = PMA_escapeJsString($a_string);
-            /**
-             * @todo what is this good for?
-             */
-            $a_string = str_replace('#', '\\#', $a_string);
-        }
-
-        return (($add_backquotes) ? PMA_backquote($a_string) : $a_string);
-    } // end of the 'PMA_jsFormat()' function
-
-    /**
-     * escapes a string to be inserted as string a JavaScript block
-     * enclosed by <![CDATA[ ... ]]>
-     * this requires only to escape ' with \' and end of script block
-     *
-     * @uses    strtr()
-     * @param   string  $string the string to be escaped
-     * @return  string  the escaped string
-     */
-    function PMA_escapeJsString($string)
-    {
-        return strtr($string, array(
-                            '\\' => '\\\\',
-                            '\'' => '\\\'',
-                            "\n" => '\n',
-                            "\r" => '\r',
-                            '</script' => '</\' + \'script'));
-    }
-
-    /**
      * Defines the <CR><LF> value depending on the user OS.
      *
+     * @uses    PMA_USR_OS
      * @return  string   the <CR><LF> value to use
      *
      * @access  public
@@ -1186,8 +1300,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     /**
      * Reloads navigation if needed.
      *
-     * @global  mixed   configuration
-     * @global  bool    whether to reload
+     * @uses    $GLOBALS['reload']
+     * @uses    $GLOBALS['db']
+     * @uses    PMA_generate_common_url()
+     * @global  array  configuration
      *
      * @access  public
      */
@@ -1220,7 +1336,7 @@ if (typeof(window.parent) != 'undefined'
      * @param   string  $message    the message to display
      * @param   string  $sql_query  the query to display
      * @global  array   the configuration array
-     * @uses    $GLOBALS['cfg']
+     * @uses    $cfg
      * @access  public
      */
     function PMA_showMessage($message, $sql_query = null)
@@ -1566,6 +1682,8 @@ if (typeof(window.parent) != 'undefined'
      * $comma is not substracted from the length
      * with a $length of 0 no truncation occurs, number is only formated
      * to the current locale
+     *
+     * examples:
      * <code>
      * echo PMA_formatNumber(123456789, 6);     // 123,457 k
      * echo PMA_formatNumber(-123456789, 4, 2); //    -123.46 M
@@ -1573,6 +1691,7 @@ if (typeof(window.parent) != 'undefined'
      * echo PMA_formatNumber(0.003, 3, 3);      //       0.003
      * echo PMA_formatNumber(0.00003, 3, 2);    //       0.03 m
      * echo PMA_formatNumber(0, 6);             //       0
+     *
      * </code>
      * @param   double   $value     the value to format
      * @param   integer  $length    the max length
@@ -1713,21 +1832,20 @@ if (typeof(window.parent) != 'undefined'
      * returns a tab for tabbed navigation.
      * If the variables $link and $args ar left empty, an inactive tab is created
      *
+     * @uses    $GLOBALS['strEmpty']
+     * @uses    $GLOBALS['strDrop']
+     * @uses    $GLOBALS['active_page']
+     * @uses    $GLOBALS['url_query']
+     * @uses    $cfg['MainPageIconic']
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @uses    PMA_generate_common_url()
+     * @uses    E_USER_NOTICE
+     * @uses    htmlentities()
+     * @uses    urlencode()
+     * @uses    sprintf()
+     * @uses    trigger_error()
      * @uses    array_merge()
-     * basename()
-     * $GLOBALS['strEmpty']
-     * $GLOBALS['strDrop']
-     * $GLOBALS['active_page']
-     * $GLOBALS['PHP_SELF']
-     * htmlentities()
-     * PMA_generate_common_url()
-     * $GLOBALS['url_query']
-     * urlencode()
-     * $GLOBALS['cfg']['MainPageIconic']
-     * $GLOBALS['pmaThemeImage']
-     * sprintf()
-     * trigger_error()
-     * E_USER_NOTICE
+     * @uses    basename()
      * @param   array   $tab    array with all options
      * @return  string  html code for one tab, a link if valid otherwise a span
      * @access  public
@@ -1959,6 +2077,9 @@ if (typeof(window.parent) != 'undefined'
     /**
      * Returns a given timespan value in a readable format.
      *
+     * @uses    $GLOBALS['timespanfmt']
+     * @uses    sprintf()
+     * @uses    floor()
      * @param  int     the timespan
      *
      * @return string  the formatted value
@@ -1988,6 +2109,8 @@ if (typeof(window.parent) != 'undefined'
      * Fulfills todo-item
      * http://sf.net/tracker/?func=detail&aid=544361&group_id=23067&atid=377411
      *
+     * @todo    add a multibyte safe function PMA_STR_split()
+     * @uses    strlen
      * @param   string   The string
      * @param   string   The Separator (defaults to "<br />\n")
      *
@@ -2036,6 +2159,11 @@ if (typeof(window.parent) != 'undefined'
      * Not sure we could use a strMissingParameter message here,
      * would have to check if the error message file is always available
      *
+     * @todo    localize error message
+     * @todo    use PMA_fatalError() if $die === true?
+     * @uses    PMA_getenv()
+     * @uses    header_meta_style.inc.php
+     * basename
      * @param   array   The names of the parameters needed by the calling
      *                  script.
      * @param   boolean Stop the execution?
@@ -2050,13 +2178,13 @@ if (typeof(window.parent) != 'undefined'
      */
     function PMA_checkParameters($params, $die = true, $request = true)
     {
-        global $PHP_SELF, $checked_special;
+        global $checked_special;
 
         if (!isset($checked_special)) {
             $checked_special = false;
         }
 
-        $reported_script_name = basename($PHP_SELF);
+        $reported_script_name = basename(PMA_getenv('PHP_SELF'));
         $found_error = false;
         $error_message = '';
 
@@ -2066,7 +2194,10 @@ if (typeof(window.parent) != 'undefined'
             }
 
             if (!isset($GLOBALS[$param])) {
-                $error_message .= $reported_script_name . ': Missing parameter: ' . $param . ' <a href="./Documentation.html#faqmissingparameters" target="documentation"> (FAQ 2.8)</a><br />';
+                $error_message .= $reported_script_name
+                    . ': Missing parameter: ' . $param
+                    . ' <a href="./Documentation.html#faqmissingparameters"'
+                    . ' target="documentation"> (FAQ 2.8)</a><br />';
                 $found_error = true;
             }
         }
@@ -2201,6 +2332,9 @@ if (typeof(window.parent) != 'undefined'
     /**
      * Generate a button or image tag
      *
+     * @uses    PMA_USR_BROWSER_AGENT
+     * @uses    $GLOBALS['pmaThemeImage']
+     * @uses    $GLOBALS['cfg']['PropertiesIconic']
      * @param   string      name of button element
      * @param   string      class of button element
      * @param   string      name of image element
@@ -2213,30 +2347,30 @@ if (typeof(window.parent) != 'undefined'
     function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
         $image)
     {
-        global $pmaThemeImage, $propicon;
-
         /* Opera has trouble with <input type="image"> */
         /* IE has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT != 'IE') {
             echo '<button class="' . $button_class . '" type="submit"'
                 .' name="' . $button_name . '" value="' . $text . '"'
                 .' title="' . $text . '">' . "\n"
-                .'<img class="icon" src="' . $pmaThemeImage . $image . '"'
+                .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . $image . '"'
                 .' title="' . $text . '" alt="' . $text . '" width="16"'
                 .' height="16" />'
-                .($propicon == 'both' ? '&nbsp;' . $text : '') . "\n"
+                .($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . $text : '') . "\n"
                 .'</button>' . "\n";
         } else {
             echo '<input type="image" name="' . $image_name . '" value="'
-                . $text . '" title="' . $text . '" src="' . $pmaThemeImage
+                . $text . '" title="' . $text . '" src="' . $GLOBALS['pmaThemeImage']
                 . $image . '" />'
-                . ($propicon == 'both' ? '&nbsp;' . $text : '') . "\n";
+                . ($GLOBALS['cfg']['PropertiesIconic'] == 'both' ? '&nbsp;' . $text : '') . "\n";
         }
     } // end function
 
     /**
      * Generate a pagination selector for browsing resultsets
      *
+     * @uses    $GLOBALS['strPageNumber']
+     * @uses    range()
      * @param   string      URL for the JavaScript
      * @param   string      Number of rows in the pagination set
      * @param   string      current page number
@@ -2332,26 +2466,40 @@ if (typeof(window.parent) != 'undefined'
     } // end function
 
     /**
-     * @todo add documentation
+     * replaces %u in given path with current user name
+     *
+     * example:
+     * <code>
+     * $user_dir = PMA_userDir('/var/pma_tmp/%u/'); // '/var/pma_tmp/root/'
+     *
+     * </code>
+     * @uses    $cfg['Server']['user']
+     * @uses    substr()
+     * @uses    str_replace()
+     * @param   string  $dir with wildcard for user
+     * @return  string  per user directory
      */
     function PMA_userDir($dir)
     {
-        global $cfg;
-
+        // add trailing slash
         if (substr($dir, -1) != '/') {
             $dir .= '/';
         }
 
-        return str_replace('%u', $cfg['Server']['user'], $dir);
+        return str_replace('%u', $GLOBALS['cfg']['Server']['user'], $dir);
     }
 
     /**
      * returns html code for db link to default db page
      *
-     * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
+     * @uses    $cfg['DefaultTabDatabase']
      * @uses    $GLOBALS['db']
      * @uses    $GLOBALS['strJumpToDB']
      * @uses    PMA_generate_common_url()
+     * @uses    PMA_unescape_mysql_wildcards()
+     * @uses    strlen()
+     * @uses    sprintf()
+     * @uses    htmlspecialchars()
      * @param   string  $database
      * @return  string  html link to default db page
      */
@@ -2446,7 +2594,10 @@ if (typeof(window.parent) != 'undefined'
      * Displays a lightbulb hint explaining a known external bug
      * that affects a functionality
      *
+     * @uses    PMA_MYSQL_INT_VERSION
+     * @uses    $GLOBALS['strKnownExternalBug']
      * @uses    PMA_showHint()
+     * @uses    sprintf()
      * @param   string  $functionality localized message explaining the func.
      * @param   string  $component  'mysql' (eventually, 'php')
      * @param   string  $minimum_version of this component
@@ -2786,17 +2937,8 @@ if (empty($_SESSION['PMA_Config'])) {
     /**
      * We really need this one!
      */
-    if (!function_exists('preg_replace')) {
-        header('Location: error.php'
-            . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&dir='   . urlencode($text_dir)
-            . '&type='  . urlencode($strError)
-            . '&error=' . urlencode(
-                strtr(sprintf($strCantLoad, 'pcre'),
-                    array('<br />' => '[br]')))
-            . '&' . SID
-            );
-        exit();
+    if (! function_exists('preg_replace')) {
+        PMA_fatalError('strCantLoad', 'pcre');
     }
 
     /**
@@ -3047,7 +3189,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
     $GLOBALS['url_params']['server'] = $GLOBALS['server'];
 
-
     if (! empty($cfg['Server'])) {
 
         /**
@@ -3063,17 +3204,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
-        if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            header('Location: error.php'
-                    . '?lang='  . urlencode($available_languages[$lang][2])
-                    . '&dir='   . urlencode($text_dir)
-                    . '&type='  . urlencode($strError)
-                    . '&error=' . urlencode(
-                        $strInvalidAuthMethod . ' '
-                        . $cfg['Server']['auth_type'])
-                    . '&' . SID
-                    );
-            exit();
+        if (! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
+            PMA_fatalError($strInvalidAuthMethod . ' ' . $cfg['Server']['auth_type']);
         }
         /**
          * the required auth type plugin
@@ -3198,6 +3330,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && strpos(' ' . $lang, 'ja-')
         && file_exists('./libraries/kanji-encoding.lib.php')) {
         require_once './libraries/kanji-encoding.lib.php';
+        /**
+         * enable multibyte string support
+         */
         define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 

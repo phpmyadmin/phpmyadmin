@@ -13,7 +13,7 @@ if (isset($scale)) {
     if (empty($pdf_page_number)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
-  
+
     $pmd_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']);
 
@@ -23,14 +23,14 @@ if (isset($scale)) {
 
         PMA_query_as_cu($sql,TRUE,PMA_DBI_QUERY_STORE);
     }
-    
+
     if (isset($imp)) {
         PMA_query_as_cu(
-        'UPDATE ' . $pma_table . ',' . $pmd_table . 
+        'UPDATE ' . $pma_table . ',' . $pmd_table .
         ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale . ',
         ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '.$scale.'
         WHERE
-        ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name` 
+        ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
         AND
         ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
         AND
@@ -53,7 +53,7 @@ if (isset($scale)) {
 <body>
 <br>
 <div style="text-align:center; font-weight:bold;">
-  <form name="form1" method="post" action="pmd_pdf.php?db=<? echo $db ?>&token=<? echo $token ?>">
+  <form name="form1" method="post" action="pmd_pdf.php?db=<?php echo $db ?>&token=<?php echo $token ?>">
     <p><?php echo $strExportImportToScale; ?>:
       <select name="scale">
         <option value="1">1:1</option>
@@ -66,14 +66,14 @@ if (isset($scale)) {
   <p><?php echo $strToFromPage; ?>:
 
       <select name="pdf_page_number">
-      <?
+      <?php
       $table_info_result = PMA_query_as_cu('SELECT * FROM '.PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']).'
                                              WHERE db_name = \''.$db.'\'');
       while($page = PMA_DBI_fetch_assoc($table_info_result))
       {
       ?>
-      <option value="<? echo $page['page_nr'] ?>"><? echo $page['page_descr'] ?></option>
-      <?
+      <option value="<?php echo $page['page_nr'] ?>"><?php echo $page['page_descr'] ?></option>
+      <?php
       }
       ?>
       </select>

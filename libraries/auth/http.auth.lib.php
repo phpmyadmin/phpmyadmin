@@ -41,7 +41,7 @@ function PMA_auth() {
 <body>
 <?php if (file_exists('./config.header.inc.php')) {
           require('./config.header.inc.php');
-      } 
+      }
  ?>
 
 <br /><br />
@@ -196,8 +196,7 @@ function PMA_auth_fails()
 {
     $error = PMA_DBI_getError();
     if ($error && $GLOBALS['errno'] != 1045) {
-        PMA_sendHeaderLocation('error.php?error=' . urlencode($error));
-        exit;
+        PMA_fatalError($error);
     } else {
         PMA_auth();
         return true;

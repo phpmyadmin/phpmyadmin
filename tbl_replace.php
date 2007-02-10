@@ -1,10 +1,9 @@
 <?php
 /**
  * manipulation of table data like inserting, replacing and updating
+ * vim: expandtab sw=4 ts=4 sts=4:
  *
  * usally called as form action from tbl_change.php to insert or update table rows
- *
- * vim: expandtab sw=4 ts=4 sts=4:
  *
  * @version $Id$
  *
@@ -275,12 +274,12 @@ if ($is_insert && count($value_sets) > 0) {
 
     unset($query_fields, $value_sets);
 
-    $message = $GLOBALS['strInsertedRows'] . '&nbsp;';
+    $message .= $GLOBALS['strInsertedRows'] . '&nbsp;';
 } elseif (! empty($query)) {
-    $message = $GLOBALS['strAffectedRows'] . '&nbsp;';
+    $message .= $GLOBALS['strAffectedRows'] . '&nbsp;';
 } else {
     // No change -> move back to the calling script
-    $message = $GLOBALS['strNoModification'];
+    $message .= $GLOBALS['strNoModification'];
     $js_to_run = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
@@ -352,7 +351,18 @@ if (isset($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 
-$js_to_run = 'functions.js';
+// if user asked to "Insert another new row", we need tbl_change.js
+// otherwise the calendar icon does not work
+if ($goto_include == 'tbl_change.php') {
+    /**
+     * @todo if we really need to run many different js at header time,
+     * $js_to_run would become an array and header.inc.php would iterate
+     * thru it, instead of the bunch of if/elseif it does now
+     */
+    $js_to_run = 'tbl_change.js';
+} else {
+    $js_to_run = 'functions.js';
+}
 $active_page = $goto_include;
 require_once './libraries/header.inc.php';
 require './' . PMA_securePath($goto_include);

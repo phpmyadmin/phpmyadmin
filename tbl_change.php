@@ -138,7 +138,7 @@ if (isset($primary_key)) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
         $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
-        $primary_keys[$rowcount] = $primary_key;
+        $primary_keys[$rowcount] = str_replace('\\', '\\\\', $primary_key);
 
         // No row returned
         if (!$row[$rowcount]) {
@@ -203,11 +203,8 @@ if (isset($primary_key_array)) {
 }
 echo "\n";
 
-if ($cfg['PropertiesIconic'] == true) {
-    // We need to copy the value or else the == 'both' check will always return true
-    $propicon = (string)$cfg['PropertiesIconic'];
-
-    if ($propicon == 'both') {
+if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
+    if ($cfg['PropertiesIconic'] === 'both') {
         $iconic_spacer = '<div class="nowrap">';
     } else {
         $iconic_spacer = '';
@@ -215,7 +212,7 @@ if ($cfg['PropertiesIconic'] == true) {
 
     $titles['Browse']     = $iconic_spacer . '<img width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
 
-    if ($propicon == 'both') {
+    if ($cfg['PropertiesIconic'] === 'both') {
         $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
     }
 } else {
@@ -330,11 +327,17 @@ foreach ($loop_array as $vrowcount => $vrow) {
         $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
 
         $field      = $row_table_def['Field'];
-        $field_html = $field;
+        $field_html = htmlspecialchars($field);
+        $field_md5  = md5($field);
+
+        $unnillify_trigger = $chg_evt_handler . "=\"return unNullify('" . PMA_escapeJsString($field_html) . "', '" . PMA_escapeJsString($jsvkey) . "')\"";
+        $field_name_appendix =  $vkey . '[' . $field_html . ']';
+        $field_name_appendix_md5 = $field_md5 . $vkey . '[]';
+
 
         // removed previous PHP3-workaround that caused a problem with
         // field names like '000'
-        $rowfield = $field;
+        //$rowfield = $field;
 
         // d a t e t i m e
         //
@@ -365,14 +368,14 @@ foreach ($loop_array as $vrowcount => $vrow) {
             // INSERT case
             if ($insert_mode) {
                 if (isset($vrow)) {
-                    $vrow[$rowfield] = date('Y-m-d H:i:s', time());
+                    $vrow[$field] = date('Y-m-d H:i:s', time());
                 } else {
-                    $vrow = array($rowfield => date('Y-m-d H:i:s', time()));
+                    $vrow = array($field => date('Y-m-d H:i:s', time()));
                 }
             }
             // UPDATE case with an empty and not NULL value under PHP4
-            elseif (empty($vrow[$rowfield]) && is_null($vrow[$rowfield])) {
-                $vrow[$rowfield] = date('Y-m-d H:i:s', time());
+            elseif (empty($vrow[$field]) && is_null($vrow[$field])) {
+                $vrow[$field] = date('Y-m-d H:i:s', time());
             } // end if... elseif...
         }
         $len             = (preg_match('@float|double@', $row_table_def['Type']))
@@ -382,7 +385,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
         $field_name = $field_html;
         if (isset($comments_map[$field])) {
-            $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
+            $field_name = '<span style="border-bottom: 1px dashed black;" title="'
+                . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
         }
 
         ?>
@@ -427,23 +431,23 @@ foreach ($loop_array as $vrowcount => $vrow) {
         // Prepares the field value
         $real_null_value = FALSE;
         if (isset($vrow)) {
-            if (!isset($vrow[$rowfield])
-              || (function_exists('is_null') && is_null($vrow[$rowfield]))) {
+            if (!isset($vrow[$field])
+              || (function_exists('is_null') && is_null($vrow[$field]))) {
                 $real_null_value = TRUE;
-                $vrow[$rowfield]   = '';
+                $vrow[$field]   = '';
                 $special_chars = '';
-                $data          = $vrow[$rowfield];
+                $data          = $vrow[$field];
             } else {
                 // loic1: special binary "characters"
                 if ($is_binary || $is_blob) {
-                    $vrow[$rowfield] = str_replace("\x00", '\0', $vrow[$rowfield]);
-                    $vrow[$rowfield] = str_replace("\x08", '\b', $vrow[$rowfield]);
-                    $vrow[$rowfield] = str_replace("\x0a", '\n', $vrow[$rowfield]);
-                    $vrow[$rowfield] = str_replace("\x0d", '\r', $vrow[$rowfield]);
-                    $vrow[$rowfield] = str_replace("\x1a", '\Z', $vrow[$rowfield]);
+                    $vrow[$field] = str_replace("\x00", '\0', $vrow[$field]);
+                    $vrow[$field] = str_replace("\x08", '\b', $vrow[$field]);
+                    $vrow[$field] = str_replace("\x0a", '\n', $vrow[$field]);
+                    $vrow[$field] = str_replace("\x0d", '\r', $vrow[$field]);
+                    $vrow[$field] = str_replace("\x1a", '\Z', $vrow[$field]);
                 } // end if
-                $special_chars   = htmlspecialchars($vrow[$rowfield]);
-                $data            = $vrow[$rowfield];
+                $special_chars   = htmlspecialchars($vrow[$field]);
+                $data            = $vrow[$field];
             } // end if... else...
             // loic1: if a timestamp field value is not included in an update
             //        statement MySQL auto-update it to the current timestamp
@@ -451,7 +455,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             //        it's better to set a fields_prev in this situation
             $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $row_table_def['True_Type'] == 'timestamp')
                            ? ''
-                           : '<input type="hidden" name="fields_prev' . $vkey . '[' . $field_html . ']" value="' . htmlspecialchars($vrow[$rowfield]) . '" />';
+                           : '<input type="hidden" name="fields_prev' . $field_name_appendix . '" value="' . htmlspecialchars($vrow[$field]) . '" />';
         } else {
             // loic1: display default values
             if (!isset($row_table_def['Default'])) {
@@ -484,7 +488,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             } else {
                 ?>
             <td>
-                <select name="funcs<?php echo $vkey; ?>[<?php echo $field_html; ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
+                <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnillify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
                     <option></option>
                 <?php
                 $selected     = '';
@@ -492,7 +496,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
                 // or something similar. Then directly look up the entry in the RestrictFunctions array,
                 // which will then reveal the available dropdown options
-                if (isset($cfg['RestrictFunctions']) && isset($cfg['RestrictColumnTypes']) && isset($cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]) && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
+                if (isset($cfg['RestrictFunctions'])
+                 && isset($cfg['RestrictColumnTypes'])
+                 && isset($cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])])
+                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
                     $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])];
                     $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
                     $default_function   = $cfg['DefaultFunctions'][$current_func_type];
@@ -517,8 +524,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     // ON UPDATE DEFAULT TIMESTAMP attribute.
 
                     if (PMA_MYSQL_INT_VERSION < 40102
-                    || (PMA_MYSQL_INT_VERSION >= 40102
-                       && !($row_table_def['True_Type'] == 'timestamp' && !empty($row_table_def['Default']) &&  !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
+                     || (PMA_MYSQL_INT_VERSION >= 40102
+                      && !($row_table_def['True_Type'] == 'timestamp'
+                       && !empty($row_table_def['Default'])
+                       && !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
                     $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $dropdown[$j] == $default_function)
                               ? ' selected="selected"'
@@ -564,7 +573,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
         // ---------------
         echo '        <td>' . "\n";
         if ($row_table_def['Null'] == 'YES') {
-            echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . $field_html . ']"';
+            echo '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
             if ($real_null_value && !$first_timestamp) {
                 echo ' value="on"';
             }
@@ -573,7 +582,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary)) ) {
 
                 echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-                     . ' name="fields_null' . $vkey . '[' . $field_html . ']"';
+                     . ' name="fields_null' . $field_name_appendix . '"';
                 if ($real_null_value && !$first_timestamp) {
                     echo ' checked="checked"';
                 }
@@ -592,10 +601,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 } else {
                     $onclick     .= '5, ';
                 }
-                $onclick         .= '\'' . $field_html . '\', \'' . md5($field) . '\', \'' . $vkey . '\'); this.checked = true}; return true" />' . "\n";
+                $onclick         .= '\'' . PMA_escapeJsString($field_html) . '\', \'' . $field_md5 . '\', \'' . PMA_escapeJsString($vkey) . '\'); this.checked = true}; return true" />' . "\n";
                 echo $onclick;
             } else {
-                echo '            <input type="hidden" name="fields_null' . $vkey . '[' . $field_html . ']"';
+                echo '            <input type="hidden" name="fields_null' . $field_name_appendix . '"';
                 if ($real_null_value && !$first_timestamp) {
                     echo ' value="on"';
                 }
@@ -613,15 +622,21 @@ foreach ($loop_array as $vrowcount => $vrow) {
             ?>
             <td>
             <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="foreign" />
-            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" id="field_<?php echo ($idindex); ?>_1" />
-            <input type="text"   name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" value="<?php echo htmlspecialchars($data); ?>" />
+            <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
+                value="foreign" />
+            <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
+                value="" id="field_<?php echo ($idindex); ?>_1" />
+            <input type="text" name="field_<?php echo $field_name_appendix_md5; ?>"
+                class="textfield" <?php echo $unnillify_trigger; ?>
+                tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                id="field_<?php echo ($idindex); ?>_3"
+                value="<?php echo htmlspecialchars($data); ?>" />
             <script type="text/javascript" language="javascript">
             //<![CDATA[
                 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"');
                 document.writeln(' href="browse_foreigners.php?');
                 document.writeln('<?php echo PMA_generate_common_url($db, $table); ?>');
-                document.writeln('&amp;field=<?php echo urlencode($field) . $browse_foreigners_uri; ?>">');
+                document.writeln('&amp;field=<?php echo PMA_escapeJsString(urlencode($field) . $browse_foreigners_uri); ?>">');
                 document.writeln('<?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
             //]]>
             </script>
@@ -631,9 +646,14 @@ foreach ($loop_array as $vrowcount => $vrow) {
             ?>
             <td>
             <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="foreign" />
-            <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" id="field_<?php echo $idindex; ?>_1" />
-            <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+            <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
+                value="foreign" />
+            <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
+                value="" id="field_<?php echo $idindex; ?>_1" />
+            <select name="field_<?php echo $field_name_appendix_md5; ?>"
+                <?php echo $unnillify_trigger; ?>
+                tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                id="field_<?php echo ($idindex); ?>_3">
                 <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, $cfg['ForeignKeyMaxLimit']); ?>
             </select>
             </td>
@@ -646,16 +666,28 @@ foreach ($loop_array as $vrowcount => $vrow) {
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
             <td colspan="5" align="right">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                    rows="<?php echo ($cfg['TextareaRows']*2); ?>"
+                    cols="<?php echo ($cfg['TextareaCols']*2); ?>"
+                    dir="<?php echo $text_dir; ?>"
+                    id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    ><?php echo $special_chars; ?></textarea>
             </td>
           <?php
         } elseif (strstr($type, 'text')) {
             ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                    rows="<?php echo $cfg['TextareaRows']; ?>"
+                    cols="<?php echo $cfg['TextareaCols']; ?>"
+                    dir="<?php echo $text_dir; ?>"
+                    id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    ><?php echo $special_chars; ?></textarea>
             </td>
             <?php
             echo "\n";
@@ -667,8 +699,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
             $enum_cnt    = count($enum);
             ?>
             <td>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="enum" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
+                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="enum" />
+                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
             <?php
             echo "\n" . '            ' . $backup_field;
 
@@ -676,7 +708,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
             if (strlen($row_table_def['Type']) > 20) {
                 echo "\n";
                 ?>
-                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+                <select name="field_<?php echo $field_name_appendix_md5; ?>"
+                    <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    id="field_<?php echo ($idindex); ?>_3">
                     <option value=""></option>
                 <?php
                 echo "\n";
@@ -704,14 +739,22 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     // Removes automatic MySQL escape format
                     $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                     echo '            ';
-                    echo '<input type="radio" name="field_' . md5($field) . $vkey . '[]" value="' . htmlspecialchars($enum_atom) . '" id="field_' . ($idindex) . '_3_'  . $j . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . $field_html . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null' . str_replace('"', '\"', $vkey) . '[' . $field_html .']\'].checked = false}"';
+                    echo '<input type="radio" name="field_' . $field_name_appendix_md5 . '"';
+                    echo ' value="' . htmlspecialchars($enum_atom) . '"';
+                    echo ' id="field_' . ($idindex) . '_3_'  . $j . '"';
+                    echo ' onclick="';
+                    echo "if (typeof(document.forms['insertForm'].elements['fields_null"
+                        . $field_name_appendix . "']) != 'undefined') {document.forms['insertForm'].elements['fields_null"
+                        . $field_name_appendix . "'].checked = false}";
+                    echo '"';
                     if ($data == $enum_atom
                         || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                         echo ' checked="checked"';
                     }
                     echo 'tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
-                    echo '<label for="field_' . $idindex . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
+                    echo '<label for="field_' . $idindex . '_3_' . $j . '">'
+                        . htmlspecialchars($enum_atom) . '</label>' . "\n";
                 } // end for
 
             } // end else
@@ -734,9 +777,13 @@ foreach ($loop_array as $vrowcount => $vrow) {
             ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="set" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
-                <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
+                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="set" />
+                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
+                <select name="field_<?php echo $field_name_appendix_md5; ?>"
+                    size="<?php echo $size; ?>"
+                    multiple="multiple" <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    id="field_<?php echo ($idindex); ?>_3">
             <?php
             echo "\n";
             for ($j = 0; $j < $countset; $j++) {
@@ -770,16 +817,22 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     }
                     echo "\n";
                 ?>
-                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="protected" />
-                <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="" />
+                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
+                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
                 <?php
             } elseif ($is_blob) {
                 echo "\n";
                 ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                    rows="<?php echo $cfg['TextareaRows']; ?>"
+                    cols="<?php echo $cfg['TextareaCols']; ?>"
+                    dir="<?php echo $text_dir; ?>"
+                    id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    ><?php echo $special_chars; ?></textarea>
                 <?php
 
             } else {
@@ -793,7 +846,12 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
-                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
+                <input type="text" name="fields<?php echo $field_name_appendix; ?>"
+                    value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
+                    maxlength="<?php echo $maxlength; ?>"
+                    class="textfield" <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    id="field_<?php echo ($idindex); ?>_3" />
                 <?php
             } // end if...elseif...else
 
@@ -803,7 +861,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
             if ($is_upload && $is_blob) {
                 echo '<br />';
-                echo '<input type="file" name="fields_upload_' . $field_html . $vkey . '" class="textfield" id="field_' . ($idindex) . '_3" size="10" />&nbsp;';
+                echo '<input type="file" name="fields_upload_' . $field_html . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" />&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
@@ -867,28 +925,43 @@ foreach ($loop_array as $vrowcount => $vrow) {
             if ($is_char && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
                 echo "\n";
                 ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" ><?php echo $special_chars; ?></textarea>
+                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                    rows="<?php echo $cfg['CharTextareaRows']; ?>"
+                    cols="<?php echo $cfg['CharTextareaCols']; ?>"
+                    dir="<?php echo $text_dir; ?>"
+                    id="field_<?php echo ($idindex); ?>_3"
+                    <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    ><?php echo $special_chars; ?></textarea>
                 <?php
             } else {
                 ?>
-                <input type="text" name="fields<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo $field_html; ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
+                <input type="text" name="fields<?php echo $field_name_appendix; ?>"
+                    value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
+                    maxlength="<?php echo $maxlength; ?>"
+                    class="textfield" <?php echo $unnillify_trigger; ?>
+                    tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
+                    id="field_<?php echo ($idindex); ?>_3" />
                 <?php
                 if ($row_table_def['Extra'] == 'auto_increment') {
                     ?>
-                    <input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="1" />
+                    <input type="hidden" name="auto_increment<?php echo $field_name_appendix; ?>" value="1" />
                     <?php
                 } // end if
                 if (substr($type, 0, 9) == 'timestamp') {
                     ?>
-                    <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo $field_html; ?>]" value="timestamp" />
+                    <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="timestamp" />
                     <?php
                 }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript" language="javascript">
                     //<![CDATA[
-                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
+                    document.write('<a title="<?php echo $strCalendar;?>"');
+                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');
+                    document.write('<img class="calendar"');
+                    document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
+                    document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
                     //]]>
                     </script>
                     <?php

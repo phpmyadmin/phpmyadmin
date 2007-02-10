@@ -176,9 +176,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         $sql_query_disabled = TRUE;
                     }
                 }
-                if (! empty($sql_query)) {
-                    $sql_query = htmlspecialchars($sql_query);
-                }
             }
         } // end do query (no skip)
     } // end buffer exists

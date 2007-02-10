@@ -17,18 +17,7 @@
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
-    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
-                 'AllowAnywhereRecoding' => false);
-    // Loads the language file
-    require_once('./libraries/select_lang.lib.php');
-    // Displays the error message
-    // (do not use &amp; for parameters sent by header)
-    header('Location: error.php'
-            . '?lang='  . urlencode($available_languages[$lang][2])
-            . '&dir='   . urlencode($text_dir)
-            . '&type='  . urlencode($strError)
-            . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
-    exit();
+    PMA_fatalError('strCantLoad', 'session');
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
@@ -83,13 +72,32 @@ session_cache_limiter('private');
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
-// strictly, PHP 4 since 4.4.2 would not need a verification 
-if (version_compare(PHP_VERSION, '5.1.2', 'lt') 
- && isset($_COOKIE[$session_name]) 
+// strictly, PHP 4 since 4.4.2 would not need a verification
+if (version_compare(PHP_VERSION, '5.1.2', 'lt')
+ && isset($_COOKIE[$session_name])
  && eregi("\r|\n", $_COOKIE[$session_name])) {
-    die('attacked'); 
+    die('attacked');
 }
-@session_start();
+
+if (! isset($_COOKIE[$session_name])) {
+    // on first start of session we will check for errors
+    // f.e. session dir cannot be accessed - session file not created
+    ob_start();
+    $old_display_errors = ini_get('display_errors');
+    $old_error_reporting = error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    $r = session_start();
+    ini_set('display_errors', $old_display_errors);
+    error_reporting($old_error_reporting);
+    unset($old_display_errors, $old_error_reporting);
+    $session_error = ob_get_contents();
+    ob_end_clean();
+    if ($r !== true || ! empty($session_error)) {
+        PMA_fatalError('strSessionStartupErrorGeneral');
+    }
+} else {
+    @session_start();
+}
 
 /**
  * Token which is used for authenticating access queries.
