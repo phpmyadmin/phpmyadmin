@@ -1,4 +1,3 @@
-<?php $pma_http_url = ''; ?>
 /************************************************************************************
  * LEFT FRAME
  ************************************************************************************/
@@ -26,7 +25,7 @@
 }
 body {
     background-color:    #d9e4f4;
-    background-image:    url('<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/wbg_left.jpg');
+    background-image:    url('themes/arctic_ocean/img/wbg_left.jpg');
     background-repeat:   repeat-y;
     background-position: 0px 0px;
 }
@@ -38,7 +37,7 @@ body, input, textarea, select, th, td, .item, .tblItem {
     width:                100%;
 }
 #body_queryFrame div {
-				white-space:         nowrap;
+                white-space:         nowrap;
 }
 input, select, textarea {
     color:               #000000;
@@ -80,7 +79,7 @@ img {
 }
 
 td.heada, span.heada {
-    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/b_sdb.png);
+    background-image:    url(themes/arctic_ocean/img/b_sdb.png);
     background-position: 2px center;
     background-repeat:   no-repeat;
     font-weight: bold;
@@ -92,7 +91,7 @@ span.heada, span.heada a:link, span.heada a:active, span.heada a:visited, span.h
 td.heada, span.heada {
     text-align:          left;
     padding-left:        12px;
-				white-space:         nowrap;
+                white-space:         nowrap;
 }
 
 bdo {

@@ -54,7 +54,7 @@ img, input, select, button {
 }
 
 #body_queryFrame, #body_leftFrame {
-    background-image:    url('../themes/garvblue/img/background4.gif');
+    background-image:    url('themes/garvblue/img/background4.gif');
     background-repeat:   repeat-y;
     background-position: 100% 0%;
 }

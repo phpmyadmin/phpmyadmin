@@ -80,7 +80,7 @@ div#leftframelinks a:hover {
 
 /* serverlist */
 #body_leftFrame #list_server {
-    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
     list-style-position: inside;
     list-style-type: none;
     margin: 0;

@@ -13,7 +13,7 @@ body {
     color:            #ffffff;
     margin: 0;
     padding: 2px 2px 2px 2px;
-	background-image: 		url(../themes/paradice/img/leftBgnd.jpg);
+	background-image: 		url(themes/paradice/img/leftBgnd.jpg);
 	background-position: 	left top;
 	background-repeat: 		repeat-y;
 }

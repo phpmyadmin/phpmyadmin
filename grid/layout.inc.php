@@ -54,7 +54,7 @@ $GLOBALS['cfg']['MainBackground']           = '#d0d0d0';//e7
 
 if ( PMA_USR_BROWSER_AGENT != 'MOZILLA' ) { 	/*jw index.php: NO frameborder="0"*/
 $GLOBALS['cfg']['MainBackground'] .=
-' url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
+' url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
 }
 // link color
 $GLOBALS['cfg']['MainLinkColor']       = '#00d';/*jw*/

@@ -3,8 +3,7 @@
     if (!defined('PMA_MINIMUM_COMMON')) {
         exit();
     }
-?> 
-<?php $pma_http_url = ''; ?>
+?>
 /* STYLE FOR THE RIGHT (MAIN) FRAME */
 
 #mainFrameset, #leftFrameset, frameset, frame {
@@ -35,7 +34,7 @@ body {
     background-color:    #ffffff;
     margin:              0;
     padding:             26px 3px 3px 3px;
-    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/wbg_right.jpg);
+    background-image:    url(themes/arctic_ocean/img/wbg_right.jpg);
     background-position: 100% 100%;
     background-repeat:   no-repeat;
     background-attachment: fixed;
@@ -123,7 +122,7 @@ th, .tblFooters {
     border-top:          1px solid #cccccc;
     border-bottom:       1px solid #333333;
     white-space:         nowrap;
-    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_th1.png);
+    background-image:    url(themes/arctic_ocean/img/tbg_th1.png);
     background-repeat:   repeat-x;
     background-position: 0 0;
 }
@@ -136,7 +135,7 @@ th, .tblFooters {
 .tblHeaders, tr.tblHeaders td, tr.tblHeaders th {
     color:               #585880;
     background-color:    #b4cae9;
-    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_th0.png);
+    background-image:    url(themes/arctic_ocean/img/tbg_th0.png);
 }
 .tblcomment {
     font-size:           10px;
@@ -244,7 +243,7 @@ div.notice {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #FFD700;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/arctic_ocean/img/s_notice.png);
+    background-image: url(themes/arctic_ocean/img/s_notice.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -273,7 +272,7 @@ div.warning {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #CC0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/arctic_ocean/img/s_warn.png);
+    background-image: url(themes/arctic_ocean/img/s_warn.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -302,7 +301,7 @@ div.error {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #ff0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/arctic_ocean/img/s_error.png);
+    background-image: url(themes/arctic_ocean/img/s_error.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -334,7 +333,7 @@ fieldset.confirmation legend {
     border-right: 0.1em solid #FF0000;
     font-weight: bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/arctic_ocean/img/s_really.png);
+    background-image: url(themes/arctic_ocean/img/s_really.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 5px 50%;
@@ -487,7 +486,7 @@ fieldset.confirmation legend {
         margin:              0px 1px 0px 1px;
     }
     .serverinfo div {
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/item_ltr.png);
+        background-image:    url(themes/arctic_ocean/img/item_ltr.png);
         background-repeat:   no-repeat;
         background-position: 50% 50%;
         width:               16px;
@@ -553,7 +552,7 @@ fieldset.confirmation legend {
     .nav {
         color:               #000000;
         background-color:    #b4cae9;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
         background-repeat:   repeat-x;
         background-position: center;
         height:              24px;
@@ -588,18 +587,18 @@ fieldset.confirmation legend {
    }
     .navNormal {
         background-color:    #b4cae9;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
     }
     .navActive {
         background-color:    #ffffff;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav2.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav2.png);
         border:              none;
         margin:              0px;
         padding:             5px;
     }
     .navDrop {
         background-color:    #e9c7b4;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav3.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav3.png);
     }
     .navActive a:link, .navActive a:active, .navActive a:visited {
         color:               #585880;
@@ -622,7 +621,7 @@ fieldset.confirmation legend {
     .navSpacer {
         width:               1px;
         background-color:    #333333;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav1.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav1.png);
         background-repeat:   no-repeat;
         background-position: center top;
     }
@@ -635,7 +634,7 @@ fieldset.confirmation legend {
     ul#topmenu {
         list-style-type: none;
         background-color:    #ffffff;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
         background-repeat:   repeat-x;
         background-position: center bottom;
         border:              none;
@@ -653,7 +652,7 @@ fieldset.confirmation legend {
         width:               100%;
         _width:               expression(eval(document.body.offsetWidth-18));
     }
-    
+
     ul#topmenu li {
         float:               left;
         margin:              0;
@@ -661,7 +660,7 @@ fieldset.confirmation legend {
         vertical-align:      middle;
         border:              none;
     }
-    
+
     /* default tab styles */
     span.tab, span.tab:hover,
     span.tabcaution, span.tabcaution:hover,
@@ -692,18 +691,18 @@ fieldset.confirmation legend {
     }
     a.tab:hover  {
         color:               #ffffff;
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav4.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav4.png);
         background-position: center bottom;
     }
     a.tabactive:link,  a.tabactive:active,  a.tabactive:visited,  a.tabactive:hover  {
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav2.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav2.png);
         background-color:    #ffffff;
         border-left:         1px solid #333333;
         border-right:        1px solid #333333;
         border-bottom:       1px solid #ffffff;
     }
     a.tabcaution:hover {
-        background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/tbg_nav3.png);
+        background-image:    url(themes/arctic_ocean/img/tbg_nav3.png);
         background-position: center bottom;
     }
     a.tabcaution:link, a.tabcaution:active, a.tabcaution:visited, a.tabcaution:hover, span.tabcaution  {

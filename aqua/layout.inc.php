@@ -14,7 +14,7 @@ $GLOBALS['cfg']['NaviWidth']            = 175;
 $GLOBALS['cfg']['NaviColor']            = '#ffffff';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']       = '#3E7BB6 right repeat-y url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_aquaGrad.png)';
+$GLOBALS['cfg']['NaviBackground']       = '#3E7BB6 right repeat-y url(' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_aquaGrad.png)';
 
 // color of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerColor']     = 'Navy';
@@ -26,7 +26,7 @@ $GLOBALS['cfg']['NaviPointerColor']     = 'Navy';
 $GLOBALS['cfg']['MainColor']            = '#000000';
 
 // background for the main frame
-//$GLOBALS['cfg']['MainBackground']       = '#3E7BB6 right repeat url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_main.png)';
+//$GLOBALS['cfg']['MainBackground']       = '#3E7BB6 right repeat url(' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_main.png)';
 $GLOBALS['cfg']['MainBackground']       = 'white';
 
 // color of the pointer in browse mode
@@ -61,7 +61,7 @@ $GLOBALS['cfg']['FontSize']             = '';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#cacaca repeat-x url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_tblHeaders.png)';
+$GLOBALS['cfg']['ThBackground']         = '#cacaca repeat-x url(' . $_SESSION['PMA_Theme']->getImgPath() . 'bg_tblHeaders.png)';
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000000';
 // table data row background

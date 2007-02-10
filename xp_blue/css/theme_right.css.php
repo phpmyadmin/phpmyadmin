@@ -38,7 +38,7 @@ th{
     color:               #ffffff;
     background-color:    #99bbf5;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_th.png);
+    background-image:    url(themes/xp_blue/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
    <?php } ?>
@@ -229,7 +229,7 @@ div.warning {
 /*
 <?php if($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
 */
-    background-image: url(../themes/xp_blue/img/s_warn.png);
+    background-image: url(themes/xp_blue/img/s_warn.png);
     background-repeat: no-repeat;
     background-position: 10px 10px;
     padding: 10px 10px 10px 36px;
@@ -258,7 +258,7 @@ div.error div.head {
 /*
 <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
 */
-    background-image: url(../themes/xp_blue/img/s_error.png);
+    background-image: url(themes/xp_blue/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 30px;
@@ -308,7 +308,7 @@ div.tblWarn {
     color:               #ffffff;
     background-color:    #0043cf;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_header.png);
+    background-image:    url(themes/xp_blue/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -323,7 +323,7 @@ div.tblWarn {
     color:               #ffffff;
     background-color:    #0043CF;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_footer.png);
+    background-image:    url(themes/xp_blue/img/tbl_footer.png);
     background-repeat:   repeat-x;
     background-position: bottom;
     <?php } ?>
@@ -338,7 +338,7 @@ div.tblWarn {
     color:               #ffffff;
     background-color:    #cc0000;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_error.png);
+    background-image:    url(themes/xp_blue/img/tbl_error.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -349,7 +349,7 @@ div.errorhead {
     color: #ffffff;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/xp_blue/img/s_error.png);
+    background-image: url(themes/xp_blue/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 20px;
@@ -362,7 +362,7 @@ div.errorhead {
     font-weight:         bold;
     color:               #000000;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_th.png);
+    background-image:    url(themes/xp_blue/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -373,7 +373,7 @@ div.warnhead {
     color: #ffffff;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/xp_blue/img/s_warn.png);
+    background-image: url(themes/xp_blue/img/s_warn.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 20px;
@@ -410,7 +410,7 @@ div.warnhead {
 }
 
 .serverinfo div{
-    background-image:    url(../themes/xp_blue/img/item_ltr.png);
+    background-image:    url(themes/xp_blue/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width: 20px;
@@ -427,7 +427,7 @@ hr{
     color:               #000000;
     background-color:    #0043cf;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_header.png);
+    background-image:    url(themes/xp_blue/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -446,7 +446,7 @@ hr{
     color:               #000000;
     background-color:    #0043cf;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_header.png);
+    background-image:    url(themes/xp_blue/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -460,7 +460,7 @@ hr{
     color:               #000000;
     background-color:    #cc0000;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_error.png);
+    background-image:    url(themes/xp_blue/img/tbl_error.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -474,7 +474,7 @@ hr{
     color:               #ccccff;
     background-color:    #0043cf;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/xp_blue/img/tbl_header.png);
+    background-image:    url(themes/xp_blue/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>

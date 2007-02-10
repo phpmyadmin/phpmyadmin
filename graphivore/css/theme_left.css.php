@@ -215,7 +215,7 @@ div{
 body{
     font-family:      Verdana, Arial, Helvetica, sans-serif;
     font-size:        11px;
-    background-image: url(../themes/graphivore/img/bgmenu.gif);
+    background-image: url(themes/graphivore/img/bgmenu.gif);
     margin: 0px;
     padding: 2px 2px 2px 2px;
 }

@@ -45,7 +45,7 @@ th{
     color:               #FFF3DB;
     background-color:    #ff9900;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/graphivore/img/tbl_th.png);
+    background-image:    url(themes/graphivore/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
    <?php } ?>
@@ -231,7 +231,7 @@ div.warning {
 /*
 <?php if($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
 */
-    background-image: url(../themes/graphivore/img/s_warn.png);
+    background-image: url(themes/graphivore/img/s_warn.png);
     background-repeat: no-repeat;
     background-position: 10px 10px;
     padding: 10px 10px 10px 36px;
@@ -260,7 +260,7 @@ div.error div.head {
 /*
 <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
 */
-    background-image: url(../themes/graphivore/img/s_error.png);
+    background-image: url(themes/graphivore/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 30px;
@@ -311,7 +311,7 @@ div.tblWarn {
     color:               #fff3db;
     background-color:    #286860;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/graphivore/img/tbl_header.png);
+    background-image:    url(themes/graphivore/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -326,7 +326,7 @@ div.tblWarn {
     color:               #fff3db;
     background-color:    #286860;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/graphivore/img/tbl_header.png);
+    background-image:    url(themes/graphivore/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -340,7 +340,7 @@ div.tblWarn {
     color:               #fff3db;
     background-color:    #cc0000;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/graphivore/img/tbl_error.png);
+    background-image:    url(themes/graphivore/img/tbl_error.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -351,7 +351,7 @@ div.errorhead {
     color: #fff3db;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/graphivore/img/s_error.png);
+    background-image: url(themes/graphivore/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 20px;
@@ -364,7 +364,7 @@ div.errorhead {
     font-weight:         bold;
     color:               #000000;
     <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/graphivore/img/tbl_th.png);
+    background-image:    url(themes/graphivore/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
@@ -375,7 +375,7 @@ div.warnhead {
     color: #fff3db;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/graphivore/img/s_warn.png);
+    background-image: url(themes/graphivore/img/s_warn.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
     padding: 2px 2px 2px 20px;
@@ -464,7 +464,7 @@ a.tabactive {
 
 /* default tab styles */
 .tab, .tabcaution {
-    background-image: url(../themes/graphivore/img/tbl_header.png); background-repeat: repeat-x;
+    background-image: url(themes/graphivore/img/tbl_header.png); background-repeat: repeat-x;
     background-position: top;
     background-color:    #676767;
     border: 0.1em solid silver;
@@ -481,7 +481,7 @@ a.tabactive {
     font-size:           10px;
     font-weight:         bold;
     color:               #000000;
-    background-image: url(../themes/graphivore/img/tbl_th2.png); background-repeat: repeat-x;
+    background-image: url(themes/graphivore/img/tbl_th2.png); background-repeat: repeat-x;
     background-position: top;
     background-color:    #ffaa44;
     height:              16px;
@@ -494,7 +494,7 @@ a.tab:hover, .tabactive {
     margin-right: 0;
     margin-left: 0;
     padding: 0.3em 0.3em 0.1em 0.3em;
-    background-image: url(../themes/graphivore/img/tbl_th2.png); background-repeat: repeat-x;
+    background-image: url(themes/graphivore/img/tbl_th2.png); background-repeat: repeat-x;
     background-position: top;
     background-color:    #ffaa44;
     height:              16px;
@@ -504,7 +504,7 @@ a.tab:hover, .tabactive {
 
 a.tabcaution:hover {
     background-color: #ff0000;
-    background-image: url(../themes/graphivore/img/tbl_error2.png); background-repeat: repeat-x;
+    background-image: url(themes/graphivore/img/tbl_error2.png); background-repeat: repeat-x;
 }
 
 /* disabled drop/empty tabs */

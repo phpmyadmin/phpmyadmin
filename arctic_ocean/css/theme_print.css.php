@@ -1,4 +1,3 @@
-<?php $pma_http_url = ''; ?>
 /* For printview */
 body {
     font-family:       Verdana, Arial, Helvetica, sans-serif;
@@ -90,7 +89,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .serverinfo div {
-    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/item_ltr.png);
+    background-image:    url(themes/arctic_ocean/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width:               20px;

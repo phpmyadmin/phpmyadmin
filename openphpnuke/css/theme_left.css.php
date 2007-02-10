@@ -65,7 +65,7 @@ div 			{font:<?php echo $font_size; ?> Verdana,Arial,Helvetica,sans-serif; color
     }
     ?>
 /* Always enabled stylesheets (left frame) */
-body    {background-color: #1CC2F8; background-image: url(../themes/openphpnuke/img/framelinksbg.png); background-position: right; background-repeat: repeat-y; font:<?php echo $font_size; ?> Verdana,Arial,Helvetica,sans-serif;}
+body    {background-color: #1CC2F8; background-image: url(themes/openphpnuke/img/framelinksbg.png); background-position: right; background-repeat: repeat-y; font:<?php echo $font_size; ?> Verdana,Arial,Helvetica,sans-serif;}
 input   {font:<?php echo $font_size; ?> Verdana,Arial,Helvetica,sans-serif;}
 select  {font:<?php echo $font_size; ?> Verdana,Arial,Helvetica,sans-serif; background:#ffffff; color:#000000;}
 

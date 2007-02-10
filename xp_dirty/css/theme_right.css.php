@@ -5,8 +5,7 @@ body {
     color: #000000;
     <?php
     if ($GLOBALS['cfg']['RightBgImage'] == '') {
-        // calls from a css file are relative to itself, so use ../images
-        echo '    background-image: url(../themes/original/img/vertical_line.png);' . "\n"
+        echo '    background-image: url(themes/original/img/vertical_line.png);' . "\n"
            . '    background-repeat: repeat-y;' . "\n";
     } else {
         echo '    background-image: url(' . $GLOBALS['cfg']['RightBgImage'] . ');' . "\n";
@@ -191,7 +190,7 @@ div.errorhead {
     color: #ffffff;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/original/img/s_error.png);
+    background-image: url(themes/original/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 5px 50%;
     padding: 0px 0px 0px 25px;
@@ -269,7 +268,7 @@ img, input, select, button {
     margin: 0px 1px 0px 2px;
 }
 .serverinfo div{
-    background-image:    url(../themes/original/img/item_ltr.png);
+    background-image:    url(themes/original/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width: 20px;
