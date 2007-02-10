@@ -2362,7 +2362,7 @@ if (typeof(window.parent) != 'undefined'
             echo '<input type="image" name="' . $image_name . '" value="'
                 . $text . '" title="' . $text . '" src="' . $GLOBALS['pmaThemeImage']
                 . $image . '" />'
-                . ($GLOBALS['cfg']['PropertiesIconic'] == 'both' ? '&nbsp;' . $text : '') . "\n";
+                . ($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . $text : '') . "\n";
         }
     } // end function
 
