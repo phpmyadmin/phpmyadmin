@@ -63,19 +63,6 @@ function setTable(new_table) {
     }
 }
 
-/**
- * reloads mian frame
- *
- * @uses 	goTo()
- * @uses 	opendb_url
- * @uses 	db
- * @uses 	server
- * @uses 	table
- * @uses 	lang
- * @uses    collation_connection
- * @uses    encodeURIComponent()
- * @param	string	url	name of page to be loaded
- */
 function refreshMain(url) {
     if (! url) {
         if (db) {
@@ -84,31 +71,20 @@ function refreshMain(url) {
             url = 'main.php';
         }
     }
-    goTo(url + '?server=' + encodeURIComponent(server) +
-        '&db=' + encodeURIComponent(db) +
-        '&table=' + encodeURIComponent(table) +
-        '&lang=' + encodeURIComponent(lang) +
-        '&collation_connection=' + encodeURIComponent(collation_connection),
-        'main');
+    goTo( url + '?server=' + server +
+        '&db=' + db +
+        '&table=' + table +
+        '&lang=' + lang +
+        '&collation_connection=' + collation_connection,
+        'main' );
 }
 
-/**
- * reloads navigation frame
- *
- * @uses 	goTo()
- * @uses 	db
- * @uses 	server
- * @uses 	table
- * @uses 	lang
- * @uses    collation_connection
- * @uses    encodeURIComponent()
- */
 function refreshNavigation() {
-    goTo('navigation.php?server=' + encodeURIComponent(server) +
-        '&db=' + encodeURIComponent(db)  +
-        '&table=' + encodeURIComponent(table) +
-        '&lang=' + encodeURIComponent(lang) +
-        '&collation_connection=' + encodeURIComponent(collation_connection)
+    goTo('navigation.php?server=' + server +
+        '&db=' + db +
+        '&table=' + table +
+        '&lang=' + lang +
+        '&collation_connection=' + collation_connection
         );
 }
 
@@ -271,7 +247,7 @@ function insertQuery() {
 
 function open_querywindow( url ) {
     if ( ! url ) {
-        url = 'querywindow.php?' + encodeURIComponent(common_query) + '&db=' + encodeURIComponent(db) + '&table=' + encodeURIComponent(table);
+        url = 'querywindow.php?' + common_query + '&db=' + db + '&table=' + table;
     }
 
     if (!querywindow.closed && querywindow.location) {
@@ -314,6 +290,7 @@ function refreshQuerywindow( url ) {
  * @param    string    target       frame where to load the new url
  */
 function goTo(targeturl, target) {
+    //alert('goto');
     if ( target == 'main' ) {
         target = window.frame_content;
     } else if ( target == 'query' ) {

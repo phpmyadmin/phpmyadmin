@@ -1718,11 +1718,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     //     displayed
     $total      = '';
     $is_display = PMA_setDisplayMode($the_disp_mode, $total);
-    // what was this for? 
-    // $total can be 0 if $cfg['MaxExactCountViews'] = 0
-    //if ($total == '') {
-    //    unset($total);
-    //}
+    if ($total == '') {
+        unset($total);
+    }
 
     // 1.2 Defines offsets for the next and previous pages
     if ($is_display['nav_bar'] == '1') {
@@ -2015,27 +2013,6 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
             '', true, true, '') . "\n";
     }
-
-    // CREATE VIEW
-    /**
-     *
-     * @todo detect privileges to create a view 
-     *       (but see 2006-01-19 note in display_create_table.lib.php,
-     *        I think we cannot detect db-specific privileges reliably)
-     */
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
-        if (!$header_shown) {
-            echo $header;
-            $header_shown = TRUE;
-        }
-        echo '    <!-- Create View -->' . "\n";
-        echo   '    &nbsp;&nbsp;' . "\n";
-        echo PMA_linkOrButton(
-            'view_create.php' . $url_query,
-            ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_views.png" height="16" width="16" alt="CREATE VIEW" />' : '') . 'CREATE VIEW',
-            '', true, true, '') . "\n";
-    }
-
     if ($header_shown) {
         echo '</fieldset><br />';
     }

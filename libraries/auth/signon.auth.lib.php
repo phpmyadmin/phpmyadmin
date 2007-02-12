@@ -20,7 +20,7 @@
  */
 function PMA_auth() {
     if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
-        PMA_fatalError('You must set SignonURL!');
+        PMA_sendHeaderLocation('error.php?error=' . urlencode('You must set SignonURL!'));
     } elseif (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
         /* Perform logout to custom URL */
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
@@ -53,7 +53,7 @@ function PMA_auth() {
 function PMA_auth_check()
 {
     global $PHP_AUTH_USER, $PHP_AUTH_PW;
-
+    
     /* Session name */
     $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
 
@@ -68,7 +68,7 @@ function PMA_auth_check()
         session_write_close();
 
         /* Load single signon session */
-        session_name($session_name);
+        session_name($session_name); 
         session_id($_COOKIE[$session_name]);
         session_start();
 
@@ -104,7 +104,7 @@ function PMA_auth_check()
         session_start();
 
         /* Restore our token */
-        if (!empty($pma_token)) {
+        if (!empty($pma_token)) { 
             $_SESSION[' PMA_token '] = $pma_token;
         }
     }
@@ -154,7 +154,8 @@ function PMA_auth_fails()
 {
     $error = PMA_DBI_getError();
     if ($error && $GLOBALS['errno'] != 1045) {
-        PMA_fatalError($error);
+        PMA_sendHeaderLocation('error.php?error=' . urlencode($error));
+        exit;
     } else {
         PMA_auth();
         return true;

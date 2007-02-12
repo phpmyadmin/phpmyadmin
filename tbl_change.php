@@ -203,8 +203,11 @@ if (isset($primary_key_array)) {
 }
 echo "\n";
 
-if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
-    if ($cfg['PropertiesIconic'] === 'both') {
+if ($cfg['PropertiesIconic'] == true) {
+    // We need to copy the value or else the == 'both' check will always return true
+    $propicon = (string)$cfg['PropertiesIconic'];
+
+    if ($propicon == 'both') {
         $iconic_spacer = '<div class="nowrap">';
     } else {
         $iconic_spacer = '';
@@ -212,7 +215,7 @@ if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
 
     $titles['Browse']     = $iconic_spacer . '<img width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
 
-    if ($cfg['PropertiesIconic'] === 'both') {
+    if ($propicon == 'both') {
         $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
     }
 } else {
@@ -524,7 +527,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     // ON UPDATE DEFAULT TIMESTAMP attribute.
 
                     if (PMA_MYSQL_INT_VERSION < 40102
-                     || (PMA_MYSQL_INT_VERSION >= 40102
+                    || (PMA_MYSQL_INT_VERSION >= 40102
                       && !($row_table_def['True_Type'] == 'timestamp'
                        && !empty($row_table_def['Default'])
                        && !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
@@ -626,7 +629,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 value="foreign" />
             <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
                 value="" id="field_<?php echo ($idindex); ?>_1" />
-            <input type="text" name="field_<?php echo $field_name_appendix_md5; ?>"
+            <input type="text"   name="field_<?php echo $field_name_appendix_md5; ?>"
                 class="textfield" <?php echo $unnillify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
@@ -957,11 +960,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     ?>
                     <script type="text/javascript" language="javascript">
                     //<![CDATA[
-                    document.write('<a title="<?php echo $strCalendar;?>"');
-                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');
-                    document.write('<img class="calendar"');
-                    document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
-                    document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
+                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
                     //]]>
                     </script>
                     <?php

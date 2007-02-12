@@ -1030,14 +1030,4 @@ $strErrorRelationExists = 'Fehler: Verknüpfung existiert bereits.';
 $strErrorSaveTable = 'Fehler beim speichern der Koordinaten für den Designer.';
 $strSnapToGrid = 'Am Gitter anordnen';
 $strDesignerHelpDisplayField = 'The display field is shown in pink. To set/unset a field as the display field, click the "Choose field to display" icon, then click on the appropriate field name.';  //to translate
-$strUploadErrorIniSize = 'Die hochgeladene Datei ist größer als der in der php.ini in upload_max_filesize angegebene Wert.';
-$strUploadErrorFormSize = 'Die hochgeladene Datei ist größer als der in MAX_FILE_SIZE des HTML Formulars angegebene Wert.';
-$strUploadErrorPartial = 'Die Datei wurde teilweise übertragen.';
-$strUploadErrorNoTempDir = 'Kein gültiges Temporäres Verzeichnis für hochgeladene Dateien.';
-$strUploadErrorCantWrite = 'Datei konnte gespeichert werden.';
-$strUploadErrorExtension = 'Dateihochladen durch eine Erweiterung gestoppt.';
-$strUploadErrorUnknown = 'Unbekannter Fehler beim Dateihochladen.';
-$strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
-$strFieldInsertFromFileTempDirNotExists = 'Fehler beim verschieben der hochgeladenen Datei, siehe FAQ 1.11';
-$strViewName = 'VIEW Name';
 ?>

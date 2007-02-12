@@ -56,11 +56,18 @@ if ( ! PMA_DBI_checkAndLoadMysqlExtension( $GLOBALS['cfg']['Server']['extension'
 
     if ( ! PMA_DBI_checkAndLoadMysqlExtension( $alternativ_extension ) ) {
         // if alternativ fails too ...
-        PMA_fatalError(
-            sprintf($GLOBALS['strCantLoad'],
-                $GLOBALS['cfg']['Server']['extension'])
-            . ' - [a@./Documentation.html#faqmysql@documentation]'
-            . $GLOBALS['strDocu'] . '[/a]');
+        header( 'Location: error.php'
+                . '?lang='  . urlencode( $available_languages[$lang][2] )
+                . '&dir='   . urlencode( $text_dir )
+                . '&type='  . urlencode( $strError )
+                . '&error=' . urlencode(
+                    sprintf( $GLOBALS['strCantLoad'],
+                        $GLOBALS['cfg']['Server']['extension'] )
+                    .' - [a@./Documentation.html#faqmysql@documentation]'
+                    .$GLOBALS['strDocu'] . '[/a]' )
+                . '&' . SID
+                 );
+        exit();
     }
 
     $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;

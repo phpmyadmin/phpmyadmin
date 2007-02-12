@@ -17,7 +17,18 @@
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
-    PMA_fatalError('strCantLoad', 'session');
+    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                 'AllowAnywhereRecoding' => false);
+    // Loads the language file
+    require_once('./libraries/select_lang.lib.php');
+    // Displays the error message
+    // (do not use &amp; for parameters sent by header)
+    header('Location: error.php'
+            . '?lang='  . urlencode($available_languages[$lang][2])
+            . '&dir='   . urlencode($text_dir)
+            . '&type='  . urlencode($strError)
+            . '&error=' . urlencode(sprintf($strCantLoad, 'session')));
+    exit();
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
@@ -72,11 +83,11 @@ session_cache_limiter('private');
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
-// strictly, PHP 4 since 4.4.2 would not need a verification
-if (version_compare(PHP_VERSION, '5.1.2', 'lt')
- && isset($_COOKIE[$session_name])
+// strictly, PHP 4 since 4.4.2 would not need a verification 
+if (version_compare(PHP_VERSION, '5.1.2', 'lt') 
+ && isset($_COOKIE[$session_name]) 
  && eregi("\r|\n", $_COOKIE[$session_name])) {
-    die('attacked');
+    die('attacked'); 
 }
 
 if (! isset($_COOKIE[$session_name])) {
@@ -93,7 +104,18 @@ if (! isset($_COOKIE[$session_name])) {
     $session_error = ob_get_contents();
     ob_end_clean();
     if ($r !== true || ! empty($session_error)) {
-        PMA_fatalError('strSessionStartupErrorGeneral');
+        $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                     'AllowAnywhereRecoding' => false);
+        // Loads the language file
+        require_once './libraries/select_lang.lib.php';
+        // Displays the error message
+        // (do not use &amp; for parameters sent by header)
+        header('Location: error.php'
+                . '?lang='  . urlencode($available_languages[$lang][2])
+                . '&dir='   . urlencode($text_dir)
+                . '&type='  . urlencode($strError)
+                . '&error=' . urlencode($strSessionStartupErrorGeneral));
+        exit();
     }
 } else {
     @session_start();

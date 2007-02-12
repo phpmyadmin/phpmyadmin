@@ -1,73 +1,43 @@
 <?php
+/* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-/**
- * hold PMA_Theme class
- *
- * @version $Id$
- */
 
-/**
- * handles theme
- *
- * @todo add the possibility to make a theme depends on another theme and by default on orignal
- * @todo make all components optional - taking missing compnents from 'parent' theme
- * @todo make css optionaly replacing 'parent' css or extending it (by appending at the end)
- * @todo add an optional global css file - which will be used for both frames
- *
- */
 class PMA_Theme {
     /**
-     * @var string theme version
-     * @access  protected
+     * @var string version
      */
     var $version = '0.0.0.0';
 
     /**
-     * @var string theme name
-     * @access  protected
+     * @var string name
      */
     var $name = '';
 
     /**
-     * @var string theme id
-     * @access  protected
+     * @var string id
      */
     var $id = '';
 
     /**
-     * @var string theme path
-     * @access  protected
+     * @var string
      */
     var $path = '';
 
     /**
-     * @var string image path
-     * @access  protected
+     * @var string
      */
     var $img_path = '';
 
     /**
      * @var array   valid css types
-     * @access  protected
      */
     var $types = array('left', 'right', 'print');
 
     /**
      * @var integer last modification time for info file
-     * @access  protected
      */
     var $mtime_info = 0;
 
-    /**
-     * @access  public
-     * @uses    PMA_Theme::getPath()
-     * @uses    PMA_Theme::$mtime_info
-     * @uses    PMA_Theme::setVersion()
-     * @uses    PMA_Theme::setName()
-     * @uses    filemtime()
-     * @uses    file_exists()
-     * @return  boolean     whether loading them info was successful or not
-     */
     function loadInfo()
     {
         if (! file_exists($this->getPath() . '/info.inc.php')) {
@@ -102,16 +72,12 @@ class PMA_Theme {
      * or false if theme is invalid
      *
      * @static
-     * @access  public
-     * @uses    PMA_Theme
-     * @uses    PMA_Theme::setPath()
-     * @uses    PMA_Theme::loadInfo()
-     * @uses    PMA_Theme::checkImgPath()
-     * @param   string  $folder path to theme
+     * @param   string  path to theme
      * @return  object  PMA_Theme
      */
     function load($folder)
     {
+
         $theme = new PMA_Theme();
 
         $theme->setPath($folder);
@@ -125,19 +91,6 @@ class PMA_Theme {
         return $theme;
     }
 
-    /**
-     * checks image path for existance - if not found use img from original theme
-     *
-     * @access  public
-     * @uses    PMA_Theme::getPath()
-     * @uses    PMA_Theme::setImgPath()
-     * @uses    PMA_Theme::getName()
-     * @uses    $GLOBALS['cfg']['ThemePath']
-     * @uses    $GLOBALS['PMA_errors']
-     * @uses    $GLOBALS['strThemeNoValidImgPath']
-     * @uses    is_dir()
-     * @uses    sprintf()
-     */
     function checkImgPath()
     {
         if (is_dir($this->getPath() . '/img/')) {
@@ -149,20 +102,16 @@ class PMA_Theme {
         } else {
             $GLOBALS['PMA_errors'][] =
                 sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName());
-            /*
             trigger_error(
                 sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName()),
                 E_USER_WARNING);
-            */
             return false;
         }
     }
 
     /**
      * returns path to theme
-     *
-     * @access  public
-     * @uses    PMA_Theme::$path    as return value
+     * @uses    $this->$path    as return value
      * @return  string  $path   path to theme
      */
     function getPath()
@@ -173,8 +122,6 @@ class PMA_Theme {
     /**
      * returns layout file
      *
-     * @access  public
-     * @uses    PMA_Theme::getPath()
      * @return  string  layout file
      */
     function getLayoutFile()
@@ -184,9 +131,7 @@ class PMA_Theme {
 
     /**
      * set path to theme
-     *
-     * @access  public
-     * @uses    PMA_Theme::$path    to set it
+     * @uses    $this->$path    to set it
      * @param   string  $path   path to theme
      */
     function setPath($path)
@@ -196,9 +141,7 @@ class PMA_Theme {
 
     /**
      * sets version
-     *
-     * @access  public
-     * @uses    PMA_Theme::$version
+     * @uses    $this->version
      * @param   string new version
      */
     function setVersion($version)
@@ -208,9 +151,7 @@ class PMA_Theme {
 
     /**
      * returns version
-     *
-     * @access  public
-     * @uses    PMA_Theme::$version
+     * @uses    $this->version
      * @return  string  version
      */
     function getVersion()
@@ -222,9 +163,8 @@ class PMA_Theme {
      * checks theme version agaisnt $version
      * returns true if theme version is equal or higher to $version
      *
-     * @access  public
      * @uses    version_compare()
-     * @uses    PMA_Theme::getVersion()
+     * @uses    $this->getVersion()
      * @param   string  $version    version to compare to
      * @return  boolean
      */
@@ -235,10 +175,6 @@ class PMA_Theme {
 
     /**
      * sets name
-     *
-     * @access  public
-     * @uses    PMA_Theme::$name to set it
-     * @uses    trim()
      * @param   string  $name   new name
      */
     function setName($name)
@@ -248,9 +184,6 @@ class PMA_Theme {
 
     /**
      * returns name
-     *
-     * @access  public
-     * @uses    PMA_Theme::$name    as return value
      * @return  string name
      */
     function getName()
@@ -260,9 +193,6 @@ class PMA_Theme {
 
     /**
      * sets id
-     *
-     * @access  public
-     * @uses    PMA_Theme::$id to set it
      * @param   string  $id   new id
      */
     function setId($id)
@@ -272,31 +202,18 @@ class PMA_Theme {
 
     /**
      * returns id
-     *
-     * @access  public
-     * @uses    PMA_Theme::$id as return value
-     * @return  string  id
+     * @return  string id
      */
     function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @access  public
-     * @uses    PMA_Theme::$img_path to set it
-     * @param   string  path to images for this theme
-     */
     function setImgPath($path)
     {
         $this->img_path = $path;
     }
 
-    /**
-     * @access  public
-     * @uses    PMA_Theme::$img_path as retunr value
-     * @return  string image path for this theme
-     */
     function getImgPath()
     {
         return $this->img_path;
@@ -305,9 +222,8 @@ class PMA_Theme {
     /**
      * load css (send to stdout, normaly the browser)
      *
-     * @access  public
-     * @uses    PMA_Theme::getPath()
-     * @uses    PMA_Theme::$types
+     * @uses    $this->getPath()
+     * @uses    $this->types
      * @uses    PMA_SQP_buildCssData()
      * @uses    file_exists()
      * @uses    in_array()
@@ -345,11 +261,10 @@ class PMA_Theme {
     /**
      * prints out the preview for this theme
      *
-     * @access  public
-     * @uses    PMA_Theme::getName()
-     * @uses    PMA_Theme::getVersion()
-     * @uses    PMA_Theme::getId()
-     * @uses    PMA_Theme::getPath()
+     * @uses    $this->getName()
+     * @uses    $this->getVersion()
+     * @uses    $this->getId()
+     * @uses    $this->getPath()
      * @uses    $GLOBALS['strThemeNoPreviewAvailable']
      * @uses    $GLOBALS['strTakeIt']
      * @uses    PMA_generate_common_url()
@@ -382,4 +297,5 @@ class PMA_Theme {
             .'</div>';
     }
 }
+
 ?>

@@ -5,26 +5,18 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
-2007-02-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/spanish update, thanks to Daniel Hinostroza
-    * tbl_change.php, tbl_indexes.php, libraries/common.lib.php:
-      get rid of $propicon
-
-2007-02-09 Marc Delisle  <lem9@users.sourceforge.net>
+2007-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: some links should open a new page
     * Documentation.html, libraries/navigation_header.inc.php,
       libraries/config.default.php: $cfg['LeftLogoLinkWindow'] to decide
       in which window the logo-linked page will appear
 
-2007-02-09 Michal Čihař  <michal@cihar.com>
-    * lang/czech: Fix syntax error (sorry for that).
+2007-02-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish update, thanks to Daniel Hinostroza
 
-2007-02-08 Marc Delisle  <lem9@users.sourceforge.net>
+2007-02-09 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/darkblue_orange/img/logo_left.png,
       themes/original/img/logo_left.png: smaller PMA logo for navi
-    * libraries/navigation_header.inc.php, libraries/config.default.php:
-      navi logo now links to main page by default, with still the possibility
-      of having an external URL
 
 2007-02-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php: bug #1653769 browsing highlight disabling
@@ -37,22 +29,13 @@ $HeadURL$
     * libraries/common.lib.php: PMA_backquote() did not quote 0
     * tbl_change.php: bug #1652810 - slashes are not escaped properly
 
-2007-02-05 Michal Čihař  <michal@cihar.com>
-    * lang/czech: Updated.
-
 2007-02-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/japanese: Update, thanks to Ishigaki Kenichi - tcool.
 
 2007-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/german: updated
 
-2007-02-04 Marc Delisle  <lem9@users.sourceforge.net>
-    * js/querywindow.js: query window icon did not work,
-      thanks to Jürgen Wind
-
 2007-02-03 Marc Delisle  <lem9@users.sourceforge.net>
-    * view_create.php, libraries/display_tbl.lib.php, lang/*:
-      support for CREATE VIEW from query results
     * pmd/scripts/move.js: display problems in Opera, thanks to Maxim Bulygin
 
 2007-02-02 Marc Delisle  <lem9@users.sourceforge.net>
@@ -70,15 +53,6 @@ $HeadURL$
 2007-01-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/session.inc.php:
       bug #1630871 - Detecting a missing write permission on sessions directory
-    * libraries/select_lang.lib.php: globalized variables to be usable inside
-      function, documentation
-    * libraries/auth/http.auth.lib.php, libraries/auth/signon.auth.lib.php
-      libraries/common.lib.php, libraries/database_interface.lib.php
-      libraries/select_lang.lib.php, libraries/session.inc.php:
-      added PMA_fatalError() and made use of it
-
-2007-01-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/tbl_replace_fields.inc.php: undefined variable
 
 2007-01-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sqlparser.lib.php PMA_SQP_analyze():
@@ -88,11 +62,7 @@ $HeadURL$
     * lang/catalan update, thanks to Xavier Navarro (xavin)
     * pmd_general.php: possibility of quotes in Designer messages,
       thanks to Ivan Kirillov
-
-2007-01-29 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * tbl_replace.php, libraries/tbl_replace_fields.inc.php: print out error
-      messages if upload failed (bug #1615530)
-    * js/querywindow.js: fixed bug #1541147 - # in database names
+    ### 2.10.0-beta1 released from QA_2_10
 
 2007-01-26 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, libraries/js_escape.lib.php,
@@ -161,7 +131,7 @@ $HeadURL$
       session.save_handler to 'files'
     * pmd_general.php: patch #1627831,
       English language improvements, thanks to Isaac Bennetch
-    * pmd_general.php, pmd_relation_new.php, lang/*: abstract messages
+    * pmd_general.php, pmd_relation_new.php, lang/*: abstract messages 
 
 2007-01-04 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: avoid text selection when moving a table object
@@ -189,7 +159,7 @@ $HeadURL$
      so by default, row count is not done for views
 
 2006-12-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/Config.class.php: bug #1590083,
+    * libraries/Config.class.php: bug #1590083, 
     $cfg['DefaultConnectionCollation'] ignored in config.inc.php
 
 2006-12-30 Michal Čihař  <michal@cihar.com>
@@ -214,11 +184,11 @@ $HeadURL$
     * libraries/export/sql.php: bug #1619647, export of query results
       should not contain procedure definitions
     * navigation.php, test/theme.php,  browse_foreigners.php,
-      libraries/header_printview.inc.php: patch #1611684 part 2, client
+      libraries/header_printview.inc.php: patch #1611684 part 2, client 
       caching of phpmyadmin.css.php, thanks to Christian Schmidt
 
 2006-12-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * tbl_change.php, tbl_replace.php, libarsies/tbl_replace_fields.inc.php:
+    * tbl_change.php, tbl_replace.php, include/tbl_replace_fields.inc.php:
       refactored: made register_globals independent; added documentation;
       removed unused code; fixed bug #1597686 last insert id message wrong;
       much more i don't remember ...

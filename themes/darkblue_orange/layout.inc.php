@@ -30,7 +30,7 @@ $GLOBALS['cfg']['MainColor']                = '#000000';
 
 // background for the main frame
 $GLOBALS['cfg']['MainBackground']           = '#ffffff';
-//$GLOBALS['cfg']['MainBackground']       = '#ffffff url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
+//$GLOBALS['cfg']['MainBackground']       = '#ffffff url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
 
 // foreground (text) color of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerColor']       = '#000000';
@@ -64,7 +64,7 @@ $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
 // border
 $GLOBALS['cfg']['Border']               = 0;
 // table header and footer color
-$GLOBALS['cfg']['ThBackground']         = '#ff9900 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'tbl_th.png) repeat-x top';
+$GLOBALS['cfg']['ThBackground']         = '#ff9900 url(../' . $_SESSION['PMA_Theme']->getImgPath() . 'tbl_th.png) repeat-x top';
 // table header and footer background
 $GLOBALS['cfg']['ThColor']              = '#000000';
 // table data row background

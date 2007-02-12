@@ -1,9 +1,9 @@
 <?php
+/* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
+
 /**
  * phpMyAdmin Language Loading File
- *
- * @version $Id$
  */
 
 /**
@@ -152,30 +152,42 @@ function PMA_langDetect(&$str, $envType)
 } // end of the 'PMA_langDetect()' function
 
 /**
- * @global string  path to the translations directory
+ * @var string  path to the translations directory
  */
-$GLOBALS['lang_path'] = './lang/';
+$lang_path = './lang/';
 
 /**
- * @global string  interface language
+ * first check for lang dir exists
  */
-$GLOBALS['lang'] = 'en-iso-8859-1';
+if (! is_dir($lang_path)) {
+    // language directory not found
+    trigger_error('phpMyAdmin-ERROR: path not found: '
+        . $lang_path . ', check your language directory.',
+        E_USER_WARNING);
+    // and tell the user
+    PMA_sendHeaderLocation('error.php?error='
+        . urlencode( 'path to languages is invalid: ' . $lang_path));
+    // stop execution
+    exit;
+}
+
 /**
- * @global boolean wether loading lang from cfg failed
+ * @var string  interface language
  */
-$GLOBALS['lang_failed_cfg'] = false;
+$GLOBALS['lang'] = '';
 /**
- * @global boolean wether loading lang from cookie failed
+ * @var boolean wether loading lang from cfg failed
  */
-$GLOBALS['lang_failed_cookie'] = false;
+$lang_failed_cfg = false;
 /**
- * @global boolean wether loading lang from user request failed
+ * @var boolean wether loading lang from cookie failed
  */
-$GLOBALS['lang_failed_request'] = false;
+$lang_failed_cookie = false;
 /**
- * @global string text direction ltr or rtl
+ * @var boolean wether loading lang from user request failed
  */
-$GLOBALS['text_dir'] = 'ltr';
+$lang_failed_request = false;
+
 
 /**
  * All the supported languages have to be listed in the array below.
@@ -210,10 +222,7 @@ $GLOBALS['text_dir'] = 'ltr';
  * For Russian, we put 1251 first, because MSIE does not accept 866
  * and users would not see anything.
  */
-/**
- * @global array supported languages
- */
-$GLOBALS['available_languages'] = array(
+$available_languages = array(
     'af-iso-8859-1'     => array('af|afrikaans', 'afrikaans-iso-8859-1', 'af', ''),
     'af-utf-8'          => array('af|afrikaans', 'afrikaans-utf-8', 'af', ''),
     'ar-win1256'        => array('ar|arabic', 'arabic-windows-1256', 'ar', '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;'),
@@ -337,43 +346,29 @@ $GLOBALS['available_languages'] = array(
 // Language filtering support
 if (! empty($GLOBALS['cfg']['FilterLanguages'])) {
     $new_lang = array();
-    foreach ($GLOBALS['available_languages'] as $key => $val) {
+    foreach ($available_languages as $key => $val) {
         if (preg_match('@' . $GLOBALS['cfg']['FilterLanguages'] . '@', $key)) {
             $new_lang[$key] = $val;
         }
     }
     if (count($new_lang) > 0) {
-        $GLOBALS['available_languages'] = $new_lang;
+        $available_languages = $new_lang;
     }
     unset($key, $val, $new_lang);
 }
 
 /**
- * first check for lang dir exists
- */
-if (! is_dir($GLOBALS['lang_path'])) {
-    // language directory not found
-    trigger_error('phpMyAdmin-ERROR: path not found: '
-        . $GLOBALS['lang_path'] . ', check your language directory.',
-        E_USER_WARNING);
-    // and tell the user
-    PMA_fatalError('path to languages is invalid: ' . $GLOBALS['lang_path']);
-}
-
-/**
  * check for language files
  */
-foreach ($GLOBALS['available_languages'] as $each_lang_key => $each_lang) {
-    if (! file_exists($GLOBALS['lang_path'] . $each_lang[1] . '.inc.php')) {
-        unset($GLOBALS['available_languages'][$each_lang_key]);
+foreach ($available_languages as $each_lang_key => $each_lang) {
+    if (! file_exists($lang_path . $each_lang[1] . '.inc.php')) {
+        unset($available_languages[$each_lang_key]);
     }
 }
 unset($each_lang_key, $each_lang);
 
-/**
- * @global array MySQL charsets map
- */
-$GLOBALS['mysql_charset_map'] = array(
+// MySQL charsets map
+$mysql_charset_map = array(
     'big5'         => 'big5',
     'cp-866'       => 'cp866',
     'euc-jp'       => 'ujis',
@@ -399,51 +394,49 @@ $GLOBALS['mysql_charset_map'] = array(
     'windows-1257' => 'cp1257',
 );
 
-/*
+/**
  * Do the work!
  */
-
-/**
- * @global boolean whether charset recoding should be allowed or not
- */
-$GLOBALS['allow_recoding'] = false;
-if (empty($GLOBALS['convcharset'])) {
+// Checks whether charset recoding should be allowed or not
+$allow_recoding = FALSE; // Default fallback value
+if (empty($convcharset)) {
     if (isset($_COOKIE['pma_charset'])) {
-        $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];
+        $convcharset = $_COOKIE['pma_charset'];
     } else {
-        $GLOBALS['convcharset'] = $GLOBALS['cfg']['DefaultCharset'];
+        $convcharset = $GLOBALS['cfg']['DefaultCharset'];
     }
 }
 
 if (! PMA_langCheck()) {
     // fallback language
-    $fall_back_lang = 'en-utf-8';
-    $line = __LINE__;
+    $fall_back_lang = 'en-utf-8'; $line = __LINE__;
     if (! PMA_langSet($fall_back_lang)) {
         trigger_error('phpMyAdmin-ERROR: invalid lang code: '
             . __FILE__ . '#' . $line . ', check hard coded fall back language.',
             E_USER_WARNING);
         // stop execution
         // and tell the user that his choosen language is invalid
-        PMA_fatalError('Could not load any language, please check your language settings and folder.');
+        PMA_sendHeaderLocation('error.php?error='
+            . urlencode('Could not load any language, please check your language settings and folder'));
+        exit;
     }
 }
 
 // Defines the associated filename and load the translation
-$lang_file = $GLOBALS['lang_path'] . $GLOBALS['available_languages'][$GLOBALS['lang']][1] . '.inc.php';
+$lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
 require_once $lang_file;
 
 // now, that we have loaded the language strings we can send the errors
-if ($GLOBALS['lang_failed_cfg']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_cfg']));
+if ($lang_failed_cfg) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_cfg));
 }
-if ($GLOBALS['lang_failed_cookie']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_cookie']));
+if ($lang_failed_cookie) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_cookie));
 }
-if ($GLOBALS['lang_failed_request']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_request']));
+if ($lang_failed_request) {
+    $GLOBALS['PMA_errors'][] = sprintf($strLanguageUnknown, htmlspecialchars($lang_failed_request));
 }
 
 unset($strLanguageFileNotFound, $line, $fall_back_lang,
-    $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['ang_failed_request'], $GLOBALS['strLanguageUnknown']);
+    $lang_failed_cfg, $lang_failed_cookie, $lang_failed_request, $strLanguageUnknown);
 ?>

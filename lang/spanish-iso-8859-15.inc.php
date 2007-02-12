@@ -1023,14 +1023,4 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
-$strUploadErrorIniSize = 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';  //to translate
-$strUploadErrorFormSize = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.';  //to translate
-$strUploadErrorPartial = 'The uploaded file was only partially uploaded.';  //to translate
-$strUploadErrorNoTempDir = 'Missing a temporary folder.';  //to translate
-$strUploadErrorCantWrite = 'Failed to write file to disk.';  //to translate
-$strUploadErrorExtension = 'File upload stopped by extension.';  //to translate
-$strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
-$strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
-$strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see FAQ 1.11';  //to translate
-$strViewName = 'VIEW name';  //to translate
 ?>

@@ -274,12 +274,12 @@ if ($is_insert && count($value_sets) > 0) {
 
     unset($query_fields, $value_sets);
 
-    $message .= $GLOBALS['strInsertedRows'] . '&nbsp;';
+    $message = $GLOBALS['strInsertedRows'] . '&nbsp;';
 } elseif (! empty($query)) {
-    $message .= $GLOBALS['strAffectedRows'] . '&nbsp;';
+    $message = $GLOBALS['strAffectedRows'] . '&nbsp;';
 } else {
     // No change -> move back to the calling script
-    $message .= $GLOBALS['strNoModification'];
+    $message = $GLOBALS['strNoModification'];
     $js_to_run = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
