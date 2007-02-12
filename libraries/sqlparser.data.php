@@ -26,7 +26,7 @@
  * @global array MySQL function names
  */
 $PMA_SQPdata_function_name = array (
-    'ABSS',
+    'ABS',
     'ACOS',
     'ADDDATE',
     'ADDTIME',
