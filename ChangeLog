@@ -222,7 +222,7 @@ $HeadURL$
       caching of phpmyadmin.css.php, thanks to Christian Schmidt
 
 2006-12-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * tbl_change.php, tbl_replace.php, libarsies/tbl_replace_fields.inc.php:
+    * tbl_change.php, tbl_replace.php, libraries/tbl_replace_fields.inc.php:
       refactored: made register_globals independent; added documentation;
       removed unused code; fixed bug #1597686 last insert id message wrong;
       much more i don't remember ...
