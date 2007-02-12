@@ -8,6 +8,8 @@ $HeadURL$
 2007-02-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: bug #1616486 server_databases does
       not show all databases
+    * libraries/sqlparser.data.php: function names updated,
+      bug #1657045 Spatial functions not supported
 
 2007-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: some links should open a new page
