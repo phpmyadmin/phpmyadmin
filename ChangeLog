@@ -10,6 +10,7 @@ $HeadURL$
     * Documentation.html, libraries/navigation_header.inc.php,
       libraries/config.default.php: $cfg['LeftLogoLinkWindow'] to decide
       in which window the logo-linked page will appear
+    ### 2.10.0-rc1 released
 
 2007-02-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish update, thanks to Daniel Hinostroza
