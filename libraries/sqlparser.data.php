@@ -370,6 +370,7 @@ $PMA_SQPdata_column_attrib = array (
 $PMA_SQPdata_column_attrib_cnt = 29;
 
 $PMA_SQPdata_reserved_word = array (
+    'ACCESSIBLE',       // 5.1
     'ACTION',
     'ADD',
     'AFTER',
@@ -498,6 +499,7 @@ $PMA_SQPdata_reserved_word = array (
     'LEVEL',
     'LIKE',
     'LIMIT',
+    'LINEAR',               // 5.1
     'LINES',
     'LOAD',
     'LOCAL',
@@ -559,7 +561,10 @@ $PMA_SQPdata_reserved_word = array (
     'RAID_CHUNKS',
     'RAID_CHUNKSIZE',
     'RAID_TYPE',
+    'RANGE',                // 5.1
     'READ',
+    'READ_ONLY',            // 5.1
+    'READ_WRITE',           // 5.1
     'REFERENCES',
     'REGEXP',
     'RELOAD',
@@ -649,11 +654,12 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 275;
+$PMA_SQPdata_reserved_word_cnt = 280;
 
 // words forbidden to be used as column or table name,
 // as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html
 $PMA_SQPdata_forbidden_word = array (
+    'ACCESSIBLE',       // 5.1
     'ACTION',
     'ADD',
     'AFTER',
@@ -867,6 +873,7 @@ $PMA_SQPdata_forbidden_word = array (
     'LEVEL',
     'LIKE',
     'LIMIT',
+    'LINEAR',               // 5.1
     'LINES',
     'LINESTRING',
     'LOAD',
@@ -974,7 +981,10 @@ $PMA_SQPdata_forbidden_word = array (
     'RAID_CHUNKS',
     'RAID_CHUNKSIZE',
     'RAID_TYPE',
+    'RANGE',                // 5.1
     'READ',
+    'READ_ONLY',            // 5.1
+    'READ_WRITE',           // 5.1
     'READS',
     'REAL',
     'RECOVER',
@@ -1135,7 +1145,7 @@ $PMA_SQPdata_forbidden_word = array (
     'ZEROFILL'
 );
 // echo count($PMA_SQPdata_forbidden_word);
-$PMA_SQPdata_forbidden_word_cnt = 479;
+$PMA_SQPdata_forbidden_word_cnt = 484;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
@@ -1155,6 +1165,8 @@ $PMA_SQPdata_column_type = array (
     'FLOAT',
     'FLOAT4',
     'FLOAT8',
+    'GEOMETRY',             // spatial
+    'GEOMETRYCOLLECTION',   // spatial
     'INT',
     'INT1',
     'INT2',
@@ -1162,6 +1174,7 @@ $PMA_SQPdata_column_type = array (
     'INT4',
     'INT8',
     'INTEGER',
+    'LINESTRING',           // spatial
     'LONG',
     'LONGBLOB',
     'LONGTEXT',
@@ -1169,10 +1182,15 @@ $PMA_SQPdata_column_type = array (
     'MEDIUMINT',
     'MEDIUMTEXT',
     'MIDDLEINT',
+    'MULTILINESTRING',      // spatial
+    'MULTIPOINT',           // spatial
+    'MULTIPOLYGON',         // spatial
     'NCHAR',
     'NUMERIC',
+    'POINT',                // spatial
+    'POLYGON',              // spatial
     'REAL',
-    'SERIAL',           //BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
+    'SERIAL',               // alsias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
     'SET',
     'SMALLINT',
     'TEXT',
@@ -1186,7 +1204,7 @@ $PMA_SQPdata_column_type = array (
     'YEAR'
 );
 //$PMA_SQPdata_column_type_cnt = count($PMA_SQPdata_column_type);
-$PMA_SQPdata_column_type_cnt = 46;
+$PMA_SQPdata_column_type_cnt = 54;
 
 // check counts
 /*
