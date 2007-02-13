@@ -386,9 +386,14 @@ $PMA_SQPdata_column_attrib = array (
 $PMA_SQPdata_column_attrib_cnt = 29;
 
 /**
+ * words that are reserved by MySQL and may not be used as identifiers without quotes
+ *
+ * @see http://dev.mysql.com/doc/refman/5.1/en/reserved-words.html
+ *
  * @global array MySQL reserved words
  */
 $PMA_SQPdata_reserved_word = array (
+    'ACCESSIBLE',       // 5.1
     'ACTION',
     'ADD',
     'AFTER',
@@ -517,6 +522,7 @@ $PMA_SQPdata_reserved_word = array (
     'LEVEL',
     'LIKE',
     'LIMIT',
+    'LINEAR',               // 5.1
     'LINES',
     'LOAD',
     'LOCAL',
@@ -578,7 +584,10 @@ $PMA_SQPdata_reserved_word = array (
     'RAID_CHUNKS',
     'RAID_CHUNKSIZE',
     'RAID_TYPE',
+    'RANGE',                // 5.1
     'READ',
+    'READ_ONLY',            // 5.1
+    'READ_WRITE',           // 5.1
     'REFERENCES',
     'REGEXP',
     'RELOAD',
@@ -672,15 +681,16 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 275;
+$PMA_SQPdata_reserved_word_cnt = 280;
 
 /**
- * words forbidden to be used as column or table name,
+ * words forbidden to be used as column or table name wihtout quotes
  * as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html
  *
  * @global array MySQL forbidden words
  */
 $PMA_SQPdata_forbidden_word = array (
+    'ACCESSIBLE',       // 5.1
     'ACTION',
     'ADD',
     'AFTER',
@@ -894,6 +904,7 @@ $PMA_SQPdata_forbidden_word = array (
     'LEVEL',
     'LIKE',
     'LIMIT',
+    'LINEAR',               // 5.1
     'LINES',
     'LINESTRING',
     'LOAD',
@@ -1001,7 +1012,10 @@ $PMA_SQPdata_forbidden_word = array (
     'RAID_CHUNKS',
     'RAID_CHUNKSIZE',
     'RAID_TYPE',
+    'RANGE',                // 5.1
     'READ',
+    'READ_ONLY',            // 5.1
+    'READ_WRITE',           // 5.1
     'READS',
     'REAL',
     'RECOVER',
@@ -1166,9 +1180,14 @@ $PMA_SQPdata_forbidden_word = array (
  *
  * @global integer MySQL forbidden words count
  */
-$PMA_SQPdata_forbidden_word_cnt = 479;
+$PMA_SQPdata_forbidden_word_cnt = 484;
 
 /**
+ * the MySQL column/data types
+ *
+ * @see http://dev.mysql.com/doc/refman/5.1/en/data-types.html
+ * @see http://dev.mysql.com/doc/refman/5.1/en/mysql-spatial-datatypes.html
+ *
  * @global array MySQL column types
  */
 $PMA_SQPdata_column_type = array (
@@ -1177,7 +1196,7 @@ $PMA_SQPdata_column_type = array (
     'BIT',
     'BLOB',
     'BOOL',
-    'BOOLEAN',                  // numeric-type-overview.html
+    'BOOLEAN',              // numeric-type-overview.html
     'CHAR',
     'CHARACTER',
     'DATE',
@@ -1189,6 +1208,8 @@ $PMA_SQPdata_column_type = array (
     'FLOAT',
     'FLOAT4',
     'FLOAT8',
+    'GEOMETRY',             // spatial
+    'GEOMETRYCOLLECTION',   // spatial
     'INT',
     'INT1',
     'INT2',
@@ -1196,6 +1217,7 @@ $PMA_SQPdata_column_type = array (
     'INT4',
     'INT8',
     'INTEGER',
+    'LINESTRING',           // spatial
     'LONG',
     'LONGBLOB',
     'LONGTEXT',
@@ -1203,10 +1225,15 @@ $PMA_SQPdata_column_type = array (
     'MEDIUMINT',
     'MEDIUMTEXT',
     'MIDDLEINT',
+    'MULTILINESTRING',      // spatial
+    'MULTIPOINT',           // spatial
+    'MULTIPOLYGON',         // spatial
     'NCHAR',
     'NUMERIC',
+    'POINT',                // spatial
+    'POLYGON',              // spatial
     'REAL',
-    'SERIAL',           //BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
+    'SERIAL',               // alsias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
     'SET',
     'SMALLINT',
     'TEXT',
@@ -1224,7 +1251,7 @@ $PMA_SQPdata_column_type = array (
  *
  * @global integer MySQL column types count
  */
-$PMA_SQPdata_column_type_cnt = 46;
+$PMA_SQPdata_column_type_cnt = 54;
 
 /*
  * check counts
