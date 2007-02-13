@@ -58,13 +58,13 @@ class PMA_Sql
      * @var array analyze data of SQL
      * @access protected
      */
-    var $_analyzed = null;
+    var $_analyzed = array();
 
     /**
      * @var array parsed data of SQL
      * @access protected
      */
-    var $_parsed = null;
+    var $_parsed = array();
 
     /**
      * @var integer size of $_parsed array
@@ -789,21 +789,178 @@ class PMA_Sql
      * returns SQL query analyzed
      *
      * @access  public
+     * @uses    PMA_Sql::$_analyzed
+     * @uses    PMA_Sql::getAnalyzed()
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql
      * @param   string  $sql    the SQL query
+     * @return  array   PMA_Sql::$_analyzed
      */
     function getAnalyzed($sql = null)
     {
         if (null !== $sql) {
             $pma_sql = new PMA_Sql($sql);
-        } else {
-            $pma_sql = $this;
+            return $pma_sql->getAnalyzed();
         }
 
-        if (null === $pma_sql->_analyzed) {
-            $pma_sql->analyze();
+        $this->analyzeIfRequired();
+
+        return $this->_analyzed;
+    }
+
+    /**
+     * returns SQL query parsed
+     *
+     * @access  public
+     * @uses    PMA_Sql::$_parsed
+     * @uses    PMA_Sql::getParsed()
+     * @uses    PMA_Sql::parseIfRequired()
+     * @uses    PMA_Sql
+     * @param   string  $sql    the SQL query
+     * @return  array   PMA_Sql::$_parsed
+     */
+    function getParsed($sql = null)
+    {
+        if (null !== $sql) {
+            $pma_sql = new PMA_Sql($sql);
+            return $pma_sql->getParsed();
         }
 
-        return $pma_sql->_analyzed;
+        $this->parseIfRequired();
+
+        return $this->_parsed;
+    }
+
+    /**
+     * checks if the given field/column has attribute ON UPDATE CURRENT_TIMESTAMP
+     *
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to read
+     * @param   string  $field_name     name of field/column to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean whether the field has ON UPDATE CURRENT TIMESTAMP
+     * @todo    create a child class espacially for SHOW CREATE TABLE result?
+     * @todo    this function should only be used by class PMA_Table or PMA_Field/Column
+     */
+    function fieldIsOnUpdateCurrentTimestamp($field_name, $subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['create_table_fields'][$field_name]['on_update_current_timestamp'])) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * checks if the given field/column is a TIMESTAMP that cannot be NULL
+     *
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to read
+     * @param   string  $field_name     name of field/column to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean whether the field is of type TIMESTAMP and NOT NULL
+     * @todo    create a child class espacially for SHOW CREATE TABLE result?
+     * @todo    this function should only be used by class PMA_Table or PMA_Field/Column
+     */
+    function fieldIsTimestampNotNull($field_name, $subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (! empty($this->_analyzed[$subquery]['create_table_fields'][$field_name]['type'])
+         && $this->_analyzed[$subquery]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
+         && $this->_analyzed[$subquery]['create_table_fields'][$field_name]['timestamp_not_null']) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * checks if the given field/column has CURRENT TIMESTAMP as DEFAULT
+     *
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to read
+     * @param   string  $field_name     name of field/column to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean whether field defaults to CURRENT TIMESTAMP
+     * @todo    create a child class espacially for SHOW CREATE TABLE result?
+     * @todo    this function should only be used by class PMA_Table or PMA_Field/Column
+     */
+    function fieldIsDefaultCurrentTimestamp($field_name, $subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['create_table_fields'][$field_name]['default_current_timestamp'])) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * returns the name for the given field/column
+     *
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to read
+     * @param   integer $field_number   number of field/column for which to return name
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  string  name for the column
+     */
+    function fieldGetName($field_number, $subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['select_expr'][$field_number]['column'])) {
+            return $this->_analyzed[$subquery]['select_expr'][$field_number]['column'];
+        }
+
+        return false;
+    }
+
+    /**
+     * check if SQL is SELECT
+     *
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean whether the SQL is a SELECT or not
+     */
+    function isSelect($subquery = 0)
+    {
+        return isset($this->_analyzed[$subquery]['queryflags']['select_from']);
+    }
+
+    function tableGetTrueName($reference = 0, $subquery = 0)
+    {
+        if (isset($this->_analyzed[$subquery]['table_ref'][$reference]['table_true_name'])) {
+            return $this->_analyzed[$subquery]['table_ref'][$reference]['table_true_name'];
+        }
+
+        return false;
+    }
+
+    /**
+     * analyze only if not already
+     *
+     * @uses    PMA_Sql::$_analyzed     to check if empty
+     * @uses    PMA_Sql::analyze()      if PMA_Sql::$_analyzed is empty
+     */
+    function analyzeIfRequired()
+    {
+        if (empty($this->_analyzed)) {
+            $this->analyze();
+        }
+    }
+
+    /**
+     * parse only if not already
+     *
+     * @uses    PMA_Sql::$_parsed     to check if empty
+     * @uses    PMA_Sql::parse()      if PMA_Sql::$_parsed is empty
+     */
+    function parseIfRequired()
+    {
+        if (empty($this->_parsed)) {
+            $this->parse();
+        }
     }
 
     /**
@@ -907,11 +1064,13 @@ class PMA_Sql
      */
     function analyze()
     {
+        $this->_analyzed = array();
+        $this->parseIfRequired();
+
         if (empty($this->_parsed)) {
-            return array();
+            return $this->_analyzed;
         }
 
-        $this->_analyzed  = array();
         $subresult       = array(
             'querytype'      => '',
             'select_expr_clause'=> '', // the whole stuff between SELECT and FROM , except DISTINCT
@@ -1995,6 +2154,322 @@ class PMA_Sql
     } // end of the "getFormatedHtmlColored()" function
 
     /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function isDistinct($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['queryflags']['distinct'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function isUnion($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['queryflags']['union'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function isOnlyOneTable($subquery = 0)
+    {
+        if (! isset($this->_analyzed[$subquery]['table_ref'][1]['table_name'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function isWhereAlwaysTrue($subquery = 0)
+    {
+        if (! $this->hasWhere($subquery) || trim($this->getWhereClause($subquery)) == '1') {
+            return true;
+        }
+
+        return false;
+    }
+
+    function getCountQuery()
+    {
+        if (PMA_MYSQL_INT_VERSION < 40000) {
+
+            // detect this case:
+            // SELECT DISTINCT x AS foo, y AS bar FROM sometable
+            if ($this->isDistinct()) {
+                $count_what = 'DISTINCT ';
+                foreach ($this->_analyzed[0]['select_expr'] as $part) {
+                    $count_what .= $part['expr'] . ', ';
+                }
+                $count_what = substr($count_what, 0, -2);
+            } else {
+                $count_what = '*';
+            }
+            // this one does not apply to VIEWs
+            $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
+
+            // add the remaining of select expression if there is
+            // a GROUP BY or HAVING clause
+            if ($count_what === '*'
+             && ($this->hasGroupBy() || $this->hasHaving())) {
+                $count_query .= ' ,' . $this->_analyzed[0]['select_expr_clause'];
+            }
+
+            if ($this->hasFrom()) {
+                $count_query .= ' FROM ' . $this->getFromClause();
+            }
+            if ($this->hasWhere()) {
+                $count_query .= ' WHERE ' . $this->getWhereClause();
+            }
+            if ($this->hasGroupBy()) {
+                $count_query .= ' GROUP BY ' . $this->getGroupByClause();
+            }
+            if ($this->hasHaving()) {
+                $count_query .= ' HAVING ' . $this->getHavingClause();
+            }
+        } else { // if (PMA_MYSQL_INT_VERSION >= 40000)
+            // add select expression after the SQL_CALC_FOUND_ROWS
+
+            // for UNION, just adding SQL_CALC_FOUND_ROWS
+            // after the first SELECT works.
+
+            // take the left part, could be:
+            // SELECT
+            // (SELECT
+            $count_query = $this->getFormatedHtml('query_only', 0, $this->getPositionOfFirstSelect() + 1);
+            $count_query .= ' SQL_CALC_FOUND_ROWS ';
+            // add everything that was after the first SELECT
+            $count_query = $this->getFormatedHtml('query_only', $this->getPositionOfFirstSelect() + 1);
+            // ensure there is no semicolon at the end of the
+            // count query because we'll probably add
+            // a LIMIT 1 clause after it
+            $count_query = rtrim($count_query);
+            $count_query = rtrim($count_query, ';');
+
+            // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
+            // long delays. Returned count will be complete anyway.
+            // (but a LIMIT would disrupt results in an UNION)
+
+            if (! $this->isUnion()) {
+                $count_query .= ' LIMIT 1';
+            }
+        }
+
+        return $count_query;
+    }
+
+    function isGroup()
+    {
+        return preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $this->_raw);
+    }
+
+    function getFoundRows()
+    {
+        $count_query = $this->getCountQuery();
+
+        if (PMA_MYSQL_INT_VERSION < 40000) {
+            if ($cnt_all_result = PMA_DBI_try_query($count_query)) {
+                if ($this->isGroup() && ! $this->isDistinct()) {
+                    $unlim_num_rows = @PMA_DBI_num_rows($cnt_all_result);
+                } else {
+                    $unlim_num_rows = PMA_DBI_fetch_assoc($cnt_all_result);
+                    $unlim_num_rows = $unlim_num_rows['count'];
+                }
+                PMA_DBI_free_result($cnt_all_result);
+            } else {
+                if (PMA_DBI_getError()) {
+
+                    // there are some cases where the generated
+                    // count_query (for MySQL 3) is wrong,
+                    // so we get here.
+                    /**
+                     * @todo use a big unlimited query to get the correct
+                     * number of rows (depending on a config variable?)
+                     */
+                    $unlim_num_rows = 0;
+                }
+            }
+        } else {
+            PMA_DBI_try_query($count_query);
+            // if (mysql_error()) {
+            // void.
+            // I tried the case
+            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
+            // UNION (SELECT `User`, `Host`, "%" AS "Db",
+            // `Select_priv`
+            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+            // and although the generated count_query is wrong
+            // the SELECT FOUND_ROWS() work! (maybe it gets the
+            // count from the latest query that worked)
+            //
+            // another case where the count_query is wrong:
+            // SELECT COUNT(*), f1 from t1 group by f1
+            // and you click to sort on count(*)
+            // }
+            $unlim_num_rows = PMA_DBI_fetch_value('SELECT FOUND_ROWS();');
+        }
+
+        return $unlim_num_rows;
+    }
+
+    /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function hasGroupBy($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (! empty($this->_analyzed[$subquery]['group_by_clause'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function hasFrom($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (! empty($this->_analyzed[$subquery]['from_clause'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function hasHaving($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (! empty($this->_analyzed[$subquery]['having_clause'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::$_analyzed     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  boolean
+     */
+    function hasWhere($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (! empty($this->_analyzed[$subquery]['where_clause'])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::hasGroupBy()   to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  string or false
+     */
+    function getGroupByClause($subquery = 0)
+    {
+        if ($this->hasGroupBy()) {
+            return $this->_analyzed[$subquery]['group_by_clause'];
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::hasHaving()    to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  string or false
+     */
+    function getHavingClause($subquery = 0)
+    {
+        if ($this->hasHaving()) {
+            return $this->_analyzed[$subquery]['having_clause'];
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::hasWhere()     to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  string or false
+     */
+    function getWhereClause($subquery = 0)
+    {
+        if ($this->hasWhere()) {
+            return $this->_analyzed[$subquery]['where_clause'];
+        }
+
+        return false;
+    }
+
+    /**
+     * @uses    PMA_Sql::hasFrom()      to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  string or false
+     */
+    function getFromClause($subquery = 0)
+    {
+        if ($this->hasFrom()) {
+            return $this->_analyzed[$subquery]['from_clause'];
+        }
+
+        return false;
+    }
+
+    /**
+     *
+     * @uses    PMA_Sql::analyzeIfRequired()
+     * @uses    PMA_Sql::hasFrom()      to check
+     * @param   integer $subquery       which subquery to check, default 0
+     * @return  integer or false
+     */
+    function getPositionOfFirstSelect($subquery = 0)
+    {
+        $this->analyzeIfRequired();
+
+        if (isset($this->_analyzed[$subquery]['position_of_first_select'])) {
+            return $this->_analyzed[$subquery]['position_of_first_select'];
+        }
+
+        return false;
+    }
+
+    /**
      * Formats SQL queries to html
      *
      * @access  public
@@ -2006,15 +2481,15 @@ class PMA_Sql
      */
     function getFormatedHtml($mode = 'color', $start_token = 0, $number_of_tokens = -1)
     {
+        $this->parseIfRequired();
+
         //DEBUG echo 'in Format<pre>'; print_r($this->_parsed); echo '</pre>';
-        // then check for an array
-        if (!is_array($this->_parsed)) {
-            return htmlspecialchars($this->_parsed);
-        }
-        // first check for the SQL parser having hit an error
-        if (PMA_SQP_isError()) {
+        // check for parsed data
+        // check for the SQL parser having hit an error
+        if (empty($this->_parsed) || $this->isError()) {
             return htmlspecialchars($this->_raw);
         }
+
         // else do it properly
         switch ($mode) {
             case 'color':
@@ -2435,6 +2910,16 @@ class PMA_Sql
 
         return $str;
     } // end of the "getCssRule()" function
+
+    /**
+     * return raw SQL query
+     * @uses    PMA_Sql::$_raw  as return value
+     * @return  string  SQL query
+     */
+    function getRaw()
+    {
+        return $this->_raw;
+    }
 
     /**
      * Builds CSS rules used for html formatted SQL queries
