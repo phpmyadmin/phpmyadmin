@@ -22,6 +22,8 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     require_once './libraries/mcrypt.lib.php';
 } else {
     require_once './libraries/blowfish.php';
+    // for main.php:
+    define('PMA_WARN_FOR_MCRYPT',1);
 }
 
 
