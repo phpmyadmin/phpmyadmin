@@ -1456,7 +1456,15 @@ if (typeof(window.parent) != 'undefined'
             echo '<fieldset class="">' . "\n";
             echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
             echo '    <div>';
-            echo '    ' . $query_base;
+            // when uploading a 700 Kio binary file into a LONGBLOB, 
+            // I get a white page, strlen($query_base) is 2 x 700 Kio
+            // so put a hard limit here (let's say 1000)
+            $max_characters = 1000;
+            if (strlen($query_base) > $max_characters) {
+                echo '    ' . substr($query_base,0,$max_characters) . '[...]';
+            } else {
+                echo '    ' . $query_base;
+            }
 
             //Clean up the end of the PHP
             if (!empty($GLOBALS['show_as_php'])) {
