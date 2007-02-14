@@ -170,10 +170,17 @@
     (&quot;<tt>\r</tt>&quot;).</p>
 
 <h3 id="quick_install">Quick Install</h3>
-<ol><li>Untar or unzip the distribution (be sure to unzip the subdirectories):
-        <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
+<ol><li>Choose an appropriate distribution kit from the phpmyadmin.net
+	Downloads page. Some kits contain only the English messages, 
+	others contain all languages in UTF-8 format (this should be fine
+	in most situations), others contain all
+	languages and all character sets. We'll assume you chose a kit whose
+	name looks like <tt>phpMyAdmin-x.x.x-all-languages.tar.gz</tt>.	
+	</li>
+    <li>Untar or unzip the distribution (be sure to unzip the subdirectories):
+        <tt>tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz</tt> in your webserver's
         document root. If you don't have direct access to your document root,
-        put the files in a directory on your local machine, and, after step 3,
+        put the files in a directory on your local machine, and, after step 4,
         transfer the directory on your web server using, for example, ftp.</li>
     <li>Ensure that all the scripts have the appropriate owner (if PHP is
         running in safe mode, having some scripts with an owner different
