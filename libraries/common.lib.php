@@ -1270,13 +1270,18 @@ if (typeof(window.parent) != 'undefined'
                 $query_base = $sql_query;
             }
 
+            $max_characters = 1000;
+            if (strlen($query_base) > $max_characters) {
+                define('PMA_QUERY_TOO_BIG',1);
+            }
+
             // Parse SQL if needed
             if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
                 $parsed_sql = $GLOBALS['parsed_sql'];
             } else {
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
-                if (strlen($query_base) < 1000) {
+                if (! defined('PMA_QUERY_TOO_BIG')) {
                     $parsed_sql = PMA_SQP_parse($query_base);
                 }
             }
@@ -1318,20 +1323,13 @@ if (typeof(window.parent) != 'undefined'
             // Prepares links that may be displayed to edit/explain the query
             // (don't go to default pages, we must go to the page
             // where the query box is available)
-            // (also, I don't see why we should check the goto variable)
 
-            //if (!isset($GLOBALS['goto'])) {
-                //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
             $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_sql.php' : 'db_sql.php') : 'server_sql.php';
-            //} elseif ($GLOBALS['goto'] != 'main.php') {
-            //    $edit_target = $GLOBALS['goto'];
-            //} else {
-            //    $edit_target = '';
-            //}
 
             if (isset($cfg['SQLQuery']['Edit'])
                 && ($cfg['SQLQuery']['Edit'] == true)
-                && (!empty($edit_target))) {
+                && (!empty($edit_target))
+                && ! defined('PMA_QUERY_TOO_BIG')) {
 
                 if ($cfg['EditInWindow'] == true) {
                     $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
@@ -1352,7 +1350,8 @@ if (typeof(window.parent) != 'undefined'
             // but only explain a SELECT (that has not been explained)
             /* SQL-Parser-Analyzer */
             if (isset($cfg['SQLQuery']['Explain'])
-                && $cfg['SQLQuery']['Explain'] == true) {
+                && $cfg['SQLQuery']['Explain'] == true
+                && ! defined('PMA_QUERY_TOO_BIG')) {
 
                 // Detect if we are validating as well
                 // To preserve the validate uRL data
@@ -1386,7 +1385,8 @@ if (typeof(window.parent) != 'undefined'
             // Also we would like to get the SQL formed in some nice
             // php-code (Mike Beck 2002-05-22)
             if (isset($cfg['SQLQuery']['ShowAsPHP'])
-                && $cfg['SQLQuery']['ShowAsPHP'] == true) {
+                && $cfg['SQLQuery']['ShowAsPHP'] == true
+                && ! defined('PMA_QUERY_TOO_BIG')) {
                 $php_link = 'import.php'
                           . $url_qpart
                           . '&amp;show_query=1'
@@ -1459,8 +1459,7 @@ if (typeof(window.parent) != 'undefined'
             // when uploading a 700 Kio binary file into a LONGBLOB, 
             // I get a white page, strlen($query_base) is 2 x 700 Kio
             // so put a hard limit here (let's say 1000)
-            $max_characters = 1000;
-            if (strlen($query_base) > $max_characters) {
+            if (defined('PMA_QUERY_TOO_BIG')) {
                 echo '    ' . substr($query_base,0,$max_characters) . '[...]';
             } else {
                 echo '    ' . $query_base;

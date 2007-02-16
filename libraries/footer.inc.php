@@ -61,7 +61,7 @@ if (window.parent.refreshNavigation) {
     window.parent.reload_querywindow(
         '<?php echo isset($GLOBALS['db']) ? PMA_escapeJsString($GLOBALS['db']) : '' ?>',
         '<?php echo isset($GLOBALS['table']) ? PMA_escapeJsString($GLOBALS['table']) : '' ?>',
-        '<?php echo isset($GLOBALS['sql_query']) ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
+        '<?php echo isset($GLOBALS['sql_query']) && ! defined('PMA_QUERY_TOO_BIG') ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
 }
 <?php } ?>
 
