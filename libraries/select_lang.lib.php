@@ -306,6 +306,7 @@ $GLOBALS['available_languages'] = array(
     'ru-cp-866'         => array('ru|russian', 'russian-cp-866', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;'),
     'ru-koi8-r'         => array('ru|russian', 'russian-koi8-r', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;'),
     'ru-utf-8'          => array('ru|russian', 'russian-utf-8', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;'),
+    'si-utf-8'          => array('si|sinhala', 'sinhala-utf-8', 'si', 'Sinhala'),
     'sk-iso-8859-2'     => array('sk|slovak', 'slovak-iso-8859-2', 'sk', 'Sloven&#269;ina'),
     'sk-win1250'        => array('sk|slovak', 'slovak-windows-1250', 'sk', 'Sloven&#269;ina'),
     'sk-utf-8'          => array('sk|slovak', 'slovak-utf-8', 'sk', 'Sloven&#269;ina'),
