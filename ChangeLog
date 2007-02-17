@@ -9,6 +9,7 @@ $HeadURL$
     * Documentation.html: patch #1659347, missing doc for some config,
       thanks to Isaac Bennetch
     * libraries/select_server.lib.php: avoid displaying a wide selector
+    * libraries/export/sql.php: undefined variable
 
 2007-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, footer.inc.php: avoid generating big links
