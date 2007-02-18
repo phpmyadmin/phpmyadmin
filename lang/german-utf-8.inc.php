@@ -1041,4 +1041,5 @@ $strUploadErrorUnknown = 'Unbekannter Fehler beim Dateihochladen.';
 $strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
 $strFieldInsertFromFileTempDirNotExists = 'Fehler beim verschieben der hochgeladenen Datei, siehe FAQ 1.11';
 $strViewName = 'VIEW Name';
+$strOptions = 'Options';  //to translate
 ?>

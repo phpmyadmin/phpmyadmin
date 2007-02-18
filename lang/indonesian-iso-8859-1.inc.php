@@ -1053,4 +1053,5 @@ $strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
 $strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
 $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see FAQ 1.11';  //to translate
 $strViewName = 'VIEW name';  //to translate
+$strOptions = 'Options';  //to translate
 ?>

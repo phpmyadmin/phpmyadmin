@@ -547,6 +547,7 @@ $strOpenNewWindow = 'Open new phpMyAdmin window';
 $strOperations = 'Operations';
 $strOperator = 'Operator';
 $strOptimizeTable = 'Optimize table';
+$strOptions = 'Options';
 $strOr = 'Or';
 $strOverhead = 'Overhead';
 $strOverwriteExisting = 'Overwrite existing file(s)';
