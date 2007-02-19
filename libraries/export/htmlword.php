@@ -19,7 +19,7 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array('type' => 'egroup'),
             ),
-        'options_text' => 'strHTMLWordOptions',
+        'options_text' => 'strOptions',
         );
 } else {
 

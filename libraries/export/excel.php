@@ -17,7 +17,7 @@ if (isset($plugin_list)) {
             array('type' => 'select', 'name' => 'edition', 'values' => array('win' => 'Windows', 'mac' => 'Excel 2003 / Macintosh'), 'text' => 'strExcelEdition'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strExcelOptions',
+        'options_text' => 'strOptions',
         );
 } else {
     /* Everything rest is coded in csv plugin */

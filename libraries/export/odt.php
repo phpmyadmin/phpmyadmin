@@ -17,7 +17,7 @@ if (isset($plugin_list)) {
         'mime_type' => 'application/vnd.oasis.opendocument.text',
         'force_file' => true,
         'options' => array(), /* Filled later */
-        'options_text' => 'strOpenDocumentTextOptions',
+        'options_text' => 'strOptions',
         );
     /* Structure options */
     if (!$hide_structure) {

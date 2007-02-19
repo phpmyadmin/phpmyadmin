@@ -27,7 +27,7 @@ if ($xls) {
                 array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'),
                 array('type' => 'hidden', 'name' => 'data'),
                 ),
-            'options_text' => 'strStrucNativeExcelOptions',
+            'options_text' => 'strOptions',
             );
     } else {
 

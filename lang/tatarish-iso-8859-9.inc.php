@@ -167,7 +167,6 @@ $strCriteria = 'Þart';
 $strCroatian = 'Kroatça';
 $strCSV = 'CSV';
 $strCSVImportOptions = 'CSV köyläneþe';
-$strCSVOptions = 'CSV köyläneþe';
 $strCyrillic = 'Urýsälif';
 $strCzech = 'Çexçä';
 $strCzechSlovak = 'Çex-Slovak';
@@ -250,7 +249,6 @@ $strEscapeWildcards = '_ belän % bilgelären þul kileþ kenä qullanu öçen \ belän 
 $strEsperanto = 'Esperanto';
 $strEstonian = 'Estonça';
 $strExcelEdition = 'Excel söreme';
-$strExcelOptions = 'Excel köyläneþe';
 $strExecuteBookmarked = 'Tamðalanðan soraw cibärü';
 $strExplain = 'SQL Centekläw';
 $strExport = 'Export';
@@ -310,9 +308,7 @@ $strHomepageOfficial = 'phpMyAdmin säxifäse';
 $strHostEmpty = 'Host adý buþ!';
 $strHost = 'Host';
 $strHTMLExcel = 'Microsoft Excel 2000';
-$strHTMLExcelOptions = 'Microsoft Excel 2000 kebek çýðaru köyläwe';
 $strHTMLWord = 'Microsoft Word 2000';
-$strHTMLWordOptions = 'Microsoft Word 2000 kebek çýðaru köyläwe';
 $strHungarian = 'Macarça';
 
 $strIcelandic = 'Ýclandça';
@@ -381,7 +377,6 @@ $strLatexContinued = '(dawamlý)';
 $strLatexIncludeCaption = 'Tüþämä baþlýðýn östise';
 $strLatexLabel = 'Açqýç yazmasý';
 $strLaTeX = 'LaTeX';
-$strLaTeXOptions = 'LaTeX köyläneþe';
 $strLatexStructure = '__TABLE__ atlý tüþämä tözeleþe';
 $strLatvian = 'Latça';
 $strLDIImportOptions = 'LOAD DATA qullanýp CSV yökläw köyläneþe';
@@ -504,7 +499,6 @@ $strPassword = 'Sersüz';
 $strPdfDbSchema = '"%s" biremlek tözeleþe - %s. bit';
 $strPdfInvalidTblName = '"%s" atlý tüþämä yuq äle!';
 $strPdfNoTables = 'Berär genä dä tüþämä yuq';
-$strPDFOptions = 'PDF köyläneþe';
 $strPDF = 'PDF';
 $strPDFReportTitle = 'Yomðaq baþlýðý';
 $strPerHour = 'säðät sayýn';
@@ -701,7 +695,6 @@ $strSplitWordsWithSpace = 'Süzlärne buþlýq bilgese belän ayýrasý (" ").';
 $strSQLCompatibility = 'SQL, kileþterü ýsulý';
 $strSQLExportType = 'Çýðaru ýsulý';
 $strSQLImportOptions = 'SQL köyläneþe';
-$strSQLOptions = 'SQL köyläneþe';
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';
 $strSQLQuery = 'SQL-soraw';
@@ -826,7 +819,6 @@ $strWithChecked = 'Saylanðanný:';
 $strWriteRequests = 'Yazuða soraw';
 $strWrongUser = 'Atama/sersüzeñ yalðýþ buluýna kürä ireþep bulmadý.';
 
-$strXMLOptions = 'XML köyläneþe';
 $strXML = 'XML';
 
 $strYes = 'Äye';
@@ -865,9 +857,7 @@ $strMaxConnects = 'max. concurrent connections';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
 $strOpenDocumentText = 'Open Document Text';  //to translate
-$strOpenDocumentTextOptions = 'Open Document Text options';  //to translate
 
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 
@@ -971,7 +961,6 @@ $strShowStatusThreads_cachedDescr = 'The number of threads in the thread cache. 
 $strShowStatusThreads_createdDescr = 'The number of threads created to handle connections. If Threads_created is big, you may want to increase the thread_cache_size value. (Normally this doesn\'t give a notable performance improvement if you have a good thread implementation.)';  //to translate
 $strShowStatusThreads_runningDescr = 'The number of threads that are not sleeping.';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
 
 $strThemeNoPreviewAvailable = 'No preview available.';  //to translate
 $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate

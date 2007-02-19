@@ -20,7 +20,7 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strCSVOptions',
+        'options_text' => 'strOptions',
         );
 } else {
 

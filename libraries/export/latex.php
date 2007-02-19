@@ -18,7 +18,7 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'bool', 'name' => 'caption', 'text' => 'strLatexIncludeCaption'),
             ),
-        'options_text' => 'strLaTeXOptions',
+        'options_text' => 'strOptions',
         );
     /* Structure options */
     if (!$hide_structure) {

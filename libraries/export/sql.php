@@ -22,7 +22,7 @@ if (isset($plugin_list)) {
                 array('type' => 'bool', 'name' => 'use_transaction', 'text' => 'strEncloseInTransaction'),
                 array('type' => 'bool', 'name' => 'disable_fk', 'text' => 'strDisableForeignChecks'),
                 ),
-            'options_text' => 'strSQLOptions',
+            'options_text' => 'strOptions',
             );
         $compats = PMA_DBI_getCompatibilities();
         if (count($compats) > 0) {

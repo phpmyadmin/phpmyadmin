@@ -17,7 +17,7 @@ if (isset($plugin_list)) {
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strHTMLExcelOptions',
+        'options_text' => 'strOptions',
         );
 } else {
 

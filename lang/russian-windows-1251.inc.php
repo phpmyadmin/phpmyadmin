@@ -164,7 +164,6 @@ $strCriteria = 'Критерий';
 $strCroatian = 'Хорватский';
 $strCSV = 'CSV';
 $strCSVImportOptions = 'Параметры CSV';
-$strCSVOptions = 'Параметры CSV';
 $strCyrillic = 'Кириллический';
 $strCzech = 'Чешский';
 $strCzechSlovak = 'Чешский';
@@ -243,7 +242,6 @@ $strErrorRenamingTable = 'Ошибка при переименовании таблицы %1$s в %2$s';
 $strEsperanto = 'Эсперанто';
 $strEstonian = 'Эстонский';
 $strExcelEdition = 'Excel-публикация';
-$strExcelOptions = 'Параметры Excel';
 $strExecuteBookmarked = 'Выполнить отмеченный запрос';
 $strExplain = 'Описать SQL';
 $strExport = 'Экспорт';
@@ -304,9 +302,7 @@ $strHomepageOfficial = 'Официальная страница phpMyAdmin';
 $strHost = 'Хост';
 $strHostEmpty = 'Пустое имя хоста!';
 $strHTMLExcel = 'Microsoft Excel 2000';
-$strHTMLExcelOptions = 'Параметры экпорта в Microsoft Excel 2000';
 $strHTMLWord = 'Microsoft Word 2000';
-$strHTMLWordOptions = 'Параметры экпорта в Microsoft Word 2000';
 $strHungarian = 'Венгерский';
 
 $strIcelandic = 'Исландский';
@@ -372,7 +368,6 @@ $strLatexContent = 'Содержимое таблицы __TABLE__';
 $strLatexContinued = '(продолжено)';
 $strLatexContinuedCaption = 'Продолженный заголовок таблицы';
 $strLatexIncludeCaption = 'Включить заголовок таблицы';
-$strLaTeXOptions = 'Параметры LaTeX';
 $strLatexStructure = 'Структура таблицы __TABLE__';
 $strLatvian = 'Латвийский';
 $strLDI = 'CSV используя LOAD DATA';
@@ -457,7 +452,6 @@ $strNumTables = 'Таблицы';
 
 $strOK = 'Готово';
 $strOpenDocumentText = 'Open Document Text';
-$strOpenDocumentTextOptions = 'Параметры Open Document Text';
 $strOpenNewWindow = 'Новое окно phpMyAdmin';
 $strOperations = 'Операции';
 $strOperator = 'Оператор';
@@ -478,7 +472,6 @@ $strPDF = 'PDF';
 $strPdfDbSchema = 'Структура базы "%s" - страница %s';
 $strPdfInvalidTblName = 'Таблица "%s" не существует!';
 $strPdfNoTables = 'Нет таблиц';
-$strPDFOptions = 'Параметры PDF';
 $strPDFReportExplanation = '(Создание отчёта, содержащего данный одной таблицы)';
 $strPerHour = 'в час';
 $strPerMinute = 'в минуту';
@@ -714,7 +707,6 @@ $strSplitWordsWithSpace = 'Слова, разделенные пробелом (" ").';
 $strSQL = 'SQL';
 $strSQLExportType = 'Тип экспорта';
 $strSQLImportOptions = 'Параметры SQL';
-$strSQLOptions = 'Параметры SQL';
 $strSQLParserBugMessage = 'Возможно у Вас ошибка в SQL-парсере. Пожалуйста, проверьте внимательно Ваш запрос и соответствие кавычек. Возможно также, что Вы пытаетесь закачать бинарный файл вне поля quoted text area. Вы можете попробовать выполнить свой запрос через интерфейс командной строки MySQL. Описание ошибки MySQL сервера дано ниже, возможно оно поможет понять, что же произошло. Если у Вас все равно возникают проблемы или если парсер выдает ошибки там, где интерфейс командной строки работает успешно, попробуйте изменить свой SQL запрос до простых запросов и определить, какой именно вызывает проблемы. Вы можете также прислать отчет об ошибке вместе с блоком данных (секция CUT):';
 $strSQLParserUserError = 'Кажется возникла ошибка в Вашем SQL запросе. Описание ошибки от MySQL сервера дано ниже, возможно, оно поможет Вам разобраться';
 $strSQLQuery = 'SQL-запрос';
@@ -831,7 +823,6 @@ $strWithChecked = 'С отмеченными:';
 $strWrongUser = 'Ошибочный логин/пароль. В доступе отказано.';
 
 $strXML = 'XML';
-$strXMLOptions = 'Параметры XML';
 
 $strYes = 'Да';
 
@@ -907,7 +898,6 @@ $strNoDetailsForEngine = 'There is no detailed status information available for 
 $strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
 
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
-$strOpenDocumentSpreadsheetOptions = 'Open Document Spreadsheet options';  //to translate
 
 $strPagesToBeFlushed = 'Pages to be flushed';  //to translate
 $strPasswordHashing = 'Password Hashing';  //to translate
@@ -977,7 +967,6 @@ $strSocketProblem = '(or the local MySQL server\'s socket is not correctly confi
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 $strStorageEngine = 'Storage Engine';  //to translate
-$strStrucNativeExcelOptions = 'Native Excel export options';  //to translate
 
 $strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
 $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate

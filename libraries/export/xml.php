@@ -16,7 +16,7 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strXMLOptions',
+        'options_text' => 'strOptions',
         );
 } else {
 
