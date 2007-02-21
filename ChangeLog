@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-02-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * pmd/scripts/move.js: bug #1650770, Designer and Mac OSX,
+      thanks to Ivan Kirillov
+
 2007-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1659347, missing doc for some config,
      thanks to Isaac Bennetch

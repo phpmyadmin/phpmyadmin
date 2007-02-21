@@ -177,7 +177,9 @@ function Main()
   Small_tab_refresh();
   Re_load();
   id_hint = document.getElementById('hint');
-  General_scroll();
+  if (ieIE) {
+    General_scroll();
+  }
 }
 
 
