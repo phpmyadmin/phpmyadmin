@@ -2264,7 +2264,9 @@ if ($cfg['ShowFunctionFields']) {
        'UNIX_TIMESTAMP',
        'USER',
        'WEEKDAY',
-       'CONCAT'
+       'CONCAT',
+       'HEX',
+       'UNHEX'
     );
 
     /**
@@ -2322,8 +2324,8 @@ if ($cfg['ShowFunctionFields']) {
             'LAST_INSERT_ID',
             'USER',
             'CONCAT',
-        'HEX',
-        'UNHEX'
+            'HEX',
+            'UNHEX'
         ),
 
         'FUNC_DATE' => array(
