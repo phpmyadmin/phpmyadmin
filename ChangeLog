@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-02-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/config.default.php: RFE #1621437, HEX and UNHEX were not
+      available for a BINARY field
+
 2007-02-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/scripts/move.js: bug #1650770, Designer and Mac OSX,
       thanks to Ivan Kirillov
