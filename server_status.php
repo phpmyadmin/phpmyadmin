@@ -263,7 +263,7 @@ $sections = array(
 $links = array();
 
 $links['table'][$strFlushTables]
-    = $PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
+    = $_SERVER['PHP_SELF'] . '?flush=TABLES&amp;' . PMA_generate_common_url();
 $links['table'][$strShowOpenTables]
     = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
@@ -278,7 +278,7 @@ $links['repl']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/replication.html';
 
 $links['qcache'][$strFlushQueryCache]
-    = $PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
+    = $_SERVER['PHP_SELF'] . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
       PMA_generate_common_url();
 $links['qcache']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/query-cache.html';
@@ -337,10 +337,10 @@ $hour_factor    = 3600 / $server_status['Uptime'];
 ?>
 <div id="statuslinks">
     <a href="<?php echo
-        $PHP_SELF . '?' . PMA_generate_common_url(); ?>"
+        $_SERVER['PHP_SELF'] . '?' . PMA_generate_common_url(); ?>"
        ><?php echo $strRefresh; ?></a>
     <a href="<?php echo
-        $PHP_SELF . '?flush=STATUS&amp;' . PMA_generate_common_url(); ?>"
+        $_SERVER['PHP_SELF'] . '?flush=STATUS&amp;' . PMA_generate_common_url(); ?>"
        ><?php echo $strShowStatusReset; ?></a>
     <a href="<?php echo
         $cfg['MySQLManualBase']; ?>/server-status-variables.html"
@@ -359,7 +359,7 @@ echo sprintf($strServerStatusUptime,
 <?php
 foreach ($sections as $section_name => $section) {
     if (! empty($section['vars']) && ! empty($section['title'])) {
-        echo '<a href="' . $PHP_SELF . '?' .
+        echo '<a href="' . $_SERVER['PHP_SELF'] . '?' .
              PMA_generate_common_url() . '#' . $section_name . '">' .
              $section['title'] . '</a>' . "\n";
     }
@@ -578,7 +578,7 @@ foreach ($sections as $section_name => $section) {
     <table class="data" id="serverstatussection<?php echo $section_name; ?>">
     <caption class="tblHeaders">
         <a class="top"
-           href="<?php echo $PHP_SELF . '?' .
+           href="<?php echo $_SERVER['PHP_SELF'] . '?' .
                  PMA_generate_common_url() . '#serverstatus'; ?>"
            name="<?php echo $section_name; ?>"><?php echo $strPos1; ?>
             <?php echo
