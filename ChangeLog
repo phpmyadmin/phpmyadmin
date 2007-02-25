@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2007-02-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1667466, undefined variable when
+      export + save on server
+
 2007-02-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/config.default.php: RFE #1621437, HEX and UNHEX were not
       available for a BINARY field

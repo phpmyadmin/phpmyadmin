@@ -1185,8 +1185,11 @@ if (typeof(window.parent) != 'undefined'
                 $sql_query = $GLOBALS['display_query'];
             } elseif ($cfg['SQP']['fmtType'] == 'none' && ! empty($GLOBALS['unparsed_sql'])) {
                 $sql_query = $GLOBALS['unparsed_sql'];
-            } else {
+            // could be empty, for example export + save on server
+            } elseif (! empty($GLOBALS['sql_query'])) {
                 $sql_query = $GLOBALS['sql_query'];
+            } else {
+                $sql_query = '';
             }
         }
 
