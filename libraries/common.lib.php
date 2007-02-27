@@ -2072,6 +2072,7 @@ if (typeof(window.parent) != 'undefined'
         $nonprimary_condition = '';
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
+            $condition   = '';
             $field_flags = PMA_DBI_field_flags($handle, $i);
             $meta        = $fields_meta[$i];
 
@@ -2126,13 +2127,16 @@ if (typeof(window.parent) != 'undefined'
                     // hexify only if this is a true not empty BLOB
                      && stristr($field_flags, 'BINARY')
                      && !empty($row[$i])) {
-                        // use a CAST if possible, to avoid problems
-                        // if the field contains wildcard characters % or _
-                        if (PMA_MYSQL_INT_VERSION < 40002) {
-                            $condition .= 'LIKE 0x' . bin2hex($row[$i]) . ' AND';
-                        } else {
-                            $condition .= '= CAST(0x' . bin2hex($row[$i])
-                                . ' AS BINARY) AND';
+                        // do not waste memory building a too big condition 
+                        if (strlen($row[$i]) < 1000) {
+                            if (PMA_MYSQL_INT_VERSION < 40002) {
+                                $condition .= 'LIKE 0x' . bin2hex($row[$i]) . ' AND';
+                            } else {
+                                // use a CAST if possible, to avoid problems
+                                // if the field contains wildcard characters % or _
+                                $condition .= '= CAST(0x' . bin2hex($row[$i])
+                                    . ' AS BINARY) AND';
+                            }
                         }
                 } else {
                     $condition .= '= \''
