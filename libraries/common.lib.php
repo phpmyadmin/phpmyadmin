@@ -335,6 +335,12 @@ function PMA_array_merge_recursive()
 /**
  * calls $function vor every element in $array recursively
  *
+ * this function is protected against deep recursion attack CVE-2006-1549,
+ * 1000 seems to be more than enough
+ *
+ * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
+ * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
+ *
  * @uses    PMA_arrayWalkRecursive()
  * @uses    is_array()
  * @uses    is_string()
@@ -343,6 +349,10 @@ function PMA_array_merge_recursive()
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
+    static $recursive_counter = 0;
+    if (++$recursive_counter > 1000) {
+        die('possible deep recursion attack');
+    }
     foreach ($array as $key => $value) {
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
@@ -358,6 +368,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
+    $recursive_counter++;
 }
 
 /**
@@ -1621,7 +1632,7 @@ if (typeof(window.parent) != 'undefined'
             echo '<fieldset class="">' . "\n";
             echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
             echo '    <div>';
-            // when uploading a 700 Kio binary file into a LONGBLOB, 
+            // when uploading a 700 Kio binary file into a LONGBLOB,
             // I get a white page, strlen($query_base) is 2 x 700 Kio
             // so put a hard limit here (let's say 1000)
             if (defined('PMA_QUERY_TOO_BIG')) {
@@ -2649,10 +2660,20 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
+ * protect against deep recursion attack CVE-2006-1549,
+ * 1000 seems to be more than enough
+ *
+ * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
+ * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
+ */
+if (count($GLOBALS) > 1000) {
+    die('possible deep recurse attack');
+}
+
+/**
  * Check for numeric keys
  * (if register_globals is on, numeric key can be found in $GLOBALS)
  */
-
 foreach ($GLOBALS as $key => $dummy) {
     if (is_numeric($key)) {
         die('numeric key detected');
