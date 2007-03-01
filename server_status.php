@@ -262,8 +262,8 @@ $sections = array(
 // variable or section name => (name => url)
 $links = array();
 
-// for some reason, the $PHP_SELF globalized by grab_globals is not 
-// available here when register_globals = Off
+// because of PMA_NO_VARIABLES_IMPORT, the $PHP_SELF globalized by 
+// grab_globals is not available here when register_globals = Off
 $links['table'][$strFlushTables]
     = $_SERVER['PHP_SELF'] . '?flush=TABLES&amp;' . PMA_generate_common_url();
 $links['table'][$strShowOpenTables]
