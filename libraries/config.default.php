@@ -96,7 +96,7 @@ $cfg['Servers'][$i]['socket'] = '';
  *
  * @global boolean $cfg['Servers'][$i]['ssl']
  */
-$cfg['Servers'][$i]['ssl'] = true;
+$cfg['Servers'][$i]['ssl'] = false;
 
 /**
  * How to connect to MySQL server ('tcp' or 'socket')
