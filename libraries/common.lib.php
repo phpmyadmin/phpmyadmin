@@ -510,6 +510,10 @@ function PMA_array_merge_recursive()
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
+    static $recursive_counter = 0;
+    if (++$recursive_counter > 1000) {
+        die('possible deep recursion attack');
+    }
     foreach ($array as $key => $value) {
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
@@ -525,6 +529,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
+    $recursive_counter++;
 }
 
 /**
@@ -2696,6 +2701,17 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
   || isset($_SERVER['GLOBALS']) || isset($_COOKIE['GLOBALS'])
   || isset($_ENV['GLOBALS'])) {
     die('GLOBALS overwrite attempt');
+}
+
+/**
+ * protect against deep recursion attack CVE-2006-1549,
+ * 1000 seems to be more than enough
+ *
+ * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
+ * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
+ */
+if (count($GLOBALS) > 1000) {
+    die('possible deep recurse attack');
 }
 
 /**

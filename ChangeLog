@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+2007-03-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1671813 CVE-2006-1549 deep recursion crash
+
 2007-01-16 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.9.2 released from QA_2_9
 
