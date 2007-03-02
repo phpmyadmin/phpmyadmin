@@ -434,6 +434,77 @@ function PMA_getenv($var_name) {
 }
 
 /**
+ * removes cookie
+ *
+ * @uses    PMA_Config::isHttps()
+ * @uses    PMA_Config::getCookiePath()
+ * @uses    setcookie()
+ * @uses    time()
+ * @param   string  $cookie     name of cookie to remove
+ * @return  boolean result of setcookie()
+ */
+function PMA_removeCookie($cookie)
+{
+    return setcookie($cookie, '', time() - 3600,
+        PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
+}
+
+/**
+ * sets cookie if value is different from current cokkie value,
+ * or removes if value is equal to default
+ *
+ * @uses    PMA_Config::isHttps()
+ * @uses    PMA_Config::getCookiePath()
+ * @uses    $_COOKIE
+ * @uses    PMA_removeCookie()
+ * @uses    setcookie()
+ * @uses    time()
+ * @param   string  $cookie     name of cookie to remove
+ * @param   mixed   $value      new cookie value
+ * @param   string  $default    default value
+ * @param   int     $validity   validity of cookie in seconds (default is one month)
+ * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
+ * @return  boolean result of setcookie()
+ */
+function PMA_setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
+{
+    if ($validity == null) {
+        $validity = 2592000;
+    }
+    if (strlen($value) && null !== $default && $value === $default
+     && isset($_COOKIE[$cookie])) {
+        // remove cookie, default value is used
+        return PMA_removeCookie($cookie);
+    }
+
+    if (! strlen($value) && isset($_COOKIE[$cookie])) {
+        // remove cookie, value is empty
+        return PMA_removeCookie($cookie);
+    }
+
+    if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+        // set cookie with new value
+        /* Calculate cookie validity */
+        if ($validity == 0) {
+            $v = 0;
+        } else {
+            $v = time() + $validity;
+        }
+        /* Use native support for httponly cookies if available */
+        if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
+            return setcookie($cookie, $value, $v,
+                PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
+        } else {
+            return setcookie($cookie, $value, $v,
+                PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
+        }
+    }
+
+    // cookie has already $value as value
+    return true;
+}
+
+/**
  * include here only libraries which contain only function definitions
  * no code in main()!
  */
@@ -2541,77 +2612,6 @@ if (typeof(window.parent) != 'undefined'
         return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($database) . '"'
             .' title="' . sprintf($GLOBALS['strJumpToDB'], htmlspecialchars($database)) . '">'
             .htmlspecialchars($database) . '</a>';
-    }
-
-    /**
-     * removes cookie
-     *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    setcookie()
-     * @uses    time()
-     * @param   string  $cookie     name of cookie to remove
-     * @return  boolean result of setcookie()
-     */
-    function PMA_removeCookie($cookie)
-    {
-        return setcookie($cookie, '', time() - 3600,
-            PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
-    }
-
-    /**
-     * sets cookie if value is different from current cokkie value,
-     * or removes if value is equal to default
-     *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    $_COOKIE
-     * @uses    PMA_removeCookie()
-     * @uses    setcookie()
-     * @uses    time()
-     * @param   string  $cookie     name of cookie to remove
-     * @param   mixed   $value      new cookie value
-     * @param   string  $default    default value
-     * @param   int     $validity   validity of cookie in seconds (default is one month)
-     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
-     * @return  boolean result of setcookie()
-     */
-    function PMA_setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
-    {
-        if ($validity == null) {
-            $validity = 2592000;
-        }
-        if (strlen($value) && null !== $default && $value === $default
-         && isset($_COOKIE[$cookie])) {
-            // remove cookie, default value is used
-            return PMA_removeCookie($cookie);
-        }
-
-        if (! strlen($value) && isset($_COOKIE[$cookie])) {
-            // remove cookie, value is empty
-            return PMA_removeCookie($cookie);
-        }
-
-        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
-            // set cookie with new value
-            /* Calculate cookie validity */
-            if ($validity == 0) {
-                $v = 0;
-            } else {
-                $v = time() + $validity;
-            }
-            /* Use native support for httponly cookies if available */
-            if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
-                return setcookie($cookie, $value, $v,
-                    PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
-            } else {
-                return setcookie($cookie, $value, $v,
-                    PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
-            }
-        }
-
-        // cookie has already $value as value
-        return true;
     }
 
     /**
