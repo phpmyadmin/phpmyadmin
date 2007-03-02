@@ -271,6 +271,10 @@ function PMA_array_merge_recursive()
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
+    static $recursive_counter = 0;
+    if (++$recursive_counter > 1000) {
+        die('possible deep recursion attack');
+    }
     foreach ($array as $key => $value) {
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
@@ -286,6 +290,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
+    $recursive_counter++;
 }
 
 /**
@@ -343,6 +348,77 @@ function PMA_getenv($var_name) {
     }
 
     return '';
+}
+
+/**
+ * removes cookie
+ *
+ * @uses    PMA_Config::isHttps()
+ * @uses    PMA_Config::getCookiePath()
+ * @uses    setcookie()
+ * @uses    time()
+ * @param   string  $cookie     name of cookie to remove
+ * @return  boolean result of setcookie()
+ */
+function PMA_removeCookie($cookie)
+{
+    return setcookie($cookie, '', time() - 3600,
+        PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
+}
+
+/**
+ * sets cookie if value is different from current cokkie value,
+ * or removes if value is equal to default
+ *
+ * @uses    PMA_Config::isHttps()
+ * @uses    PMA_Config::getCookiePath()
+ * @uses    $_COOKIE
+ * @uses    PMA_removeCookie()
+ * @uses    setcookie()
+ * @uses    time()
+ * @param   string  $cookie     name of cookie to remove
+ * @param   mixed   $value      new cookie value
+ * @param   string  $default    default value
+ * @param   int     $validity   validity of cookie in seconds (default is one month)
+ * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
+ * @return  boolean result of setcookie()
+ */
+function PMA_setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
+{
+    if ($validity == null) {
+        $validity = 2592000;
+    }
+    if (strlen($value) && null !== $default && $value === $default
+     && isset($_COOKIE[$cookie])) {
+        // remove cookie, default value is used
+        return PMA_removeCookie($cookie);
+    }
+
+    if (! strlen($value) && isset($_COOKIE[$cookie])) {
+        // remove cookie, value is empty
+        return PMA_removeCookie($cookie);
+    }
+
+    if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+        // set cookie with new value
+        /* Calculate cookie validity */
+        if ($validity == 0) {
+            $v = 0;
+        } else {
+            $v = time() + $validity;
+        }
+        /* Use native support for httponly cookies if available */
+        if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
+            return setcookie($cookie, $value, $v,
+                PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
+        } else {
+            return setcookie($cookie, $value, $v,
+                PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
+        }
+    }
+
+    // cookie has already $value as value
+    return true;
 }
 
 /**
@@ -2339,77 +2415,6 @@ if (typeof(window.parent) != 'undefined'
     }
 
     /**
-     * removes cookie
-     *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    setcookie()
-     * @uses    time()
-     * @param   string  $cookie     name of cookie to remove
-     * @return  boolean result of setcookie()
-     */
-    function PMA_removeCookie($cookie)
-    {
-        return setcookie($cookie, '', time() - 3600,
-            PMA_Config::getCookiePath(), '', PMA_Config::isHttps());
-    }
-
-    /**
-     * sets cookie if value is different from current cokkie value,
-     * or removes if value is equal to default
-     *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    $_COOKIE
-     * @uses    PMA_removeCookie()
-     * @uses    setcookie()
-     * @uses    time()
-     * @param   string  $cookie     name of cookie to remove
-     * @param   mixed   $value      new cookie value
-     * @param   string  $default    default value
-     * @param   int     $validity   validity of cookie in seconds (default is one month)
-     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
-     * @return  boolean result of setcookie()
-     */
-    function PMA_setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
-    {
-        if ($validity == null) {
-            $validity = 2592000;
-        }
-        if (strlen($value) && null !== $default && $value === $default
-         && isset($_COOKIE[$cookie])) {
-            // remove cookie, default value is used
-            return PMA_removeCookie($cookie);
-        }
-
-        if (! strlen($value) && isset($_COOKIE[$cookie])) {
-            // remove cookie, value is empty
-            return PMA_removeCookie($cookie);
-        }
-
-        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
-            // set cookie with new value
-            /* Calculate cookie validity */
-            if ($validity == 0) {
-                $v = 0;
-            } else {
-                $v = time() + $validity;
-            }
-            /* Use native support for httponly cookies if available */
-            if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
-                return setcookie($cookie, $value, $v,
-                    PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
-            } else {
-                return setcookie($cookie, $value, $v,
-                    PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
-            }
-        }
-
-        // cookie has already $value as value
-        return true;
-    }
-
-    /**
      * Displays a lightbulb hint explaining a known external bug
      * that affects a functionality
      *
@@ -2449,6 +2454,17 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
   || isset($_SERVER['GLOBALS']) || isset($_COOKIE['GLOBALS'])
   || isset($_ENV['GLOBALS'])) {
     die('GLOBALS overwrite attempt');
+}
+
+/**
+ * protect against deep recursion attack CVE-2006-1549,
+ * 1000 seems to be more than enough
+ *
+ * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
+ * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
+ */
+if (count($GLOBALS) > 1000) {
+    die('possible deep recurse attack');
 }
 
 /**
