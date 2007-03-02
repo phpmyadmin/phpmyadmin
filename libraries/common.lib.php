@@ -2704,14 +2704,10 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
- * protect against deep recursion attack CVE-2006-1549,
- * 1000 seems to be more than enough
- *
- * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
- * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
+ * protect against possible exploits - there is no need to have so much vars
  */
-if (count($GLOBALS) > 1000) {
-    die('possible deep recurse attack');
+if (count($_REQUEST) > 1000) {
+    die('possible exploit');
 }
 
 /**
