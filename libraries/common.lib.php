@@ -264,13 +264,24 @@ function PMA_array_merge_recursive()
 }
 
 /**
- * calls $function vor every element in $array recursively
+ * calls $function for every element in $array recursively
+ *
+ * this function is protected against deep recursion attack CVE-2006-1549,
+ * 1000 seems to be more than enough
+ *
+ * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
+ * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
  *
  * @param   array   $array      array to walk
  * @param   string  $function   function to call for every array element
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
+     static $recursive_counter = 0;
+     if (++$recursive_counter > 1000) {
+             die('possible deep recursion attack');
+     }
+
     foreach ($array as $key => $value) {
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
@@ -286,6 +297,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
+    $recursive_counter++;
 }
 
 /**
