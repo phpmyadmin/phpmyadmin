@@ -423,7 +423,6 @@ $PMA_SQPdata_reserved_word = array (
     'CHARSET',
     'CHECK',
     'CHECKSUM',
-    'CLIENT',
     'COLLATE',
     'COLLATION',
     'COLUMN',
@@ -681,7 +680,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 280;
+$PMA_SQPdata_reserved_word_cnt = 279;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
@@ -740,7 +739,6 @@ $PMA_SQPdata_forbidden_word = array (
     'CHECK',
     'CHECKSUM',
     'CIPHER',
-    'CLIENT',
     'CLOSE',
     'COLLATE',
     'COLLATION',
@@ -1180,7 +1178,7 @@ $PMA_SQPdata_forbidden_word = array (
  *
  * @global integer MySQL forbidden words count
  */
-$PMA_SQPdata_forbidden_word_cnt = 484;
+$PMA_SQPdata_forbidden_word_cnt = 483;
 
 /**
  * the MySQL column/data types
