@@ -400,7 +400,6 @@ $PMA_SQPdata_reserved_word = array (
     'CHARSET',
     'CHECK',
     'CHECKSUM',
-    'CLIENT',
     'COLLATE',
     'COLLATION',
     'COLUMN',
@@ -654,7 +653,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 280;
+$PMA_SQPdata_reserved_word_cnt = 279;
 
 // words forbidden to be used as column or table name,
 // as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html
@@ -709,7 +708,6 @@ $PMA_SQPdata_forbidden_word = array (
     'CHECK',
     'CHECKSUM',
     'CIPHER',
-    'CLIENT',
     'CLOSE',
     'COLLATE',
     'COLLATION',
@@ -1145,7 +1143,7 @@ $PMA_SQPdata_forbidden_word = array (
     'ZEROFILL'
 );
 // echo count($PMA_SQPdata_forbidden_word);
-$PMA_SQPdata_forbidden_word_cnt = 484;
+$PMA_SQPdata_forbidden_word_cnt = 483;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',

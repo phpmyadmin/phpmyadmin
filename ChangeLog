@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2.10.1
+======
+- bug #1671403 [parser] using "client" as table name
+
 2007-03-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_status.php: use PMA_getenv('PHP_SELF'), thanks to Sebastian
 
