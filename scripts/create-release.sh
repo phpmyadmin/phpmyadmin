@@ -138,7 +138,7 @@ cd svn
 
 echo "Exporting repository from subversion"
 
-svn export -q https://svn.sourceforge.net/svnroot/phpmyadmin/$branch/phpMyAdmin
+svn export -q https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/$branch/phpMyAdmin
 
 if [ $? -ne 0 ] ; then
     echo "Subversion checkout failed, bailing out"
