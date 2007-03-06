@@ -13,22 +13,24 @@ $HeadURL$
 - bug #1672379 [core] Call to undefined function PMA_removeCookie()
 . [general] use PMA_getenv('PHP_SELF')
 
-2007-03-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1671813 CVE-2006-1549 deep recursion crash
+2.10.0.2 (2007-03-02)
+=====================
 
-2007-02-28 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/config.default.php: set $cfg['Servers'][$i]['ssl'] default
-      value to false, we got reports from some users having problems with the
-      default value of true
++ bug #1671813 CVE-2006-1549 deep recursion crash
 
-2007-02-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1659176, memory error displaying
-      a table with large BLOBs
-    ### 2.10.0 released
+2.10.0.1 (2007-03-01)
+=====================
 
-2007-02-26 Marc Delisle  <lem9@users.sourceforge.net>
-    * scripts/upgrade_tables_mysql_4_1_2+.sql: bug #1668662,
-      can create the new pma_designer_coords table 
+. [config] set $cfg['Servers'][$i]['ssl'] default value to false,
+   we got reports from some users having problems with the default value of true
+
+2.10.0.0 (2007-02-28)
+=====================
+
+- bug #1659176 [general] memory error displaying a table with large BLOBs
+- bug #1668662 [install] can create the new pma_designer_coords table
++ [gui] navi logo now links to main page by default, with still the possibility
+  of having an external URL
 
 2007-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1667466, undefined variable when
