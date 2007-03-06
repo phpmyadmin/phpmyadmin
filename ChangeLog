@@ -5,15 +5,13 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
-2.10.1
-======
+2.10.1.0 (not released yet)
+=====================
+
+- bug #1541147 [js] '#' in database names not correctly handled by queywindow.js
 - bug #1671403 [parser] using "client" as table name
-
-2007-03-02 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_status.php: use PMA_getenv('PHP_SELF'), thanks to Sebastian
-
-2007-03-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1672379 Call to undefined function PMA_removeCookie()
+- bug #1672379 [core] Call to undefined function PMA_removeCookie()
+. [general] use PMA_getenv('PHP_SELF')
 
 2007-03-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: bug #1671813 CVE-2006-1549 deep recursion crash
@@ -125,9 +123,6 @@ $HeadURL$
     * pmd_general.php: possibility of quotes in Designer messages,
       thanks to Ivan Kirillov
     ### 2.10.0-beta1 released from QA_2_10
-
-2007-01-29 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * js/querywindow.js: fixed bug #1541147 - # in database names
 
 2007-01-26 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, libraries/js_escape.lib.php,

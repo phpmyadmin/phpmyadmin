@@ -71,20 +71,20 @@ function refreshMain(url) {
             url = 'main.php';
         }
     }
-    goTo( url + '?server=' + server +
-        '&db=' + db +
-        '&table=' + table +
-        '&lang=' + lang +
-        '&collation_connection=' + collation_connection,
+    goTo(url + '?server=' + encodeURIComponent(server) +
+        '&db=' + encodeURIComponent(db) +
+        '&table=' + encodeURIComponent(table) +
+        '&lang=' + encodeURIComponent(lang) +
+        '&collation_connection=' + encodeURIComponent(collation_connection),
         'main' );
 }
 
 function refreshNavigation() {
-    goTo('navigation.php?server=' + server +
-        '&db=' + db +
-        '&table=' + table +
-        '&lang=' + lang +
-        '&collation_connection=' + collation_connection
+    goTo('navigation.php?server=' + encodeURIComponent(server) +
+        '&db=' + encodeURIComponent(db)  +
+        '&table=' + encodeURIComponent(table) +
+        '&lang=' + encodeURIComponent(lang) +
+        '&collation_connection=' + encodeURIComponent(collation_connection)
         );
 }
 
@@ -247,7 +247,7 @@ function insertQuery() {
 
 function open_querywindow( url ) {
     if ( ! url ) {
-        url = 'querywindow.php?' + common_query + '&db=' + db + '&table=' + table;
+        url = 'querywindow.php?' + encodeURIComponent(common_query) + '&db=' + encodeURIComponent(db) + '&table=' + encodeURIComponent(table);
     }
 
     if (!querywindow.closed && querywindow.location) {
