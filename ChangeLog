@@ -25,7 +25,7 @@ $HeadURL$
 - bug #1671403 [parser] using "client" as table name
 - bug #1672379 [core] Call to undefined function PMA_removeCookie()
 - bug [core] undefined variable in libraries/tbl_replace_fields.inc.php
-- bug [gui] query window icon did not work, thanks to J�rgen Wind
+- bug [gui] query window icon did not work, thanks to Jürgen Wind - windkiel
 . [general] use PMA_getenv('PHP_SELF')
 
 2.10.0.2 (2007-03-02)
@@ -87,7 +87,7 @@ $HeadURL$
       libraries/config.default.php: $cfg['LeftLogoLinkWindow'] to decide
       in which window the logo-linked page will appear
 
-2007-02-09 Michal Cihar  <michal@cihar.com>
+2007-02-09 Michal Čihař  <michal@cihar.com>
     * lang/czech: Fix syntax error (sorry for that).
 
 2007-02-08 Marc Delisle  <lem9@users.sourceforge.net>
@@ -124,7 +124,7 @@ $HeadURL$
     * libraries/display_tbl.lib.php: bug #1644740 - $cfg['Order'] = 'SMART'
       overwritten
     * libraries/Theme.class.php: removed __wakeup() due to some requirements are
-      not fulfilled at this point - also thanks to J�rgen Wind - windkiel
+      not fulfilled at this point - also thanks to Jürgen Wind - windkiel
 
 2007-01-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/session.inc.php:
@@ -139,7 +139,7 @@ $HeadURL$
     * pmd_general.php: possibility of quotes in Designer messages,
       thanks to Ivan Kirillov
 
-2007-01-26 Michal Cihar  <michal@cihar.com>
+2007-01-26 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, libraries/js_escape.lib.php,
       test/escape_js_string.php, test/core.lib.php: Move java script escaping
       to separate library, make it safer on </script> escaping and add
@@ -149,7 +149,7 @@ $HeadURL$
 2007-01-22 Marc Delisle  <lem9@users.sourceforge.net>
     * pmd/*: button for direct/angular links, thanks to Ivan Kirillov
 
-2007-01-22 Michal Cihar  <michal@cihar.com>
+2007-01-22 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
 
 2007-01-21 Marc Delisle  <lem9@users.sourceforge.net>
@@ -169,7 +169,7 @@ $HeadURL$
     * pmd*, lang/*: Designer now supports set/unset of the display field,
       thanks to Ivan Kirillov
 
-2007-01-18 Michal Cihar  <michal@cihar.com>
+2007-01-18 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * libraries/auth/cookie.auth.lib.php: Make server switching honour more
       server settings (patch #1630104).
@@ -190,7 +190,7 @@ $HeadURL$
 2007-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Update, thanks to Marko Ellermaa - uhuu
 
-2007-01-09 Michal Cihar  <michal@cihar.com>
+2007-01-09 Michal Čihař  <michal@cihar.com>
     * index.php: Properly escape strings written in JS code.
     * libraries/Theme_Manager.class.php: Avoid trigger error here, parameter
       comes from user and it might lead to path disclossure.
@@ -220,7 +220,7 @@ $HeadURL$
     * server_privileges.php: bug #1614087, deleting a user having a
       global GRANT privilege fails under MySQL 4.1.x
 
-2007-01-02 Michal Cihar  <michal@cihar.com>
+2007-01-02 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Add <div> to allow selecting whole SQL by
       tripple click (patch #1611591).
     * libraries/export/sql.php: DELIMITER should not be commented out (bug
