@@ -1,24 +1,50 @@
-﻿----------------------
+----------------------
 phpMyAdmin - ChangeLog
 ----------------------
 
 $Id$
 $HeadURL$
 
-2.11
-====
-- bug #1671403 [parser] using "client" as table name
-. [general] use PMA_getenv('PHP_SELF')
-. [config] set $cfg['Servers'][$i]['ssl'] default value to false, 
-   we got reports from some users having problems with the default value of true
+- bug #1541147 [js] '#' in database names not correctly handled by queywindow.js
+- bug #1615530 [data] added more specific error message if field upload fails
+- [gui] avoid displaying a wide selector in server selection
++ [core] added PMA_fatalError() and made use of it
+. [i18n] use generic $strOptions
+. [core] get rid of $propicon
+. [core] globalized variables to be includable inside function in
+  libraries/select_lang.lib.php
++ [doc] changed all documentation in config.inc.php to phpDocumentor style
++ [data] support for CREATE VIEW from query results
++ [gui] dropped css/ folder and moved into root of PMA
++ [l10n] new: sinhala
++ [export] YAML export (see yaml.org), thanks to Bryce Thornton
+
+2.10.1.0 (not released yet)
+=====================
+
 - bug #1659176 [general] memory error displaying a table with large BLOBs
 - bug #1668662 [install] can create the new pma_designer_coords table
+- bug #1671403 [parser] using "client" as table name
+- bug #1672379 [core] Call to undefined function PMA_removeCookie()
+- bug [core] undefined variable in libraries/tbl_replace_fields.inc.php
+- bug [gui] query window icon did not work, thanks to J�gen Wind
+. [general] use PMA_getenv('PHP_SELF')
++ [gui] navi logo now links to main page by default, with still the possibility
+  of having an external URL
 
-2007-03-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1672379 Call to undefined function PMA_removeCookie()
+2.10.0.2 (2007-03-02)
+=====================
 
-2007-03-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1671813 CVE-2006-1549 deep recursion crash
++ bug #1671813 CVE-2006-1549 deep recursion crash
+
+2.10.0.1 (2007-03-01)
+=====================
+
+. [config] set $cfg['Servers'][$i]['ssl'] default value to false,
+   we got reports from some users having problems with the default value of true
+
+2.10.0.0 (2007-02-28)
+=====================
 
 2007-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1667466, undefined variable when
@@ -33,30 +59,18 @@ $HeadURL$
     * pmd/scripts/move.js: bug #1650770, Designer and Mac OSX,
       thanks to Ivan Kirillov
 
-2007-02-19 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/export/*, lang/*: use generic $strOptions
-
-2007-02-18 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/export/yaml.php, lang/*: YAML export (see yaml.org),
-      thanks to Bryce Thornton
-
 2007-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1659347, missing doc for some config,
       thanks to Isaac Bennetch
-    * libraries/select_server.lib.php: avoid displaying a wide selector
     * libraries/export/sql.php: bug #1663336, undefined variable
 
 2007-02-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, footer.inc.php: avoid generating big links
       after an upload into a BLOB
-    * new language: sinhala
 
 2007-02-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: white page after uploading a 700 Kio BLOB
     * add a warning on main page if mcrypt can't be loaded (bug 1658160)
-
-2007-02-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libaries/PMA_Sql.class.php: added much more functionality
 
 2007-02-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: bug #1616486 server_databases does
@@ -65,11 +79,6 @@ $HeadURL$
       and forbidden words updated,
       bug #1657045 Spatial functions not supported
       bug #1657037 Missing column type "geometry"
-
-2007-02-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/spanish update, thanks to Daniel Hinostroza
-    * tbl_change.php, tbl_indexes.php, libraries/common.lib.php:
-      get rid of $propicon
 
 2007-02-09 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: some links should open a new page
@@ -83,9 +92,6 @@ $HeadURL$
 2007-02-08 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/darkblue_orange/img/logo_left.png,
       themes/original/img/logo_left.png: smaller PMA logo for navi
-    * libraries/navigation_header.inc.php, libraries/config.default.php:
-      navi logo now links to main page by default, with still the possibility
-      of having an external URL
 
 2007-02-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php: bug #1653769 browsing highlight disabling
@@ -98,22 +104,13 @@ $HeadURL$
     * libraries/common.lib.php: PMA_backquote() did not quote 0
     * tbl_change.php: bug #1652810 - slashes are not escaped properly
 
-2007-02-05 Michal Čihař  <michal@cihar.com>
-    * lang/czech: Updated.
-
 2007-02-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/japanese: Update, thanks to Ishigaki Kenichi - tcool.
 
 2007-02-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/german: updated
 
-2007-02-04 Marc Delisle  <lem9@users.sourceforge.net>
-    * js/querywindow.js: query window icon did not work,
-      thanks to Jürgen Wind
-
 2007-02-03 Marc Delisle  <lem9@users.sourceforge.net>
-    * view_create.php, libraries/display_tbl.lib.php, lang/*:
-      support for CREATE VIEW from query results
     * pmd/scripts/move.js: display problems in Opera, thanks to Maxim Bulygin
 
 2007-02-02 Marc Delisle  <lem9@users.sourceforge.net>
@@ -126,20 +123,11 @@ $HeadURL$
     * libraries/display_tbl.lib.php: bug #1644740 - $cfg['Order'] = 'SMART'
       overwritten
     * libraries/Theme.class.php: removed __wakeup() due to some requirements are
-      not fulfilled at this point - also thanks to Jürgen Wind - windkiel
+      not fulfilled at this point - also thanks to J�gen Wind - windkiel
 
 2007-01-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/session.inc.php:
       bug #1630871 - Detecting a missing write permission on sessions directory
-    * libraries/select_lang.lib.php: globalized variables to be usable inside
-      function, documentation
-    * libraries/auth/http.auth.lib.php, libraries/auth/signon.auth.lib.php
-      libraries/common.lib.php, libraries/database_interface.lib.php
-      libraries/select_lang.lib.php, libraries/session.inc.php:
-      added PMA_fatalError() and made use of it
-
-2007-01-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/tbl_replace_fields.inc.php: undefined variable
 
 2007-01-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sqlparser.lib.php PMA_SQP_analyze():
@@ -149,11 +137,6 @@ $HeadURL$
     * lang/catalan update, thanks to Xavier Navarro (xavin)
     * pmd_general.php: possibility of quotes in Designer messages,
       thanks to Ivan Kirillov
-
-2007-01-29 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * tbl_replace.php, libraries/tbl_replace_fields.inc.php: print out error
-      messages if upload failed (bug #1615530)
-    * js/querywindow.js: fixed bug #1541147 - # in database names
 
 2007-01-26 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php, libraries/js_escape.lib.php,
