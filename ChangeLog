@@ -5,7 +5,7 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
-- bug #1615530 [data] added more specific error message if field upload fails
+- bug #1615530 [upload] added more specific error message if field upload fails
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
@@ -17,6 +17,8 @@ $HeadURL$
 + [gui] dropped css/ folder and moved into root of PMA
 + [l10n] new: sinhala
 + [export] YAML export (see yaml.org), thanks to Bryce Thornton
++ [upload] moved file upload functionality into own class
++ [upload] make use of $cfg['TempDir'] for file uploads
 
 2.10.1.0 (not released yet)
 =====================

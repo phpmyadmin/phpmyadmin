@@ -20,35 +20,15 @@
  * @version $Id$
  * vim: expandtab sw=4 ts=4 sts=4:
  *
- * @uses $GLOBALS['cfg']['UploadDir']
- * @uses $_FILES
  * @uses $_REQUEST
  * @uses defined()
  * @uses define()
- * @uses is_uploaded_file()
- * @uses ini_get()
- * @uses is_dir()
- * @uses mkdir()
- * @uses chmod()
- * @uses is_writable()
- * @uses is_readable()
- * @uses move_uploaded_file()
- * @uses basename()
- * @uses preg_replace()
  * @uses bin2hex()
- * @uses fread()
- * @uses fopen()
- * @uses filesize()
- * @uses unlink()
  * @uses strlen()
  * @uses md5()
  * @uses implode()
- * @uses PMA_IS_WINDOWS
  * @uses PMA_NO_VARIABLES_IMPORT
- * @uses PMA_checkParameters()
  * @uses PMA_sqlAddslashes()
- * @uses PMA_userDir()
- * @todo there are also file uploads in the import dialog - possible we can merge this
  */
 
 /**
@@ -61,129 +41,21 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  * Gets some core libraries
  */
 require_once './libraries/common.lib.php';
+require_once './libraries/PMA_File.class.php';
 
-$valid_file_was_uploaded = false;
+$file_to_insert = new PMA_File();
+$file_to_insert->checkTblChangeForm($key, $primary_key);
 
-// Check if a multi-edit row was found
-$me_fields_upload =
-    (isset($_FILES['fields_upload_' . $key]['tmp_name']['multi_edit'][$primary_key])
-    ? $_FILES['fields_upload_' . $key]['tmp_name']['multi_edit'][$primary_key]
-    : (isset($_FILES['fields_upload_' . $key]['tmp_name'])
-        ? $_FILES['fields_upload_' . $key]['tmp_name']
-        : 'none'));
+$val = $file_to_insert->getContent();
 
-$me_fields_uploadlocal =
-    (isset($_REQUEST['fields_uploadlocal_' . $key]['multi_edit'])
-    ? $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary_key]
-    : (isset($_REQUEST['fields_uploadlocal_' . $key])
-        ? $_REQUEST['fields_uploadlocal_' . $key]
-        : null));
+if ($file_to_insert->isError()) {
+    $message .= $file_to_insert->getError();
+}
+$file_to_insert->cleanUp();
 
-if ($me_fields_upload != 'none') {
-    // garvin: This fields content is a blob-file upload.
-
-    $file_to_insert = false;
-    $unlink = false;
-
-    if (is_uploaded_file($me_fields_upload)) {
-        // whether we insert form uploaded file ...
-
-        $file_to_insert = $me_fields_upload;
-
-        // If we are on a server with open_basedir, we must move the file
-        // before opening it. The FAQ 1.11 explains how to create the "./tmp"
-        // directory - if needed
-        if ('' != ini_get('open_basedir')) {
-            $tmp_subdir = (PMA_IS_WINDOWS ? 'tmp' : 'tmp');
-
-            if (! is_dir($tmp_subdir)) {
-                // try to create the tmp directory if not exists
-                if (@mkdir($tmp_subdir, 0777)) {
-                    chmod($tmp_subdir, 0777);
-                }
-            }
-
-            if (! is_writable($tmp_subdir)) {
-                // cannot create directory or access, point user to FAQ 1.11
-                $message .= $GLOBALS['strFieldInsertFromFileTempDirNotExists'] . '<br />';
-                // if we cannot move the file don't change blob fields
-                $file_to_insert = false;
-            } else {
-                $new_file_to_upload = $tmp_subdir . basename($file_to_insert);
-
-                move_uploaded_file($file_to_insert, $new_file_to_upload);
-
-                $file_to_insert = $new_file_to_upload;
-                $unlink = true;
-                unset($new_file_to_upload);
-            }
-            unset($tmp_subdir);
-        }
-    } elseif (! empty($me_fields_uploadlocal)) {
-        // ... or selected file from $cfg['UploadDir']
-
-        $file_to_insert = PMA_userDir($GLOBALS['cfg']['UploadDir']) . preg_replace('@\.\.*@', '.', $me_fields_uploadlocal);
-
-        if (! is_readable($file_to_insert)) {
-            $file_to_insert = false;
-        }
-    }
-    // garvin: else: Post-field contains no data. Blob-fields are preserved, see below. ($protected$)
-
-    if ($file_to_insert) {
-        $val = '';
-        // check if file is not empty
-        if (function_exists('file_get_contents')) {
-            $val = file_get_contents($file_to_insert);
-        } elseif ($file_to_insert_size = filesize($file_to_insert)) {
-            $val = fread(fopen($file_to_insert, 'rb'), $file_to_insert_size);
-        }
-
-        if (! empty($val)) {
-            $val = '0x' . bin2hex($val);
-            $seen_binary = true;
-            $valid_file_was_uploaded = true;
-        }
-
-        if ($unlink == true) {
-            unlink($file_to_insert);
-        }
-    }
-
-    unset($file_to_insert, $file_to_insert_size, $unlink);
-} elseif (isset($_FILES['fields_upload_' . $key]['error']['multi_edit'][$primary_key])) {
-    // check for file upload errors
-    switch ($_FILES['fields_upload_' . $key]['error']['multi_edit'][$primary_key]) {
-        // cybot_tm: we do not use the PHP constants here cause not all constants
-        // are defined in all versions of PHP - but the correct constants names
-        // are given as comment
-        case 0: //UPLOAD_ERR_OK:
-        case 4: //UPLOAD_ERR_NO_FILE:
-            break;
-        case 1: //UPLOAD_ERR_INI_SIZE:
-            $message .= $GLOBALS['strUploadErrorIniSize'] . '<br />';
-            break;
-        case 2: //UPLOAD_ERR_FORM_SIZE:
-            $message .= $GLOBALS['strUploadErrorFormSize'] . '<br />';
-            break;
-        case 3: //UPLOAD_ERR_PARTIAL:
-            $message .= $GLOBALS['strUploadErrorPartial'] . '<br />';
-            break;
-        case 6: //UPLOAD_ERR_NO_TMP_DIR:
-            $message .= $GLOBALS['strUploadErrorNoTempDir'] . '<br />';
-            break;
-        case 7: //UPLOAD_ERR_CANT_WRITE:
-            $message .= $GLOBALS['strUploadErrorCantWrite'] . '<br />';
-            break;
-        case 8: //UPLOAD_ERR_EXTENSION:
-            $message .= $GLOBALS['strUploadErrorExtension'] . '<br />';
-            break;
-        default:
-            $message .= $GLOBALS['strUploadErrorUnknown'] . '<br />';
-    } // end switch
-} // end else
-
-if (false === $valid_file_was_uploaded) {
+if (false !== $val) {
+    $seen_binary = true;
+} else {
 
     // f i e l d    v a l u e    i n    t h e    f o r m
 
@@ -250,5 +122,5 @@ if (false === $valid_file_was_uploaded) {
         $val = "''";
     }
 }  // end else (field value in the form)
-unset($valid_file_was_uploaded, $me_fields_upload, $me_fields_uploadlocal, $type, $f);
+unset($type, $f);
 ?>
