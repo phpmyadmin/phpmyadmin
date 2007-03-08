@@ -320,7 +320,7 @@ class PMA_Table {
                 $query .= ' DEFAULT NULL';
             } else {
                 if (strlen($default)) {
-                    if ($is_timestamp) {
+                    if ($is_timestamp && $default == '0') {
                         // a TIMESTAMP does not accept DEFAULT '0'
                         // but DEFAULT 0  works
                         $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
