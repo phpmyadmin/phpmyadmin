@@ -187,25 +187,25 @@ function PMA_getTableCount($db)
  */
 function PMA_get_real_size($size = 0)
 {
-    if (!$size) {
+    if (! $size) {
         return 0;
     }
-    $scan['MB'] = 1048576;
-    $scan['Mb'] = 1048576;
-    $scan['M']  = 1048576;
-    $scan['m']  = 1048576;
-    $scan['KB'] =    1024;
-    $scan['Kb'] =    1024;
-    $scan['K']  =    1024;
-    $scan['k']  =    1024;
 
-    while (list($key) = each($scan)) {
-        if ((strlen($size) > strlen($key))
-          && (substr($size, strlen($size) - strlen($key)) == $key)) {
-            $size = substr($size, 0, strlen($size) - strlen($key)) * $scan[$key];
-            break;
+    $scan['gb'] = 1073741824; //1024 * 1024 * 1024;
+    $scan['g']  = 1073741824; //1024 * 1024 * 1024;
+    $scan['mb'] = 1048576;
+    $scan['m']  = 1048576;
+    $scan['kb'] =    1024;
+    $scan['k']  =    1024;
+    $scan['b']  =       1;
+
+    foreach ($scan as $unit => $factor) {
+        if (strlen($size) > strlen($unit)
+         && strtolower(substr($size, strlen($size) - strlen($unit))) == $unit) {
+            return substr($size, 0, strlen($size) - strlen($unit)) * $factor;
         }
     }
+
     return $size;
 } // end function PMA_get_real_size()
 
