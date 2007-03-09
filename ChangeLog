@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
++ [import] support handling of DELIMITER to mimic mysql CLI, thanks to fb1
 - bug #1674914 [structure] changing definition of a TIMESTAMP field 
 - bug #1615530 [upload] added more specific error message if field upload fails
 - [gui] avoid displaying a wide selector in server selection

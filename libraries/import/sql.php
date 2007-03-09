@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+/* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /* SQL import plugin for phpMyAdmin */
@@ -27,6 +28,7 @@ if (isset($plugin_list)) {
     $sql = '';
     $start_pos = 0;
     $i = 0;
+    $len= 0;
     if (isset($_POST['sql_delimiter'])) {
         $sql_delimiter = $_POST['sql_delimiter'];
     } else {
@@ -49,14 +51,14 @@ if (isset($plugin_list)) {
             // Append new data to buffer
             $buffer .= $data;
             // Do not parse string when we're not at the end and don't have ; inside
-            if ((strpos($buffer, $sql_delimiter) === FALSE) && !$finished) {
+            if ((strpos($buffer, $sql_delimiter, $i) === FALSE) && !$finished)  {
                 continue;
             }
         }
         // Current length of our buffer
         $len = strlen($buffer);
         // Grab some SQL queries out of it
-        while ($i < $len) {
+         while ($i < $len) {
             $found_delimiter = false;
             // Find first interesting character, several strpos seem to be faster than simple loop in php:
             //while (($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
@@ -92,8 +94,12 @@ if (isset($plugin_list)) {
             if ($p7 === FALSE) {
                 $p7 = 2147483647;
             }
-            $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7);
-            unset($p1, $p2, $p3, $p4, $p5, $p6, $p7);
+            $p8 = strpos($buffer, 'DELIMITER', $i);
+            if ($p8 === FALSE || $p8 >= ($len - 11) || $buffer[$p8 + 9] > ' ') {
+                $p8 = 2147483647;
+            }
+            $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7, $p8);
+            unset($p1, $p2, $p3, $p4, $p5, $p6, $p7, $p8);
             if ($i == 2147483647) {
                 $i = $oi;
                 if (!$finished) {
@@ -201,6 +207,15 @@ if (isset($plugin_list)) {
                     continue;
                 }
             }
+           // Change delimiter, if redefined, and skip it (don't send to server!) 
+           if ((substr($buffer, $i, 9) == "DELIMITER") && ($buffer[$i + 9] <= ' ') && ($i<$len-11) && (!(strpos($buffer,"\n",$i+11)===FALSE) )) {
+               $new_line_pos = strpos($buffer, "\n", $i + 10);
+               $sql_delimiter = substr($buffer, $i+10, $new_line_pos - $i -10);
+               $i= $new_line_pos + 1;
+               // Next query part will start here
+               $start_pos = $i;
+               continue;               
+            }
 
             // End of SQL
             if ($found_delimiter || ($finished && ($i == $len - 1))) {
@@ -233,6 +248,7 @@ if (isset($plugin_list)) {
                     $start_pos = $i;
                 }
             }
+           
         } // End of parser loop
     } // End of import loop
     // Commit any possible data in buffers
