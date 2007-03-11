@@ -46,15 +46,16 @@ require_once './libraries/PMA_File.class.php';
 $file_to_insert = new PMA_File();
 $file_to_insert->checkTblChangeForm($key, $primary_key);
 
-$val = $file_to_insert->getContent();
+$possibly_uploaded_val = $file_to_insert->getContent();
 
 if ($file_to_insert->isError()) {
     $message .= $file_to_insert->getError();
 }
 $file_to_insert->cleanUp();
 
-if (false !== $val) {
+if (false !== $possibly_uploaded_val) {
     $seen_binary = true;
+    $val = $possibly_uploaded_val;
 } else {
 
     // f i e l d    v a l u e    i n    t h e    f o r m
