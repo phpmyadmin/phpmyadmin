@@ -271,7 +271,7 @@ function insertQuery() {
 
 function open_querywindow( url ) {
     if ( ! url ) {
-        url = 'querywindow.php?' + encodeURIComponent(common_query) + '&db=' + encodeURIComponent(db) + '&table=' + encodeURIComponent(table);
+        url = 'querywindow.php?' + common_query + '&db=' + encodeURIComponent(db) + '&table=' + encodeURIComponent(table);
     }
 
     if (!querywindow.closed && querywindow.location) {
