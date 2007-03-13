@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2.10.0.3 (not released yet)
+=====================
+
+- bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
+
 2007-03-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.10.0.2 released from MAINT_2_10_0
 

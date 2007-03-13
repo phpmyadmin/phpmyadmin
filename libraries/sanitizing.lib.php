@@ -34,7 +34,31 @@ function PMA_sanitize($message)
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
     );
-    return preg_replace('/\[a@([^"@]*)@([^]"]*)\]/', '<a href="\1" target="\2">', strtr($message, $replace_pairs));
+    $sanitized_message = strtr($message, $replace_pairs);
+    $sanitized_message = preg_replace(
+        '/\[a@([^"@]*)@([^]"]*)\]/e',
+        '\'<a href="\' . PMA_sanitizeUri(\'$1\') . \'" target="\2">\'',
+        $sanitized_message);
+
+    return $sanitized_message;
 }
 
+/**
+ * removes javascript
+ *
+ * @uses    trim()
+ * @uses    strtolower()
+ * @uses    substr()
+ * @param   string  uri
+ */
+function PMA_sanitizeUri($uri)
+{
+    $uri = trim($uri);
+
+    if (strtolower(substr($uri, 0, 10)) === 'javascript') {
+        return '';
+    }
+
+    return $uri;
+}
 ?>
