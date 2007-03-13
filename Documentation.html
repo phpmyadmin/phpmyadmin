@@ -328,14 +328,14 @@ chmod o-rw config.inc.php          # remove world read and write permissions
 <h3 id="upgrading">Upgrading from an older version</h3>
 
 <p> Simply copy <i>./config.inc.php</i> from your previous installation into the newly
-    unpacked one. Configuration files from very old versions (2.3.0 or older) may
+    unpacked one. Configuration files from very old versions (2.3.0 or before) may
     require some tweaking as some options have been changed or removed.</p>
 
 <p> You should <strong>not</strong> copy <tt>libraries/config.default.php</tt>
     over <tt>config.inc.php</tt> because the default configuration file
     is version-specific.</p>
 
-<p> If you have upgraded your MySQL server from a version older than 4.1.2 to
+<p> If you have upgraded your MySQL server from a version previous to 4.1.2 to
     version 4.1.2 or newer and if you use the pmadb/linked table infrastructure,
     you should run the SQL script found in
     <tt>scripts/upgrade_tables_mysql_4_1_2+.sql</tt>.</p>
@@ -364,7 +364,7 @@ chmod o-rw config.inc.php          # remove world read and write permissions
         algorithm, in a temporary cookie.</li>
 
     <li>Note: starting with phpMyAdmin 2.6.1, this section is only applicable if
-        your MySQL server is older than 4.1.2, or is running with
+        your MySQL server is previous to 4.1.2, or is running with
         <tt>--skip-show-database</tt>.<br /><br />
 
         For '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' and 'cookie'
@@ -643,7 +643,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <dd>This special account is used for 2 distinct purposes: to make possible
         all relational features (see
         <a href="#pmadb" class="configrule">$cfg['Servers'][$i]['pmadb']</a>)
-        and, for a MySQL server older than 4.1.2 or running with
+        and, for a MySQL server previous to 4.1.2 or running with
         <tt>--skip-show-database</tt>, to enable a multi-user installation
         (<abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie
         authentication mode).<br /><br />
@@ -679,7 +679,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
                 ends. This can also allow you to log in in arbitrary server if
                 <tt><a href="#AllowArbitraryServer" class="configrule">$cfg['AllowArbitraryServer']</a></tt> enabled.
             </li>
-            <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in older versions and can be written also as 'http')
+            <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in previous versions and can be written also as 'http')
                 (<tt>$auth_type&nbsp;=&nbsp;'<abbr title="HyperText Transfer Protocol">HTTP</abbr>'</tt>) as introduced in 1.3.0
                 allows you to log in as any valid MySQL user via HTTP-Auth.</li>
             <li>'signon' authentication mode 
@@ -2436,7 +2436,7 @@ $cfg['TrustedProxies'] =
     <a href="#faq1_15">1.15 I have problems with <i>mysql.user</i> field names.</a>
 </h4>
 
-<p> In older MySQL versions, the <tt>User</tt> and <tt>Password</tt> fields
+<p> In previous MySQL versions, the <tt>User</tt> and <tt>Password</tt> fields
     were named <tt>user</tt> and <tt>password</tt>. Please modify your field
     names to align with current standards.</p>
 
@@ -3442,7 +3442,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 <p> Click on a database name in the left frame, the properties will be
     displayed. Select &quot;Import&quot; from the list
     of tabs in the right&#8211;hand frame (or &quot;<abbr title="structured query language">SQL</abbr>&quot; if your phpMyAdmin
-    version is older than 2.7.0). In the &quot;Location of the text file&quot; section, type in
+    version is previous to 2.7.0). In the &quot;Location of the text file&quot; section, type in
     the path to your dump filename, or use the Browse button. Then click Go.
     <br /><br />
     With version 2.7.0, the import engine has been re&#8211;written, if possible it is suggested
