@@ -19,6 +19,7 @@ require_once 'PHPUnit/Framework.php';
 require_once 'PHPUnit/TextUI/TestRunner.php';
 require_once './test/FailTest.php';
 require_once './test/PMA_get_real_size_test.php';
+require_once './test/PMA_sanitize_test.php';
 
 class AllTests
 {
@@ -33,6 +34,7 @@ class AllTests
 
         //$suite->addTestSuite('FailTest');
         $suite->addTestSuite('PMA_get_real_size_test');
+        $suite->addTestSuite('PMA_sanitize_test');
 
         return $suite;
     }
