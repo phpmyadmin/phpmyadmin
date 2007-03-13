@@ -1033,4 +1033,5 @@ $strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
 
 $strViewName = 'VIEW name';  //to translate
 
+$strFiles = 'Files';  //to translate
 ?>

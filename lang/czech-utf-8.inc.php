@@ -1028,4 +1028,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strOptions = 'Options';  //to translate
+$strFiles = 'Files';  //to translate
 ?>

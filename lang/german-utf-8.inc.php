@@ -1031,4 +1031,5 @@ $strSessionStartupErrorGeneral = 'Cannot start session without errors, please ch
 $strFieldInsertFromFileTempDirNotExists = 'Fehler beim verschieben der hochgeladenen Datei, siehe FAQ 1.11';
 $strViewName = 'VIEW Name';
 $strOptions = 'Options';  //to translate
+$strFiles = 'Files';  //to translate
 ?>

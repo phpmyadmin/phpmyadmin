@@ -1028,4 +1028,5 @@ $strSessionStartupErrorGeneral = 'Cannot start session without errors, please ch
 $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see FAQ 1.11';  //to translate
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
+$strFiles = 'Files';  //to translate
 ?>

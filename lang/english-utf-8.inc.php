@@ -302,6 +302,7 @@ $strFileNameTemplateDescriptionTable = 'table name';
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';
 $strFileNameTemplate = 'File name template';
 $strFileNameTemplateRemember = 'remember template';
+$strFiles = 'Files';
 $strFileToImport = 'File to import';
 $strFixed = 'fixed';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.';
