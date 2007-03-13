@@ -1,11 +1,17 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
+/**
+ *
+ * @version $Id$
+ */
 
 /**
  * Sanitizes $message, taking into account our special codes
  * for formatting
  *
+ * @uses    PMA_sanitizeUri()
+ * @uses    preg_replace()
+ * @uses    strtr()
  * @param   string   the message
  *
  * @return  string   the sanitized message
@@ -34,7 +40,31 @@ function PMA_sanitize($message)
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
     );
-    return preg_replace('/\[a@([^"@]*)@([^]"]*)\]/', '<a href="\1" target="\2">', strtr($message, $replace_pairs));
+    $sanitized_message = strtr($message, $replace_pairs);
+    $sanitized_message = preg_replace(
+        '/\[a@([^"@]*)@([^]"]*)\]/e',
+        '\'<a href="\' . PMA_sanitizeUri(\'$1\') . \'" target="\2">\'',
+        $sanitized_message);
+
+    return $sanitized_message;
 }
 
+/**
+ * removes javascript
+ *
+ * @uses    trim()
+ * @uses    strtolower()
+ * @uses    substr()
+ * @param   string  uri
+ */
+function PMA_sanitizeUri($uri)
+{
+    $uri = trim($uri);
+
+    if (strtolower(substr($uri, 0, 10)) === 'javascript') {
+        return '';
+    }
+
+    return $uri;
+}
 ?>

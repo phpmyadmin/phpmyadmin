@@ -13,6 +13,11 @@ $HeadURL$
 - bug #1672379 [core] Call to undefined function PMA_removeCookie()
 . [general] use PMA_getenv('PHP_SELF')
 
+2.10.0.3 (not released yet)
+=====================
+
+- bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
+
 2.10.0.2 (2007-03-02)
 =====================
 
