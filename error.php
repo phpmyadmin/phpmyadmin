@@ -1,22 +1,35 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
- *
  * phpMyAdmin fatal error display page
- * 
+ *
+ * @version $Id$
  */
 
 /* Input sanitizing */
-require_once('./libraries/sanitizing.lib.php');
+require_once './libraries/sanitizing.lib.php';
 
 /* Get variables */
-$lang    = isset( $_REQUEST['lang'] ) ?     htmlspecialchars($_REQUEST['lang'])     : 'en';
-$dir     = isset( $_REQUEST['dir']  ) ?     htmlspecialchars($_REQUEST['dir'])      : 'ltr';
+if (! empty($_REQUEST['lang']) && is_string($_REQUEST['lang'])) {
+    $lang = htmlspecialchars($_REQUEST['lang']);
+} else {
+    $lang = 'en';
+}
+
+if (! empty($_REQUEST['dir']) && is_string($_REQUEST['dir'])) {
+    $dir = htmlspecialchars($_REQUEST['dir']);
+} else {
+    $dir = 'ltr';
+}
+
+if (! empty($_REQUEST['type']) && is_string($_REQUEST['type'])) {
+    $type = htmlspecialchars($_REQUEST['type']);
+} else {
+    $type = 'error';
+}
+
 // force utf-8 to avoid XSS with crafted URL and utf-7 in charset parameter
 $charset = 'utf-8';
-$type    = isset( $_REQUEST['type'] ) ?     htmlspecialchars($_REQUEST['type'])     : 'error';
 
 header('Content-Type: text/html; charset=' . $charset);
 ?>
@@ -62,7 +75,7 @@ header('Content-Type: text/html; charset=' . $charset);
 <p><?php
 if (get_magic_quotes_gpc()) {
     echo PMA_sanitize(stripslashes($_REQUEST['error']));
-} else { 
+} else {
     echo PMA_sanitize($_REQUEST['error']);
 }
 ?></p>
