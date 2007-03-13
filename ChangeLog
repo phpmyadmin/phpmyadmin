@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $Source$
 
+- bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
+
 2007-03-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: bug #1671813 CVE-2006-1549 deep recursion crash
 
