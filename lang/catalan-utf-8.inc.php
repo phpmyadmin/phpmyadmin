@@ -360,8 +360,6 @@ $strIndexHasBeenDropped = 'S\'ha esborrat l\'índex %s';
 $strIndex = 'Índex';
 $strIndexName = 'Nom d\'índex:';
 $strIndexType = 'Tipus d\'índex:';
-$strIndexWarningMultiple = 'S\'ha creat més d\'una clau %s per a la columna `%s`';
-$strIndexWarningPrimary = 'Les claus PRIMARY i INDEX no es poden establir alhora per a la columna `%s`';
 $strIndexWarningTable = 'Problemes amb els index de la taula `%s`';
 $strIndexWarningUnique = 'Les claus UNIQUE i INDEX no es poden establir alhora per a la columna `%s`';
 $strInnoDBAutoextendIncrementDesc = ' La quantitat a incrementar per ampliar el tamany d\'una taula autoextensible quan estigui a punt d\'omplir-se.';
@@ -1026,4 +1024,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

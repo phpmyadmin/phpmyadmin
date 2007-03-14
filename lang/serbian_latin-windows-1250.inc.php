@@ -307,8 +307,6 @@ $strIndexHasBeenDropped = 'Kljuè %s je obrisan';
 $strIndex = 'Kljuè';
 $strIndexName = 'Ime kljuèa :';
 $strIndexType = 'Tip kljuèa :';
-$strIndexWarningMultiple = 'Više od jednog %s kljuèa je napravljeno za kolonu `%s`';
-$strIndexWarningPrimary = 'PRIMARY i INDEX kljuèevi ne bi trebali da budu istovremeno postavljeni za kolonu `%s`';
 $strIndexWarningTable = 'Problem pri indeksiranju tabele `%s`';
 $strIndexWarningUnique = 'UNIQUE i INDEX kljuèevi ne bi trebali da budu istovremeno postavljeni za kolonu `%s`';
 $strInnoDBAutoextendIncrementDesc = ' Velièina koraka proširenja velièine tabela koje se automatski proširuju kada se napune.';
@@ -1050,4 +1048,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

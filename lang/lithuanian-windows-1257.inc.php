@@ -290,8 +290,6 @@ $strIndexHasBeenDropped = 'Indeksas %s panaikintas';
 $strIndex = 'Indeksas';
 $strIndexName = 'Indekso vardas&nbsp;:';
 $strIndexType = 'Indekso tipas&nbsp;:';
-$strIndexWarningMultiple = 'Daugiau nei vienas %s raktas buvo nustatytas stulpeliui `%s`';
-$strIndexWarningPrimary = 'PRIMARY ir INDEX raktai neutrëtø bûti nustatomi tam paèiam `%s` stulpeliui';
 $strIndexWarningTable = 'Iðkilo problemos su `%s` lentelës indeksais';
 $strIndexWarningUnique = 'UNIQUE ir INDEX raktai neutrëtø bûti nustatomi tam paèiam `%s` stulpeliui';
 $strInnoDBBufferPoolSize = 'Buferio pool\'o dydis';
@@ -1044,4 +1042,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

@@ -344,8 +344,6 @@ $strIndexHasBeenDropped = 'Indeks %s er blevet slettet';
 $strIndex = 'Indeks';
 $strIndexName = 'Indeksnavn&nbsp;:';
 $strIndexType = 'Indekstype&nbsp;:';
-$strIndexWarningMultiple = 'Mere end en %s nøgle blev skabt for kolonne `%s`';
-$strIndexWarningPrimary = 'PRIMARY og INDEX nøgler burde ikke begge være sat for kolonne `%s`';
 $strIndexWarningTable = 'Problemer med indeksene på tabel `%s`';
 $strIndexWarningUnique = 'UNIQUE og INDEX nøgler burde ikke begge være sat for kolonne `%s`';
 $strInnoDBAutoextendIncrement = 'Autoextend forøgelse';
@@ -1029,4 +1027,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

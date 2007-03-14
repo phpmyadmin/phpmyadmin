@@ -325,8 +325,6 @@ $strIndexHasBeenDropped = '"%s" digän tezeþ salýndý';
 $strIndexName = 'Tezeþ adý&nbsp;:';
 $strIndex = 'Tezeþ';
 $strIndexType = 'Tezeþ töre&nbsp;:';
-$strIndexWarningMultiple = '`%s` alanýnda qabatlanðan %s atlý tezeþ bar';
-$strIndexWarningPrimary = '`%s` alanýnda PRIMARY belän INDEX tezeþlären bergä yasap bulmýy';
 $strIndexWarningTable = '`%s` atlý tüþäw tezeþläre belän nidider tiskärlek bar';
 $strIndexWarningUnique = '`%s` alanýnda UNIQUE belän INDEX tezeþlären bergä yasap bulmýy';
 $strInnoDBAutoextendIncrement = 'Biremlektä arttýru adýmý';
@@ -1040,4 +1038,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

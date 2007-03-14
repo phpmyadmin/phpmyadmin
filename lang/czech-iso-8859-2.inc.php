@@ -366,8 +366,6 @@ $strIndexHasBeenDropped = 'Index %s byl odstranìn';
 $strIndex = 'Index';
 $strIndexName = 'Jméno indexu&nbsp;:';
 $strIndexType = 'Typ indexu&nbsp;:';
-$strIndexWarningMultiple = 'Pro sloupec `%s` je vytvoøeno více indexù';
-$strIndexWarningPrimary = 'Sloupec `%s` by nemìl být zároveò obsa¾en v&nbsp;PRIMARY a INDEX klíèi';
 $strIndexWarningTable = 'Problémy s&nbsp;indexy v&nbsp;tabulce `%s`';
 $strIndexWarningUnique = 'Sloupec `%s` by nemìl být zároveò obsa¾en v&nbsp;PRIMARY a UNIQUE klíèi';
 $strInnoDBAutoextendIncrementDesc = 'Velikost o&nbsp;kterou je zvìt¹en soubor s&nbsp;daty, pokud je zaplnìný.';
@@ -1028,4 +1026,5 @@ $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

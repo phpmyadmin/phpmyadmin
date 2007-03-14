@@ -287,8 +287,6 @@ $strIndexes = '索引';
 $strIndexHasBeenDropped = '索引 %s 已被删除';
 $strIndexName = '索引名称：';
 $strIndexType = '索引类型：';
-$strIndexWarningMultiple = '警告：超过一个 %s  键被设在字段 `%s`中';
-$strIndexWarningPrimary = '警告：主键PRIMARY与索引键INDEX不应同时设在字段 `%s` 中';
 $strIndexWarningTable = '警告：数据表 `%s`的索引存在问题';
 $strIndexWarningUnique = '警告：唯一键UNIQUE与索引键INDEX不应同时设在字段 `%s` 中';
 $strInnodbStat = 'InnoDB 状态';
@@ -1055,4 +1053,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

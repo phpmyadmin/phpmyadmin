@@ -333,8 +333,6 @@ $strIndexes = '索引';
 $strIndexHasBeenDropped = '索引 %s 已被刪除';
 $strIndexName = '索引名稱&nbsp;:';
 $strIndexType = '索引類型&nbsp;:';
-$strIndexWarningMultiple = '多過一個 %s 鍵已建立到欄位 `%s` 中';
-$strIndexWarningPrimary = '主鍵 PRIMARY 及 索引鍵 INDEX 不應同時間設定欄位 `%s` 中';
 $strIndexWarningTable = '於資料表 `%s` 中有索引問題';
 $strIndexWarningUnique = '唯一鍵 UNIQUE 及 索引鍵 INDEX 不應同時間設定欄位 `%s` 中';
 $strInnoDBAutoextendIncrement = '自動伸延大小';
@@ -1034,4 +1032,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

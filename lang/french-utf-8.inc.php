@@ -364,8 +364,6 @@ $strIndexHasBeenDropped = 'L\'index %s a été effacé';
 $strIndex = 'Index';
 $strIndexName = 'Nom de la clef&nbsp;:';
 $strIndexType = 'Type de clef&nbsp;:';
-$strIndexWarningMultiple = 'Plus d\'un index de type %s existe pour la colonne `%s`';
-$strIndexWarningPrimary = 'La colonne `%s` ne devrait pas faire partie à la fois d\'une clé primaire et d\'une clé index';
 $strIndexWarningTable = 'Il y a des problèmes avec les index de la table `%s`';
 $strIndexWarningUnique = 'La colonne `%s` ne devrait pas faire partie à la fois d\'une clé unique et d\'une clé index';
 $strInnoDBAutoextendIncrement = 'Auto-croissant: Taille de l\'incrément';
@@ -1026,4 +1024,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

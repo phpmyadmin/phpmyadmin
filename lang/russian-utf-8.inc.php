@@ -321,7 +321,6 @@ $strIndexes = 'Индексы';
 $strIndexHasBeenDropped = 'Индекс %s был удален';
 $strIndexName = 'Имя индекса&nbsp;:';
 $strIndexType = 'Тип индекса&nbsp;:';
-$strIndexWarningMultiple = 'Больше одного %s ключа создано для колонки `%s`';
 $strIndexWarningTable = 'Проблемы с индексами таблицы `%s`';
 $strInnoDBDataFilePath = 'Файлы данных';
 $strInnoDBDataHomeDir = 'Домашний каталог для данных';
@@ -862,7 +861,6 @@ $strExportMustBeFile = 'Selected export type has to be saved in file!';  //to tr
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 $strFreePages = 'Free pages';  //to translate
 
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';  //to translate
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';  //to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
@@ -1050,4 +1048,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

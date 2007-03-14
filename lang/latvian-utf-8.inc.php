@@ -283,8 +283,6 @@ $strIndexHasBeenDropped = 'Indekss %s tika izdzēsts';
 $strIndex = 'Indekss';
 $strIndexName = 'Indeksa nosaukums&nbsp;:';
 $strIndexType = 'Indeksa tips&nbsp;:';
-$strIndexWarningMultiple = 'Vairāk kā viena %s atslēga tika izveidota kolonnai `%s`';
-$strIndexWarningPrimary = 'PRIMARY un INDEX atslēgas nevar abas reizē tikt uzliktas kolonnai `%s`';
 $strIndexWarningTable = 'Problēmas ar indeksiem tabulā `%s`';
 $strIndexWarningUnique = 'UNIQUE un INDEX atslēgas nevar abas reizē tikt uzliktas kolonnai `%s`';
 $strInnodbStat = 'InnoDB statuss';
@@ -1052,4 +1050,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

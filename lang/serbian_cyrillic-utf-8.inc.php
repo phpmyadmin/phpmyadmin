@@ -307,8 +307,6 @@ $strIndexes = 'Кључеви';
 $strIndexHasBeenDropped = 'Кључ %s је обрисан';
 $strIndexName = 'Име кључа :';
 $strIndexType = 'Тип кључа :';
-$strIndexWarningMultiple = 'Више од једног %s кључа је направљено за колону `%s`';
-$strIndexWarningPrimary = 'PRIMARY и INDEX кључеви не би требали да буду истовремено постављени за колону `%s`';
 $strIndexWarningTable = 'Проблем при индексирању табеле `%s`';
 $strIndexWarningUnique = 'UNIQUE и INDEX кључеви не би требали да буду истовремено постављени за колону `%s`';
 $strIndex = 'Кључ';
@@ -1051,4 +1049,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

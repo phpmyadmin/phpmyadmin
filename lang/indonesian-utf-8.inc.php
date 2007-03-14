@@ -302,8 +302,6 @@ $strIndexHasBeenDropped = 'Indeks %s telah dihapus';
 $strIndex = 'Indeks';
 $strIndexName = 'Nama indeks&nbsp;:';
 $strIndexType = 'Tipe indeks&nbsp;:';
-$strIndexWarningMultiple = 'Lebih dari satu kunci %s untuk kolom `%s` telah dibuat ';
-$strIndexWarningPrimary = 'Kunci PRIMARY dan INDEKS sebaiknya jangan di-set secara bersamaan untuk kolom  `%s`';
 $strIndexWarningTable = 'Ditemukan masalah dengan indeks dalam tabel `%s`';
 $strIndexWarningUnique = 'Kunci UNIK and INDEKS sebaiknya jangan di-set secara bersamaan untuk kolom `%s`';
 $strInnoDBAutoextendIncrementDesc = ' Ukuran bertahap dari pembesaran ruang tabel otomatis bila ia mempenuh.';
@@ -1045,4 +1043,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

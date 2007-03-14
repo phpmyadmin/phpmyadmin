@@ -312,8 +312,6 @@ $strIndexHasBeenDropped = 'Индекса %s беше изтрит';
 $strIndexName = 'Име на индекса&nbsp;:';
 $strIndex = 'Индекс';
 $strIndexType = 'Тип на индекса&nbsp;:';
-$strIndexWarningMultiple = 'Повече от един %s ключ беше създаден за колона `%s`';
-$strIndexWarningPrimary = 'Колона `%s` не може да бъде едновременно първичен и външен ключ';
 $strIndexWarningTable = 'Проблем с индексите на таблица `%s`';
 $strInnoDBPages = 'страници';
 $strInnodbStat = 'InnoDB Състояние';
@@ -1049,4 +1047,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

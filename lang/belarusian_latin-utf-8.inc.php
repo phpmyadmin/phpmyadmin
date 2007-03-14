@@ -344,8 +344,6 @@ $strIndexHasBeenDropped = 'Indeks %s byŭ vydaleny';
 $strIndex = 'Indeks';
 $strIndexName = 'Imia indeksa:';
 $strIndexType = 'Typ indeksa:';
-$strIndexWarningMultiple = 'Bolš za adzin %s kluč byŭ stvorany dla kalonki `%s`';
-$strIndexWarningPrimary = 'Abodva klučy PRIMARY i INDEX pavinny być vyznačany dla kalonki `%s`';
 $strIndexWarningTable = 'Prablemy z indeksami dla tablicy `%s`';
 $strIndexWarningUnique = 'Abodva klučy UNIQUE i INDEX pavinny być vyznačany dla kalonki `%s`';
 $strInnoDBAutoextendIncrement = 'Aŭtapašyralnaje pryraščeńnie';
@@ -1029,4 +1027,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

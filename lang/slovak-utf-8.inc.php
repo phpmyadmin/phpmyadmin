@@ -341,8 +341,6 @@ $strIndexHasBeenDropped = 'Index pre %s bol odstránený';
 $strIndex = 'Index';
 $strIndexName = 'Meno indexu&nbsp;:';
 $strIndexType = 'Typ indexu&nbsp;:';
-$strIndexWarningMultiple = 'Pre stĺpec `%s` je vytvorený viac ako jeden %s kľúč';
-$strIndexWarningPrimary = 'Na stĺpec `%s` by nemal byť nastavený PRIMARY a zároveň INDEX kľúč';
 $strIndexWarningTable = 'Problémy s indexami v tabuľke `%s`';
 $strIndexWarningUnique = 'Na stĺpec `%s` by nemal byť nastavený UNIQUE a zároveň INDEX kľúč';
 $strInnoDBAutoextendIncrementDesc = ' Veľkosť, o ktorú je zväčšený automaticky sa zväčšujúci priestor tabuľky pri zaplnení.';
@@ -1030,4 +1028,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

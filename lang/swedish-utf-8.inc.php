@@ -365,8 +365,6 @@ $strIndexHasBeenDropped = 'Index %s har tagits bort';
 $strIndex = 'Index';
 $strIndexName = 'Indexnamn&nbsp;:';
 $strIndexType = 'Indextyp&nbsp;:';
-$strIndexWarningMultiple = 'Mer än en %s-nyckel skapades för kolumn `%s`';
-$strIndexWarningPrimary = 'PRIMARY- och INDEX-nycklar skall inte båda sättas för kolumn `%s`';
 $strIndexWarningTable = 'Problem med index för tabell `%s`';
 $strIndexWarningUnique = 'UNIQUE- och INDEX-nycklar skall inte båda sättas för kolumn `%s`';
 $strInnoDBAutoextendIncrement = 'Automatisk utökningsstorlek';
@@ -1035,4 +1033,5 @@ $strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
 $strViewName = 'VIEW name';  //to translate
 
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

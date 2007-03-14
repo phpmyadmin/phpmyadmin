@@ -368,8 +368,6 @@ $strIndexHasBeenDropped = 'インデックス %s を削除しました';
 $strIndexName = 'インデックス名:';
 $strIndex = 'インデックス';
 $strIndexType = 'インデックスの種類:';
-$strIndexWarningMultiple = '%s というキーがカラム `%s` に複数作成されました';
-$strIndexWarningPrimary = 'カラム `%s` に PRIMARY キーと INDEX キーを両方指定することはできません';
 $strIndexWarningTable = 'テーブル `%s` のインデックスに問題があります';
 $strIndexWarningUnique = 'カラム `%s` に UNIQUE キーと INDEX キーを両方指定することはできません';
 $strInnoDBAutoextendIncrementDesc = 'スペースがいっぱいになったときに自動的にテーブルを拡張する場合に追加されるテーブルサイズ';
@@ -1033,4 +1031,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

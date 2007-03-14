@@ -346,8 +346,6 @@ $strIndexHasBeenDropped = '%s සූචිය හලන ලදි';
 $strIndex = 'සූචිය';
 $strIndexName = 'සූචියේ නම:';
 $strIndexType = 'සූචි වර්ගය:';
-$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';
 $strIndexWarningTable = 'Problems with indexes of table `%s`';
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';
 $strInnoDBAutoextendIncrement = 'Autoextend increment';
@@ -1032,4 +1030,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

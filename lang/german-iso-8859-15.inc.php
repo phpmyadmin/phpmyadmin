@@ -347,8 +347,6 @@ $strIndexHasBeenDropped = 'Index %s wurde entfernt.';
 $strIndex = 'Index';
 $strIndexName = 'Indexname:';
 $strIndexType = 'Indextyp:';
-$strIndexWarningMultiple = 'Es sollte nicht mehr als ein Index des Typs %s für die Spalte `%s` gesetzt sein';
-$strIndexWarningPrimary = 'Die Index-Typen INDEX und PRIMARY sollten nicht gleichzeitig für die Spalte `%s` gesetzt sein';
 $strIndexWarningTable = 'Warnungen bei den Indizes der Tabelle `%s`';
 $strIndexWarningUnique = 'Die Index-Typen INDEX und UNIQUE sollten nicht gleichzeitig für die Spalte `%s` gesetzt sein';
 $strInnoDBAutoextendIncrement = 'Autoerweiterungs-Schrittgröße';
@@ -1031,4 +1029,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Fehler beim verschieben der hochgelad
 $strViewName = 'VIEW Name';
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

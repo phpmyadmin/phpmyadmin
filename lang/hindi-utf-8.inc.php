@@ -475,8 +475,6 @@ $strIndexHasBeenDropped = 'Index %s has been dropped'; //to translate
 $strIndex = 'Index'; //to translate
 $strIndexName = 'Index name&nbsp;:'; //to translate
 $strIndexType = 'Index type&nbsp;:'; //to translate
-$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
 $strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
@@ -1055,4 +1053,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

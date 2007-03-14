@@ -326,8 +326,6 @@ $strIndexHasBeenDropped = '"%s" digän tezeş salındı';
 $strIndexName = 'Tezeş adı&nbsp;:';
 $strIndex = 'Tezeş';
 $strIndexType = 'Tezeş töre&nbsp;:';
-$strIndexWarningMultiple = '`%s` alanında qabatlanğan %s atlı tezeş bar';
-$strIndexWarningPrimary = '`%s` alanında PRIMARY belän INDEX tezeşlären bergä yasap bulmıy';
 $strIndexWarningTable = '`%s` atlı tüşäw tezeşläre belän nidider tiskärlek bar';
 $strIndexWarningUnique = '`%s` alanında UNIQUE belän INDEX tezeşlären bergä yasap bulmıy';
 $strInnoDBAutoextendIncrement = 'Biremlektä arttıru adımı';
@@ -1041,4 +1039,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

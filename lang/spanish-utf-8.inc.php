@@ -362,8 +362,6 @@ $strIndexHasBeenDropped = 'El índice %s ha sido eliminado';
 $strIndex = 'Índice';
 $strIndexName = 'Nombre del índice&nbsp;:';
 $strIndexType = 'Tipo de índice&nbsp;:';
-$strIndexWarningMultiple = 'Se creó más de una clave %s para la columna `%s`';
-$strIndexWarningPrimary = 'Las claves PRIMARIA e ÍNDICE no deben seleccionarse juntas para la columna `%s`';
 $strIndexWarningTable = 'Problemas con los índices de la tabla `%s`';
 $strIndexWarningUnique = 'Las claves UNICA e ÍNDICE no deben seleccionarse juntas para la columna `%s`';
 $strInnoDBAutoextendIncrementDesc = 'El tamaño a incrementar para que se extienda el ancho de una tabla capaz de autoextenderse cuando se llena.'; 
@@ -1025,4 +1023,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

@@ -369,8 +369,6 @@ $strIndexes = 'Ýndeksler';
 $strIndexHasBeenDropped = '%s indeksi kaldýrýldý';
 $strIndexName = 'Ýndeks ismi:';
 $strIndexType = 'Ýndeks türü :';
-$strIndexWarningMultiple = 'Birden fazla %s anahtarý `%s` sütunu için oluþturuldu.';
-$strIndexWarningPrimary = 'PRIMARY ve INDEX anahtarlarýnýn her ikisi de `%s` sütunu için ayarlanmamalýdýr.';
 $strIndexWarningTable = '`%s` tablosunun indeksleri ile ilgili sorunlar';
 $strIndexWarningUnique = 'UNIQUE ve INDEX anahtarlarýnýn her ikisi de `%s` sütunu için ayarlanmamalýdýr.';
 $strIndex = 'Ýndeks';
@@ -1034,4 +1032,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

@@ -284,8 +284,6 @@ $strIndexHasBeenDropped = 'Index %s a fost aruncat';
 $strIndex = 'Index';
 $strIndexName = 'Nume index&nbsp;:';
 $strIndexType = 'Tip index&nbsp;:';
-$strIndexWarningMultiple = 'S-a creat mai mult de o cheie %s la coloana `%s`';
-$strIndexWarningPrimary = 'Cheile PRIMARY si INDEX nu trebuiesc setate ambele la coloana `%s`';
 $strIndexWarningTable = 'Probleme cu indexul tabelului `%s`';
 $strIndexWarningUnique = 'Cheile UNIQUE si INDEX nu trebuiesc setate ambele la coloana `%s`';
 $strInnodbStat = 'InnoDB Status';
@@ -1047,4 +1045,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

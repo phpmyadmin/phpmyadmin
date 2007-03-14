@@ -306,8 +306,6 @@ $strIndexes = 'Индексүүд';
 $strIndexHasBeenDropped = 'Индекс %s нь устгагдсан';
 $strIndexName = 'Индексийн нэр&nbsp;:';
 $strIndexType = 'Индексийн төрөл&nbsp;:';
-$strIndexWarningMultiple = 'Түлхүүр %s нь нэгээс их багана `%s`-д үүсгэгджээ';
-$strIndexWarningPrimary = 'PRIMARY ба INDEX түлхүүрүүд багана `%s`-д хоёулаа сонгогдохгүй';
 $strIndexWarningTable = 'Хүснэгт `%s`-ийн индекс асуудалтай';
 $strIndexWarningUnique = 'UNIQUE ба INDEX түлхүүрүүд багана `%s`-д хоёулаа сонгогдохгүй';
 $strIndex = 'Индекс';
@@ -1050,4 +1048,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

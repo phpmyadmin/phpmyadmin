@@ -369,8 +369,6 @@ $strIndexHasBeenDropped = 'Indeksi %s on pudotettu';
 $strIndex = 'Indeksi';
 $strIndexName = 'Indeksin nimi:';
 $strIndexType = 'Indeksin tyyppi:';
-$strIndexWarningMultiple = 'Useampi kuin yksi %s-avain luotiin sarakkeelle `%s`';
-$strIndexWarningPrimary = 'PRIMARY- ja INDEX-avaimia ei voi molempia asettaa sarakkeelle `%s`';
 $strIndexWarningTable = 'Taulun `%s` indeksien kanssa on ongelmia';
 $strIndexWarningUnique = 'UNIQUE- ja INDEX-avaimia ei voi molempia asettaa sarakkeelle `%s`';
 $strInnoDBAutoextendIncrement = "Automaattisen laajentamisen koko";
@@ -1031,4 +1029,5 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) pois
 $strZip = '"zip-pakattu"';
 
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

@@ -344,8 +344,6 @@ $strIndexes = 'Індэксы';
 $strIndexHasBeenDropped = 'Індэкс %s быў выдалены';
 $strIndexName = 'Імя індэкса:';
 $strIndexType = 'Тып індэкса:';
-$strIndexWarningMultiple = 'Больш за адзін %s ключ быў створаны для калёнкі `%s`';
-$strIndexWarningPrimary = 'Абодва ключы PRIMARY і INDEX павінны быць вызначаны для калёнкі `%s`';
 $strIndexWarningTable = 'Праблемы з індэксамі для табліцы `%s`';
 $strIndexWarningUnique = 'Абодва ключы UNIQUE і INDEX павінны быць вызначаны для калёнкі `%s`';
 $strInnoDBAutoextendIncrement = 'Аўтапашыральнае прырашчэньне';
@@ -1029,4 +1027,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

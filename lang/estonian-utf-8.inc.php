@@ -362,8 +362,6 @@ $strIndexHasBeenDropped = 'Indeks %s kustutatud';
 $strIndex = 'Indeks';
 $strIndexName = 'Indeksi nimi&nbsp;:';
 $strIndexType = 'Indeksi tüüp&nbsp;:';
-$strIndexWarningMultiple = 'Rohkem kui üks %s võti loodi väljale `%s`';
-$strIndexWarningPrimary = 'PRIMARY ja INDEX võtmed ei tohiks mõlemad olla määratud väljale `%s`';
 $strIndexWarningTable = 'Probleemid tabeli `%s` indeksitega';
 $strIndexWarningUnique = 'UNIQUE ja INDEX ei tohiks mõlemad olla määratud väljale `%s`';
 $strInnoDBAutoextendIncrement = 'Automaatne suurenduse laiendus';
@@ -1035,4 +1033,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>

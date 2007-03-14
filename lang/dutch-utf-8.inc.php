@@ -283,8 +283,6 @@ $strIndexHasBeenDropped = 'Index %s is vervallen';
 $strIndex = 'Index';
 $strIndexName = 'Index naam&nbsp;:';
 $strIndexType = 'Index type&nbsp;:';
-$strIndexWarningMultiple = 'Meer dan 1 %s sleutel was gecreëerd voor de kolom `%s`';
-$strIndexWarningPrimary = 'PRIMARY en INDEX sleutels behoren niet beide ingesteld te zijn voor de kolom `%s`';
 $strIndexWarningTable = 'Problemen met de index(en) van de tabel `%s`';
 $strIndexWarningUnique = 'UNIQUE en INDEX sleutels behoren niet beide ingesteld te zijn voor de kolom `%s`';
 $strInnodbStat = 'InnoDB Status';
@@ -1051,4 +1049,5 @@ $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see F
 $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
+$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
 ?>
