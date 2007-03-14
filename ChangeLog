@@ -32,8 +32,6 @@ $HeadURL$
 - bug [core] undefined variable in libraries/tbl_replace_fields.inc.php
 - bug [gui] query window icon did not work, thanks to Jürgen Wind - windkiel
 . [general] use PMA_getenv('PHP_SELF')
-- bug #1673599 [core] Call to undefined function PMA_isSuperuser()
-- bug [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
 
 2.10.0.3 (not released yet)
 =====================
