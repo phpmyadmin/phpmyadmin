@@ -75,7 +75,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 
        for ($i = 0; $i < 31; $i++) {
            if ($i < $regs[5] - 1) {
-               $maskl = $maskl + pow(2, (30 - $i));
+               $maskl = $maskl + PMA_pow(2, (30 - $i));
            } // end if
        } // end for
 

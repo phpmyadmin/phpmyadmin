@@ -455,6 +455,61 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     require_once './libraries/js_escape.lib.php';
 
     /**
+     * Exponential expression / raise number into power
+     *
+     * @uses    function_exists()
+     * @uses    bcpow()
+     * @uses    gmp_pow()
+     * @uses    gmp_strval()
+     * @uses    pow()
+     * @param   number  $base
+     * @param   number  $exp
+     * @param   string  pow function use, or false for auto-detect
+     * @return  mixed  string or float
+     */
+    function PMA_pow($base, $exp, $use_function = false)
+    {
+        static $pow_function = null;
+        if (null == $pow_function) {
+            if (function_exists('bcpow')) {
+                // BCMath Arbitrary Precision Mathematics Function
+                $pow_function = 'bcpow';
+            } elseif (function_exists('gmp_pow')) {
+                // GMP Function
+                $pow_function = 'gmp_pow';
+            } else {
+                // PHP function
+                $pow_function = 'pow';
+            }
+        }
+
+        if (! $use_function) {
+            $use_function = $pow_function;
+        }
+
+        switch ($use_function) {
+            case 'bcpow' :
+                $pow = bcpow($base, $exp);
+                break;
+            case 'gmp_pow' :
+                $pow = gmp_strval(gmp_pow($base, $exp));
+                break;
+            case 'pow' :
+                $base = (float) $base;
+                $exp = (int) $exp;
+                if ($exp < 0) {
+                    return false;
+                }
+                $pow = pow($base, $exp);
+                break;
+            default:
+                $pow = $use_function($base, $exp);
+        }
+
+        return $pow;
+    }
+
+    /**
      * string PMA_getIcon(string $icon)
      *
      * @uses    $GLOBALS['pmaThemeImage']
@@ -1577,15 +1632,15 @@ if (typeof(window.parent) != 'undefined'
      */
     function PMA_formatByteDown($value, $limes = 6, $comma = 0)
     {
-        $dh           = pow(10, $comma);
-        $li           = pow(10, $limes);
+        $dh           = PMA_pow(10, $comma);
+        $li           = PMA_pow(10, $limes);
         $return_value = $value;
         $unit         = $GLOBALS['byteUnits'][0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * pow(10, $ex)) {
+            if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * PMA_pow(10, $ex)) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (pow(1024.0, $d) / $dh)) /$dh;
+                $value = round($value / (PMA_pow(1024, $d) / $dh)) /$dh;
                 $unit = $GLOBALS['byteUnits'][$d];
                 break 1;
             } // end if
@@ -1668,22 +1723,22 @@ if (typeof(window.parent) != 'undefined'
             $sign = '';
         }
 
-        $dh = pow(10, $comma);
-        $li = pow(10, $length);
+        $dh = PMA_pow(10, $comma);
+        $li = PMA_pow(10, $length);
         $unit = $units[0];
 
         if ($value >= 1) {
             for ($d = 8; $d >= 0; $d--) {
-                if (isset($units[$d]) && $value >= $li * pow(1000.0, $d-1)) {
-                    $value = round($value / (pow(1000.0, $d) / $dh)) /$dh;
+                if (isset($units[$d]) && $value >= $li * PMA_pow(1000, $d-1)) {
+                    $value = round($value / (PMA_pow(1000, $d) / $dh)) /$dh;
                     $unit = $units[$d];
                     break 1;
                 } // end if
             } // end for
         } elseif (!$only_down && (float) $value !== 0.0) {
             for ($d = -8; $d <= 8; $d++) {
-                if (isset($units[$d]) && $value <= $li * pow(1000.0, $d-1)) {
-                    $value = round($value / (pow(1000.0, $d) / $dh)) /$dh;
+                if (isset($units[$d]) && $value <= $li * PMA_pow(1000, $d-1)) {
+                    $value = round($value / (PMA_pow(1000, $d) / $dh)) /$dh;
                     $unit = $units[$d];
                     break 1;
                 } // end if

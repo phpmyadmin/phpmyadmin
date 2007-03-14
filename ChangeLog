@@ -12,6 +12,7 @@ $HeadURL$
 - bug #1671403 [parser] using "client" as table name
 - bug #1672379 [core] Call to undefined function PMA_removeCookie()
 . [general] use PMA_getenv('PHP_SELF')
+- bug #1676033 [core] pow(int,int) causes overflow
 
 2.10.0.3 (not released yet)
 =====================
