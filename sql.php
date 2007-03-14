@@ -724,15 +724,9 @@ else {
 
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type) && $query_type == 'check_tbl' && isset($selected) && is_array($selected)) {
-        foreach ($selected AS $idx => $tbl_name) {
-            $indexes        = $indexes_info = $indexes_data = array();
-            $tbl_ret_keys   = PMA_get_indexes(urldecode($tbl_name), $err_url_0);
-
-            PMA_extract_indexes($tbl_ret_keys, $indexes, $indexes_info, $indexes_data);
-
-            $idx_collection = PMA_show_indexes(urldecode($tbl_name), $indexes, $indexes_info, $indexes_data, false);
-            $check          = PMA_check_indexes($idx_collection);
-            if (!empty($check)) {
+        foreach ($selected as $idx => $tbl_name) {
+            $check = PMA_check_indexes($tbl_name);
+            if (! empty($check)) {
                 ?>
 <table border="0" cellpadding="2" cellspacing="0">
     <tr>

@@ -1,18 +1,16 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
+/**
+ * display information about indexes in a table
+ *
+ * @version $Id$
+ */
 
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
-require_once('./libraries/tbl_indexes.lib.php');
-
-/**
- * Defines the index types ("FULLTEXT" is available since MySQL 3.23.23)
- */
-$index_types       = PMA_get_indextypes();
-$index_types_cnt   = count($index_types);
+require_once './libraries/common.lib.php';
+require_once './libraries/tbl_indexes.lib.php';
 
 /**
  * Ensures the db & table are valid, then loads headers and gets indexes
@@ -56,7 +54,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     $js_to_run = isset($index) && isset($do_save_data)
         ? 'functions.js'
         : 'indexes.js';
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
 } // end if
 
 
@@ -184,7 +182,7 @@ if (!defined('PMA_IDX_INCLUDED')
         . $strHasBeenAltered;
 
     $active_page = 'tbl_structure.php';
-    require('./tbl_structure.php');
+    require './tbl_structure.php';
 } // end builds the new index
 
 
@@ -296,22 +294,18 @@ elseif (!defined('PMA_IDX_INCLUDED')
 <label for="select_index_type"><?php echo $strIndexType; ?></label>
 <select name="index_type" id="select_index_type" onchange="return checkIndexName()">
     <?php
-    for ($i = 0; $i < $index_types_cnt; $i++) {
-        if ($index_types[$i] == 'PRIMARY') {
-            if ($index == 'PRIMARY' || !isset($indexes_info['PRIMARY'])) {
-                echo '                '
-                     . '<option value="PRIMARY"'
-                     . (($index_type == 'PRIMARY') ? ' selected="selected"' : '')
-                     . '>PRIMARY</option>' . "\n";
-            }
-        } else {
-            echo '                '
-                 . '<option value="' . $index_types[$i] . '"'
-                 . (($index_type == $index_types[$i]) ? ' selected="selected"' : '')
-                 . '>'. $index_types[$i] . '</option>' . "\n";
-
-        } // end if... else...
-    } // end for
+    foreach (PMA_get_indextypes() as $each_index_type) {
+        if ($each_index_type === 'PRIMARY'
+         && $index !== 'PRIMARY'
+         && isset($indexes_info['PRIMARY'])) {
+            // skip PRIMARY if there is already one in the table
+            continue;
+        }
+        echo '                '
+             . '<option value="' . $each_index_type . '"'
+             . (($index_type == $each_index_type) ? ' selected="selected"' : '')
+             . '>'. $each_index_type . '</option>' . "\n";
+    }
     ?>
 </select>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
@@ -412,7 +406,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
         </caption>
     <?php
 
-    if ( count($ret_keys) > 0) {
+    if (count($ret_keys) > 0) {
         $edit_link_text = '';
         $drop_link_text = '';
 
@@ -446,7 +440,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
         <?php
         $idx_collection = PMA_show_indexes($table, $indexes, $indexes_info,
             $indexes_data, true);
-        echo PMA_check_indexes($idx_collection);
+        echo PMA_check_indexes($ret_keys);
     } // end display indexes
     else {
         // none indexes
@@ -478,6 +472,6 @@ elseif (!defined('PMA_IDX_INCLUDED')
 echo "\n";
 
 if (!defined('PMA_IDX_INCLUDED')){
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 ?>

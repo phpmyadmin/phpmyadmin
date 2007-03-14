@@ -1,8 +1,9 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
  * function library for handling table indexes
+ *
+ * $Id$
  */
 
 /**
@@ -12,66 +13,112 @@
  * @return  array       Index types
  * @author  Garvin Hicking (pma@supergarv.de)
  */
-function PMA_get_indextypes() {
+function PMA_get_indextypes()
+{
     return array(
         'PRIMARY',
         'INDEX',
         'UNIQUE',
-        'FULLTEXT'
+        'FULLTEXT',
     );
 }
 
 /**
  * Function to get all index information from a certain table
  *
- * @param   string      Table name
- * @param   string      Error URL
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    PMA_backquote()
+ * @param   string  $tbl_name   Table name to ftech indexes from
+ * @param   string  $err_url_0  Error URL
  *
  * @access  public
  * @return  array       Index keys
  */
-function PMA_get_indexes($tbl_name, $err_url_0 = '') {
-    $tbl_local_query = 'SHOW KEYS FROM ' . PMA_backquote($tbl_name);
-    $tbl_result      = PMA_DBI_query($tbl_local_query) or PMA_mysqlDie('', $tbl_local_query, '', $err_url_0);
-    $tbl_ret_keys    = array();
-    while ($tbl_row = PMA_DBI_fetch_assoc($tbl_result)) {
-        $tbl_ret_keys[]  = $tbl_row;
-    }
-    PMA_DBI_free_result($tbl_result);
-
-    return $tbl_ret_keys;
+function PMA_get_indexes($tbl_name, $err_url_0 = '')
+{
+    return PMA_DBI_fetch_result('SHOW KEYS FROM ' . PMA_backquote($tbl_name));
 }
 
 /**
  * Function to check over array of indexes and look for common problems
  *
- * @param   array       Array of indexes
- * @param   boolean     Whether to output HTML in table layout
- *
+ * @uses    $GLOBALS['strIndexesSeemEqual']
+ * @uses    PMA_get_indexes()
+ * @uses    is_string()
+ * @uses    is_array()
+ * @uses    count()
+ * @uses    array_pop()
+ * @uses    reset()
+ * @uses    current()
  * @access  public
+ * @param   mixed       array of indexes from PMA_get_indexes()
+ *                      or name of table
  * @return  string      Output HTML
- * @author  Garvin Hicking (pma@supergarv.de)
  */
-function PMA_check_indexes($idx_collection, $table = true) {
-    $index_types = PMA_get_indextypes();
-    $output  = '';
-
-    if ( ! is_array($idx_collection) || empty($idx_collection['ALL'])) {
-        return $output;
+function PMA_check_indexes($idx_collection)
+{
+    if (is_string($idx_collection)) {
+        $idx_collection = PMA_get_indexes($idx_collection);
     }
 
-    foreach ($idx_collection['ALL'] AS $w_keyname => $w_count) {
-        if (isset($idx_collection['PRIMARY'][$w_keyname]) && (isset($idx_collection['INDEX'][$w_keyname]) || isset($idx_collection['UNIQUE'][$w_keyname]))) {
-            $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningPrimary'], htmlspecialchars($w_keyname)), $table);
-        } elseif (isset($idx_collection['UNIQUE'][$w_keyname]) && isset($idx_collection['INDEX'][$w_keyname])) {
-            $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningUnique'], htmlspecialchars($w_keyname)), $table);
-        }
+    // count($idx_collection) < 2:
+    //   there is no need to check if there less than two indexes
+    if (! is_array($idx_collection) || count($idx_collection) < 2) {
+        return false;
+    }
 
-        foreach ($index_types AS $index_type) {
-            if (isset($idx_collection[$index_type][$w_keyname]) && $idx_collection[$index_type][$w_keyname] > 1) {
-                $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningMultiple'], $index_type, htmlspecialchars($w_keyname)), $table);
+    $indexes = array();
+    foreach ($idx_collection as $index_field) {
+        $indexes[$index_field['Key_name']][$index_field['Column_name']]
+            = $index_field;
+    }
+
+    $output  = '';
+
+    // remove last index from stack and ...
+    while ($while_index = array_pop($indexes)) {
+        // ... compare with every remaining index in stack
+        foreach ($indexes as $each_index_name => $each_index) {
+            if (count($while_index) !== count($each_index)) {
+                // number of fields are not equal
+                continue;
             }
+
+            // compare some key elements of every column in this two indexes
+            foreach ($each_index as $col_name => $each_index_column) {
+                if (! isset($while_index[$col_name])
+                 // the position
+                 || $while_index[$col_name]['Seq_in_index'] !== $each_index_column['Seq_in_index']
+                 // the order, ASC or DESC
+                 || $while_index[$col_name]['Collation']    !== $each_index_column['Collation']
+                 // the length
+                 || $while_index[$col_name]['Sub_part']     !== $each_index_column['Sub_part']
+                 // BTREE or HASH
+                 || $while_index[$col_name]['Index_type']   !== $each_index_column['Index_type']) {
+                    continue 2;
+                }
+            }
+
+            // did not find any difference
+            // so it makes no sense to have this two equal indexes
+
+            // use first column from index to fetch index name
+            reset($while_index);
+            $first_column = current($while_index);
+
+            $output .= '<div class="warning">';
+            $output .= $GLOBALS['strIndexesSeemEqual'];
+            $output .= $each_index_name . ', ' . $first_column['Key_name'];
+            $output .= '</div>';
+
+            // there is no need to check any further indexes if we have already
+            // found that this one has a duplicate
+            continue 2;
         }
+    }
+
+    if ($output) {
+        $output = '<tr><td colspan=7">' . $output . '</td></tr>';
     }
 
     return $output;
@@ -90,8 +137,9 @@ function PMA_check_indexes($idx_collection, $table = true) {
  * @return  boolean     void
  * @author  Garvin Hicking (pma@supergarv.de)
  */
-function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_data) {
-    if (!is_array($ret_keys)) {
+function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_data)
+{
+    if (! is_array($ret_keys)) {
         return false;
     }
 
@@ -141,7 +189,9 @@ function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_da
  * @return  array       Index collection array
  * @author  Garvin Hicking (pma@supergarv.de)
  */
-function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $display_html = true, $print_mode = false) {
+function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data,
+    $display_html = true, $print_mode = false)
+{
     $idx_collection = array();
     $odd_row = true;
     foreach ($indexes as $index_name) {
@@ -175,7 +225,9 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $di
 
             if (!$print_mode) {
                 echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="tbl_indexes.php?' . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name) . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
+                   . '                <a href="tbl_indexes.php?'
+                   . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name)
+                   . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
                    . '            </td>' . "\n";
 
                 if ($index_name == 'PRIMARY') {
@@ -189,7 +241,10 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $di
                 }
 
                 echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="sql.php?' . $GLOBALS['url_query'] . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
+                   . '                <a href="sql.php?' . $GLOBALS['url_query']
+                   . '&amp;sql_query=' . $local_query . '&amp;zero_rows='
+                   . $zero_rows . '" onclick="return confirmLink(this, \''
+                   . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
                    . '            </td>' . "\n";
             }
         }
@@ -237,22 +292,4 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $di
     return $idx_collection;
 }
 
-/**
- * Function to emit a index warning
- *
- * @author  Garvin Hicking (pma@supergarv.de)
- * @access  public
- * @param   string      $string     Message string
- * @param   boolean     $table      Whether to output HTML in table layout
- * @return  string      Output HTML
- */
-function PMA_index_warning($string, $table = true) {
-    $output = '<div class="warning">' . $string . '</div>';
-
-    if ( $table ) {
-        $output = '<tr><td colspan=7">' . $output . '</td></tr>';
-    }
-
-    return $output . "\n";
-}
 ?>
