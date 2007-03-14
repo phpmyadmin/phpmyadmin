@@ -107,7 +107,7 @@ function PMA_check_indexes($idx_collection)
             $first_column = current($while_index);
 
             $output .= '<div class="warning">';
-            $output .= $GLOBALS['strIndexesSeemEqual'];
+            $output .= $GLOBALS['strIndexesSeemEqual'] . ' ';
             $output .= $each_index_name . ', ' . $first_column['Key_name'];
             $output .= '</div>';
 
