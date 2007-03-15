@@ -16,7 +16,7 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
     public function testXssInHref()
     {
-        $this->assertEquals('<a href="" target="target">link</a>',
+        $this->assertEquals('[a@javascript:alert(\'XSS\');@target]link</a>',
             PMA_sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]'));
     }
 
