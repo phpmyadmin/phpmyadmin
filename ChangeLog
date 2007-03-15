@@ -15,6 +15,7 @@ $HeadURL$
 - bug #1666657 Cookie password delete on timeout / inactivity
 - bug #1648802 different mysql library and server version
 - bug #1239401 table dot numeric field name
+- bug #1674972 no export with %afm%
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions

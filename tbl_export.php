@@ -39,16 +39,21 @@ if (isset($sql_query)) {
             $sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
         }
 
-        if (isset($primary_key) && is_array($primary_key)) {
-            $sql_query .= ' WHERE ';
-            $conj = '';
-            foreach ($primary_key AS $i => $key) {
-                $sql_query .= $conj . '( ' . $key . ' ) ';
-                $conj = 'OR ';
-            }
-        } elseif (!empty($analyzed_sql[0]['where_clause']))  {
-            $sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
+        $wheres = array();
+
+        if (isset($primary_key) && is_array($primary_key)
+         && count($primary_key) > 0) {
+            $wheres[] = '(' . implode(') OR (',$primary_key) . ')';
         }
+
+        if (!empty($analyzed_sql[0]['where_clause']))  {
+            $wheres[] = $analyzed_sql[0]['where_clause'];
+        }
+
+        if (count($wheres) > 0 ) {
+            $sql_query .= ' WHERE (' . implode(') AND (', $wheres) . ')';
+        }
+
         if (!empty($analyzed_sql[0]['group_by_clause'])) {
             $sql_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
         }
@@ -72,20 +77,20 @@ if (isset($sql_query)) {
             }
             if (!$inside_bracket && $parsed_sql[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_sql[$i]['data']) == 'LIMIT') {
                 // We found LIMIT to remove
-                
+
                 $sql_query = '';
-                
+
                 // Concatenate parts before
                 for ($j = 0; $j < $i; $j++) {
                     $sql_query .= $parsed_sql[$j]['data'] . ' ';
                 }
-                
+
                 // Skip LIMIT
                 $i++;
                 while ($i < $parsed_sql['len'] &&
-                    ($parsed_sql[$i]['type'] != 'alpha_reservedWord' || 
-                    ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'OFFSET'))) { 
-                    $i++; 
+                    ($parsed_sql[$i]['type'] != 'alpha_reservedWord' ||
+                    ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'OFFSET'))) {
+                    $i++;
                 }
 
                 // Add remaining parts
