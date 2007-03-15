@@ -1149,7 +1149,9 @@ function PMA_DBI_getCompatibilities()
         $compats[] = 'MYSQL40';
         $compats[] = 'MSSQL';
         $compats[] = 'ORACLE';
-        $compats[] = 'POSTGRESQL';
+        // removed; in MySQL 5.0.33, this produces exports that
+        // can't be read by POSTGRESQL (see our bug #1596328)
+        //$compats[] = 'POSTGRESQL';
         if (PMA_MYSQL_INT_VERSION >= 50002) {
             $compats[] = 'TRADITIONAL';
         }
