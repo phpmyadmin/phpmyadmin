@@ -1,14 +1,17 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
+/**
+ * Set of functions used to run cookie based authentication.
+ * Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and
+ * Dan Wilson who built this patch for the Debian package.
+ *
+ * @version $Id$
+ */
 
-// +--------------------------------------------------------------------------+
-// | Set of functions used to run cookie based authentication.                |
-// | Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and         |
-// | Dan Wilson who built this patch for the Debian package.                  |
-// +--------------------------------------------------------------------------+
-
-
+/**
+ * @todo replace by constant
+ * $coming_from_common can be set from outside with register_globals on
+ */
 if (!isset($coming_from_common)) {
    exit;
 }
@@ -23,7 +26,7 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
 } else {
     require_once './libraries/blowfish.php';
     // for main.php:
-    define('PMA_WARN_FOR_MCRYPT',1);
+    define('PMA_WARN_FOR_MCRYPT', 1);
 }
 
 
@@ -96,7 +99,7 @@ function PMA_auth()
     $page_title = 'phpMyAdmin ' . PMA_VERSION;
     require './libraries/header_meta_style.inc.php';
     ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 // show login form in top frame
 if (top != self) {
@@ -108,10 +111,11 @@ if (top != self) {
 
 <body class="loginform">
 
-<?php if (file_exists('./config.header.inc.php')) {
-          require('./config.header.inc.php');
-      } 
-?>
+    <?php
+    if (file_exists('./config.header.inc.php')) {
+          require './config.header.inc.php';
+    }
+    ?>
 
 <div class="container">
 <a href="http://www.phpmyadmin.net" target="_blank" class="logo"><?php
@@ -122,12 +126,12 @@ if (top != self) {
         echo '<img name="imLogo" id="imLogo" src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
            . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
     }
-?></a>
+    ?></a>
 <h1>
-<?php
-echo sprintf( $GLOBALS['strWelcome'],
-    '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
-?>
+    <?php
+    echo sprintf( $GLOBALS['strWelcome'],
+        '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
+    ?>
 </h1>
     <?php
 
@@ -148,21 +152,21 @@ echo sprintf( $GLOBALS['strWelcome'],
     // Displays the warning message and the login form
 
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-    ?>
+        ?>
         <div class="error"><h1><?php echo $GLOBALS['strError']; ?></h1>
             <?php echo $GLOBALS['strSecretRequired']; ?>
         </div>
-<?php
+        <?php
         echo '</div>' . "\n";
         if (file_exists('./config.footer.inc.php')) {
-            require('./config.footer.inc.php');
+            require './config.footer.inc.php';
         }
 
         echo '    </body>' . "\n"
            . '</html>';
-        exit();
+        exit;
     }
-?>
+    ?>
 <br />
 <!-- Login form -->
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login">
@@ -190,11 +194,11 @@ echo sprintf( $GLOBALS['strWelcome'],
         <div class="item">
             <label for="select_server"><?php echo $GLOBALS['strServerChoice']; ?>:</label>
             <select name="server" id="select_server"
-            <?php
-            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
-                echo ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'" ';
-            }
-            ?>
+        <?php
+        if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+            echo ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'" ';
+        }
+        ?>
             >
         <?php
         require_once './libraries/select_server.lib.php';
@@ -202,7 +206,7 @@ echo sprintf( $GLOBALS['strWelcome'],
         ?>
             </select>
         </div>
-    <?php
+        <?php
     } else {
         echo '    <input type="hidden" name="server" value="' . $server . '" />';
     } // end if (server choice)
@@ -225,45 +229,44 @@ echo sprintf( $GLOBALS['strWelcome'],
     ?>
     </fieldset>
 </form>
-
-<?php
-// show the "Cookies required" message only if cookies are disabled
-// (we previously tried to set some cookies)
-if (empty($_COOKIE)) {
-    echo '<div class="notice">' . $GLOBALS['strCookiesRequired'] . '</div>' . "\n";
-}
-if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
-    foreach ( $GLOBALS['PMA_errors'] as $error ) {
-        echo '<div class="error">' . $error . '</div>' . "\n";
+    <?php
+    // show the "Cookies required" message only if cookies are disabled
+    // (we previously tried to set some cookies)
+    if (empty($_COOKIE)) {
+        echo '<div class="notice">' . $GLOBALS['strCookiesRequired'] . '</div>' . "\n";
+    }
+    if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
+        foreach ( $GLOBALS['PMA_errors'] as $error ) {
+            echo '<div class="error">' . $error . '</div>' . "\n";
+        }
+    }
+    ?>
+<script type="text/javascript">
+// <![CDATA[
+function PMA_focusInput()
+{
+    var input_username = document.getElementById('input_username');
+    var input_password = document.getElementById('input_password');
+    if (input_username.value == '') {
+        input_username.focus();
+    } else {
+        input_password.focus();
     }
 }
-?>
 
-<script type="text/javascript" language="javascript">
-<!--
-var uname = document.forms['login_form'].elements['pma_username'];
-var pword = document.forms['login_form'].elements['pma_password'];
-if (uname.value == '') {
-    uname.focus();
-} else {
-    pword.focus();
-}
-//-->
+window.setTimeout('PMA_focusInput()', 500);
+// ]]>
 </script>
 </div>
-
-<?php if (file_exists('./config.footer.inc.php')) {
-         require('./config.footer.inc.php');
-      }
- ?>
-
+    <?php
+    if (file_exists('./config.footer.inc.php')) {
+         require './config.footer.inc.php';
+    }
+    ?>
 </body>
-
 </html>
     <?php
-    exit();
-
-    return true;
+    exit;
 } // end of the 'PMA_auth()' function
 
 
@@ -416,11 +419,11 @@ function PMA_auth_set_user()
     // table names and relation table name are used
     if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
         foreach ($cfg['Servers'] as $idx => $current) {
-            if ($current['host'] == $cfg['Server']['host'] 
-                    && $current['port'] == $cfg['Server']['port'] 
-                    && $current['socket'] == $cfg['Server']['socket'] 
-                    && $current['ssl'] == $cfg['Server']['ssl'] 
-                    && $current['connect_type'] == $cfg['Server']['connect_type'] 
+            if ($current['host'] == $cfg['Server']['host']
+                    && $current['port'] == $cfg['Server']['port']
+                    && $current['socket'] == $cfg['Server']['socket']
+                    && $current['ssl'] == $cfg['Server']['ssl']
+                    && $current['connect_type'] == $cfg['Server']['connect_type']
                     && $current['user'] == $PHP_AUTH_USER) {
                 $server        = $idx;
                 $cfg['Server'] = $current;
