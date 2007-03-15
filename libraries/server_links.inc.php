@@ -59,7 +59,8 @@ if ($is_superuser) {
     $tabs['rights']['link'] = 'server_privileges.php';
     $tabs['rights']['text'] = $strPrivileges;
 }
-if ($has_binlogs) {
+
+if (! empty($binary_logs)) {
     $tabs['binlog']['icon'] = 's_tbl.png';
     $tabs['binlog']['link'] = 'server_binlog.php';
     $tabs['binlog']['text'] = $strBinaryLog;
