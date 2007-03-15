@@ -9,6 +9,7 @@ $HeadURL$
 - bug #1674914 [structure] changing definition of a TIMESTAMP field
 - bug #1615530 [upload] added more specific error message if field upload fails
 - bug #1627210, #1083301, #1482401 [data] warning on duplicate indexes
+- bug #1679055 #1050 - Table '<table name>' already exists
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
@@ -23,6 +24,7 @@ $HeadURL$
 + [upload] moved file upload functionality into own class
 + [upload] make use of $cfg['TempDir'] for file uploads
 + [server] improved display of binary logs
++ [data] better error handling in tbl_create.php
 
 2.10.1.0 (not released yet)
 =====================
