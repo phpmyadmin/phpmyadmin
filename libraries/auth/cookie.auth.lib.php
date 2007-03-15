@@ -290,15 +290,13 @@ function PMA_auth_check()
     global $from_cookie;
 
     // avoid an error in mcrypt
-    if (empty($GLOBALS['cfg']['blowfish_secret'])
-     || empty($_SESSION['last_access_time'])) {
+    if (empty($GLOBALS['cfg']['blowfish_secret'])) {
         return false;
     }
 
     // Initialization
     $PHP_AUTH_USER = $PHP_AUTH_PW = '';
     $from_cookie   = false;
-    $from_form     = false;
 
     // The user wants to be logged out -> delete password cookie(s)
     if (!empty($old_usr)) {
@@ -310,6 +308,8 @@ function PMA_auth_check()
         } else {
             PMA_removeCookie('pma_cookie_password-' . $server);
         }
+
+        return false;
     }
 
     // The user just logged in
@@ -319,7 +319,7 @@ function PMA_auth_check()
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             $pma_auth_server = $pma_servername;
         }
-        $from_form     = true;
+        return true;
     }
 
     // At the end, try to set the $PHP_AUTH_USER & $PHP_AUTH_PW variables
@@ -345,10 +345,14 @@ function PMA_auth_check()
         $PHP_AUTH_USER = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
 
         // User inactive too long
-        if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
-            $GLOBALS['no_activity'] = true;
-            PMA_auth_fails();
-            return false;
+        if (! isset($_SESSION['last_access_time'])
+         || $_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
+            if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity'] * 4) {
+                $GLOBALS['no_activity'] = true;
+                PMA_auth_fails();
+                exit;
+            }
+            $from_cookie   = false;
         }
 
         // password
@@ -367,12 +371,7 @@ function PMA_auth_check()
         }
     }
 
-    // Returns whether we get authentication settings or not
-    if (! $from_cookie && ! $from_form) {
-        return false;
-    }
-
-    return true;
+    return $from_cookie;
 } // end of the 'PMA_auth_check()' function
 
 
