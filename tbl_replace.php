@@ -20,7 +20,7 @@
  * @uses    PMA_DBI_affected_rows()
  * @uses    PMA_DBI_insert_id()
  * @uses    PMA_backquote()
- * @uses    PMA_getUvaCondition()
+ * @uses    PMA_getUniqueCondition()
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_securePath()
  * @uses    PMA_sendHeaderLocation()
@@ -98,7 +98,7 @@ if (isset($_REQUEST['after_insert'])
                 $res            = PMA_DBI_query($local_query);
                 $row            = PMA_DBI_fetch_row($res);
                 $meta           = PMA_DBI_get_fields_meta($res);
-                $url_params['primary_key'][] = PMA_getUvaCondition($res, count($row), $meta, $row);
+                $url_params['primary_key'][] = PMA_getUniqueCondition($res, count($row), $meta, $row);
             }
         }
     }
