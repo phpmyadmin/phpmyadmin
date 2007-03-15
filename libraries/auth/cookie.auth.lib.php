@@ -290,7 +290,8 @@ function PMA_auth_check()
     global $from_cookie;
 
     // avoid an error in mcrypt
-    if (empty($GLOBALS['cfg']['blowfish_secret'])) {
+    if (empty($GLOBALS['cfg']['blowfish_secret'])
+     || empty($_SESSION['last_access_time'])) {
         return false;
     }
 
@@ -344,8 +345,7 @@ function PMA_auth_check()
         $PHP_AUTH_USER = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
 
         // User inactive too long
-        if (! empty($_SESSION['last_access_time'])
-         && $_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
+        if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
             $GLOBALS['no_activity'] = true;
             PMA_auth_fails();
             return false;
