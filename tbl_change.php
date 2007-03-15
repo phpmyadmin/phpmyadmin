@@ -1,6 +1,7 @@
 <?php
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
- * vim: expandtab sw=4 ts=4 sts=4:
+ *
  * @version $Id$
  */
 
@@ -836,19 +837,14 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 <?php
 
             } else {
-                if ($len < 4) {
-                    $fieldsize = $maxlength = 4;
-                } else {
-                    $fieldsize = (($len > 40) ? 40 : $len);
-                    $maxlength = $len;
-                }
+                // field size should be at least 4 and max 40
+                $fieldsize = min(max($len, 4), 40);
                 echo "\n";
                 ?>
             <td>
                 <?php echo $backup_field . "\n"; ?>
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
-                    maxlength="<?php echo $maxlength; ?>"
                     class="textfield" <?php echo $unnillify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
@@ -905,19 +901,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
         } // end elseif ( binary or blob)
         else {
-            // For char or varchar, respect the maximum length (M); for other
-            // types (int or float), the length is not a limit on the values that
-            // can be entered, so let's be generous (20) (we could also use the
-            // real limits for each numeric type)
-            // 2004-04-07, it turned out that 20 was not generous enough
-            // for the maxlength
-            if ($is_char) {
-                $fieldsize = (($len > 40) ? 40 : $len);
-                $maxlength = $len;
-            } else {
-                $fieldsize = 20;
-                $maxlength = 99;
-            } // end if... else...
+            // field size should be at least 4 and max 40
+            $fieldsize = min(max($len, 4), 40);
             ?>
             <td>
             <?php
@@ -938,7 +923,6 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 ?>
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
-                    maxlength="<?php echo $maxlength; ?>"
                     class="textfield" <?php echo $unnillify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />

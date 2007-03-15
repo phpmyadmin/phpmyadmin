@@ -11,6 +11,7 @@ $HeadURL$
 - bug #1627210, #1083301, #1482401 [data] warning on duplicate indexes
 - bug #1679055 #1050 - Table '<table name>' already exists
 - bug #1668724 JavaScript focus login Opera
+- bug #1667887 HTML maxlength
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
