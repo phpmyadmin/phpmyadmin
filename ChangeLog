@@ -12,6 +12,7 @@ $HeadURL$
 - bug #1679055 #1050 - Table '<table name>' already exists
 - bug #1668724 JavaScript focus login Opera
 - bug #1667887 HTML maxlength
+- bug #1666657 Cookie password delete on timeout / inactivity
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions

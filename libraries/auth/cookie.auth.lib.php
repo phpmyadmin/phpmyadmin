@@ -68,13 +68,8 @@ function PMA_auth()
         if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
             $default_user = $_COOKIE['pma_cookie_username-' . $server];
         }
-        $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
-        if (!empty($decrypted_user)) {
-            $pos = strrpos($decrypted_user, ':');
-            $default_user = substr($decrypted_user, 0, $pos);
-        } else {
-            $default_user = '';
-        }
+        $default_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
+
         // server name
         if (!empty($GLOBALS['pma_cookie_servername'])) {
             $default_server = $GLOBALS['pma_cookie_servername'];
@@ -136,7 +131,7 @@ if (top != self) {
     <?php
 
     // Show error message
-    if ( !empty($conn_error)) {
+    if (! empty($conn_error)) {
         echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
         echo $conn_error . '</div>' . "\n";
     }
@@ -306,6 +301,7 @@ function PMA_auth_check()
 
     // The user wants to be logged out -> delete password cookie(s)
     if (!empty($old_usr)) {
+        $_SESSION['last_access_time'] = null;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
                 PMA_removeCookie('pma_cookie_password-' . $key);
@@ -345,37 +341,26 @@ function PMA_auth_check()
             $PHP_AUTH_USER = $_COOKIE['pma_cookie_username-' . $server];
             $from_cookie   = true;
         }
-        $decrypted_user = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
-        if (!empty($decrypted_user)) {
-            $pos = strrpos($decrypted_user, ':');
-            $PHP_AUTH_USER = substr($decrypted_user, 0, $pos);
-            $decrypted_time = (int)substr($decrypted_user, $pos + 1);
-        } else {
-            $decrypted_time = 0;
-        }
+        $PHP_AUTH_USER = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
 
         // User inactive too long
-        if ($decrypted_time > 0 && $decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {
-            // Display an error message only if the inactivity has lasted
-            // less than 4 times the timeout value. This is to avoid
-            // alerting users with a error after "much" time has passed,
-            // for example next morning.
-            if ($decrypted_time > $GLOBALS['current_time'] - ($GLOBALS['cfg']['LoginCookieValidity'] * 4)) {
-                $GLOBALS['no_activity'] = true;
-                PMA_auth_fails();
-            }
+        if (! empty($_SESSION['last_access_time'])
+         && $_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
+            $GLOBALS['no_activity'] = true;
+            PMA_auth_fails();
             return false;
         }
 
         // password
         if (!empty($pma_cookie_password)) {
             $PHP_AUTH_PW   = $pma_cookie_password;
-        } elseif (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password-' . $server])) {
+        } elseif (isset($_COOKIE['pma_cookie_password-' . $server])) {
             $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password-' . $server];
         } else {
             $from_cookie   = false;
         }
-        $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW, $GLOBALS['cfg']['blowfish_secret'] . $decrypted_time);
+        $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,
+            $GLOBALS['cfg']['blowfish_secret'] . $_SESSION['last_access_time']);
 
         if ($PHP_AUTH_PW == "\xff(blank)") {
             $PHP_AUTH_PW   = '';
@@ -383,14 +368,11 @@ function PMA_auth_check()
     }
 
     // Returns whether we get authentication settings or not
-    if (!$from_cookie && !$from_form) {
+    if (! $from_cookie && ! $from_form) {
         return false;
-    } elseif ($from_cookie) {
-        return true;
-    } else {
-        // we don't need to strip here, it is done in grab_globals
-        return true;
     }
+
+    return true;
 } // end of the 'PMA_auth_check()' function
 
 
@@ -420,11 +402,11 @@ function PMA_auth_set_user()
     if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
         foreach ($cfg['Servers'] as $idx => $current) {
             if ($current['host'] == $cfg['Server']['host']
-                    && $current['port'] == $cfg['Server']['port']
-                    && $current['socket'] == $cfg['Server']['socket']
-                    && $current['ssl'] == $cfg['Server']['ssl']
-                    && $current['connect_type'] == $cfg['Server']['connect_type']
-                    && $current['user'] == $PHP_AUTH_USER) {
+             && $current['port'] == $cfg['Server']['port']
+             && $current['socket'] == $cfg['Server']['socket']
+             && $current['ssl'] == $cfg['Server']['ssl']
+             && $current['connect_type'] == $cfg['Server']['connect_type']
+             && $current['user'] == $PHP_AUTH_USER) {
                 $server        = $idx;
                 $cfg['Server'] = $current;
                 break;
@@ -434,23 +416,27 @@ function PMA_auth_set_user()
 
     $pma_server_changed = false;
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-            && isset($pma_auth_server) && !empty($pma_auth_server)
-            && ($cfg['Server']['host'] != $pma_auth_server)
-            ) {
+     && isset($pma_auth_server)
+     && !empty($pma_auth_server)
+     && ($cfg['Server']['host'] != $pma_auth_server)) {
         $cfg['Server']['host'] = $pma_auth_server;
         $pma_server_changed = true;
     }
     $cfg['Server']['user']     = $PHP_AUTH_USER;
     $cfg['Server']['password'] = $PHP_AUTH_PW;
 
+    $_SESSION['last_access_time'] = time();
+
     // Name and password cookies needs to be refreshed each time
     // Duration = one month for username
-    PMA_setCookie('pma_cookie_username-' . $server, PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], $GLOBALS['cfg']['blowfish_secret']));
+    PMA_setCookie('pma_cookie_username-' . $server,
+        PMA_blowfish_encrypt($cfg['Server']['user'],
+            $GLOBALS['cfg']['blowfish_secret']));
 
     // Duration = as configured
     PMA_setCookie('pma_cookie_password-' . $server,
         PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
-            $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
+            $GLOBALS['cfg']['blowfish_secret'] . $_SESSION['last_access_time']),
         null,
         $GLOBALS['cfg']['LoginCookieStore']);
 
@@ -512,7 +498,7 @@ function PMA_auth_fails()
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         $conn_error = $GLOBALS['strAccessDenied'];
-    } elseif (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
+    } elseif (! empty($GLOBALS['no_activity'])) {
         $conn_error = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);
         // Remember where we got timeout to return on same place
         if (PMA_getenv('SCRIPT_NAME')) {
