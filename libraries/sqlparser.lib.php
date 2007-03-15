@@ -1,7 +1,5 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -28,6 +26,8 @@
  * (note that that you need to have syntax.css.php included somehow in your
  * page for it to work, I recommend '<link rel="stylesheet" type="text/css"
  * href="syntax.css.php" />' at the moment.)
+ *
+ * @version $Id$
  */
 
 
@@ -244,11 +244,30 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         $quote_list              = '\'"`';
         $arraysize               = 0;
 
+        $previous_was_space   = false;
+        $this_was_space       = false;
+        $previous_was_bracket = false;
+        $this_was_bracket     = false;
+        $previous_was_punct   = false;
+        $this_was_punct       = false;
+        $previous_was_listsep = false;
+        $this_was_listsep     = false;
+
         while ($count2 < $len) {
             $c      = PMA_substr($sql, $count2, 1);
             $count1 = $count2;
 
+            $previous_was_space = $this_was_space;
+            $this_was_space = false;
+            $previous_was_bracket = $this_was_bracket;
+            $this_was_bracket = false;
+            $previous_was_punct = $this_was_punct;
+            $this_was_punct = false;
+            $previous_was_listsep = $this_was_listsep;
+            $this_was_listsep = false;
+
             if (($c == "\n")) {
+                $this_was_space = true;
                 $count2++;
                 PMA_SQP_arrayAdd($sql_array, 'white_newline', '', $arraysize);
                 continue;
@@ -256,6 +275,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // Checks for white space
             if (PMA_STR_isSpace($c)) {
+                $this_was_space = true;
                 $count2++;
                 continue;
             }
@@ -355,6 +375,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             // Checks for brackets
             if (PMA_STR_strInStr($c, $bracket_list)) {
                 // All bracket tokens are only one item long
+                $this_was_bracket = true;
                 $count2++;
                 $type_type     = '';
                 if (PMA_STR_strInStr($c, '([{')) {
@@ -377,21 +398,52 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 continue;
             }
 
+            /* DEBUG
+            echo '<pre>1';
+            var_dump(PMA_STR_isSqlIdentifier($c, false));
+            var_dump($c == '@');
+            var_dump($c == '.');
+            var_dump(PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)));
+            var_dump($previous_was_space);
+            var_dump($previous_was_bracket);
+            var_dump($previous_was_listsep);
+            echo '</pre>';
+            */
+
             // Checks for identifier (alpha or numeric)
-            if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@') || ($c == '.' && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)))) {
-                $count2 ++;
+            if (PMA_STR_isSqlIdentifier($c, false)
+             || $c == '@'
+             || ($c == '.'
+              && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+              && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))) {
+
+                /* DEBUG
+                echo PMA_substr($sql, $count2);
+                echo '<hr />';
+                */
+
+                $count2++;
 
                 /**
                  * @todo a @ can also be present in expressions like
                  * FROM 'user'@'%' or  TO 'user'@'%'
                  * in this case, the @ is wrongly marked as alpha_variable
                  */
-
-                $is_sql_variable         = ($c == '@');
-                $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
-                $is_hex_digit            = ($is_digit) && ($c == '.') && ($c == '0') && ($count2 < $len) && (PMA_substr($sql, $count2, 1) == 'x');
+                $is_identifier           = $previous_was_punct;
+                $is_sql_variable         = $c == '@';
+                $is_digit                = !$is_identifier && !$is_sql_variable && PMA_STR_isDigit($c);
+                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && PMA_substr($sql, $count2, 1) == 'x';
                 $is_float_digit          = $c == '.';
                 $is_float_digit_exponent = FALSE;
+
+                /* DEBUG
+                echo '<pre>2';
+                var_dump($is_identifier);
+                var_dump($is_sql_variable);
+                var_dump($is_digit);
+                var_dump($is_float_digit);
+                echo '</pre>';
+                 */
 
                 // Nijel: Fast skip is especially needed for huge BLOB data, requires PHP at least 4.3.0:
                 if (PMA_PHP_INT_VERSION >= 40300) {
@@ -455,7 +507,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 $str  = PMA_substr($sql, $count1, $l);
 
                 $type = '';
-                if ($is_digit) {
+                if ($is_digit || $is_float_digit || $is_hex_digit) {
                     $type     = 'digit';
                     if ($is_float_digit) {
                         $type .= '_float';
@@ -478,9 +530,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // Checks for punct
             if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
+                //while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
                     $count2++;
-                }
+                //}
                 $l = $count2 - $count1;
                 if ($l == 1) {
                     $punct_data = $c;
@@ -490,6 +542,13 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
                 // Special case, sometimes, althought two characters are
                 // adjectent directly, they ACTUALLY need to be seperate
+                /* DEBUG
+                echo '<pre>';
+                var_dump($l);
+                var_dump($punct_data);
+                echo '</pre>';
+                */
+
                 if ($l == 1) {
                     $t_suffix         = '';
                     switch ($punct_data) {
@@ -498,8 +557,10 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                             break;
                         case $punct_qualifier:
                             $t_suffix = '_qualifier';
+                            $this_was_punct = true;
                             break;
                         case $punct_listsep:
+                            $this_was_listsep = true;
                             $t_suffix = '_listsep';
                             break;
                         default:
