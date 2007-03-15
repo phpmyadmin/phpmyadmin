@@ -12,7 +12,7 @@ var s_right        = 0;
 var ON_relation    = 0;
 var ON_grid        = 0;
 var ON_display_field = 0;
-var ON_angular_direct = 0;// relation_style: 0 - angular 1 - direct
+var ON_angular_direct = 1; // relation_style: 0 - angular 1 - direct
 var click_field    = 0;
 var link_relation  = "";
 var id_hint;
@@ -396,8 +396,8 @@ function Grid()
 
 function Angular_direct()
 {
-  if(!ON_angular_direct ) {
-    ON_angular_direct = 1;
+  if(ON_angular_direct ) {
+    ON_angular_direct = 0;
     document.getElementById('angular_direct_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
   
     if(isIE) { // correct for IE
@@ -405,7 +405,7 @@ function Angular_direct()
     }
   }
   else {
-    ON_angular_direct = 0;  
+    ON_angular_direct = 1;  
     document.getElementById('angular_direct_button').className = 'M_butt';
   }
   Re_load();
