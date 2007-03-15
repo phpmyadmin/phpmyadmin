@@ -354,7 +354,6 @@ if ($server != 0
  * Warning for PHP 4.2.3
  * modified: 2004-05-05 mkkeck
  */
-
 if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
     echo '<div class="warning">' . $strPHP40203 . '</div>' . "\n";
 }
@@ -363,7 +362,6 @@ if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
  * Nijel: As we try to hadle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
  */
-
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
     echo '<div class="warning">' . $strMbOverloadWarning . '</div>' . "\n";
 }
@@ -380,7 +378,6 @@ if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
  * Warning for old PHP version
  * modified: 2004-05-05 mkkeck
  */
-
 if (PMA_PHP_INT_VERSION < 40100) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</div>' . "\n";
 }
@@ -392,6 +389,14 @@ if (PMA_PHP_INT_VERSION < 40100) {
 // not yet defined before the server choice
 if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
+}
+
+if ($server > 0 && PMA_MYSQL_CLIENT_API !== PMA_MYSQL_INT_VERSION) {
+    echo '<div class="warning">'
+     . PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
+            PMA_DBI_get_client_info(),
+            substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-'))))
+     . '</div>' . "\n";
 }
 
 if (defined('PMA_WARN_FOR_MCRYPT')) {

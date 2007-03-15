@@ -13,6 +13,7 @@ $HeadURL$
 - bug #1668724 JavaScript focus login Opera
 - bug #1667887 HTML maxlength
 - bug #1666657 Cookie password delete on timeout / inactivity
+- bug #1648802 different mysql library and server version
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
