@@ -843,7 +843,7 @@ $strBrowseDistinctValues = 'Browse distinct values';  //to translate
 $strCanNotLoadExportPlugins = 'Could not load export plugins, please check your installation!';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
+$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username\_%)';  //to translate
 
 $strDelimiter = 'Delimiter';  //to translate
 

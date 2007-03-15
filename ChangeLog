@@ -15,6 +15,7 @@ $HeadURL$
 - bug #1676033 [core] pow(int,int) causes overflow
 - bug #1680952 [core] undefined function PMA_getUvaCondition() 
 - bug #1596328 [export] drop support for POSTGRESQL compatibility mode
+- bug #1609443 [privileges] Grant all priv. on wildcard name (fix message)
 
 2.10.0.3 (not released yet)
 =====================

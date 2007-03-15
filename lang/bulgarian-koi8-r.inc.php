@@ -812,7 +812,7 @@ $strBusyPages = 'Busy pages';  //to translate
 $strCreateUserDatabase = 'Database for user';  //to translate
 $strCreateUserDatabaseName = 'Create database with same name and grant all privileges';  //to translate
 $strCreateUserDatabaseNone = 'Ó—Õ¡';  //to translate
-$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username_%)';  //to translate
+$strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username\_%)';  //to translate
 $strCSV = 'CSV';  //to translate
 
 $strDirtyPages = 'Dirty pages';  //to translate
