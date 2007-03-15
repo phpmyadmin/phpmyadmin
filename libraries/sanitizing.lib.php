@@ -40,31 +40,30 @@ function PMA_sanitize($message)
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
     );
-    $sanitized_message = strtr($message, $replace_pairs);
-    $sanitized_message = preg_replace(
-        '/\[a@([^"@]*)@([^]"]*)\]/e',
-        '\'<a href="\' . PMA_sanitizeUri(\'$1\') . \'" target="\2">\'',
-        $sanitized_message);
+    $message = strtr($message, $replace_pairs);
 
-    return $sanitized_message;
-}
+    $pattern = '/\[a@([^"@]*)@([^]"]*)\]/';
 
-/**
- * removes javascript
- *
- * @uses    trim()
- * @uses    strtolower()
- * @uses    substr()
- * @param   string  uri
- */
-function PMA_sanitizeUri($uri)
-{
-    $uri = trim($uri);
+    if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
+        $valid_links = array(
+            'http',  // default http:// links (and https://)
+            './Do',  // ./Documentation
+        );
 
-    if (strtolower(substr($uri, 0, 10)) === 'javascript') {
-        return '';
+        foreach ($founds as $found) {
+            // only http... and ./Do... allowed
+            if (! in_array(substr($found[1], 0, 4), $valid_links)) {
+                return $message;
+            }
+            // a-z and _ allowed in target
+            if (! empty($found[2]) && preg_match('/[^a-z_]+/i', $found[2])) {
+                return $message;
+            }
+        }
+
+        $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
     }
 
-    return $uri;
+    return $message;
 }
 ?>
