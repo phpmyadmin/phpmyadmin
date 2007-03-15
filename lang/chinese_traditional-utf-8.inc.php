@@ -1033,4 +1033,5 @@ $strViewName = 'VIEW name';  //to translate
 $strOptions = 'Options';  //to translate
 $strFiles = 'Files';  //to translate
 $strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
+$strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';  //to translate
 ?>

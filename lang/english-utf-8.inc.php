@@ -490,6 +490,7 @@ $strMyISAMSortBufferSize = 'Sort buffer size';
 $strMySQLCharset = 'MySQL charset';
 $strMysqlClientVersion = 'MySQL client version';
 $strMySQLConnectionCollation = 'MySQL connection collation';
+$strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLShowProcess = 'Show processes';
 $strMySQLShowStatus = 'Show MySQL runtime information';
