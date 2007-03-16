@@ -1,5 +1,5 @@
 <?php
-/* vim: expandtab sw=4 ts=4 sts=4: */
+// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * Set of functions used to run cookie based authentication.
  * Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and
