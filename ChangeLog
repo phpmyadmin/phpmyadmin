@@ -31,6 +31,7 @@ $HeadURL$
 + [upload] make use of $cfg['TempDir'] for file uploads
 + [server] improved display of binary logs
 + [data] better error handling in tbl_create.php
++ [config] clean cookies on phpMyAdmin upgrade
 
 2.10.1.0 (not released yet)
 =====================
