@@ -2808,6 +2808,22 @@ if (get_magic_quotes_gpc()) {
 }
 
 /**
+ * clean cookies on new install or upgrade
+ * when chaning something with increment the cookie version
+ */
+$pma_cookie_version = 3;
+if (isset($_COOKIE)
+ && (! isset($_COOKIE['pmaCookieVer'])
+  || $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
+    // delete all cookies
+    foreach($_COOKIE as $cookie_name => $tmp) {
+        PMA_removeCookie($cookie_name);
+    }
+    $_COOKIE = array();
+    PMA_setCookie('pmaCookieVer', $pma_cookie_version);
+}
+
+/**
  * include deprecated grab_globals only if required
  */
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
