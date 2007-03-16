@@ -2811,7 +2811,7 @@ if (get_magic_quotes_gpc()) {
  * clean cookies on new install or upgrade
  * when chaning something with increment the cookie version
  */
-$pma_cookie_version = 3;
+$pma_cookie_version = 4;
 if (isset($_COOKIE)
  && (! isset($_COOKIE['pmaCookieVer'])
   || $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {

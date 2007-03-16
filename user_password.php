@@ -46,8 +46,8 @@ if (isset($nopass)) {
         $common_url_query = PMA_generate_common_url();
 
         $err_url          = 'user_password.php?' . $common_url_query;
-	$hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
-	                  . 'PASSWORD';
+    $hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+                      . 'PASSWORD';
 
         $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
         $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
@@ -57,7 +57,7 @@ if (isset($nopass)) {
         // Duration = till the browser is closed for password (we don't want this to be saved)
         if ($cfg['Server']['auth_type'] == 'cookie') {
 
-            PMA_setCookie('pma_cookie_password-' . $server, PMA_blowfish_encrypt($pma_pw, $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']));
+            PMA_setCookie('pmaPass-' . $server, PMA_blowfish_encrypt($pma_pw, $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']));
 
         } // end if
         // For http auth. mode, the "back" link will also enforce new
@@ -129,23 +129,23 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
     ?>
     <tr>
         <td>
-	    <?php echo $strPasswordHashing; ?>:
-	</td>
-	<td>
-	    <input type="radio" name="pw_hash" id="radio_pw_hash_new" value="new" checked="checked" />
-	    <label for="radio_pw_hash_new">
-	        MySQL&nbsp;4.1
-	    </label>
-	</td>
+        <?php echo $strPasswordHashing; ?>:
+    </td>
+    <td>
+        <input type="radio" name="pw_hash" id="radio_pw_hash_new" value="new" checked="checked" />
+        <label for="radio_pw_hash_new">
+            MySQL&nbsp;4.1
+        </label>
+    </td>
     </tr>
     <tr>
         <td>&nbsp;</td>
-	<td>
-	    <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
-	    <label for="radio_pw_hash_old">
-	        <?php echo $strCompatibleHashing; ?>
-	    </label>
-	</td>
+    <td>
+        <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
+        <label for="radio_pw_hash_old">
+            <?php echo $strCompatibleHashing; ?>
+        </label>
+    </td>
     </tr>
     <?php
 }
