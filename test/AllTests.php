@@ -24,6 +24,7 @@ require_once './test/PMA_get_real_size_test.php';
 require_once './test/PMA_sanitize_test.php';
 require_once './test/PMA_pow_test.php';
 require_once './test/Environment_test.php';
+require_once './test/escape_js_string.php';
 
 class AllTests
 {
@@ -45,6 +46,7 @@ class AllTests
         $suite->addTestSuite('PMA_get_real_size_test');
         $suite->addTestSuite('PMA_sanitize_test');
         $suite->addTestSuite('PMA_pow_test');
+        $suite->addTestSuite('PMA_escapeJsString_test');
         return $suite;
     }
 }

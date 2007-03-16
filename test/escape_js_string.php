@@ -11,28 +11,48 @@
 /**
  * Tests core.
  */
-include('./core.lib.php');
+require_once 'PHPUnit/Framework.php';
+
 /**
  * Include to test.
  */
-include('./libraries/js_escape.lib.php');
+require_once './libraries/js_escape.lib.php';
 
 /**
  * Test java script escaping.
  *
- * @uses    PMA_escapeJsString()
- * @uses    PMA_test_string()
- * @param string string to escape
- * @param string expected result
  */
-function PMA_test_escape($test, $expected) {
-    PMA_test_string('PMA_escapeJsString', $test, PMA_escapeJsString($test), $expected);
-}
+class PMA_escapeJsString_test extends PHPUnit_Framework_TestCase
+{
+    public function testEscape_1()
+    {
+        $this->assertEquals('\\\';', PMA_escapeJsString('\';'));
+    }
 
-PMA_test_escape('\';', '\\\';');
-PMA_test_escape("\r\n'<scrIpt></sCRIPT>", '\r\n\\\'<scrIpt></\' + \'script>');
-PMA_test_escape('\';[XSS]', '\\\';[XSS]');
-PMA_test_escape('</SCRIPT></head><body>[HTML]', '</\' + \'script></head><body>[HTML]');
-PMA_test_escape('"\'\\\'"', '"\\\'\\\\\\\'"');
-PMA_test_escape("\\''''''''''''\\", "\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\");
+    public function testEscape_2()
+    {
+        $this->assertEquals('\r\n\\\'<scrIpt></\' + \'script>', PMA_escapeJsString("\r\n'<scrIpt></sCRIPT>"));
+    }
+
+    public function testEscape_3()
+    {
+        $this->assertEquals('\\\';[XSS]', PMA_escapeJsString('\';[XSS]'));
+    }
+
+    public function testEscape_4()
+    {
+        $this->assertEquals('</\' + \'script></head><body>[HTML]', PMA_escapeJsString('</SCRIPT></head><body>[HTML]'));
+    }
+
+    public function testEscape_5()
+    {
+        $this->assertEquals('"\\\'\\\\\\\'"', PMA_escapeJsString('"\'\\\'"'));
+    }
+
+    public function testEscape_6()
+    {
+        $this->assertEquals("\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", PMA_escapeJsString("\\''''''''''''\\"));
+    }
+
+}
 ?>
