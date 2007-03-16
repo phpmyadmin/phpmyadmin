@@ -1,19 +1,19 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
  * theme test
  *
  * @uses    libraries/common.lib.php        global fnctions
  * @package phpMyAdmin-test
+ * @version $Id$
  */
 
-chdir( '..' );
+chdir('..');
 
 /**
  * Gets core libraries and defines some variables
  */
-require_once('./libraries/common.lib.php');
+require_once './libraries/common.lib.php';
 
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
 
@@ -28,7 +28,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
     <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
-        <?php echo htmlspecialchars( $HTTP_HOST ); ?> - Theme Test</title>
+        <?php echo htmlspecialchars($HTTP_HOST); ?> - Theme Test</title>
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <link rel="stylesheet" type="text/css"
@@ -51,23 +51,23 @@ $item = '<a href="%1$s?%2$s" class="item">'
     .'%4$s: %3$s</a>' . "\n";
 
 echo '<div id="serverinfo">' . "\n";
-printf( $item,
+printf($item,
         $GLOBALS['cfg']['DefaultTabServer'],
         PMA_generate_common_url(),
         'Server',
         $GLOBALS['strServer'],
-        's_host.png' );
+        's_host.png');
 
 echo $separator;
-printf( $item,
+printf($item,
         $GLOBALS['cfg']['DefaultTabDatabase'],
         '',
         'Database',
         $GLOBALS['strDatabase'],
-        's_db.png' );
+        's_db.png');
 
 echo $separator;
-printf( $item,
+printf($item,
         $GLOBALS['cfg']['DefaultTabTable'],
         '',
         'Table',
@@ -76,7 +76,7 @@ printf( $item,
             : $GLOBALS['strTable']),
         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
             ? 'b_views'
-            : 's_tbl') . '.png' );
+            : 's_tbl') . '.png');
 
 echo '<span class="table_comment" id="span_table_comment">'
     .'&quot;Table comment&quot</span>' . "\n";
@@ -138,10 +138,10 @@ $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = 'active';
 $tabs['import']['class'] = 'active';
 
-echo PMA_getTabs( $tabs );
-unset( $tabs );
+echo PMA_getTabs($tabs);
+unset($tabs);
 
-if ( @file_exists( $pmaThemeImage . 'logo_right.png') ) {
+if (@file_exists($pmaThemeImage . 'logo_right.png')) {
     ?>
     <img id="pmalogoright" src="../<?php echo $pmaThemeImage; ?>logo_right.png"
         alt="phpMyAdmin" />
@@ -150,7 +150,7 @@ if ( @file_exists( $pmaThemeImage . 'logo_right.png') ) {
 ?>
 <h1>
 <?php
-echo sprintf( $strWelcome,
+echo sprintf($strWelcome,
     '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
 ?>
 </h1>
@@ -161,7 +161,7 @@ echo sprintf( $strWelcome,
 <fieldset>
     <legend><?php echo $strTheme; ?></legend>
 <?php
-    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox( false );
+    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox(false);
 ?>
 <noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
 </fieldset>

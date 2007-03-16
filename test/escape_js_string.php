@@ -1,12 +1,11 @@
 <?php
-/* $Id: common.lib.php 9832 2007-01-09 09:50:49Z nijel $ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for javascript escaping.
  *
  * @author Michal Čihař <michal@cihar.com>
  * @package phpMyAdmin-test
+ * @version $Id: common.lib.php 9832 2007-01-09 09:50:49Z nijel $
  */
 
 /**

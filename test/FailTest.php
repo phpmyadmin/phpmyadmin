@@ -1,8 +1,9 @@
 <?php
+/* vim: expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PMA_get_real_size()
  *
- * @version $Id: $
+ * @version $Id$
  * @package phpMyAdmin-test
  */
 
