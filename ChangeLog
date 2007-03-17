@@ -32,6 +32,8 @@ $HeadURL$
 + [server] improved display of binary logs
 + [data] better error handling in tbl_create.php
 + [config] clean cookies on phpMyAdmin upgrade
++ [routines] from Patch #1649881, thanks to Mike Beck; work in progress...
+  (still to do: support definer; procedure execution)
 
 2.10.1.0 (not released yet)
 =====================

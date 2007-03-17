@@ -57,8 +57,9 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @param   boolean|string  $display_tab    sql|files|history|full|FALSE
  *                                          what part to display
  *                                          false if not inside querywindow
+ * @param   string          $delimiter
  */
-function PMA_sqlQueryForm($query = true, $display_tab = false)
+function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
     // check tab to display if inside querywindow
     if (! $display_tab) {
@@ -134,7 +135,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
 
     // display querybox
     if ($display_tab === 'full' || $display_tab === 'sql') {
-        PMA_sqlQueryFormInsert($query, $is_querywindow);
+        PMA_sqlQueryFormInsert($query, $is_querywindow, $delimiter);
     }
 
     // display uploads
@@ -186,8 +187,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false)
  * @uses    htmlspecialchars()
  * @param   string      $query          query to display in the textarea
  * @param   boolean     $is_querywindow if inside querywindow or not
+ * @param   string      $delimiter      default delimiter to use 
  */
-function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
+function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {
 
     // enable auto select text in textarea
@@ -368,7 +370,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false)
     if (PMA_MYSQL_INT_VERSION >= 50000) {
         echo '<label for="id_sql_delimiter">[ ' . $GLOBALS['strDelimiter']
             .'</label>' . "\n";
-        echo '<input type="text" name="sql_delimiter" size="3" value=";" '
+        echo '<input type="text" name="sql_delimiter" size="3" '
+            .'value="' . $delimiter . '" '
             .'id="id_sql_delimiter" /> ]' . "\n";
     }
 
