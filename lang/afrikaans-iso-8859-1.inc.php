@@ -382,7 +382,7 @@ $strZip = '"ge-zip"';
 // To translate:
 $strAbortedClients = 'Aborted'; //to translate
 $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
+$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 $strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 $strAddConstraints = 'Add constraints';  //to translate
 $strAddFields = 'Add %s field(s)';  //to translate
