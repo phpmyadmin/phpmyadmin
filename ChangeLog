@@ -20,6 +20,7 @@ $HeadURL$
 - bug #1682044 Export file even if file not selected
 - bug #1672789 Undefined offset: 4 in sqlparser.lib.php #1674
 - bug #1662976 Authentication fails when controluser/pass is set
+- bug #1643758 Error #1264 importing NULL values in MySQL 5.0
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions

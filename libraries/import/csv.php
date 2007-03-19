@@ -1,9 +1,15 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * CSV import plugin for phpMyAdmin
+ *
+ * @todo    add an option for handling NULL values
+ * @version $Id$
+ */
 
-/* CSV import plugin for phpMyAdmin */
-
+/**
+ *
+ */
 if ($plugin_param == 'table') {
     if (isset($plugin_list)) {
         $plugin_list['csv'] = array(
@@ -165,7 +171,10 @@ if ($plugin_param == 'table') {
                     }
                     $fail = FALSE;
                     $value = '';
-                    while (($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
+                    while (($need_end && $ch != $csv_enclosed)
+                     || (!$need_end && !($ch == $csv_terminated
+                       || $ch == $csv_new_line || ($csv_new_line == 'auto'
+                        && ($ch == "\r" || $ch == "\n"))))) {
                         if ($ch == $csv_escaped) {
                             if ($i == $len - 1) {
                                 $fail = TRUE;
@@ -184,6 +193,12 @@ if ($plugin_param == 'table') {
                         $i++;
                         $ch = $buffer[$i];
                     }
+
+                    // unquoted NULL string
+                    if (false === $need_end && $value === 'NULL') {
+                        $value = null;
+                    }
+
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = $buffer[$i];
@@ -236,6 +251,7 @@ if ($plugin_param == 'table') {
                     }
                     // Do we have correct count of values?
                     if (count($values) != $required_fields) {
+
                         // Hack for excel
                         if ($values[count($values) - 1] == ';') {
                             unset($values[count($values) - 1]);
@@ -253,7 +269,12 @@ if ($plugin_param == 'table') {
                         if (!$first) {
                             $sql .= ', ';
                         }
-                        $sql .= '\'' . addslashes($val) . '\'';
+                        if ($val === null) {
+                            $sql .= 'NULL';
+                        } else {
+                            $sql .= '\'' . addslashes($val) . '\'';
+                        }
+
                         $first = FALSE;
                     }
                     $sql .= ')';
