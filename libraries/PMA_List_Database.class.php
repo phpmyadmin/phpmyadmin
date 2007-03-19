@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * holds the PMA_List_Database class
  *
@@ -365,7 +366,7 @@ require_once './libraries/PMA_List.class.php';
             $selected = $this->getDefault();
         }
 
-	$return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
+    $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails() as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<li><ul>' . "\n";
@@ -376,14 +377,14 @@ require_once './libraries/PMA_List.class.php';
                 $cut = false;
             }
             foreach ($dbs as $db) {
-	    	$return .= '<li';
-			if ($db['name'] == $selected) {
-			    $return .= ' class="selected"';
-			}
-		$return .= '><a title="' . $db['comment'] . ' "href="index.php?' . PMA_generate_common_url($db['name']) . '" target="_parent">';
+            $return .= '<li';
+            if ($db['name'] == $selected) {
+                $return .= ' class="selected"';
+            }
+        $return .= '><a title="' . $db['comment'] . ' "href="index.php?' . PMA_generate_common_url($db['name']) . '" target="_parent">';
                 $return .= ($cut ? $db['disp_name_cut'] : $db['disp_name'])
-			.' (' . $db['num_tables'] . ')';
-		$return .= '</a></li>' . "\n";
+            .' (' . $db['num_tables'] . ')';
+        $return .= '</a></li>' . "\n";
             }
             if (count($dbs) > 1) {
                 $return .= '</ul></li>' . "\n";
