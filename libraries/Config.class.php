@@ -553,6 +553,7 @@ class PMA_Config
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->get('is_https');
+
         if (strlen($pma_absolute_uri) < 5
             // needed to catch http/https switch
             || ($is_https && substr($pma_absolute_uri, 0, 6) != 'https:')
@@ -685,7 +686,6 @@ class PMA_Config
                     . $pma_absolute_uri;
             }
         }
-
         $this->set('PmaAbsoluteUri', $pma_absolute_uri);
     }
 
