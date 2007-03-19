@@ -81,8 +81,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
         $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
     }
 
-        debug_print_backtrace();
-        die;
     if (empty($link) && ! $is_controluser) {
         if ($is_controluser) {
             define('PMA_DBI_CONNECT_FAILED_CONTROLUSER', true);
