@@ -1049,4 +1049,5 @@ $strIndexesSeemEqual = 'The following indexes appear to be equal and one of them
 $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';  //to translate
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
+$strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
 ?>

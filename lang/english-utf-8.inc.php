@@ -158,6 +158,7 @@ $strConnectionError = 'Cannot connect: invalid settings.';
 $strConnections = 'Connections';
 $strConstraintsForDumped = 'Constraints for dumped tables';
 $strConstraintsForTable = 'Constraints for table';
+$strControluserFailed = 'Connection for controluser as defined in your configuration failed.';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strCopy = 'Copy';
 $strCopyDatabaseOK = 'Database %s has been copied to %s';

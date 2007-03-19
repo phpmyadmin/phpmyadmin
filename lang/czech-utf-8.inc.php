@@ -1031,4 +1031,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
 ?>
