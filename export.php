@@ -39,6 +39,8 @@ $compression_methods = array(
  */
 $compression = false;
 $onserver = false;
+$save_on_server = false;
+$buffer_needed = false;
 if (empty($_REQUEST['asfile'])) {
     $asfile = false;
 } else {
