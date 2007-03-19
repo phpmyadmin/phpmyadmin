@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 require_once './libraries/common.lib.php';
 
@@ -48,11 +48,11 @@ if (isset($_POST['submitoptions'])) {
     }
 
     $message        .= PMA_DBI_query($create_query) ? $strSuccess : $strError;
-    
+
     // to display the CREATE VIEW query
     $sql_query = $create_query;
-    
-    require './' .  $cfg['DefaultTabDatabase']; 
+
+    require './' .  $cfg['DefaultTabDatabase'];
     exit();
 
 } else {
@@ -69,8 +69,8 @@ if (isset($_POST['submitoptions'])) {
     /**
      * Displays the page
      *
-     * @todo js error when view name is empty (strFormEmpty) 
-     * @todo (also validate if js is disabled, after form submission?) 
+     * @todo js error when view name is empty (strFormEmpty)
+     * @todo (also validate if js is disabled, after form submission?)
      */
 
 ?>

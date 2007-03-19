@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 // Check parameters
 
 require_once('./libraries/common.lib.php');
@@ -357,11 +357,11 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if (isset($row['Field']) 
-    && isset($analyzed_sql[0]) 
+    if (isset($row['Field'])
+    && isset($analyzed_sql[0])
     && isset($analyzed_sql[0]['create_table_fields'])
     && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' 
+    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
     && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true) {
         $row['Null'] = '';
     }

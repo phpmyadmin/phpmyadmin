@@ -1,7 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /* SQL import plugin for phpMyAdmin */
 
@@ -207,14 +206,14 @@ if (isset($plugin_list)) {
                     continue;
                 }
             }
-           // Change delimiter, if redefined, and skip it (don't send to server!) 
+           // Change delimiter, if redefined, and skip it (don't send to server!)
            if ((substr($buffer, $i, 9) == "DELIMITER") && ($buffer[$i + 9] <= ' ') && ($i<$len-11) && (!(strpos($buffer,"\n",$i+11)===FALSE) )) {
                $new_line_pos = strpos($buffer, "\n", $i + 10);
                $sql_delimiter = substr($buffer, $i+10, $new_line_pos - $i -10);
                $i= $new_line_pos + 1;
                // Next query part will start here
                $start_pos = $i;
-               continue;               
+               continue;
             }
 
             // End of SQL
@@ -248,7 +247,7 @@ if (isset($plugin_list)) {
                     $start_pos = $i;
                 }
             }
-           
+
         } // End of parser loop
     } // End of import loop
     // Commit any possible data in buffers

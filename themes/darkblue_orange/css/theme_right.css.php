@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
     // unplanned execution path
     if (!defined('PMA_MINIMUM_COMMON')) {
         exit();

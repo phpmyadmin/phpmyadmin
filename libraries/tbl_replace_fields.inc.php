@@ -1,5 +1,5 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * f i e l d    u p l o a d e d    f r o m    a    f i l e
  *
@@ -18,7 +18,6 @@
  * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
  *
  * @version $Id$
- * vim: expandtab sw=4 ts=4 sts=4:
  *
  * @uses $_REQUEST
  * @uses defined()

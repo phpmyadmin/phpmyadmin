@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 
 /**
@@ -290,7 +290,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
                     //]]>
                     </script>
         <?php
-        } 
+        }
         ?>
             <input type="hidden" name="names[<?php echo $i; ?>]"
                 value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />

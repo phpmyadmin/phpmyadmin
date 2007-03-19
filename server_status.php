@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * displays status variables with descriptions and some hints an optmizing
  *  + reset status variables
@@ -262,7 +262,7 @@ $sections = array(
 // variable or section name => (name => url)
 $links = array();
 
-// because of PMA_NO_VARIABLES_IMPORT, the $PHP_SELF globalized by 
+// because of PMA_NO_VARIABLES_IMPORT, the $PHP_SELF globalized by
 // grab_globals is not available here when register_globals = Off
 // and in some situations, $_SERVER['PHP_SELF'] is not defined
 $links['table'][$strFlushTables]

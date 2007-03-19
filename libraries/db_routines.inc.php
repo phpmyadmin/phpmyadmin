@@ -1,11 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Check parameters
 if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
     $url_query .= '&amp;goto=db_structure.php';
-    
+
     $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
     if ($routines) {
@@ -23,7 +23,7 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
               $strRoutineReturnType);
         $ct=0;
         $delimiter = '//';
-        foreach ($routines as $routine) { 
+        foreach ($routines as $routine) {
             $drop_and_create = '\'DROP ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . $delimiter . "\n"
                 . 'CREATE ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . '()' . "\n" . '\'';
 
@@ -53,7 +53,7 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
                               <td><b>%s</b></td>
                               <td>%s</td>
                               <td>%s</td>
-                              <td>%s</td>                              
+                              <td>%s</td>
                               <td>%s</td>
                               <td>%s</td>
                          </tr>',

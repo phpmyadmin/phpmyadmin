@@ -1,7 +1,6 @@
 <?php
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * phpMyAdmin sample configuration, you can use it as base for

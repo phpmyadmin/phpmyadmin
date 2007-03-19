@@ -1,9 +1,9 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Simple script to set correct charset for changelog
  *
- * @id      $Id$
+ * @version $Id$
  */
 
 $changelog = htmlspecialchars(file_get_contents('ChangeLog'));

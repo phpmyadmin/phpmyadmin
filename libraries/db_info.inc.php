@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 
 // Check parameters
@@ -58,7 +58,7 @@ if ( $cfg['ShowTooltip'] ) {
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if ( true === $cfg['SkipLockedTables'] ) {
     $db_info_result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
-    
+
     // Blending out tables in use
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
@@ -97,7 +97,7 @@ if ( true === $cfg['SkipLockedTables'] ) {
                     }
                 }
                 PMA_DBI_free_result($db_info_result);
-                
+
                 if ( $GLOBALS['cfg']['NaturalOrder'] ) {
                     uksort( $tables, 'strnatcasecmp' );
                 }
@@ -123,7 +123,7 @@ if ( ! isset( $sot_ready ) ) {
         // all tables in db
         $tables = PMA_DBI_get_tables_full( $db );
     }
-    
+
     if ( $cfg['ShowTooltip'] ) {
         foreach ( $tables as $each_table ) {
             fillTooltip( $tooltip_truename, $tooltip_aliasname, $each_table );

@@ -1,11 +1,10 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
-// +--------------------------------------------------------------------------+
-// | Set of functions used to run config authentication (ie no                |
-// | authentication).                                                         |
-// +--------------------------------------------------------------------------+
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Set of functions used to run config authentication (ie no authentication).
+ *
+ * @version $Id$
+ */
 
 
 /**

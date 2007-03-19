@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * Contributed by Maxime Delorme and merged by lem9
  */
@@ -90,7 +90,7 @@ class PMA_PDF extends TCPDF {
             $nb = $this->page;
             foreach ($this->Alias AS $alias => $value) {
                 for ($n = 1;$n <= $nb;$n++)
-					$this->pages[$n]=str_replace($alias, $value, $this->pages[$n]);
+                    $this->pages[$n]=str_replace($alias, $value, $this->pages[$n]);
             }
         }
         parent::_putpages();

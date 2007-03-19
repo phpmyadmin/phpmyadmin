@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 function PMA_transformation_text_plain__external_nowrap($options = array()) {
     if (!isset($options[3]) || $options[3] == '') {
@@ -76,7 +76,7 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
             $newstring .= fgets($pipes[1], 1024);
         }
         fclose($pipes[1]);
-        // we don't currently use the return value 
+        // we don't currently use the return value
         $return_value = proc_close($process);
     }
 

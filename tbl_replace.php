@@ -1,7 +1,7 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * manipulation of table data like inserting, replacing and updating
- * vim: expandtab sw=4 ts=4 sts=4:
  *
  * usally called as form action from tbl_change.php to insert or update table rows
  *

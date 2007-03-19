@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id: pmd_display_field.php 9828 2007-01-05 17:30:36Z lem9 $ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /*
 @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
@@ -14,7 +14,7 @@ $table = $T;
 $display_field = $F;
 
 if ($cfgRelation['displaywork']) {
-    
+
     $disp     = PMA_getDisplayField($db, $table);
     if ($disp) {
         if ($display_field != $disp) {
@@ -39,7 +39,7 @@ if ($cfgRelation['displaywork']) {
     if (isset($upd_query)) {
         $upd_rs    = PMA_query_as_cu($upd_query);
     }
-} // end if 
+} // end if
 
 header("Content-Type: text/xml; charset=utf-8");
 header("Cache-Control: no-cache");

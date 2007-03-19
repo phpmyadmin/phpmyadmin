@@ -1,11 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Single signon for phpMyAdmin
 //
-// This is just example how to use single signon with phpMyAdmin, it is 
-// not intended to be perfect code and look, only shows how you can 
+// This is just example how to use single signon with phpMyAdmin, it is
+// not intended to be perfect code and look, only shows how you can
 // integrate this functionality in your application.
 
 /* Was data posted? */
@@ -14,7 +14,7 @@ if (isset($_POST['user'])) {
     session_set_cookie_params(0, '/', '', 0);
     /* Create signon session */
     $session_name = 'SignonSession';
-    session_name($session_name); 
+    session_name($session_name);
     session_start();
     /* Store there credentials */
     $_SESSION['PMA_single_signon_user'] = $_POST['user'];

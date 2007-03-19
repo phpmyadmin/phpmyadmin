@@ -1,9 +1,17 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 include_once './libraries/engines/merge.lib.php';
 
+/**
+ *
+ */
 class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
 {
     /**

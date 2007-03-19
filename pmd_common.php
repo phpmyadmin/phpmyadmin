@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /*
 @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
@@ -10,7 +10,7 @@ require_once './libraries/common.lib.php';
 // not understand
 require_once './libraries/header_http.inc.php';
 
-$GLOBALS['PMD']['STYLE']          = 'default'; 
+$GLOBALS['PMD']['STYLE']          = 'default';
 
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
@@ -21,8 +21,8 @@ function get_tabs() // PMA_DBI
 {
     global $db, $script_display_field;
     $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
-    $GLOBALS['PMD']['OWNER'] = array(); 
-    $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array(); 
+    $GLOBALS['PMD']['OWNER'] = array();
+    $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
 
     $tables = PMA_DBI_get_tables_full($db);
     // seems to be needed later
@@ -32,29 +32,29 @@ function get_tabs() // PMA_DBI
         $GLOBALS['PMD']['TABLE_NAME'][$i] = $db . "." . $one_table['TABLE_NAME'];
         $GLOBALS['PMD']['OWNER'][$i] = $db;
         $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
-        
+
         $GLOBALS['PMD_URL']['TABLE_NAME'][$i] = urlencode($db . "." . $one_table['TABLE_NAME']);
         $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($db);
         $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i] = urlencode($one_table['TABLE_NAME']);
-        
+
         $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars($db . "." . $one_table['TABLE_NAME'], ENT_QUOTES);
         $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars($db, ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);   
-          
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);
+
         $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
-        
+
         $DF = PMA_getDisplayField($db, $one_table['TABLE_NAME']);
         if($DF!='')
         $script_display_field .= "  display_field['" . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "'] = '" . urlencode($DF) . "';\n";
-        
+
         $i++;
-    } 
+    }
     $script_display_field .= "</script>\n";
     //  return $GLOBALS['PMD'];       // many bases // not use ??????
 }
 
 function get_tab_info() // PMA_DBI //PMA_backquote
-{ 
+{
     global $db;
     PMA_DBI_select_db($db);
     $tab_column = array();
@@ -63,7 +63,7 @@ function get_tab_info() // PMA_DBI //PMA_backquote
         $fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM '.PMA_backquote($GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]), NULL, PMA_DBI_QUERY_STORE);
         $fields_cnt  = PMA_DBI_num_rows($fields_rs);
         $j=0;
-        while ($row = PMA_DBI_fetch_assoc($fields_rs)) {   
+        while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_ID'][$j]   = $j;
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_NAME'][$j] = $row['Field'];
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['TYPE'][$j]        = $row['Type'];
@@ -85,7 +85,7 @@ function get_script_contr() {
         //echo "<br> internal ".$db." - ".$val[0]." - ";
         //print_r($row );
         if ($row !== false) {
-            foreach ($row as $field => $value) { 
+            foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($db . "." . $val[0]);
                 $con['DCN'][$i]    = urlencode($field);
@@ -98,7 +98,7 @@ function get_script_contr() {
         //echo "<br> INNO ";
         //print_r($row );
         if ($row !== false) {
-            foreach ($row as $field => $value) { 
+            foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($db.".".$val[0]);
                 $con['DCN'][$i]    = urlencode($field);
@@ -107,8 +107,8 @@ function get_script_contr() {
                 $i++;
             }
         }
-    } 
-  
+    }
+
     $ti = 0;
     $script_contr = "<script>\n var contr = new Array();\n";
     for ( $i=0; $i < sizeof( $con["C_NAME"] ); $i++ ) {
@@ -117,8 +117,8 @@ function get_script_contr() {
         if (in_array($con['DTN'][$i],$GLOBALS['PMD_URL']["TABLE_NAME"]) && in_array($con['STN'][$i],$GLOBALS['PMD_URL']["TABLE_NAME"])) {
             $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."'] = new Array();\n";$m_col = array();//}
             $script_contr .= "  contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'] = new Array();\n";//}
-            $script_contr .= "    contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'][0] = '".$con['STN'][$i]."';\n"; // 
-            $script_contr .= "    contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'][1] = '".$con['SCN'][$i]."';\n"; // 
+            $script_contr .= "    contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'][0] = '".$con['STN'][$i]."';\n"; //
+            $script_contr .= "    contr[$ti]['".$con['C_NAME'][$i]."']['".$con['DTN'][$i]."']['".$con['DCN'][$i]."'][1] = '".$con['SCN'][$i]."';\n"; //
         }
     $ti++;
     }
@@ -132,7 +132,7 @@ function get_pk_or_unique_keys() {
 
     PMA_DBI_select_db($db);
     $tables_pk_or_unique_keys = array();
-  
+
     for( $I=0; $I<sizeof($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
         $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
         if (! empty($ret_keys)) {
@@ -157,7 +157,7 @@ function get_all_keys() {
 
     PMA_DBI_select_db($db);
     $tables_all_keys = array();
-  
+
     for( $I=0; $I<sizeof($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
         $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
         if (! empty($ret_keys)) {
@@ -183,18 +183,18 @@ function get_script_tabs() {
     return $script_tabs;
 }
 
-function get_tab_pos() { 
-    $stmt = PMA_query_as_cu("SELECT * FROM " . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']), FALSE, PMA_DBI_QUERY_STORE); 
+function get_tab_pos() {
+    $stmt = PMA_query_as_cu("SELECT * FROM " . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']), FALSE, PMA_DBI_QUERY_STORE);
     if ( $stmt ) // exist table repository
     {
-        while ($t_p = PMA_DBI_fetch_array($stmt, MYSQL_ASSOC)) { 
+        while ($t_p = PMA_DBI_fetch_array($stmt, MYSQL_ASSOC)) {
             $t_name = $t_p['db_name'] . '.' . $t_p['table_name'];
             $tab_pos[ $t_name ]['X'] = $t_p['x'];
             $tab_pos[ $t_name ]['Y'] = $t_p['y'];
             $tab_pos[ $t_name ]['V'] = $t_p['v'];
             $tab_pos[ $t_name ]['H'] = $t_p['h'];
         }
-    }    
+    }
     return isset($tab_pos) ? $tab_pos : NULL;
 }
 

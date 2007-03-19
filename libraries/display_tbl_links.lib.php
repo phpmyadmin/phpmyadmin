@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // modified 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
 // - bugfix for select all checkboxes

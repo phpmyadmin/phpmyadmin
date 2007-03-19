@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 $GLOBALS['information_schema_relations'] = array(
     'CHARACTER_SETS' => array(

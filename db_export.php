@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * dumps a database
  *
@@ -42,14 +42,14 @@ foreach ( $tables as $each_table ) {
     //    continue;
     //}
     if ( ! empty( $unselectall )
-      || ( isset( $tmp_select ) 
+      || ( isset( $tmp_select )
            && false !== strpos( $tmp_select, '|' . $each_table['Name'] . '|') ) ) {
         $is_selected = '';
     } else {
         $is_selected = ' selected="selected"';
     }
     $table_html   = htmlspecialchars( $each_table['Name'] );
-    $multi_values .= '                <option value="' . $table_html . '"' 
+    $multi_values .= '                <option value="' . $table_html . '"'
         . $is_selected . '>' . $table_html . '</option>' . "\n";
 } // end for
 $multi_values .= "\n";

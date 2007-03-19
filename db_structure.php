@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 require_once './libraries/common.lib.php';
 require_once './libraries/Table.class.php';
@@ -347,7 +347,7 @@ foreach ($tables as $keyname => $each_table) {
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
 
-    if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) { 
+    if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
         if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews']) {
             $at_least_one_view_exceeds_max_count = true;
             $show_superscript = '<sup>1</sup>';
@@ -496,7 +496,7 @@ if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
 <hr />
 
 <?php
-// Routines 
+// Routines
 echo '<fieldset>' . "\n";
 echo ' <legend>' . $strRoutines . '</legend>' . "\n";
 require './libraries/db_routines.inc.php';

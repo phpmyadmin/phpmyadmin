@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Get user's global privileges and some db-specific privileges
 // ($controllink and $userlink are links to MySQL defined in the "common.lib.php" library)

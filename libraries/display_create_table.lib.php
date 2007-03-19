@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Displays form for creating a table (if user has privileges for that)
 
@@ -10,7 +10,7 @@ require_once('./libraries/check_user_privileges.lib.php');
 // privilege by looking at SHOW GRANTS output;
 // for < 4.1.0, it could be more difficult because the logic tries to
 // detect the current host and it might be expressed in many ways; also
-// on a shared server, the user might be unable to define a controluser 
+// on a shared server, the user might be unable to define a controluser
 // that has the proper rights to the "mysql" db;
 // so we give up and assume that user has the right to create a table
 //

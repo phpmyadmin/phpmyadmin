@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 // Functions for listing directories
 
 /**
@@ -63,9 +63,9 @@ function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
 function PMA_supportedDecompressions()
 {
     global $cfg;
-    
+
     $compressions = '';
-    
+
     if ($cfg['GZipDump'] && @function_exists('gzopen')) {
         if (!empty($compressions)) {
             $compressions .= '|';

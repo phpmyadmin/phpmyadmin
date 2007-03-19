@@ -1,5 +1,6 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/* $Id$ */
 
 if (isset($plugin_list)) {
     $plugin_list['yaml'] = array(
@@ -7,7 +8,7 @@ if (isset($plugin_list)) {
         'extension' => 'yml',
         'mime_type' => 'text/yaml',
         'force_file' => true,
-      	'options' => array(
+          'options' => array(
             array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strOptions',
@@ -51,7 +52,7 @@ function PMA_exportFooter()
  */
 function PMA_exportHeader()
 {
-	return TRUE;
+    return TRUE;
 }
 
 /**
@@ -119,14 +120,14 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
     unset($i);
 
-	$cnt = 0;
-	$buffer = '';
+    $cnt = 0;
+    $buffer = '';
     while ($record = PMA_DBI_fetch_row($result)) {
-		$cnt++;
-		$buffer = $cnt . ":$crlf";
+        $cnt++;
+        $buffer = $cnt . ":$crlf";
         for ($i = 0; $i < $columns_cnt; $i++) {
             if ( isset($record[$i]) && !is_null($record[$i])) {
-				$buffer .= '  ' . $columns[$i] . ': '  . htmlspecialchars($record[$i]) . $crlf;
+                $buffer .= '  ' . $columns[$i] . ': '  . htmlspecialchars($record[$i]) . $crlf;
             }
         }
 

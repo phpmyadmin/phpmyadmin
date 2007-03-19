@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /* CSV import plugin for phpMyAdmin */
 
@@ -91,12 +91,12 @@ if ($plugin_param == 'table') {
                 } // end for
                 $sql .= ')';
             }
-        
+
             PMA_importRunQuery($sql, $sql);
             PMA_importRunQuery();
             $finished = TRUE;
         }
-        
+
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /*
  * Code for displaying server selection written by nijel
  * $Id$
@@ -71,7 +71,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
                 $label .= ' - ' . $server['only_db'];
             // try to avoid displaying a too wide selector
             } elseif (count($server['only_db']) < 4) {
-		        $label .= ' - ' . implode(', ', $server['only_db']);
+                $label .= ' - ' . implode(', ', $server['only_db']);
             }
         }
         if (!empty($server['user']) && $server['auth_type'] == 'config') {

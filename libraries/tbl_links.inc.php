@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Check parameters
 
@@ -17,7 +17,7 @@ require_once('./libraries/bookmark.lib.php');
 /**
  * Set parameters for links
  */
-if (empty($url_query) 
+if (empty($url_query)
 || (isset($_POST['table']) && isset($_POST['new_name']) && $_POST['table'] != $_POST['new_name'])) {
     $url_query = PMA_generate_common_url($db, $table);
 }

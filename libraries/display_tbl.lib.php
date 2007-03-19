@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 require_once './libraries/Table.class.php';
 
@@ -1718,7 +1718,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     //     displayed
     $total      = '';
     $is_display = PMA_setDisplayMode($the_disp_mode, $total);
-    // what was this for? 
+    // what was this for?
     // $total can be 0 if $cfg['MaxExactCountViews'] = 0
     //if ($total == '') {
     //    unset($total);
@@ -2019,7 +2019,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     // CREATE VIEW
     /**
      *
-     * @todo detect privileges to create a view 
+     * @todo detect privileges to create a view
      *       (but see 2006-01-19 note in display_create_table.lib.php,
      *        I think we cannot detect db-specific privileges reliably)
      */

@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 
 /**
@@ -193,7 +193,7 @@ if ( !empty($submit_mult) && !empty($what)) {
                     $full_query = preg_replace('@,$@', ');<br />', $full_query);
                 }
                 break;
-                
+
             case 'drop_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
@@ -302,7 +302,7 @@ elseif ($mult_btn == $strYes) {
         } // end while
         PMA_DBI_free_result($result);
     }
-    
+
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'row_delete':
@@ -399,7 +399,7 @@ elseif ($mult_btn == $strYes) {
 
         // All "DROP TABLE", "DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
         // statements will be run at once below
-        if ($run_parts) { 
+        if ($run_parts) {
             $sql_query .= $a_query . ';' . "\n";
             if ($query_type != 'drop_db') {
                 PMA_DBI_select_db($db);

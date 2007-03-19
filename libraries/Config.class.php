@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Configuration class
@@ -402,7 +402,7 @@ class PMA_Config
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect. Note that the presence of collation
         // information in a cookie has priority over what is defined
-        // in the default or user's config files. 
+        // in the default or user's config files.
         /**
          * @todo check validity of $_COOKIE['pma_collation_connection']
          */

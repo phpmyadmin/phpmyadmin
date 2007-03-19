@@ -1,11 +1,14 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Interface to the classic MySQL extension
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 // MySQL client API
 if (!defined('PMA_MYSQL_CLIENT_API')) {
     if (function_exists('mysql_get_client_info')) {

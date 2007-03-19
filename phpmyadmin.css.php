@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.lib.php';

@@ -1,7 +1,6 @@
 <?php
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * The Cipher_blowfish:: class implements the Cipher interface enryption data
@@ -389,7 +388,7 @@ class Horde_Cipher_blowfish {
         $parts = $this->_encryptBlock($L, $R);
         return pack("NN", $parts['L'], $parts['R']);
     }
-    
+
     /**
      * Encrypt a block on data.
      *

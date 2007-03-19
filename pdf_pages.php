@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Gets some core libraries
@@ -85,7 +85,7 @@ if ($cfgRelation['pdfwork']) {
                 if (isset($auto_layout_internal) || isset($auto_layout_innodb)) {
                     $all_tables = array();
                 }
-              
+
                 if (isset($auto_layout_innodb)) {
                     // get the tables list
                     $tables = PMA_DBI_get_tables_full($db);
@@ -184,8 +184,8 @@ if ($cfgRelation['pdfwork']) {
                                 $delta *= $delta_mult;
                                 break;
                         } // end switch
-                    } // end foreach 
-                } // end if some auto-layout to do 
+                    } // end foreach
+                } // end if some auto-layout to do
 
                 $chpage = $pdf_page_number;
 

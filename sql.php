@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * @todo    we must handle the case if sql.php is called directly with a query
  *          what returns 0 rows - to prevent cyclic redirects or includes

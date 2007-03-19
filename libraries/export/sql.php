@@ -1,6 +1,7 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+
 /**
  * Set of functions used to build SQL dumps of tables
  */
@@ -166,8 +167,8 @@ function PMA_exportFooter()
     $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
     if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
         $foot .=  $crlf
-               . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf 
-               . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf 
+               . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf
+               . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf
                . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;' . $crlf;
     }
 
@@ -216,7 +217,7 @@ function PMA_exportHeader()
     }
 
     /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
-    if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') { 
+    if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') {
         $head .=  $crlf . 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
     }
 
@@ -224,7 +225,7 @@ function PMA_exportHeader()
         $head .=  $crlf .'SET AUTOCOMMIT=0;' . $crlf
                 . 'START TRANSACTION;' . $crlf;
     }
-   
+
     $head .= $crlf;
 
     $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
@@ -320,7 +321,7 @@ function PMA_exportDBFooter($db)
             $delimiter = '$$';
             $procs_funcs = $crlf
               . $comment_marker . $crlf
-              . $comment_marker . $GLOBALS['strProcedures'] . $crlf 
+              . $comment_marker . $GLOBALS['strProcedures'] . $crlf
               . $comment_marker . $crlf
               . 'DELIMITER ' . $delimiter . $crlf
               . $comment_marker . $crlf;
@@ -347,7 +348,7 @@ function PMA_exportDBFooter($db)
         if ( !empty($procs_funcs)) {
             $result = PMA_exportOutputHandler($procs_funcs);
         }
-    } 
+    }
     return $result;
 }
 
@@ -359,7 +360,7 @@ function PMA_exportDBFooter($db)
  * @param   string   the vew name
  * @param   string   the end of line sequence
  *
- * @return  string   resulting definition 
+ * @return  string   resulting definition
  *
  * @access  public
  */
@@ -370,7 +371,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
     foreach($columns as $column_name => $definition) {
         $tmp[] = PMA_backquote($column_name) . ' ' . $definition['Type'] . $crlf;
     }
-    $create_query .= implode(',', $tmp) . ');'; 
+    $create_query .= implode(',', $tmp) . ');';
     return($create_query);
 }
 
@@ -528,11 +529,11 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                         if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
                             $str_tmp = preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
                             $sql_constraints_query .= $str_tmp;
-                            $sql_constraints .= $str_tmp; 
+                            $sql_constraints .= $str_tmp;
                         } else {
                             $str_tmp = preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
                             $sql_constraints_query .= $str_tmp;
-                            $sql_constraints .= $str_tmp; 
+                            $sql_constraints .= $str_tmp;
                         }
                         $first = FALSE;
                     } else {
@@ -552,7 +553,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     // remove a possible "AUTO_INCREMENT = value" clause
     // that could be there starting with MySQL 5.0.24
     $schema_create = preg_replace('/AUTO_INCREMENT\s*=\s*([0-9])+/', '', $schema_create);
-    
+
     $schema_create .= $auto_increment;
 
     PMA_DBI_free_result($result);
@@ -656,7 +657,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
  * @param   boolean  whether to include relation comments
  * @param   boolean  whether to include column comments
  * @param   boolean  whether to include mime comments
- * @param   string   'stand_in', 'create_table', 'create_view' 
+ * @param   string   'stand_in', 'create_table', 'create_view'
  *
  * @return  bool     Whether it suceeded
  *

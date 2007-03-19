@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /*
  * Code for displaying language selection
  * $Id$
@@ -49,7 +50,7 @@ function PMA_select_language($use_fieldset = FALSE) {
     }
 
     $language_title = $GLOBALS['strLanguage'] . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '') . ' <a href="./translators.html" target="documentation">' .
-            ( $cfg['ReplaceHelpImg'] ? 
+            ( $cfg['ReplaceHelpImg'] ?
                 '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />' :
                 '(*)' ) . '</a>';
     if ($use_fieldset) {

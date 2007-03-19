@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /* Core script for import, this is just the glue around all other stuff */
 
@@ -393,7 +393,7 @@ if ($timeout_passed) {
     }
 }
 
-// Parse and analyze the query, for correct db and table name 
+// Parse and analyze the query, for correct db and table name
 // in case of a query typed in the query window
 require_once('./libraries/parse_analyze.lib.php');
 

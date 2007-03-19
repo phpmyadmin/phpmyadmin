@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Set of functions used to build dumps of tables
@@ -278,7 +278,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
  * @param   boolean  whether to include relation comments
  * @param   boolean  whether to include column comments
  * @param   boolean  whether to include mime comments
- * @param   string   future feature: support view dependencies 
+ * @param   string   future feature: support view dependencies
  *
  * @return  bool     Whether it suceeded
  *

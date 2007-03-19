@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Gets some core libraries
@@ -226,12 +226,12 @@ if (isset($_REQUEST['destination_innodb'])) {
             }
             unset($sql_query, $tmp_error);
         }
-    } // end foreach 
+    } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            PMA_showMessage($strError); 
+            PMA_showMessage($strError);
         } else {
-            PMA_showMessage($strSuccess); 
+            PMA_showMessage($strSuccess);
         }
     }
 } // end if isset($destination_innodb)

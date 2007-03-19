@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * configures general layout
  * for detailed layout configuration please refer to the css files

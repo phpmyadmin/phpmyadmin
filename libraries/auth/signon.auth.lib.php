@@ -1,10 +1,10 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
-// +--------------------------------------------------------------------------+
-// | Set of functions used to run single signon authentication.               |
-// +--------------------------------------------------------------------------+
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Set of functions used to run single signon authentication.
+ *
+ * @version $Id$
+ */
 
 
 /**

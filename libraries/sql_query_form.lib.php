@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * functions for displaying the sql query form
  *
@@ -187,7 +187,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * @uses    htmlspecialchars()
  * @param   string      $query          query to display in the textarea
  * @param   boolean     $is_querywindow if inside querywindow or not
- * @param   string      $delimiter      default delimiter to use 
+ * @param   string      $delimiter      default delimiter to use
  */
 function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {

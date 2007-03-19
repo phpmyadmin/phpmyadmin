@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id: common.lib.php 9531 2006-10-10 14:06:56Z nijel $ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Functions for cleanup of user input.

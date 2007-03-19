@@ -1,5 +1,5 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * N   N  OOO  !!   DDDD   OOO    N   N  OOO  TTTTT   EEEE DDDD  I TTTTT !!
  * NN  N O   O !!   D   D O   O   NN  N O   O   T     E    D   D I   T   !!
@@ -541,7 +541,7 @@ $cfg['LeftLogoLink'] = 'main.php';
 
 /**
  * whether to open the linked page in the main window ('main') or
- * in a new window ('new') 
+ * in a new window ('new')
  *
  * @global string $cfg['LeftLogoLinkWindow']
  */

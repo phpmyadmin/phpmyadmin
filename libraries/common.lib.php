@@ -1,5 +1,5 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Misc stuff and functions used by ALL the scripts.
  * MUST be included by every script

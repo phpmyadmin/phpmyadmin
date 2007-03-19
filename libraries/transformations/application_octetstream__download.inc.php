@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 function PMA_transformation_application_octetstream__download(&$buffer, $options = array(), $meta = '') {
     global $row, $fields_meta;
@@ -18,7 +18,7 @@ function PMA_transformation_application_octetstream__download(&$buffer, $options
             if (isset($pos)) {
                 $cn = $row[$pos];
             }
-        } 
+        }
         if (empty($cn)) {
             $cn = 'binary_file.dat';
         }

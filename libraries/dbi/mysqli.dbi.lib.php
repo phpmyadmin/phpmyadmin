@@ -1,9 +1,9 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Interface to the improved MySQL extension (MySQLi)
+ *
+ * @version $Id$
  */
 
 // MySQL client API

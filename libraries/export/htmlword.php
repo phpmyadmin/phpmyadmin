@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Set of functions used to build CSV dumps of tables
@@ -61,7 +61,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-type" content="text/html;charset=' . ( isset($charset_of_file) ? $charset_of_file : $charset ) .'" />
+    <meta http-equiv="Content-type" content="text/html;charset=' . ( isset($charset_of_file) ? $charset_of_file : $charset ) .'" />
 </head>
 <body>');
 }

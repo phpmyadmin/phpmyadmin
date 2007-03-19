@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin setup script
  *
@@ -9,10 +10,8 @@
  * @author     Michal Čihař <michal@cihar.com>
  * @copyright  2006 Michal Čihař <michal@cihar.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
- * @version    Subversion $Id$
+ * @version    $Id$
  */
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Grab phpMyAdmin version and PMA_dl function
 define( 'PMA_MINIMUM_COMMON', TRUE );

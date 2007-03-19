@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4 ft=php:
 
 /* DocSQL import plugin for phpMyAdmin */
 
@@ -11,7 +11,7 @@ if ($plugin_param == 'database' && $GLOBALS['num_tables'] > 0 && $GLOBALS['cfgRe
             'text' => 'strDocSQL',                // text to be displayed as choice
             'extension' => '',                  // extension this plugin can handle
             'options' => array(                 // array of options for your plugin (optional)
-                array('type' => 'text', 'name' => 'table', 'text' => 'strTableName'), 
+                array('type' => 'text', 'name' => 'table', 'text' => 'strTableName'),
             ),
             'options_text' => 'strDocSQLOptions', // text to describe plugin options (must be set if options are used)
             );
@@ -56,7 +56,7 @@ if ($plugin_param == 'database' && $GLOBALS['num_tables'] > 0 && $GLOBALS['cfgRe
                 if (!empty($inf[2]) && strlen(trim($inf[2])) > 0) {
                     $for = explode('->', $inf[2]);
                     $qry = '
-                         INSERT INTO 
+                         INSERT INTO
                                 ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
                               ( master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
                          VALUES (

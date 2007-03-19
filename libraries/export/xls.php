@@ -1,6 +1,6 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 // Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
 if (!empty($GLOBALS['cfg']['TempDir'])) {
