@@ -1,5 +1,5 @@
 <?php
-/* vim: expandtab sw=4 ts=4 sts=4: */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -1732,7 +1732,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 // ON UPDATE CURRENT_TIMESTAMP
 
                 if ($upper_data == 'ON') {
-                    if ($arr[$i+1]['type'] == 'alpha_reservedWord') {
+                    if (isset($arr[$i+1]) && $arr[$i+1]['type'] == 'alpha_reservedWord') {
                         $second_upper_data = strtoupper($arr[$i+1]['data']);
                         if ($second_upper_data == 'DELETE') {
                             $clause = 'on_delete';

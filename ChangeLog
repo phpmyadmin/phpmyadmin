@@ -18,6 +18,7 @@ $HeadURL$
 - bug #1674972 no export with %afm%
 - bug #1664212 querywindow loses url encoded characters
 - bug #1682044 Export file even if file not selected
+- bug #1672789 Undefined offset: 4 in sqlparser.lib.php #1674
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
