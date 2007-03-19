@@ -12,15 +12,16 @@ $HeadURL$
 - bug #1679055 #1050 - Table '<table name>' already exists
 - bug #1668724 JavaScript focus login Opera
 - bug #1667887 HTML maxlength
-- bug #1666657 Cookie password delete on timeout / inactivity
+- bug #1666657 [auth] Cookie password delete on timeout / inactivity
 - bug #1648802 different mysql library and server version
 - bug #1239401 table dot numeric field name
 - bug #1674972 no export with %afm%
 - bug #1664212 querywindow loses url encoded characters
-- bug #1682044 Export file even if file not selected
-- bug #1672789 Undefined offset: 4 in sqlparser.lib.php #1674
-- bug #1662976 Authentication fails when controluser/pass is set
-- bug #1643758 Error #1264 importing NULL values in MySQL 5.0
+- bug #1682044 [export] Export file even if file not selected
+- bug #1672789 [sqp] Undefined offset: 4 in sqlparser.lib.php #1674
+- bug #1662976 [auth] Authentication fails when controluser/pass is set
+- bug #1643758 [import] Error #1264 importing NULL values in MySQL 5.0
+- bug #1567317 [sqp] Syntax highlighter: extra spaces
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
