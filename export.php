@@ -1,13 +1,16 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @todo    too much die here, or?
+ * @version $Id$
+ */
 
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once('./libraries/common.lib.php');
-require_once('./libraries/zip.lib.php');
-require_once('./libraries/plugin_interface.lib.php');
+require_once './libraries/common.lib.php';
+require_once './libraries/zip.lib.php';
+require_once './libraries/plugin_interface.lib.php';
 
 PMA_checkParameters(array('what', 'export_type'));
 
@@ -22,21 +25,50 @@ if (!isset($export_list[$type])) {
     die('Bad type!');
 }
 
+/**
+ * valid compression methods
+ */
+$compression_methods = array(
+    'zip',
+    'gzip',
+    'bzip',
+);
+
+/**
+ * init and variable checking
+ */
+$compression = false;
+$onserver = false;
+if (empty($_REQUEST['asfile'])) {
+    $asfile = false;
+} else {
+    $asfile = true;
+    if (in_array($_REQUEST['compression'], $compression_methods)) {
+        $compression = $_REQUEST['compression'];
+        $buffer_needed = true;
+    }
+    if (empty($_REQUEST['onserver'])) {
+        $onserver = $_REQUEST['onserver'];
+        // Will we save dump on server?
+        $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
+    }
+}
+
 // Does export require to be into file?
-if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
+if (isset($export_list[$type]['force_file']) && $asfile) {
     $message = $strExportMustBeFile;
     $GLOBALS['show_error_header'] = true;
     $js_to_run = 'functions.js';
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require('./server_export.php');
+        require './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require('./db_export.php');
+        require './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require('./tbl_export.php');
+        require './tbl_export.php';
     }
     exit();
 }
@@ -44,22 +76,22 @@ if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
-} elseif ($export_type == 'database' && isset($db) && strlen($db)) {
+} elseif ($export_type == 'database' && strlen($db)) {
     $err_url = 'db_export.php?' . PMA_generate_common_url($db);
     // Check if we have something to export
     if (isset($table_select)) {
-        $tables = $table_select; 
+        $tables = $table_select;
     } else {
         $tables = array();
     }
-} elseif ($export_type == 'table' && isset($db) && strlen($db) && isset($table) && strlen($table)) {
+} elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
     $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
     die('Bad parameters!');
 }
 
 // Get the functions specific to the export type
-require('./libraries/export/' . PMA_securePath($type) . '.php');
+require './libraries/export/' . PMA_securePath($type) . '.php';
 
 /**
  * Increase time limit for script execution and initializes some variables
@@ -118,8 +150,8 @@ function PMA_exportOutputHandler($line)
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
                     if (!$write_result || ($write_result != strlen($dump_buffer))) {
                         $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
-                        $GLOBALS['show_error_header'] = TRUE;
-                        return FALSE;
+                        $GLOBALS['show_error_header'] = true;
+                        return false;
                     }
                 } else {
                     echo $dump_buffer;
@@ -140,8 +172,8 @@ function PMA_exportOutputHandler($line)
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
                     $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
-                    $GLOBALS['show_error_header'] = TRUE;
-                    return FALSE;
+                    $GLOBALS['show_error_header'] = true;
+                    return false;
                 }
                 $time_now = time();
                 if ($time_start >= $time_now + 30) {
@@ -160,24 +192,8 @@ function PMA_exportOutputHandler($line)
             echo htmlspecialchars($line);
         }
     }
-    return TRUE;
+    return true;
 } // end of the 'PMA_exportOutputHandler()' function
-
-// Will we save dump on server?
-$save_on_server = isset($cfg['SaveDir']) && !empty($cfg['SaveDir']) && !empty($onserver);
-
-// Ensure compressed formats are associated with the download feature
-if (empty($asfile)) {
-    if ($save_on_server) {
-        $asfile = TRUE;
-    } elseif (isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip')) {
-        $asfile = TRUE;
-    } else {
-        $asfile = FALSE;
-    }
-} else {
-    $asfile = TRUE;
-}
 
 // Defines the default <CR><LF> format. For SQL always use \n as MySQL wants this on all platforms.
 if ($what == 'sql') {
@@ -194,11 +210,8 @@ $output_charset_conversion = $asfile &&
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
-// Set whether we will need buffering
-$buffer_needed = isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip');
-
 // Use on fly compression?
-$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && isset($compression) && ($compression == 'gzip' | $compression == 'bzip');
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && ($compression == 'gzip' | $compression == 'bzip');
 if ($onfly_compression) {
     $memory_limit = trim(@ini_get('memory_limit'));
     // 2 MB as default
@@ -261,12 +274,12 @@ if ($asfile) {
     // If dump is going to be compressed, set correct encoding or mime_type and add
     // compression to extension
     $content_encoding = '';
-    if (isset($compression) && $compression == 'bzip') {
+    if ($compression == 'bzip') {
         $filename  .= '.bz2';
         // browsers don't like this:
         //$content_encoding = 'x-bzip2';
         $mime_type = 'application/x-bzip2';
-    } elseif (isset($compression) && $compression == 'gzip') {
+    } elseif ($compression == 'gzip') {
         $filename  .= '.gz';
         // Needed to avoid recompression by server modules like mod_gzip.
         // It seems necessary to check about zlib.output_compression
@@ -275,7 +288,7 @@ if ($asfile) {
             $content_encoding = 'x-gzip';
             $mime_type = 'application/x-gzip';
         }
-    } elseif (isset($compression) && $compression == 'zip') {
+    } elseif ($compression == 'zip') {
         $filename  .= '.zip';
         $mime_type = 'application/zip';
     }
@@ -287,30 +300,30 @@ if ($save_on_server) {
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
         $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));
-        $GLOBALS['show_error_header'] = TRUE;
+        $GLOBALS['show_error_header'] = true;
     } else {
         if (is_file($save_filename) && !is_writable($save_filename)) {
             $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
-            $GLOBALS['show_error_header'] = TRUE;
+            $GLOBALS['show_error_header'] = true;
         } else {
             if (!$file_handle = @fopen($save_filename, 'w')) {
                 $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
-                $GLOBALS['show_error_header'] = TRUE;
+                $GLOBALS['show_error_header'] = true;
             }
         }
     }
     if (isset($message)) {
         $js_to_run = 'functions.js';
-        require_once('./libraries/header.inc.php');
+        require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require('./server_export.php');
+            require './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require('./db_export.php');
+            require './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require('./tbl_export.php');
+            require './tbl_export.php';
         }
         exit();
     }
@@ -348,14 +361,14 @@ if (!$save_on_server) {
             if ($num_tables == 0) {
                 $message = $strNoTablesFound;
                 $js_to_run = 'functions.js';
-                require_once('./libraries/header.inc.php');
+                require_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
-                require('./db_export.php');
+                require './db_export.php';
                 exit();
             }
         }
         $backup_cfgServer = $cfg['Server'];
-        require_once('./libraries/header.inc.php');
+        require_once './libraries/header.inc.php';
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
@@ -383,11 +396,11 @@ $do_relation = isset($GLOBALS[$what . '_relation']);
 $do_comments = isset($GLOBALS[$what . '_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
-    require_once('./libraries/relation.lib.php');
+    require_once './libraries/relation.lib.php';
     $cfgRelation = PMA_getRelationsParam();
 }
 if ($do_mime) {
-    require_once('./libraries/transformations.lib.php');
+    require_once './libraries/transformations.lib.php';
 }
 
 // Include dates in export?
@@ -534,21 +547,21 @@ if (!PMA_exportFooter()) {
     break;
 }
 
-} while (FALSE);
+} while (false);
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
     $js_to_run = 'functions.js';
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
-        require('./server_export.php');
+        require './server_export.php';
     } elseif ($export_type == 'database') {
         $active_page = 'db_export.php';
-        require('./db_export.php');
+        require './db_export.php';
     } else {
         $active_page = 'tbl_export.php';
-        require('./tbl_export.php');
+        require './tbl_export.php';
     }
     exit();
 }
@@ -564,7 +577,7 @@ if (!empty($asfile)) {
 
     // Do the compression
     // 1. as a gzipped file
-    if (isset($compression) && $compression == 'zip') {
+    if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new zipfile();
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
@@ -572,18 +585,18 @@ if (!empty($asfile)) {
         }
     }
     // 2. as a bzipped file
-    elseif (isset($compression) && $compression == 'bzip') {
+    elseif ($compression == 'bzip') {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
             if ($dump_buffer === -8) {
-                require_once('./libraries/header.inc.php');
+                require_once './libraries/header.inc.php';
                 echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
-                require_once('./libraries/footer.inc.php');
+                require_once './libraries/footer.inc.php';
             }
         }
     }
     // 3. as a gzipped file
-    elseif (isset($compression) && $compression == 'gzip') {
+    elseif ($compression == 'gzip') {
         if (@function_exists('gzencode')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
@@ -601,16 +614,16 @@ if (!empty($asfile)) {
         }
 
         $js_to_run = 'functions.js';
-        require_once('./libraries/header.inc.php');
+        require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            require_once('./server_export.php');
+            require_once './server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            require_once('./db_export.php');
+            require_once './db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            require_once('./tbl_export.php');
+            require_once './tbl_export.php';
         }
         exit();
     } else {
@@ -651,6 +664,6 @@ else {
 //]]>
 </script>
 <?php
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 } // end if
 ?>

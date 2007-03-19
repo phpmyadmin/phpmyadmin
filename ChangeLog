@@ -17,6 +17,7 @@ $HeadURL$
 - bug #1239401 table dot numeric field name
 - bug #1674972 no export with %afm%
 - bug #1664212 querywindow loses url encoded characters
+- bug #1682044 Export file even if file not selected
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
