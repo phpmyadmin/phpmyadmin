@@ -34,6 +34,8 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
 /**
  * Displays authentication form
  *
+ * this function MUST exit/quit the application
+ *
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['PHP_AUTH_USER']
  * @uses    $GLOBALS['pma_auth_server']
@@ -390,12 +392,9 @@ function PMA_auth_check()
 
     // User inactive too long
     if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
-        if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity'] * 4) {
-            $GLOBALS['no_activity'] = true;
-            PMA_auth_fails();
-            exit;
-        }
-        return false;
+        $GLOBALS['no_activity'] = true;
+        PMA_auth_fails();
+        exit;
     }
 
     // password
@@ -538,6 +537,9 @@ function PMA_auth_set_user()
  *
  * prepares error message and switches to PMA_auth() which display the error
  * and the login form
+ *
+ * this function MUST exit/quit the application,
+ * currently doen by call to PMA_auth()
  *
  * @todo    $php_errormsg is invalid here!? it will never be set in this scope
  * @uses    $GLOBALS['server']
