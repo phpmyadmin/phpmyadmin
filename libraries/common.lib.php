@@ -3378,10 +3378,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
         // scripts)
+        $controllink = false;
         if ($cfg['Server']['controluser'] != '') {
             $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
                 $cfg['Server']['controlpass'], true);
-        } else {
+        }
+        if (! $controllink) {
             $controllink = PMA_DBI_connect($cfg['Server']['user'],
                 $cfg['Server']['password'], true);
         } // end if ... else

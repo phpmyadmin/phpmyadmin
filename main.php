@@ -345,8 +345,8 @@ if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
  * modified: 2004-05-05 mkkeck
  */
 if ($server != 0
-    && $cfg['Server']['user'] == 'root'
-    && $cfg['Server']['password'] == '') {
+ && $cfg['Server']['user'] == 'root'
+ && $cfg['Server']['password'] == '') {
     echo '<div class="warning">' . $strInsecureMySQL . '</div>' . "\n";
 }
 
@@ -391,12 +391,23 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
 }
 
+/**
+ * Warning about different MySQL library and server version
+ */
 if ($server > 0 && PMA_MYSQL_CLIENT_API !== PMA_MYSQL_INT_VERSION) {
     echo '<div class="warning">'
      . PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
             PMA_DBI_get_client_info(),
             substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-'))))
      . '</div>' . "\n";
+}
+
+/**
+ * Warning about wrong controluser settings
+ */
+$strControluserFailed = 'Connection for controluser as defined in your config.inc.php failed.';
+if (defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
+    echo '<div class="warning">' . $strControluserFailed . '</div>' . "\n";
 }
 
 if (defined('PMA_WARN_FOR_MCRYPT')) {
