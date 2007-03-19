@@ -1,12 +1,19 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: expandtab sw=4 ts=4 sts=4: */
+/**
+ * Library that provides common import functions that are used by import plugins
+ *
+ * @version $Id$
+ */
 
-/* Library that provides common import functions that are used by import plugins */
+/**
+ * We need to know something about user
+ */
+require_once './libraries/check_user_privileges.lib.php';
 
-// We need to know something about user
-require_once('./libraries/check_user_privileges.lib.php');
-// We do this check
+/**
+ * We do this check, DROP DATABASE does not need to be confirmed elsewhere
+ */
 define('PMA_CHK_DROP', 1);
 
 /**
@@ -60,17 +67,18 @@ function PMA_detectCompression($filepath)
 }
 
 /**
- *  Runs query inside import buffer. This is needed to allow displaying
- *  of last SELECT, SHOW or HANDLER results and similar nice stuff.
+ * Runs query inside import buffer. This is needed to allow displaying
+ * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- *  @param  string query to run
- *  @param  string query to display, this might be commented
- *  @param  bool   whether to use control user for queries
- *  @access public
+ * @uses    $GLOBALS['finished'] read and write
+ * @param  string query to run
+ * @param  string query to display, this might be commented
+ * @param  bool   whether to use control user for queries
+ * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 {
-    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser, $message, $show_error_header;
+    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser, $message, $show_error_header;
     $read_multiply = 1;
     if (isset($import_run_buffer)) {
         // Should we skip something?
@@ -90,7 +98,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     $error = TRUE;
                 } else {
                     $executed_queries++;
-                    if ($run_query && $finished && empty($sql) && !$error && (
+                    if ($run_query && $GLOBALS['finished'] && empty($sql) && !$error && (
                             (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql'])) ||
                             ($executed_queries == 1)
                             )) {
@@ -190,16 +198,22 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 
 
 /**
- *  Returns next part of imported file/buffer
+ * Returns next part of imported file/buffer
  *
- *  @param  integer size of buffer to read (this is maximal size
+ * @uses    $GLOBALS['offset'] read and write
+ * @uses    $GLOBALS['import_file'] read only
+ * @uses    $GLOBALS['import_text'] read and write
+ * @uses    $GLOBALS['finished'] read and write
+ * @uses    $GLOBALS['read_limit'] read only
+ * @param  integer size of buffer to read (this is maximal size
  *                  function will return)
- *  @return string part of file/buffer
- *  @access public
+ * @return string part of file/buffer
+ * @access public
  */
 function PMA_importGetNextChunk($size = 32768)
 {
-    global $import_file, $import_text, $finished, $compression, $import_handle, $offset, $charset_conversion, $charset_of_file, $charset, $read_multiply, $read_limit;
+    global $compression, $import_handle, $charset_conversion, $charset_of_file,
+        $charset, $read_multiply;
 
     // Add some progression while reading large amount of data
     if ($read_multiply <= 8) {
@@ -210,26 +224,26 @@ function PMA_importGetNextChunk($size = 32768)
     $read_multiply++;
 
     // We can not read too much
-    if ($size > $read_limit) {
-        $size = $read_limit;
+    if ($size > $GLOBALS['read_limit']) {
+        $size = $GLOBALS['read_limit'];
     }
 
     if (PMA_checkTimeout()) {
         return FALSE;
     }
-    if ($finished) {
+    if ($GLOBALS['finished']) {
         return TRUE;
     }
 
-    if ($import_file == 'none') {
+    if ($GLOBALS['import_file'] == 'none') {
         // Well this is not yet supported and tested, but should return content of textarea
-        if (strlen($import_text) < $size) {
-            $finished = TRUE;
-            return $import_text;
+        if (strlen($GLOBALS['import_text']) < $size) {
+            $GLOBALS['finished'] = TRUE;
+            return $GLOBALS['import_text'];
         } else {
-            $r = substr($import_text, 0, $size);
-            $offset += $size;
-            $import_text = substr($import_text, $size);
+            $r = substr($GLOBALS['import_text'], 0, $size);
+            $GLOBALS['offset'] += $size;
+            $GLOBALS['import_text'] = substr($GLOBALS['import_text'], $size);
             return $r;
         }
     }
@@ -237,23 +251,23 @@ function PMA_importGetNextChunk($size = 32768)
     switch ($compression) {
         case 'application/bzip2':
             $result = bzread($import_handle, $size);
-            $finished = feof($import_handle);
+            $GLOBALS['finished'] = feof($import_handle);
             break;
         case 'application/gzip':
             $result = gzread($import_handle, $size);
-            $finished = feof($import_handle);
+            $GLOBALS['finished'] = feof($import_handle);
             break;
         case 'application/zip':
-            $result = substr($import_text, 0, $size);
-            $import_text = substr($import_text, $size);
-            $finished = empty($import_text);
+            $result = substr($GLOBALS['import_text'], 0, $size);
+            $GLOBALS['import_text'] = substr($GLOBALS['import_text'], $size);
+            $GLOBALS['finished'] = empty($GLOBALS['import_text']);
             break;
         case 'none':
             $result = fread($import_handle, $size);
-            $finished = feof($import_handle);
+            $GLOBALS['finished'] = feof($import_handle);
             break;
     }
-    $offset += $size;
+    $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {
         return PMA_convert_string($charset_of_file, $charset, $result);
@@ -265,7 +279,7 @@ function PMA_importGetNextChunk($size = 32768)
          *
          * @todo BOM could be used for charset autodetection
          */
-        if ($offset == $size) {
+        if ($GLOBALS['offset'] == $size) {
             // UTF-8
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = substr($result, 3);
@@ -277,7 +291,4 @@ function PMA_importGetNextChunk($size = 32768)
         return $result;
     }
 }
-
-
-
 ?>
