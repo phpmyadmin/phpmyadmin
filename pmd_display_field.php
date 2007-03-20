@@ -1,6 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id: pmd_display_field.php 9828 2007-01-05 17:30:36Z lem9 $ */
+/* $Id$ */
 
 /*
 @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)

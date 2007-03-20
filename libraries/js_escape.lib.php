@@ -1,6 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id: common.lib.php 9832 2007-01-09 09:50:49Z nijel $ */
+/* $Id$ */
 
 /**
  * Javascript escaping functions.

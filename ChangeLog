@@ -3,7 +3,7 @@ phpMyAdmin - ChangeLog
 ----------------------
 
 $Id$
-$HeadURL$
+$HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 + [import] support handling of DELIMITER to mimic mysql CLI, thanks to fb1
 - bug #1674914 [structure] changing definition of a TIMESTAMP field
