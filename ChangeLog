@@ -9,19 +9,11 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1674914 [structure] changing definition of a TIMESTAMP field
 - bug #1615530 [upload] added more specific error message if field upload fails
 - bug #1627210, #1083301, #1482401 [data] warning on duplicate indexes
-- bug #1679055 #1050 - Table '<table name>' already exists
 - bug #1668724 JavaScript focus login Opera
-- bug #1667887 HTML maxlength
 - bug #1666657 [auth] Cookie password delete on timeout / inactivity
 - bug #1648802 different mysql library and server version
-- bug #1239401 table dot numeric field name
-- bug #1674972 no export with %afm%
-- bug #1664212 querywindow loses url encoded characters
-- bug #1682044 [export] Export file even if file not selected
-- bug #1672789 [sqp] Undefined offset: 4 in sqlparser.lib.php #1674
 - bug #1662976 [auth] Authentication fails when controluser/pass is set
 - bug #1643758 [import] Error #1264 importing NULL values in MySQL 5.0
-- bug #1567317 [sqp] Syntax highlighter: extra spaces
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
@@ -37,7 +29,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [upload] make use of $cfg['TempDir'] for file uploads
 + [server] improved display of binary logs
 + [data] better error handling in tbl_create.php
-+ [config] clean cookies on phpMyAdmin upgrade
 + [routines] from Patch #1649881, thanks to Mike Beck; work in progress...
   (still to do: support definer; procedure execution)
 
@@ -54,6 +45,15 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1680952 [core] undefined function PMA_getUvaCondition()
 - bug #1596328 [export] drop support for POSTGRESQL compatibility mode
 - bug #1609443 [privileges] Grant all priv. on wildcard name (fix message)
+- bug #1567317 [sqp] Syntax highlighter: extra spaces
+- bug #1239401 [sqp] table dot numeric field name
+- bug #1672789 [sqp] Undefined offset: 4 in sqlparser.lib.php #1674
+- bug #1682044 [export] Export file even if file not selected
+- bug #1664212 querywindow loses url encoded characters
++ [config] clean cookies on phpMyAdmin upgrade
+- bug #1674972 [export] no export with %afm%
+- bug #1667887 HTML maxlength
+- bug #1679055 #1050 - Table '<table name>' already exists
 
 2.10.0.3 (not released yet)
 =====================
