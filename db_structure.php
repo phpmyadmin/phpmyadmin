@@ -179,6 +179,7 @@ $row_count      = 0;
 $hidden_fields = array();
 $odd_row       = true;
 $at_least_one_view_exceeds_max_count = false;
+$sum_row_count_pre = '';
 
 foreach ($tables as $keyname => $each_table) {
     if ($each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
@@ -356,12 +357,19 @@ foreach ($tables as $keyname => $each_table) {
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
         if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews']) {
             $at_least_one_view_exceeds_max_count = true;
+            $row_count_pre = '~';
+            $sum_row_count_pre = '~';
             $show_superscript = '<sup>1</sup>';
+        } elseif($each_table['ENGINE'] == 'InnoDB') {
+            // InnoDB table: Row count is not accurate
+            $row_count_pre = '~';
+            $sum_row_count_pre = '~';
         } else {
+            $row_count_pre = '';
             $show_superscript = '';
         }
     ?>
-    <td class="value"><?php echo PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
+    <td class="value"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
     <td nowrap="nowrap"><?php echo ($table_is_view ? $strView : $each_table['ENGINE']); ?></td>
             <?php if (isset($collation)) { ?>
@@ -407,7 +415,7 @@ if ($is_show_stats) {
     </th>
     <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
         <?php echo $strSum; ?></th>
-    <th class="value"><?php echo PMA_formatNumber($sum_entries, 0); ?></th>
+    <th class="value"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_get_default_engine();

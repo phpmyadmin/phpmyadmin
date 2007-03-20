@@ -1717,6 +1717,25 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
     global $cfgRelation;
+    global $showtable;
+
+    /**
+     * @todo move this to a central place
+     * @todo for other future table types
+     */
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+
+    if (!isset($analyzed_sql[0]['queryflags']['union'])
+     && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+     && (empty($analyzed_sql[0]['where_clause'])
+      || $analyzed_sql[0]['where_clause'] == '1 ')) {
+        // "j u s t   b r o w s i n g"
+        $pre_count = '~';
+        $after_count = '[sup]1[/sup]';
+    } else {
+        $pre_count = '';
+        $after_count = '';
+    }
 
     // 1. ----- Prepares the work -----
 
@@ -1762,10 +1781,16 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                         ? $total - 1
                         : $pos_next - 1;
-        PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec (" . PMA_formatNumber($total, 0) . ' ' . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
-        if (isset($table) && PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
+        PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec (" . $pre_count . PMA_formatNumber($total, 0) . $after_count . ' ' . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
+
+        if (PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
             echo '<div class="notice">' . "\n";
             echo PMA_sanitize(sprintf($GLOBALS['strViewMaxExactCount'], PMA_formatNumber($GLOBALS['cfg']['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
+            echo '</div>' . "\n";
+        }
+        if ($pre_count) {
+            echo '<div class="notice">' . "\n";
+            echo '<sup>1</sup>' . PMA_sanitize($GLOBALS['strApproximateCount']) . "\n";
             echo '</div>' . "\n";
         }
 

@@ -14,6 +14,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1648802 different mysql library and server version
 - bug #1662976 [auth] Authentication fails when controluser/pass is set
 - bug #1643758 [import] Error #1264 importing NULL values in MySQL 5.0
+- bug #1523747 [innodb] make warning about row count more visible
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
 . [i18n] use generic $strOptions
