@@ -5,9 +5,18 @@
  * @version $Id$
  */
 
+
 /**
- * Check parameters
- *
+ * @todo Support seeing the "results" of the called procedure or
+ *       function. This needs further reseach because a procedure
+ *       does not necessarily contain a SELECT statement that
+ *       produces something to see. But it seems we could at least
+ *       get the number of rows affected. We would have to
+ *       use the CLIENT_MULTI_RESULTS flag to get the result set
+ *       and also the call status. All this does not fit well with
+ *       our current sql.php. 
+ *       Of course the interface would need a way to pass calling parameters.
+ *       Also, support DEFINER (like we do in export).
  */
 if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
     $url_query .= '&amp;goto=db_structure.php';
@@ -18,7 +27,6 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
         echo '<table border="0">';
         echo sprintf('<tr>
                           <th>%s</th>
-                          <th>&nbsp;</th>
                           <th>&nbsp;</th>
                           <th>&nbsp;</th>
                           <th>%s</th>
@@ -39,17 +47,17 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
                                     $routine['SPECIFIC_NAME']);
             $definition = PMA_DBI_fetch_value($sql);
 
-            if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
-                $sqlUseProc  = 'CALL ' . $routine['SPECIFIC_NAME'] . '()';
-            } else {
-                $sqlUseProc = 'SELECT ' . $routine['SPECIFIC_NAME'] . '()';
+            //if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
+            //    $sqlUseProc  = 'CALL ' . $routine['SPECIFIC_NAME'] . '()';
+            //} else {
+            //    $sqlUseProc = 'SELECT ' . $routine['SPECIFIC_NAME'] . '()';
                 /* this won't get us far: to really use the function
                    i'd need to know how many parameters the function needs and then create
                    something to ask for them. As i don't see this directly in
                    the table i am afraid that requires parsing the ROUTINE_DEFINITION
                    and i don't really need that now so i simply don't offer
                    a method for running the function*/
-            }
+            //}
             if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
                 $sqlDropProc = 'DROP PROCEDURE ' . $routine['SPECIFIC_NAME'];
             } else {
@@ -61,12 +69,11 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
                               <td>%s</td>
                               <td>%s</td>
                               <td>%s</td>
-                              <td>%s</td>
                          </tr>',
                          ($ct%2 == 0) ? 'even' : 'odd',
                          $routine['ROUTINE_NAME'],
                          ! empty($definition) ? '<a href="db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;delimiter=' . urlencode($delimiter) . '">' . $titles['Structure'] . '</a>' : '&nbsp;',
-                         $routine['ROUTINE_TYPE'] == 'PROCEDURE' ? '<a href="sql.php?' . $url_query . '&sql_query=' . urlencode($sqlUseProc) . '">' . $titles['Browse'] . '</a>' : '&nbsp;',
+                         //$routine['ROUTINE_TYPE'] == 'PROCEDURE' ? '<a href="sql.php?' . $url_query . '&sql_query=' . urlencode($sqlUseProc) . '">' . $titles['Browse'] . '</a>' : '&nbsp;',
                          '<a href="sql.php?' . $url_query . '&sql_query=' . urlencode($sqlDropProc) . '" onclick="return confirmLink(this, \'' . PMA_jsFormat($sqlDropProc, false) . '\')">' . $titles['Drop'] . '</a>',
                          $routine['ROUTINE_TYPE'],
                          $routine['DTD_IDENTIFIER']);

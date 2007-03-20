@@ -30,8 +30,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [upload] make use of $cfg['TempDir'] for file uploads
 + [server] improved display of binary logs
 + [data] better error handling in tbl_create.php
-+ [routines] from Patch #1649881, thanks to Mike Beck; work in progress...
-  (still to do: support definer; procedure execution)
++ [routines] from Patch #1649881, thanks to Mike Beck
 
 2.10.1.0 (not released yet)
 =====================
