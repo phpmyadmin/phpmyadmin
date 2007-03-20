@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Very Small
+ * @subpackage Very_small
  */
 ?>
 /* For printview */

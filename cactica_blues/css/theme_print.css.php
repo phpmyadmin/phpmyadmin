@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Cactic Blues
+ * @subpackage CacticBlues
  */
 ?>
 /* For printview */

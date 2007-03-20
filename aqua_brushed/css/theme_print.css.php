@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Aqua Brushed
+ * @subpackage Aqua_Brushed
  */
 ?>
 /* For printview */

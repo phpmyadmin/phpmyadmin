@@ -11,7 +11,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Cactica Blues
+ * @subpackage CacticaBlues
  */
 
 /**

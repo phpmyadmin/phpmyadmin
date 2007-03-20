@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage XP Silver
+ * @subpackage WinXP_silver
  */
 ?>
 

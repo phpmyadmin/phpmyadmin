@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Darkblue Grey
+ * @subpackage Darkblue_grey
  */
 ?>
 /************************************************************************************

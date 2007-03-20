@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Garvblue
+ * @subpackage garvBlue
  */
 ?>
 /* For printview */

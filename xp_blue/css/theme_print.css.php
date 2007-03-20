@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage XP Blue
+ * @subpackage WinXP_blue
  */
 ?>
 /* For printview */

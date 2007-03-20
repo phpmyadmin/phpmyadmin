@@ -4,7 +4,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage XP Basic
+ * @subpackage WinXP_basic
  */
 
 /**

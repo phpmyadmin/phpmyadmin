@@ -6,7 +6,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Arctic Ocean
+ * @subpackage Arctic_Ocean
  */
 
 /**

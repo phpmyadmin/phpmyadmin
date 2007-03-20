@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage XP Silver
+ * @subpackage WinXP_silver
  */
 
     if (isset($num_dbs) && $num_dbs == '0') {
