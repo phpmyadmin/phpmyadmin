@@ -2,6 +2,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin-Designer
  */
 
 /**

@@ -1,10 +1,20 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ *
+ * @version $Id$
+ * @package phpMyAdmin-Designer
+ */
+
+/**
+ *
+ */
 if (!window.all)  // if IE
-{ 
+{
   document.attachEvent("onreadystatechange", // document load
-    function () 
-    {          
-      if (document.readyState == "complete") 
-      {      
+    function ()
+    {
+      if (document.readyState == "complete")
+      {
         var el  =  document.getElementById("canvas");
         var outerHTML = el.outerHTML;
         var newEl = document.createElement(outerHTML);
@@ -17,7 +27,7 @@ if (!window.all)  // if IE
 
         el.style.width = el.attributes.width.nodeValue + "px";
         el.style.height = el.attributes.height.nodeValue + "px";
-      } 
+      }
     }
   );
 
@@ -30,23 +40,23 @@ if (!window.all)  // if IE
       m[i] = (m[i]*1).toString(16).length < 2 ? '0' + (m[i]*1).toString(16) : (m[i]*1).toString(16);
     return ['#' + m[1] + m[2] + m[3], 1];
   }
-//------------------------------------------------------------------------------  
+//------------------------------------------------------------------------------
   function PMD_2D(th) {
     this.element_ = th;
     this.pmd_arr = Array();
     this.strokeStyle;
     this.fillStyle;
     this.lineWidth;
-    
+
     this.closePath = function() {
       this.pmd_arr.push({type: "close"});
     }
-    
+
     this.clearRect = function() {
       this.element_.innerHTML = "";
       this.pmd_arr = [];
     }
-    
+
     this.beginPath = function() {
       this.pmd_arr = [];
     }
@@ -111,7 +121,7 @@ if (!window.all)  // if IE
 
       for (var i = 0; i < this.pmd_arr.length; i++) {
         var p = this.pmd_arr[i];
-        
+
         if (p.type == "moveTo") {
           Str.push(" m ");
           Str.push(Math.floor(p.x), ",",Math.floor(p.y));
@@ -130,10 +140,10 @@ if (!window.all)  // if IE
                    Math.floor(p.xEnd), ",", Math.floor(p.yEnd));
         }
       }
-    
+
       Str.push(' ">');
       Str.push("</v:shape>");
-    
+
       this.element_.insertAdjacentHTML("beforeEnd", Str.join(""));
       this.pmd_arr = Array();
     }

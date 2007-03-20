@@ -1,4 +1,8 @@
-/* $Id$ */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @version $Id$
+ * @package phpMyAdmin-Designer
+ */
 
 body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#EAEEF0; margin:0px; }
 .input_tab { background-color:#A6C7E1;}
@@ -41,14 +45,14 @@ input,select,textarea{ font-family:Arial, Helvetica, sans-serif; font-size:12px;
 .L_butt2_2{  font-size:12px;  padding:0px;  border:#0099CC solid 1px;  background:#FFEE99;  text-decoration: none;  color:#000000;  cursor:default;}
 /* -----------------------------------------------------------------------------------------------------------*/
 .bor{  width:10px;   height:10px;}
-#frams1 { background: url(images/1.png) no-repeat right bottom; } 
+#frams1 { background: url(images/1.png) no-repeat right bottom; }
 #frams2 { background: url(images/2.png) no-repeat left bottom;  }
-#frams3 { background: url(images/3.png) no-repeat left top;     } 
+#frams3 { background: url(images/3.png) no-repeat left top;     }
 #frams4 { background: url(images/4.png) no-repeat right top;    }
-#frams5 { background: url(images/5.png) repeat-x center bottom;    }	
-#frams6 { background: url(images/6.png) repeat-y left; } 
+#frams5 { background: url(images/5.png) repeat-x center bottom;    }
+#frams6 { background: url(images/6.png) repeat-y left; }
 #frams7 { background: url(images/7.png) repeat-x top;  }
-#frams8 { background: url(images/8.png) repeat-y right; } 
+#frams8 { background: url(images/8.png) repeat-y right; }
 
 #osn_tab { background-color:#FFFFFF; border:#A9A9A9 solid 1px;}
 
@@ -63,13 +67,13 @@ ul.header {
     position: fixed;
     margin: 0;
     z-index:1001;
-    
+
     padding:0px;
-    
+
     background-image:url(images/top_panel.png);
     background-position:top;
     background-repeat:repeat-x;
-    
+
     border-right:#999999 solid 1px;
     /*border-bottom:#999999 solid 1px;*/
     border-left:#999999 solid 1px;
@@ -126,7 +130,7 @@ cursor: default;
 background-color: #FFEE99;
 }
 
-.M_bord 
+.M_bord
 {
   border: 0;
   margin-left: 2px;

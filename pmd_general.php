@@ -3,6 +3,7 @@
 /**
  * @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
  * @version $Id$
+ * @package phpMyAdmin-Designer
  */
 
 /**
