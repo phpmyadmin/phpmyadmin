@@ -2809,7 +2809,7 @@ if (get_magic_quotes_gpc()) {
 
 /**
  * clean cookies on new install or upgrade
- * when chaning something with increment the cookie version
+ * when changing something with increment the cookie version
  */
 $pma_cookie_version = 4;
 if (isset($_COOKIE)
