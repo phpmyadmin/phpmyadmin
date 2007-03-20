@@ -1,12 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * URL/hidden inputs generating.
+ *
+ * @version $Id$
  */
-
 
 /**
  * Generates text with hidden inputs.

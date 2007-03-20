@@ -1,12 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * phpMyAdmin Language Loading File
+ *
+ * @version $Id$
  */
 
-// Detection is done here
+/**
+ * lang detection is done here
+ */
 require_once('./libraries/select_lang.lib.php');
 
 // Load the translation

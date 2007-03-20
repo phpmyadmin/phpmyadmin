@@ -1,11 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 require_once './libraries/Theme.class.php';
 
-class PMA_Theme_Manager {
-
+/**
+ *
+ */
+class PMA_Theme_Manager
+{
     /**
      * @var string path to theme folder
      * @protected

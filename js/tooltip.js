@@ -1,11 +1,14 @@
-/* $Id$ */
-
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Displays the Tooltips (hints), if we have some
  * 2005-01-20 added by Michael Keck (mkkeck)
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 var ttXpos = 0, ttYpos = 0;
 var ttXadd = 10, ttYadd = -10;
 var ttDisplay = 0, ttHoldIt = 0;

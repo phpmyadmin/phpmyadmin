@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Library for extracting information about the available storage engines
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 $GLOBALS['mysql_storage_engines'] = array();
 
 if (PMA_MYSQL_INT_VERSION >= 40102) {

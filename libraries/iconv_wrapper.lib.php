@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 # GNU iconv code set to IBM AIX libiconv code set table
 # Keys of this table should be in lowercase, and searches should be performed using lowercase!
 $gnu_iconv_to_aix_iconv_codepage_map = array (

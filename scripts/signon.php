@@ -1,12 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-// Single signon for phpMyAdmin
-//
-// This is just example how to use single signon with phpMyAdmin, it is
-// not intended to be perfect code and look, only shows how you can
-// integrate this functionality in your application.
+/**
+ * Single signon for phpMyAdmin
+ *
+ * This is just example how to use single signon with phpMyAdmin, it is
+ * not intended to be perfect code and look, only shows how you can
+ * integrate this functionality in your application.
+ *
+ * @version $Id$
+ */
 
 /* Was data posted? */
 if (isset($_POST['user'])) {
@@ -28,7 +30,7 @@ if (isset($_POST['user'])) {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-?>
+    ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">

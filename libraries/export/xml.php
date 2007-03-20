@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used to build XML dumps of tables
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if (isset($GLOBALS['db']) && strlen($GLOBALS['db'])) { /* Can't do server export */
 
 if (isset($plugin_list)) {

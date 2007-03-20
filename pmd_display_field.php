@@ -1,11 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
+ * @version $Id$
+ */
 
-/*
-@author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
-*/
-
+/**
+ *
+ */
 include_once 'pmd_common.php';
 require_once './libraries/relation.lib.php';
 

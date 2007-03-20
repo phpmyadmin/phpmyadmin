@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
     die("GLOBALS overwrite attempt");
 }

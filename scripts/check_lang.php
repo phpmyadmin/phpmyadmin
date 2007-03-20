@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * This test script checks all the language files to ensure there is no errors
  * inside and nothing is displayed on screen (eg no extra no blank line).
+ *
+ * @version $Id$
+ */
+
+/**
+ *
  */
 $failed = array();
 $passed = array();

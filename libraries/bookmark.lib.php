@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used with the bookmark feature
+ *
+ * @version $Id$
  */
 
 

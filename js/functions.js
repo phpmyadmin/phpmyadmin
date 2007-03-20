@@ -1,4 +1,9 @@
-/* $Id$ */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * general function, usally for data manipulation pages
+ *
+ * @version $Id$
+ */
 
 /**
  * @var sql_box_locked lock for the sqlbox textarea in the querybox/querywindow

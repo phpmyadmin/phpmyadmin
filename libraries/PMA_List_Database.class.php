@@ -3,6 +3,7 @@
 /**
  * holds the PMA_List_Database class
  *
+ * @version $Id$
  */
 
 /**

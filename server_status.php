@@ -1,9 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * displays status variables with descriptions and some hints an optmizing
  *  + reset status variables
+ *
+ * @version $Id$
+ */
+
+/**
+ *
  */
 if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);

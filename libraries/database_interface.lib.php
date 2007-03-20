@@ -1,9 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Common Option Constants For DBI Functions
+ *
+ * @version $Id$
+ */
+
+/**
+ *
  */
 // PMA_DBI_try_query()
 define('PMA_DBI_QUERY_STORE',       1);  // Force STORE_RESULT method, ignored by classic MySQL.

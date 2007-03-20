@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * the navigation frame - displays server, db and table selection tree
  *
+ * @version $Id$
  * @uses $GLOBALS['PMA_List_Database']
  * @uses $GLOBALS['server']
  * @uses $GLOBALS['db']

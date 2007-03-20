@@ -3,6 +3,10 @@
 /**
  * configures general layout
  * for detailed layout configuration please refer to the css files
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Original
  */
 
 /**

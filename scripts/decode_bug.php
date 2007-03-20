@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * Parser BUG decoder
  *
@@ -10,8 +7,9 @@
  * Throw the bug data in teh query box, and hit submit for output.
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
+ *
+ * @version $Id$
  */
-
 
 /**
  * Displays the form

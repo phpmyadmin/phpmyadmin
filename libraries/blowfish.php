@@ -1,7 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * The Cipher_blowfish:: class implements the Cipher interface enryption data
  * using the Blowfish algorithm.
@@ -14,7 +12,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
  * @author  Mike Cochrane <mike@graftonhall.co.nz>
- * @version $Revision$
+ * @version $Id$
  * @since   Horde 2.2
  * @package horde.cipher
  */

@@ -1,9 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * SQL import plugin for phpMyAdmin
+ *
+ * @version $Id$
+ */
 
-/* SQL import plugin for phpMyAdmin */
-
+/**
+ *
+ */
 if (isset($plugin_list)) {
     $plugin_list['sql'] = array(
         'text' => 'strSQL',

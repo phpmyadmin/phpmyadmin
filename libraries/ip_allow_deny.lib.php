@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * This library is used with the server IP allow/deny host authentication
  * feature
+ *
+ * @version $Id$
  */
 
 

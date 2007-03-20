@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * functions for displaying the sql query form
  *
+ * @version $Id$
  * @usedby  server_sql.php
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
@@ -11,6 +11,9 @@
  * @usedby  querywindow.php
  */
 
+/**
+ *
+ */
 require_once './libraries/file_listing.php'; // used for file listing
 require_once './libraries/bookmark.lib.php'; // used for file listing
 

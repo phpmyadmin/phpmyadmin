@@ -1,7 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-// Functions for listing directories
+/**
+ * Functions for listing directories
+ *
+ * @version $Id$
+ */
 
 /**
  * Returns array of filtered file names

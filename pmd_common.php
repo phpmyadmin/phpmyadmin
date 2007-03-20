@@ -1,11 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
+ * @version $Id$
+ */
 
-/*
-@author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
-*/
-
+/**
+ *
+ */
 require_once './libraries/common.lib.php';
 // not understand
 require_once './libraries/header_http.inc.php';

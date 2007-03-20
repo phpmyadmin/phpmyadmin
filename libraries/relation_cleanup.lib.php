@@ -1,12 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
+ *
+ * @version $Id$
  */
 
-
+/**
+ *
+ */
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 

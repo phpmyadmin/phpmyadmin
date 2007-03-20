@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used with the relation and pdf feature
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 function PMA_transformation_getOptions($string) {
     $transform_options = array();
 

@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * forms frameset
  *
+ * @version $Id$
  * @uses    libraries/common.lib.php        global fnctions
  * @uses    libraries/relation.lib.php      table relations
  * @uses    $GLOBALS['strNoFrames']

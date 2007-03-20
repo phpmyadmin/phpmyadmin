@@ -1,10 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Ensure the database and the table exist (else move to the "parent" script)
  * and display headers
+ *
+ * @version $Id$
+ */
+
+/**
+ *
  */
 if (empty($is_db)) {
     if (isset($db) && strlen($db)) {

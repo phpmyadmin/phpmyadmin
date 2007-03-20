@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 $GLOBALS['unparsed_sql'] = $sql_query;
 $parsed_sql = PMA_SQP_parse($sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);

@@ -1,12 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-require_once './libraries/Table.class.php';
-
 /**
  * Set of functions used with the relation and pdf feature
+ *
+ * @version $Id$
  */
+
+/**
+ *
+ */
+require_once './libraries/Table.class.php';
 
 /**
  * Executes a query as controluser if possible, otherwise as normal user

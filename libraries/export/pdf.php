@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Produce a PDF report (export) from a query
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if (isset($plugin_list)) {
     $plugin_list['pdf'] = array(
         'text' => 'strPDF',

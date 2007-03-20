@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * This library grabs the names and values of the variables sent or posted to a
  * script in the $_* arrays and sets simple globals variables from them. It does
@@ -10,6 +7,8 @@
  * $HTTP_AUTHORIZATION variables.
  *
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
+ *
+ * @version $Id$
  */
 
 /**

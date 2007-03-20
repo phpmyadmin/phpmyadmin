@@ -1,5 +1,9 @@
-/* $Id$ */
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * function used in server privilege pages
+ *
+ * @version $Id$
+ */
 
 /**
  * Validates the password field in a form

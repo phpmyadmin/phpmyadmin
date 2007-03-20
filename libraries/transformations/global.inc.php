@@ -1,7 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * GLOBAL Plugin function (Garvin Hicking).
  * ---------------
@@ -21,8 +19,12 @@
  *
  * Please provide a comment for your function, what it does and what parameters are available.
  *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 function PMA_transformation_global_plain($buffer, $options = array(), $meta = '') {
     return htmlspecialchars($buffer);
 }

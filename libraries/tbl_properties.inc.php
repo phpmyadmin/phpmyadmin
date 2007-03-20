@@ -1,8 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-// Check parameters
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ * Check parameters
+ */
 require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 

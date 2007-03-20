@@ -1,9 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * CSV import plugin for phpMyAdmin
+ *
+ * @version $Id$
+ */
 
-/* CSV import plugin for phpMyAdmin */
-
+/**
+ *
+ */
 if ($plugin_param == 'table') {
     if (isset($plugin_list)) {
         if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {

@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Simple interface for creating OASIS OpenDocument files.
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 require_once('./libraries/zip.lib.php');
 
 $GLOBALS['OpenDocumentNS'] = 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '

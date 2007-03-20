@@ -1,5 +1,9 @@
-/* $Id$ */
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * function used for index manipulation pages
+ *
+ * @version $Id$
+ */
 
 /**
  * Ensures a value submitted in a form is numeric and is in a range

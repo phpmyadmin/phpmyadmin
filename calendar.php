@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 require_once('./libraries/common.lib.php');
 require_once('./libraries/header_http.inc.php');
 $page_title = $strCalendar;

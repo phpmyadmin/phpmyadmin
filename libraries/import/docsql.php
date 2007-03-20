@@ -1,10 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * DocSQL import plugin for phpMyAdmin
+ *
+ * @version $Id$
+ */
 
-/* DocSQL import plugin for phpMyAdmin */
-
-/* We need relations enabled and we work only on database */
+/**
+ * We need relations enabled and we work only on database
+ */
 if ($plugin_param == 'database' && $GLOBALS['num_tables'] > 0 && $GLOBALS['cfgRelation']['relwork'] && $GLOBALS['cfgRelation']['commwork']) {
     if (isset($plugin_list)) {
         $plugin_list['docsql'] = array(           // set name of your plugin

@@ -3,7 +3,7 @@
 /**
  * function library for handling table indexes
  *
- * $Id$
+ * @version $Id$
  */
 
 /**

@@ -3,6 +3,7 @@
 /**
  * runs all defined tests
  *
+ * @version $Id$
  */
 
 /**

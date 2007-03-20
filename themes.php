@@ -1,6 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* get some globals */
+/**
+ *
+ * @version $Id$
+ */
+
+/**
+ * get some globals
+ */
 require_once('./libraries/common.lib.php');
 
 /* Theme Select */

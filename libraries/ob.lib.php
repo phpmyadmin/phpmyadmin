@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * Output buffer functions for phpMyAdmin
  *
@@ -11,6 +8,8 @@
  *
  * Check for all the needed functions for output buffering
  * Make some wrappers for the top and bottoms of our files.
+ *
+ * @version $Id$
  */
 
 /**

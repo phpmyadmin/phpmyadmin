@@ -1,5 +1,6 @@
-<?PHP
-    /* $Id$ */
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/* $Id$ */
 
     /**
      *  ZIP file unpack classes. Contributed to the phpMyAdmin project.

@@ -1,7 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * Set of functions used to build XLS dumps of tables
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 // Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
 if (!empty($GLOBALS['cfg']['TempDir'])) {
     @include_once('Spreadsheet/Excel/Writer.php');

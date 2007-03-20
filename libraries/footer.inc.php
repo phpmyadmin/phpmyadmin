@@ -1,15 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * WARNING: This script has to be included at the very end of your code because
  *          it will stop the script execution!
  *
  * always use $GLOBALS, as this script is also included by functions
  *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 require_once './libraries/relation.lib.php'; // for PMA_setHistory()
 
 /**

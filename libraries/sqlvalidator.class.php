@@ -1,7 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
 * PHP interface to MimerSQL Validator
 *

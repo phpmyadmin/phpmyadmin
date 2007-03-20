@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 if (PMA_MYSQL_INT_VERSION >= 40100){
 
     $res = PMA_DBI_query('SHOW CHARACTER SET;');

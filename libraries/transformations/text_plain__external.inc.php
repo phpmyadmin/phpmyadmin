@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 function PMA_transformation_text_plain__external_nowrap($options = array()) {
     if (!isset($options[3]) || $options[3] == '') {
         $nowrap = true;

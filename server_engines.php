@@ -1,10 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * display list of server enignes and additonal information about them
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
     define( 'PMA_NO_VARIABLES_IMPORT', true );
 }

@@ -1,8 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
-// Check parameters
+/**
+ * Check parameters
+ *
+ */
 if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
     $url_query .= '&amp;goto=db_structure.php';
 

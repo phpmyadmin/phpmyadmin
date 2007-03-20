@@ -1,7 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * SQL Validator interface for phpMyAdmin
  *
@@ -28,12 +26,15 @@
  * $cfg['SQLValidator']['use']  = FALSE;
  *
  * Also set a username and password if you have a private one
+ *
+ * @version $Id$
  */
 
-
-// We need the PEAR libraries, so do a minimum version check first
-// I'm not sure if PEAR was available before this point
-// For now we actually use a configuration flag
+/**
+ * We need the PEAR libraries, so do a minimum version check first
+ * I'm not sure if PEAR was available before this point
+ * For now we actually use a configuration flag
+ */
 if ($cfg['SQLValidator']['use'] == TRUE)  {
     require_once('./libraries/sqlvalidator.class.php');
 } // if ($cfg['SQLValidator']['use'] == TRUE)

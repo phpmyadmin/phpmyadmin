@@ -1,5 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme Original
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Original
+ */
+
 // unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();

@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used to build CSV dumps of tables
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if (isset($plugin_list)) {
     $plugin_list['htmlword'] = array(
         'text' => 'strHTMLWord',

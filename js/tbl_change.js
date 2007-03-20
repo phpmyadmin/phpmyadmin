@@ -1,5 +1,9 @@
-/* $Id$ */
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * function used in table data manipulation pages
+ *
+ * @version $Id$
+ */
 
 /**
  * Modify from controls when the "NULL" checkbox is selected

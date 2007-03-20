@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * Set of functions used to build dumps of tables
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if (isset($plugin_list)) {
     $hide_structure = false;
     if ($plugin_param['export_type'] == 'table' && !$plugin_param['single_table']) {

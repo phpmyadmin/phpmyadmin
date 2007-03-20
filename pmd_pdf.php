@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 include_once 'pmd_common.php';
 if ( ! isset($scale)) {
     $no_die_save_pos = 1;

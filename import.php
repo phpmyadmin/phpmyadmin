@@ -1,8 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-/* Core script for import, this is just the glue around all other stuff */
+/**
+ * Core script for import, this is just the glue around all other stuff
+ *
+ * @version $Id$
+ */
 
 /**
  * Get the variables sent or posted to this script and a core script

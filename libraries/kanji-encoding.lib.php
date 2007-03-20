@@ -1,8 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-
 /**
  * Set of functions for kanji-encoding convert (available only with japanese
  * language)
@@ -11,6 +8,8 @@
  *     --enable-mbstring --enable-mbstr-enc-trans --enable-mbregex
  *
  * 2002/2/22 - by Yukihiro Kawada <kawada@den.fujifilm.co.jp>
+ *
+ * @version $Id$
  */
 
 /**

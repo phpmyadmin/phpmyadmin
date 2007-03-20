@@ -1,7 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
+/**
+ *
+ * @version $Id$
+ */
 
 /**
  * Gets the variables sent or posted to this script, then displays headers

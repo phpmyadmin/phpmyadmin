@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 function PMA_transformation_image_png__inline($buffer, $options = array(), $meta = '') {
     require_once('./libraries/transformations/global.inc.php');
 

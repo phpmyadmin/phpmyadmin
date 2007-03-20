@@ -1,9 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ * Displays form for creating database (if user has privileges for that)
+ *
+ * @version $Id$
+ */
 
-// Displays form for creating database (if user has privileges for that)
-
+/**
+ *
+ */
 require_once('./libraries/check_user_privileges.lib.php');
 
 if ($is_create_db_priv) {

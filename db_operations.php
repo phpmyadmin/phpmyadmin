@@ -1,7 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * handles miscellaneous db operations:
  *  - move/rename
@@ -10,6 +8,8 @@
  *  - changing comment
  *  - adding tables
  *  - viewing PDF schemas
+ *
+ * @version $Id$
  */
 
 /**

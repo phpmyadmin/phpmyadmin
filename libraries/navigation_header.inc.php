@@ -1,12 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
 /**
  * displays the pma logo, links and db and server selection in left frame
  *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if ( empty( $query_url ) ) {
     $db     = ! isset( $db )      ? '' : $db;
     $table  = ! isset( $table )   ? '' : $table;

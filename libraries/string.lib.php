@@ -1,8 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
-
-/** Specialized String Functions for phpMyAdmin
+/**
+ * Specialized String Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
  * http://www.orbis-terrarum.net/?l=people.robbat2
@@ -12,6 +11,8 @@
  * (that are slower).
  *
  * The SQL Parser code relies heavily on these functions.
+ *
+ * @version $Id$
  */
 
 /* Try to load mbstring, unless we're using buggy php version */

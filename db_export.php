@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
 /**
  * dumps a database
  *
+ * @version $Id$
  * @uses    libraries/db_common.inc.php
  * @uses    libraries/db_info.inc.php
  * @uses    libraries/display_export.lib.php

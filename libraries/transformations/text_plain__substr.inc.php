@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id$ */
+/**
+ *
+ * @version $Id$
+ */
 
+/**
+ *
+ */
 function PMA_transformation_text_plain__substr($buffer, $options = array(), $meta = '') {
     // possibly use a global transform and feed it with special options:
     // include('./libraries/transformations/global.inc.php');
