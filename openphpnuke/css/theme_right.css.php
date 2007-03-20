@@ -1,3 +1,14 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * main css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage OpenPHPNuke
+ */
+?>
+
 body {font:<?php echo $font_size; ?> Arial,Verdana,Helvetica,sans-serif; color:#000000; background:#FFFFFF url(themes/openphpnuke/img/vertical_line.png) repeat-y;}
 
 pre, tt					{font-size:<?php echo $font_size; ?>;}

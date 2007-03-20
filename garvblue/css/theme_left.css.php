@@ -1,9 +1,17 @@
-/************************************************************************************
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme
+ *
  * Lightweight CSS for garvBlue theme. Even though some styles may not apply to every
  * state of the left frame, it's easier to drop all those IF-structures and do it the
  * human-readable way.
- ************************************************************************************/
-
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage garvBlue
+ */
+?>
 .parent {
     text-decoration:  none;
     display:          block;

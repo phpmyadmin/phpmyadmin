@@ -1,3 +1,13 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage XP Dirty
+ */
+?>
 body, input, select {
     font-family: <?php echo $left_font_family; ?>;
     font-size: <?php echo $font_size; ?>;

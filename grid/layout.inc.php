@@ -1,5 +1,8 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Navi frame (called "Left frame" in older versions)
+ * 
  * derived from theme "original" pma 2.9
  * 20070211: error.ico cursor for non Opera browsers, vertical line IE only, pma 2.8 td{color:black} necessary!
  * 20070208 bug 1653769 fixed: BrowsePointerEnable, BrowseMarkerEnable
@@ -9,10 +12,10 @@
  * comments, suggestions, bugreports are welcome:
  * http://sourceforge.net/users/windkiel/
  * no '' allowed, except for Font.. ..Link.. ..Marke...(frame reload may be needed after changes)
- */
-
-/**
- * Navi frame (called "Left frame" in older versions)
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Grid
  */
 
 // for this theme almost all settings (except "SPQ") can be done in config.inc.php :

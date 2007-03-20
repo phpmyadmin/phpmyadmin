@@ -1,6 +1,16 @@
 <?php
-// Done By Garvin Hicking, http://www.supergarv.de/
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Done By Garvin Hicking, http://www.supergarv.de/
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage garvBlue
+ */
 
+/**
+ *
+ */
 $cfg['LeftWidth']           = 200;          // left frame width
 /* colors */
 $cfg['LeftBgColor']         = '#E8EAF1';    // background color for the left frame

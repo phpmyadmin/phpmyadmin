@@ -1,4 +1,13 @@
-/* STYLE FOR THE RIGHT (MAIN) FRAME */
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * main css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Very Small
+ */
+?>
 
 #mainFrameset, #leftFrameset, frameset, frame {
     margin:              0 !important;

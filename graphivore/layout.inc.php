@@ -1,5 +1,15 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Graphivore
+ */
 
+/**
+ *
+ */
 $cfg['LeftWidth']           = 200;          // left frame width
 /* colors */
 $cfg['LeftBgColor']         = '#AB9C72';    // background color for the left frame

@@ -1,3 +1,13 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * print css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage XP Basic
+ */
+?>
 /* For printview */
 body{
     font-family:       Tahoma, Verdana, Arial, Helvetica, sans-serif;

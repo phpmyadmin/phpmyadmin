@@ -1,4 +1,13 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage XP Basic
+ */
+
     if (isset($num_dbs) && $num_dbs == '0') {
     ?>
 /* No layer effects neccessary */

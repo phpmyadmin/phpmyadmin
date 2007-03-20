@@ -1,15 +1,15 @@
-/************************************************************************************
- * LEFT FRAME
- ************************************************************************************/
-
-    /**
-     * Add styles for positioned layers
-    **/
-/*
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage XAMPP
+ */
+
     if (isset($num_dbs) && $num_dbs == '0') {
 ?>
-*/
 /* No layer effects neccessary */
 div{
     font-family:      Verdana, Arial, Helvetica, sans-serif;

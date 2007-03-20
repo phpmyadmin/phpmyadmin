@@ -1,6 +1,5 @@
 <?php
-/* info.inc.php 2006/06/19 cybot_tm | 2007/02/11 windkiel */
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * 2007-02-11 working with version 2.8 .. 2.1x.x ...
  * differs from theme "original" (2.9) in:
@@ -14,9 +13,14 @@
  * comments, suggestions, bugreports are welcome:
  * http://sourceforge.net/users/windkiel/
  *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Grid
  */
 
-/* Theme information */
+/**
+ *
+ */
 $theme_name = 'Grid';
 $theme_version = 2;
 $theme_full_version = '2.9';

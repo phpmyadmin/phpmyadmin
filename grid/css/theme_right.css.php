@@ -1,5 +1,14 @@
 <?php
-/* theme_right.css.php 2006-12-29 IE6 sql window fix 2do:pma28 hover th?*/
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * main css file from theme
+ *theme_right.css.php 2006-12-29 IE6 sql window fix 2do:pma28 hover th?
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Grid
+ */
+
 // unplanned execution path
 if(!defined('PMA_MINIMUM_COMMON')) exit();
 
