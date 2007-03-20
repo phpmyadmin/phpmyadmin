@@ -106,11 +106,7 @@ require_once './libraries/PMA_List.class.php';
      * @uses    PMA_List_Database::$items
      * @uses    PMA_List_Database::$_need_to_reindex to set it if reuqired
      * @uses    preg_match()
-     * @uses    $GLOBALS['cfg']
-     * @uses    $GLOBALS['cfg']['Server']
-     * @uses    $GLOBALS['cfg']['Server']['hide_db']
-     * @global  array $GLOBALS['cfg']
-     * @global  array $cfg
+     * @uses    $cfg['Server']['hide_db']
      */
     function _checkHideDatabase()
     {
@@ -137,8 +133,8 @@ require_once './libraries/PMA_List.class.php';
      * @uses    PMA_List_Database::$_db_link_control in case of SHOW DATABASES is disabled for userlink
      * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_DBI_getError()
-     * @global  boolean $error_showdatabases to alert not allowed SHOW DATABASE
-     * @global  integer $errno from PMA_DBI_getError()
+     * @uses    $GLOBALS['error_showdatabases']
+     * @uses    $GLOBALS['errno']
      * @param   string  $like_db_name   usally a db_name containing wildcards
      */
     function _retrieve($like_db_name = '')
@@ -188,7 +184,7 @@ require_once './libraries/PMA_List.class.php';
      * @uses    PMA_MYSQL_INT_VERSION
      * @uses    array_values()
      * @uses    natsort()
-     * @global  array   $cfg
+     * @uses    $cfg['NaturalOrder']
      */
     function build()
     {
@@ -229,7 +225,7 @@ require_once './libraries/PMA_List.class.php';
      * @uses    is_array()
      * @uses    strlen()
      * @uses    is_string()
-     * @global  array   $cfg
+     * @uses    $cfg['Server']['only_db']
      * @return  boolean false if there is no only_db, otherwise true
      */
     function _checkOnlyDatabase()
@@ -277,8 +273,8 @@ require_once './libraries/PMA_List.class.php';
      * returns default item
      *
      * @uses    PMA_List::getEmpty()
+     * @uses    $GLOBALS['db']
      * @uses    strlen()
-     * @global  string  $db
      * @return  string  default item
      */
     function getDefault()
@@ -295,10 +291,10 @@ require_once './libraries/PMA_List.class.php';
      *
      * @uses    $GLOBALS['PMA_List_Database']
      * @uses    $GLOBALS['cfgRelation']['commwork']
-     * @uses    $GLOBALS['cfg']['ShowTooltip']
-     * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
-     * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
-     * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
+     * @uses    $cfg['ShowTooltip']
+     * @uses    $cfg['LeftFrameDBTree']
+     * @uses    $cfg['LeftFrameDBSeparator']
+     * @uses    $cfg['ShowTooltipAliasDB']
      * @uses    PMA_getTableCount()
      * @uses    PMA_getComments()
      * @uses    is_array()
