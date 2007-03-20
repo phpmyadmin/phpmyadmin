@@ -39,6 +39,8 @@ function PMA_sanitize($message)
         '[/kbd]'    => '</kbd>',
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
+        '[sup]'      => '<sup>',
+        '[/sup]'      => '</sup>',
     );
     $message = strtr($message, $replace_pairs);
 
