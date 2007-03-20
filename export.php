@@ -22,8 +22,39 @@ if (!isset($export_list[$type])) {
     die('Bad type!');
 }
 
+/**
+ * valid compression methods
+ */
+$compression_methods = array(
+    'zip',
+    'gzip',
+    'bzip',
+);
+
+/**
+ * init and variable checking
+ */
+$compression = false;
+$onserver = false;
+$save_on_server = false;
+$buffer_needed = false;
+if (empty($_REQUEST['asfile'])) {
+    $asfile = false;
+} else {
+    $asfile = true;
+    if (in_array($_REQUEST['compression'], $compression_methods)) {
+        $compression = $_REQUEST['compression'];
+        $buffer_needed = true;
+    }
+    if (empty($_REQUEST['onserver'])) {
+        $onserver = $_REQUEST['onserver'];
+        // Will we save dump on server?
+        $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
+    }
+}
+
 // Does export require to be into file?
-if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
+if (isset($export_list[$type]['force_file']) && $asfile) {
     $message = $strExportMustBeFile;
     $GLOBALS['show_error_header'] = true;
     $js_to_run = 'functions.js';
@@ -44,7 +75,7 @@ if (isset($export_list[$type]['force_file']) && ! isset($asfile)) {
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
-} elseif ($export_type == 'database' && isset($db) && strlen($db)) {
+} elseif ($export_type == 'database' && strlen($db)) {
     $err_url = 'db_export.php?' . PMA_generate_common_url($db);
     // Check if we have something to export
     if (isset($table_select)) {
@@ -52,7 +83,7 @@ if ($export_type == 'server') {
     } else {
         $tables = array();
     }
-} elseif ($export_type == 'table' && isset($db) && strlen($db) && isset($table) && strlen($table)) {
+} elseif ($export_type == 'table' && strlen($db) && strlen($table)) {
     $err_url = 'tbl_export.php?' . PMA_generate_common_url($db, $table);
 } else {
     die('Bad parameters!');
@@ -163,22 +194,6 @@ function PMA_exportOutputHandler($line)
     return TRUE;
 } // end of the 'PMA_exportOutputHandler()' function
 
-// Will we save dump on server?
-$save_on_server = isset($cfg['SaveDir']) && !empty($cfg['SaveDir']) && !empty($onserver);
-
-// Ensure compressed formats are associated with the download feature
-if (empty($asfile)) {
-    if ($save_on_server) {
-        $asfile = TRUE;
-    } elseif (isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip')) {
-        $asfile = TRUE;
-    } else {
-        $asfile = FALSE;
-    }
-} else {
-    $asfile = TRUE;
-}
-
 // Defines the default <CR><LF> format. For SQL always use \n as MySQL wants this on all platforms.
 if ($what == 'sql') {
     $crlf = "\n";
@@ -194,11 +209,8 @@ $output_charset_conversion = $asfile &&
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
-// Set whether we will need buffering
-$buffer_needed = isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip');
-
 // Use on fly compression?
-$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && isset($compression) && ($compression == 'gzip' | $compression == 'bzip');
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && ($compression == 'gzip' | $compression == 'bzip');
 if ($onfly_compression) {
     $memory_limit = trim(@ini_get('memory_limit'));
     // 2 MB as default
@@ -261,12 +273,12 @@ if ($asfile) {
     // If dump is going to be compressed, set correct encoding or mime_type and add
     // compression to extension
     $content_encoding = '';
-    if (isset($compression) && $compression == 'bzip') {
+    if ($compression == 'bzip') {
         $filename  .= '.bz2';
         // browsers don't like this:
         //$content_encoding = 'x-bzip2';
         $mime_type = 'application/x-bzip2';
-    } elseif (isset($compression) && $compression == 'gzip') {
+    } elseif ($compression == 'gzip') {
         $filename  .= '.gz';
         // Needed to avoid recompression by server modules like mod_gzip.
         // It seems necessary to check about zlib.output_compression
@@ -275,7 +287,7 @@ if ($asfile) {
             $content_encoding = 'x-gzip';
             $mime_type = 'application/x-gzip';
         }
-    } elseif (isset($compression) && $compression == 'zip') {
+    } elseif ($compression == 'zip') {
         $filename  .= '.zip';
         $mime_type = 'application/zip';
     }
@@ -564,7 +576,7 @@ if (!empty($asfile)) {
 
     // Do the compression
     // 1. as a gzipped file
-    if (isset($compression) && $compression == 'zip') {
+    if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new zipfile();
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
@@ -572,7 +584,7 @@ if (!empty($asfile)) {
         }
     }
     // 2. as a bzipped file
-    elseif (isset($compression) && $compression == 'bzip') {
+    elseif ($compression == 'bzip') {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
             if ($dump_buffer === -8) {
@@ -583,7 +595,7 @@ if (!empty($asfile)) {
         }
     }
     // 3. as a gzipped file
-    elseif (isset($compression) && $compression == 'gzip') {
+    elseif ($compression == 'gzip') {
         if (@function_exists('gzencode')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);

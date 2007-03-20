@@ -224,6 +224,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         $punct_listsep           = ',';
         $punct_level_plus        = '(';
         $punct_level_minus       = ')';
+        $punct_user              = '@';
         $digit_floatdecimal      = '.';
         $digit_hexset            = 'x';
         $bracket_list            = '()[]{}';
@@ -244,11 +245,34 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         $quote_list              = '\'"`';
         $arraysize               = 0;
 
+        $previous_was_space   = false;
+        $this_was_space       = false;
+        $previous_was_bracket = false;
+        $this_was_bracket     = false;
+        $previous_was_punct   = false;
+        $this_was_punct       = false;
+        $previous_was_listsep = false;
+        $this_was_listsep     = false;
+        $previous_was_quote   = false;
+        $this_was_quote       = false;
+
         while ($count2 < $len) {
             $c      = PMA_substr($sql, $count2, 1);
             $count1 = $count2;
 
+            $previous_was_space = $this_was_space;
+            $this_was_space = false;
+            $previous_was_bracket = $this_was_bracket;
+            $this_was_bracket = false;
+            $previous_was_punct = $this_was_punct;
+            $this_was_punct = false;
+            $previous_was_listsep = $this_was_listsep;
+            $this_was_listsep = false;
+            $previous_was_quote = $this_was_quote;
+            $this_was_quote = false;
+
             if (($c == "\n")) {
+                $this_was_space = true;
                 $count2++;
                 PMA_SQP_arrayAdd($sql_array, 'white_newline', '', $arraysize);
                 continue;
@@ -256,6 +280,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // Checks for white space
             if (PMA_STR_isSpace($c)) {
+                $this_was_space = true;
                 $count2++;
                 continue;
             }
@@ -337,12 +362,15 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 switch ($quotetype) {
                     case '\'':
                         $type .= 'single';
+                        $this_was_quote = true;
                         break;
                     case '"':
                         $type .= 'double';
+                        $this_was_quote = true;
                         break;
                     case '`':
                         $type .= 'backtick';
+                        $this_was_quote = true;
                         break;
                     default:
                         break;
@@ -355,6 +383,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             // Checks for brackets
             if (PMA_STR_strInStr($c, $bracket_list)) {
                 // All bracket tokens are only one item long
+                $this_was_bracket = true;
                 $count2++;
                 $type_type     = '';
                 if (PMA_STR_strInStr($c, '([{')) {
@@ -378,7 +407,17 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             }
 
             // Checks for identifier (alpha or numeric)
-            if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@') || ($c == '.' && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)))) {
+            if (PMA_STR_isSqlIdentifier($c, false)
+             || $c == '@'
+             || ($c == '.'
+              && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+              && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))) {
+
+                /* DEBUG
+                echo PMA_substr($sql, $count2);
+                echo '<hr />';
+                */
+
                 $count2 ++;
 
                 /**
@@ -386,10 +425,11 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                  * FROM 'user'@'%' or  TO 'user'@'%'
                  * in this case, the @ is wrongly marked as alpha_variable
                  */
-
-                $is_sql_variable         = ($c == '@');
-                $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
-                $is_hex_digit            = ($is_digit) && ($c == '.') && ($c == '0') && ($count2 < $len) && (PMA_substr($sql, $count2, 1) == 'x');
+                $is_identifier           = $previous_was_punct;
+                $is_sql_variable         = $c == '@' && ! $previous_was_quote;
+                $is_user                 = $c == '@' && $previous_was_quote;
+                $is_digit                = !$is_identifier && !$is_sql_variable && PMA_STR_isDigit($c);
+                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && PMA_substr($sql, $count2, 1) == 'x';
                 $is_float_digit          = $c == '.';
                 $is_float_digit_exponent = FALSE;
 
@@ -455,7 +495,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 $str  = PMA_substr($sql, $count1, $l);
 
                 $type = '';
-                if ($is_digit) {
+                if ($is_digit || $is_float_digit || $is_hex_digit) {
                     $type     = 'digit';
                     if ($is_float_digit) {
                         $type .= '_float';
@@ -464,12 +504,12 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     } else {
                         $type .= '_integer';
                     }
+                } elseif ($is_user) {
+                    $type = 'punct_user';
+                } elseif ($is_sql_variable != FALSE) {
+                    $type = 'alpha_variable';
                 } else {
-                    if ($is_sql_variable != FALSE) {
-                        $type = 'alpha_variable';
-                    } else {
-                        $type = 'alpha';
-                    }
+                    $type = 'alpha';
                 } // end if... else....
                 PMA_SQP_arrayAdd($sql_array, $type, $str, $arraysize);
 
@@ -478,9 +518,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // Checks for punct
             if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
+                //while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
                     $count2++;
-                }
+                //}
                 $l = $count2 - $count1;
                 if ($l == 1) {
                     $punct_data = $c;
@@ -498,8 +538,10 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                             break;
                         case $punct_qualifier:
                             $t_suffix = '_qualifier';
+                            $this_was_punct = true;
                             break;
                         case $punct_listsep:
+                            $this_was_listsep = true;
                             $t_suffix = '_listsep';
                             break;
                         default:
@@ -1671,7 +1713,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 // ON UPDATE CURRENT_TIMESTAMP
 
                 if ($upper_data == 'ON') {
-                    if ($arr[$i+1]['type'] == 'alpha_reservedWord') {
+                    if (isset($arr[$i+1]) && $arr[$i+1]['type'] == 'alpha_reservedWord') {
                         $second_upper_data = strtoupper($arr[$i+1]['data']);
                         if ($second_upper_data == 'DELETE') {
                             $clause = 'on_delete';
@@ -2062,6 +2104,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         $after      .= ' ';
                     }
                     break;
+                case 'punct_user':
                 case 'punct_qualifier':
                     $before         = '';
                     $after          = '';
@@ -2255,11 +2298,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     }
                     break;
                 case 'alpha_variable':
-                    // other workaround for a problem similar to the one
-                    // explained below for quote_single
-                    if (!$in_priv_list && $typearr[3] != 'quote_backtick') {
-                        $after      = ' ';
-                    }
+                    $after      = ' ';
                     break;
                 case 'quote_double':
                 case 'quote_single':
@@ -2268,7 +2307,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     // the @ is incorrectly marked as alpha_variable
                     // in the parser, and here, the '%' gets a blank before,
                     // which is a syntax error
-                    if ($typearr[1] !='alpha_variable') {
+                    if ($typearr[1] != 'punct_user') {
                         $before        .= ' ';
                     }
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {

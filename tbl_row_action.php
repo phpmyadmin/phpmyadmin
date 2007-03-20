@@ -91,7 +91,7 @@ if (!empty($submit_mult)) {
             $single_table = TRUE;
 
             $primary_key = array();
-            $sql_query = urldecode($sql_query);
+            //$sql_query = urldecode($sql_query);
             // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
             // indicating primary key. Then we built the array which is used for the tbl_change.php script.
             foreach ($rows_to_delete AS $i_primary_key => $del_query) {

@@ -172,11 +172,11 @@ if ( ! empty( $query_history_latest ) && ! empty( $query_history_latest_db ) ) {
         'table' => isset($query_history_latest_table) ? $query_history_latest_table : '',
     );
 
-    $sql_query = urldecode($query_history_latest);
+    $sql_query = $query_history_latest;
     $db = $query_history_latest_db;
     $table = $query_history_latest_table;
 } elseif ( ! empty( $query_history_latest ) ) {
-    $sql_query = urldecode($query_history_latest);
+    $sql_query = $query_history_latest;
 }
 
 if (isset($sql_query)) {
@@ -310,7 +310,7 @@ if ( count( $_sql_history ) > 0
                . htmlspecialchars( $query['table'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').submit();'
                .' return false;">[' . htmlspecialchars( $query['db'] ) . '] '
-               . urldecode( $sql ) . '</a>' . "\n";
+               . htmlspecialchars($sql) . '</a>' . "\n";
 
         echo '</li>' . "\n";
     }
