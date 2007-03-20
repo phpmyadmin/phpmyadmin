@@ -8,7 +8,7 @@
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 if (!isset($selected_tbl)) {
     require_once('./libraries/header.inc.php');

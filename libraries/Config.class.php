@@ -420,7 +420,7 @@ class PMA_Config
         // Now, a collation information could come from REQUEST
         // (an example of this: the collation selector in main.php)
         // so the following handles the setting of collation_connection
-        // and later, in common.lib.php, the cookie will be set
+        // and later, in common.inc.php, the cookie will be set
         // according to this.
         $this->checkCollationConnection();
 

@@ -39,7 +39,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 require_once './libraries/PMA_File.class.php';
 
 $file_to_insert = new PMA_File();

@@ -9,7 +9,7 @@
 /**
  * Gets some core scripts
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 /**
  * Settings for relation stuff

@@ -29,7 +29,7 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['goto']
- * @uses    $GLOBALS['is_upload']           from common.lib.php
+ * @uses    $GLOBALS['is_upload']           from common.inc.php
  * @uses    $GLOBALS['sql_query']           from grab_globals.lib.php
  * @uses    $GLOBALS['cfg']['DefaultQueryTable']
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']

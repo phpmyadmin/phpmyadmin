@@ -13,7 +13,7 @@ define('PMA_DISPLAY_HEADING', 0);
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 require_once './libraries/header.inc.php';
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';

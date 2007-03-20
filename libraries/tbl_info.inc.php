@@ -20,7 +20,7 @@ require_once './libraries/Table.class.php';
 /**
  * requirements
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));

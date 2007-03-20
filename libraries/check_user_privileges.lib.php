@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Get user's global privileges and some db-specific privileges
- * ($controllink and $userlink are links to MySQL defined in the "common.lib.php" library)
+ * ($controllink and $userlink are links to MySQL defined in the "common.inc.php" library)
  * Note: if no controluser is defined, $controllink contains $userlink
  *
  * @version $Id$

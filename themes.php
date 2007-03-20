@@ -8,7 +8,7 @@
 /**
  * get some globals
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 /* Theme Select */
 $path_to_themes = $cfg['ThemePath'] . '/';

@@ -9,7 +9,7 @@
  * Gets core libraries and defines some variables
  */
 define( 'PMA_MINIMUM_COMMON', true );
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 
 /**

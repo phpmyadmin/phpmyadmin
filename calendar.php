@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 require_once('./libraries/header_http.inc.php');
 $page_title = $strCalendar;
 require('./libraries/header_meta_style.inc.php');

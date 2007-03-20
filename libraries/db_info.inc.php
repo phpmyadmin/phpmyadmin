@@ -8,7 +8,7 @@
 /**
  * Check parameters
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 PMA_checkParameters(array('db'));
 

@@ -42,7 +42,7 @@
 /**
  *
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 /**
  * Does the common work, provides $binary_logs

@@ -16,7 +16,7 @@ if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
 /**
  * requirements
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 /**
  * Does the common work

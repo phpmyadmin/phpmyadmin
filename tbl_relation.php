@@ -8,7 +8,7 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 require_once('./libraries/tbl_common.php');
 $url_query .= '&amp;goto=tbl_sql.php';
 

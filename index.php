@@ -4,8 +4,6 @@
  * forms frameset
  *
  * @version $Id$
- * @uses    libraries/common.lib.php        global fnctions
- * @uses    libraries/relation.lib.php      table relations
  * @uses    $GLOBALS['strNoFrames']
  * @uses    $GLOBALS['cfg']['QueryHistoryDB']
  * @uses    $GLOBALS['cfg']['Server']['user']
@@ -13,8 +11,8 @@
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']   as src for the mainframe
  * @uses    $GLOBALS['cfg']['NaviWidth']            for navi frame width
  * @uses    $GLOBALS['collation_connection']    from $_REQUEST (grab_globals.lib.php)
- *                                              or common.lib.php
- * @uses    $GLOBALS['available_languages'] from common.lib.php (select_lang.lib.php)
+ *                                              or common.inc.php
+ * @uses    $GLOBALS['available_languages'] from common.inc.php (select_lang.lib.php)
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
@@ -33,7 +31,7 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 /**
  * Includes the ThemeManager if it hasn't been included yet

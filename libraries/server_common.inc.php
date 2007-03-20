@@ -13,7 +13,7 @@
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 /**
  * Handles some variables that may have been sent by the calling script

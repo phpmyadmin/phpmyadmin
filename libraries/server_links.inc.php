@@ -8,7 +8,7 @@
 /**
  * Check parameters
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 require_once('./libraries/server_common.inc.php');
 
 PMA_checkParameters(array('is_superuser', 'url_query'), TRUE, FALSE);

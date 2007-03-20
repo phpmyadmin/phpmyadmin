@@ -15,7 +15,7 @@ if (!defined('PMA_DISPLAY_HEADING')) {
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {

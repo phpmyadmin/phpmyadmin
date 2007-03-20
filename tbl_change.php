@@ -8,7 +8,7 @@
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 /**
  * Sets global variables.

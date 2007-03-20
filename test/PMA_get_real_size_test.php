@@ -11,7 +11,7 @@
  *
  */
 require_once 'PHPUnit/Framework.php';
-require_once './libraries/common.lib.php';
+require_once './libraries/core.lib.php';
 
 class PMA_get_real_size_test extends PHPUnit_Framework_TestCase
 {

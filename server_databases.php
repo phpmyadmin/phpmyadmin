@@ -8,7 +8,7 @@
 /**
  * Does the common work
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 
 $js_to_run = 'functions.js';

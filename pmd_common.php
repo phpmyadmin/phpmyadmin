@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 // not understand
 require_once './libraries/header_http.inc.php';
 

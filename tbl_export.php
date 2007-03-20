@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 /**
  * Gets tables informations and displays top links

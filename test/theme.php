@@ -3,7 +3,7 @@
 /**
  * theme test
  *
- * @uses    libraries/common.lib.php        global fnctions
+ * @uses    libraries/common.inc.php        global fnctions
  * @package phpMyAdmin-test
  * @version $Id$
  */
@@ -13,7 +13,7 @@ chdir('..');
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.lib.php';
+require_once './libraries/common.inc.php';
 
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
 

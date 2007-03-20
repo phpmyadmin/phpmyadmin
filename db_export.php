@@ -13,7 +13,7 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 $sub_part  = '_export';
 require_once('./libraries/db_common.inc.php');

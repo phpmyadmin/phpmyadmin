@@ -8,7 +8,7 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once('./libraries/common.inc.php');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
