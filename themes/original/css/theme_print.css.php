@@ -1,3 +1,13 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * print css file from theme Original
+ *
+ * @version $Id$
+ * @package phpMyAdmin-theme
+ * @subpackage Original
+ */
+?>
 /* For printview */
 body, table, th, td {
     color:             #000000;
