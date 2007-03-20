@@ -4,6 +4,7 @@
  * runs all defined tests
  *
  * @version $Id$
+ * @package phpMyAdmin-test
  */
 
 /**

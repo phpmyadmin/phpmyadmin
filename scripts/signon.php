@@ -8,6 +8,8 @@
  * integrate this functionality in your application.
  *
  * @version $Id$
+ * @package phpMyAdmin
+ * @subpacke Example
  */
 
 /* Was data posted? */

@@ -5,6 +5,7 @@
  * inside and nothing is displayed on screen (eg no extra no blank line).
  *
  * @version $Id$
+ * @package phpMyAdmin-test
  */
 
 /**
