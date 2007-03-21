@@ -56,6 +56,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1674972 [export] no export with %afm%
 - bug #1667887 HTML maxlength
 - bug #1679055 #1050 - Table '<table name>' already exists
+- bug #1685376 [export] Undefined index onserver
 
 2.10.0.3 (not released yet)
 =====================
