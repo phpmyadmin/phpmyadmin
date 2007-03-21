@@ -75,8 +75,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         }
         echo '<a href="' . $anchor . '&amp;no_js=true"'
             .' title="' . $strQueryFrame . '"';
-        echo ' onclick="javascript:window.parent.open_querywindow();'
-            .' return false;"';
+        echo ' onclick="javascript:if (window.parent.open_querywindow()) return false;"';
         echo '>' . $query_frame_link_text . '</a>' . "\n";
     } // end if ($server != 0)
 
