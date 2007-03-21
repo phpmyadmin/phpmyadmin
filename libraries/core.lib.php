@@ -48,11 +48,21 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * checks given $var against $type or $compare
  *
  * $type can be:
- * - false: no type checking
- * - 'scalar': integer, float, string or boolean
- * - 'numeric': nay number repesentation
- * - 'length': for any scalar with a string length > 0
+ * - false       : no type checking
+ * - 'scalar'    : whether type of $var is integer, float, string or boolean
+ * - 'numeric'   : whether type of $var is any number repesentation
+ * - 'length'    : whether type of $var is scalar with a string length > 0
+ * - 'similar'   : whether type of $var is similar to type of $compare
+ * - 'equal'     : whether type of $var is identical to type of $compare
+ * - 'identical' : whether $var is identical to $compare, not only the type!
  * - or any other valid PHP variable type
+ *
+ * <code>
+ * // $_REQUEST['doit'] = true;
+ * PMA_isValid($_REQUEST['doit'], 'identical', 'true'); // false
+ * // $_REQUEST['doit'] = 'true';
+ * PMA_isValid($_REQUEST['doit'], 'identical', 'true'); // true
+ * </code>
  *
  * @todo create some testsuites
  * @todo add some more var types like hex, bin, ...?
@@ -81,6 +91,9 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     // allow some aliaes of var types
     $type = strtolower($type);
     switch ($type) {
+        case 'identic' :
+            $type = 'identical';
+            break;
         case 'len' :
             $type = 'length';
             break;
@@ -98,6 +111,10 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
             break;
     }
 
+    if ($type === 'identical') {
+        return $var === $compare;
+    }
+
     // whether we should check against given $compare
     if ($type === 'similar') {
         switch (gettype($compare)) {
@@ -112,7 +129,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
             default:
                 $type = gettype($compare);
         }
-    } elseif ($type === 'identic') {
+    } elseif ($type === 'equal') {
         $type = gettype($compare);
     }
 
