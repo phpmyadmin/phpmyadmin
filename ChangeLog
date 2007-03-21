@@ -17,6 +17,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1523747 [innodb] make warning about row count more visible
 - [gui] avoid displaying a wide selector in server selection
 + [core] added PMA_fatalError() and made use of it
+. [core] added PMA_isValid() and PMA_ifSetOr() for variable handling
 . [i18n] use generic $strOptions
 . [core] get rid of $propicon
 . [core] globalized variables to be includable inside function in

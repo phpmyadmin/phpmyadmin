@@ -7,6 +7,135 @@
  */
 
 /**
+ * checks given $var and returns it if valid, or $default of not valid
+ * given $var is also checked for type being 'similar' as $default
+ * or against any other type if $type is provided
+ *
+ * <code>
+ * // $_REQUEST['db'] not set
+ * echo PMA_ifSetOr($_REQUEST['db'], ''); // ''
+ * // $_REQUEST['sql_query'] not set
+ * echo PMA_ifSetOr($_REQUEST['sql_query']); // null
+ * // $cfg['ForceSSL'] not set
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['ForceSSL']); // null
+ * // $cfg['ForceSSL'] set to 1
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // false
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'similar'); // 1
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false); // 1
+ * // $cfg['ForceSSL'] set to true
+ * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
+ * </code>
+ *
+ * @todo create soem testsuites
+ * @uses    PMA_isValid()
+ * @see     PMA_isValid()
+ * @param   mixed   $var        param to check
+ * @param   mixed   $default    default value
+ * @param   string  $type       var type to check against $var
+ * @return  mixed   $var or $default
+ */
+function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
+{
+    if (! PMA_isValid($var, $type, $default)) {
+        return $default;
+    }
+
+    return $var;
+}
+
+/**
+ * checks given $var against $type or $compare
+ *
+ * $type can be:
+ * - false: no type checking
+ * - 'scalar': integer, float, string or boolean
+ * - 'numeric': nay number repesentation
+ * - 'length': for any scalar with a string length > 0
+ * - or any other valid PHP variable type
+ *
+ * @todo create soem testsuites
+ * @uses    is_scalar()
+ * @uses    is_numeric()
+ * @uses    gettype()
+ * @uses    strtolower()
+ * @see     http://php.net/gettype
+ * @param   mixed   $var        variable to check
+ * @param   string  $type       var type to check against $var
+ * @param   mixed   $compare    var to compare with $var
+ * @return  boolean whether valid or not
+ */
+function PMA_isValid(&$var, $type = 'scalar', $compare = null)
+{
+    if (! isset($param)) {
+        // var is not even set
+        return false;
+    }
+
+    if ($type === false) {
+        // no vartype requested
+        return true;
+    }
+
+    // allow some aliaes of var types
+    $type = strtolower($type);
+    switch ($type) {
+        case 'len' :
+            $type = 'length';
+            break;
+        case 'bool' :
+            $type = 'boolean';
+            break;
+        case 'float' :
+            $type = 'double';
+            break;
+        case 'int' :
+            $type = 'integer';
+            break;
+        case 'null' :
+            $type = 'NULL';
+            break;
+    }
+
+    // whether we should check against given $compare
+    if ($type === 'similar') {
+        switch (gettype($compare)) {
+            case 'string':
+            case 'boolean':
+                $type = 'scalar';
+                break;
+            case 'integer':
+            case 'double':
+                $type = 'numeric';
+                break;
+            default:
+                $type = gettype($compare);
+        }
+    } elseif ($type === 'identic') {
+        $type = gettype($compare);
+    }
+
+    // do the check
+    if ($type === 'length' || $type === 'scalar') {
+        $is_scalar = is_scalar($var);
+        if ($is_scalar && $type === 'length') {
+            return (bool) strlen($is_scalar);
+        }
+        return $is_scalar;
+    }
+
+    if ($type === 'numeric') {
+        return is_numeric($var);
+    }
+
+    if (gettype($var) === $type) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
  * Removes insecure parts in a path; used before include() or
  * require() when a part of the path comes from an insecure source
  * like a cookie or form.
