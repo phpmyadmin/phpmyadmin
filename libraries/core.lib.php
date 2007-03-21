@@ -150,7 +150,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) strlen($is_scalar);
+            return (bool) strlen($var);
         }
         return $is_scalar;
     }
