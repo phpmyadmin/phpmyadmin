@@ -27,7 +27,14 @@ function PMA_auth() {
         exit;
     }
 
-    header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
+    if (empty($GLOBALS['cfg']['Server']['verbose'])) {
+        $server_message = $GLOBALS['cfg']['Server']['host'];
+    } else {
+        $server_message = $GLOBALS['cfg']['Server']['verbose'];
+    }
+    // remove non US-ASCII to respect RFC2616
+    $server_message = preg_replace('/[^\x20-\x7e]/i', '', $server_message);
+    header('WWW-Authenticate: Basic realm="phpMyAdmin ' . $server_message .  '"');
     header('HTTP/1.0 401 Unauthorized');
     header('status: 401 Unauthorized');
 

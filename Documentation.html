@@ -766,7 +766,8 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <dd>Only useful when using phpMyAdmin with multiple server entries. If set,
         this string will be displayed instead of the hostname in the pull-down
         menu on the main page. This can be useful if you want to show only
-        certain databases on your system, for example.</dd>
+	certain databases on your system, for example. For HTTP auth, all 
+	non-US-ASCII characters will be stripped.</dd>
 
     <dt id="pmadb">
         <span id="cfg_Servers_pmadb">$cfg['Servers'][$i]['pmadb']</span> string

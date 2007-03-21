@@ -200,6 +200,7 @@ $cfg['Servers'][$i]['hide_db'] = '';
 
 /**
  * Verbose name for this host - leave blank to show the hostname
+ * (for HTTP auth, all non-US-ASCII characters will be stripped)
  *
  * @global string $cfg['Servers'][$i]['verbose']
  */
