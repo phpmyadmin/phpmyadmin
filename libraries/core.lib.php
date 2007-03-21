@@ -78,7 +78,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
-    if (! isset($param)) {
+    if (! isset($var)) {
         // var is not even set
         return false;
     }
