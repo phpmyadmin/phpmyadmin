@@ -27,7 +27,7 @@
  * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
  * </code>
  *
- * @todo create soem testsuites
+ * @todo create some testsuites
  * @uses    PMA_isValid()
  * @see     PMA_isValid()
  * @param   mixed   $var        param to check
@@ -54,7 +54,8 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * - 'length': for any scalar with a string length > 0
  * - or any other valid PHP variable type
  *
- * @todo create soem testsuites
+ * @todo create some testsuites
+ * @todo add some more var types like hex, bin, ...?
  * @uses    is_scalar()
  * @uses    is_numeric()
  * @uses    gettype()
@@ -65,7 +66,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @param   mixed   $compare    var to compare with $var
  * @return  boolean whether valid or not
  */
-function PMA_isValid(&$var, $type = 'scalar', $compare = null)
+function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
     if (! isset($param)) {
         // var is not even set
