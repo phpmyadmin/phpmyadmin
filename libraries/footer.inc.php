@@ -77,10 +77,12 @@ if (parent.querywindow && !parent.querywindow.closed && parent.querywindow.locat
 if (window.parent.frame_content) {
     // reset content frame name, as querywindow needs to set a unique name
     // before submitting form data, and navigation frame needs the original name
-    if (window.parent.frame_content.name != 'frame_content') {
+    if (typeof(window.parent.frame_content.name) != 'undefined'
+     && window.parent.frame_content.name != 'frame_content') {
         window.parent.frame_content.name = 'frame_content';
     }
-    if (window.parent.frame_content.id != 'frame_content') {
+    if (typeof(window.parent.frame_content.id) != 'undefined'
+     && window.parent.frame_content.id != 'frame_content') {
         window.parent.frame_content.id = 'frame_content';
     }
     //window.parent.frame_content.setAttribute('name', 'frame_content');
