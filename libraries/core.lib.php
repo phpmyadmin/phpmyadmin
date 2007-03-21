@@ -64,6 +64,19 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * PMA_isValid($_REQUEST['doit'], 'identical', 'true'); // true
  * </code>
  *
+ * NOTE: call-by-reference is used to not get NOTICE on undefined vars,
+ * but the var is not altered inside this function, also after checking a var
+ * this var exists nut is not set, example:
+ * <code>
+ * // $var is not set
+ * isset($var); // false
+ * functionCallByReference($var); // false
+ * isset($var); // true
+ * functionCallByReference($var); // true
+ * </code>
+ *
+ * to avoid this we set this var to null if not isset
+ *
  * @todo create some testsuites
  * @todo add some more var types like hex, bin, ...?
  * @uses    is_scalar()
