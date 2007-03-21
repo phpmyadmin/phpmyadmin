@@ -1,3 +1,10 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * functions used by and for querywindow
+ *
+ * @version $Id$
+ */
+
 /**
  * holds the browser query window
  */
@@ -216,16 +223,16 @@ function reload_querywindow( db, table, sql_query ) {
     if ( ! querywindow.closed && querywindow.location ) {
         if ( ! querywindow.document.sqlform.LockFromUpdate
           || ! querywindow.document.sqlform.LockFromUpdate.checked ) {
-            querywindow.document.querywindow.db.value = db;
-            querywindow.document.querywindow.query_history_latest_db.value = db;
-            querywindow.document.querywindow.table.value = table;
-            querywindow.document.querywindow.query_history_latest_table.value = table;
+            querywindow.document.getElementById('hiddenqueryform').db.value = db;
+            querywindow.document.getElementById('hiddenqueryform').query_history_latest_db.value = db;
+            querywindow.document.getElementById('hiddenqueryform').table.value = table;
+            querywindow.document.getElementById('hiddenqueryform').query_history_latest_table.value = table;
 
             if ( sql_query ) {
-                querywindow.document.querywindow.query_history_latest.value = sql_query;
+                querywindow.document.getElementById('hiddenqueryform').query_history_latest.value = sql_query;
             }
 
-            querywindow.document.querywindow.submit();
+            querywindow.document.getElementById('hiddenqueryform').submit();
         }
     }
 }
@@ -244,10 +251,10 @@ function focus_querywindow( sql_query ) {
         insertQuery(0);
     } else {
         //var querywindow = querywindow;
-        if ( querywindow.document.querywindow.querydisplay_tab != 'sql' ) {
-            querywindow.document.querywindow.querydisplay_tab.value = "sql";
-            querywindow.document.querywindow.query_history_latest.value = sql_query;
-            querywindow.document.querywindow.submit();
+        if ( querywindow.document.getElementById('hiddenqueryform').querydisplay_tab != 'sql' ) {
+            querywindow.document.getElementById('hiddenqueryform').querydisplay_tab.value = "sql";
+            querywindow.document.getElementById('hiddenqueryform').query_history_latest.value = sql_query;
+            querywindow.document.getElementById('hiddenqueryform').submit();
             querywindow.focus();
         } else {
             querywindow.focus();
