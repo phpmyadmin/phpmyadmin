@@ -57,7 +57,7 @@ if (empty($_REQUEST['asfile'])) {
 }
 
 // Does export require to be into file?
-if (isset($export_list[$type]['force_file']) && $asfile) {
+if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = $strExportMustBeFile;
     $GLOBALS['show_error_header'] = true;
     $js_to_run = 'functions.js';
