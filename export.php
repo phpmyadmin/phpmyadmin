@@ -49,7 +49,7 @@ if (empty($_REQUEST['asfile'])) {
         $compression = $_REQUEST['compression'];
         $buffer_needed = true;
     }
-    if (empty($_REQUEST['onserver'])) {
+    if (!empty($_REQUEST['onserver'])) {
         $onserver = $_REQUEST['onserver'];
         // Will we save dump on server?
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
