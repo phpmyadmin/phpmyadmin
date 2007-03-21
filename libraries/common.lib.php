@@ -1477,6 +1477,7 @@ function PMA_getTab($tab)
         'attr'      => '',
         'args'      => '',
         'warning'   => '',
+        'fragment'  => '',
    );
 
     $tab = array_merge($defaults, $tab);
@@ -1512,6 +1513,10 @@ function PMA_getTab($tab)
                     . urlencode($value);
             }
         }
+    }
+
+    if (! empty($tab['fragment'])) {
+        $tab['link'] .= $tab['fragment'];
     }
 
     // display icon, even if iconic is disabled but the link-text is missing
