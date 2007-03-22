@@ -285,7 +285,7 @@ function open_querywindow( url ) {
         goTo( url, 'query' );
         querywindow.focus();
     } else {
-        querywindow=window.open( url, '',
+        querywindow = window.open( url + '&init=1', '',
             'toolbar=0,location=0,directories=0,status=1,menubar=0,' +
             'scrollbars=yes,resizable=yes,' +
             'width=' + querywindow_width + ',' +
