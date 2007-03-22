@@ -33,7 +33,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [server] improved display of binary logs
 + [data] better error handling in tbl_create.php
 + [routines] from Patch #1649881, thanks to Mike Beck
-+ store sql history in session
++ [querywindow] store sql history in session
++ [querywindow] sql history now without db too
++ [querywindow] tweaks in sql history view
 
 2.10.1.0 (not released yet)
 =====================
