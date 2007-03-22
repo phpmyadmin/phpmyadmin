@@ -25,19 +25,13 @@ require_once './libraries/Table.class.php';
  */
 function PMA_query_as_cu($sql, $show_error = true, $options = 0)
 {
-    $cfgRelation = PMA_getRelationsParam();
-
-    if (! strlen($cfgRelation['db'])) {
-        return false;
-    }
-
     // Comparing resource ids works on PHP 5 because, when no controluser
     // is defined, connecting with the same user for controllink does
     // not create a new connection. However a new connection is created
     // on PHP 4, so we cannot directly compare resource ids.
 
     if ($GLOBALS['controllink'] == $GLOBALS['userlink'] || PMA_MYSQL_INT_VERSION < 50000) {
-        PMA_DBI_select_db($cfgRelation['db'], $GLOBALS['controllink']);
+        PMA_DBI_select_db($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink']);
     }
     if ($show_error) {
         $result = PMA_DBI_query($sql, $GLOBALS['controllink'], $options);
@@ -232,6 +226,7 @@ function PMA__getRelationsParam()
         $GLOBALS['cfg']['Server']['pmadb'] = false;
         return $cfgRelation;
     }
+
 
     $cfgRelation['user']  = $GLOBALS['cfg']['Server']['user'];
     $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
