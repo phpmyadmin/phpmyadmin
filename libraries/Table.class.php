@@ -139,11 +139,11 @@ class PMA_Table {
 
     function isView($db = null, $table = null)
     {
-        if (null !== $db && null !== $table) {
+        if (strlen($db) && strlen($table)) {
             return PMA_Table::_isView($db, $table);
         }
 
-        if (strpos($this->get('TABLE TYPE'), 'VIEW')) {
+        if (isset($this) && strpos($this->get('TABLE TYPE'), 'VIEW')) {
             return true;
         }
 
