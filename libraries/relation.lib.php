@@ -750,9 +750,9 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
     }
 
     $_SESSION['sql_history'][$key] = array(
-        'db' => '',
-        'table' => '',
-        'sqlquery' => '',
+        'db' => $db,
+        'table' => $table,
+        'sqlquery' => $sqlquery,
     );
 
     if (count($_SESSION['sql_history']) > $GLOBALS['cfg']['QueryHistoryMax']) {
