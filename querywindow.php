@@ -259,49 +259,40 @@ if (! empty($_sql_history)
     foreach ($_sql_history as $query) {
         echo '<li>' . "\n";
         // edit link
-        echo '<a href="#" onclick="'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'querydisplay_tab.value = \'' . $tab . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest.value = \''
-               . preg_replace('/(\r|\n)+/i', '\\n',
-                    PMA_jsFormat($query['sqlquery'], false)) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'auto_commit.value = \'false\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'db.value = \'' . htmlspecialchars($query['db']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_db.value = \''
-               . htmlspecialchars($query['db']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'table.value = \'' . htmlspecialchars($query['table']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_table.value = \''
-               . htmlspecialchars($query['table']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').submit();'
-               .' return false;">' . $titles['Change'] . '</a>';
+        echo '<a href="#" onclick="';
+?>
+// <![CDATA[
+var form = document.getElementById('hiddenqueryform');
+form.querydisplay_tab.value = '<?php echo $tab ?>';
+form.query_history_latest.value = '<?php
+    echo preg_replace('/(\r|\n)+/i', '\\n', PMA_jsFormat($query['sqlquery'], false)) ?>';
+form.auto_commit.value = 'false';
+form.db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
+form.query_history_latest_db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
+form.table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
+form.query_history_latest_table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
+form.submit();
+return false;
+// ]]
+<?php
+        echo '">' . $titles['Change'] . '</a>';
         // execute link
-        echo '<a href="#" onclick="'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'querydisplay_tab.value = \'' . $tab . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest.value = \''
-               . preg_replace('/(\r|\n)+/i', '\\r\\n',
-                    PMA_jsFormat($query['sqlquery'], false)) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'auto_commit.value = \'true\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'db.value = \'' . htmlspecialchars($query['db']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_db.value = \''
-               . htmlspecialchars($query['db']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'table.value = \'' . htmlspecialchars($query['table']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_table.value = \''
-               . htmlspecialchars($query['table']) . '\';'
-               .' document.getElementById(\'hiddenqueryform\').submit();'
-               .' return false;">';
+        echo '<a href="#" onclick="';
+        ?>
+// <![CDATA[
+var form = document.getElementById('hiddenqueryform');
+form.querydisplay_tab.value = '<?php echo $tab ?>';
+form.query_history_latest.value = '<?php
+    echo preg_replace('/(\r|\n)+/i', '\\r\\n', PMA_jsFormat($query['sqlquery'], false)) ?>';
+form.auto_commit.value = 'true';
+form.db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
+form.query_history_latest_db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
+form.table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
+form.query_history_latest_table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
+form.submit();
+return false;
+// ]]">
+<?php
         if (! empty($query['db'])) {
             echo '[';
             echo htmlspecialchars(PMA_backquote($query['db']));
