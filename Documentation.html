@@ -2769,7 +2769,10 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <p> Edit your <i>config.inc.php</i> file and ensure there is nothing
     (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
-    tag at the end.</p>
+    tag at the end. We also got a report from a user under IIS, that used
+    a zipped distribution kit: the file <tt>libraries/Config.class.php</tt>
+    contained an end-of-line character (hex 0A) at the end; removing this character
+    cleared his errors.</p>
 
 <h4 id="faq2_2">
     <a href="#faq2_2">2.2 phpMyAdmin can't connect to MySQL. What's wrong?</a></h4>
