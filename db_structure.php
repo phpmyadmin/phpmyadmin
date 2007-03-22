@@ -364,6 +364,7 @@ foreach ($tables as $keyname => $each_table) {
             // InnoDB table: Row count is not accurate
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
+            $show_superscript = '';
         } else {
             $row_count_pre = '';
             $show_superscript = '';
