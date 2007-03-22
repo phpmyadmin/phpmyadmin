@@ -108,10 +108,13 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         ?>
         <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="var save_name = window.opener.parent.frame_content.name;
-                        window.opener.parent.frame_content.name = save_name + '<?php echo time(); ?>';
-                        this.target = window.opener.parent.frame_content.name;
-                        return checkSqlQuery( this );" >
+              onsubmit="
+              // <![CDATA[
+              var save_name = window.opener.parent.frame_content.name;
+              window.opener.parent.frame_content.name = save_name + '<?php echo time(); ?>';
+              this.target = window.opener.parent.frame_content.name;
+              return checkSqlQuery(this);
+              // ]]" >
         <?php
     } else {
         echo '<form method="post" action="import.php" ' . $enctype . ' id="sqlqueryform"'
