@@ -1,78 +1,108 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * finishs HTML output
+ *
+ * updates javascript variables in index.php for coorect working with querywindow
+ * and navigation frame refreshing
+ *
+ * send buffered data if buffered
+ *
  * WARNING: This script has to be included at the very end of your code because
  *          it will stop the script execution!
  *
  * always use $GLOBALS, as this script is also included by functions
  *
+ * @uses    $_REQUEST['no_history']
+ * @uses    $GLOBALS['lang']
+ * @uses    $GLOBALS['collation_connection']
+ * @uses    $GLOBALS['server']
+ * @uses    $GLOBALS['db']
+ * @uses    $GLOBALS['table']
+ * @uses    $GLOBALS['error_message']
+ * @uses    $GLOBALS['reload']
+ * @uses    $GLOBALS['sql_query']
+ * @uses    $GLOBALS['focus_querywindow']
+ * @uses    $GLOBALS['checked_special']
+ * @uses    $GLOBALS['pmaThemeImage']
+ * @uses    $GLOBALS['controllink'] to close it
+ * @uses    $GLOBALS['userlink'] to close it
+ * @uses    $cfg['Server']['user']
+ * @uses    $cfg['NavigationBarIconic']
+ * @uses    $cfg['DBG']['enable']
+ * @uses    $cfg['DBG']['profile']['enable']
+ * @uses    $GLOBALS['strOpenNewWindow']
+ * @uses    PMA_QUERY_TOO_BIG
+ * @uses    PMA_isValid()
+ * @uses    PMA_setHistory()
+ * @uses    PMA_ifSetOr()
+ * @uses    PMA_escapeJsString()
+ * @uses    PMA_getenv()
+ * @uses    PMA_generate_common_url()
+ * @uses    PMA_DBI_close()
+ * @uses    PMA_outBufferPost()
+ * @uses    basename()
+ * @uses    file_exists()
  * @version $Id$
  */
 
 /**
- *
+ * for PMA_setHistory()
  */
-require_once './libraries/relation.lib.php'; // for PMA_setHistory()
+require_once './libraries/relation.lib.php';
 
-/**
- * updates javascript variables in index.php for coorect working with querywindow
- * and navigation frame refreshing
- */
+if (! PMA_isValid($_REQUEST['no_history']) && empty($GLOBALS['error_message'])
+ && ! empty($GLOBALS['sql_query'])) {
+    PMA_setHistory(PMA_ifSetOr($GLOBALS['db'], ''),
+        PMA_ifSetOr($GLOBALS['table'], ''),
+        $GLOBALS['cfg']['Server']['user'],
+        $GLOBALS['sql_query']);
+}
+
 ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 <?php
-if (! isset($GLOBALS['no_history']) && isset($GLOBALS['db'])
-  && strlen($GLOBALS['db']) && empty($GLOBALS['error_message'])) {
-    $table = isset($GLOBALS['table']) ? $GLOBALS['table'] : ''; ?>
+if (empty($GLOBALS['error_message'])) {
+    ?>
 // updates current settings
 if (window.parent.setAll) {
     window.parent.setAll('<?php
         echo PMA_escapeJsString($GLOBALS['lang']) . "', '";
         echo PMA_escapeJsString($GLOBALS['collation_connection']) . "', '";
         echo PMA_escapeJsString($GLOBALS['server']) . "', '";
-        echo PMA_escapeJsString($GLOBALS['db']) . "', '";
-        echo PMA_escapeJsString($table); ?>');
+        echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "', '";
+        echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')); ?>');
 }
-<?php } ?>
-
-<?php if (! empty($GLOBALS['reload'])) { ?>
+    <?php
+    if (! empty($GLOBALS['reload'])) {
+        ?>
 // refresh navigation frame content
 if (window.parent.refreshNavigation) {
     window.parent.refreshNavigation();
 }
-<?php } ?>
-
-<?php
-if (! isset($GLOBALS['no_history']) && empty($GLOBALS['error_message'])) {
-    if (isset($GLOBALS['LockFromUpdate']) && $GLOBALS['LockFromUpdate'] == '1'
-      && isset($GLOBALS['sql_query'])) {
-        // When the button 'LockFromUpdate' was selected in the querywindow,
-        // it does not submit it's contents to
-        // itself. So we create a SQL-history entry here.
-        if ($GLOBALS['cfg']['QueryHistoryDB'] && $GLOBALS['cfgRelation']['historywork']) {
-            PMA_setHistory((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''),
-                (isset($GLOBALS['table']) ? $GLOBALS['table'] : ''),
-                $GLOBALS['cfg']['Server']['user'],
-                $GLOBALS['sql_query']);
-        }
+        <?php
     }
     ?>
 // set current db, table and sql query in the querywindow
-if (window.parent.refreshNavigation) {
+if (window.parent.reload_querywindow) {
     window.parent.reload_querywindow(
-        '<?php echo isset($GLOBALS['db']) ? PMA_escapeJsString($GLOBALS['db']) : '' ?>',
-        '<?php echo isset($GLOBALS['table']) ? PMA_escapeJsString($GLOBALS['table']) : '' ?>',
-        '<?php echo isset($GLOBALS['sql_query'])  && ! defined('PMA_QUERY_TOO_BIG') ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
+        '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) ?>',
+        '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) ?>',
+        '<?php echo isset($GLOBALS['sql_query']) && ! defined('PMA_QUERY_TOO_BIG') ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
 }
-<?php } ?>
+    <?php
+}
 
-<?php if (! empty($GLOBALS['focus_querywindow'])) { ?>
+if (! empty($GLOBALS['focus_querywindow'])) {
+    ?>
 // set focus to the querywindow
 if (parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
     self.focus();
 }
-<?php } ?>
+    <?php
+}
+?>
 
 if (window.parent.frame_content) {
     // reset content frame name, as querywindow needs to set a unique name
@@ -94,7 +124,7 @@ if (window.parent.frame_content) {
 
 // Link to itself to replicate windows including frameset
 if (!isset($GLOBALS['checked_special'])) {
-    $GLOBALS['checked_special'] = FALSE;
+    $GLOBALS['checked_special'] = false;
 }
 
 if (PMA_getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) {
@@ -124,10 +154,10 @@ if (PMA_getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) 
 /**
  * Close database connections
  */
-if (isset($GLOBALS['controllink']) && $GLOBALS['controllink']) {
+if (! empty($GLOBALS['controllink'])) {
     @PMA_DBI_close($GLOBALS['controllink']);
 }
-if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
+if (! empty($GLOBALS['userlink'])) {
     @PMA_DBI_close($GLOBALS['userlink']);
 }
 
@@ -162,10 +192,7 @@ if (! empty($GLOBALS['cfg']['DBG']['enable'])
 /**
  * Sends bufferized data
  */
-if (! empty($GLOBALS['cfg']['OBGzip'])
-  && ! empty($GLOBALS['ob_mode'])) {
-    PMA_outBufferPost($GLOBALS['ob_mode']);
-}
+PMA_outBufferPost();
 
 /**
  * Stops the script execution
