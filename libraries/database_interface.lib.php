@@ -871,10 +871,10 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         }
 
         // Add some field types to the list, this needs to be done once per session!
-        if ($GLOBALS['cfg']['ColumnTypes'][count($GLOBALS['cfg']['ColumnTypes']) - 1] != 'VARBINARY') {
+        if (!in_array('BINARY', $GLOBALS['cfg']['ColumnTypes']))
             $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
+        if (!in_array('VARBINARY', $GLOBALS['cfg']['ColumnTypes']))
             $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
-        }
 
     } else {
         require_once('./libraries/charset_conversion.lib.php');

@@ -27,6 +27,8 @@ $HeadURL$
 - bug #1674972 [export] no export with %afm%
 - bug #1667887 HTML maxlength
 - bug #1679055 #1050 - Table '<table name>' already exists
+- patch #1681620 [interface] support reordering of $cfg['ColumnTypes'],
+  thanks to Leonard den Ottolander
 
 2.10.0.3 (not released yet)
 =====================
