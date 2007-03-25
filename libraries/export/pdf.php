@@ -299,7 +299,7 @@ class PMA_PDF extends TCPDF
 
             ksort($this->tablewidths);
         }
-
+        echo 'trace<pre>'; print_r($this->tablewidths); echo '</pre>';
         PMA_DBI_free_result($this->results);
 
         // Pass 2

@@ -479,6 +479,15 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         not required.</li>
 </ul>
 
+<h4>'signon' authentication mode</h4>
+
+<ul><li>This mode is a convenient way of using credentials from another
+	application to authenticate to phpMyAdmin.</li>
+    <li>The other application has to store login information into 
+	session data.</li>
+    <li>More details in the <a href="#cfg_Servers_auth_type">auth_type</a>
+	section.</li>
+</ul>
 <h4>'config' authentication mode</h4>
 
 <ul><li>This mode is the less secure one because it requires you to fill the
