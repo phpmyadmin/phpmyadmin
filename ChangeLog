@@ -21,6 +21,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [gui] avoid displaying a wide selector in server selection
 - bug #1614004 [relation] foreign key spanning multiple columns are
   incorrectly displayed
+- bug #1681598 [interface] Edit next row 
 + [core] added PMA_fatalError() and made use of it
 . [core] added PMA_isValid() and PMA_ifSetOr() for variable handling
 . [i18n] use generic $strOptions

@@ -33,6 +33,11 @@ if (isset($_REQUEST['dontlimitchars'])) {
 if (isset($_REQUEST['primary_key'])) {
     $primary_key = $_REQUEST['primary_key'];
 }
+if (isset($_SESSION['edit_next'])) {
+    $primary_key = $_SESSION['edit_next'];
+    unset($_SESSION['edit_next']);
+    $after_insert = 'edit_next';
+}
 if (isset($_REQUEST['sql_query'])) {
     $sql_query = $_REQUEST['sql_query'];
 }
@@ -1005,7 +1010,7 @@ if (isset($primary_key)) {
     // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
     if (preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
         ?>
-                <option value="edit_next"><?php echo $strAfterInsertNext; ?></option>
+    <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNext; ?></option>
         <?php
     }
 }

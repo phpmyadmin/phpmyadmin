@@ -98,7 +98,7 @@ if (isset($_REQUEST['after_insert'])
                 $res            = PMA_DBI_query($local_query);
                 $row            = PMA_DBI_fetch_row($res);
                 $meta           = PMA_DBI_get_fields_meta($res);
-                $url_params['primary_key'][] = PMA_getUniqueCondition($res, count($row), $meta, $row);
+                $_SESSION['edit_next'] = PMA_getUniqueCondition($res, count($row), $meta, $row);
             }
         }
     }
