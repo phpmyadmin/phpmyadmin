@@ -380,7 +380,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     if (($source == 'both' || $source == 'innodb') && strlen($table)) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_backquote($db) . '.' . PMA_backquote($table);
-        $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 0, $GLOBALS['controllink']);
+        $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 1, $GLOBALS['controllink']);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] as $one_key) {
@@ -964,7 +964,7 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
         }
         if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
             $bot = PMA__foreignDropdownBuild($foreign, $data,
-                $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]);
+                $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]);
         }
     } else {
         $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
