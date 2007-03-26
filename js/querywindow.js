@@ -219,17 +219,16 @@ function setAll( new_lang, new_collation_connection, new_server, new_db, new_tab
     }
 }
 
-function reload_querywindow( db, table, sql_query ) {
+function reload_querywindow(db, table, sql_query)
+{
     if ( ! querywindow.closed && querywindow.location ) {
         if ( ! querywindow.document.sqlform.LockFromUpdate
           || ! querywindow.document.sqlform.LockFromUpdate.checked ) {
             querywindow.document.getElementById('hiddenqueryform').db.value = db;
-            querywindow.document.getElementById('hiddenqueryform').query_history_latest_db.value = db;
             querywindow.document.getElementById('hiddenqueryform').table.value = table;
-            querywindow.document.getElementById('hiddenqueryform').query_history_latest_table.value = table;
 
-            if ( sql_query ) {
-                querywindow.document.getElementById('hiddenqueryform').query_history_latest.value = sql_query;
+            if (sql_query) {
+                querywindow.document.getElementById('hiddenqueryform').sql_query.value = sql_query;
             }
 
             querywindow.document.getElementById('hiddenqueryform').submit();
@@ -240,7 +239,8 @@ function reload_querywindow( db, table, sql_query ) {
 /**
  * brings query window to front and inserts query to be edited
  */
-function focus_querywindow( sql_query ) {
+function focus_querywindow(sql_query)
+{
     /* if ( querywindow && !querywindow.closed && querywindow.location) { */
     if ( !querywindow || querywindow.closed || !querywindow.location) {
         // we need first to open the window and cannot pass the query with it
@@ -253,7 +253,7 @@ function focus_querywindow( sql_query ) {
         //var querywindow = querywindow;
         if ( querywindow.document.getElementById('hiddenqueryform').querydisplay_tab != 'sql' ) {
             querywindow.document.getElementById('hiddenqueryform').querydisplay_tab.value = "sql";
-            querywindow.document.getElementById('hiddenqueryform').query_history_latest.value = sql_query;
+            querywindow.document.getElementById('hiddenqueryform').sql_query.value = sql_query;
             querywindow.document.getElementById('hiddenqueryform').submit();
             querywindow.focus();
         } else {

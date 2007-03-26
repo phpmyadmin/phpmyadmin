@@ -133,14 +133,6 @@ if ($GLOBALS['cfg']['PropertiesIconic']) {
     $titles['Change'] = $GLOBALS['strChange'];
 }
 
-
-// Hidden forms and query frame interaction stuff
-if (PMA_isValid($_REQUEST['query_history_latest'])) {
-    $sql_query = $_REQUEST['query_history_latest'];
-    $db = PMA_ifSetOr($_REQUEST['query_history_latest_db'], '');
-    $table = PMA_ifSetOr($_REQUEST['query_history_latest_table'], '');
-}
-
 $url_query = PMA_generate_common_url($db, $table);
 
 if (PMA_isValid($sql_query)) {
@@ -258,41 +250,22 @@ if (! empty($_sql_history)
         .'<ul>';
     foreach ($_sql_history as $query) {
         echo '<li>' . "\n";
+
         // edit link
-        echo '<a href="#" onclick="';
-?>
-// <![CDATA[
-var form = document.getElementById('hiddenqueryform');
-form.querydisplay_tab.value = '<?php echo $tab ?>';
-form.query_history_latest.value = '<?php
-    echo preg_replace('/(\r|\n)+/i', '\\n', PMA_jsFormat($query['sqlquery'], false)) ?>';
-form.auto_commit.value = 'false';
-form.db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
-form.query_history_latest_db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
-form.table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
-form.query_history_latest_table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
-form.submit();
-return false;
-// ]]
-<?php
-        echo '">' . $titles['Change'] . '</a>';
+        $url_params = array(
+            'querydisplay_tab' => $tab,
+            'sql_query' => $query['sqlquery'],
+            'db' => $query['db'],
+            'table' => $query['table'],
+        );
+        echo '<a href="querywindow.php' . PMA_generate_common_url($url_params)
+            . '">' . $titles['Change'] . '</a>';
+
         // execute link
-        echo '<a href="#" onclick="';
-        ?>
-// <![CDATA[
-var form = document.getElementById('hiddenqueryform');
-form.querydisplay_tab.value = '<?php echo $tab ?>';
-form.query_history_latest.value = '<?php
-    echo preg_replace('/(\r|\n)+/i', '\\r\\n', PMA_jsFormat($query['sqlquery'], false)) ?>';
-form.auto_commit.value = 'true';
-form.db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
-form.query_history_latest_db.value = '<?php echo PMA_jsFormat($query['db'], false) ?>';
-form.table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
-form.query_history_latest_table.value = '<?php echo PMA_jsFormat($query['table'], false) ?>';
-form.submit();
-return false;
-// ]]">
-<?php
+        $url_params['auto_commit'] = 'true';
+        echo '<a href="import.php' . PMA_generate_common_url($url_params) . '"'
+            . ' target="frame_content">';
+
         if (! empty($query['db'])) {
             echo '[';
             echo htmlspecialchars(PMA_backquote($query['db']));
@@ -321,12 +294,7 @@ return false;
     <?php echo PMA_generate_common_hidden_inputs('', ''); ?>
     <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
-
-    <input type="hidden" name="query_history_latest" value="" />
-    <input type="hidden" name="query_history_latest_db" value="" />
-    <input type="hidden" name="query_history_latest_table" value="" />
-
-    <input type="hidden" name="auto_commit" value="false" />
+    <input type="hidden" name="sql_query" value="" />
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
 </div>
