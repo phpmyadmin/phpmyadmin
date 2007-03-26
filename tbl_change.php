@@ -30,6 +30,10 @@ if (isset($_REQUEST['repeat_cells'])) {
 if (isset($_REQUEST['dontlimitchars'])) {
     $dontlimitchars = $_REQUEST['dontlimitchars'];
 }
+/**
+ * @todo this one is badly named, it's really a WHERE condition 
+ *       and exists even for tables not having a primary key or unique key
+ */
 if (isset($_REQUEST['primary_key'])) {
     $primary_key = $_REQUEST['primary_key'];
 }
@@ -140,6 +144,7 @@ if (isset($primary_key)) {
 
     $row = array();
     $result = array();
+    $found_unique_key = false;
     foreach ($primary_key_array as $rowcount => $primary_key) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
         $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
@@ -152,7 +157,13 @@ if (isset($primary_key)) {
             PMA_showMessage($strEmptyResultSet, $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
-        } // end if (no record returned)
+        } else { // end if (no record returned)
+            $meta = PMA_DBI_get_fields_meta($result[$rowcount]);
+            if ($tmp = PMA_getUniqueCondition($result[$rowcount], count($meta), $meta, $row[$rowcount], true)) {
+                $found_unique_key = true;
+            }
+            unset($tmp);
+        }
     }
 } else {
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
@@ -1008,7 +1019,7 @@ if (isset($primary_key)) {
     // in 2.8.2, we were looking for `field_name` = numeric_value
     //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
     // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
-    if (preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
+    if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
         ?>
     <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNext; ?></option>
         <?php

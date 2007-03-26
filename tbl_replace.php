@@ -98,7 +98,12 @@ if (isset($_REQUEST['after_insert'])
                 $res            = PMA_DBI_query($local_query);
                 $row            = PMA_DBI_fetch_row($res);
                 $meta           = PMA_DBI_get_fields_meta($res);
-                $_SESSION['edit_next'] = PMA_getUniqueCondition($res, count($row), $meta, $row);
+                // must find a unique condition based on unique key,
+                // not a combination of all fields
+                if ($tmp = PMA_getUniqueCondition($res, count($meta), $meta, $row, true)) {
+                    $_SESSION['edit_next'] = $tmp;
+                }
+                unset($tmp);
             }
         }
     }

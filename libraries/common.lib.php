@@ -1848,16 +1848,18 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   integer     $fields_cnt     number of fields
  * @param   array       $fields_meta    meta information about fields
  * @param   array       $row            current row
+ * @param   boolean     $force_unique   generate condition only on pk or unique 
  *
  * @access  public
  * @author  Michal Cihar (michal@cihar.com)
  * @return  string      calculated condition
  */
-function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row)
+function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
 {
     $primary_key          = '';
     $unique_key           = '';
     $nonprimary_condition = '';
+    $preferred_condition = '';
 
     for ($i = 0; $i < $fields_cnt; ++$i) {
         $condition   = '';
@@ -1946,7 +1948,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row)
         $preferred_condition = $primary_key;
     } elseif ($unique_key) {
         $preferred_condition = $unique_key;
-    } else {
+    } elseif (! $force_unique) {
         $preferred_condition = $nonprimary_condition;
     }
 
