@@ -347,7 +347,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
         $field_html = htmlspecialchars($field);
         $field_md5  = md5($field);
 
-        $unnillify_trigger = $chg_evt_handler . "=\"return unNullify('" . PMA_escapeJsString($field_html) . "', '" . PMA_escapeJsString($jsvkey) . "')\"";
+        $unnullify_trigger = $chg_evt_handler . "=\"return unNullify('" . PMA_escapeJsString($field_html) . "', '" . PMA_escapeJsString($jsvkey) . "')\"";
         $field_name_appendix =  $vkey . '[' . $field_html . ']';
         $field_name_appendix_md5 = $field_md5 . $vkey . '[]';
 
@@ -505,7 +505,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             } else {
                 ?>
             <td>
-                <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnillify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
+                <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnullify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
                     <option></option>
                 <?php
                 $selected     = '';
@@ -644,7 +644,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
                 value="" id="field_<?php echo ($idindex); ?>_1" />
             <input type="text" name="field_<?php echo $field_name_appendix_md5; ?>"
-                class="textfield" <?php echo $unnillify_trigger; ?>
+                class="textfield" <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
                 value="<?php echo htmlspecialchars($data); ?>" />
@@ -668,7 +668,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
                 value="" id="field_<?php echo $idindex; ?>_1" />
             <select name="field_<?php echo $field_name_appendix_md5; ?>"
-                <?php echo $unnillify_trigger; ?>
+                <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3">
                 <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, $cfg['ForeignKeyMaxLimit']); ?>
@@ -688,7 +688,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     cols="<?php echo ($cfg['TextareaCols']*2); ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $unnillify_trigger; ?>
+                    <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     ><?php echo $special_chars; ?></textarea>
             </td>
@@ -702,7 +702,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     cols="<?php echo $cfg['TextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $unnillify_trigger; ?>
+                    <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     ><?php echo $special_chars; ?></textarea>
             </td>
@@ -726,7 +726,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 echo "\n";
                 ?>
                 <select name="field_<?php echo $field_name_appendix_md5; ?>"
-                    <?php echo $unnillify_trigger; ?>
+                    <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3">
                     <option value=""></option>
@@ -798,7 +798,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
                 <select name="field_<?php echo $field_name_appendix_md5; ?>"
                     size="<?php echo $size; ?>"
-                    multiple="multiple" <?php echo $unnillify_trigger; ?>
+                    multiple="multiple" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3">
             <?php
@@ -847,7 +847,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     cols="<?php echo $cfg['TextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $unnillify_trigger; ?>
+                    <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     ><?php echo $special_chars; ?></textarea>
                 <?php
@@ -861,7 +861,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 <?php echo $backup_field . "\n"; ?>
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
-                    class="textfield" <?php echo $unnillify_trigger; ?>
+                    class="textfield" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
@@ -931,7 +931,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     cols="<?php echo $cfg['CharTextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
-                    <?php echo $unnillify_trigger; ?>
+                    <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     ><?php echo $special_chars; ?></textarea>
                 <?php
@@ -939,7 +939,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 ?>
                 <input type="text" name="fields<?php echo $field_name_appendix; ?>"
                     value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
-                    class="textfield" <?php echo $unnillify_trigger; ?>
+                    class="textfield" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
