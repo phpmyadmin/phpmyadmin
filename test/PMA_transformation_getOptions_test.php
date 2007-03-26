@@ -32,5 +32,11 @@ class PMA_transformation_getOptions_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(array('2,3', ' ,, option ,,'),
             PMA_transformation_getOptions("'2,3' ,' ,, option ,,' "));
     }
+
+    public function testEmpty()
+    {
+        $this->assertEquals(array('', '', ''),
+            PMA_transformation_getOptions("'',,"));
+    }
 }
 ?>
