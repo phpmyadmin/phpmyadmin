@@ -764,6 +764,10 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         array_shift($_SESSION['sql_history']);
     }
 
+    if (! $cfgRelation['historywork']) {
+        return;
+    }
+
     PMA_query_as_cu('
          INSERT INTO
                 ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
@@ -802,6 +806,10 @@ function PMA_getHistory($username)
         return array_reverse($_SESSION['sql_history']);
     }
 
+    if (! $cfgRelation['historywork']) {
+        return false;
+    }
+
     $hist_query = '
          SELECT `db`,
                 `table`,
@@ -833,6 +841,10 @@ function PMA_purgeHistory($username)
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $cfgRelation['historywork']) {
+        return;
+    }
+
+    if (! $cfgRelation['historywork']) {
         return;
     }
 
