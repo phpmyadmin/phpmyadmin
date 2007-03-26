@@ -471,7 +471,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
-    $recursive_counter++;
+    $recursive_counter--;
 }
 
 /**

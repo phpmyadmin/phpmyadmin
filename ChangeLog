@@ -16,12 +16,13 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1643758 [import] Error #1264 importing NULL values in MySQL 5.0
 - bug #1523747 [innodb] make warning about row count more visible
 - bug #1676012 [auth] strip non-US-ASCII characters (RFC2616)
-- bug #1679440 Added FAQ entry about header errors under IIS caused by 
-  an end-of-line character 
+- bug #1679440 Added FAQ entry about header errors under IIS caused by
+- typo in fix for bug #1671813
+  an end-of-line character
 - [gui] avoid displaying a wide selector in server selection
 - bug #1614004 [relation] foreign key spanning multiple columns are
   incorrectly displayed
-- bug #1681598 [interface] Edit next row 
+- bug #1681598 [interface] Edit next row
 + [core] added PMA_fatalError() and made use of it
 . [core] added PMA_isValid() and PMA_ifSetOr() for variable handling
 . [i18n] use generic $strOptions
