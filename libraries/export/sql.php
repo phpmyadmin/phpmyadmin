@@ -844,7 +844,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     if (empty($row[$j]) && $row[$j] != '0') {
                         $values[] = '\'\'';
                     } else {
-                        $values[] = '0x' . bin2hex($row[$j]);
+                        if ($fields_meta[$j]->blob) {
+                            $values[] = '0x' . bin2hex($row[$j]);
+                        // to support for example a latin1_bin 
+                        } else {
+                            $values[] = 'CONVERT(0x' . bin2hex($row[$j]) . ' USING UTF8)';
+                        }
                     }
                 // something else -> treat as a string
                 } else {
