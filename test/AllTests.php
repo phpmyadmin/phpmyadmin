@@ -28,6 +28,7 @@ require_once './test/PMA_pow_test.php';
 require_once './test/Environment_test.php';
 require_once './test/escape_js_string.php';
 require_once './test/PMA_isValid_test.php';
+require_once './test/PMA_transformation_getOptions_test.php';
 
 class AllTests
 {
@@ -51,6 +52,7 @@ class AllTests
         $suite->addTestSuite('PMA_pow_test');
         $suite->addTestSuite('PMA_escapeJsString_test');
         $suite->addTestSuite('PMA_isValid_test');
+        $suite->addTestSuite('PMA_transformation_getOptions_test');
         return $suite;
     }
 }
