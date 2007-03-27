@@ -659,7 +659,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * by Arnold - Helder Hosting
      * (see FAQ 4.8)
      */
-    if (! empty($_REQUEST['server']) && is_string($_REQUEST['server']) && ! ctype_digit($_REQUEST['server'])) {
+    if (! empty($_REQUEST['server']) && is_string($_REQUEST['server'])
+     && ! is_numeric($_REQUEST['server'])) {
         foreach ($cfg['Servers'] as $i => $server) {
             if ($server['host'] == $_REQUEST['server']) {
                 $_REQUEST['server'] = $i;
