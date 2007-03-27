@@ -23,6 +23,7 @@ $HeadURL$
 - bug #1672789 [sqp] Undefined offset: 4 in sqlparser.lib.php #1674
 - bug #1682044 [export] Export file even if file not selected
 - bug #1664212 querywindow loses url encoded characters
+- replaced ctype_digit() with is_numeric()
 + [config] clean cookies on phpMyAdmin upgrade
 - bug #1674972 [export] no export with %afm%
 - bug #1667887 HTML maxlength
