@@ -154,7 +154,7 @@ for ( $i=0; $i < sizeof( $GLOBALS['PMD']["TABLE_NAME"] ); $i++ )
     ><?php echo "<span class='owner'>".strtolower($GLOBALS['PMD_OUT']["OWNER"][$i]).".</span>".$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]; ?></td>
   </tr>
   <tbody id="_|_tbody_<?php echo $t_n_url ?>"
-         style="display:<?php if( isset($tab_pos[$t_n]) ) echo $tab_pos[$t_n]["V"]?"":"none"; ?>;">
+         <?php if (! isset($tab_pos[$t_n])) echo 'style="display: none;"'; ?>>
   <?php
   $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
   for ( $j=0; $j < sizeof( $tab_column[$t_n]["COLUMN_ID"] ); $j++ )
