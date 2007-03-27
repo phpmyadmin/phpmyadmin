@@ -58,6 +58,7 @@ if (isIE) {
 //document.onmouseup = function(){General_scroll_end();}
 function MouseDown(e)
 {
+    var offsetx, offsety;
     if (cur_click != null) {
         offsetx = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
         offsety = isIE ? event.clientY + document.body.scrollTop : e.pageY;
@@ -637,9 +638,11 @@ function Select_tab(t)
 
 function Canvas_click(id)
 {
-    var n, relation_name, selected = 0;
+    var n = 0;
+    var relation_name = 0;
+    var selected = 0;
     var a = new Array();
-    var Key0, Key1, Key2, Key3, Key;
+    var Key0, Key1, Key2, Key3, Key, x1, x2;
     Clear();
     for (K in contr)
         for (key in contr[K])
