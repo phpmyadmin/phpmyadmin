@@ -34,7 +34,8 @@ function PMA_transformation_getOptions($option_string)
 {
     $result = array();
 
-    if (! $transform_options = preg_split('/,/', $option_string)) {
+    if (! strlen($option_string)
+     || ! $transform_options = preg_split('/,/', $option_string)) {
         return $result;
     }
 
