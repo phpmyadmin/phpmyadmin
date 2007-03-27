@@ -179,16 +179,12 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  *
  * Also bypassed if only showing php code.or validating a SQL query
  */
-if (!$cfg['Confirm']
-    || (isset($is_js_confirmed) && $is_js_confirmed)
-    || isset($btnDrop)
-
-    // if we are coming from a "Create PHP code" or a "Without PHP Code"
-    // dialog, we won't execute the query anyway, so don't confirm
-    //|| !empty($GLOBALS['show_as_php'])
-    || isset($GLOBALS['show_as_php'])
-
-    || !empty($GLOBALS['validatequery'])) {
+if (! $cfg['Confirm'] || isset($_REQUEST['is_js_confirmed']) || isset($btnDrop)
+ // if we are coming from a "Create PHP code" or a "Without PHP Code"
+ // dialog, we won't execute the query anyway, so don't confirm
+ //|| !empty($GLOBALS['show_as_php'])
+ || isset($GLOBALS['show_as_php'])
+ || !empty($GLOBALS['validatequery'])) {
     $do_confirm = false;
 } else {
     $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
