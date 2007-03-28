@@ -18,7 +18,10 @@ $GLOBALS['PMD']['STYLE']          = 'default';
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
-$GLOBALS['script_display_field'] = "<script>\n var display_field = new Array();\n";
+$GLOBALS['script_display_field'] =
+    '<script type="text/javascript">' . "\n" .
+    '// <![CDATA[' . "\n" .
+    'var display_field = new Array();' . "\n";
 
 /**
  * retrieves table info and stores it in $GLOBALS['PMD']
@@ -68,7 +71,9 @@ function get_tabs()
 
         $i++;
     }
-    $GLOBALS['script_display_field'] .= "</script>\n";
+    $GLOBALS['script_display_field'] .=
+        '// ]]>' . "\n" .
+        '</script>' . "\n";
     //  return $GLOBALS['PMD'];       // many bases // not use ??????
 }
 
@@ -153,7 +158,10 @@ function get_script_contr()
     }
 
     $ti = 0;
-    $script_contr = "<script>\n var contr = new Array();\n";
+    $script_contr =
+        '<script type="text/javascript">' . "\n" .
+        '// <![CDATA[' . "\n" .
+        'var contr = new Array();' . "\n";
     for ($i = 0; $i < count($con["C_NAME"]); $i++) {
         $js_var = ' contr[' . $ti . ']';
         $script_contr .= $js_var . " = new Array();\n";
@@ -171,7 +179,9 @@ function get_script_contr()
         }
         $ti++;
     }
-    $script_contr .= "</script>\n";
+    $script_contr .=
+        '// ]]>' . "\n" .
+        '</script>' . "\n";
     return $script_contr;
 }
 
@@ -245,45 +255,71 @@ function get_all_keys()
 }
 
 /**
+ *
+ *
  * @uses    $GLOBALS['PMD']
  * @uses    count()
  * @uses    in_array()
  * @return  array   ???
  */
-function get_script_tabs() {
-    $script_tabs = "<script>\n var j_tabs = new Array();\n";
-    for ( $i=0; $i < sizeof( $GLOBALS['PMD']['TABLE_NAME'] ); $i++ ) {
-        $script_tabs .= "j_tabs['".$GLOBALS['PMD_URL']['TABLE_NAME'][$i]."'] = '".$GLOBALS['PMD']['TABLE_TYPE'][$i]."';\n";
+function get_script_tabs()
+{
+    $script_tabs =
+        '<script type="text/javascript">' . "\n" .
+        '// <![CDATA[' . "\n" .
+        'var j_tabs = new Array();' . "\n";
+    for ($i = 0; $i < count($GLOBALS['PMD']['TABLE_NAME']); $i++) {
+        $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
+            . $GLOBALS['PMD']['TABLE_TYPE'][$i] . "';\n";
     }
-    $script_tabs .= "</script>\n";
+    $script_tabs .=
+        '// ]]>' . "\n" .
+        '</script>' . "\n";
     return $script_tabs;
 }
 
-function get_tab_pos() {
-    $stmt = PMA_query_as_cu("SELECT * FROM " . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']), FALSE, PMA_DBI_QUERY_STORE);
-    if ( $stmt ) // exist table repository
-    {
-        while ($t_p = PMA_DBI_fetch_array($stmt, MYSQL_ASSOC)) {
-            $t_name = $t_p['db_name'] . '.' . $t_p['table_name'];
-            $tab_pos[ $t_name ]['X'] = $t_p['x'];
-            $tab_pos[ $t_name ]['Y'] = $t_p['y'];
-            $tab_pos[ $t_name ]['V'] = $t_p['v'];
-            $tab_pos[ $t_name ]['H'] = $t_p['h'];
-        }
+/**
+ * @uses    $GLOBALS['controllink']
+ * @uses    $cfgRelation['designerwork']
+ * @uses    $cfgRelation['db']
+ * @uses    $cfgRelation['designer_coords']
+ * @uses    PMA_DBI_QUERY_STORE
+ * @uses    PMA_getRelationsParam()
+ * @uses    PMA_backquote()
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    count()
+ * @return  array   table positions and sizes
+ */
+function get_tab_pos()
+{
+    $cfgRelation = PMA_getRelationsParam();
+
+    if (! $cfgRelation['designerwork']) {
+        return null;
     }
-    return isset($tab_pos) ? $tab_pos : NULL;
+
+    $query = "
+         SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+                `x` AS `X`,
+                `y` AS `Y`,
+                `v` AS `V`,
+                `h` AS `H`
+           FROM " . PMA_backquote($cfgRelation['db']) . "." . PMA_backquote($cfgRelation['designer_coords']);
+    $tab_pos = PMA_DBI_fetch_result($query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE);
+    return count($tab_pos) ? $tab_pos : null;
 }
 
+/**
+ * returns  distinct values from $GLOBALS['PMD']['OWNER']
+ *
+ * @uses    array_values()
+ * @uses    array_unique()
+ * @uses    $GLOBALS['PMD']['OWNER']
+ * @return  array   owner
+ */
 function get_owners()
 {
-    $m = array();
-    $j = 0;
-    for ($i = 0; $i < count($GLOBALS['PMD']["OWNER"]); $i++) {
-        if (! in_array($GLOBALS['PMD']["OWNER"][$i],$m)) {
-            $m[$j++] = $GLOBALS['PMD']["OWNER"][$i];
-        }
-    }
-    return $m;
+    return array_values(array_unique($GLOBALS['PMD']['OWNER']));
 }
 
 get_tabs();
