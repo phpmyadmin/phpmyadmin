@@ -11,6 +11,10 @@ body {
     margin: 0;
 }
 
+img {
+    border: 0;
+}
+
 .input_tab {
     background-color: #A6C7E1;
     color: #000000;
@@ -100,7 +104,7 @@ form {
 }
 
 .scroll_tab {
-    overflow: scroll;
+    overflow: auto;
     width: 100%;
     height: 500px;
 }
@@ -196,7 +200,7 @@ input, select, textarea {
     color: #000000;
 }
 
-#butt {
+.butt {
     border: #4477aa solid 1px;
     font-size: 11px;
     font-weight: bold;
@@ -233,35 +237,35 @@ input, select, textarea {
     height: 10px;
 }
 
-#frams1 {
+.frams1 {
     background: url(images/1.png) no-repeat right bottom;
 }
 
-#frams2 {
+.frams2 {
     background: url(images/2.png) no-repeat left bottom;
 }
 
-#frams3 {
+.frams3 {
     background: url(images/3.png) no-repeat left top;
 }
 
-#frams4 {
+.frams4 {
     background: url(images/4.png) no-repeat right top;
 }
 
-#frams5 {
+.frams5 {
     background: url(images/5.png) repeat-x center bottom;
 }
 
-#frams6 {
+.frams6 {
     background: url(images/6.png) repeat-y left;
 }
 
-#frams7 {
+.frams7 {
     background: url(images/7.png) repeat-x top;
 }
 
-#frams8 {
+.frams8 {
     background: url(images/8.png) repeat-y right;
 }
 
@@ -271,8 +275,8 @@ input, select, textarea {
     border: #A9A9A9 solid 1px;
 }
 
-ul.header {
-    width: 350px;
+.header {
+/*    width: 350px; */
     background-color: #EAEEF0;
     color: #000000;
     text-align: center;
@@ -287,66 +291,90 @@ ul.header {
     background-position: top;
     background-repeat: repeat-x;
     border-right: #999999 solid 1px;
-    /*border-bottom:#999999 solid 1px;*/
+/*    border-bottom:#999999 solid 1px;*/
     border-left: #999999 solid 1px;
+    height: 28px;
 }
 
-/* Button CSS rules */
-a.M_butt img,a.M_butt_Selected_down img {
-    width: 20px;
+.header a {
+    display: block;
+    float: left;
+    margin: 3px 1px 4px 1px;
     height: 20px;
-    cursor: default;
-    margin-top: 3px;
-    margin-left: 1px;
-    margin-bottom: 3px;
+    border: 1px dotted #ffffff;
 }
 
-a.M_butt img {
-    border: 1px dotted #F0F0EE !important;
+.header .M_bord {
+    display: block;
+    float: left;
+    margin: 4px;
+    height: 20px;
+    width: 2px;
 }
 
-a.M_butt_Selected_down img {
-    border: 1px solid #C0C0BB !important;
-    background-color: #99FF99;
-    color: #000000;
+.header a.first {
+    margin-right: 1em;
 }
 
-a.M_butt img:hover {
-    border: 1px solid #0099CC !important;
-    cursor: default;
-    background-color: #FFEE99;
-    color: #000000;
+.header a.last {
+    margin-left: 1em;
 }
 
-/* for IE */
-* html a.M_butt img,a.M_butt_Selected_down_IE {
-    border: 0 !important;
-    margin-top: 4px;
-    margin-bottom: 1px;
-}
-
-* html a.M_butt {
-    /*border: 1px dotted #F0F0EE;*/
-    border: 1px dotted #FFFFFF;
-    cursor: default;
-}
-
-a.M_butt_Selected_down_IE {
+a.M_butt_Selected_down_IE,
+a.M_butt_Selected_down {
     border: 1px solid #C0C0BB;
     background-color: #99FF99;
     color: #000000;
 }
 
-* html a.M_butt:hover {
+a.M_butt_Selected_down_IE:hover,
+a.M_butt_Selected_down:hover,
+a.M_butt:hover {
     border: 1px solid #0099CC;
-    cursor: default;
     background-color: #FFEE99;
     color: #000000;
 }
 
-.M_bord {
-    border: 0;
-    margin-left: 2px;
-    margin-right: 2px;
-    margin-bottom: 4px;
+#layer_menu {
+    left: 0;
+    top: 28px;
+    width: 150px;
+    position: fixed;
+    z-index: 1000;
+    background-color: #EAEEF0;
+    border: #999999 solid 1px;
+}
+
+#layer_action {
+    position: absolute;
+    left: 638px;
+    top: 52px;
+    z-index: 1000;
+    background-color: #CCFF99;
+    padding: 3px;
+    border: #009933 solid 1px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#layer_upd_relation {
+    position: absolute;
+    left: 637px;
+    top: 224px;
+    z-index: 1000;
+}
+
+#layer_new_relation {
+    position: absolute;
+    left: 636px;
+    top: 85px;
+    z-index: 1000;
+    width: 153px;
+}
+
+#layer_menu_sizer {
+    background-image: url(../../images/resize.png);
+    cursor: nw-resize;
+    width: 16px;
+    height: 16px;
 }
