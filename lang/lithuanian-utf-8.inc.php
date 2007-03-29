@@ -271,7 +271,6 @@ $strHasBeenAltered = 'išplėsta.';
 $strHasBeenCreated = 'sukurta.';
 $strHaveToShow = 'Pasirinkite bent vieną stulpelį išvedimui';
 $strHebrew = 'Žydų';
-$strHexForBinary = 'Binariniams laukams naudoti šešioliktainę koduotę';
 $strHomepageOfficial = 'Oficialus phpMyAdmin tinklapis';
 $strHome = 'Pradinis';
 $strHost = 'Darbinė stotis';
@@ -1048,4 +1047,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

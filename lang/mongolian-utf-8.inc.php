@@ -287,7 +287,6 @@ $strHasBeenAltered = 'өөрчлөгдсөн байна.';
 $strHasBeenCreated = 'үүссэн байна.';
 $strHaveToShow = 'Харуулахын тулд ядаж нэг багана сонго';
 $strHebrew = 'Иврей';
-$strHexForBinary = 'Хоёртын талбарт арван зургаатыг хэрэглэх (hexadecimal)';
 $strHomepageOfficial = 'phpMyAdmin-ын албан ёсны вэб сайт';
 $strHome = 'Гэр';
 $strHostEmpty = 'Хостын нэр хоосон!';
@@ -1053,4 +1052,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

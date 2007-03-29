@@ -336,7 +336,6 @@ $strHasBeenCreated = 'har skapats.';
 $strHaveToShow = 'Du måste välja minst en kolumn som ska visas';
 $strHebrew = 'Hebreisk';
 $strHelp = 'Hjälp';
-$strHexForBinary = 'Använd hexadecimalt för binära fält';
 $strHide = 'Dölj';
 $strHideShowAll = 'Dölj/visa alla';
 $strHideShowNoRelation = 'Dölj/visa tabeller utan relationer';
@@ -1038,4 +1037,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

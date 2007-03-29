@@ -270,7 +270,6 @@ $strHasBeenAltered = 'שונתה.';
 $strHasBeenCreated = 'נוצרה.';
 $strHaveToShow = 'עליך לבחור לפחות עמודה אחת לתצוגה';
 $strHebrew = 'עברית';
-$strHexForBinary = 'השתמש בהקסדצימלי לשדות בינאריים';
 $strHome = 'בית';
 $strHomepageOfficial = 'דף הבית phpMyAdmin הרשמי';
 $strHost = 'מארח';
@@ -1049,4 +1048,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

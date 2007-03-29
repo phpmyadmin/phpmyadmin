@@ -319,7 +319,6 @@ $strHasBeenAltered = 'izmijenjeno je.';
 $strHasBeenCreated = 'izrađeno je.';
 $strHaveToShow = 'Morate odabrati najmanje jedan stupac za prikazivanje';
 $strHebrew = 'Hebrejski';
-$strHexForBinary = 'Upotrijebi heksadecimalno za binarna polja';
 $strHomepageOfficial = 'Službena stranica programa phpMyAdmin';
 $strHome = 'Početna stranica';
 $strHostEmpty = 'Naziv računala je prazan!';
@@ -1031,4 +1030,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

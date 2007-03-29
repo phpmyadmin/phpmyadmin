@@ -341,7 +341,6 @@ $strHasBeenCreated = 'oluþturuldu.';
 $strHaveToShow = 'Görüntülemek için en az bir sütun seçmelisiniz';
 $strHebrew = 'Ýbranice';
 $strHelp = 'Yardým';
-$strHexForBinary = 'Binari alanlarý için onaltýlýk sayý sistemini kullan';
 $strHide         = 'Gizle';
 $strHideShowAll = 'Tümünü Gizle/Göster';
 $strHideShowNoRelation = 'Ýliþkisi olmayan Tablolarý Gizle/Göster';
@@ -1037,4 +1036,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

@@ -265,7 +265,6 @@ $strHasBeenAltered = 'is veranderd.';
 $strHasBeenCreated = 'is aangemaakt.';
 $strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen';
 $strHebrew = 'Hebreeuws';
-$strHexForBinary = 'Gebruik hexadecimale voor binaire velden';
 $strHome = 'Home';
 $strHomepageOfficial = 'Officiële phpMyAdmin Website';
 $strHostEmpty = 'De host naam is leeg!';
@@ -1054,4 +1053,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

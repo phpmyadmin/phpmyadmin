@@ -281,7 +281,6 @@ $strHasBeenAltered = 'telah diubah.';
 $strHasBeenCreated = 'telah diciptakan.';
 $strHaveToShow = 'Sekurang-kurangnya satu kolom harus dipilih untuk ditampilkan';
 $strHebrew = 'Bahasa Yahudi';
-$strHexForBinary = 'Gunakan cara hexadesimal untuk field binari';
 $strHome = 'Home';
 $strHomepageOfficial = 'Homepage resmi phpMyAdmin';
 $strHostEmpty = 'Nama Host harus diisi!';
@@ -1047,4 +1046,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

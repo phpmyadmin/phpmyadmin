@@ -319,7 +319,6 @@ $strHasBeenAltered = 'er ændret.';
 $strHasBeenCreated = 'er oprettet.';
 $strHaveToShow = 'Du skal vælge mindst en kolonne der skal vises';
 $strHebrew = 'Hebræisk';
-$strHexForBinary = 'Brug hexadecimal til binære felter';
 $strHome = 'Hjem';
 $strHomepageOfficial = 'Officiel phpMyAdmin hjemmeside ';
 $strHostEmpty = 'Der er intet værtsnavn!';
@@ -1031,4 +1030,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

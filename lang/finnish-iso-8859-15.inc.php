@@ -340,7 +340,6 @@ $strHasBeenCreated = 'on luotu.';
 $strHaveToShow = 'Valitse vähintään yksi sarake';
 $strHebrew = 'Hebrealainen';
 $strHelp = 'Ohje';
-$strHexForBinary = 'Näytä binäärikentät heksalukuina';
 $strHide         = 'Kätke';
 $strHideShowAll = 'Kätke/näytä kaikki';
 $strHideShowNoRelation = 'Kätke/näytä taulut, joilla ei ole relaatiota';
@@ -1034,4 +1033,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

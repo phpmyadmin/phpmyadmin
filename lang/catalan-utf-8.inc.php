@@ -331,7 +331,6 @@ $strHasBeenCreated = 'ha estat creada.';
 $strHaveToShow = 'Has de triar al menys una columna per mostrar';
 $strHebrew = 'Hebreu';
 $strHelp = 'Ajuda';
-$strHexForBinary = 'Usa hexadecimal per camps binaris';
 $strHide         = 'Amaga';
 $strHideShowAll = 'Amaga/Mostra tot';
 $strHideShowNoRelation = 'Amaga/Mostra taules sense relacions';
@@ -1029,4 +1028,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

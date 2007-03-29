@@ -1276,9 +1276,9 @@ $cfg['Export']['sql_ignore'] = false;
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_hex_for_binary']
+ * @global boolean $cfg['Export']['sql_hex_for_blob']
  */
-$cfg['Export']['sql_hex_for_binary'] = true;
+$cfg['Export']['sql_hex_for_blob'] = true;
 
 /**
  * insert/update/replace

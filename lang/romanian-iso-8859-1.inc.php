@@ -266,7 +266,6 @@ $strHasBeenAltered = 'a fost alterat.';
 $strHasBeenCreated = 'a fost creat.';
 $strHaveToShow = 'Trebuie sa alegi cel putin o coloana pentru a putea afisa';
 $strHebrew = 'Ebraica';
-$strHexForBinary = 'Foloseste hexadecimal pentru campuri binary';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHome = 'Pagina de start';
 $strHostEmpty = 'Numele de gazda este gol!';
@@ -1050,4 +1049,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

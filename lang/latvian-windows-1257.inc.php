@@ -264,7 +264,6 @@ $strHasBeenAltered = 'tika modificçta.';
 $strHasBeenCreated = 'tika izveidota.';
 $strHaveToShow = 'Izvçlieties vismaz vienu kolonnu attçloðanai';
 $strHebrew = 'Ebreju';
-$strHexForBinary = 'Lietot heksadecimâlo formâtu binârajiem laukiem';
 $strHomepageOfficial = 'Oficiâlâ phpMyAdmin mâjaslapa';
 $strHome = 'Sâkumlapa';
 $strHostEmpty = 'Hosts nav norâdîts!';
@@ -1054,4 +1053,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

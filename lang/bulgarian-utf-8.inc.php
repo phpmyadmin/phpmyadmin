@@ -291,7 +291,6 @@ $strHasBeenAltered = 'беше променена.';
 $strHasBeenCreated = 'беше създадена.';
 $strHaveToShow = 'Трябва да изберете поне една Колона за показване';
 $strHebrew = 'Иврит';
-$strHexForBinary = 'Използване на шестнадесетично представяне за двоичните полета';
 $strHome = 'Начало';
 $strHomepageOfficial = 'Официалната уеб страница на phpMyAdmin ';
 $strHostEmpty = 'Името на хоста е празно!';
@@ -1053,4 +1052,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

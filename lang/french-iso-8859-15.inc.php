@@ -334,7 +334,6 @@ $strHasBeenCreated = 'a été créé(e).';
 $strHaveToShow = 'Vous devez choisir au moins une colonne à afficher';
 $strHebrew = 'hébreu';
 $strHelp = 'Aide';
-$strHexForBinary = 'Encoder les champs binaires en hexadécimal';
 $strHide         = 'Cacher';
 $strHideShowAll = 'Cacher/montrer tout';
 $strHideShowNoRelation = 'Cacher/montrer les tables sans liens';
@@ -1028,4 +1027,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

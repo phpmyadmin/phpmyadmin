@@ -339,7 +339,6 @@ $strHasBeenCreated = 'byla vytvořena.';
 $strHaveToShow = 'Musíte zvolit alespoň jeden sloupec, který chcete zobrazit.';
 $strHebrew = 'Hebrejština';
 $strHelp = 'Nápověda';
-$strHexForBinary = 'Binární pole vypisovat šestnáctkově';
 $strHideShowAll = 'Skrýt/Zobrazit vše';
 $strHideShowNoRelation = 'Skrýt/Zobrazit tabulky bez relací';
 $strHide         = 'Skrýt';
@@ -1032,4 +1031,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

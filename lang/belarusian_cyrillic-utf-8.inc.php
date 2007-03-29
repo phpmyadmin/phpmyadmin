@@ -321,7 +321,6 @@ $strHasBeenAltered = 'была зьмененая.';
 $strHasBeenCreated = 'была створаная.';
 $strHaveToShow = 'Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня';
 $strHebrew = 'Габрэйская';
-$strHexForBinary = 'Выкарыстоўваць шаснаццаткавыя лікі для двойкавых палёў';
 $strHome = 'Да пачатку';
 $strHomepageOfficial = 'Афіцыйная старонка phpMyAdmin';
 $strHostEmpty = 'Пустое імя хосту!';
@@ -1033,4 +1032,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

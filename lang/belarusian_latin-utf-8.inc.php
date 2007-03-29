@@ -320,7 +320,6 @@ $strHasBeenAltered = 'była źmienienaja.';
 $strHasBeenCreated = 'była stvoranaja.';
 $strHaveToShow = 'Vam nieabchodna vybrać prynamsi adnu kalonku dla adlustravańnia';
 $strHebrew = 'Habrejskaja';
-$strHexForBinary = 'Vykarystoŭvać šasnaccatkavyja liki dla dvojkavych paloŭ';
 $strHome = 'Da pačatku';
 $strHomepageOfficial = 'Aficyjnaja staronka phpMyAdmin';
 $strHost = 'Chost';
@@ -1032,4 +1031,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

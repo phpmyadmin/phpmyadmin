@@ -303,7 +303,6 @@ $strHasBeenAltered = 'üzgärtelde.';
 $strHasBeenCreated = 'yaratıldı.';
 $strHaveToShow = 'You have to choose at least one Column to display';
 $strHebrew = 'Yähüdçä';
-$strHexForBinary = 'Binar alan kertkändä 16\'lı san qullanası';
 $strHome = 'Başbit';
 $strHomepageOfficial = 'phpMyAdmin säxifäse';
 $strHostEmpty = 'Host adı buş!';
@@ -1044,4 +1043,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

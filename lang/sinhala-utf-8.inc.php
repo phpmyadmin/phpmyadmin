@@ -322,7 +322,6 @@ $strHasBeenAltered = 'වෙනස් කරන ලදි.';
 $strHasBeenCreated = 'සාදන ලදි.';
 $strHaveToShow = 'පෙන්වීම සඳහා අවම වශයෙන් එක් තීරයක්වත් තෝරාගත යුතුයි';
 $strHebrew = 'හීබෲ';
-$strHexForBinary = 'ද්වීමය ක්ෂේත්‍ර සඳහා දහසයේ-පාදය භාවිතා කරන්න';
 $strHome = 'මුල් පිටුව';
 $strHomepageOfficial = 'නිල phpMyAdmin මුල් පිටුව';
 $strHostEmpty = 'දාරක නම හිස්ව පවතී!';
@@ -1035,4 +1034,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

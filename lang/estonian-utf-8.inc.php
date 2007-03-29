@@ -334,7 +334,6 @@ $strHasBeenCreated = 'on loodud.';
 $strHaveToShow = 'Te peate valima vähemalt ühe veeru kuvamiseks';
 $strHebrew = 'Heebrea';
 $strHelp = 'Abi';  
-$strHexForBinary = 'Kasuta 16nd koodi binaarväljades';
 $strHide         = 'Peida';
 $strHideShowAll = 'Peida/Näita kõik';
 $strHideShowNoRelation = 'Peida/Näita tabelid millel puudub suhe'; 
@@ -1038,4 +1037,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

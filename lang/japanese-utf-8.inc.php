@@ -339,7 +339,6 @@ $strHasBeenCreated = 'を作成しました';
 $strHaveToShow = '最低ひとつは表示するカラムを選択してください';
 $strHebrew = 'ヘブライ語';
 $strHelp = 'ヘルプ';
-$strHexForBinary = 'バイナリフィールドでは 16 進数を使用する';
 $strHide         = '隠す';
 $strHideShowAll = 'すべて隠す/表示';
 $strHideShowNoRelation = 'リレーションのないテーブルを隠す/表示';
@@ -1036,4 +1035,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

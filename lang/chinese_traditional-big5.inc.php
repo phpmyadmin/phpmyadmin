@@ -308,7 +308,6 @@ $strHasBeenAltered = '已經修改';
 $strHasBeenCreated = '已經建立';
 $strHaveToShow = '您需要選擇最少顯示一行欄位';
 $strHebrew = '希伯來語';
-$strHexForBinary = '以十六進制數值顯示二進制欄位';
 $strHome = '主目錄';
 $strHomepageOfficial = 'phpMyAdmin 官方網站';
 $strHost = '主機';
@@ -1036,4 +1035,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

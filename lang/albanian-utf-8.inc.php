@@ -253,7 +253,6 @@ $strHasBeenAltered = 'u ndryshua.';
 $strHasBeenCreated = 'u krijua.';
 $strHaveToShow = 'Zgjidh të paktën një kolonë për të parë';
 $strHebrew = 'Hebraike';
-$strHexForBinary = 'Përdor hexadecimale për fushat binare';  
 $strHomepageOfficial = 'Faqja zyrtare e phpMyAdmin';
 $strHome = 'Shtëpia';
 $strHostEmpty = 'Emri i host është bosh!';
@@ -1056,4 +1055,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

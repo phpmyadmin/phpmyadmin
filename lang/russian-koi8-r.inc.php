@@ -296,7 +296,6 @@ $strHasBeenAltered = 'была изменена.';
 $strHasBeenCreated = 'была создана.';
 $strHaveToShow = 'Вы должны выбрать не менее одной колонки для отображения';
 $strHebrew = 'Иврит';
-$strHexForBinary = 'Использовать шестнадцатиричные (hexadecimal) бинарные поля';
 $strHome = 'К началу';
 $strHomepageOfficial = 'Официальная страница phpMyAdmin';
 $strHost = 'Хост';
@@ -1052,4 +1051,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

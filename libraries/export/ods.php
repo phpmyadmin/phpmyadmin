@@ -155,16 +155,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
                     . '</table:table-cell>';
-            // ignore binary field
-            // Note: with mysqli, under MySQL 4.1.3, we get the flag
-            // "binary" for those field types (I don't know why)
+            // ignore BLOB 
             } elseif (stristr($field_flags[$j], 'BINARY')
-                    && isset($GLOBALS['sql_hex_for_binary'])
-                    && $fields_meta[$j]->type != 'datetime'
-                    && $fields_meta[$j]->type != 'date'
-                    && $fields_meta[$j]->type != 'time'
-                    && $fields_meta[$j]->type != 'timestamp'
-                   ) {
+                    && $fields_meta[$j]->blob) {
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p></text:p>'
                     . '</table:table-cell>';

@@ -287,7 +287,6 @@ $strHasBeenAltered = 'megváltozott.';
 $strHasBeenCreated = 'megszületett.';
 $strHaveToShow = 'Legalább egy oszlopot választanod kell a megjelenítéshez';
 $strHebrew = 'Héber';  
-$strHexForBinary = 'Bináris mez&#337;k hexadecimálisként';
 $strHome = 'Kezd&#337;lap';
 $strHomepageOfficial = 'Hivatalos phpMyAdmin Honlap';
 $strHostEmpty = 'A hosztnév üres!';
@@ -1050,4 +1049,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

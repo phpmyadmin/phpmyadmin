@@ -111,7 +111,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] =
             array('type' => 'bool', 'name' => 'ignore', 'text' => 'strIgnoreInserts');
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'hex_for_binary', 'text' => 'strHexForBinary');
+            array('type' => 'bool', 'name' => 'hex_for_blob', 'text' => 'strHexForBLOB');
         $plugin_list['sql']['options'][] =
             array('type' => 'select', 'name' => 'type', 'text' => 'strSQLExportType', 'values' => array('INSERT', 'UPDATE', 'REPLACE'));
         $plugin_list['sql']['options'][] =
@@ -830,26 +830,20 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp'
                         && ! $fields_meta[$j]->blob) {
                     $values[] = $row[$j];
-                // a binary field
-                // Note: with mysqli, under MySQL 4.1.3, we get the flag
-                // "binary" for those field types (I don't know why)
+                // a true BLOB 
+                // - mysqldump only generates hex data when the --hex-blob
+                //   option is used, for fields having the binary attribute
+                //   no hex is generated
+                // - a TEXT field returns type blob but a real blob 
+                //   returns also the 'binary' flag 
                 } elseif (stristr($field_flags[$j], 'BINARY')
-                        && isset($GLOBALS['sql_hex_for_binary'])
-                        && $fields_meta[$j]->type != 'datetime'
-                        && $fields_meta[$j]->type != 'date'
-                        && $fields_meta[$j]->type != 'time'
-                        && $fields_meta[$j]->type != 'timestamp'
-                       ) {
+                        && $fields_meta[$j]->blob
+                        && isset($GLOBALS['sql_hex_for_blob'])) {
                     // empty blobs need to be different, but '0' is also empty :-(
                     if (empty($row[$j]) && $row[$j] != '0') {
                         $values[] = '\'\'';
                     } else {
-                        if ($fields_meta[$j]->blob) {
-                            $values[] = '0x' . bin2hex($row[$j]);
-                        // to support for example a latin1_bin 
-                        } else {
-                            $values[] = 'CONVERT(0x' . bin2hex($row[$j]) . ' USING UTF8)';
-                        }
+                        $values[] = '0x' . bin2hex($row[$j]);
                     }
                 // something else -> treat as a string
                 } else {

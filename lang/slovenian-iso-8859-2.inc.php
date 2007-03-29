@@ -708,7 +708,6 @@ $strGenerate = 'Generate';  //to translate
 $strGeneratePassword = 'Generate Password';  //to translate
 
 $strHandler = 'Handler';  //to translate
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
 $strHTMLWord = 'Microsoft Word 2000';  //to translate
 
@@ -1051,4 +1050,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

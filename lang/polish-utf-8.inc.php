@@ -314,7 +314,6 @@ $strHasBeenAltered = 'zostało zamienione.';
 $strHasBeenCreated = 'zostało utworzone.';
 $strHaveToShow = 'Należy wybrać przynajmniej jedną kolumnę do wyświetlenia';
 $strHebrew = 'Hebrajski';
-$strHexForBinary = 'Użyj liczb szesnastkowych w przypadku pól binarnych';
 $strHomepageOfficial = 'Oficjalna strona phpMyAdmina';
 $strHome = 'Wejście';
 $strHostEmpty = 'Brak nazwy hosta!';
@@ -1026,4 +1025,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

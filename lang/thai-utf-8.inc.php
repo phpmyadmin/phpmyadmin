@@ -224,7 +224,6 @@ $strHasBeenAltered = 'เปลี่ยนเสร็จแล้ว';
 $strHasBeenCreated = 'สร้างเสร็จแล้ว';
 $strHaveToShow = 'ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์';
 $strHebrew = 'ฮิบรู';
-$strHexForBinary = 'ใช้เลขฐานสิบหกสำหรับช่องข้อมูลไบนารี';
 $strHome = 'หน้าบ้าน';
 $strHomepageOfficial = 'โฮมเพจอย่างเป็นทางการของ phpMyAdmin';
 $strHost = 'โฮสต์';
@@ -1054,4 +1053,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>

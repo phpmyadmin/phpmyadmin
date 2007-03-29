@@ -265,7 +265,6 @@ $strHasBeenAltered = 'tika modificēta.';
 $strHasBeenCreated = 'tika izveidota.';
 $strHaveToShow = 'Izvēlieties vismaz vienu kolonnu attēlošanai';
 $strHebrew = 'Ebreju';
-$strHexForBinary = 'Lietot heksadecimālo formātu binārajiem laukiem';
 $strHomepageOfficial = 'Oficiālā phpMyAdmin mājaslapa';
 $strHome = 'Sākumlapa';
 $strHostEmpty = 'Hosts nav norādīts!';
@@ -1055,4 +1054,5 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
+$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>
