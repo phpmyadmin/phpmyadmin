@@ -54,6 +54,8 @@ if (isset($plugin_list)) {
         } else {
             // Append new data to buffer
             $buffer .= $data;
+            // free memory
+            unset($data);
             // Do not parse string when we're not at the end and don't have ; inside
             if ((strpos($buffer, $sql_delimiter, $i) === FALSE) && !$finished)  {
                 continue;
@@ -123,7 +125,7 @@ if (isset($plugin_list)) {
             $ch = $buffer[$i];
 
             // Quotes
-            if (!(strpos('\'"`', $ch) === FALSE)) {
+            if (strpos('\'"`', $ch) !== FALSE) {
                 $quote = $ch;
                 $endq = FALSE;
                 while (!$endq) {
@@ -160,8 +162,8 @@ if (isset($plugin_list)) {
 
             // Not enough data to decide
             if ((($i == ($len - 1) && ($ch == '-' || $ch == '/'))
-                || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-') || ($ch == '/' && $buffer[$i + 1] == '*')))
-                ) && !$finished) {
+              || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
+                || ($ch == '/' && $buffer[$i + 1] == '*')))) && !$finished) {
                 break;
             }
 
