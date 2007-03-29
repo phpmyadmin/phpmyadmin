@@ -10,12 +10,7 @@
  */
 require_once('./libraries/common.inc.php');
 require_once('./libraries/ob.lib.php');
-if ($cfg['OBGzip']) {
-    $ob_mode = PMA_outBufferModeGet();
-    if ($ob_mode) {
-        PMA_outBufferPre($ob_mode);
-    }
-}
+PMA_outBufferPre();
 
 // Check parameters
 

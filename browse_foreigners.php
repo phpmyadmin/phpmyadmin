@@ -14,12 +14,8 @@ require_once('./libraries/common.inc.php');
 PMA_checkParameters(array('db', 'table', 'field'));
 
 require_once('./libraries/ob.lib.php');
-if ($cfg['OBGzip']) {
-    $ob_mode = PMA_outBufferModeGet();
-    if ($ob_mode) {
-        PMA_outBufferPre($ob_mode);
-    }
-}
+PMA_outBufferPre();
+
 require_once('./libraries/header_http.inc.php');
 $field = urldecode($field);
 
@@ -297,14 +293,5 @@ if (isset($controllink) && $controllink) {
 }
 if (isset($userlink) && $userlink) {
     @PMA_DBI_close($userlink);
-}
-
-
-/**
- * Sends bufferized data
- */
-if (isset($cfg['OBGzip']) && $cfg['OBGzip']
-    && isset($ob_mode) && $ob_mode) {
-     PMA_outBufferPost($ob_mode);
 }
 ?>

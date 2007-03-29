@@ -52,7 +52,6 @@ require_once './libraries/common.inc.php';
  *
  * @uses $GLOBALS['controllink'] to close it
  * @uses $GLOBALS['userlink'] to close it
- * @uses PMA_outBufferPost()
  * @uses PMA_DBI_close()
  * @access private only to be used in navigation.php
  */
@@ -70,12 +69,7 @@ function PMA_exitNavigationFrame()
         @PMA_DBI_close($GLOBALS['userlink']);
     }
 
-    /**
-     * Sends bufferized data
-     */
-    PMA_outBufferPost();
-
-    exit();
+    exit;
 }
 
 // free the session file, for the other frames to be loaded

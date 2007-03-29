@@ -17,11 +17,10 @@
  * because both header and footer functions must know what each other is
  * doing.
  *
- * @uses    $GLOBALS['cfg']['OBGzip']
+ * @uses    $cfg['OBGzip']
  * @uses    function_exists()
  * @uses    ini_get()
  * @uses    ob_get_level()
- * @uses    header()
  * @staticvar integer remember last calculated value
  * @return  integer  the output buffer mode
  */
@@ -60,8 +59,6 @@ function PMA_outBufferModeGet()
     // Usefull if we ever decide to combine modes.  Then a bitmask field of
     // the sum of all modes will be the natural choice.
 
-    header('X-ob_mode: ' . $mode);
-
     return $mode;
 } // end of the 'PMA_outBufferModeGet()' function
 
@@ -72,26 +69,20 @@ function PMA_outBufferModeGet()
  * the PMA_outBufferModeGet() function or it will be useless.
  *
  * @uses    PMA_outBufferModeGet()
+ * @uses    PMA_outBufferPost() to register it as shutdown function
  * @uses    ob_start()
- * @param   integer  $mode  DEPRECATED
- * @return  boolean  whether output buffering is enabled or not
+ * @uses    header() to send X-ob_mode:
+ * @uses    register_shutdown_function() to register PMA_outBufferPost()
  */
-function PMA_outBufferPre($mode = null)
+function PMA_outBufferPre()
 {
-    switch(PMA_outBufferModeGet())
-    {
-        case 1:
-            ob_start('ob_gzhandler');
-            $retval = true;
-            break;
+    if ($mode = PMA_outBufferModeGet()) {
+        ob_start('ob_gzhandler');
+    }
 
-        case 0:
-        default:
-            $retval = false;
-            break;
-    } // end switch
+    header('X-ob_mode: ' . $mode);
 
-    return $retval;
+    register_shutdown_function('PMA_outBufferPost');
 } // end of the 'PMA_outBufferPre()' function
 
 
@@ -103,27 +94,14 @@ function PMA_outBufferPre($mode = null)
  * @uses    PMA_outBufferModeGet()
  * @uses    ob_flush()
  * @uses    flush()
- * @param   integer  $mode  DEPRECATED
- * @return  boolean  whether data has been send from the buffer or not
  */
-function PMA_outBufferPost($mode = null)
+function PMA_outBufferPost()
 {
-    switch(PMA_outBufferModeGet())
-    {
-        case 1:
-            # This output buffer doesn't need a footer.
-            ob_flush();
-            $retval = true;
-            break;
-
-        case 0:
-        default:
-            flush();
-            $retval = false;
-            break;
-    } // end switch
-
-    return $retval;
+    if (PMA_outBufferModeGet()) {
+        ob_flush();
+    } else {
+        flush();
+    }
 } // end of the 'PMA_outBufferPost()' function
 
 ?>

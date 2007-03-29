@@ -17,12 +17,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     require_once './libraries/common.inc.php';
     require_once './libraries/ob.lib.php';
-    if ($GLOBALS['cfg']['OBGzip']) {
-        $GLOBALS['ob_mode'] = PMA_outBufferModeGet();
-        if ($GLOBALS['ob_mode']) {
-            PMA_outBufferPre($GLOBALS['ob_mode']);
-        }
-    }
+    PMA_outBufferPre();
 
     // garvin: For re-usability, moved http-headers and stylesheets
     // to a seperate file. It can now be included by header.inc.php,

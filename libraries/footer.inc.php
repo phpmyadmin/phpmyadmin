@@ -40,7 +40,6 @@
  * @uses    PMA_getenv()
  * @uses    PMA_generate_common_url()
  * @uses    PMA_DBI_close()
- * @uses    PMA_outBufferPost()
  * @uses    basename()
  * @uses    file_exists()
  * @version $Id$
@@ -189,11 +188,6 @@ if (! empty($GLOBALS['cfg']['DBG']['enable'])
 </body>
 </html>
 <?php
-/**
- * Sends bufferized data
- */
-PMA_outBufferPost();
-
 /**
  * Stops the script execution
  */

@@ -311,9 +311,4 @@ if (! empty($controllink)) {
 if (! empty($userlink)) {
     PMA_DBI_close($userlink);
 }
-
-/**
- * Sends bufferized data
- */
-PMA_outBufferPost();
 ?>
