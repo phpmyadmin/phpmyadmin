@@ -1725,8 +1725,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
      */
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
 
-    if (!isset($analyzed_sql[0]['queryflags']['union'])
-     && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+    if ($is_innodb
+     && ! isset($analyzed_sql[0]['queryflags']['union'])
+     && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
      && (empty($analyzed_sql[0]['where_clause'])
       || $analyzed_sql[0]['where_clause'] == '1 ')) {
         // "j u s t   b r o w s i n g"
