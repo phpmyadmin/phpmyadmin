@@ -365,7 +365,7 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, convcharset, collation_connection in PMA_Config
  */
-if ((isset($_REQUEST['token']) && !is_string($_REQUEST['token'])) || empty($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['token']) {
     /**
      *  List of parameters which are allowed from unsafe source
      */
@@ -403,7 +403,7 @@ if (isset($_REQUEST['convcharset'])) {
  * @global string $GLOBALS['db']
  */
 $GLOBALS['db'] = '';
-if (isset($_REQUEST['db']) && is_string($_REQUEST['db'])) {
+if (PMA_isValid($_REQUEST['db'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in db names for MySQL
     $GLOBALS['db'] = $_REQUEST['db'];
@@ -415,7 +415,7 @@ if (isset($_REQUEST['db']) && is_string($_REQUEST['db'])) {
  * @global string $GLOBALS['table']
  */
 $GLOBALS['table'] = '';
-if (isset($_REQUEST['table']) && is_string($_REQUEST['table'])) {
+if (PMA_isValid($_REQUEST['table'])) {
     // can we strip tags from this?
     // only \ and / is not allowed in table names for MySQL
     $GLOBALS['table'] = $_REQUEST['table'];
@@ -426,7 +426,8 @@ if (isset($_REQUEST['table']) && is_string($_REQUEST['table'])) {
  * sql query to be executed
  * @global string $GLOBALS['sql_query']
  */
-if (isset($_REQUEST['sql_query']) && is_string($_REQUEST['sql_query'])) {
+$GLOBALS['sql_query'] = null;
+if (PMA_isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
