@@ -73,6 +73,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 2.10.0.3 (not released yet)
 =====================
 
+- bug #1690561 Blobs being cleared on Edit of row
 - bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
 
 2.10.0.2 (2007-03-02)

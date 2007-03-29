@@ -95,6 +95,8 @@ if (false !== $possibly_uploaded_val) {
                 if (! empty($prot_row[$key])) {
                     $val = '0x' . bin2hex($prot_row[$key]);
                     $seen_binary = true;
+                } else {
+                    $val = '';
                 }
 
                 break;
