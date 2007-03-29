@@ -122,6 +122,7 @@ if ($plugin_param == 'table') {
             } else {
                 // Append new data to buffer
                 $buffer .= $data;
+                unset($data);
                 // Do not parse string when we're not at the end and don't have new line inside
                 if (($csv_new_line == 'auto' && strpos($buffer, "\r") === FALSE && strpos($buffer, "\n") === FALSE)
                     || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === FALSE)) {
