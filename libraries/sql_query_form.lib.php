@@ -86,11 +86,11 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     $table  = '';
     $db     = '';
-    if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
+    if (! strlen($GLOBALS['db'])) {
         // prepare for server related
         $goto   = empty($GLOBALS['goto']) ?
                     'server_sql.php' : $GLOBALS['goto'];
-    } elseif (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
+    } elseif (! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty($GLOBALS['goto']) ?
@@ -218,12 +218,12 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     $table          = '';
     $db             = '';
     $fields_list    = array();
-    if (! isset($GLOBALS['db']) || ! strlen($GLOBALS['db'])) {
+    if (! strlen($GLOBALS['db'])) {
         // prepare for server related
         $legend = sprintf($GLOBALS['strRunSQLQueryOnServer'],
             htmlspecialchars(
                 $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']));
-    } elseif (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
+    } elseif (! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
@@ -414,7 +414,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
  */
 function PMA_sqlQueryFormBookmark()
 {
-    $bookmark_list = PMA_listBookmarks(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', $GLOBALS['cfg']['Bookmark'] );
+    $bookmark_list = PMA_listBookmarks($GLOBALS['db'], $GLOBALS['cfg']['Bookmark'] );
     if (! $bookmark_list || count($bookmark_list) < 1) {
         return;
     }

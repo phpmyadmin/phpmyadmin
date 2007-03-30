@@ -102,7 +102,7 @@ echo PMA_pluginGetJavascript($export_list);
 //]]>
 </script>
 
-<?php if ( isset($table) && strlen($table) && ! isset( $num_tables ) ) { ?>
+<?php if ( strlen($table) && ! isset( $num_tables ) ) { ?>
     <div class="formelementrow">
         <?php
         echo sprintf( $strDumpXRows,

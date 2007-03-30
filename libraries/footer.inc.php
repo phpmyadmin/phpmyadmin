@@ -133,7 +133,7 @@ if (PMA_getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) 
         . ' title="' . $GLOBALS['strOpenNewWindow'] . '" target="_blank">';
     /*
     echo '<a href="index.php?target=' . basename(PMA_getenv('SCRIPT_NAME'));
-    $url = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
+    $url = PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
     if (!empty($url)) {
         echo '&amp;' . $url;
     }

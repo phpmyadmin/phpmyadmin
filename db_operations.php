@@ -22,7 +22,7 @@ require_once './libraries/mysql_charsets.lib.php';
 /**
  * Rename/move or copy database
  */
-if (isset($db) &&
+if (strlen($db) &&
     ((isset($db_rename) && $db_rename == 'true') ||
     (isset($db_copy) && $db_copy == 'true'))) {
 
@@ -340,7 +340,7 @@ if (!$is_information_schema) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
         echo '<form method="post" action="./db_operations.php">' . "\n"
-           . PMA_generate_common_hidden_inputs($db, isset($table) ? $table : '')
+           . PMA_generate_common_hidden_inputs($db, $table)
            . '<fieldset>' . "\n"
            . '    <legend>';
         if ($cfg['PropertiesIconic']) {
@@ -372,7 +372,7 @@ if (!$is_information_schema) {
 
 
 // not sure about leaving the PDF dialog for information_schema
-if ($num_tables > 0 && isset($table)) {
+if ($num_tables > 0 && strlen($table)) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
 } else {
     $takeaway = '';

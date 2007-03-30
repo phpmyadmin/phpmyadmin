@@ -490,8 +490,8 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
             echo PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
         }
-        if ($is_modify_link && isset($db)) {
-            if (isset($table)) {
+        if ($is_modify_link && strlen($db)) {
+            if (strlen($table)) {
                 $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($db, $table) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
             } else {
                 $doedit_goto = '<a href="db_sql.php?' . PMA_generate_common_url($db) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
@@ -920,7 +920,7 @@ function PMA_reloadNavigation()
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         echo "\n";
-        $reload_url = './navigation.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
+        $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
         ?>
 <script type="text/javascript" language="javascript">
 //<![CDATA[
@@ -963,7 +963,7 @@ function PMA_showMessage($message, $sql_query = null)
 
     // Corrects the tooltip text via JS if required
     // @todo this is REALLY the wrong place to do this - very unexpected here
-    if ( isset($GLOBALS['table']) && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
+    if (strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
         $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
         if ($result) {
             $tbl_status = PMA_DBI_fetch_assoc($result);
@@ -985,8 +985,8 @@ function PMA_showMessage($message, $sql_query = null)
     // Checks if the table needs to be repaired after a TRUNCATE query.
     // @todo this should only be done if isset($GLOBALS['sql_query']), what about $GLOBALS['display_query']???
     // @todo this is REALLY the wrong place to do this - very unexpected here
-    if (isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
-        && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
+    if (strlen($GLOBALS['table']) && strlen($GLOBALS['sql_query'])
+     && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
         if (!isset($tbl_status)) {
             $result = @PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
             if ($result) {
@@ -1021,7 +1021,7 @@ function PMA_showMessage($message, $sql_query = null)
 
     if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
         // Basic url query part
-        $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
+        $url_qpart = '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
 
         // Html format the query to be displayed
         // The nl2br function isn't used because its result isn't a valid
@@ -1095,7 +1095,7 @@ function PMA_showMessage($message, $sql_query = null)
         // (don't go to default pages, we must go to the page
         // where the query box is available)
 
-        $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_sql.php' : 'db_sql.php') : 'server_sql.php';
+        $edit_target = strlen($GLOBALS['db']) ? (strlen($GLOBALS['table']) ? 'tbl_sql.php' : 'db_sql.php') : 'server_sql.php';
 
         if (isset($cfg['SQLQuery']['Edit'])
             && ($cfg['SQLQuery']['Edit'] == true)
@@ -1848,7 +1848,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   integer     $fields_cnt     number of fields
  * @param   array       $fields_meta    meta information about fields
  * @param   array       $row            current row
- * @param   boolean     $force_unique   generate condition only on pk or unique 
+ * @param   boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
  * @author  Michal Cihar (michal@cihar.com)

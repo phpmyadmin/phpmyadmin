@@ -170,7 +170,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     if (isset($unlim_num_rows) && $unlim_num_rows != '') {
         $the_total = $unlim_num_rows;
     } elseif (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
-             && (isset($db) && strlen($db) && !empty($table))) {
+             && (strlen($db) && !empty($table))) {
         $the_total   = PMA_Table::countRecords($db, $table, true);
     }
 
@@ -1800,7 +1800,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
 
     // 2.3 Displays the navigation bars
-    if (!isset($table) || strlen(trim($table)) == 0) {
+    if (! strlen($table)) {
         if (isset($analyzed_sql[0]['query_type'])
            && $analyzed_sql[0]['query_type'] == 'SELECT') {
             // table does not always contain a real table name,
@@ -1838,7 +1838,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
     if ($cfgRelation['displaywork']) {
-        if (! isset($table) || ! strlen($table)) {
+        if (! strlen($table)) {
             $exist_rel = false;
         } else {
             $exist_rel = PMA_getForeigners($db, $table, '', 'both');

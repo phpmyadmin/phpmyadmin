@@ -11,7 +11,7 @@
  *
  */
 if (empty($is_db)) {
-    if (isset($db) && strlen($db)) {
+    if (strlen($db)) {
         $is_db = @PMA_DBI_select_db($db);
     } else {
         $is_db = false;
@@ -40,7 +40,7 @@ if (empty($is_db)) {
 
 if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
     // Not a valid table name -> back to the db_sql.php
-    if (isset($table) && strlen($table)) {
+    if (strlen($table)) {
         $_result = PMA_DBI_try_query(
             'SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';',
             null, PMA_DBI_QUERY_STORE);
@@ -52,7 +52,7 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
 
     if (! $is_table) {
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            if (isset($table) && strlen($table)) {
+            if (strlen($table)) {
                 // SHOW TABLES doesn't show temporary tables, so try select
                 // (as it can happen just in case temporary table, it should be
                 // fast):

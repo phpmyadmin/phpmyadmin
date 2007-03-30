@@ -19,10 +19,10 @@ require_once './libraries/tbl_indexes.lib.php';
  */
 if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
-    if ( isset($db) && strlen($db) ) {
+    if (strlen($db)) {
         $is_db = PMA_DBI_select_db($db);
     }
-    if ( !isset($db) || !strlen($db) || !$is_db ) {
+    if (!strlen($db) || !$is_db) {
         $uri_params = array( 'reload' => '1' );
         if ( isset($message) ) {
             $uri_params['message'] = $message;
@@ -32,11 +32,11 @@ if (!defined('PMA_IDX_INCLUDED')) {
         exit;
     }
     // Not a valid table name -> back to the default db sub-page
-    if ( isset($table) && strlen($table) ) {
+    if (strlen($table) ) {
         $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
             . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
     }
-    if ( ! isset($table) || ! strlen($table)
+    if (! strlen($table)
       || !( $is_table && PMA_DBI_num_rows($is_table) ) ) {
         $uri_params = array( 'reload' => '1', 'db' => $db );
         if ( isset($message) ) {

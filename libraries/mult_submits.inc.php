@@ -128,11 +128,11 @@ if (!empty($submit_mult)
 if ( !empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
-    if (isset($table) && strlen($table)) {
+    if (strlen($table)) {
         require('./libraries/tbl_common.php');
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         require('./libraries/tbl_info.inc.php');
-    } elseif (isset($db) && strlen($db)) {
+    } elseif (strlen($db)) {
         require('./libraries/db_common.inc.php');
         require('./libraries/db_info.inc.php');
     }

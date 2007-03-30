@@ -505,10 +505,10 @@ function PMA_auth_set_user()
 
         // any parameters to pass?
         $url_params = array();
-        if (isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db'])) {
             $url_params['db'] = $GLOBALS['db'];
         }
-        if (isset($GLOBALS['table']) && strlen($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table'])) {
             $url_params['table'] = $GLOBALS['table'];
         }
         // Language change from the login panel needs to be remembered

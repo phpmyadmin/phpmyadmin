@@ -28,7 +28,7 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$url_query = PMA_generate_common_url((isset($db) ? $db : ''));
+$url_query = PMA_generate_common_url($db);
 
 /**
  * Defines the urls to return to in case of error in a sql statement

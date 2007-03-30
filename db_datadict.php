@@ -31,7 +31,7 @@ PMA_checkParameters(array('db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (isset($table)) {
+if (strlen($table)) {
     $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
 } else {
     $err_url = 'db_sql.php?' . PMA_generate_common_url($db);

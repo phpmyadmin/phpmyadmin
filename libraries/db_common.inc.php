@@ -35,10 +35,10 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  */
 if (!isset($is_db) || !$is_db) {
     // Not a valid db name -> back to the welcome page
-    if (isset($db) && strlen($db)) {
+    if (strlen($db)) {
         $is_db = PMA_DBI_select_db($db);
     }
-    if (!isset($db) || !strlen($db) || !$is_db) {
+    if (! strlen($db) || !$is_db) {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     }

@@ -9,7 +9,7 @@
 /**
  *
  */
-if (isset($GLOBALS['db']) && strlen($GLOBALS['db'])) { /* Can't do server export */
+if (strlen($GLOBALS['db'])) { /* Can't do server export */
 
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(

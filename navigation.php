@@ -207,7 +207,7 @@ $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
 
 $element_counter = 0;
 
-if ($GLOBALS['cfg']['LeftFrameLight'] && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
+if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
     $common_url_query = PMA_generate_common_url($GLOBALS['db']);
@@ -477,13 +477,11 @@ function PMA_displayTableList($tables, $visible = false,
 
             $element_counter++;
             echo '<li>' . "\n";
-            if ($visible &&
-              ((isset($_REQUEST['tbl_group'])
-                && (strpos($_REQUEST['tbl_group'], $group) === 0
+            if ($visible
+             && ((isset($_REQUEST['tbl_group'])
+               && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              ||
-              (isset($GLOBALS['table'])
-                && strpos($GLOBALS['table'], $group) === 0))) {
+              || strpos($GLOBALS['table'], $group) === 0)) {
                 printf($href_left, $element_counter,
                     $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full);
                 printf($img_minus, $element_counter);
@@ -521,9 +519,7 @@ function PMA_displayTableList($tables, $visible = false,
               ((isset($_REQUEST['tbl_group'])
                 && (strpos($_REQUEST['tbl_group'], $group) === 0
                 || strpos($_REQUEST['tbl_group'], $sep . $group) !== false))
-              ||
-              (isset($GLOBALS['table'])
-                && strpos($GLOBALS['table'], $group) === 0))) {
+              || strpos($GLOBALS['table'], $group) === 0)) {
                 PMA_displayTableList($table, true,
                     $tab_group_full . $group, $table_db);
             } else {

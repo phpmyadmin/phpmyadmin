@@ -115,13 +115,13 @@ if (isset($_REQUEST['after_insert'])
     } else {
         $goto_include = $GLOBALS['goto'];
     }
-    if ($GLOBALS['goto'] == 'db_sql.php' && isset($GLOBALS['table'])) {
-        unset($GLOBALS['table']);
+    if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table'])) {
+        $GLOBALS['table'] = '';
     }
 }
 
 if (! $goto_include) {
-    if (! isset($GLOBALS['table']) || ! strlen($GLOBALS['table'])) {
+    if (! strlen($GLOBALS['table'])) {
         $goto_include = 'db_sql.php';
     } else {
         $goto_include = 'tbl_sql.php';

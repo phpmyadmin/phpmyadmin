@@ -36,13 +36,13 @@ if (!empty($goto)) {
 } // end if (security checkings)
 
 if (empty($goto)) {
-    $goto = (! isset($table) || ! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
+    $goto = (! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
     $is_gotofile  = true;
 } // end if
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
-             . '?' . PMA_generate_common_url(isset($db) ? $db : '')
-             . ((strpos(' ' . $goto, 'db_') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
+             . '?' . PMA_generate_common_url($db)
+             . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
 
 // Coming from a bookmark dialog
@@ -57,7 +57,7 @@ if (isset($fields['dbase'])) {
 
 // Default to browse if no query set an we have table
 // (needed for browsing from DefaultTabTable)
-if (! isset($sql_query) && isset($table) && isset($db)) {
+if (! isset($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_queryBookmarks($db,
         $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'',
@@ -158,8 +158,8 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if ($is_gotofile) {
-        if (strpos(' ' . $goto, 'db_') == 1 && isset($table) && strlen($table)) {
-            unset($table);
+        if (strpos(' ' . $goto, 'db_') == 1 && strlen($table)) {
+            $table = '';
         }
         $active_page = $goto;
         require './' . PMA_securePath($goto);
@@ -197,7 +197,7 @@ if ($do_confirm) {
         echo '<h1 class="warning">' . $strDropDatabaseStrongWarning . '</h1>';
     }
     echo '<form action="sql.php" method="post">' . "\n"
-        .PMA_generate_common_hidden_inputs($db, (isset($table)?$table:''));
+        .PMA_generate_common_hidden_inputs($db, $table);
     ?>
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows) : ''; ?>" />
@@ -324,7 +324,7 @@ if (isset($pos)
     $full_sql_query      = $sql_query;
 } // end if...else
 
-if (isset($db)) {
+if (strlen($db)) {
     PMA_DBI_select_db($db);
 }
 
@@ -388,7 +388,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     // This could happen if the user sends a query like "USE `database`;"
     $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
     $row = PMA_DBI_fetch_row($res);
-    if (isset($db) && is_array($row) && isset($row[0]) && (strcasecmp($db, $row[0]) != 0)) {
+    if (strlen($db) && is_array($row) && isset($row[0]) && (strcasecmp($db, $row[0]) != 0)) {
         $db     = $row[0];
         $reload = 1;
     }
@@ -561,9 +561,9 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     if (isset($purge) && $purge == '1') {
         require_once './libraries/relation_cleanup.lib.php';
 
-        if (isset($table) && isset($db) && strlen($table) && strlen($db)) {
+        if (strlen($table) && strlen($db)) {
             PMA_relationsCleanupTable($db, $table);
-        } elseif (isset($db) && strlen($db)) {
+        } elseif (strlen($db)) {
             PMA_relationsCleanupDatabase($db);
         } else {
             // garvin: VOID. No DB/Table gets deleted.
@@ -572,7 +572,6 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // garvin: If a column gets dropped, do relation magic.
     if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
-      && isset($db) && isset($table)
       && strlen($db) && strlen($table) && !empty($purgekey)) {
         require_once './libraries/relation_cleanup.lib.php';
         PMA_relationsCleanupColumn($db, $table, $purgekey);
@@ -628,14 +627,14 @@ if ($num_rows < 1 || $is_affected) {
         $is_db = $is_table = false;
         include 'libraries/db_table_exists.lib.php';
         if (strpos($goto, 'tbl_') === 0 && ! $is_table) {
-            if (isset($table)) {
-                unset($table);
+            if (strlen($table)) {
+                $table = '';
             }
             $goto = 'db_sql.php';
         }
         if (strpos($goto, 'db_') === 0 && ! $is_db) {
-            if (isset($db)) {
-                unset($db);
+            if (strlen($db)) {
+                $db = '';
             }
             $goto = 'main.php';
         }
@@ -666,12 +665,12 @@ else {
     } else {
         $js_to_run = 'functions.js';
         unset($message);
-        if (isset($table) && strlen($table)) {
+        if (strlen($table)) {
             require './libraries/tbl_common.php';
             $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
             require './libraries/tbl_info.inc.php';
             require './libraries/tbl_links.inc.php';
-        } elseif (isset($db) && strlen($db)) {
+        } elseif (strlen($db)) {
             require './libraries/db_common.inc.php';
             require './libraries/db_info.inc.php';
         } else {
@@ -680,7 +679,7 @@ else {
         }
     }
 
-    if (isset($db) && strlen($db)) {
+    if (strlen($db)) {
         require_once './libraries/relation.lib.php';
         $cfgRelation = PMA_getRelationsParam();
     }
@@ -711,7 +710,7 @@ else {
     }
 
     // hide edit and delete links for information_schema
-    if (PMA_MYSQL_INT_VERSION >= 50002 && isset($db) && $db == 'information_schema') {
+    if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema') {
         $disp_mode = 'nnnn110111';
     }
 

@@ -37,11 +37,11 @@ function PMA_select_language($use_fieldset = FALSE) {
         echo '            <input type="hidden" name="convcharset" value="'
             . htmlspecialchars($GLOBALS['convcharset']) . '" />' . "\n";
     }
-    if (isset($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db'])) {
         echo '            <input type="hidden" name="db" value="'
             . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
     }
-    if (isset($GLOBALS['table'])) {
+    if (strlen($GLOBALS['table'])) {
         echo '            <input type="hidden" name="table" value="'
             . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
     }

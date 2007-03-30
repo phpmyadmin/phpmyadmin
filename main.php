@@ -18,12 +18,8 @@ if (!defined('PMA_DISPLAY_HEADING')) {
 require_once './libraries/common.inc.php';
 
 // Handles some variables that may have been sent by the calling script
-if (isset($db)) {
-    unset($db);
-}
-if (isset($table)) {
-    unset($table);
-}
+$GLOBALS['db'] = '';
+$GLOBALS['table'] = '';
 $show_query = '1';
 require_once './libraries/header.inc.php';
 

@@ -42,8 +42,8 @@ if (empty($GLOBALS['is_header_sent'])) {
                         isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
                         isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
                         !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
-                        isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
-                        isset($GLOBALS['table']) ? $GLOBALS['table'] : '',
+                        $GLOBALS['db'],
+                        $GLOBALS['table'],
                         'phpMyAdmin ' . PMA_VERSION,
                         ),
                     !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
@@ -200,7 +200,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 $GLOBALS['strServer'],
                 's_host.png' );
 
-        if (isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db'])) {
 
             echo $separator;
             printf( $item,
@@ -210,7 +210,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     $GLOBALS['strDatabase'],
                     's_db.png' );
 
-            if (isset($GLOBALS['table']) && strlen($GLOBALS['table'])) {
+            if (strlen($GLOBALS['table'])) {
                 require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;

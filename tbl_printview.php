@@ -38,7 +38,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (isset($table)) {
+if (strlen($table)) {
     $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
 } else {
     $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
@@ -57,7 +57,7 @@ PMA_DBI_select_db($db);
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
-} elseif (isset($table)) {
+} elseif (strlen($table)) {
     $the_tables[] = $table;
 }
 $multi_tables     = (count($the_tables) > 1);
