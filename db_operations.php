@@ -56,15 +56,15 @@ if (isset($db) &&
 
         $tables_full = PMA_DBI_get_tables_full($db);
         $views = array();
-        foreach ($tables_full as $table => $tmp) {
+        foreach ($tables_full as $each_table => $tmp) {
             // to be able to rename a db containing views, we
             // first collect in $views all the views we find and we
             // will handle them after the tables
             /**
              * @todo support a view of a view
              */
-            if (PMA_Table::isView($db, $table)) {
-                $views[] = $table;
+            if (PMA_Table::isView($db, $each_table)) {
+                $views[] = $each_table;
                 continue;
             }
 
@@ -74,12 +74,12 @@ if (isset($db) &&
             // value of $what for this table only
             $this_what = $what;
 
-            if (!isset($tables_full[$table]['Engine'])) {
-                $tables_full[$table]['Engine'] = $tables_full[$table]['Type'];
+            if (!isset($tables_full[$each_table]['Engine'])) {
+                $tables_full[$each_table]['Engine'] = $tables_full[$each_table]['Type'];
             }
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
-            if ($tables_full[$table]['Engine'] == 'MRG_MyISAM') {
+            if ($tables_full[$each_table]['Engine'] == 'MRG_MyISAM') {
                 if ($this_what == 'data') {
                     $this_what = 'structure';
                 }
@@ -89,7 +89,7 @@ if (isset($db) &&
             }
 
             if ($this_what != 'nocopy') {
-                PMA_Table::moveCopy($db, $table, $newname, $table,
+                PMA_Table::moveCopy($db, $each_table, $newname, $each_table,
                     isset($this_what) ? $this_what : 'data', $move, 'db_copy');
                 if (isset($GLOBALS['add_constraints'])) {
                     $GLOBALS['sql_constraints_query_full_db'] .= $GLOBALS['sql_constraints_query'];
@@ -99,7 +99,7 @@ if (isset($db) &&
 
             $sql_query = $back . $sql_query;
         } // end (foreach)
-        unset($table);
+        unset($each_table);
 
         // handle the views
         foreach ($views as $view) {
