@@ -22,7 +22,7 @@ require_once './libraries/common.inc.php';
  *       the Database panel
  */
 if (empty($viewing_mode)) {
-    unset($db, $table);
+    $db = $table = '';
 }
 
 /**
