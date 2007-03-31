@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * f i e l d    u p l o a d e d    f r o m    a    f i l e
+ * handle field values (possibly uploaded from a file) 
  *
  * garvin: original if-clause checked, whether input was stored in a possible
  * fields_upload_XX var. Now check, if the field is set. If it is empty or a
