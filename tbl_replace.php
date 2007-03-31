@@ -223,7 +223,10 @@ foreach ($loop_array as $primary_key) {
         //  i n s e r t
         if ($is_insert) {
             // no need to add column into the valuelist
-            $query_values[] = $cur_value;
+            if (strlen($cur_value)) {
+                $query_values[] = $cur_value;
+                $query_fields[] = PMA_backquote($key);
+            }
 
         //  u p d a t e
         } elseif (!empty($me_fields_null_prev[$key])
@@ -265,10 +268,6 @@ unset($me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_n
 
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
-    // first inserted row -> prepare template
-    foreach ($me_fields as $key => $val) {
-        $query_fields[]   = PMA_backquote($key);
-    }
     $query[] = 'INSERT INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
 
