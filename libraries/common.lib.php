@@ -1927,6 +1927,9 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                             $condition .= '= CAST(0x' . bin2hex($row[$i])
                                 . ' AS BINARY) AND';
                         }
+                    } else {
+                        // this blob won't be part of the final condition
+                        $condition = '';
                     }
             } else {
                 $condition .= '= \''
