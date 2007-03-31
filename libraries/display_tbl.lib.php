@@ -1066,6 +1066,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         // 1. Prepares the row (gets primary keys to use)
         // 1.1 Results from a "SELECT" statement -> builds the
         //     "primary" key to use in links
+        /**
+         * @todo $unique_condition could be empty, for example a table
+         *       with only one field and it's a BLOB; in this case,
+         *       avoid to display the delete and edit links
+         */
+
         $unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
 
         // 1.2 Defines the urls for the modify/delete link(s)
