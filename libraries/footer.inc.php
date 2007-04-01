@@ -162,7 +162,7 @@ if (! empty($GLOBALS['userlink'])) {
 
 // Include possible custom footers
 if (file_exists('./config.footer.inc.php')) {
-    require('./config.footer.inc.php');
+    require './config.footer.inc.php';
 }
 
 

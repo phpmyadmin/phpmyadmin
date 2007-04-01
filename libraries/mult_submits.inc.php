@@ -21,7 +21,7 @@ if (!empty($submit_mult)
         $what         = 'drop_db';
     } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
         if ($submit_mult == $strPrintView) {
-            require('./tbl_printview.php');
+            require './tbl_printview.php';
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
@@ -100,7 +100,7 @@ if (!empty($submit_mult)
                 $mult_btn   = $strYes;
                 break;
             case $strChange:
-                require('./tbl_alter.php');
+                require './tbl_alter.php';
                 break;
             case $strBrowse:
                 $sql_query = '';
@@ -112,7 +112,7 @@ if (!empty($submit_mult)
                     }
                 }
                 $sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
-                require('./sql.php');
+                require './sql.php';
                 break;
         }
     } else {
@@ -129,12 +129,12 @@ if ( !empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
     if (strlen($table)) {
-        require('./libraries/tbl_common.php');
+        require './libraries/tbl_common.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-        require('./libraries/tbl_info.inc.php');
+        require './libraries/tbl_info.inc.php';
     } elseif (strlen($db)) {
-        require('./libraries/db_common.inc.php');
-        require('./libraries/db_info.inc.php');
+        require './libraries/db_common.inc.php';
+        require './libraries/db_info.inc.php';
     }
     // Builds the query
     $full_query     = '';
@@ -270,7 +270,7 @@ if ( !empty($submit_mult) && !empty($what)) {
     <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" id="buttonNo" />
 </fieldset>
     <?php
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 } // end if
 
 
@@ -280,7 +280,7 @@ if ( !empty($submit_mult) && !empty($what)) {
 elseif ($mult_btn == $strYes) {
 
     if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
-        require_once('./libraries/relation_cleanup.lib.php');
+        require_once './libraries/relation_cleanup.lib.php';
     }
 
     $sql_query      = '';
@@ -420,7 +420,7 @@ elseif ($mult_btn == $strYes) {
     }
 
     if ($use_sql) {
-        require('./sql.php');
+        require './sql.php';
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);

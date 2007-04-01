@@ -9,22 +9,22 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 PMA_checkParameters(array('db', 'table', 'field'));
 
-require_once('./libraries/ob.lib.php');
+require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
-require_once('./libraries/header_http.inc.php');
+require_once './libraries/header_http.inc.php';
 $field = urldecode($field);
 
 /**
  * Displays the frame
  */
 $per_page = 200;
-require_once('./libraries/relation.lib.php'); // foreign keys
-require_once('./libraries/transformations.lib.php'); // Transformations
+require_once './libraries/relation.lib.php'; // foreign keys
+require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
 
@@ -39,7 +39,7 @@ if (isset($foreign_navig) && $foreign_navig == $strShowAll) {
     unset($foreign_limit);
 }
 
-require('./libraries/get_foreign.lib.php');
+require './libraries/get_foreign.lib.php';
 
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);

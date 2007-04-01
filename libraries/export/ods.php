@@ -25,7 +25,7 @@ if (isset($plugin_list)) {
 } else {
 
 $GLOBALS['ods_buffer'] = '';
-require_once('./libraries/opendocument.lib.php');
+require_once './libraries/opendocument.lib.php';
 
 /**
  * Outputs comment
@@ -155,7 +155,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>' . htmlspecialchars($GLOBALS[$what . '_null']) . '</text:p>'
                     . '</table:table-cell>';
-            // ignore BLOB 
+            // ignore BLOB
             } elseif (stristr($field_flags[$j], 'BINARY')
                     && $fields_meta[$j]->blob) {
                 $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'

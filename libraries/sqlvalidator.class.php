@@ -28,7 +28,7 @@
 * @version  $Id$
 */
 
-@include_once('SOAP/Client.php');
+@include_once 'SOAP/Client.php';
 
 if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
     $GLOBALS['sqlvalidator_error'] = TRUE;

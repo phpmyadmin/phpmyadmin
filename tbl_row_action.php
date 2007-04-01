@@ -8,8 +8,8 @@
 /**
  *
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/mysql_charsets.lib.php';
 
 /**
  * Avoids undefined variables
@@ -24,8 +24,8 @@ if (!isset($pos)) {
 if ((!isset($rows_to_delete) || !is_array($rows_to_delete)) && !isset($mult_btn)) {
     $disp_message = $strNoRowsSelected;
     $disp_query = '';
-    require('./sql.php');
-    require_once('./libraries/footer.inc.php');
+    require './sql.php';
+    require_once './libraries/footer.inc.php';
 }
 
 /**
@@ -77,7 +77,7 @@ if ($submit_mult == 'row_delete' || $submit_mult == 'row_export') {
     $js_to_run = 'functions.js';
 }
 
-require_once('./libraries/header.inc.php');
+require_once './libraries/header.inc.php';
 
 if (!empty($submit_mult)) {
     switch($submit_mult) {
@@ -118,7 +118,7 @@ if (!empty($submit_mult)) {
                 $original_url_query = $url_query;
                 $original_pos       = $pos;
             }
-            require('./libraries/mult_submits.inc.php');
+            require './libraries/mult_submits.inc.php';
             $url_query = PMA_generate_common_url($db, $table)
                        . '&amp;goto=tbl_sql.php';
 
@@ -150,12 +150,12 @@ if (!empty($submit_mult)) {
             unset($mult_btn);
 
             $active_page = 'sql.php';
-            require('./sql.php');
+            require './sql.php';
 
             /**
              * Displays the footer
              */
-            require_once('./libraries/footer.inc.php');
+            require_once './libraries/footer.inc.php';
         break;
     }
 }

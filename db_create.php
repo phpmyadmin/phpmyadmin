@@ -8,10 +8,10 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 $js_to_run = 'functions.js';
-require_once('./libraries/header.inc.php');
-require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/header.inc.php';
+require_once './libraries/mysql_charsets.lib.php';
 
 
 PMA_checkParameters(array('db'));
@@ -41,6 +41,6 @@ $result = PMA_DBI_query($sql_query);
  * Displays the result and calls default page
  */
 $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
-require_once('./' . $cfg['DefaultTabDatabase']);
+require_once './' . $cfg['DefaultTabDatabase'];
 
 ?>

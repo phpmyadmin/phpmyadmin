@@ -24,6 +24,6 @@ if (isset($plugin_list)) {
         );
 } else {
     /* Everything rest is coded in csv plugin */
-    require('./libraries/export/csv.php');
+    require './libraries/export/csv.php';
 }
 ?>

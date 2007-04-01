@@ -8,8 +8,8 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/bookmark.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/bookmark.lib.php';
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
@@ -39,6 +39,6 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url( $url_params );
 /**
  * Ensures the database and the table exist (else move to the "parent" script)
  */
-require_once('./libraries/db_table_exists.lib.php');
+require_once './libraries/db_table_exists.lib.php';
 
 ?>

@@ -8,8 +8,8 @@
 /**
  *
  */
-require_once('./libraries/file_listing.php');
-require_once('./libraries/plugin_interface.lib.php');
+require_once './libraries/file_listing.php';
+require_once './libraries/plugin_interface.lib.php';
 
 /* Scan for plugins */
 $import_list = PMA_getPlugins('./libraries/import/', $import_type);
@@ -19,7 +19,7 @@ if (empty($import_list)) {
     $GLOBALS['show_error_header'] = TRUE;
     PMA_showMessage($strCanNotLoadImportPlugins);
     unset($GLOBALS['show_error_header']);
-    require('./libraries/footer.inc.php');
+    require './libraries/footer.inc.php';
 }
 ?>
 

@@ -8,13 +8,13 @@
 /**
  * Check parameters
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 
 // Get available character sets and storage engines
-require_once('./libraries/mysql_charsets.lib.php');
-require_once('./libraries/storage_engines.lib.php');
+require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/storage_engines.lib.php';
 
 if (is_int($cfg['DefaultPropDisplay'])) {
     if ($num_fields <= $cfg['DefaultPropDisplay']) {
@@ -148,8 +148,8 @@ if (!$is_backup) {
     $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
 }
 
-require_once('./libraries/relation.lib.php');
-require_once('./libraries/transformations.lib.php');
+require_once './libraries/relation.lib.php';
+require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 $comments_map = array();

@@ -8,18 +8,18 @@
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 if (!isset($selected_tbl)) {
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
 }
 
 
 /**
  * Gets the relations settings
  */
-require_once('./libraries/relation.lib.php');
-require_once('./libraries/transformations.lib.php');
+require_once './libraries/relation.lib.php';
+require_once './libraries/transformations.lib.php';
 
 $cfgRelation  = PMA_getRelationsParam();
 
@@ -322,5 +322,5 @@ function printPage()
 <?php
 echo '<br /><br /><input type="button" id="print" value="' . $strPrint . '" onclick="printPage()" />';
 
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

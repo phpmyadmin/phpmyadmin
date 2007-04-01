@@ -8,14 +8,14 @@
 /**
  * Check parameters
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 PMA_checkParameters(array('db', 'table'));
 
 /**
  * Prepares links
  */
-require_once('./libraries/bookmark.lib.php');
+require_once './libraries/bookmark.lib.php';
 
 
 /**
@@ -38,7 +38,7 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url( $url_params );
  * Displays headers
  */
 $js_to_run = 'functions.js';
-require_once('./libraries/header.inc.php');
+require_once './libraries/header.inc.php';
 
 /**
  * Displays links

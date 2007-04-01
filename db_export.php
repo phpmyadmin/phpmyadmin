@@ -13,12 +13,12 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 $sub_part  = '_export';
-require_once('./libraries/db_common.inc.php');
+require_once './libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_export.php';
-require_once('./libraries/db_info.inc.php');
+require_once './libraries/db_info.inc.php';
 
 /**
  * Displays the form
@@ -28,7 +28,7 @@ $export_page_title = $strViewDumpDB;
 // exit if no tables in db found
 if ( $num_tables < 1 ) {
     echo $strDatabaseNoTable;
-    require('./libraries/footer.inc.php');
+    require './libraries/footer.inc.php';
     exit;
 } // end if
 
@@ -65,10 +65,10 @@ $multi_values .= '<br />
         <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
 
 $export_type = 'database';
-require_once('./libraries/display_export.lib.php');
+require_once './libraries/display_export.lib.php';
 
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

@@ -8,8 +8,8 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/ob.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
 // Check parameters
@@ -21,7 +21,7 @@ PMA_checkParameters(array('db', 'full_sql_query'));
 // to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.
 
-require_once('./libraries/header_http.inc.php');
+require_once './libraries/header_http.inc.php';
 
 /**
  * Sends the beginning of the html page then returns to the calling script

@@ -12,6 +12,6 @@
 echo "Starting to parse config file...\n";
 
 error_reporting(E_ALL);
-require('./config.inc.php');
+require './config.inc.php';
 
 ?>

@@ -16,7 +16,7 @@
 // Grab phpMyAdmin version and PMA_dl function
 define( 'PMA_MINIMUM_COMMON', TRUE );
 chdir('..');
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 // Grab configuration defaults
 // Do not use $PMA_Config, it interferes with the one in $_SESSION

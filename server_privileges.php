@@ -8,13 +8,13 @@
 /**
  *
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /**
  * Does the common work
  */
 $js_to_run = 'server_privileges.js';
-require('./libraries/server_common.inc.php');
+require './libraries/server_common.inc.php';
 
 
 /**
@@ -43,13 +43,13 @@ if ( isset( $dbname ) ) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (!$is_superuser) {
-    require('./libraries/server_links.inc.php');
+    require './libraries/server_links.inc.php';
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
        . $GLOBALS['strPrivileges'] . "\n"
        . '</h2>' . "\n"
        . $GLOBALS['strNoPrivileges'] . "\n";
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 
 /**
@@ -1236,15 +1236,15 @@ if (!empty($flush_privileges)) {
  * Displays the links
  */
 if (isset($viewing_mode) && $viewing_mode == 'db') {
-     $db = $checkprivs;
-     $url_query .= '&amp;goto=db_operations.php';
+    $db = $checkprivs;
+    $url_query .= '&amp;goto=db_operations.php';
 
-     // Gets the database structure
-     $sub_part = '_structure';
-     require('./libraries/db_info.inc.php');
-     echo "\n";
+    // Gets the database structure
+    $sub_part = '_structure';
+    require './libraries/db_info.inc.php';
+    echo "\n";
 } else {
-    require('./libraries/server_links.inc.php');
+    require './libraries/server_links.inc.php';
 }
 
 
@@ -1603,7 +1603,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
         if ( $user_does_not_exists ) {
             echo $GLOBALS['strUserNotFound'];
             PMA_displayLoginInformationFields();
-            //require_once('./libraries/footer.inc.php');
+            //require_once './libraries/footer.inc.php';
         }
         echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
            . PMA_generate_common_hidden_inputs('', '', 3)
@@ -2182,6 +2182,6 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
  * Displays the footer
  */
 echo "\n\n";
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 
 ?>

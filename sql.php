@@ -136,7 +136,7 @@ if (isset($btnDrop) || isset($navig)) {
 /**
  * Parse and analyze the query
  */
-require_once('./libraries/parse_analyze.lib.php');
+require_once './libraries/parse_analyze.lib.php';
 
 /**
  * Sets or modifies the $goto variable if required

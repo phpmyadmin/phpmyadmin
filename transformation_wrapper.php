@@ -13,15 +13,15 @@ define('IS_TRANSFORMATION_WRAPPER', true);
 /**
  * Gets a core script and starts output buffering work
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/relation.lib.php'); // foreign keys
-require_once('./libraries/transformations.lib.php'); // Transformations
+require_once './libraries/common.inc.php';
+require_once './libraries/relation.lib.php'; // foreign keys
+require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once('./libraries/db_table_exists.lib.php');
+require_once './libraries/db_table_exists.lib.php';
 
 
 /**
@@ -59,7 +59,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 // to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.
 
-require_once('./libraries/header_http.inc.php');
+require_once './libraries/header_http.inc.php';
 // [MIME]
 if (isset($ct) && !empty($ct)) {
     $content_type = 'Content-Type: ' . urldecode($ct);

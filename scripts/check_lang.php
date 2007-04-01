@@ -19,7 +19,7 @@ $languageDirectory = dir('../lang');
 while ($name = $languageDirectory->read()) {
     if (strpos($name, '.inc.php')) {
         // 1.1 Checks parse errors and extra blank line
-        include('../lang/' . $name);
+        include '../lang/' . $name;
         header('X-Ping: pong');
         // 1.1 Checks "^M"
         $content = fread(fopen('../lang/' . $name, 'r'), filesize('../lang/' . $name));

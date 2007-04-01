@@ -8,7 +8,7 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -18,10 +18,10 @@ if (!$cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
-    require_once('./libraries/header.inc.php');
+    require_once './libraries/header.inc.php';
     echo '<p><b>' . $strError . '</b></p>' . "\n"
        . '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 } // end if
 
 
@@ -69,7 +69,7 @@ if (isset($nopass)) {
                      : '';
 
         // Displays the page
-        require_once('./libraries/header.inc.php');
+        require_once './libraries/header.inc.php';
         echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
         $show_query = 'y';
         PMA_showMessage($strUpdateProfileMessage);
@@ -88,7 +88,7 @@ if (isset($nopass)) {
  */
 // Loads the headers
 $js_to_run = 'user_password.js';
-require_once('./libraries/header.inc.php');
+require_once './libraries/header.inc.php';
 echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
 
 // Displays an error message if required
@@ -168,5 +168,5 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

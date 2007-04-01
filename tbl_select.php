@@ -8,9 +8,9 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/relation.lib.php'); // foreign keys
-require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/relation.lib.php'; // foreign keys
+require_once './libraries/mysql_charsets.lib.php';
 
 if ( $GLOBALS['cfg']['PropertiesIconic'] == true ) {
     $titles['Browse'] =
@@ -30,19 +30,19 @@ if ( $GLOBALS['cfg']['PropertiesIconic'] == true ) {
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
-    require_once('./libraries/tbl_common.php');
+    require_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
     /**
      * Gets tables informations
      */
-    require_once('./libraries/tbl_info.inc.php');
+    require_once './libraries/tbl_info.inc.php';
 
     /**
      * Displays top menu links
      */
-    require_once('./libraries/tbl_links.inc.php');
+    require_once './libraries/tbl_links.inc.php';
 
     if (!isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];
@@ -242,7 +242,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         $field = $fields_list[$i];
 
         // do not use require_once here
-        require('./libraries/get_foreign.lib.php');
+        require './libraries/get_foreign.lib.php';
 
         // we got a bug report: in some cases, even if $disp is true,
         // there are no rows, so we add a fetch_array
@@ -315,7 +315,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 </fieldset>
 </form>
     <?php
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 
 
@@ -432,7 +432,7 @@ else {
     if ($orderField != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
-    include('./sql.php');
+    include './sql.php';
 }
 
 ?>

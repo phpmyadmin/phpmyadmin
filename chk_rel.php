@@ -8,9 +8,9 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/db_common.inc.php');
-require_once('./libraries/relation.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/db_common.inc.php';
+require_once './libraries/relation.lib.php';
 
 
 /**
@@ -22,5 +22,5 @@ $cfgRelation = PMA_getRelationsParam(TRUE);
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

@@ -85,10 +85,10 @@ if (isset($cfg['AllowAnywhereRecoding'])
             $PMA_recoding_engine = PMA_CHARSET_NONE;
 
             if (!isset($GLOBALS['is_header_sent'])) {
-                include('./libraries/header.inc.php');
+                include './libraries/header.inc.php';
             }
             echo $strCantUseRecodeIconv;
-            require_once('./libraries/footer.inc.php');
+            require_once './libraries/footer.inc.php';
             exit();
         }
     } elseif ($PMA_recoding_engine == 'recode') {
@@ -97,9 +97,9 @@ if (isset($cfg['AllowAnywhereRecoding'])
         } else {
             $PMA_recoding_engine = PMA_CHARSET_NONE;
 
-            require_once('./libraries/header.inc.php');
+            require_once './libraries/header.inc.php';
             echo $strCantUseRecodeIconv;
-            require_once('./libraries/footer.inc.php');
+            require_once './libraries/footer.inc.php';
             exit;
         }
     } else {
@@ -116,9 +116,9 @@ if (isset($cfg['AllowAnywhereRecoding'])
         } else {
             $PMA_recoding_engine = PMA_CHARSET_NONE;
 
-            require_once('./libraries/header.inc.php');
+            require_once './libraries/header.inc.php';
             echo $strCantUseRecodeIconv;
-            require_once('./libraries/footer.inc.php');
+            require_once './libraries/footer.inc.php';
             exit;
         }
     }
@@ -128,7 +128,7 @@ if (isset($cfg['AllowAnywhereRecoding'])
 
 /* Load AIX iconv wrapper if needed */
 if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
-    require_once('./libraries/iconv_wrapper.lib.php');
+    require_once './libraries/iconv_wrapper.lib.php';
 }
 
 /**

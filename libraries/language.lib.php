@@ -9,7 +9,7 @@
 /**
  * lang detection is done here
  */
-require_once('./libraries/select_lang.lib.php');
+require_once './libraries/select_lang.lib.php';
 
 // Load the translation
 require_once $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';

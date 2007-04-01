@@ -47,7 +47,7 @@ function PMA_auth() {
 </head>
 <body>
 <?php if (file_exists('./config.header.inc.php')) {
-          require('./config.header.inc.php');
+          require './config.header.inc.php';
       }
  ?>
 
@@ -59,7 +59,7 @@ function PMA_auth() {
 <div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
 <?php if (file_exists('./config.footer.inc.php')) {
-         require('./config.footer.inc.php');
+         require './config.footer.inc.php';
       }
  ?>
 

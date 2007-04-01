@@ -9,7 +9,7 @@
 /**
  *
  */
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 function PMA_relationsCleanupColumn($db, $table, $column) {

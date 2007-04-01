@@ -74,7 +74,7 @@ if ( ! PMA_DBI_checkAndLoadMysqlExtension( $GLOBALS['cfg']['Server']['extension'
 /**
  * Including The DBI Plugin
  */
-require_once('./libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php');
+require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
 /**
  * Common Functions
@@ -143,7 +143,7 @@ function PMA_DBI_convert_message( $message ) {
     if ( ! empty( $server_language ) && isset( $encodings[$server_language] ) ) {
         if ( function_exists( 'iconv' ) ) {
             if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
-                require_once('./libraries/iconv_wrapper.lib.php');
+                require_once './libraries/iconv_wrapper.lib.php';
                 $message = PMA_aix_iconv_wrapper( $encodings[$server_language],
                     $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
             } else {
@@ -875,7 +875,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
         }
     } else {
-        require_once('./libraries/charset_conversion.lib.php');
+        require_once './libraries/charset_conversion.lib.php';
     }
 }
 

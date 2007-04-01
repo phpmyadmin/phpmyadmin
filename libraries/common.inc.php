@@ -381,7 +381,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
     /**
      * Require cleanup functions
      */
-    require_once('./libraries/cleanup.lib.php');
+    require_once './libraries/cleanup.lib.php';
     /**
      * Do actual cleanup
      */

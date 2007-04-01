@@ -8,14 +8,14 @@
 /**
  * Does the common work
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 $js_to_run = 'functions.js';
 
 /**
  * Displays the links
  */
-require('./libraries/server_links.inc.php');
+require './libraries/server_links.inc.php';
 
 $export_page_title = $strViewDumpDatabases . "\n";
 $multi_values = '<div align="center"><select name="db_select[]" size="6" multiple="multiple">';
@@ -44,11 +44,11 @@ $multi_values .= '<br />
         <br /><br />';
 
 $export_type = 'server';
-require_once('./libraries/display_export.lib.php');
+require_once './libraries/display_export.lib.php';
 
 
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

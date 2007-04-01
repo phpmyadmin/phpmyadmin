@@ -9,7 +9,7 @@
 /**
  *
  */
-require_once('./libraries/check_user_privileges.lib.php');
+require_once './libraries/check_user_privileges.lib.php';
 
 // for MySQL >= 4.1.0, we should be able to detect if user has a CREATE
 // privilege by looking at SHOW GRANTS output;

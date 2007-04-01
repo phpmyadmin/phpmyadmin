@@ -11,12 +11,12 @@
 require_once './libraries/Table.class.php';
 
 // Get relations & co. status
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 
-require_once('./libraries/file_listing.php');
-require_once('./libraries/plugin_interface.lib.php');
+require_once './libraries/file_listing.php';
+require_once './libraries/plugin_interface.lib.php';
 
 function PMA_exportCheckboxCheck($str) {
     if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
@@ -38,7 +38,7 @@ if (empty($export_list)) {
     $GLOBALS['show_error_header'] = TRUE;
     PMA_showMessage($strCanNotLoadExportPlugins);
     unset($GLOBALS['show_error_header']);
-    require('./libraries/footer.inc.php');
+    require './libraries/footer.inc.php';
 }
 ?>
 

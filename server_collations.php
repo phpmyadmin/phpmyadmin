@@ -11,18 +11,18 @@
 if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
     define( 'PMA_NO_VARIABLES_IMPORT', true );
 }
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-require('./libraries/server_common.inc.php');
+require './libraries/server_common.inc.php';
 
 
 /**
  * Displays the links
  */
-require('./libraries/server_links.inc.php');
+require './libraries/server_links.inc.php';
 
 
 /**
@@ -41,14 +41,14 @@ echo '<h2>' . "\n"
  * @todo Some nice Message :-)
  */
 if (PMA_MYSQL_INT_VERSION < 40100) {
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 
 
 /**
  * Includes the required charset library
  */
-require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/mysql_charsets.lib.php';
 
 
 /**
@@ -101,6 +101,6 @@ unset($table_row_count);
 echo '</table>' . "\n"
    . '</div>' . "\n";
 
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 
 ?>

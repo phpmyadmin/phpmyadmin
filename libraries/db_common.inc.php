@@ -8,8 +8,8 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/bookmark.lib.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/bookmark.lib.php';
 
 PMA_checkParameters(array('db'));
 
@@ -56,7 +56,7 @@ if (isset($submitcollation) && !empty($db_collation) && PMA_MYSQL_INT_VERSION >=
 }
 
 $js_to_run = 'functions.js';
-require_once('./libraries/header.inc.php');
+require_once './libraries/header.inc.php';
 
 /**
  * Set parameters for links

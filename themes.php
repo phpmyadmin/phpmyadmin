@@ -8,17 +8,17 @@
 /**
  * get some globals
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /* Theme Select */
 $path_to_themes = $cfg['ThemePath'] . '/';
 
 /* set language and charset */
-require_once('./libraries/header_http.inc.php');
+require_once './libraries/header_http.inc.php';
 
 /* HTML header */
 $page_title = 'phpMyAdmin - ' . $strTheme;
-require('./libraries/header_meta_style.inc.php');
+require './libraries/header_meta_style.inc.php';
 ?>
 <script type="text/javascript" language="javascript">
 // <![CDATA[

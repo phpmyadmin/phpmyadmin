@@ -9,7 +9,7 @@
 /**
  *
  */
-require_once('./libraries/check_user_privileges.lib.php');
+require_once './libraries/check_user_privileges.lib.php';
 
 if ($is_create_db_priv) {
     // The user is allowed to create a db
@@ -21,7 +21,7 @@ if ($is_create_db_priv) {
             <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="text_create_db"/>
             <?php
     if (PMA_MYSQL_INT_VERSION >= 40101) {
-        require_once('./libraries/mysql_charsets.lib.php');
+        require_once './libraries/mysql_charsets.lib.php';
         echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, TRUE, 5);
     }
             ?>

@@ -9,13 +9,13 @@
 /**
  * Gets some core scripts
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /**
  * Settings for relation stuff
  */
-require_once('./libraries/relation.lib.php');
-require_once('./libraries/transformations.lib.php');
+require_once './libraries/relation.lib.php';
+require_once './libraries/transformations.lib.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -39,7 +39,7 @@ if (!$cfgRelation['pdfwork']) {
  * @todo Make this configuratble (at least Sans/Serif).
  */
 define('PMA_PDF_FONT', 'DejaVuSans');
-require_once('./libraries/tcpdf/tcpdf.php');
+require_once './libraries/tcpdf/tcpdf.php';
 
 /**
  * Extends the "FPDF" class and prepares the work
@@ -228,7 +228,7 @@ class PMA_PDF extends TCPDF {
         global $server, $lang, $convcharset, $db;
         global $charset, $text_dir, $strRunning, $strDatabase;
 
-        require_once('./libraries/header.inc.php');
+        require_once './libraries/header.inc.php';
 
         echo '<p><b>PDF - ' . $GLOBALS['strError'] . '</b></p>' . "\n";
         if (!empty($error_message)) {
@@ -242,7 +242,7 @@ class PMA_PDF extends TCPDF {
          . '">' . $GLOBALS['strBack'] . '</a>';
         echo "\n";
 
-        require_once('./libraries/footer.inc.php');
+        require_once './libraries/footer.inc.php';
     } // end of the "PMA_PDF_die()" function
     /**
      * Aliases the "Error()" function from the FPDF class to the

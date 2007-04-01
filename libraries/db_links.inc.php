@@ -8,7 +8,7 @@
 /**
  *
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 require_once './libraries/relation.lib.php';
 /**

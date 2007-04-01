@@ -8,14 +8,14 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/db_common.inc.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/db_common.inc.php';
 
 
 /**
  * Settings for relation stuff
  */
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 // This is to avoid "Command out of sync" errors. Before switching this to
@@ -34,13 +34,13 @@ $query_default_option = PMA_DBI_QUERY_STORE;
 if (!$cfgRelation['relwork']) {
     echo sprintf($strNotSet, 'relation', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#relation" target="documentation">' . $strDocu . '</a>' . "\n";
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 
 if (!$cfgRelation['displaywork']) {
     echo sprintf($strNotSet, 'table_info', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#table_info" target="documentation">' . $strDocu . '</a>' . "\n";
-    require_once('./libraries/footer.inc.php');
+    require_once './libraries/footer.inc.php';
 }
 
 if (!isset($cfgRelation['table_coords'])){
@@ -567,5 +567,5 @@ ToggleDragDrop('pdflayout');
  * Displays the footer
  */
 echo "\n";
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

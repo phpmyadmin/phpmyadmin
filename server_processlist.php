@@ -8,12 +8,12 @@
 /**
  *
  */
-require_once('./libraries/common.inc.php');
+require_once './libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-require_once('./libraries/server_common.inc.php');
+require_once './libraries/server_common.inc.php';
 
 
 /**
@@ -31,7 +31,7 @@ if (!empty($kill)) {
 /**
  * Displays the links
  */
-require('./libraries/server_links.inc.php');
+require './libraries/server_links.inc.php';
 
 
 /**
@@ -100,5 +100,5 @@ while($process = PMA_DBI_fetch_assoc($result)) {
 /**
  * Sends the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

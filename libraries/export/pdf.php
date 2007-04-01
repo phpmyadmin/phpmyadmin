@@ -30,7 +30,7 @@ if (isset($plugin_list)) {
  * @todo Make this configuratble (at least Sans/Serif).
  */
 define('PMA_PDF_FONT', 'DejaVuSans');
-require_once('./libraries/tcpdf/tcpdf.php');
+require_once './libraries/tcpdf/tcpdf.php';
 
 // Adapted from a LGPL script by Philip Clarke
 

@@ -36,7 +36,7 @@
  * For now we actually use a configuration flag
  */
 if ($cfg['SQLValidator']['use'] == TRUE)  {
-    require_once('./libraries/sqlvalidator.class.php');
+    require_once './libraries/sqlvalidator.class.php';
 } // if ($cfg['SQLValidator']['use'] == TRUE)
 
 

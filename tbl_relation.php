@@ -8,15 +8,15 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.inc.php');
-require_once('./libraries/tbl_common.php');
+require_once './libraries/common.inc.php';
+require_once './libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php';
 
 
 /**
  * Gets tables informations
  */
-require_once('./libraries/tbl_info.inc.php');
+require_once './libraries/tbl_info.inc.php';
 
 // Note: in libraries/tbl_links.inc.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
@@ -26,9 +26,9 @@ $avoid_show_comment = TRUE;
 /**
  * Displays top menu links
  */
-require_once('./libraries/tbl_links.inc.php');
+require_once './libraries/tbl_links.inc.php';
 
-require_once('./libraries/relation.lib.php');
+require_once './libraries/relation.lib.php';
 
 $options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACTION' => 'NO ACTION', 'RESTRICT' => 'RESTRICT');
 
@@ -567,5 +567,5 @@ if ( $tbl_type === 'INNODB' && PMA_MYSQL_INT_VERSION < 40013 ) {
 /**
  * Displays the footer
  */
-require_once('./libraries/footer.inc.php');
+require_once './libraries/footer.inc.php';
 ?>

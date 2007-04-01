@@ -11,7 +11,7 @@
  */
 // Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
 if (!empty($GLOBALS['cfg']['TempDir'])) {
-    @include_once('Spreadsheet/Excel/Writer.php');
+    @include_once 'Spreadsheet/Excel/Writer.php';
     if (class_exists('Spreadsheet_Excel_Writer')) {
         $xls = TRUE;
     } else {
