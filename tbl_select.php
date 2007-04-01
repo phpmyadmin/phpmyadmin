@@ -94,7 +94,7 @@ if (!isset($param) || $param[0] == '') {
     //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
     $foreigners  = PMA_getForeigners($db, $table);
     ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 // <![CDATA[
 function PMA_tbl_select_operator(f, index, multiple) {
     switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
@@ -195,7 +195,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     <?php
     $odd_row = true;
 ?>
-<script type="text/javascript" language="javascript" src="./js/tbl_change.js"></script>
+<script type="text/javascript" src="./js/tbl_change.js"></script>
 <?php
     for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
@@ -263,8 +263,10 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
             <input type="text" name="fields[<?php echo $i; ?>]"
                 id="field_<?php echo md5($field); ?>[<?php echo $i; ?>]"
                 class="textfield" />
-            <script type="text/javascript" language="javascript">
+            <script type="text/javascript">
+            // <![CDATA[
                 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>&amp;fieldkey=<?php echo $i; ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
+            // ]]>
             </script>
             <?php
         } elseif (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
@@ -286,7 +288,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         $type = $fields_type[$i];
         if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
         ?>
-                    <script type="text/javascript" language="javascript">
+                    <script type="text/javascript">
                     //<![CDATA[
                     document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($i); ?>\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
                     //]]>

@@ -54,7 +54,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
     $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
     ?>
-    <script type="text/javascript" language="javascript">
+    <script type="text/javascript">
     // <![CDATA[
     // Updates the title of the frameset if possible (ns4 does not allow this)
     if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
@@ -75,7 +75,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     var confirmMsgDropDB  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDropDatabaseStrongWarning']) : ''); ?>';
     // ]]>
     </script>
-    <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/functions.js" type="text/javascript"></script>
         <?php
     } elseif (isset($js_to_run) && $js_to_run == 'user_password.js') {
         echo "\n";
@@ -87,7 +87,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
     // ]]>
     </script>
-    <script src="./js/user_password.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/user_password.js" type="text/javascript"></script>
         <?php
     } elseif (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
         echo "\n";
@@ -99,8 +99,8 @@ if (empty($GLOBALS['is_header_sent'])) {
     var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
     // ]]>
     </script>
-    <script src="./js/server_privileges.js" type="text/javascript" language="javascript"></script>
-    <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/server_privileges.js" type="text/javascript"></script>
+    <script src="./js/functions.js" type="text/javascript"></script>
         <?php
     } elseif (isset($js_to_run) && $js_to_run == 'indexes.js') {
         echo "\n";
@@ -110,14 +110,14 @@ if (empty($GLOBALS['is_header_sent'])) {
     var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']); ?>';
     // ]]>
     </script>
-    <script src="./js/indexes.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/indexes.js" type="text/javascript"></script>
         <?php
     } elseif (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
         echo "\n";
         ?>
     // ]]>
     </script>
-    <script src="./js/tbl_change.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/tbl_change.js" type="text/javascript"></script>
         <?php
     } else {
         echo "\n";
@@ -131,8 +131,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Reloads the navigation frame via JavaScript if required
     PMA_reloadNavigation();
     ?>
-    <script src="./js/tooltip.js" type="text/javascript"
-        language="javascript"></script>
+    <script src="./js/tooltip.js" type="text/javascript"></script>
     <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
     <?php /* remove vertical scroll bar bug in ie */ ?>
     <!--[if IE 6]>

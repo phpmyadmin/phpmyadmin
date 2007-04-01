@@ -94,7 +94,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     <title>phpMyAdmin <?php echo $PMA_Config_Setup->get('PMA_VERSION'); ?> setup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <script type="text/javascript" language="javascript">
+    <script type="text/javascript">
     //<![CDATA[
     // show this window in top frame
     if (top != self) {
@@ -1289,7 +1289,7 @@ switch ($action) {
         echo htmlspecialchars(get_cfg_string($configuration));
         echo '</textarea></form>' . "\n";
         ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
     var bodyWidth=null; var bodyHeight=null;
     if (document.getElementById('textconfig')) {

@@ -166,7 +166,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
     echo '</form>' . "\n";
     if ($is_querywindow) {
         ?>
-        <script type="text/javascript" language="javascript">
+        <script type="text/javascript">
         //<![CDATA[
             if (window.opener) {
                 window.opener.parent.insertQuery();
@@ -364,7 +364,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     echo '<div class="formelement">' . "\n";
     if ($is_querywindow) {
         ?>
-        <script type="text/javascript" language="javascript">
+        <script type="text/javascript">
         //<![CDATA[
             document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo $GLOBALS['strQueryWindowLock']; ?></label> ');
         //]]>

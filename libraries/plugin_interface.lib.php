@@ -318,7 +318,7 @@ function PMA_pluginGetOptions($section, &$list)
  */
 function PMA_pluginGetJavascript(&$list) {
     $ret = '
-    <script type="text/javascript" language="javascript">
+    <script type="text/javascript">
     //<![CDATA[
     function hide_them_all() {
         ';

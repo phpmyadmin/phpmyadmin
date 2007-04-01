@@ -779,7 +779,7 @@ else {
     // Do print the page if required
     if (isset($printview) && $printview == '1') {
         ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 // Do print the page
 window.onload = function()

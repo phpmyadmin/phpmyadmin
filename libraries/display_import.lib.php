@@ -182,7 +182,7 @@ echo "\n";
         <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
     </fieldset>
 </form>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
     init_options();
 //]]>

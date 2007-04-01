@@ -190,8 +190,8 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
-<script src="./js/keyhandler.js" type="text/javascript" language="javascript"></script>
-<script type="text/javascript" language="javascript">
+<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script type="text/javascript">
 //<![CDATA[
 var switch_movement = 0;
 document.onkeydown = onKeyDownArrowsHandler;
@@ -648,7 +648,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
                 value="<?php echo htmlspecialchars($data); ?>" />
-            <script type="text/javascript" language="javascript">
+            <script type="text/javascript">
             //<![CDATA[
                 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"');
                 document.writeln(' href="browse_foreigners.php?');
@@ -955,7 +955,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
-                    <script type="text/javascript" language="javascript">
+                    <script type="text/javascript">
                     //<![CDATA[
                     document.write('<a title="<?php echo $strCalendar;?>"');
                     document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');

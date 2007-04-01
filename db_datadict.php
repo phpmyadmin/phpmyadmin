@@ -306,7 +306,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
  * Displays the footer
  */
 ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 function printPage()
 {

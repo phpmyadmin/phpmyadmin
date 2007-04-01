@@ -28,12 +28,12 @@ if (is_int($cfg['DefaultPropDisplay'])) {
 
 if ($cfg['CtrlArrowsMoving']) {
     ?>
-<script src="./js/keyhandler.js" type="text/javascript" language="javascript"></script>
-<script type="text/javascript" language="javascript">
-<!--
+<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script type="text/javascript">
+// <![CDATA[
 var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
 document.onkeydown = onKeyDownArrowsHandler;
-// -->
+// ]]>
 </script>
     <?php
 }
@@ -43,8 +43,8 @@ document.onkeydown = onKeyDownArrowsHandler;
 
 if (PMA_MYSQL_INT_VERSION >= 40102) {
     ?>
-<script type="text/javascript" language="javascript">
-<!--
+<script type="text/javascript">
+// <![CDATA[
 function display_field_options(field_type, i) {
     if (field_type == 'TIMESTAMP') {
         getElement('div_' + i + '_7').style.display = 'block';
@@ -54,7 +54,7 @@ function display_field_options(field_type, i) {
     }
     return true;
 }
-// -->
+// ]]>
 </script>
 <?php } ?>
 
@@ -623,8 +623,8 @@ if ($display_type == 'horizontal') {
         $new_field .= '<td align="center">' . $content_row_val . '</td>';
     }
     ?>
-<script type="text/javascript" language="javascript">
-<!--
+<script type="text/javascript">
+// <![CDATA[
 var odd_row = <?php echo $odd_row; ?>;
 
 function addField() {
@@ -643,7 +643,7 @@ function addField() {
 
     return true;
 }
-// -->
+// ]]>
 </script>
     <?php
 }

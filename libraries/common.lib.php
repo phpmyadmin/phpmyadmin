@@ -670,13 +670,13 @@ function PMA_sendHeaderLocation($uri)
         echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
         echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
         echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
-        echo '<script type="text/javascript" language="javascript">' . "\n";
+        echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
         echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
         echo '//]]>' . "\n";
         echo '</head>' . "\n";
         echo '<body>' . "\n";
-        echo '<script type="text/javascript" language="javascript">' . "\n";
+        echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
         echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
@@ -922,7 +922,7 @@ function PMA_reloadNavigation()
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
         ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frame_navigation) != 'undefined') {
@@ -974,7 +974,7 @@ function PMA_showMessage($message, $sql_query = null)
             PMA_DBI_free_result($result);
             $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
             echo "\n";
-            echo '<script type="text/javascript" language="javascript">' . "\n";
+            echo '<script type="text/javascript">' . "\n";
             echo '//<![CDATA[' . "\n";
             echo "window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
             echo '//]]>' . "\n";

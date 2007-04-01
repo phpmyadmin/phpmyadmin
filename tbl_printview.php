@@ -539,7 +539,7 @@ foreach ($the_tables as $key => $table) {
  */
 ?>
 
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
 function printPage()
 {

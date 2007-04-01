@@ -488,7 +488,7 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
      . $strAnalyzeTable . '</option>' . "\n";
 ?>
 </select>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 <!--
 // Fake js to allow the use of the <noscript> tag
 //-->

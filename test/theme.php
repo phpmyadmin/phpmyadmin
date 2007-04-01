@@ -35,8 +35,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
         href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $_SESSION['PMA_Config']->getMtime(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
-    <script src="../js/functions.js" type="text/javascript"
-        language="javascript"></script>
+    <script src="../js/functions.js" type="text/javascript"></script>
 </head>
 <body>
 <?php

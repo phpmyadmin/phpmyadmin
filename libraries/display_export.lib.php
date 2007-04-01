@@ -96,7 +96,7 @@ echo PMA_pluginGetJavascript($export_list);
 </div>
 </td></tr></table>
 
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
     init_options();
 //]]>

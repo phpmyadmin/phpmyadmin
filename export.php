@@ -645,7 +645,7 @@ else {
     echo '</div>' . "\n";
     echo "\n";
 ?>
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 //<![CDATA[
     var bodyWidth=null; var bodyHeight=null;
     if (document.getElementById('textSQLDUMP')) {
