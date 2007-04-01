@@ -38,7 +38,7 @@ require './libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_process.png" width="16" height="16" alt="" />' : '' )
+   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_process.png" width="16" height="16" alt="" />' : '')
    . $strProcesslist . "\n"
    . '</h2>' . "\n";
 
@@ -46,10 +46,10 @@ echo '<h2>' . "\n"
 /**
  * Sends the query
  */
-$sql_query = 'SHOW' . ( empty( $full ) ? '' : ' FULL' ) . ' PROCESSLIST';
+$sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST';
 $result = PMA_DBI_query($sql_query);
 
-PMA_showMessage( $GLOBALS['strSuccess'] );
+PMA_showMessage($GLOBALS['strSuccess']);
 
 
 /**
@@ -83,7 +83,7 @@ while($process = PMA_DBI_fetch_assoc($result)) {
     <td class="value"><?php echo $process['Id']; ?></td>
     <td><?php echo $process['User']; ?></td>
     <td><?php echo $process['Host']; ?></td>
-    <td><?php echo (( ! isset( $process['db'] ) || ! strlen($process['db']) ) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
+    <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
     <td><?php echo $process['Command']; ?></td>
     <td class="value"><?php echo $process['Time']; ?></td>
     <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>

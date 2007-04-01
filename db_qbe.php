@@ -178,7 +178,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        showColumnSelectCell( $fld, $z );
+        showColumnSelectCell($fld, $z);
         $z++;
     }
 
@@ -733,7 +733,7 @@ if (isset($Field) && count($Field) > 0) {
             $master = key($tab_wher);
         } else {
             // Now let's find out which of the tables has an index
-            // ( When the control user is the same as the normal user
+            // (When the control user is the same as the normal user
             // because he is using one of his databases as pmadb,
             // the last db selected is not always the one where we need to work)
             PMA_DBI_select_db($db);
@@ -806,7 +806,7 @@ if (isset($Field) && count($Field) > 0) {
                 // Of course we only want to check each table once
                 $checked_tables = $col_cand;
                 foreach ($col_cand AS $tab) {
-                    if ($checked_tables[$tab] != 1 ) {
+                    if ($checked_tables[$tab] != 1) {
                         $tsize[$tab] = PMA_Table::countRecords($db, $tab, true, false);
                         $checked_tables[$tab] = 1;
                     }

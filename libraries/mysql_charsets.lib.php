@@ -19,7 +19,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
         $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
     }
-    @PMA_DBI_free_result( $res );
+    @PMA_DBI_free_result($res);
 
     $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);
@@ -42,8 +42,8 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         $mysql_collations_available[$row['Collation']] = TRUE;
         $mysql_charsets_available[$row['Charset']] = !empty($mysql_charsets_available[$row['Charset']]) || !empty($mysql_collations_available[$row['Collation']]);
     }
-    @PMA_DBI_free_result( $res );
-    unset( $res, $row );
+    @PMA_DBI_free_result($res);
+    unset($res, $row);
 
     $mysql_collations_count = count($mysql_collations_flat);
     sort($mysql_collations_flat, SORT_STRING);
@@ -51,7 +51,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }
-    unset( $key, $value );
+    unset($key, $value);
 
     define('PMA_CSDROPDOWN_COLLATION', 0);
     define('PMA_CSDROPDOWN_CHARSET',   1);
@@ -114,24 +114,24 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
      * @param   string  $db     name of db
      * @return  string  collation of $db
      */
-    function PMA_getDbCollation( $db ) {
-        if ( PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema' ) {
+    function PMA_getDbCollation($db) {
+        if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
             // We don't have to check the collation of the virtual
             // information_schema database: We know it!
             return 'utf8_general_ci';
         }
-        if ( PMA_MYSQL_INT_VERSION >= 50006 ) {
+        if (PMA_MYSQL_INT_VERSION >= 50006) {
             // Since MySQL 5.0.6, we don't have to parse SHOW CREATE DATABASE anymore.
             return PMA_DBI_fetch_value('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1;');
-        } elseif ( PMA_MYSQL_INT_VERSION >= 40101 ) {
+        } elseif (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
-            PMA_DBI_select_db( $db );
+            PMA_DBI_select_db($db);
             // the query does not work if this string is in double quotes
             // and MySQL is running in ANSI mode
-            $return = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'collation_database\'', 0, 1 );
-            if ( isset( $GLOBALS['db'] ) && $db !== $GLOBALS['db'] ) {
-                PMA_DBI_select_db( $GLOBALS['db'] );
+            $return = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'collation_database\'', 0, 1);
+            if (isset($GLOBALS['db']) && $db !== $GLOBALS['db']) {
+                PMA_DBI_select_db($GLOBALS['db']);
             }
             return $return;
         }
@@ -139,7 +139,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     }
 
 } else {
-    function PMA_getDbCollation( $db ) { return PMA_getServerCollation(); }
+    function PMA_getDbCollation($db) { return PMA_getServerCollation(); }
 }
 
 /**
@@ -150,7 +150,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
  */
 function PMA_getServerCollation() {
     return PMA_DBI_fetch_value(
-        'SHOW VARIABLES LIKE \'collation_server\'', 0, 1 );
+        'SHOW VARIABLES LIKE \'collation_server\'', 0, 1);
 }
 
 /**
@@ -164,7 +164,7 @@ function PMA_getServerCollation() {
  * @param   string  $collation  MySQL collation string
  * @return  string  collation description
  */
-function PMA_getCollationDescr( $collation ) {
+function PMA_getCollationDescr($collation) {
     static $collation_cache;
 
     if (!is_array($collation_cache)) {

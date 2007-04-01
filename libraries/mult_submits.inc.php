@@ -8,13 +8,12 @@
 /**
  * Prepares the work and runs some other scripts if required
  */
-if (!empty($submit_mult)
-    && ($submit_mult != $strWithChecked)
-    && (  ( isset($selected_db) && !empty($selected_db) )
-       || ( isset($selected_tbl) && !empty($selected_tbl) )
-       || ( isset($selected_fld) && !empty($selected_fld) )
-       || !empty($rows_to_delete)
-         )) {
+if (! empty($submit_mult)
+ && $submit_mult != $strWithChecked
+ && (! empty($selected_db)
+  || ! empty($selected_tbl)
+  || ! empty($selected_fld)
+  || ! empty($rows_to_delete))) {
     define('PMA_SUBMIT_MULT', 1);
     if (isset($selected_db) && !empty($selected_db)) {
         $selected     = $selected_db;
@@ -125,7 +124,7 @@ if (!empty($submit_mult)
 /**
  * Displays the confirmation form if required
  */
-if ( !empty($submit_mult) && !empty($what)) {
+if (!empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
     if (strlen($table)) {
@@ -257,7 +256,7 @@ if ( !empty($submit_mult) && !empty($what)) {
         echo '<input type="hidden" name="disp_direction"   value="' . $disp_direction . '" />' . "\n";
         echo '<input type="hidden" name="repeat_cells"     value="' . $repeat_cells   . '" />' . "\n";
         echo '<input type="hidden" name="dontlimitchars"   value="' . $dontlimitchars . '" />' . "\n";
-        echo '<input type="hidden" name="pos"              value="' . ( isset( $pos ) ? $pos : 0 ) . '" />' . "\n";
+        echo '<input type="hidden" name="pos"              value="' . (isset($pos) ? $pos : 0) . '" />' . "\n";
         echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
     }
     ?>
@@ -375,7 +374,7 @@ elseif ($mult_btn == $strYes) {
                 break;
 
             case 'primary_fld':
-                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ( empty($primary) ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( ' : ', ')
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . (empty($primary) ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;

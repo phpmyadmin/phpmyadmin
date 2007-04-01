@@ -32,7 +32,7 @@ if (isset($_POST['submitoptions'])) {
     $create_query .= ' VIEW ' . $_POST['view_name'] . $sep;
 
     if (!empty($_POST['column_names'])) {
-        $create_query .= ' ( ' . $_POST['column_names'] . ')' . $sep;
+        $create_query .= ' (' . $_POST['column_names'] . ')' . $sep;
     }
 
     $create_query .= ' AS ' . $_POST['sql_statement'] . $sep;

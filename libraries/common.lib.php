@@ -216,7 +216,7 @@ function PMA_unQuote($quoted_string, $quote = null)
 
     foreach ($quotes as $quote) {
         if (substr($quoted_string, 0, 1) === $quote
-         && substr($quoted_string, -1, 1) === $quote ) {
+         && substr($quoted_string, -1, 1) === $quote) {
              $unquoted_string = substr($quoted_string, 1, -1);
              // replace escaped quotes
              $unquoted_string = str_replace($quote . $quote, $quote, $unquoted_string);
@@ -732,7 +732,7 @@ function PMA_getTableList($db, $tables = null)
 {
     $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
-    if ( null === $tables ) {
+    if (null === $tables) {
         $tables = PMA_DBI_get_tables_full($db);
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($tables, 'strnatcasecmp');
@@ -1348,7 +1348,7 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         6 => 'E',
         7 => 'Z',
         8 => 'Y'
-   );
+    );
 
     // we need at least 3 digits to be displayed
     if (3 > $length + $comma) {
@@ -1478,7 +1478,7 @@ function PMA_getTab($tab)
         'args'      => '',
         'warning'   => '',
         'fragment'  => '',
-   );
+    );
 
     $tab = array_merge($defaults, $tab);
 

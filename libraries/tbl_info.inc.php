@@ -51,15 +51,15 @@ $table_info_result   = PMA_DBI_query(
 if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
     $showtable           = PMA_DBI_fetch_assoc($table_info_result);
     PMA_DBI_free_result($table_info_result);
-    unset( $table_info_result );
+    unset($table_info_result);
 
     if (!isset($showtable['Type']) && isset($showtable['Engine'])) {
         $showtable['Type'] =& $showtable['Engine'];
     }
     // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
-    if ( PMA_MYSQL_INT_VERSION >= 50000 && !isset($showtable['Type'])
-      && isset($showtable['Comment'])
-      && strtoupper($showtable['Comment']) == 'VIEW' ) {
+    if (PMA_MYSQL_INT_VERSION >= 50000 && !isset($showtable['Type'])
+     && isset($showtable['Comment'])
+     && strtoupper($showtable['Comment']) == 'VIEW') {
         $tbl_is_view     = true;
         $tbl_type        = $GLOBALS['strView'];
         $show_comment    = null;
@@ -82,9 +82,9 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
         ? ''
         : $showtable['Collation'];
 
-    if ( null === $showtable['Rows'] ) {
-        $showtable['Rows']   = PMA_Table::countRecords( $GLOBALS['db'],
-            $showtable['Name'], true, true );
+    if (null === $showtable['Rows']) {
+        $showtable['Rows']   = PMA_Table::countRecords($GLOBALS['db'],
+            $showtable['Name'], true, true);
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;
     $auto_increment      = isset($showtable['Auto_increment'])
@@ -98,14 +98,14 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
     // export create options by its name as variables into gloabel namespace
     // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
     unset($pack_keys);
-    foreach ( $create_options as $each_create_option ) {
+    foreach ($create_options as $each_create_option) {
         $each_create_option = explode('=', $each_create_option);
-        if ( isset( $each_create_option[1] ) ) {
+        if (isset($each_create_option[1])) {
             $$each_create_option[0]    = $each_create_option[1];
         }
     }
     // we need explicit DEFAULT value here (different from '0')
     $pack_keys = (!isset($pack_keys) || strlen($pack_keys) == 0) ? 'DEFAULT' : $pack_keys;
-    unset( $create_options, $each_create_option );
+    unset($create_options, $each_create_option);
 } // end if
 ?>

@@ -194,9 +194,9 @@ function PMA_DBI_fetch_row($result) {
  * @param result    $result,...     one or more mysql result resources
  */
 function PMA_DBI_free_result() {
-    foreach ( func_get_args() as $result ) {
-        if ( is_resource($result)
-          && get_resource_type($result) === 'mysql result' ) {
+    foreach (func_get_args() as $result) {
+        if (is_resource($result)
+         && get_resource_type($result) === 'mysql result') {
             mysql_free_result($result);
         }
     }
@@ -298,7 +298,7 @@ function PMA_DBI_getError($link = null)
     // Some errors messages cannot be obtained by mysql_error()
     if ($error_number == 2002) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
-    } elseif ($error_number == 2003 ) {
+    } elseif ($error_number == 2003) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'];
     } elseif (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
         $error = '#' . ((string) $error_number) . ' - ' . $error_message;

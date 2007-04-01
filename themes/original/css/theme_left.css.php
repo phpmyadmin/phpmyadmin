@@ -74,7 +74,7 @@ ul#databaseList {
     border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
-    padding-left: 	1.5em;
+    padding-left:     1.5em;
 }
 
 ul#databaseList a {
@@ -165,7 +165,7 @@ div#left_tableList > ul li.marked {
 }
 <?php } ?>
 
-<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
 div#left_tableList > ul li:hover > a,
 div#left_tableList > ul li:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;

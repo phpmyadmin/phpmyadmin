@@ -145,7 +145,7 @@ function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_da
 
     $prev_index   = '';
     foreach ($ret_keys as $row) {
-        if ($row['Key_name'] != $prev_index ){
+        if ($row['Key_name'] != $prev_index){
             $indexes[]  = $row['Key_name'];
             $prev_index = $row['Key_name'];
         }
@@ -198,7 +198,7 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data,
         if ($display_html) {
             $row_span = ' rowspan="' . count($indexes_info[$index_name]['Sequences']) . '" ';
 
-            echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
+            echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
             echo '            <th ' . $row_span . '>' . "\n"
                . '                ' . htmlspecialchars($index_name) . "\n"
                . '            </th>' . "\n";
@@ -267,11 +267,11 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data,
 
             if ($display_html) {
                 if ($row_no > 0) {
-                    echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
+                    echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
                 }
 
-                if ( isset($indexes_data[$index_name][$seq_index]['Sub_part'])
-                  && strlen($indexes_data[$index_name][$seq_index]['Sub_part']) ) {
+                if (isset($indexes_data[$index_name][$seq_index]['Sub_part'])
+                 && strlen($indexes_data[$index_name][$seq_index]['Sub_part'])) {
                     echo '            <td>' . $col_name . '</td>' . "\n";
                     echo '            <td align="right">' . "\n"
                        . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"

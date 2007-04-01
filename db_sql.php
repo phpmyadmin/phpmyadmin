@@ -21,7 +21,7 @@ require_once './libraries/sql_query_form.lib.php';
  * "db_structure.php" script where table can be created
  */
 require './libraries/db_info.inc.php';
-if ( $num_tables == 0 && empty( $db_query_force ) ) {
+if ($num_tables == 0 && empty($db_query_force)) {
     $sub_part   = '';
     $is_info    = TRUE;
     require './db_structure.php';

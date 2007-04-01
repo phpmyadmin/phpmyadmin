@@ -9,19 +9,19 @@
 /**
  *
  */
-if ( empty( $query_url ) ) {
-    $db     = ! isset( $db )      ? '' : $db;
-    $table  = ! isset( $table )   ? '' : $table;
-    $query_url = PMA_generate_common_url( $db, $table );
+if (empty($query_url)) {
+    $db     = ! isset($db)      ? '' : $db;
+    $table  = ! isset($table)   ? '' : $table;
+    $query_url = PMA_generate_common_url($db, $table);
 }
 
 // display Logo, depending on $GLOBALS['cfg']['LeftDisplayLogo']
-if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
+if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     $logo = 'phpMyAdmin';
-    if ( @file_exists( $GLOBALS['pmaThemeImage'] . 'logo_left.png' ) ) {
+    if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
         $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
             .'alt="' . $logo . '" id="imgpmalogo" />';
-    } elseif ( @file_exists( $GLOBALS['pmaThemeImage'] . 'pma_logo2.png' ) ) {
+    } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
         $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
             .'alt="' . $logo . '" id="imgpmalogo" />';
     }
@@ -43,27 +43,27 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
 <?php
     echo '<a href="main.php?' . $query_url . '"'
         .' title="' . $strHome . '">'
-        .( $GLOBALS['cfg']['MainPageIconic']
+        .($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'b_home.png" width="16" '
                 .' height="16" alt="' . $strHome . '" />'
-            : $strHome )
+            : $strHome)
         .'</a>' . "\n";
     // if we have chosen server
-    if ( $server != 0 ) {
+    if ($server != 0) {
         // Logout for advanced authentication
-        if ( $GLOBALS['cfg']['Server']['auth_type'] != 'config' ) {
+        if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
             echo ($GLOBALS['cfg']['MainPageIconic'] ? '' : ' - ');
             echo '<a href="index.php?' . $query_url . '&amp;old_usr='
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . $strLogout . '" >'
-                .( $GLOBALS['cfg']['MainPageIconic']
+                .($GLOBALS['cfg']['MainPageIconic']
                     ? '<img class="icon" src="' . $pmaThemeImage . 's_loggoff.png" '
                      .' width="16" height="16" alt="' . $strLogout . '" />'
-                    : $strLogout )
+                    : $strLogout)
                 .'</a>' . "\n";
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
 
-        $anchor = 'querywindow.php?' . PMA_generate_common_url( $db, $table );
+        $anchor = 'querywindow.php?' . PMA_generate_common_url($db, $table);
 
         if ($GLOBALS['cfg']['MainPageIconic']) {
             $query_frame_link_text =

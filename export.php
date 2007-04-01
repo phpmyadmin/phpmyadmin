@@ -336,7 +336,7 @@ if ($save_on_server) {
  * or not
  */
 if (!$save_on_server) {
-    if ($asfile ) {
+    if ($asfile) {
         // Download
         if (!empty($content_encoding)) {
             header('Content-Encoding: ' . $content_encoding);

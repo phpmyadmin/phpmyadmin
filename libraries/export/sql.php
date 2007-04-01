@@ -127,7 +127,7 @@ $GLOBALS['comment_marker'] = '-- ';
 /**
  * Avoids undefined variables, use NULL so isset() returns false
  */
-if ( ! isset( $sql_backquotes ) ) {
+if (! isset($sql_backquotes)) {
     $sql_backquotes = null;
 }
 
@@ -348,7 +348,7 @@ function PMA_exportDBFooter($db)
                 $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $crlf . $crlf;
             }
         }
-        if ( !empty($procs_funcs)) {
+        if (!empty($procs_funcs)) {
             $result = PMA_exportOutputHandler($procs_funcs);
         }
     }
@@ -830,12 +830,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp'
                         && ! $fields_meta[$j]->blob) {
                     $values[] = $row[$j];
-                // a true BLOB 
+                // a true BLOB
                 // - mysqldump only generates hex data when the --hex-blob
                 //   option is used, for fields having the binary attribute
                 //   no hex is generated
-                // - a TEXT field returns type blob but a real blob 
-                //   returns also the 'binary' flag 
+                // - a TEXT field returns type blob but a real blob
+                //   returns also the 'binary' flag
                 } elseif (stristr($field_flags[$j], 'BINARY')
                         && $fields_meta[$j]->blob
                         && isset($GLOBALS['sql_hex_for_blob'])) {

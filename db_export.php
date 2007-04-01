@@ -26,7 +26,7 @@ require_once './libraries/db_info.inc.php';
 $export_page_title = $strViewDumpDB;
 
 // exit if no tables in db found
-if ( $num_tables < 1 ) {
+if ($num_tables < 1) {
     echo $strDatabaseNoTable;
     require './libraries/footer.inc.php';
     exit;
@@ -35,20 +35,20 @@ if ( $num_tables < 1 ) {
 $multi_values = '<div align="center"><select name="table_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
-foreach ( $tables as $each_table ) {
+foreach ($tables as $each_table) {
     // ok we show also views
-    //if ( PMA_MYSQL_INT_VERSION >= 50000 && is_null($each_table['Engine']) ) {
+    //if (PMA_MYSQL_INT_VERSION >= 50000 && is_null($each_table['Engine'])) {
         // Don't offer to export views yet.
     //    continue;
     //}
-    if ( ! empty( $unselectall )
-      || ( isset( $tmp_select )
-           && false !== strpos( $tmp_select, '|' . $each_table['Name'] . '|') ) ) {
+    if (! empty($unselectall)
+      || (isset($tmp_select)
+           && false !== strpos($tmp_select, '|' . $each_table['Name'] . '|'))) {
         $is_selected = '';
     } else {
         $is_selected = ' selected="selected"';
     }
-    $table_html   = htmlspecialchars( $each_table['Name'] );
+    $table_html   = htmlspecialchars($each_table['Name']);
     $multi_values .= '                <option value="' . $table_html . '"'
         . $is_selected . '>' . $table_html . '</option>' . "\n";
 } // end for
@@ -56,7 +56,7 @@ $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
 $checkall_url = 'db_export.php?'
-              . PMA_generate_common_url( $db )
+              . PMA_generate_common_url($db)
               . '&amp;goto=db_export.php';
 
 $multi_values .= '<br />

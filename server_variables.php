@@ -8,8 +8,8 @@
 /**
  *
  */
-if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
-    define( 'PMA_NO_VARIABLES_IMPORT', true );
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
 }
 require_once './libraries/common.inc.php';
 
@@ -29,7 +29,7 @@ require './libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" alt="" />' : '' )
+   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" alt="" />' : '')
    . '' . $strServerVars . "\n"
    . '</h2>' . "\n";
 

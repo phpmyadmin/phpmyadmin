@@ -10,13 +10,13 @@
  * allways use $GLOBALS here, as this script is included by footer.inc.hp
  * which can also be included from inside a function
  */
-if ( $GLOBALS['cfg']['DBG']['enable'] ) {
+if ($GLOBALS['cfg']['DBG']['enable']) {
     /**
      * Loads the DBG extension if needed
      */
-    if ( ! @extension_loaded('dbg') && ! PMA_dl('dbg') ) {
+    if (! @extension_loaded('dbg') && ! PMA_dl('dbg')) {
         echo '<div class="warning">'
-            .sprintf( $GLOBALS['strCantLoad'], 'DBG' )
+            .sprintf($GLOBALS['strCantLoad'], 'DBG')
             .' <a href="./Documentation.html#faqdbg" target="documentation">'
             .$GLOBALS['strDocu'] . '</a>'
             .'</div>';

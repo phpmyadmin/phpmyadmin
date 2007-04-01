@@ -8,8 +8,8 @@
 /**
  * requirements
  */
-if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
-    define( 'PMA_NO_VARIABLES_IMPORT', true );
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
 }
 require_once './libraries/common.inc.php';
 
@@ -85,7 +85,7 @@ foreach ($mysql_charsets as $current_charset) {
     foreach ($mysql_collations[$current_charset] as $current_collation) {
         $i++;
         echo '<tr class="'
-           . ( $odd_row ? 'odd' : 'even' )
+           . ($odd_row ? 'odd' : 'even')
            . ($mysql_default_collations[$current_charset] == $current_collation
                 ? ' marked'
                 : '')

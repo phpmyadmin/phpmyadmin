@@ -189,7 +189,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
              SHOW STATUS
             WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\'
                OR Variable_name = \'Innodb_page_size\';';
-        $status = PMA_DBI_fetch_result( $sql, 0, 1 );
+        $status = PMA_DBI_fetch_result($sql, 0, 1);
 
         $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
                 . '    <caption class="tblHeaders">' . "\n"
@@ -321,7 +321,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getPage($id)
     {
-        if ( ! array_key_exists( $id, $this->getInfoPages() ) ) {
+        if (! array_key_exists($id, $this->getInfoPages())) {
             return false;
         }
 

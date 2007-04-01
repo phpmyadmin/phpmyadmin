@@ -103,7 +103,7 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
     $query          = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                     . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
                     . ($action_bookmark_all? '' : ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
-                    . '      OR user = \'\')' )
+                    . '      OR user = \'\')')
                     . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
     $result = PMA_DBI_try_query($query, $controllink);
     if (!$result) {

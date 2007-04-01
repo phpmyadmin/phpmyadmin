@@ -179,7 +179,7 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
     }
 }
 
-for ( $i = 0 ; $i <= $num_fields; $i++ ) {
+for ($i = 0 ; $i <= $num_fields; $i++) {
     $submit_null = FALSE;
     if (isset($regenerate) && $regenerate == TRUE) {
         // An error happened with previous inputs, so we will restore the data
@@ -377,7 +377,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
     if ((isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
-     || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)  ) {
+     || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)) {
         $default_current_timestamp = TRUE;
     } else {
         $default_current_timestamp = FALSE;
@@ -559,26 +559,26 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     }
 } // end for
 
-if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
+if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
-    $empty_row = array_pop( $content_cells );
+    $empty_row = array_pop($content_cells);
 
     echo '<table id="table_columns">';
-    if ( $display_type == 'horizontal' ) {
+    if ($display_type == 'horizontal') {
         ?>
 <tr>
-        <?php foreach ( $header_cells as $header_val ) { ?>
+        <?php foreach ($header_cells as $header_val) { ?>
     <th><?php echo $header_val; ?></th>
         <?php } ?>
 </tr>
         <?php
 
         $odd_row = true;
-        foreach ( $content_cells as $content_row ) {
-            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . ' noclick">';
+        foreach ($content_cells as $content_row) {
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
             $odd_row = ! $odd_row;
 
-            if ( is_array( $content_row ) ) {
+            if (is_array($content_row)) {
                 foreach ($content_row as $content_row_val) {
                     ?>
     <td align="center"><?php echo $content_row_val; ?></td>
@@ -590,14 +590,14 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
     } else {
         $i = 0;
         $odd_row = true;
-        foreach ( $header_cells as $header_val ) {
-            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . ' noclick">';
+        foreach ($header_cells as $header_val) {
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
             $odd_row = ! $odd_row;
             ?>
     <th><?php echo $header_val; ?></th>
             <?php
-            foreach ( $content_cells as $content_cell ) {
-                if ( isset( $content_cell[$i] ) && $content_cell[$i] != '' ) {
+            foreach ($content_cells as $content_cell) {
+                if (isset($content_cell[$i]) && $content_cell[$i] != '') {
                     ?>
     <td><?php echo $content_cell[$i]; ?></td>
                     <?php
@@ -617,9 +617,9 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
  * needs to be finished
  *
  *
-if ( $display_type == 'horizontal' ) {
+if ($display_type == 'horizontal') {
     $new_field = '';
-    foreach ( $empty_row as $content_row_val ) {
+    foreach ($empty_row as $content_row_val) {
         $new_field .= '<td align="center">' . $content_row_val . '</td>';
     }
     ?>
@@ -630,10 +630,10 @@ var odd_row = <?php echo $odd_row; ?>;
 function addField() {
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace( '�\s+�', ' ', preg_replace( '�\'�', '\\\'', $new_field ) ); ?>';
+    var new_field = '<?php echo preg_replace('�\s+�', ' ', preg_replace('�\'�', '\\\'', $new_field)); ?>';
     var i = 0;
-    for ( i = 0; i < new_fields; i++ ) {
-        if ( odd_row ) {
+    for (i = 0; i < new_fields; i++) {
+        if (odd_row) {
             new_field_container.innerHTML += '<tr class="odd">' + new_field + '</tr>';
         } else {
             new_field_container.innerHTML += '<tr class="even">' + new_field + '</tr>';
@@ -658,7 +658,7 @@ if ($action == 'tbl_create.php') {
     <th><?php echo $strStorageEngine; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
     <?php
-    if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
         echo '        <td width="25">&nbsp;</td>' . "\n"
            . '        <th>' . $strCollation . ':&nbsp;</th>' . "\n";
     }
@@ -673,7 +673,7 @@ if ($action == 'tbl_create.php') {
 <?php echo PMA_generateEnginesDropdown('tbl_type', null, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null), 3); ?>
         </td>
         <?php
-        if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
                . '        <td>' . "\n"
                . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null, (isset($tbl_collation) ? $tbl_collation : null), FALSE, 3)
@@ -691,10 +691,10 @@ if ($action == 'tbl_create.php') {
     <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
     <?php echo $GLOBALS['strOr']; ?>
-    <?php echo sprintf( $strAddFields, '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />' ); ?>
+    <?php echo sprintf($strAddFields, '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>
     <input type="submit" name="submit_num_fields"
         value="<?php echo $GLOBALS['strGo']; ?>"
-<?php /*        onclick="if ( addField() ) return false;" */ ?>
+<?php /*        onclick="if (addField()) return false;" */ ?>
         onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)"
         />
 <?php } ?>
@@ -709,10 +709,10 @@ if ($action == 'tbl_create.php') {
 if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     echo '<p> <a name="footnoote_mime"><sup>3</sup></a> ' . $strMIME_transformation_options_note . '</p>';
     echo '<p> ';
-    printf( $strMIME_transformation_note,
+    printf($strMIME_transformation_note,
             '<a href="transformation_overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
-            '</a>' );
+            '</a>');
     echo '</p>';
 }
 ?>

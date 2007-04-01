@@ -157,7 +157,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     while ($record = PMA_DBI_fetch_row($result)) {
         $buffer         = '    <' . $table . '>' . $crlf;
         for ($i = 0; $i < $columns_cnt; $i++) {
-            if ( isset($record[$i]) && !is_null($record[$i])) {
+            if (isset($record[$i]) && !is_null($record[$i])) {
                 $buffer .= '        <' . $columns[$i] . '>' . htmlspecialchars($record[$i])
                         .  '</' . $columns[$i] . '>' . $crlf;
             }

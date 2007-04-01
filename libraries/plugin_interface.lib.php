@@ -124,7 +124,7 @@ function PMA_pluginGetDefault($section, $opt)
  */
 function PMA_pluginIsActive($section, $opt, $val)
 {
-    if ( ! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt])) {
+    if (! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt])) {
         if ($_REQUEST[$opt] == $val) {
             return ' checked="checked"';
         }
@@ -213,8 +213,8 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '<input type="text" name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' value="' . PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']) . '"'
             . ' id="text_' . $plugin_name . '_' . $opt['name'] . '"'
-            . (isset($opt['size']) ? ' size="' . $opt['size'] . '"' : '' )
-            . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '' ) . ' />';
+            . (isset($opt['size']) ? ' size="' . $opt['size'] . '"' : '')
+            . (isset($opt['len']) ? ' maxlength="' . $opt['len'] . '"' : '') . ' />';
         $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'message_only') {
         $ret .= '<div class="formelementrow">' . "\n";

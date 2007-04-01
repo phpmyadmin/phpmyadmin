@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
-if ( $GLOBALS['cfg']['PropertiesIconic'] == true ) {
+if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =
         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
         .'b_browse.png" alt="' . $strBrowseForeignValues . '" title="'
@@ -99,7 +99,7 @@ if (!isset($param) || $param[0] == '') {
 function PMA_tbl_select_operator(f, index, multiple) {
     switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
 <?php
-reset( $GLOBALS['cfg']['UnaryOperators'] );
+reset($GLOBALS['cfg']['UnaryOperators']);
 while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     echo '        case "' . $operator . "\":\r\n";
 }
@@ -127,10 +127,10 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         multiple="multiple">
     <?php
     // Displays the list of the fields
-    foreach ( $fields_list as $each_field ) {
+    foreach ($fields_list as $each_field) {
         echo '        '
-            .'<option value="' . htmlspecialchars( $each_field ) . '"'
-            .' selected="selected">' . htmlspecialchars( $each_field )
+            .'<option value="' . htmlspecialchars($each_field) . '"'
+            .' selected="selected">' . htmlspecialchars($each_field)
             .'</option>' . "\n";
     }
     ?>
@@ -150,10 +150,10 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     <select name="orderField" style="vertical-align: middle">
         <option value="--nil--"></option>
     <?php
-    foreach ( $fields_list as $each_field ) {
+    foreach ($fields_list as $each_field) {
         echo '        '
-            .'<option value="' . htmlspecialchars( $each_field ) . '">'
-            .htmlspecialchars( $each_field ) . '</option>' . "\n";
+            .'<option value="' . htmlspecialchars($each_field) . '">'
+            .htmlspecialchars($each_field) . '</option>' . "\n";
     } // end for
     ?>
     </select>
@@ -334,9 +334,9 @@ else {
     if (count($param) == $max_number_of_fields) {
         $sql_query .= '* ';
     } else {
-        $param = PMA_backquote( $param );
-        $sql_query .= implode( ', ', $param );
-        unset( $param );
+        $param = PMA_backquote($param);
+        $sql_query .= implode(', ', $param);
+        unset($param);
     } // end if
 
     $sql_query .= ' FROM ' . PMA_backquote($table);

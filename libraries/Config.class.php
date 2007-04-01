@@ -256,7 +256,7 @@ class PMA_Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win') ) {
+            if (stristr(PHP_OS, 'win')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
             } elseif (stristr(PHP_OS, 'OS/2')) {
@@ -569,7 +569,7 @@ class PMA_Config
             if (PMA_getenv('REQUEST_URI')) {
                 $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
                 if ($url === false) {
-                    $url = array( 'path' => $_SERVER['REQUEST_URI'] );
+                    $url = array('path' => $_SERVER['REQUEST_URI']);
                 }
             }
 

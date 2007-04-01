@@ -133,7 +133,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $cnt++;
         $buffer = $cnt . ":$crlf";
         for ($i = 0; $i < $columns_cnt; $i++) {
-            if ( isset($record[$i]) && !is_null($record[$i])) {
+            if (isset($record[$i]) && !is_null($record[$i])) {
                 $buffer .= '  ' . $columns[$i] . ': '  . htmlspecialchars($record[$i]) . $crlf;
             }
         }

@@ -34,7 +34,7 @@
 /**
  * Minimum inclusion? (i.e. for the stylesheet builder)
  */
-if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Include the string library as we use it heavily
      */
@@ -588,7 +588,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                         $count2     = $count1 + 1;
                         $punct_data = $first;
-                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' ') )) {
+                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' '))) {
                         $count2     -= 2;
                         $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
                     } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
@@ -829,7 +829,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // so we track wether we are in the EXTRACT()
         $in_extract          = FALSE;
 
-        // for GROUP_CONCAT( ... )
+        // for GROUP_CONCAT(...)
         $in_group_concat     = FALSE;
 
 /* Description of analyzer results by lem9
@@ -1078,7 +1078,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     $previous_was_identifier = FALSE;
                     $current_select_expr = -1;
                     $seen_end_of_table_ref = FALSE;
-                } // end if ( data == SELECT)
+                } // end if (data == SELECT)
 
                 if ($upper_data =='FROM' && !$in_extract) {
                     $current_table_ref = -1;
@@ -1148,7 +1148,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         } // end if ($save_table_ref &&!$seen_end_of_table_ref)
                     } // end if (!$seen_from)
                 } // end if (querytype SELECT)
-            } // end if ( quote_backtick or double quote or alpha_identifier)
+            } // end if (quote_backtick or double quote or alpha_identifier)
 
 // ===================================
             if ($arr[$i]['type'] == 'punct_qualifier') {
@@ -1172,9 +1172,8 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             // the "*" is not saved
 
             if (isset($chain) && !$seen_end_of_table_ref
-               && (   (!$seen_from
-                   && $arr[$i]['type'] == 'punct_listsep')
-                  || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data == 'FROM')) ) {
+             && ((!$seen_from && $arr[$i]['type'] == 'punct_listsep')
+              || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data == 'FROM'))) {
                 $size_chain = count($chain);
                 $current_select_expr++;
                 $subresult['select_expr'][$current_select_expr] = array(
@@ -1241,7 +1240,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
              && ($arr[$i]['type'] == 'punct_listsep'
                || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data!="AS")
                || $seen_end_of_table_ref
-               || $i==$size-1 )) {
+               || $i==$size-1)) {
 
                 $size_chain = count($chain);
                 $current_table_ref++;
@@ -1762,7 +1761,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 // (we got a bug report about not being able to use
                 // 'no' as an identifier)
                            || ($arr[$i+2]['type'] == 'alpha_identifier'
-                              && strtoupper($arr[$i+2]['data'])=='NO') )
+                              && strtoupper($arr[$i+2]['data'])=='NO'))
                           ) {
                             $third_upper_data = strtoupper($arr[$i+2]['data']);
                             if ($third_upper_data == 'CASCADE'
@@ -2247,7 +2246,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                             // the alpha_identifier exception is there to
                             // catch cases like
                             // GRANT SELECT ON mydb.mytable TO myuser@localhost
-                            // (else, we get mydb.mytableTO )
+                            // (else, we get mydb.mytableTO)
                             //
                             // the quote_single exception is there to
                             // catch cases like
@@ -2427,7 +2426,7 @@ function PMA_SQP_buildCssData()
     return $css_string;
 } // end of the "PMA_SQP_buildCssData()" function
 
-if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
      *

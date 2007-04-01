@@ -82,7 +82,7 @@ function PMA_generateEnginesDropdown($name = 'engine', $id = null,
   $offerUnavailableEngines = false, $selected = null, $indent = 0)
 {
     $selected   = strtolower($selected);
-    $spaces     = str_repeat( '    ', $indent );
+    $spaces     = str_repeat('    ', $indent);
     $output     = $spaces . '<select name="' . $name . '"'
         . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 

@@ -126,8 +126,8 @@ require_once './libraries/tbl_links.inc.php';
  */
 $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-        0, 1 );
-$analyzed_sql = PMA_SQP_analyze( PMA_SQP_parse( $show_create_table ) );
+        0, 1);
+$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 unset($show_create_table);
 
 /**
@@ -366,9 +366,9 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
         // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
         // $row_table_def['Default'] is not set if it contains NULL:
-        // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime )
+        // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
         // but, look what we get if we switch to iso: (Default is NULL)
-        // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime )
+        // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
         // so I force a NULL into it (I don't think it's possible
         // to have an empty default value for DATETIME)
         // then, the "if" after this one will work
@@ -533,7 +533,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     // Is current function defined as default?
                     // For MySQL < 4.1.2, for the first timestamp we set as
                     // default function the one defined in config (which
-                    // should be NOW() ).
+                    // should be NOW()).
                     // For MySQL >= 4.1.2, we don't set the default function
                     // if there is a default value for the timestamp
                     // (not including CURRENT_TIMESTAMP)
@@ -596,7 +596,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             }
             echo ' />' . "\n";
 
-            if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary)) ) {
+            if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))) {
 
                 echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
                      . ' name="fields_null' . $field_name_appendix . '"';
@@ -915,7 +915,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
             echo '</td>';
 
-        } // end elseif ( binary or blob)
+        } // end elseif (binary or blob)
         else {
             // field size should be at least 4 and max 40
             $fieldsize = min(max($len, 4), 40);

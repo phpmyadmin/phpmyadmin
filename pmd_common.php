@@ -131,7 +131,7 @@ function get_script_contr()
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
-        //print_r($row );
+        //print_r($row);
         if ($row !== false) {
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
@@ -144,7 +144,7 @@ function get_script_contr()
         }
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'innodb');
         //echo "<br> INNO ";
-        //print_r($row );
+        //print_r($row);
         if ($row !== false) {
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';

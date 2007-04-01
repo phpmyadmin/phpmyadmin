@@ -217,7 +217,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             }
         }
        // Change delimiter, if redefined, and skip it (don't send to server!)
-       if ((substr($buffer, $i, 9) == "DELIMITER") && ($buffer[$i + 9] <= ' ') && ($i<$len-11) && (!(strpos($buffer,"\n",$i+11)===FALSE) )) {
+       if ((substr($buffer, $i, 9) == "DELIMITER") && ($buffer[$i + 9] <= ' ') && ($i<$len-11) && (!(strpos($buffer,"\n",$i+11)===FALSE))) {
            $new_line_pos = strpos($buffer, "\n", $i + 10);
            $sql_delimiter = substr($buffer, $i+10, $new_line_pos - $i -10);
            $i= $new_line_pos + 1;

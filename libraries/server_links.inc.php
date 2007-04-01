@@ -81,8 +81,8 @@ $tabs['import']['icon'] = 'b_import.png';
 $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = $strImport;
 
-echo PMA_getTabs( $tabs );
-unset( $tabs );
+echo PMA_getTabs($tabs);
+unset($tabs);
 
 
 /**

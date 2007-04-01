@@ -108,8 +108,8 @@ class PMA_Theme_Manager
         $this->theme = new PMA_Theme;
 
 
-        if ( ! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
-            $GLOBALS['PMA_errors'][] = sprintf( $GLOBALS['strThemeDefaultNotFound'],
+        if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
+            $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strThemeDefaultNotFound'],
                 htmlspecialchars($GLOBALS['cfg']['ThemeDefault']));
             trigger_error(
                 sprintf($GLOBALS['strThemeDefaultNotFound'],
@@ -148,7 +148,7 @@ class PMA_Theme_Manager
 
     function setActiveTheme($theme = null)
     {
-        if ( ! $this->checkTheme($theme)) {
+        if (! $this->checkTheme($theme)) {
             $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strThemeNotFound'],
                 htmlspecialchars($theme));
             /* Following code can lead to path disclossure, because headers will be sent later */

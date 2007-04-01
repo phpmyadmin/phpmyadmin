@@ -124,7 +124,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
 } // end if (updates for internal relations)
 
 // u p d a t e s   f o r   I n n o D B
-// ( for now, one index name only; we keep the definitions if the
+// (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 // I use $sql_query to be able to display directly the query via
 // PMA_showMessage()
@@ -142,7 +142,7 @@ if (isset($_REQUEST['destination_innodb'])) {
                 // could be put in an include file
                 // Note: I tried to enclose the db and table name with
                 // backquotes but MySQL 4.0.16 did not like the syntax
-                // (for example: `base2`.`table1` )
+                // (for example: `base2`.`table1`)
 
                 $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
                             . ' ADD FOREIGN KEY ('
@@ -163,8 +163,8 @@ if (isset($_REQUEST['destination_innodb'])) {
                 // end repeated code
 
             } elseif (($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string)
-              || ( $_REQUEST['on_delete'][$master_field] != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : ''))
-              || ( $_REQUEST['on_update'][$master_field] != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : ''))
+              || ($_REQUEST['on_delete'][$master_field] != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : ''))
+              || ($_REQUEST['on_update'][$master_field] != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : ''))
                    ) {
                 // another foreign key is already defined for this field
                 // or
@@ -400,14 +400,14 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     <table>
     <tr><th></th>
     <?php
-    if ( $cfgRelation['relwork'] ) {
+    if ($cfgRelation['relwork']) {
         echo '<th>' . $strInternalRelations;
         if ($tbl_type=='INNODB') {
-            echo PMA_showHint( $strInternalNotNecessary );
+            echo PMA_showHint($strInternalNotNecessary);
         }
         echo '</th>';
     }
-    if ( $tbl_type=='INNODB' ) {
+    if ($tbl_type=='INNODB') {
         echo '<th colspan="2">InnoDB';
         if (PMA_MYSQL_INT_VERSION < 40013) {
             echo '(**)';
@@ -506,7 +506,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                 PMA_generate_dropdown('ON DELETE',
                     'on_delete[' . htmlspecialchars($save_row[$i]['Field']) . ']',
                     $options_array,
-                    isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '' );
+                    isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '');
 
                 echo '</span>' . "\n"
                     .'<span class="formelement">' . "\n";
@@ -514,7 +514,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                 PMA_generate_dropdown('ON UPDATE',
                     'on_update[' . htmlspecialchars($save_row[$i]['Field']) . ']',
                     $options_array,
-                    isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '' );
+                    isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '');
                 echo '</span>' . "\n";
             } else {
                 echo $strNoIndex;
@@ -558,7 +558,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     <?php
 } // end if (we have columns in this table)
 
-if ( $tbl_type === 'INNODB' && PMA_MYSQL_INT_VERSION < 40013 ) {
+if ($tbl_type === 'INNODB' && PMA_MYSQL_INT_VERSION < 40013) {
     echo '<div class="warning">'
         .'** ' . sprintf($strUpgrade, 'MySQL', '4.0.13')
         .'</div>';

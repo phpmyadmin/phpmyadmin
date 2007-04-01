@@ -180,46 +180,46 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                               )
                        );
         $item = '<a href="%1$s?%2$s" class="item">';
-        if ( $GLOBALS['cfg']['NavigationBarIconic'] ) {
+        if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $separator = '        <span class="separator"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png" width="5" height="9" alt="-" /></span>' . "\n";
             $item .= '        <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" /> ' . "\n";
         } else {
             $separator = '        <span class="separator"> - </span>' . "\n";
         }
 
-        if ( $GLOBALS['cfg']['NavigationBarIconic'] !== true ) {
+        if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>' . "\n";
 
         echo '<div id="serverinfo">' . "\n";
-        printf( $item,
+        printf($item,
                 $GLOBALS['cfg']['DefaultTabServer'],
                 PMA_generate_common_url(),
                 htmlspecialchars($server_info),
                 $GLOBALS['strServer'],
-                's_host.png' );
+                's_host.png');
 
         if (strlen($GLOBALS['db'])) {
 
             echo $separator;
-            printf( $item,
+            printf($item,
                     $GLOBALS['cfg']['DefaultTabDatabase'],
                     PMA_generate_common_url($GLOBALS['db']),
                     htmlspecialchars($GLOBALS['db']),
                     $GLOBALS['strDatabase'],
-                    's_db.png' );
+                    's_db.png');
 
             if (strlen($GLOBALS['table'])) {
                 require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;
-                printf( $item,
+                printf($item,
                         $GLOBALS['cfg']['DefaultTabTable'],
                         PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
                         htmlspecialchars($GLOBALS['table']),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
-                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png' );
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
 
                 /**
                  * Displays table comment
@@ -245,12 +245,12 @@ if (empty($GLOBALS['is_header_sent'])) {
                 // Get additional information about tables for tooltip is done
                 // in libraries/db_info.inc.php only once
                 if ($cfgRelation['commwork']) {
-                    $comment = PMA_getComments( $GLOBALS['db'] );
+                    $comment = PMA_getComments($GLOBALS['db']);
 
                     /**
                      * Displays table comment
                      */
-                    if ( is_array( $comment ) ) {
+                    if (is_array($comment)) {
                         echo '<span class="table_comment"'
                             .' id="span_table_comment">&quot;'
                             .htmlspecialchars(implode(' ', $comment))

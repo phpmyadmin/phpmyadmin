@@ -14,7 +14,7 @@ require_once './libraries/bookmark.lib.php';
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
 
-if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
+if (PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema') {
     $db_is_information_schema = true;
 } else {
     $db_is_information_schema = false;
@@ -32,8 +32,8 @@ $url_params['table'] = $table;
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = $cfg['DefaultTabDatabase'] . PMA_generate_common_url( array( 'db' => $db, ) );
-$err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url( $url_params );
+$err_url_0 = $cfg['DefaultTabDatabase'] . PMA_generate_common_url(array('db' => $db,));
+$err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 
 
 /**

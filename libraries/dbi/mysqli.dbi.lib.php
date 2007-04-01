@@ -379,7 +379,7 @@ function PMA_DBI_get_host_info($link = null)
  * @param   resource        $link   mysql link
  * @return  integer         version of the MySQL protocol used
  */
-function PMA_DBI_get_proto_info( $link = null )
+function PMA_DBI_get_proto_info($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {

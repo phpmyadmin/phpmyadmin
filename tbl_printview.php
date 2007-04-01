@@ -256,7 +256,7 @@ foreach ($the_tables as $key => $table) {
     if ($have_rel) {
         echo '    <td>';
         if (isset($res_rel[$field_name])) {
-            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
+            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
         }
         echo '&nbsp;</td>' . "\n";
     }
@@ -288,9 +288,8 @@ foreach ($the_tables as $key => $table) {
 
     <?php
 
-    if ( ! $tbl_is_view
-      && ( $db != 'information_schema'
-        || PMA_MYSQL_INT_VERSION < 50002 ) ) {
+    if (! $tbl_is_view
+     && ($db != 'information_schema' || PMA_MYSQL_INT_VERSION < 50002)) {
 
         /**
          * Displays indexes

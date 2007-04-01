@@ -55,7 +55,7 @@ if (empty($HTTP_HOST)) {
 // purge querywindow history
 $cfgRelation = PMA_getRelationsParam();
 if ($GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork']) {
-    PMA_purgeHistory( $GLOBALS['cfg']['Server']['user'] );
+    PMA_purgeHistory($GLOBALS['cfg']['Server']['user']);
 }
 unset($cfgRelation);
 

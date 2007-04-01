@@ -56,7 +56,7 @@ if (! empty($sql_query)) {
             $wheres[] = $analyzed_sql[0]['where_clause'];
         }
 
-        if (count($wheres) > 0 ) {
+        if (count($wheres) > 0) {
             $sql_query .= ' WHERE (' . implode(') AND (', $wheres) . ')';
         }
 

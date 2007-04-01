@@ -79,8 +79,8 @@ if (!isset($resize)) {
     // it sets $resize to jpeg or png
 
     $srcImage = imagecreatefromstring($row[urldecode($transform_key)]);
-    $srcWidth = ImageSX( $srcImage );
-    $srcHeight = ImageSY( $srcImage );
+    $srcWidth = ImageSX($srcImage);
+    $srcHeight = ImageSY($srcImage);
 
     // Check to see if the width > height or if width < height
     // if so adjust accordingly to make sure the image
@@ -98,21 +98,21 @@ if (!isset($resize)) {
     }
 
     if ($resize) {
-        $destImage = ImageCreateTrueColor( $destWidth, $destHeight);
+        $destImage = ImageCreateTrueColor($destWidth, $destHeight);
     }
 
-//    ImageCopyResized( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+//    ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
 // better quality but slower:
-    ImageCopyResampled( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+    ImageCopyResampled($destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
 
     if ($resize == 'jpeg') {
-        ImageJPEG( $destImage, '', 75 );
+        ImageJPEG($destImage, '', 75);
     }
     if ($resize == 'png') {
-        ImagePNG( $destImage);
+        ImagePNG($destImage);
     }
-    ImageDestroy( $srcImage );
-    ImageDestroy( $destImage );
+    ImageDestroy($srcImage);
+    ImageDestroy($destImage);
 }
 
 /**

@@ -82,7 +82,7 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
                             . '\'' . PMA_sqlAddslashes($T1) . '\','
                             . '\'' . PMA_sqlAddslashes($F1) . '\')';
 
-        if (PMA_query_as_cu( $q , false, PMA_DBI_QUERY_STORE)) {
+        if (PMA_query_as_cu($q , false, PMA_DBI_QUERY_STORE)) {
             PMD_return(1, 'strInternalRelationAdded');
         } else {
             PMD_return(0, 'strErrorRelationAdded');

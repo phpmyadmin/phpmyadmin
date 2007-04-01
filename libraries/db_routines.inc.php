@@ -14,11 +14,11 @@
  *       get the number of rows affected. We would have to
  *       use the CLIENT_MULTI_RESULTS flag to get the result set
  *       and also the call status. All this does not fit well with
- *       our current sql.php. 
+ *       our current sql.php.
  *       Of course the interface would need a way to pass calling parameters.
  *       Also, support DEFINER (like we do in export).
  */
-if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
+if (PMA_MYSQL_INT_VERSION >= 50002) {
     $url_query .= '&amp;goto=db_structure.php';
 
     $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');

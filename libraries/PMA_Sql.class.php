@@ -1099,7 +1099,7 @@ class PMA_Sql
         // so we track wether we are in the EXTRACT()
         $in_extract          = FALSE;
 
-        // for GROUP_CONCAT( ... )
+        // for GROUP_CONCAT(...)
         $in_group_concat     = FALSE;
 
         // must be sorted
@@ -1250,7 +1250,7 @@ class PMA_Sql
                     $previous_was_identifier = FALSE;
                     $current_select_expr = -1;
                     $seen_end_of_table_ref = FALSE;
-                } // end if ( data == SELECT)
+                } // end if (data == SELECT)
 
                 if ($upper_data =='FROM' && ! $in_extract) {
                     $current_table_ref = -1;
@@ -1320,7 +1320,7 @@ class PMA_Sql
                         } // end if ($save_table_ref &&!$seen_end_of_table_ref)
                     } // end if (!$seen_from)
                 } // end if (querytype SELECT)
-            } // end if ( quote_backtick or double quote or alpha_identifier)
+            } // end if (quote_backtick or double quote or alpha_identifier)
 
 // ===================================
             if ($each_parsed['type'] == 'punct_qualifier') {
@@ -1943,7 +1943,7 @@ class PMA_Sql
                 // (we got a bug report about not being able to use
                 // 'no' as an identifier)
                            || ($this->_parsed[$pos + 2]['type'] == 'alpha_identifier'
-                              && strtoupper($this->_parsed[$pos + 2]['data'])=='NO') )
+                              && strtoupper($this->_parsed[$pos + 2]['data'])=='NO'))
                           ) {
                             $third_upper_data = strtoupper($this->_parsed[$pos + 2]['data']);
                             if ($third_upper_data == 'CASCADE'

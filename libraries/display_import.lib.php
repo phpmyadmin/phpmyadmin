@@ -93,17 +93,17 @@ if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     $temp_charset = reset($cfg['AvailableCharsets']);
     echo '    <select id="charset_of_file" name="charset_of_file" size="1">' . "\n"
-         . '            <option value="' . htmlentities( $temp_charset ) . '"';
+         . '            <option value="' . htmlentities($temp_charset) . '"';
     if ($temp_charset == $charset) {
         echo ' selected="selected"';
     }
-    echo '>' . htmlentities( $temp_charset ) . '</option>' . "\n";
+    echo '>' . htmlentities($temp_charset) . '</option>' . "\n";
     while ($temp_charset = next($cfg['AvailableCharsets'])) {
-        echo '            <option value="' . htmlentities( $temp_charset ) . '"';
+        echo '            <option value="' . htmlentities($temp_charset) . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
-        echo '>' . htmlentities( $temp_charset ) . '</option>' . "\n";
+        echo '>' . htmlentities($temp_charset) . '</option>' . "\n";
     }
     echo '        </select><br />' . "\n" . '    ';
 } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
@@ -128,7 +128,7 @@ if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
 // We don't have show anything about compression, when no supported
 if ($compressions != $strNone) {
     echo '<div class="formelementrow">' . "\n";
-    printf( $strCompressionWillBeDetected, $compressions);
+    printf($strCompressionWillBeDetected, $compressions);
     echo '</div>' . "\n";
 }
 echo "\n";

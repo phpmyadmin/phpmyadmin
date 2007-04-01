@@ -22,7 +22,7 @@ while ($tab_name = @PMA_DBI_fetch_row($alltab_rs)) {
     }
 }
 
-if ( ! $seen_pmd_table) {
+if (! $seen_pmd_table) {
     PMD_err_sav();
 }
 

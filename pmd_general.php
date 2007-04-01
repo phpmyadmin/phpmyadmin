@@ -44,7 +44,7 @@ echo '
     var strLang = Array();
     strLang["strModifications"] = "' . PMA_escapeJsString($strModifications) . '";
     strLang["strRelationDeleted"] = "' . PMA_escapeJsString($strRelationDeleted) . '";
-    strLang["strInnoDBRelationAdded"] = "' . PMA_escapeJsString($strInnoDBRelationAdded ). '";
+    strLang["strInnoDBRelationAdded"] = "' . PMA_escapeJsString($strInnoDBRelationAdded). '";
     strLang["strGeneralRelationFeat:strDisabled"] = "' . PMA_escapeJsString($strGeneralRelationFeat . ' : ' . $strDisabled) . '";
     strLang["strInternalRelationAdded"] = "' . PMA_escapeJsString($strInternalRelationAdded) . '";
     strLang["strErrorRelationAdded"] = "' . PMA_escapeJsString($strErrorRelationAdded) . '";

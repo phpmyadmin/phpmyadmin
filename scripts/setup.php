@@ -14,7 +14,7 @@
  */
 
 // Grab phpMyAdmin version and PMA_dl function
-define( 'PMA_MINIMUM_COMMON', TRUE );
+define('PMA_MINIMUM_COMMON', TRUE);
 chdir('..');
 require_once './libraries/common.inc.php';
 
@@ -54,7 +54,7 @@ if ($eoltype == 'dos') {
     $crlf = "\n";
 }
 
-if (isset($_POST['configuration']) && $action != 'clear' ) {
+if (isset($_POST['configuration']) && $action != 'clear') {
     // Grab previous configuration, if it should not be cleared
     $configuration = unserialize($_POST['configuration']);
 } else {
@@ -1229,17 +1229,17 @@ function get_server_selection($cfg) {
  * @return  mixed   FALSE on failure, new config array on success
  */
 function load_config($config_file) {
-    if ( file_exists( $config_file ) ) {
+    if (file_exists($config_file)) {
         $success_apply_user_config = FALSE;
-        $old_error_reporting = error_reporting( 0 );
-        if ( function_exists( 'file_get_contents' ) ) {
+        $old_error_reporting = error_reporting(0);
+        if (function_exists('file_get_contents')) {
             $success_apply_user_config = eval('?>' . trim(file_get_contents($config_file)));
         } else {
             $success_apply_user_config =
                 eval('?>' . trim(implode("\n", file($config_file))));
         }
-        error_reporting( $old_error_reporting );
-        unset( $old_error_reporting );
+        error_reporting($old_error_reporting);
+        unset($old_error_reporting);
         if ($success_apply_user_config === FALSE) {
             message('error', 'Error while parsing configuration file!');
         } elseif (!isset($cfg) || count($cfg) == 0) {
@@ -1360,7 +1360,7 @@ switch ($action) {
                 message('error', 'Empty signon URL while using signon authentication method!');
                 $err = TRUE;
             }
-            if ( isset($new_server['pmadb']) && strlen($new_server['pmadb'])) {
+            if (isset($new_server['pmadb']) && strlen($new_server['pmadb'])) {
                 // Just use defaults, should be okay for most users
                 $pmadb = array();
                 $pmadb['bookmarktable'] = 'pma_bookmark';
@@ -1879,7 +1879,7 @@ switch ($action) {
             break;
         }
 
-        $version_local = version_to_int( $PMA_Config_Setup->get('PMA_VERSION') );
+        $version_local = version_to_int($PMA_Config_Setup->get('PMA_VERSION'));
         if ($version_local === FALSE) {
             message('error', 'Unparsable version string.');
             break;
@@ -1907,7 +1907,7 @@ switch ($action) {
     case '':
         message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html#config">documentation</a> to see full description of all configuration directives.', 'Welcome');
 
-        if ( $PMA_Config_Setup->get( 'PMA_PHP_INT_VERSION' ) < 40100) {
+        if ($PMA_Config_Setup->get('PMA_PHP_INT_VERSION') < 40100) {
             message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.', 'Too old PHP');
         }
 
@@ -1994,9 +1994,9 @@ echo get_action('load', 'Load', '', !$fail_dir);
 echo get_action('clear', 'Clear');
 echo get_action('seteol', 'Change end of line',
         '<select name="neweol">' .
-        '<option value="unix" ' . ( $eoltype == 'unix' ? ' selected="selected"' : '' ) . '>UNIX/Linux (\\n)</option>' .
-        '<option value="dos" ' . ( $eoltype == 'dos' ? ' selected="selected"' : '' ) . '>DOS/Windows (\\r\\n)</option>' .
-        '<option value="mac" ' . ( $eoltype == 'mac' ? ' selected="selected"' : '' ) . '>Macintosh (\\r)</option>' . '
+        '<option value="unix" ' . ($eoltype == 'unix' ? ' selected="selected"' : '') . '>UNIX/Linux (\\n)</option>' .
+        '<option value="dos" ' . ($eoltype == 'dos' ? ' selected="selected"' : '') . '>DOS/Windows (\\r\\n)</option>' .
+        '<option value="mac" ' . ($eoltype == 'mac' ? ' selected="selected"' : '') . '>Macintosh (\\r)</option>' . '
         </select>');
 echo '</fieldset>' . "\n\n";
 

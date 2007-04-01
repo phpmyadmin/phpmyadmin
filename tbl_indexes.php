@@ -23,8 +23,8 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_db = PMA_DBI_select_db($db);
     }
     if (!strlen($db) || !$is_db) {
-        $uri_params = array( 'reload' => '1' );
-        if ( isset($message) ) {
+        $uri_params = array('reload' => '1');
+        if (isset($message)) {
             $uri_params['message'] = $message;
         }
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php'
@@ -32,21 +32,21 @@ if (!defined('PMA_IDX_INCLUDED')) {
         exit;
     }
     // Not a valid table name -> back to the default db sub-page
-    if (strlen($table) ) {
+    if (strlen($table)) {
         $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
             . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
     }
     if (! strlen($table)
-      || !( $is_table && PMA_DBI_num_rows($is_table) ) ) {
-        $uri_params = array( 'reload' => '1', 'db' => $db );
-        if ( isset($message) ) {
+      || !($is_table && PMA_DBI_num_rows($is_table))) {
+        $uri_params = array('reload' => '1', 'db' => $db);
+        if (isset($message)) {
             $uri_params['message'] = $message;
         }
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri']
             . $cfg['DefaultTabDatabase']
             . PMA_generate_common_url($uri_params, '&'));
         exit;
-    } elseif ( isset($is_table) ) {
+    } elseif (isset($is_table)) {
         PMA_DBI_free_result($is_table);
     }
 
@@ -347,7 +347,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
                      . '<option value="' . htmlspecialchars($val) . '"'
                      . (($val == $selected) ? ' selected="selected"' : '') . '>'
                      . htmlspecialchars($val) . (($add_type) ? ' ['
-                     . $fields_types[$key] . ']' : '' ) . '</option>' . "\n";
+                     . $fields_types[$key] . ']' : '') . '</option>' . "\n";
             }
         } // end foreach $fields_names
         ?>
@@ -393,7 +393,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
             '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
             1)">
     <?php
-    echo PMA_generate_common_hidden_inputs( $db, $table );
+    echo PMA_generate_common_hidden_inputs($db, $table);
     ?>
     <table id="table_indexes" class="data">
         <caption class="tblHeaders">

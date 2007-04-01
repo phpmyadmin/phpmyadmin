@@ -377,10 +377,10 @@ div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #FFD700;
     width:              90%;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -408,10 +408,10 @@ div.warning {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #CC0000;
     width:              90%;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -439,10 +439,10 @@ div.error {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #ff0000;
     width:              90%;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -470,10 +470,10 @@ fieldset.confirmation legend {
     border-left:        0.1em solid #FF0000;
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
@@ -619,7 +619,7 @@ a.tabcaution:hover {
     background-color:   #FF0000;
 }
 
-<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
 a.tabactive {
     color:              black;

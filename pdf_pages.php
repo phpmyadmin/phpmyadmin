@@ -356,7 +356,7 @@ foreach ($array_sh_page AS $key => $temp_sh_page) {
     $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
     $local_query = 'SHOW FIELDS FROM '
-                 .  PMA_backquote($temp_sh_page['table_name'] )
+                 .  PMA_backquote($temp_sh_page['table_name'])
                 . ' FROM ' . PMA_backquote($db);
     $fields_rs = PMA_DBI_query($local_query);
     unset($local_query);

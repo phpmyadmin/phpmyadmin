@@ -242,7 +242,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $buffer = '';
         // print each row
         for ($i = 0; $i < $columns_cnt; $i++) {
-            if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
+            if (isset($record[$columns[$i]])
+             && (! function_exists('is_null') || !is_null($record[$columns[$i]]))) {
                 $column_value = PMA_texEscape(stripslashes($record[$columns[$i]]));
             } else {
                 $column_value = $GLOBALS['latex_null'];

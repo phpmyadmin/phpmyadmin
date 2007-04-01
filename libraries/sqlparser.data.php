@@ -1253,8 +1253,8 @@ $PMA_SQPdata_column_type_cnt = 54;
 
 /*
  * check counts
-foreach ( $GLOBALS as $n => $a ) {
-    echo is_array( $a ) ? $n . ': ' . count( $a ) . '<br />' : '';
+foreach ($GLOBALS as $n => $a) {
+    echo is_array($a) ? $n . ': ' . count($a) . '<br />' : '';
 }
  */
 ?>

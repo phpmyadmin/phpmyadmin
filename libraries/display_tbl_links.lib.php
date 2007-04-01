@@ -13,7 +13,7 @@
 /**
  *
  */
-if ( $doWriteModifyAt == 'left' ){
+if ($doWriteModifyAt == 'left') {
 
     if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
         echo '    <td align="center">' . "\n"

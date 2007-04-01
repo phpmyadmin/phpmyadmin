@@ -46,7 +46,7 @@ if ($cfgRelation['commwork']) {
     if (is_array($comment)) {
         ?>
     <p> <?php echo $strDBComment; ?>
-        <i><?php echo htmlspecialchars( implode( ' ', $comment ) ); ?></i></p>
+        <i><?php echo htmlspecialchars(implode(' ', $comment)); ?></i></p>
         <?php
     } // end if
 }
@@ -77,10 +77,10 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
      * Gets table informations
      */
     // The 'show table' statement works correct since 3.23.03
-    $showtable    = PMA_DBI_get_tables_full( $db, $table );
+    $showtable    = PMA_DBI_get_tables_full($db, $table);
     $num_rows     = (isset($showtable[$table]['TABLE_ROWS']) ? $showtable[$table]['TABLE_ROWS'] : 0);
     $show_comment = (isset($showtable[$table]['TABLE_COMMENT']) ? $showtable[$table]['TABLE_COMMENT'] : '');
-    unset( $showtable );
+    unset($showtable);
 
 
     /**
@@ -103,7 +103,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
             $pk_array[$row['Column_name']] = 1;
         }
         // Retains keys informations
-        if ($row['Key_name'] != $lastIndex ){
+        if ($row['Key_name'] != $lastIndex){
             $indexes[] = $row['Key_name'];
             $lastIndex = $row['Key_name'];
         }
@@ -294,7 +294,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
 </tr>
         <?php
     } // end while
-    PMA_DBI_free_result( $result );
+    PMA_DBI_free_result($result);
     $count++;
     ?>
 </table>

@@ -9,8 +9,8 @@
 /**
  *
  */
-if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
-    define( 'PMA_NO_VARIABLES_IMPORT', true );
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
 /**
@@ -89,15 +89,15 @@ function PMA_generateEngineDetails($variables, $like = null) {
         $is_num = $details['type'] == PMA_ENGINE_DETAILS_TYPE_SIZE
             || $details['type'] == PMA_ENGINE_DETAILS_TYPE_NUMERIC;
 
-        $dt_table     .= '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
+        $dt_table     .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                        . '    <td>' . "\n";
         if (!empty($variables[$var]['desc'])) {
             $dt_table .= '        ' . PMA_showHint($details['desc']) . "\n";
         }
         $dt_table     .= '    </td>' . "\n"
                        . '    <th>'
-                       . htmlspecialchars( empty($details['title'])
-                            ? $var : $details['title'] ) . "\n"
+                       . htmlspecialchars(empty($details['title'])
+                            ? $var : $details['title']) . "\n"
                        . '    </th>' . "\n"
                        . '    <td class="value">';
         switch ($details['type']) {
@@ -131,8 +131,8 @@ function PMA_generateEngineDetails($variables, $like = null) {
 /**
  * Did the user request information about a certain storage engine?
  */
-if ( empty($_REQUEST['engine'])
-  || empty($mysql_storage_engines[$_REQUEST['engine']]) ) {
+if (empty($_REQUEST['engine'])
+  || empty($mysql_storage_engines[$_REQUEST['engine']])) {
 
     /**
      * Displays the sub-page heading
@@ -140,7 +140,7 @@ if ( empty($_REQUEST['engine'])
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
-                .' width="16" height="16" alt="" />' : '' )
+                .' width="16" height="16" alt="" />' : '')
        . "\n" . $strStorageEngines . "\n"
        . '</h2>' . "\n";
 
@@ -171,7 +171,7 @@ if ( empty($_REQUEST['engine'])
                 : '')
            . '">' . "\n"
            . '    <td><a href="./server_engines.php'
-           . PMA_generate_common_url(array( 'engine' => $engine )) . '">' . "\n"
+           . PMA_generate_common_url(array('engine' => $engine)) . '">' . "\n"
            . '            ' . htmlspecialchars($details['Engine']) . "\n"
            . '        </a>' . "\n"
            . '    </td>' . "\n";
@@ -196,9 +196,9 @@ if ( empty($_REQUEST['engine'])
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
-                .' width="16" height="16" alt="" />' : '' )
+                .' width="16" height="16" alt="" />' : '')
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-       . '    ' . PMA_showMySQLDocu( '', $engine_plugin->getMysqlHelpPage() ) . "\n"
+       . '    ' . PMA_showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
        . '</h2>' . "\n\n";
     if (PMA_MYSQL_INT_VERSION >= 40102) {
         echo '<p>' . "\n"
@@ -215,7 +215,7 @@ if ( empty($_REQUEST['engine'])
             echo '    <strong>' . $strServerTabVariables . '</strong>' . "\n";
         } else {
             echo '    <a href="./server_engines.php'
-                . PMA_generate_common_url(array( 'engine' => $_REQUEST['engine'] )) . '">'
+                . PMA_generate_common_url(array('engine' => $_REQUEST['engine'])) . '">'
                 . $strServerTabVariables . '</a>' . "\n";
         }
         foreach ($infoPages as $current => $label) {
@@ -225,7 +225,7 @@ if ( empty($_REQUEST['engine'])
             } else {
                 echo '    <a href="./server_engines.php'
                     . PMA_generate_common_url(
-                        array( 'engine' => $_REQUEST['engine'], 'page' => $current ))
+                        array('engine' => $_REQUEST['engine'], 'page' => $current))
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";
             }
         }

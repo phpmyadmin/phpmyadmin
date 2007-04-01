@@ -151,7 +151,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // Bookmark Support
     if ($display_tab === 'full' || $display_tab === 'history') {
-        if (! empty( $GLOBALS['cfg']['Bookmark'])
+        if (! empty($GLOBALS['cfg']['Bookmark'])
           && $GLOBALS['cfg']['Bookmark']['db']
           && $GLOBALS['cfg']['Bookmark']['table']) {
             PMA_sqlQueryFormBookmark();
@@ -200,7 +200,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 
     // enable auto select text in textarea
     if ($GLOBALS['cfg']['TextareaAutoSelect']) {
-        $auto_sel = ' onfocus="selectContent( this, sql_box_locked, true )"';
+        $auto_sel = ' onfocus="selectContent(this, sql_box_locked, true)"';
     } else {
         $auto_sel = '';
     }
@@ -272,7 +272,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
                 str_replace('%d', PMA_backquote($db),
                     str_replace('%t', PMA_backquote($table),
                         str_replace('%f',
-                            implode(', ', $field_names ),
+                            implode(', ', $field_names),
                             $GLOBALS['cfg']['DefaultQueryTable'])));
             unset($field_names);
         }
@@ -310,11 +310,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
             if (isset($field['Field']) && strlen($field['Field']) && isset($field['Comment'])) {
                 echo ' title="' . htmlspecialchars($field['Comment']) . '"';
             }
-            echo '>' . htmlspecialchars( $field['Field'] ) . '</option>' . "\n";
+            echo '>' . htmlspecialchars($field['Field']) . '</option>' . "\n";
         }
         echo '</select>' . "\n"
             .'<div id="tablefieldinsertbuttoncontainer">' . "\n";
-        if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
+        if ($GLOBALS['cfg']['PropertiesIconic']) {
             echo '<input type="button" name="insert" value="&lt;&lt;"'
                 .' onclick="insertValueQuery()"'
                 .' title="' . $GLOBALS['strInsert'] . '" />' . "\n";
@@ -414,7 +414,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
  */
 function PMA_sqlQueryFormBookmark()
 {
-    $bookmark_list = PMA_listBookmarks($GLOBALS['db'], $GLOBALS['cfg']['Bookmark'] );
+    $bookmark_list = PMA_listBookmarks($GLOBALS['db'], $GLOBALS['cfg']['Bookmark']);
     if (! $bookmark_list || count($bookmark_list) < 1) {
         return;
     }
@@ -540,9 +540,9 @@ function PMA_sqlQueryFormUpload(){
 
 
     echo '<fieldset id="" class="tblFooters">';
-    if ( PMA_MYSQL_INT_VERSION < 40100
+    if (PMA_MYSQL_INT_VERSION < 40100
       && $GLOBALS['cfg']['AllowAnywhereRecoding']
-      && $GLOBALS['allow_recoding'] ) {
+      && $GLOBALS['allow_recoding']) {
         echo $GLOBALS['strCharsetOfFile'] . "\n"
              . '<select name="charset_of_file" size="1">' . "\n";
         foreach ($GLOBALS['cfg']['AvailableCharsets'] as $temp_charset) {
@@ -563,7 +563,7 @@ function PMA_sqlQueryFormUpload(){
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>';
 
-    foreach ( $errors as $error => $message ) {
+    foreach ($errors as $error => $message) {
         echo '<div>' . $error . '</div>';
         echo '<div>' . $message . '</div>';
     }

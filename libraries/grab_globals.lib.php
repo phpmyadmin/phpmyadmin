@@ -25,11 +25,11 @@
  */
 function PMA_gpc_extract($array, &$target, $sanitize = true)
 {
-    if ( ! is_array($array) ) {
+    if (! is_array($array)) {
         return false;
     }
 
-    if ( $sanitize ) {
+    if ($sanitize) {
         $valid_variables = preg_replace($GLOBALS['_import_blacklist'], '',
             array_keys($array));
         $valid_variables = array_unique($valid_variables);
@@ -37,16 +37,16 @@ function PMA_gpc_extract($array, &$target, $sanitize = true)
         $valid_variables = array_keys($array);
     }
 
-    foreach ( $valid_variables as $key ) {
+    foreach ($valid_variables as $key) {
 
-        if ( strlen($key) === 0 ) {
+        if (strlen($key) === 0) {
             continue;
         }
 
-        if ( is_array($array[$key]) ) {
+        if (is_array($array[$key])) {
             // there could be a variable coming from a cookie of
             // another application, with the same name as this array
-            unset( $target[$key] );
+            unset($target[$key]);
 
             PMA_gpc_extract($array[$key], $target[$key], false);
         } else {

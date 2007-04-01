@@ -14,7 +14,7 @@
  * @return  the sorted array
  * @access  private
  */
-function PMA_language_cmp( &$a, &$b ) {
+function PMA_language_cmp(&$a, &$b) {
     return (strcmp($a[1], $b[1]));
 } // end of the 'PMA_language_cmp()' function
 
@@ -51,9 +51,9 @@ function PMA_select_language($use_fieldset = FALSE) {
     }
 
     $language_title = $GLOBALS['strLanguage'] . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '') . ' <a href="./translators.html" target="documentation">' .
-            ( $cfg['ReplaceHelpImg'] ?
+            ($cfg['ReplaceHelpImg'] ?
                 '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />' :
-                '(*)' ) . '</a>';
+                '(*)') . '</a>';
     if ($use_fieldset) {
         echo '<fieldset><legend xml:lang="en" dir="ltr">' . $language_title . '</legend>';
     } else {

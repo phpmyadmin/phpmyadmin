@@ -39,7 +39,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100) {
     $is_create_table_priv = true;
 }
 
-foreach ( $dbs_where_create_table_allowed as $allowed_db ) {
+foreach ($dbs_where_create_table_allowed as $allowed_db) {
 
     // if we find the exact db name, we stop here
     if ($allowed_db == $db) {
@@ -104,14 +104,14 @@ unset($i, $max_position, $chunk, $pattern);
 <fieldset>
     <legend>
 <?php
-if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
+if ($GLOBALS['cfg']['PropertiesIconic']) {
     echo '<img class="icon" src="' . $pmaThemeImage . 'b_newtbl.png" width="16" height="16" alt="" />';
 }
-echo sprintf( $strCreateNewTable, PMA_getDbLink() );
+echo sprintf($strCreateNewTable, PMA_getDbLink());
 ?>
     </legend>
-<?php if ( $is_create_table_priv ) { ?>
-    <?php echo PMA_generate_common_hidden_inputs( $db ); ?>
+<?php if ($is_create_table_priv) { ?>
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div class="formelement">
         <?php echo $strName; ?>:
         <input type="text" name="table" maxlength="64" size="30" />

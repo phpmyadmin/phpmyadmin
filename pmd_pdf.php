@@ -10,7 +10,7 @@
  *
  */
 include_once 'pmd_common.php';
-if ( ! isset($scale)) {
+if (! isset($scale)) {
     $no_die_save_pos = 1;
     include_once 'pmd_save_pos.php';
 }
