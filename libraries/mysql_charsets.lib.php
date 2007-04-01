@@ -130,7 +130,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             // the query does not work if this string is in double quotes
             // and MySQL is running in ANSI mode
             $return = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'collation_database\'', 0, 1);
-            if (isset($GLOBALS['db']) && $db !== $GLOBALS['db']) {
+            if ($db !== $GLOBALS['db']) {
                 PMA_DBI_select_db($GLOBALS['db']);
             }
             return $return;

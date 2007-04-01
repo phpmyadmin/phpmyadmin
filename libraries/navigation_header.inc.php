@@ -10,8 +10,6 @@
  *
  */
 if (empty($query_url)) {
-    $db     = ! isset($db)      ? '' : $db;
-    $table  = ! isset($table)   ? '' : $table;
     $query_url = PMA_generate_common_url($db, $table);
 }
 

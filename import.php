@@ -76,17 +76,17 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
-        if (isset($table) && isset($db)) {
+        if (strlen($table) && strlen($db)) {
             $goto = 'tbl_structure.php';
-        } elseif (isset($db)) {
+        } elseif (strlen($db)) {
             $goto = 'db_structure.php';
         } else {
             $goto = 'server_sql.php';
         }
     }
-    if (isset($table) && isset($db)) {
+    if (strlen($table) && strlen($db)) {
         $common = PMA_generate_common_url($db, $table);
-    } elseif (isset($db)) {
+    } elseif (strlen($db)) {
         $common = PMA_generate_common_url($db);
     } else {
         $common = PMA_generate_common_url();
@@ -97,7 +97,7 @@ if ($import_type == 'table') {
 }
 
 
-if (isset($db)) {
+if (strlen($db)) {
     PMA_DBI_select_db($db);
 }
 
