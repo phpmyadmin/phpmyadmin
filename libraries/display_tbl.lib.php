@@ -1246,7 +1246,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $transform_options['wrapper_link'] = '?'
                                                 . (isset($url_query) ? $url_query : '')
                                                 . '&amp;primary_key=' . (isset($unique_condition) ? $unique_condition : '')
-                                                . '&amp;sql_query=' . (isset($sql_query) ? urlencode($url_sql_query) : '')
+                                                . '&amp;sql_query=' . (empty($sql_query) ? '' : urlencode($url_sql_query))
                                                 . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
                                                 . '&amp;transform_key=' . urlencode($meta->name);
 

@@ -57,7 +57,7 @@ if (isset($fields['dbase'])) {
 
 // Default to browse if no query set an we have table
 // (needed for browsing from DefaultTabTable)
-if (! isset($sql_query) && strlen($table) && strlen($db)) {
+if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_queryBookmarks($db,
         $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'',
@@ -227,13 +227,6 @@ if ($do_confirm) {
     require_once './libraries/footer.inc.php';
 } // end if $do_confirm
 
-
-/**
- * Executes the query and displays results
- */
-if (!isset($sql_query)) {
-    $sql_query = '';
-}
 
 // Defines some variables
 // A table has to be created or renamed -> left frame should be reloaded

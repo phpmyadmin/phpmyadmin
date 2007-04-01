@@ -724,7 +724,7 @@ if (!empty($change_copy)) {
  *   (Changes / copies a user, part II)
  */
 if (!empty($adduser_submit) || !empty($change_copy)) {
-    unset($sql_query);
+    $sql_query = '';
     if ($pred_username == 'any') {
         $username = '';
     }
@@ -1712,7 +1712,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
 
                 $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC';
                 $res = PMA_DBI_query( $sql_query );
-                unset( $sql_query );
+                $sql_query = '';
 
                 while ( $row = PMA_DBI_fetch_assoc( $res ) ) {
                     if ( isset( $db_rights[$row['Db']] ) ) {
@@ -1792,7 +1792,7 @@ if ( empty( $adduser ) && ( ! isset( $checkprivs ) || ! strlen($checkprivs) ) ) 
                     . $user_host_condition
                     .' ORDER BY `Table_name` ASC;';
                 $res = PMA_DBI_query( $sql_query );
-                unset( $sql_query );
+                $sql_query = '';
 
                 while ( $row = PMA_DBI_fetch_assoc( $res ) ) {
                     if ( isset( $db_rights[$row['Table_name']] ) ) {

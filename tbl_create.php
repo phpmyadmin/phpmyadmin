@@ -231,7 +231,7 @@ if (isset($_REQUEST['do_save_data'])) {
          . htmlspecialchars(PMA_backquote($db) . '.' . PMA_backquote($table))
          . ' ' . $strHasBeenCreated;
         $display_query = $sql_query;
-        unset($sql_query);
+        $sql_query = '';
 
         // do not switch to sql.php - as there is no row to be displayed on a new table
         if ($cfg['DefaultTabTable'] === 'sql.php') {

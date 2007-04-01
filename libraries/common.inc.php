@@ -426,7 +426,7 @@ if (PMA_isValid($_REQUEST['table'])) {
  * sql query to be executed
  * @global string $GLOBALS['sql_query']
  */
-$GLOBALS['sql_query'] = null;
+$GLOBALS['sql_query'] = '';
 if (PMA_isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }

@@ -24,7 +24,7 @@ $export_page_title = $strViewDump;
 // When we have some query, we need to remove LIMIT from that and possibly
 // generate WHERE clause (if we are asked to export specific rows)
 
-if (isset($sql_query)) {
+if (! empty($sql_query)) {
     // Parse query so we can work with tokens
     $parsed_sql = PMA_SQP_parse($sql_query);
 

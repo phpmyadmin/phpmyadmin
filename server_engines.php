@@ -66,7 +66,6 @@ function PMA_generateEngineDetails($variables, $like = null) {
             }
         }
         PMA_DBI_free_result($res);
-        unset($res, $row, $sql_query);
     }
 
     if (empty($mysql_vars)) {

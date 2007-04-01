@@ -74,7 +74,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 
     // query to show
     if (true === $query) {
-        $query = empty($GLOBALS['sql_query']) ? '' : $GLOBALS['sql_query'];
+        $query = $GLOBALS['sql_query'];
     }
 
     // set enctype to multipart for file uploads

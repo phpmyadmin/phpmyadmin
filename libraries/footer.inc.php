@@ -88,7 +88,7 @@ if (window.parent.reload_querywindow) {
     window.parent.reload_querywindow(
         '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) ?>',
         '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) ?>',
-        '<?php echo isset($GLOBALS['sql_query']) && ! defined('PMA_QUERY_TOO_BIG') ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
+        '<?php echo ! defined('PMA_QUERY_TOO_BIG') ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
 }
     <?php
 }

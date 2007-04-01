@@ -212,7 +212,7 @@ if (isset($_REQUEST['destination_innodb'])) {
             }
         } // end if... else....
 
-        if (isset($sql_query)) {
+        if (! empty($sql_query)) {
             $upd_rs    = PMA_DBI_try_query($sql_query);
             $tmp_error = PMA_DBI_getError();
             if (! empty($tmp_error)) {
@@ -227,7 +227,8 @@ if (isset($_REQUEST['destination_innodb'])) {
                 echo '<p class="warning">' . $strForeignKeyError . ' : ' . $master_field
                     .'</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
-            unset($sql_query, $tmp_error);
+            unset($tmp_error);
+            $sql_query = '';
         }
     } // end foreach
     if (!empty($display_query)) {

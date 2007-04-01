@@ -24,7 +24,7 @@ if (empty($is_db)) {
             if (isset($message)) {
                 $url_params['message'] = $message;
             }
-            if (isset($sql_query)) {
+            if (! empty($sql_query)) {
                 $url_params['sql_query'] = $sql_query;
             }
             if (isset($show_as_php)) {
@@ -72,7 +72,7 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
                 if (isset($message)) {
                     $url_params['message'] = $message;
                 }
-                if (isset($sql_query)) {
+                if (! empty($sql_query)) {
                     $url_params['sql_query'] = $sql_query;
                 }
                 if (isset($display_query)) {

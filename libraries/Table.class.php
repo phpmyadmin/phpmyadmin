@@ -549,10 +549,6 @@ class PMA_Table {
     {
         global $err_url;
 
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
-        }
-
         // set export settings we need
         $GLOBALS['sql_backquotes'] = 1;
         $GLOBALS['asfile']         = 1;
@@ -581,7 +577,7 @@ class PMA_Table {
             require_once './libraries/export/sql.php';
 
             $no_constraints_comments = true;
-        $GLOBALS['sql_constraints_query'] = '';
+            $GLOBALS['sql_constraints_query'] = '';
 
             $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
             unset($no_constraints_comments);
@@ -606,22 +602,22 @@ class PMA_Table {
             }
 
             /* no need to PMA_backquote() */
-        if (isset($target_for_view)) {
-        // this a view definition; we just found the first db name
-        // that follows DEFINER VIEW
-        // so change it for the new db name
-                $parsed_sql[$i]['data'] = $target_for_view;
-        // then we have to find all references to the source db
-        // and change them to the target db, ensuring we stay into
-        // the $parsed_sql limits
-        $last = $parsed_sql['len'] - 1;
-        $backquoted_source_db = PMA_backquote($source_db);
-        for (++$i; $i <= $last; $i++) {
-                    if ($parsed_sql[$i]['type'] == 'quote_backtick' && $parsed_sql[$i]['data'] == $backquoted_source_db) {
+            if (isset($target_for_view)) {
+                // this a view definition; we just found the first db name
+                // that follows DEFINER VIEW
+                // so change it for the new db name
                         $parsed_sql[$i]['data'] = $target_for_view;
-            }
-        }
-        unset($last,$backquoted_source_db);
+                // then we have to find all references to the source db
+                // and change them to the target db, ensuring we stay into
+                // the $parsed_sql limits
+                $last = $parsed_sql['len'] - 1;
+                $backquoted_source_db = PMA_backquote($source_db);
+                for (++$i; $i <= $last; $i++) {
+                            if ($parsed_sql[$i]['type'] == 'quote_backtick' && $parsed_sql[$i]['data'] == $backquoted_source_db) {
+                                $parsed_sql[$i]['data'] = $target_for_view;
+                    }
+                }
+                unset($last,$backquoted_source_db);
             } else {
                 $parsed_sql[$i]['data'] = $target;
             }
@@ -660,7 +656,7 @@ class PMA_Table {
                 // find the first quote_backtick, it must be the source table name
                 while ($parsed_sql[$i]['type'] != 'quote_backtick') {
                     $i++;
-            // maybe someday we should guard against going over limit
+                    // maybe someday we should guard against going over limit
                     //if ($i == $parsed_sql['len']) {
                     //    break;
                     //}
@@ -686,15 +682,14 @@ class PMA_Table {
                 // Generate query back
                 $GLOBALS['sql_constraints_query'] = PMA_SQP_formatHtml($parsed_sql,
                     'query_only');
-            if ($mode == 'one_table') {
+                if ($mode == 'one_table') {
                     PMA_DBI_query($GLOBALS['sql_constraints_query']);
-        }
+                }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-            if ($mode == 'one_table') {
+                if ($mode == 'one_table') {
                     unset($GLOBALS['sql_constraints_query']);
-        }
+                }
             }
-
         } else {
             $GLOBALS['sql_query'] = '';
         }

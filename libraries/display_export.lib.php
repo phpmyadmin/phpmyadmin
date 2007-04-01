@@ -60,7 +60,7 @@ if (isset($single_table)) {
 
 echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
 
-if (isset($sql_query)) {
+if (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
 }
 echo PMA_pluginGetJavascript($export_list);

@@ -27,7 +27,7 @@ if (!empty($sql_query)) {
         $GLOBALS['reload'] = true;
     }
 
-    unset($sql_query);
+    $sql_query = '';
 } elseif (!empty($sql_localfile)) {
     // run SQL file on server
     $local_import_file = $sql_localfile;

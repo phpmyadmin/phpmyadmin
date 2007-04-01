@@ -985,7 +985,7 @@ function PMA_showMessage($message, $sql_query = null)
     // Checks if the table needs to be repaired after a TRUNCATE query.
     // @todo what about $GLOBALS['display_query']???
     // @todo this is REALLY the wrong place to do this - very unexpected here
-    if (strlen($GLOBALS['table']) && isset($GLOBALS['sql_query']) 
+    if (strlen($GLOBALS['table'])
      && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
         if (!isset($tbl_status)) {
             $result = @PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');

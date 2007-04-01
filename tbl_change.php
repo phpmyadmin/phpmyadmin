@@ -31,7 +31,7 @@ if (isset($_REQUEST['dontlimitchars'])) {
     $dontlimitchars = $_REQUEST['dontlimitchars'];
 }
 /**
- * @todo this one is badly named, it's really a WHERE condition 
+ * @todo this one is badly named, it's really a WHERE condition
  *       and exists even for tables not having a primary key or unique key
  */
 if (isset($_REQUEST['primary_key'])) {
@@ -209,7 +209,7 @@ document.onkeydown = onKeyDownArrowsHandler;
     <input type="hidden" name="repeat_cells" value="<?php echo isset($repeat_cells) ? $repeat_cells : ''; ?>" />
     <input type="hidden" name="dontlimitchars" value="<?php echo (isset($dontlimitchars) ? $dontlimitchars : 0); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? htmlspecialchars($sql_query) : ''; ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
 if (isset($primary_key_array)) {
     foreach ($primary_key_array as $primary_key) {
@@ -270,7 +270,7 @@ $url_params['table'] = $table;
 if (isset($primary_key)) {
     $url_params['primary_key'] = trim($primary_key);
 }
-if (isset($sql_query)) {
+if (! empty($sql_query)) {
     $url_params['sql_query'] = $sql_query;
 }
 

@@ -135,7 +135,7 @@ if ($GLOBALS['cfg']['PropertiesIconic']) {
 
 $url_query = PMA_generate_common_url($db, $table);
 
-if (PMA_isValid($sql_query)) {
+if (! empty($sql_query)) {
     $show_query = 1;
 }
 
@@ -160,7 +160,7 @@ if (! empty($show_query)) {
 } else {
     $query_to_display = '';
 }
-unset($sql_query);
+$sql_query = '';
 
 /**
  * start HTML output
