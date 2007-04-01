@@ -26,7 +26,7 @@ require_once './test/PMA_get_real_size_test.php';
 require_once './test/PMA_sanitize_test.php';
 require_once './test/PMA_pow_test.php';
 require_once './test/Environment_test.php';
-require_once './test/escape_js_string.php';
+require_once './test/PMA_escapeJsString_test.php';
 require_once './test/PMA_isValid_test.php';
 require_once './test/PMA_transformation_getOptions_test.php';
 
