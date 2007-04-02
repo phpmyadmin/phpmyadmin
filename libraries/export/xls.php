@@ -31,7 +31,7 @@ if ($xls) {
             'force_file' => true,
             'options' => array(
                 array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-                array('type' => 'text', 'name' => 'columns', 'text' => 'strPutColNames'),
+                array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
                 array('type' => 'hidden', 'name' => 'data'),
                 ),
             'options_text' => 'strOptions',
@@ -160,40 +160,51 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     global $what;
     global $workbook;
 
-    $worksheet =& $workbook->addWorksheet($table);
     $workbook->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
 
     // Gets the data from the database
     $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
-    $col         = 0;
 
-    // If required, get fields name at the first line
-    if (isset($GLOBALS['xls_columns']) && $GLOBALS['xls_columns'] == 'yes') {
-        $schema_insert = '';
-        for ($i = 0; $i < $fields_cnt; $i++) {
-            $worksheet->write(0, $i, stripslashes(PMA_DBI_field_name($result, $i)));
-        } // end for
-        $col++;
-    } // end if
+    $row = PMA_DBI_fetch_row($result);
+    for ($sheetIndex = 0; ; $sheetIndex++) {
+        // Maximum sheet name length is 31 chars - leave 2 for numeric index
+        $sheetName = substr($table, 0, 29) . ($sheetIndex > 0 ? $sheetIndex : '');
+        $worksheet =& $workbook->addWorksheet($sheetName);
+        $rowIndex = 0;
 
-    // Format the data
-    while ($row = PMA_DBI_fetch_row($result)) {
-        $schema_insert = '';
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            if (!isset($row[$j]) || is_null($row[$j])) {
-                $worksheet->write($col, $j, $GLOBALS['xls_null']);
-            } elseif ($row[$j] == '0' || $row[$j] != '') {
-                /**
-                 * @todo we should somehow handle character set here!
-                 */
-                $worksheet->write($col, $j, $row[$j]);
-            } else {
-                $worksheet->write($col, $j, '');
-            }
-        } // end for
-        $col++;
-    } // end while
+        // If required, get fields name at the first line
+        if (isset($GLOBALS['xls_columns']) && $GLOBALS['xls_columns']) {
+            for ($i = 0; $i < $fields_cnt; $i++) {
+                $worksheet->write(0, $i, stripslashes(PMA_DBI_field_name($result, $i)));
+            } // end for
+            $worksheet->repeatRows($rowIndex);
+            $worksheet->freezePanes(array($rowIndex + 1, 0, $rowIndex + 1, 0));
+            $rowIndex++;
+        } // end if
+
+        // Format the data (max 65536 rows per worksheet)
+        while ($rowIndex < 65536 && $row) {
+            set_time_limit(0);
+            for ($j = 0; $j < $fields_cnt; $j++) {
+                if (!isset($row[$j]) || is_null($row[$j])) {
+                    $worksheet->write($rowIndex, $j, $GLOBALS['xls_null']);
+                } elseif ($row[$j] == '0' || $row[$j] != '') {
+                    /**
+                     * @todo we should somehow handle character set here!
+                     */
+                    $worksheet->write($rowIndex, $j, $row[$j]);
+                } else {
+                    $worksheet->write($rowIndex, $j, '');
+                }
+            } // end for
+            $rowIndex++;
+            $row = PMA_DBI_fetch_row($result);
+        } // end while
+        if (!$row) {
+            break;
+        }
+    } // end for
     PMA_DBI_free_result($result);
 
     return TRUE;

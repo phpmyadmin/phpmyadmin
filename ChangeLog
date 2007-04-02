@@ -43,6 +43,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [querywindow] store sql history in session
 + [querywindow] sql history now without db too
 + [querywindow] tweaks in sql history view
++ [export] Native Excel (Spreadsheet_Excel_Writer) improvements,
+   thanks to Christian Schmidt 
 
 2.10.1.0 (not released yet)
 =====================
