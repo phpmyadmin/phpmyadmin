@@ -518,9 +518,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // Checks for punct
             if (PMA_STR_strInStr($c, $allpunct_list)) {
-                //while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
+                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
                     $count2++;
-                //}
+                }
                 $l = $count2 - $count1;
                 if ($l == 1) {
                     $punct_data = $c;
