@@ -65,13 +65,16 @@
                 original aspect ratio</li>
             <li>You need PHP 4.3.0 or newer to use the
                 &quot;text/plain: external&quot;  MIME-based transformation</li>
+            <li>When using the &quot;cookie&quot;
+                <a href="#authentication_modes">authentication method</a>, the
+                <a href="http://www.php.net/mcrypt"><tt>mcrypt</tt></a> extension
+                is strongly suggested for most users and is <b>required</b> for
+                64&#8211;bit machines. Not using mcrypt will cause phpMyAdmin to
+                load pages significantly slower.
+            </li>
         </ul>
     </li>
     <li><b>MySQL</b> 3.23.32 or newer (<a href="#faq1_17">details</a>);</li>
-    <li>Not really a requirement but a <b>strong suggestion</b>: if you are using
-        the &quot;cookie&quot; authentication method, having the <tt>mcrypt</tt>
-        PHP extension on your web server accelerates not only the login
-        phase but every other action that you do in phpMyAdmin.</li>
     <li><b>Web browser</b> with cookies enabled.</li>
 </ul>
 

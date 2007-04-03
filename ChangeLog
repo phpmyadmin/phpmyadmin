@@ -45,6 +45,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [querywindow] tweaks in sql history view
 + [export] Native Excel (Spreadsheet_Excel_Writer) improvements,
    thanks to Christian Schmidt 
++ [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch 
 
 2.10.1.0 (not released yet)
 =====================
