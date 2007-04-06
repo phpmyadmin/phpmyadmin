@@ -1410,7 +1410,9 @@ if (typeof(window.parent) != 'undefined'
             }
 
             // Parse SQL if needed
-            if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
+            // (here, use "! empty" because when deleting a bookmark,
+            // $GLOBALS['parsed_sql'] is set but empty
+            if (! empty($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
                 $parsed_sql = $GLOBALS['parsed_sql'];
             } else {
                 // when the query is large (for example an INSERT of binary
