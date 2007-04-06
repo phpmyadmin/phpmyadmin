@@ -512,10 +512,7 @@ if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
 
 <?php
 // Routines
-echo '<fieldset>' . "\n";
-echo ' <legend>' . $strRoutines . '</legend>' . "\n";
 require './libraries/db_routines.inc.php';
-echo '</fieldset>' . "\n";
 
 /**
  * Work on the database

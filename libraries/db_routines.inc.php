@@ -24,6 +24,8 @@ if (PMA_MYSQL_INT_VERSION >= 50002) {
     $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
     if ($routines) {
+        echo '<fieldset>' . "\n";
+        echo ' <legend>' . $strRoutines . '</legend>' . "\n";
         echo '<table border="0">';
         echo sprintf('<tr>
                           <th>%s</th>
@@ -80,6 +82,7 @@ if (PMA_MYSQL_INT_VERSION >= 50002) {
             $ct++;
         }
         echo '</table>';
+        echo '</fieldset>' . "\n";
     }
 }
 ?>
