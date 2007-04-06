@@ -824,6 +824,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $number_of_brackets_in_extract = 0;
         $number_of_brackets_in_group_concat = 0;
 
+        $number_of_brackets = 0;
+        $in_subquery = false;
+
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
         // so we track wether we are in the EXTRACT()
@@ -1016,6 +1019,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
+                $number_of_brackets++;
                 if ($in_extract) {
                     $number_of_brackets_in_extract++;
                 }
@@ -1025,6 +1029,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+                $number_of_brackets--;
+                if ($number_of_brackets == 0) {
+                    $in_subquery = false;
+                }
                 if ($in_extract) {
                     $number_of_brackets_in_extract--;
                     if ($number_of_brackets_in_extract == 0) {
@@ -1037,6 +1045,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                        $in_group_concat = FALSE;
                     }
                 }
+            }
+
+            if ($in_subquery) {
+                /**
+                 * skip the subquery to avoid setting
+                 * select_expr or table_ref with the contents
+                 * of this subquery; this is to avoid a bug when
+                 * trying to edit the results of
+                 * select * from child where not exists (select id from
+                 * parent where child.parent_id = parent.id);
+                 */
+                continue;
             }
 // ==============================================================
             if ($arr[$i]['type'] == 'alpha_functionName') {
@@ -1074,6 +1094,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  */
 
                 if ($upper_data == 'SELECT') {
+                    if ($number_of_brackets > 0) {
+                        $in_subquery = true;
+                        // this is a subquery so do not analyze inside it
+                        continue;
+                    }
                     $seen_from = FALSE;
                     $previous_was_identifier = FALSE;
                     $current_select_expr = -1;
@@ -1361,9 +1386,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         } // end for $i (loop #1)
 
-        // -------------------------------------------------------
-        // This is a big hunk of debugging code by Marc for this.
-        // -------------------------------------------------------
+        //DEBUG
         /*
           if (isset($current_select_expr)) {
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
