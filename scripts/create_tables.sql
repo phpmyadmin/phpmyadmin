@@ -140,3 +140,20 @@ CREATE TABLE `pma_table_info` (
   `display_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`db_name`,`table_name`)
 ) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma_designer_coords`
+--
+
+CREATE TABLE `pma_designer_coords` (
+  `db_name` varchar(64) NOT NULL default '',
+  `table_name` varchar(64) NOT NULL default '',
+  `x` INT(11) default NULL,
+  `y` INT(11) default NULL,
+  `v` TINYINT(4) default NULL,
+  `h` TINYINT(4) default NULL,
+  PRIMARY KEY (`db_name`,`table_name`)
+) TYPE=MyISAM COMMENT='Table coordinates for Designer'
+
