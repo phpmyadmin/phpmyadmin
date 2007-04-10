@@ -157,6 +157,7 @@ $strConnectionError = 'Nepodaøilo se pøipojit: chybné nastavení.';
 $strConnections = 'Pøipojení';
 $strConstraintsForDumped = 'Omezení pro exportované tabulky';
 $strConstraintsForTable = 'Omezení pro tabulku';
+$strControluserFailed = 'Nepodaøilo se pøipojit jako controluser, který je nadefinován v nastaveních.';
 $strCookiesRequired = 'Pøihlášení vyžaduje povolené cookies.';
 $strCopyDatabaseOK = 'Databáze %s byla zkopírována na %s';
 $strCopy = 'Kopírovat';
@@ -338,6 +339,7 @@ $strHasBeenCreated = 'byla vytvoøena.';
 $strHaveToShow = 'Musíte zvolit alespoò jeden sloupec, který chcete zobrazit.';
 $strHebrew = 'Hebrejština';
 $strHelp = 'Nápovìda';
+$strHexForBLOB = 'Použít šestnáctkové zobrazení pro BLOB';
 $strHideShowAll = 'Skrýt/Zobrazit vše';
 $strHideShowNoRelation = 'Skrýt/Zobrazit tabulky bez relací';
 $strHide         = 'Skrýt';
@@ -1029,6 +1031,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
-$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 ?>
