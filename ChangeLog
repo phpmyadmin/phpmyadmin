@@ -49,6 +49,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
    thanks to Christian Schmidt 
 + [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch 
 + [lang] danish update, thanks to Finn Sorensen
++ RFE #1435922 [gui] navigation frame shows listing of databases when none selected
 
 2.10.1.0 (not released yet)
 =====================

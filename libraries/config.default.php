@@ -567,7 +567,7 @@ $cfg['DisplayServersList'] = false;
  *
  * @global boolean $cfg['DisplayDatabasesList']
  */
-$cfg['DisplayDatabasesList'] = false;
+$cfg['DisplayDatabasesList'] = 'auto';
 
 
 /*******************************************************************************

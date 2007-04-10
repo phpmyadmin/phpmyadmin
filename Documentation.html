@@ -1247,9 +1247,10 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_DisplayServersList">$cfg['DisplayServersList'] boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
-    <dt id="cfg_DisplayDatabasesList">$cfg['DisplayDatabasesList'] boolean</dt>
+    <dt id="cfg_DisplayDatabasesList">$cfg['DisplayDatabasesList'] boolean or text</dt>
     <dd>Defines whether to display database choice in light navigation frame as links 
-        instead of in a drop-down. Defaults to FALSE (drop-down).</dd>
+        instead of in a drop-down. Defaults to 'auto' - on main page list is
+        shown, when database is selected, only drop down is displayed.</dd>
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />

@@ -159,7 +159,15 @@ if (! $GLOBALS['server']) {
     echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
     PMA_exitNavigationFrame();
 } elseif ($GLOBALS['cfg']['LeftFrameLight'] && $GLOBALS['PMA_List_Database']->count() > 1) {
-    if (!$cfg['DisplayDatabasesList']) {
+    $list = $cfg['DisplayDatabasesList'];
+    if ($list === 'auto') {
+        if (empty($GLOBALS['db'])) {
+            $list = true;
+        } else {
+            $list = false;
+        }
+    }
+    if (!$list) {
         // more than one database available and LeftFrameLight is true
         // display db selectbox
         //

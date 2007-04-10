@@ -1042,7 +1042,7 @@ function show_left_form($defaults = array()) {
             array('Show logo', 'LeftDisplayLogo', 'Whether to show logo in left frame', TRUE),
             array('Display servers selection', 'LeftDisplayServers', 'Whether to show server selection in left frame', FALSE),
             array('Display servers as list', 'DisplayServersList', 'Whether to show server listing as list instead of drop down', FALSE),
-            array('Display databases as list', 'DisplayDatabasesList', 'Whether to show database listing in navigation as list instead of drop down', FALSE),
+            array('Display databases as list', 'DisplayDatabasesList', 'Whether to show database listing in navigation as list instead of drop down', array('auto', 'yes', 'no')),
             array('Enable pointer highlighting', 'LeftPointerEnable', 'Whether you want to highlight server under mouse', TRUE),
             ),
             'Configure navigation frame',
@@ -1662,8 +1662,15 @@ switch ($action) {
 
     case 'lay_navigation_real':
         if (isset($_POST['submit_save'])) {
-            $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDisplayServers:bool;DisplayServersList:bool;DisplayDatabasesList:bool;LeftPointerEnable:bool');
+            $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDisplayServers:bool;DisplayServersList:bool;DisplayDatabasesList;LeftPointerEnable:bool');
             $err = FALSE;
+            if (isset($vals['DisplayDatabasesList'])) {
+                if ($vals['DisplayDatabasesList'] == 'yes') {
+                    $vals['DisplayDatabasesList'] = true;
+                } elseif ($vals['DisplayDatabasesList'] == 'no') {
+                    $vals['DisplayDatabasesList'] = false;
+                }
+            }
             if (isset($vals['LeftFrameTableLevel']) && $vals['LeftFrameTableLevel'] < 1) {
                 message('error', 'Invalid value for maximum table nesting level!');
                 $err = TRUE;
