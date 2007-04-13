@@ -1,11 +1,14 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Produce a PDF report (export) from a query
+ *
+ * @version $Id$
  */
 
+/**
+ *
+ */
 if (isset($plugin_list)) {
     $plugin_list['pdf'] = array(
         'text' => 'strPDF',
@@ -17,7 +20,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strPDFOptions',
+        'options_text' => 'strOptions',
         );
 } else {
 
@@ -27,7 +30,7 @@ if (isset($plugin_list)) {
  * @todo Make this configuratble (at least Sans/Serif).
  */
 define('PMA_PDF_FONT', 'DejaVuSans');
-require_once('./libraries/tcpdf/tcpdf.php');
+require_once './libraries/tcpdf/tcpdf.php';
 
 // Adapted from a LGPL script by Philip Clarke
 
@@ -212,7 +215,6 @@ class PMA_PDF extends TCPDF
 
         /**
          * Pass 1 for column widths
-         * @todo force here a LIMIT to speed up pass 1 ?
          */
         $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->numFields  = PMA_DBI_num_fields($this->results);
@@ -221,15 +223,21 @@ class PMA_PDF extends TCPDF
         // if column widths not set
         if (!isset($this->tablewidths)){
 
-            // starting col width
-            $this->sColWidth = ($this->w - $this->lMargin - $this->rMargin) / $this->numFields;
+            // sColWidth = starting col width (an average size width)
+            $availableWidth = $this->w - $this->lMargin - $this->rMargin;
+            $this->sColWidth = $availableWidth / $this->numFields;
+            $totalTitleWidth = 0;
 
             // loop through results header and set initial col widths/ titles/ alignment
-            // if a col title is less than the starting col width / reduce that column size
-            for ($i=0; $i < $this->numFields; $i++){
+            // if a col title is less than the starting col width, reduce that column size
+            for ($i = 0; $i < $this->numFields; $i++){
                 $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
+                // save the real title's width
+                $titleWidth[$i] = $stringWidth; 
+                $totalTitleWidth += $stringWidth;
+
                 // set any column titles less than the start width to the column title width
-                if (($stringWidth) < $this->sColWidth){
+                if ($stringWidth < $this->sColWidth){
                     $colFits[$i] = $stringWidth ;
                 }
                 $this->colTitles[$i] = $this->fields[$i]->name;
@@ -258,18 +266,34 @@ class PMA_PDF extends TCPDF
                 }
             }
 
+            // title width verification
+            if ($totalTitleWidth > $availableWidth) {
+                $adjustingMode = true;
+            } else {
+                $adjustingMode = false;
+                // we have enough space for all the titles at their
+                // original width so use the true title's width
+                foreach ($titleWidth as $key => $val) {
+                    $colFits[$key] = $val;
+                }
+            }
+
             // loop through the data, any column whose contents is bigger
             // than the col size is resized
-            // TODO: force here a LIMIT to avoid reading all rows
+            /**
+              * @todo force here a LIMIT to avoid reading all rows
+              */
             while ($row = PMA_DBI_fetch_row($this->results)) {
                 foreach ($colFits as $key => $val) {
                     $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
-                    if ($stringWidth > $this->sColWidth) {
-                    // any col where row is bigger than the start width is now discarded
-                    unset($colFits[$key]);
+                    if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
+                    // any column whose data's width is bigger than the start width is now discarded
+                        unset($colFits[$key]);
                     } else {
-                    // if text is not bigger than the current column width setting enlarge the column
-                        if ($stringWidth > $val) {
+                    // if data's width is bigger than the current column width,
+                    // enlarge the column (but avoid enlarging it if the
+                    // data's width is very big)
+                            if ($stringWidth > $val && $stringWidth < ($this->sColWidth * 3)) {
                             $colFits[$key] = $stringWidth ;
                         }
                     }
@@ -284,10 +308,16 @@ class PMA_PDF extends TCPDF
                 $totAlreadyFitted += $val;
             }
 
-            $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
+            if ($adjustingMode) {
+                $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
+                $surplusToAdd = $surplus / ($this->numFields - sizeof($colFits));
+            } else {
+                $surplusToAdd = 0;
+            }
+
             for ($i=0; $i < $this->numFields; $i++) {
                 if (!in_array($i, array_keys($colFits))) {
-                    $this->tablewidths[$i] = $this->sColWidth + ($surplus / ($this->numFields - sizeof($colFits)));
+                    $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
                 }
                 if ($this->display_column[$i] == false) {
                     $this->tablewidths[$i] = 0;
@@ -296,7 +326,6 @@ class PMA_PDF extends TCPDF
 
             ksort($this->tablewidths);
         }
-
         PMA_DBI_free_result($this->results);
 
         // Pass 2
