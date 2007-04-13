@@ -77,6 +77,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1681620 [interface] support reordering of $cfg['ColumnTypes'],
   thanks to Leonard den Ottolander
 - bug #1690718 Can't edit if BLOB and no PK
+- bug #1672636 [export] PDF export too wide 
 + [lang] brazilian-portuguese update, thanks to Airon Luis Pereira 
 
 2.10.0.3 (not released yet)
