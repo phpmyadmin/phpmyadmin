@@ -368,7 +368,7 @@ require_once './libraries/PMA_List.class.php';
 	$return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails() as $group => $dbs) {
             if (count($dbs) > 1) {
-                $return .= '<li><ul>' . "\n";
+		$return .= '<li>' . $group . '<ul>' . "\n";
                 // wether display db_name cuted by the group part
                 $cut = true;
             } else {
@@ -377,10 +377,10 @@ require_once './libraries/PMA_List.class.php';
             }
             foreach ($dbs as $db) {
 	    	$return .= '<li';
-			if ($db['name'] == $selected) {
-			    $return .= ' class="selected"';
-			}
-		$return .= '><a title="' . $db['comment'] . ' "href="index.php?' . PMA_generate_common_url($db['name']) . '" target="_parent">';
+		if ($db['name'] == $selected) {
+		    $return .= ' class="selected"';
+		}
+                $return .= '><a' . (! empty($db['comment']) ? ' title="' . $db['comment'] . '"' : '') . ' href="index.php?' . PMA_generate_common_url($db['name']) . '" target="_parent">';
                 $return .= ($cut ? $db['disp_name_cut'] : $db['disp_name'])
 			.' (' . $db['num_tables'] . ')';
 		$return .= '</a></li>' . "\n";

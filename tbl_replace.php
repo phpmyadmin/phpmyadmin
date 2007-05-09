@@ -225,7 +225,10 @@ foreach ($loop_array as $primary_key) {
             // no need to add column into the valuelist
             if (strlen($cur_value)) {
                 $query_values[] = $cur_value;
-                $query_fields[] = PMA_backquote($key);
+                // first inserted row so prepare the list of fields
+                if (empty($value_sets)) {
+                    $query_fields[] = PMA_backquote($key);
+                }
             }
 
         //  u p d a t e
@@ -306,9 +309,7 @@ foreach ($query as $single_query) {
     } else {
         $result = PMA_DBI_query($single_query);
     }
-    if (isset($GLOBALS['warning'])) {
-        $warning_message .= $GLOBALS['warning'] . '[br]';
-    }
+    
     if (! $result) {
         $message .= PMA_DBI_getError();
     } else {
@@ -328,6 +329,12 @@ foreach ($query as $single_query) {
         }
         PMA_DBI_free_result($result);
     } // end if
+
+    foreach (PMA_DBI_get_warnings() as $warning) {
+        $warning_message .= $warning['Level'] . ': #' . $warning['Code'] 
+            . ' ' . $warning['Message'] . '[br]';
+    }
+    
     unset($result);
 }
 unset($single_query, $query);

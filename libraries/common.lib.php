@@ -290,7 +290,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             }
         }
     }
-    $recursive_counter++;
+    $recursive_counter--;
 }
 
 /**
@@ -2608,6 +2608,14 @@ if (get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
     PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
     PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
+}
+
+/**
+ * In some cases, this one is not set
+ *
+ */
+if (! isset($_REQUEST['js_frame']) || ! is_string($_REQUEST['js_frame'])) {
+    $_REQUEST['js_frame'] = '';
 }
 
 /**

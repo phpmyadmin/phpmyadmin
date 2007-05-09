@@ -1166,6 +1166,30 @@ function PMA_DBI_getCompatibilities()
     return $compats;
 }
 
+/**
+ * returns warnings for last query
+ * 
+ * @uses    $GLOBALS['userlink']
+ * @uses    PMA_DBI_fetch_result()
+ * @param   resource mysql link  $link   mysql link resource
+ * @return  array   warnings
+ */
+function PMA_DBI_get_warnings($link = null)
+{
+    if (PMA_MYSQL_INT_VERSION < 40100) {
+    	return array();
+    }
+    
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return array();
+        }
+    }
+    
+    return PMA_DBI_fetch_result('SHOW WARNINGS', null, null, $link);
+}
 
 /**
  * returns true (int > 0) if current user is superuser

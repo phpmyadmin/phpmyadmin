@@ -988,8 +988,8 @@ function getElement(e,f){
         if(f.document.layers[e]) {
             return f.document.layers[e];
         }
-        for(W=0;i<f.document.layers.length;W++) {
-            return(getElement(e,fdocument.layers[W]));
+        for(W=0;W<f.document.layers.length;W++) {
+            return(getElement(e,f.document.layers[W]));
         }
     }
     if(document.all) {

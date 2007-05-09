@@ -178,22 +178,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
     if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 40100) {
         $query = PMA_convert_charset($query);
     }
-    $result = mysqli_query($link, $query, $method);
-
-    if (mysqli_warning_count($link)) {
-        /**
-         * @todo check $method ?
-         */
-        $warning_result = mysqli_query($link, 'SHOW WARNINGS');
-        if ($warning_result) {
-            $warning_row = mysqli_fetch_row($warning_result);
-            $GLOBALS['warning'] = sprintf("%s (%d): %s", $warning_row[0], $warning_row[1], $warning_row[2]);
-        }
-    } else {
-        unset($GLOBALS['warning']);
-    }
-
-    return $result;
+    return mysqli_query($link, $query, $method);
 
     // From the PHP manual:
     // "note: returns true on success or false on failure. For SELECT,

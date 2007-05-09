@@ -5,7 +5,14 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
-2.10.1.0 (not released yet)
+2.10.2.0 (not yet released)
+
++ [data] display all warnings, not only last one
+- typo in fix for bug #1671813
+- bug #1714908 Inserted Row Count is wrong
+- bug #1712570 Deleting last record freezes
+
+2.10.1.0 (2007-04-23)
 =====================
 
 - bug #1541147 [js] '#' in database names not correctly handled by queywindow.js
@@ -33,13 +40,11 @@ $HeadURL$
 - bug #1690718 Can't edit if BLOB and no PK
 - bug #1672636 [export] PDF export too wide 
 + [lang] brazilian-portuguese update, thanks to Airon Luis Pereira  
-
-
-2.10.0.3 (not released yet)
-=====================
-
+- patch #1698964 javascript typo, thanks to Corey Hollaway
+- bug #1703897 [css] undefined index 'js_frame' 
 - bug #1690561 Blobs being cleared on Edit of row
 - bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
+- bug #1704467 XSS vulnerability in browse_foreigners.php, thanks to sp3x SecurityReason
 
 2.10.0.2 (2007-03-02)
 =====================
