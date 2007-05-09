@@ -62,6 +62,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [data] display all warnings, not only last one
 - typo in fix for bug #1671813
 - bug #1714908 Inserted Row Count is wrong
+- bug #1712570 Deleting last record freezes
 
 2.10.1.0 (2007-04-23)
 =====================

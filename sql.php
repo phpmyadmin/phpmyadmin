@@ -642,6 +642,10 @@ if ($num_rows < 1 || $is_affected) {
         $active_page = $goto;
         require './' . $goto;
     } else {
+        // avoid a redirect loop when last record was deleted
+        if ('sql.php' == $cfg['DefaultTabTable']) {
+            $goto = str_replace('sql.php','tbl_structure.php',$goto);
+        }
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
     } // end else
     exit();
