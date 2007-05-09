@@ -41,10 +41,40 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function testNegativeExp()
+    public function _testNegativeExp()
     {
-        $this->assertEquals(false,
-            PMA_pow(2, -1));
+        $this->assertEquals(0.25,
+            PMA_pow(2, -2));
+    }
+
+    public function _testNegativeExpPow()
+    {
+        if (function_exists('pow')) {
+            $this->assertEquals(0.25,
+                PMA_pow(2, -2, 'pow'));
+        } else {
+            $this->markTestSkipped('function pow() does not exist');
+        }
+    }
+
+    public function _testNegativeExpBcpow()
+    {
+        if (function_exists('bcpow')) {
+            $this->assertEquals(0.25,
+                PMA_pow(2, -2, 'bcpow'));
+        } else {
+            $this->markTestSkipped('function bcpow() does not exist');
+        }
+    }
+
+    public function _testNegativeExpGmppow()
+    {
+        if (function_exists('gmp_pow')) {
+            $this->assertEquals(0.25,
+                PMA_pow(2, -2, 'gmp_pow'));
+        } else {
+            $this->markTestSkipped('function gmp_pow() does not exist');
+        }
     }
 }
 ?>
