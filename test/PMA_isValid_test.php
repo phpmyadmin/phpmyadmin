@@ -71,32 +71,42 @@ class PMA_isValid_test extends PHPUnit_Framework_TestCase
     public function testNotScalarArray()
     {
         $var = array('test');
-        $this->assertFalse(PMA_isValid($var), 'scalar');
+        $this->assertFalse(PMA_isValid($var, 'scalar'));
     }
     public function testNotScalarNull()
     {
         $var = null;
-        $this->assertFalse(PMA_isValid($var), 'scalar');
+        $this->assertFalse(PMA_isValid($var, 'scalar'));
     }
     public function testNumericInt()
     {
         $var = 1;
-        $this->assertTrue(PMA_isValid($var), 'numeric');
+        $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
     public function testNumericFloat()
     {
         $var = 1.1;
-        $this->assertTrue(PMA_isValid($var), 'numeric');
+        $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
     public function testNumericZero()
     {
         $var = 0;
-        $this->assertTrue(PMA_isValid($var), 'numeric');
+        $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
     public function testNumericString()
     {
         $var = '+0.1';
-        $this->assertTrue(PMA_isValid($var), 'numeric');
+        $this->assertTrue(PMA_isValid($var, 'numeric'));
+    }
+    public function testValueInArray()
+    {
+        $var = 'a';
+        $this->assertTrue(PMA_isValid($var, array('a', 'b', )));
+    }
+    public function testValueNotInArray()
+    {
+        $var = 'c';
+        $this->assertFalse(PMA_isValid($var, array('a', 'b', )));
     }
 }
 ?>
