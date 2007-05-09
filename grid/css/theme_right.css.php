@@ -12,26 +12,19 @@
 // unplanned execution path
 if(!defined('PMA_MINIMUM_COMMON')) exit();
 
-$parts = explode('.', PMA_VERSION );// f.e. 2.11.0-dev
-$last  = explode('-', $parts[2]);   // 2.8.2.4«last part ignored
-$iPmaVersion = 10000 * $parts[0] + 100 * $parts[1] + $last[0];
-// new  pma 2.11 style image paths:
-if($iPmaVersion < 21100) {
-// old style (causing problems with some MS products) :
-	$GridImgPath = '../' . $_SESSION['PMA_Theme']->getImgPath();
-} else {
-	$GridImgPath = $_SESSION['PMA_Theme']->getImgPath();
-}
-echo'
-/** general tags "Grid-2.9d" right 20070211 windkiel pma 2.8 .. 2.1x */';
+$GridImgPath = version_compare(PMA_VERSION,'2.11','lt') ? '../' : ''; 
+$GridImgPath .= $_SESSION['PMA_Theme']->getImgPath();
 
-if($iPmaVersion < 20900) {
-	echo '
-html,
+if(version_compare(PMA_VERSION,'2.9','lt')) {
+	//needed for pma2.8 only (if E_NOTICE=1 , but no effect) :
+	$GLOBALS['cfg']['BgcolorOne'] = '#f7f7f7';
+	$GLOBALS['cfg']['BgcolorTwo'] = '#fff';
+	echo 'html,
 table{font-size:', $GLOBALS['cfg']['FontSize'],'}
 td,
 th{color:', $GLOBALS['cfg']['MainColor'], '}';
 }
+
 $listImgUrl = 'list-style-image:url("'. $GridImgPath; //.....xxx.png")
 echo'
 body{padding:0;margin:.4em;color:', $GLOBALS['cfg']['MainColor'],';background:', $GLOBALS['cfg']['MainBackgroundColor'];
@@ -47,11 +40,11 @@ pre,
 code{font-family:', $GLOBALS['cfg']['FontFamilyFixed'], '}
 ';
 ?>
-input{padding:0 .3em;font-size:100%}
+input{padding:0 .2em;font-size:100%}
 h1{font-size:140%;font-weight:bold;margin:0 .8em 0 .8em}
 h2{font-size:120%;font-weight:bold}
 h3{font-weight:bold}
-a{padding:.1em .1em}
+a{padding:1px}
 a:link,
 a:visited,
 a:active{text-decoration:none;color:<?php echo $GLOBALS['cfg']['MainLinkColor']; ?>}
@@ -65,9 +58,8 @@ th{font-weight:bold;color:<?php echo $GLOBALS['cfg']['ThColor']; ?>;background:<
 a img{border:0}
 hr{color:<?php echo $GLOBALS['cfg']['MainColor']; ?>;background:<?php
  echo $GLOBALS['cfg']['MainColor']; ?>;border:0;height:1px}
-form{padding:0;margin:0;display:inline}
-textarea{overflow:visible;<?php if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6') > 0) echo 'height:8em;'; ?>
-}
+form{padding:0;margin:1px;display:inline}
+textarea{overflow:visible;height:<?php echo ceil($GLOBALS['cfg']['TextareaRows']*1.2); //thx Mario Rohkrämer (ligh1l) Gag_H ?>em}
 fieldset{margin:1em 0 1px 1px;border:<?php
  echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;padding:.5em;background:<?php echo $GLOBALS['cfg']['BgOne']; ?>}
 fieldset fieldset{margin:.8em}
@@ -79,7 +71,7 @@ button{display:inline}
 table{margin:1px;border-collapse:collapse}
 table caption,
 table th,
-table td{padding:0 2px 0 2px;vertical-align:top;<?php if ($GLOBALS['cfg']['Border']){
+table td{padding:0 .2em 0 .2em;vertical-align:top;<?php if ($GLOBALS['cfg']['Border']){
 echo 'border:', $GLOBALS['cfg']['Border'], ' solid ', $GLOBALS['cfg']['MainGridColor'];
 //effects also page navigation table :(
 }
@@ -174,8 +166,8 @@ h1.notice,
 div.notice{margin:.5em 0 .5em 0;border:1px solid #FFD700;<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
 background-image:url("<?php echo $GridImgPath; ?>s_notice.png");
 background-repeat:no-repeat;
-<?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:10px 50%;padding:10px 10px 10px 36px;<?php
-} else { ?>background-position:99% 50%;padding:10px 5% 10px 10px;<?php
+<?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:1em 50%;padding:1em 1em 1em 3.6em;<?php
+} else { ?>background-position:99% 50%;padding:1em 5% 1em 1em;<?php
 } ?>
 <?php } else { ?>padding:.5em;<?php } ?>}
 .notice h1{border-bottom:1px solid #FFD700;font-weight:bold;text-align:<?php echo $left; ?>;margin:0 0 .2em 0}
@@ -185,9 +177,9 @@ h1.warning,
 div.warning{margin:.5em 0 .5em 0;border:1px solid #c00;
 <?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
 background-image:url("<?php echo $GridImgPath; ?>s_warn.png");background-repeat:no-repeat;
-<?php  if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:10px 50%;padding:10px 10px 10px 36px;
+<?php  if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:1em 50%;padding:1em 1em 1em 3.6em;
 <?php } else{ ?>
-background-position:99% 50%;padding:10px 5% 10px 10px;
+background-position:99% 50%;padding:1em 5% 1em 1em;
 <?php } ?>
 <?php } else{ ?>
 padding:.5em;
@@ -200,9 +192,9 @@ div.error{margin:.5em 0 .5em 0;border:1px solid #f00;
 <?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
 background-image:url("<?php echo $GridImgPath; ?>s_error.png");background-repeat:no-repeat;
 <?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>
-background-position:10px 50%;padding:10px 10px 10px 36px;
+background-position:1em 50%;padding:1em 1em 1em 3.6em;
 <?php } else{ ?>
-background-position:99% 50%;padding:10px 5% 10px 10px;<?php
+background-position:99% 50%;padding:1em 5% 1em 1em;<?php
 } ?>
 <?php } else{ ?>
 padding:.5em;
@@ -214,9 +206,9 @@ fieldset.confirmation legend{border-left:1px solid #f00;border-right:1px solid #
 <?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
 background-image:url("<?php echo $GridImgPath; ?>s_really.png");background-repeat:no-repeat;
 <?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>
-background-position:5px 50%;padding:.2em .2em .2em 25px;
+background-position:.5em 50%;padding:.2em .2em .2em 2.5em;
 <?php } else{ ?>
-background-position:97% 50%;padding:.2em 25px .2em .2em;
+background-position:97% 50%;padding:.2em 2.5em .2em .2em;
 <?php } ?>
 <?php } /* end messageboxes */ ?>}
 .tblcomment{font-size:90%;font-weight:normal;color:#009}
@@ -273,12 +265,7 @@ echo /* default tab styles */ $GLOBALS['cfg']['BgTwo']; ?>;border-bottom:0;<?php
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'Gecko') > 0){ /*FF..*/
 echo '-moz-border-radius-topleft:.6em;-moz-border-radius-topright:.6em';
 }
-/**
-MSIE:
-Sebastian removed the wrong lines from "original" :(
-neither border-radius-topleft nor border-top-left-radius is css compliant
-http://blogs.msdn.com/ie/archive/2005/06/23/431980.aspx
-**/
+/** MSIE 6: http://blogs.msdn.com/ie/archive/2005/06/23/431980.aspx **/
 ?>}
 a.tab:hover,
 a.tabcaution:hover,
@@ -367,8 +354,9 @@ div#serverstatus table tbody td.descr a:after,
 div#serverstatus table .tblFooters a:after{content:']'}
 <?php /* end serverstatus */
 
-/* querywindow */ ?>
-body#bodyquerywindow{margin:0;padding:0;background-image:none;background:#F5F5F5}
+/* querywindow  -image:none;??-color: */ ?>
+body#bodyquerywindow{margin:0;padding:0;background:<?php
+	echo $GLOBALS['cfg']['MainBackgroundColor']; ?>}
 div#querywindowcontainer{margin:0;padding:0;width:100%}
 div#querywindowcontainer fieldset{margin-top:0}
 <?php /* END querywindow */
@@ -427,7 +415,7 @@ li#li_user_info{
 
 #body_browse_foreigners{background:<?php echo $GLOBALS['cfg']['NaviBackground']; ?>;margin:.5em .5em 0 .5em}
 #bodyquerywindow{background:<?php echo $GLOBALS['cfg']['NaviBackground'], "}
-#bodythemes{width:500px;margin:auto;text-align:center}
+#bodythemes{width:50em;margin:auto;text-align:center}
 #bodythemes img{border:1px solid black}
 #bodythemes a:hover img{border:1px solid red}
 #fieldset_select_fields{float:$left}

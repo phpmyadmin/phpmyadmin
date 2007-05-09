@@ -1,93 +1,104 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Navi frame (called "Left frame" in older versions)
- * 
- * derived from theme "original" pma 2.9
- * 20070211: error.ico cursor for non Opera browsers, vertical line IE only, pma 2.8 td{color:black} necessary!
- * 20070208 bug 1653769 fixed: BrowsePointerEnable, BrowseMarkerEnable
- * by windkiel (started 2006-08-19)
- * works with pma 2.8+
+ * by windkiel (started 2006-08-19) derived from theme "original"
+ * 2007-04-26: grid2.9.e  layout choosable in config.inc.php see bottom
+ * you can switch to an alternate Color/Font set simply by putting the line
+ * $cfg['customGrid'] = 'tan';
+ * into your pma/config.inc.php or if you like the settings of the original theme:
+ * $cfg['customGrid'] = 'originalColors';
+ * you can add any number of different settings in the themes/grid/layout.inc.php,
+ * take the 'test' section as an example.
+ * some bugfixes like textarea height (thx Mario Rohkrämer) ...
+ * the previous version had some refresh issues after switching from original
+ * (all browser windows had to be closed to force a new session)
+
+ * 2007-02-11: grid2.9.d error.ico cursor for non Opera browsers,
+ * vertical line IE only, for pma 2.8 td{color:black} is necessary!
+
+ * 2007-02-08 bug 1653769 fixed: BrowsePointerEnable, BrowseMarkerEnable
+
  * for detailed layout configuration please refer to the css files
  * comments, suggestions, bugreports are welcome:
- * http://sourceforge.net/users/windkiel/
- * no '' allowed, except for Font.. ..Link.. ..Marke...(frame reload may be needed after changes)
+ * https://sourceforge.net/tracker/index.php?func=detail&aid=1656956&group_id=23067&atid=689412
+ *
+ * CSS doesn't like empty values, except for Font.. ..Link.. ..Marke...
+ *(a forced frame reload may be needed after changes, esp. for some Opera versions)
  *
  * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Grid
  */
 
-// for this theme almost all settings (except "SPQ") can be done in config.inc.php :
-// like "$cfg['LeftMarkerEnable'] = false;"
-
-// Whether to activate the Navi marker. Similar settings see libraries/config.default.php
-if(!isset($GLOBALS['cfg']['LeftMarkerEnable']))
-	$GLOBALS['cfg']['LeftMarkerEnable'] = $GLOBALS['cfg']['LeftPointerEnable'];
-
-// Navi (left) frame width for index.php :
-if(!isset($GLOBALS['cfg']['NaviWidth'])) $GLOBALS['cfg']['NaviWidth'] = 180; 
-
-// backward compatibility :
-if('2.8' == substr(PMA_VERSION,0,3)) $GLOBALS['cfg']['LeftWidth'] = $GLOBALS['cfg']['NaviWidth']; 
-
-// foreground (text) color for the navi frame
-if(!isset($GLOBALS['cfg']['NaviColor'])) $GLOBALS['cfg']['NaviColor'] = '#000';
-
-// background for the navi frame
-if(!isset($GLOBALS['cfg']['NaviBackground'])) $GLOBALS['cfg']['NaviBackground'] = '#D3DCE6';#dee
-
-// link color
-if(!isset($GLOBALS['cfg']['NaviLinkColor'])) $GLOBALS['cfg']['NaviLinkColor'] = '#00a';
-
-// link background-color
-if(!isset($GLOBALS['cfg']['NaviLinkBackground'])) $GLOBALS['cfg']['NaviLinkBackground'] = 'white';
-
-// foreground (text) color of the pointer in navi frame
-if(!isset($GLOBALS['cfg']['NaviPointerColor'])) $GLOBALS['cfg']['NaviPointerColor']	= '#00f';
-// background of the pointer in navi frame
-
-if(!isset($GLOBALS['cfg']['NaviPointerBackground'])) $GLOBALS['cfg']['NaviPointerBackground'] = 'white';
-
-// color of the marked (visually marks selected) item
-if(!isset($GLOBALS['cfg']['NaviMarkedColor'])) $GLOBALS['cfg']['NaviMarkedColor'] = $GLOBALS['cfg']['NaviColor'];
-
-// background of the marked item
-if( $GLOBALS['cfg']['LeftMarkerEnable'] ) {
-	$GLOBALS['cfg']['NaviMarkedBackground'] = '#fc9';
-} else {
-	$GLOBALS['cfg']['NaviMarkedBackground'] = $GLOBALS['cfg']['NaviBackground'];
-}
-
-// "zoom" factor for list items
-if(!isset($GLOBALS['cfg']['NaviFontPercentage'])) $GLOBALS['cfg']['NaviFontPercentage'] = '90%';
 
 /**
- * main frame
+ * ~~~~~~~~~~~~~ NAVIGATION frame (called "Left frame" in older versions) ~~~~~~~~~~
  */
-// foreground (text) color for the main frame
-if(!isset($GLOBALS['cfg']['MainColor'])) $GLOBALS['cfg']['MainColor'] = '#000';
 
-// BackgroundColor for the main frame, other solution than in original!
-if(!isset($GLOBALS['cfg']['MainBackgroundColor'])) $GLOBALS['cfg']['MainBackgroundColor'] = '#d0d0d0';
+// navi/left frame width for index.php :
+$GLOBALS['cfg']['NaviWidth'] = 200;
+
+// backward compatibility :
+if('2.8' == substr(PMA_VERSION,0,3))
+    $GLOBALS['cfg']['LeftWidth']
+  = $GLOBALS['cfg']['NaviWidth'];
+
+// foreground (text) color for the navi frame
+$GLOBALS['cfg']['NaviColor'] = '#000';
+
+// background
+$GLOBALS['cfg']['NaviBackground'] = '#e7e7e7';
 
 // link color
-if(!isset($GLOBALS['cfg']['MainLinkColor'])) $GLOBALS['cfg']['MainLinkColor'] = '#00d';
+$GLOBALS['cfg']['NaviLinkColor'] = '#00a';
+
+// link background-color
+$GLOBALS['cfg']['NaviLinkBackground'] = 'white';
+
+// foreground (text) color of the navi pointer
+$GLOBALS['cfg']['NaviPointerColor']    = '#00f';
+
+// background of the navi pointer
+$GLOBALS['cfg']['NaviPointerBackground'] = 'white';
+
+// color of the marked (visually marks selected) item
+$GLOBALS['cfg']['NaviMarkedColor'] = $GLOBALS['cfg']['NaviColor'];
+
+// background of the marked item
+$GLOBALS['cfg']['NaviMarkedBackground'] = '#fafaaa';
+
+// "zoom" factor for list items
+$GLOBALS['cfg']['NaviFontPercentage'] = '90%';
+
+/**
+ * ~~~~~~~~~~~~~~~~~           MAIN frame           ~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+// BackgroundColor for the main frame, different solution than in ´original´!
+$GLOBALS['cfg']['MainBackgroundColor']	= '#efefef';
+
+//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!(?)
+$GLOBALS['cfg']['MainGridColor']		= '#efefee';
+
+// foreground (text) color for the main frame
+$GLOBALS['cfg']['MainColor'] = '#000';
+
+// link color
+$GLOBALS['cfg']['MainLinkColor'] = '#00d';
 
 // link BGcolor
-if(!isset($GLOBALS['cfg']['MainLinkBackground'])) $GLOBALS['cfg']['MainLinkBackground'] = '#fff';
+$GLOBALS['cfg']['MainLinkBackground'] = '#fff';
 
 // foreground (text) color of the pointer in browse mode
-if(!isset($GLOBALS['cfg']['BrowsePointerColor'])) $GLOBALS['cfg']['BrowsePointerColor'] = '#000';
+$GLOBALS['cfg']['BrowsePointerColor'] = '#000';
 
 // background of the pointer in browse mode
-if(!isset($GLOBALS['cfg']['BrowsePointerBackground'])) $GLOBALS['cfg']['BrowsePointerBackground'] = '#cfc';
+$GLOBALS['cfg']['BrowsePointerBackground'] = '#cfc';
 
 // foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
-if(!isset($GLOBALS['cfg']['BrowseMarkerColor'])) $GLOBALS['cfg']['BrowseMarkerColor'] = '#000';
+$GLOBALS['cfg']['BrowseMarkerColor'] = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode
-if(!isset($GLOBALS['cfg']['BrowseMarkerBackground'])) $GLOBALS['cfg']['BrowseMarkerBackground'] = '#fc9';
+$GLOBALS['cfg']['BrowseMarkerBackground'] = '#ffb'; #fc9';
 
 /**
  * fonts
@@ -98,11 +109,11 @@ if(!isset($GLOBALS['cfg']['BrowseMarkerBackground'])) $GLOBALS['cfg']['BrowseMar
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-if(!isset($GLOBALS['cfg']['FontFamily'])) $GLOBALS['cfg']['FontFamily'] = 'sans-serif'; //was:Arial
+$GLOBALS['cfg']['FontFamily'] = 'sans-serif'; //was:Arial
 /**
  * fixed width font family, used in textarea
  */
-if(!isset($GLOBALS['cfg']['FontFamilyFixed'])) $GLOBALS['cfg']['FontFamilyFixed'] = 'monospace';
+$GLOBALS['cfg']['FontFamilyFixed'] = 'monospace';
 
 /**
  * font size as a valid css font size value,
@@ -112,61 +123,54 @@ if(!isset($GLOBALS['cfg']['FontFamilyFixed'])) $GLOBALS['cfg']['FontFamilyFixed'
  */
 
 // for pma <2.9 :
-if(!isset($GLOBALS['cfg']['FontSize'])) $GLOBALS['cfg']['FontSize'] = '90%';
+$GLOBALS['cfg']['FontSize'] = '90%';
 
 /**
  * tables
  */
 
 // border strenght ( e.g. .05em(min!)|1px|3pt| 0 but NOT 1)
-if(!isset($GLOBALS['cfg']['Border'])) $GLOBALS['cfg']['Border'] = '1px';
+$GLOBALS['cfg']['Border'] = '.1em';
 
-//at least 1 bit difference from $GLOBALS['cfg']['MainBackground'] to show the grid!
-if(!isset($GLOBALS['cfg']['MainGridColor'])) $GLOBALS['cfg']['MainGridColor'] = '#d0d0d1';
-
-// table header and footer color
-if(!isset($GLOBALS['cfg']['ThBackground'])) $GLOBALS['cfg']['ThBackground'] = $GLOBALS['cfg']['NaviBackground'];#dee
+// table header,footer and "OK box" color
+$GLOBALS['cfg']['ThBackground'] = '#ddd';
 
 // table header and footer background
-if(!isset($GLOBALS['cfg']['ThColor'])) $GLOBALS['cfg']['ThColor'] = '#000';
+$GLOBALS['cfg']['ThColor'] = '#000';
 
 // table data row background
-if(!isset($GLOBALS['cfg']['BgOne'])) $GLOBALS['cfg']['BgOne'] = '#f8f8fa';
+$GLOBALS['cfg']['BgOne'] = '#f5f5f5';
 
 // table data row background, alternate
-if(!isset($GLOBALS['cfg']['BgTwo'])) $GLOBALS['cfg']['BgTwo'] = '#fff';
+$GLOBALS['cfg']['BgTwo'] = '#fff';
 
 // table outer border color
-//if(!isset($GLOBALS['cfg']['TblBorderColor'])) $GLOBALS['cfg']['TblBorderColor'] = 'blue';
-
-//needed for pma2.8 only (if E_NOTICE=1 , but no effect) :
-if(!isset($GLOBALS['cfg']['BgcolorOne'])) $GLOBALS['cfg']['BgcolorOne'] = '#f7f7f7';
-if(!isset($GLOBALS['cfg']['BgcolorTwo'])) $GLOBALS['cfg']['BgcolorTwo'] = '#fff';
+$GLOBALS['cfg']['TblBorderColor'] = 'blue';
 
 /**
  * query window
  */
 // Width of Query window
-if(!isset($GLOBALS['cfg']['QueryWindowWidth'])) $GLOBALS['cfg']['QueryWindowWidth'] = 600;
+$GLOBALS['cfg']['QueryWindowWidth'] = 600;
 
 // Height of Query window
-if(!isset($GLOBALS['cfg']['QueryWindowHeight'])) $GLOBALS['cfg']['QueryWindowHeight'] = 300;
+$GLOBALS['cfg']['QueryWindowHeight'] = 300;
 
 /**
  * SQL Parser Settings
  * Syntax colouring data
  */
 $GLOBALS['cfg']['SQP']['fmtColor']      = array(
-    'comment'            => '#808000',
+    'comment'        => '#808000',
     'comment_mysql'      => '',
     'comment_ansi'       => '',
-    'comment_c'          => '',
-    'digit'              => '',
-    'digit_hex'          => 'teal',
+    'comment_c'      => '',
+    'digit'          => '',
+    'digit_hex'      => 'teal',
     'digit_integer'      => 'teal',
-    'digit_float'        => 'aqua',
-    'punct'              => 'fuchsia',
-    'alpha'              => '',
+    'digit_float'    => 'aqua',
+    'punct'          => 'fuchsia',
+    'alpha'          => '',
     'alpha_columnType'   => '#F90',
     'alpha_columnAttrib' => 'blue',
     'alpha_reservedWord' => '#909',
@@ -174,9 +178,74 @@ $GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'alpha_identifier'   => 'black',
     'alpha_charset'      => '#6495ed',
     'alpha_variable'     => '#800000',
-    'quote'              => '#008000',
+    'quote'          => '#008000',
     'quote_double'       => '',
     'quote_single'       => '',
     'quote_backtick'     => ''
 );
+
+// Settings from .../phpmyadmin/config.inc.php
+// See libraries/config.default.php for similar settings
+
+// ~~~~~~~ alternate COLOR/FONT SETS choosable in config.inc.php ~~~~~~~~~~~
+// (default settings from above are simply overridden)
+if (isset($GLOBALS['cfg']['customGrid']))
+{
+  if('old' == $GLOBALS['cfg']['customGrid'])
+  {
+    $GLOBALS['cfg']['NaviBackground']        = '#efefef';
+    $GLOBALS['cfg']['MainBackgroundColor']   = '#ddd';
+    $GLOBALS['cfg']['BrowseMarkerBackground']= '#ee9';
+    $GLOBALS['cfg']['TblBorderColor']        = '#ddddde';
+  }
+  elseif('originalColors' == $GLOBALS['cfg']['customGrid'])
+  {
+    $GLOBALS['cfg']['NaviBackground']           = '#D0DCE0';
+    $GLOBALS['cfg']['NaviPointerColor']         = '#000';
+    $GLOBALS['cfg']['NaviPointerBackground']    = '#99C';
+    $GLOBALS['cfg']['NaviMarkedColor']     = '#000';
+    $GLOBALS['cfg']['NaviMarkedBackground']= '#99c';
+    $GLOBALS['cfg']['MainColor']                = '#000';
+    $GLOBALS['cfg']['MainBackgroundColor']      = '#F5F5F5';//'MainBackground'
+    $GLOBALS['cfg']['BrowsePointerColor']       = '#000';
+    $GLOBALS['cfg']['BrowsePointerBackground']  = '#CFC';
+    $GLOBALS['cfg']['BrowseMarkerColor']        = '#000';
+    $GLOBALS['cfg']['BrowseMarkerBackground']   = '#FC9';
+    $GLOBALS['cfg']['FontFamily']           = 'sans-serif';
+    $GLOBALS['cfg']['FontFamilyFixed']      = 'monospace';
+    $GLOBALS['cfg']['Border']               = 0;
+    $GLOBALS['cfg']['ThBackground']         = '#D3DCE3';
+    $GLOBALS['cfg']['ThColor']              = '#000';
+    $GLOBALS['cfg']['BgOne']                = '#E5E5E5';
+    $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
+    $GLOBALS['cfg']['QueryWindowWidth']     = 600;
+    $GLOBALS['cfg']['QueryWindowHeight']    = 400;
+  }
+  elseif('tan' == $GLOBALS['cfg']['customGrid'])
+  {
+    $GLOBALS['cfg']['FontFamily']          = 'verdana,sans-serif';
+    $GLOBALS['cfg']['NaviBackground']      = '#dfc7a0';//white looks ugly,'#e7e7e7';// like IE6 scrollbar Am.:gray Br.:grey
+    $GLOBALS['cfg']['NaviLinkColor']       = '#00a';
+    $GLOBALS['cfg']['NaviLinkBackground']  = '#fff';
+    $GLOBALS['cfg']['NaviPointerColor']      = '#00f';
+    $GLOBALS['cfg']['NaviPointerBackground'] = '#fff'; //'#d9f5ff'; //~cyan/tuerkis
+    $GLOBALS['cfg']['NaviMarkedColor']     = '#000';
+    $GLOBALS['cfg']['NaviMarkedBackground']= '#ff9';
+    $GLOBALS['cfg']['NaviFontPercentage']  = '90%';
+
+    $GLOBALS['cfg']['MainBackgroundColor'] = '#edb'; //~tan
+    $GLOBALS['cfg']['MainGridColor']       = '#eeddbc';
+    $GLOBALS['cfg']['MainLinkColor']       = '#00c';
+    $GLOBALS['cfg']['MainLinkBackground']  = '#fff';
+
+    $GLOBALS['cfg']['BrowsePointerColor']      = '#000';
+    $GLOBALS['cfg']['BrowsePointerBackground'] = '#cfc';
+    $GLOBALS['cfg']['BrowseMarkerColor']       = '#000';
+    $GLOBALS['cfg']['BrowseMarkerBackground']  = '#ffb';
+    $GLOBALS['cfg']['ThBackground']    = '#dca'; // ff9 too yellowish
+    $GLOBALS['cfg']['ThColor']         = '#000';
+    $GLOBALS['cfg']['BgOne']           = '#fffcfa';#fffaf5 a bit too reddish
+    $GLOBALS['cfg']['BgTwo']           = '#fff';
+  }
+}
 ?>
