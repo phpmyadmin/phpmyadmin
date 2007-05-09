@@ -32,7 +32,7 @@
  * @see     PMA_isValid()
  * @param   mixed   $var        param to check
  * @param   mixed   $default    default value
- * @param   string  $type       var type to check against $var
+ * @param   mixed   $type       var type or array of values to check against $var
  * @return  mixed   $var or $default
  */
 function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
@@ -81,11 +81,13 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @todo add some more var types like hex, bin, ...?
  * @uses    is_scalar()
  * @uses    is_numeric()
+ * @uses    is_array()
+ * @uses    in_array()
  * @uses    gettype()
  * @uses    strtolower()
  * @see     http://php.net/gettype
  * @param   mixed   $var        variable to check
- * @param   string  $type       var type to check against $var
+ * @param   mixed   $type       var type or array of valid values to check against $var
  * @param   mixed   $compare    var to compare with $var
  * @return  boolean whether valid or not
  */
@@ -99,6 +101,10 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === false) {
         // no vartype requested
         return true;
+    }
+
+    if (is_array($type)) {
+        return in_array($var, $type);
     }
 
     // allow some aliaes of var types
