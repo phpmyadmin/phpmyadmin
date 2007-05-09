@@ -1,14 +1,14 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- *
- * @version $Id$
- * @package phpMyAdmin-theme
- * @subpackage Very_small
- */
-
-/**
- *
+/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
+/** 	 
+ * 	 
+ * @version $Id$ 	 
+ * @package phpMyAdmin-theme 	 
+ * @subpackage Very_small 	 
+ */ 	 
+ 
+/** 	 
+ * 	 
  */
 $cfg['LeftWidth']           = 170;          						// left frame width
 /* colors */
@@ -24,6 +24,8 @@ $cfg['BgcolorTwo']          = '#dbe7f9';    						// table data row colour, alte
 $cfg['BrowsePointerColor']  = '#b4cae9';    						// color of the pointer in browse mode
 $cfg['BrowseMarkerColor']   = '#e9c7b4';    						// color of the marker (visually marks row
                                             						// by clicking on it) in browse mode
+$cfg['BrowseMarkerBackground'] = '#b4cae9';						// background color of a marked item
+$cfg['BrowseHoverBackground']  = '#e9c7b4';						// background color of a hovered item
 
 $cfg['QueryWindowWidth']    = 550;          						// Width of Query window
 $cfg['QueryWindowHeight']   = 310;          						// Height of Query window

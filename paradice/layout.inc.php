@@ -1,37 +1,92 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- *
- * @version $Id$
- * @package phpMyAdmin-theme
- * @subpackage Paradice
+/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
+/** 	 
+ * 	 
+ * @version $Id$ 	 
+ * @package phpMyAdmin-theme 	 
+ * @subpackage Paradice 	 
  */
 
 /**
- *
+ * navi frame
  */
-$cfg['LeftWidth']           = 180;          						// left frame width
-/* colors */
-$cfg['LeftBgColor']         = '#3674CF';    						// background color for the left frame
-$cfg['RightBgColor']        = '#FFFFFF';    						// background color for the right frame
-$cfg['RightBgImage']        = 'themes/paradice/img/rightBgnd.jpg';  // path to a background image for the right frame
-                                            						// (leave blank for no background image)
-$cfg['LeftPointerColor']    = '#9999CC';    						// color of the pointer in left frame
-$cfg['Border']              = 0;            						// border width on tables
-$cfg['ThBgcolor']           = '#79A2DF';    						// table header row colour
-$cfg['BgcolorOne']          = '#EEEEEE';    						// table data row colour
-$cfg['BgcolorTwo']          = '#E5E5E5';    						// table data row colour, alternate
-$cfg['BrowsePointerColor']  = '#CCCCFF';    						// color of the pointer in browse mode
-$cfg['BrowseMarkerColor']   = '#FFCC99';    						// color of the marker (visually marks row
-                                            						// by clicking on it) in browse mode
+// navi frame width
+$GLOBALS['cfg']['NaviWidth']                = 164;
 
-$cfg['QueryWindowWidth']    = 550;          						// Width of Query window
-$cfg['QueryWindowHeight']   = 310;          						// Height of Query window
+// foreground (text) color for the navi frame
+$GLOBALS['cfg']['NaviColor']                = '#FFFFFF';
+
+// background for the navi frame
+$GLOBALS['cfg']['NaviBackground']           = '#3674CF';
+
+// foreground (text) color of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerColor']         = '#000000';
+// background of the pointer in navi frame
+$GLOBALS['cfg']['NaviPointerBackground']    = '#5796EF';
+
+/**
+ * main frame
+ */
+// foreground (text) color for the main frame
+$GLOBALS['cfg']['MainColor']                = '#142F56';
+
+// background for the main frame
+$GLOBALS['cfg']['MainBackground']           = '#FFFFFF';
+//$GLOBALS['cfg']['MainBackground']       = '#F5F5F5 url(' . $_SESSION['PMA_Theme']->getImgPath() . 'vertical_line.png) repeat-y';
+
+// foreground (text) color of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerColor']       = '#FFFFFF';
+
+// background of the pointer in browse mode
+$GLOBALS['cfg']['BrowsePointerBackground']  = '#5287D6';
+
+// foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerColor']        = '#000000';
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$GLOBALS['cfg']['BrowseMarkerBackground']   = '#FBAE36';
+
+/**
+ * fonts
+ */
+/**
+ * the font family as a valid css font family value,
+ * if not set the browser default will be used
+ * (depending on browser, DTD and system settings)
+ */
+$GLOBALS['cfg']['FontFamily']           = 'Verdana, Arial, Helvetica, sans-serif';
+/**
+ * fixed width font family, used in textarea
+ */
+$GLOBALS['cfg']['FontFamilyFixed']      = '"Courier New", Courier, monospace';
+
+/**
+ * tables
+ */
+// border
+$GLOBALS['cfg']['Border']               = 0;
+// table header and footer color
+$GLOBALS['cfg']['ThBackground']         = '#79A2DF';
+// table header and footer background
+$GLOBALS['cfg']['ThColor']              = '#000000';
+// table data row background
+$GLOBALS['cfg']['BgOne']                = '#EEEEEE';
+// table data row background, alternate
+$GLOBALS['cfg']['BgTwo']                = '#E5E5E5';
+
+/**
+ * query window
+ */
+// Width of Query window
+$GLOBALS['cfg']['QueryWindowWidth']     = 600;
+// Height of Query window
+$GLOBALS['cfg']['QueryWindowHeight']    = 400;
 
 /**
  * SQL Parser Settings
+ * Syntax colouring data
  */
-$cfg['SQP']['fmtColor']     = array(        						// Syntax colouring data
+$GLOBALS['cfg']['SQP']['fmtColor']      = array(
     'comment'            => '#808000',
     'comment_mysql'      => '',
     'comment_ansi'       => '',

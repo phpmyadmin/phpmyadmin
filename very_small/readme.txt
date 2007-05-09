@@ -3,6 +3,13 @@
 ----------------------------------------------------------------------
 
 CHANGE LOG:
+    - 2007-04-22:
+      > Supporting phpMyAdmin Version 2.10.1-rc1
+      > Fixed the text of selected (marked) and hovered lines (they weren't visible)
+      > Fixed the startup page icons
+      > Fixed the "Open new window" missing icon (it is from the "Original" theme)
+      > The theme does not depend on the Arctic Ocean
+      > Removed the $pma_http_url = ''; parameter because it is not neccessary any more
     - 2005-09-12;
       > Supporting phpMyAdmin Version 2.6.4 and higher
     - 2005-09-11:
@@ -13,23 +20,7 @@ CHANGE LOG:
 1. INSTALLATION
 ----------------------------------------------------------------------
    Simply unzip the files.
-   (sample: [whatever]/phpMyAdmin/themes/)
-
-   One each .css you'll find in first line <?php $pma_http_url = ''; ?>.
-   Here you can (if required) the url to the 'artic_ocean' theme.
-   This may fix some problems with relative urls.
-
-   Then make sure, that all images are in the directory
-   - [whatever]/phpMyAdmin/themes/arctic_ocean/img/
-
-   and all *.css.php files are in the directory
-   - [whatever]/phpMyAdmin/themes/arctic_ocean/css/.
-
-   The two *.inc.php files must stored in the directory
-   - [whatever]/phpMyAdmin/themes/arctic_ocean/.
-			
-  Note:
-    [whatever] is any path to your phpMyAdmin-Installation.
+   (sample: /phpMyAdmin/themes/)
 
 1b. OPTIONAL
 -----------------------------------------------------------------------
@@ -72,12 +63,9 @@ CHANGE LOG:
    - phpMyAdmin Version 2.6.2 or higher
    - full CSS2 compatible browser
      (I've tested with Firefox 1.02, Microsoft(R) 
-      InternetExplorer 6.0, and Opera 7.54)
+      InternetExplorer 6.0, and Opera 7.54 and Opera 9.20)
    - Your browser should support Javascript
      and png-images.
-   - In phpMyAdmin Version 2.6.4 there's
-     a new navigation behavior included.
-     The navigation panel has a fixed position now.
 
 ----------------------------------------------------------------------
 

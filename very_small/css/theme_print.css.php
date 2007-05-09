@@ -1,12 +1,12 @@
-<?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * print css file from theme
- *
- * @version $Id$
- * @package phpMyAdmin-theme
- * @subpackage Very_small
- */
+<?php $pma_http_url = ''; ?>
+/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
+/** 	 
+ * print css file from theme 	 
+ * 	 
+ * @version $Id$ 	 
+ * @package phpMyAdmin-theme 	 
+ * @subpackage Very_small 	 
+ */ 	 
 ?>
 /* For printview */
 body {
@@ -99,7 +99,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .serverinfo div {
-    background-image:    url(themes/arctic_ocean/img/item_ltr.png);
+    background-image:    url(<?php echo ( (isset($pma_http_url) && !empty($pma_http_url)) ? $pma_http_url : '../' ); ?>themes/arctic_ocean/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width:               20px;

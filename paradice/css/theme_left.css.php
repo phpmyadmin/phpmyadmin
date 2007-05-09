@@ -1,40 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * navigation css file from theme
- *
- * @version $Id$
- * @package phpMyAdmin-theme
- * @subpackage Paradice
- */
+/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
+/**     
+ * navigation css file from theme   
+ *      
+ * @version $Id$    
+ * @package phpMyAdmin-theme    
+ * @subpackage Paradice     
+*/
 
-    // unplanned execution path
-    if (!defined('PMA_MINIMUM_COMMON')) {
-        exit();
-    }
-?> 
+// unplanned execution path
+if (!defined('PMA_MINIMUM_COMMON')) {
+    exit();
+}
+?>
 /******************************************************************************/
 /* general tags */
+
 body {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        12px;
-    background-color: #3674CF;
-    color:            #ffffff;
-    margin: 0;
-    padding: 2px 2px 2px 2px;
-	background-image: 		url(themes/paradice/img/leftBgnd.jpg);
-	background-position: 	left top;
-	background-repeat: 		repeat-y;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
+	font-size:			0.8em;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin:             0;
+    padding:            0.2em 0.2em 0.2em 0.2em;
+	background-image: 	url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>leftBgnd.png);
+	background-position:left top;
+	background-repeat: 	repeat-y;
 }
 
 a img {
     border: 0;
-}
-
-/* gecko FIX, font size is not correctly assigned to all child elements */
-body * {
-    font-family:      inherit;
-    font-size:        inherit;
 }
 
 form {
@@ -46,8 +43,7 @@ form {
 select {
     background-color:   #ffffff;
     color:              #000000;
-    width:              150px;
-	font-size:			10px;
+    width:              100%;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -67,10 +63,6 @@ button {
     margin-left:        0.3em;
 }
 
-img.lightbulb {
-    cursor:             pointer;
-}
-
 
 /******************************************************************************/
 /* specific elements */
@@ -79,36 +71,75 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid #ffffff;
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
 
-div#leftframelinks img {
-    vertical-align: middle;
+ul#databaseList {
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-bottom:      0.5em;
+    padding-bottom:     0.5em;
+    padding-left: 	1.5em;
+}
+
+ul#databaseList a {
+    display: block;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
+ul#databaseList a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+ul#databaseList li.selected a {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+div#leftframelinks .icon {
     padding:            0;
     margin:             0;
 }
 
-div#leftframelinks a {
-    margin:             0.1em;
+div#leftframelinks a img.icon {
+    margin:             0;
     padding:            0.2em;
     border:             0;
 }
 
 div#leftframelinks a:hover {
-	background-color: #3674CF;
-    color: #FFFFFF;	
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+/* serverlist */
+#body_leftFrame #list_server {
+    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#body_leftFrame #list_server li {
+    margin: 0;
+    padding: 0;
+    font-size:          80%;
 }
 
 /* leftdatabaselist */
+div#left_tableList {
+	background-color:	none;
+}
 div#left_tableList ul {
     list-style-type:    none;
     list-style-position: outside;
     margin:             0;
     padding:            0;
-    font-size:          10px;
-    background-color:   #3674CF;
+    font-size:          80%;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
 }
 
 div#left_tableList ul ul {
@@ -116,13 +147,15 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    color:              #ffffff;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    color:              #ffffcc;
-    text-decoration: 	none;
+    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    text-decoration:    underline;
 }
 
 div#left_tableList li {
@@ -131,9 +164,20 @@ div#left_tableList li {
     white-space:        nowrap;
 }
 
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
+/* marked items */
+div#left_tableList > ul li.marked > a,
+div#left_tableList > ul li.marked {
+    background: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+<?php } ?>
+
 <?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
-div#left_tableList li:hover {
-    background-color: #2563BE;
+div#left_tableList > ul li:hover > a,
+div#left_tableList > ul li:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
 
@@ -143,9 +187,9 @@ div#left_tableList img {
 }
 
 div#left_tableList ul ul {
-    margin-left:        0em;
+    margin-left:        0;
     padding-left:       0.1em;
-    border-left:        0.1em solid #ffffff;
+    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid #ffffff;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }

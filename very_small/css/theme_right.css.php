@@ -1,12 +1,12 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * main css file from theme
- *
- * @version $Id$
- * @package phpMyAdmin-theme
- * @subpackage Very_small
- */
+/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
+/** 	 
+ * main css file from theme 	 
+ * 	 
+ * @version $Id$ 	 
+ * @package phpMyAdmin-theme 	 
+ * @subpackage Very_small 	 
+ */ 	 
 ?>
 
 #mainFrameset, #leftFrameset, frameset, frame {
@@ -37,7 +37,7 @@ body {
     background-color:    #ffffff;
     margin:              0;
     padding:          14px 0px 0px 0px;
-    background-image:    url(themes/arctic_ocean/img/wbg_right.jpg);
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>wbg_right.jpg);
     background-position: 100% 100%;
     background-repeat:   no-repeat;
     background-attachment: fixed;
@@ -106,12 +106,12 @@ img {
 }
 img[class=icon]{
     margin:              0 0 0 0;
-    padding:              0 0 0 0;
-    height:13px;
+	padding:              0 0 0 0;
+	height:13px;
 }
 /* tables */
 table,td,th{
-    padding: 0px;
+	padding: 0px;
     margin:  0px;
 }
 table {
@@ -133,7 +133,7 @@ th, .tblFooters {
     border-top:          1px solid #cccccc;
     border-bottom:       1px solid #333333;
     white-space:         nowrap;
-    background-image:    url(themes/arctic_ocean/img/tbg_th1.png);
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_th1.png);
     background-repeat:   repeat-x;
     background-position: 0 0;
 }
@@ -146,7 +146,7 @@ th, .tblFooters {
 .tblHeaders, tr.tblHeaders td, tr.tblHeaders th {
     color:               #585880;
     background-color:    #b4cae9;
-    background-image:    url(themes/arctic_ocean/img/tbg_th0.png);
+    background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_th0.png);
 }
 .tblcomment {
     font-size:           10px;
@@ -172,7 +172,7 @@ th.td {
     background-image:    none;
     border-top:          1px none #cccccc;
     border-bottom:       1px solid #333333;
-    padding: 0px;
+	padding: 0px;
     margin:  0px;
 }
 
@@ -182,7 +182,7 @@ table tr.even th,
 table tr.marked th {
     background-image:    none;
     border:              none;
-    padding: 0px;
+	padding: 0px;
     margin:  0px;
 }
 
@@ -228,10 +228,10 @@ input[type=text], input[type=file], input[type=password], input.textfield {
 }
 input.inpcheck {
     width:10px;
-    height:10px;
+	height:10px;
 }
 input[type=checkbox] {
-    width:10px;
+	width:10px;
     height:10px;
 }
 
@@ -269,7 +269,7 @@ div.notice {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #FFD700;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(themes/arctic_ocean/img/s_notice.png);
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -298,7 +298,7 @@ div.warning {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #CC0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(themes/arctic_ocean/img/s_warn.png);
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -327,7 +327,7 @@ div.error {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #ff0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(themes/arctic_ocean/img/s_error.png);
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
@@ -359,7 +359,7 @@ fieldset.confirmation legend {
     border-right: 0.1em solid #FF0000;
     font-weight: bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(themes/arctic_ocean/img/s_really.png);
+    background-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 5px 50%;
@@ -512,7 +512,7 @@ fieldset.confirmation legend {
         margin:              0px 1px 0px 1px;
     }
     .serverinfo div {
-        background-image:    url(themes/arctic_ocean/img/item_ltr.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
         background-repeat:   no-repeat;
         background-position: 50% 50%;
         width:               16px;
@@ -578,7 +578,7 @@ fieldset.confirmation legend {
     .nav {
         color:               #000000;
         background-color:    #b4cae9;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav0.png);
         background-repeat:   repeat-x;
         background-position: center;
         height:              24px;
@@ -613,18 +613,18 @@ fieldset.confirmation legend {
    }
     .navNormal {
         background-color:    #b4cae9;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav0.png);
     }
     .navActive {
         background-color:    #ffffff;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav2.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav2.png);
         border:              none;
         margin:              0px;
         padding:             0px;
     }
     .navDrop {
         background-color:    #e9c7b4;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav3.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav3.png);
     }
     .navActive a:link, .navActive a:active, .navActive a:visited {
         color:               #585880;
@@ -647,7 +647,7 @@ fieldset.confirmation legend {
     .navSpacer {
         width:               1px;
         background-color:    #333333;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav1.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav1.png);
         background-repeat:   no-repeat;
         background-position: center top;
     }
@@ -660,7 +660,7 @@ fieldset.confirmation legend {
     ul#topmenu {
         list-style-type: none;
         background-color:    #ffffff;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav0.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav0.png);
         background-repeat:   repeat-x;
         background-position: center bottom;
         border:              none;
@@ -678,7 +678,7 @@ fieldset.confirmation legend {
         width:               100%;
         _width:               expression(eval(document.body.offsetWidth-18));
     }
-
+    
     ul#topmenu li {
         float:               left;
         margin:              0;
@@ -686,7 +686,7 @@ fieldset.confirmation legend {
         vertical-align:      middle;
         border:              none;
     }
-
+    
     /* default tab styles */
     span.tab, span.tab:hover,
     span.tabcaution, span.tabcaution:hover,
@@ -717,18 +717,18 @@ fieldset.confirmation legend {
     }
     a.tab:hover  {
         color:               #ffffff;
-        background-image:    url(themes/arctic_ocean/img/tbg_nav4.png);
+        background-image:   url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav4.png);
         background-position: center bottom;
     }
     a.tabactive:link,  a.tabactive:active,  a.tabactive:visited,  a.tabactive:hover  {
-        background-image:    url(themes/arctic_ocean/img/tbg_nav2.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav2.png);
         background-color:    #ffffff;
         border-left:         1px solid #333333;
         border-right:        1px solid #333333;
         border-bottom:       1px solid #ffffff;
     }
     a.tabcaution:hover {
-        background-image:    url(themes/arctic_ocean/img/tbg_nav3.png);
+        background-image:    url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbg_nav3.png);
         background-position: center bottom;
     }
     a.tabcaution:link, a.tabcaution:active, a.tabcaution:visited, a.tabcaution:hover, span.tabcaution  {
@@ -798,3 +798,174 @@ tr.disabled, td.disabled, .disabled td {
    font-family:          "Courier New", Courier, mono;
    font-size:            11px;
 }
+
+
+/********************/
+/* NEW in PMA 2.9   */
+/********************/
+
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
+/* marked items */
+.marked a,
+.marked {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:      black;
+}
+<?php } ?>
+
+/* odd items 1,3,5,7,... */
+.odd {
+    background: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+}
+
+/* even items 2,4,6,8,... */
+.even {
+    background: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+}
+
+/* hovered items */
+.odd:hover,
+.even:hover,
+.hover {
+    background: <?php echo $GLOBALS['cfg']['BrowseHoverBackground']; ?>;
+    color: black;
+}
+
+/**
+ * marks table rows/cells if the db field is in a where condition
+ */
+tr.condition th,
+tr.condition td,
+td.condition,
+th.condition {
+    border: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+}
+
+label.desc {
+    width: 30em;
+    float: <?php echo $left; ?>;
+}
+
+body.loginform {
+    text-align: center;
+}
+
+body.loginform div.container {
+    text-align: <?php echo $left; ?>;
+    width: 30em;
+    margin: 0 auto;
+}
+
+#body_leftFrame #list_server {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#body_leftFrame #list_server li {
+    margin: 0;
+    padding: 0;
+    font-size:          80%;
+}
+
+<?php if ($GLOBALS['cfg']['MainPageIconic']) { ?>
+/* iconic view for ul items */
+li#li_create_database {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
+}
+
+li#li_select_lang {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
+}
+
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_select_theme{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
+}
+
+li#li_server_info,
+li#li_mysql_proto{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+}
+
+li#li_user_info{
+     list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+}
+
+li#li_mysql_status{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
+}
+
+li#li_mysql_variables{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
+}
+
+li#li_mysql_processes,
+li#li_mysql_client_version,
+li#li_used_php_extension{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
+}
+
+li#li_mysql_collations{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+}
+
+li#li_mysql_engines{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
+}
+
+li#li_mysql_binlogs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_tbl.png);
+}
+
+li#li_mysql_databases {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+}
+
+li#li_export {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_export.png);
+}
+
+li#li_import {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_import.png);
+}
+
+li#li_change_password {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_passwd.png);
+}
+
+li#li_log_out {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
+}
+
+li#li_pma_docs {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
+}
+
+li#li_phpinfo {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>php_sym.png);
+}
+
+li#li_pma_homepage {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_home.png);
+}
+
+li#li_mysql_privilegs{
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+}
+
+li#li_switch_dbstats {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_dbstatistics.png);
+}
+
+li#li_flush_privileges {
+    list-style-image: url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
+}
+/* END iconic view for ul items */
+<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
