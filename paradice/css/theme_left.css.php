@@ -25,7 +25,7 @@ body {
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0.2em 0.2em 0.2em 0.2em;
-	background-image: 	url(../<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>leftBgnd.png);
+	background-image: 	url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>leftBgnd.png);
 	background-position:left top;
 	background-repeat: 	repeat-y;
 }
@@ -116,7 +116,7 @@ div#leftframelinks a:hover {
 
 /* serverlist */
 #body_leftFrame #list_server {
-    list-style-image: url(../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
     list-style-position: inside;
     list-style-type: none;
     margin: 0;
