@@ -30,7 +30,7 @@ $cfgRelation = PMA_getRelationsParam();
  * Gets available MySQL charsets and storage engines
  */
 require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/storage_engines.lib.php';
+require_once './libraries/StorageEngine.class.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -258,7 +258,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
     <tr><td><?php echo $strStorageEngine; ?>
             <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </td>
-        <td><?php echo PMA_generateEnginesDropdown('new_tbl_type', null, false, $tbl_type, 4); ?>
+        <td><?php echo PMA_StorageEngine::getHtmlSelect('new_tbl_type', null, $tbl_type); ?>
         </td>
     </tr>
 

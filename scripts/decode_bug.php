@@ -80,7 +80,7 @@ if (!empty($_POST) && isset($_POST['bug_encoded'])) {
 }
 
 if (!empty($bug_encoded)) {
-    if (get_magic_quotes_gpc()) {
+    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $bug_encoded = stripslashes($bug_encoded);
     }
 

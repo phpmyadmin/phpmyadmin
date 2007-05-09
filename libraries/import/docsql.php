@@ -6,6 +6,7 @@
  * @version $Id$
  */
 
+require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**

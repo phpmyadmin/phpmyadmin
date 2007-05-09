@@ -73,7 +73,7 @@ header('Content-Type: text/html; charset=' . $charset);
 <body>
 <h1>phpMyAdmin - <?php echo $type; ?></h1>
 <p><?php
-if (get_magic_quotes_gpc()) {
+if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
     echo PMA_sanitize(stripslashes($_REQUEST['error']));
 } else {
     echo PMA_sanitize($_REQUEST['error']);

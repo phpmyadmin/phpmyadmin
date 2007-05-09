@@ -1164,6 +1164,30 @@ function PMA_DBI_getCompatibilities()
     return $compats;
 }
 
+/**
+ * returns warnings for last query
+ * 
+ * @uses    $GLOBALS['userlink']
+ * @uses    PMA_DBI_fetch_result()
+ * @param   resource mysql link  $link   mysql link resource
+ * @return  array   warnings
+ */
+function PMA_DBI_get_warnings($link = null)
+{
+    if (PMA_MYSQL_INT_VERSION < 40100) {
+    	return array();
+    }
+    
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return array();
+        }
+    }
+    
+    return PMA_DBI_fetch_result('SHOW WARNINGS', null, null, $link);
+}
 
 /**
  * returns true (int > 0) if current user is superuser
@@ -1215,5 +1239,41 @@ function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_na
     $returned_field = array('PROCEDURE' => 'Create Procedure', 'FUNCTION' => 'Create Function');
     $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($proc_or_function_name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
+}
+
+/**
+ * returns details about the TRIGGERs of a specific table 
+ *
+ * @uses    PMA_DBI_fetch_result()
+ * @param   string              $db     db name
+ * @param   string              $table  table name 
+ *
+ * @return  array               information about triggers (may be empty)
+ */
+function PMA_DBI_get_triggers($db, $table) {
+
+    $result = array();
+
+    // available in INFORMATION_SCHEMA since MySQL 5.0.10
+    if (PMA_MYSQL_INT_VERSION >= 50010) {
+        $triggers = PMA_DBI_fetch_result("SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "' and EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';");
+
+        if ($triggers) {
+            $delimiter = '//';
+            foreach ($triggers as $trigger) {
+                $one_result = array();
+                $one_result['name'] = $trigger['TRIGGER_NAME']; 
+                $one_result['action_timing'] = $trigger['ACTION_TIMING']; 
+                $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION']; 
+
+                $one_result['full_trigger_name'] = PMA_backquote($trigger['TRIGGER_SCHEMA']) . '.' . PMA_backquote($trigger['TRIGGER_NAME']);
+                $one_result['drop'] = 'DROP TRIGGER ' . $one_result['full_trigger_name']; 
+                $one_result['create'] = 'CREATE TRIGGER ' . $one_result['full_trigger_name'] . ' ' . $trigger['ACTION_TIMING']. ' ' . $trigger['EVENT_MANIPULATION'] . ' ON ' . PMA_backquote($trigger['EVENT_OBJECT_SCHEMA']) . '.' . PMA_backquote($trigger['EVENT_OBJECT_TABLE']) . "\n" . ' FOR EACH ROW ' . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
+
+                $result[] = $one_result;
+            }
+        }
+    }
+    return($result);
 }
 ?>

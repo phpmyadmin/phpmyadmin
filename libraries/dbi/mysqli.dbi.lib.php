@@ -108,7 +108,9 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
 
     if ($return_value == false) {
         if ($is_controluser) {
-            define('PMA_DBI_CONNECT_FAILED_CONTROLUSER', true);
+            if (! defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
+                define('PMA_DBI_CONNECT_FAILED_CONTROLUSER', true);
+            }
             return false;
         }
         PMA_auth_fails();
@@ -182,22 +184,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
     if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 40100) {
         $query = PMA_convert_charset($query);
     }
-    $result = mysqli_query($link, $query, $method);
-
-    if (mysqli_warning_count($link)) {
-        /**
-         * @todo check $method ?
-         */
-        $warning_result = mysqli_query($link, 'SHOW WARNINGS');
-        if ($warning_result) {
-            $warning_row = mysqli_fetch_row($warning_result);
-            $GLOBALS['warning'] = sprintf("%s (%d): %s", $warning_row[0], $warning_row[1], $warning_row[2]);
-        }
-    } else {
-        unset($GLOBALS['warning']);
-    }
-
-    return $result;
+    return mysqli_query($link, $query, $method);
 
     // From the PHP manual:
     // "note: returns true on success or false on failure. For SELECT,
@@ -560,7 +547,7 @@ function PMA_DBI_get_fields_meta($result)
     $typeAr = array();
     $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
     $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = 'real';
-    $typeAr[MYSQLI_TYPE_BIT]         = 'bool';
+    $typeAr[MYSQLI_TYPE_BIT]         = 'int';
     $typeAr[MYSQLI_TYPE_TINY]        = 'int';
     $typeAr[MYSQLI_TYPE_SHORT]       = 'int';
     $typeAr[MYSQLI_TYPE_LONG]        = 'int';

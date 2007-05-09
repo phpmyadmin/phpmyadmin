@@ -3,7 +3,7 @@
 
 /**
  * translated by: 
-   Airon Luis Pereira <aironp@pop.com.br> 
+   Airon Luis Pereira <airon.pereira@gmail.com> 
 */ 
 
 $charset = 'iso-8859-1'; 
@@ -25,6 +25,11 @@ $datefmt = '%B %d, %Y as %I:%M %p';
 
 $timespanfmt = '%s dias, %s horas, %s minutos e %s segundos'; 
 
+ 
+
+ 
+
+ 	  	 
 $strAbortedClients = 'Abortado'; 
 $strAccessDenied = 'Acesso negado'; 
 $strAccessDeniedCreateConfig = 'A provável razão para isso é que você não criou o arquivo de configuração. Você deve usar o %1$ssetup script%2$s para criar um.';
@@ -244,7 +249,7 @@ $strDoAQuery = 'Faça uma "consulta por exemplo" (coringa: "%")';
 $strDocSQL = 'DocSQL';
 $strDocSQLOptions = 'Opções DocSQL';
 $strDocu = 'Documentação'; 
-$strDoYouReally = 'Confirmar: '; 
+$strDoYouReally = 'Confirmar'; 
 $strDropDatabaseStrongWarning = 'Você está prestes à DESTRUIR completamente o Banco de Dados!'; 
 $strDrop = 'Eliminar'; 
 $strDropUsersDb = 'Eliminar o Banco de Dados que possui o mesmo nome dos usuários.'; 
@@ -257,7 +262,7 @@ $strEdit = 'Editar';
 $strEditPDFPages = 'Editar Páginas PDF'; 
 $strEditPrivileges = 'Editar Privilégios'; 
 $strEffective = 'Efetivo'; 
-$strEmpty = 'Limpa'; 
+$strEmpty = 'Limpar'; 
 $strEmptyResultSet = 'MySQL retornou um conjunto vazio (ex. zero registros).'; 
 $strEnabled = 'Habilitado'; 
 $strEncloseInTransaction = 'Encapsular exportação numa transação'; 
@@ -266,7 +271,7 @@ $strEnd = 'Fim';
 $strEndRaw = 'FIM CRU'; 
 $strEngineAvailable = '%s está disponível neste servidor MySQL.';
 $strEngineDisabled = '%s está desabilitado neste servidor MySQL.';
-$strEngines = 'Engines';
+$strEngines = 'Engines'; //sem traducao
 $strEngineUnsupported = 'Esse servidor MySQL não suporta o stored engine %s.';
 $strEnglish = 'Inglês'; 
 $strEnglishPrivileges = ' Nota: nomes de privilégios do MySQL são expressos em inglês '; 
@@ -291,6 +296,7 @@ $strExtra = 'Extra';
 $strFailedAttempts = 'Tentativas falharam'; 
 $strField = 'Campo'; 
 $strFieldHasBeenDropped = 'Campo %s foi deletado'; 
+$strFieldInsertFromFileTempDirNotExists = 'Erro ao mover o arquivo carregado, veja FAQ 1.11';
 $strFields = 'Campos'; 
 $strFieldsEmpty = ' O campo count esta vazio! '; 
 $strFieldsEnclosedBy = 'Campos delimitados por'; 
@@ -304,6 +310,7 @@ $strFileNameTemplateDescriptionServer = 'nome do servidor';
 $strFileNameTemplateDescriptionTable = 'nome da tabela';
 $strFileNameTemplate = 'Nome do arquivo do modelo'; 
 $strFileNameTemplateRemember = 'lembrar modelo'; 
+$strFiles = 'Arquivos';
 $strFileToImport = 'Arquivo para importar';
 $strFixed = 'fixo'; 
 $strFlushPrivilegesNote = 'Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos privilégios que o servidor usa se alterações manuais forem feitas nele. Neste caso, você deve usar %sRELOAD PRIVILEGES%s antes de continuar..'; 
@@ -340,6 +347,7 @@ $strHasBeenCreated = 'foi criado.';
 $strHaveToShow = 'Deve escolher pelo menos uma coluna para exibir'; 
 $strHebrew = 'Hebreu'; 
 $strHelp = 'Ajuda';
+$strHexForBLOB = 'Usar hexadecimal para BLOB';
 $strHide = 'Ocultar';
 $strHideShowAll = 'Ocultar/Exibir tudo';
 $strHideShowNoRelation = 'Ocultar/Exibir Tabelas sem relacionamento';
@@ -364,6 +372,7 @@ $strImportFormat = 'Formato do arquivo importado';
 $strImport = 'Importar';
 $strImportSuccessfullyFinished = 'Importação finalizada com sucesso, %d consultas executadas.';
 $strIndexes = 'Índices'; 
+$strIndexesSeemEqual = 'Os seguintes índices parecem ser idênticos e um deles deve ser removido:';
 $strIndexHasBeenDropped = 'Índice %s foi eliminado'; 
 $strIndex = 'Índice'; 
 $strIndexName = 'Nome do índice:'; 
@@ -489,6 +498,7 @@ $strMyISAMSortBufferSize = 'Tamanho do buffer de ordenação';
 $strMySQLCharset = 'Conjunto de caracteres MySQL'; 
 $strMysqlClientVersion = 'Versão do cliente MySQL';
 $strMySQLConnectionCollation = 'Collation de conexão do MySQL'; // Collation nao tem traducao
+$strMysqlLibDiffersServerVersion = 'Sua versão %s da biblioteca MySQL do PHP difere da versão %s do seu servidor MySQL. Isso pode causar um comportamento estranho.';
 $strMySQLSaid = 'Mensagens do MySQL : '; 
 $strMySQLShowProcess = 'Mostrar os Processos'; 
 $strMySQLShowStatus = 'Mostrar informação de runtime do MySQL'; 
@@ -540,6 +550,7 @@ $strOpenNewWindow = 'Abrir nova janela do phpMyAdmin';
 $strOperations = 'Operações'; 
 $strOperator = 'Operador'; 
 $strOptimizeTable = 'Otimizar tabela'; 
+$strOptions = 'Opções';
 $strOr = 'Ou'; 
 $strOverhead = 'Sobrecarga'; 
 $strOverwriteExisting = 'Sobrescrever arquivo(s) existente(s)'; 
@@ -671,6 +682,8 @@ $strRevokeAndDelete = 'Revogar todos os privilégios ativos dos usuarios e depois
 $strRevokeMessage = 'Você revogou os privilégios para %s'; 
 $strRevoke = 'Revogar'; 
 $strRomanian = 'Romêno'; 
+$strRoutineReturnType = 'Tipo de returno';
+$strRoutines = 'Rotinas';
 $strRowLength = 'Tamanho da coluna'; 
 $strRows = 'Colunas'; 
 $strRowsFrom = 'colunas começando de'; 
@@ -722,6 +735,7 @@ $strServerTabVariables = 'Variáveis';
 $strServerTrafficNotes = '<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico da rede neste servidor MySQL desde o início.'; 
 $strServerVars = 'Variáveis e configurações do servidor'; 
 $strServerVersion = 'Versão do Servidor'; 
+$strSessionStartupErrorGeneral = 'Não pôde iniciar a sessão sem erros, cheque os erros ocorridos nos logs do PHP e/ou do seu servidor web e configure a instalação do PHP corretamente.';
 $strSessionValue = 'Valor da sessão'; 
 $strSetEnumVal = 'Se um tipo de campo é "enum" ou "set", por favor entre valores usando este formato: \'a\',\'b\',\'c\'...<br />Se você for colocar uma barra contrária ("\") ou aspas simples ("\'") entre os valores, coloque uma barra contrária antes (por exemplo \'\\\\xyz\' ou \'a\\\'b\').'; 
 $strShowAll = 'Mostrar todos'; 
@@ -969,6 +983,13 @@ $strUpdateProfileMessage = 'A configuração foi atualizada.';
 $strUpdateQuery = 'Atualizar a consulta SQL'; 
 $strUpdComTab = 'Consulte a documentação sobre como atualizar sua tabela Column_comments'; 
 $strUpgrade = 'Você deveria atualizar para %s %s ou posterior.'; 
+$strUploadErrorCantWrite = 'Falhou ao salvar arquivo no disco.';
+$strUploadErrorExtension = 'Carregamento do arquivo parado pela extenção.';
+$strUploadErrorFormSize = 'O arquivo carregado excede o tamanho definido na diretriz MAX_FILE_SIZE do formulário HTM.';
+$strUploadErrorIniSize = 'O arquivo carregado excede o tamanho definido na diretriz upload_max_filesize no php.ini.';
+$strUploadErrorNoTempDir = 'Pasta temporária não encontrada.';
+$strUploadErrorPartial = 'Carregamento do arquivo foi apenas parcial.';
+$strUploadErrorUnknown = 'Erro desconhecido no carregamento do arquivo.';
 $strUploadLimit = 'Você provavelmente tentou carregar um arquivo muito grande. Veja referências na %sdocumentation%s para burlar esses limites.';
 $strUploadsNotAllowed = 'Não é permitido subir arquivos neste servidor.';
 $strUsage = 'Uso'; 
@@ -998,6 +1019,7 @@ $strViewDumpDB = 'Ver o esquema do Banco de Dados';
 $strViewDump = 'Ver o esquema da tabela'; 
 $strViewHasBeenDropped = 'Visão %s foi apagada';
 $strViewMaxExactCount = 'Essa visão tem mais que %s linhas. Veja referências na %sdocumentation%s.';
+$strViewName = 'Nome da VISÃO';
 $strView = 'Visão';
 
 $strWebServerUploadDirectoryError = 'O diretório que você especificou para subir arquivos não foi encontrado.'; 
@@ -1018,32 +1040,10 @@ $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os limi
 $strZip = '"compactado com zip"'; 
 
 // To translate:
-$strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
 
-$strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see FAQ 1.11';  //to translate
-$strFiles = 'Files';  //to translate
+$strControluserFailed = 'Conexão para controle do usuário como definido nas configurações falhou.';
 
-$strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
-
-$strIndexesSeemEqual = 'The following indexes appear to be equal and one of them should be removed:';  //to translate
-
-$strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';  //to translate
-
-$strOptions = 'Options';  //to translate
-
-$strRoutineReturnType = 'Return type';  //to translate
-$strRoutines = 'Routines';  //to translate
-
-$strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
-
-$strUploadErrorCantWrite = 'Failed to write file to disk.';  //to translate
-$strUploadErrorExtension = 'File upload stopped by extension.';  //to translate
-$strUploadErrorFormSize = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.';  //to translate
-$strUploadErrorIniSize = 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';  //to translate
-$strUploadErrorNoTempDir = 'Missing a temporary folder.';  //to translate
-$strUploadErrorPartial = 'The uploaded file was only partially uploaded.';  //to translate
-$strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
-
-$strViewName = 'VIEW name';  //to translate
-
+$strRestartInsertion = 'Restart insertion with %s rows';  //to translate
+$strTriggers = 'Triggers';  //to translate
+$strEvent = 'Event';  //to translate
 ?>

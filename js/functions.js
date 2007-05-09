@@ -368,7 +368,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     {
         id = "field_" + i + "_2";
         elm = getElement(id);
-        if (elm.value == 'VARCHAR' || elm.value == 'CHAR') {
+        if (elm.value == 'VARCHAR' || elm.value == 'CHAR' || elm.value == 'BIT') {
             elm2 = getElement("field_" + i + "_3");
             val = parseInt(elm2.value);
             elm3 = getElement("field_" + i + "_1");
@@ -993,8 +993,8 @@ function getElement(e,f){
         if(f.document.layers[e]) {
             return f.document.layers[e];
         }
-        for(W=0;i<f.document.layers.length;W++) {
-            return(getElement(e,fdocument.layers[W]));
+        for(W=0;W<f.document.layers.length;W++) {
+            return(getElement(e,f.document.layers[W]));
         }
     }
     if(document.all) {

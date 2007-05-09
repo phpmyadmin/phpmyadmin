@@ -680,6 +680,18 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
                   .  $GLOBALS['comment_marker'] . $crlf;
             $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
+            $triggers = PMA_DBI_get_triggers($db, $table);
+            if ($triggers) {
+                $dump .=  $crlf . $GLOBALS['comment_marker'] . $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strTriggers'] . ' ' . $formatted_table_name . $crlf
+                  .  $GLOBALS['comment_marker'] . $crlf;
+                $delimiter = '//';
+                foreach ($triggers as $trigger) {
+                    $dump .= $trigger['drop'] . ';' . $crlf;
+                    $dump .= 'DELIMITER ' . $delimiter . $crlf;
+                    $dump .= $trigger['create'];
+                    $dump .= 'DELIMITER ;' . $crlf;
+                }
+            }
             break;
         case 'create_view':
             $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strStructureForView'] . ' ' . $formatted_table_name . $crlf

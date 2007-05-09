@@ -62,6 +62,8 @@ PMA_DBI_select_db($GLOBALS['db']);
 /**
  * Initializes some variables
  */
+$goto_include = false;
+
 if (isset($_REQUEST['dontlimitchars'])) {
     $url_params['dontlimitchars'] = $_REQUEST['dontlimitchars'];
 }
@@ -77,8 +79,13 @@ if (isset($_REQUEST['disp_direction'])) {
 if (isset($_REQUEST['repeat_cells'])) {
     $url_params['repeat_cells'] = (int) $_REQUEST['repeat_cells'];
 }
+if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
+    $cfg['InsertRows'] = $_REQUEST['insert_rows'];
+    require_once './libraries/header.inc.php';
+    require './tbl_change.php';
+    exit;
+}
 
-$goto_include = false;
 if (isset($_REQUEST['after_insert'])
  && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))) {
     $url_params['after_insert'] = $_REQUEST['after_insert'];
@@ -230,7 +237,10 @@ foreach ($loop_array as $primary_key) {
             // no need to add column into the valuelist
             if (strlen($cur_value)) {
                 $query_values[] = $cur_value;
-                $query_fields[] = PMA_backquote($key);
+                // first inserted row so prepare the list of fields
+                if (empty($value_sets)) {
+                    $query_fields[] = PMA_backquote($key);
+                }
             }
 
         //  u p d a t e
@@ -311,9 +321,7 @@ foreach ($query as $single_query) {
     } else {
         $result = PMA_DBI_query($single_query);
     }
-    if (isset($GLOBALS['warning'])) {
-        $warning_message .= $GLOBALS['warning'] . '[br]';
-    }
+    
     if (! $result) {
         $message .= PMA_DBI_getError();
     } else {
@@ -333,6 +341,12 @@ foreach ($query as $single_query) {
         }
         PMA_DBI_free_result($result);
     } // end if
+
+    foreach (PMA_DBI_get_warnings() as $warning) {
+        $warning_message .= $warning['Level'] . ': #' . $warning['Code'] 
+            . ' ' . $warning['Message'] . '[br]';
+    }
+    
     unset($result);
 }
 unset($single_query, $query);

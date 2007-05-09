@@ -91,7 +91,7 @@ $strBzip = '"ge-bzipt"';
 
 $strCalendar = 'Kalender';
 $strCannotLogin = 'Kan niet inloggen op de MySQL server';
-$strCantLoad = 'Kan de %s extentie niet laden,<br />Controleer de PHP Configuratie';
+$strCantLoad = 'Kan de [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a]-extensie niet laden. Controleer de PHP configuratie.';
 $strCantLoadRecodeIconv = 'Kan iconv of recode extensies niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
 $strCantUseRecodeIconv = 'Kan iconv, libiconv en recode_string functies niet gebruiken zolang de extensies geladen moeten worden. Controleer de php configuratie.';
@@ -1053,4 +1053,7 @@ $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strControluserFailed = 'Connection for controluser as defined in your configuration failed.';  //to translate
 $strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
+$strRestartInsertion = 'Restart insertion with %s rows';  //to translate
+$strTriggers = 'Triggers';  //to translate
+$strEvent = 'Event';  //to translate
 ?>

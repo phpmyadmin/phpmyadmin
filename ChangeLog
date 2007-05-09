@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 + [import] support handling of DELIMITER to mimic mysql CLI, thanks to fb1
++ improved PHP 6 compatibility
 - bug #1674914 [structure] changing definition of a TIMESTAMP field
 - bug #1615530 [upload] added more specific error message if field upload fails
 - bug #1627210, #1083301, #1482401 [data] warning on duplicate indexes
@@ -17,7 +18,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1523747 [innodb] make warning about row count more visible
 - bug #1676012 [auth] strip non-US-ASCII characters (RFC2616)
 - bug #1679440 Added FAQ entry about header errors under IIS caused by
-- typo in fix for bug #1671813
   an end-of-line character
 - [gui] avoid displaying a wide selector in server selection
 - bug #1614004 [relation] foreign key spanning multiple columns are
@@ -50,8 +50,20 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch 
 + [lang] danish update, thanks to Finn Sorensen
 + RFE #1435922 [gui] navigation frame shows listing of databases when none selected
++ [data] support BIT datatype (under mysqli), thanks to Christian Schmidt 
++ [display] automatic confirmation for sort by key, thanks to Juergen Wind 
++ [data] can now choose the number of insert rows 
++ RFE #1704779 [gui] link documentation from login page
++ RFE #1513345 [setup] check control user connection during setup
++ [structure] TRIGGERS: display/edit/drop/SQL export
 
-2.10.1.0 (not released yet)
+2.10.2.0 (not yet released)
+
++ [data] display all warnings, not only last one
+- typo in fix for bug #1671813
+- bug #1714908 Inserted Row Count is wrong
+
+2.10.1.0 (2007-04-23)
 =====================
 
 - bug #1541147 [js] '#' in database names not correctly handled by queywindow.js
@@ -79,12 +91,11 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1690718 Can't edit if BLOB and no PK
 - bug #1672636 [export] PDF export too wide 
 + [lang] brazilian-portuguese update, thanks to Airon Luis Pereira 
-
-2.10.0.3 (not released yet)
-=====================
-
+- patch #1698964 javascript typo, thanks to Corey Hollaway
+- bug #1703897 [css] undefined index 'js_frame' 
 - bug #1690561 Blobs being cleared on Edit of row
 - bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
+- bug #1704467 XSS vulnerability in browse_foreigners.php, thanks to sp3x SecurityReason
 
 2.10.0.2 (2007-03-02)
 =====================

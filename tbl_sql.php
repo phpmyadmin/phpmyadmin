@@ -35,7 +35,7 @@ require_once './libraries/tbl_links.inc.php';
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm();
+PMA_sqlQueryForm(true, false, isset($_REQUEST['delimiter']) ? $_REQUEST['delimiter'] : ';');
 
 /**
  * Displays the footer

@@ -2209,6 +2209,7 @@ $cfg['ColumnTypes'] = array(
    'LONGTEXT',
    'ENUM',
    'SET',
+   'BIT',
    'BOOL'
 );
 

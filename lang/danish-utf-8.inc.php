@@ -1032,4 +1032,7 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
+$strRestartInsertion = 'Restart insertion with %s rows';  //to translate
+$strTriggers = 'Triggers';  //to translate
+$strEvent = 'Event';  //to translate
 ?>

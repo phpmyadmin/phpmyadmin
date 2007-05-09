@@ -14,7 +14,7 @@ PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 // Get available character sets and storage engines
 require_once './libraries/mysql_charsets.lib.php';
-require_once './libraries/storage_engines.lib.php';
+require_once './libraries/StorageEngine.class.php';
 
 if (is_int($cfg['DefaultPropDisplay'])) {
     if ($num_fields <= $cfg['DefaultPropDisplay']) {
@@ -670,7 +670,7 @@ if ($action == 'tbl_create.php') {
         </td>
         <td width="25">&nbsp;</td>
         <td>
-<?php echo PMA_generateEnginesDropdown('tbl_type', null, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null), 3); ?>
+<?php echo PMA_StorageEngine::getHtmlSelect('tbl_type', null, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null)); ?>
         </td>
         <?php
         if (PMA_MYSQL_INT_VERSION >= 40100) {

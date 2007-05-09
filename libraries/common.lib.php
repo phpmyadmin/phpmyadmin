@@ -22,6 +22,11 @@
 function PMA_pow($base, $exp, $use_function = false)
 {
     static $pow_function = null;
+
+    if ($exp < 0) {
+        return false;
+    }
+
     if (null == $pow_function) {
         if (function_exists('bcpow')) {
             // BCMath Arbitrary Precision Mathematics Function
@@ -49,9 +54,6 @@ function PMA_pow($base, $exp, $use_function = false)
         case 'pow' :
             $base = (float) $base;
             $exp = (int) $exp;
-            if ($exp < 0) {
-                return false;
-            }
             $pow = pow($base, $exp);
             break;
         default:

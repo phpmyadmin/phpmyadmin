@@ -330,6 +330,8 @@ class PMA_Table {
                         // a TIMESTAMP does not accept DEFAULT '0'
                         // but DEFAULT 0  works
                         $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
+                    } elseif ($default && $type == 'BIT') {
+                        $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default) . '\'';
                     } else {
                         $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
                     }

@@ -564,7 +564,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
                 echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
                 echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
-                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">' . "\n";
+                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query" onchange="this.form.submit();">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
                 foreach ($indexes_data AS $key => $val) {
@@ -585,7 +585,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"') . '>' . $GLOBALS['strNone'] . '</option>';
                 echo "\n";
                 echo '</select>' . "\n";
-                echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+                echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>';
                 echo "\n";
                 echo '</form>' . "\n";
             }
@@ -1382,7 +1382,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     // loic1: displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
-                    if (stristr($field_flags, 'BINARY')) {
+                    if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
+                        $db_value = $row[$i];
+                        $row[$i]  = '';
+                        for ($j = 0; $j < ceil($meta->length / 8); $j++) {
+                            $row[$i] .= sprintf('%08d', decbin(ord(substr($db_value, $j, 1))));
+                        }
+                        $row[$i]     = substr($row[$i], -$meta->length);
+                    } elseif (stristr($field_flags, 'BINARY')) {
                         $row[$i]     = str_replace("\x00", '\0', $row[$i]);
                         $row[$i]     = str_replace("\x08", '\b', $row[$i]);
                         $row[$i]     = str_replace("\x0a", '\n', $row[$i]);

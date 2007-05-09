@@ -249,7 +249,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     /**
                      * Displays table comment
                      */
-                    if (is_array($comment)) {
+                    if (is_array($comment) && ! empty($comment)) {
                         echo '<span class="table_comment"'
                             .' id="span_table_comment">&quot;'
                             .htmlspecialchars(implode(' ', $comment))

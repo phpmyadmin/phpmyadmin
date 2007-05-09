@@ -105,7 +105,7 @@ if (isset($disp_row) && is_array($disp_row)) {
             var element_name = field + '[]';
             <?php } ?>
 
-            <?php if (isset($fieldkey)) { ?>
+            <?php if (isset($fieldkey) && is_numeric($fieldkey)) { ?>
             var element_name_alt = field + '[<?php echo $fieldkey; ?>]';
             <?php } else { ?>
             var element_name_alt = field + '[0]';

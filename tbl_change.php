@@ -454,6 +454,12 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 $vrow[$field]   = '';
                 $special_chars = '';
                 $data          = $vrow[$field];
+            } elseif ($row_table_def['True_Type'] == 'bit') {
+                $special_chars = '';
+                for ($j = 0; $j < ceil($len / 8); $j++) {
+                    $special_chars .= sprintf('%08d', decbin(ord(substr($vrow[$field], $j, 1))));
+                }
+                $special_chars = substr($special_chars, -$len);
             } else {
                 // loic1: special binary "characters"
                 if ($is_binary || $is_blob) {
@@ -953,6 +959,11 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="timestamp" />
                     <?php
                 }
+                if ($row_table_def['True_Type'] == 'bit') {
+                    ?>
+                    <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
+                    <?php
+                }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript">
@@ -979,6 +990,22 @@ foreach ($loop_array as $vrowcount => $vrow) {
     $o_rows++;
     echo '  </table><br />';
 } // end foreach on multi-edit
+
+if ($insert_mode) {
+    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" />' . "\n";
+    $option_values = array(1,2,5,10,15,20,30,40);
+    foreach ($option_values as $value) {
+        $tmp .= '<option value="' . $value . '"';
+        if ($value == $cfg['InsertRows']) { 
+            $tmp .= ' selected="selected"';
+        }
+        $tmp .= '>' . $value . '</option>' . "\n";
+    }
+    $tmp .= '</select>' . "\n";
+    echo "\n" . sprintf($strRestartInsertion, $tmp);
+    unset($tmp);
+    echo '<noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n";
+}
 ?>
     <br />
 

@@ -9,7 +9,6 @@
  * Sanitizes $message, taking into account our special codes
  * for formatting
  *
- * @uses    PMA_sanitizeUri()
  * @uses    preg_replace()
  * @uses    strtr()
  * @param   string   the message

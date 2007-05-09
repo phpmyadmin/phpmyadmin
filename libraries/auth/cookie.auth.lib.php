@@ -58,10 +58,13 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
  * @uses    $GLOBALS['strServerChoice']
  * @uses    $GLOBALS['strGo']
  * @uses    $GLOBALS['strCookiesRequired']
+ * @uses    $GLOBALS['strPmaDocumentation']
+ * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $cfg['Servers']
  * @uses    $cfg['LoginCookieRecall']
  * @uses    $cfg['Lang']
  * @uses    $cfg['Server']
+ * @uses    $cfg['ReplaceHelpImg']
  * @uses    $cfg['blowfish_secret']
  * @uses    $cfg['AllowArbitraryServer']
  * @uses    $_COOKIE
@@ -179,7 +182,19 @@ if (top != self) {
 <!-- Login form -->
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login">
     <fieldset>
-        <legend><?php echo $GLOBALS['strLogin']; ?></legend>
+    <legend>
+<?php 
+    echo $GLOBALS['strLogin']; 
+    echo '<a href="./Documentation.html" target="documentation" ' .
+        'title="' . $GLOBALS['strPmaDocumentation'] . '">';
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strPmaDocumentation'] . '" />';
+    } else {
+        echo '(*)';
+    }
+    echo '</a>';
+?>
+</legend>
 
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
         <div class="item">

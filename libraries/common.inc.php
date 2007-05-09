@@ -205,7 +205,7 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 // remove quotes added by php
-if (get_magic_quotes_gpc()) {
+if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
     PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
@@ -430,6 +430,12 @@ $GLOBALS['sql_query'] = '';
 if (PMA_isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
+
+/**
+ * avoid problems in phpmyadmin.css.php in some cases 
+ * @global string $js_frame
+ */
+$_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
 //$_REQUEST['server']; // checked later in this file

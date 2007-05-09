@@ -1382,6 +1382,30 @@ switch ($action) {
                     message('error', 'Empty phpMyAdmin control user password while using pmadb!');
                     $err = TRUE;
                 }
+                /* Check whether we can connect as control user */
+                if (!empty($new_server['controluser']) && !empty($new_server['controlpass'])) {
+                    if ($new_server['extension'] == 'mysql') {
+                        $socket = empty($new_server['socket']) || $new_server['connect_type'] == 'tcp' ? '' : ':' . $new_server['socket'];
+                        $port = empty($new_server['port']) || $new_server['connect_type'] == 'socket' ? '' : ':' . $new_server['port'];
+                        $conn = @mysql_connect($new_server['host'] . $socket . $port, $new_server['controluser'], $new_server['controlpass']);
+                        if ($conn === FALSE) {
+                            message('error', 'Could not connect as control user!');
+                            $err = TRUE;
+                        } else {
+                            mysql_close($conn);
+                        }
+                    } else { 
+                        $socket = empty($new_server['socket']) || $new_server['connect_type'] == 'tcp' ? NULL : $new_server['socket'];
+                        $port = empty($new_server['port']) || $new_server['connect_type'] == 'socket' ? NULL : $new_server['port'];
+                        $conn = @mysqli_connect($new_server['host'], $new_server['controluser'], $new_server['controlpass'], NULL, $port, $socket);
+                        if ($conn === FALSE) {
+                            message('error', 'Could not connect as control user!');
+                            $err = TRUE;
+                        } else {
+                            mysqli_close($conn);
+                        }
+                    }
+                }
             } else {
                 message('warning', 'You didn\'t set phpMyAdmin database, so you can not use all phpMyAdmin features.');
             }
