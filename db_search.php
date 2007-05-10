@@ -181,7 +181,7 @@ if (isset($_REQUEST['submit_search'])) {
             // Eliminates empty values
             // In MySQL 4.1, if a field has no collation we get NULL in Charset
             // but in MySQL 5.0.x we get ''
-            if (strlen($search_words) === 0) {
+            if (strlen($search_word) === 0) {
                 continue;
             }
 
