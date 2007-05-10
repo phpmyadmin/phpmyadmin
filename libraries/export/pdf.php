@@ -20,7 +20,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'report_title', 'text' => 'strPDFReportTitle'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
-        'options_text' => 'strOptions',
+        'options_text' => 'strPDFOptions',
         );
 } else {
 
