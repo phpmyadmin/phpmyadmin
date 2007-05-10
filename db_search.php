@@ -71,8 +71,9 @@ $url_params['goto'] = 'db_search.php';
 
 /**
  * @global array list of tables from the current database
+ * but do not clash with $tables coming from db_info.inc.php
  */
-$tables = PMA_DBI_get_tables($GLOBALS['db']);
+$tables_names_only = PMA_DBI_get_tables($GLOBALS['db']);
 
 $search_options = array(
     '1' => $GLOBALS['strSearchOption1'],
@@ -102,11 +103,11 @@ $tables_selected = array();
 if (empty($_REQUEST['table_select']) || ! is_array($_REQUEST['table_select'])) {
     unset($_REQUEST['submit_search']);
 } elseif (! isset($_REQUEST['selectall']) && ! isset($_REQUEST['unselectall'])) {
-    $tables_selected = array_intersect($_REQUEST['table_select'], $tables);
+    $tables_selected = array_intersect($_REQUEST['table_select'], $tables_names_only);
 }
 
 if (isset($_REQUEST['selectall'])) {
-    $tables_selected = $tables;
+    $tables_selected = $tables_names_only;
 } elseif (isset($_REQUEST['unselectall'])) {
     $tables_selected = array();
 }
@@ -115,7 +116,7 @@ if (isset($_REQUEST['selectall'])) {
  * Displays top links
  */
 $sub_part = '';
-require './libraries/db_links.inc.php';
+require './libraries/db_info.inc.php';
 
 
 /**
@@ -330,7 +331,7 @@ if (isset($_REQUEST['submit_search'])) {
         <td rowspan="2">
 <?php
 echo '            <select name="table_select[]" size="6" multiple="multiple">' . "\n";
-foreach ($tables as $each_table) {
+foreach ($tables_names_only as $each_table) {
     if (in_array($each_table, $tables_selected)) {
         $is_selected = ' selected="selected"';
     } else {
