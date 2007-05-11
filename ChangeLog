@@ -11,6 +11,8 @@ $HeadURL$
 - typo in fix for bug #1671813
 - bug #1714908 Inserted Row Count is wrong
 - bug #1712570 Deleting last record freezes
+- bug #1717339 Missing header when deleting a checked column,
+  thanks to Michael Keck
 
 2.10.1.0 (2007-04-23)
 =====================
