@@ -41,6 +41,8 @@ if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
     $action = 'tbl_structure.php';
     $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+    require_once('./libraries/header.inc.php');
+    require_once './libraries/tbl_links.inc.php';
     require './libraries/mult_submits.inc.php';
 }
 
