@@ -3,12 +3,36 @@
 ----------------------------------------------------------------------
 
 CHANGE LOG:
-    - 2005-09-12;
+
+    - 2007-05-11:
+      > fixed bugs #1688536
+        - fixed: resizing on each reload the width of left frame
+        - fixed: centered table columns in print view
+        - fixed: hover colors and background colors in print view
+      > changes
+        - hover colors and backcolors in print css
+        - id #selflink is hidden in print css
+        - font-sizes in print css are same as in right css
+        - inline tables (for comment column) in print view 
+          without frames and smaller font
+
+    - 2007-05-10:
+      > Supporting phpMyAdmin Version 2.9.x and higher
+      > New Icons for some list elements
+      > Some specials for main.php and querywindow.php
+        (please see source of theme_right.css.php)
+      > Static nav-panel and static server-info
+      > reversed server-info / nav-panel
+
+    - 2005-09-12:
       > Supporting phpMyAdmin Version 2.6.4 and higher
+
     - 2005-09-11:
       > $pma_http_url = '';
         set here your absolute url to the 'artic_ocean' theme
         directory (if required)
+
+----------------------------------------------------------------------
 
 1. INSTALLATION
 ----------------------------------------------------------------------
@@ -33,27 +57,33 @@ CHANGE LOG:
 
 ----------------------------------------------------------------------
 
-
 2. REQUIREMENTS / INFORMATIONS
 ----------------------------------------------------------------------
-   - phpMyAdmin Version 2.6.2 or higher
+   - phpMyAdmin Version 2.9.x or higher
    - full CSS2 compatible browser
-     (I've tested with Firefox 1.02, Microsoft(R) 
-      InternetExplorer 6.0, and Opera 7.54)
+     I've tested with
+       - Firefox 2.0.0.3
+       - Microsoft(R) InternetExplorer 6.0 (some bad png's)
+       - Microsoft(R) InternetExplorer 7.0
    - Your browser should support Javascript
      and png-images.
-   - In phpMyAdmin Version 2.6.4 there's
-     a new navigation behavior included.
-     The navigation panel has a fixed position now.
 
 ----------------------------------------------------------------------
-
 
 3. INFORMATION ABOUT THE ARCTIC-OCEAN THEME:
 ----------------------------------------------------------------------
    a) ICONS:
-      Database Icon-Set made 2005 by Michael Keck.
+      Database Icon-Set made 2005-2007 by Michael Keck.
+      Updated 2007-05-10 by Michael Keck
+
+      The icons b_dbsock.png and db_client.png are from the nuvola icons
+      and made by David Vignoni
+      http://www.icon-king.com
+      http://mail.icon-king.com/mailman/listinfo/nuvola_icon-king.com
+      Copyright (c)  2003-2004  David Vignoni.
+      
       Please see license.txt file for more informations.
+
    b) THEME:
       The theme is based on the 'darkblue_orange' theme made by the
       members of the phpMyAdmin Team.

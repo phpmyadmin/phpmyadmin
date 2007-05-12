@@ -12,114 +12,197 @@
     if (!defined('PMA_MINIMUM_COMMON')) {
         exit();
     }
+
+    $forIE = false;
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 7)
+        $forIE = true;
+
+    $ipath = ( (isset($GLOBALS['pma_http_url']) && !empty($GLOBALS['pma_http_url'])) ? $GLOBALS['pma_http_url'] : '../' )
+           . $_SESSION['PMA_Theme']->getImgPath();
+
+    $pma_fsize = $_SESSION['PMA_Config']->get('fontsize');
+    $pma_fsize = preg_replace("/[^0-9]/", "", $pma_fsize);
+    $pma_fsize = @($pma_fsize / 100);
+    if ( isset($GLOBALS['cfg']['FontSize']) && !empty($GLOBALS['cfg']['FontSize']) ) {
+        $usr_fsize = preg_replace("/[^0-9]/", "", $GLOBALS['cfg']['FontSize']);
+        $fsize     = ceil($usr_fsize * $pma_fsize) 
+                   . ( (isset($GLOBALS['cfg']['FontSizePrefix']) && !empty($GLOBALS['cfg']['FontSizePrefix'])) ? $GLOBALS['cfg']['FontSizePrefix'] : 'pt' );
+    } else
+        $fsize = $_SESSION['PMA_Config']->get('fontsize');
 ?>
-/************************************************************************************
- * LEFT FRAME
- ************************************************************************************/
-
-#body_leftFrame {
-    padding-top:           0px;
-    padding-right:         3px;
-    padding-bottom:        3px;
-    padding-left:          3px;
-    margin-top:            0px;
-    margin-right:          3px;
-    margin-bottom:         3px;
-    margin-left:           3px;
-}
-
-#body_queryFrame {
-    padding-top:           2px;
-    padding-right:         2px;
-    padding-bottom:        0px;
-    padding-left:          2px;
-    margin-top:            2px;
-    margin-right:          2px;
-    margin-bottom:         0px;
-    margin-left:           2px;
+/******************************************************************************/
+/* general tags */
+html, td, body {
+<?php if (!empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:         <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
+    font-size:           <?php echo $fsize; ?>;
 }
 body {
-    background-color:    #d9e4f4;
-    background-image:    url('themes/arctic_ocean/img/wbg_left.jpg');
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background-image:    url('<?php echo $ipath; ?>wbg_left.jpg');
     background-repeat:   repeat-y;
     background-position: 0px 0px;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:         <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
+    margin-left:         0px;
+    margin-right:        0px;
+    padding-left:        15px;
+    padding-right:       10px;
 }
-body, input, textarea, select, th, td, .item, .tblItem {
-    font-family:          Arial, Helvetica, Verdana, Geneva, sans-serif;
-    font-size:            11px;
-}
-#body_queryFrame select, #body_queryFrame table {
-    width:                100%;
-}
-#body_queryFrame div {
-                white-space:         nowrap;
-}
-input, select, textarea {
-    color:               #000000;
-}
-
-a:link, a:visited, a:active {
-    color:               #585880;
+p, h1, h2, h3, form {
+    margin:              0px;
+    padding:             0px;
 }
 
-hr {
-    color:               #585880;
-    background-color:    #585880;
-    border:              1px none #585880;
-    height:              1px;
-}
-img, input, select, button {
+a img                          { border:     none;   }
+form                           { display:    inline; }
+select                         { width:      100%;   }
+select optgroup, select option { font-style: normal; }
+button                         { display:    inline; }
+
+
+/******************************************************************************/
+/* classes */
+
+/* leave some space between icons and text */
+.icon {
+    margin-left:         3px;
+    margin-right:        3px;    
     vertical-align:      middle;
 }
-img {
-    margin:              0px 2px 0px 2px;
+
+
+/******************************************************************************/
+/* specific elements */
+
+div#pmalogo,
+div#leftframelinks,
+div#databaseList {
+    border-bottom:       1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-bottom:       1px;
+    padding-bottom:      1px;
+}
+div#pmalogo, div#leftframelinks { text-align: center; }
+div#databaseList                { text-align: left;   }
+
+div#leftframelinks .icon {
+    margin:              0;
+    padding:             0;
 }
 
-.parent {
+div#leftframelinks a img.icon {
+    border:              1px none <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin:              0;
+    padding:             2px;
+}
+
+div#leftframelinks a:hover {
+    background:          <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+/* serverlist */
+#body_leftFrame #list_server {
+    list-style-image:    url(<?php echo $ipath; ?>s_host.png);
+    list-style-position: inside;
+    list-style-type:     none;
+    margin:              0;
+    padding:             0;
+}
+
+#body_leftFrame #list_server li {
+    font-size:           95%;
+    margin:              0;
+    padding:             0;
+}
+
+/* leftdatabaselist */
+div#left_tableList ul {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    font-size:           95%;
+    list-style-type:     none;
+    list-style-position: outside;
+    margin:              0;
+    padding:             0;
+}
+
+div#left_tableList ul ul {
+    font-size:           100%;
+}
+
+div#left_tableList a {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:     none;
-    display:             block;
 }
 
-.child {
-    text-decoration:     none;
-    /* display:             none; */
-}
-
-.item, .item:active, .tblItem, .tblItem:active {
-    text-decoration:     none;
-}
-
-.item:hover, .tblItem:hover {
+div#left_tableList a:hover {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:     underline;
 }
 
-td.heada, span.heada {
-    background-image:    url(themes/arctic_ocean/img/b_sdb.png);
-    background-position: 2px center;
-    background-repeat:   no-repeat;
-    font-weight: bold;
-}
-span.heada, span.heada a:link, span.heada a:active, span.heada a:visited, span.heada a:hover {
-    color:               #696ab5;
-    text-decoration:     none;
-}
-td.heada, span.heada {
-    text-align:          left;
-    padding-left:        16px;
-                white-space:         nowrap;
+div#left_tableList li {
+    margin:              0;
+    padding:             0;
+    white-space:         nowrap;
 }
 
-bdo {
-    display:             none;
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
+/* marked items */
+div#left_tableList > ul li.marked > a,
+div#left_tableList > ul li.marked {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-#hr_third {
-    display:             none;
+div#left_tableList ul li.marked, div#left_tableList ul li.marked a,
+div#left_tableList ul li.marked ul li.marked, div#left_tableList ul li.marked ul li.marked a {
+    background:          <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
-select optgroup, select option {
-    font-family:         Arial, Helvetica, Verdana, Geneva, sans-serif;
-    font-size:           11px;
-    font-style:          normal;
-    font-size:           11px;
+div#left_tableList ul li.marked ul, div#left_tableList ul li.marked ul li, div#left_tableList ul li.marked ul a {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+<?php } ?>
+
+<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+div#left_tableList > ul li:hover > a,
+div#left_tableList > ul li:hover {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+div#left_tableList ul li:hover, div#left_tableList ul li:hover a, div#left_tableList ul li a:hover,
+div#left_tableList ul li:hover ul li:hover, div#left_tableList ul li:hover ul li:hover a, div#left_tableList ul li ul li a:hover {
+    background:          <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
+div#left_tableList ul li.marked a:hover, div#left_tableList ul li.marked ul li.marked a:hover {
+    background:          <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+<?php } ?>
+div#left_tableList ul li:hover ul, div#left_tableList ul li:hover ul li,div#left_tableList ul li:hover ul a {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+<?php } ?>
+
+div#left_tableList img {
+    padding:             0;
+    vertical-align:      middle;
 }
 
-
+div#left_tableList ul ul {
+    background:          <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    border-bottom:       0.1em none <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    border-left:         0.1em none <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    color:               <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-left:         0;
+    padding-left:        15px;
+    padding-bottom:      1px;
+}
