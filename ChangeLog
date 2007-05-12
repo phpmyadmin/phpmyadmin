@@ -65,6 +65,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1712570 Deleting last record freezes
 - bug #1717339 Missing header when deleting a checked column,
   thanks to Michael Keck
+- bug #1717477 Warning on Query page when db is empty
 
 2.10.1.0 (2007-04-23)
 =====================

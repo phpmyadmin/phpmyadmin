@@ -100,6 +100,12 @@ if (!empty($TableList)) {
  */
 $tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
+if (0 == $tbl_result_cnt) {
+    echo '<div class="warning">' . $strNoTablesFound . '</div>';
+    require_once './libraries/footer.inc.php';
+    exit;
+}
+
 $i              = 0;
 $k              = 0;
 
