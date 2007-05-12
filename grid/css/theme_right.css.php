@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * main css file from theme
- *theme_right.css.php 2006-12-29 IE6 sql window fix 2do:pma28 hover th?
+ * theme_right.css.php 2007-05-11
  *
  * @version $Id$
  * @package phpMyAdmin-theme
@@ -12,7 +12,7 @@
 // unplanned execution path
 if(!defined('PMA_MINIMUM_COMMON')) exit();
 
-$GridImgPath = version_compare(PMA_VERSION,'2.11','lt') ? '../' : ''; 
+$GridImgPath  = version_compare(PMA_VERSION,'2.11','lt') ? '../' : '';
 $GridImgPath .= $_SESSION['PMA_Theme']->getImgPath();
 
 if(version_compare(PMA_VERSION,'2.9','lt')) {
@@ -25,8 +25,8 @@ td,
 th{color:', $GLOBALS['cfg']['MainColor'], '}';
 }
 
-$listImgUrl = 'list-style-image:url("'. $GridImgPath; //.....xxx.png")
-echo'
+$listImgUrl = 'list-style-image:url("' . $GridImgPath; //.....xxx.png")
+echo'/*grid-2.10b*/
 body{padding:0;margin:.4em;color:', $GLOBALS['cfg']['MainColor'],';background:', $GLOBALS['cfg']['MainBackgroundColor'];
 if ( 'MOZILLA' != PMA_USR_BROWSER_AGENT ) echo ' url("', $GridImgPath, 'vertical_line.png") repeat-y';
 // http://www.w3.org/TR/CSS21/syndata.html (double) quotes around url ok (just incase someone has spaces in his path)
@@ -40,11 +40,11 @@ pre,
 code{font-family:', $GLOBALS['cfg']['FontFamilyFixed'], '}
 ';
 ?>
-input{padding:0 .2em;font-size:100%}
+input{padding:0 .2em 0 .2em;font-size:100%}
 h1{font-size:140%;font-weight:bold;margin:0 .8em 0 .8em}
 h2{font-size:120%;font-weight:bold}
 h3{font-weight:bold}
-a{padding:1px}
+a{padding:1px 2px 1px 2px}
 a:link,
 a:visited,
 a:active{text-decoration:none;color:<?php echo $GLOBALS['cfg']['MainLinkColor']; ?>}
@@ -52,7 +52,6 @@ a:hover{text-decoration:underline;color:<?php echo $GLOBALS['cfg']['MainLinkColo
  echo $GLOBALS['cfg']['MainLinkBackground']; ?>}
 dfn{font-style:normal}
 dfn:hover{font-style:normal;cursor:help}
-
 th{font-weight:bold;color:<?php echo $GLOBALS['cfg']['ThColor']; ?>;background:<?php
  echo $GLOBALS['cfg']['ThBackground']; ?>}
 a img{border:0}
@@ -80,7 +79,7 @@ img,
 input,
 select,
 button{vertical-align:middle}
-<?php /* * classes * * * * * * * * * * * * * * * * * * * * * * * */ ?>
+<?php /* * * * classes * * * */ ?>
 fieldset.tblFooters{margin-top:0;margin-bottom:.5em;text-align:<?php echo $right; ?>;float:none;clear:both}
 fieldset .formelement{float:<?php echo $left; ?>;margin-<?php echo $right; ?>:.5em;/*IE*/white-space:nowrap}
 <?php /* revert for Gecko */ ?>
@@ -92,8 +91,7 @@ table tr.odd th,
 <?php /* even items 2,4,6,8,... */ ?>
 table tr.even th,
 .even{background:<?php echo $GLOBALS['cfg']['BgTwo']; ?>}
-<?php /* odd table rows 1,3,5,7,... */ ?>
-table tr.odd th,
+<?php /* odd table rows 1,3,5,7,... */ ?>table tr.odd th,
 table tr.odd,
 table tr.even th,
 table tr.even{
@@ -164,8 +162,7 @@ td .icon{margin:0}
 .notice{color:#000;background:#FFFFDD}
 h1.notice,
 div.notice{margin:.5em 0 .5em 0;border:1px solid #FFD700;<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
-background-image:url("<?php echo $GridImgPath; ?>s_notice.png");
-background-repeat:no-repeat;
+background-image:url("<?php echo $GridImgPath; ?>s_notice.png");background-repeat:no-repeat;
 <?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:1em 50%;padding:1em 1em 1em 3.6em;<?php
 } else { ?>background-position:99% 50%;padding:1em 5% 1em 1em;<?php
 } ?>
@@ -186,7 +183,6 @@ padding:.5em;
 <?php } ?>}
 .warning h1{border-bottom:1px solid #c00;font-weight:bold;text-align:<?php echo $left; ?>;margin:0 0 .2em 0}
 .error{background:#ffc;color:#f00}
-
 h1.error,
 div.error{margin:.5em 0 .5em 0;border:1px solid #f00;
 <?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
@@ -290,16 +286,13 @@ table.calendar th{background:#D3DCE3}
 table.calendar td.selected{background:#fc9}
 img.calendar{border:none}
 form.clock{text-align:center}
-
 div#tablestatistics{border-bottom:1px solid #699;margin-bottom:.5em;padding-bottom:.5em}
 div#tablestatistics table{float:<?php echo $left; ?>;margin-bottom:.5em;margin-<?php echo $right; ?>:.5em}
 div#tablestatistics table caption{margin-<?php echo $right; ?>:.5em}
 <?php /* END server privileges */ ?>
-
 #tableuserrights td,
 #tablespecificuserrights td,
 #tabledatabases td{vertical-align:middle}
-
 <?php /* Heading */ ?>
 #serverinfo{font-weight:bold;margin-bottom:.5em}
 #serverinfo .item{white-space:nowrap}
@@ -327,8 +320,7 @@ font-size:110%}
 #fieldset_user_priv div.item div.item{float:none}
 #fieldset_user_priv div.item label{white-space:nowrap}
 #fieldset_user_priv div.item select{width:100%}
-#fieldset_user_global_rights fieldset{
-float:<?php echo $left;
+#fieldset_user_global_rights fieldset{float:<?php echo $left;
 /* END user privileges */
 
 /* serverstatus */
@@ -378,30 +370,29 @@ div#queryboxcontainer div#bookmarkoptions{margin-top:.5em}
 #maincontainer li{margin-bottom:.3em;padding:0 .3em 0 .3em}
 <?php /* END main page */
 if ($GLOBALS['cfg']['MainPageIconic']){ /* iconic view for ul items */
-echo'
-li#li_create_database{',	$listImgUrl,'b_newdb.png")}
-li#li_select_lang{',		$listImgUrl,'s_lang.png")}
+echo'li#li_create_database{',$listImgUrl,'b_newdb.png")}
+li#li_select_lang{',		 $listImgUrl,'s_lang.png")}
 li#li_select_mysql_collation,
-li#li_select_mysql_charset{',	$listImgUrl,'s_asci.png")}
-li#li_select_theme{',		$listImgUrl,'s_theme.png")}
-li#li_server_info{',		$listImgUrl,'s_host.png")}
-li#li_mysql_status{',		$listImgUrl,'s_status.png")}
-li#li_mysql_variables{',	$listImgUrl,'s_vars.png")}
-li#li_mysql_processes{',	$listImgUrl,'s_process.png")}
-li#li_mysql_collations{',	$listImgUrl,'s_asci.png")}
-li#li_mysql_engines{',		$listImgUrl,'b_engine.png")}
-li#li_mysql_binlogs{',		$listImgUrl,'s_tbl.png")}
-li#li_mysql_databases{',	$listImgUrl,'s_db.png")}
-li#li_export{',			$listImgUrl,'b_export.png")}
-li#li_import{',			$listImgUrl,'b_import.png")}
-li#li_change_password{',	$listImgUrl,'s_passwd.png")}
-li#li_log_out{',			$listImgUrl,'s_loggoff.png")}
-li#li_pma_docs{',			$listImgUrl,'b_docs.png")}
-li#li_phpinfo{',			$listImgUrl,'php_sym.png")}
-li#li_pma_homepage{',		$listImgUrl,'b_home.png")}
-li#li_mysql_privilegs{',	$listImgUrl,'s_rights.png")}
-li#li_switch_dbstats{',		$listImgUrl,'b_dbstatistics.png")}
-li#li_flush_privileges{',	$listImgUrl,'s_reload.png")}
+li#li_select_mysql_charset{',$listImgUrl,'s_asci.png")}
+li#li_select_theme{',		 $listImgUrl,'s_theme.png")}
+li#li_server_info{',		 $listImgUrl,'s_host.png")}
+li#li_mysql_status{',		 $listImgUrl,'s_status.png")}
+li#li_mysql_variables{',	 $listImgUrl,'s_vars.png")}
+li#li_mysql_processes{',	 $listImgUrl,'s_process.png")}
+li#li_mysql_collations{',	 $listImgUrl,'s_asci.png")}
+li#li_mysql_engines{',		 $listImgUrl,'b_engine.png")}
+li#li_mysql_binlogs{',		 $listImgUrl,'s_tbl.png")}
+li#li_mysql_databases{',	 $listImgUrl,'s_db.png")}
+li#li_export{',			     $listImgUrl,'b_export.png")}
+li#li_import{',			     $listImgUrl,'b_import.png")}
+li#li_change_password{',	 $listImgUrl,'s_passwd.png")}
+li#li_log_out{',			 $listImgUrl,'s_loggoff.png")}
+li#li_pma_docs{',			 $listImgUrl,'b_docs.png")}
+li#li_phpinfo{',			 $listImgUrl,'php_sym.png")}
+li#li_pma_homepage{',		 $listImgUrl,'b_home.png")}
+li#li_mysql_privilegs{',	 $listImgUrl,'s_rights.png")}
+li#li_switch_dbstats{',		 $listImgUrl,'b_dbstatistics.png")}
+li#li_flush_privileges{',	 $listImgUrl,'s_reload.png")}
 ';
 /*
 li#li_user_info{
@@ -412,7 +403,6 @@ li#li_user_info{
 }//END iconic view for ul items
 
 /*  - end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
-
 #body_browse_foreigners{background:<?php echo $GLOBALS['cfg']['NaviBackground']; ?>;margin:.5em .5em 0 .5em}
 #bodyquerywindow{background:<?php echo $GLOBALS['cfg']['NaviBackground'], "}
 #bodythemes{width:50em;margin:auto;text-align:center}

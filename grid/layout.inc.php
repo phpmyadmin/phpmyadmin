@@ -1,8 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * by windkiel (started 2006-08-19) derived from theme "original"
- * 2007-04-26: grid2.9.e  layout choosable in config.inc.php see bottom
+ * 2007-05-11: grid-2.10  layout choosable in config.inc.php see bottom
  * you can switch to an alternate Color/Font set simply by putting the line
  * $cfg['customGrid'] = 'tan';
  * into your pma/config.inc.php or if you like the settings of the original theme:
@@ -10,14 +9,12 @@
  * you can add any number of different settings in the themes/grid/layout.inc.php,
  * take the 'test' section as an example.
  * some bugfixes like textarea height (thx Mario Rohkrämer) ...
- * the previous version had some refresh issues after switching from original
- * (all browser windows had to be closed to force a new session)
-
+ *
+ * by windkiel (started 2006-08-19) derived from theme "original"
  * 2007-02-11: grid2.9.d error.ico cursor for non Opera browsers,
  * vertical line IE only, for pma 2.8 td{color:black} is necessary!
-
  * 2007-02-08 bug 1653769 fixed: BrowsePointerEnable, BrowseMarkerEnable
-
+ *
  * for detailed layout configuration please refer to the css files
  * comments, suggestions, bugreports are welcome:
  * https://sourceforge.net/tracker/index.php?func=detail&aid=1656956&group_id=23067&atid=689412
@@ -37,11 +34,6 @@
 
 // navi/left frame width for index.php :
 $GLOBALS['cfg']['NaviWidth'] = 200;
-
-// backward compatibility :
-if('2.8' == substr(PMA_VERSION,0,3))
-    $GLOBALS['cfg']['LeftWidth']
-  = $GLOBALS['cfg']['NaviWidth'];
 
 // foreground (text) color for the navi frame
 $GLOBALS['cfg']['NaviColor'] = '#000';
@@ -109,7 +101,8 @@ $GLOBALS['cfg']['BrowseMarkerBackground'] = '#ffb'; #fc9';
  * if not set the browser default will be used
  * (depending on browser, DTD and system settings)
  */
-$GLOBALS['cfg']['FontFamily'] = 'sans-serif'; //was:Arial
+$GLOBALS['cfg']['FontFamily'] = 'sans-serif'; 
+
 /**
  * fixed width font family, used in textarea
  */
@@ -121,9 +114,11 @@ $GLOBALS['cfg']['FontFamilyFixed'] = 'monospace';
  * (depending on browser, DTD and system settings)
  * pma >2.8 uses font size stored in cookie
  */
-
-// for pma <2.9 :
-$GLOBALS['cfg']['FontSize'] = '90%';
+// backward compatibility :
+if(version_compare(PMA_VERSION, '2.9', 'lt')) {
+    $GLOBALS['cfg']['LeftWidth'] = $GLOBALS['cfg']['NaviWidth'];
+    $GLOBALS['cfg']['FontSize']  = '90%';
+}
 
 /**
  * tables
@@ -224,11 +219,11 @@ if (isset($GLOBALS['cfg']['customGrid']))
   elseif('tan' == $GLOBALS['cfg']['customGrid'])
   {
     $GLOBALS['cfg']['FontFamily']          = 'verdana,sans-serif';
-    $GLOBALS['cfg']['NaviBackground']      = '#dfc7a0';//white looks ugly,'#e7e7e7';// like IE6 scrollbar Am.:gray Br.:grey
+    $GLOBALS['cfg']['NaviBackground']      = '#dfc7a0';//white looks ugly, '#e7e7e7'like IE6 scrollbar Am.:gray Br.:grey
     $GLOBALS['cfg']['NaviLinkColor']       = '#00a';
     $GLOBALS['cfg']['NaviLinkBackground']  = '#fff';
     $GLOBALS['cfg']['NaviPointerColor']      = '#00f';
-    $GLOBALS['cfg']['NaviPointerBackground'] = '#fff'; //'#d9f5ff'; //~cyan/tuerkis
+    $GLOBALS['cfg']['NaviPointerBackground'] = '#fff'; //'#d9f5ff'; ~cyan/tuerkis
     $GLOBALS['cfg']['NaviMarkedColor']     = '#000';
     $GLOBALS['cfg']['NaviMarkedBackground']= '#ff9';
     $GLOBALS['cfg']['NaviFontPercentage']  = '90%';

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * navigation css file from theme
@@ -10,12 +10,8 @@
 
 if (!defined('PMA_MINIMUM_COMMON')) exit(); // illegal execution path
 
-$GridImgPath = version_compare(PMA_VERSION,'2.11','lt') ? '../' : ''; 
+$GridImgPath  = version_compare(PMA_VERSION, '2.11', 'lt') ? '../' : '';
 $GridImgPath .= $_SESSION['PMA_Theme']->getImgPath();
-
-if(version_compare(PMA_VERSION,'2.9','lt')) {
-	echo 'html,table{font-size:', $GLOBALS['cfg']['FontSize'], '}';
-}
 
 // Whether to activate the Navi marker (bug pma < 2.11)
 if (empty($GLOBALS['cfg']['LeftMarkerEnable'])) {
@@ -27,14 +23,16 @@ if (!$GLOBALS['cfg']['LeftMarkerEnable'] ) { // init in config.default
 }
 
 /** (left) navigation.php **/
-echo '
+echo '/* grid-2.10b for pma 2.8 ... 2.11 */ 
 *{margin:0;padding:0}'; //general reset and defined later if needed (f.e. hr)
-
-//           top left
+if(version_compare(PMA_VERSION,'2.9','lt')) {
+	echo '
+html,table{font-size:', $GLOBALS['cfg']['FontSize'], '}';
+}
 echo '
 body{margin:.2em .3em;background:', $GLOBALS['cfg']['NaviBackground'],
+//           ^top ^left
 	';color:', $GLOBALS['cfg']['NaviColor'];
-//	';padding:.2em';
 
 if (!empty($GLOBALS['cfg']['FontFamily'])) {
 	echo ';font-family:', $GLOBALS['cfg']['FontFamily'];
@@ -47,40 +45,35 @@ form{display:inline}
 select{width:100%}
 button{display:inline}'; // buttons in some browsers (eg. Konqueror) are block elements,this breaks design
 
-/* * * * classes * * * * * * * * * * * * * */
-// specific elements div#pmalogo{background:', $GLOBALS['cfg']['NaviLinkBackground'], '} div#pmalogo,
-
-/* leave some space between icons and text:
- * ??? div#databaseList a{text-decoration:underline}
-*/
+// * * * * classes * * * * 
+// specific elements 
+// leave some space between icons and text:
 echo '
 .icon{vertical-align:middle;margin:0 .1em 0 .1em}
 div#leftframelinks{text-align:center}
 div#leftframelinks a img.icon{padding:.2em;border:0}
 div#leftframelinks,
 div#databaseList{margin-bottom:.3em;padding-bottom:.3em;border-bottom:1px solid ', $GLOBALS['cfg']['NaviColor'], '}
-div#pmalogo{text-align:center;';//padding:.7em;
-echo ($iPmaVersion > 20900) ? 'background:' . $GLOBALS['cfg']['NaviBackground'] :
+div#pmalogo{text-align:center;';
+echo (version_compare(PMA_VERSION, '2.9', 'gt')) ? 'background:' . $GLOBALS['cfg']['NaviBackground'] :
 	'border-bottom:1px solid ' . $GLOBALS['cfg']['NaviColor'];
-echo '}
-';
+echo '}';
 
 if( $GLOBALS['cfg']['LeftDisplayServers'] && $GLOBALS['cfg']['LeftFrameLight'] ){
-	echo 'div#databaseList{text-align:left}
-'; // looks nicer if LeftDisplayServers==true - 2do: r2l char sets
+	echo 'div#databaseList{text-align:left}'; // looks nicer if LeftDisplayServers==true - 2do: r2l char sets
 };
 
-/***** serverlist *****/
+//* * * * serverlist * * * *
 echo '
 #body_leftFrame #list_server{list-style-image:url("', $GridImgPath,'s_host.png");',
-	'list-style-position: inside;list-style-type:none}
+	'list-style-position:inside;list-style-type:none}
 #body_leftFrame #list_server li{font-size:', $GLOBALS['cfg']['NaviFontPercentage'], '}
 div#left_tableList ul{list-style-type:none;line-height:110%;list-style-position:outside;font-size:',
 	$GLOBALS['cfg']['NaviFontPercentage'], ';background:', $GLOBALS['cfg']['NaviBackground'], '}
 div#left_tableList ul ul{font-size:100%}
 div#left_tableList a{text-decoration:none;color:', $GLOBALS['cfg']['NaviLinkColor'], '}
 a,
-div#left_tableList a{padding:.2em}
+div#left_tableList a{padding:1px 2px 1px 2px}
 ';
 
 echo ( $GLOBALS['cfg']['LeftPointerEnable'] )

@@ -1,9 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* info.inc.php 2007/04/26 windkiel */
+/* info.inc.php 2007/05/11 windkiel */
 
 /**
- * 2007-05 "Grid 2.9e working with version 2.8 .. 2.1x.y ...
+ * 2007-05 "Grid 2.10 working with version 2.8 .. 2.1x.y ...
  * the previous version had some refresh issues after switching from original
  * (all browser windows had to be closed to force a new session)
  * main differences to theme "original" in:
