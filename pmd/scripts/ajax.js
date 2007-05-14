@@ -53,9 +53,9 @@ function makeRequest(url, parameters)
 function alertContents()
 {
     if (http_request.readyState == 1) {
-        document.getElementById("layer_action").style.left = document.body.clientWidth + document.body.scrollLeft - 85;
-        document.getElementById("layer_action").style.top = document.body.scrollTop + 10;
-        document.getElementById("layer_action").style.visibility = 'visible'; document.getElementById("layer_action").innerHTML    = 'Loading...';
+        document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 85) + 'px';
+        document.getElementById("layer_action").style.top = (document.body.scrollTop + 10) + 'px';
+        document.getElementById("layer_action").style.visibility = 'visible'; document.getElementById("layer_action").innerHTML = 'Loading...';
     }
     if (http_request.readyState == 2) {
         document.getElementById("layer_action").innerHTML = 'Loaded';
@@ -69,11 +69,19 @@ function alertContents()
             //alert(textdoc);
             xmldoc    = http_request.responseXML;
             PrintXML();
-            document.getElementById("layer_action").style.visibility = 'hidden';
+            //document.getElementById("layer_action").style.visibility = 'hidden';
         } else {
             alert('There was a problem with the request.');
         }
     }
+}
+
+function layer_alert(text)
+{
+    document.getElementById("layer_action").innerHTML = text;
+    document.getElementById("layer_action").style.left = (document.body.clientWidth + document.body.scrollLeft - 20 - document.getElementById("layer_action").offsetWidth) + 'px';
+    document.getElementById("layer_action").style.visibility = 'visible'; 
+    setTimeout(function(){document.getElementById("layer_action").style.visibility = 'hidden';}, 2000);
 }
 
 /**
@@ -96,17 +104,17 @@ function PrintXML()
         //xmldoc.getElementsByTagName('root')[0].getAttribute("act")
 
         if (root.getAttribute('act') == 'save_pos') {
-            alert(strLang[root.getAttribute('return')]);
+            layer_alert(strLang[root.getAttribute('return')]);
         }
         if (root.getAttribute('act') == 'relation_upd') {
-            alert(strLang[root.getAttribute('return')]);
+            layer_alert(strLang[root.getAttribute('return')]);
             if (root.getAttribute('b') == '1') {
                 contr.splice(root.getAttribute('K'), 1);
                 Re_load();
             }
         }
         if (root.getAttribute('act') == 'relation_new') {
-            alert(strLang[root.getAttribute('return')]);
+            layer_alert(strLang[root.getAttribute('return')]);
             if (root.getAttribute('b') == '1') {
                 var i    = contr.length;
                 var t1 = root.getAttribute('DB1') + '.' + root.getAttribute('T1');
@@ -115,10 +123,10 @@ function PrintXML()
                 var f2 = root.getAttribute('F2');
                 contr[i] = new Array();
                 contr[i][''] = new Array();
-                 contr[i][''][t2] = new Array();
-                  contr[i][''][t2][f2] = new Array();
-                   contr[i][''][t2][f2][0] = t1;
-                   contr[i][''][t2][f2][1] = f1;
+                contr[i][''][t2] = new Array();
+                contr[i][''][t2][f2] = new Array();
+                contr[i][''][t2][f2][0] = t1;
+                contr[i][''][t2][f2][1] = f1;
                 Re_load();
             }
         }
