@@ -179,7 +179,7 @@ $func_no_param = array(
     'LAST_INSERT_ID',
 );
 
-foreach ($loop_array as $primary_key) {
+foreach ($loop_array as $rowcount => $primary_key) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $primary_key])) {
         continue;
@@ -190,32 +190,32 @@ foreach ($loop_array as $primary_key) {
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
     $me_fields =
-        isset($_REQUEST['fields']['multi_edit'][$primary_key])
-        ? $_REQUEST['fields']['multi_edit'][$primary_key]
+        isset($_REQUEST['fields']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields']['multi_edit'][$rowcount]
         : array();
     $me_fields_prev =
-        isset($_REQUEST['fields_prev']['multi_edit'][$primary_key])
-        ? $_REQUEST['fields_prev']['multi_edit'][$primary_key]
+        isset($_REQUEST['fields_prev']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields_prev']['multi_edit'][$rowcount]
         : null;
     $me_funcs =
-        isset($_REQUEST['funcs']['multi_edit'][$primary_key])
-        ? $_REQUEST['funcs']['multi_edit'][$primary_key]
+        isset($_REQUEST['funcs']['multi_edit'][$rowcount])
+        ? $_REQUEST['funcs']['multi_edit'][$rowcount]
         : null;
     $me_fields_type =
-        isset($_REQUEST['fields_type']['multi_edit'][$primary_key])
-        ? $_REQUEST['fields_type']['multi_edit'][$primary_key]
+        isset($_REQUEST['fields_type']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields_type']['multi_edit'][$rowcount]
         : null;
     $me_fields_null =
-        isset($_REQUEST['fields_null']['multi_edit'][$primary_key])
-        ? $_REQUEST['fields_null']['multi_edit'][$primary_key]
+        isset($_REQUEST['fields_null']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields_null']['multi_edit'][$rowcount]
         : null;
     $me_fields_null_prev =
-        isset($_REQUEST['fields_null_prev']['multi_edit'][$primary_key])
-        ? $_REQUEST['fields_null_prev']['multi_edit'][$primary_key]
+        isset($_REQUEST['fields_null_prev']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields_null_prev']['multi_edit'][$rowcount]
         : null;
     $me_auto_increment =
-        isset($_REQUEST['auto_increment']['multi_edit'][$primary_key])
-        ? $_REQUEST['auto_increment']['multi_edit'][$primary_key]
+        isset($_REQUEST['auto_increment']['multi_edit'][$rowcount])
+        ? $_REQUEST['auto_increment']['multi_edit'][$rowcount]
         : null;
 
     foreach ($me_fields as $key => $val) {

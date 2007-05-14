@@ -27,6 +27,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1498281 [parser] Wrong primary key used for displaying results
   with subquery
 - bug #1699772 Visual space bug in table name (in browser)
+- bug #1699532 Cause of data manipulation issues: implemented changes
+  as suggested by crisp_; still have to work on updating an ENUM value
 + [core] added PMA_fatalError() and made use of it
 . [core] added PMA_isValid() and PMA_ifSetOr() for variable handling
 . [i18n] use generic $strOptions

@@ -211,11 +211,9 @@ document.onkeydown = onKeyDownArrowsHandler;
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
-if (isset($primary_key_array)) {
-    foreach ($primary_key_array as $primary_key) {
-        ?>
-    <input type="hidden" name="primary_key[]" value="<?php echo htmlspecialchars(trim($primary_key)); ?>" />
-<?php
+if (isset($primary_keys)) {
+    foreach ($primary_key_array as $rowcount => $primary_key) {
+        echo '<input type="hidden" name="primary_key[' . $rowcount . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
     }
 }
 echo "\n";
@@ -285,13 +283,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
         unset($vrow);
     }
 
-    if ($insert_mode) {
-        $jsvkey = $vrowcount;
-        $browse_foreigners_uri = '&amp;pk=' . $vrowcount;
-    } else {
-        $jsvkey = htmlspecialchars(trim($primary_keys[$vrowcount]));
-        $browse_foreigners_uri = '&amp;pk=' . urlencode(trim($primary_keys[$vrowcount]));
-    }
+    $jsvkey = $vrowcount;
+    $browse_foreigners_uri = '&amp;pk=' . $vrowcount;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
     $vresult = (isset($result) && is_array($result) && isset($result[$vrowcount]) ? $result[$vrowcount] : $result);
