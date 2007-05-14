@@ -26,6 +26,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1688053 [export] Wrong export of binary character fields
 - bug #1498281 [parser] Wrong primary key used for displaying results
   with subquery
+- bug #1699772 Visual space bug in table name (in browser)
 + [core] added PMA_fatalError() and made use of it
 . [core] added PMA_isValid() and PMA_ifSetOr() for variable handling
 . [i18n] use generic $strOptions
@@ -46,13 +47,13 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [querywindow] sql history now without db too
 + [querywindow] tweaks in sql history view
 + [export] Native Excel (Spreadsheet_Excel_Writer) improvements,
-   thanks to Christian Schmidt 
-+ [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch 
+   thanks to Christian Schmidt
++ [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch
 + [lang] danish update, thanks to Finn Sorensen
 + RFE #1435922 [gui] navigation frame shows listing of databases when none selected
-+ [data] support BIT datatype (under mysqli), thanks to Christian Schmidt 
-+ [display] automatic confirmation for sort by key, thanks to Juergen Wind 
-+ [data] can now choose the number of insert rows 
++ [data] support BIT datatype (under mysqli), thanks to Christian Schmidt
++ [display] automatic confirmation for sort by key, thanks to Juergen Wind
++ [data] can now choose the number of insert rows
 + RFE #1704779 [gui] link documentation from login page
 + RFE #1513345 [setup] check control user connection during setup
 + [structure] TRIGGERS: display/edit/drop/SQL export
@@ -93,10 +94,10 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1681620 [interface] support reordering of $cfg['ColumnTypes'],
   thanks to Leonard den Ottolander
 - bug #1690718 Can't edit if BLOB and no PK
-- bug #1672636 [export] PDF export too wide 
-+ [lang] brazilian-portuguese update, thanks to Airon Luis Pereira 
+- bug #1672636 [export] PDF export too wide
++ [lang] brazilian-portuguese update, thanks to Airon Luis Pereira
 - patch #1698964 javascript typo, thanks to Corey Hollaway
-- bug #1703897 [css] undefined index 'js_frame' 
+- bug #1703897 [css] undefined index 'js_frame'
 - bug #1690561 Blobs being cleared on Edit of row
 - bug #1679801 [core] XSS vulnerability in PMA_sanitize(), thanks to sp3x SecurityReason
 - bug #1704467 XSS vulnerability in browse_foreigners.php, thanks to sp3x SecurityReason
