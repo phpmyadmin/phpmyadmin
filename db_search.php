@@ -340,7 +340,7 @@ foreach ($tables_names_only as $each_table) {
 
     echo '                <option value="' . htmlspecialchars($each_table) . '"'
         . $is_selected . '>'
-        . htmlspecialchars($each_table) . '</option>' . "\n";
+        . str_replace(' ', '&nbsp;', htmlspecialchars($each_table)) . '</option>' . "\n";
 } // end while
 
 echo '            </select>' . "\n";

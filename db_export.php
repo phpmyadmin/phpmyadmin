@@ -50,7 +50,8 @@ foreach ($tables as $each_table) {
     }
     $table_html   = htmlspecialchars($each_table['Name']);
     $multi_values .= '                <option value="' . $table_html . '"'
-        . $is_selected . '>' . $table_html . '</option>' . "\n";
+        . $is_selected . '>'
+        . str_replace(' ', '&nbsp;', $table_html) . '</option>' . "\n";
 } // end for
 $multi_values .= "\n";
 $multi_values .= '</select></div>';

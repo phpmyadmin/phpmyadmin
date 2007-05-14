@@ -166,7 +166,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
         }
         echo '                ';
         echo '<option value="' . htmlspecialchars($column) . '"' . $sel . '>'
-            . htmlspecialchars($column) . '</option>' . "\n";
+            . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>' . "\n";
     }
     ?>
         </select>
@@ -629,7 +629,8 @@ $strTableListOptions = '';
 $numTableListOptions = 0;
 foreach ($tbl_names AS $key => $val) {
     $strTableListOptions .= '                        ';
-    $strTableListOptions .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
+    $strTableListOptions .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
+        . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
     $numTableListOptions++;
 }
 ?>

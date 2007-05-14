@@ -193,11 +193,11 @@ foreach ($tables as $keyname => $each_table) {
                        || $each_table['TABLE_TYPE'] === 'SYSTEM VIEW');
 
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
-               ? htmlspecialchars($tooltip_aliasname[$each_table['TABLE_NAME']])
-               :  htmlspecialchars($each_table['TABLE_NAME']);
+               ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
+               : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
     $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
-               ? htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
-               : htmlspecialchars($each_table['TABLE_NAME']);
+               ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
+               : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
 
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
@@ -240,7 +240,7 @@ foreach ($tables as $keyname => $each_table) {
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf(
             $table_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped,
-            htmlspecialchars($each_table['TABLE_NAME']));
+            str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME'])));
     }
 
     // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid

@@ -558,7 +558,8 @@ function PMA_displayTableList($tables, $visible = false,
                 .'<a href="' . $href . '" title="' . htmlspecialchars($table['Comment']
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'
                 .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
-                . htmlspecialchars($table['disp_name']) . '</a>';
+                // preserve spaces in table name
+                . str_replace(' ', '&nbsp;', htmlspecialchars($table['disp_name'])) . '</a>';
             echo '</li>' . "\n";
         }
     }

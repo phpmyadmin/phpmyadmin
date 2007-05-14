@@ -216,7 +216,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 printf($item,
                         $GLOBALS['cfg']['DefaultTabTable'],
                         PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
-                        htmlspecialchars($GLOBALS['table']),
+                        str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
 
