@@ -132,7 +132,6 @@ $strData = 'Дані';
 $strDatabase = 'БД';
 $strDatabaseExportOptions = 'Налаштування експорту бази даних';
 $strDatabaseHasBeenDropped = 'Базу даних %s знищено.';
-$strDatabaseNoTable = 'Ця база даних не містить таблиць!';
 $strDatabases = 'Бази Даних';
 $strDatabasesDropped = '%s баз(а\и) даних успішно знищено.';
 $strDatabasesStats = 'Статистика баз даних';

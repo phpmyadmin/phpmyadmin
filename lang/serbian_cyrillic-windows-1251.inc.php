@@ -174,7 +174,6 @@ $strDatabase = 'База података';
 $strDatabaseEmpty = 'Име базе није задато!';
 $strDatabaseExportOptions = 'Опције за извоз базе';
 $strDatabaseHasBeenDropped = 'База %s је одбачена.';
-$strDatabaseNoTable = 'База не садржи табеле!';
 $strDatabases = 'Базе';
 $strDatabasesDropped = '%s база је успешно одбачено.';
 $strDatabasesStats = 'Статистика базе';

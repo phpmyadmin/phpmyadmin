@@ -160,7 +160,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'De database naam is leeg!';
 $strDatabaseExportOptions = 'Database export opties';
 $strDatabaseHasBeenDropped = 'Database %s is vervallen.';
-$strDatabaseNoTable = 'Deze database bevat geen tabel!';
 $strDatabases = 'databases';
 $strDatabasesDropped = '%s databases zijn succesvol verwijderd.';
 $strDatabasesStats = 'Database statistieken';

@@ -186,7 +186,6 @@ $strDatabase = '資料庫';
 $strDatabaseEmpty = '資料庫名稱並未輸入!!';
 $strDatabaseExportOptions = '資料庫輸出選項';
 $strDatabaseHasBeenDropped = '資料庫 %s 已被刪除';
-$strDatabaseNoTable = '這資料庫沒有資料表!';
 $strDatabases = '資料庫';
 $strDatabasesDropped = '%s 個資料庫已成功刪除.';
 $strDatabasesStats = '資料庫統計';

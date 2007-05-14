@@ -160,7 +160,6 @@ $strDatabase = 'Datubâze';
 $strDatabaseEmpty = 'Datubâzes nosaukums ir tukðs!';
 $strDatabaseExportOptions = 'Datubâzu eksporta opcijas';
 $strDatabaseHasBeenDropped = 'Datubâze %s tika izdzçsta.';
-$strDatabaseNoTable = 'Ðajâ datubâzç nav tabulu!';
 $strDatabases = 'Datubâzes';
 $strDatabasesDropped = '%s datubâzes tika veiksmîgi dzçstas.';
 $strDatabasesStats = 'Datubâzu statistika';

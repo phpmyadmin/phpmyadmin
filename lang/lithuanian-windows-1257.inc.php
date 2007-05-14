@@ -160,7 +160,6 @@ $strDatabase = 'Duombazë';
 $strDatabaseEmpty = 'Nenurodytas duombazës vardas!';
 $strDatabaseExportOptions = 'Duombazës eksportavimo parinktys';
 $strDatabaseHasBeenDropped = 'Duombazë %s iðtrinta.';
-$strDatabaseNoTable = 'Ði duombazë lenteliø neturi!';
 $strDatabasesDropped = 'Sëkmingai paðalintos %s duombazës.';
 $strDatabases = 'duombazës';
 $strDatabasesStatsDisable = 'Leisti statistikà';

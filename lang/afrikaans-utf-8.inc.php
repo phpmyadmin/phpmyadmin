@@ -474,7 +474,6 @@ $strCzechSlovak = 'Czech-Slovak';  //to translate
 $strDanish = 'Danish';  //to translate
 $strDatabaseEmpty = 'The database name is empty!';  //to translate
 $strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
 $strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
 $strDatabasesStatsDisable = 'Disable Statistics';  //to translate
 $strDatabasesStatsEnable = 'Enable Statistics';  //to translate

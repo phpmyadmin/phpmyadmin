@@ -195,7 +195,6 @@ $strDatabaseEmpty = 'データベース名が空です!';
 $strDatabaseExportOptions = 'データベースエクスポートオプション';
 $strDatabase = 'データベース';
 $strDatabaseHasBeenDropped = 'データベース %s を削除しました';
-$strDatabaseNoTable = 'このデータベースにはテーブルがありません!';
 $strDatabasesDropped = 'データベース %s を正常に削除しました';
 $strDatabases = 'データベース';
 $strDatabasesStatsDisable = '統計を無効にする';

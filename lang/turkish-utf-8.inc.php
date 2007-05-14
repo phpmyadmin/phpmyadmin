@@ -199,7 +199,6 @@ $strDanish = 'Danca';
 $strDatabaseEmpty = 'Veritabanı adı boş!';
 $strDatabaseExportOptions = 'Veritabanı dışarı aktarma seçenekleri';
 $strDatabaseHasBeenDropped = '%s veritabanı kaldırıldı.';
-$strDatabaseNoTable = 'Bu veritabanı tablo içermiyor!';
 $strDatabasesDropped = '%s veritabanları başarılı olarak kaldırıldı.';
 $strDatabasesStatsDisable = 'İstatistikler etkisiz';
 $strDatabasesStatsEnable = 'İstatistikler etkin';

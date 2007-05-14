@@ -158,7 +158,6 @@ $strDatabase = 'Baza de date';
 $strDatabaseEmpty = 'Campul de denumire a bazei de date este gol!';
 $strDatabaseExportOptions = 'Optiuni de exportare a bazei de date';
 $strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
-$strDatabaseNoTable = 'Aceasta baza de date nu contine nici un tabel!';
 $strDatabases = 'Baze de date';
 $strDatabasesDropped = '%s baza(ele) de data(e) au fost aruncate.';
 $strDatabasesStatsDisable = 'Dezactiveaza statisticile';

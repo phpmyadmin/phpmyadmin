@@ -132,7 +132,6 @@ $strData = 'Δεδομένα';
 $strDatabase = 'Βάση';
 $strDatabaseExportOptions = 'Επιλογές εξαγωγής βάσης δεδομένων';
 $strDatabaseHasBeenDropped = 'Η βάση δεδομένων %s διεγράφη.';
-$strDatabaseNoTable = 'Αυτή η βάση δεν περιέχει πίνακες!';
 $strDatabases = 'Βάσεις Δεδομένων';
 $strDatabasesDropped = '%s βάσεις δεδομένων διεγράφησαν επιτυχώς.';  
 $strDatabasesStats = 'Στατιστικά βάσης';

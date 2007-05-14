@@ -165,7 +165,6 @@ $strDatabase = '数据库';
 $strDatabaseEmpty = '这个数据库名字是空！';
 $strDatabaseExportOptions = '数据库导出选项';
 $strDatabaseHasBeenDropped = '数据库 %s 已被删除。';
-$strDatabaseNoTable = '此数据库中没有表！';
 $strDatabases = '数据库';
 $strDatabasesDropped = '已经成功删除了 %s 个数据库。';
 $strDatabasesStats = '数据库统计';

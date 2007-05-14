@@ -159,7 +159,6 @@ $strDatabase = 'מאגר נתונים';
 $strDatabaseEmpty = 'שם מאגר הנתונים ריק!';
 $strDatabaseExportOptions = 'אפשרויות ייצוא מאגר נתונים';
 $strDatabaseHasBeenDropped = 'מסד הנתונים %s נמחק.';
-$strDatabaseNoTable = 'מאגר הנתונים מכיל שום טבלה!';
 $strDatabases = 'מאגרי נתונים';
 $strDatabasesDropped = '%s מסדי נתונים נמחקו בהצלחה.';
 $strDatabasesStats = 'סטטיסטיקת מסד הנתונים';

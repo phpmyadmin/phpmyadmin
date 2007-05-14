@@ -193,7 +193,6 @@ $strDatabase = 'Databáze';
 $strDatabaseEmpty = 'Jméno databáze je prázdné!';
 $strDatabaseExportOptions = 'Nastavení exportu databází';
 $strDatabaseHasBeenDropped = 'Databáze %s byla zrušena.';
-$strDatabaseNoTable = 'Tato databáze neobsahuje žádné tabulky!';
 $strDatabases = 'Databáze';
 $strDatabasesDropped = '%s databáze byla úspìšnì zrušena.';
 $strDatabasesStatsDisable = 'Skrýt podrobnosti';

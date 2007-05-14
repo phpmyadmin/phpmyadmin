@@ -192,7 +192,6 @@ $strDatabase = 'База дадзеных';
 $strDatabaseEmpty = 'Імя базы дадзеных не пазначанае!';
 $strDatabaseExportOptions = 'Налады экспарту базы дадзеных';
 $strDatabaseHasBeenDropped = 'База дадзеных %s была выдаленая.';
-$strDatabaseNoTable = 'Гэта база дадзеных ня ўтрымлівае табліц!';
 $strDatabases = 'Базы дадзеных';
 $strDatabasesDropped = '%s базаў дадзеных былі пасьпяхова выдаленыя.';
 $strDatabasesStatsDisable = 'Адключыць статыстыку';

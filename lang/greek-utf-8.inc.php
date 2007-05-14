@@ -131,7 +131,6 @@ $strCzech = 'Τσεχικά';
 $strDanish = 'Δανικά';  
 $strDatabaseExportOptions = 'Επιλογές εξαγωγής βάσης δεδομένων';
 $strDatabaseHasBeenDropped = 'Η βάση δεδομένων %s διεγράφη.';
-$strDatabaseNoTable = 'Αυτή η βάση δεν περιέχει πίνακες!';
 $strDatabasesDropped = '%s βάσεις δεδομένων διεγράφησαν επιτυχώς.';  
 $strDatabasesStatsDisable = 'Απενεργοποίηση Στατιστικών';  
 $strDatabasesStatsEnable = 'Ενεργοποίηση Στατιστικών';  

@@ -188,7 +188,6 @@ $strDatabase = 'Databáza';
 $strDatabaseEmpty = 'Meno databázy je prázdne!';
 $strDatabaseExportOptions = 'Nastavenia exportu databáz';
 $strDatabaseHasBeenDropped = 'Databáza %s bola zmazaná.';
-$strDatabaseNoTable = 'Táto databáza neobsahuje žiadne tabuľky!';
 $strDatabases = 'Databázy';
 $strDatabasesDropped = 'Úspešne zrušených databáz: %s.';
 $strDatabasesStatsDisable = 'Skryť štatistiky';

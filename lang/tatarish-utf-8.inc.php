@@ -178,7 +178,6 @@ $strDatabase = 'Biremlek';
 $strDatabaseEmpty = 'Biremlek iseme buş!';
 $strDatabaseExportOptions = 'Biremlek saqlaw köyläneşe';
 $strDatabaseHasBeenDropped = '%s biremlege beterelde.';
-$strDatabaseNoTable = 'Bu biremlektä tüşämälär ber genä dä yuq!';
 $strDatabases = 'Biremleklär';
 $strDatabasesDropped = '"%s" biremlegen beterü uñışlı uzdı.';
 $strDatabasesStats = 'Biremlek nöfüsläre';

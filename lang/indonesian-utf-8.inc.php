@@ -168,7 +168,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'Nama database kosong!';
 $strDatabaseExportOptions = 'Pilihan cara untuk mengekspor Database';
 $strDatabaseHasBeenDropped = 'Database %s telah dihapus.';
-$strDatabaseNoTable = 'Database ini tidak mengandung tabel!';
 $strDatabases = 'Database';
 $strDatabasesDropped = 'Sukses menghapus database %s.';
 $strDatabasesStatsDisable = 'Mencacatkan Statistik';

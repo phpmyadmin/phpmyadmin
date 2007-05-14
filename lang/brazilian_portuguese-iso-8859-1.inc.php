@@ -197,7 +197,6 @@ $strDatabase = 'Banco de Dados';
 $strDatabaseEmpty = 'O nome do Banco de Dados está em branco!'; 
 $strDatabaseExportOptions = 'Opções de exportação do Banco de Dados'; 
 $strDatabaseHasBeenDropped = 'Banco de Dados %s foi eliminado.'; 
-$strDatabaseNoTable = 'Esse Banco de Dados não possui tabelas!'; 
 $strDatabases = 'Banco de Dados'; 
 $strDatabasesDropped = 'Banco de Dados %s foi eliminado com sucesso!'; 
 $strDatabasesStatsDisable = 'Disabilitar estatísticas'; 

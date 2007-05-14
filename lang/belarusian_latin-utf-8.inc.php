@@ -190,7 +190,6 @@ $strDatabase = 'Baza dadzienych';
 $strDatabaseEmpty = 'Imia bazy dadzienych nie paznačanaje!';
 $strDatabaseExportOptions = 'Nałady ekspartu bazy dadzienych';
 $strDatabaseHasBeenDropped = 'Baza dadzienych %s była vydalenaja.';
-$strDatabaseNoTable = 'Heta baza dadzienych nia ŭtrymlivaje tablic!';
 $strDatabases = 'Bazy dadzienych';
 $strDatabasesDropped = '%s bazaŭ dadzienych byli paśpiachova vydalenyja.';
 $strDatabasesStatsDisable = 'Adklučyć statystyku';

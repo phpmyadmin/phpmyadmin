@@ -161,7 +161,6 @@ $strDatabase = 'Duombazė';
 $strDatabaseEmpty = 'Nenurodytas duombazės vardas!';
 $strDatabaseExportOptions = 'Duombazės eksportavimo parinktys';
 $strDatabaseHasBeenDropped = 'Duombazė %s ištrinta.';
-$strDatabaseNoTable = 'Ši duombazė lentelių neturi!';
 $strDatabasesDropped = 'Sėkmingai pašalintos %s duombazės.';
 $strDatabases = 'duombazės';
 $strDatabasesStatsDisable = 'Leisti statistiką';

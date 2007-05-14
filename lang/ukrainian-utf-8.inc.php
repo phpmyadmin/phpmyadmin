@@ -131,7 +131,6 @@ $strCzech = 'Чеське';
 $strDanish = 'Данське';
 $strDatabaseExportOptions = 'Налаштування експорту бази даних';
 $strDatabaseHasBeenDropped = 'Базу даних %s знищено.';
-$strDatabaseNoTable = 'Ця база даних не містить таблиць!';
 $strDatabasesDropped = '%s баз(а\и) даних успішно знищено.';
 $strDatabasesStatsDisable = 'Заборонити статистику';
 $strDatabasesStatsEnable = 'Дозволити статистику';

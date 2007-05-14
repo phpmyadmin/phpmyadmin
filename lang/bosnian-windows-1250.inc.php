@@ -137,7 +137,6 @@ $strDanish = 'Danski';
 $strDatabase = 'Baza podataka';
 $strDatabaseExportOptions = 'Opcije za izvoz baze';
 $strDatabaseHasBeenDropped = 'Baza %s je odbaèena.';
-$strDatabaseNoTable = 'Baza ne sadrži tabele!';
 $strDatabases = 'Baze';
 $strDatabasesDropped = '%s baza je uspješno odbaèena.';
 $strDatabasesStatsDisable = 'Iskljuèi statistike';

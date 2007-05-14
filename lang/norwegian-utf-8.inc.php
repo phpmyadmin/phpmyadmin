@@ -188,7 +188,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'Databasen er uten navn!';
 $strDatabaseExportOptions = 'Databaseeksportinnstillinger';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
-$strDatabaseNoTable = 'Denne databasen har ingen tabeller!';
 $strDatabases = 'databaser';
 $strDatabasesDropped = '%s databasene har blitt slettet.';
 $strDatabasesStatsDisable = 'Slå av statistikk';

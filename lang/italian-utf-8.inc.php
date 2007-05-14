@@ -190,7 +190,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'Il nome del DataBase è vuoto!';
 $strDatabaseExportOptions = 'Opzioni di esportazione del database';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
-$strDatabaseNoTable = 'Questo database non contiene tabelle!';
 $strDatabases = 'Database';
 $strDatabasesDropped = '%s databases sono stati cancellati correttamente.';
 $strDatabasesStatsDisable = 'Disabilita le Statistiche';

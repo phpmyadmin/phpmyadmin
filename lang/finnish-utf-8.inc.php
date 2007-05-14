@@ -196,7 +196,6 @@ $strDanish = 'Tanskalainen';
 $strDatabaseEmpty = 'Tietokannan nimi on tyhjä!';
 $strDatabaseExportOptions = 'Tietokannan tulostusvalinnat';
 $strDatabaseHasBeenDropped = 'Tietokanta %s on pudotettu.';
-$strDatabaseNoTable = 'Tämä tietokanta ei sisällä yhtään taulua!';
 $strDatabasesDropped = '%s tietokantaa pudotettiin onnistuneesti.';
 $strDatabasesStatsDisable = 'Poista tilastot käytöstä';
 $strDatabasesStatsEnable = 'Ota tilastot käyttöön';

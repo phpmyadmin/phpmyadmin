@@ -194,7 +194,6 @@ $strDatabase = 'Datenbank';
 $strDatabaseEmpty = 'Der Datenbankname ist leer!';
 $strDatabaseExportOptions = 'Export-Optionen der Datenbank';
 $strDatabaseHasBeenDropped = 'Datenbank %s wurde gelöscht.';
-$strDatabaseNoTable = 'Diese Datenbank enthält keine Tabelle!';
 $strDatabases = 'Datenbanken';
 $strDatabasesDropped = 'Es wurden %s Datenbanken gelöscht.';
 $strDatabasesStatsDisable = 'Datenbankstatistiken deaktivieren';

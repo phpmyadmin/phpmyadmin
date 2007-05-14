@@ -189,7 +189,6 @@ $strDatabase = 'Baza podataka';
 $strDatabaseEmpty = 'Naziv baze podataka je prazan!';
 $strDatabaseExportOptions = 'Opcije izvoza baze podataka';
 $strDatabaseHasBeenDropped = 'Baza podataka %s je odbačena.';
-$strDatabaseNoTable = 'Ova baza podataka ne sadrži tablice!';
 $strDatabases = 'Baze podataka';
 $strDatabasesDropped = 'Baza podataka %s uspješno je odbačena.';
 $strDatabasesStatsDisable = 'Onemogući statistike';

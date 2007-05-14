@@ -137,7 +137,6 @@ $strDanish = 'Dinamarquês';
 $strDatabase = 'Base de Dados';
 $strDatabaseExportOptions = 'Opções de exportação da Base de Dados';
 $strDatabaseHasBeenDropped = 'A base de dados %s foi eliminada.';
-$strDatabaseNoTable = 'Esta Base de Dados não contém qualquer tabela!';
 $strDatabases = 'Base de Dados';
 $strDatabasesDropped = 'As Bases de Dados %s foram apagadas com sucesso.';
 $strDatabasesStatsDisable = 'Desactivar Estatísticas';

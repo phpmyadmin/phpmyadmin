@@ -172,7 +172,6 @@ $strDanish = 'Дани';
 $strDatabaseEmpty = 'Өгөгдлийн сангийн нэр хоосон!';
 $strDatabaseExportOptions = 'ӨС гаргах сонголтууд';
 $strDatabaseHasBeenDropped = '%s өгөгдлийн сан устгагдсан.';
-$strDatabaseNoTable = 'Энэ ӨС хүснэгт агуулаагүй!';
 $strDatabasesDropped = '%s ӨС амжилттай устгагдлаа.';
 $strDatabasesStatsDisable = 'Хаалттай статистик';
 $strDatabasesStatsEnable = 'Нээлттэй статистик';
