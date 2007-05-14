@@ -46,6 +46,7 @@ function PMA_pow($base, $exp, $use_function = false)
 
     switch ($use_function) {
         case 'bcpow' :
+            //bcscale(10);
             $pow = bcpow($base, $exp);
             break;
         case 'gmp_pow' :
@@ -674,13 +675,14 @@ function PMA_sendHeaderLocation($uri)
         echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
+        echo 'setTimeout("window.location = unescape(\'"' . $uri . '"\')", 2000);' . "\n";
         echo '//]]>' . "\n";
+        echo '</script>' . "\n";
         echo '</head>' . "\n";
         echo '<body>' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+        echo 'document.write(\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
 
