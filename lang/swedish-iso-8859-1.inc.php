@@ -191,7 +191,6 @@ $strDatabase = 'Databas';
 $strDatabaseEmpty = 'Databasens namn är tomt!';
 $strDatabaseExportOptions = 'Exportalternativ för databas';
 $strDatabaseHasBeenDropped = 'Databasen %s har tagits bort.';
-$strDatabaseNoTable = 'Denna databas innehåller ingen tabell!';
 $strDatabases = 'Databaser';
 $strDatabasesDropped = '%s databaser har tagits bort.';
 $strDatabasesStats = 'Databas-statistik';

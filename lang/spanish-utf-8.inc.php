@@ -189,7 +189,6 @@ $strDatabase = 'Base de datos';
 $strDatabaseEmpty = '¡El nombre de la base de datos está vacío!';
 $strDatabaseExportOptions = 'Opciones de exportación de la base de datos';
 $strDatabaseHasBeenDropped = 'La base de datos %s ha sido eliminada.';
-$strDatabaseNoTable = '¡Esta base de datos no contiene tablas!';
 $strDatabases = 'Bases de datos';
 $strDatabasesDropped = '%s bases de datos han sido eliminadas exitosamente.';
 $strDatabasesStatsDisable = 'Desactivar las estadísticas';

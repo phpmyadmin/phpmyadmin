@@ -167,7 +167,6 @@ $strDatabase = 'БД';
 $strDatabaseEmpty = 'Името на базата от данни е празно!';
 $strDatabaseExportOptions = 'Опции за експортиране на база от данни';
 $strDatabaseHasBeenDropped = 'Базата данни %s беше изтрита.';
-$strDatabaseNoTable = 'Базата данни не съдържа таблица!';
 $strDatabasesDropped = '%s бази от данни бяха изтрити успешно.';
 $strDatabasesStatsDisable = 'Забрани статистика';
 $strDatabasesStatsEnable = 'Разрешаване на статистика';

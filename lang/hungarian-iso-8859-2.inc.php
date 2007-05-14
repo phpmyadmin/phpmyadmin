@@ -170,7 +170,6 @@ $strDatabase = 'Adatbázis';
 $strDatabaseEmpty = 'Az adatbázis néz mez&#337; üres!';  
 $strDatabaseExportOptions = 'Adatbázis export beállítások';
 $strDatabaseHasBeenDropped = '%s adatbázist eldobtam.';
-$strDatabaseNoTable = 'Az adatbázis nem tartalmaz táblákat!';
 $strDatabases = 'adatbázisok';
 $strDatabasesDropped = '%s adatbázist sikeresen töröltem.';  
 $strDatabasesStats = 'Adatbázis statisztika';

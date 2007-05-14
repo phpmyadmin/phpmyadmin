@@ -145,7 +145,6 @@ $strData = 'ÈíÇäÇÊ';
 $strDatabase = 'ŞÇÚÏÉ ÇáÈíÇäÇÊ';
 $strDatabaseExportOptions = 'ÎíÇÑÇÊ ÊÕÏíÑ ŞÇÚÏÉ ÈíÇäÇÊ';
 $strDatabaseHasBeenDropped = 'ŞÇÚÏÉ ÈíÇäÇÊ %s ãÍĞæİå.';
-$strDatabaseNoTable = 'áÇ ÊÍÊæí ŞÇÚÏÉ ÇáÈíÇäÇÊ åĞå Úáì ÌÏÇæá!';
 $strDatabases = 'ŞÇÚÏÉ ÈíÇäÇÊ';
 $strDatabasesDropped = 'Êã ÍĞİ ŞæÇÚÏ ÇáÈíÇäÇÊ %s ÈäÌÇÍ.';
 $strDatabasesStats = 'ÅÍÕÇÆíÇÊ ŞæÇÚÏ ÇáÈíÇäÇÊ';

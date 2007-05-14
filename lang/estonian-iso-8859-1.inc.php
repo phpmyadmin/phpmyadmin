@@ -194,7 +194,6 @@ $strDatabase = 'Andmebaas';
 $strDatabaseEmpty = 'Andmebaasi nimi on tühi!';
 $strDatabaseExportOptions = 'Andmebaasi eksportimise seaded';
 $strDatabaseHasBeenDropped = 'Andmebaas %s kustutatud.';
-$strDatabaseNoTable = 'See andmebaas ei sisalda tabelit!';
 $strDatabases = 'Andmebaasid';
 $strDatabasesDropped = 'andmebaasid %s kustutati õnnestunult.';
 $strDatabasesStats = 'Andmebaaside statistika';

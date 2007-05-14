@@ -186,7 +186,6 @@ $strDatabase = 'Base de dades';
 $strDatabaseEmpty = 'El nom de la base de dades és buit!';
 $strDatabaseExportOptions = 'Opcions d\'exportació de Bases de Dades';
 $strDatabaseHasBeenDropped = 'La Base de Dades %s s\'ha eliminat.';
-$strDatabaseNoTable = 'Aquesta base de dades no té taules!';
 $strDatabases = 'bases de dades';
 $strDatabasesDropped = '%s Bases de dades s\'han esborrat correctament.';
 $strDatabasesStatsDisable = 'Desactiva Estadístiques';

@@ -144,7 +144,6 @@ $strDanish = 'Dansko';
 $strDatabaseEmpty = 'Ime podatkovne baze je prazno!';
 $strDatabaseExportOptions = 'Mo¾nosti za izvoz baze podatkov';
 $strDatabaseHasBeenDropped = 'Podatkovna baza %s je zavr¾ena.';
-$strDatabaseNoTable = 'Ta baza podatkov ne vsebuje tabele!!';
 $strDatabase = 'Podatkovna baza';
 $strDatabasesDropped = '%s podatkovne baze so uspe¹no zavr¾ene.';
 $strDatabases = 'podatkovne baze';

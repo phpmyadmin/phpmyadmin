@@ -532,7 +532,6 @@ $strCzechSlovak = 'Czech-Slovak';  //to translate
 $strDanish = 'Danish';  //to translate
 $strDatabaseEmpty = 'The database name is empty!';  //to translate
 $strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
 $strDataPages = 'Pages containing data';  //to translate
 $strDBComment = 'Database comment: ';//to translate
 $strDBCopy = 'Copy database to';  //to translate

@@ -172,7 +172,6 @@ $strDanish = 'Дански';
 $strDatabaseEmpty = 'Име базе није задато!';
 $strDatabaseExportOptions = 'Опције за извоз базе';
 $strDatabaseHasBeenDropped = 'База %s је одбачена.';
-$strDatabaseNoTable = 'База не садржи табеле!';
 $strDatabasesDropped = '%s база је успешно одбачено.';
 $strDatabasesStatsDisable = 'Искључи статистике';
 $strDatabasesStatsEnable = 'Укључи статистике';

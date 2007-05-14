@@ -157,7 +157,6 @@ $strDanish = 'דנית';
 $strDatabaseEmpty = 'שם מאגר הנתונים ריק!';
 $strDatabaseExportOptions = 'אפשרויות ייצוא מאגר נתונים';
 $strDatabaseHasBeenDropped = 'מסד הנתונים %s נמחק.';
-$strDatabaseNoTable = 'מאגר הנתונים מכיל שום טבלה!';
 $strDatabasesDropped = '%s מסדי נתונים נמחקו בהצלחה.';
 $strDatabasesStatsDisable = 'ביטול סטטיסטיקה';
 $strDatabasesStatsEnable = 'הפעלת סטטיסטיקה';

@@ -144,7 +144,6 @@ $strCzech = 'التشيكية';
 $strDanish = 'الدنمركية';
 $strDatabaseExportOptions = 'خيارات تصدير قاعدة بيانات';
 $strDatabaseHasBeenDropped = 'قاعدة بيانات %s محذوفه.';
-$strDatabaseNoTable = 'لا تحتوي قاعدة البيانات هذه على جداول!';
 $strDatabasesDropped = 'تم حذف قواعد البيانات %s بنجاح.';
 $strDatabasesStatsDisable = 'أوقف الإحصائيات';
 $strDatabasesStatsEnable = 'مكّن الإحصائيات';

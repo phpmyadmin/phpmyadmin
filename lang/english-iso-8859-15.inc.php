@@ -193,7 +193,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'The database name is empty!';
 $strDatabaseExportOptions = 'Database export options';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';
-$strDatabaseNoTable = 'This database contains no table!';
 $strDatabases = 'Databases';
 $strDatabasesDropped = '%s databases have been dropped successfully.';
 $strDatabasesStats = 'Databases statistics';

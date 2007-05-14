@@ -83,7 +83,6 @@ $strCreatePage = 'नया पेज़ बनाऐं';
 $strData = ' डाटा';
 $strDatabase = ' डाटाबेस';
 $strDatabaseHasBeenDropped = 'डाटाबेस %s को ड्रोप कर दिया ।';
-$strDatabaseNoTable = 'इस डाटाबेस में कोई टेबल नहीं है!';
 $strDatabases = ' डाटाबेस';
 $strDatabasesDropped = '%s डाटाबेस को सफलता से डिलीट कर दिया गया।';  
 $strDatabasesStats = ' डाटाबेसों के आँकडे';

@@ -135,7 +135,6 @@ $strDanish = 'Danesa';
 $strDatabase = 'Datu-basea';
 $strDatabaseExportOptions = 'Datu-basea esportatzeko aukerak';
 $strDatabaseHasBeenDropped = '%s datu-basea ezabatua izan da.';
-$strDatabaseNoTable = 'Datu-base honek ez dauka taularik!';
 $strDatabases = 'Datu-baseak';
 $strDatabasesDropped = '%s datu-base arrakastaz ezabatu dira.';
 $strDatabasesStats = 'Datu-baseen estatistikak';

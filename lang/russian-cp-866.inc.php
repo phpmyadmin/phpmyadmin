@@ -174,7 +174,6 @@ $strDatabase = 'База данных';
 $strDatabaseEmpty = 'Имя базы данных не указанно!';
 $strDatabaseExportOptions = 'Параметры экспорта базы данных';
 $strDatabaseHasBeenDropped = 'База данных %s была удалена.';
-$strDatabaseNoTable = 'Эта БД не содержит таблиц!';
 $strDatabases = 'Базы данных';
 $strDatabasesDropped = '%s БД были успешно удалены.';
 $strDatabasesStats = 'Статистика баз данных';

@@ -194,7 +194,6 @@ $strDatabase = 'Database';
 $strDatabaseEmpty = 'Databasenavnet er tomt!';
 $strDatabaseExportOptions = 'Database eksportindstillinger';
 $strDatabaseHasBeenDropped = 'Database %s er slettet.';
-$strDatabaseNoTable = 'Denne database indeholder ikke nogen tabel!';
 $strDatabases = 'Databaser';
 $strDatabasesDropped = '%s databaser er blevet droppet korrekt.';
 $strDatabasesStats = 'Databasestatistik';

@@ -191,7 +191,6 @@ $strDatabase = 'දත්තගබඩාව';
 $strDatabaseEmpty = 'දත්තගබඩා නම හිස්ව පවතී!';
 $strDatabaseExportOptions = 'දත්තගබඩා අපනයන විකල්ප';
 $strDatabaseHasBeenDropped = '%s දත්තගබඩාව හලන ලදි.';
-$strDatabaseNoTable = 'මෙම දත්තගබඩාවේ වගු කිසිවක් නැත!';
 $strDatabases = 'දත්තගබඩා';
 $strDatabasesDropped = '%s දත්තගබඩාව සාර්ථකව හලන ලදි.';
 $strDatabasesStats = 'දත්තගබඩා සංඛ්‍යා ලේඛන';

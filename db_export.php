@@ -27,7 +27,7 @@ $export_page_title = $strViewDumpDB;
 
 // exit if no tables in db found
 if ($num_tables < 1) {
-    echo $strDatabaseNoTable;
+    echo '<div class="warning">' . $strNoTablesFound . '</div>';
     require './libraries/footer.inc.php';
     exit;
 } // end if

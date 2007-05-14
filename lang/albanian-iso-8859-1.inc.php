@@ -149,7 +149,6 @@ $strDatabase = 'Databazat';
 $strDatabaseEmpty = 'Emri i databazës mungon!'; 
 $strDatabaseExportOptions = 'Opcione të eksportimit të databazës';
 $strDatabaseHasBeenDropped = 'Databaza %s u eleminua.';
-$strDatabaseNoTable = 'Kjo databazë nuk përmban tabela!';
 $strDatabases = 'Databazat';
 $strDatabasesDropped = '%s databaza u eleminuan korrektësisht.';
 $strDatabasesStatsDisable = 'Disaktivo Statistikat';

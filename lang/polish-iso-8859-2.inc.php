@@ -182,7 +182,6 @@ $strDatabase = 'Baza danych';
 $strDatabaseEmpty = 'Nazwa bazy danych jest pusta!';
 $strDatabaseExportOptions = 'Opcje eksportu bazy danych';
 $strDatabaseHasBeenDropped = 'Baza danych %s zosta³a usuniêta.';
-$strDatabaseNoTable = 'Ta baza danych nie zawiera ¿adnej tabeli!';
 $strDatabases = 'Bazy danych';
 $strDatabasesDropped = '%s baz danych zosta³o pomy¶lnie usuniêtych.';
 $strDatabasesStatsDisable = 'Wy³±cz statystyki';

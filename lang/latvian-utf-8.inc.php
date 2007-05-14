@@ -160,7 +160,6 @@ $strDatabase = 'Datubāze';
 $strDatabaseEmpty = 'Datubāzes nosaukums ir tukšs!';
 $strDatabaseExportOptions = 'Datubāzu eksporta opcijas';
 $strDatabaseHasBeenDropped = 'Datubāze %s tika izdzēsta.';
-$strDatabaseNoTable = 'Šajā datubāzē nav tabulu!';
 $strDatabases = 'Datubāzes';
 $strDatabasesDropped = '%s datubāzes tika veiksmīgi dzēstas.';
 $strDatabasesStats = 'Datubāzu statistika';
