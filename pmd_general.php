@@ -240,8 +240,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         ?>
     onmouseover="old_class = this.className; this.className = 'tab_field_2';"
     onmouseout="this.className = old_class;"
-    onmousedown="Click_field('
-        <?php
+    onmousedown="Click_field('<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
         if ($GLOBALS['PMD']['TABLE_TYPE'][$i] != 'INNODB') {
             echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
