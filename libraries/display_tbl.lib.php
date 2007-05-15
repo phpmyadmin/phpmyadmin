@@ -224,13 +224,15 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
  *
  * @see     PMA_displayTable()
  */
-function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
+function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
 {
     global $db, $table, $goto, $dontlimitchars;
     global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
     global $disp_direction, $repeat_cells;
     global $is_innodb;
     global $showtable;
+
+    $html_sql_query = htmlentities($sql_query);
 
     /**
      * @todo move this to a central place
@@ -262,7 +264,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 <td>
     <form action="sql.php" method="post">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="pos" value="0" />
         <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
@@ -275,7 +277,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 <td>
     <form action="sql.php" method="post">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
         <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
@@ -295,7 +297,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     <form action="sql.php" method="post"
         onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowNumber']); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowNumber']); ?>', 0, <?php echo $unlim_num_rows - 1; ?>))">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
         <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
         <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?> :" />
@@ -341,7 +343,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 <td>
     <form action="sql.php" method="post">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
         <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
@@ -355,7 +357,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     <form action="sql.php" method="post"
         onsubmit="return <?php echo (($pos + $session_max_rows < $unlim_num_rows && $num_rows >= $session_max_rows) ? 'true' : 'false'); ?>">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="pos" value="<?php echo @((ceil($unlim_num_rows / $session_max_rows)- 1) * $session_max_rows); ?>" />
         <?php
         if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
@@ -389,7 +391,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
         <?php //<form> for keep the form alignment of button < and << ?>
         <form action="none">
         <?php echo PMA_pageselector(
-                     'sql.php?sql_query='        . $encoded_query .
+                     'sql.php?sql_query='   . urlencode($sql_query) .
                         '&amp;session_max_rows=' . $session_max_rows .
                         '&amp;disp_direction='   . $disp_direction .
                         '&amp;repeat_cells='     . $repeat_cells .
@@ -418,7 +420,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 <td>
     <form action="sql.php" method="post">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
         <input type="hidden" name="pos" value="0" />
         <input type="hidden" name="session_max_rows" value="all" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
@@ -1827,7 +1829,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
     }
     if ($is_display['nav_bar'] == '1') {
-        PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
+        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
         echo "\n";
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
@@ -1955,7 +1957,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     if ($is_display['nav_bar'] == '1') {
         echo '<br />' . "\n";
-        PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
+        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
     }
