@@ -432,7 +432,7 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 }
 
 /**
- * avoid problems in phpmyadmin.css.php in some cases 
+ * avoid problems in phpmyadmin.css.php in some cases
  * @global string $js_frame
  */
 $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
@@ -834,7 +834,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * the PMA_List_Database class
          */
-        require_once './libraries/PMA_List_Database.class.php';
+        require_once './libraries/List_Database.class.php';
         $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
 
     } // end server connecting

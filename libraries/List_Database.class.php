@@ -9,7 +9,7 @@
 /**
  * the list base class
  */
-require_once './libraries/PMA_List.class.php';
+require_once './libraries/List.class.php';
 
 /**
  * handles database lists

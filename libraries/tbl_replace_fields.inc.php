@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * handle field values (possibly uploaded from a file) 
+ * handle field values (possibly uploaded from a file)
  *
  * garvin: original if-clause checked, whether input was stored in a possible
  * fields_upload_XX var. Now check, if the field is set. If it is empty or a
@@ -40,7 +40,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/PMA_File.class.php';
+require_once './libraries/File.class.php';
 
 $file_to_insert = new PMA_File();
 $file_to_insert->checkTblChangeForm($key, $primary_key);

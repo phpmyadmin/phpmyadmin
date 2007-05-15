@@ -429,16 +429,24 @@ class PMA_File
     {
         if ($this->setUploadedFromTblChangeRequest($key, $primary_key)) {
             // well done ...
+            $this->_error_message = '';
             return true;
+/*
         } elseif ($this->setUploadedFromTblChangeRequest($key)) {
             // well done ...
+            $this->_error_message = '';
             return true;
+*/
         } elseif ($this->setSelectedFromTblChangeRequest($key, $primary_key)) {
             // well done ...
+            $this->_error_message = '';
             return true;
+/*
         } elseif ($this->setSelectedFromTblChangeRequest($key)) {
             // well done ...
+            $this->_error_message = '';
             return true;
+*/
         }
         // all failed, whether just no file uploaded/selected or an error
 
@@ -625,9 +633,10 @@ class PMA_File
             $this->_compression = 'application/bzip2';
         } elseif ($len >= 4 && $test == "PK\003\004") {
             $this->_compression = 'application/zip';
+        } else {
+            $this->_compression = 'none';
         }
 
-        $this->_compression = 'none';
         return $this->_compression;
     }
 
@@ -641,6 +650,9 @@ class PMA_File
 
     function getHandle()
     {
+        if (null === $this->_handle) {
+            $this->open();
+        }
         return $this->_handle;
     }
 
@@ -751,6 +763,11 @@ class PMA_File
         }
     }
 
+    /**
+     * http://bugs.php.net/bug.php?id=29532
+     * bzip reads a maximum of 8192 bytes on windows systems
+     *
+     */
     function getNextChunk($max_size = null)
     {
         if (null !== $max_size) {
@@ -760,21 +777,44 @@ class PMA_File
         }
 
         // $result = $this->handler->getNextChunk($size);
-
+        $result = '';
         switch ($this->getCompression()) {
             case 'application/bzip2':
-                $result = bzread($this->getHandle(), $size);
+                $result = '';
+                while (strlen($result) < $size - 8192 && ! feof($this->getHandle())) {
+                    $result .= bzread($this->getHandle(), $size);
+                }
                 break;
             case 'application/gzip':
                 $result = gzread($this->getHandle(), $size);
                 break;
             case 'application/zip':
-                $result = $this->getContent($this->getOffset(), $this->_offset, $size);
+                include_once './libraries/unzip.lib.php';
+                $import_handle = new SimpleUnzip();
+                $import_handle->ReadFile($this->getName());
+                if ($import_handle->Count() == 0) {
+                    $this->_error_message = $GLOBALS['strNoFilesFoundInZip'];
+                    return false;
+                } elseif ($import_handle->GetError(0) != 0) {
+                    $this->_error_message = $GLOBALS['strErrorInZipFile']
+                        . ' ' . $import_handle->GetErrorMsg(0);
+                    return false;
+                } else {
+                    $result = $import_handle->GetData(0);
+                }
                 break;
             case 'none':
                 $result = fread($this->getHandle(), $size);
                 break;
+            default:
+                return false;
         }
+
+        echo $size . ' - ';
+        echo strlen($result) . ' - ';
+        echo (@$GLOBALS['__len__'] += strlen($result)) . ' - ';
+        echo $this->_error_message;
+        echo '<hr />';
 
         if ($GLOBALS['charset_conversion']) {
             $result = PMA_convert_string($this->getCharset(), $GLOBALS['charset'], $result);
@@ -799,7 +839,9 @@ class PMA_File
         }
 
         $this->_offset += $size;
-
+        if (0 === $result) {
+            return true;
+        }
         return $result;
     }
 
