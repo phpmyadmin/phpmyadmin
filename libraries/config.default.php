@@ -20,7 +20,7 @@
 /**
  * Your phpMyAdmin URL.
  *
- * Complete the variable below with the full url ie
+ * Complete the variable below with the full URL ie
  *    http://www.your_web.net/path_to_your_phpMyAdmin_directory/
  *
  * It must contain characters that are valid for a URL, and the path is
@@ -38,7 +38,7 @@ $cfg['PmaAbsoluteUri'] = '';
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if
- * any of the required Tables for the relationfeatures could not be found
+ * any of the required Tables for the relation features could not be found
  *
  * @global boolean $cfg['PmaNoRelation_DisableWarning']
  */
@@ -47,7 +47,7 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 /**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
- * passphrase that will be used by blowfish. The maximum length seems to be 46
+ * pass phrase that will be used by blowfish. The maximum length seems to be 46
  * characters.
  *
  * @global string $cfg['blowfish_secret']
@@ -59,9 +59,9 @@ $cfg['blowfish_secret'] = '';
  * Server(s) configuration
  *
  * The $cfg['Servers'] array starts with $cfg['Servers'][1].  Do not use
- * $cfg['Servers'][0]. You can disable a server config entry by setting host
+ * $cfg['Servers'][0]. You can disable a server configuration entry by setting host
  * to ''. If you want more than one server, just copy following section
- * (including $i incrementation) serveral times. There is no need to define
+ * (including $i incrementation) several times. There is no need to define
  * full server array, just define values you need to change.
  *
  * @global array $cfg['Servers']
@@ -106,7 +106,7 @@ $cfg['Servers'][$i]['ssl'] = false;
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 
 /**
- * The php MySQL extension to use ('mysql' or 'mysqli')
+ * The PHP MySQL extension to use ('mysql' or 'mysqli')
  *
  * @global string $cfg['Servers'][$i]['extension']
  */
@@ -135,7 +135,7 @@ $cfg['Servers'][$i]['controluser'] = '';
 $cfg['Servers'][$i]['controlpass'] = '';
 
 /**
- * Authentication method (valid choices: config, http, HTTP, signon or cookie)
+ * Authentication method (valid choices: config, http, signon or cookie)
  *
  * @global string $cfg['Servers'][$i]['auth_type']
  */
@@ -156,14 +156,14 @@ $cfg['Servers'][$i]['user'] = 'root';
 $cfg['Servers'][$i]['password'] = '';
 
 /**
- * Session to use for 'signon' auth method
+ * Session to use for 'signon' authentication method
  *
  * @global string $cfg['Servers'][$i]['SignonSession']
  */
 $cfg['Servers'][$i]['SignonSession'] = '';
 
 /**
- * URL where to redirect user to login for 'signon' auth method
+ * URL where to redirect user to login for 'signon' authentication method
  *
  * @global string $cfg['Servers'][$i]['SignonURL']
  */
@@ -200,7 +200,7 @@ $cfg['Servers'][$i]['hide_db'] = '';
 
 /**
  * Verbose name for this host - leave blank to show the hostname
- * (for HTTP auth, all non-US-ASCII characters will be stripped)
+ * (for HTTP authentication, all non-US-ASCII characters will be stripped)
  *
  * @global string $cfg['Servers'][$i]['verbose']
  */
@@ -321,7 +321,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
  * Default server (0 = no default server)
  *
  * If you have more than one server configured, you can set $cfg['ServerDefault']
- * to any one of them to autoconnect to that server when phpMyAdmin is started,
+ * to any one of them to auto-connect to that server when phpMyAdmin is started,
  * or set it to 0 to be given a list of servers without logging in
  * If you have only one server configured, $cfg['ServerDefault'] *MUST* be
  * set to that server.
@@ -334,7 +334,7 @@ $cfg['ServerDefault'] = 1;
  * Other core phpMyAdmin settings
  */
 /**
- * maximum number of db's displayed in left frame and databaes list
+ * maximum number of db's displayed in left frame and database list
  *
  * @global integer $cfg['MaxDbList']
  */
@@ -355,7 +355,7 @@ $cfg['OBGzip'] = 'auto';
 $cfg['PersistentConnections'] = false;
 
 /**
- * whether to force using https
+ * whether to force using HTTPS
  *
  * @global boolean $cfg['ForceSSL']
  */
@@ -404,7 +404,7 @@ $cfg['AllowUserDropDatabase'] = false;
 $cfg['Confirm'] = true;
 
 /**
- * recall previous login in cookie auth. mode or not
+ * recall previous login in cookie authentication mode or not
  *
  * @global boolean $cfg['LoginCookieRecall']
  */
@@ -449,14 +449,14 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
 /**
  * if set to true, PMA will show the affected rows of EACH statement on
  * multiple-statement queries. See the libraries/import.php file for
- * hardcoded defaults on how many queries a statement may contain!
+ * hard coded defaults on how many queries a statement may contain!
  *
  * @global boolean $cfg['VerboseMultiSubmit']
  */
 $cfg['VerboseMultiSubmit'] = true;
 
 /**
- * allow login to any user entered server in cookie based auth
+ * allow login to any user entered server in cookie based authentication
  *
  * @global boolean $cfg['AllowArbitraryServer']
  */
@@ -583,7 +583,7 @@ $cfg['DisplayDatabasesList'] = 'auto';
 $cfg['ShowStats'] = true;
 
 /**
- * show php info link
+ * show PHP info link
  *
  * @global boolean $cfg['ShowPhpInfo']
  */
@@ -700,7 +700,7 @@ $cfg['CharEditing'] = 'input';
 $cfg['InsertRows'] = 2;
 
 /**
- * Sort order for items in a foreign-key dropdown box.
+ * Sort order for items in a foreign-key drop-down list.
  * 'content' is the referenced data, 'id' is the key value.
  *
  * @global array $cfg['ForeignKeyDropdownOrder']
@@ -708,7 +708,7 @@ $cfg['InsertRows'] = 2;
 $cfg['ForeignKeyDropdownOrder'] = array('content-id', 'id-content');
 
 /**
- * A dropdown will be used if fewer items are present
+ * A drop-down list will be used if fewer items are present
  *
  * @global integer $cfg['ForeignKeyMaxLimit']
  */
@@ -792,7 +792,7 @@ $cfg['DefaultTabServer'] = 'main.php';
 /**
  * Possible values:
  * 'db_structure.php' = tables list
- * 'db_sql.php' = sql form
+ * 'db_sql.php' = SQL form
  * 'db_search.php' = search query
  * 'db_operations.php' = operations on database
  *
@@ -803,7 +803,7 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
 /**
  * Possible values:
  * 'tbl_structure.php' = fields list
- * 'tbl_sql.php' = sql form
+ * 'tbl_sql.php' = SQL form
  * 'tbl_select.php' = select page
  * 'tbl_change.php' = insert row page
  * 'sql.php' = browse page
@@ -1462,7 +1462,7 @@ $cfg['Import']['ldi_new_line'] = 'auto';
 $cfg['Import']['ldi_columns'] = '';
 
 /**
- * 'auto' for autodetection, true or false for forcing
+ * 'auto' for auto-detection, true or false for forcing
  *
  * @global string $cfg['Import']['ldi_local_option']
  */
@@ -1513,7 +1513,7 @@ $cfg['PDFDefaultPageSize'] = 'A4';
 
 
 /*******************************************************************************
- * Language and charset conversion settings
+ * Language and character set conversion settings
  */
 
 /**
@@ -1535,7 +1535,7 @@ $cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
  *        libraries/select_lang.lib.php
  * $cfg['Lang'] = 'en-iso-8859-1';
  *
- * Regullar expression to limit listed languages, eg. '^(cs|en)' for Czech and
+ * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
  * English only
  *
  * @global string $cfg['FilterLanguages']
@@ -1543,8 +1543,8 @@ $cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
 $cfg['FilterLanguages'] = '';
 
 /**
- * Default charset to use for recoding of MySQL queries, does not take
- * any effect when charsets recoding is switched off by
+ * Default character set to use for recoding of MySQL queries, does not take
+ * any effect when character sets recoding is switched off by
  * $cfg['AllowAnywhereRecoding'] or in language file
  * (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
  *
@@ -1553,8 +1553,8 @@ $cfg['FilterLanguages'] = '';
 $cfg['DefaultCharset'] = 'iso-8859-1';
 
 /**
- * Allow charset recoding of MySQL queries, must be also enabled in language
- * file to make harder using other language files than unicode.
+ * Allow character set recoding of MySQL queries, must be also enabled in language
+ * file to make harder using other language files than Unicode.
  * Default value is false to avoid problems on servers without the iconv
  * extension and where dl() is not supported
  *
@@ -1563,7 +1563,7 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 $cfg['AllowAnywhereRecoding'] = false;
 
 /**
- * You can select here which functions will be used for charset conversion.
+ * You can select here which functions will be used for character set conversion.
  * Possible values are:
  *      auto   - automatically use available one (first is tested iconv, then
  *               recode)
@@ -1575,7 +1575,7 @@ $cfg['AllowAnywhereRecoding'] = false;
 $cfg['RecodingEngine'] = 'auto';
 
 /**
- * Specify some parameters for iconv used in charset conversion. See iconv
+ * Specify some parameters for iconv used in character set conversion. See iconv
  * documentation for details:
  * http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
  *
@@ -1584,9 +1584,9 @@ $cfg['RecodingEngine'] = 'auto';
 $cfg['IconvExtraParams'] = '//TRANSLIT';
 
 /**
- * Available charsets for MySQL conversion. currently contains all which could
+ * Available character sets for MySQL conversion. currently contains all which could
  * be found in lang/* files and few more.
- * Charsets will be shown in same order as here listed, so if you frequently
+ * Character sets will be shown in same order as here listed, so if you frequently
  * use some of these move them to the top.
  *
  * @global array $cfg['AvailableCharsets']
@@ -1629,7 +1629,7 @@ $cfg['AvailableCharsets'] = array(
 /*******************************************************************************
  * Customization & design
  *
- * The graphical settings are now located in themes/themename/layout.inc.php
+ * The graphical settings are now located in themes/theme-name/layout.inc.php
  */
 
 /**
@@ -1662,7 +1662,7 @@ $cfg['BrowseMarkerEnable'] = true;
 
 /**
  * textarea size (columns) in edit mode
- * (this value will be emphasized (*2) for sql
+ * (this value will be emphasized (*2) for SQL
  * query textareas and (*1.25) for query window)
  *
  * @global integer $cfg['TextareaCols']
@@ -1677,14 +1677,14 @@ $cfg['TextareaCols'] = 40;
 $cfg['TextareaRows'] = 7;
 
 /**
- * double size of textarea size for longtext fields
+ * double size of textarea size for LONGTEXT fields
  *
  * @global boolean $cfg['LongtextDoubleTextarea']
  */
 $cfg['LongtextDoubleTextarea'] = true;
 
 /**
- * autoselect when clicking in the textarea of the querybox
+ * auto-select when clicking in the textarea of the query-box
  *
  * @global boolean $cfg['TextareaAutoSelect']
  */
@@ -1751,7 +1751,7 @@ $cfg['DefaultDisplay'] = 'horizontal';
 $cfg['DefaultPropDisplay'] = 3;
 
 /**
- * table-header rotation via faking or css? (css|fake)
+ * table-header rotation via faking or CSS? (css|fake)
  * NOTE: CSS only works in IE browsers!
  *
  * @global string $cfg['HeaderFlipType']
@@ -1781,7 +1781,7 @@ $cfg['RepeatCells'] = 100;
 
 /**
  * Set to true if Edit link should open the query to edit in the query window
- * (assuming Javascript is enabled), and to false if we should edit in the right panel
+ * (assuming JavaScript is enabled), and to false if we should edit in the right panel
  *
  * @global boolean $cfg['EditInWindow']
  */
@@ -1847,7 +1847,7 @@ $cfg['MaxExactCountViews'] = 0;
 
 /**
  * Utilize DHTML/JS capabilities to allow WYSIWYG editing of
- * the PDF page editor. Requires an IE6/Mozilla based browser.
+ * the PDF page editor. Requires an IE6/Gecko based browser.
  *
  * @global boolean $cfg['WYSIWYG-PDF']
  */
@@ -1863,7 +1863,7 @@ $cfg['NaturalOrder'] = true;
 
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04
-//    some specials for new icons and scrollings
+//    some specials for new icons and scrolling
 /**
  * @todo 2004-05-08 rabus: We need to rearrange these variables.
  */
@@ -2029,7 +2029,7 @@ $cfg['SQLQuery']['Refresh'] = true;
 
 
 /*******************************************************************************
- * Webserver upload/save/import directories
+ * Web server upload/save/import directories
  */
 
 /**
@@ -2064,8 +2064,8 @@ $cfg['TempDir'] = '';
  */
 
 /**
- * Is GD >= 2 available? Set to yes/no/auto. 'auto' does autodetection,
- * which is a bit expensive for php < 4.3.0, but it is the only safe vay how to
+ * Is GD >= 2 available? Set to yes/no/auto. 'auto' does auto-detection,
+ * which is a bit expensive for PHP < 4.3.0, but it is the only safe way how to
  * determine GD version.
  *
  * @global string $cfg['GD2Available']
@@ -2095,14 +2095,14 @@ $cfg['SQP'] = array();
 $cfg['SQP']['fmtType'] = 'html';
 
 /**
- * Amount to indent each level (floats ok)
+ * Amount to indent each level (floats are valid)
  *
  * @global integer $cfg['SQP']['fmtInd']
  */
 $cfg['SQP']['fmtInd'] = '1';
 
 /**
- * Units for indenting each level (CSS Types - {em,px,pt})
+ * Units for indenting each level (CSS Types - {em, px, pt})
  *
  * @global string $cfg['SQP']['fmtIndUnit']
  */
@@ -2179,7 +2179,7 @@ $cfg['DBG']['profile']['threshold'] = 0.5;
 
 /**
  * Column types;
- * varchar, tinyint, text and date are listed first, based on estimated popularity
+ * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
  *
  * @global array $cfg['ColumnTypes']
  */
