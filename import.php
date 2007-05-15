@@ -407,13 +407,6 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
-    if (isset($_GET['pos'])) {
-        // comes from the Refresh link
-        $pos = $_GET['pos'];
-    } else {
-        // Set pos to zero to possibly append limit
-        $pos = 0;
-    }
     require './sql.php';
 } else {
     $active_page = $goto;

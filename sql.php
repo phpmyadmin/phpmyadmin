@@ -16,13 +16,6 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 /**
- * Could be coming from a subform ("T" column expander)
- */
-if (isset($_REQUEST['dontlimitchars'])) {
-    $dontlimitchars = $_REQUEST['dontlimitchars'];
-}
-
-/**
  * Defines the url to return to in case of error in a sql statement
  */
 // Security checkings
@@ -89,31 +82,24 @@ $is_drop_database = preg_match('/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i
  * into account this case.
  */
 if (!defined('PMA_CHK_DROP')
-    && !$cfg['AllowUserDropDatabase']
-    && $is_drop_database
-    && !$is_superuser) {
+ && !$cfg['AllowUserDropDatabase']
+ && $is_drop_database
+ && !$is_superuser) {
     require_once './libraries/header.inc.php';
     PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
 } // end if
 
+require_once './libraries/display_tbl.lib.php';
+PMA_displayTable_checkConfigParams();
 
 /**
  * Need to find the real end of rows?
  */
-
 if (isset($find_real_end) && $find_real_end) {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true, true);
-    $pos = @((ceil($unlim_num_rows / $session_max_rows) - 1) * $session_max_rows);
+    $_SESSION['userconf']['pos'] = @((ceil($unlim_num_rows / $_SESSION['userconf']['max_rows']) - 1) * $_SESSION['userconf']['max_rows']);
 }
-/**
- * Avoids undefined variables
- */
-elseif (!isset($pos)) {
-    $pos = 0;
-} else {
-    /* We need this to be a integer */
-    $pos = (int)$pos;
-}
+
 
 /**
  * Bookmark add
@@ -145,7 +131,6 @@ if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table)
-          . '&amp;pos=' . $pos
           . '&amp;sql_query=' . urlencode($sql_query);
 } // end if
 
@@ -238,19 +223,6 @@ if (empty($reload)
     && preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
     $reload           = 1;
 }
-// Gets the number of rows per page
-if (empty($session_max_rows)) {
-    $session_max_rows = $cfg['MaxRows'];
-} elseif ($session_max_rows != 'all') {
-    $cfg['MaxRows']   = $session_max_rows;
-}
-// Defines the display mode (horizontal/vertical) and header "frequency"
-if (empty($disp_direction)) {
-    $disp_direction   = $cfg['DefaultDisplay'];
-}
-if (empty($repeat_cells)) {
-    $repeat_cells     = $cfg['RepeatCells'];
-}
 
 // SK -- Patch: $is_group added for use in calculation of total number of
 //              rows.
@@ -290,13 +262,13 @@ if ($is_select) { // see line 141
 }
 
 // Do append a "LIMIT" clause?
-if (isset($pos)
- && (!$cfg['ShowAll'] || $session_max_rows != 'all')
+if ((!$cfg['ShowAll'] || $_SESSION['userconf']['max_rows'] != 'all')
  && !($is_count || $is_export || $is_func || $is_analyse)
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && !isset($analyzed_sql[0]['queryflags']['offset'])
- && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+(;)?$@i', $sql_query)) {
-    $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'] . " ";
+ && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+(;)?$@i', $sql_query)
+ ) {
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['userconf']['pos'] . ', ' . $_SESSION['userconf']['max_rows'] . " ";
 
     $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
     /**
@@ -401,7 +373,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         $unlim_num_rows         = $num_rows;
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        $GLOBALS['session_max_rows'] = 'all';
+        //$_SESSION['userconf']['max_rows'] = 'all';
     } elseif ($is_select) {
 
         //    c o u n t    q u e r y
@@ -696,14 +668,10 @@ else {
     }
 
     // Displays the results in a table
-    require_once './libraries/display_tbl.lib.php';
     if (empty($disp_mode)) {
         // see the "PMA_setDisplayMode()" function in
         // libraries/display_tbl.lib.php
         $disp_mode = 'urdr111101';
-    }
-    if (!isset($dontlimitchars)) {
-        $dontlimitchars = 0;
     }
 
     // hide edit and delete links for information_schema
@@ -739,11 +707,6 @@ else {
 
         $goto = 'sql.php?'
               . PMA_generate_common_url($db, $table)
-              . '&amp;pos=' . $pos
-              . '&amp;session_max_rows=' . $session_max_rows
-              . '&amp;disp_direction=' . $disp_direction
-              . '&amp;repeat_cells=' . $repeat_cells
-              . '&amp;dontlimitchars=' . $dontlimitchars
               . '&amp;sql_query=' . urlencode($sql_query)
               . '&amp;id_bookmark=1';
 

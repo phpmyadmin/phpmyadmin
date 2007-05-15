@@ -64,21 +64,6 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
-if (isset($_REQUEST['dontlimitchars'])) {
-    $url_params['dontlimitchars'] = $_REQUEST['dontlimitchars'];
-}
-if (isset($_REQUEST['pos'])) {
-    $url_params['pos'] = (int) $_REQUEST['pos'];
-}
-if (isset($_REQUEST['session_max_rows'])) {
-    $url_params['session_max_rows'] = (int) $_REQUEST['session_max_rows'];
-}
-if (isset($_REQUEST['disp_direction'])) {
-    $url_params['disp_direction'] = $_REQUEST['disp_direction'];
-}
-if (isset($_REQUEST['repeat_cells'])) {
-    $url_params['repeat_cells'] = (int) $_REQUEST['repeat_cells'];
-}
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
     require_once './libraries/header.inc.php';

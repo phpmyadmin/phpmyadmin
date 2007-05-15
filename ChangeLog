@@ -59,6 +59,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + RFE #1704779 [gui] link documentation from login page
 + RFE #1513345 [setup] check control user connection during setup
 + [structure] TRIGGERS: display/edit/drop/SQL export
++ [browse] store browse state in session per query
 
 2.10.2.0 (not yet released)
 

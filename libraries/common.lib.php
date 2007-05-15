@@ -1200,7 +1200,6 @@ function PMA_showMessage($message, $sql_query = null)
             $refresh_link = 'import.php'
                       . $url_qpart
                       . '&amp;show_query=1'
-                      . (isset($_GET['pos']) ? '&amp;pos=' . $_GET['pos'] : '')
                       . '&amp;sql_query=' . urlencode($sql_query);
             $refresh_link = ' [' . PMA_linkOrButton($refresh_link, $GLOBALS['strRefresh']) . ']';
         } else {

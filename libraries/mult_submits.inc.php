@@ -241,7 +241,7 @@ if (!empty($submit_mult) && !empty($what)) {
 ?>
 <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload) : 0; ?>" />
 <?php
-    foreach ($selected AS $idx => $sval) {
+    foreach ($selected as $idx => $sval) {
         echo '<input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
     if ($what == 'drop_tbl' && !empty($views)) {
@@ -253,11 +253,6 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '<input type="hidden" name="original_sql_query" value="' . htmlspecialchars($original_sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="original_pos" value="' . $original_pos . '" />' . "\n";
         echo '<input type="hidden" name="original_url_query" value="' . htmlspecialchars($original_url_query) . '" />' . "\n";
-        echo '<input type="hidden" name="disp_direction"   value="' . $disp_direction . '" />' . "\n";
-        echo '<input type="hidden" name="repeat_cells"     value="' . $repeat_cells   . '" />' . "\n";
-        echo '<input type="hidden" name="dontlimitchars"   value="' . $dontlimitchars . '" />' . "\n";
-        echo '<input type="hidden" name="pos"              value="' . (isset($pos) ? $pos : 0) . '" />' . "\n";
-        echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
     }
     ?>
 <fieldset class="confirmation">

@@ -12,13 +12,6 @@ require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 
 /**
- * Avoids undefined variables
- */
-if (!isset($pos)) {
-    $pos = 0;
-}
-
-/**
  * No rows were selected => show again the query and tell that user.
  */
 if ((!isset($rows_to_delete) || !is_array($rows_to_delete)) && !isset($mult_btn)) {
@@ -113,10 +106,9 @@ if (!empty($submit_mult)) {
         default:
             $action = 'tbl_row_action.php';
             $err_url = 'tbl_row_action.php?' . PMA_generate_common_url($db, $table);
-            if (!isset($mult_btn)) {
+            if (! isset($mult_btn)) {
                 $original_sql_query = $sql_query;
                 $original_url_query = $url_query;
-                $original_pos       = $pos;
             }
             require './libraries/mult_submits.inc.php';
             $url_query = PMA_generate_common_url($db, $table)
@@ -138,10 +130,6 @@ if (!empty($submit_mult)) {
 
             if (isset($original_url_query)) {
                 $url_query = $original_url_query;
-            }
-
-            if (isset($original_pos)) {
-                $pos       = $original_pos;
             }
 
             // this is because sql.php could call tbl_structure

@@ -15,21 +15,6 @@ require_once './libraries/common.inc.php';
  * Here it's better to use a if, instead of the '?' operator
  * to avoid setting a variable to '' when it's not present in $_REQUEST
  */
-if (isset($_REQUEST['pos'])) {
-    $pos =  $_REQUEST['pos'];
-}
-if (isset($_REQUEST['session_max_rows'])) {
-    $session_max_rows = $_REQUEST['session_max_rows'];
-}
-if (isset($_REQUEST['disp_direction'])) {
-    $disp_direction = $_REQUEST['disp_direction'];
-}
-if (isset($_REQUEST['repeat_cells'])) {
-    $repeat_cells = $_REQUEST['repeat_cells'];
-}
-if (isset($_REQUEST['dontlimitchars'])) {
-    $dontlimitchars = $_REQUEST['dontlimitchars'];
-}
 /**
  * @todo this one is badly named, it's really a WHERE condition
  *       and exists even for tables not having a primary key or unique key
@@ -203,11 +188,6 @@ document.onkeydown = onKeyDownArrowsHandler;
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
-    <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
-    <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />
-    <input type="hidden" name="disp_direction" value="<?php echo isset($disp_direction) ? $disp_direction : ''; ?>" />
-    <input type="hidden" name="repeat_cells" value="<?php echo isset($repeat_cells) ? $repeat_cells : ''; ?>" />
-    <input type="hidden" name="dontlimitchars" value="<?php echo (isset($dontlimitchars) ? $dontlimitchars : 0); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
@@ -989,7 +969,7 @@ if ($insert_mode) {
     $option_values = array(1,2,5,10,15,20,30,40);
     foreach ($option_values as $value) {
         $tmp .= '<option value="' . $value . '"';
-        if ($value == $cfg['InsertRows']) { 
+        if ($value == $cfg['InsertRows']) {
             $tmp .= ' selected="selected"';
         }
         $tmp .= '>' . $value . '</option>' . "\n";
