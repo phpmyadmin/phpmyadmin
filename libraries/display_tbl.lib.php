@@ -11,7 +11,7 @@
 require_once './libraries/Table.class.php';
 
 /**
- * Set of functions used to display the records returned by a sql query
+ * Set of functions used to display the records returned by a SQL query
  */
 
 /**
@@ -25,15 +25,15 @@ if (!isset($pos)) {
 }
 
 /**
- * Defines the display mode to use for the results of a sql query
+ * Defines the display mode to use for the results of a SQL query
  *
  * It uses a synthetic string that contains all the required informations.
  * In this string:
  *   - the first two characters stand for the action to do while
- *     clicking on the "edit" link (eg 'ur' for update a row, 'nn' for no
+ *     clicking on the "edit" link (e.g. 'ur' for update a row, 'nn' for no
  *     edit link...);
  *   - the next two characters stand for the action to do while
- *     clicking on the "delete" link (eg 'kp' for kill a process, 'nn' for
+ *     clicking on the "delete" link (e.g. 'kp' for kill a process, 'nn' for
  *     no delete link...);
  *   - the next characters are boolean values (1/0) and respectively stand
  *     for sorting links, navigation bar, "insert a new row" link, the
@@ -43,7 +43,7 @@ if (!isset($pos)) {
  *
  * @param   string   the synthetic value for display_mode (see �1 a few
  *                   lines above for explanations)
- * @param   integer  the total number of rows returned by the sql query
+ * @param   integer  the total number of rows returned by the SQL query
  *                   without any programmatically appended "LIMIT" clause
  *                   (just a copy of $unlim_num_rows if it exists, else
  *                   computed inside this function)
@@ -53,10 +53,10 @@ if (!isset($pos)) {
  *
  * @global  string   the database name
  * @global  string   the table name
- * @global  integer  the total number of rows returned by the sql query
+ * @global  integer  the total number of rows returned by the SQL query
  *                   without any programmatically appended "LIMIT" clause
  * @global  array    the properties of the fields returned by the query
- * @global  string   the url to return to in case of error in a sql
+ * @global  string   the URL to return to in case of error in a SQL
  *                   statement
  *
  * @access  private
@@ -174,7 +174,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         $the_total   = PMA_Table::countRecords($db, $table, true);
     }
 
-    // 4. If navigation bar or sorting fields names urls should be
+    // 4. If navigation bar or sorting fields names URLs should be
     //    displayed but there is only one row, change these settings to
     //    false
     if ($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1') {
@@ -195,21 +195,21 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
- * Displays a navigation bar to browse among the results of a sql query
+ * Displays a navigation bar to browse among the results of a SQL query
  *
  * @param   integer  the offset for the "next" page
  * @param   integer  the offset for the "previous" page
- * @param   string   the url-encoded query
+ * @param   string   the URL-encoded query
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
- * @global  string   $goto           the url to go back in case of errors
+ * @global  string   $goto           the URL to go back in case of errors
  * @global  boolean  $dontlimitchars whether to limit the number of displayed
  *                                   characters  of text type fields or not
  * @global  integer  $num_rows       the total number of rows returned by the
- *                                   sql query
+ *                                   SQL query
  * @global  integer  $unlim_num_rows the total number of rows returned by the
- *                                   sql any programmatically appended "LIMIT" clause
+ *                                   SQL any programmatically appended "LIMIT" clause
  * @global  integer  $pos            the current position in results
  * @global  mixed    $session_max_rows the maximum number of rows per page
  *                                   ('all'  = no limit)
@@ -444,19 +444,19 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
  *
  * @param   array    which elements to display
  * @param   array    the list of fields properties
- * @param   integer  the total number of fields returned by the sql query
+ * @param   integer  the total number of fields returned by the SQL query
  * @param   array    the analyzed query
  *
  * @return  boolean  always true
  *
  * @global  string   $db               the database name
  * @global  string   $table            the table name
- * @global  string   $goto             the url to go back in case of errors
+ * @global  string   $goto             the URL to go back in case of errors
  * @global  boolean  $dontlimitchars   whether to limit the number of displayed
  *                                     characters of text type fields or not
  * @global  string   $sql_query        the sql query
  * @global  integer  $num_rows         the total number of rows returned by the
- *                                     sql query
+ *                                     SQL query
  * @global  integer  $pos              the current position in results
  * @global  integer  $session_max_rows the maximum number of rows per page
  * @global  array    $vertical_display informations used with vertical display
@@ -798,7 +798,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ';
             }
 
-            // 2.1.4 Do define the sorting url
+            // 2.1.4 Do define the sorting URL
             if (! $is_in_sort) {
                 // loic1: patch #455484 ("Smart" order)
                 $GLOBALS['cfg']['Order'] = strtoupper($GLOBALS['cfg']['Order']);
@@ -830,9 +830,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                        . '&amp;sql_query=' . urlencode($sorted_sql_query);
             $order_url  = 'sql.php?' . $url_query;
 
-            // 2.1.5 Displays the sorting url
+            // 2.1.5 Displays the sorting URL
             // added 20004-06-09: Michael Keck <mail@michaelkeck.de>
-            //                    enable sord order swapping for image
+            //                    enable sort order swapping for image
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
@@ -917,7 +917,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         } // end vertical mode
     }
 
-    //     ... elseif no button, displays empty cols if required
+    //     ... elseif no button, displays empty columns if required
     // (unless coming from Browse mode print view)
     elseif ($GLOBALS['cfg']['ModifyDeleteAtRight']
              && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -959,15 +959,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
- * @global  string   $goto              the url to go back in case of errors
+ * @global  string   $goto              the URL to go back in case of errors
  * @global  boolean  $dontlimitchars    whether to limit the number of displayed
  *                                      characters of text type fields or not
- * @global  string   $sql_query         the sql query
+ * @global  string   $sql_query         the SQL query
  * @global  integer  $pos               the current position in results
  * @global  integer  $session_max_rows  the maximum number of rows per page
  * @global  array    $fields_meta       the list of fields properties
  * @global  integer  $fields_cnt        the total number of fields returned by
- *                                      the sql query
+ *                                      the SQL query
  * @global  array    $vertical_display  informations used with vertical display
  *                                      mode
  * @global  string   $disp_direction    the display mode
@@ -989,8 +989,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
     $url_sql_query          = $sql_query;
 
-    // query without conditions to shorten urls when needed, 200 is just
-    // guess, it should depend on remaining url length
+    // query without conditions to shorten URLs when needed, 200 is just
+    // guess, it should depend on remaining URL length
 
     if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
         isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
@@ -1079,7 +1079,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          */
         $unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
 
-        // 1.2 Defines the urls for the modify/delete link(s)
+        // 1.2 Defines the URLs for the modify/delete link(s)
         $url_query  = PMA_generate_common_url($db, $table)
                     . '&amp;pos=' . $pos
                     . '&amp;session_max_rows=' . $session_max_rows
@@ -1403,7 +1403,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
                     }
 
-                    // garvin: transform functions may enable nowrapping:
+                    // garvin: transform functions may enable no-wrapping:
                     $function_nowrap = $transform_function . '_nowrap';
                     $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 
@@ -1684,7 +1684,7 @@ function PMA_displayVerticalTable()
 
 
 /**
- * Displays a table of results returned by a sql query.
+ * Displays a table of results returned by a SQL query.
  * This function is called by the "sql.php" script.
  *
  * @param   integer the link id associated to the query which results have
@@ -1694,20 +1694,20 @@ function PMA_displayVerticalTable()
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
- * @global  string   $goto              the url to go back in case of errors
+ * @global  string   $goto              the URL to go back in case of errors
  * @global  boolean  $dontlimitchars    whether to limit the number of displayed
  *                                      characters of text type fields or not
  * @global  string   $sql_query         the current sql query
  * @global  integer  $num_rows          the total number of rows returned by the
- *                                      sql query
+ *                                      SQL query
  * @global  integer  $unlim_num_rows    the total number of rows returned by the
- *                                      sql query without any programmatically
+ *                                      SQL query without any programmatically
  *                                      appended "LIMIT" clause
  * @global  integer  $pos               the current postion of the first record
  *                                      to be displayed
  * @global  array    $fields_meta       the list of fields properties
  * @global  integer  $fields_cnt        the total number of fields returned by
- *                                      the sql query
+ *                                      the SQL query
  * @global  array    $vertical_display  informations used with vertical display
  *                                      mode
  * @global  string   $disp_direction    the display mode
@@ -1752,7 +1752,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 1. ----- Prepares the work -----
 
-    // 1.1 Gets the informations about which functionnalities should be
+    // 1.1 Gets the informations about which functionalities should be
     //     displayed
     $total      = '';
     $is_display = PMA_setDisplayMode($the_disp_mode, $total);
@@ -1779,7 +1779,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         }
     } // end if
 
-    // 1.3 Urlencodes the query to use in input form fields
+    // 1.3 URL-encodes the query to use in input form fields
     $encoded_sql_query = urlencode($sql_query);
 
     // 2. ----- Displays the top of the page -----
@@ -1834,10 +1834,10 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
 
     // 2b ----- Get field references from Database -----
-    // (see the 'relation' config variable)
+    // (see the 'relation' configuration variable)
     // loic1, 2002-03-02: extended to php3
 
-    // init map
+    // initialize map
     $map = array();
 
     // find tables
@@ -1982,9 +1982,9 @@ function default_function($buffer) {
  *                                      characters of text type fields or not
  * @global  integer  $pos               the current postion of the first record
  *                                      to be displayed
- * @global  string   $sql_query         the current sql query
+ * @global  string   $sql_query         the current SQL query
  * @global  integer  $unlim_num_rows    the total number of rows returned by the
- *                                      sql query without any programmatically
+ *                                      SQL query without any programmatically
  *                                      appended "LIMIT" clause
  * @global  string   $disp_direction    the display mode
  *                                      (horizontal/vertical/horizontalflipped)
@@ -2073,7 +2073,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             $header_shown = TRUE;
         }
         echo '    <!-- Create View -->' . "\n";
-        echo   '    &nbsp;&nbsp;' . "\n";
+        echo '    &nbsp;&nbsp;' . "\n";
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_views.png" height="16" width="16" alt="CREATE VIEW" />' : '') . 'CREATE VIEW',
