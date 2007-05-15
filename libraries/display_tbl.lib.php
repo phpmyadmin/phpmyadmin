@@ -577,17 +577,28 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                   ? ' rowspan="3"'
                   : '';
     }
-    $text_url = 'sql.php?'
-              . PMA_generate_common_url($db, $table)
-              . '&amp;sql_query=' . urlencode($sql_query)
-              . '&amp;goto=' . $goto;
-    $text_message = '<img class="fulltext" src="' . $GLOBALS['pmaThemeImage']
-        . 's_'
-        . ($_SESSION['userconf']['dontlimitchars'] ? 'partialtext' : 'fulltext')
-        . '.png" width="50" height="20" alt="'
-        . ($_SESSION['userconf']['dontlimitchars'] ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText'])
-        . '" title="'
-        . ($_SESSION['userconf']['dontlimitchars'] ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" />';
+    $url_params = array(
+        'db' => $db,
+        'table' => $table,
+        'sql_query' => $sql_query,
+        'goto' => $goto,
+    );
+    $text_message = '<img class="fulltext" width="50" height="20"';
+    if ($_SESSION['userconf']['dontlimitchars']) {
+        $url_params['dontlimitchars'] = '0';
+        $text_message .= ''
+            . ' src="' . $GLOBALS['pmaThemeImage'] . 's_partialtext.png"'
+            . ' alt="' . $GLOBALS['strPartialText'] . '"'
+            . ' title="' . $GLOBALS['strPartialText'] . '"';
+    } else {
+        $url_params['dontlimitchars'] = '1';
+        $text_message .= ''
+            . ' src="' . $GLOBALS['pmaThemeImage'] . 's_fulltext.png"'
+            . ' alt="' . $GLOBALS['strFullText'] . '"'
+            . ' title="' . $GLOBALS['strFullText'] . '"';
+    }
+    $text_message .= ' />';
+    $text_url = 'sql.php' . PMA_generate_common_url($url_params);
     $text_link = PMA_linkOrButton($text_url, $text_message, array(), false);
 
     //     ... before the result table
@@ -1708,7 +1719,7 @@ function PMA_displayTable_checkConfigParams()
     // do not exceed a maximum number of queries to remember
     if (count($_SESSION['userconf']['query']) > 10) {
         array_shift($_SESSION['userconf']['query']);
-        echo 'deleting one element ...';
+        //echo 'deleting one element ...';
     }
 
     // populate query configuration
