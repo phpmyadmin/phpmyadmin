@@ -474,7 +474,7 @@ class PMA_Table {
     {
         $last_id = -1;
 
-        if ($GLOBALS['cfgRelation'][$work]) {
+        if (isset($GLOBALS['cfgRelation']) && $GLOBALS['cfgRelation'][$work]) {
             $select_parts = array();
             $row_fields = array();
             foreach ($get_fields as $get_field) {
