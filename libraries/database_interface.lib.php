@@ -219,9 +219,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
 {
     // prepare and check parameters
     if (! is_array($database)) {
-        $databases = array(addslashes($database));
+        $databases = array($database);
     } else {
-        $databases = array_map('addslashes', $database);
+        $databases = $database;
     }
 
     $tables = array();
@@ -249,6 +249,8 @@ function PMA_DBI_get_tables_full($database, $table = false,
         // added BINARY in the WHERE clause to force a case sensitive
         // comparison (if we are looking for the db Aa we don't want
         // to find the db aa)
+        $this_databases = array_map('PMA_sqlAddslashes', $databases);
+
         $sql = '
              SELECT *,
                     `TABLE_SCHEMA`       AS `Db`,
@@ -272,7 +274,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                FROM `information_schema`.`TABLES`
-              WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
+              WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
                 ' . $sql_where_table;
 
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
@@ -365,7 +367,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
             // bug #1436171
-            // sf.net/tracker/?func=detail&aid=1436171&group_id=23067&atid=377408
+            // http://sf.net/support/tracker.php?aid=1436171
             return $tables[strtolower($database)];
         } else {
             return $tables;
@@ -1166,7 +1168,7 @@ function PMA_DBI_getCompatibilities()
 
 /**
  * returns warnings for last query
- * 
+ *
  * @uses    $GLOBALS['userlink']
  * @uses    PMA_DBI_fetch_result()
  * @param   resource mysql link  $link   mysql link resource
@@ -1175,9 +1177,9 @@ function PMA_DBI_getCompatibilities()
 function PMA_DBI_get_warnings($link = null)
 {
     if (PMA_MYSQL_INT_VERSION < 40100) {
-    	return array();
+        return array();
     }
-    
+
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -1185,7 +1187,7 @@ function PMA_DBI_get_warnings($link = null)
             return array();
         }
     }
-    
+
     return PMA_DBI_fetch_result('SHOW WARNINGS', null, null, $link);
 }
 
@@ -1242,11 +1244,11 @@ function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_na
 }
 
 /**
- * returns details about the TRIGGERs of a specific table 
+ * returns details about the TRIGGERs of a specific table
  *
  * @uses    PMA_DBI_fetch_result()
  * @param   string              $db     db name
- * @param   string              $table  table name 
+ * @param   string              $table  table name
  *
  * @return  array               information about triggers (may be empty)
  */
@@ -1262,12 +1264,12 @@ function PMA_DBI_get_triggers($db, $table) {
             $delimiter = '//';
             foreach ($triggers as $trigger) {
                 $one_result = array();
-                $one_result['name'] = $trigger['TRIGGER_NAME']; 
-                $one_result['action_timing'] = $trigger['ACTION_TIMING']; 
-                $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION']; 
+                $one_result['name'] = $trigger['TRIGGER_NAME'];
+                $one_result['action_timing'] = $trigger['ACTION_TIMING'];
+                $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
 
                 $one_result['full_trigger_name'] = PMA_backquote($trigger['TRIGGER_SCHEMA']) . '.' . PMA_backquote($trigger['TRIGGER_NAME']);
-                $one_result['drop'] = 'DROP TRIGGER ' . $one_result['full_trigger_name']; 
+                $one_result['drop'] = 'DROP TRIGGER ' . $one_result['full_trigger_name'];
                 $one_result['create'] = 'CREATE TRIGGER ' . $one_result['full_trigger_name'] . ' ' . $trigger['ACTION_TIMING']. ' ' . $trigger['EVENT_MANIPULATION'] . ' ON ' . PMA_backquote($trigger['EVENT_OBJECT_SCHEMA']) . '.' . PMA_backquote($trigger['EVENT_OBJECT_TABLE']) . "\n" . ' FOR EACH ROW ' . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
 
                 $result[] = $one_result;
