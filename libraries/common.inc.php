@@ -16,16 +16,16 @@
  * ... so the required order is:
  *
  * LABEL_variables_init
- *  - init some variables always needed
+ *  - initialize some variables always needed
  * LABEL_parsing_config_file
- *  - parsing of the config file
+ *  - parsing of the configuration file
  * LABEL_loading_language_file
  *  - loading language file
  * LABEL_theme_setup
  *  - setting up themes
  *
- * - load of mysql extension (if necessary) label_loading_mysql
- * - loading of an authentication library label_
+ * - load of MySQL extension (if necessary)
+ * - loading of an authentication library
  * - db connection
  * - authentication work
  * - load of the libraries/defines_mysql.lib.php library to get the MySQL
@@ -120,7 +120,7 @@ if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
 }
 
 /**
- * protect against possible exploits - there is no need to have so much vars
+ * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
     die('possible exploit');
@@ -161,7 +161,7 @@ unset($key, $value, $variables_whitelist);
 
 
 /**
- * Subforms - some functions need to be called by form, cause of the limited url
+ * Subforms - some functions need to be called by form, cause of the limited URL
  * length, but if this functions inside another form you cannot just open a new
  * form - so phpMyAdmin uses 'arrays' inside this form
  *
@@ -251,7 +251,7 @@ require_once './libraries/session.inc.php';
 $GLOBALS['PMA_errors'] = array();
 
 /**
- * holds params to be passed to next page
+ * holds parameters to be passed to next page
  * @global array $GLOBALS['url_params']
  */
 $GLOBALS['url_params'] = array();
@@ -423,7 +423,7 @@ if (PMA_isValid($_REQUEST['table'])) {
 }
 
 /**
- * sql query to be executed
+ * SQL query to be executed
  * @global string $GLOBALS['sql_query']
  */
 $GLOBALS['sql_query'] = '';
@@ -444,7 +444,7 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
 
 
 /******************************************************************************/
-/* parsing config file                         LABEL_parsing_config_file      */
+/* parsing configuration file                         LABEL_parsing_config_file      */
 
 if (empty($_SESSION['PMA_Config'])) {
     /**
@@ -472,13 +472,13 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 
 /**
  * BC - enable backward compatibility
- * exports all config settings into $GLOBALS ($GLOBALS['cfg'])
+ * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
  */
 $_SESSION['PMA_Config']->enableBc();
 
 
 /**
- * check https connection
+ * check HTTPS connection
  */
 if ($_SESSION['PMA_Config']->get('ForceSSL')
   && !$_SESSION['PMA_Config']->get('is_https')) {
@@ -507,8 +507,8 @@ require './libraries/language.lib.php';
 
 
 /**
- * check for errors occured while loading config
- * this check is done here after loading lang files to present errors in locale
+ * check for errors occurred while loading configuration
+ * this check is done here after loading language files to present errors in locale
  */
 if ($_SESSION['PMA_Config']->error_config_file) {
     $GLOBALS['PMA_errors'][] = $strConfigFileError
@@ -544,7 +544,7 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
     // No server => create one with defaults
     $cfg['Servers'] = array(1 => $default_server);
 } else {
-    // We have server(s) => apply default config
+    // We have server(s) => apply default configuration
     $new_servers = array();
 
     foreach ($cfg['Servers'] as $server_index => $each_server) {
@@ -652,7 +652,7 @@ if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
-     * Charset conversion.
+     * Character set conversion.
      */
     require_once './libraries/charset_conversion.lib.php';
 
