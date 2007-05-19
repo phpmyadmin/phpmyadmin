@@ -33,7 +33,11 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
         if ($show_grants_str == 'RELOAD') {
             $is_reload_priv = true;
         }
-        if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
+        /**
+         * @todo if we find CREATE VIEW but not CREATE, do not offer  
+         * the create database dialog box
+         */
+        if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE,') !== false) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege
                 $is_create_db_priv = true;
