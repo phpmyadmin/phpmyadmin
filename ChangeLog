@@ -15,6 +15,8 @@ $HeadURL$
   thanks to Michael Keck
 - bug #1717477 Warning on Query page when db is empty
 - bug #1721002 db rename -> undefined cfgRelation, thanks to Juergen Wind
+- bug #1721571 CREATE database privilege not always detected,
+  thanks to Gordon McNaughton
 
 2.10.1.0 (2007-04-23)
 =====================
