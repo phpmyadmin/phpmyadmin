@@ -1229,6 +1229,13 @@ $cfg['Export']['sql_if_not_exists'] = false;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_procedure_function']
+ */
+$cfg['Export']['sql_procedure_function'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_auto_increment']
  */
 $cfg['Export']['sql_auto_increment'] = true;

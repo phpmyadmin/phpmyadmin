@@ -72,6 +72,8 @@ if (isset($plugin_list)) {
                 array('type' => 'bool', 'name' => 'auto_increment', 'text' => 'strAddAutoIncrement');
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'backquotes', 'text' => 'strUseBackquotes');
+            $plugin_list['sql']['options'][] =
+                array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf($GLOBALS['strAddClause'], 'CREATE PROCEDURE / FUNCTION'));
 
             /* MIME stuff etc. */
             $plugin_list['sql']['options'][] =
@@ -316,7 +318,7 @@ function PMA_exportDBFooter($db)
         unset($GLOBALS['sql_constraints']);
     }
 
-    if (PMA_MYSQL_INT_VERSION >= 50000 && isset($GLOBALS['sql_structure'])) {
+    if (PMA_MYSQL_INT_VERSION >= 50000 && isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
         $procs_funcs = '';
 
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
