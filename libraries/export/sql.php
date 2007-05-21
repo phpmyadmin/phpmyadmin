@@ -659,12 +659,13 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
  * @param   boolean  whether to include column comments
  * @param   boolean  whether to include mime comments
  * @param   string   'stand_in', 'create_table', 'create_view' 
+ * @param   string   'server', 'database', 'table' 
  *
  * @return  bool     Whether it suceeded
  *
  * @access  public
  */
-function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE, $export_mode)
+function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE, $export_mode, $export_type)
 {
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
@@ -682,8 +683,10 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
         case 'create_view':
             $dump .=  $GLOBALS['comment_marker'] . $GLOBALS['strStructureForView'] . ' ' . $formatted_table_name . $crlf
                   .  $GLOBALS['comment_marker'] . $crlf;
-            // delete the stand-in table previously created
-            $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
+            // delete the stand-in table previously created (if any)
+            if ($export_type != 'table') {
+                $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
+            }
             $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
             break;
         case 'stand_in':

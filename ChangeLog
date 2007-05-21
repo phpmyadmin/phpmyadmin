@@ -18,6 +18,7 @@ $HeadURL$
 - bug #1721571 CREATE database privilege not always detected,
   thanks to Gordon McNaughton
 - bug #1715709 export in SQL format always includes procedures and functions
+- bug #1722502 DROP TABLE in export view structure
 
 2.10.1.0 (2007-04-23)
 =====================
