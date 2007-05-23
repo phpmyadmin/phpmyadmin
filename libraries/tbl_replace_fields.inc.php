@@ -78,8 +78,8 @@ if (false !== $possibly_uploaded_val) {
                 // if we have a set, then construct the value
             case 'foreign':
                 // if we have a foreign key, then construct the value
-                if (! empty($_REQUEST[$f]['multi_edit'][$primary_key])) {
-                    $val = implode(',', $_REQUEST[$f]['multi_edit'][$primary_key]);
+                if (! empty($_REQUEST[$f]['multi_edit'][$rowcount])) {
+                    $val = implode(',', $_REQUEST[$f]['multi_edit'][$rowcount]);
                     $val = "'" . PMA_sqlAddslashes($val) . "'";
                 }
                 break;
