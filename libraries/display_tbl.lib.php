@@ -1805,11 +1805,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     //     displayed
     $total      = '';
     $is_display = PMA_setDisplayMode($the_disp_mode, $total);
-    // what was this for?
-    // $total can be 0 if $cfg['MaxExactCountViews'] = 0
-    //if ($total == '') {
-    //    unset($total);
-    //}
 
     // 1.2 Defines offsets for the next and previous pages
     if ($is_display['nav_bar'] == '1') {
