@@ -448,7 +448,7 @@ function Get_url_pos()
 
 function Save2()
 {
-    var poststr = 'IS_AJAX=1&db=' + db + '&token=' + token + '&die_save_pos=1';
+    var poststr = 'IS_AJAX=1&server='+server+'&db=' + db + '&token=' + token + '&die_save_pos=1';
     poststr += Get_url_pos();
     makeRequest('pmd_save_pos.php', poststr);
 }
@@ -549,14 +549,14 @@ function Click_field(T, f, PK) // table field
         document.getElementById('hint').innerHTML = "";
         document.getElementById('hint').style.visibility = "hidden";
         document.getElementById('display_field_button').className = 'M_butt';
-        makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&db=' + db + '&token=' + token);
+        makeRequest('pmd_display_field.php', 'T=' + T + '&F=' + f + '&server=' + server + '&db=' + db + '&token=' + token);
     }
 }
 
 function New_relation()
 {
     document.getElementById('layer_new_relation').style.visibility = 'hidden';
-    link_relation += '&db=' + db + '&token=' + token + '&die_save_pos=0';
+    link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
     link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
     link_relation += Get_url_pos();
 
@@ -736,7 +736,7 @@ function Canvas_click(id)
 function Upd_relation()
 {
     document.getElementById('layer_upd_relation').style.visibility = 'hidden';
-    link_relation += '&db=' + db + '&token=' + token + '&die_save_pos=0';
+    link_relation += '&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=0';
     link_relation += Get_url_pos();
     makeRequest('pmd_relation_upd.php', link_relation);
 }

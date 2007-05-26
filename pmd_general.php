@@ -33,6 +33,7 @@ $hidden           = "hidden";
     // <![CDATA[
 <?php
 echo '
+    var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
     var token = "' . PMA_escapeJsString($token) . '";
     var LangSelectReferencedKey = "' . PMA_escapeJsString($strSelectReferencedKey) . '";
