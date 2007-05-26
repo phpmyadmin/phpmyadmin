@@ -38,7 +38,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [doc] changed all documentation in config.inc.php to phpDocumentor style
 + [data] support for CREATE VIEW from query results
 + [gui] dropped css/ folder and moved into root of PMA
-+ [l10n] new: sinhala
++ [l10n] new: sinhala, macedonian
 + [export] YAML export (see yaml.org), thanks to Bryce Thornton
 + [upload] moved file upload functionality into own class
 + [upload] make use of $cfg['TempDir'] for file uploads

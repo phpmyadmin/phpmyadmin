@@ -114,6 +114,7 @@ korean-utf-8
 latvian-windows-1257
 lithuanian-windows-1257
 malay-iso-8859-1
+macedonian_cyrillic-windows-1251
 norwegian-iso-8859-1
 persian-windows-1256
 polish-iso-8859-2
