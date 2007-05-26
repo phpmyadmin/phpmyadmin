@@ -32,6 +32,7 @@ $hidden           = "hidden";
 <?php 
 echo '
 <script>
+var server = "' . $server . '";
 var db = "' . $db . '";
 var token = "' . $token . '";
 var LangSelectReferencedKey = "' . $strSelectReferencedKey . '";
