@@ -38,7 +38,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [doc] changed all documentation in config.inc.php to phpDocumentor style
 + [data] support for CREATE VIEW from query results
 + [gui] dropped css/ folder and moved into root of PMA
-+ [l10n] new: sinhala, macedonian
++ [l10n] new: Sinhala, Macedonian
 + [export] YAML export (see yaml.org), thanks to Bryce Thornton
 + [upload] moved file upload functionality into own class
 + [upload] make use of $cfg['TempDir'] for file uploads
@@ -51,7 +51,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [export] Native Excel (Spreadsheet_Excel_Writer) improvements,
    thanks to Christian Schmidt
 + [doc] requirement of mcrypt on 64-bit, thanks to Isaac Bennetch
-+ [lang] danish update, thanks to Finn Sorensen
++ [lang] Danish update, thanks to Finn Sorensen
 + RFE #1435922 [gui] navigation frame shows listing of databases when none selected
 + [data] support BIT datatype (under mysqli), thanks to Christian Schmidt
 + [display] automatic confirmation for sort by key, thanks to Juergen Wind
@@ -60,7 +60,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + RFE #1513345 [setup] check control user connection during setup
 + [structure] TRIGGERS: display/edit/drop/SQL export
 + [browse] store browse state in session per query
-+ [lang] turkish update, thanks to Burak Yavuz
++ [lang] Turkish update, thanks to Burak Yavuz
++ [lang] Galician update, thanks to Xosé Calvo
 
 2.10.2.0 (not yet released)
 
