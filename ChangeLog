@@ -20,6 +20,7 @@ $HeadURL$
 - bug #1715709 export in SQL format always includes procedures and functions
 - bug #1722502 DROP TABLE in export view structure
 - bug #1718787 Multi-server setup breaks Designer
+- bug #1724401 Column truncation in repair table output
 
 2.10.1.0 (2007-04-23)
 =====================

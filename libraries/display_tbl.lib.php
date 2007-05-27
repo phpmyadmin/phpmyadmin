@@ -98,7 +98,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['nav_bar']   = (string) '0';
             $do_display['ins_row']   = (string) '0';
             $do_display['bkm_form']  = (string) '1';
-            if ($GLOBALS['is_analyse']) {
+            if ($GLOBALS['is_maint']) {
                 $do_display['text_btn']  = (string) '1';
             } else {
                 $do_display['text_btn']  = (string) '0';
