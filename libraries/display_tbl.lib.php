@@ -1913,12 +1913,12 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     $url_query='';
     echo '<tbody>' . "\n";
     PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
-    echo '</tbody>' . "\n";
     // vertical output case
     if ($_SESSION['userconf']['disp_direction'] == 'vertical') {
         PMA_displayVerticalTable();
     } // end if
     unset($vertical_display);
+    echo '</tbody>' . "\n";
     ?>
 </table>
 
