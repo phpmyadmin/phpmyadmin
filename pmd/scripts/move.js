@@ -568,12 +568,12 @@ function New_relation()
 
 function Start_table_new()
 {
-    window.location.href = 'db_operations.php?db=' + db + '&token=' + token;
+    window.location.href = 'db_operations.php?server=' + server + '&db=' + db + '&token=' + token;
 }
 
 function Start_tab_upd(table)
 {
-    window.location.href = 'tbl_structure.php?db=' + db + '&token=' + token + '&table=' + table;
+    window.location.href = 'tbl_structure.php?server=' + server + '&db=' + db + '&token=' + token + '&table=' + table;
 }
 //--------------------------- hide tables --------------------------------------
 
@@ -829,7 +829,7 @@ function PDF_save()
 {
     // var WinPDF =
     // window.open("pmd_pdf.php?token="+token+"&db="+db,"wind1", "top=200,left=200,width=200,height=100,resizable=yes,scrollbars=yes,menubar=no");
-    Save('pmd_pdf.php?token=' + token + '&db=' + db);
+    Save('pmd_pdf.php?server=' + server + '&token=' + token + '&db=' + db);
 }
 
 function General_scroll()
