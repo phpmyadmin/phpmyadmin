@@ -62,6 +62,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [browse] store browse state in session per query
 + [lang] Turkish update, thanks to Burak Yavuz
 + [lang] Galician update, thanks to Xosé Calvo
++ [lang] Brazilian-Portuguese update, thanks to Airon Luis Pereira
 
 2.10.2.0 (not yet released)
 

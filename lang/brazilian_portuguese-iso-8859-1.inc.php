@@ -1,16 +1,11 @@
 <?php
 /* $Id$ */
-
-/**
- * translated by: 
-   Airon Luis Pereira <airon.pereira@gmail.com> 
-*/ 
+/* translated by: Airon Luis Pereira <airon(dot)pereira(at)gmail(dot)com> */ 
 
 $charset = 'iso-8859-1'; 
-$text_dir = 'ltr'; 
+$text_dir = 'ltr';  // ('ltr' da esquerda para direita, 'rtl' da direita para esquerda)
 $number_thousands_separator = ','; 
 $number_decimal_separator = '.'; 
-
 // abreviações para Byte, Kilo, Mega, Giga, Tera, Peta, Exa 
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'); 
 
@@ -18,28 +13,22 @@ $mysql_4_1_doc_lang = 'pt';
 
 $day_of_week = array('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'); 
 $month = array('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'); 
-
 // Veja http://www.php.net/manual/en/function.strftime.php para definir
 // as variáveis abaixo
 $datefmt = '%B %d, %Y as %I:%M %p'; 
 
 $timespanfmt = '%s dias, %s horas, %s minutos e %s segundos'; 
 
- 
-
- 
-
- 	  	 
 $strAbortedClients = 'Abortado'; 
 $strAccessDenied = 'Acesso negado'; 
 $strAccessDeniedCreateConfig = 'A provável razão para isso é que você não criou o arquivo de configuração. Você deve usar o %1$ssetup script%2$s para criar um.';
 $strAccessDeniedExplanation = 'phpMyAdmin tentou se conectar no servidor MySQL e a conxão foi recusada. Você deve checar o servidor, nome de usuário e senha no config.inc.php e se certificar que correspondam com as informações fornecidas pelo administrador do servidor MySQL.'; 
-$strAction = 'Ações'; 
+$strAction = 'Ação'; 
 $strAddAutoIncrement = 'Adicionar valor AUTO_INCREMENT'; 
 $strAddClause = 'Adicionar %s';
 $strAddConstraints = 'Adicionar restrições'; 
 $strAddDeleteColumn = 'Adicionar/Remover colunas'; 
-$strAddDeleteRow = 'Adicionar/Remover condições de busca'; 
+$strAddDeleteRow = 'Adicionar/Remover critérios de busca'; 
 $strAddFields = 'Adicionar %s campo(s)'; 
 $strAddHeaderComment = 'Adicionar comentário pessoal no cabeçalho (\\n quebra linhas)'; 
 $strAddIntoComments = 'Adicionar nos comentários'; 
@@ -166,6 +155,7 @@ $strConnectionError = 'Não pode conectar: configurações inválidas.';
 $strConnections = 'Conexões'; 
 $strConstraintsForDumped = 'Restrições para as tabelas dumpadas'; 
 $strConstraintsForTable = 'Restrições para a tabela'; 
+$strControluserFailed = 'Conexão para controle do usuário como definido nas configurações falhou.';
 $strCookiesRequired = 'Cookies devem estar ativos após este ponto.'; 
 $strCopy = 'Copiar';
 $strCopyDatabaseOK = 'Banco de Dados %s copiado para %s'; 
@@ -283,6 +273,7 @@ $strErrorSaveTable = 'Erro ao salvar coordenada para o Designer.';
 $strEscapeWildcards = 'Coringas _ e % precisam ser precedidos com uma \ para serem usados literalmente'; 
 $strEsperanto = 'Esperanto';
 $strEstonian = 'Estoniano'; 
+$strEvent = 'Evento';
 $strExcelEdition = 'Edição do Excel'; 
 $strExecuteBookmarked = 'Executar consulta marcada'; 
 $strExplain = 'Explicar SQL'; 
@@ -389,7 +380,7 @@ $strInnoDBPages = 'páginas';
 $strInnoDBRelationAdded = 'Adicionado relacionamento InnoDB';
 $strInnodbStat = 'Status do InnoDB'; 
 $strInsecureMySQL = 'O seu arquivo de configuração contém configurações (root sem senha) que correspondem à conta privilegiada padrão do MySQL. O servidor MySQL rodando com esse padrão estará aberto a invasões, você realmente deveria corrigir este furo de segurança.'; 
-$strInsertAsNewRow = 'Inserir uma nova coluna'; 
+$strInsertAsNewRow = 'Inserir como um novo registro'; 
 $strInsertedRowId = 'Inserir ID do registro:'; 
 $strInsertedRows = 'Registros inseridos:'; 
 $strInsert = 'Inserir'; 
@@ -399,7 +390,7 @@ $strInternalRelations = 'Relações internas';
 $strInUse = 'em uso'; 
 $strInvalidAuthMethod = 'Método de autenticação inválido informado nas configurações:';
 $strInvalidColumn = 'Coluna especificada (%s) é inválida!';
-$strInvalidColumnCount = 'Contador da coluna deve ser mais largo que zero.';
+$strInvalidColumnCount = 'Contador da coluna deve ser maior que zero.';
 $strInvalidCSVFieldCount = 'Contador de campo inválido na linha %d da entrada CSV.';
 $strInvalidCSVFormat = 'Formato inválido na linha %d da entrada CSV.';
 $strInvalidCSVParameter = 'Parâmetro inválido para importação CSV: %s';
@@ -675,6 +666,7 @@ $strReplaceTable = 'Substituir os dados da tabela pelos do arquivo';
 $strReplication = 'Replicação';
 $strReset = 'Resetar'; 
 $strResourceLimits = 'Limite dos recursos'; 
+$strRestartInsertion = 'Reiniciar inserção com %s registros';
 $strReType = 'Re-digite'; 
 $strRevokeAndDeleteDescr = 'Os usuários manterão o privilégio de USAGE até que os privilégios sejam recarregados.'; 
 $strRevokeAndDelete = 'Revogar todos os privilégios ativos dos usuarios e depois apagar eles.'; 
@@ -683,15 +675,15 @@ $strRevoke = 'Revogar';
 $strRomanian = 'Romêno'; 
 $strRoutineReturnType = 'Tipo de returno';
 $strRoutines = 'Rotinas';
-$strRowLength = 'Tamanho da coluna'; 
-$strRows = 'Colunas'; 
-$strRowsFrom = 'colunas começando de'; 
+$strRowLength = 'Tamanho do registro'; 
+$strRowsFrom = 'registro(s) começando de'; 
 $strRowSize = ' Tamanho do registro '; 
 $strRowsModeFlippedHorizontal = 'horizontal (cabeçalhos rotacionados)'; 
 $strRowsModeHorizontal = 'horizontal'; 
 $strRowsModeOptions = 'no modo %s e repetindo cabeçalhos após %s células'; 
 $strRowsModeVertical = 'vertical'; 
-$strRowsStatistic = 'Estatísticas da coluna'; 
+$strRows = 'Registros'; 
+$strRowsStatistic = 'Estatísticas do registros'; 
 $strRunning = 'Rodando em %s'; 
 $strRunQuery = 'Enviar consulta SQL'; 
 $strRunSQLQuery = 'Fazer consulta SQL no Banco de Dados %s'; 
@@ -966,6 +958,7 @@ $strTransformation_text_plain__imagelink = 'Mostrar uma imagem e um link, o camp
 $strTransformation_text_plain__link = 'Mostrar um link, o campo contém o nome do arquivo, primeira opção é um prefixo tipo "http://domain.com/", segunda opção é um título para o link.'; 
 $strTransformation_text_plain__sql = 'Formatar texto como consulta SQL com síntaxe colorida.';
 $strTransformation_text_plain__substr = 'Mostrar apenas parte da string. Primeira opção é um offset para definir onde a saída do seu texto deve iniciar (Padrão: 0). Segunda opção é o quanto do texto deverá ser retornado. Se estiver em branco, retorna todo o restante do texto. Terceira opção define quais caracteres serão acrescentados na substring retornada (Padrão: ...).'; 
+$strTriggers = 'Gatilhos';
 $strTruncateQueries = 'Truncar as consultas SQL exibidas'; 
 $strTurkish = 'Turco'; 
 $strType = 'Tipo'; 
@@ -1038,11 +1031,4 @@ $strYes = 'Sim';
 $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os limites.'; 
 $strZip = '"compactado com zip"'; 
 
-// To translate:
-
-$strControluserFailed = 'Conexão para controle do usuário como definido nas configurações falhou.';
-
-$strRestartInsertion = 'Restart insertion with %s rows';  //to translate
-$strTriggers = 'Triggers';  //to translate
-$strEvent = 'Event';  //to translate
 ?>
