@@ -63,6 +63,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Turkish update, thanks to Burak Yavuz
 + [lang] Galician update, thanks to Xosé Calvo
 + [lang] Brazilian-Portuguese update, thanks to Airon Luis Pereira
++ [gui] Insert/Edit: no longer display the Go button each 15 lines 
+  but just at the end of a row
 
 2.10.2.0 (not yet released)
 

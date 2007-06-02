@@ -298,21 +298,6 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
     $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
-        // Display the submit button after every 15 lines --swix
-        // (wanted to use an <a href="#bottom"> and <a name> instead,
-        // but it didn't worked because of the <base href>)
-
-        if ((($o_rows * $fields_cnt + $i) % 15 == 0) && ($i + $o_rows != 0)) {
-            ?>
-        <tr>
-            <th colspan="5" align="right" class="tblFooters">
-                <input type="submit" value="<?php echo $strGo; ?>" />&nbsp;
-            </th>
-        </tr>
-            <?php
-        } // end if
-        echo "\n";
-
         $row_table_def   = $trow_table_def[$i];
         $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
 
@@ -961,6 +946,13 @@ foreach ($loop_array as $vrowcount => $vrow) {
         $odd_row = !$odd_row;
     } // end for
     $o_rows++;
+?>
+        <tr>
+            <th colspan="5" align="right" class="tblFooters">
+                <input type="submit" value="<?php echo $strGo; ?>" />&nbsp;
+            </th>
+        </tr>
+        <?php
     echo '  </table><br />';
 } // end foreach on multi-edit
 
