@@ -221,8 +221,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     if (! strlen($GLOBALS['db'])) {
         // prepare for server related
         $legend = sprintf($GLOBALS['strRunSQLQueryOnServer'],
-            htmlspecialchars(
-                $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']));
+            '&quot;' . htmlspecialchars(
+                ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']) ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'] : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']) . '&quot;');
     } elseif (! strlen($GLOBALS['table'])) {
         // prepare for db related
         $db     = $GLOBALS['db'];
