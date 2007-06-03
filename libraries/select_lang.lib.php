@@ -414,7 +414,8 @@ if (empty($GLOBALS['convcharset'])) {
     if (isset($_COOKIE['pma_charset'])) {
         $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];
     } else {
-        $GLOBALS['convcharset'] = $GLOBALS['cfg']['DefaultCharset'];
+        // session.save_path might point to a bad folder
+        $convcharset = isset($GLOBALS['cfg']['DefaultCharset']) ? $GLOBALS['cfg']['DefaultCharset'] : 'en-utf-8';
     }
 }
 

@@ -242,7 +242,7 @@ function PMA_fatalError($error_message, $message_args = null)
 
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
-    header('Location: error.php'
+    header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
             . '?lang='  . urlencode($GLOBALS['available_languages'][$GLOBALS['lang']][2])
             . '&dir='   . urlencode($GLOBALS['text_dir'])
             . '&type='  . urlencode($GLOBALS['strError'])

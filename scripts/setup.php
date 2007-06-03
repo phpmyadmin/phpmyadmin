@@ -15,6 +15,7 @@
 
 // Grab phpMyAdmin version and PMA_dl function
 define('PMA_MINIMUM_COMMON', TRUE);
+define('PMA_SETUP', TRUE);
 chdir('..');
 require_once './libraries/common.inc.php';
 
