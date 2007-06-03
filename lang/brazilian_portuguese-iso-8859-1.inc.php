@@ -1030,4 +1030,5 @@ $strYes = 'Sim';
 $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os limites.'; 
 $strZip = '"compactado com zip"'; 
 
+$strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
 ?>

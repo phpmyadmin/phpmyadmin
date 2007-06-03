@@ -23,7 +23,7 @@ if (!@function_exists('session_name')) {
     require_once('./libraries/select_lang.lib.php');
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
-    header('Location: error.php'
+    header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
             . '?lang='  . urlencode($available_languages[$lang][2])
             . '&dir='   . urlencode($text_dir)
             . '&type='  . urlencode($strError)
@@ -110,7 +110,7 @@ if (! isset($_COOKIE[$session_name])) {
         require_once './libraries/select_lang.lib.php';
         // Displays the error message
         // (do not use &amp; for parameters sent by header)
-        header('Location: error.php'
+        header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
                 . '?lang='  . urlencode($available_languages[$lang][2])
                 . '&dir='   . urlencode($text_dir)
                 . '&type='  . urlencode($strError)
