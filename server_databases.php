@@ -377,10 +377,12 @@ unset($databases_count);
 /**
  * Create new database.
  */
-echo '<ul><li id="li_create_database">' . "\n";
-require './libraries/display_create_database.lib.php';
-echo '    </li>' . "\n";
-echo '</ul>' . "\n";
+if ($cfg['ShowCreateDb']) {
+    echo '<ul><li id="li_create_database">' . "\n";
+    require './libraries/display_create_database.lib.php';
+    echo '    </li>' . "\n";
+    echo '</ul>' . "\n";
+}
 
 /**
  * Sends the footer
