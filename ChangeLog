@@ -23,6 +23,7 @@ $HeadURL$
 - bug #1724401 Column truncation in repair table output
 - patch #1726500 Wrong position of </tbody>, thanks to Jürgen Wind
 - bug #1728590 Detected failing session_start fails, thanks to Jürgen Wind
+- RFE #1714760 Obey ShowCreateDb on the Databases tab
 
 2.10.1.0 (2007-04-23)
 =====================
