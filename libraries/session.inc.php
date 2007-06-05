@@ -104,6 +104,7 @@ if (! isset($_COOKIE[$session_name])) {
     $session_error = ob_get_contents();
     ob_end_clean();
     if ($r !== true || ! empty($session_error)) {
+        setcookie($session_name, '', 1);
         $cfg = array('DefaultLang'           => 'en-iso-8859-1',
                      'AllowAnywhereRecoding' => false);
         // Loads the language file
