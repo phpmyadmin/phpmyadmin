@@ -93,6 +93,7 @@ if (! isset($_COOKIE[$session_name])) {
     $session_error = ob_get_contents();
     ob_end_clean();
     if ($r !== true || ! empty($session_error)) {
+        setcookie($session_name, '', 1);
         PMA_fatalError('strSessionStartupErrorGeneral');
     }
 } else {
