@@ -309,9 +309,9 @@ $links['Slow_queries']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/slow-query-log.html';
 
 $links['innodb'][$strServerTabVariables]
-    = 'server_engines.php?engine=innodb&amp;' . PMA_generate_common_url();
+    = 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
 $links['innodb'][$strInnodbStat]
-    = 'server_engines.php?engine=innodb&amp;page=status&amp;' .
+    = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
       PMA_generate_common_url();
 $links['innodb']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/innodb.html';
