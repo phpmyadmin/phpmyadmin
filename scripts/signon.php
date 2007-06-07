@@ -23,6 +23,7 @@ if (isset($_POST['user'])) {
     /* Store there credentials */
     $_SESSION['PMA_single_signon_user'] = $_POST['user'];
     $_SESSION['PMA_single_signon_password'] = $_POST['password'];
+    $_SESSION['PMA_single_signon_host'] = $_POST['host'];
     $id = session_id();
     /* Close that session */
     session_write_close();
@@ -45,6 +46,7 @@ if (isset($_POST['user'])) {
 <form action="signon.php" method="post">
 Username: <input type="text" name="user" /><br />
 Password: <input type="password" name="password" /><br />
+Host: (will use the one from config.inc.php by default) <input type="text" name="host" /><br />
 <input type="submit" />
 </form>
 </body>

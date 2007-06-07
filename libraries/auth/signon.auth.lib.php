@@ -57,6 +57,9 @@ function PMA_auth_check()
     /* Session name */
     $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
 
+    /* Current host */
+    $single_signon_host = $GLOBALS['cfg']['Server']['host'];
+
     /* Are we requested to do logout? */
     $do_logout = !empty($_REQUEST['old_usr']);
 
@@ -87,6 +90,9 @@ function PMA_auth_check()
                 $PHP_AUTH_PW = $_SESSION['PMA_single_signon_password'];
             }
         }
+        if (isset($_SESSION['PMA_single_signon_host'])) {
+	        $single_signon_host = $_SESSION['PMA_single_signon_host'];
+        }
         /* Also get token as it is needed to access subpages */
         if (isset($_SESSION['PMA_single_signon_token'])) {
             /* No need to care about token on logout */
@@ -102,6 +108,9 @@ function PMA_auth_check()
             session_id($old_id);
         }
         session_start();
+
+	/* Set the single signon host */
+	$GLOBALS['cfg']['Server']['host']=$single_signon_host;
 
         /* Restore our token */
         if (!empty($pma_token)) {
