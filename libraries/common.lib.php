@@ -50,7 +50,7 @@ function PMA_pow($base, $exp, $use_function = false)
             $pow = bcpow($base, $exp);
             break;
         case 'gmp_pow' :
-            $pow = gmp_strval(gmp_pow($base, $exp));
+             $pow = gmp_strval($exp >= 0 ? gmp_pow($base, $exp) : 0);
             break;
         case 'pow' :
             $base = (float) $base;
