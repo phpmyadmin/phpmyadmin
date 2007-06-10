@@ -347,7 +347,6 @@ $strKill = 'СТОП';
 $strKorean = 'Корейски';
 
 $strLandscape = 'Пейзажно';
-$strLanguageFileNotFound = 'Езиковият файл "%1$s" не е намерен.';
 $strLanguage = 'Език';
 $strLatexCaption = 'Заглавие на таблицата';
 $strLatexContent = 'Съдържание на таблица __TABLE__';

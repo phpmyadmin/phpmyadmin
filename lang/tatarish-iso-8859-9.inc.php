@@ -370,7 +370,6 @@ $strKill = 'Üter';
 $strKorean = 'Koreyçä';
 
 $strLandscape = 'Yatqýrýp';
-$strLanguageFileNotFound = '"%1$s" digän telläþterü bireme tabýlmadý.';
 $strLanguageUnknown = 'Belgesez tel: %1$s.';
 $strLatchedPages = 'Berketelgän bit';
 $strLatexCaption = 'Tüþämä baþlýðý';

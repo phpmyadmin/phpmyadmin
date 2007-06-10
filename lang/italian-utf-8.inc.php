@@ -396,7 +396,6 @@ $strKill = 'Rimuovi';
 $strKorean = 'Coreano';
 
 $strLandscape = 'Orizzontale';
-$strLanguageFileNotFound = 'File di lingua "%1$s" non trovato.';
 $strLanguage = 'Lingua';
 $strLanguageUnknown = 'Lingua non conosciuta : %1$s.';
 $strLatchedPages = 'Latched pages';

@@ -371,7 +371,6 @@ $strKill = 'Üter';
 $strKorean = 'Koreyçä';
 
 $strLandscape = 'Yatqırıp';
-$strLanguageFileNotFound = '"%1$s" digän telläşterü bireme tabılmadı.';
 $strLanguageUnknown = 'Belgesez tel: %1$s.';
 $strLatchedPages = 'Berketelgän bit';
 $strLatexCaption = 'Tüşämä başlığı';
