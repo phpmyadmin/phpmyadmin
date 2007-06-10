@@ -418,7 +418,6 @@ $strKnownExternalBug = 'A funci√≥n %s vese afectada por un erro desco√±ecido; co
 $strKorean = 'Coreano';
 
 $strLandscape = 'Horizontal';
-$strLanguageFileNotFound = 'Non se atopou o ficheiro da lingua "%1$s".';
 $strLanguage = 'Lingua';
 $strLanguageUnknown = 'Linguaxe descoÒecida: %1$s.';
 $strLatchedPages = 'P·xinas fechadas';

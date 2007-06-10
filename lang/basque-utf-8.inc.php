@@ -731,7 +731,6 @@ $strJoins = 'Joins';  //to translate
 $strKeyCache = 'Key cache';  //to translate
 
 $strLandscape = 'Horizontal';  //to translate
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLatchedPages = 'Latched pages';  //to translate
 $strLatexContinuedCaption = 'Continued table caption';  //to translate

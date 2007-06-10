@@ -419,7 +419,6 @@ $strKnownExternalBug = 'Funkènost %s je omezena známou chybou, viz %s.';
 $strKorean = 'Korejština';
 
 $strLandscape = 'Na šíøku';
-$strLanguageFileNotFound = 'Jazykový soubor "%1$s" nebyl nalezen.';
 $strLanguage = 'Jazyk';
 $strLanguageUnknown = 'Neznámý jazyk: %1$s.';
 $strLatchedPages = 'Zamèených stránek';

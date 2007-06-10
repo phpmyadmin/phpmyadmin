@@ -383,7 +383,6 @@ $strKill = 'Unicestwij';
 $strKorean = 'Koreański';
 
 $strLandscape = 'Orientacja pozioma';
-$strLanguageFileNotFound = 'Nie znaleziono pliku językowego "%1$s".';
 $strLanguage = 'Język';
 $strLanguageUnknown = 'Nieznany język: %1$s.';
 $strLatchedPages = 'Stron zatrzaśniętych';

@@ -387,7 +387,6 @@ $strKill = 'Avslutt';
 $strKorean = 'koreansk';
 
 $strLandscape = 'Landskapsformat';
-$strLanguageFileNotFound = 'Språkfil "%1$s" ble ikke funnet.';
 $strLanguage = 'Språk';
 $strLanguageUnknown = 'Ukjent språk: %1$s.';
 $strLatchedPages = 'Tilknyttede sider';

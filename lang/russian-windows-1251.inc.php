@@ -357,7 +357,6 @@ $strKorean = 'Корейский';
 
 $strLandscape = 'Ландшафт';
 $strLanguage = 'Язык';
-$strLanguageFileNotFound = 'Языковой файл: "%1$s" не найден.';
 $strLanguageUnknown = 'Неизвестный язык: %1$s.';
 $strLaTeX = 'LaTeX';
 $strLatexCaption = 'Заголовок таблицы';

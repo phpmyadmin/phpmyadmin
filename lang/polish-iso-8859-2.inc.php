@@ -382,7 +382,6 @@ $strKill = 'Unicestwij';
 $strKorean = 'Koreañski';
 
 $strLandscape = 'Orientacja pozioma';
-$strLanguageFileNotFound = 'Nie znaleziono pliku jêzykowego "%1$s".';
 $strLanguage = 'Jêzyk';
 $strLanguageUnknown = 'Nieznany jêzyk: %1$s.';
 $strLatchedPages = 'Stron zatrza¶niêtych';

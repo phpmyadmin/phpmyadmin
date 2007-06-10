@@ -416,7 +416,6 @@ $strKnownExternalBug = 'La fonctionnalité %s est affectée par une anomalie con
 $strKorean = 'coréen';
 
 $strLandscape = 'Paysage';
-$strLanguageFileNotFound = 'Fichier de langue "%1$s" inexistant.';
 $strLanguage = 'Langue';
 $strLanguageUnknown = 'Langue inconnue: %1$s.';
 $strLatchedPages = 'Pages verrouillées';

@@ -834,7 +834,6 @@ $strInvalidTableName = 'Invalid table name';  //to translate
 $strJoins = 'Joins';  //to translate
 $strKeyCache = 'Key cache';  //to translate
 $strKnownExternalBug = 'The %s functionality is affected by a known bug, see %s';  //to translate
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguage = 'Language';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLDI = 'CSV using LOAD DATA';  //to translate

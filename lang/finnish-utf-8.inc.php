@@ -418,7 +418,6 @@ $strKnownExternalBug = 'Toimintoon %s vaikuttaa tunnettu vika, katso %s';
 $strKorean = 'Korealainen';
 
 $strLandscape = 'Landscape';
-$strLanguageFileNotFound = 'Kielitiedostoa "%1$s" ei löydy.';
 $strLanguage = 'Kieli';
 $strLanguageUnknown = 'Tuntematon kieli: %1$s.';
 $strLatchedPages = "Lukitut sivut";

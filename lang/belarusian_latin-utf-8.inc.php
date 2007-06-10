@@ -389,7 +389,6 @@ $strKill = 'Spynić';
 $strKorean = 'Karejskaja';
 
 $strLandscape = 'Krajavid';
-$strLanguageFileNotFound = 'Moŭny fajł "%1$s" nia znojdzieny.';
 $strLanguage = 'Mova';
 $strLanguageUnknown = 'Nieviadomaja mova: %1$s.';
 $strLatchedPages = 'Fiksavanyja staronki';

@@ -448,6 +448,6 @@ if ($GLOBALS['lang_failed_request']) {
     $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_request']));
 }
 
-unset($strLanguageFileNotFound, $line, $fall_back_lang,
+unset($line, $fall_back_lang,
     $GLOBALS['lang_failed_cfg'], $GLOBALS['lang_failed_cookie'], $GLOBALS['ang_failed_request'], $GLOBALS['strLanguageUnknown']);
 ?>

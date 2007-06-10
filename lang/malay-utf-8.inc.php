@@ -634,7 +634,6 @@ $strJustDelete = 'Just delete the users from the privilege tables.'; //to transl
 $strKeyCache = 'Key cache';  //to translate
 $strKorean = 'Korean';  //to translate
 
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLatchedPages = 'Latched pages';  //to translate
 $strLatexCaption = 'Table caption';//to translate

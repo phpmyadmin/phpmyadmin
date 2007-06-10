@@ -724,7 +724,6 @@ $strJoins = 'Joins';  //to translate
 $strKeyCache = 'Key cache';  //to translate
 $strKorean = 'Korean';  //to translate
 
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLatchedPages = 'Latched pages';  //to translate
 $strLatexContent = 'Content of table __TABLE__';//to translate

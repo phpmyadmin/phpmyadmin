@@ -834,7 +834,6 @@ $strJoins = 'Joins';  //to translate
 
 $strKeyCache = 'Key cache';  //to translate
 
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 
 $strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate

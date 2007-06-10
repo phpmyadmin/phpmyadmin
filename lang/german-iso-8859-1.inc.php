@@ -393,7 +393,6 @@ $strKorean = 'Koreanisch';
 
 $strLandscape = 'Querformat';
 $strLanguage = 'Sprache';
-$strLanguageFileNotFound = 'Sprachdatei "%1$s" nicht gefunden.';
 $strLanguageUnknown = 'Unbekannte Sprache: "%1$s".';
 $strLatchedPages = 'Belegte Seiten';
 $strLatexCaption = 'Tabellenbeschriftung';

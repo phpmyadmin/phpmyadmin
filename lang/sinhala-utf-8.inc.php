@@ -391,7 +391,6 @@ $strKill = 'Kill';
 $strKorean = 'කොරියානු';
 
 $strLandscape = 'භූමි දර්ශනය';
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';
 $strLanguage = 'භාෂාව';
 $strLanguageUnknown = '%1$s නොදන්නා භාෂාවකි.';
 $strLatchedPages = 'Latched pages';

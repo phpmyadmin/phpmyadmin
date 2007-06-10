@@ -418,7 +418,6 @@ $strKorean = '韓国語';
 
 $strLandscape = '横向き';
 $strLanguage = '言語';
-$strLanguageFileNotFound = '言語ファイル「%1$s」が見つかりません';
 $strLanguageUnknown = '言語ファイルが登録されていません: %1$s';
 $strLatchedPages = 'ラッチされているページ';
 $strLatexCaption = 'テーブルのキャプション';

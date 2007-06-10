@@ -386,7 +386,6 @@ $strKill = 'Zabiť';
 $strKorean = 'Kórejčina';
 
 $strLandscape = 'Na šírku';
-$strLanguageFileNotFound = 'Jazykový súbor "%1$s" nebol nájdený.';
 $strLanguageUnknown = 'Neznámy jazyk: %1$s.';
 $strLatchedPages = 'Uzavretých stránok';
 $strLatexCaption = 'Nadpis tabuľky';

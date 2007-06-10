@@ -418,7 +418,6 @@ $strKnownExternalBug = 'A funcionalidade %s é afetada por um bug conhecido, vej
 $strKorean = 'Coreano'; 
 
 $strLandscape = 'Paisagem'; 
-$strLanguageFileNotFound = 'Arquivo da linguagem "%1$s" não encontrado.';
 $strLanguage = 'Linguagem';
 $strLanguageUnknown = 'Linguagem desconhecida: %1$s.';
 $strLatchedPages = 'Páginas trancadas';
