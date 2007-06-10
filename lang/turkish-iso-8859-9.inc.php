@@ -426,7 +426,6 @@ $strKorean = 'Korece';
 
 $strLandscape = 'Peyzaj';
 $strLanguage = 'Dil';
-$strLanguageFileNotFound = 'Dil dosyasý "%1$s" bulunamadý.';
 $strLanguageUnknown = 'Bilinmeyen dil: %1$s.';
 $strLatchedPages = 'Sabitlenmiþ sayfalar';
 $strLatexCaption = 'Tablo baþlýðý';

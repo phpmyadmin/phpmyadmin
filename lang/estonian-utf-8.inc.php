@@ -417,7 +417,6 @@ $strKnownExternalBug = 'See %s funktionaalsus on mõjutatud tuntud viga, vaata %
 $strKorean = 'Korea';
 
 $strLandscape = 'Laipilt';
-$strLanguageFileNotFound = 'Ei leia keele fail "%1$s" .';
 $strLanguage = 'Keel';  
 $strLanguageUnknown = 'Tundmatu keel: %1$s.';
 $strLatchedPages = 'Lukustatud lehed';

@@ -395,7 +395,6 @@ $strKill = 'Eliminiraj';
 $strKorean = 'Korejski';
 
 $strLandscape = 'Položeno';
-$strLanguageFileNotFound = 'Jezična datoteka "%1$s" nije pronađena.';
 $strLanguage = 'Jezik';
 $strLanguageUnknown = 'Nepoznati jezik: %1$s.';
 $strLatchedPages = 'Vezane stranice';

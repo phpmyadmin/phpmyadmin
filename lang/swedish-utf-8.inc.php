@@ -420,7 +420,6 @@ $strKnownExternalBug = 'Funktionaliteten för %s påverkas av en känd bugg, se 
 $strKorean = 'Koreansk';
 
 $strLandscape = 'Liggande';
-$strLanguageFileNotFound = 'Språkfil "%1$s" hittades inte.';
 $strLanguage = 'Språk';
 $strLanguageUnknown = 'Okänt språk: %1$s.';
 $strLatchedPages = 'Låsta sidor';

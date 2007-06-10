@@ -809,7 +809,6 @@ $strJoins = 'Joins';  //to translate
 
 $strKeyCache = 'Key cache';  //to translate
 
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLDI = 'CSV using LOAD DATA';  //to translate
 $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate

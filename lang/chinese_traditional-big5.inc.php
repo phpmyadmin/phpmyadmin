@@ -382,7 +382,6 @@ $strKill = 'Kill'; //should expressed in English
 $strKorean = '韓語';
 
 $strLandscape = '橫向';
-$strLanguageFileNotFound = '找不到語言檔案 "%1$s".';
 $strLanguageUnknown = '不知名語言: %1$s.';
 $strLatchedPages = '鎖上頁';
 $strLaTeX = 'LaTeX';  // use eng

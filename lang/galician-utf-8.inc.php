@@ -394,7 +394,6 @@ $strKill = 'Matar (kill)';
 $strKorean = 'Coreano';
 
 $strLandscape = 'Horizontal';
-$strLanguageFileNotFound = 'Non se atopou o ficheiro da lingua "%1$s".';
 $strLanguageUnknown = 'Linguaxe descoñecida: %1$s.';
 $strLatchedPages = 'Páxinas fechadas';
 $strLatexCaption = 'Título da tabela';

@@ -415,7 +415,6 @@ $strKnownExternalBug = 'La funcionalitat %s es veu afectada per un error conegut
 $strKorean = 'Coreà';
 
 $strLandscape = 'Horitzontal';
-$strLanguageFileNotFound = 'Arxiu d\'idioma "%1$s" no trobat.';
 $strLanguage = 'Idioma';
 $strLanguageUnknown = 'Idioma desconegut: %1$s.';
 $strLatchedPages = 'Pàgines inalterables';

@@ -396,7 +396,6 @@ $strKill = 'Спыніць';
 $strKorean = 'Карэйская';
 
 $strLandscape = 'Краявід';
-$strLanguageFileNotFound = 'Моўны файл "%1$s" ня знойдзены.';
 $strLanguage = 'Мова';
 $strLanguageUnknown = 'Невядомая мова: %1$s.';
 $strLatchedPages = 'Фіксаваныя старонкі';

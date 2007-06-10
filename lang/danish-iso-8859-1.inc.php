@@ -420,7 +420,6 @@ $strKnownExternalBug = 'Funktionaliteten af %s er påvirket af en kendt fejl, se 
 $strKorean = 'Koreansk';
 
 $strLandscape = 'Liggende';
-$strLanguageFileNotFound = 'Sprogfil \"%1$s\" ikke fundet.';
 $strLanguage = 'Sprog';
 $strLanguageUnknown = 'Ukendt sprog: %1$s.';
 $strLatchedPages = 'Eksklusivt låste (latched) sider';
