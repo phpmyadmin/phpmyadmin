@@ -24,6 +24,7 @@ $HeadURL$
 - patch #1726500 Wrong position of </tbody>, thanks to Jürgen Wind
 - bug #1728590 Detected failing session_start fails, thanks to Jürgen Wind
 - RFE #1714760 Obey ShowCreateDb on the Databases tab
+- patch #1733762 Typo in message "INSERT DELAY", thanks to Victor Volkov
 
 2.10.1.0 (2007-04-23)
 =====================
