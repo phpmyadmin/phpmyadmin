@@ -26,6 +26,7 @@ $HeadURL$
 - RFE #1714760 Obey ShowCreateDb on the Databases tab
 - patch #1733762 Typo in message "INSERT DELAY", thanks to Victor Volkov
 - patch #1730171 Dead message strLanguageFileNotFound, thanks to Victor Volkov
+- patch #1731280 Avoid negative exponent in gmp_pow(), thanks to anosek
 
 2.10.1.0 (2007-04-23)
 =====================
