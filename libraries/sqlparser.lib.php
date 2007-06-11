@@ -2370,10 +2370,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                     break;
                 case 'quote_backtick':
-                    if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable') {
+                    // here we check for punct_user to handle correctly
+                    // DEFINER = `username`@`%`
+                    // where @ is the punct_user and `%` is the quote_backtick 
+                    if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable' && $typearr[3] != 'punct_user') {
                         $after     .= ' ';
                     }
-                    if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable') {
+                    if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable' && $typearr[1] != 'punct_user') {
                         $before    .= ' ';
                     }
                     break;
