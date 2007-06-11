@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL$
 
+2.10.3.0 (not yet released)
+
+- bug #1734285 Copy database with VIEWs
+
 2.10.2.0 (not yet released)
 
 + [data] display all warnings, not only last one
