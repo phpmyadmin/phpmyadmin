@@ -184,7 +184,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
 <?php } ?>
 
-<!-- Change table properties form -->
+<!-- Insert/Edit form -->
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
@@ -955,25 +955,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
         <?php
     echo '  </table><br />';
 } // end foreach on multi-edit
-
-if ($insert_mode) {
-    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" />' . "\n";
-    $option_values = array(1,2,5,10,15,20,30,40);
-    foreach ($option_values as $value) {
-        $tmp .= '<option value="' . $value . '"';
-        if ($value == $cfg['InsertRows']) {
-            $tmp .= ' selected="selected"';
-        }
-        $tmp .= '>' . $value . '</option>' . "\n";
-    }
-    $tmp .= '</select>' . "\n";
-    echo "\n" . sprintf($strRestartInsertion, $tmp);
-    unset($tmp);
-    echo '<noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n";
-}
 ?>
     <br />
 
+    <fieldset>
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
@@ -1032,13 +1017,42 @@ if (isset($primary_key)) {
         </td>
     </tr>
     </table>
+    </fieldset>
     <?php if ($biggest_max_file_size > 0) {
             echo '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
           } ?>
-
 </form>
-
 <?php
+if ($insert_mode) {
+?>
+<!-- Restart insertion form -->
+<form method="post" action="tbl_replace.php" name="restartForm" >
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
+    <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
+<?php
+    if (isset($primary_keys)) {
+        foreach ($primary_key_array as $rowcount => $primary_key) {
+            echo '<input type="hidden" name="primary_key[' . $rowcount . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
+        }
+    }
+    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" />' . "\n";
+    $option_values = array(1,2,5,10,15,20,30,40);
+    foreach ($option_values as $value) {
+        $tmp .= '<option value="' . $value . '"';
+        if ($value == $cfg['InsertRows']) {
+            $tmp .= ' selected="selected"';
+        }
+        $tmp .= '>' . $value . '</option>' . "\n";
+    }
+    $tmp .= '</select>' . "\n";
+    echo "\n" . sprintf($strRestartInsertion, $tmp);
+    unset($tmp);
+    echo '<noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n";
+    echo '</form>' . "\n";
+}
+
 /**
  * Displays the footer
  */
