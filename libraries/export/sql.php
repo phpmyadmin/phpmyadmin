@@ -370,7 +370,11 @@ function PMA_exportDBFooter($db)
  * @access  public
  */
 function PMA_getTableDefStandIn($db, $view, $crlf) {
-    $create_query = 'CREATE TABLE ' . PMA_backquote($view) . ' (' . $crlf;
+    $create_query = 'CREATE TABLE ';
+    if (isset($GLOBALS['sql_if_not_exists']) && $GLOBALS['sql_if_not_exists']) {
+        $create_query .= 'IF NOT EXISTS ';
+    }
+    $create_query .= PMA_backquote($view) . ' (' . $crlf;
     $tmp = array();
     $columns = PMA_DBI_get_columns_full($db, $view);
     foreach($columns as $column_name => $definition) {

@@ -1223,8 +1223,10 @@ $cfg['Export']['sql_drop_table'] = false;
  *
  *
  * @global boolean $cfg['Export']['sql_if_not_exists']
+ * true by default for correct behavior when dealing with exporting
+ * of VIEWs and the stand-in table
  */
-$cfg['Export']['sql_if_not_exists'] = false;
+$cfg['Export']['sql_if_not_exists'] = true;
 
 /**
  *
