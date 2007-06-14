@@ -66,6 +66,7 @@ $goto_include = false;
 
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
+    $js_to_run = 'tbl_change.js';
     require_once './libraries/header.inc.php';
     require './tbl_change.php';
     exit;
