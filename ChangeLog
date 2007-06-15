@@ -10,7 +10,7 @@ $HeadURL$
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
 
-2.10.2.0 (not yet released)
+2.10.2.0 (2007-06-15)
 
 + [data] display all warnings, not only last one
 - typo in fix for bug #1671813
