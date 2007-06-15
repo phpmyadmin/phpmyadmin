@@ -1688,7 +1688,7 @@ function PMA_displayTable_checkConfigParams()
         $_SESSION['userconf']['query'][$sql_key]['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
     }
 
-    if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric')) {
+    if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric') || $_REQUEST['session_max_rows'] == 'all') {
         $_SESSION['userconf']['query'][$sql_key]['max_rows'] = $_REQUEST['session_max_rows'];
         unset($_REQUEST['session_max_rows']);
     } elseif (empty($_SESSION['userconf']['query'][$sql_key]['max_rows'])) {
