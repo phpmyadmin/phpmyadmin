@@ -68,7 +68,6 @@ $strAscending = 'pramy';
 $strAtBeginningOfTable = 'U pačatku tablicy';
 $strAtEndOfTable = 'U kancy tablicy';
 $strAttr = 'Atrybuty';
-$strAutodetect = 'Aŭtavyznačeńnie';
 $strAutomaticLayout = 'Aŭtamatyčnaje raźmiaščeńnie';
 
 $strBack = 'Nazad';

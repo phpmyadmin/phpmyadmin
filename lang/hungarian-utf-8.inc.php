@@ -61,7 +61,6 @@ $strAscending = 'Növekv&#337;';
 $strAtBeginningOfTable = 'A tábla elejénél';
 $strAtEndOfTable = 'A tábla végénél';
 $strAttr = 'Tulajdonságok';
-$strAutodetect = 'Automatikus felismerés';  
 $strAutomaticLayout = 'Automatikus elrendezés';  
 
 $strBack = 'Vissza';

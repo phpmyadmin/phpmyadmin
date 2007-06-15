@@ -66,7 +66,6 @@ $strAscending = 'Vzostupne';
 $strAtBeginningOfTable = 'Na začiatku tabuľky';
 $strAtEndOfTable = 'Na konci tabuľky';
 $strAttr = 'Atribúty';
-$strAutodetect = 'Automaticky zistiť';
 $strAutomaticLayout = 'Automatické rozvrhnutie';
 
 $strBack = 'Späť';

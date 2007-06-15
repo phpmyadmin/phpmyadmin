@@ -70,7 +70,6 @@ $strAscending = '昇順';
 $strAtBeginningOfTable = 'テーブルの先頭';
 $strAtEndOfTable = 'テーブルの末尾';
 $strAttr = '属性';
-$strAutodetect = '自動検知する';
 $strAutomaticLayout = '自動レイアウト';
 
 $strBack = '戻る';

@@ -398,7 +398,6 @@ $strAndThen = 'and then';  //to translate
 $strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
 $strArabic = 'Arabic';  //to translate
 $strArmenian = 'Armenian';  //to translate
-$strAutodetect = 'Autodetect';  //to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate
 
 $strBaltic = 'Baltic';  //to translate

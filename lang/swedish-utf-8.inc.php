@@ -68,7 +68,6 @@ $strAscending = 'Stigande';
 $strAtBeginningOfTable = 'I början av tabellen';
 $strAtEndOfTable = 'I slutet av tabellen';
 $strAttr = 'Attribut';
-$strAutodetect = 'Autodetektera';
 $strAutomaticLayout = 'Automatisk layout';
 
 $strBack = 'Bakåt';

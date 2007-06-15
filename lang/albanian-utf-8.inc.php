@@ -61,7 +61,6 @@ $strAscending = 'Ngjitje';
 $strAtBeginningOfTable = 'Në fillim të tabelës';
 $strAtEndOfTable = 'Në fund të tabelës';
 $strAttr = 'Pronësi';
-$strAutodetect = 'Zbulim automatik';
 $strAutomaticLayout = 'Faqosje automatike';
 
 $strBack = 'Mbrapa';

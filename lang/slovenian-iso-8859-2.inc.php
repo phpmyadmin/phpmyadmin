@@ -56,7 +56,6 @@ $strAscending = 'Nara¹èajoèe';
 $strAtBeginningOfTable = 'Na zaèetku tabele';
 $strAtEndOfTable = 'Na koncu tabele';
 $strAttr = 'Atributi';
-$strAutodetect = 'Samodejno zaznaj';
 $strAutomaticLayout = 'Samodejna postavitev';
 
 $strBack = 'Nazaj';

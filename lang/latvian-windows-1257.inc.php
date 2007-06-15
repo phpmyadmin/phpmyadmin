@@ -61,7 +61,6 @@ $strAscending = 'Augoðâ secîbâ';
 $strAtBeginningOfTable = 'Tabulas sâkumâ';
 $strAtEndOfTable = 'Tabulas beigâs';
 $strAttr = 'Atribûti';
-$strAutodetect = 'Noteikt automâtiski';
 $strAutomaticLayout = 'Automâtiskais izvietojums';
 
 $strBack = 'Atpakaï';

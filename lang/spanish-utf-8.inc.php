@@ -65,7 +65,6 @@ $strAscending = 'Ascendente';
 $strAtBeginningOfTable = 'Al comienzo de la tabla';
 $strAtEndOfTable = 'Al final de la tabla';
 $strAttr = 'Atributos';
-$strAutodetect = 'Autodetectar';
 $strAutomaticLayout = 'Diseño automático';
 
 $strBack = 'Volver';

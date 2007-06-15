@@ -71,7 +71,6 @@ $strAscending = 'Nouseva';
 $strAtBeginningOfTable = 'Taulun alkuun';
 $strAtEndOfTable = 'Taulun loppuun';
 $strAttr = 'Attribuutit';
-$strAutodetect = 'M‰‰rit‰ automaattisesti';
 $strAutomaticLayout = 'Automaattinen ulkoasu';
 
 $strBack = 'Takaisin';

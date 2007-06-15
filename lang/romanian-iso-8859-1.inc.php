@@ -58,7 +58,6 @@ $strAscending = 'Crescatoare';
 $strAtBeginningOfTable = 'La inceputul tabelului';
 $strAtEndOfTable = 'La sfarsitul tabelului';
 $strAttr = 'Proprietati';
-$strAutodetect = 'Autodetectare';
 $strAutomaticLayout = 'Layout automat';
 
 $strBack = 'Inapoi';

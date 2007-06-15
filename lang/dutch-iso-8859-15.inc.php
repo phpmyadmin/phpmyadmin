@@ -61,7 +61,6 @@ $strAscending = 'Oplopend';
 $strAtBeginningOfTable = 'Aan het begin van de tabel';
 $strAtEndOfTable = 'Aan het eind van de tabel';
 $strAttr = 'Attributen';
-$strAutodetect = 'Auto detectie';
 $strAutomaticLayout = 'Automatische lay-out';
 
 $strBack = 'Terug';

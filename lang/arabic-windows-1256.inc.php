@@ -60,7 +60,6 @@ $strAscending = 'ÊÕÇÚÏíÇğ';
 $strAtBeginningOfTable = 'İí ÈÏÇíÉ ÇáÌÏæá';
 $strAtEndOfTable = 'İí äåÇíÉ ÇáÌÏæá';
 $strAttr = 'ÇáÎæÇÕ';
-$strAutodetect = 'ÇáÊİÍÕ ÇáÊáŞÇÆí';
 $strAutomaticLayout = 'ãÙåÑ ÊáŞÇÆí';
 
 $strBack = 'ÑÌæÚ';

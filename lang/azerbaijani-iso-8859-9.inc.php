@@ -56,7 +56,6 @@ $strAscending = 'Artan sýrada';
 $strAtBeginningOfTable = 'Cedvelin baþýna';
 $strAtEndOfTable = 'Cedvelin sonuna';
 $strAttr = 'Xüsusiyyetler';
-$strAutodetect = 'Avtomatik';
 $strAutomaticLayout = 'Automatik þablon';
 
 $strBack = 'Geri';

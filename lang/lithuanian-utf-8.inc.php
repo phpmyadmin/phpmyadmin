@@ -58,7 +58,6 @@ $strAscending = 'Didėjimo tvarka';
 $strAtBeginningOfTable = 'Lentelės pradžioje';
 $strAtEndOfTable = 'Lentelės pabaigoje';
 $strAttr = 'Atributai';
-$strAutodetect = 'Automatinis nustatymas';
 $strAutomaticLayout = 'Automatinis išdėstymas';
 
 $strBack = 'Atgal';

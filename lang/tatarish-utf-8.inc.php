@@ -61,7 +61,6 @@ $strAscending = 'Artıp';
 $strAtBeginningOfTable = 'Tüşämä Başına';
 $strAtEndOfTable = 'Tüşämä azağına';
 $strAttr = 'Üzençälek';
-$strAutodetect = 'Üzeñ tanı';
 $strAutomaticLayout = 'Zihenle urnaştıru';
 
 $strBack = 'Kire';

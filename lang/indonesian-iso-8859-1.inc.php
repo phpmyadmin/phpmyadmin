@@ -58,7 +58,6 @@ $strAscending = 'Urutan menaik';
 $strAtBeginningOfTable = 'pada awal tabel';
 $strAtEndOfTable = 'pada akhir tabel';
 $strAttr = 'Atribut';
-$strAutodetect = 'Deteksi otomatis';
 $strAutomaticLayout = 'Layout otomatis';
 
 $strBack = 'Kembali';

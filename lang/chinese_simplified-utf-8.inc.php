@@ -66,7 +66,6 @@ $strAscending = '递增';
 $strAtBeginningOfTable = '于表开头';
 $strAtEndOfTable = '于表结尾';
 $strAttr = '属性';
-$strAutodetect = '自动检测';
 $strAutomaticLayout = '自动套用格式';
 
 $strBack = '返回';

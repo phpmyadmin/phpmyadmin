@@ -64,7 +64,6 @@ $strAscending = 'Растући';
 $strAtBeginningOfTable = 'На почетку табеле';
 $strAtEndOfTable = 'На крају табеле';
 $strAttr = 'Атрибути';
-$strAutodetect = 'аутоматски';
 $strAutomaticLayout = 'Аутоматски распоред';
 
 $strBack = 'Назад';

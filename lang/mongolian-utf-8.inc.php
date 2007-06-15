@@ -64,7 +64,6 @@ $strAscending = 'Өсөхөөр';
 $strAtBeginningOfTable = 'Хүснэгтийн эхэнд';
 $strAtEndOfTable = 'Хүснэгтийн төгсгөлд';
 $strAttr = 'Атрибутууд';
-$strAutodetect = 'Авто шалгах';
 $strAutomaticLayout = 'Автомат байрлал';
 
 $strBack = 'Өмнөх';

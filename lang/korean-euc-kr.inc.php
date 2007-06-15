@@ -45,7 +45,6 @@ $strAscending = '오름차순';
 $strAtBeginningOfTable = '테이블의 처음';
 $strAtEndOfTable = '테이블의 마지막';
 $strAttr = '보기';
-$strAutodetect = '자동';
 
 $strBack = '뒤로';
 $strBinary = '바이너리';

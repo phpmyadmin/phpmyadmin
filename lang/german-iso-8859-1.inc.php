@@ -71,7 +71,6 @@ $strAscending = 'aufsteigend';
 $strAtBeginningOfTable = 'An den Anfang der Tabelle';
 $strAtEndOfTable = 'An das Ende der Tabelle';
 $strAttr = 'Attribute';
-$strAutodetect = 'Autom. Erkennung';
 $strAutomaticLayout = 'Automatische Anordnung';
 
 $strBack = 'Zurück';

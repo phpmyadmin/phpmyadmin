@@ -57,7 +57,6 @@ $strAscending = 'Αύξουσα';
 $strAtBeginningOfTable = 'Στην αρχή του Πίνακα';
 $strAtEndOfTable = 'Στο τέλος του Πίνακα';
 $strAttr = 'Χαρακτηριστικά';
-$strAutodetect = 'Αυτόματη ανίχνευση';  
 $strAutomaticLayout = 'Αυτόματη διάταξη';  
 
 $strBack = 'Επιστροφή';

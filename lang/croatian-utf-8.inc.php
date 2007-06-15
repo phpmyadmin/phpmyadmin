@@ -67,7 +67,6 @@ $strAscending = 'Uzlazno';
 $strAtBeginningOfTable = 'Pri početku tablice';
 $strAtEndOfTable = 'Pri završetku tablice';
 $strAttr = 'Atributi';
-$strAutodetect = 'Automatski prepoznaj';
 $strAutomaticLayout = 'Automatski raspored';
 
 $strBack = 'Nazad';

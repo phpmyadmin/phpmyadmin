@@ -67,7 +67,6 @@ $strAscending = 'Crescente';
 $strAtBeginningOfTable = 'All\'inizio della tabella';
 $strAtEndOfTable = 'Alla fine della tabella';
 $strAttr = 'Attributi';
-$strAutodetect = 'Autorilevazione';
 $strAutomaticLayout = 'Impaginazione automatica';
 
 $strBack = 'Indietro';

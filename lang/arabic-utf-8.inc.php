@@ -61,7 +61,6 @@ $strAscending = 'تصاعدياً';
 $strAtBeginningOfTable = 'في بداية الجدول';
 $strAtEndOfTable = 'في نهاية الجدول';
 $strAttr = 'الخواص';
-$strAutodetect = 'التفحص التلقائي';
 $strAutomaticLayout = 'مظهر تلقائي';
 
 $strBack = 'رجوع';

@@ -68,7 +68,6 @@ $strAscending = 'По возрастанию';
 $strAtBeginningOfTable = 'В начало таблицы';
 $strAtEndOfTable = 'В конец таблицы';
 $strAttr = 'Атрибуты';
-$strAutodetect = 'Автодетект';
 $strAutomaticLayout = 'Автоматическая раскладка';
 
 $strBack = 'Назад';

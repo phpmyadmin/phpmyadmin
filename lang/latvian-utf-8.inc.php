@@ -62,7 +62,6 @@ $strAscending = 'Augošā secībā';
 $strAtBeginningOfTable = 'Tabulas sākumā';
 $strAtEndOfTable = 'Tabulas beigās';
 $strAttr = 'Atribūti';
-$strAutodetect = 'Noteikt automātiski';
 $strAutomaticLayout = 'Automātiskais izvietojums';
 
 $strBack = 'Atpakaļ';

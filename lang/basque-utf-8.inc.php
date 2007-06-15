@@ -53,7 +53,6 @@ $strAscending = 'Goranzko';
 $strAtBeginningOfTable = 'Taularen hasiera';
 $strAtEndOfTable = 'Taularen amaiera';
 $strAttr = 'Ezaugarriak';
-$strAutodetect = 'Autodetektatu';
 $strAutomaticLayout = 'Diseinu automatikoa';
 
 $strBack = 'Itzuli';

@@ -68,7 +68,6 @@ $strAscending = '遞增';
 $strAtBeginningOfTable = '於資料表開頭';
 $strAtEndOfTable = '於資料表尾端';
 $strAttr = '屬性';
-$strAutodetect = '自動偵測';
 $strAutomaticLayout = '自動格式';
 
 $strBack = '回上一頁';

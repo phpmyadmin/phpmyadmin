@@ -53,7 +53,6 @@ $strAscending = 'Зростаючий';
 $strAtBeginningOfTable = 'На початку таблиці';
 $strAtEndOfTable = 'У кінці таблиці';
 $strAttr = 'Атрибути';
-$strAutodetect = 'Автовизначення';
 $strAutomaticLayout = 'Автоматичний layout';
 
 $strBack = 'Назад';

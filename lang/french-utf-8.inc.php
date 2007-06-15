@@ -66,7 +66,6 @@ $strAscending = 'Croissant';
 $strAtBeginningOfTable = 'En début de table';
 $strAtEndOfTable = 'En fin de table';
 $strAttr = 'Attributs';
-$strAutodetect = 'Détection automatique';
 $strAutomaticLayout = 'Mise en page automatique';
 
 $strBack = 'Retour';

@@ -57,7 +57,6 @@ $strAscending = 'Artan sırada';
 $strAtBeginningOfTable = 'Cedvelin başına';
 $strAtEndOfTable = 'Cedvelin sonuna';
 $strAttr = 'Xüsusiyyetler';
-$strAutodetect = 'Avtomatik';
 $strAutomaticLayout = 'Automatik şablon';
 
 $strBack = 'Geri';

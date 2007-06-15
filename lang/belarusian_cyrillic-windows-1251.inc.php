@@ -68,7 +68,6 @@ $strAscending = 'прамы';
 $strAtBeginningOfTable = 'У пачатку табліцы';
 $strAtEndOfTable = 'У канцы табліцы';
 $strAttr = 'Атрыбуты';
-$strAutodetect = 'Аўтавызначэньне';
 $strAutomaticLayout = 'Аўтаматычнае разьмяшчэньне';
 
 $strBack = 'Назад';

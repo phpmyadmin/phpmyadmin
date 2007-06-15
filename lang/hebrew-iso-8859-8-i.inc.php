@@ -59,7 +59,6 @@ $strAscending = 'עולה';
 $strAtBeginningOfTable = 'בתחילת טבלה';
 $strAtEndOfTable = 'בסוף טבלה';
 $strAttr = 'תכונות';
-$strAutodetect = 'זיהוי אוטומטי';
 $strAutomaticLayout = 'עיצוב אוטומטי';
 
 $strBack = 'חזרה';

@@ -62,7 +62,6 @@ $strAscending = 'Rosnąco';
 $strAtBeginningOfTable = 'Na początku tabeli';
 $strAtEndOfTable = 'Na końcu tabeli';
 $strAttr = 'Atrybuty';
-$strAutodetect = 'Rozpoznaj automatycznie';
 $strAutomaticLayout = 'Układ automatyczny';
 
 $strBack = 'Powrót';

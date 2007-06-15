@@ -68,7 +68,6 @@ $strAscending = 'Stigende';
 $strAtBeginningOfTable = 'I begyndelsen af tabel';
 $strAtEndOfTable = 'I slutningen af tabel';
 $strAttr = 'Attributter';
-$strAutodetect = 'Fastslå automatisk';
 $strAutomaticLayout = 'Automatisk layout';
 
 $strBack = 'Tilbage';

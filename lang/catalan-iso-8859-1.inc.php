@@ -62,7 +62,6 @@ $strAscending = 'Ascendent';
 $strAtBeginningOfTable = 'Al principi de la taula';
 $strAtEndOfTable = 'Al final de la taula';
 $strAttr = 'Atributs';
-$strAutodetect = 'Autodetectar';
 $strAutomaticLayout = 'Disseny automàtic';
 
 $strBack = 'Enrere';

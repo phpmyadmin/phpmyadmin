@@ -75,7 +75,6 @@ $strAscending = 'Küçükten Büyüğe';
 $strAtBeginningOfTable = 'Tablonun Başında';
 $strAtEndOfTable = 'Tablonun Sonunda';
 $strAttr = 'Öznitelikler';
-$strAutodetect = 'Otomatik Sapta';
 $strAutomaticLayout = 'Otomatik yerleşim';
 
 $strBack = 'Geri';

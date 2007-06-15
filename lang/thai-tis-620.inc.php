@@ -53,7 +53,6 @@ $strAscending = 'น้อยไปมาก';
 $strAtBeginningOfTable = 'ที่จุดเริ่มต้นของตาราง';
 $strAtEndOfTable = 'ที่จุดสุดท้ายของตาราง';
 $strAttr = 'แอตทริบิวต์';
-$strAutodetect = 'ตรวจหาอัตโนมัติ';
 $strAutomaticLayout = 'จัดตำแหน่งอัตโนมัติ';
 
 $strBack = 'ย้อนกลับ';

@@ -60,7 +60,6 @@ $strAscending = 'Artýp';
 $strAtBeginningOfTable = 'Tüþämä Baþýna';
 $strAtEndOfTable = 'Tüþämä azaðýna';
 $strAttr = 'Üzençälek';
-$strAutodetect = 'Üzeñ taný';
 $strAutomaticLayout = 'Zihenle urnaþtýru';
 
 $strBack = 'Kire';

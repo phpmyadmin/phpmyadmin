@@ -70,7 +70,6 @@ $strAscending = 'Kasvav';
 $strAtBeginningOfTable = 'Tabeli algusesse';
 $strAtEndOfTable = 'Tabeli lõppu';
 $strAttr = 'Parameetrid';
-$strAutodetect = 'Automaatne tuvastus';
 $strAutomaticLayout = 'Automaatne väljund';
 
 $strBack = 'Tagasi';

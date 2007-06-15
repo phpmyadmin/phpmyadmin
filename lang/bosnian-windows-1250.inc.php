@@ -57,7 +57,6 @@ $strAscending = 'Rastuæi';
 $strAtBeginningOfTable = 'Na poèetku tabele';
 $strAtEndOfTable = 'Na kraju tabele';
 $strAttr = 'Atributi';
-$strAutodetect = 'automatski';
 $strAutomaticLayout = 'Automatski raspored';
 
 $strBack = 'Nazad';
