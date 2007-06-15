@@ -48,15 +48,18 @@ if (defined('E_STRICT')) {
     unset($old_error_reporting);
 }
 
-/**
- * Avoid object cloning errors
- */
-@ini_set('zend.ze1_compatibility_mode', false);
+// at this point PMA_PHP_INT_VERSION is not yet defined
+if (version_compare(phpversion(), '6', 'lt')) {
+    /**
+     * Avoid object cloning errors
+     */
+    @ini_set('zend.ze1_compatibility_mode', false);
 
-/**
- * Avoid problems with magic_quotes_runtime
- */
-@ini_set('magic_quotes_runtime', false);
+    /**
+     * Avoid problems with magic_quotes_runtime
+     */
+    @ini_set('magic_quotes_runtime', false);
+}
 
 /**
  * core functions

@@ -332,7 +332,9 @@ chmod o-rw config.inc.php          # remove world read and write permissions
 
 <p> Simply copy <i>./config.inc.php</i> from your previous installation into the newly
     unpacked one. Configuration files from very old versions (2.3.0 or before) may
-    require some tweaking as some options have been changed or removed.</p>
+    require some tweaking as some options have been changed or removed.
+    For compatibility with PHP 6, remove a <tt>set_magic_quotes_runtime(0);</tt>
+    statement that you might find near the end of your configuration file.</p>
 
 <p> You should <strong>not</strong> copy <tt>libraries/config.default.php</tt>
     over <tt>config.inc.php</tt> because the default configuration file
