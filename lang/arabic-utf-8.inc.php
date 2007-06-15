@@ -61,7 +61,6 @@ $strAscending = 'تصاعدياً';
 $strAtBeginningOfTable = 'في بداية الجدول';
 $strAtEndOfTable = 'في نهاية الجدول';
 $strAttr = 'الخواص';
-$strAutodetect = 'التفحص التلقائي';
 $strAutomaticLayout = 'مظهر تلقائي';
 
 $strBack = 'رجوع';
@@ -207,7 +206,6 @@ $strExtra = 'إضافي';
 
 $strFailedAttempts = 'محاولات أخفقت';
 $strFieldHasBeenDropped = 'حقل محذوف %s';
-$strFieldsEmpty = ' تعداد الحقل فارغ! ';
 $strFieldsEnclosedBy = 'حقل مضمن بـ';
 $strFieldsEscapedBy = 'حقل مُتجاهل بـ';
 $strFieldsTerminatedBy = 'حقل مفصول بـ';
@@ -717,7 +715,6 @@ $strImportFormat = 'Format of imported file';  //to translate
 $strImport = 'Import';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 $strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

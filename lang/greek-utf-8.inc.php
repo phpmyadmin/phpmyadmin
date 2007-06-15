@@ -57,7 +57,6 @@ $strAscending = 'Αύξουσα';
 $strAtBeginningOfTable = 'Στην αρχή του Πίνακα';
 $strAtEndOfTable = 'Στο τέλος του Πίνακα';
 $strAttr = 'Χαρακτηριστικά';
-$strAutodetect = 'Αυτόματη ανίχνευση';  
 $strAutomaticLayout = 'Αυτόματη διάταξη';  
 
 $strBack = 'Επιστροφή';
@@ -191,7 +190,6 @@ $strExtra = 'Πρόσθετα';
 
 $strFailedAttempts = 'Αποτυχημένες προσπάθειες'; 
 $strFieldHasBeenDropped = 'Το πεδίο %s διεγράφη';
-$strFieldsEmpty = ' Η απαρίθμηση των πεδίων είναι κενή! ';
 $strFieldsEnclosedBy = 'Πεδία που περικλείονται σε';
 $strFieldsEscapedBy = 'Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής ';
 $strFieldsTerminatedBy = 'Πεδία που τελειώνουν σε';
@@ -700,7 +698,6 @@ $strImportFormat = 'Format of imported file';  //to translate
 $strImport = 'Import';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 $strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

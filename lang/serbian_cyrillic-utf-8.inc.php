@@ -65,7 +65,6 @@ $strAscending = 'Растући';
 $strAtBeginningOfTable = 'На почетку табеле';
 $strAtEndOfTable = 'На крају табеле';
 $strAttr = 'Атрибути';
-$strAutodetect = 'аутоматски';
 $strAutomaticLayout = 'Аутоматски распоред';
 
 $strBack = 'Назад';
@@ -249,7 +248,6 @@ $strExtra = 'Додатно';
 
 $strFailedAttempts = 'Неуспелих покушаја';
 $strFieldHasBeenDropped = 'Поље %s је обрисано';
-$strFieldsEmpty = ' Број поља је нула! ';
 $strFieldsEnclosedBy = 'Поља ограничена са';
 $strFieldsEscapedBy = 'Ескејп карактер &nbsp; &nbsp; &nbsp;';
 $strFieldsTerminatedBy = 'Поља раздвојена са';
@@ -306,7 +304,6 @@ $strIndexHasBeenDropped = 'Кључ %s је обрисан';
 $strIndexName = 'Име кључа :';
 $strIndexType = 'Тип кључа :';
 $strIndexWarningTable = 'Проблем при индексирању табеле `%s`';
-$strIndexWarningUnique = 'UNIQUE и INDEX кључеви не би требали да буду истовремено постављени за колону `%s`';
 $strIndex = 'Кључ';
 $strInnoDBAutoextendIncrementDesc = ' Величина корака проширења величине табела које се аутоматски проширују када се напуне.';
 $strInnoDBAutoextendIncrement = 'Корак аутоматског проширења';

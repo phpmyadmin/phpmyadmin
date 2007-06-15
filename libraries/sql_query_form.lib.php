@@ -479,7 +479,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['cfg']['UploadDir']
  * @uses    $GLOBALS['cfg']['AvailableCharsets']
  * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
- * @uses    $GLOBALS['strAutodetect']
  * @uses    $GLOBALS['strBzip']
  * @uses    $GLOBALS['strCharsetOfFile']
  * @uses    $GLOBALS['strCompression']

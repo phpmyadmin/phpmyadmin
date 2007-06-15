@@ -68,7 +68,6 @@ $strAscending = 'По возрастанию';
 $strAtBeginningOfTable = 'В начало таблицы';
 $strAtEndOfTable = 'В конец таблицы';
 $strAttr = 'Атрибуты';
-$strAutodetect = 'Автодетект';
 $strAutomaticLayout = 'Автоматическая раскладка';
 
 $strBack = 'Назад';
@@ -251,7 +250,6 @@ $strFailedAttempts = 'Неудачные попытки';
 $strField = 'Поле';
 $strFieldHasBeenDropped = 'Поле %s было удалено';
 $strFields = 'Поля';
-$strFieldsEmpty = ' Пустой счетчик полей! ';
 $strFieldsEnclosedBy = 'Поля заключены в';
 $strFieldsEscapedBy = 'Поля экранируются';
 $strFieldsTerminatedBy = 'Поля разделены';
@@ -857,7 +855,6 @@ $strExportMustBeFile = 'Selected export type has to be saved in file!';  //to tr
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 $strFreePages = 'Free pages';  //to translate
 
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';  //to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

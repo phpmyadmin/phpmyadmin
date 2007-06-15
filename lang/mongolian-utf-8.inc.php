@@ -64,7 +64,6 @@ $strAscending = 'Өсөхөөр';
 $strAtBeginningOfTable = 'Хүснэгтийн эхэнд';
 $strAtEndOfTable = 'Хүснэгтийн төгсгөлд';
 $strAttr = 'Атрибутууд';
-$strAutodetect = 'Авто шалгах';
 $strAutomaticLayout = 'Автомат байрлал';
 
 $strBack = 'Өмнөх';
@@ -248,7 +247,6 @@ $strExtra = 'Нэмэлт';
 
 $strFailedAttempts = 'Бүтэлгүйтсэн оролдлого';
 $strFieldHasBeenDropped = 'Талбар %s устгагдсан';
-$strFieldsEmpty = ' Талбарын тоо хоосон! ';
 $strFieldsEnclosedBy = 'Талбарыг хаасан';
 $strFieldsEscapedBy = 'Талбарыг нээсэн';
 $strFieldsTerminatedBy = 'Талбарыг төгсгөсөн';
@@ -305,7 +303,6 @@ $strIndexHasBeenDropped = 'Индекс %s нь устгагдсан';
 $strIndexName = 'Индексийн нэр&nbsp;:';
 $strIndexType = 'Индексийн төрөл&nbsp;:';
 $strIndexWarningTable = 'Хүснэгт `%s`-ийн индекс асуудалтай';
-$strIndexWarningUnique = 'UNIQUE ба INDEX түлхүүрүүд багана `%s`-д хоёулаа сонгогдохгүй';
 $strIndex = 'Индекс';
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  
 $strInnoDBAutoextendIncrement = 'Авто нэмэгдэлт';  

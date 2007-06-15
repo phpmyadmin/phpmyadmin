@@ -65,7 +65,6 @@ $strAscending = 'Възходящо';
 $strAtBeginningOfTable = 'в началото на таблицата';
 $strAtEndOfTable = 'в края на таблицата';
 $strAttr = 'Атрибути';
-$strAutodetect = 'автоматично откриване';
 $strAutomaticLayout = 'Автоматичен лейаут';
 
 $strBack = 'Назад';
@@ -246,7 +245,6 @@ $strExtra = 'Допълнително';
 
 $strFailedAttempts = 'Провалили се опити';
 $strFieldHasBeenDropped = 'Полето %s беше изтрито';
-$strFieldsEmpty = ' Брояча на полетата е празен! ';
 $strFieldsEnclosedBy = 'Полетата са оградени с';
 $strFieldsEscapedBy = 'Представка на специалните знаци';
 $strFieldsTerminatedBy = 'Полетата завършват с';
@@ -816,7 +814,6 @@ $strHandler = 'Handler';  //to translate
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
 $strHTMLWord = 'Microsoft Word 2000';  //to translate
 
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

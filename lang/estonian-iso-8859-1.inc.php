@@ -69,7 +69,6 @@ $strAscending = 'Kasvav';
 $strAtBeginningOfTable = 'Tabeli algusesse';
 $strAtEndOfTable = 'Tabeli lõppu';
 $strAttr = 'Parameetrid';
-$strAutodetect = 'Automaatne tuvastus';
 $strAutomaticLayout = 'Automaatne väljund';
 
 $strBack = 'Tagasi';
@@ -282,7 +281,6 @@ $strExtra = 'Ekstra';
 
 $strFailedAttempts = 'Ebaõnnestunud üritused';
 $strFieldHasBeenDropped = 'Väli %s kustutatud';
-$strFieldsEmpty = ' Väljade loetelu on tühi! ';
 $strFieldsEnclosedBy = 'Väljad ümbritsetud';
 $strFieldsEscapedBy = 'Väljad varjatud';
 $strFieldsTerminatedBy = 'Väljad eraldatud';
@@ -360,7 +358,6 @@ $strIndex = 'Indeks';
 $strIndexName = 'Indeksi nimi&nbsp;:';
 $strIndexType = 'Indeksi tüüp&nbsp;:';
 $strIndexWarningTable = 'Probleemid tabeli `%s` indeksitega';
-$strIndexWarningUnique = 'UNIQUE ja INDEX ei tohiks mõlemad olla määratud väljale `%s`';
 $strInnoDBAutoextendIncrement = 'Automaatne suurenduse laiendus';
 $strInnoDBAutoextendIncrementDesc = ' Automaatselt suurenev suurus mis lisatakse automaatselt suurenevale tabeliruumile kui see täitub.';
 $strInnoDBBufferPoolSizeDesc = 'Mälupuhvri suurus mida InnoDB kasutab oma andmete ja indeksite puhverdamiseks.';

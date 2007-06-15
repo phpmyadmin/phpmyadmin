@@ -134,7 +134,6 @@ $strExtendedInserts = 'Uitgebreide toevoegings';
 $strExtra = 'Ekstra';
 
 $strFieldHasBeenDropped = 'Veld %s is verwyder';
-$strFieldsEmpty = ' Die veld telling is leeg! ';
 $strFieldsEnclosedBy = 'Velde omring met';
 $strFieldsEscapedBy = 'Velde ontsnap (escaped) deur';
 $strFieldsTerminatedBy = 'Velde beeindig deur';
@@ -399,7 +398,6 @@ $strAndThen = 'and then';  //to translate
 $strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
 $strArabic = 'Arabic';  //to translate
 $strArmenian = 'Armenian';  //to translate
-$strAutodetect = 'Autodetect';  //to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate
 
 $strBaltic = 'Baltic';  //to translate
@@ -554,7 +552,6 @@ $strImportFormat = 'Format of imported file';  //to translate
 $strImport = 'Import';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 $strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

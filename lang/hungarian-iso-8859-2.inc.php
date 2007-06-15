@@ -60,7 +60,6 @@ $strAscending = 'Növekv&#337;';
 $strAtBeginningOfTable = 'A tábla elejénél';
 $strAtEndOfTable = 'A tábla végénél';
 $strAttr = 'Tulajdonságok';
-$strAutodetect = 'Automatikus felismerés';  
 $strAutomaticLayout = 'Automatikus elrendezés';  
 
 $strBack = 'Vissza';
@@ -245,7 +244,6 @@ $strExtra = 'Extra';
 $strFailedAttempts = 'Hibás próbálkozás'; 
 $strFieldHasBeenDropped = '%s mez&#337;t eldobtam';
 $strField = 'Mez&#337;';
-$strFieldsEmpty = ' A mez&#337; számossága nulla! ';
 $strFieldsEnclosedBy = 'Mez&#337; lezárás';
 $strFieldsEscapedBy = 'Mez&#337; escape karakter';
 $strFields = 'Mez&#337;k száma';
@@ -812,7 +810,6 @@ $strHandler = 'Handler';  //to translate
 
 $strIgnoreDuplicates = 'Ignore duplicate rows';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
 $strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate

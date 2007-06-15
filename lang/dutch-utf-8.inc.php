@@ -62,7 +62,6 @@ $strAscending = 'Oplopend';
 $strAtBeginningOfTable = 'Aan het begin van de tabel';
 $strAtEndOfTable = 'Aan het eind van de tabel';
 $strAttr = 'Attributen';
-$strAutodetect = 'Auto detectie';
 $strAutomaticLayout = 'Automatische lay-out';
 
 $strBack = 'Terug';
@@ -229,7 +228,6 @@ $strExtra = 'Extra';
 
 $strFailedAttempts = 'Mislukte pogingen';
 $strFieldHasBeenDropped = 'Veld %s is vervallen';
-$strFieldsEmpty = ' Het velden aantal is leeg! ';
 $strFieldsEnclosedBy = 'Velden ingesloten door';
 $strFieldsEscapedBy = 'Velden ontsnapt door';
 $strFieldsTerminatedBy = 'Velden beëindigd door';
@@ -282,7 +280,6 @@ $strIndex = 'Index';
 $strIndexName = 'Index naam&nbsp;:';
 $strIndexType = 'Index type&nbsp;:';
 $strIndexWarningTable = 'Problemen met de index(en) van de tabel `%s`';
-$strIndexWarningUnique = 'UNIQUE en INDEX sleutels behoren niet beide ingesteld te zijn voor de kolom `%s`';
 $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Uw configuratie bestand bevat instellingen (root zonder wachtwoord) die betrekking hebben tot de standaard MySQL account. Uw MySQL server draait met deze standaard waardes, en is open voor ongewilde toegang, het wordt dus aangeraden dit op te lossen.';
 $strInsertAsNewRow = 'Voeg toe als nieuwe rij';
