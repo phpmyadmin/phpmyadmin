@@ -216,7 +216,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
     global $is_innodb;
     global $showtable;
 
-    $html_sql_query = htmlentities($sql_query);
+    // here, using htmlentities() would cause problems if the query
+    // contains accented characters
+    $html_sql_query = htmlspecialchars($sql_query);
 
     /**
      * @todo move this to a central place
