@@ -91,7 +91,7 @@ require_once './libraries/List.class.php';
      */
     function _checkAccess()
     {
-        foreach ($this->getItems() as $key => $db) {
+        foreach ($this->items as $key => $db) {
             if (! @PMA_DBI_select_db($db, $this->_db_link_user)) {
                 unset($this->items[$key]);
             }
@@ -117,7 +117,7 @@ require_once './libraries/List.class.php';
             return;
         }
 
-        foreach ($this->getItems() as $key => $db) {
+        foreach ($this->items as $key => $db) {
             if (preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
                 unset($this->items[$key]);
             }
