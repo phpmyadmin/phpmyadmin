@@ -100,7 +100,6 @@ if ($server > 0) {
 if ($databases_count > 0) {
     reset($databases);
     $first_database = current($databases);
-
     // table col order
     // there is no db specific collation or charset prior 4.1.0
     if (PMA_MYSQL_INT_VERSION >= 40100) {
@@ -149,63 +148,7 @@ if ($databases_count > 0) {
         'sort_order' => $sort_order,
     );
 
-    if ($GLOBALS['cfg']['MaxDbList']
-     && $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
-        // Move to the beginning or to the previous page
-        if ($pos > 0) {
-            // loic1: patch #474210 from Gosha Sakovich - part 1
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $caption1 = '&lt;&lt;';
-                $caption2 = ' &lt; ';
-                $title1   = ' title="' . $GLOBALS['strPos1'] . '"';
-                $title2   = ' title="' . $GLOBALS['strPrevious'] . '"';
-            } else {
-                $caption1 = $GLOBALS['strPos1'] . ' &lt;&lt;';
-                $caption2 = $GLOBALS['strPrevious'] . ' &lt;';
-                $title1   = '';
-                $title2   = '';
-            } // end if... else...
-            $_url_params['pos'] = 0;
-            echo '<a' . $title1 . 'href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">'
-                . $caption1 . '</a>';
-            $_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxDbList'];
-            echo '<a' . $title2 . 'href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">'
-                . $caption2 . '</a>';
-        }
-
-        echo '<form action="./server_databases.php" method="post">' . "\n";
-        echo PMA_generate_common_hidden_inputs($_url_params);
-        echo PMA_pageselector(
-                'server_databases.php' . PMA_generate_common_url($_url_params) . '&',
-                $GLOBALS['cfg']['MaxDbList'],
-                floor(($pos + 1) / $GLOBALS['cfg']['MaxDbList']) + 1,
-                ceil($databases_count / $GLOBALS['cfg']['MaxDbList']));
-        echo '</form>';
-
-        if ($pos + $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $caption3 = ' &gt; ';
-                $caption4 = '&gt;&gt;';
-                $title3   = ' title="' . $GLOBALS['strNext'] . '"';
-                $title4   = ' title="' . $GLOBALS['strEnd'] . '"';
-            } else {
-                $caption3 = '&gt; ' . $GLOBALS['strNext'];
-                $caption4 = '&gt;&gt; ' . $GLOBALS['strEnd'];
-                $title3   = '';
-                $title4   = '';
-            } // end if... else...
-            $_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxDbList'];
-            echo '<a' . $title3 . 'href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">'
-                . $caption3 . '</a>';
-            $_url_params['pos'] = floor($databases_count / $GLOBALS['cfg']['MaxDbList']) * $GLOBALS['cfg']['MaxDbList'];
-            echo '<a' . $title4 . 'href="server_databases.php'
-                . PMA_generate_common_url($_url_params) . '">'
-                . $caption4 . '</a>';
-        }
-    }
+    PMA_dbPageSelector($databases_count, $pos, $_url_params, 'server_databases.php', 'frame_content');
 
     $_url_params['pos'] = $pos;
 

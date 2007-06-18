@@ -72,6 +72,16 @@ function PMA_exitNavigationFrame()
     exit;
 }
 
+// keep the offset of the db list in session before closing it
+if (! isset($_SESSION['navi_limit_offset'])) {
+    $_SESSION['navi_limit_offset'] = 0;
+}
+if (isset($_REQUEST['pos'])) {
+    $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
+}
+$pos = $GLOBALS['PMA_List_Database']->limit_offset = $_SESSION['navi_limit_offset']; 
+$GLOBALS['PMA_List_Database']->limit_count = $GLOBALS['cfg']['MaxDbList'];
+
 // free the session file, for the other frames to be loaded
 session_write_close();
 
@@ -103,6 +113,15 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once './libraries/header_http.inc.php';
 
+if (! isset($_SESSION['navi_limit_offset'])) {
+    $_SESSION['navi_limit_offset'] = 0;
+}
+if (isset($_REQUEST['pos'])) {
+    $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
+}
+$pos = $GLOBALS['PMA_List_Database']->limit_offset = $_SESSION['navi_limit_offset']; 
+$GLOBALS['PMA_List_Database']->limit_count = $GLOBALS['cfg']['MaxDbList'];
+
 /*
  * Displays the frame
  */
@@ -126,6 +145,7 @@ require_once './libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $_SESSION['PMA_Config']->getMtime(); ?>" />
     <script type="text/javascript" src="js/navigation.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
     // <![CDATA[
     var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
@@ -292,7 +312,7 @@ function PMA_displayDbList($ext_dblist) {
 
     // get table list, for all databases
     // doing this in one step takes advantage of a single query with information_schema!
-    $tables_full = PMA_DBI_get_tables_full($GLOBALS['PMA_List_Database']->items);
+    $tables_full = PMA_DBI_get_tables_full($GLOBALS['PMA_List_Database']->getItems());
 
     $url_dbgroup = '';
     echo '<ul id="leftdatabaselist">';
@@ -567,5 +587,10 @@ function PMA_displayTableList($tables, $visible = false,
 }
 
 echo '</div>';
+
+echo '<div>' . "\n";
+$_url_params = array('pos' => $pos);
+PMA_dbPageSelector($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation');
+echo '</div>' . "\n";
 PMA_exitNavigationFrame();
 ?>

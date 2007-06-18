@@ -50,6 +50,9 @@ require_once './libraries/List.class.php';
      */
     var $_show_databases_disabled = false;
 
+    var $limit_offset = 0;
+    var $limit_count = 0;
+
     /**
      * Constructor
      *
@@ -88,7 +91,7 @@ require_once './libraries/List.class.php';
      */
     function _checkAccess()
     {
-        foreach ($this->items as $key => $db) {
+        foreach ($this->getItems() as $key => $db) {
             if (! @PMA_DBI_select_db($db, $this->_db_link_user)) {
                 unset($this->items[$key]);
             }
@@ -114,7 +117,7 @@ require_once './libraries/List.class.php';
             return;
         }
 
-        foreach ($this->items as $key => $db) {
+        foreach ($this->getItems() as $key => $db) {
             if (preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
                 unset($this->items[$key]);
             }
@@ -192,7 +195,6 @@ require_once './libraries/List.class.php';
 
         if (! $this->_checkOnlyDatabase()) {
             $this->items = $this->_retrieve();
-
             if ($GLOBALS['cfg']['NaturalOrder']) {
                 natsort($this->items);
                 $this->_need_to_reindex = true;
@@ -307,7 +309,7 @@ require_once './libraries/List.class.php';
     {
         $dbgroups   = array();
         $parts      = array();
-        foreach ($this->items as $key => $db) {
+        foreach ($this->getItems() as $key => $db) {
             // garvin: Get comments from PMA comments table
             $db_tooltip = '';
             if ($GLOBALS['cfg']['ShowTooltip']
@@ -350,6 +352,20 @@ require_once './libraries/List.class.php';
             );
         } // end foreach ($GLOBALS['PMA_List_Database']->items as $db)
         return $dbgroups;
+    }
+
+    /**
+     * returns a part of the items 
+     *
+     * @uses    PMA_List_Database::$items
+     * @uses    PMA_List_Database::$limit_offset
+     * @uses    PMA_List_Database::$limit_count
+     * @uses    array_slice()
+     * @return  array  the items 
+     */
+    function getItems()
+    {
+        return(array_slice($this->items, $this->limit_offset, $this->limit_count));
     }
 
     /**
