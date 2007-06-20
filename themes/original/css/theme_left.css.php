@@ -64,6 +64,7 @@ button {
 
 div#pmalogo,
 div#leftframelinks,
+div#navidbpageselector,
 div#databaseList {
     text-align:         center;
     border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
@@ -126,6 +127,10 @@ div#leftframelinks a:hover {
 }
 
 /* leftdatabaselist */
+div#left_tableList {
+    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
 div#left_tableList ul {
     list-style-type:    none;
     list-style-position: outside;
