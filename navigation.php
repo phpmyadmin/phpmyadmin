@@ -79,8 +79,7 @@ if (! isset($_SESSION['navi_limit_offset'])) {
 if (isset($_REQUEST['pos'])) {
     $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $GLOBALS['PMA_List_Database']->limit_offset = $_SESSION['navi_limit_offset']; 
-$GLOBALS['PMA_List_Database']->limit_count = $GLOBALS['cfg']['MaxDbList'];
+$pos = $_SESSION['navi_limit_offset']; 
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -119,8 +118,7 @@ if (! isset($_SESSION['navi_limit_offset'])) {
 if (isset($_REQUEST['pos'])) {
     $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $GLOBALS['PMA_List_Database']->limit_offset = $_SESSION['navi_limit_offset']; 
-$GLOBALS['PMA_List_Database']->limit_count = $GLOBALS['cfg']['MaxDbList'];
+$pos = $_SESSION['navi_limit_offset']; 
 
 /*
  * Displays the frame
@@ -202,14 +200,14 @@ if (! $GLOBALS['server']) {
     <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true) . "\n";
+        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             .'</noscript>' . "\n"
             .'</form>' . "\n"
             .'</div>' . "\n";
     } else {
-        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true) . "\n";
+        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
 }
 ?>
@@ -282,7 +280,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
 } else {
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails());
+    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails($_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
 }
 
 /**
@@ -305,14 +303,16 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  * @global  $db_start
  * @global  $common_url_query
  * @param   array   $ext_dblist extended db list
+ * @param   integer $offset
+ * @param   integer $count
  */
-function PMA_displayDbList($ext_dblist) {
+function PMA_displayDbList($ext_dblist, $offset, $count) {
     global $element_counter, $img_minus, $img_plus, $href_left,
         $db_start, $common_url_query;
 
     // get table list, for all databases
     // doing this in one step takes advantage of a single query with information_schema!
-    $tables_full = PMA_DBI_get_tables_full($GLOBALS['PMA_List_Database']->getItems());
+    $tables_full = PMA_DBI_get_tables_full($GLOBALS['PMA_List_Database']->getLimitedItems($offset, $count));
 
     $url_dbgroup = '';
     echo '<ul id="leftdatabaselist">';

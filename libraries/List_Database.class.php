@@ -50,9 +50,6 @@ require_once './libraries/List.class.php';
      */
     var $_show_databases_disabled = false;
 
-    var $limit_offset = 0;
-    var $limit_count = 0;
-
     /**
      * Constructor
      *
@@ -303,13 +300,15 @@ require_once './libraries/List.class.php';
      * @uses    implode()
      * @uses    strstr()
      * @uses    explode()
+     * @param   integer $offset
+     * @param   integer $count
      * @return  array   db list
      */
-    function getGroupedDetails()
+    function getGroupedDetails($offset, $count)
     {
         $dbgroups   = array();
         $parts      = array();
-        foreach ($this->getItems() as $key => $db) {
+        foreach ($this->getLimitedItems($offset, $count) as $key => $db) {
             // garvin: Get comments from PMA comments table
             $db_tooltip = '';
             if ($GLOBALS['cfg']['ShowTooltip']
@@ -358,14 +357,14 @@ require_once './libraries/List.class.php';
      * returns a part of the items 
      *
      * @uses    PMA_List_Database::$items
-     * @uses    PMA_List_Database::$limit_offset
-     * @uses    PMA_List_Database::$limit_count
      * @uses    array_slice()
-     * @return  array  the items 
+     * @param   integer $offset
+     * @param   integer $count
+     * @return  array  some items 
      */
-    function getItems()
+    function getLimitedItems($offset, $count)
     {
-        return(array_slice($this->items, $this->limit_offset, $this->limit_count));
+        return(array_slice($this->items, $offset, $count));
     }
 
     /**
@@ -373,14 +372,14 @@ require_once './libraries/List.class.php';
      *
      * @return  string  html code list
      */
-    function getHtmlListGrouped($selected = '')
+    function getHtmlListGrouped($selected = '', $offset, $count)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
         }
 
     $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
-        foreach ($this->getGroupedDetails() as $group => $dbs) {
+        foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<li>' . $group . '<ul>' . "\n";
                 // wether display db_name cuted by the group part
@@ -417,7 +416,7 @@ require_once './libraries/List.class.php';
      *
      * @return  string  html code select
      */
-    function getHtmlSelectGrouped($selected = '')
+    function getHtmlSelectGrouped($selected = '', $offset, $count)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
@@ -427,7 +426,7 @@ require_once './libraries/List.class.php';
             . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . $GLOBALS['strDatabases'] . ') ...</option>' . "\n";
-        foreach ($this->getGroupedDetails() as $group => $dbs) {
+        foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<optgroup label="' . htmlspecialchars($group)
                     . '">' . "\n";
