@@ -36,6 +36,7 @@ form {
     display:            inline;
 }
 
+select#select_server,
 select#lightm_db {
     width:              100%;
 }

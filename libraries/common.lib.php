@@ -2021,15 +2021,16 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * @param   string      Near the current page, how many pages should
  *                      be considered "nearby" and displayed as
  *                      well?
+ * @param   string      The prompt to display (sometimes empty)
  *
  * @access  public
  * @author  Garvin Hicking (pma@supergarv.de)
  */
 function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
-    $range = 10)
+    $range = 10, $prompt = '')
 {
-    $gotopage = $GLOBALS['strPageNumber']
+    $gotopage = $prompt 
               . ' <select name="goToPage" onchange="goToUrl(this, \''
               . $url . '\');">' . "\n";
     if ($nbTotalPage < $showAll) {
@@ -2118,6 +2119,7 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
 
     if ($GLOBALS['cfg']['MaxDbList']
      && $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
+        echo $GLOBALS['strPageNumber'] . '<br />';
         // Move to the beginning or to the previous page
         if ($pos > 0) {
             // loic1: patch #474210 from Gosha Sakovich - part 1

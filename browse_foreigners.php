@@ -74,7 +74,13 @@ if (isset($disp_row) && is_array($disp_row)) {
                                        '&amp;',
                       $session_max_rows,
                       $pageNow,
-                      $nbTotalPage
+                      $nbTotalPage,
+                      200,
+                      5,
+                      5,
+                      20,
+                      10,
+                      $GLOBALS['strPageNumber']
                     );
     }
 }
