@@ -30,6 +30,10 @@ a img {
     border: 0;
 }
 
+ul {
+	margin:0;
+}	
+
 form {
     margin:             0;
     padding:            0;
@@ -62,6 +66,10 @@ button {
 /******************************************************************************/
 /* specific elements */
 
+div#pmalogo {
+    background-color: #D0DCE0<?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    padding:.3em;
+}
 div#pmalogo,
 div#leftframelinks,
 div#navidbpageselector,
@@ -76,11 +84,15 @@ ul#databaseList {
     border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
-    padding-left:     1.5em;
+    padding-<?php echo $left; ?>:     1.5em;
 }
 
 ul#databaseList a {
     display: block;
+}
+
+div#navidbpageselector a,
+ul#databaseList a {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
@@ -185,9 +197,9 @@ div#left_tableList img {
 }
 
 div#left_tableList ul ul {
-    margin-left:        0;
-    padding-left:       0.1em;
-    border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin-<?php echo $left; ?>:        0;
+    padding-<?php echo $left; ?>:       0.1em;
+    border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
     border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
