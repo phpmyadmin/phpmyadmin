@@ -173,7 +173,11 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     //    false
     if ($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1') {
 
-        if (isset($unlim_num_rows) && $unlim_num_rows < 2) {
+        // - Do not display sort links if less than 2 rows.
+        // - For a VIEW we (probably) did not count the number of rows
+        //   so don't test this number here, it would remove the possibility
+        //   of sorting VIEW results.
+        if (isset($unlim_num_rows) && $unlim_num_rows < 2  && ! PMA_Table::isView($db, $table)) {
             // garvin: force display of navbar for vertical/horizontal display-choice.
             // $do_display['nav_bar']  = (string) '0';
             $do_display['sort_lnk'] = (string) '0';
