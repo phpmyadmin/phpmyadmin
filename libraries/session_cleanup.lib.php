@@ -3,7 +3,7 @@
 /**
  * Cleanup, at logout time, of user choices stored in session
  *
- * @version $Id: cleanup.lib.php 10142 2007-03-20 10:32:13Z cybot_tm $
+ * @version $Id$
  */
 
 unset($_SESSION['navi_limit_offset']);
