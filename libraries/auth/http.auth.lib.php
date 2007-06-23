@@ -142,6 +142,8 @@ function PMA_auth_check()
     if (!empty($old_usr)
         && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)) {
         $PHP_AUTH_USER = '';
+        // -> delete user's choices that were stored in session 
+        require_once './libraries/session_cleanup.lib.php';
     }
 
     // Returns whether we get authentication settings or not
