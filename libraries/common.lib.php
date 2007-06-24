@@ -1046,7 +1046,7 @@ function PMA_showMessage($message, $sql_query = null)
         }
 
         $max_characters = 1000;
-        if (strlen($query_base) > $max_characters) {
+        if (! defined('PMA_QUERY_TOO_BIG') && strlen($query_base) > $max_characters) {
             define('PMA_QUERY_TOO_BIG',1);
         }
 
