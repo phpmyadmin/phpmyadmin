@@ -588,9 +588,7 @@ function PMA_displayTableList($tables, $visible = false,
 
 echo '</div>' . "\n";
 
-echo '<div id="navidbpageselector">' . "\n";
 $_url_params = array('pos' => $pos);
 PMA_dbPageSelector($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation');
-echo '</div>' . "\n";
 PMA_exitNavigationFrame();
 ?>

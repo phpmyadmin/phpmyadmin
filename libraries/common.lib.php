@@ -2120,6 +2120,9 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
 
     if ($GLOBALS['cfg']['MaxDbList']
      && $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
+        if ('frame_navigation' == $frame) {
+            echo '<div id="navidbpageselector">' . "\n";
+        }
         echo $GLOBALS['strPageNumber'] . '<br />';
         // Move to the beginning or to the previous page
         if ($pos > 0) {
@@ -2176,6 +2179,9 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
                 . $caption4 . '</a>';
         }
         echo "\n";
+        if ('frame_navigation' == $frame) {
+            echo '</div>' . "\n";
+        }
     }
 }
 
