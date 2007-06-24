@@ -10,6 +10,7 @@ $HeadURL$
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
 - bug #1729027 Sorting results of VIEW browsing
+- bug #1727138 HTML not encoded (more than 1000 characters)
 
 2.10.2.0 (2007-06-15)
 
