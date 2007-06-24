@@ -369,7 +369,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
                         '&amp;',
                      $_SESSION['userconf']['max_rows'],
                      $pageNow,
-                     $nbTotalPage
+                     $nbTotalPage,
+                     200,
+                     5,
+                     5,
+                     20,
+                     10,
+                     $GLOBALS['strPageNumber']
               );
         ?>
         </form>
