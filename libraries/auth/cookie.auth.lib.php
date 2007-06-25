@@ -357,7 +357,7 @@ function PMA_auth_check()
     if (! empty($_REQUEST['old_usr'])) {
         // The user wants to be logged out 
         // -> delete his choices that were stored in session 
-        require_once './libraries/session_cleanup.lib.php';
+        session_destroy(); 
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
