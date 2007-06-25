@@ -215,8 +215,12 @@ function PMA_DBI_get_tables($database, $link = null)
  * @return  array           list of tables in given db(s)
  */
 function PMA_DBI_get_tables_full($database, $table = false,
-    $tbl_is_group = false, $link = null)
+    $tbl_is_group = false, $link = null, $limit_offset = 0, $limit_count = false)
 {
+    // currently supported for MySQL >= 50002
+    if (true === $limit_count) {
+        $limit_count = $GLOBALS['cfg']['MaxTableList'];
+    }
     // prepare and check parameters
     if (! is_array($database)) {
         $databases = array($database);
@@ -277,6 +281,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
               WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
                 ' . $sql_where_table;
 
+        if ($limit_count) {
+            $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
+        }
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
             null, $link);
         unset($sql_where_table, $sql);

@@ -41,6 +41,17 @@
 require_once './libraries/common.inc.php';
 
 /**
+ * limits for table list
+ */
+if (! isset($_SESSION['table_limit_offset'])) {
+    $_SESSION['table_limit_offset'] = 0;
+}
+if (isset($_REQUEST['pos'])) {
+    $_SESSION['table_limit_offset'] = (int) $_REQUEST['pos'];
+}
+$pos = $_SESSION['table_limit_offset'];
+
+/**
  * fills given tooltip arrays
  *
  * @uses    $cfg['ShowTooltipAliasTB']
@@ -191,7 +202,11 @@ if (! isset($sot_ready)) {
         $tables = PMA_DBI_get_tables_full($db, $tbl_group, 'comment');
     } else {
         // all tables in db
-        $tables = PMA_DBI_get_tables_full($db);
+        // - get the total number of tables
+        $tables = PMA_DBI_get_tables($db);
+        $total_num_tables = count($tables);
+        // - then fetch the details for a possible limited subset
+        $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true);
     }
 
     if ($cfg['ShowTooltip']) {
@@ -205,6 +220,9 @@ if (! isset($sot_ready)) {
  * @global int count of tables in db
  */
 $num_tables = count($tables);
+if (! isset($total_num_tables)) {
+    $total_num_tables = $num_tables;
+}
 
 /**
  * cleanup

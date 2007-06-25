@@ -160,6 +160,13 @@ if (true == $cfg['PropertiesIconic']) {
 /**
  * Displays the tables list
  */
+
+$_url_params = array(
+    'pos' => $pos,
+    'db'  => $db);
+
+PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
+
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
 <?php

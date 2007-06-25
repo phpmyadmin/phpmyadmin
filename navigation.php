@@ -589,6 +589,6 @@ function PMA_displayTableList($tables, $visible = false,
 echo '</div>' . "\n";
 
 $_url_params = array('pos' => $pos);
-PMA_dbPageSelector($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation');
+PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
 PMA_exitNavigationFrame();
 ?>

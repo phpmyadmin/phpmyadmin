@@ -148,7 +148,7 @@ if ($databases_count > 0) {
         'sort_order' => $sort_order,
     );
 
-    PMA_dbPageSelector($databases_count, $pos, $_url_params, 'server_databases.php', 'frame_content');
+    PMA_listNavigator($databases_count, $pos, $_url_params, 'server_databases.php', 'frame_content', $GLOBALS['cfg']['MaxDbList']);
 
     $_url_params['pos'] = $pos;
 

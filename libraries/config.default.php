@@ -343,6 +343,13 @@ $cfg['ServerDefault'] = 1;
 $cfg['MaxDbList'] = 100;
 
 /**
+ * maximum number of tables displayed in table list
+ *
+ * @global integer $cfg['MaxTableList']
+ */
+$cfg['MaxTableList'] = 100;
+
+/**
  * use GZIP output buffering if possible (true|false|'auto')
  *
  * @global string $cfg['OBGzip']

@@ -2103,23 +2103,23 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
 
 
 /**
- * Generate navigation for db list 
+ * Generate navigation for a list 
  *
  * @todo    use $pos from $_url_params 
  * @uses    $GLOBALS['strPageNumber']
  * @uses    range()
- * @param   integer     number of databases 
+ * @param   integer     number of elements in the list 
  * @param   integer     current position in the list 
  * @param   array       url parameters 
  * @param   string      script name for form target 
  * @param   string      target frame 
+ * @param   integer     maximum number of elements to display from the list 
  *
  * @access  public
  */
-function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $frame) {
+function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_count) {
 
-    if ($GLOBALS['cfg']['MaxDbList']
-     && $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
+    if ($max_count < $count) {
         if ('frame_navigation' == $frame) {
             echo '<div id="navidbpageselector">' . "\n";
         }
@@ -2142,7 +2142,7 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
             echo '<a' . $title1 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption1 . '</a>';
-            $_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxDbList'];
+            $_url_params['pos'] = $pos - $max_count;
             echo '<a' . $title2 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption2 . '</a>';
@@ -2152,12 +2152,12 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
             $script . PMA_generate_common_url($_url_params) . '&',
-                $GLOBALS['cfg']['MaxDbList'],
-                floor(($pos + 1) / $GLOBALS['cfg']['MaxDbList']) + 1,
-                ceil($databases_count / $GLOBALS['cfg']['MaxDbList']));
+                $max_count,
+                floor(($pos + 1) / $max_count) + 1,
+                ceil($count / $max_count));
         echo '</form>';
 
-        if ($pos + $GLOBALS['cfg']['MaxDbList'] < $databases_count) {
+        if ($pos + $max_count < $count) {
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption3 = ' &gt; ';
                 $caption4 = '&gt;&gt;';
@@ -2169,11 +2169,11 @@ function PMA_dbPageSelector($databases_count, $pos, $_url_params, $script, $fram
                 $title3   = '';
                 $title4   = '';
             } // end if... else...
-            $_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxDbList'];
+            $_url_params['pos'] = $pos + $max_count;
             echo '<a' . $title3 . ' href="' . $script 
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption3 . '</a>';
-            $_url_params['pos'] = floor($databases_count / $GLOBALS['cfg']['MaxDbList']) * $GLOBALS['cfg']['MaxDbList'];
+            $_url_params['pos'] = floor($count / $max_count) * $max_count;
             echo '<a' . $title4 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption4 . '</a>';

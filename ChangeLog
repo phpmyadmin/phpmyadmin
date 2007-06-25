@@ -67,6 +67,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   but just at the end of a row
 + [gui] Query window: use verbose server name if any 
 + [auth] patch #1712514 specify host for single signon, thanks to Thierry
++ [gui] Navigator for the db list in the navigation panel 
++ [gui] Navigator for the table list in the content panel 
 
 2.10.3.0 (not yet released)
 
