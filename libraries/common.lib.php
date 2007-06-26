@@ -1857,7 +1857,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
- * @author  Michal Cihar (michal@cihar.com)
+ * @author  Michal Cihar (michal@cihar.com) and others...
  * @return  string      calculated condition
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
@@ -1872,7 +1872,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         $field_flags = PMA_DBI_field_flags($handle, $i);
         $meta        = $fields_meta[$i];
 
-        // do not use an alias in a condition
+        // do not use a column alias in a condition
         if (! isset($meta->orgname) || ! strlen($meta->orgname)) {
             $meta->orgname = $meta->name;
 
@@ -1890,6 +1890,10 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             }
         }
 
+        // do not use a table alias in a condition
+        if ($meta->table != $meta->orgtable) {
+            $meta->table = $meta->orgtable;
+        }
 
         // to fix the bug where float fields (primary or not)
         // can't be matched because of the imprecision of
