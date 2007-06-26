@@ -2120,10 +2120,10 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
 function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_count) {
 
     if ($max_count < $count) {
-        if ('frame_navigation' == $frame) {
-            echo '<div id="navidbpageselector">' . "\n";
-        }
-        echo $GLOBALS['strPageNumber'] . '<br />';
+        echo 'frame_navigation' == $frame ? '<div id="navidbpageselector">' . "\n" : '';
+        echo $GLOBALS['strPageNumber'];
+        echo 'frame_navigation' == $frame ? '<br />' : ' ';
+
         // Move to the beginning or to the previous page
         if ($pos > 0) {
             // loic1: patch #474210 from Gosha Sakovich - part 1
