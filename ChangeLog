@@ -77,6 +77,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1729027 Sorting results of VIEW browsing
 - bug #1727138 HTML not encoded (more than 1000 characters)
 - bug #1733012 Unwanted table alias in delete button
+- bug #1736405 Pretty printer and HTML line breaks
 
 2.10.2.0 (2007-06-15)
 
