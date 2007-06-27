@@ -1031,4 +1031,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sýfýr)\'a ayarlanmasý sýnýrý kaldýrýr.';
 $strZip = '"zip olarak"';
 
+$strProfiling = 'Profiling';  //to translate
 ?>

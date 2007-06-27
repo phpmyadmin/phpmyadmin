@@ -620,6 +620,7 @@ $strPrivilegesReloaded = 'The privileges were reloaded successfully.';
 $strProcedures = 'Procedures';
 $strProcesses = 'Processes';
 $strProcesslist = 'Process list';
+$strProfiling = 'Profiling';
 $strProtocolVersion = 'Protocol version';
 $strPutColNames = 'Put fields names in the first row';
 

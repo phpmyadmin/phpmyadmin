@@ -1026,4 +1026,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to tr
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strViewName = 'VIEW name';  //to translate
+$strProfiling = 'Profiling';  //to translate
 ?>

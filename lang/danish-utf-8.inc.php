@@ -1026,4 +1026,5 @@ $strZip = '"zippet"';
 $strRestartInsertion = 'Restart insertion with %s rows';  //to translate
 $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
+$strProfiling = 'Profiling';  //to translate
 ?>

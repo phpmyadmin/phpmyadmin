@@ -864,6 +864,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
+
+    /**
+     * check if profiling was requested and remember it
+     */
+
+    if (PMA_MYSQL_INT_VERSION >= 50037 && isset($_REQUEST['profiling'])) {
+       $_SESSION['profiling'] = true;
+    } elseif (isset($_REQUEST['profiling_form'])) {
+       // the checkbox was unchecked
+            unset($_SESSION['profiling']);
+    }
+
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {

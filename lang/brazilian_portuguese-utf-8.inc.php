@@ -1024,4 +1024,5 @@ $strYes = 'Sim';
 $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os limites.'; 
 $strZip = '"compactado com zip"'; 
 
+$strProfiling = 'Profiling';  //to translate
 ?>

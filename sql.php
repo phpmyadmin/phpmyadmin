@@ -319,6 +319,10 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     unset($result);
     $num_rows = 0;
 } else {
+    if (isset($_SESSION['profiling'])) {
+        PMA_DBI_query('SET PROFILING=1;');
+    }
+        
     // garvin: Measure query time.
     // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
     $querytime_before = array_sum(explode(' ', microtime()));
@@ -349,6 +353,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         $num_rows = @PMA_DBI_affected_rows();
     }
 
+    // Grabs the profiling results
+    if (isset($_SESSION['profiling'])) {
+        $profiling_results = PMA_DBI_fetch_result('SHOW PROFILE;');
+    }
+        
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
     $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
@@ -665,6 +674,10 @@ else {
         $GLOBALS['sql_query'] = $disp_query;
         PMA_showMessage($disp_message);
         $GLOBALS['sql_query'] = $tmp_sql_query;
+    }
+
+    if (isset($profiling_results)) {
+        PMA_profilingResults($profiling_results);
     }
 
     // Displays the results in a table

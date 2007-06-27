@@ -1228,7 +1228,9 @@ function PMA_showMessage($message, $sql_query = null)
         } else {
             $validate_link = '';
         } //validator
-        unset($sql_query);
+
+        // why this?
+        //unset($sql_query);
 
         // Displays the message
         echo '<fieldset class="">' . "\n";
@@ -1252,6 +1254,7 @@ function PMA_showMessage($message, $sql_query = null)
 
         if (!empty($edit_target)) {
             echo '<fieldset class="tblFooters">';
+            PMA_profilingCheckbox($sql_query);
             echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
             echo '</fieldset>';
         }
@@ -1259,6 +1262,51 @@ function PMA_showMessage($message, $sql_query = null)
     echo '</div><br />' . "\n";
 } // end of the 'PMA_showMessage()' function
 
+
+/**
+ * Displays a form with the Profiling checkbox 
+ *
+ * @param   string  $sql_query
+ * @access  public
+ *
+ * @author   Marc Delisle 
+ */
+function PMA_profilingCheckbox($sql_query) {
+    if (PMA_MYSQL_INT_VERSION >= 50037) {
+        echo '<form action="sql.php" method="post" />' . "\n";
+        echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+        echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
+        echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
+        echo '<input type="checkbox" name="profiling" id="profiling"' . (isset($_SESSION['profiling']) ? ' checked="checked"' : '') . ' onclick="this.form.submit();" /><label for="profiling">' . $GLOBALS['strProfiling'] . '</label>' . "\n";
+        echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>' . "\n";
+        echo '</form>' . "\n";
+    }
+}
+
+/**
+ * Displays the results of SHOW PROFILE 
+ *
+ * @param    array   the results 
+ * @access  public
+ *
+ * @author   Marc Delisle 
+ */
+function PMA_profilingResults($profiling_results) {
+    echo '<fieldset><legend>' . $GLOBALS['strProfiling'] . '</legend>' . "\n";
+    echo '<table>' . "\n";
+    echo ' <tr>' .  "\n";
+    echo '  <th>' . $GLOBALS['strStatus'] . '</th>' . "\n";
+    echo '  <th>' . $GLOBALS['strTime'] . '</th>' . "\n";
+    echo ' </tr>' .  "\n";
+
+    foreach($profiling_results as $one_result) {
+        echo ' <tr>' .  "\n";
+        echo '<td>' . $one_result['Status'] . '</td>' .  "\n";
+        echo '<td>' . $one_result['Duration'] . '</td>' .  "\n";
+    }
+    echo '</table>' . "\n";
+    echo '</fieldset>' . "\n";
+}
 
 /**
  * Formats $value to byte view
