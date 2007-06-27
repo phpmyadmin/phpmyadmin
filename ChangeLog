@@ -10,7 +10,6 @@ $HeadURL$
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
 - bug #1729027 Sorting results of VIEW browsing
-- bug #1727138 HTML not encoded (more than 1000 characters)
 - bug #1733012 Unwanted table alias in delete button
 - bug #1736405 Pretty printer and HTML line breaks
 
