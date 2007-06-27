@@ -24,7 +24,7 @@ if (isset($plugin_list)) {
         'options' => array(                 // array of options for your plugin (optional)
             array('type' => 'text', 'name' => 'table', 'text' => 'strTableName'),
         ),
-        'options_text' => 'strDocSQLOptions', // text to describe plugin options (must be set if options are used)
+        'options_text' => 'strOptions', // text to describe plugin options (must be set if options are used)
         );
     /* We do not define function when plugin is just queried for information above */
     return;

@@ -27,7 +27,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'new_line', 'text' => 'strLinesTerminatedBy', 'size' => 2),
             array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames'),
             ),
-        'options_text' => 'strCSVImportOptions',
+        'options_text' => 'strOptions',
         );
     /* We do not define function when plugin is just queried for information above */
     return;

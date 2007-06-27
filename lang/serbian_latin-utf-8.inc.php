@@ -763,7 +763,6 @@ $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your 
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
 $strCSV = 'CSV';  //to translate
-$strCSVImportOptions = 'CSV options';  //to translate
 
 $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 
@@ -799,7 +798,6 @@ $strKeyCache = 'Key cache';  //to translate
 
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLDI = 'CSV using LOAD DATA';  //to translate
-$strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strLDILocal = 'Use LOCAL keyword';  //to translate
 
 $strMaxConnects = 'max. concurrent connections';  //to translate
@@ -938,7 +936,6 @@ $strShowStatusThreads_runningDescr = 'The number of threads that are not sleepin
 $strSkipQueries = 'Number of records(queries) to skip from start';  //to translate
 $strSorting = 'Sorting';  //to translate
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
-$strSQLImportOptions = 'SQL options';  //to translate
 $strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';  //to translate
 
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
@@ -986,7 +983,6 @@ $strLanguage = 'Language';  //to translate
 $strPmaWiki = 'phpMyAdmin wiki';  //to translate
 $strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formatted date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
 $strDocSQL = 'DocSQL';  //to translate
-$strDocSQLOptions = 'DocSQL options';  //to translate
 $strTableName = 'Table name';  //to translate
 $strTableIsEmpty = 'Table seems to be empty!';  //to translate
 $strDbIsEmpty = 'Database seems to be empty!';  //to translate

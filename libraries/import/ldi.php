@@ -46,7 +46,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames'),
             array('type' => 'bool', 'name' => 'local_option', 'text' => 'strLDILocal'),
             ),
-        'options_text' => 'strLDIImportOptions',
+        'options_text' => 'strOptions',
         );
     /* We do not define function when plugin is just queried for information above */
     return;

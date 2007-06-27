@@ -13,7 +13,7 @@ if (isset($plugin_list)) {
     $plugin_list['sql'] = array(
         'text' => 'strSQL',
         'extension' => 'sql',
-        'options_text' => 'strSQLImportOptions',
+        'options_text' => 'strOptions',
         );
     $compats = PMA_DBI_getCompatibilities();
     if (count($compats) > 0) {
