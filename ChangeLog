@@ -69,13 +69,13 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [auth] patch #1712514 specify host for single signon, thanks to Thierry
 + [gui] Navigator for the db list in the navigation panel 
 + [gui] Navigator for the table list in the content panel 
+- bug #1727138 HTML not encoded (more than 1000 characters)
 
 2.10.3.0 (not yet released)
 
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
 - bug #1729027 Sorting results of VIEW browsing
-- bug #1727138 HTML not encoded (more than 1000 characters)
 - bug #1733012 Unwanted table alias in delete button
 - bug #1736405 Pretty printer and HTML line breaks
 

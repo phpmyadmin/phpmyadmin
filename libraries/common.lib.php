@@ -894,7 +894,7 @@ function PMA_whichCrlf()
 {
     $the_crlf = "\n";
 
-    // The 'PMA_USR_OS' constant is defined in "./libraries/defines.lib.php"
+    // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
         $the_crlf = "\r\n";
@@ -952,6 +952,7 @@ if (typeof(window.parent) != 'undefined'
 function PMA_showMessage($message, $sql_query = null)
 {
     global $cfg;
+    $query_too_big = false;
 
     if (null === $sql_query) {
         if (! empty($GLOBALS['display_query'])) {
@@ -1045,10 +1046,10 @@ function PMA_showMessage($message, $sql_query = null)
             $query_base = $sql_query;
         }
 
-        $max_characters = 1000;
-        if (! defined('PMA_QUERY_TOO_BIG') && strlen($query_base) > $max_characters) {
-            define('PMA_QUERY_TOO_BIG',1);
+        if (strlen($query_base) > PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY) {
+            $query_too_big = true; 
             $query_base = nl2br(htmlspecialchars($sql_query));
+            unset($GLOBALS['parsed_sql']);
         }
 
         // Parse SQL if needed
@@ -1059,7 +1060,7 @@ function PMA_showMessage($message, $sql_query = null)
         } else {
             // when the query is large (for example an INSERT of binary
             // data), the parser chokes; so avoid parsing the query
-            if (! defined('PMA_QUERY_TOO_BIG')) {
+            if (! $query_too_big) {
                 $parsed_sql = PMA_SQP_parse($query_base);
             }
         }
@@ -1107,7 +1108,7 @@ function PMA_showMessage($message, $sql_query = null)
         if (isset($cfg['SQLQuery']['Edit'])
             && ($cfg['SQLQuery']['Edit'] == true)
             && (!empty($edit_target))
-            && ! defined('PMA_QUERY_TOO_BIG')) {
+            && ! $query_too_big) {
 
             if ($cfg['EditInWindow'] == true) {
                 $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
@@ -1129,7 +1130,7 @@ function PMA_showMessage($message, $sql_query = null)
         /* SQL-Parser-Analyzer */
         if (isset($cfg['SQLQuery']['Explain'])
             && $cfg['SQLQuery']['Explain'] == true
-            && ! defined('PMA_QUERY_TOO_BIG')) {
+            && ! $query_too_big) {
 
             // Detect if we are validating as well
             // To preserve the validate uRL data
@@ -1164,7 +1165,7 @@ function PMA_showMessage($message, $sql_query = null)
         // php-code (Mike Beck 2002-05-22)
         if (isset($cfg['SQLQuery']['ShowAsPHP'])
             && $cfg['SQLQuery']['ShowAsPHP'] == true
-            && ! defined('PMA_QUERY_TOO_BIG')) {
+            && ! $query_too_big) {
             $php_link = 'import.php'
                       . $url_qpart
                       . '&amp;show_query=1'
@@ -1236,8 +1237,8 @@ function PMA_showMessage($message, $sql_query = null)
         // when uploading a 700 Kio binary file into a LONGBLOB,
         // I get a white page, strlen($query_base) is 2 x 700 Kio
         // so put a hard limit here (let's say 1000)
-        if (defined('PMA_QUERY_TOO_BIG')) {
-            echo '    ' . substr($query_base,0,$max_characters) . '[...]';
+        if ($query_too_big) {
+            echo '    ' . substr($query_base,0,PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY) . '[...]';
         } else {
             echo '    ' . $query_base;
         }
