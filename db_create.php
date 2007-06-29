@@ -8,9 +8,7 @@
  */
 require_once('./libraries/common.lib.php');
 $js_to_run = 'functions.js';
-require_once('./libraries/header.inc.php');
 require_once('./libraries/mysql_charsets.lib.php');
-
 
 PMA_checkParameters(array('db'));
 
@@ -32,13 +30,18 @@ if (!empty($db_collation) && PMA_MYSQL_INT_VERSION >= 40101) {
 }
 $sql_query .= ';';
 
-$result = PMA_DBI_query($sql_query);
+$result = PMA_DBI_try_query($sql_query);
 
-
-/**
- * Displays the result and calls default page
- */
-$message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
-require_once('./' . $cfg['DefaultTabDatabase']);
-
+if (! $result) {
+    $message = PMA_DBI_getError();
+    // avoid displaying the not-created db name in header or navi panel
+    $GLOBALS['db'] = '';
+    $GLOBALS['table'] = '';
+    require_once './libraries/header.inc.php';
+    require_once './main.php';
+} else {
+    $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
+    require_once './libraries/header.inc.php';
+    require_once './' . $cfg['DefaultTabDatabase'];
+}
 ?>
