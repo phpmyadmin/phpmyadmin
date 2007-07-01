@@ -1096,6 +1096,12 @@ ALTER TABLE `pma_column_comments`
     <dd>The maximum number of table names to be displayed in the
         right panel's list.</dd>
 
+    <dt id="cfg_MaxCharactersInDisplayedSQL">$cfg['MaxCharactersInDisplayedSQL'] integer</dt>
+    <dd>The maximum number of characters when a SQL query is displayed. The 
+    default limit of 1000 should be correct to avoid the display of tons
+    of hexadecimal codes that represent BLOBs, but some users have real
+    SQL queries that are longer than 1000 characters.</dd>
+
     <dt id="cfg_OBGzip">$cfg['OBGzip'] string/boolean</dt>
     <dd>Defines whether to use GZip output buffering for increased
         speed in <abbr title="HyperText Transfer Protocol">HTTP</abbr> transfers.<br />

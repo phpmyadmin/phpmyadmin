@@ -1046,7 +1046,7 @@ function PMA_showMessage($message, $sql_query = null)
             $query_base = $sql_query;
         }
 
-        if (strlen($query_base) > PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY) {
+        if (strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']) {
             $query_too_big = true; 
             $query_base = nl2br(htmlspecialchars($sql_query));
             unset($GLOBALS['parsed_sql']);
@@ -1240,7 +1240,7 @@ function PMA_showMessage($message, $sql_query = null)
         // I get a white page, strlen($query_base) is 2 x 700 Kio
         // so put a hard limit here (let's say 1000)
         if ($query_too_big) {
-            echo '    ' . substr($query_base,0,PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY) . '[...]';
+            echo '    ' . substr($query_base, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
         } else {
             echo '    ' . $query_base;
         }

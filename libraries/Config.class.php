@@ -103,9 +103,6 @@ class PMA_Config
         $this->checkUpload();
         $this->checkUploadSize();
         $this->checkOutputCompression();
-
-        // other constants (no real need to put into config file)
-        $this->set('PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY', 1000);
     }
 
     /**
@@ -899,8 +896,7 @@ class PMA_Config
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-            'PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY'
+            'PMA_USR_BROWSER_AGENT'
             );
 
         foreach ($defines as $define) {

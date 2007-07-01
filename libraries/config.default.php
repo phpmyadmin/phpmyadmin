@@ -350,6 +350,13 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 100;
 
 /**
+ * maximum number of characters when a SQL query is displayed
+ *
+ * @global integer $cfg['MaxCharactersInDisplayedSQL']
+ */
+$cfg['MaxCharactersInDisplayedSQL'] = 1000;
+
+/**
  * use GZIP output buffering if possible (true|false|'auto')
  *
  * @global string $cfg['OBGzip']

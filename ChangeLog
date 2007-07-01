@@ -71,6 +71,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [gui] Navigator for the table list in the content panel 
 - bug #1727138 HTML not encoded (more than 1000 characters)
 + [display] Support for MySQL 5.0.37 profiling 
++ RFE #1743983 [gui] Replace $max_characters by a configurable param:
+  $cfg['MaxCharactersInDisplayedSQL']
 
 2.10.3.0 (not yet released)
 

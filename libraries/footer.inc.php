@@ -32,7 +32,7 @@
  * @uses    $cfg['DBG']['enable']
  * @uses    $cfg['DBG']['profile']['enable']
  * @uses    $GLOBALS['strOpenNewWindow']
- * @uses    PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY
+ * @uses    $cfg['MaxCharactersInDisplayedSQL'] 
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()
  * @uses    PMA_ifSetOr()
@@ -88,7 +88,7 @@ if (window.parent.reload_querywindow) {
     window.parent.reload_querywindow(
         '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) ?>',
         '<?php echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) ?>',
-        '<?php echo strlen($GLOBALS['sql_query']) > PMA_MAX_CHARACTERS_FOR_DISPLAYED_QUERY ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
+        '<?php echo strlen($GLOBALS['sql_query']) > $cfg['MaxCharactersInDisplayedSQL'] ? PMA_escapeJsString($GLOBALS['sql_query']) : ''; ?>');
 }
     <?php
 }
