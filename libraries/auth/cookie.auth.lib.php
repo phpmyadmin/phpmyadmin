@@ -19,7 +19,6 @@ if (!isset($coming_from_common)) {
 if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     /**
      * Uses faster mcrypt library if available
-     * (Note: mcrypt.lib.php needs $cookie_path and $is_https)
      */
     require_once './libraries/mcrypt.lib.php';
 } else {
