@@ -2228,8 +2228,14 @@ if (typeof(window.parent) != 'undefined'
                 }
             }
 
-            // do not use a table alias in a condition
-            if ($meta->table != $meta->orgtable) {
+            // Do not use a table alias in a condition.
+            // Test case is:
+            // select * from galerie x WHERE
+            //(select count(*) from galerie y where y.datum=x.datum)>1 
+            //
+            // But orgtable is present only with mysqli extension so the
+            // fix is only for mysqli.
+            if (isset($meta->orgtable) && $meta->table != $meta->orgtable) {
                 $meta->table = $meta->orgtable;
             }
 
