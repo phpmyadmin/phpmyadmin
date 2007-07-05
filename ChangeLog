@@ -73,6 +73,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [display] Support for MySQL 5.0.37 profiling 
 + RFE #1743983 [gui] Replace $max_characters by a configurable param:
   $cfg['MaxCharactersInDisplayedSQL']
+- bug #1746186 LeftLogoLink fails if set to some external site
 
 2.10.3.0 (not yet released)
 

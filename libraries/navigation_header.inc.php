@@ -31,7 +31,12 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
             echo '" target="_blank"';
             break;
         case 'main':
-            echo '?' . $query_url . '" target="frame_content"';
+            // do not add our parameters for an external link
+            if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== 'http') {
+                echo '?' . $query_url . '" target="frame_content"';
+            } else {
+                echo '"';
+            }
     }
     echo '>' . $logo . '</a>' . "\n"
         .'</div>' . "\n";
