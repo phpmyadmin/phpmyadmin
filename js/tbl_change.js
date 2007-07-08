@@ -304,13 +304,15 @@ function initCalendar() {
         init_hour = hour;
         init_minute = minute;
         init_second = second;
+        str += '<fieldset>';
         str += '<form method="NONE" class="clock" onsubmit="returnDate(\'' + current_date + '\')">';
         str += '<input id="hour"    type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_hour, \'hour\'); init_hour = this.value;" value="' + formatNum2(hour, 'hour') + '" />:';
         str += '<input id="minute"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_minute, \'minute\'); init_minute = this.value;" value="' + formatNum2(minute, 'minute') + '" />:';
         str += '<input id="second"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_second, \'second\'); init_second = this.value;" value="' + formatNum2(second, 'second') + '" />';
-        str += '<br />';
+        str += '&nbsp;&nbsp;';
         str += '<input type="submit" value="' + submit_text + '"/>';
         str += '</form>';
+        str += '</fieldset>';
 
         cnt.innerHTML = str;
         clock_set = 1;

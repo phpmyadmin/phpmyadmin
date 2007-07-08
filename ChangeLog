@@ -83,6 +83,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1733012 Unwanted table alias in delete button
 - bug #1736405 Pretty printer and HTML line breaks
 - bug #1745257 Invalid DB name is still displayed
+- bug #1730367 Calendar "Go" has no effect
 
 2.10.2.0 (2007-06-15)
 
