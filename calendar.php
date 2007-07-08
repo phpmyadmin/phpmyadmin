@@ -11,7 +11,7 @@ require('./libraries/header_meta_style.inc.php');
 //<![CDATA[
 var month_names = new Array("<?php echo implode('","', $month); ?>");
 var day_names = new Array("<?php echo implode('","', $day_of_week); ?>");
-var submit_text = "<?php echo $strGo; ?>";
+var submit_text = "<?php echo $strGo . ' (' . $strTime . ')'; ?>";
 //]]>
 </script>
 </head>
