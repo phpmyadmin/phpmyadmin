@@ -528,7 +528,6 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_mimetype[]">' . "\n";
         $content_cells[$i][$ci] .= '    <option value=""></option>' . "\n";
-        $content_cells[$i][$ci] .= '    <option value="auto">auto-detect</option>' . "\n";
 
         if (is_array($available_mime['mimetype'])) {
             foreach ($available_mime['mimetype'] AS $mimekey => $mimetype) {
