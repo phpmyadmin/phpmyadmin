@@ -72,7 +72,6 @@ div#pmalogo {
 }
 div#pmalogo,
 div#leftframelinks,
-div#navidbpageselector,
 div#databaseList {
     text-align:         center;
     border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;

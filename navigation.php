@@ -204,11 +204,14 @@ if (! $GLOBALS['server']) {
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             .'</noscript>' . "\n"
-            .'</form>' . "\n"
-            .'</div>' . "\n";
+            .'</form>' . "\n";
     } else {
+        echo '<div id="databaseList">' . "\n";
         echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
+    $_url_params = array('pos' => $pos);
+    PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
+    echo '</div>' . "\n";
 }
 ?>
 
@@ -269,7 +272,17 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     }
     echo '</a></p>';
 
-    $table_list = PMA_getTableList($GLOBALS['db']);
+    /**
+     * This helps reducing the navi panel size; in the right panel,
+     * user can find a navigator to page thru all tables.
+     *
+     * @todo instead of the 0 parameter, keep track of the
+     *       offset in the list of tables ($_SESSION['navi_table_limit_offset'])
+     *       and use PMA_listNavigator(); do not just check pos in REQUEST
+     *       but add another hidden param to see if it's the pos of databases
+     *       or the pos of tables. 
+     */
+    $table_list = PMA_getTableList($GLOBALS['db'], null, 0, $cfg['MaxTableList']);
     if (count($table_list) > 0) {
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
     } else {
@@ -279,6 +292,11 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
 } else {
+    echo '<div id="databaseList">' . "\n";
+    $_url_params = array('pos' => $pos);
+    PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
+    echo '</div>' . "\n";
+
     $common_url_query = PMA_generate_common_url();
     PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails($_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
 }
@@ -588,7 +606,5 @@ function PMA_displayTableList($tables, $visible = false,
 
 echo '</div>' . "\n";
 
-$_url_params = array('pos' => $pos);
-PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
 PMA_exitNavigationFrame();
 ?>

@@ -717,7 +717,7 @@ function PMA_sendHeaderLocation($uri)
 }
 
 /**
- * returns array with tables of given db with extended infomation and grouped
+ * returns array with tables of given db with extended information and grouped
  *
  * @uses    $cfg['LeftFrameTableSeparator']
  * @uses    $cfg['LeftFrameTableLevel']
@@ -730,14 +730,15 @@ function PMA_sendHeaderLocation($uri)
  * @uses    strstr()
  * @uses    explode()
  * @param   string  $db     name of db
- * return   array   (rekursive) grouped table list
+ * @param   string  $tables name of tables
+ * return   array   (recursive) grouped table list
  */
-function PMA_getTableList($db, $tables = null)
+function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
 {
     $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
     if (null === $tables) {
-        $tables = PMA_DBI_get_tables_full($db);
+        $tables = PMA_DBI_get_tables_full($db, false, false, null, $limit_offset, $limit_count);
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($tables, 'strnatcasecmp');
         }
