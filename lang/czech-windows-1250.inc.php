@@ -8,7 +8,7 @@
 
 $charset = 'windows-1250';
 $text_dir = 'ltr';
-$number_thousands_separator = ' ';
+$number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');

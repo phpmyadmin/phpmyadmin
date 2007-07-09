@@ -1340,9 +1340,9 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
     } // end for
 
     if ($unit != $GLOBALS['byteUnits'][0]) {
-        $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+        $return_value = PMA_formatNumber($value, 5, $comma);
     } else {
-        $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+        $return_value = PMA_formatNumber($value, 0);
     }
 
     return array($return_value, $unit);
@@ -1378,11 +1378,11 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
  */
 function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 {
+    //number_format is not multibyte safe, str_replace is safe
     if ($length === 0) {
-        return number_format($value,
-                            $comma,
-                            $GLOBALS['number_decimal_separator'],
-                            $GLOBALS['number_thousands_separator']);
+        return str_replace(array(',', '.'),
+                array($GLOBALS['number_thousands_separator'], $GLOBALS['number_decimal_separator']),
+                number_format($value, $comma));
     }
 
     // this units needs no translation, ISO
@@ -1441,10 +1441,10 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         } // end for
     } // end if ($value >= 1) elseif (!$only_down && (float) $value !== 0.0)
 
-    $value = number_format($value,
-                            $comma,
-                            $GLOBALS['number_decimal_separator'],
-                            $GLOBALS['number_thousands_separator']);
+    //number_format is not multibyte safe, str_replace is safe
+    $value = str_replace(array(',', '.'),
+                         array($GLOBALS['number_thousands_separator'], $GLOBALS['number_decimal_separator']),
+                         number_format($value, $comma));
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function

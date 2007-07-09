@@ -450,7 +450,7 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo ucfirst($strRows); ?></td>
                 <td align="right">
-                    <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                    <?php echo PMA_formatNumber($showtable['Rows'], 0) . "\n"; ?>
                 </td>
             </tr>
                     <?php
@@ -460,7 +460,7 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
                 <td>
-                    <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                    <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0) . "\n"; ?>
                 </td>
             </tr>
                     <?php
@@ -480,7 +480,7 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
                 <td align="right">
-                    <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                    <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) . "\n"; ?>
                 </td>
             </tr>
                     <?php

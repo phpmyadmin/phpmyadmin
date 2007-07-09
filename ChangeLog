@@ -75,6 +75,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   $cfg['MaxCharactersInDisplayedSQL']
 - bug #1746186 LeftLogoLink fails if set to some external site
 . [transformations]: remove "auto-detect" MIME-type that was never implemented
++ [display] patch #1749705, Allow multibyte characters in number formatting,
+  thanks to garas
 
 2.10.3.0 (not yet released)
 

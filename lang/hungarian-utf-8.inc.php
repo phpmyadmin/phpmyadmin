@@ -6,7 +6,7 @@
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr': balról jobbra, 'rtl': jobbról balra)
-$number_thousands_separator = ' ';
+$number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 // Byte, Kilo, Mega, Giga, Tera, Peta, Exa rövidítései
 $byteUnits = array('Bájt', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');

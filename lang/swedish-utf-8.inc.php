@@ -9,7 +9,7 @@ $charset = 'utf-8';
 $allow_recoding = TRUE;
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
-$number_thousands_separator = ' ';
+$number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');

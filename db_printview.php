@@ -135,9 +135,9 @@ else {
     <td align="right">
             <?php
             if ($merged_size) {
-                echo '<i>' . number_format($sts_data['TABLE_ROWS'], 0, $number_decimal_separator, $number_thousands_separator) . '</i>' . "\n";
+                echo '<i>' . PMA_formatNumber($sts_data['TABLE_ROWS'], 0) . '</i>' . "\n";
             } else {
-                echo number_format($sts_data['TABLE_ROWS'], 0, $number_decimal_separator, $number_thousands_separator) . "\n";
+                echo PMA_formatNumber($sts_data['TABLE_ROWS'], 0) . "\n";
             }
             ?>
     </td>
@@ -218,10 +218,10 @@ else {
     ?>
 <tr>
     <th align="center">
-        <?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?>
+        <?php echo sprintf($strTables, PMA_formatNumber($num_tables, 0)); ?>
     </th>
     <th align="right" nowrap="nowrap">
-        <?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?>
+        <?php echo PMA_formatNumber($sum_entries, 0); ?>
     </th>
     <th align="center">
         --
