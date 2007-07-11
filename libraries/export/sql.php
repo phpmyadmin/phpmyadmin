@@ -682,7 +682,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $dump = $crlf
-          . PMA_exportComment(str_repeat('-', 55))
+          . PMA_exportComment(str_repeat('-', 56))
           . $crlf
           . PMA_exportComment(); 
 
@@ -804,7 +804,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['sql_ignore'])) {
                 $schema_insert .= 'IGNORE ';
             }
-            $schema_insert .= PMA_backquote($table, $sql_backquotes) . ' SET ';
+            // avoid EOL blank
+            $schema_insert .= PMA_backquote($table, $sql_backquotes) . ' SET';
         } else {
             // insert or replace
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'REPLACE') {
@@ -829,10 +830,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['sql_columns'])) {
                 $fields        = implode(', ', $field_set);
                 $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
-                               . ' (' . $fields . ') VALUES ';
+            // avoid EOL blank
+                               . ' (' . $fields . ') VALUES';
             } else {
                 $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $sql_backquotes)
-                               . ' VALUES ';
+                               . ' VALUES';
             }
         }
 
@@ -884,8 +886,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
                 $insert_line = $schema_insert;
                 for ($i = 0; $i < $fields_cnt; $i++) {
+                    if (0 == $i) {
+                        $insert_line .= ' ';
+                    }
                     if ($i > 0) {
-                        $insert_line .= ', ';
+                        // avoid EOL blank
+                        $insert_line .= ',';
                     }
                     $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                 }
