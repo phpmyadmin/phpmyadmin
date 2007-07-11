@@ -18,6 +18,7 @@ $HeadURL$
 - bug #1748633 Incorrect parameter validation for VIEWs
 + [lang] Russian revision, thanks to Victor Volkov and the users of
   php-myadmin.ru
+- Do not try to delete an internal relation if we just deleted an InnoDB one
 
 2.10.2.0 (2007-06-15)
 
