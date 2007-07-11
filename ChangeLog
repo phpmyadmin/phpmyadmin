@@ -77,6 +77,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 . [transformations]: remove "auto-detect" MIME-type that was never implemented
 + [display] patch #1749705, Allow multibyte characters in number formatting,
   thanks to garas
+- bug #1747215 Export emits blanks at line ends
 
 2.10.3.0 (not yet released)
 
