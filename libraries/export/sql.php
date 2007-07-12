@@ -762,6 +762,24 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
+
+    // Do not export data for a VIEW
+    // (For a VIEW, this is called only when exporting a single VIEW)
+    if (PMA_Table::_isView($db, $table)) {
+        $head = $crlf
+          . PMA_exportComment() 
+          . PMA_exportComment('VIEW ' . ' ' . $formatted_table_name)
+          . PMA_exportComment($GLOBALS['strData'] . ': ' . $GLOBALS['strNone']) 
+          . PMA_exportComment() 
+          . $crlf;
+
+        if (! PMA_exportOutputHandler($head)) {
+            return FALSE;
+        }
+        return true;
+    }
+
+    // it's not a VIEW
     $head = $crlf
           . PMA_exportComment() 
           . PMA_exportComment($GLOBALS['strDumpingData'] . ' ' . $formatted_table_name)

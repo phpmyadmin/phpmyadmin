@@ -78,6 +78,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [display] patch #1749705, Allow multibyte characters in number formatting,
   thanks to garas
 - bug #1747215 Export emits blanks at line ends
+- bug #1751172 Do not export data when exporting a single VIEW
 
 2.10.3.0 (not yet released)
 
