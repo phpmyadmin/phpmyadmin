@@ -206,12 +206,16 @@ if (! $GLOBALS['server']) {
             .'</noscript>' . "\n"
             .'</form>' . "\n";
     } else {
-        echo '<div id="databaseList">' . "\n";
+        if (! empty($db)) {
+            echo '<div id="databaseList">' . "\n";
+        }
         echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
     PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
-    echo '</div>' . "\n";
+    if (! empty($db)) {
+        echo '</div>' . "\n";
+    }
 }
 ?>
 
