@@ -726,6 +726,7 @@ $strServerTabVariables = 'Promìnné';
 $strServerTrafficNotes = '<b>Provoz serveru</b>: Informace o&nbsp;sí»ovém provozu MySQL serveru od jeho spu¹tìní.';
 $strServerVars = 'Promìnné a nastavení serveru';
 $strServerVersion = 'Verze MySQL';
+$strSessionStartupErrorGeneral = 'Nepodaøilo se vytvoøit sezení bez chyb, prosím zkontrolujte logy PHP a/nebo webserveru a nastavte Va¹i instalaci PHP správnì.';
 $strSessionValue = 'Hodnota sezení';
 $strSetEnumVal = 'Pokud je sloupec typu &bdquo;enum&ldquo; nebo &bdquo;set", zadávejte hodnoty v&nbsp;následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potøebujete zadat zpìtné lomítko (&bdquo;\&ldquo;) nebo jednoduché uvozovky (&bdquo;\'&ldquo;) mezi tìmito hodnotami, napi¹te pøed nì zpìtné lomítko (pøíklad: \'\\\\xyz\' nebo \'a\\\'b\').';
 $strShowAll = 'Zobrazit v¹e';
@@ -1024,5 +1025,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
 ?>
