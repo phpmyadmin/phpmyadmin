@@ -621,6 +621,7 @@ $strPrivilegesReloaded = 'Oprávnění byla načtena úspěšně.';
 $strProcedures = 'Procedury';
 $strProcesses = 'Procesy';
 $strProcesslist = 'Seznam procesů';
+$strProfiling = 'Profilování';
 $strProtocolVersion = 'Verze protokolu';
 $strPutColNames = 'Přidat jména sloupců na první řádek';
 
@@ -722,7 +723,7 @@ $strServerTabVariables = 'Proměnné';
 $strServerTrafficNotes = '<b>Provoz serveru</b>: Informace o&nbsp;síťovém provozu MySQL serveru od jeho spuštění.';
 $strServerVars = 'Proměnné a nastavení serveru';
 $strServerVersion = 'Verze MySQL';
-$strSessionStartupErrorGeneral = 'Nepodařilo se zapnout sezení bez chyby, prosím zkontrolujte chyby v logu PHP a/nebo webserveru a pečlivě nastavte podporu sezení v PHP.';
+$strSessionStartupErrorGeneral = 'Vytváření sezení selhalo, prosím zkontrolujte chyby v logu PHP a/nebo webserveru a pečlivě nastavte podporu sezení v PHP.';
 $strSessionValue = 'Hodnota sezení';
 $strSetEnumVal = 'Pokud je sloupec typu &bdquo;enum&ldquo; nebo &bdquo;set", zadávejte hodnoty v&nbsp;následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potřebujete zadat zpětné lomítko (&bdquo;\&ldquo;) nebo jednoduché uvozovky (&bdquo;\'&ldquo;) mezi těmito hodnotami, napište před ně zpětné lomítko (příklad: \'\\\\xyz\' nebo \'a\\\'b\').';
 $strShowAll = 'Zobrazit vše';
@@ -1026,5 +1027,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strProfiling = 'Profiling';  //to translate
 ?>
