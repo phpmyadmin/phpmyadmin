@@ -287,12 +287,17 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
      *       or the pos of tables. 
      */
     $table_list = PMA_getTableList($GLOBALS['db'], null, 0, $cfg['MaxTableList']);
-    if (count($table_list) > 0) {
+    $count_table_list = count($table_list);
+    if ($count_table_list > 0) {
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
+        // hint user that the table list is larger, until the todo is done
+        if ($count_table_list == $GLOBALS['cfg']['MaxTableList']) {
+            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', PMA_getTableCount($GLOBALS['db']), ' )'; 
+        } 
     } else {
         echo $GLOBALS['strNoTablesFound'];
     }
-    unset($table_list);
+    unset($table_list, $count_table_list);
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
 } else {
