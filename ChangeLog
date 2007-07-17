@@ -79,6 +79,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to garas
 - bug #1747215 Export emits blanks at line ends
 - bug #1751172 Do not export data when exporting a single VIEW
++ [lang] Swedish update, thanks to Björn T. Hallberg 
 
 2.10.3.0 (not yet released)
 
