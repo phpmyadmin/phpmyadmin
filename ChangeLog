@@ -80,6 +80,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1747215 Export emits blanks at line ends
 - bug #1751172 Do not export data when exporting a single VIEW
 + [lang] Swedish update, thanks to Björn T. Hallberg 
++ [lang] Russian update, thanks to Victor Volkov and the php-myadmin.ru users 
 
 2.10.3.0 (not yet released)
 
