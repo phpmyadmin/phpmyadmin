@@ -1,0 +1,74 @@
+$Id$
+
+phpMyAdmin - Readme
+===================
+
+  A set of PHP-scripts to manage MySQL over the web.
+
+  Version 2.11.0-dev
+  ------------------
+  http://www.phpmyadmin.net/
+
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
+    Copyright (C) 2001-2006 Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
+                            Olivier Müller <om_at_omnis.ch>
+                            Robin Johnson <robbat2_at_users.sourceforge.net>
+                            Alexander M. Turek <me_at_derrabus.de>
+                            Michal Čihař <michal_at_cihar.com>
+                            Garvin Hicking <me_at_supergarv.de>
+                            Michael Keck <mkkeck_at_users.sourceforge.net>
+                            Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
+                            [check Documentation.txt/.html file for more details]
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2,
+    as published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+  Requirements:
+    php 4.1.0 or later
+    MySQL 3.23.32 or later
+    a web-browser (doh!)
+
+  Summary:
+    phpMyAdmin is intended to handle the administration of MySQL over the web.
+    For a summary of features, please see the Documentation.txt/.html file.
+
+  Download:
+    You can get the newest version at http://www.phpmyadmin.net/.
+
+  Credits:
+    Please see the Documentation.txt/.html file.
+
+  Installation:
+    Please see the Documentation.txt/.html file.
+
+  ChangeLog:
+    Now in ChangeLog
+
+  Documentation:
+    Basic documentation available in Documentation.txt/.html
+
+  Support:
+    See reference about support forums under http://www.phpmyadmin.net/
+
+
+    Enjoy!
+        The phpMyAdmin Devel team
+
+
+  PS: Please, don't send us emails with question like "How do I compile
+      PHP with MySQL-support". We just don't have the time to be your
+      free helpdesk.
+      Please send your questions to the appropriate mailinglists / forums.
+      Before contacting us, please read the Documentation.html (esp. the
+      FAQ part).
+

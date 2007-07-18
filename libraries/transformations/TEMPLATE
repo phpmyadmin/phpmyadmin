@@ -1,0 +1,28 @@
+<?php
+/* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
+
+/**
+ * Plugin function TEMPLATE (Garvin Hicking).
+ * -----------------------------------------
+ *
+ * For instructions, read the /Documentation.html file.
+ *
+ * The string [ENTER_FILENAME_HERE] shall be substituted with the filename without the '.inc.php'
+ * extension. For further information regarding naming conventions see the /Documentation.html file.
+ */
+
+function PMA_transformation_[ENTER_FILENAME_HERE]($buffer, $options = array(), $meta = '') {
+    // possibly use a global transform and feed it with special options:
+    // include('./libraries/transformations/global.inc.php');
+
+    // further operations on $buffer using the $options[] array.
+
+    // You can evaluate the propagated $meta Object. It's contained fields are described in http://www.php.net/mysql_fetch_field.
+    // This stored information can be used to get the field information about the transformed field.
+    // $meta->mimetype contains the original MimeType of the field (i.e. 'text/plain', 'image/jpeg' etc.)
+
+    return $buffer;
+}
+
+?>
