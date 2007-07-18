@@ -1092,22 +1092,28 @@ if (!empty($revokeall)) {
  * Updates the password
  */
 if (!empty($change_pw)) {
-    if ($nopass == 1) {
-        $sql_query = 'SET PASSWORD FOR \'' . $username . '\'@\'' . $hostname . '\' = \'\';';
-        PMA_DBI_query($sql_query);
-        $message = sprintf($GLOBALS['strPasswordChanged'], '\'' . $username . '\'@\'' . $hostname . '\'');
-    } elseif (empty($pma_pw) || empty($pma_pw2)) {
-        $message = $GLOBALS['strPasswordEmpty'];
-    } elseif ($pma_pw != $pma_pw2) {
-        $message = $GLOBALS['strPasswordNotSame'];
-    } else {
-        $hidden_pw = '';
-        for ($i = 0; $i < strlen($pma_pw); $i++) {
-            $hidden_pw .= '*';
+    // similar logic in user_password.php
+    $message = '';
+
+    if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
+        if ($pma_pw != $pma_pw2) {
+            $message = $strPasswordNotSame;
         }
-        $local_query = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')';
-        $sql_query = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = PASSWORD(\'' . $hidden_pw . '\')';
-        PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+        if (empty($pma_pw) || empty($pma_pw2)) {
+            $message = $strPasswordEmpty;
+        }
+    } // end if
+
+    // here $nopass could be == 1
+    if (empty($message)) {
+
+        $hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+                      . 'PASSWORD';
+
+        // in $sql_query which will be displayed, hide the password
+        $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
+        $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
+        PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
         $message = sprintf($GLOBALS['strPasswordChanged'], '\'' . $username . '\'@\'' . $hostname . '\'');
     }
 }
@@ -1911,34 +1917,9 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
         }
 
         if ((! isset($dbname) || ! strlen($dbname)) && ! $user_does_not_exists) {
+            require_once './libraries/display_change_password.lib.php';
+
             echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '', 3)
-               . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
-               . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
-               . '<fieldset id="fieldset_change_password">' . "\n"
-               . '    <legend>' . $GLOBALS['strChangePassword'] . '</legend>' . "\n"
-               . '    <table class="data">' . "\n"
-               . '    <tr class="odd noclick">' . "\n"
-               . '        <td><input type="radio" name="nopass" value="1" id="radio_nopass_1" onclick="pw_pma_pw.value=\'\'; pw_pma_pw2.value=\'\';" /></td>' . "\n"
-               . '        <td colspan="2"><label for="radio_nopass_1">' . $GLOBALS['strNoPassword'] . '</label></td>' . "\n"
-               . '    </tr>' . "\n"
-               . '    <tr class="even noclick">' . "\n"
-               . '        <td><input type="radio" name="nopass" value="0" id="radio_nopass_0" onclick="document.getElementById(\'pw_pma_pw\').focus();" /></td>' . "\n"
-               . '        <td><label for="radio_nopass_0">' . $GLOBALS['strPassword'] . ':</label></td>' . "\n"
-               . '        <td><input type="password" name="pma_pw" id="pw_pma_pw" onchange="nopass[1].checked = true;" /></td>' . "\n"
-               . '    </tr>' . "\n"
-               . '    <tr class="odd noclick">' . "\n"
-               . '        <td></td>' . "\n"
-               . '        <td><label for="pw_pma_pw2">' . $GLOBALS['strReType'] . ':</label></td>' . "\n"
-               . '        <td><input type="password" name="pma_pw2" id="pw_pma_pw2" onchange="nopass[1].checked = true;" /></td>' . "\n"
-               . '    </tr>' . "\n"
-               . '    </table>' . "\n"
-               . '</fieldset>' . "\n"
-               . '<fieldset id="fieldset_change_password_footer" class="tblFooters">' . "\n"
-               . '    <input type="submit" name="change_pw" value="' . $GLOBALS['strGo'] . '" />' . "\n"
-               . '</fieldset>' . "\n"
-               . '</form>' . "\n"
-               . '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 3)
                . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"

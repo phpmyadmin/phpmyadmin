@@ -30,6 +30,7 @@ if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
  * and submit the query or logout
  */
 if (isset($nopass)) {
+    // similar logic in server_privileges.php
     $error_msg = '';
 
     if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
@@ -96,75 +97,8 @@ if (!empty($error_msg)) {
     echo '<p><b>' . $strError . ':&nbsp;' . $error_msg . '</b></p>' . "\n";
 }
 
-// loic1: autocomplete feature of IE kills the "onchange" event handler and it
-//        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
-                 ? 'onpropertychange'
-                 : 'onchange';
+require_once './libraries/display_change_password.lib.php';
 
-// Displays the form
-?>
-<form method="post" action="./user_password.php" name="chgPassword" onsubmit="return checkPassword(this)">
-    <?php echo PMA_generate_common_hidden_inputs(); ?>
-    <table border="0">
-    <tr>
-        <td colspan="2">
-            <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
-            <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="radio" name="nopass" value="0" checked="checked " />
-            <?php echo $GLOBALS['strPassword']; ?>:&nbsp;
-        </td>
-        <td>
-            <input type="password" name="pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
-            &nbsp;&nbsp;
-            <?php echo $GLOBALS['strReType']; ?>:&nbsp;
-            <input type="password" name="pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
-        </td>
-    </tr>
-    <?php
-
-if (PMA_MYSQL_INT_VERSION >= 40102) {
-    ?>
-    <tr>
-        <td>
-        <?php echo $strPasswordHashing; ?>:
-    </td>
-    <td>
-        <input type="radio" name="pw_hash" id="radio_pw_hash_new" value="new" checked="checked" />
-        <label for="radio_pw_hash_new">
-            MySQL&nbsp;4.1
-        </label>
-    </td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-    <td>
-        <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
-        <label for="radio_pw_hash_old">
-            <?php echo $strCompatibleHashing; ?>
-        </label>
-    </td>
-    </tr>
-    <?php
-}
-
-    ?>
-    <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="<?php echo($strChange); ?>" />
-        </td>
-    </tr>
-    </table>
-</form>
-
-<?php
 /**
  * Displays the footer
  */
