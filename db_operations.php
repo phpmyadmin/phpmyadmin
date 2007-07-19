@@ -38,6 +38,19 @@ if (strlen($db) &&
         $sql_query = ''; // in case target db exists
         if ($move ||
            (isset($create_database_before_copying) && $create_database_before_copying)) {
+            /**
+             * @todo activate this with the correct version of MySQL
+             *       when they fix the problem when the db contains a VIEW 
+             *       (problem exists in 5.1.20)
+             *       also, in 6.0.0 when the db contains a Falcon table,
+             *       renaming it results in a unusable db!
+             */
+            //if (PMA_MYSQL_INT_VERSION >= 50107) {
+            //    $local_query = 'RENAME DATABASE ' . PMA_backquote($db) . ' TO ' . PMA_backquote($newname) . ';';
+            //    $sql_query = $local_query;
+            //    PMA_DBI_query($local_query);
+            //} else {
+            // please indent ->
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
             if (isset($db_collation)) {
                 $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
@@ -121,6 +134,8 @@ if (strlen($db) &&
             $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query_full_db'];
             unset($GLOBALS['sql_constraints_query_full_db']);
         }
+// see the previous todo
+//        } // end else MySQL < 50107
 
         // Duplicate the bookmarks for this db (done once for each db)
         if ($db != $newname) {
@@ -136,9 +151,11 @@ if (strlen($db) &&
             require_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
-            $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
-            $sql_query .= "\n" . $local_query;
-            PMA_DBI_query($local_query);
+            if (PMA_MYSQL_INT_VERSION <  50107) {
+                $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
+                $sql_query .= "\n" . $local_query;
+                PMA_DBI_query($local_query);
+            }
             $message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db),
                 htmlspecialchars($newname));
         } else {
@@ -252,6 +269,17 @@ if (!$is_information_schema) {
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" />
+        <?php
+    echo '(' . $strCommand . ': ';
+    /**
+     * @todo (see explanations above in a previous todo) 
+     */
+    //if (PMA_MYSQL_INT_VERSION >= 50107) {
+    //    echo 'RENAME DATABASE';
+    //} else {
+        echo 'INSERT INTO ... SELECT';
+    //}
+    echo ')'; ?>
         <input type="submit" value="<?php echo $strGo; ?>" />
     </fieldset>
     </form>
