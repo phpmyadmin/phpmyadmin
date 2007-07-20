@@ -86,7 +86,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [privileges] Support password hashing on the Edit Privileges interface 
 - bug #1755339 Warn about rename dataase actually being copy/delete
 
-2.10.3.0 (not yet released)
+2.10.3.0 (2007-07-20)
 
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
