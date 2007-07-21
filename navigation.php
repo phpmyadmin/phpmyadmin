@@ -270,7 +270,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     if ($GLOBALS['text_dir'] === 'rtl') {
         echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
     }
-    echo htmlspecialchars($disp_name);
+    echo '<span class="navi_dbName">' . htmlspecialchars($disp_name) . '</span>';
     if ($GLOBALS['text_dir'] === 'ltr') {
         echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
     }
