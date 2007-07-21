@@ -790,5 +790,18 @@ body.loginform div.container {
     <?php
 } // end styles 2.9
 
+if ($_SESSION['PMA_Theme']->checkVersion('2.11')) {
+    ?>
+/********************/
+/* NEW in PMA 2.11  */
+/********************/
+
+.navi_dbName {
+    font-weight:    bold;
+    color:          #0000FF;
+}
+    <?php
+} // end styles 2.11
+
 $_SESSION['PMA_Theme_Manager']->printCss($_REQUEST['js_frame']);
 ?>
