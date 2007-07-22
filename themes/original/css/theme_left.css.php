@@ -206,3 +206,13 @@ div#left_tableList ul ul {
     padding-bottom:     0.1em;
     border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
+
+/* for the servers list in navi panel */
+#serverinfo .item {
+    white-space:        nowrap;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+#serverinfo a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
