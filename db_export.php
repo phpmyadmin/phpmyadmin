@@ -32,7 +32,16 @@ if ($num_tables < 1) {
     exit;
 } // end if
 
-$multi_values = '<div align="center"><select name="table_select[]" size="6" multiple="multiple">';
+$checkall_url = 'db_export.php?'
+              . PMA_generate_common_url($db)
+              . '&amp;goto=db_export.php';
+
+$multi_values = '<div align="center">';
+$multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>
+        /
+        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a><br />';
+
+$multi_values .= '<select name="table_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
 foreach ($tables as $each_table) {
@@ -54,16 +63,7 @@ foreach ($tables as $each_table) {
         . str_replace(' ', '&nbsp;', $table_html) . '</option>' . "\n";
 } // end for
 $multi_values .= "\n";
-$multi_values .= '</select></div>';
-
-$checkall_url = 'db_export.php?'
-              . PMA_generate_common_url($db)
-              . '&amp;goto=db_export.php';
-
-$multi_values .= '<br />
-        <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>
-        /
-        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
+$multi_values .= '</select></div><br />';
 
 $export_type = 'database';
 require_once './libraries/display_export.lib.php';

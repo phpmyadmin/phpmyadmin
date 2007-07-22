@@ -86,6 +86,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [privileges] Support password hashing on the Edit Privileges interface 
 - bug #1755339 Warn about rename dataase actually being copy/delete
 - bug #1746921 Left frame shrinks on db change, thanks to Juergen Wind
++ [gui] Export: Select All/Unselect All over the choices,
+  thanks to Florian Schmitz
 
 2.10.3.0 (2007-07-20)
 
