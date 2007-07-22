@@ -85,6 +85,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Russian update, thanks to Victor Volkov and the php-myadmin.ru users 
 + [privileges] Support password hashing on the Edit Privileges interface 
 - bug #1755339 Warn about rename dataase actually being copy/delete
+- bug #1746921 Left frame shrinks on db change, thanks to Juergen Wind
 
 2.10.3.0 (2007-07-20)
 
