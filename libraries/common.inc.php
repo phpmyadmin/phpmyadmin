@@ -867,9 +867,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * check if profiling was requested and remember it
+     * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
      */
 
-    if (PMA_MYSQL_INT_VERSION >= 50037 && isset($_REQUEST['profiling'])) {
+    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 50037 && isset($_REQUEST['profiling'])) {
        $_SESSION['profiling'] = true;
     } elseif (isset($_REQUEST['profiling_form'])) {
        // the checkbox was unchecked
