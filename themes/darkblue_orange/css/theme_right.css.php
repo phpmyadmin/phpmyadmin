@@ -655,7 +655,12 @@ a.tabcaution:hover,
 
 a.tab:hover,
 .tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
+/* to be able to cancel the bottom border, use <li class="active"> */
+ul#topmenu li.active {
+     border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 /* disabled drop/empty tabs */

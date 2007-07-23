@@ -1589,15 +1589,18 @@ function PMA_getTab($tab)
             E_USER_NOTICE);
     }
 
+    $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
+
     if (!empty($tab['link'])) {
-        $out = '<a class="tab' . htmlentities($tab['class']) . '"'
+        $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
             .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
             . $tab['text'] . '</a>';
     } else {
-        $out = '<span class="tab' . htmlentities($tab['class']) . '">'
+        $out .= '<span class="tab' . htmlentities($tab['class']) . '">'
             . $tab['text'] . '</span>';
     }
 
+    $out .= '</li>';
     return $out;
 } // end of the 'PMA_getTab()' function
 
@@ -1617,7 +1620,7 @@ function PMA_getTabs($tabs, $tag_id = 'topmenu')
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= '<li>' . PMA_getTab($tab) . '</li>' . "\n";
+        $tab_navigation .= PMA_getTab($tab) . "\n";
     }
 
     $tab_navigation .=
