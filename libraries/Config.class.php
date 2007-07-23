@@ -734,11 +734,13 @@ class PMA_Config
         if (preg_match('/^[0-9.]+(px|em|pt|\%)$/', $new_fontsize)) {
             $this->set('fontsize', $new_fontsize);
         } elseif (! $this->get('fontsize')) {
-            $this->set('fontsize', '100%');
+            // 80% would correspond to the default browser font size
+            // of 16, but use 82% to help read the monoface font
+            $this->set('fontsize', '82%');
         }
 
         if (function_exists('PMA_setCookie')) {
-            PMA_setCookie('pma_fontsize', $this->get('fontsize'), '100%');
+            PMA_setCookie('pma_fontsize', $this->get('fontsize'), '82%');
         }
     }
 
@@ -920,7 +922,7 @@ class PMA_Config
      * @param   string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
      */
-    function getFontsizeOptions($current_size = '100%')
+    function getFontsizeOptions($current_size = '82%')
     {
         $unit = preg_replace('/[0-9.]*/', '', $current_size);
         $value = preg_replace('/[^0-9.]*/', '', $current_size);
