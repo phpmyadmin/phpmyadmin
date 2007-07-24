@@ -1546,7 +1546,7 @@ function PMA_getTab($tab)
         } elseif (!empty($tab['active'])
           || (isset($GLOBALS['active_page'])
                && $GLOBALS['active_page'] == $tab['link'])
-          || basename(PMA_getenv('PHP_SELF')) == $tab['link'])
+          || (basename(PMA_getenv('PHP_SELF')) == $tab['link'] && empty($tab['warning'])))
         {
             $tab['class'] = 'active';
         }
