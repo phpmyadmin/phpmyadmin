@@ -175,7 +175,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 }
 
 ?>
-
+<fieldset>
 <form action="db_qbe.php" method="post">
 <table class="data" style="width: 100%;">
 <tr class="odd noclick">
@@ -586,6 +586,7 @@ $url_params['col_cnt']  = $z;
 $url_params['rows']     = $w;
 echo PMA_generate_common_hidden_inputs($url_params);
 ?>
+</fieldset>
 <fieldset class="tblFooters">
 <table border="0" cellpadding="2" cellspacing="1">
 <tr>

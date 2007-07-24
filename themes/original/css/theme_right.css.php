@@ -138,6 +138,8 @@ button {
 fieldset.tblFooters {
     margin-top:         0;
     margin-bottom:      0.5em;
+    /* avoid a thick line since this should be used under another fieldset */
+    border-top:         0;
     text-align:         <?php echo $right; ?>;
     float:              none;
     clear:              both;
