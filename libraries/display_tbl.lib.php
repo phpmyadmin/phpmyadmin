@@ -1879,9 +1879,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $table = '';
         }
     }
-    if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
-        PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
-    }
+
     if ($is_display['nav_bar'] == '1') {
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
         echo "\n";
@@ -2007,6 +2005,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
+    }
+    
+    // 6. ----- Displays "Query results operations"
+    if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+        PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
     }
 } // end of the 'PMA_displayTable()' function
 
