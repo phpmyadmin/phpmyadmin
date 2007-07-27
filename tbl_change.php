@@ -615,8 +615,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <script type="text/javascript">
             //<![CDATA[
                 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false"');
-                document.writeln(' href="browse_foreigners.php?');
-                document.writeln('<?php echo PMA_generate_common_url($db, $table); ?>');
+                document.write(' href="browse_foreigners.php?');
+                document.write('<?php echo PMA_generate_common_url($db, $table); ?>');
                 document.writeln('&amp;field=<?php echo PMA_escapeJsString(urlencode($field) . $browse_foreigners_uri); ?>">');
                 document.writeln('<?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
             //]]>
