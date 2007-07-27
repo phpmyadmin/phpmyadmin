@@ -89,6 +89,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [gui] Export: Select All/Unselect All over the choices,
   thanks to Florian Schmitz
 + [lang] Japanese update, thanks to Ishigaki Kenichi 
+- bug #1759528 browse_foreigners fails due to newlines,
+  thanks to Hanno Boeck
 
 2.10.3.0 (2007-07-20)
 
