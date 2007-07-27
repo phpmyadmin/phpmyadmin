@@ -43,7 +43,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/File.class.php';
 
 $file_to_insert = new PMA_File();
-$file_to_insert->checkTblChangeForm($key, $primary_key);
+$file_to_insert->checkTblChangeForm($key, $rowcount);
 
 $possibly_uploaded_val = $file_to_insert->getContent();
 
