@@ -2237,6 +2237,9 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption3 . '</a>';
             $_url_params['pos'] = floor($count / $max_count) * $max_count;
+            if ($_url_params['pos'] == $count) {
+                $_url_params['pos'] = $count - $max_count;
+            }
             echo '<a' . $title4 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption4 . '</a>';
