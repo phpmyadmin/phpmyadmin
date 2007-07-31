@@ -194,8 +194,9 @@
         1.26</a> for suggestions.</li>
     <li>Now you must configure your installation. There are two methods that
         can be used. Traditionally, users have hand-edited a copy of
-        config.inc.php, but now a wizard-style setup script is provided for
-        those who prefer a graphical installation. Creating a config.inc.php is
+	<tt>config.inc.php</tt>, but now a wizard-style setup script is 
+	provided for those who prefer a graphical installation. Creating a 
+	<tt>config.inc.php</tt> file is
         still a quick way to get started and needed for some advanced features.
         <ul><li>To manually create the file, simply use your text editor to
                 create the file <tt>config.inc.php</tt> (you can copy
@@ -1686,9 +1687,6 @@ $cfg['TrustedProxies'] =
     <dt id ="cfb_SQLQuery_Refresh">$cfg['SQLQuery']['Refresh'] boolean</dt>
     <dd>Whether to display a link to refresh a query in any SQL Query box.</dd>
 
-     <dt id="cfg_UploadDir">$cfg['UploadDir'] string</dt>
-     <dd>
-         The name of the directory where
     <dt id="cfg_UploadDir">$cfg['UploadDir'] string</dt>
     <dd>
         The name of the directory where
@@ -1725,8 +1723,8 @@ $cfg['TrustedProxies'] =
         If you want different directory for each user, %u will be replaced
         with username.<br /><br />
 
-        Please note that the directory has to be writable for user running
-        webserver.<br /><br />
+	Please note that the directory must exist and has to be writable 
+	for the user running the webserver.<br /><br />
 
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
