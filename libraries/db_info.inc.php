@@ -4,7 +4,7 @@
  * Gets the list of the table in the current db and informations about these
  * tables if possible
  *
- * fills tooltip arrays and rovides $tables, $num_tables, $is_show_stats
+ * fills tooltip arrays and provides $tables, $num_tables, $is_show_stats
  * and $db_is_information_schema
  *
  * staybyte: speedup view on locked tables - 11 June 2001
@@ -205,8 +205,19 @@ if (! isset($sot_ready)) {
         // - get the total number of tables
         $tables = PMA_DBI_get_tables($db);
         $total_num_tables = count($tables);
-        // - then fetch the details for a possible limited subset
-        $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true);
+        if ($sub_part !== '_export') {
+            // - then fetch the details for a possible limited subset
+            $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true);
+        } else {
+            // (unless we are coming from db_export.php, because I think it's
+            // too risky to display only a subset of the table names
+            // when exporting a db)
+            /**
+             *
+             * @todo Page selector for table names?
+             */
+            $tables = PMA_DBI_get_tables_full($db, false, false, null, 0, false);
+        }
     }
 
     if ($cfg['ShowTooltip']) {
