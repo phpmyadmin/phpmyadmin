@@ -15,6 +15,8 @@
  */
 require_once './libraries/common.inc.php';
 
+// $sub_part is also used in db_info.inc.php to see if we are coming from 
+// db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
 require_once './libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_export.php';
