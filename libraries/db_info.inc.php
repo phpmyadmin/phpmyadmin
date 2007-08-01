@@ -205,18 +205,18 @@ if (! isset($sot_ready)) {
         // - get the total number of tables
         $tables = PMA_DBI_get_tables($db);
         $total_num_tables = count($tables);
-        if ($sub_part !== '_export') {
-            // - then fetch the details for a possible limited subset
-            $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true);
-        } else {
-            // (unless we are coming from db_export.php, because I think it's
-            // too risky to display only a subset of the table names
-            // when exporting a db)
+        if (isset($sub_part) && $sub_part == '_export') {
+            // (don't fetch only a subset if we are coming from db_export.php,
+            // because I think it's too risky to display only a subset of the 
+            // table names when exporting a db)
             /**
              *
              * @todo Page selector for table names?
              */
             $tables = PMA_DBI_get_tables_full($db, false, false, null, 0, false);
+        } else {
+            // fetch the details for a possible limited subset
+            $tables = PMA_DBI_get_tables_full($db, false, false, null, $pos, true);
         }
     }
 
