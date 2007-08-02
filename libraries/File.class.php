@@ -70,18 +70,6 @@ class PMA_File
     var $_charset = null;
 
     /**
-     * old PHP 4 style constructor
-     *
-     * @see     PMA_File::__construct()
-     * @uses    PMA_File::__construct()
-     * @access  public
-     */
-    function PMA_File($name = false)
-    {
-        $this->__construct($name);
-    }
-
-    /**
      * constructor
      *
      * @access  public

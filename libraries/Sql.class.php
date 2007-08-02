@@ -79,17 +79,6 @@ class PMA_Sql
     var $_tokens = array();
 
     /**
-     * old PHP 4 style constructor
-     * @deprecated
-     * @access  public
-     * @see     PMA_sql::__construct()
-     */
-    function PMA_sql($sql)
-    {
-        $this->__construct($sql);
-    }
-
-    /**
      * Constructor
      *
      * @access  public

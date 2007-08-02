@@ -213,14 +213,6 @@ class PMA_Theme_Manager
     }
 
     /**
-     * old PHP 4 constructor
-     */
-    function PMA_Theme_Manager()
-    {
-        $this->__construct();
-    }
-
-    /**
      * @private
      * @param   string $folder
      * @return  boolean

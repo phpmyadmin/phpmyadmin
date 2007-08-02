@@ -208,9 +208,19 @@ if ($databases_count > 0) {
             echo '    </td>' . "\n";
         }
         echo '    <td class="name">' . "\n"
-           . '        <a onclick="if (window.parent.openDb(\'' . urlencode($current['SCHEMA_NAME']) . '\')) return false;" href="index.php?' . $url_query . '&amp;db=' . urlencode($current['SCHEMA_NAME']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['SCHEMA_NAME'])) . '" target="_parent">' . "\n"
+           . '        <a onclick="'
+           . 'if (window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
+           . '" href="index.php?' . $url_query . '&amp;db='
+           . urlencode($current['SCHEMA_NAME']) . '" title="'
+           . sprintf($strJumpToDB, htmlspecialchars($current['SCHEMA_NAME']))
+           . '" target="_parent">' . "\n"
            . '            ' . htmlspecialchars($current['SCHEMA_NAME']) . "\n"
            . '        </a>' . "\n"
+           . '        <a onclick="
+//<![CDATA[
+if (window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\', true)) return false;
+//]]>
+                ">T</a>' . "\n"
            . '    </td>' . "\n";
 
         foreach ($column_order as $stat_name => $stat) {
@@ -242,8 +252,17 @@ if ($databases_count > 0) {
 
         if ($is_superuser) {
             echo '    <td class="tool">' . "\n"
-               . '        <a onclick="window.parent.setDb(\'' . urlencode($current['SCHEMA_NAME']) . '\');" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['SCHEMA_NAME'])) . '">'. "\n"
-               . '            ' .($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' .$strCheckPrivs . '" /> ' : $strCheckPrivs). "\n"
+               . '        <a onclick="
+                    // <![CDATA[
+                    window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');
+                    // ]]>" href="./server_privileges.php?' . $url_query
+               . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])
+               . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['SCHEMA_NAME']))
+               . '">'. "\n"
+               . '            '
+               . ($cfg['PropertiesIconic']
+                 ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' . $strCheckPrivs . '" /> '
+                 : $strCheckPrivs) . "\n"
                . '        </a></td>' . "\n";
         }
         echo '</tr>' . "\n";

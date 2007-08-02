@@ -528,16 +528,6 @@ class PMA_Config
     }
 
     /**
-     * old PHP 4 style constructor
-     *
-     * @deprecated
-     */
-    function PMA_Config($source = null)
-    {
-        $this->__construct($source);
-    }
-
-    /**
      * returns time of last config change.
      * @return  int  Unix timestamp
      */
@@ -788,7 +778,7 @@ class PMA_Config
     /**
      * @static
      */
-    function isHttps()
+    static public function isHttps()
     {
         $is_https = false;
 
@@ -837,7 +827,7 @@ class PMA_Config
     /**
      * @static
      */
-    function getCookiePath()
+    static public function getCookiePath()
     {
         static $cookie_path = null;
 
@@ -922,7 +912,7 @@ class PMA_Config
      * @param   string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
      */
-    function getFontsizeOptions($current_size = '82%')
+    static protected function _getFontsizeOptions($current_size = '82%')
     {
         $unit = preg_replace('/[0-9.]*/', '', $current_size);
         $value = preg_replace('/[^0-9.]*/', '', $current_size);
@@ -980,16 +970,16 @@ class PMA_Config
      *
      * @uses    $_SESSION['PMA_Config']
      * @uses    PMA_Config::get()
-     * @uses    PMA_Config::getFontsizeOptions()
+     * @uses    PMA_Config::_getFontsizeOptions()
      * @uses    $GLOBALS['strFontSize']
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
-    function getFontsizeSelection()
+    static protected function _getFontsizeSelection()
     {
         $current_size = $_SESSION['PMA_Config']->get('fontsize');
-        $options = PMA_Config::getFontsizeOptions($current_size);
+        $options = PMA_Config::_getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . $GLOBALS['strFontSize'] . ':</label>' . "\n";
         $return .= '<select name="fontsize" id="select_fontsize" onchange="this.form.submit();">' . "\n";
@@ -1009,18 +999,18 @@ class PMA_Config
      * return complete font size selection form
      *
      * @uses    PMA_generate_common_hidden_inputs()
-     * @uses    PMA_Config::getFontsizeSelection()
+     * @uses    PMA_Config::_getFontsizeSelection()
      * @uses    $GLOBALS['strGo']
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
-    function getFontsizeForm()
+    static public function getFontsizeForm()
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="post" action="index.php" target="_parent">' . "\n"
             . PMA_generate_common_hidden_inputs() . "\n"
-            . PMA_Config::getFontsizeSelection() . "\n"
+            . PMA_Config::_getFontsizeSelection() . "\n"
             . '<noscript>' . "\n"
             . '<input type="submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             . '</noscript>' . "\n"

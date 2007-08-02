@@ -110,7 +110,7 @@ class PMA_Theme {
      * @param   string  $folder path to theme
      * @return  object  PMA_Theme
      */
-    function load($folder)
+    static public function load($folder)
     {
         $theme = new PMA_Theme();
 

@@ -51,11 +51,11 @@ class PMA_StorageEngine
      * @staticvar array $storage_engines storage engines
      * @access  public
      * @uses    PMA_MYSQL_INT_VERSION
-     * @uses    PMA_StorageEngine::getStorageEnginesBefore40102()
+     * @uses    PMA_StorageEngine::_getStorageEnginesBefore40102()
      * @uses    PMA_DBI_fetch_result()
      * @return  array    of storage engines
      */
-    function getStorageEngines()
+    static public function getStorageEngines()
     {
         static $storage_engines = null;
 
@@ -67,7 +67,7 @@ class PMA_StorageEngine
 
         // SHOW STORAGE ENGINES comes with MySQL 4.1.2
         if (PMA_MYSQL_INT_VERSION < 40102) {
-            $storage_engines = PMA_StorageEngine::getStorageEnginesBefore40102();
+            $storage_engines = PMA_StorageEngine::_getStorageEnginesBefore40102();
         } else {
             $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
         }
@@ -90,7 +90,7 @@ class PMA_StorageEngine
      *                              Should unavailable storage engines be offered?
      * @return  string  html selectbox
      */
-    function getHtmlSelect($name = 'engine', $id = null,
+    static public function getHtmlSelect($name = 'engine', $id = null,
       $selected = null, $offerUnavailableEngines = false)
     {
         $selected   = strtolower($selected);
@@ -126,7 +126,7 @@ class PMA_StorageEngine
      * @uses    substr()
      * @return  array    of storage engines
      */
-    function getStorageEnginesBefore40102()
+    static protected function _getStorageEnginesBefore40102()
     {
         $storage_engines = array(
             'myisam' => array(
@@ -181,7 +181,7 @@ class PMA_StorageEngine
      * @param   string  $engine   The engine ID
      * @return  object  The engine plugin
      */
-    function getEngine($engine)
+    static public function getEngine($engine)
     {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
         $engine_lowercase_filename = strtolower($engine);
@@ -203,7 +203,7 @@ class PMA_StorageEngine
      * @param   string  $engine name of engine
      * @reutrn  boolean whether $engine is valid or not
      */
-    function isValid($engine)
+    static public function isValid($engine)
     {
         $storage_engines = PMA_StorageEngine::getStorageEngines();
         return isset($storage_engines[$engine]);
@@ -358,18 +358,6 @@ class PMA_StorageEngine
                     $this->support = PMA_ENGINE_SUPPORT_NO;
             }
         }
-    }
-
-    /**
-     * old PHP 4 style constructor
-     * @deprecated
-     * @see     PMA_StorageEngine::__construct()
-     * @uses    PMA_StorageEngine::__construct()
-     * @param   string  $engine engine name
-     */
-    function PMA_StorageEngine($engine)
-    {
-        $this->__construct($engine);
     }
 
     /**

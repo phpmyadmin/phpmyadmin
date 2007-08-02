@@ -76,7 +76,7 @@ class PMA_PDF extends TCPDF {
      * @access public
      * @see FPDF::FPDF()
      */
-    function PMA_PDF($orientation = 'L', $unit = 'mm', $format = 'A4')
+    function __construct($orientation = 'L', $unit = 'mm', $format = 'A4')
     {
         $this->Alias = array() ;
         $this->TCPDF($orientation, $unit, $format);
@@ -617,7 +617,7 @@ class PMA_RT_Table {
      * @see PMA_PDF, PMA_RT_Table::PMA_RT_Table_setWidth,
           PMA_RT_Table::PMA_RT_Table_setHeight
      */
-    function PMA_RT_Table($table_name, $ff, &$same_wide_width)
+    function __construct($table_name, $ff, &$same_wide_width)
     {
         global $pdf, $pdf_page_number, $cfgRelation, $db;
 
@@ -750,7 +750,7 @@ class PMA_RT_Relation {
      * @access private
      * @see PMA_RT_Relation::PMA_RT_Relation_getXy
      */
-    function PMA_RT_Relation($master_table, $master_field, $foreign_table, $foreign_field)
+    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
     {
         $src_pos = $this->PMA_RT_Relation_getXy($master_table, $master_field);
         $dest_pos = $this->PMA_RT_Relation_getXy($foreign_table, $foreign_field);
@@ -959,7 +959,7 @@ class PMA_RT {
      * @access private
      * @see PMA_PDF
      */
-    function PMA_RT($which_rel, $show_info = 0, $change_color = 0, $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L', $paper = 'A4')
+    function __construct($which_rel, $show_info = 0, $change_color = 0, $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L', $paper = 'A4')
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 

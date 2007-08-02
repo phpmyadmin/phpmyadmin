@@ -34,20 +34,6 @@
  * @version $Id$
  */
 
-/**
- * For now, avoid warnings of E_STRICT mode
- * (this must be done before function definitions)
- */
-if (defined('E_STRICT')) {
-    $old_error_reporting = error_reporting(0);
-    if ($old_error_reporting & E_STRICT) {
-        error_reporting($old_error_reporting ^ E_STRICT);
-    } else {
-        error_reporting($old_error_reporting);
-    }
-    unset($old_error_reporting);
-}
-
 // at this point PMA_PHP_INT_VERSION is not yet defined
 if (version_compare(phpversion(), '6', 'lt')) {
     /**
@@ -237,6 +223,15 @@ if (isset($_COOKIE)
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
     require './libraries/grab_globals.lib.php';
 }
+
+/**
+ * check timezone setting
+ * this could produce an E_STRICT - but only once,
+ * if not done here it will produce E_STRICT on every date/time function
+ *
+ * @todo need to decide how we should handle this (without @)
+ */
+date_default_timezone_set(@date_default_timezone_get());
 
 /**
  * include session handling after the globals, to prevent overwriting

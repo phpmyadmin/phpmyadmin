@@ -165,7 +165,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
          *
          * @access public
          */
-        function PMA_SQLValidator()
+        function __construct()
         {
             $this->url                           = 'http://sqlvalidator.mimer.com/v1/services';
             $this->service_name                  = 'SQL99Validator';

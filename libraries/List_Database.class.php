@@ -69,15 +69,6 @@ require_once './libraries/List.class.php';
     }
 
     /**
-     * old PHP 4 style constructor
-     *
-     * @see PMA_List_Database::__construct()
-     */
-    function PMA_List_Database($db_link_user = null, $db_link_control = null) {
-        $this->__construct($db_link_user, $db_link_control);
-    }
-
-    /**
      * removes all databases not accessible by current user from list
      *
      * @access  protected
@@ -354,13 +345,13 @@ require_once './libraries/List.class.php';
     }
 
     /**
-     * returns a part of the items 
+     * returns a part of the items
      *
      * @uses    PMA_List_Database::$items
      * @uses    array_slice()
      * @param   integer $offset
      * @param   integer $count
-     * @return  array  some items 
+     * @return  array  some items
      */
     function getLimitedItems($offset, $count)
     {

@@ -137,7 +137,7 @@ class PMA_Table {
         return $this->getDbName($quoted) . '.' . $this->getName($quoted);
     }
 
-    function isView($db = null, $table = null)
+    static public function isView($db = null, $table = null)
     {
         if (strlen($db) && strlen($table)) {
             return PMA_Table::_isView($db, $table);
@@ -209,16 +209,6 @@ class PMA_Table {
     }
 
     /**
-     * old PHP 4style constructor
-     *
-     * @see     PMA_Table::__construct()
-     */
-    function PMA_Table($table_name, $db_name)
-    {
-        $this->__construct($table_name, $db_name);
-    }
-
-    /**
      * Checks if this "table" is a view
      *
      * @deprecated
@@ -230,7 +220,8 @@ class PMA_Table {
      *
      * @access  public
      */
-    function _isView($db, $table) {
+    static protected function _isView($db, $table)
+    {
         // maybe we already know if the table is a view
         if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
             return true;
@@ -374,7 +365,7 @@ class PMA_Table {
      *
      * @access  public
      */
-    function countRecords($db, $table, $ret = false, $force_exact = false)
+    static public function countRecords($db, $table, $ret = false, $force_exact = false)
     {
         $row_count = false;
 
