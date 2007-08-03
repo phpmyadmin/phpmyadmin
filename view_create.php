@@ -116,8 +116,8 @@ if (isset($_POST['submitoptions'])) {
     </tr>
 
     <tr><td><?php echo 'AS' ?></td>
-        <td><input type="text" name="sql_statement" maxlength="100" size="50"
-                value="<?php echo htmlspecialchars($sql_query); ?>" onfocus="this.select()" />
+        <td>
+            <textarea name="sql_statement" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" onfocus="this.select();"><?php echo htmlspecialchars($sql_query); ?></textarea> 
         </td>
     </tr>
     <tr><td>WITH</td>
