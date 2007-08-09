@@ -5,7 +5,6 @@
  * @version $Id$
  */
 
-
 /**
  * @todo Support seeing the "results" of the called procedure or
  *       function. This needs further reseach because a procedure
@@ -40,14 +39,15 @@ if (PMA_MYSQL_INT_VERSION >= 50002) {
         $ct=0;
         $delimiter = '//';
         foreach ($routines as $routine) {
-            $drop_and_create = '\'DROP ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . $delimiter . "\n"
-                . 'CREATE ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . '()' . "\n" . '\'';
 
-            $sql = sprintf('SELECT CONCAT(' . $drop_and_create . ',ROUTINE_DEFINITION,\'\n//\') AS DEFINITION
-                                    FROM information_schema.ROUTINES
-                                    WHERE SPECIFIC_NAME=\'%s\'',
-                                    $routine['SPECIFIC_NAME']);
-            $definition = PMA_DBI_fetch_value($sql);
+            // information_schema (at least in MySQL 5.0.45)
+            // does not return the routine parameters
+            // so we rely on PMA_DBI_get_procedure_or_function_def() which
+            // uses SHOW CREATE
+
+            $definition = 'DROP ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . $delimiter . "\n"
+                .  PMA_DBI_get_procedure_or_function_def($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME'])
+                . "\n";
 
             //if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
             //    $sqlUseProc  = 'CALL ' . $routine['SPECIFIC_NAME'] . '()';
@@ -61,9 +61,9 @@ if (PMA_MYSQL_INT_VERSION >= 50002) {
                    a method for running the function*/
             //}
             if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {
-                $sqlDropProc = 'DROP PROCEDURE ' . $routine['SPECIFIC_NAME'];
+                $sqlDropProc = 'DROP PROCEDURE ' . PMA_backquote($routine['SPECIFIC_NAME']);
             } else {
-                $sqlDropProc = 'DROP FUNCTION ' . $routine['SPECIFIC_NAME'];
+                $sqlDropProc = 'DROP FUNCTION ' . PMA_backquote($routine['SPECIFIC_NAME']);
             }
             echo sprintf('<tr class="%s">
                               <td><b>%s</b></td>
