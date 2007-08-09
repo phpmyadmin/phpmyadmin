@@ -96,6 +96,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Spanish update, thanks to Daniel Hinostroza 
 . [export] Do not obey $cfg['MaxTableList'] on database export
 - [doc] UploadDir and the Import tab, thanks to Juergen Wind
+- bug #1766975 Parameters lost when editing stored routine
 
 2.10.3.0 (2007-07-20)
 
