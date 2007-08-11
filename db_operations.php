@@ -399,13 +399,7 @@ if (!$is_information_schema) {
 } // end if (!$is_information_schema)
 
 
-// not sure about leaving the PDF dialog for information_schema
-if ($num_tables > 0 && strlen($table)) {
-    $takeaway = $url_query . '&amp;table=' . urlencode($table);
-} else {
-    $takeaway = '';
-}
-
+// not sure about displaying the PDF dialog in case db is information_schema
 if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     <!-- Work on PDF Pages -->
 
@@ -483,20 +477,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     </form>
         <?php
     }   // end if
-    ?>
-    <ul>
-        <li>
-    <?php
-        echo '<a href="pdf_pages.php?' . $takeaway . '">';
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-                .' alt="" width="16" height="16" />';
-        }
-        echo $strEditPDFPages . '</a>';
-    ?>
-        </li>
-    </ul>
-    <?php
+    echo '<br /><a href="pdf_pages.php?' . $url_query . '">';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
+            .' alt="" width="16" height="16" />';
+    }
+    echo $strEditPDFPages . '</a>';
 } // end if
 
 /**
