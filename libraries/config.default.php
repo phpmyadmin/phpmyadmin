@@ -347,7 +347,7 @@ $cfg['MaxDbList'] = 100;
  *
  * @global integer $cfg['MaxTableList']
  */
-$cfg['MaxTableList'] = 100;
+$cfg['MaxTableList'] = 250;
 
 /**
  * maximum number of characters when a SQL query is displayed
