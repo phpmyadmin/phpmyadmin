@@ -195,13 +195,10 @@ function PMA_exportHeader()
     $head  =  PMA_exportComment('phpMyAdmin SQL Dump')
            .  PMA_exportComment('version ' . PMA_VERSION)
            .  PMA_exportComment('http://www.phpmyadmin.net')
-           .  PMA_exportComment() 
-           .  PMA_exportComment($GLOBALS['strHost'] . ': ' . $cfg['Server']['host']);
-    if (!empty($cfg['Server']['port'])) {
-         $head .= ':' . $cfg['Server']['port'];
-    }
-    $head .= $crlf
-           .  PMA_exportComment($GLOBALS['strGenTime'] . ': ' . PMA_localisedDate())
+           .  PMA_exportComment();
+    $head .= empty($cfg['Server']['port']) ? PMA_exportComment($GLOBALS['strHost'] . ': ' . $cfg['Server']['host']) : PMA_exportComment($GLOBALS['strHost'] . ': ' .  $cfg['Server']['host'] . ':' . $cfg['Server']['port']);
+    $head .=  PMA_exportComment($GLOBALS['strGenTime']
+           . ': ' .  PMA_localisedDate())
            .  PMA_exportComment($GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3))
            .  PMA_exportComment($GLOBALS['strPHPVersion'] . ': ' . phpversion());
 
