@@ -91,7 +91,7 @@ belarusian_latin-utf-8
 bosnian-windows-1250
 brazilian_portuguese-iso-8859-1
 bulgarian-utf-8
-catalan-iso-8859-1
+catalan-utf-8
 chinese_traditional-utf-8
 chinese_simplified-gb2312
 croatian-windows-1250
