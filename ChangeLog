@@ -97,6 +97,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 . [export] Do not obey $cfg['MaxTableList'] on database export
 - [doc] UploadDir and the Import tab, thanks to Juergen Wind
 - bug #1766975 Parameters lost when editing stored routine
+- [export] patch #1766633 Incorrect export with specified MySQL port,
+  thanks to Juergen Wind
 
 2.10.3.0 (2007-07-20)
 
