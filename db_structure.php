@@ -514,6 +514,8 @@ if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
     echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCountViews'], 0), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')) . "\n";
     echo '</div>' . "\n";
 }
+// display again the table list navigator
+PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
 ?>
 <hr />
 
