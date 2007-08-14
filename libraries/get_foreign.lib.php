@@ -60,7 +60,7 @@ if ($foreigners && isset($foreigners[$field])) {
         }
 
         $disp            = PMA_DBI_query($f_query_main . $f_query_from . $f_query_filter . $f_query_order . $f_query_limit);
-        if ($disp) {
+        if ($disp && PMA_DBI_num_rows($disp) > 0) {
             // garvin: If a resultset has been created, pre-cache it in the $disp_row array
             // This helps us from not needing to use mysql_data_seek by accessing a pre-cached
             // PHP array. Usually those resultsets are not that big, so a performance hit should

@@ -100,6 +100,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [export] patch #1766633 Incorrect export with specified MySQL port,
   thanks to Juergen Wind
 + [lang] Catalan update, thanks to Xavier Navarro 
+- bug #1751553 Drop-down instead of input when editing
 
 2.10.3.0 (2007-07-20)
 
