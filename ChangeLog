@@ -101,6 +101,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Juergen Wind
 + [lang] Catalan update, thanks to Xavier Navarro 
 - bug #1751553 Drop-down instead of input when editing
+- [data] foreign key browser: encoding mixups, thanks to Thijs Kinkhorst
 
 2.10.3.0 (2007-07-20)
 
