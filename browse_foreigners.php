@@ -17,7 +17,6 @@ require_once './libraries/ob.lib.php';
 PMA_outBufferPre();
 
 require_once './libraries/header_http.inc.php';
-$field = urldecode($field);
 
 /**
  * Displays the frame
@@ -44,7 +43,7 @@ require './libraries/get_foreign.lib.php';
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);
     ?>
-<input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
+<input type="hidden" name="pk" value="<?php echo htmlspecialchars($pk); ?>" />
     <?php
 } else {
     $pk_uri = '';
@@ -69,8 +68,8 @@ if (isset($disp_row) && is_array($disp_row)) {
                       'browse_foreigners.php?field='    . urlencode($field) .
                                        '&amp;'          . PMA_generate_common_url($db, $table)
                                                         . $pk_uri .
-                                       '&amp;fieldkey=' . (isset($fieldkey) ? $fieldkey : '') .
-                                       '&amp;foreign_filter=' . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') .
+                                       '&amp;fieldkey=' . (isset($fieldkey) ? urlencode($fieldkey) : '') .
+                                       '&amp;foreign_filter=' . (isset($foreign_filter) ? urlencode($foreign_filter) : '') .
                                        '&amp;',
                       $session_max_rows,
                       $pageNow,
@@ -106,7 +105,7 @@ if (isset($disp_row) && is_array($disp_row)) {
             var field = 'field_' + field;
 
             <?php if (isset($pk)) { ?>
-            var element_name = field + '[multi_edit][<?php echo urlencode($pk); ?>][]';
+            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($pk); ?>][]';
             <?php } else { ?>
             var element_name = field + '[]';
             <?php } ?>
@@ -141,11 +140,11 @@ if (isset($disp_row) && is_array($disp_row)) {
 <form action="browse_foreigners.php" method="post">
 <fieldset>
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-<input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
+<input type="hidden" name="field" value="<?php echo htmlspecialchars($field); ?>" />
 <input type="hidden" name="fieldkey"
-    value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
+    value="<?php echo isset($fieldkey) ? htmlspecialchars($fieldkey) : ''; ?>" />
 <?php if (isset($pk)) { ?>
-<input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
+<input type="hidden" name="pk" value="<?php echo htmlspecialchars($pk); ?>" />
 <?php } ?>
 <span class="formelement">
     <label for="input_foreign_filter"><?php echo $strSearch . ':'; ?></label>
