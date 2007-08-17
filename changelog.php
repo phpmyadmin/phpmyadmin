@@ -34,7 +34,7 @@ $replaces = array(
 
     // linking files
     '/(\s+)([\\/a-z_0-9\.]+\.(?:php3?|html|pl|js|sh))/i'
-    => '\\1<a href="http://svn.sourceforge.net/viewvc/phpmyadmin/trunk/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
+    => '\\1<a href="http://phpmyadmin.svn.sourceforge.net/viewvc/phpmyadmin/trunk/phpMyAdmin/\\2?annotate=HEAD">\\2</a>',
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
