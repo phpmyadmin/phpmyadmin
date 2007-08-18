@@ -298,6 +298,8 @@ elseif ($mult_btn == $strYes) {
         PMA_DBI_free_result($result);
     }
 
+    $rebuild_database_list = false;
+
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'row_delete':
@@ -311,6 +313,7 @@ elseif ($mult_btn == $strYes) {
                            . PMA_backquote(urldecode($selected[$i]));
                 $reload    = 1;
                 $run_parts = TRUE;
+                $rebuild_database_list = true;
                 break;
 
             case 'drop_tbl':
@@ -422,6 +425,11 @@ elseif ($mult_btn == $strYes) {
             PMA_DBI_query($sql_query_views);
             unset($sql_query_views);
         }
+    }
+    if ($rebuild_database_list) {
+        // avoid a problem with the database list navigator
+        // when dropping a db from server_databases
+        $GLOBALS['PMA_List_Database']->build();
     }
 }
 ?>
