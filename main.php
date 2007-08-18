@@ -70,13 +70,7 @@ if ($server > 0) {
     if (!empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
     }
-    // loic1: skip this because it's not a so good idea to display sockets
-    //        used to everybody
-    // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-    //     $server_info .= ':' . $cfg['Server']['socket'];
-    // }
     $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
-
 
     // should we add the port info here?
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
@@ -84,9 +78,6 @@ if ($server > 0) {
                         : $GLOBALS['cfg']['Server']['host']);
     echo '<h1 xml:lang="en" dir="ltr">' . $short_server_info .'</h1>' . "\n";
     unset($short_server_info);
-} else {
-    // Case when no server selected
-    //echo '<h1 xml:lang="en" dir="ltr">MySQL</h1>' . "\n";
 }
 
 if ($server > 0) {
