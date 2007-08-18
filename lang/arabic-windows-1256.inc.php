@@ -371,7 +371,6 @@ $strPerHour = 'бяб ”«Џ…';
 $strPerMinute = 'бяб ѕёнё…';
 $strPerSecond = 'бяб Ћ«дн…';
 $strPhoneBook = 'ѕЁ — «бе« Ё';
-$strPHP40203 = '√д   ” ќѕг «б≈’ѕ«— 4.2.3 гд PHP ж«б–н нЌ жн Џбм ќбшб ќЎн— Ён «б Џ«гб гЏ «бд’ж’ Ћд«∆н… «б»«н  (mbstring). √дў— Ён  ё—н— ќбб PHP —ёг 19404. б« нд’Ќ »«” ќѕ«г е–е «бд”ќ… гд PHP гЏ phpMyAdmin.';
 $strPhp = '√д‘∆ ‘нЁ—… PHP';
 $strPHPVersion = ' PHP ≈’ѕ«—…';
 $strPmaDocumentation = 'г” дѕ«  жЋ«∆ёне б№ phpMyAdmin (»«б≈дћбн“н…)';

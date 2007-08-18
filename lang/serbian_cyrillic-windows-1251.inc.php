@@ -462,7 +462,6 @@ $strPerMinute = 'у минуту';
 $strPerSecond = 'у секунди';
 $strPersian = 'Персијски';
 $strPhoneBook = 'телефонски именик';
-$strPHP40203 = 'Користите PHP 4.2.3, који има озбиљан баг са вишебајтним стринговима (mbstring). Погледајте извештај о грешци бр. 19404. Ова верзија PHP-a се не препоручује за коришћење са phpMyAdmin.';
 $strPhp = 'Направи PHP код';
 $strPHPVersion = 'верзија PHP-a';
 $strPmaDocumentation = 'phpMyAdmin документација';

@@ -406,7 +406,6 @@ $strPerMinute = 'לדקה';
 $strPerSecond = 'לשנייה';
 $strPersian = 'Persian';
 $strPhoneBook = 'phone book';
-$strPHP40203 = 'אתה משתמש ב- PHP 4.2.3, אשר כולל תקלה רצינית עם מחרוזות multibyte (mbstring). ראה דיווח שגיאה 19404 של PHP. גרסה זאת של PHP לא מומלצת לשימוש עם phpMyAdmin..';
 $strPHPVersion = 'גרסת PHP';
 $strPhp = 'ייצור קוד PHP';
 $strPmaDocumentation = 'תיעוד phpMyAdmin';

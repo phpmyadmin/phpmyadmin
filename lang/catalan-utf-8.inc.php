@@ -555,7 +555,6 @@ $strPerMinute = 'per minut';
 $strPerSecond = 'per segon';
 $strPersian = 'Persa';
 $strPhoneBook = 'Libreta d\' adreces';
-$strPHP40203 = 'S\'està fent servir la versió 4.2.3 de PHP, que té un serios error amb cadenes de multi-byte (mbstring). Mira l\'informe d\'error 19404 de PHP. No es recomana aquesta versió de PHP per treballar amb phpMyAdmin.';
 $strPhp = 'Crear codi PHP';
 $strPHPVersion = 'PHP versió';
 $strPleaseSelectPrimaryOrUniqueKey = 'Tria la clau principal o una clau única';

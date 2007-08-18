@@ -560,7 +560,6 @@ $strPerMinute = 'por minuto';
 $strPerSecond = 'por segundo';
 $strPersian = 'Persa';
 $strPhoneBook = 'directorio telefÃ³nico';
-$strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
 $strPhp = 'Crear código PHP';
 $strPHPVersion = 'Versión do PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Escolla a chave primaria ou unha chave Ãºnica';

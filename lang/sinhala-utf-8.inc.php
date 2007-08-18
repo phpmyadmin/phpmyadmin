@@ -529,7 +529,6 @@ $strPerMinute = 'මිනිත්තුවකට';
 $strPerSecond = 'තප්පරයකට';
 $strPersian = 'පර්සියානු';
 $strPhoneBook = 'දුරකථන පොත';
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';
 $strPhp = 'PHP කේත සාදන්න';
 $strPHPVersion = 'PHP සංස්කරණය';
 $strPmaDocumentation = 'phpMyAdmin ලියකියවිලි';

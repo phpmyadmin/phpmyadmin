@@ -520,7 +520,6 @@ $strPerMinute = 'na minutê';
 $strPerSecond = 'na sekundê';
 $strPersian = 'Perski';
 $strPhoneBook = 'ksi¹¿ka telefoniczna';
-$strPHP40203 = 'U¿ywasz PHP w wersji 4.2.3, która ma powa¿ny b³¹d w obs³udze napisów wielobajtowych (mbstring). Zobacz raport na temat b³êdów PHP nr 19404. Nie zaleca siê u¿ywania tej wersji PHP z phpMyAdminem.';
 $strPhp = 'Utwórz kod PHP';
 $strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';

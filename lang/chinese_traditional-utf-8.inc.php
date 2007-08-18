@@ -510,7 +510,6 @@ $strPerSecond = '每秒';
 $strPersian = '波斯語';
 $strPhoneBook = '電話簿';
 $strPhp = '建立 PHP 程式碼';
-$strPHP40203 = '您正使用 PHP 版本 4.2.3, 這版本有一個雙字節字元的嚴重錯誤(mbstring). 請參閱 PHP 臭蟲報告編號 19404. phpMyAdmin 並不建議使用這個版本的 PHP .';
 $strPHPVersion = 'PHP 版本';
 $strPmaDocumentation = 'phpMyAdmin 說明文件';
 $strPmaUriError = ' 必須在設定檔內設定 <tt>$cfg[\'PmaAbsoluteUri\']</tt> !';

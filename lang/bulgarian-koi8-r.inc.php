@@ -459,7 +459,6 @@ $strPerMinute = 'на минута';
 $strPerSecond = 'на секунда';
 $strPersian = 'Персийски';
 $strPhoneBook = 'Телефонен бележник';
-$strPHP40203 = 'Вие използвате PHP 4.2.3, който има сериозен бъг с много-байтови стрингове (mbstring). Вижте сведението за PHP бъга 19404. Не е препоръчително да използвате тази версия на PHP с phpMyAdmin.';
 $strPhp = 'Създаване на PHP код';
 $strPHPVersion = 'Версия на PHP';
 $strPmaDocumentation = 'phpMyAdmin документация';

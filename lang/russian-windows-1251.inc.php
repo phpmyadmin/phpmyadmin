@@ -563,7 +563,6 @@ $strPerSecond = 'в секунду';
 $strPersian = 'Персидский';
 $strPhoneBook = 'телефонная книга';
 $strPhp = 'PHP-код';
-$strPHP40203 = 'Используемая версия PHP 4.2.3, содержит серьезные ошибки при работе с многобайтными кодировками (mbstring). Смотрите детальный отчет об ошибке: PHP bug report 19404. Данная версия PHP не рекомендуется для использования с phpMyAdmin.';
 $strPHPVersion = 'Версия PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Выберите поле являющееся первичным (PRIMARY), или уникальным (UNIQUE) индексом!';
 $strPmaDocumentation = 'Документация phpMyAdmin';

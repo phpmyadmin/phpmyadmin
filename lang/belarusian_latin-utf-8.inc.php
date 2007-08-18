@@ -527,7 +527,6 @@ $strPerMinute = 'u chvilinu';
 $strPerSecond = 'u sekundu';
 $strPersian = 'Persydzkaja';
 $strPhoneBook = 'telefonnaja kniha';
-$strPHP40203 = 'Vy vykarystoŭvajecie PHP 4.2.3, jakaja maje sur\'joznyja pamyłki pry rabocie z šmatbajtavymi radkami (mbstring). Hladzicie paviedamleńnie pra pamyłku PHP 19404. Heta versija PHP nie rekamendujecca dla vykarystańnia z phpMyAdmin.';
 $strPhp = 'Stvaryć PHP-kod';
 $strPHPVersion = 'Versija PHP';
 $strPmaDocumentation = 'Dakumentacyja pa phpMyAdmin';

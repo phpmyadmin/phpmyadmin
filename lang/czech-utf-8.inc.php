@@ -561,7 +561,6 @@ $strPerMinute = 'za minutu';
 $strPerSecond = 'za sekundu';
 $strPersian = 'Perština';
 $strPhoneBook = 'adresář';
-$strPHP40203 = 'Používáte PHP 4.2.3, které má závažnou chybu při práci s&nbsp;více bajtovými znaky (mbstring), jedná se o&nbsp;chybu PHP číslo 19404. Nedoporučujeme používat tuto verzi PHP s&nbsp;phpMyAdminem.';
 $strPHPVersion = 'Verze PHP';
 $strPhp = 'Vytvořit PHP kód';
 $strPleaseSelectPrimaryOrUniqueKey = 'Zvolte, prosím, primární nebo unikátní klíč';

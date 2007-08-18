@@ -345,7 +345,6 @@ $strPerHour = 'ต่อชั่วโมง';
 $strPerMinute = 'ต่อนาที';
 $strPerSecond = 'ต่อวินาที';
 $strPhoneBook = 'สมุดโทรศัพท์';
-$strPHP40203 = 'คุณกำลังใช้ PHP รุ่น 4.2.3, ซึ่งมีบั๊กร้ายแรงเกี่ยวกับ multi-byte strings (mbstring). กรุณาดูรายงานบั๊ก PHP หมายเลข 19404. เราไม่แนะนำให้คุณใช้ PHP รุ่นนี้กับ phpMyAdmin.';
 $strPhp = 'สร้างโค้ด PHP';
 $strPHPVersion = 'รุ่นของ PHP';
 $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';

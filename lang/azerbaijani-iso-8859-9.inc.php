@@ -354,7 +354,6 @@ $strPdfNoTables = 'Cedvel yoxdur';
 $strPerHour = 'saatda';
 $strPerMinute = 'deqiqede';
 $strPerSecond = 'saniyede';
-$strPHP40203 = 'Siz içerisinde ciddi multi-bayt strinqleri (mbstring) ile elaqedar xetalar olan PHP 4.2.3 versiyasýný istifade edirsiniz. Etraflý melumat üçün PHP xeta raportu 19404-e baxýn. PHP-nin bu versiyasý PhpMyAdmin ile istifade üçün tövsiye edilmir.';
 $strPhp = 'PHP Kodunu Hazýrla';
 $strPHPVersion = 'PHP Versiyasý';
 $strPmaDocumentation = 'phpMyAdmin dokumentasiyasý (etraflý me\'lumat üçün)';

@@ -665,7 +665,6 @@ $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
 $strPersian = 'Persian';  //to translate
 $strPhoneBook = 'phone book';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 $strPolish = 'Polish';  //to translate
 $strPortrait = 'Portrait';  //to translate
 $strPrint = 'Print';  //to translate

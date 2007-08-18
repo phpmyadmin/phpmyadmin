@@ -558,7 +558,6 @@ $strPerMinute = 'minuutissa';
 $strPerSecond = 'sekunnissa';
 $strPersian = 'Persialainen';
 $strPhoneBook = 'puhelinluettelo';
-$strPHP40203 = 'Käytössäsi on PHP 4.2.3, joka sisältää vakavan vian monitavuisissa merkkijonoissa (mbstring). Katso PHP:n virheraportti 19404. Tätä PHP:n versiota ei suositella käytettäväksi phpMyAdminin kanssa.';
 $strPhp = 'Näytä PHP-koodi';
 $strPHPVersion = 'PHP:n versio';
 $strPleaseSelectPrimaryOrUniqueKey = 'Valitse ensisijainen avain tai uniikki avain';

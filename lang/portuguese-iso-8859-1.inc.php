@@ -360,7 +360,6 @@ $strPerHour = 'por hora';
 $strPerMinute = 'por minuto';
 $strPerSecond = 'por segundo';
 $strPhoneBook = 'lista telefónica';
-$strPHP40203 = 'Está a usar o PHP 4.2.3, que tem uma grave falha de segurança com a string multi-byte (mbstring). Veja o relatório de bugs do PHP 19404 - PHP bug report 19404. A utilização desta versão do PHP com o phpMyAdmin não é recomendada.';
 $strPhp = 'Criar código PHP';
 $strPHPVersion = 'versão do PHP';
 $strPmaDocumentation = 'Documentação do phpMyAdmin';

@@ -428,7 +428,6 @@ $strPerMinute = 'per minutæ';
 $strPerSecond = 'per sekundæ';
 $strPersian = 'Persø';
 $strPhoneBook = 'telefonø knyga';
-$strPHP40203 = 'Jûs naudojate PHP 4.2.3 versijà, kurioje yra rimta klaida, susiijusi su daugiabaièiais stringais (mbstring). Daugiau informacijos rasite PHP klaidø praneðime Nr.19404. <strong>NEREKOMENDUOJAME naudoti ðios PHP versijos su phpMyAdmin</strong>.';
 $strPhp = 'PHP kodas';
 $strPHPVersion = 'PHP versija';
 $strPmaDocumentation = 'phpMyAdmin\'o dokumentacija';

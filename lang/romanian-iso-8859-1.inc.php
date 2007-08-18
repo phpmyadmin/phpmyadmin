@@ -423,7 +423,6 @@ $strPerMinute = 'pe minute';
 $strPerSecond = 'pe secunde';
 $strPersian = 'Persian';
 $strPhoneBook = 'carte de telefoane';
-$strPHP40203 = 'Folosesti PHP 4.2.3, server care are un bug major la multi-byte strings (mbstring). Vezi PHP bug report la 19404. Aceasta versiune de PHP nu este recomandat de folosit cu phpMyAdmin.';
 $strPhp = 'Creaza cod PHP';
 $strPHPVersion = 'Versiune PHP';
 $strPmaDocumentation = 'Documentatie phpMyAdmin';

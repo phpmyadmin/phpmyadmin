@@ -560,7 +560,6 @@ $strPerMinute = 'per minut';
 $strPerSecond = 'per sekund';
 $strPersian = 'Persiska';
 $strPhoneBook = 'telefonbok';
-$strPHP40203 = 'Du använder PHP 4.2.3, vilken har en allvarlig bugg med multi-byte-strängar (mbstring). Se PHP:s buggrapport 19404. Denna version av PHP är inte rekommenderad för användning tillsammans med phpMyAdmin.';
 $strPhp = 'Skapa PHP-kod';
 $strPHPVersion = 'PHP-version';
 $strPleaseSelectPrimaryOrUniqueKey = 'Välj den primära nyckeln eller en unik nyckel';

@@ -350,15 +350,7 @@ if ($server != 0
 }
 
 /**
- * Warning for PHP 4.2.3
- * modified: 2004-05-05 mkkeck
- */
-if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
-    echo '<div class="warning">' . $strPHP40203 . '</div>' . "\n";
-}
-
-/**
- * Nijel: As we try to hadle charsets by ourself, mbstring overloads just
+ * Nijel: As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
@@ -375,19 +367,17 @@ if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
 
 /**
  * Warning for old PHP version
- * modified: 2004-05-05 mkkeck
  */
-if (PMA_PHP_INT_VERSION < 40100) {
-    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</div>' . "\n";
+if (PMA_PHP_INT_VERSION < 50200) {
+    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '5.2.0') . '</div>' . "\n";
 }
 
 /**
  * Warning for old MySQL version
- * modified: 2004-05-05 mkkeck
  */
 // not yet defined before the server choice
-if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
-    echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
+if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 50000) {
+    echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '5.0') . '</div>' . "\n";
 }
 
 /**

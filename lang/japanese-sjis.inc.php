@@ -564,7 +564,6 @@ $strPerMinute = '/分';
 $strPerSecond = '/秒';
 $strPersian = 'ペルシア語';
 $strPhoneBook = '電話帳';
-$strPHP40203 = 'お使いの PHP 4.2.3 にはマルチバイト文字 (mbstring) の扱いに重大なバグがあります。PHP のバグレポート 19404 番をご覧ください。このバージョンの PHP はお勧めできません';
 $strPhp = 'PHP コードの作成';
 $strPHPVersion = 'PHP のバージョン';
 $strPleaseSelectPrimaryOrUniqueKey = '主キーまたはユニークなキーを選択してください';

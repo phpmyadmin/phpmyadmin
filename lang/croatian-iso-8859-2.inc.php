@@ -525,7 +525,6 @@ $strPerMinute = 'po minuti';
 $strPerSecond = 'po sekundi';
 $strPersian = 'Perzijski';
 $strPhoneBook = 'telefonski imenik';
-$strPHP40203 = 'Upotrebljavate PHP 4.2.3 koji ima ozbiljne pote¹koæe s nizovima od vi¹estrukih bajtova (mbstring). Pogledajte PHP izvje¹taj o nedostatku 19404. Ne preporuèuje se upotreba ove verzije PHP-a uz program phpMyAdmin.';
 $strPhp = 'Izradi PHP kod';
 $strPHPVersion = 'PHP verzija';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';

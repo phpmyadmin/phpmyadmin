@@ -345,7 +345,6 @@ $strPerHour = 'ανά ώρα';
 $strPerMinute = 'ανά λεπτό';
 $strPerSecond = 'ανά δευτερόλεπτο';
 $strPhoneBook = 'τηλ. κατάλογος';  
-$strPHP40203 = 'Χρησιμοποιείτε την PHP 4.2.3, η οποία είχε ένα σοβαρό πρόβλημα με αλφαριθμητικά τύπου multi-byte (mbstring). Δείτε το αναφορά προβλήματος PHP 19404. Αυτή η έκδοση της PHP δεν προτείνεται για χρήση με το phpMyAdmin.';  
 $strPhp = 'Δημιουργία κώδικα PHP';  
 $strPHPVersion = 'Έκδοση PHP';
 $strPmaDocumentation = 'Τεκμηρίωση phpMyAdmin';

@@ -380,7 +380,6 @@ $strPerHour = 'na uro';
 $strPerMinute = 'na minuto';
 $strPerSecond = 'na sekundo';
 $strPhoneBook = 'telefonski imenik';
-$strPHP40203 = 'Uporabljate PHP 4.2.3, ki ima resne težave z veèbitnimi stavki (mbstring). Glej PHP poroèilo o hrošèu 19404. Ta verzija PHP ni priporoèljiva za uporabo s phpMyAdmin.';
 $strPhp = 'Ustvari PHP kodo';
 $strPHPVersion = 'Razlièica PHP';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';

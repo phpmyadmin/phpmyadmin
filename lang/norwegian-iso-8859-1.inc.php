@@ -559,7 +559,6 @@ $strPerSecond = 'per sekund';
 $strPersian = 'Persisk';
 $strPhoneBook = 'telefonkatalog';
 $strPhp = 'Lag PHP kode';
-$strPHP40203 = 'Du bruker PHP 4.2.3, som har en alvorlig feil med flerbyte-strenger (mbstring). Se PHP-feilrapport 19404. Denne versjonen av PHP er ikke anbefalt for bruk med phpMyAdmin.';
 $strPHPVersion = 'PHP-Versjon';
 $strPleaseSelectPrimaryOrUniqueKey = 'Velg primærnøkkelen eller en unik nøkkel';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentasjon';

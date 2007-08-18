@@ -521,7 +521,6 @@ $strPerMinute = 'na minutę';
 $strPerSecond = 'na sekundę';
 $strPersian = 'Perski';
 $strPhoneBook = 'książka telefoniczna';
-$strPHP40203 = 'Używasz PHP w wersji 4.2.3, która ma poważny błąd w obsłudze napisów wielobajtowych (mbstring). Zobacz raport na temat błędów PHP nr 19404. Nie zaleca się używania tej wersji PHP z phpMyAdminem.';
 $strPhp = 'Utwórz kod PHP';
 $strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';

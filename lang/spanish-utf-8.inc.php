@@ -557,7 +557,6 @@ $strPerMinute = 'por minuto';
 $strPerSecond = 'por segundo';
 $strPersian = 'Persa';
 $strPhoneBook = 'directorio telefónico';
-$strPHP40203 = 'Usted está usando PHP 4.2.3, el cual tiene un error de codificación en cuanto a las "cadenas de caracteres multi-byte" (mbstring). Lea el reporte 19404 de PHP. No se recomienda el uso de phpMyAdmin con esta versión de PHP.';
 $strPhp = 'Crear código PHP';
 $strPHPVersion = 'Versión de PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Por favor, seleccione la clave primaria o una clave única';

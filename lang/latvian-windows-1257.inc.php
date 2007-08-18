@@ -407,7 +407,6 @@ $strPerMinute = 'minûtç';
 $strPerSecond = 'sekundç';
 $strPersian = 'Persieðu';
 $strPhoneBook = 'telefonu grâmata';
-$strPHP40203 = 'Jûs lietojat PHP versiju 4.2.3, kurai ir nopietna kïûda daudzbaitu rindiòu funkcijâs (mbstring). Skatît PHP bug report 19404. Sî PHP versija nav rekomendçjama lietoðanai ar phpMyAdmin.';
 $strPhp = 'Izveidot PHP kodu';
 $strPHPVersion = 'PHP Versija';
 $strPmaDocumentation = 'phpMyAdmin dokumentâcija';

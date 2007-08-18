@@ -352,7 +352,6 @@ $strPerHour = 'na sat';
 $strPerMinute = 'u minuti';
 $strPerSecond = 'u sekundi';
 $strPhoneBook = 'telefonski imenik';
-$strPHP40203 = 'Koristite PHP 4.2.3, koji ima ozbiljnu gresku sa višebajtnim stringovima (mbstring). Pogledajte izvještaj o grešci br. 19404. Ova verzija PHP-a se ne preporučuje za korišćenje sa phpMyAdmin.';
 $strPhp = 'Napravi PHP kod';
 $strPHPVersion = 'verzija PHP-a';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';

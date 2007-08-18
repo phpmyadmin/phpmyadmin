@@ -346,7 +346,6 @@ $strPerHour = 'за годину';
 $strPerMinute = 'за хвилину';
 $strPerSecond = 'за секунду';
 $strPhoneBook = 'телефонна книга';
-$strPHP40203 = 'Ви використовуєте версію PHP 4.2.3, яка має серйозну помилку при роботі з multi-byte strings (mbstring). Див PHP bug report 19404. Цю версію PHP не рекомендується використовувати з phpMyAdmin.';
 $strPHPVersion = 'Версія PHP';
 $strPhp = 'Створити PHP код';
 $strPmaDocumentation = 'Документація по phpMyAdmin';

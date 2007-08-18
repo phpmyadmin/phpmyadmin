@@ -457,7 +457,6 @@ $strPerMinute = 'per menit';
 $strPerSecond = 'per detik';
 $strPersian = 'Persia';
 $strPhoneBook = 'buku telpon';
-$strPHP40203 = 'Anda menggunakan PHP versi 4.2.3 yang diketahui mengandung Bug yang serius pada multi-byte strings (mbstring). Perhatikan PHP Bug Report nomor 19404. Versi PHP ini tidak disarankan untuk digunakan dengan program phpMyAdmin.';
 $strPhp = 'Ciptakan kode PHP';
 $strPHPVersion = 'Versi PHP';
 $strPmaDocumentation = 'Dokumentasi phpMyAdmin';

@@ -410,7 +410,6 @@ $strPerMinute = 'per minuut';
 $strPerSecond = 'per seconde';
 $strPersian = 'Perzisch';
 $strPhoneBook = 'Telefoonboek';
-$strPHP40203 = 'U gebruikt PHP 4.2.3, deze versie bevat een grote fout in de multi-byte strings (mbstring). Voor meer informatie zie PHP bug report 19404. Het wordt sterk afgeraden deze versie van PHP te gebruiken met phpMyAdmin.';
 $strPhp = 'Creëer PHP Code';
 $strPHPVersion = 'PHP Versie';
 $strPmaDocumentation = 'phpMyAdmin Documentatie';

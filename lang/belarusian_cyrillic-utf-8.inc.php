@@ -528,7 +528,6 @@ $strPerMinute = 'у хвіліну';
 $strPerSecond = 'у сэкунду';
 $strPersian = 'Пэрсыдзкая';
 $strPhoneBook = 'тэлефонная кніга';
-$strPHP40203 = 'Вы выкарыстоўваеце PHP 4.2.3, якая мае сур\'ёзныя памылкі пры рабоце з шматбайтавымі радкамі (mbstring). Глядзіце паведамленьне пра памылку PHP 19404. Гэта вэрсія PHP не рэкамэндуецца для выкарыстаньня з phpMyAdmin.';
 $strPhp = 'Стварыць PHP-код';
 $strPHPVersion = 'Вэрсія PHP';
 $strPmaDocumentation = 'Дакумэнтацыя па phpMyAdmin';

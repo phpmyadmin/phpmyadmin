@@ -390,7 +390,6 @@ $strPerHour = 'në orë';
 $strPerMinute = 'në minutë';
 $strPerSecond = 'në sekondë';
 $strPhoneBook = 'numratori';
-$strPHP40203 = 'Është në përdorim PHP 4.2.3, që përmban një difekt serioz me stringat multi-byte strings (mbstring). Shiko raportin 19404 të bug PHP. Ky version i PHP nuk rekomandohet për t\'u përdorur me phpMyAdmin.';
 $strPhp = 'Krijo kodin PHP';
 $strPHPVersion = 'Versioni i PHP';
 $strPmaDocumentation = 'Dokumente të phpMyAdmin';

@@ -414,7 +414,6 @@ $strPerMinute = '每分钟';
 $strPerSecond = '每秒';
 $strPersian = '波斯语';
 $strPhoneBook = '电话本';
-$strPHP40203 = '您正使用 PHP 版本 4.2.3，该版本有一个双字节字符(mbstring)的严重错误。请参阅 PHP 臭虫报告 19404。phpMyAdmin 并不建议使用这个版本的 PHP。';
 $strPhp = '创建 PHP 代码';
 $strPHPVersion = 'PHP 版本';
 $strPmaDocumentation = 'phpMyAdmin 文档';

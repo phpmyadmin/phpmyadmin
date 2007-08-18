@@ -560,7 +560,6 @@ $strPerMinute = 'al minuto';
 $strPerSecond = 'al secondo';
 $strPersian = 'Persiano';
 $strPhoneBook = 'rubrica';
-$strPHP40203 = 'Si sta utilizzando PHP 4.2.3, che presenta un serio bug con le stringhe multi-byte (mbstring). Vedi report PHP 19404. Questa versione di PHP non è raccomandata per l\'utilizzo con phpMyAdmin.';
 $strPhp = 'Crea il codice PHP';
 $strPHPVersion = 'Versione PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Seleziona la chiave primaria o una chiave univoca';

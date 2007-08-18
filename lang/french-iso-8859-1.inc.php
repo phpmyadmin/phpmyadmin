@@ -557,7 +557,6 @@ $strPerMinute = 'par minute';
 $strPerSecond = 'par seconde';
 $strPersian = 'perse';
 $strPhoneBook = 'annuaire téléphonique';
-$strPHP40203 = 'Vous utilisez PHP 4.2.3, et cette version a un sérieux problème avec les caractères multi-octets (mbstring), tel que décrit sur le rapport d\'anomalies 19404 chez PHP.  Il n\'est pas recommandé d\'utiliser cette version de PHP avec phpMyAdmin.';
 $strPhp = 'Créer source PHP';
 $strPHPVersion = 'Version de PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Veuillez choisir la clé primaire ou une clé unique';

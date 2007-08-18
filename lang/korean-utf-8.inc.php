@@ -235,7 +235,6 @@ $strPasswordNotSame = '암호가 동일하지 않습니다!';
 $strPdfDbSchema = '"%s" 데이터베이스의 스킴(윤곽) - 페이지 %s';
 $strPdfInvalidTblName = '"%s" 테이블이 존재하지 않습니다!';
 $strPdfNoTables = '테이블이 없습니다';
-$strPHP40203 = 'PHP 4.2.3에는 멀티바이트 문자열(mbstring) 모듈에 버그가 있으므로 추천하지 않습니다. PHP 버그 리포트 19404를 보십시오.';
 $strPhp = 'PHP 코드 보기';
 $strPHPVersion = 'PHP 버전';
 $strPmaDocumentation = 'phpMyAdmin 설명서';

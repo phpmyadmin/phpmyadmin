@@ -531,7 +531,6 @@ $strPerMinute = 'pro Minute';
 $strPerSecond = 'pro Sekunde';
 $strPersian = 'Persisch';
 $strPhoneBook = 'Telefonbuch';
-$strPHP40203 = 'Sie verwenden die PHP-Version 4.2.3, welche leider fehlerhaft im Umgang mit Mehrbyte-Zeichenketten (mbstring) ist. Dieser Fehler ist in der PHP-Datenbank als Bug-Report #19404 dokumentiert. Aus diesem Grund wird diese PHP-Version nicht für den Betrieb von phpMyAdmin empfohlen.';
 $strPhp = 'PHP-Code erzeugen';
 $strPHPVersion = 'PHP-Version';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentation';

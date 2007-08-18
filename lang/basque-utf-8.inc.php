@@ -359,7 +359,6 @@ $strPerHour = 'orduko';
 $strPerMinute = 'minutuko';
 $strPerSecond = 'segunduko';
 $strPhoneBook = 'Telefono-agenda';
-$strPHP40203 = 'PHP 4.2.3 erabiltzen ari zara, zeinek multi-byte kateekin (mbstring) arazo handia duena. Ikus PHP-ren 19404 errore-txostena. PHPren bertsio hau ez dago gomendatuta phpMyAdmin-arekin batera erabiltzeko.';
 $strPhp = 'PHP kodea sortu';
 $strPHPVersion = 'PHP Bertsioa';
 $strPmaDocumentation = 'phpMyAdmin dokumentazioa';

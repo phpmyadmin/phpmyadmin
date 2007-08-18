@@ -372,7 +372,6 @@ $strPerHour = 'لكل ساعة';
 $strPerMinute = 'لكل دقيقة';
 $strPerSecond = 'لكل ثانية';
 $strPhoneBook = 'دفتر الهاتف';
-$strPHP40203 = 'أنت تستخدم الإصدار 4.2.3 من PHP والذي يحتوي على خلّل خطير في التعامل مع النصوص ثنائية البايت (mbstring). أنظر في تقرير خلل PHP رقم 19404. لا ينصح باستخدام هذه النسخة من PHP مع phpMyAdmin.';
 $strPHPVersion = ' PHP إصدارة';
 $strPhp = 'أنشئ شيفرة PHP';
 $strPmaDocumentation = 'مستندات وثائقيه لـ phpMyAdmin (بالإنجليزية)';

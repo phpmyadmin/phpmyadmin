@@ -462,7 +462,6 @@ $strPerMinute = 'минутад';
 $strPerSecond = 'секундэд';
 $strPersian = 'Перс';
 $strPhoneBook = 'Утасны лавлах';
-$strPHP40203 = 'Та PHP 4.2.3 хувилбарыг ашиглаж байна, энэ нь олон-байттай тэмдэгт мөр (mbstring) дээр томоохон нүхтэй юм. PHP нүхний 19404 тайланг харна уу. PHP-ийн энэ хувилбар дээр phpMyAdmin-г ашиглахгүй байхыг зөвлөх байна .';
 $strPhp = 'PHP-код үүсгэх';
 $strPHPVersion = 'PHP хувилбар';
 $strPmaDocumentation = 'phpMyAdmin баримтжилт';

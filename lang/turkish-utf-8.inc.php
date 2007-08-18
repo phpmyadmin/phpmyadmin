@@ -567,7 +567,6 @@ $strPerMinute = 'dakika başına';
 $strPerSecond = 'saniye başına';
 $strPersian = 'Farsça';
 $strPhoneBook = 'telefon defteri';
-$strPHP40203 = 'Ciddi bir çoklu-bayt karakter dizgisi (mbstring) hatasına sahip olan PHP 4.2.3 kullanıyorsunuz. PHP hata raporu 19404\' e bakınız. PHP\'nin bu sürümünün phpMyAdmin\'le kullanılması önerilmez.';
 $strPhp = 'PHP Kodu oluştur';
 $strPHPVersion = 'PHP Sürümü';
 $strPleaseSelectPrimaryOrUniqueKey = 'Lütfen birincil anaktarı veya benzersiz anahtarı seçin';

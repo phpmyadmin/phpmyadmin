@@ -266,7 +266,6 @@ $strPdfDbSchema = 'Skema bagi pangkalan data "%s" database - Laman %s';
 $strPdfInvalidTblName = 'Jadual "%s" tidak wujud!';
 $strPdfNoTables = 'Tiada Jadual';
 $strPerHour = 'per jam';
-$strPHP40203 = 'Anda Menggunakan PHP 4.2.3, dimana terdapat pepijat serius didalam multi-byte strings (mbstring). Lihat Laporan Pepijat PHP 19404. PHP versi ini adalah tidak digalakkan dalam menggunakan phpMyAdmin.';
 $strPhp = 'Cipta Kod PHP';
 $strPHPVersion = 'Versi PHP';
 $strPmaDocumentation = 'Dokumentasi phpMyAdmin';

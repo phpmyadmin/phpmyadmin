@@ -450,7 +450,6 @@ $strPerMinute = 'percenként';
 $strPerSecond = 'másodpercenként';
 $strPersian = 'Perzsa';
 $strPhoneBook = 'telefonkönyv';  
-$strPHP40203 = 'A PHP 4.2.3-as verziója fut, ami egy súlyos hibát tartalmaz a több-bájtos sztringek kezelésénél (mbstring). Nézze meg a következ&#337;t: PHP bug report 19404. A PHP ezen verzója nem ajánlott a phpMyAdminhoz.';  
 $strPhp = 'PHP kód készítése';
 $strPHPVersion = 'PHP Verzió';
 $strPmaDocumentation = 'phpMyAdmin dokumentáció';

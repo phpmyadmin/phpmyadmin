@@ -549,7 +549,6 @@ $strPerMinute = 'minutis';
 $strPerSecond = 'sekundis';
 $strPersian = 'Pärsia';
 $strPhoneBook = 'telefoniraamat';
-$strPHP40203 = 'Te kasutate PHP 4.2.3, milles on tõsine viga mitmebaidiste tekstidega (mbstring). Vaadake PHP vearaportit 19404. Seda PHP versiooni ei soovitata kasutada phpMyAdminiga.';
 $strPhp = 'Loo PHP kood';
 $strPHPVersion = 'PHP versioon';
 $strPleaseSelectPrimaryOrUniqueKey = 'Palun vali primaarne või unkaalne võti'; 

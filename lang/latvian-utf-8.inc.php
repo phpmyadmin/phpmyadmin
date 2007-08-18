@@ -408,7 +408,6 @@ $strPerMinute = 'minūtē';
 $strPerSecond = 'sekundē';
 $strPersian = 'Persiešu';
 $strPhoneBook = 'telefonu grāmata';
-$strPHP40203 = 'Jūs lietojat PHP versiju 4.2.3, kurai ir nopietna kļūda daudzbaitu rindiņu funkcijās (mbstring). Skatīt PHP bug report 19404. Sī PHP versija nav rekomendējama lietošanai ar phpMyAdmin.';
 $strPhp = 'Izveidot PHP kodu';
 $strPHPVersion = 'PHP Versija';
 $strPmaDocumentation = 'phpMyAdmin dokumentācija';
