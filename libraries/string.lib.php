@@ -13,7 +13,6 @@
  * The SQL Parser code relies heavily on these functions.
  *
  * @version $Id$
- * @uses    PMA_PHP_INT_VERSION
  * @uses    PMA_dl()
  * @uses    extension_loaded()
  * @uses    substr()
@@ -23,12 +22,10 @@
  * @todo a .lib filename should not have code in main(), split or rename file
  */
 
-/* Try to load mbstring, unless we're using buggy php version */
-if (PMA_PHP_INT_VERSION != 40203) {
+/* Try to load mbstring */
     if (!@extension_loaded('mbstring')) {
         PMA_dl('mbstring');
     }
-}
 
 /**
  * windows-* and tis-620 are not supported and are not multibyte,

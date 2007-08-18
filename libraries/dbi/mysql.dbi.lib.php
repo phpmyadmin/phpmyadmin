@@ -57,12 +57,10 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
 
     $client_flags = 0;
 
-    if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
-        // always use CLIENT_LOCAL_FILES as defined in mysql_com.h
-        // for the case where the client library was not compiled
-        // with --enable-local-infile
-        $client_flags |= 128;
-    }
+    // always use CLIENT_LOCAL_FILES as defined in mysql_com.h
+    // for the case where the client library was not compiled
+    // with --enable-local-infile
+    $client_flags |= 128;
 
     /* Optionally compress connection */
     if (defined('MYSQL_CLIENT_COMPRESS') && $cfg['Server']['compress']) {

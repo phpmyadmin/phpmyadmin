@@ -455,21 +455,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  */
 
                 // Nijel: Fast skip is especially needed for huge BLOB data, requires PHP at least 4.3.0:
-                if (PMA_PHP_INT_VERSION >= 40300) {
-                    if ($is_hex_digit) {
-                        $count2++;
-                        $pos = strspn($sql, '0123456789abcdefABCDEF', $count2);
-                        if ($pos > $count2) {
-                            $count2 = $pos;
-                        }
-                        unset($pos);
-                    } elseif ($is_digit) {
-                        $pos = strspn($sql, '0123456789', $count2);
-                        if ($pos > $count2) {
-                            $count2 = $pos;
-                        }
-                        unset($pos);
+                if ($is_hex_digit) {
+                    $count2++;
+                    $pos = strspn($sql, '0123456789abcdefABCDEF', $count2);
+                    if ($pos > $count2) {
+                        $count2 = $pos;
                     }
+                    unset($pos);
+                } elseif ($is_digit) {
+                    $pos = strspn($sql, '0123456789', $count2);
+                    if ($pos > $count2) {
+                        $count2 = $pos;
+                    }
+                    unset($pos);
                 }
 
                 while (($count2 < $len) && PMA_STR_isSqlIdentifier(PMA_substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
