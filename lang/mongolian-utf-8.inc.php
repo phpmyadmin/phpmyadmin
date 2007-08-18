@@ -96,7 +96,6 @@ $strBufferWriteWaitsInPercent = 'Бичихээр хүлээгдэх нь %';
 $strBufferWriteWaits = 'Бичихээр хүлээх';  
 $strBulgarian = 'Болгар';
 $strBusyPages = 'Завгүй хуудсууд';  
-$strBzError = 'phpMyAdmin нь шахаж чадсангүй, учир нь уг PHP хувилбарын Bz2 extension гэмтсэн байна. phpMyAdmin-ы тохиргооны файл дахь <code>$cfg[\'BZipDump\']</code> -ыг <code>FALSE</code> болго. Хэрэв та үүнийг ашигламаар байвал PHP-ийн сүүлийн хувилбарыг татаж үзээрэй. PHP bug report %s-аас дэлгэрэнгүй хар.';
 $strBzip = 'bzip-ээр шахагдсан';
 
 $strCalendar = 'Цагалбар';

@@ -92,7 +92,6 @@ $strBufferPoolUsage = 'Puffer kihasználtsága';
 $strBufferReadMisses = 'Olvasási hibák';
 $strBufferWriteWaits = 'Írási várakozások';
 $strBulgarian = 'Bolgár';  
-$strBzError = 'A phpMyAdmin nem tudta betömöríteni a dump-ot, mert nem megfelel&#337; a Bz2 kiterjesztés ebben a php verzióban. Er&#337;sen ajánlott a <code>$cfg[\'BZipDump\']</code> paramétert a phpMyAdmin konfigurációs fájlban <code>FALSE</code> értékre beállítani. Ha a Bz2 tömörítési eljárást használni szeretné, frissítse a php-t! Tekintse meg a %s php bug report-ot a részletekért.'; 
 $strBzip = '"bzip-pel tömörítve"';
 
 $strCalendar = 'Naptár';  

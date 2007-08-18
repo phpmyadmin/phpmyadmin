@@ -85,7 +85,6 @@ $strBookmarkView = 'Tikai apskatît';
 $strBrowse = 'Apskatît';
 $strBrowseForeignValues = 'Pârlûkot ârçjâs vçrtîbas';
 $strBulgarian = 'Bulgâru';
-$strBzError = 'phpMyAdmin nevarçja saarhivçt failu dçï bojâta Bz2 paplaðinâjuma ðajâ php versijâ. Stingri rekomendçjam uzstâdît <code>$cfg[\'BZipDump\']</code> direktîvu phpMyAdmin konfigurâcijas failâ uz <code>FALSE</code>. Ja vçlaties lietot Bz2 kompresijas iespçjas, Jums jâuzliek jaunâka php versija. Skatît php bug report %s sîkâkai informâcijai.';
 $strBzip = 'Arhivçts ar bzip';
 
 $strCalendar = 'Kalendârs';

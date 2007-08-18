@@ -86,7 +86,6 @@ $strBookmarkView = 'Alleen bekijken';
 $strBrowseForeignValues = 'Bekijk vreemde waardes';
 $strBrowse = 'Verkennen';
 $strBulgarian = 'Bulgaars';
-$strBzError = 'phpMyAdmin is er niet in geslaagd om de dump te comprimeren doordat de Bz2 extensie in deze php versie niet functioneert. Het wordt sterk aangeraden om de instelling <code>$cfg[\'BZipDump\']</code> in uw phpMyAdmin configuratie bestand op <code>FALSE</code> te zetten. Als u Bz2 compressie wilt gebruiken zult u moeten upgraden naar een latere php versie. Zie php bug report %s voor meer informatie.';
 $strBzip = '"ge-bzipt"';
 
 $strCalendar = 'Kalender';

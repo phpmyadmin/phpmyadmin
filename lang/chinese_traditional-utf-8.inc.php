@@ -103,7 +103,6 @@ $strBufferWriteWaits = '寫入等候';
 $strBufferWriteWaitsInPercent = '寫入等候 %';
 $strBulgarian = '保加利亞語';
 $strBusyPages = '繁忙頁';
-$strBzError = 'phpMyAdmin 無法壓縮因於這個 php 版本的 Bz2 模組錯誤. 強列要求於 phpMyAdmin 設定檔設定 <code>$cfg[\'BZipDump\']</code> 為<code>FALSE</code>. 如果想使用 Bz2 壓縮功能,請更新 php 到最新版本. 詳情請參看 php 錯誤報報 %s .';
 $strBzip = '"bzipped"';
 
 $strCalendar = '日曆';

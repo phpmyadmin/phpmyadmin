@@ -77,7 +77,6 @@ $strBookmarkView = 'зяж щчь';
 $strBrowse = 'есйзягж';
 $strBrowseForeignValues = 'гсйзяж гАчМЦ гАшяМхи';
 $strBulgarian = 'гАхАшгяМи';
-$strBzError = 'АЦ Мсйьз phpMyAdmin жшь ъЦЬ гАхМгДгй хсхх зьА щМ гЦйого Bz2 щМ еуогя PHP. МУщжЬА цД йшМЬя чМЦи йФлМЕ <code>$cfg[\'BZipDump\']</code> щМ ЦАщ езогогй phpMyAdmin еАЛ <code>FALSE</code>. еД ъДй йяМо гсйногЦ ЦргМг жшь Bz2║ зАМъ хгАймоМк еАЛ еуогя лоМо ЦД PHP. АЦрМо ЦД гАйщгуМА║ цДыя щМ йчяМя нАА PHP %s.';
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'Аг МЦъД гАонФА еАЛ нгоЦ MySQL';

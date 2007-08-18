@@ -96,7 +96,6 @@ $strBufferWriteWaits = 'Чекања на упис';
 $strBufferWriteWaitsInPercent = 'Чекања на упис у %';
 $strBulgarian = 'Бугарски';
 $strBusyPages = 'Заузете стране';
-$strBzError = 'phpMyAdmin није могао да компресује садржај базе због неисправне BZ2 екстензије у овој верзији PHP-а. Препоручује се да подесите <code>$cfg[\'BZipDump\']</code> директиву у вашoj phpMyAdmin конфигурационоj датотеци на <code>FALSE</code>. Ако желите да користите могућности BZ2 компресије, требало би да пређете на новију верзију PHP-а. Видите PHP извештај о грешкама %s за детаље.';
 $strBzip = '"бзип-овано"';
 
 $strCalendar = 'Календар';

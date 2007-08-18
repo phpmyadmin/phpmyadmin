@@ -107,7 +107,6 @@ $strBufferWriteWaitsInPercent = 'Kirjoitusviipeet: %';
 $strBufferWriteWaits = 'Viive ennen kirjoitusta';
 $strBulgarian = 'Bulgarialainen';
 $strBusyPages = "Käytössä olevat sivut";
-$strBzError = 'phpMyAdmin ei voinut pakata vedosta johtuen rikkinäisestä Bz2-laajennuksesta tässä php:n versiossa. On suositeltavaa asettaa <code>$cfg[\'BZipDump\']</code>-direktiivi phpMyAdminin konfigurointitiedostosta arvoksi <code>FALSE</code>. Jos haluat käyttää Bz2-pakkauksen toimintoja, sinun pitää päivittää uusimpaan php:n versioon. Katso lisätietoja php bug reportista: %s .';
 $strBzip = '"bzip-pakkaus"';
 
 $strCalendar = 'Kalenteri';

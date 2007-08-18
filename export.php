@@ -590,11 +590,6 @@ if (!empty($asfile)) {
     elseif ($compression == 'bzip') {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
-            if ($dump_buffer === -8) {
-                require_once './libraries/header.inc.php';
-                echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
-                require_once './libraries/footer.inc.php';
-            }
         }
     }
     // 3. as a gzipped file

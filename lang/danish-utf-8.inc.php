@@ -104,7 +104,6 @@ $strBufferWriteWaitsInPercent = 'Write waits i %';
 $strBufferWriteWaits = 'Write waits';
 $strBulgarian = 'Bulgarsk';
 $strBusyPages = 'Travle sider';
-$strBzError = 'phpMyAdmin kunne ikke komprimere dumpet på grund af en ødelagt Bz2 extension i denne PHP-version. Det anbefales kraftigt at sætte <code>$cfg[\'BZipDump\']</code> direktivet i din phpMyAdmin konfigurationsfil til <code>FALSE</code>. Hvis du vil bruge Bz2 komprimeringsfeatures, bør du opdatere til en nyere PHP-version. Se PHP bug report %s for detaljer.';
 $strBzip = '"bzipped"';
 
 $strCalendar = 'Kalender';

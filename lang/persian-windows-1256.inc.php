@@ -393,7 +393,6 @@ $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBulgarian = 'Bulgarian'; //to translate
 $strBusyPages = 'Busy pages';  //to translate
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
 
 $strCalendar = 'Calendar';  //to translate
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate

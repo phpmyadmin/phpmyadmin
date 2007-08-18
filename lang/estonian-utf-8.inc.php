@@ -105,7 +105,6 @@ $strBufferWriteWaitsInPercent = 'Kirjutamine ootab %';
 $strBufferWriteWaits = 'Kirjutamine ootab';
 $strBulgarian = 'Bulgaaria';
 $strBusyPages = 'Hõivatud lehed';
-$strBzError = 'phpMyAdmin ei suutnud pakkida seda andmebaasiväljundit kuna Bz2 moodul on vigane selles PHP versioonis. Me soovitame tungivalt oma phpMyAdmini konfiguratsioonifailis panna lipu <code>$cfg[\'BZipDump\']</code> väärtuseks <code>FALSE</code>. Kui te soovite kasutada Bz2 pakkimist peaksite te oma PHP versiooni uuendama viimasele versioonile. Lugege PHP vea %s raportit täpsemaks infoks.';
 $strBzip = '"bzipitud"';
 
 $strCalendar = 'Kalender';

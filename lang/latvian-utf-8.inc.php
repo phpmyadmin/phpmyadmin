@@ -86,7 +86,6 @@ $strBookmarkView = 'Tikai apskatīt';
 $strBrowse = 'Apskatīt';
 $strBrowseForeignValues = 'Pārlūkot ārējās vērtības';
 $strBulgarian = 'Bulgāru';
-$strBzError = 'phpMyAdmin nevarēja saarhivēt failu dēļ bojāta Bz2 paplašinājuma šajā php versijā. Stingri rekomendējam uzstādīt <code>$cfg[\'BZipDump\']</code> direktīvu phpMyAdmin konfigurācijas failā uz <code>FALSE</code>. Ja vēlaties lietot Bz2 kompresijas iespējas, Jums jāuzliek jaunāka php versija. Skatīt php bug report %s sīkākai informācijai.';
 $strBzip = 'Arhivēts ar bzip';
 
 $strCalendar = 'Kalendārs';

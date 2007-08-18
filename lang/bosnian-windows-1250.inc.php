@@ -73,7 +73,6 @@ $strBookmarkView = 'Vidi samo';
 $strBrowseForeignValues = 'Pregledaj strane vrijednosti';
 $strBrowse = 'Pregled';
 $strBulgarian = 'Bugarski';
-$strBzError = 'phpMyAdmin nije mogao da kompresuje sadržaj baze zbog neispravne BZ2 ekstenzije u ovoj verziji PHP-a. Preporuèuje se da podesite <code>$cfg[\'BZipDump\']</code> direktivu u vašem phpMyAdmin konfiguracionom fajlu na <code>FALSE</code>. Ako želite da koristite moguænosti BZ2 kompresije, trebalo bi da preðete na noviju verziju PHP-a. Vidite PHP izveštaj o greškama %s za detalje.';
 $strBzip = '"bzip-ovano"';
 
 $strCannotLogin = 'Ne mogu da se prijavim na MySQL server';

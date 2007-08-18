@@ -101,7 +101,6 @@ $strBufferWriteWaits = 'Skriveforsinkelser';
 $strBufferWriteWaitsInPercent = 'Skriveforsinkelser i %';
 $strBulgarian = 'bulgarsk';
 $strBusyPages = 'Opptatte sider';
-$strBzError = 'phpMyAdmin kunne ikke komprimere dumpede data fordi Bz2 tillegget til denne php versjonen er ødelagt. Vi anbefaler på det sterkeste at du setter <code>$cfg[\'BZipDump\']</code> direktivet i din phpMyAdmin konfigurasjonsfil til <code>FALSE</code>. Hvis du ønsker å bruke Bz2 komprimerings funksjonene, så bør du oppgradere til en nyere php versjon. Se php bug rapport %s for detaljer.';
 $strBzip = 'Komprimert (bz2)';
 
 $strCalendar = 'Kalender';

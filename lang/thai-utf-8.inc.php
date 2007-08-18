@@ -69,7 +69,6 @@ $strBookmarkThis = 'จดคำค้นนี้ไว้';
 $strBookmarkView = 'ดูอย่างเดียว';
 $strBrowse = 'เปิดดู';
 $strBulgarian = 'บัลเกเรีย';
-$strBzError = 'phpMyAdmin ไม่สามารถบีบอัดข้อมูล dump ได้ เนื่องจากส่วนขยาย Bz2 ใน php รุ่นนี้นั้นเสีย. ขอแนะนำเป็นอย่างยิ่งให้ตั้งไดเรกทีฟ <code>$cfg[\'BZipDump\']</code> ในไฟล์คอนฟิกของ phpMyAdmin เป็น <code>FALSE</code>. ถ้าคุณต้องการที่จะใช้ความสามารถของส่วนขยายการบีบอัด Bz2, คุณควรจะอัพเกรด php เป็นรุ่นถัดไป. รายละเอียดดูได้ที่ php bug report %s.';
 $strBzip = '"bzipped"';
 
 $strCalendar = 'ปฏิทิน';

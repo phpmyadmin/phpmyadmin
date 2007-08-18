@@ -76,7 +76,6 @@ $strBookmarkQuery = 'Tandabuku kueri-SQL';
 $strBookmarkThis = 'andabuku kueri-SQL ini';
 $strBookmarkView = 'Paparan sahaja';
 $strBrowse = 'Lungsur';
-$strBzError = 'phpMyAdmin tidak dapat memampatkan longgokan kerana terdapat masalah dalam sambungan Bz2 didalam php versi ini. Anda digalakkan untuk mengubah <code>$cfg[\'BZipDump\']</code> di fail konfigurasi phpMyAdmin kepada <code>FALSE</code>. Jika anda ingin menggunakan sambungan Bz2, anda digalakkan untuk meningkatkan versi php anda. Sila lihat laporan pepijat php %s untuk keterangan lanjut.';
 $strBzip = 'bzipped';
 
 $strCannotLogin = 'Tidak boleh log-masuk ke server MySQL';

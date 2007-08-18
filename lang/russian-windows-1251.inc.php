@@ -105,7 +105,6 @@ $strBufferWriteWaitsInPercent = 'Ожидание очистки, в %';
 $strBufferWriteWaits = 'Ожидание очистки';
 $strBulgarian = 'Болгарский';
 $strBusyPages = 'Занятых страниц';
-$strBzError = 'phpMyAdmin не может сжать дамп из-за проблем с раcширением Bz2 в текущей версии PHP. Строго рекомендуется установить переменной <code>$cfg[\'BZipDump\']</code> в вашем конфигурационном файле phpMyAdmin значение <code>FALSE</code>. Если вы хотите использовать сжатие Bz2, необходимо обновить PHP. Смотрите отчет об ошибках PHP %s для более подробной информации.';
 $strBzip = 'bzip';
 
 $strCalendar = 'Календарь';

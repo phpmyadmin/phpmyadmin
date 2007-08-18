@@ -91,7 +91,6 @@ $strBufferWriteWaitsInPercent = 'Penundaan penulisan dalam %';
 $strBufferWriteWaits = 'Penundaan penulisan';
 $strBulgarian = 'Bahasa Bulgaria';
 $strBusyPages = 'Halaman yang sibuk';
-$strBzError = 'phpMyAdmin gagal mengkompres Dump (Skema) disebabkan ekstensi Bz2 dalam versi PHP yang digunakan. Disarankan untuk merubah direktif <code>$cfg[\'BZipDump\']</code> dalam file konfigurasi phpMyAdmin Anda ke <code>FALSE</code>. Bila Anda ingin menggunakan fasilitas kompresi Bz2 disarankan untuk meng-upgrade versi PHP yang lebih tinggi. Perhatikan PHP Bug Report %s untuk informasi yang lebih detail.';
 $strBzip = '"Dikompress dengan BZip"';
 
 $strCalendar = 'Kalender';

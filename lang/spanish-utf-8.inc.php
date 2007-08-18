@@ -100,7 +100,6 @@ $strBufferWriteWaits = 'Escribir las esperas';
 $strBufferWriteWaitsInPercent = 'Escribir las esperas en %';
 $strBulgarian = 'Búlgaro';
 $strBusyPages = 'Páginas activas'; 
-$strBzError = 'Si desea usar las opciones de compresión Bz2, deberá actualizar su php a una versión más reciente. phpMyAdmin no fue capaz de comprimir el dump debido a que está dañada o inaccesible la extensión Bz2 en esta versión de php. Le recomendamos que cambie el parámetro <code>$cfg[\'BZipDump\']</code> en su archivo de configuración phpMyAdmin a <code>FALSE</code>. Lea el reporte de "bugs" de php %s para mayor información.';
 $strBzip = '"Comprimido con bzip"';
 
 $strCalendar = 'Calendario';

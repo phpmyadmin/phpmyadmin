@@ -103,7 +103,6 @@ $strBufferWriteWaitsInPercent = 'Skrivväntanden i %';
 $strBufferWriteWaits = 'Skrivväntanden';
 $strBulgarian = 'Bulgarisk';
 $strBusyPages = 'Upptagna sidor';
-$strBzError = 'phpMyAdmin kunde inte komprimera SQL-satserna på grund av ett trasigt Bz2-tillägg i denna PHP-version. Det rekommenderas starkt att sätta direktivet <code>$cfg[\'BZipDump\']</code> i din phpMyAdmin-konfigurationsfil till <code>FALSE</code>. Om du vill använda Bz2-komprimering, bör du uppgradera till en senare PHP-version. Se PHP:s buggrapport %s för detaljer.';
 $strBzip = '"bzippad"';
 
 $strCalendar = 'Kalender';

@@ -90,7 +90,6 @@ $strBookmarkView = '只查看';
 $strBrowse = '浏览';
 $strBrowseForeignValues = '浏览不相关的值';
 $strBulgarian = '保加利亚语';
-$strBzError = 'phpMyAdmin 无法压缩转存，原因是此版本 php 中的 Bz2 模块损坏。强制将 phpMyAdmin 配置文件中的 <code>$cfg[\'BZipDump\']</code> 设置为 <code>FALSE</code>。如果您想使用 Bz2 压缩功能，请更新 php 的版本。详情请参看 php 错误报告 %s。';
 $strBzip = 'bzip 压缩';
 
 $strCalendar = '日历';

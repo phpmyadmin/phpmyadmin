@@ -101,7 +101,6 @@ $strBufferWriteWaits = 'Čakaní na zápis';
 $strBufferWriteWaitsInPercent = 'Čakaní na zápis v %';
 $strBulgarian = 'Bulharsky';
 $strBusyPages = 'Spracovávaných stránok';
-$strBzError = 'nepodarilo sa skomprimovať výstup z dôvodu chybného rozšírenia pre kompresiu Bz2 v tejto verzii php. Doporučuje sa nastaviť <code>$cfg[\'BZipDump\']</code> v konfigurácii phpMyAdmin na <code>FALSE</code>. Ak si želáte používať kompresiu Bz2 mali by ste nainštalovať novšiu verziu php. Viac informácií získate z popisu chyby: %s.';
 $strBzip = '"bzipped"';
 
 $strCalendar = 'Kalendár';

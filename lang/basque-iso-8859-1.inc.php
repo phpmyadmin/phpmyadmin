@@ -68,7 +68,6 @@ $strBookmarkThis = 'Kontsulta hau gogokoetan gorde';
 $strBookmarkView = 'Soilik ikusi';
 $strBrowse = 'Arakatu';
 $strBulgarian = 'Bulgariera';
-$strBzError = 'phpMyAdmin-ek ezinezko izan du iraulketa trinkotzea php bertsio honen Bz2 luzapena hondatuta dagoelako. Zinez gomendatzen dizugu zure phpMyAdmin-en konfigurazio-fitxategian <code>$cfg[\'BZipDump\']</code> parametroa era honetan <code>FALSE</code> ezartzea.Bz2 trinkotzeko hobespenak erabili nahi badituzu, zure php-a bertsio berri batera gaurkotu beharko duzu. Detaileak ikusi nahi izanez gero begira erroreen txostena.';
 $strBzip = '"Bzip-ez trinkotua"';
 
 $strCannotLogin = 'Ezinezkoa MySql zerbitzarian saioa hastea';

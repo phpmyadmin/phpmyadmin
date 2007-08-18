@@ -105,7 +105,6 @@ $strBufferWriteWaitsInPercent = '書き込み待ち(％)';
 $strBufferWriteWaits = '書き込み待ち';
 $strBulgarian = 'ブルガリア語';
 $strBusyPages = 'ビジーなページ数'; // XXX
-$strBzError = 'このバージョンの PHP は Bz2 拡張が壊れているのでダンプを圧縮できません。phpMyAdmin の設定ファイルの <code>$cfg[\'BZipDump\']</code> を <code>FALSE</code>に設定することを強く推奨します。Bz2 圧縮機能を使いたい場合は PHP のバージョンを上げて下さい。PHP のバグレポート %s もご覧ください';
 $strBzip = '"bzip 形式"';
 
 $strCalendar = 'カレンダー';

@@ -103,7 +103,6 @@ $strBufferWriteWaits = 'Затрымак запісу';
 $strBufferWriteWaitsInPercent = 'Затрымак запісу ў %';
 $strBulgarian = 'Баўгарская';
 $strBusyPages = 'Занятых старонак';
-$strBzError = 'phpMyAdmin ня можа сьціснуць дамп з-за праблемаў з пашырэньнем Bz2 у гэтай вэрсіі PHP. Строга рэкамэндуецца вызначыць значэньне дырэктывы <code>$cfg[\'BZipDump\']</code> у вашым канфігурацыйным файле phpMyAdmin як <code>FALSE</code>. Калі вы жадаеце выкарыстоўваць Bz2-сьціск, вам неабходна абнавіць вэрсію PHP. Зьварніцеся да PHP bug report %s для больш падрабязнай інфармацыі.';
 $strBzip = 'сьціскаць у bzip';
 
 $strCalendar = 'Каляндар';

@@ -78,7 +78,6 @@ $strBookmarkView = 'عرض فقط';
 $strBrowseForeignValues = 'استعرض القيم الغريبة';
 $strBrowse = 'إستعراض';
 $strBulgarian = 'البلغارية';
-$strBzError = 'لم يستطع phpMyAdmin ضغط كمّ البيانات بسبب عطل في امتداد Bz2 في إصدار PHP. يُفضّل أن تغيّر قيمة توجيه <code>$cfg[\'BZipDump\']</code> في ملف إعدادات phpMyAdmin إلى <code>FALSE</code>. إن كنت تريد استخدام مزايا ضغط Bz2، عليك بالتحديث إلى إصدار جديد من PHP. لمزيد من التفاصيل، أنظر في تقرير خلل PHP %s.';
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'لا يمكن الدخول إلى خادم MySQL';

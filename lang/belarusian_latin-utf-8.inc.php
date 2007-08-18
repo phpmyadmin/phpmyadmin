@@ -103,7 +103,6 @@ $strBufferWriteWaitsInPercent = 'Zatrymak zapisu ŭ %';
 $strBufferWriteWaits = 'Zatrymak zapisu';
 $strBulgarian = 'Baŭharskaja';
 $strBusyPages = 'Zaniatych staronak';
-$strBzError = 'phpMyAdmin nia moža ścisnuć damp z-za prablemaŭ z pašyreńniem Bz2 u hetaj versii PHP. Stroha rekamendujecca vyznačyć značeńnie dyrektyvy <code>$cfg[\'BZipDump\']</code> u vašym kanfihuracyjnym fajle phpMyAdmin jak <code>FALSE</code>. Kali vy žadajecie vykarystoŭvać Bz2-ścisk, vam nieabchodna abnavić versiju PHP. Źvarniciesia da PHP bug report %s dla bolš padrabiaznaj infarmacyi.';
 $strBzip = 'ściskać u bzip';
 
 $strCalendar = 'Kalandar';

@@ -73,7 +73,6 @@ $strBookmarkView = 'Samo pogled';
 $strBrowseForeignValues = 'Prebrskaj tuje vrednosti';
 $strBrowse = 'Prebrskaj';
 $strBulgarian = 'Bolgarsko';
-$strBzError = 'phpMyAdmin ni uspel stisniti odloženih podatkov zaradi neuporabne konènice Bz2 v tej razlièici php. Zelo dobro bi bilo, da v konfiguracijski datoteki za phpMyAdmin spremenite ukaz <code>$cfg[\'BZipDump\']</code> v <code>FALSE</code>. Èe želite izvajati stiskanje s pomoèjo Bz2, boste morali posodobiti php v novejšo razlièico. Za podrobnosti si oglejte php poroèilo o napaki %s.';
 $strBzip = '"bzipano"';
 
 $strCalendar = 'Koledar';

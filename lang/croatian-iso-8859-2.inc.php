@@ -101,7 +101,6 @@ $strBufferWriteWaitsInPercent = 'Zapisivanje èeka pri %';
 $strBufferWriteWaits = 'Zapisivanje èeka';
 $strBulgarian = 'Bugarski';
 $strBusyPages = 'Zaposlene stranice';
-$strBzError = 'phpMyAdmin nije bio u moguænosti komprimirati izbacivanje zbog prekinutog Bz2 pro¹irenja u ovoj verziji PHP-a. Sna¾no se preporuèuje da postavite <code>$cfg[\'BZipDump\']</code> direktivu u va¹oj phpMyAdmin konfiguracijskoj datoteci na <code>FALSE</code>Ako ¾elite upotrebljavati kompresijsku osobinu Bz2, bit æe potrebna nadogradnja na noviju verziju PHP-a. Detalje pregledajte u izvje¹taju PHP nedostataka: %s.';
 $strBzip = '"bzipano"';
 
 $strCalendar = 'Kalendar';

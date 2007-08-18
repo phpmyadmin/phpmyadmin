@@ -98,7 +98,6 @@ $strBufferWriteWaits = 'Esperes d\'escriptura';
 $strBufferWriteWaitsInPercent = 'Esperes d\'escriptura en %';
 $strBulgarian = 'Búlgar';
 $strBusyPages = 'Pàgines ocupades';
-$strBzError = 'phpMyAdmin és incapaç de comprimir el bolcat degut a una extensió Bz2 incorrecta en aquesta versió de php. És molt recomenable posar a la directiva <code>$cfg[\'BZipDump\']</code> el valor <code>FALSE</code> a l\'arxiu de configuració de phpMyAdmin. Si vols utilitzar les facilitats de compresió Bz2, és necessari actualitzar el php a la darrera versió disponible. Es pot consultar el informe d\'errada %s de php per a més detalls.';
 $strBzip = '"comprimit amb bzip"';
 
 $strCalendar = 'Calendari';

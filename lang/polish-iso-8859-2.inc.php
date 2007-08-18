@@ -96,7 +96,6 @@ $strBufferWriteWaitsInPercent = 'Oczekiwania zapisu w %';
 $strBufferWriteWaits = 'Oczekiwania na zapis';
 $strBulgarian = 'Bu³garski';
 $strBusyPages = 'Strony u¿ywane';
-$strBzError = 'phpMyAdminowi nie uda³o siê skompresowaæ zrzutu z powodu zepsutego rozszerzenia Bz2 w tej wersji PHP. Jest bardzo zalecane by ustawiæ dyrektywê <code>$cfg[\'BZipDump\']</code> w pliku konfiguracyjnym phpMyAdmina na <code>FALSE</code>. Je¶li chcesz u¿yæ funkcji kompresji Bz2, PHP powinien zostaæ zaktualizowany do najnowszej wersji. Szczegó³y mo¿na zobaczyæ w raporcie na temat b³êdów PHP %s.';
 $strBzip = '".bz2"';
 
 $strCalendar = 'Kalendarz';

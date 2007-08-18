@@ -110,7 +110,6 @@ $strBufferWriteWaitsInPercent = 'Yazma beklemesi %';
 $strBufferWriteWaits = 'Yazma bekliyor';
 $strBulgarian = 'Bulgarca';
 $strBusyPages = 'Meşgul sayfalar';   
-$strBzError = 'phpMyAdmin, bu PHP sürümündeki bozuk bir Bz2 uzantısından dolayı dökümü sıkıştıramadı. phpMyAdmin dizinindeki yapılandırma dosyanızın içindeki <code>$cfg[\'BZipDump\']</code> yönergesini <code>FALSE</code> \'a ayarlamanız kesinlikle önerilir. Eğer Bz2 sıkıştırma özelliklerini kullanmak istiyorsanız, daha yeni PHP sürümüne güncelleme yapmalısınız. Ayrıntılar için PHP hata raporu %s\'e bakın.';
 $strBzip = '"bzip olarak"';
 
 $strCalendar = 'Takvim';

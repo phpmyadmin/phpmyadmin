@@ -109,7 +109,6 @@ $strBufferWriteWaitsInPercent = 'Yazma beklemesi %';
 $strBufferWriteWaits = 'Yazma bekliyor';
 $strBulgarian = 'Bulgarca';
 $strBusyPages = 'Meþgul sayfalar';   
-$strBzError = 'phpMyAdmin, bu PHP sürümündeki bozuk bir Bz2 uzantýsýndan dolayý dökümü sýkýþtýramadý. phpMyAdmin dizinindeki yapýlandýrma dosyanýzýn içindeki <code>$cfg[\'BZipDump\']</code> yönergesini <code>FALSE</code> \'a ayarlamanýz kesinlikle önerilir. Eðer Bz2 sýkýþtýrma özelliklerini kullanmak istiyorsanýz, daha yeni PHP sürümüne güncelleme yapmalýsýnýz. Ayrýntýlar için PHP hata raporu %s\'e bakýn.';
 $strBzip = '"bzip olarak"';
 
 $strCalendar = 'Takvim';

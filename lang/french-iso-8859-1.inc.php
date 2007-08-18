@@ -100,7 +100,6 @@ $strBufferWriteWaitsInPercent = 'Nombre d\'attentes d\'écriture en %';
 $strBufferWriteWaits = 'Nombre d\'attentes d\'écriture';
 $strBulgarian = 'bulgare';
 $strBusyPages = 'Pages occupées';
-$strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'une composante Bz2 défaillante dans cette version de PHP. Il est recommandé de donner à <code>$cfg[\'BZipDump\']</code> dans votre fichier de configuration phpMyAdmin la valeur <code>FALSE</code>. Si vous voulez utiliser la compression en mode Bz2, veuillez mettre à niveau votre version de PHP. Ce rapport d\'anomalies PHP donne les détails: %s.';
 $strBzip = '"bzippé"';
 
 $strCalendar = 'Calendrier';

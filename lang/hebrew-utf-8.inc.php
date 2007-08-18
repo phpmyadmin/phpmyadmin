@@ -84,7 +84,6 @@ $strBookmarkView = 'ראה רק';
 $strBrowse = 'עיון';
 $strBulgarian = 'בולגרית';
 $strBusyPages = 'עמודים עסוקים';
-$strBzError = 'phpMyAdmin נכשל בדחיסת הנתונים משום שתוספת Bz2 לא תקינה בגרסת PHP הנוכחית. זה מאוד רצוי כי תגדיר את הגדרת <code>$cfg[\'BZipDump\']</code> בקובץ הגדרות phpMyAdmin אל <code>FALSE</code>. אם אתה רוצה להשתמש בתכונות דחיסת Bz2, עליך לשדרג לגרסת PHP חדישה יותר. ראה דיווח שגיאות PHP %s לפרטים נוספים.';
 $strBzip = '"bzipped"';
 
 $strCalendar = 'לוח שנה';

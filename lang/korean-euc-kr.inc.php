@@ -53,7 +53,6 @@ $strBookmarkDeleted = '북마크를 제거했습니다.';
 $strBookmarkQuery = '북마크된 SQL 질의';
 $strBookmarkThis = '이 SQL 질의를 북마크함';
 $strBrowse = '보기';
-$strBzError = '이 php 버전의 Bz2 확장모듈이 깨졌기 때문에 phpMyAdmin이 덤프파일을 압축할 수 없습니다. 환경설정파일에서<code>$cfg[\'BZipDump\']</code>를 <code>FALSE</code>로 설정하십시오. 만약 Bz2 압축을 사용하고자 한다면, php버전을 업그레이드해야 합니다. 자세한 내용은 php 버그 리포트 %s 를 보십시오.';
 $strBzip = '"bz 압축"';
 
 $strCannotLogin = 'MySQL 서버에 로그인할 수 없습니다';

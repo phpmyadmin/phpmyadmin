@@ -84,7 +84,6 @@ $strBrowse = 'Peržiūrėti';
 $strBufferPool = 'Buferio Pool\'as';
 $strBufferPoolUsage = 'Buferio Pool\'o naudojimas';
 $strBulgarian = 'Bulgarų';
-$strBzError = 'phpMyAdmin negalėjo suspausti lentelės struktūros atvaizdą (dump), nes šioje php versijoje neveikia Bz2 modulis. Rekomenduojame phpMyAdmin konfigūracinėje byloje <code>$cfg[\'BZipDump\']</code> direktyvą prilyginti <code>FALSE</code>. Atnaujinkite savo php versiją, jeigu norite naudotis Bz2 moduliu. Detalesnė informacija: %s.';
 $strBzip = '"bzip"';
 
 $strCalendar = 'Kalendorius';
