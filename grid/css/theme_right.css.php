@@ -1,423 +1,1211 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * main css file from theme
- * theme_right.css.php 2007-05-11
+ * main css file from theme Grid
+ * theme_right.css.php
  *
  * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Grid
  */
 
-// unplanned execution path
-if(!defined('PMA_MINIMUM_COMMON')) exit();
+define('_MainGridVersion', 'main Grid-2.11 070826');
 
-$GridImgPath  = version_compare(PMA_VERSION,'2.11','lt') ? '../' : '';
-$GridImgPath .= $_SESSION['PMA_Theme']->getImgPath();
-
-if(version_compare(PMA_VERSION,'2.9','lt')) {
-	//needed for pma2.8 only (if E_NOTICE=1 , but no effect) :
-	$GLOBALS['cfg']['BgcolorOne'] = '#f7f7f7';
-	$GLOBALS['cfg']['BgcolorTwo'] = '#fff';
-	echo 'html,
-table{font-size:', $GLOBALS['cfg']['FontSize'],'}
-td,
-th{color:', $GLOBALS['cfg']['MainColor'], '}';
+if (!defined('PMA_MINIMUM_COMMON')) {
+    die('/* ' . _MainGridVersion . ' unplanned execution path */');
 }
 
-$listImgUrl = 'list-style-image:url("' . $GridImgPath; //.....xxx.png")
-echo'/*grid-2.10b*/
-body{padding:0;margin:.4em;color:', $GLOBALS['cfg']['MainColor'],';background:', $GLOBALS['cfg']['MainBackgroundColor'];
-if ( 'MOZILLA' != PMA_USR_BROWSER_AGENT ) echo ' url("', $GridImgPath, 'vertical_line.png") repeat-y';
-// http://www.w3.org/TR/CSS21/syndata.html (double) quotes around url ok (just incase someone has spaces in his path)
-if(!empty($GLOBALS['cfg']['FontFamily'])) echo ';font-family:', $GLOBALS['cfg']['FontFamily'];
-echo '}
-';
-
-if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) echo 'textarea,
-tt,
-pre,
-code{font-family:', $GLOBALS['cfg']['FontFamilyFixed'], '}
-';
-?>
-input{padding:0 .2em 0 .2em;font-size:100%}
-h1{font-size:140%;font-weight:bold;margin:0 .8em 0 .8em}
-h2{font-size:120%;font-weight:bold}
-h3{font-weight:bold}
-a{padding:1px 2px 1px 2px}
-a:link,
-a:visited,
-a:active{text-decoration:none;color:<?php echo $GLOBALS['cfg']['MainLinkColor']; ?>}
-a:hover{text-decoration:underline;color:<?php echo $GLOBALS['cfg']['MainLinkColor']; ?>;background:<?php
- echo $GLOBALS['cfg']['MainLinkBackground']; ?>}
-dfn{font-style:normal}
-dfn:hover{font-style:normal;cursor:help}
-th{font-weight:bold;color:<?php echo $GLOBALS['cfg']['ThColor']; ?>;background:<?php
- echo $GLOBALS['cfg']['ThBackground']; ?>}
-a img{border:0}
-hr{color:<?php echo $GLOBALS['cfg']['MainColor']; ?>;background:<?php
- echo $GLOBALS['cfg']['MainColor']; ?>;border:0;height:1px}
-form{padding:0;margin:1px;display:inline}
-textarea{overflow:visible;height:<?php echo ceil($GLOBALS['cfg']['TextareaRows']*1.2); //thx Mario Rohkrämer (ligh1l) Gag_H ?>em}
-fieldset{margin:1em 0 1px 1px;border:<?php
- echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;padding:.5em;background:<?php echo $GLOBALS['cfg']['BgOne']; ?>}
-fieldset fieldset{margin:.8em}
-fieldset legend{padding:0 .2em 0 .2em;background:<?php echo $GLOBALS['cfg']['BgTwo']; //#ffffdd transparent
-
-/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
-?>}
-button{display:inline}
-table{margin:1px;border-collapse:collapse}
-table caption,
-table th,
-table td{padding:0 .2em 0 .2em;vertical-align:top;<?php if ($GLOBALS['cfg']['Border']){
-echo 'border:', $GLOBALS['cfg']['Border'], ' solid ', $GLOBALS['cfg']['MainGridColor'];
-//effects also page navigation table :(
+if ('IE' == PMA_USR_BROWSER_AGENT) {
+    define('_NL', chr(13) . chr(10));
+} else {
+    define('_NL', chr(10));
 }
-?>}
-img,
-input,
-select,
-button{vertical-align:middle}
-<?php /* * * * classes * * * */ ?>
-fieldset.tblFooters{margin-top:0;margin-bottom:.5em;text-align:<?php echo $right; ?>;float:none;clear:both}
-fieldset .formelement{float:<?php echo $left; ?>;margin-<?php echo $right; ?>:.5em;/*IE*/white-space:nowrap}
-<?php /* revert for Gecko */ ?>
-fieldset div[class=formelement]{white-space:normal}
-button.mult_submit{border:none;background:transparent}
-<?php /* odd items 1,3,5,7,... */ ?>
-table tr.odd th,
-.odd{background:<?php echo $GLOBALS['cfg']['BgOne']; ?>}
-<?php /* even items 2,4,6,8,... */ ?>
-table tr.even th,
-.even{background:<?php echo $GLOBALS['cfg']['BgTwo']; ?>}
-<?php /* odd table rows 1,3,5,7,... */ ?>table tr.odd th,
-table tr.odd,
-table tr.even th,
-table tr.even{
-text-align:<?php echo $left; ?>}
-<?php
-if($GLOBALS['cfg']['BrowsePointerEnable']){
-/* hovered items */
-echo '
-.odd:hover,
-.even:hover,
-.hover{
-background:', $GLOBALS['cfg']['BrowsePointerBackground'], ';
-color:', $GLOBALS['cfg']['BrowsePointerColor'], '
-}
-';
-/* hovered table rows */
-echo '
-table tr.odd:hover th,
-table tr.even:hover th,
-table tr.hover th{
-background:', $GLOBALS['cfg']['BrowsePointerBackground'], ';color:', $GLOBALS['cfg']['BrowsePointerColor'], '}
-';
-}//endif BrowsePointerEnabled
 
-if($GLOBALS['cfg']['BrowseMarkerEnable']){
-/* marked table rows */
-echo '
-table tr.marked th,
-table tr.marked{background:', $GLOBALS['cfg']['BrowseMarkerBackground'], ';color:', $GLOBALS['cfg']['BrowseMarkerColor'], '}
-';
+if (empty($GLOBALS['cfg']['NiceCss'])) {
+    define('_S', '{');       //start
+    define('_M', ';');       //mid
+    define('_E', '}' . _NL); //end
+    define('_K', ',');         //komma
+    define('_T', '');         //tab #8
+    define('_D', '');
+} else {
+    define('_S', ' {' . _NL  . "\t");
+    define('_M', ';'  . _NL  . "\t");
+    define('_E', ';'  . _NL . '}' . _NL . _NL );
+    define('_K', ','  . _NL );
+    define('_T', "\t");
+    define('_D', "\t\t"); //double tab needed?
 }
+
+
+if (version_compare(PMA_VERSION,'2.9', 'lt')) {
+    //needed for pma2.8 only (if E_KOTICE=1 , but no effect) :
+    $GLOBALS['cfg']['BgcolorOne'] = '#f7f7f7';
+    $GLOBALS['cfg']['BgcolorTwo'] = '#fff';
+    echo
+    'html', _K,
+    'table',
+    _S, 'font-size:', _T, $GLOBALS['cfg']['FontSize'],
+    _E,
+
+    'td', _K,
+    'th',
+    _S, 'color:', _D, $GLOBALS['cfg']['MainColor'],
+    _E;
+}
+
+define('_imgPath',
+version_compare(PMA_VERSION,'2.11','lt')
+? '../' . $_SESSION['PMA_Theme']->getImgPath()
+:         $_SESSION['PMA_Theme']->getImgPath()
+);
+define('_listImgUrl', 'list-style-image:' . _T . 'url("' . _imgPath ); //.....xxx.png")
+
+// colors of several borders:
+define('_red',    '#e00');
+define('_silver', '#eee');
+
+echo _NL, '/* ', _MainGridVersion, ' */', _NL,
+'body',
+_S, 'padding:',    _T, 0,
+_M, 'margin:',     _D, '.4em',
+_M, 'color:',      _D, $GLOBALS['cfg']['MainColor'],
+_M, 'background:', _T, $GLOBALS['cfg']['MainBGC'];
+if ('MOZILLA' != PMA_USR_BROWSER_AGENT ) {
+    // oldstyle:
+    echo ' url("', _imgPath, 'vertical_line.png") repeat-y';
+    // http://www.w3.org/TR/CSS21/syndata.html (double) quotes around url ok
+    // (just incase someone has spaces in his path)
+}
+
+if (!empty($GLOBALS['cfg']['FontFamily'])) {
+    echo
+    _M, 'font-family:', _T, $GLOBALS['cfg']['FontFamily'];
+}
+echo _E; //end body
+
+if (!empty($GLOBALS['cfg']['FontFamilyFixed'])) {
+    echo
+    'textarea', _K,
+    'tt', _K,
+    'pre',
+    _S, 'font-family:', _T, $GLOBALS['cfg']['FontFamilyFixed'],
+    _E;
+}
+
+echo
+'input',
+_S, 'padding:',   _T, '0 .2em',
+//_M, 'font-size:', _T, '100%',
+_M, 'margin-bottom:',    _T, '.1em', //if sql window is narrow
+_E,
+
+'h1',
+_S, 'font-size:', _T, '140%', // on main only
+_M, 'margin:',    _D, '0 .8em 0 .8em',
+_E,
+
+'h2',
+_S, 'font-size:', _T, '120%',
+_E,
 
 /**
- * marks table rows/cells if the db field is in a where condition
- */
-?>
-tr.condition th,
-tr.condition td,
-td.condition,
-th.condition{border:1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>}
-table .value{text-align:<?php echo $right; ?>;white-space:normal}
-<?php /* IE? doesnt handles 'pre' right */ ?>
-table [class=value]{white-space:normal}
-<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])){ ?>
-.value{font-family:<?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>}
-<?php } ?>
-.value .attention{color:red;font-weight:bold}
-.value .allfine{color:green}
-img.lightbulb{cursor:pointer}
-.pdflayout{overflow:hidden;clip:inherit;background:#fff;display:none;border:1px solid #000;position:relative}
-.pdflayout_table{background:#D3DCE3;color:#000;overflow:hidden;clip:inherit;z-index:2;display:inline;
-visibility:inherit;cursor:move;position:absolute;font-size:80%;border:1px dashed #000}
-<?php /* MySQL Parser */ ?>
-.syntax{font-size:90%}
-.syntax_comment{padding-left:4pt;padding-right:4pt}
-.syntax_alpha_columnType{text-transform:uppercase}
-.syntax_alpha_columnAttrib{text-transform:uppercase}
-.syntax_alpha_reservedWord{text-transform:uppercase;font-weight:bold}
-.syntax_alpha_functionName{text-transform:uppercase}
-.syntax_quote{white-space:pre}
-<?php /*
-.syntax_quote_backtick{}
-leave some space between icons and text */ ?>
-.icon{vertical-align:middle;margin-right:.3em;margin-left:.3em}
-td .icon{margin:0}
-.selectallarrow{margin-<?php echo $right; ?>:.3em;margin-<?php echo $left; ?>:.6em}
-<?php /* message boxes:warning, error, confirmation */ ?>
-.notice{color:#000;background:#FFFFDD}
-h1.notice,
-div.notice{margin:.5em 0 .5em 0;border:1px solid #FFD700;<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
-background-image:url("<?php echo $GridImgPath; ?>s_notice.png");background-repeat:no-repeat;
-<?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:1em 50%;padding:1em 1em 1em 3.6em;<?php
-} else { ?>background-position:99% 50%;padding:1em 5% 1em 1em;<?php
-} ?>
-<?php } else { ?>padding:.5em;<?php } ?>}
-.notice h1{border-bottom:1px solid #FFD700;font-weight:bold;text-align:<?php echo $left; ?>;margin:0 0 .2em 0}
-.warning{color:#c00;background:#ffc}
-p.warning,
-h1.warning,
-div.warning{margin:.5em 0 .5em 0;border:1px solid #c00;
-<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
-background-image:url("<?php echo $GridImgPath; ?>s_warn.png");background-repeat:no-repeat;
-<?php  if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>background-position:1em 50%;padding:1em 1em 1em 3.6em;
-<?php } else{ ?>
-background-position:99% 50%;padding:1em 5% 1em 1em;
-<?php } ?>
-<?php } else{ ?>
-padding:.5em;
-<?php } ?>}
-.warning h1{border-bottom:1px solid #c00;font-weight:bold;text-align:<?php echo $left; ?>;margin:0 0 .2em 0}
-.error{background:#ffc;color:#f00}
-h1.error,
-div.error{margin:.5em 0 .5em 0;border:1px solid #f00;
-<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
-background-image:url("<?php echo $GridImgPath; ?>s_error.png");background-repeat:no-repeat;
-<?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>
-background-position:1em 50%;padding:1em 1em 1em 3.6em;
-<?php } else{ ?>
-background-position:99% 50%;padding:1em 5% 1em 1em;<?php
-} ?>
-<?php } else{ ?>
-padding:.5em;
-<?php } ?>}
-div.error h1{border-bottom:1px solid #f00;font-weight:bold;text-align:<?php echo $left; ?>;margin:0 0 .2em 0}
-.confirmation{background:#ffc}
-fieldset.confirmation{border:1px solid #f00}
-fieldset.confirmation legend{border-left:1px solid #f00;border-right:1px solid #f00;font-weight:bold;
-<?php if ( $GLOBALS['cfg']['ErrorIconic'] ){ ?>
-background-image:url("<?php echo $GridImgPath; ?>s_really.png");background-repeat:no-repeat;
-<?php if ( $GLOBALS['text_dir'] === 'ltr' ){ ?>
-background-position:.5em 50%;padding:.2em .2em .2em 2.5em;
-<?php } else{ ?>
-background-position:97% 50%;padding:.2em 2.5em .2em .2em;
-<?php } ?>
-<?php } /* end messageboxes */ ?>}
-.tblcomment{font-size:90%;font-weight:normal;color:#009}
-.tblHeaders{font-weight:bold;color:<?php echo $GLOBALS['cfg']['ThColor']; ?>;background:<?php
- echo $GLOBALS['cfg']['ThBackground']; ?>}
-.tblFooters{font-weight:normal;
-color:<?php echo $GLOBALS['cfg']['ThColor']; ?>;
-background:<?php echo $GLOBALS['cfg']['ThBackground']; ?>}
-.tblHeaders a:link,
-.tblHeaders a:active,
-.tblHeaders a:visited,
-.tblFooters a:link,
-.tblFooters a:active,
-.tblFooters a:visited{color:#00f}
-.tblHeaders a:hover,
-.tblFooters a:hover{color:#f00}
-.noPrivileges{color:#f00;font-weight:bold}
-.disabled,
-.disabled a:link,
-.disabled a:active,
-.disabled a:visited{color:#666}
-.disabled a:hover{color:#666;text-decoration:none}
-tr.disabled td,
-td.disabled{background:#cccccc}
-body.loginform h1,
-body.loginform a.logo{display:block;text-align:center}
-body.loginform{text-align:center}
-body.loginform div.container{text-align:<?php echo $left; ?>;width:30em;margin:0 auto}
-form.login label{float:<?php echo $left; ?>;width:10em;font-weight:bolder}
-<?php /* * specific elements * * * * * * * * * * * * * * * * * * * * * * * */ ?>
-ul#topmenu{font-weight:bold;list-style-type:none;margin:0;padding:0}
-ul#topmenu li{float:<?php echo $left;
-/* "dot problem"
-lem9: xp, ff1507
-C-Dev:
-Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.7.12) Gecko/20051218 Firefox/1.0.7
-thx to Ci-Dev on irc , workaround : (gecko flaw? should be inherited, ok in original)  */
-?>;list-style-type: none;margin:0;padding:0;vertical-align:middle}
-#topmenu img{vertical-align:middle;margin-<?php echo $right; ?>:1px}
-.tab,
-.tabcaution,
-.tabactive{display:block;margin:.2em .2em 0 .2em;padding:.2em .2em 0 .2em;white-space:nowrap}
-span.tab{color:#666}
-span.tabcaution{color:#f66}
-a.tabcaution{color:#f00}
-a.tabcaution:hover{color:#fff;background:#f00}
-<?php if ( $GLOBALS['cfg']['LightTabs'] ){ ?>
-a.tabactive{color:black}
-<?php } else{ ?>
-#topmenu{margin-top:.5em;padding:1px .3em 1px .3em}
-ul#topmenu li{border-bottom:1px/*pt*/ solid black}
-.tab, .tabcaution, .tabactive{background:<?php echo $GLOBALS['cfg']['BgOne']; ?>;border:1px solid <?php
-echo /* default tab styles */ $GLOBALS['cfg']['BgTwo']; ?>;border-bottom:0;<?php
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'Gecko') > 0){ /*FF..*/
-echo '-moz-border-radius-topleft:.6em;-moz-border-radius-topright:.6em';
+'h1', _K,
+'h2', _K,
+'h3'
+_S, 'font-weight:', _T, 'bold', // should be browser default anyway
+_E,
+**/
+
+'a', //        top/bot  left/right
+_S, 'padding:', _T, '0 .2em',
+_E,
+
+// Links:
+'a',
+_S, 'text-decoration:', _T, 'none',
+_M, 'color:',           _D, $GLOBALS['cfg']['MainLinkColor'],
+_M, 'padding:',         _T, '0 2px 1px 2px', //top l? bot r?
+
+_E,
+
+'a:hover',
+_S, 'text-decoration:', _T, 'underline',
+_M, 'color:',           _D, $GLOBALS['cfg']['MainLinkHoverColor'],
+_M, 'background:',      _T, $GLOBALS['cfg']['MainLinkHoverBGC'],
+_E,
+
+'a:active',
+_S, 'background:', _T, $GLOBALS['cfg']['MainActiveBGC'],
+_E,
+
+'a:focus',
+_S, 'background:', _T, $GLOBALS['cfg']['BrowsePointerBGC'],
+_E,
+
+
+'dfn',
+_S, 'font-style:', _T, 'normal',
+_E,
+
+'dfn:hover',
+_S, 'font-style:', _T, 'normal',
+_M, 'cursor:',     _T, 'help',
+_E,
+
+'th',
+_S, 'font-weight:', _T, 'bold',
+_M, 'color:',       _D, $GLOBALS['cfg']['ThColor'],
+_M, 'background:',  _T, $GLOBALS['cfg']['ThBGC'],
+_E,
+
+'a img',
+_S, 'border:', _D, 0,
+_E,
+
+'hr',
+_S, 'color:',      _D, $GLOBALS['cfg']['MainColor'],
+_M, 'background:', _T, $GLOBALS['cfg']['MainColor'], //sic!
+_M, 'border:',     _D, 0,
+_M, 'height:',     _T, '1px',
+_E,
+
+'form',
+_S, 'padding:', _T, 0,
+_M, 'margin:',  _D, '1px',
+_M, 'display:', _T, 'inline',
+_E,
+
+'textarea',
+_S, 'overflow:', _T, 'visible',
+_M, 'height:',   _T, ceil($GLOBALS['cfg']['TextareaRows']*1.2), 'em',
+//thx Mario Rohkrämer (ligh1l) Gag_H
+_E,
+
+'fieldset',
+_S, 'margin-top:', _T, '.7em', //for sql window
+_M, 'padding:',    _T, '.5em',
+_M, 'background:', _T, $GLOBALS['cfg']['FieldsetBGC'],
+_M, 'border:',     _D, '1px solid ', $GLOBALS['cfg']['BorderColor'],
+_E,
+
+'fieldset fieldset',
+_S, 'margin:', _D, '.8em',
+_E,
+
+'fieldset legend',
+_S, 'padding:',       _T, '.1em .3em';
+if ($GLOBALS['cfg']['LegendBorder']) {
+    echo
+    _M, 'border:', _D, '1px solid ', $GLOBALS['cfg']['BorderColor'],
+    _M, 'border-bottom:', _T, 0;
 }
-/** MSIE 6: http://blogs.msdn.com/ie/archive/2005/06/23/431980.aspx **/
-?>}
-a.tab:hover,
-a.tabcaution:hover,
-.tabactive,
-.tabactive:hover{margin:0;padding:.2em .4em .2em .4em;text-decoration:none}
-a.tab:hover,
-.tabactive{background:<?php echo $GLOBALS['cfg']['BgTwo'],'}
-';
-if ( 'OPERA' != PMA_USR_BROWSER_AGENT ) {
-echo 'span.tab,
-a.warning,
-span.tabcaution{cursor:url("', $GridImgPath, 'error.ico"), auto}
-';//default?
-}//end if not opera (js error)
-?>
-<?php } /* end topmenu */ ?>
-table.calendar{width:100%}
-table.calendar td{text-align:center}
-table.calendar td a{display:block}
-table.calendar td a:hover{background:#cfc}
-table.calendar th{background:#D3DCE3}
-table.calendar td.selected{background:#fc9}
-img.calendar{border:none}
-form.clock{text-align:center}
-div#tablestatistics{border-bottom:1px solid #699;margin-bottom:.5em;padding-bottom:.5em}
-div#tablestatistics table{float:<?php echo $left; ?>;margin-bottom:.5em;margin-<?php echo $right; ?>:.5em}
-div#tablestatistics table caption{margin-<?php echo $right; ?>:.5em}
-<?php /* END server privileges */ ?>
-#tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td{vertical-align:middle}
-<?php /* Heading */ ?>
-#serverinfo{font-weight:bold;margin-bottom:.5em}
-#serverinfo .item{white-space:nowrap}
-#span_table_comment{font-weight:normal;font-style:italic;white-space:nowrap}
-#serverinfo img{margin:0 1px 0 .2em}
-#textSQLDUMP{width:95%;
-height:95%;font-family:"Courier New", Courier, mono;
-font-size:110%}
-#TooltipContainer{position:absolute;z-index:99;width:20em;height:auto;overflow:visible;
- visibility:hidden;background:#ffc;color:#060;border:1px solid #000;padding:.5em}
-<?php
-/* user privileges */
-?>
-#fieldset_add_user_login div.item{border-bottom:1px solid silver;padding-bottom:.3em;margin-bottom:.3em}
-#fieldset_add_user_login label{float:<?php echo $left; ?>;display:block;width:10em;max-width:100%;text-align:<?php
- echo $right; ?>;padding-<?php echo $right; ?>:.5em}
-#fieldset_add_user_login span.options #select_pred_username,
-#fieldset_add_user_login span.options #select_pred_hostname,
-#fieldset_add_user_login span.options #select_pred_password{width:100%;max-width:100%}
-#fieldset_add_user_login span.options{float:<?php echo $left; ?>;display:block;width:12em;max-width:100%;padding-<?php
- echo $right; ?>:.5em}
-#fieldset_add_user_login input{width:12em;clear:<?php echo $right; ?>;max-width:100%}
-#fieldset_add_user_login span.options input{width:auto}
-#fieldset_user_priv div.item{float:<?php echo $left; ?>;width:9em;max-width:100%}
-#fieldset_user_priv div.item div.item{float:none}
-#fieldset_user_priv div.item label{white-space:nowrap}
-#fieldset_user_priv div.item select{width:100%}
-#fieldset_user_global_rights fieldset{float:<?php echo $left;
-/* END user privileges */
+echo
+_M, 'background:',    _T, $GLOBALS['cfg']['LegendBGC'],
+_M, 'color:',         _D, $GLOBALS['cfg']['LegendColor'],
+_M, 'margin-top:',    _T, '.3em',
+_M, 'font-weight:',   _T, 'bold',
+_E,
 
-/* serverstatus */
-?>}
-div#serverstatus table caption a.top{float:<?php echo $right; ?>}
-div#serverstatus div#serverstatusqueriesdetails table,
-div#serverstatus table#serverstatustraffic,
-div#serverstatus table#serverstatusconnections{float:<?php echo $left; ?>}
-#serverstatussection,
-.clearfloat{clear:both}
-div#serverstatussection table{width:100%;margin-bottom:1em}
-div#serverstatussection table .name{width:18em}
-div#serverstatussection table .value{width:6em}
-div#serverstatus table tbody td.descr a,
-div#serverstatus table .tblFooters a{white-space:nowrap}
-div#serverstatus div#statuslinks a:before,
-div#serverstatus div#sectionlinks a:before,
-div#serverstatus table tbody td.descr a:before,
-div#serverstatus table .tblFooters a:before{content:'['}
-div#serverstatus div#statuslinks a:after,
-div#serverstatus div#sectionlinks a:after,
-div#serverstatus table tbody td.descr a:after,
-div#serverstatus table .tblFooters a:after{content:']'}
-<?php /* end serverstatus */
+// buttons in some browsers (eg. Konqueror) are block elements, this breaks design:'
 
-/* querywindow  -image:none;??-color: */ ?>
-body#bodyquerywindow{margin:0;padding:0;background:<?php
-	echo $GLOBALS['cfg']['MainBackgroundColor']; ?>}
-div#querywindowcontainer{margin:0;padding:0;width:100%}
-div#querywindowcontainer fieldset{margin-top:0}
-<?php /* END querywindow */
+'button',
+_S, 'display:', _T, 'inline',
+_E,
 
-/* querybox */ ?>
-div#sqlquerycontainer{float:<?php echo $left; /* height:15em; */ ?>;width:69%}
-div#tablefieldscontainer{float:<?php echo $right; ?>;width:29%}
-div#tablefieldscontainer select{width:100%}<?php /* height:12em; */ ?>
-textarea#sqlquery{width:100%}<?php /* height:100%;??? */ ?>
-div#queryboxcontainer div#bookmarkoptions{margin-top:.5em}
-<?php /* end querybox */
+'table',
+_S, 'margin:', _D, '1px',
+_M, 'border-collapse:', _T, 'collapse',
+_E,
 
-/* main page */ ?>
-#maincontainer{background-image:url("<?php echo $GridImgPath; ?>logo_right.png");background-position:<?php
- echo $right; ?> bottom;background-repeat:no-repeat;border-bottom:1px solid silver}
-#mysqlmaininformation,
-#pmamaininformation{float:<?php echo $left; ?>;width:49%}
-#maincontainer ul{list-style-image:url("<?php echo $GridImgPath, 'item_', $GLOBALS['text_dir']; ?>.png");vertical-align:middle}
-#maincontainer li{margin-bottom:.3em;padding:0 .3em 0 .3em}
-<?php /* END main page */
-if ($GLOBALS['cfg']['MainPageIconic']){ /* iconic view for ul items */
-echo'li#li_create_database{',$listImgUrl,'b_newdb.png")}
-li#li_select_lang{',		 $listImgUrl,'s_lang.png")}
-li#li_select_mysql_collation,
-li#li_select_mysql_charset{',$listImgUrl,'s_asci.png")}
-li#li_select_theme{',		 $listImgUrl,'s_theme.png")}
-li#li_server_info{',		 $listImgUrl,'s_host.png")}
-li#li_mysql_status{',		 $listImgUrl,'s_status.png")}
-li#li_mysql_variables{',	 $listImgUrl,'s_vars.png")}
-li#li_mysql_processes{',	 $listImgUrl,'s_process.png")}
-li#li_mysql_collations{',	 $listImgUrl,'s_asci.png")}
-li#li_mysql_engines{',		 $listImgUrl,'b_engine.png")}
-li#li_mysql_binlogs{',		 $listImgUrl,'s_tbl.png")}
-li#li_mysql_databases{',	 $listImgUrl,'s_db.png")}
-li#li_export{',			     $listImgUrl,'b_export.png")}
-li#li_import{',			     $listImgUrl,'b_import.png")}
-li#li_change_password{',	 $listImgUrl,'s_passwd.png")}
-li#li_log_out{',			 $listImgUrl,'s_loggoff.png")}
-li#li_pma_docs{',			 $listImgUrl,'b_docs.png")}
-li#li_phpinfo{',			 $listImgUrl,'php_sym.png")}
-li#li_pma_homepage{',		 $listImgUrl,'b_home.png")}
-li#li_mysql_privilegs{',	 $listImgUrl,'s_rights.png")}
-li#li_switch_dbstats{',		 $listImgUrl,'b_dbstatistics.png")}
-li#li_flush_privileges{',	 $listImgUrl,'s_reload.png")}
-';
-/*
-li#li_user_info{
-',	$listImgUrl,'s_rights.png")
+'table caption', _K,
+'table th', _K,
+'table td',
+_S, 'padding:', _T, '0 .2em 0 .2em',
+//margin default
+_M, 'vertical-align:', _T, 'top';
+if ($GLOBALS['cfg']['Border']) {
+   echo _M, 'border:', _D, $GLOBALS['cfg']['Border'], ' solid ', $GLOBALS['cfg']['MainGridColor'];
 }
-*/
 
-}//END iconic view for ul items
+echo
+_E,
 
-/*  - end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
-#body_browse_foreigners{background:<?php echo $GLOBALS['cfg']['NaviBackground']; ?>;margin:.5em .5em 0 .5em}
-#bodyquerywindow{background:<?php echo $GLOBALS['cfg']['NaviBackground'], "}
-#bodythemes{width:50em;margin:auto;text-align:center}
-#bodythemes img{border:1px solid black}
-#bodythemes a:hover img{border:1px solid red}
-#fieldset_select_fields{float:$left}
-#selflink{clear:both;display:block;margin-top:1em;margin-bottom:1em;width:100%;border-top:1px solid silver;text-align:$right}
-#table_innodb_bufferpool_usage,
-#table_innodb_bufferpool_activity{float:$left}
-#div_mysql_charset_collations table{float:$left}
-#div_table_order{min-width:48%;float:$left}
-#div_table_rename{min-width:48%;float:$left}
-#div_table_copy{min-width:48%;float:$left}
-#div_table_options{clear:both;min-width:48%;float:$left}
-#qbe_div_table_list{float:$left}
-#qbe_div_sql_query{float:$left}
-label.desc{width:30em;float:$left}
-"; ?>
+'input', _K,
+'select', _K,
+'button', _K,
+// ^ ???
+'img',
+_S, 'vertical-align:', _T, 'middle',
+_E,
+
+
+// classes
+
+'fieldset.tblFooters',
+_S, 'border-top:',    _T, 0,
+_M, 'margin-top:',    _T, 0,
+_M, 'margin-bottom:', _T, '.5em',
+_M, 'text-align:',    _T, $right,
+_M, 'background:',    _T, $GLOBALS['cfg']['FieldsetFooterBGC'],
+_M, 'float:',         _D, 'none',
+_M, 'clear:',         _T, 'both',
+_E,
+
+'fieldset .formelement',
+_S, "margin-$right:", _T, '.5em',
+_M, 'white-space:',   _T, 'nowrap', //IE
+_E,
+// revert for Gecko
+'fieldset div[class=formelement]',
+_S, 'white-space:', _T, 'normal',
+_E,
+
+'button.mult_submit',
+_S, 'border:', _D, 'none',
+_M, 'background:', _T, 'transparent',
+_E,
+
+// odd items 1,3,5,7,...
+'table tr.odd th', _K,
+'.odd',
+_S, 'background:', _T, $GLOBALS['cfg']['BgOne'],
+_E,
+
+// even items 2,4,6,8,...
+'table tr.even th', _K,
+'.even',
+_S, 'background:', _T, $GLOBALS['cfg']['BgTwo'],
+_E,
+
+/**test
+'.value',
+_S, 'white-space:', _T, 'nowrap',
+_E,
+KiB no effect
+**/
+
+// odd table rows 1,3,5,7,...
+'table tr.odd th', _K,
+'table tr.odd', _K,
+'table tr.even th', _K,
+'table tr.even',
+_S, 'text-align:', _T, $left,
+_E;
+
+if ($GLOBALS['cfg']['BrowseMarkerEnable']) {
+// marked table rows
+    echo
+    'table tr.marked th', _K,
+    'table tr.marked',
+    _S, 'background:', _T, $GLOBALS['cfg']['BrowseMarkerBGC'],
+    _M, 'color:',      _D, $GLOBALS['cfg']['BrowseMarkerColor'],
+_E;
+}
+
+if ($GLOBALS['cfg']['BrowsePointerEnable']) {
+// hovered items
+    echo
+    '.odd:hover', _K,
+    '.even:hover', _K,
+    '.hover',
+    _S, 'background:', _T, $GLOBALS['cfg']['BrowsePointerBGC'],
+    _M, 'color:',      _D, $GLOBALS['cfg']['BrowsePointerColor'],
+    _E,
+
+// hovered table rows
+    'table tr.odd:hover th', _K,
+    'table tr.even:hover th', _K,
+    'table tr.hover th',
+    _S, 'background:', _T, $GLOBALS['cfg']['BrowsePointerBGC'],
+    _M, 'color:',      _D, $GLOBALS['cfg']['BrowsePointerColor'],
+    _E;
+} // endif BrowsePointerEnabled
+
+echo
+// marks table rows/cells if the db field is in a where condition
+'tr.condition th', _K,
+'tr.condition td', _K,
+'td.condition', _K,
+'th.condition',
+_S, 'border:', _D, '1px solid ', _T,             $GLOBALS['cfg']['BrowseMarkerBGC'],
+_E,
+
+'table .value',
+_S, 'text-align:', _T, $right,
+_M, 'white-space:', _T, 'normal',
+_E,
+
+// IE(?) doesn't handle 'pre' right:
+'table [class=value]',
+_S, 'white-space:', _T, 'normal',
+_E;
+
+if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) {
+    echo
+    '.value',
+    _S, 'font-family:', _T, $GLOBALS['cfg']['FontFamilyFixed'],
+    _E;
+}
+
+echo
+'.value .attention',
+_S, 'color:',       _D, _red,
+_M, 'font-weight:', _T, 'bold',
+_E,
+
+'.value .allfine',
+_S, 'color:',       _D, 'green',
+_E,
+
+'img.lightbulb',
+_S, 'cursor:', _T, 'pointer',
+_E,
+
+'.pdflayout',
+_S, 'overflow:', _T, 'hidden',
+_M, 'clip:', _T, 'inherit',
+_M, 'background:', _T, '#fff',
+_M, 'display:', _T, 'none',
+_M, 'border:', _D, '1px solid #000',
+_M, 'position:', _T, 'relative',
+_E,
+
+'.pdflayout_table',
+_S, 'background:', _T, '#D3DCE3',
+_M, 'color:', _D, '#000',
+_M, 'overflow:', _T, 'hidden',
+_M, 'clip:', _T, 'inherit',
+_M, 'z-index:', _T, '2',
+_M, 'display:', _T, 'inline',
+_M, 'visibility:', _T, 'inherit',
+_M, 'cursor:', _T, 'move',
+_M, 'position:', _T, 'absolute',
+_M, 'font-size:', _T, '80%',
+_M, 'border:', _D, '1px dashed #000',
+_E,
+
+// MySQL Parser:
+'.syntax',
+_S, 'font-size:', _T, '90%',
+_E,
+
+'.syntax_comment',
+_S, 'padding-left:', _T, '4pt',
+_M, 'padding-right:', _T, '4pt',
+_E,
+
+'.syntax_alpha_columnType', _K,
+'.syntax_alpha_columnAttrib', _K,
+'.syntax_alpha_functionName', _K,
+'.syntax_alpha_reservedWord',
+_S, 'text-transform:', _T, 'uppercase',
+_E,
+
+'.syntax_alpha_reservedWord',
+_S, 'font-weight:', _T, 'bold',
+_E,
+
+'.syntax_quote',
+_S, 'white-space:', _T, 'pre',
+_E,
+
+/**
+'.syntax_quote_backtick',
+_S, 'background:', _T, $GLOBALS['cfg']['BacktickBGC'],
+_M, 'padding-left:', _T, '2px',
+_M, 'padding-right:', _T, '2px',
+_E,
+**/
+
+//leave some space between icons and text
+'.icon',
+_S, 'vertical-align:', _T, 'middle',
+_M, 'margin-right:', _T, '.3em',
+_M, 'margin-left:', _T, '.3em',
+_E,
+
+'td .icon',
+_S, 'margin:', _D, 0,
+_E,
+
+'.selectallarrow',
+_S, "margin-$right:", _T, '.3em',
+_M, "margin-$left:",  _T, '.6em',
+_E,
+
+
+// message boxes: warning, error, confirmation
+'.notice',
+_S, 'color:', _D, '#000',
+_M, 'background:', _T, '#FFFFDD',
+_E,
+
+'h1.notice', _K,
+'div.notice',
+_S, 'margin:', _D, '.5em 0 .5em 0',
+_M, 'border:', _D, '1px solid #FFD700';
+if ($GLOBALS['cfg']['ErrorIconic']) {
+   echo
+   _M, 'background-image:', _T, 'url("', _imgPath, 's_notice.png")',
+   _M, 'background-repeat: no-repeat';
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        echo
+        _M, 'background-position:', _T, '1em 50%',
+        _M, 'padding:', _T, '1em 1em 1em 3.6em';
+    } else {
+        echo
+        _M, 'background-position:', _T, '99% 50%',
+        _M, 'padding:', _T, '1em 5% 1em 1em';
+    }
+} else {
+    echo
+    'padding:', _T, '.5em';
+}
+
+echo
+_E,
+
+'.notice h1',
+_S, 'border-bottom:', _T, '1px solid #FFD700',
+_M, 'font-weight:', _T, 'bold',
+_M, 'text-align:', _T, $left,
+_M, 'margin:', _D, '0 0 .2em 0',
+_E,
+
+'.warning',
+_S, 'color:', _D, '#c00',
+_M, 'background:', _T, '#ffc',
+_E,
+
+'p.warning', _K,
+'h1.warning', _K,
+'div.warning',
+_S, 'margin:', _D, '.5em 0 .5em 0',
+_M, 'border:', _D, '1px solid #c00';
+if ($GLOBALS['cfg']['ErrorIconic']) {
+    echo
+        _M, 'background-image:', _T, 'url("', _imgPath, 's_warn.png")',
+        _M, ' background-repeat:', _T, 'no-repeat';
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        echo
+        _M, 'background-position:', _T, '1em 50%',
+        _M, 'padding:', _T, '1em 1em 1em 3.6em';
+    } else {
+        echo
+        _M, 'background-position:', _T, '99% 50%',
+        _M, 'padding:', _T, '1em 5% 1em 1em';
+    }
+} else {
+    echo _M, 'padding:', _T, '.5em';
+}
+
+echo
+_E,
+
+'.warning h1',
+_S, 'border-bottom:', _T, '1px solid #c00',
+_M, 'font-weight:',   _T, 'bold',
+_M, 'text-align:',    _T, $left,
+_M, 'margin:',        _T, '0 0 .2em 0',
+_E,
+
+'.error',
+_S, 'background:', _T, '#ffc',
+_M, 'color:', _D, '#f00',
+_E,
+
+'h1.error,div.error',
+_S, 'margin:', _D, '.5em 0 .5em 0',
+_M, 'border:', _D, '1px solid #f00';
+
+if ($GLOBALS['cfg']['ErrorIconic']) {
+    echo
+    _M, 'background-image:', _T, 'url("', _imgPath, 's_error.png")',
+    _M, 'background-repeat:', _T, 'no-repeat';
+    if ($GLOBALS['text_dir'] === 'ltr') {
+       echo
+        _M, 'background-position:', _T, '1em 50%',
+        _M, 'padding:', _T, '1em 1em 1em 3.6em';
+    } else {
+        echo
+        _M, 'background-position:', _T, '99% 50%',
+        _M, 'padding:', _T, '1em 5% 1em 1em';
+   }
+} else {
+    echo
+        _M, 'padding:', _T, '.5em';
+}
+
+echo
+_E,
+
+'div.error h1',
+_S, 'border-bottom:', _T, '1px solid #f00',
+_M, 'font-weight:', _T, 'bold',
+_M, 'text-align:', _T, $left,
+_M, 'margin:', _D, '0 0 .2em 0',
+_E,
+
+'.confirmation',
+_S, 'background:', _T, '#ffc',
+_E,
+
+'fieldset.confirmation',
+_S, 'border:', _D, '1px solid #f00',
+_E,
+
+'fieldset.confirmation legend',
+_S, 'border-left:', _T, '1px solid #f00',
+_M, 'border-right:', _T, '1px solid #f00',
+_M, 'font-weight:', _T, 'bold';
+if ($GLOBALS['cfg']['ErrorIconic']) {
+    echo
+    _M, 'background-image:',  _T, 'url("', _imgPath, 's_really.png")',
+    _M, 'background-repeat:', _T, 'no-repeat';
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        echo
+            _M, 'background-position:', _T, '.5em 50%',
+            _M, 'padding:', _T, '.2em .2em .2em 2.5em';
+    } else {
+        echo
+            _M, 'background-position:', _T, '97% 50%',
+            _M, 'padding:', _T, '.2em 2.5em .2em .2em';
+    }
+}
+
+echo
+ _E, // end messageboxes
+
+'.tblcomment',
+_S, 'font-size:', _T, '90%',
+_M, 'font-weight:', _T, 'normal',
+_M, 'color:', _D, '#009',
+_E,
+
+'.tblHeaders',
+_S, 'font-weight:', _T, 'bold',
+_M, 'color:', _D, $GLOBALS['cfg']['ThColor'],
+_M, 'background:', _T,  $GLOBALS['cfg']['ThBGC'],
+_E,
+
+'.tblFooters',
+_S, 'font-weight:', _T, 'normal',
+_M, 'color:', _D, $GLOBALS['cfg']['ThColor'],
+_M, 'background:', _T, $GLOBALS['cfg']['ThBGC'],
+_E,
+
+'.tblHeaders a:link', _K,
+'.tblHeaders a:active', _K,
+'.tblHeaders a:visited', _K,
+'.tblFooters a:link', _K,
+'.tblFooters a:active', _K,
+'.tblFooters a:visited',
+_S, 'color:', _D, '#00f',
+_E,
+
+'.tblHeaders a:hover', _K,
+'.tblFooters a:hover',
+_S, 'color:', _D, '#f00',
+_E,
+
+'.noPrivileges',
+_S, 'color:', _D, '#f00',
+_M, 'font-weight:', _T, 'bold',
+_E,
+
+'.disabled', _K,
+'.disabled a:link', _K,
+'.disabled a:active', _K,
+'.disabled a:visited',
+_S, 'color:', _D, '#666',
+_E,
+
+'.disabled a:hover',
+_S, 'color:', _D, '#666',
+_M, 'text-decoration:', _T, 'none',
+_E,
+
+'tr.disabled td', _K,
+'td.disabled',
+_S, 'background:', _T, '#ccc',
+_E,
+
+'body.loginform h1', _K,
+'body.loginform a.logo',
+_S, 'display:', _T, 'block',
+_M, 'text-align:', _T, 'center',
+_E,
+
+'body.loginform',
+_S, 'text-align:', _T, 'center',
+_E,
+
+'body.loginform div.container',
+_S, 'text-align:', _T, $left,
+_M, 'width:', _D, '30em',
+_M, 'margin:', _D, '0 auto',
+_E,
+
+'form.login label',
+_S, 'width:', _D, '10em',
+_M, 'font-weight:', _T, 'bolder',
+_E,
+
+// specific elements
+'ul#topmenu',
+_S, 'font-weight:', _T, 'bold',
+_M, 'list-style-type:', _T, 'none',
+_M, 'margin:', _D, 0,
+_M, 'padding:', _T, 0,
+_E,
+
+'ul#topmenu li',
+_S, 'list-style-type:', _T, 'none',
+_M, 'margin:', _D, 0,
+_M, 'padding:', _T, 0,
+_M, 'vertical-align:', _T, 'middle',
+_E,
+
+'ul#topmenu li.active',
+_S, 'border-bottom:', _T, '2px solid ', $GLOBALS['cfg']['MainBGC'],
+_E,
+
+
+'#topmenu img',
+_S, 'vertical-align:', _T, 'middle',
+_M, "margin-$right:", _T, '1px',
+_E,
+
+'.tab', _K,
+'.tabcaution', _K,
+'.tabactive',
+_S, 'display:', _T, 'block',
+_M, 'margin:',  _T, '.2em .2em 0 .2em',
+_M, 'padding:', _T, '.2em .2em 0 .2em',
+_M, 'white-space:', _T, 'nowrap',
+_E,
+
+'span.tab',
+_S, 'color:', _D, '#666',
+_E,
+
+'span.tabcaution',
+_S, 'color:', _D, '#f66',
+_E,
+
+'a.tabcaution',
+_S, 'color:', _D, '#f00',
+_E,
+
+'a.tabcaution:hover',
+_S, 'color:', _D, '#fff',
+_M, 'background:', _T, '#f00',
+_E;
+
+if ($GLOBALS['cfg']['LightTabs']) {
+    echo
+    'a.tabactive',
+    _S, 'color:', _D, $GLOBALS['cfg']['MainColor'];
+} else {
+    echo
+    '#topmenu',
+    _S, 'margin-top:', _T, '.5em',
+    _M, 'padding:',    _T, '.1em .3em',
+    _E,
+
+    'ul#topmenu li',
+    _S, 'border-bottom:', _T, '2px solid ', $GLOBALS['cfg']['TabUnderlineColor'],
+    _E,
+
+    '.tab', _K,
+    '.tabcaution', _K,
+    '.tabactive',
+    _S, 'background:', _T, $GLOBALS['cfg']['TabBGC'];
+    if ('MOZILLA' == PMA_USR_BROWSER_AGENT) {
+         // FF,SeaMonkey..
+        echo
+        _M, '-moz-border-radius-topleft:',  _T, '.5em',
+        _M, '-moz-border-radius-topright:', _T, '.5em';
+    } else {
+        echo
+        _M, 'border-top:',   _D, '1px solid ', _T, $GLOBALS['cfg']['TabBorderColor'],
+        _M, 'border-left:',  _D, '1px solid ', _T, $GLOBALS['cfg']['TabBorderColor'],
+        _M, 'border-right:', _D, '1px solid ', _T, $GLOBALS['cfg']['TabBorderColor'];
+    }
+    // MSIE 6: http:', _T, '//blogs.msdn.com/ie/archive/2005/06/23/431980.aspx
+    echo
+    _E,
+
+    'a.tab:hover', _K,
+    'a.tabcaution:hover', _K,
+    '.tabactive', _K,
+    '.tabactive:hover',
+    _S, 'margin:',          _D, ('MOZILLA' == PMA_USR_BROWSER_AGENT) ? 0 : '0 1px' ,
+    _M, 'padding:',         _T, '.2em .4em',
+    _M, 'text-decoration:', _T, 'none',
+    _E,
+
+    'a.tab:hover',
+    _S, 'background:', _T, $GLOBALS['cfg']['TabHoverBGC'],
+    _M, 'color:',      _D, $GLOBALS['cfg']['TabHoverColor'],
+    _E,
+
+    'a.tabactive',
+    _S, 'background:', _T, $GLOBALS['cfg']['TabActiveBGC'],
+    _M, 'color:',      _D, $GLOBALS['cfg']['TabActiveColor'],
+    _E;
+
+    if ('OPERA' != PMA_USR_BROWSER_AGENT ) {
+        echo
+        'span.tab', _K,
+        'a.warning', _K,
+        'span.tabcaution',
+        _S, 'cursor:', _T, 'url("', _imgPath, 'error.ico"), auto',
+        _E;
+    }
+} // end topmenu
+
+echo
+'table.calendar',
+_S, 'width:',      _D, '100%',
+_E,
+
+'table.calendar td',
+_S, 'text-align:', _T, 'center',
+_E,
+
+'table.calendar td a',
+_S, 'display:',    _T, 'block',
+_E,
+
+'table.calendar td a:hover',
+_S, 'background:', _T, '#cfc',
+_E,
+
+'table.calendar th',
+_S, 'background:', _T, '#D3DCE3',
+_E,
+
+'table.calendar td.selected',
+_S, 'background:', _T, '#fc9',
+_E,
+
+'img.calendar',
+_S, 'border:',     _D, 'none',
+_E,
+
+'form.clock',
+_S, 'text-align:', _T, 'center',
+_E,
+
+'div#tablestatistics',
+_S, 'border-bottom:',  _T, '1px solid #699',
+_M, 'margin-bottom:',  _T, '.5em',
+_M, 'padding-bottom:', _T, '.5em',
+_E,
+
+'div#tablestatistics table',
+_S, 'margin-bottom:',  _T, '.5em',
+_M, "margin-$right:",  _T, '.5em',
+_E,
+
+'div#tablestatistics table caption',
+_S, "margin-$right:",  _T, '.5em',
+_E,
+//END server privileges
+
+'#tableuserrights td,#tablespecificuserrights td,#tabledatabases td',
+_S, 'vertical-align:', _T, 'middle',
+_E,
+
+// Heading
+'#serverinfo',
+_S, 'font-weight:',   _T, 'bold',
+_M, 'margin-bottom:', _T, '.5em',
+_E,
+
+'#serverinfo .item',
+_S, 'white-space:', _T, 'nowrap',
+_E,
+
+'#span_table_comment',
+_S, 'font-weight:', _T, 'normal',
+_M, 'font-style:',  _T, 'italic',
+_M, 'white-space:', _T, 'nowrap',
+_E,
+
+'#serverinfo img',
+_S, 'margin:',      _D, '0 1px 0 .2em',
+_E,
+
+'#textSQLDUMP',
+_S, 'width:',       _D, '95%',
+_M, 'height:',      _T, '95%',
+_M, 'font-family:', _T, '"Courier New", Courier, mono',
+_M, 'font-size:',   _T, '110%',
+_E,
+
+'#TooltipContainer',
+_S, 'position:',    _T, 'absolute',
+_M, 'z-index:',     _T, '99',
+_M, 'width:',       _D, '20em',
+_M, 'height:',      _T, 'auto',
+_M, 'overflow:',    _T, 'visible',
+_M, 'visibility:',  _T, 'hidden',
+_M, 'background:',  _T, '#ffc',
+_M, 'color:',       _D, '#060',
+_M, 'border:',      _D, '1px solid #000',
+_M, 'padding:',     _T, '.5em',
+_E,
+
+// user privileges
+'#fieldset_add_user_login div.item',
+_S, 'border-bottom:',  _T, '1px solid ', _silver,
+_M, 'padding-bottom:', _T, '.3em',
+_M, 'margin-bottom:',  _T, '.3em',
+_E,
+
+'#fieldset_add_user_login label',
+_S, 'display:',        _T, 'block',
+_M, 'width:',          _D, '10em',
+_M, 'max-width:',      _T, '100%',
+_M, 'text-align:',     _T, $right,
+_M, "padding-$right:", _T, '.5em',
+_E,
+
+'#fieldset_add_user_login span.options #select_pred_username', _K,
+'#fieldset_add_user_login span.options #select_pred_hostname', _K,
+'#fieldset_add_user_login span.options #select_pred_password',
+_S, 'width:',     _D, '100%',
+_M, 'max-width:', _T, '100%',
+_E,
+
+'#fieldset_add_user_login span.options',
+_S, 'display:',           _T, 'block',
+_M, 'width:',             _D, '12em',
+_M, 'max-width:',         _T, '100%',
+_M, "padding-$right:",    _T, '.5em',
+_E,
+
+'#fieldset_add_user_login input',
+_S, 'width:',             _D, '12em',
+_M, 'clear:',             _T, $right,
+_M, 'max-width:',         _T, '100%',
+_E,
+
+'#fieldset_add_user_login span.options input',
+_S, 'width:',             _D, 'auto',
+_E,
+
+'#fieldset_user_priv div.item',
+_S, 'width:',             _D, '9em',
+_M, 'max-width:',         _T, '100%',
+_E,
+
+'#fieldset_user_priv div.item div.item',
+_S, 'float:',        _D, 'none',
+_E,
+
+'#fieldset_user_priv div.item label',
+_S, 'white-space:',  _T, 'nowrap',
+_E,
+
+'#fieldset_user_priv div.item select',
+_S, 'width:',        _D, '100%',
+_E,
+
+// END user privileges
+
+
+// serverstatus
+'div#serverstatus table caption a.top',
+_S, 'float:', _D, $right,
+_E,
+
+'#serverstatussection', _K,
+'.clearfloat',
+_S, 'clear:',            _T, 'both',
+_E,
+
+'div#serverstatussection table',
+_S, 'width:', _D, '100%',
+_M, 'margin-bottom:',    _T, '1em',
+_E,
+
+'div#serverstatussection table .name',
+_S, 'width:',            _D, '18em',
+_E,
+
+'div#serverstatussection table .value',
+_S, 'width:',            _D, '6em',
+_E,
+
+'div#serverstatus table tbody td.descr a', _K,
+'div#serverstatus table .tblFooters a',
+_S, 'white-space:',     _T, 'nowrap',
+_E,
+
+'div#serverstatus div#statuslinks a:before', _K,
+'div#serverstatus div#sectionlinks a:before', _K,
+'div#serverstatus table tbody td.descr a:before', _K,
+'div#serverstatus table .tblFooters a:before',
+_S, 'content:',         _T , "'['",
+_E,
+
+'div#serverstatus div#statuslinks a:after', _K,
+'div#serverstatus div#sectionlinks a:after', _K,
+'div#serverstatus table tbody td.descr a:after', _K,
+'div#serverstatus table .tblFooters a:after',
+_S, 'content:',         _T, "']'",
+_E,
+// end serverstatus
+
+// querywindow  -image:', _T, 'none',
+//??-color:', _T
+
+'body#bodyquerywindow',
+_S, 'margin:',         _D, 0,
+_M, 'padding:',        _T, 0,
+_M, 'background:',     _T, $GLOBALS['cfg']['MainBGC'],
+_E,
+
+'div#querywindowcontainer',
+_S, 'margin:',  _D, 0,
+_M, 'padding:', _T, 0,
+_M, 'width:',   _D, '100%',
+_E,
+
+'div#querywindowcontainer fieldset',
+_S, 'margin-top:', _T, 0,
+_E,
+
+//END querywindow
+
+// querybox
+'div#sqlquerycontainer',
+_S, 'width:', _D, '69%',
+// 'height:', _T, '15em',_M,
+_E,
+
+'div#tablefieldscontainer',
+_S, 'float:', _D, $right,
+_M, 'width:', _D, '29%',
+_E,
+
+'div#tablefieldscontainer select',
+_S, 'width:', _D, '100%',
+_E,
+
+// height:', _T, '12em',
+'textarea#sqlquery',
+_S, 'width:', _D, '100%',
+_E,
+
+// height:', _T, '100%',
+'div#queryboxcontainer div#bookmarkoptions',
+_S, 'margin-top:', _T, '.5em',
+_E,
+// end querybox
+
+// main page
+'#maincontainer',
+_S, 'background-image:',    _T, 'url("', _imgPath, 'logo_right.png")',
+_M, 'background-position:', _T, $right, ' bottom',
+_M, 'background-repeat:',   _T, 'no-repeat',
+//_M, 'border-bottom:',       _T, '1px solid ', _silver,
+_E,
+
+'#mysqlmaininformation', _K,
+'#pmamaininformation',
+_S, 'width:',         _D, '49%',
+_E,
+
+'#maincontainer ul',
+_S, 'list-style-image:', _T, 'url("', _imgPath, 'item_', $GLOBALS['text_dir'], '.png")',
+_M, 'vertical-align:',   _T, 'middle',
+_E,
+
+'#maincontainer li',
+_S, 'margin-bottom:',    _T, '.3em',
+_M, 'padding:',          _T, '0 .3em 0 .3em',
+_E;
+// END main page
+
+if ($GLOBALS['cfg']['MainPageIconic']) {
+    // iconic view for ul items
+    echo
+    'li#li_create_database',
+    _S, _listImgUrl,'b_newdb.png")',
+    _E,
+
+    'li#li_select_lang',
+    _S, _listImgUrl,'s_lang.png")',
+    _E,
+
+    'li#li_select_mysql_collation', _K,
+    'li#li_select_mysql_charset',
+    _S, _listImgUrl,'s_asci.png")',
+    _E,
+
+    'li#li_select_theme',
+    _S, _listImgUrl,'s_theme.png")',
+    _E,
+
+    'li#li_server_info',
+    _S, _listImgUrl,'s_host.png")',
+    _E,
+
+    'li#li_mysql_status',
+    _S, _listImgUrl,'s_status.png")',
+    _E,
+
+    'li#li_mysql_variables',
+    _S, _listImgUrl,'s_vars.png")',
+    _E,
+
+    'li#li_mysql_processes',
+    _S, _listImgUrl,'s_process.png")',
+    _E,
+
+    'li#li_mysql_collations',
+    _S, _listImgUrl,'s_asci.png")',
+    _E,
+
+    'li#li_mysql_engines',
+    _S, _listImgUrl,'b_engine.png")',
+    _E,
+
+    'li#li_mysql_binlogs',
+    _S, _listImgUrl,'s_tbl.png")',
+    _E,
+
+    'li#li_mysql_databases',
+    _S, _listImgUrl,'s_db.png")',
+    _E,
+
+    'li#li_export',
+    _S, _listImgUrl,'b_export.png")',
+    _E,
+
+    'li#li_import',
+    _S, _listImgUrl,'b_import.png")',
+    _E,
+
+    'li#li_change_password',
+    _S, _listImgUrl,'s_passwd.png")',
+    _E,
+
+    'li#li_log_out',
+    _S, _listImgUrl,'s_loggoff.png")',
+    _E,
+
+    'li#li_pma_docs',
+    _S, _listImgUrl,'b_docs.png")',
+    _E,
+
+    'li#li_phpinfo',
+    _S, _listImgUrl,'php_sym.png")',
+    _E,
+
+    'li#li_pma_homepage',
+    _S, _listImgUrl,'b_home.png")',
+    _E,
+
+    'li#li_mysql_privilegs',
+    _S, _listImgUrl,'s_rights.png")',
+    _E,
+
+    'li#li_switch_dbstats',
+    _S, _listImgUrl,'b_dbstatistics.png")',
+    _E,
+
+    'li#li_flush_privileges',
+    _S, _listImgUrl,'s_reload.png")',
+    _E,
+
+    'li#li_user_info',
+    _S, _listImgUrl, 's_rights.png")',
+    _E;
+} //END iconic view for ul items
+
+echo
+'#body_browse_foreigners',
+_S, 'background:', _T, $GLOBALS['cfg']['MainBGC'], //2do??
+_M, 'margin:',     _D, '.5em .5em 0 .5em',
+_E,
+
+'#bodyquerywindow',
+_S, 'background:', _T, $GLOBALS['cfg']['MainBGC'], //2do??
+_E,
+
+'#bodythemes',
+_S, 'width:',      _D, '50em',
+_M, 'margin:',     _D, 'auto',
+_M, 'text-align:', _T, 'center',
+_E,
+
+'#bodythemes img',
+_S, 'border:', _D, '1px solid #000',
+_E,
+
+'#bodythemes a:hover img',
+_S, 'border:', _D, '1px solid ', _red,
+_E,
+
+'#selflink',
+_S, 'clear:',           _T, 'both',  //No floating elements allowed on either side
+//_M, 'display:',         _T, 'block', //with a line break before and after the element
+_M, 'margin:',          _T, '.2em',
+_M, 'padding:',         _T, '.2em',
+//_M, "padding-$right:",  _T, '1em',
+//_M, 'width:',           _D, '100%', //responsible for horizontal scrollbar in IE 6
+//_M, 'border:',          _T, '1px solid ', _silver, //test
+//_M, 'border-top:',      _T, '1px solid ', $GLOBALS['cfg']['MainColor'], // _silver,
+_M, 'background:',      _T, $GLOBALS['cfg']['FieldsetFooterBGC'],
+_M, 'text-align:',      _T, $right,
+_E,
+
+'#div_table_options',
+_S, 'clear:',           _T, 'both',
+_E,
+
+'#div_table_options', _K,
+'#div_table_order',   _K,
+'#div_table_rename',  _K,
+'#div_table_copy',
+_S, 'min-width:', _T, '48%',
+_E,
+
+'#div_table_options', _K,
+'#div_table_order', _K,
+'#div_table_rename', _K,
+'#div_table_copy', _K,
+'fieldset .formelement', _K,
+'form.login label', _K,
+'ul#topmenu li', _K,
+'div#tablestatistics table', _K,
+'#fieldset_add_user_login label', _K,
+'#fieldset_add_user_login span.options', _K,
+'#fieldset_user_priv div.item', _K,
+'#fieldset_user_global_rights fieldset', _K,
+'div#serverstatus div#serverstatusqueriesdetails table', _K,
+'div#serverstatus table#serverstatustraffic', _K,
+'div#serverstatus table#serverstatusconnections', _K,
+'div#sqlquerycontainer', _K,
+'#mysqlmaininformation', _K,
+'#pmamaininformation', _K,
+'#fieldset_select_fields', _K,
+'#div_table_options', _K,
+'#table_innodb_bufferpool_usage', _K, //table_innodb_bufferpool_activity', _K,
+'#div_mysql_charset_collations table', _K,
+'#qbe_div_table_list', _K,
+'#qbe_div_sql_query', _K,
+'label.desc',
+_S, 'float:', _D, $left,
+_E,
+
+'label.desc',
+_S, 'width:', _D, '30em',
+_E;
+?>

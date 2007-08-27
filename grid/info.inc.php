@@ -1,11 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* info.inc.php 2007/05/11 windkiel */
+/* info.inc.php 2007/07 windkiel */
 
 /**
- * 2007-05 "Grid 2.10 working with version 2.8 .. 2.1x.y ...
- * the previous version had some refresh issues after switching from original
- * (all browser windows had to be closed to force a new session)
+ * 2007-08-25 "Grid" working with version 2.8 .. 2.11+ ...
  * main differences to theme "original" in:
  *
  * smaller table margins/paddings
@@ -22,8 +20,9 @@
  * @subpackage Grid
  */
 
+
 /* Theme information */
-$theme_name = 'Grid';
+$theme_name = 'Grid-2.11';
 $theme_version = 2;
 $theme_full_version = '2.9';
 ?>
