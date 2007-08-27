@@ -5,7 +5,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Original
+ * @subpackage Paradice
  */
 ?>
 /* For printview */

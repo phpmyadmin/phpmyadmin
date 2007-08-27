@@ -3,6 +3,7 @@
 /**
  * navigation css file from theme Paradice
  *
+ * @version $Id$
  * @package phpMyAdmin-theme
  * @subpackage Paradice
  */
