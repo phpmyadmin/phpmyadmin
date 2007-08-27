@@ -22,7 +22,7 @@
 
 
 /* Theme information */
-$theme_name = 'Grid-2.11';
+$theme_name = 'Grid';
 $theme_version = 2;
 $theme_full_version = '2.9';
 ?>
