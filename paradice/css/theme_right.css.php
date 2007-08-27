@@ -1,16 +1,16 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
-/** 	 
-  * main css file from theme 	 
-  * 	 
-  * @version $Id$ 	 
-  * @package phpMyAdmin-theme 	 
-  * @subpackage Paradice 	 
-  */
-    // unplanned execution path
-    if (!defined('PMA_MINIMUM_COMMON')) {
-        exit();
-    }
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * main css file from theme Paradice
+ *
+ * @package phpMyAdmin-theme
+ * @subpackage Paradice
+ */
+
+// unplanned execution path
+if (!defined('PMA_MINIMUM_COMMON')) {
+    exit();
+}
 ?>
 /******************************************************************************/
 /* general tags */
@@ -19,15 +19,15 @@ html {
 	padding: 0;
 }
 
-body {
-    padding:            0;
-    margin:             0.5em;
+body {  
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
+    padding:            0;
+    margin:             0.5em;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
-    font-size:          0.8em;
+    font-size:          1em;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -210,6 +210,8 @@ button {
 fieldset.tblFooters {
     margin-top:         0;
     margin-bottom:      0.5em;
+    /* avoid a thick line since this should be used under another fieldset */
+    border-top:         0;
     text-align:         <?php echo $right; ?>;
     float:              none;
     clear:              both;
@@ -427,10 +429,10 @@ h1.notice,
 div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             1px solid #FFD700;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -460,7 +462,7 @@ div.warning {
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -487,10 +489,10 @@ h1.error,
 div.error {
     margin:             0.5em 0 0.5em 0;
     border:             1px solid #ff0000;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -518,10 +520,10 @@ fieldset.confirmation legend {
     border-left:        1px solid #FF0000;
     border-right:       1px solid #FF0000;
     font-weight:        bold;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
@@ -686,7 +688,7 @@ a.tabcaution:hover {
     background-color:   #FF0000;
 }
 
-<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
 a.tabactive {
     color:              black;

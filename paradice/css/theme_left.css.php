@@ -1,12 +1,11 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
-/**     
- * navigation css file from theme   
- *      
- * @version $Id$    
- * @package phpMyAdmin-theme    
- * @subpackage Paradice     
-*/
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * navigation css file from theme Paradice
+ *
+ * @package phpMyAdmin-theme
+ * @subpackage Paradice
+ */
 
 // unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
@@ -34,10 +33,19 @@ a img {
     border: 0;
 }
 
+ul {
+	margin:0;
+}	
+
 form {
     margin:             0;
     padding:            0;
     display:            inline;
+}
+
+select#select_server,
+select#lightm_db {
+    width:              100%;
 }
 
 select {
@@ -63,6 +71,10 @@ button {
     margin-left:        0.3em;
 }
 
+.navi_dbName {
+    font-weight:    bold;
+    color:          <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
+}
 
 /******************************************************************************/
 /* specific elements */
@@ -80,12 +92,26 @@ ul#databaseList {
     border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
-    padding-left: 	1.5em;
+    padding-left: 		1.5em;
+    list-style-type:    none;
+    list-style-position:outside;
+    list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr.png);
+}
+
+ul#databaseList ul {
+    list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr2.png);
+}
+
+ul#databaseList lia {
+    padding-bottom:     0.5em;
 }
 
 ul#databaseList a {
     display: block;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+}
+
+div#navidbpageselector a,
+ul#databaseList a {  
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
@@ -111,6 +137,7 @@ div#leftframelinks a img.icon {
 }
 
 div#leftframelinks a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
@@ -131,15 +158,14 @@ div#leftframelinks a:hover {
 
 /* leftdatabaselist */
 div#left_tableList {
-	background-color:	none;
+	background-color:	none;	
 }
-div#left_tableList ul {
+div#left_tableList ul  {
     list-style-type:    none;
     list-style-position: outside;
+    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/bd_sbrowse.png);
     margin:             0;
     padding:            0;
-    font-size:          80%;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
 }
 
 div#left_tableList ul ul {
@@ -147,13 +173,11 @@ div#left_tableList ul ul {
 }
 
 div#left_tableList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    underline;
 }
@@ -173,7 +197,7 @@ div#left_tableList > ul li.marked {
 }
 <?php } ?>
 
-<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
 div#left_tableList > ul li:hover > a,
 div#left_tableList > ul li:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
@@ -192,4 +216,13 @@ div#left_tableList ul ul {
     border-left:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
     border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+/* for the servers list in navi panel */
+#serverinfo .item {
+    white-space:        nowrap;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+#serverinfo a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }

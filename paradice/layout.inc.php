@@ -1,10 +1,11 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */ 	 
-/** 	 
- * 	 
- * @version $Id$ 	 
- * @package phpMyAdmin-theme 	 
- * @subpackage Paradice 	 
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * configures general layout
+ * for detailed layout configuration please refer to the css files
+ * 
+ * @package phpMyAdmin-theme
+ * @subpackage Paradice
  */
 
 /**
@@ -23,6 +24,8 @@ $GLOBALS['cfg']['NaviBackground']           = '#3674CF';
 $GLOBALS['cfg']['NaviPointerColor']         = '#000000';
 // background of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerBackground']    = '#5796EF';
+// text color of the selected database name (when showing the table list)
+$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#FFFFFF';
 
 /**
  * main frame
