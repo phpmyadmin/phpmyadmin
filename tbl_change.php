@@ -606,7 +606,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
                 value="foreign" />
             <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
-                value="" id="field_<?php echo ($idindex); ?>_1" />
+                value="" id="field_<?php echo ($idindex); ?>_3A" />
             <input type="text" name="field_<?php echo $field_name_appendix_md5; ?>"
                 class="textfield" <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
@@ -630,7 +630,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
                 value="foreign" />
             <input type="hidden" name="fields<?php echo $field_name_appendix; ?>"
-                value="" id="field_<?php echo $idindex; ?>_1" />
+                value="" id="field_<?php echo $idindex; ?>_3A" />
             <select name="field_<?php echo $field_name_appendix_md5; ?>"
                 <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
