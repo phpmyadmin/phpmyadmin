@@ -74,7 +74,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         if ($label) {
             $return_str .= $spacer . '    <option value="">' . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
         }
-        $return_str .= $spacer . '    <option value=""></option>' . "\n";
+        $return_str .= $spacer . '    <option value="">&nbsp;</option>' . "\n";
         foreach ($mysql_charsets as $current_charset) {
             if (!$mysql_charsets_available[$current_charset]) {
                 continue;

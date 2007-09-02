@@ -1276,7 +1276,7 @@ function PMA_profilingCheckbox($sql_query) {
     // 5.0.37 has profiling but for example, 5.1.20 does not
     // (avoid doing a fetch_value for MySQL before 5.0.37)
     if (PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
-        echo '<form action="sql.php" method="post" />' . "\n";
+        echo '<form action="sql.php" method="post">' . "\n";
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";

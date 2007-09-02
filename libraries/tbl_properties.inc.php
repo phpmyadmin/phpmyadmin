@@ -459,12 +459,12 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
 
     if (!isset($row) || empty($row['Extra'])) {
         $content_cells[$i][$ci] .= "\n";
-        $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '<option value="">&nbsp;</option>' . "\n";
         $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
     } else {
         $content_cells[$i][$ci] .= "\n";
         $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
-        $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '<option value="">&nbsp;</option>' . "\n";
     }
 
     $content_cells[$i][$ci] .= "\n" . '</select>';
@@ -527,7 +527,7 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     // garvin: MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_mimetype[]">' . "\n";
-        $content_cells[$i][$ci] .= '    <option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="">&nbsp;</option>' . "\n";
 
         if (is_array($available_mime['mimetype'])) {
             foreach ($available_mime['mimetype'] AS $mimekey => $mimetype) {
