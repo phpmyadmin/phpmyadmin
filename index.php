@@ -111,7 +111,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     <?php echo htmlspecialchars($HTTP_HOST); ?></title>
 <meta http-equiv="Content-Type"
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-<script type="text/javascript"">
+<script type="text/javascript">
 // <![CDATA[
     // definitions used in querywindow.js
     var common_query = '<?php echo PMA_escapeJsString(PMA_generate_common_url('', '', '&'));?>';
@@ -126,6 +126,33 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var db    = '<?php echo PMA_escapeJsString($GLOBALS['db']); ?>';
     var text_dir = '<?php echo PMA_escapeJsString($GLOBALS['text_dir']); ?>';
     var pma_absolute_uri = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['PmaAbsoluteUri']); ?>';
+
+    // for content and navigation frames
+
+    var frame_content = 0;
+    var frame_navigation = 0;
+    function getFrames() {
+<?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+        frame_content = window.frames[1];
+        frame_navigation = window.frames[0];
+<?php } else { ?>
+        frame_content = window.frames[0];
+        frame_navigation = window.frames[1];
+<?php } ?>
+    }
+    var onloadCnt = 0; 
+    var onLoadHandler = window.onload;
+    window.onload = function() {
+        if (onloadCnt == 0) {
+            if (typeof(onLoadHandler) == "function") { 
+                onLoadHandler(); 
+            }
+            if (typeof(getFrames) != 'undefined' && typeof(getFrames) == 'function') { 
+                getFrames(); 
+            }
+            onloadCnt++;
+        }
+    };
 // ]]>
 </script>
 <script src="./js/querywindow.js" type="text/javascript"></script>
@@ -158,15 +185,4 @@ if ($GLOBALS['text_dir'] === 'ltr') {
         </body>
     </noframes>
 </frameset>
-<script type="text/javascript">
-// <![CDATA[
-<?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    var frame_content = window.frames[1];
-    var frame_navigation = window.frames[0];
-<?php } else { ?>
-    var frame_content = window.frames[0];
-    var frame_navigation = window.frames[1];
-<?php } ?>
-// ]]>
-</script>
 </html>
