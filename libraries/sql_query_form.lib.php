@@ -424,7 +424,7 @@ function PMA_sqlQueryFormBookmark()
     echo $GLOBALS['strBookmarkQuery'] . '</legend>' . "\n";
     echo '<div class="formelement">';
     echo '<select name="id_bookmark">' . "\n";
-    echo '<option value=""></option>' . "\n";
+    echo '<option value="">&nbsp;</option>' . "\n";
     foreach ($bookmark_list as $key => $value) {
         echo '<option value="' . htmlspecialchars($key) . '">'
             .htmlspecialchars($value) . '</option>' . "\n";

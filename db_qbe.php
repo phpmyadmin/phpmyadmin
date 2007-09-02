@@ -156,7 +156,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
     ?>
     <td align="center">
         <select name="Field[<?php echo $column_number; ?>]" size="1">
-            <option value=""></option>
+            <option value="">&nbsp;</option>
     <?php
     foreach ($columns as $column) {
         if ($column === $selected) {
@@ -213,7 +213,7 @@ for ($x = 0; $x < $col; $x++) {
         ?>
     <td align="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value=""></option>
+            <option value="">&nbsp;</option>
             <option value="ASC"><?php echo $strAscending; ?></option>
             <option value="DESC"><?php echo $strDescending; ?></option>
         </select>
@@ -229,7 +229,7 @@ for ($x = 0; $x < $col; $x++) {
     ?>
     <td align="center">
         <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value=""></option>
+            <option value="">&nbsp;</option>
     <?php
     echo "\n";
 

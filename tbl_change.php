@@ -693,7 +693,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3">
-                    <option value=""></option>
+                    <option value="">&nbsp;</option>
                 <?php
                 echo "\n";
 
@@ -1037,7 +1037,7 @@ if ($insert_mode) {
             echo '<input type="hidden" name="primary_key[' . $rowcount . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
         }
     }
-    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" />' . "\n";
+    $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" >' . "\n";
     $option_values = array(1,2,5,10,15,20,30,40);
     foreach ($option_values as $value) {
         $tmp .= '<option value="' . $value . '"';
