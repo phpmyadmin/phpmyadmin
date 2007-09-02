@@ -36,7 +36,7 @@ a img {
 
 ul {
 	margin:0;
-}	
+}
 
 form {
     margin:             0;
@@ -73,8 +73,8 @@ button {
 }
 
 .navi_dbName {
-    font-weight:    bold;
-    color:          <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
+    font-weight:    	bold;
+    color:          	<?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
 }
 
 /******************************************************************************/
@@ -84,15 +84,15 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    border-bottom:      1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
 
 ul#databaseList {
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    border-bottom:      1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
-    padding-bottom:     0.5em;
+    padding-bottom:     2em;
     padding-left: 		1.5em;
     list-style-type:    none;
     list-style-position:outside;
@@ -103,16 +103,16 @@ ul#databaseList ul {
     list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr2.png);
 }
 
-ul#databaseList lia {
-    padding-bottom:     0.5em;
+ul#databaseList li {
+    padding-bottom:     0;
 }
 
 ul#databaseList a {
-    display: block;
+    display: 			block;
 }
 
 div#navidbpageselector a,
-ul#databaseList a {  
+ul#databaseList a {
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
@@ -132,8 +132,8 @@ div#leftframelinks .icon {
 }
 
 div#leftframelinks a img.icon {
-    margin:             0;
-    padding:            0.2em;
+    margin:             0.2em;
+    padding:            0;
     border:             0;
 }
 
@@ -159,7 +159,7 @@ div#leftframelinks a:hover {
 
 /* leftdatabaselist */
 div#left_tableList {
-	background-color:	none;	
+	background: transparent !important;
 }
 div#left_tableList ul  {
     list-style-type:    none;

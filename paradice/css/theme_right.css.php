@@ -20,7 +20,7 @@ html {
 	padding: 0;
 }
 
-body {  
+body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
@@ -112,7 +112,7 @@ form {
 
 th.td{
     font-weight: 		 normal;
-    color: 				 transparent;
+    color: 				 #000000;
     background-color: 	 transparent;
     background-image: 	 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbl_th.png);
 }
@@ -615,6 +615,10 @@ body.loginform a.logo {
 
 body.loginform {
     text-align: center;
+    background-color:   #FFFFFF;
+	background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>login_bgnd.png);
+	background-repeat:  repeat-x;
+    background-position: top;
 }
 
 body.loginform div.container {
@@ -627,6 +631,13 @@ form.login label {
     float: <?php echo $left; ?>;
     width: 10em;
     font-weight: bolder;
+}
+
+form.login fieldset div.item input {
+	background-color:   #FFFFFF;
+	background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>loginfield_bgnd.png);
+	background-repeat:  repeat-x;
+    background-position: bottom;
 }
 
 
@@ -707,16 +718,16 @@ ul#topmenu li {
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border: 			 0 1px 0 0;
+    border-top:			 0;
+    border-right:		 1px;
+    border-bottom:		 0;
+    border-left:		 0;
 	border-style:		 solid;
     border-color: 		 #FFFFFF;
 	background-image:    url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>tbl_header2.png);
     background-repeat:   repeat-x;
     background-position: top;
-    border-bottom:      0;
     /* overwrite default button look */
-	border-radius-topleft: 0px;
-    border-radius-topright: 0px;
     height:				21px;
 }
 
@@ -1067,7 +1078,7 @@ div#queryboxcontainer div#bookmarkoptions {
 #selflink {
     margin-top: 1em;
     margin-bottom: 1em;
-	padding-top 10px;
+	padding-top: 2px;
     width: 100%;
     border-top: 0;
     text-align: right;
