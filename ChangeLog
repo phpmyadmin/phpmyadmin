@@ -8,6 +8,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 2.11.1.0 (not yet released)
 
 - bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version 
+- bug #1780098 [GUI] Logout causes CSS loss, thanks to Juergen Wind
 
 2.11.0.0 (2007-08-21)
 

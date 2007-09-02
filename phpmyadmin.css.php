@@ -8,6 +8,9 @@
 /**
  *
  */
+// sometimes, we lose $_REQUEST['js_frame']
+define('PMA_FRAME',empty($_REQUEST['js_frame']) ? 'right' : $_REQUEST['js_frame']);
+
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
 require_once './libraries/sqlparser.lib.php';
@@ -790,5 +793,5 @@ body.loginform div.container {
     <?php
 } // end styles 2.9
 
-$_SESSION['PMA_Theme_Manager']->printCss($_REQUEST['js_frame']);
+$_SESSION['PMA_Theme_Manager']->printCss(PMA_FRAME);
 ?>
