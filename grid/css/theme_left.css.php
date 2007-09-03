@@ -8,7 +8,7 @@
  * @subpackage Grid
  */
 
-define('_NaviGridVersion', 'navi Grid-2.11 070825');
+define('_NaviGridVersion', 'navi Grid-2.11 070902');
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     die( '/* ' . _NaviGridVersion . ' illegal execution path */');
@@ -50,25 +50,6 @@ if (empty($GLOBALS['cfg']['NiceCss'])) {
     define('_D', "\t\t"); //double tab needed?
 }
 
-/**
-
-<body    id=      "body_leftFrame"
-<div     id=      "pmalogo"><a href="http://localhost/jw/home.htm"><img src="../themes/original/img/logo_left.png" alt="phpMyAdmin"
-         id=      "imgpmalogo" /></a></div>
-<div     id=      "leftframelinks"><a href="main.php?db=Dummy&amp;token=677bfb642e36865fd271ac9b3e1b9fc2" title="Home">
-   <img  class=   "icon" ...</div>
-<div     id=      "serverinfo">                     Server:<br />
- <ul     id=      "list_server">
- <li><a  class=   "item" href="index.php</a></li></ul></div>
-<hr />
-<div     id=      "left_tableList">
-<div     id=      "databaseList">
-<div     id=      "navidbpageselector">             Page number:<br /><form action="./navigation.php"
-   <ul   id=      "leftdatabaselist"><li>
-  <img   class=   "icon" s.^
-         id=      "el1Img"
-
-**/
 
 // css for  navigation.php  (former left.php)
 
@@ -112,25 +93,6 @@ _E,
 _S, 'padding:',    _T, '0 2px 1px 2px', //top l? bot r?
 _M, 'color:', _D, $GLOBALS['cfg']['NaviLinkColor'],
 _E;
-
-if ('test' == $GLOBALS['cfg']['customGrid']) {
-    echo
-    '/*', $_SERVER['HTTP_USER_AGENT'], //client!
-//Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)|PMA_USR_BROWSER_AGENT:IE|OS:WINNT
-//(XP)
-    '|PMA_USR_BROWSER_AGENT:', PMA_USR_BROWSER_AGENT,
-    '|PHP_OS:', PHP_OS, //server!
-    '|PMA_VERSION:', PMA_VERSION,
-    ' */', _NL;
-/**
-    'li',
-    _S, 'border:', _T, '1px dotted red',
-    _E,
-    'p',
-    _S, 'border:', _T, '1px dotted yellow',
-    _E;
-**/
-}
 
 if ($GLOBALS['cfg']['LeftPointerEnable']) {
     echo
@@ -322,7 +284,7 @@ _E,
 '#left_tableList ul',
 _S, 'list-style-type:', _T, 'none',
 _M, 'padding:',         _T, 0 ,
-_M, 'background:',      _T, $GLOBALS['cfg']['Navi2ndBGC'], //4 marking selected db&table only
+_M, 'background:',      _T, $GLOBALS['cfg']['Navi2ndBGC'], //for marking selected db&table only
 _E,
 
 '#left_tableList ul ul',
