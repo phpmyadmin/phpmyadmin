@@ -95,52 +95,25 @@ if ($server > 0) {
         PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
     }
 
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
-        echo '<li id="li_select_mysql_charset">';
-        ?>
-            <form method="post" action="index.php" target="_parent">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <?php echo $strMySQLCharset;?>:
-            <select name="convcharset"  xml:lang="en" dir="ltr"
-                onchange="this.form.submit();">
-        <?php
-        foreach ($cfg['AvailableCharsets'] as $tmpcharset) {
-            if ($convcharset == $tmpcharset) {
-                $selected = ' selected="selected"';
-            } else {
-                $selected = '';
-            }
-            echo '            '
-               . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
-        }
-        ?>
-            </select>
-            <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
-            </form>
-        </li>
-        <?php
-    } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '    <li id="li_select_mysql_charset">';
-        echo '        ' . $strMySQLCharset . ': '
-           . '        <strong xml:lang="en" dir="ltr">'
-           . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
-           . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-           . '        </strong>' . "\n"
-           . '    </li>' . "\n"
-           . '    <li id="li_select_mysql_collation">';
-        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
-           . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
-           . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . $strMySQLConnectionCollation . ': ' . "\n"
-           . '            </label>' . "\n"
-           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
-           . '            <noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n"
-           // put the doc link in the form so that it appears on the same line
-           . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
-           . '        </form>' . "\n"
-           . '    </li>' . "\n";
-    }
+    echo '    <li id="li_select_mysql_charset">';
+    echo '        ' . $strMySQLCharset . ': '
+       . '        <strong xml:lang="en" dir="ltr">'
+       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
+       . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+       . '        </strong>' . "\n"
+       . '    </li>' . "\n"
+       . '    <li id="li_select_mysql_collation">';
+    echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+       . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
+       . '            <label for="select_collation_connection">' . "\n"
+       . '                ' . $strMySQLConnectionCollation . ': ' . "\n"
+       . '            </label>' . "\n"
+       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
+       . '            <noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n"
+       // put the doc link in the form so that it appears on the same line
+       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
+       . '        </form>' . "\n"
+       . '    </li>' . "\n";
 
     if ($cfg['ShowCreateDb']) {
         echo '<li id="li_create_database">';

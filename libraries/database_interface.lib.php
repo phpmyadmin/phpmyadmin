@@ -772,7 +772,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 /**
  * @uses    ./libraries/charset_conversion.lib.php
  * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_REMOVED_NON_UTF_8
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_MYSQL_STR_VERSION
  * @uses    PMA_DBI_GETVAR_SESSION
@@ -825,33 +824,6 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     }
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
-
-        // If $lang is defined and we are on MySQL >= 4.1.x,
-        // we auto-switch the lang to its UTF-8 version (if it exists and user
-        // didn't force language)
-        if (!empty($GLOBALS['lang'])
-          && (substr($GLOBALS['lang'], -5) != 'utf-8')
-          && !isset($GLOBALS['cfg']['Lang'])) {
-            $lang_utf_8_version =
-                substr($GLOBALS['lang'], 0, strpos($GLOBALS['lang'], '-'))
-                . '-utf-8';
-            if (!empty($GLOBALS['available_languages'][$lang_utf_8_version])) {
-                $GLOBALS['lang'] = $lang_utf_8_version;
-                $GLOBALS['charset'] = 'utf-8';
-                define('PMA_LANG_RELOAD', 1);
-            }
-        }
-
-        // and we remove the non-UTF-8 choices to avoid confusion
-        if (!defined('PMA_REMOVED_NON_UTF_8')) {
-            foreach ($GLOBALS['available_languages'] as $each_lang => $dummy) {
-                if (substr($each_lang, -5) != 'utf-8') {
-                    unset($GLOBALS['available_languages'][$each_lang]);
-                }
-            }
-            define('PMA_REMOVED_NON_UTF_8', 1);
-        }
-
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
         if ($is_controluser
           || empty($GLOBALS['collation_connection'])

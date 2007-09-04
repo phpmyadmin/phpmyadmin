@@ -75,9 +75,10 @@ function PMA_select_language($use_fieldset = FALSE) {
         }
 
         // Include charset if it makes sense
-        if (!defined('PMA_REMOVED_NON_UTF_8')) {
-            $lang_name .= ' (' . substr($id, strpos($id, '-') + 1) . ')';
-        }
+        // (no longer need this I guess)
+        //if (!defined('PMA_REMOVED_NON_UTF_8')) {
+        //    $lang_name .= ' (' . substr($id, strpos($id, '-') + 1) . ')';
+        //}
 
         //Is current one active?
         if ($lang == $id) {
