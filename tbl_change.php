@@ -1,6 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays form for editing and inserting new table rows
+ *
+ * register_globals_save (mark this file save for disabling register globals)
  *
  * @version $Id$
  */
@@ -9,6 +12,12 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once './libraries/common.inc.php';
+
+/**
+ * Ensures db and table are valid, else moves to the "parent" script
+ */
+require_once './libraries/db_table_exists.lib.php';
+
 
 /**
  * Sets global variables.
@@ -34,59 +43,56 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
     $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
 }
 
-
-$js_to_run = 'tbl_change.js';
-require_once './libraries/header.inc.php';
-require_once './libraries/relation.lib.php'; // foreign keys
-require_once './libraries/file_listing.php'; // file listing
-
+/**
+ * load relation data, foreign keys
+ */
+require_once './libraries/relation.lib.php';
 
 /**
- * Displays the query submitted and its result
+ * file listing
  */
-if (! empty($disp_message)) {
-    if (! isset($disp_query)) {
-        $disp_query     = null;
-    }
-    PMA_showMessage($disp_message, $disp_query);
-}
+require_once './libraries/file_listing.php';
 
 
 /**
  * Defines the url to return to in case of error in a sql statement
- * (at this point, $goto might be set but empty)
+ * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
-if (empty($goto)) {
-    $goto    = 'db_sql.php';
+if (empty($GLOBALS['goto'])) {
+    $GLOBALS['goto'] = 'db_sql.php';
 }
 /**
- * @todo check if we could replace by "db_|tbl_"
+ * @todo check if we could replace by "db_|tbl_" - please clarify!?
  */
-if (!preg_match('@^(db|tbl)_@', $goto)) {
-    $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
-} else {
-    $err_url = $goto . '?'
-             . PMA_generate_common_url($db)
-             . ((preg_match('@^(tbl_)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
+$_url_params = array(
+    'db' => $db,
+    'sql_query' => $sql_query
+);
+
+if ( preg_match('@^tbl_@', $GLOBALS['goto'])) {
+    $_url_params['table'] = $table;
 }
 
-
-/**
- * Ensures db and table are valid, else moves to the "parent" script
- */
-require_once './libraries/db_table_exists.lib.php';
+$err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
+unset($_url_params);
 
 
 /**
  * Sets parameters for links
+ * where is this varaibel used?
+ * replace by PMA_generate_common_url($url_params);
  */
-$url_query = PMA_generate_common_url($db, $table)
-           . '&amp;goto=tbl_sql.php';
+$url_query = PMA_generate_common_url($url_params, 'html', '');
 
+/**
+ * get table information
+ * @todo should be done by a Table object
+ */
 require_once './libraries/tbl_info.inc.php';
 
-/* Get comments */
-
+/**
+ * Get comments for table fileds/columns
+ */
 $comments_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
@@ -98,6 +104,32 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         $comments_map = PMA_getComments($db, $table);
     }
+}
+
+/**
+ * START REGULAR OUTPUT
+ */
+
+/**
+ * used in ./libraries/header.inc.php to load JavaScript library file
+ */
+$js_to_run = 'tbl_change.js';
+
+/**
+ * HTTP and HTML headers
+ */
+require_once './libraries/header.inc.php';
+
+/**
+ * Displays the query submitted and its result
+ *
+ * @todo where does $disp_message and $disp_query come from???
+ */
+if (! empty($disp_message)) {
+    if (! isset($disp_query)) {
+        $disp_query     = null;
+    }
+    PMA_showMessage($disp_message, $disp_query);
 }
 
 /**
@@ -187,7 +219,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 <!-- Insert/Edit form -->
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
+    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
@@ -1028,7 +1060,7 @@ if ($insert_mode) {
 <!-- Restart insertion form -->
 <form method="post" action="tbl_replace.php" name="restartForm" >
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($goto); ?>" />
+    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
