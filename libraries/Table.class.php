@@ -270,7 +270,7 @@ class PMA_Table {
      * @param   string  $default_orig
      * @return  string  field specification
      */
-    function generateFieldSpec($name, $type, $length = '', $attribute = '',
+    static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default = '',
         $default_current_timestamp = false, $extra = '', $comment = '',
         &$field_primary, $index, $default_orig = false)
