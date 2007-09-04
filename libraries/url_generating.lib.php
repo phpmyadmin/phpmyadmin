@@ -90,6 +90,7 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
  * Generates text with URL parameters.
  *
  * <code>
+ * // OLD derepecated style
  * // note the ?
  * echo 'script.php?' . PMA_generate_common_url('mysql', 'rights');
  * // produces with cookies enabled:
@@ -97,6 +98,7 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
  * // with cookies disabled:
  * // script.php?server=1&amp;lang=en-utf-8&amp;db=mysql&amp;table=rights
  *
+ * // NEW style
  * $params['myparam'] = 'myvalue';
  * $params['db']      = 'mysql';
  * $params['table']   = 'rights';
@@ -115,52 +117,72 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
  * // script.php?server=1&amp;lang=en-utf-8
  * </code>
  *
+ * @uses    $GLOBALS['server']
+ * @uses    $GLOBALS['cfg']['ServerDefault']
+ * @uses    $_COOKIE['pma_lang']
+ * @uses    $GLOBALS['lang']
+ * @uses    $_COOKIE['pma_charset']
+ * @uses    $GLOBALS['convcharset']
+ * @uses    $_COOKIE['pma_collation_connection']
+ * @uses    $GLOBALS['collation_connection']
+ * @uses    $_SESSION[' PMA_token ']
+ * @uses    PMA_get_arg_separator()
+ * @uses    is_array()
+ * @uses    strlen()
+ * @uses    htmlentities()
+ * @uses    urlencode()
+ * @uses    implode()
  * @param   mixed    assoc. array with url params or optional string with database name
  *                   if first param is an array there is also an ? prefixed to the url
  * @param   string   optional table name only if first param is array
  * @param   string   character to use instead of '&amp;' for deviding
  *                   multiple URL parameters from each other
- *
  * @return  string   string with URL parameters
- *
- * @global  string   the current language
- * @global  string   the current conversion charset
- * @global  string   the current connection collation
- * @global  string   the current server
- * @global  array    the configuration array
- * @global  boolean  whether recoding is allowed or not
- *
  * @access  public
- *
  * @author  nijel
  */
-function PMA_generate_common_url($db = '', $table = '', $delim = '&amp;')
+function PMA_generate_common_url()
 {
-    if (is_array($db)) {
-        $params =& $db;
-        $delim  = empty($table) ? $delim : $table;
-        $questionmark = '?';
+    $args = func_get_args();
+
+    if (isset($args[0]) && is_array($args[0])) {
+        // new style
+        $params = $args[0];
+
+        if (isset($args[1])) {
+            $encode = $args[1];
+        } else {
+            $encode = 'html';
+        }
+
+        if (isset($args[2])) {
+            $questionmark = $args[2];
+        } else {
+            $questionmark = '?';
+        }
     } else {
-        $params = array();
-        if (strlen($db)) {
-            $params['db'] = $db;
+        // old style
+
+        if (PMA_isValid($args[0])) {
+            $params['db'] = $args[0];
         }
-        if (strlen($table)) {
-            $params['table'] = $table;
+
+        if (PMA_isValid($args[1])) {
+            $params['table'] = $args[1];
         }
+
+        if (isset($args[2]) && $args[2] !== '&amp;') {
+            $encode = 'text';
+        } else {
+            $encode = 'html';
+        }
+
         $questionmark = '';
     }
 
     // use seperators defined by php, but prefer ';'
     // as recommended by W3C
-    $separator = PMA_get_arg_separator();
-
-    // check wether to htmlentity the separator or not
-    if ($delim === '&amp;') {
-        $delim = htmlentities($separator);
-    } else {
-        $delim = $separator;
-    }
+    $separator = PMA_get_arg_separator($encode);
 
     if (isset($GLOBALS['server'])
       && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
@@ -180,12 +202,14 @@ function PMA_generate_common_url($db = '', $table = '', $delim = '&amp;')
         $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
 
-    $params['token'] = $_SESSION[' PMA_token '];
+    if (isset($_SESSION[' PMA_token '])) {
+        $params['token'] = $_SESSION[' PMA_token '];
+    }
 
     $param_strings = array();
     foreach ($params as $key => $val) {
         /* We ignore arrays as we don't use them! */
-        if (!is_array($val)) {
+        if (! is_array($val)) {
             $param_strings[] = urlencode($key) . '=' . urlencode($val);
         }
     }
@@ -194,7 +218,7 @@ function PMA_generate_common_url($db = '', $table = '', $delim = '&amp;')
         return '';
     }
 
-    return $questionmark . implode($delim, $param_strings);
+    return $questionmark . implode($separator, $param_strings);
 }
 
 /**
@@ -208,7 +232,7 @@ function PMA_generate_common_url($db = '', $table = '', $delim = '&amp;')
  * @access  public
  * @author  nijel
  */
-function PMA_get_arg_separator($encoded = 'none')
+function PMA_get_arg_separator($encode = 'none')
 {
     static $separator = null;
 
@@ -225,10 +249,11 @@ function PMA_get_arg_separator($encoded = 'none')
         }
     }
 
-    switch ($encoded) {
+    switch ($encode) {
         case 'html':
             return htmlentities($separator);
             break;
+        case 'text' :
         case 'none' :
         default :
             return $separator;
