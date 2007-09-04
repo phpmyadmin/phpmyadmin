@@ -3,6 +3,7 @@
 /**
  * URL/hidden inputs generating.
  *
+ * @todo rename to file_listing.lib.php
  * @version $Id$
  */
 
