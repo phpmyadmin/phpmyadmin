@@ -1048,7 +1048,7 @@ function PMA_showMessage($message, $sql_query = null)
         }
 
         if (strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']) {
-            $query_too_big = true; 
+            $query_too_big = true;
             $query_base = nl2br(htmlspecialchars($sql_query));
             unset($GLOBALS['parsed_sql']);
         }
@@ -1265,12 +1265,12 @@ function PMA_showMessage($message, $sql_query = null)
 
 
 /**
- * Displays a form with the Profiling checkbox 
+ * Displays a form with the Profiling checkbox
  *
  * @param   string  $sql_query
  * @access  public
  *
- * @author   Marc Delisle 
+ * @author   Marc Delisle
  */
 function PMA_profilingCheckbox($sql_query) {
     // 5.0.37 has profiling but for example, 5.1.20 does not
@@ -1287,12 +1287,12 @@ function PMA_profilingCheckbox($sql_query) {
 }
 
 /**
- * Displays the results of SHOW PROFILE 
+ * Displays the results of SHOW PROFILE
  *
- * @param    array   the results 
+ * @param    array   the results
  * @access  public
  *
- * @author   Marc Delisle 
+ * @author   Marc Delisle
  */
 function PMA_profilingResults($profiling_results) {
     echo '<fieldset><legend>' . $GLOBALS['strProfiling'] . '</legend>' . "\n";
@@ -1565,9 +1565,9 @@ function PMA_getTab($tab)
         $tab['link'] = $tab['link'] . $tab['sep']
             .(empty($GLOBALS['url_query']) ?
                 PMA_generate_common_url() : $GLOBALS['url_query']);
-        if (!empty($tab['args'])) {
+        if (! empty($tab['args'])) {
             foreach ($tab['args'] as $param => $value) {
-                $tab['link'] .= '&amp;' . urlencode($param) . '='
+                $tab['link'] .= PMA_get_arg_separator('html') . urlencode($param) . '='
                     . urlencode($value);
             }
         }
@@ -1948,7 +1948,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         // Do not use a table alias in a condition.
         // Test case is:
         // select * from galerie x WHERE
-        //(select count(*) from galerie y where y.datum=x.datum)>1 
+        //(select count(*) from galerie y where y.datum=x.datum)>1
         //
         // But orgtable is present only with mysqli extension so the
         // fix is only for mysqli.
@@ -2096,7 +2096,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
     $range = 10, $prompt = '')
 {
-    $gotopage = $prompt 
+    $gotopage = $prompt
               . ' <select name="goToPage" onchange="goToUrl(this, \''
               . $url . '\');">' . "\n";
     if ($nbTotalPage < $showAll) {
@@ -2168,17 +2168,17 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
 
 
 /**
- * Generate navigation for a list 
+ * Generate navigation for a list
  *
- * @todo    use $pos from $_url_params 
+ * @todo    use $pos from $_url_params
  * @uses    $GLOBALS['strPageNumber']
  * @uses    range()
- * @param   integer     number of elements in the list 
- * @param   integer     current position in the list 
- * @param   array       url parameters 
- * @param   string      script name for form target 
- * @param   string      target frame 
- * @param   integer     maximum number of elements to display from the list 
+ * @param   integer     number of elements in the list
+ * @param   integer     current position in the list
+ * @param   array       url parameters
+ * @param   string      script name for form target
+ * @param   string      target frame
+ * @param   integer     maximum number of elements to display from the list
  *
  * @access  public
  */
@@ -2235,7 +2235,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 $title4   = '';
             } // end if... else...
             $_url_params['pos'] = $pos + $max_count;
-            echo '<a' . $title3 . ' href="' . $script 
+            echo '<a' . $title3 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="' . $frame . '">'
                 . $caption3 . '</a>';
             $_url_params['pos'] = floor($count / $max_count) * $max_count;
