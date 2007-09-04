@@ -134,7 +134,7 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
  *
  * @author  nijel
  */
-function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
+function PMA_generate_common_url($db = '', $table = '', $delim = '&amp;')
 {
     if (is_array($db)) {
         $params =& $db;
@@ -200,22 +200,38 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 /**
  * Returns url separator
  *
- * @return  string   character used for separating url parts
- *
+ * @uses    ini_get()
+ * @uses    strpos()
+ * @uses    strlen()
+ * @param   string  whether to encode separator or not, currently 'none' or 'html'
+ * @return  string  character used for separating url parts usally ; or &
  * @access  public
- *
  * @author  nijel
  */
-function PMA_get_arg_separator() {
-    // use seperators defined by php, but prefer ';'
-    // as recommended by W3C
-    $php_arg_separator_input = ini_get('arg_separator.input');
-    if (strpos($php_arg_separator_input, ';') !== false) {
-        return ';';
-    } elseif (strlen($php_arg_separator_input) > 0) {
-        return $php_arg_separator_input{0};
-    } else {
-        return '&';
+function PMA_get_arg_separator($encoded = 'none')
+{
+    static $separator = null;
+
+    if (null === $separator) {
+        // use seperators defined by php, but prefer ';'
+        // as recommended by W3C
+        $php_arg_separator_input = ini_get('arg_separator.input');
+        if (strpos($php_arg_separator_input, ';') !== false) {
+            $separator = ';';
+        } elseif (strlen($php_arg_separator_input) > 0) {
+            $separator = $php_arg_separator_input{0};
+        } else {
+            $separator = '&';
+        }
+    }
+
+    switch ($encoded) {
+        case 'html':
+            return htmlentities($separator);
+            break;
+        case 'none' :
+        default :
+            return $separator;
     }
 }
 
