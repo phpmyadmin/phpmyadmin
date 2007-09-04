@@ -146,7 +146,7 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = PMA_get_arg_separator();
-        $expected = '?server=x' . htmlentities($separator)
+        $expected = 'server=x' . htmlentities($separator)
             . 'lang=x' . htmlentities($separator)
             . 'convcharset=x' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
