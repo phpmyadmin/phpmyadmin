@@ -99,7 +99,7 @@ if (isset($_POST['submitoptions'])) {
         <td><select name="algorithm" id="algorithm">
                 <option value="UNDEFINED">UNDEFINED</option>
                 <option value="MERGE">MERGE</option>
-                <option value="MERGE">MERGE</option>
+                <option value="TEMPTABLE">TEMPTABLE</option>
             </select>
         </td>
     </tr>
