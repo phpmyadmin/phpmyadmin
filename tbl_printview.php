@@ -170,7 +170,7 @@ foreach ($the_tables as $key => $table) {
     if ($have_rel) {
         echo '<th>' . $strLinksTo . '</th>' . "\n";
     }
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         echo '    <th>' . $strComments . '</th>' . "\n";
     }
     if ($cfgRelation['mimework']) {
