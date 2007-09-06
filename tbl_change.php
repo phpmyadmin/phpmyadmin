@@ -272,19 +272,19 @@ if (! $cfg['ShowFunctionFields']) {
     echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
 }
 
-foreach ($rows as $vrowcount => $vrow) {
+foreach ($rows as $row_id => $vrow) {
     if ($vrow === false) {
         unset($vrow);
     }
 
-    $jsvkey = $vrowcount;
-    $browse_foreigners_uri = '&amp;pk=' . $vrowcount;
+    $jsvkey = $row_id;
+    $browse_foreigners_uri = '&amp;pk=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
-    $vresult = (isset($result) && is_array($result) && isset($result[$vrowcount]) ? $result[$vrowcount] : $result);
-    if ($insert_mode && $vrowcount > 0) {
-        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $vrowcount . '" id="insert_ignore_check_' . $vrowcount . '" />';
-        echo '<label for="insert_ignore_check_' . $vrowcount . '">' . $strIgnore . '</label><br />' . "\n";
+    $vresult = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
+    if ($insert_mode && $row_id > 0) {
+        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_check_' . $row_id . '" />';
+        echo '<label for="insert_ignore_check_' . $row_id . '">' . $strIgnore . '</label><br />' . "\n";
     }
 ?>
     <table>
@@ -345,22 +345,18 @@ foreach ($rows as $vrowcount => $vrow) {
         // to have an empty default value for DATETIME)
         // then, the "if" after this one will work
         if ($table_field['Type'] == 'datetime'
-            && !isset($table_field['Default'])
-            && isset($table_field['Null'])
-            && $table_field['Null'] == 'YES') {
+         && ! isset($table_field['Default'])
+         && isset($table_field['Null'])
+         && $table_field['Null'] == 'YES') {
             $table_field['Default'] = null;
         }
 
         if ($table_field['Type'] == 'datetime'
-            && (!isset($table_field['Default']))
-            && (!is_null($table_field['Default']))) {
+         && ! isset($table_field['Default'])
+         && ! is_null($table_field['Default'])) {
             // INSERT case
             if ($insert_mode) {
-                if (isset($vrow)) {
-                    $vrow[$field] = date('Y-m-d H:i:s', time());
-                } else {
-                    $vrow = array($field => date('Y-m-d H:i:s', time()));
-                }
+                $vrow[$field] = date('Y-m-d H:i:s', time());
             }
             // UPDATE case with an empty and not NULL value under PHP4
             elseif (empty($vrow[$field]) && is_null($vrow[$field])) {
@@ -384,9 +380,9 @@ foreach ($rows as $vrowcount => $vrow) {
 
         <?php
         // The type column
-        $is_binary                  = stristr($table_field['Type'], 'binary');
-        $is_blob                    = stristr($table_field['Type'], 'blob');
-        $is_char                    = stristr($table_field['Type'], 'char');
+        $is_binary            = stristr($table_field['Type'], 'binary');
+        $is_blob              = stristr($table_field['Type'], 'blob');
+        $is_char              = stristr($table_field['Type'], 'char');
         switch ($table_field['True_Type']) {
             case 'set':
                 $type         = 'set';
@@ -420,18 +416,18 @@ foreach ($rows as $vrowcount => $vrow) {
         // Prepares the field value
         $real_null_value = FALSE;
         if (isset($vrow)) {
-            if (!isset($vrow[$field])
-              || (function_exists('is_null') && is_null($vrow[$field]))) {
+            if (! isset($vrow[$field])
+             || is_null($vrow[$field])) {
                 $real_null_value = TRUE;
-                $vrow[$field]   = '';
-                $special_chars = '';
-                $data          = $vrow[$field];
+                $vrow[$field]    = '';
+                $special_chars   = '';
+                $data            = $vrow[$field];
             } elseif ($table_field['True_Type'] == 'bit') {
-                $special_chars = '';
+                $special_chars   = '';
                 for ($j = 0; $j < ceil($len / 8); $j++) {
                     $special_chars .= sprintf('%08d', decbin(ord(substr($vrow[$field], $j, 1))));
                 }
-                $special_chars = substr($special_chars, -$len);
+                $special_chars   = substr($special_chars, -$len);
             } else {
                 // loic1: special binary "characters"
                 if ($is_binary || $is_blob) {
