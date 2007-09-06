@@ -1,6 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * extracts table properties from create statement
+ *
+ * @todo should be handled by class Table
+ * @todo this should be recoded as functions, to avoid messing with global variables
  *
  * @version $Id$
  */
@@ -9,13 +13,6 @@
  *
  */
 require_once './libraries/Table.class.php';
-
-/**
- * extracts table properties from create statement
- *
- * @todo this should be recoded as functions,
- * to avoid messing with global variables
- */
 
 /**
  * requirements
