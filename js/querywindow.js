@@ -20,18 +20,8 @@ var query_to_load = '';
  *
  * @param    string    db name
  */
-function setDb(new_db, decode) {
+function setDb(new_db) {
     //alert('setDb(' + new_db + ')');
-
-    if (decode) {
-        //alert(new_db);
-        new_db = new_db.replace("&amp;",  "&");
-        new_db = new_db.replace("&quot;", '"');
-        new_db = new_db.replace("&#039;", "'");
-        new_db = new_db.replace("&lt;",   "<");
-        new_db = new_db.replace("&gt;",   ">");
-        //alert(new_db);
-    }
     if (new_db != db) {
         // db has changed
         //alert( new_db + '(' + new_db.length + ') : ' + db );
@@ -83,15 +73,15 @@ function setTable(new_table) {
 /**
  * reloads mian frame
  *
- * @uses 	goTo()
- * @uses 	opendb_url
- * @uses 	db
- * @uses 	server
- * @uses 	table
- * @uses 	lang
+ * @uses     goTo()
+ * @uses     opendb_url
+ * @uses     db
+ * @uses     server
+ * @uses     table
+ * @uses     lang
  * @uses    collation_connection
  * @uses    encodeURIComponent()
- * @param	string	url	name of page to be loaded
+ * @param    string    url    name of page to be loaded
  */
 function refreshMain(url) {
     if (! url) {
@@ -113,11 +103,11 @@ function refreshMain(url) {
 /**
  * reloads navigation frame
  *
- * @uses 	goTo()
- * @uses 	db
- * @uses 	server
- * @uses 	table
- * @uses 	lang
+ * @uses     goTo()
+ * @uses     db
+ * @uses     server
+ * @uses     table
+ * @uses     lang
  * @uses    collation_connection
  * @uses    encodeURIComponent()
  */
@@ -360,9 +350,9 @@ function goTo(targeturl, target) {
 }
 
 // opens selected db in main frame
-function openDb(new_db, decode) {
+function openDb(new_db) {
     //alert('opendb(' +  new_db + ')');
-    setDb(new_db, decode);
+    setDb(new_db);
     setTable('');
     refreshMain(opendb_url);
     return true;
