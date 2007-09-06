@@ -152,8 +152,9 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$trow_table_def = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ';',
+$table_fields = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ';',
     null, null, null, PMA_DBI_QUERY_STORE);
+$rows               = array();
 if (isset($primary_key)) {
     // when in edit mode load all selected rows from table
     $insert_mode = false;
@@ -163,24 +164,23 @@ if (isset($primary_key)) {
         $primary_key_array = array(0 => $primary_key);
     }
 
-    $row = array();
-    $result = array();
-    $found_unique_key = false;
-    foreach ($primary_key_array as $rowcount => $primary_key) {
-        $local_query             = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
-        $result[$rowcount]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
-        $primary_keys[$rowcount] = str_replace('\\', '\\\\', $primary_key);
+    $result             = array();
+    $found_unique_key   = false;
+    foreach ($primary_key_array as $key_id => $primary_key) {
+        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
+        $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
+        $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
+        $primary_keys[$key_id] = str_replace('\\', '\\\\', $primary_key);
 
         // No row returned
-        if (!$row[$rowcount]) {
-            unset($row[$rowcount], $primary_key_array[$rowcount]);
+        if (! $rows[$key_id]) {
+            unset($rows[$key_id], $primary_key_array[$key_id]);
             PMA_showMessage($strEmptyResultSet, $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
         } else { // end if (no record returned)
-            $meta = PMA_DBI_get_fields_meta($result[$rowcount]);
-            if ($tmp = PMA_getUniqueCondition($result[$rowcount], count($meta), $meta, $row[$rowcount], true)) {
+            $meta = PMA_DBI_get_fields_meta($result[$key_id]);
+            if ($tmp = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true)) {
                 $found_unique_key = true;
             }
             unset($tmp);
@@ -190,6 +190,9 @@ if (isset($primary_key)) {
     // no primary key given, just load first row - but what happens if tbale is empty?
     $insert_mode = true;
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
+    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
+        $rows[] = false;
+    }
 }
 
 // <markus@noga.de>
@@ -230,8 +233,8 @@ $_form_params = array(
     'sql_query' => $sql_query,
 );
 if (isset($primary_keys)) {
-    foreach ($primary_key_array as $rowcount => $primary_key) {
-        $_form_params['primary_key[' . $rowcount . ']'] = trim($primary_key);
+    foreach ($primary_key_array as $key_id => $primary_key) {
+        $_form_params['primary_key[' . $key_id . ']'] = trim($primary_key);
     }
 }
 
@@ -245,18 +248,7 @@ $titles['Browse'] = PMA_getIcon('b_browse.png', $strBrowseForeignValues);
 
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
-$fields_cnt     = count($trow_table_def);
-
-// Set a flag here because the 'if' would not be valid in the loop
-// if we set a value in some field
-if ($insert_mode) {
-    $loop_array  = array();
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
-        $loop_array[] = false;
-    }
-} else {
-    $loop_array  = $row;
-}
+$fields_cnt     = count($table_fields);
 
 $tabindex = 0;
 $tabindex_for_function = +1000;
@@ -282,8 +274,8 @@ if (! $cfg['ShowFunctionFields']) {
     echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
 }
 
-foreach ($loop_array as $vrowcount => $vrow) {
-    if ($vrow === FALSE) {
+foreach ($rows as $vrowcount => $vrow) {
+    if ($vrow === false) {
         unset($vrow);
     }
 
@@ -322,10 +314,10 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
     $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
-        $row_table_def   = $trow_table_def[$i];
-        $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
+        $table_field   = $table_fields[$i];
+        $table_field['True_Type'] = preg_replace('@\(.*@s', '', $table_field['Type']);
 
-        $field      = $row_table_def['Field'];
+        $field      = $table_field['Field'];
         $field_html = htmlspecialchars($field);
         $field_md5  = md5($field);
 
@@ -347,23 +339,23 @@ foreach ($loop_array as $vrowcount => $vrow) {
         //        Default value logic below)
 
         // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
-        // $row_table_def['Default'] is not set if it contains NULL:
+        // $table_field['Default'] is not set if it contains NULL:
         // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
         // but, look what we get if we switch to iso: (Default is NULL)
         // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
         // so I force a NULL into it (I don't think it's possible
         // to have an empty default value for DATETIME)
         // then, the "if" after this one will work
-        if ($row_table_def['Type'] == 'datetime'
-            && !isset($row_table_def['Default'])
-            && isset($row_table_def['Null'])
-            && $row_table_def['Null'] == 'YES') {
-            $row_table_def['Default'] = null;
+        if ($table_field['Type'] == 'datetime'
+            && !isset($table_field['Default'])
+            && isset($table_field['Null'])
+            && $table_field['Null'] == 'YES') {
+            $table_field['Default'] = null;
         }
 
-        if ($row_table_def['Type'] == 'datetime'
-            && (!isset($row_table_def['Default']))
-            && (!is_null($row_table_def['Default']))) {
+        if ($table_field['Type'] == 'datetime'
+            && (!isset($table_field['Default']))
+            && (!is_null($table_field['Default']))) {
             // INSERT case
             if ($insert_mode) {
                 if (isset($vrow)) {
@@ -377,7 +369,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 $vrow[$field] = date('Y-m-d H:i:s', time());
             } // end if... elseif...
         }
-        $len             = (preg_match('@float|double@', $row_table_def['Type']))
+        $len             = (preg_match('@float|double@', $table_field['Type']))
                          ? 100
                          : PMA_DBI_field_len($vresult, $i);
         $first_timestamp = 0;
@@ -390,14 +382,14 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
         ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field_name; ?></td>
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($table_field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field_name; ?></td>
 
         <?php
         // The type column
-        $is_binary                  = stristr($row_table_def['Type'], 'binary');
-        $is_blob                    = stristr($row_table_def['Type'], 'blob');
-        $is_char                    = stristr($row_table_def['Type'], 'char');
-        switch ($row_table_def['True_Type']) {
+        $is_binary                  = stristr($table_field['Type'], 'binary');
+        $is_blob                    = stristr($table_field['Type'], 'blob');
+        $is_char                    = stristr($table_field['Type'], 'char');
+        switch ($table_field['True_Type']) {
             case 'set':
                 $type         = 'set';
                 $type_nowrap  = '';
@@ -411,12 +403,12 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     $timestamp_seen  = 1;
                     $first_timestamp = 1;
                 }
-                $type         = $row_table_def['Type'];
+                $type         = $table_field['Type'];
                 $type_nowrap  = ' nowrap="nowrap"';
                 break;
 
             default:
-                $type         = $row_table_def['Type'];
+                $type         = $table_field['Type'];
                 $type_nowrap  = ' nowrap="nowrap"';
                 break;
         }
@@ -436,7 +428,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 $vrow[$field]   = '';
                 $special_chars = '';
                 $data          = $vrow[$field];
-            } elseif ($row_table_def['True_Type'] == 'bit') {
+            } elseif ($table_field['True_Type'] == 'bit') {
                 $special_chars = '';
                 for ($j = 0; $j < ceil($len / 8); $j++) {
                     $special_chars .= sprintf('%08d', decbin(ord(substr($vrow[$field], $j, 1))));
@@ -458,19 +450,19 @@ foreach ($loop_array as $vrowcount => $vrow) {
             //        statement MySQL auto-update it to the current timestamp
             // lem9:  however, things have changed since MySQL 4.1, so
             //        it's better to set a fields_prev in this situation
-            $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $row_table_def['True_Type'] == 'timestamp')
+            $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $table_field['True_Type'] == 'timestamp')
                            ? ''
                            : '<input type="hidden" name="fields_prev' . $field_name_appendix . '" value="' . htmlspecialchars($vrow[$field]) . '" />';
         } else {
             // loic1: display default values
-            if (!isset($row_table_def['Default'])) {
-                $row_table_def['Default'] = '';
+            if (!isset($table_field['Default'])) {
+                $table_field['Default'] = '';
                 $real_null_value          = TRUE;
                 $data                     = '';
             } else {
-                $data                     = $row_table_def['Default'];
+                $data                     = $table_field['Default'];
             }
-            $special_chars = htmlspecialchars($row_table_def['Default']);
+            $special_chars = htmlspecialchars($table_field['Default']);
             $backup_field  = '';
         }
 
@@ -488,7 +480,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             if (($cfg['ProtectBinary'] && $is_blob && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo '        <td align="center">' . $strBinary . '</td>' . "\n";
-            } elseif (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
+            } elseif (strstr($table_field['True_Type'], 'enum') || strstr($table_field['True_Type'], 'set')) {
                 echo '        <td align="center">--</td>' . "\n";
             } else {
                 ?>
@@ -503,9 +495,9 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 // which will then reveal the available dropdown options
                 if (isset($cfg['RestrictFunctions'])
                  && isset($cfg['RestrictColumnTypes'])
-                 && isset($cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])])
-                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
-                    $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])];
+                 && isset($cfg['RestrictColumnTypes'][strtoupper($table_field['True_Type'])])
+                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($table_field['True_Type'])]])) {
+                    $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($table_field['True_Type'])];
                     $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
                     $default_function   = $cfg['DefaultFunctions'][$current_func_type];
                 } else {
@@ -530,8 +522,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
 
                     if (PMA_MYSQL_INT_VERSION < 40102
                      || (PMA_MYSQL_INT_VERSION >= 40102
-                      && !($row_table_def['True_Type'] == 'timestamp'
-                       && !empty($row_table_def['Default'])
+                      && !($table_field['True_Type'] == 'timestamp'
+                       && !empty($table_field['Default'])
                        && !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
                     $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $dropdown[$j] == $default_function)
@@ -577,7 +569,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
         // The null column
         // ---------------
         echo '        <td>' . "\n";
-        if ($row_table_def['Null'] == 'YES') {
+        if ($table_field['Null'] == 'YES') {
             echo '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
             if ($real_null_value && !$first_timestamp) {
                 echo ' value="on"';
@@ -593,13 +585,13 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 }
                 echo ' id="field_' . ($idindex) . '_2"';
                 $onclick         = ' onclick="if (this.checked) {nullify(';
-                if (strstr($row_table_def['True_Type'], 'enum')) {
-                    if (strlen($row_table_def['Type']) > 20) {
+                if (strstr($table_field['True_Type'], 'enum')) {
+                    if (strlen($table_field['Type']) > 20) {
                         $onclick .= '1, ';
                     } else {
                         $onclick .= '2, ';
                     }
-                } elseif (strstr($row_table_def['True_Type'], 'set')) {
+                } elseif (strstr($table_field['True_Type'], 'set')) {
                     $onclick     .= '3, ';
                 } elseif ($foreigners && isset($foreigners[$field])) {
                     $onclick     .= '4, ';
@@ -700,7 +692,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                 echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
             }
         } elseif ($type == 'enum') {
-            $enum        = PMA_getEnumSetOptions($row_table_def['Type']);
+            $enum        = PMA_getEnumSetOptions($table_field['Type']);
             $enum_cnt    = count($enum);
             ?>
             <td>
@@ -710,7 +702,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             echo "\n" . '            ' . $backup_field;
 
             // show dropdown or radio depend on length
-            if (strlen($row_table_def['Type']) > 20) {
+            if (strlen($table_field['Type']) > 20) {
                 echo "\n";
                 ?>
                 <select name="field_<?php echo $field_name_appendix_md5; ?>"
@@ -728,8 +720,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     //echo '<option value="' . htmlspecialchars($enum_atom) . '"';
                     echo '<option value="' . htmlspecialchars($enum_atom) . '"';
                     if ($data == $enum_atom
-                        || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
-                            && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
+                        || ($data == '' && (!isset($primary_key) || $table_field['Null'] != 'YES')
+                            && isset($table_field['Default']) && $enum_atom == $table_field['Default'])) {
                         echo ' selected="selected"';
                     }
                     echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
@@ -753,8 +745,8 @@ foreach ($loop_array as $vrowcount => $vrow) {
                         . $field_name_appendix . "'].checked = false}";
                     echo '"';
                     if ($data == $enum_atom
-                        || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
-                            && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
+                        || ($data == '' && (!isset($primary_key) || $table_field['Null'] != 'YES')
+                            && isset($table_field['Default']) && $enum_atom == $table_field['Default'])) {
                         echo ' checked="checked"';
                     }
                     echo 'tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
@@ -769,7 +761,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
             <?php
             echo "\n";
         } elseif ($type == 'set') {
-            $set = PMA_getEnumSetOptions($row_table_def['Type']);
+            $set = PMA_getEnumSetOptions($table_field['Type']);
 
             if (isset($vset)) {
                 unset($vset);
@@ -931,7 +923,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
-                if ($row_table_def['Extra'] == 'auto_increment') {
+                if ($table_field['Extra'] == 'auto_increment') {
                     ?>
                     <input type="hidden" name="auto_increment<?php echo $field_name_appendix; ?>" value="1" />
                     <?php
@@ -941,7 +933,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="timestamp" />
                     <?php
                 }
-                if ($row_table_def['True_Type'] == 'bit') {
+                if ($table_field['True_Type'] == 'bit') {
                     ?>
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
                     <?php
@@ -1057,8 +1049,8 @@ if ($insert_mode) {
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
     if (isset($primary_keys)) {
-        foreach ($primary_key_array as $rowcount => $primary_key) {
-            echo '<input type="hidden" name="primary_key[' . $rowcount . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
+        foreach ($primary_key_array as $key_id => $primary_key) {
+            echo '<input type="hidden" name="primary_key[' . $key_id . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" >' . "\n";
