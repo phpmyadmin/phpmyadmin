@@ -431,7 +431,7 @@ class PMA_Table {
     /**
      * @todo    add documentation
      */
-    function generateAlter($oldcol, $newcol, $type, $length,
+    static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default, $default_current_timestamp,
         $extra, $comment='', $default_orig)
     {
