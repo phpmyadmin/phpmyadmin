@@ -190,9 +190,7 @@ if (isset($primary_key)) {
     // no primary key given, just load first row - but what happens if tbale is empty?
     $insert_mode = true;
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
-        $rows[] = false;
-    }
+    $rows = array_fill(0, $cfg['InsertRows'], false);
 }
 
 // <markus@noga.de>
