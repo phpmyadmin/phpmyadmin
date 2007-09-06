@@ -65,11 +65,11 @@ if (empty($GLOBALS['goto'])) {
  * @todo check if we could replace by "db_|tbl_" - please clarify!?
  */
 $_url_params = array(
-    'db' => $db,
+    'db'        => $db,
     'sql_query' => $sql_query
 );
 
-if ( preg_match('@^tbl_@', $GLOBALS['goto'])) {
+if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
     $_url_params['table'] = $table;
 }
 
@@ -79,7 +79,7 @@ unset($_url_params);
 
 /**
  * Sets parameters for links
- * where is this varaibel used?
+ * where is this variable used?
  * replace by PMA_generate_common_url($url_params);
  */
 $url_query = PMA_generate_common_url($url_params, 'html', '');
@@ -140,6 +140,7 @@ require_once './libraries/tbl_links.inc.php';
 
 /**
  * Get the analysis of SHOW CREATE TABLE for this table
+ * @todo should be handled by class Table
  */
 $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
@@ -151,8 +152,11 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+$trow_table_def = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ';',
+    null, null, null, PMA_DBI_QUERY_STORE);
 if (isset($primary_key)) {
+    // when in edit mode load all selected rows from table
+    $insert_mode = false;
     if (is_array($primary_key)) {
         $primary_key_array = $primary_key;
     } else {
@@ -183,8 +187,9 @@ if (isset($primary_key)) {
         }
     }
 } else {
+    // no primary key given, just load first row - but what happens if tbale is empty?
+    $insert_mode = true;
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
-    unset($row);
 }
 
 // <markus@noga.de>
@@ -203,9 +208,9 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
                  : 'onchange';
 // Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
-?>
 
-<?php if ($cfg['CtrlArrowsMoving']) { ?>
+if ($cfg['CtrlArrowsMoving']) {
+    ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
 <script src="./js/keyhandler.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -214,56 +219,43 @@ var switch_movement = 0;
 document.onkeydown = onKeyDownArrowsHandler;
 //]]>
 </script>
-<?php } ?>
+    <?php
+}
 
-<!-- Insert/Edit form -->
-<form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
-    <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
-<?php
+$_form_params = array(
+    'db'        => $db,
+    'table'     => $table,
+    'goto'      => $GLOBALS['goto'],
+    'err_url'   => $err_url,
+    'sql_query' => $sql_query,
+);
 if (isset($primary_keys)) {
     foreach ($primary_key_array as $rowcount => $primary_key) {
-        echo '<input type="hidden" name="primary_key[' . $rowcount . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
+        $_form_params['primary_key[' . $rowcount . ']'] = trim($primary_key);
     }
 }
-echo "\n";
 
-if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
-    if ($cfg['PropertiesIconic'] === 'both') {
-        $iconic_spacer = '<div class="nowrap">';
-    } else {
-        $iconic_spacer = '';
-    }
+?>
+<!-- Insert/Edit form -->
+<form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) { echo ' enctype="multipart/form-data"'; } ?>>
+<?php
+echo PMA_generate_common_hidden_inputs($_form_params);
 
-    $titles['Browse']     = $iconic_spacer . '<img width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
-
-    if ($cfg['PropertiesIconic'] === 'both') {
-        $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
-    }
-} else {
-    $titles['Browse']        = $strBrowseForeignValues;
-}
+$titles['Browse'] = PMA_getIcon('b_browse.png', $strBrowseForeignValues);
 
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
-$fields_cnt     = PMA_DBI_num_rows($table_def);
+$fields_cnt     = count($trow_table_def);
 
 // Set a flag here because the 'if' would not be valid in the loop
 // if we set a value in some field
-$insert_mode = (!isset($row) ? TRUE : FALSE);
 if ($insert_mode) {
     $loop_array  = array();
     for ($i = 0; $i < $cfg['InsertRows']; $i++) {
-        $loop_array[] = FALSE;
+        $loop_array[] = false;
     }
 } else {
     $loop_array  = $row;
-}
-
-while ($trow = PMA_DBI_fetch_assoc($table_def)) {
-    $trow_table_def[] = $trow;
 }
 
 $tabindex = 0;
