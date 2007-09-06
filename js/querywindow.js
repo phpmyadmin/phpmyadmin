@@ -20,8 +20,18 @@ var query_to_load = '';
  *
  * @param    string    db name
  */
-function setDb(new_db) {
+function setDb(new_db, decode) {
     //alert('setDb(' + new_db + ')');
+
+    if (decode) {
+        //alert(new_db);
+        new_db = new_db.replace("&amp;",  "&");
+        new_db = new_db.replace("&quot;", '"');
+        new_db = new_db.replace("&#039;", "'");
+        new_db = new_db.replace("&lt;",   "<");
+        new_db = new_db.replace("&gt;",   ">");
+        //alert(new_db);
+    }
     if (new_db != db) {
         // db has changed
         //alert( new_db + '(' + new_db.length + ') : ' + db );
@@ -91,6 +101,7 @@ function refreshMain(url) {
             url = 'main.php';
         }
     }
+    //alert(db);
     goTo(url + '?server=' + encodeURIComponent(server) +
         '&db=' + encodeURIComponent(db) +
         '&table=' + encodeURIComponent(table) +
@@ -321,6 +332,7 @@ function refreshQuerywindow( url ) {
  * @param    string    target       frame where to load the new url
  */
 function goTo(targeturl, target) {
+    //alert(targeturl);
     if ( target == 'main' ) {
         target = window.frame_content;
     } else if ( target == 'query' ) {
@@ -348,9 +360,9 @@ function goTo(targeturl, target) {
 }
 
 // opens selected db in main frame
-function openDb(new_db) {
+function openDb(new_db, decode) {
     //alert('opendb(' +  new_db + ')');
-    setDb(new_db);
+    setDb(new_db, decode);
     setTable('');
     refreshMain(opendb_url);
     return true;
