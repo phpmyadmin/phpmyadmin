@@ -392,8 +392,9 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
 
 /**
  * Warning about different MySQL library and server version
+ * (a difference on the third digit does not count)
  */
-if ($server > 0 && PMA_MYSQL_CLIENT_API !== PMA_MYSQL_INT_VERSION) {
+if ($server > 0 && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
     echo '<div class="warning">'
      . PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
             PMA_DBI_get_client_info(),
