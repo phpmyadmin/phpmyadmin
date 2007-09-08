@@ -60,9 +60,10 @@ require_once './libraries/sanitizing.lib.php';
 /**
  * the PMA_Theme class
  * (this one is the first to produce a fatal error under PHP < 5)
+ * and let's put here the same minimum requirement as in our doc.
  */
-if (version_compare(PHP_VERSION, '5.0.0') < 0 ) {
-    PMA_fatalError('strUpgrade', array('PHP', '5'));
+if (version_compare(PHP_VERSION, '5.2.0') < 0 ) {
+    PMA_fatalError('strUpgrade', array('PHP', '5.2'));
 }
 
 require_once './libraries/Theme.class.php';
