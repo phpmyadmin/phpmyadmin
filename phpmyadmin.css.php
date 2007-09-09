@@ -560,10 +560,7 @@ li#li_select_theme{
     list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_theme.png);
 }
 
-li#li_server_info{
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
-}
-
+li#li_server_info,
 li#li_server_version{
     list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
 }
@@ -616,10 +613,7 @@ li#li_log_out {
     list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_loggoff.png);
 }
 
-li#li_pma_docs {
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_docs.png);
-}
-
+li#li_pma_docs,
 li#li_pma_wiki {
     list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/b_docs.png);
 }
