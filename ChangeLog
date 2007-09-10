@@ -17,6 +17,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   is different
 - bugs #1767759, 1216521 [data] Duplicate entry error Browse feature: this minor
   feature removed due to its complexity
+- bug #1774825 [operations] Rename database loses charset info
 
 2.11.0.0 (2007-08-21)
 
