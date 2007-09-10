@@ -2509,10 +2509,9 @@ $cfg['TrustedProxies'] =
     <a id="faqmysqlversions" href="#faq1_17">1.17 Which MySQL versions does phpMyAdmin
     support?</a></h4>
 
-<p> All MySQL versions from 3.23.32 till 5.0 (except for 4.1.0 and 4.1.1) are
-    fully supported. Please note that the older your MySQL version is, the more
-    limitations you will have to face.<br />
-    phpMyAdmin may connect to your MySQL server using php's classic
+<p> In phpMyAdmin 3.0.x, versions starting with MySQL 5.0.1 are 
+fully supported. phpMyAdmin may connect to your MySQL server 
+using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
     is available in php 5.0.<br />
@@ -2520,16 +2519,14 @@ $cfg['TrustedProxies'] =
     extension for MySQL 4.0 and below and MySQLi for MySQL 4.1 and newer.<br />
     When compiling php, we strongly recommend that you manually link the MySQL
     extension of your choice to a MySQL client library of at least the same
-    minor version since the one that is bundled with some php distributions is
+    minor version since the one that is bundled with some PHP distributions is
     rather old and might cause problems <a href="#faq1_17a">
        (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17a)</a>.
     If your webserver is running on a windows system, you might want to try
     MySQL's
     <a href="http://dev.mysql.com/downloads/connector/php/">Connector/PHP</a>
     instead of the MySQL / MySQLi extensions that are bundled with the official
-    php Win32 builds.
-    <br />
-    MySQL&nbsp;5.1 is not yet supported.</p>
+    php Win32 builds.</p>
 
 <h5 id="faq1_17a">
 	<a href="#faq1_17a">1.17a I cannot connect to the MySQL server. It always returns the error
