@@ -460,7 +460,7 @@ class PMA_Table {
      *
      * @author          Garvin Hicking <me@supergarv.de>
      */
-    function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
+    static public function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
       $new_fields)
     {
         $last_id = -1;
