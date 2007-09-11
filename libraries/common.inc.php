@@ -819,12 +819,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         /**
          * with phpMyAdmin 3 we do not support MySQL < 5
-         * but at the current time i suggest checking only >= 4.1
-         * or 4.1.
+         * but at the current time i suggest checking only >= 4.1.7
+         * (4.1.7 is the first production version)
          * (4.1. is the oldest version currently supported by MySQL)
          * cybot_tm
          */
-        if (PMA_MYSQL_INT_VERSION < 40100) {
+        if (PMA_MYSQL_INT_VERSION < 40107) {
             PMA_fatalError('strUpgrade', array('MySQL', '5.0'));
         }
 
