@@ -817,6 +817,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002
 
+        /**
+         * with phpMyAdmin 3 we do not support MySQL < 5
+         * but at the current time i suggest checking only >= 4.1
+         * or 4.1.
+         * (4.1. is the oldest version currently supported by MySQL)
+         * cybot_tm
+         */
+        if (PMA_MYSQL_INT_VERSION < 40100) {
+            PMA_fatalError('strUpgrade', array('MySQL', '5.0'));
+        }
+
         @ini_set('track_errors', $bkp_track_err);
         unset($bkp_track_err);
 
