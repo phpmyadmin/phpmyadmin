@@ -310,11 +310,6 @@ foreach ($rows as $row_id => $vrow) {
     </tfoot>
     <tbody>
 <?php
-
-    // garvin: For looping on multiple rows, we need to reset any variable used inside the loop to indicate sth.
-    $timestamp_seen = 0;
-    unset($first_timestamp);
-
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
 
@@ -324,8 +319,76 @@ foreach ($rows as $row_id => $vrow) {
             $table_fields[$i]['Field_html'] = htmlspecialchars($table_fields[$i]['Field']);
             $table_fields[$i]['Field_md5']  = md5($table_fields[$i]['Field']);
             $table_fields[$i]['True_Type']  = preg_replace('@\(.*@s', '', $table_fields[$i]['Type']);
+
+            // d a t e t i m e
+            //
+            // loic1: current date should not be set as default if the field is NULL
+            //        for the current row
+            // lem9:  but do not put here the current datetime if there is a default
+            //        value (the real default value will be set in the
+            //        Default value logic below)
+
+            // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
+            // $field['Default'] is not set if it contains NULL:
+            // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
+            // but, look what we get if we switch to iso: (Default is NULL)
+            // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
+            // so I force a NULL into it (I don't think it's possible
+            // to have an empty default value for DATETIME)
+            // then, the "if" after this one will work
+            if ($table_fields[$i]['Type'] == 'datetime'
+             && ! isset($table_fields[$i]['Default'])
+             && isset($table_fields[$i]['Null'])
+             && $table_fields[$i]['Null'] == 'YES') {
+                $table_fields[$i]['Default'] = null;
+            }
+
+            $table_fields[$i]['len'] =
+                preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
+
+
+            if (isset($comments_map[$table_fields[$i]['Field']])) {
+                $table_fields[$i]['Field_title'] = '<span style="border-bottom: 1px dashed black;" title="'
+                    . htmlspecialchars($comments_map[$table_fields[$i]['Field']]) . '">'
+                    . $table_fields[$i]['Field_html'] . '</span>';
+            } else {
+                $table_fields[$i]['Field_title'] = $table_fields[$i]['Field_html'];
+            }
+
+            // The type column
+            $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
+            $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
+            $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
+            $table_fields[$i]['first_timestamp'] = false;
+            switch ($table_fields[$i]['True_Type']) {
+                case 'set':
+                    $table_fields[$i]['pma_type'] = 'set';
+                    $table_fields[$i]['wrap']  = '';
+                    break;
+                case 'enum':
+                    $table_fields[$i]['pma_type'] = 'enum';
+                    $table_fields[$i]['wrap']  = '';
+                    break;
+                case 'timestamp':
+                    if (!$timestamp_seen) {   // can only occur once per table
+                        $timestamp_seen  = 1;
+                        $table_fields[$i]['first_timestamp'] = true;
+                    }
+                    $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
+                    $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                    break;
+
+                default:
+                    $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
+                    $table_fields[$i]['wrap']  = ' nowrap="nowrap"';
+                    break;
+            }
         }
         $field = $table_fields[$i];
+
+        if (-1 === $field['len']) {
+            $field['len'] = PMA_DBI_field_len($vresult, $i);
+        }
 
         $unnullify_trigger = $chg_evt_handler . "=\"return unNullify('"
             . PMA_escapeJsString($field['Field_html']) . "', '"
@@ -333,33 +396,6 @@ foreach ($rows as $row_id => $vrow) {
         $field_name_appendix =  $vkey . '[' . $field['Field_html'] . ']';
         $field_name_appendix_md5 = $field['Field_md5'] . $vkey . '[]';
 
-
-        // removed previous PHP3-workaround that caused a problem with
-        // field names like '000'
-        //$rowfield = $field;
-
-        // d a t e t i m e
-        //
-        // loic1: current date should not be set as default if the field is NULL
-        //        for the current row
-        // lem9:  but do not put here the current datetime if there is a default
-        //        value (the real default value will be set in the
-        //        Default value logic below)
-
-        // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
-        // $field['Default'] is not set if it contains NULL:
-        // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
-        // but, look what we get if we switch to iso: (Default is NULL)
-        // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
-        // so I force a NULL into it (I don't think it's possible
-        // to have an empty default value for DATETIME)
-        // then, the "if" after this one will work
-        if ($field['Type'] == 'datetime'
-         && ! isset($field['Default'])
-         && isset($field['Null'])
-         && $field['Null'] == 'YES') {
-            $field['Default'] = null;
-        }
 
         if ($field['Type'] == 'datetime'
          && ! isset($field['Default'])
@@ -373,52 +409,11 @@ foreach ($rows as $row_id => $vrow) {
                 $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
             } // end if... elseif...
         }
-        $len             = (preg_match('@float|double@', $field['Type']))
-                         ? 100
-                         : PMA_DBI_field_len($vresult, $i);
-        $first_timestamp = 0;
-
-        $field_name = $field['Field_html'];
-        if (isset($comments_map[$field['Field']])) {
-            $field_name = '<span style="border-bottom: 1px dashed black;" title="'
-                . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
-        }
-
         ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field_name; ?></td>
-
-        <?php
-        // The type column
-        $is_binary            = stristr($field['Type'], 'binary');
-        $is_blob              = stristr($field['Type'], 'blob');
-        $is_char              = stristr($field['Type'], 'char');
-        switch ($field['True_Type']) {
-            case 'set':
-                $type         = 'set';
-                $type_nowrap  = '';
-                break;
-            case 'enum':
-                $type         = 'enum';
-                $type_nowrap  = '';
-                break;
-            case 'timestamp':
-                if (!$timestamp_seen) {   // can only occur once per table
-                    $timestamp_seen  = 1;
-                    $first_timestamp = 1;
-                }
-                $type         = $field['Type'];
-                $type_nowrap  = ' nowrap="nowrap"';
-                break;
-
-            default:
-                $type         = $field['Type'];
-                $type_nowrap  = ' nowrap="nowrap"';
-                break;
-        }
-        ?>
-            <td align="center"<?php echo $type_nowrap; ?>>
-                <?php echo $type; ?>
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field['Field_title']; ?></td>
+            <td align="center"<?php echo $field['wrap']; ?>>
+                <?php echo $field['pma_type']; ?>
             </td>
 
         <?php
@@ -434,13 +429,13 @@ foreach ($rows as $row_id => $vrow) {
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars   = '';
-                for ($j = 0; $j < ceil($len / 8); $j++) {
+                for ($j = 0; $j < ceil($field['len'] / 8); $j++) {
                     $special_chars .= sprintf('%08d', decbin(ord(substr($vrow[$field['Field']], $j, 1))));
                 }
-                $special_chars   = substr($special_chars, -$len);
+                $special_chars   = substr($special_chars, -$field['len']);
             } else {
                 // loic1: special binary "characters"
-                if ($is_binary || $is_blob) {
+                if ($field['is_binary'] || $field['is_blob']) {
                     $vrow[$field['Field']] = str_replace("\x00", '\0', $vrow[$field['Field']]);
                     $vrow[$field['Field']] = str_replace("\x08", '\b', $vrow[$field['Field']]);
                     $vrow[$field['Field']] = str_replace("\x0a", '\n', $vrow[$field['Field']]);
@@ -481,8 +476,8 @@ foreach ($rows as $row_id => $vrow) {
         //       stored or retrieved" so it does not mean that the contents is
         //       binary
         if ($cfg['ShowFunctionFields']) {
-            if (($cfg['ProtectBinary'] && $is_blob && !$is_upload)
-                || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
+            if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
+             || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo '        <td align="center">' . $strBinary . '</td>' . "\n";
             } elseif (strstr($field['True_Type'], 'enum') || strstr($field['True_Type'], 'set')) {
                 echo '        <td align="center">--</td>' . "\n";
@@ -527,8 +522,8 @@ foreach ($rows as $row_id => $vrow) {
                     if (!($field['True_Type'] == 'timestamp'
                       && !empty($field['Default'])
                       && !isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp']))) {
-                    $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                                || (!$first_timestamp && $dropdown[$j] == $default_function)
+                    $selected = ($field['first_timestamp'] && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                                || (!$field['first_timestamp'] && $dropdown[$j] == $default_function)
                               ? ' selected="selected"'
                               : '';
                 }
@@ -545,8 +540,8 @@ foreach ($rows as $row_id => $vrow) {
                 for ($j = 0; $j < $cnt_functions; $j++) {
                     if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
                         // Is current function defined as default?
-                        $selected = ($first_timestamp && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                                    || (!$first_timestamp && $cfg['Functions'][$j] == $default_function)
+                        $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                                    || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
                                   ? ' selected="selected"'
                                   : '';
                         if ($op_spacing_needed == TRUE) {
@@ -573,16 +568,16 @@ foreach ($rows as $row_id => $vrow) {
         echo '        <td>' . "\n";
         if ($field['Null'] == 'YES') {
             echo '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
-            if ($real_null_value && !$first_timestamp) {
+            if ($real_null_value && !$field['first_timestamp']) {
                 echo ' value="on"';
             }
             echo ' />' . "\n";
 
-            if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))) {
+            if (!(($cfg['ProtectBinary'] && $field['is_blob']) || ($cfg['ProtectBinary'] == 'all' && $field['is_binary']))) {
 
                 echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
                      . ' name="fields_null' . $field_name_appendix . '"';
-                if ($real_null_value && !$first_timestamp) {
+                if ($real_null_value && !$field['first_timestamp']) {
                     echo ' checked="checked"';
                 }
                 echo ' id="field_' . ($idindex) . '_2"';
@@ -604,7 +599,7 @@ foreach ($rows as $row_id => $vrow) {
                 echo $onclick;
             } else {
                 echo '            <input type="hidden" name="fields_null' . $field_name_appendix . '"';
-                if ($real_null_value && !$first_timestamp) {
+                if ($real_null_value && !$field['first_timestamp']) {
                     echo ' value="on"';
                 }
                 echo ' />' . "\n";
@@ -655,7 +650,7 @@ foreach ($rows as $row_id => $vrow) {
             </select>
             <?php
             unset($disp_row);
-        } elseif ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {
+        } elseif ($cfg['LongtextDoubleTextarea'] && strstr($field['pma_type'], 'longtext')) {
             ?>
             &nbsp;</td>
         </tr>
@@ -671,7 +666,7 @@ foreach ($rows as $row_id => $vrow) {
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     ><?php echo $special_chars; ?></textarea>
           <?php
-        } elseif (strstr($type, 'text')) {
+        } elseif (strstr($field['pma_type'], 'text')) {
             echo $backup_field . "\n";
             ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
@@ -688,7 +683,7 @@ foreach ($rows as $row_id => $vrow) {
                 echo "        </td>\n";
                 echo '        <td>' . $strTextAreaLength;
             }
-        } elseif ($type == 'enum') {
+        } elseif ($field['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
                 foreach (PMA_getEnumSetOptions($field['Type']) as $val) {
@@ -759,7 +754,7 @@ foreach ($rows as $row_id => $vrow) {
                     $j++;
                 } // end for
             } // end else
-        } elseif ($type == 'set') {
+        } elseif ($field['pma_type'] == 'set') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
                 foreach (PMA_getEnumSetOptions($field['Type']) as $val) {
@@ -798,9 +793,9 @@ foreach ($rows as $row_id => $vrow) {
         }
         // Change by Bernard M. Piller <bernard@bmpsystems.com>
         // We don't want binary data destroyed
-        elseif ($is_binary || $is_blob) {
-            if (($cfg['ProtectBinary'] && $is_blob)
-                || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
+        elseif ($field['is_binary'] || $field['is_blob']) {
+            if (($cfg['ProtectBinary'] && $field['is_blob'])
+                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])) {
                 echo "\n";
                     echo $strBinaryDoNotEdit;
                     if (isset($data)) {
@@ -813,7 +808,7 @@ foreach ($rows as $row_id => $vrow) {
                 <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
                 <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
                 <?php
-            } elseif ($is_blob) {
+            } elseif ($field['is_blob']) {
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
@@ -829,7 +824,7 @@ foreach ($rows as $row_id => $vrow) {
 
             } else {
                 // field size should be at least 4 and max 40
-                $fieldsize = min(max($len, 4), 40);
+                $fieldsize = min(max($field['len'], 4), 40);
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
@@ -845,7 +840,7 @@ foreach ($rows as $row_id => $vrow) {
             // attribute does not imply binary contents)
             // (displayed whatever value the ProtectBinary has)
 
-            if ($is_upload && $is_blob) {
+            if ($is_upload && $field['is_blob']) {
                 echo '<br />';
                 echo '<input type="file" name="fields_upload_' . $field['Field_html'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" />&nbsp;';
 
@@ -861,8 +856,8 @@ foreach ($rows as $row_id => $vrow) {
                     'longblob'   => '4294967296'); // yeah, really
 
                 $this_field_max_size = $max_upload_size; // from PHP max
-                if ($this_field_max_size > $max_field_sizes[$type]) {
-                   $this_field_max_size = $max_field_sizes[$type];
+                if ($this_field_max_size > $max_field_sizes[$field['pma_type']]) {
+                   $this_field_max_size = $max_field_sizes[$field['pma_type']];
                 }
                 echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
                 // do not generate here the MAX_FILE_SIZE, because we should
@@ -889,9 +884,9 @@ foreach ($rows as $row_id => $vrow) {
         } // end elseif (binary or blob)
         else {
             // field size should be at least 4 and max 40
-            $fieldsize = min(max($len, 4), 40);
+            $fieldsize = min(max($field['len'], 4), 40);
             echo $backup_field . "\n";
-            if ($is_char && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
+            if ($field['is_char'] && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
                 echo "\n";
                 ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
@@ -916,7 +911,7 @@ foreach ($rows as $row_id => $vrow) {
                     <input type="hidden" name="auto_increment<?php echo $field_name_appendix; ?>" value="1" />
                     <?php
                 } // end if
-                if (substr($type, 0, 9) == 'timestamp') {
+                if (substr($field['pma_type'], 0, 9) == 'timestamp') {
                     ?>
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="timestamp" />
                     <?php
@@ -926,12 +921,12 @@ foreach ($rows as $row_id => $vrow) {
                     <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
                     <?php
                 }
-                if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+                if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript">
                     //<![CDATA[
                     document.write('<a title="<?php echo $strCalendar;?>"');
-                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');
+                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($field['pma_type'], 0, 9) == 'timestamp') ? 'datetime' : substr($field['pma_type'], 0, 9); ?>\')">');
                     document.write('<img class="calendar"');
                     document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
                     document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
