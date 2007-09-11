@@ -101,9 +101,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        $comments_map = PMA_getComments($db, $table);
-    }
+    $comments_map = PMA_getComments($db, $table);
 }
 
 /**
@@ -444,9 +442,9 @@ foreach ($rows as $row_id => $vrow) {
             //        statement MySQL auto-update it to the current timestamp
             // lem9:  however, things have changed since MySQL 4.1, so
             //        it's better to set a fields_prev in this situation
-            $backup_field  = (PMA_MYSQL_INT_VERSION < 40100 && $table_field['True_Type'] == 'timestamp')
-                           ? ''
-                           : '<input type="hidden" name="fields_prev' . $field_name_appendix . '" value="' . htmlspecialchars($vrow[$field]) . '" />';
+            $backup_field  = '<input type="hidden" name="fields_prev'
+                . $field_name_appendix . '" value="'
+                . htmlspecialchars($vrow[$field]) . '" />';
         } else {
             // loic1: display default values
             if (!isset($table_field['Default'])) {
@@ -514,11 +512,9 @@ foreach ($rows as $row_id => $vrow) {
                     // and the column does not have the
                     // ON UPDATE DEFAULT TIMESTAMP attribute.
 
-                    if (PMA_MYSQL_INT_VERSION < 40102
-                     || (PMA_MYSQL_INT_VERSION >= 40102
-                      && !($table_field['True_Type'] == 'timestamp'
-                       && !empty($table_field['Default'])
-                       && !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
+                    if (!($table_field['True_Type'] == 'timestamp'
+                      && !empty($table_field['Default'])
+                      && !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp']))) {
                     $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $dropdown[$j] == $default_function)
                               ? ' selected="selected"'
@@ -937,7 +933,7 @@ foreach ($rows as $row_id => $vrow) {
                     <script type="text/javascript">
                     //<![CDATA[
                     document.write('<a title="<?php echo $strCalendar;?>"');
-                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');
+                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')">');
                     document.write('<img class="calendar"');
                     document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
                     document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
