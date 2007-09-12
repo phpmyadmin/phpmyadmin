@@ -132,7 +132,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     PMA_reloadNavigation();
     ?>
     <script src="./js/tooltip.js" type="text/javascript"></script>
-    <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
+    <meta name="OBGZip" content="<?php echo ($GLOBALS['cfg']['OBGzip'] ? 'true' : 'false'); ?>" />
     <?php /* remove vertical scroll bar bug in ie */ ?>
     <!--[if IE 6]>
     <style type="text/css">
