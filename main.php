@@ -335,11 +335,6 @@ if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
 }
 
 /**
- * Removed the "empty $cfg['PmaAbsoluteUri']" warning on 2005-08-23
- * See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
- */
-
-/**
  * Warning if using the default MySQL privileged account
  * modified: 2004-05-05 mkkeck
  */
@@ -358,7 +353,7 @@ if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
 }
 
 /**
- * Nijel: As we try to hadle charsets by ourself, mbstring overloads just
+ * Nijel: As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
@@ -395,7 +390,7 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
  * (a difference on the third digit does not count)
  */
 if ($server > 0 && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
-    echo '<div class="warning">'
+    echo '<div class="notice">'
      . PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
             PMA_DBI_get_client_info(),
             substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-'))))
