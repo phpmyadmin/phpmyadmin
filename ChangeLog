@@ -19,6 +19,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   feature removed due to its complexity
 - bug #1774825 [operations] Rename database loses charset info
 - bug #1791568 [core] Undefined cfg, thanks to Christian Schmidt
+- bug #1782332 [structure] New table form does not overtake data 
 
 2.11.0.0 (2007-08-21)
 
