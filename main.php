@@ -370,10 +370,9 @@ if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
 
 /**
  * Warning for old PHP version
- * modified: 2004-05-05 mkkeck
  */
-if (PMA_PHP_INT_VERSION < 40100) {
-    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</div>' . "\n";
+if (PMA_PHP_INT_VERSION < 40200) {
+    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '4.2.0') . '</div>' . "\n";
 }
 
 /**
