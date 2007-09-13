@@ -254,6 +254,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 // check number of fields to be created
 if (isset($_REQUEST['submit_num_fields'])) {
+    $regenerate = true; // for libraries/tbl_properties.inc.php
     $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
 } elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
     $num_fields = (int) $_REQUEST['num_fields'];
