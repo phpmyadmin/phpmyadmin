@@ -8,7 +8,7 @@
 # August 9, 2002
 ##
 
-MASTER="english-iso-8859-1.inc.php"
+MASTER="english-utf-8.inc.php"
 TMPDIR="tmp-check"
 FILEPAT="*.inc.php"
 STRINGMATCH='^[[:space:]]*\$[[:alnum:]_]+[[:blank:]]+='
