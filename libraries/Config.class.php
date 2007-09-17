@@ -533,7 +533,8 @@ class PMA_Config
      */
     function getMtime()
     {
-        return max($this->source_mtime, $this->default_source_mtime, $this->set_mtime);
+        return $this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info;
+        //"max()" most probably would only returns "source" last modified timestamp.
     }
 
     /**

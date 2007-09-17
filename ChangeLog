@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.2.0 (not yet released)
+- patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
+
 2.11.1.0 (not yet released)
 
 - bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version 
