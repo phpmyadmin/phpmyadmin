@@ -101,16 +101,19 @@ function PMA_auth_check()
         if (PMA_getenv('PHP_AUTH_USER')) {
             $PHP_AUTH_USER = PMA_getenv('PHP_AUTH_USER');
         } elseif (PMA_getenv('REMOTE_USER')) {
-            // CGI, might be encoded, see bellow
+            // CGI, might be encoded, see below
             $PHP_AUTH_USER = PMA_getenv('REMOTE_USER');
+        } elseif (PMA_getenv('REDIRECT_REMOTE_USER')) {
+            // CGI, might be encoded, see below
+            $PHP_AUTH_USER = PMA_getenv('REDIRECT_REMOTE_USER');
         } elseif (PMA_getenv('AUTH_USER')) {
             // WebSite Professional
             $PHP_AUTH_USER = PMA_getenv('AUTH_USER');
         } elseif (PMA_getenv('HTTP_AUTHORIZATION')) {
-            // IIS, might be encoded, see bellow
+            // IIS, might be encoded, see below
             $PHP_AUTH_USER = PMA_getenv('HTTP_AUTHORIZATION');
         } elseif (PMA_getenv('Authorization')) {
-            // FastCGI, might be encoded, see bellow
+            // FastCGI, might be encoded, see below
             $PHP_AUTH_USER = PMA_getenv('Authorization');
         }
     }

@@ -7,6 +7,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 2.11.2.0 (not yet released)
 - patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
+- patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
 
 2.11.1.0 (not yet released)
 
