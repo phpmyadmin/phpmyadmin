@@ -538,7 +538,8 @@ class PMA_Config
     }
 
     /**
-     * returns time of last config change.
+     * returns a unique value to force a CSS reload if either the config
+     * or the theme changes
      * @return  int  Unix timestamp
      */
     function getMtime()

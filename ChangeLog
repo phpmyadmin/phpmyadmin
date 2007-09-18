@@ -6,7 +6,6 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 2.11.2.0 (not yet released)
-- patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
 - patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
 
 2.11.1.0 (not yet released)
@@ -25,6 +24,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1791568 [core] Undefined cfg, thanks to Christian Schmidt
 - bug #1782332 [structure] New table form does not overtake data 
 - bug #1793763 [requirements] minimum PHP should be 4.2.0 
+- patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
 
 2.11.0.0 (2007-08-21)
 
