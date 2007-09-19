@@ -923,7 +923,6 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
  * @uses    PMA__foreignDropdownBuild()
  * @uses    PMA_isValid()
  * @uses    implode()
- * @see     get_foreign.lib.php
  * @param   array    array of the displayed row
  * @param   string   the foreign field
  * @param   string   the foreign field to display
@@ -986,5 +985,98 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 
     return $ret;
 } // end of 'PMA_foreignDropdown()' function
+
+/**
+ * Gets foreign keys in preparation for a drop-down selector
+ * Thanks to <markus@noga.de>
+ *
+ * @uses    PMA_Table::countRecords() 
+ * @uses    PMA_backquote() 
+ * @uses    PMA_getDisplayField() 
+ * @uses    PMA_sqlAddslashes()  
+ * @uses    PMA_DBI_fetch_value() 
+ * @uses    PMA_DBI_free_result() 
+ * @uses    PMA_DBI_query()
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_fetch_assoc()
+ * @param   array    array of the foreign keys 
+ * @param   string   the foreign field name
+ * @param   bool     whether to override the total
+ * @param   string   a possible filter  
+ * @param   string   a possible LIMIT clause
+ * @return  array    data about the foreign keys 
+ * @access  public
+ */
+
+function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filter, $foreign_limit) {
+
+    // we always show the foreign field in the drop-down; if a display
+    // field is defined, we show it besides the foreign field
+    $foreign_link = false;
+    if ($foreigners && isset($foreigners[$field])) {
+        $foreigner       = $foreigners[$field];
+        $foreign_db      = $foreigner['foreign_db'];
+        $foreign_table   = $foreigner['foreign_table'];
+        $foreign_field   = $foreigner['foreign_field'];
+
+        // Count number of rows in the foreign table. Currently we do
+        // not use a drop-down if more than 200 rows in the foreign table,
+        // for speed reasons and because we need a better interface for this.
+        //
+        // We could also do the SELECT anyway, with a LIMIT, and ensure that
+        // the current value of the field is one of the choices.
+
+        $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, TRUE);
+
+        if ($override_total == true || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']) {
+            // foreign_display can be FALSE if no display field defined:
+            $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
+
+            $f_query_main = 'SELECT ' . PMA_backquote($foreign_field)
+                        . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display));
+            $f_query_from = ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+            $f_query_filter = empty($foreign_filter) ? '' : ' WHERE ' . PMA_backquote($foreign_field)
+                            . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
+                            . (($foreign_display == FALSE) ? '' : ' OR ' . PMA_backquote($foreign_display)
+                                . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
+                                );
+            $f_query_order = ($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
+            $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
+
+            if (!empty($foreign_filter)) {
+                $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
+                if ($res) {
+                    $the_total = PMA_DBI_fetch_value($res);
+                    @PMA_DBI_free_result($res);
+                } else {
+                    $the_total = 0;
+                }
+            }
+
+            $disp  = PMA_DBI_query($f_query_main . $f_query_from . $f_query_filter . $f_query_order . $f_query_limit);
+            if ($disp && PMA_DBI_num_rows($disp) > 0) {
+                // If a resultset has been created, pre-cache it in the $disp_row array
+                // This helps us from not needing to use mysql_data_seek by accessing a pre-cached
+                // PHP array. Usually those resultsets are not that big, so a performance hit should
+                // not be expected.
+                $disp_row = array();
+                while ($single_disp_row = @PMA_DBI_fetch_assoc($disp)) {
+                    $disp_row[] = $single_disp_row;
+                }
+                @PMA_DBI_free_result($disp);
+            }
+        } else {
+            $disp_row = null;
+            $foreign_link = true;
+        }
+    }  // end if $foreigners
+
+    $foreignData['foreign_link'] = $foreign_link;
+    $foreignData['the_total'] = isset($the_total) ? $the_total : null;
+    $foreignData['foreign_display'] = isset($foreign_display) ? $foreign_display : null;
+    $foreignData['disp_row'] = isset($disp_row) ? $disp_row : null;
+    $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
+    return $foreignData;
+} // end of 'PMA_getForeignData()' function
 
 ?>

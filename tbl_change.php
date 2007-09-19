@@ -610,10 +610,9 @@ foreach ($rows as $row_id => $vrow) {
         // The value column (depends on type)
         // ----------------
 
-        require './libraries/get_foreign.lib.php';
-
+        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', ''); 
         echo '        <td>' . "\n";
-        if (isset($foreign_link) && $foreign_link == true) {
+        if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";
             ?>
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
@@ -635,7 +634,7 @@ foreach ($rows as $row_id => $vrow) {
             //]]>
             </script>
             <?php
-        } elseif (isset($disp_row) && is_array($disp_row)) {
+        } elseif (is_array($foreignData['disp_row'])) {
             echo $backup_field . "\n";
             ?>
             <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
@@ -646,10 +645,11 @@ foreach ($rows as $row_id => $vrow) {
                 <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3">
-                <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, $cfg['ForeignKeyMaxLimit']); ?>
+                <?php echo PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'], $foreignData['foreign_display'], $data, $cfg['ForeignKeyMaxLimit']); ?>
             </select>
             <?php
-            unset($disp_row);
+                // still needed? :
+            unset($foreignData['disp_row']);
         } elseif ($cfg['LongtextDoubleTextarea'] && strstr($field['pma_type'], 'longtext')) {
             ?>
             &nbsp;</td>
