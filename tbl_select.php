@@ -241,13 +241,9 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         // <markus@noga.de>
         $field = $fields_list[$i];
 
-        // do not use require_once here
-        require './libraries/get_foreign.lib.php';
+        $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
 
-        // we got a bug report: in some cases, even if $disp is true,
-        // there are no rows, so we add a fetch_array
-
-        if ($foreigners && isset($foreigners[$field]) && isset($disp_row) && is_array($disp_row)) {
+        if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
             // f o r e i g n    k e y s
             echo '            <select name="fields[' . $i . ']">' . "\n";
             // go back to first row
@@ -255,10 +251,12 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
             // here, the 4th parameter is empty because there is no current
             // value of data for the dropdown (the search page initial values
             // are displayed empty)
-            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display,
+            echo PMA_foreignDropdown($foreignData['disp_row'], 
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
                 '', $GLOBALS['cfg']['ForeignKeyMaxLimit']);
             echo '            </select>' . "\n";
-        } elseif (isset($foreign_link) && $foreign_link == true) {
+        } elseif ($foreignData['foreign_link'] == true) {
             ?>
             <input type="text" name="fields[<?php echo $i; ?>]"
                 id="field_<?php echo md5($field); ?>[<?php echo $i; ?>]"

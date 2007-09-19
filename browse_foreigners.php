@@ -38,7 +38,7 @@ if (isset($foreign_navig) && $foreign_navig == $strShowAll) {
     unset($foreign_limit);
 }
 
-require './libraries/get_foreign.lib.php';
+$foreignData = PMA_getForeignData($foreigners, $field, $override_total, isset($foreign_filter) ? $foreign_filter : '', $foreign_limit);
 
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);
@@ -51,19 +51,18 @@ if (isset($pk)) {
 
 $gotopage = '';
 $showall = '';
-// $the_total comes from get_foreign.lib.php
 
-if (isset($disp_row) && is_array($disp_row)) {
+if (is_array($foreignData['disp_row'])) {
 
-    if ($cfg['ShowAll'] && ($the_total > $per_page)) {
+    if ($cfg['ShowAll'] && ($foreignData['the_total'] > $per_page)) {
         $showall = '<input type="submit" name="foreign_navig" value="' . $strShowAll . '" />';
     }
 
     $session_max_rows = $per_page;
     $pageNow = @floor($pos / $session_max_rows) + 1;
-    $nbTotalPage = @ceil($the_total / $session_max_rows);
+    $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
 
-    if ($the_total > $per_page) {
+    if ($foreignData['the_total'] > $per_page) {
         $gotopage = PMA_pageselector(
                       'browse_foreigners.php?field='    . urlencode($field) .
                                        '&amp;'          . PMA_generate_common_url($db, $table)
@@ -163,7 +162,7 @@ if (isset($disp_row) && is_array($disp_row)) {
 
 <table width="100%">
 <?php
-if (isset($disp_row) && is_array($disp_row)) {
+if (is_array($foreignData['disp_row'])) {
     $header = '<tr>
         <th>' . $strKeyname . '</th>
         <th>' . $strDescription . '</th>
@@ -178,14 +177,14 @@ if (isset($disp_row) && is_array($disp_row)) {
 
     $values = array();
     $keys   = array();
-    foreach ($disp_row as $relrow) {
-        if ($foreign_display != FALSE) {
-            $values[] = $relrow[$foreign_display];
+    foreach ($foreignData['disp_row'] as $relrow) {
+        if ($foreignData['foreign_display'] != FALSE) {
+            $values[] = $relrow[$foreignData['foreign_display']];
         } else {
             $values[] = '';
         }
 
-        $keys[] = $relrow[$foreign_field];
+        $keys[] = $relrow[$foreignData['foreign_field']];
     }
 
     asort($keys);
