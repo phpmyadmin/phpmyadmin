@@ -105,7 +105,7 @@ class PMA_StorageEngine
             $output .= '    <option value="' . htmlspecialchars($key). '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . ($key == $selected || (empty($selected) && $details['Support'] == 'DEFAULT')
+                . (strtolower($key) == $selected || (empty($selected) && $details['Support'] == 'DEFAULT')
                     ? ' selected="selected"' : '') . '>' . "\n"
                 . '        ' . htmlspecialchars($details['Engine']) . "\n"
                 . '    </option>' . "\n";
