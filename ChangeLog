@@ -22,6 +22,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1782332 [structure] New table form does not overtake data 
 - bug #1793763 [requirements] minimum PHP should be 4.2.0 
 - patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
+- bug #1798627 [GUI] Wrong storage engine displayed
 
 2.11.0.0 (2007-08-21)
 
