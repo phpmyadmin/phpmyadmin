@@ -24,7 +24,7 @@ border-left:1px solid #AAA;
     font-family:    Tahoma, Arial, Helvetica, Verdana, sans-serif;
     font-size:         11px;
     color: #000000;
-         background: <?php echo $GLOBALS['cfg']['RightBgColor']; ?> url(../themes/pixeline/img/pixeline_light.png) top left repeat-x;
+         background: <?php echo $GLOBALS['cfg']['RightBgColor']; ?> url(themes/pixeline/img/pixeline_light.png) top left repeat-x;
 
 }
 
@@ -208,7 +208,7 @@ div.errorhead {
     color: #ffffff;
     text-align: left;
     <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image: url(../themes/original/img/s_error.png);
+    background-image: url(themes/original/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 5px 50%;
     padding: 0px 0px 0px 25px;
@@ -292,7 +292,7 @@ html body div#serverinfo a.item, #serverinfo a.item:active, #serverinfo a.item:v
     margin: 0px 1px 0px 2px;
 }
 #serverinfo div{
-    background-image:    url(../themes/original/img/item_ltr.png);
+    background-image:    url(themes/original/img/item_ltr.png);
     background-repeat:   no-repeat;
     background-position: 50% 50%;
     width: 20px;

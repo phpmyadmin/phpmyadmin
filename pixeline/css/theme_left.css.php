@@ -24,7 +24,7 @@ body#body_leftFrame {
     color: #000000;
     height:100%;
     overflow:auto;
-     background: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?> url(../themes/pixeline/img/pixeline_light.png) top left repeat-x;
+     background: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?> url(themes/pixeline/img/pixeline_light.png) top left repeat-x;
      border-right:1px solid #AAA;
 
 }
@@ -45,7 +45,7 @@ div#databaseList {
 
 }
 div#pmalogo{
-background:#FFF url(../themes/pixeline/img/logo_background.png) top left repeat-x;
+background:#FFF url(themes/pixeline/img/logo_background.png) top left repeat-x;
 padding:0;
 margin:0;
 border-bottom:0px;
@@ -122,4 +122,33 @@ div#left_tableList ul ul {
     padding-bottom: 0.1em;
     border-bottom: 0.1em solid #669999;
     background-color:#FEFEFE;
+}
+
+/** Thanks Vince ;) - vincekruger@gmail.com**/
+ul#databaseList{
+list-style:none;
+
+}
+ul#databaseList li{
+	line-height:1.5em;
+	font-weight:bold;
+
+}
+ul#databaseList li a{
+	font-weight:normal;
+	text-decoration:none;
+	color:#333;
+}
+ul#databaseList li a:hover, ul#databaseList li a:active, ul#databaseList li a:focus{
+font-weight:bold;
+}
+ul#databaseList li ul{
+padding-left:10px;
+margin-left:0px;
+
+	list-style:none;
+	padding-bottom:1em;
+}
+ul#databaseList li ul li a{
+	border-left:1px solid #333;
 }
