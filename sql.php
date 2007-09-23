@@ -109,16 +109,6 @@ if (isset($store_bkm)) {
     PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto);
 } // end if
 
-
-/**
- * Gets the true sql query
- */
-// $sql_query has been urlencoded in the confirmation form for drop/delete
-// queries or in the navigation bar for browsing among records
-if (isset($btnDrop) || isset($navig)) {
-    $sql_query = urldecode($sql_query);
-}
-
 /**
  * Parse and analyze the query
  */
@@ -184,7 +174,7 @@ if ($do_confirm) {
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);
     ?>
-    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows) : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back) : ''; ?>" />
