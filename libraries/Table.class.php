@@ -838,15 +838,20 @@ class PMA_Table {
                 $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
                 $new_fields = array('db_name' => $target_db, 'table_name' => $target_table);
                 PMA_Table::duplicateInfo('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
+                
 
-                $get_fields = array('master_field', 'foreign_db', 'foreign_table', 'foreign_field');
+                /**
+                 * @todo revise this code when we support cross-db relations
+                 */
+                $get_fields = array('master_field', 'foreign_table', 'foreign_field');
                 $where_fields = array('master_db' => $source_db, 'master_table' => $source_table);
-                $new_fields = array('master_db' => $target_db, 'master_table' => $target_table);
+                $new_fields = array('master_db' => $target_db, 'foreign_db' => $target_db, 'master_table' => $target_table);
                 PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+                
 
-                $get_fields = array('foreign_field', 'master_db', 'master_table', 'master_field');
+                $get_fields = array('foreign_field', 'master_table', 'master_field');
                 $where_fields = array('foreign_db' => $source_db, 'foreign_table' => $source_table);
-                $new_fields = array('foreign_db' => $target_db, 'foreign_table' => $target_table);
+                $new_fields = array('master_db' => $target_db, 'foreign_db' => $target_db, 'foreign_table' => $target_table);
                 PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
 
                 /**
