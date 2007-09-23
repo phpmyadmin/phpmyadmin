@@ -720,7 +720,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // and run authentication
 
         // (for a quick check of path disclosure in auth/cookies:)
-        $coming_from_common = true;
+        define('PMA_COMING_FROM_COMMON', true);
 
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
