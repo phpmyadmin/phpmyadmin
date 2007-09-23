@@ -218,6 +218,20 @@ fieldset.tblFooters {
     clear:              both;
 }
 
+.login fieldset.tblFooters {
+    padding:			3px;
+}
+
+.login fieldset.tblFooters input[type=submit] {
+    background-color:	#FFFFFF;
+    color:				<?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    font-weight:		bold;
+    padding-left:		20px;
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_go.png);
+    background-repeat:  no-repeat;
+    background-position:center left;
+}
+
 fieldset .formelement {
     float:              <?php echo $left; ?>;
     margin-<?php echo $right; ?>:       0.5em;
@@ -268,6 +282,8 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
+.odd a:hover,
+.even a:hover,
 .hover {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
@@ -300,7 +316,6 @@ table .value {
 table [class=value] {
     white-space:        normal;
 }
-
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
 .value {
@@ -636,10 +651,20 @@ form.login label {
 form.login fieldset div.item input {
 	background-color:   #FFFFFF;
 	background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>loginfield_bgnd.png);
-	background-repeat:  repeat-x;
+    background-repeat:  repeat-x;
     background-position: bottom;
+    margin-bottom:		3px;
+    width:				14em;
 }
 
+form.login fieldset div.item select {
+	width:				14em;
+	border:				1px solid <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+}
+
+.loginform .container fieldset select[name=lang] {
+    width:				24em;
+}
 
 /******************************************************************************/
 /* specific elements */
@@ -1129,7 +1154,8 @@ li#li_server_info,
 li#li_mysql_proto,
 li#li_user_info,
 li#li_used_php_extension,
-li#li_mysql_client_version {
+li#li_mysql_client_version,
+li#li_select_server {
 	color: #888888;
 }
 #mysqlmaininformation {
@@ -1258,6 +1284,11 @@ li#li_used_php_extension {
 }
 
 li#li_mysql_client_version {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
+    font-size: 80%;
+}
+
+li#li_select_server {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
     font-size: 80%;
 }

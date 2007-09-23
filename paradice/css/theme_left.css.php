@@ -101,6 +101,7 @@ ul#databaseList {
 
 ul#databaseList ul {
     list-style-image: 	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/paradice/img/dbitem_ltr2.png);
+    padding-left:		18px;
 }
 
 ul#databaseList li {
