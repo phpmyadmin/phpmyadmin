@@ -121,7 +121,7 @@ fieldset fieldset {
 }
 
 fieldset legend {
-    color:              #666699;
+    color:              #444444;
     font-weight:        bold;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
     padding:            2px 2px 2px 2px;

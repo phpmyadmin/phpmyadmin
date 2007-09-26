@@ -107,7 +107,7 @@ fieldset fieldset {
 fieldset legend {
     background-color:   transparent;
     font-weight:        bold;
-    color:              <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
+    color:              #444444;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
