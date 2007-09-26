@@ -798,8 +798,19 @@ class PMA_Table {
                 */
             }
 
+            if ($GLOBALS['cfgRelation']['designerwork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords'])
+                                . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\','
+                                . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
+                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                PMA_query_as_cu($table_query);
+                unset($table_query);
+            }
             $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_query . ';';
+        // end if ($move)
         } else {
+            // we are copying
             // garvin: Create new entries as duplicates from old PMA DBs
             if ($what != 'dataonly' && !isset($maintain_relations)) {
                 if ($GLOBALS['cfgRelation']['commwork']) {
@@ -853,6 +864,12 @@ class PMA_Table {
                 $where_fields = array('foreign_db' => $source_db, 'foreign_table' => $source_table);
                 $new_fields = array('master_db' => $target_db, 'foreign_db' => $target_db, 'foreign_table' => $target_table);
                 PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+                
+
+                $get_fields = array('x', 'y', 'v', 'h');
+                $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
+                $new_fields = array('db_name' => $target_db, 'table_name' => $target_table);
+                PMA_Table::duplicateInfo('designerwork', 'designer_coords', $get_fields, $where_fields, $new_fields);
 
                 /**
                  * @todo garvin: Can't get duplicating PDFs the right way. The
@@ -1005,6 +1022,18 @@ class PMA_Table {
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
+                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+            PMA_query_as_cu($table_query);
+            unset($table_query);
+        }
+
+        if ($GLOBALS['cfgRelation']['designerwork']) {
+            $table_query = '
+                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']) . '
                    SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
                        `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
                  WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
