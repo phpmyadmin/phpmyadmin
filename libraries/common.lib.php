@@ -68,18 +68,65 @@ function PMA_pow($base, $exp, $use_function = false)
  * string PMA_getIcon(string $icon)
  *
  * @uses    $GLOBALS['pmaThemeImage']
- * @param   $icon   name of icon
+ * @uses    $GLOBALS['cfg']['PropertiesIconic']
+ * @uses    htmlspecialchars()
+ * @param   string  $icon   name of icon file
+ * @param   string  $alternate alternate text
+ * @param   boolean $container include in container
+ * @param   boolean $$force_text whether to force alternate text to be displayed
  * @return          html img tag
  */
-function PMA_getIcon($icon, $alternate = '')
+function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
 {
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
-        return '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+    $include_icon = false;
+    $include_text = false;
+    $include_box  = false;
+    $alternate    = htmlspecialchars($alternate);
+    $button       = '';
+
+    if (($GLOBALS['cfg']['PropertiesIconic'] && $icon)
+     || ! strlen($alternate)) {
+         // we have valid icon and $cfg['PropertiesIconic'] is true or both
+         // OR $alternate is empty
+         $include_icon = true;
+    }
+
+    if ($force_text
+     || ! (true === $GLOBALS['cfg']['PropertiesIconic'])
+     || ! $include_icon) {
+        // $cfg['PropertiesIconic'] is false or both
+        // OR we have no $include_icon
+        $include_text = true;
+    }
+
+    if ($include_text && $include_icon && $container) {
+        // we have icon, text and request for container
+        $include_box = true;
+    }
+
+    if ($include_box) {
+        $button .= '<div class="nowrap">';
+    }
+
+    if ($include_icon) {
+        $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
             . ' title="' . $alternate . '" alt="' . $alternate . '"'
             . ' class="icon" width="16" height="16" />';
-    } else {
-        return $alternate;
     }
+
+    if ($include_icon && $include_text) {
+        $button .= ' ';
+    }
+
+    if ($include_text) {
+        $button .= $alternate;
+    }
+
+    if ($include_box) {
+        $button .= '</div>';
+    }
+
+    return $button;
 }
 
 /**
