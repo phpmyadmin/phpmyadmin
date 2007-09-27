@@ -371,7 +371,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
     <td align="center">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
+        <input type="checkbox" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $field_name; ?></label></th>
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
