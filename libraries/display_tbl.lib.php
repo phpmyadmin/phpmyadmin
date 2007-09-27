@@ -277,7 +277,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
 <td align="center">
 <?php // if displaying a VIEW, $unlim_num_rows could be zero because
       // of $cfg['MaxExactCountViews']; in this case, avoid passing
-      // the 5th parameter to checkFormElementInRange() 
+      // the 5th parameter to checkFormElementInRange()
       // (this means we can't validate the upper limit ?>
     <form action="sql.php" method="post"
 onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowNumber']); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowNumber']); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
@@ -1058,7 +1058,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       with only one field and it's a BLOB; in this case,
          *       avoid to display the delete and edit links
          */
-        $unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
+        //$unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
+        $unique_condition     = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+        $unique_condition_url = urlencode($unique_condition);
+        $unique_condition_html = htmlspecialchars($unique_condition);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
         $url_query  = PMA_generate_common_url($db, $table);
@@ -1078,7 +1081,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 $edit_url = 'tbl_change.php'
                           . '?' . $url_query
-                          . '&amp;primary_key=' . $unique_condition
+                          . '&amp;primary_key=' . $unique_condition_url
                           . '&amp;sql_query=' . urlencode($url_sql_query)
                           . '&amp;goto=' . urlencode($lnk_goto);
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
@@ -1121,14 +1124,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                           . '&sql_query=' . urlencode($url_sql_query)
                           . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                           . '&goto=' . (empty($goto) ? 'tbl_sql.php' : $goto);
-                $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $unique_condition . '+LIMIT+1';
+                $del_query = 'DELETE FROM ' . PMA_backquote($table) . ' WHERE' . $unique_condition . ' LIMIT 1';
                 $del_url  = 'sql.php'
                           . '?' . $url_query
-                          . '&amp;sql_query=' . $del_query
+                          . '&amp;sql_query=' . urlencode($del_query)
                           . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                           . '&amp;goto=' . urlencode($lnk_goto);
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
-                          . ' WHERE ' . trim(PMA_jsFormat(urldecode($unique_condition), false))
+                          . ' WHERE ' . trim(PMA_jsFormat($unique_condition, false))
                           . ' LIMIT 1';
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
                     $del_str = $GLOBALS['strDelete'];
@@ -1147,7 +1150,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                           . PMA_generate_common_url('mysql')
                           . '&amp;sql_query=' . urlencode('KILL ' . $row[0])
                           . '&amp;goto=' . urlencode($lnk_goto);
-                $del_query = urlencode('KILL ' . $row[0]);
+                $del_query = 'KILL ' . $row[0];
                 $js_conf  = 'KILL ' . $row[0];
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
                     $del_str = $GLOBALS['strKill'];
@@ -1222,7 +1225,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             $transform_options['wrapper_link'] = '?'
                                                 . (isset($url_query) ? $url_query : '')
-                                                . '&amp;primary_key=' . (isset($unique_condition) ? $unique_condition : '')
+                                                . '&amp;primary_key=' . (isset($unique_condition_url) ? $unique_condition_url : '')
                                                 . '&amp;sql_query=' . (empty($sql_query) ? '' : urlencode($url_sql_query))
                                                 . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
                                                 . '&amp;transform_key=' . urlencode($meta->name);
@@ -1481,9 +1484,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
-                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $unique_condition . ']"'
+                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $unique_condition_html . ']"'
                                                      .  ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
-                                                     .  ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
+                                                     .  ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
                                                      .  '    </td>' . "\n";
         } else {
             unset($vertical_display['row_delete'][$row_no]);
@@ -2006,7 +2009,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
     }
-    
+
     // 6. ----- Displays "Query results operations"
     if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_displayResultsOperations($the_disp_mode, $analyzed_sql);
