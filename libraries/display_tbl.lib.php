@@ -1088,14 +1088,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 );
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params);
 
-                if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
-                    $edit_str = $GLOBALS['strEdit'];
-                } else {
-                    $edit_str = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" alt="' . $GLOBALS['strEdit'] . '" title="' . $GLOBALS['strEdit'] . '" />';
-                    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-                        $edit_str .= ' ' . $GLOBALS['strEdit'] . '</div>';
-                    }
-                }
+                $edit_str = PMA_getIcon('b_edit.png', $GLOBALS['strEdit'], true);
             } // end if (1.2.1)
 
             if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
@@ -1110,14 +1103,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                                 . PMA_generate_common_url($_url_params)
                                 .' " title="' . $GLOBALS['strExecuteBookmarked'] . '">';
 
-                if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
-                    $bookmark_go .= $GLOBALS['strExecuteBookmarked'];
-                } else {
-                    $bookmark_go .= $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_bookmark.png" alt="' . $GLOBALS['strExecuteBookmarked'] . '" title="' . $GLOBALS['strExecuteBookmarked'] . '" />';
-                    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-                        $bookmark_go .= ' ' . $GLOBALS['strExecuteBookmarked'] . '</div>';
-                    }
-                }
+                $bookmark_go .= PMA_getIcon('b_bookmark.png', $GLOBALS['strExecuteBookmarked'], true);
 
                 $bookmark_go .= '</a>';
             } else {
@@ -1150,14 +1136,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
                           . ' WHERE ' . trim(PMA_jsFormat($unique_condition, false))
                           . ' LIMIT 1';
-                if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
-                    $del_str = $GLOBALS['strDelete'];
-                } else {
-                    $del_str = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" alt="' . $GLOBALS['strDelete'] . '" title="' . $GLOBALS['strDelete'] . '" />';
-                    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-                        $del_str .= ' ' . $GLOBALS['strDelete'] . '</div>';
-                    }
-                }
+                $del_str = PMA_getIcon('b_drop.png', $GLOBALS['strDelete'], true);
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
                 $_url_params = array(
@@ -1176,14 +1155,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
                 $del_query = 'KILL ' . $row[0];
                 $js_conf  = 'KILL ' . $row[0];
-                if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
-                    $del_str = $GLOBALS['strKill'];
-                } else {
-                    $del_str = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" alt="' . $GLOBALS['strKill'] . '" title="' . $GLOBALS['strKill'] . '" />';
-                    if ($GLOBALS['cfg']['PropertiesIconic'] === 'both') {
-                        $del_str .= ' ' . $GLOBALS['strKill'] . '</div>';
-                    }
-                }
+                $del_str = PMA_getIcon('b_drop.png', $GLOBALS['strKill'], true);
             } // end if (1.2.2)
 
             // 1.3 Displays the links at left if required
@@ -2121,14 +2093,14 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
-                ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintView'] . '"/>' : '') . $GLOBALS['strPrintView'],
+                PMA_getIcon('b_print.png', $GLOBALS['strPrintView'], false, true),
                 '', true, true, 'print_view') . "\n";
 
             if (! $_SESSION['userconf']['dontlimitchars']) {
                 $_url_params['dontlimitchars'] = 1;
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
-                    ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintViewFull'] . '"/>' : '') . $GLOBALS['strPrintViewFull'],
+                    PMA_getIcon('b_print.png', $GLOBALS['strPrintViewFull'], false, true),
                     '', true, true, 'print_view') . "\n";
                 unset($_url_params['dontlimitchars']);
             }
@@ -2150,7 +2122,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         $_url_params['unlim_num_rows'] = $unlim_num_rows;
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
-            ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
+            PMA_getIcon('b_tblexport.png', $GLOBALS['strExport'], false, true),
             '', true, true, '') . "\n";
     }
 
@@ -2168,7 +2140,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         }
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
-            ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_views.png" height="16" width="16" alt="CREATE VIEW" />' : '') . 'CREATE VIEW',
+            PMA_getIcon('b_views.png', 'CREATE VIEW', false, true),
             '', true, true, '') . "\n";
     }
 
