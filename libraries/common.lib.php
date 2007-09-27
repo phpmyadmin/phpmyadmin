@@ -2013,6 +2013,7 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
 /**
  * Generate a pagination selector for browsing resultsets
  *
+ * @todo $url is not javascript escaped!?
  * @uses    $GLOBALS['strPageNumber']
  * @uses    range()
  * @param   string      URL for the JavaScript
