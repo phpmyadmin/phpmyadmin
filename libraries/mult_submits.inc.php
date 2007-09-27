@@ -110,7 +110,10 @@ if (! empty($submit_mult)
                         $sql_query .=  ', ' . PMA_backquote(urldecode($sval));
                     }
                 }
-                $sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
+
+                // what is this htmlspecialchars() for??
+                //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
+                $sql_query .= ' FROM ' . PMA_backquote($table);
                 require './sql.php';
                 break;
         }
