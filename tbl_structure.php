@@ -493,40 +493,19 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 <i><?php echo $strWithChecked; ?></i>
 
 <?php
-if ($cfg['PropertiesIconic']) {
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
-} else {
-    echo '<input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
-}
+PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
+
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    if ($cfg['PropertiesIconic']) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
-        // Drop button if there is at least two fields
-        if ($fields_cnt > 1) {
-            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
-        }
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
-        if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
-            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
-        }
-    } else {
-        // Drop button if there is at least two fields
-        if ($fields_cnt > 1) {
-            echo '<i>' . $strOr . '</i>' . "\n"
-               . '<input type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '" />' . "\n";
-        }
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strPrimary . '" title="' . $strPrimary . '" />' . "\n";
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strIndex . '" title="' . $strIndex . '" />' . "\n";
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strUnique . '" title="' . $strUnique . '" />' . "\n";
-        if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
-            echo '<i>' . $strOr . '</i>' . "\n"
-               . '<input type="submit" name="submit_mult" value="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' . "\n";
-        }
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
+    // Drop button if there is at least two fields
+    if ($fields_cnt > 1) {
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
+    }
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+    if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
     }
 }
 ?>

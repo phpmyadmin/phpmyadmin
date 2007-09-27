@@ -1992,30 +1992,17 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             .$uncheckall_link . "\n"
             .'<i>' . $GLOBALS['strWithChecked'] . '</i>' . "\n";
 
-        if ($GLOBALS['cfg']['PropertiesIconic']) {
+        PMA_buttonOrImage('submit_mult', 'mult_submit',
+            'submit_mult_change', $GLOBALS['strChange'], 'b_edit.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit',
+            'submit_mult_delete', $delete_text, 'b_drop.png');
+        if ($analyzed_sql[0]['querytype'] == 'SELECT') {
             PMA_buttonOrImage('submit_mult', 'mult_submit',
-                'submit_mult_change', $GLOBALS['strChange'], 'b_edit.png');
-            PMA_buttonOrImage('submit_mult', 'mult_submit',
-                'submit_mult_delete', $delete_text, 'b_drop.png');
-            if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                PMA_buttonOrImage('submit_mult', 'mult_submit',
-                    'submit_mult_export', $GLOBALS['strExport'],
-                    'b_tblexport.png');
-            }
-            echo "\n";
-        } else {
-            echo ' <input type="submit" name="submit_mult"'
-                .' value="' . htmlspecialchars($GLOBALS['strEdit']) . '"'
-                .' title="' . $GLOBALS['strEdit'] . '" />' . "\n";
-            echo ' <input type="submit" name="submit_mult"'
-                .' value="' . htmlspecialchars($delete_text) . '"'
-                .' title="' . $delete_text . '" />' . "\n";
-            if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                echo ' <input type="submit" name="submit_mult"'
-                    .' value="' . htmlspecialchars($GLOBALS['strExport']) . '"'
-                    .' title="' . $GLOBALS['strExport'] . '" />' . "\n";
-            }
+                'submit_mult_export', $GLOBALS['strExport'],
+                'b_tblexport.png');
         }
+        echo "\n";
+
         echo '<input type="hidden" name="sql_query"'
             .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="url_query"'
