@@ -2038,22 +2038,26 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
 function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
     $image)
 {
+    if (false === $GLOBALS['cfg']['PropertiesIconic']) {
+        echo ' <input type="submit" name="' . $button_name . '"'
+                .' value="' . htmlspecialchars($text) . '"'
+                .' title="' . htmlspecialchars($text) . '" />' . "\n";
+        return;
+    }
+
     /* Opera has trouble with <input type="image"> */
     /* IE has trouble with <button> */
     if (PMA_USR_BROWSER_AGENT != 'IE') {
         echo '<button class="' . $button_class . '" type="submit"'
-            .' name="' . $button_name . '" value="' . $text . '"'
-            .' title="' . $text . '">' . "\n"
-            .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . $image . '"'
-            .' title="' . $text . '" alt="' . $text . '" width="16"'
-            .' height="16" />'
-            .($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . $text : '') . "\n"
+            .' name="' . $button_name . '" value="' . htmlspecialchars($text) . '"'
+            .' title="' . htmlspecialchars($text) . '">' . "\n"
+            . PMA_getIcon($image, $text)
             .'</button>' . "\n";
     } else {
         echo '<input type="image" name="' . $image_name . '" value="'
-            . $text . '" title="' . $text . '" src="' . $GLOBALS['pmaThemeImage']
+            . htmlspecialchars($text) . '" title="' . htmlspecialchars($text) . '" src="' . $GLOBALS['pmaThemeImage']
             . $image . '" />'
-            . ($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . $text : '') . "\n";
+            . ($GLOBALS['cfg']['PropertiesIconic'] === 'both' ? '&nbsp;' . htmlspecialchars($text) : '') . "\n";
     }
 } // end function
 
