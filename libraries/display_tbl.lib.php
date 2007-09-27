@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * library for displaying table with results from all sort of select queries
  *
  * @version $Id$
  */
@@ -9,10 +10,6 @@
  *
  */
 require_once './libraries/Table.class.php';
-
-/**
- * Set of functions used to display the records returned by a SQL query
- */
 
 /**
  * Defines the display mode to use for the results of a SQL query
