@@ -252,7 +252,9 @@ class PMA_Table {
         // MySQL from 5.0.0 to 5.0.12 returns 'view',
         // from 5.0.13 returns 'VIEW'.
         $comment = strtoupper(PMA_DBI_fetch_value('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'', 0, 'Comment'));
-        return ($comment == 'VIEW');
+        // use substr() because the comment might contain something like:
+        // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
+        return (substr($comment, 0, 4) == 'VIEW');
     }
 
     /**
