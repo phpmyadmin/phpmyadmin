@@ -366,21 +366,25 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
    <td>
         <?php //<form> for keep the form alignment of button < and << ?>
         <form action="none">
-        <?php echo PMA_pageselector(
-                     'sql.php?sql_query='   . urlencode($sql_query) .
-                        '&amp;goto='        . $goto .
-                        '&amp;'             . PMA_generate_common_url($db, $table) .
-                        '&amp;',
-                     $_SESSION['userconf']['max_rows'],
-                     $pageNow,
-                     $nbTotalPage,
-                     200,
-                     5,
-                     5,
-                     20,
-                     10,
-                     $GLOBALS['strPageNumber']
-              );
+        <?php
+        $_url_params = array(
+            'db'        => $db,
+            'table'     => $table,
+            'sql_query' => $sql_query,
+            'goto'      => $goto,
+        );
+        echo PMA_pageselector(
+                 'sql.php' . PMA_generate_common_url($_url_params) . PMA_get_arg_separator('js'),
+                 $_SESSION['userconf']['max_rows'],
+                 $pageNow,
+                 $nbTotalPage,
+                 200,
+                 5,
+                 5,
+                 20,
+                 10,
+                 $GLOBALS['strPageNumber']
+          );
         ?>
         </form>
     </td>
@@ -805,9 +809,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             } else {
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
             }
-            $url_query = PMA_generate_common_url($db, $table)
-                       . '&amp;sql_query=' . urlencode($sorted_sql_query);
-            $order_url  = 'sql.php?' . $url_query;
+            $_url_params = array(
+                'db'        => $db,
+                'table'     => $table,
+                'sql_query' => $sorted_sql_query,
+            );
+            $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
             // 2.1.5 Displays the sorting URL
             // added 20004-06-09: Michael Keck <mail@michaelkeck.de>
@@ -1059,12 +1066,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       avoid to display the delete and edit links
          */
         //$unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
-        $unique_condition     = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
-        $unique_condition_url = urlencode($unique_condition);
+        $unique_condition      = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
         $unique_condition_html = htmlspecialchars($unique_condition);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
-        $url_query  = PMA_generate_common_url($db, $table);
 
         if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
             // We need to copy the value or else the == 'both' check will always return true
@@ -1077,13 +1082,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             // 1.2.1 Modify link(s)
             if ($is_display['edit_lnk'] == 'ur') { // update row case
-                $lnk_goto = 'sql.php';
+                $_url_params = array(
+                    'db'            => $db,
+                    'table'         => $table,
+                    'primary_key'   => $unique_condition,
+                    'sql_query'     => $url_sql_query,
+                    'goto'          => 'sql.php',
+                );
+                $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params);
 
-                $edit_url = 'tbl_change.php'
-                          . '?' . $url_query
-                          . '&amp;primary_key=' . $unique_condition_url
-                          . '&amp;sql_query=' . urlencode($url_sql_query)
-                          . '&amp;goto=' . urlencode($lnk_goto);
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
                     $edit_str = $GLOBALS['strEdit'];
                 } else {
@@ -1095,12 +1102,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             } // end if (1.2.1)
 
             if (isset($GLOBALS['cfg']['Bookmark']['table']) && isset($GLOBALS['cfg']['Bookmark']['db']) && $table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
-                $bookmark_go = '<a href="import.php?'
-                                . PMA_generate_common_url($row[1], '')
-                                . '&amp;id_bookmark=' . $row[0]
-                                . '&amp;action_bookmark=0'
-                                . '&amp;action_bookmark_all=1'
-                                . '&amp;SQL=' . $GLOBALS['strExecuteBookmarked']
+                $_url_params = array(
+                    'db'                    => $row[1],
+                    'id_bookmark'           => $row[0],
+                    'action_bookmark'       => '0',
+                    'action_bookmark_all'   => '1',
+                    'SQL'       => $GLOBALS['strExecuteBookmarked'],
+                );
+                $bookmark_go = '<a href="import.php'
+                                . PMA_generate_common_url($_url_params)
                                 .' " title="' . $GLOBALS['strExecuteBookmarked'] . '">';
 
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
@@ -1119,18 +1129,28 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             // 1.2.2 Delete/Kill link(s)
             if ($is_display['del_lnk'] == 'dr') { // delete row case
-                $lnk_goto = 'sql.php'
-                          . '?' . str_replace('&amp;', '&', $url_query)
-                          . '&sql_query=' . urlencode($url_sql_query)
-                          . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
-                          . '&goto=' . (empty($goto) ? 'tbl_sql.php' : $goto);
-                $del_query = 'DELETE FROM ' . PMA_backquote($table) . ' WHERE' . $unique_condition . ' LIMIT 1';
-                $del_url  = 'sql.php'
-                          . '?' . $url_query
-                          . '&amp;sql_query=' . urlencode($del_query)
-                          . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
-                          . '&amp;goto=' . urlencode($lnk_goto);
-                $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
+                $_url_params = array(
+                    'db'        => $db,
+                    'table'     => $table,
+                    'sql_query' => $url_sql_query,
+                    'zero_rows' => $GLOBALS['strDeleted'],
+                    'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
+                );
+                $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
+
+                $del_query = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+                    . ' WHERE' . $unique_condition . ' LIMIT 1';
+
+                $_url_params = array(
+                    'db'        => $db,
+                    'table'     => $table,
+                    'sql_query' => $del_query,
+                    'zero_rows' => $GLOBALS['strDeleted'],
+                    'goto'      => $lnk_goto,
+                );
+                $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
+
+                $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
                           . ' WHERE ' . trim(PMA_jsFormat($unique_condition, false))
                           . ' LIMIT 1';
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
@@ -1142,14 +1162,21 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     }
                 }
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
-                $lnk_goto = 'sql.php'
-                          . '?' . str_replace('&amp;', '&', $url_query)
-                          . '&sql_query=' . urlencode($url_sql_query)
-                          . '&goto=main.php';
-                $del_url  = 'sql.php?'
-                          . PMA_generate_common_url('mysql')
-                          . '&amp;sql_query=' . urlencode('KILL ' . $row[0])
-                          . '&amp;goto=' . urlencode($lnk_goto);
+
+                $_url_params = array(
+                    'db'        => $db,
+                    'table'     => $table,
+                    'sql_query' => $url_sql_query,
+                    'goto'      => 'main.php',
+                );
+                $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
+
+                $_url_params = array(
+                    'db'        => 'mysql',
+                    'sql_query' => 'KILL ' . $row[0],
+                    'goto'      => $lnk_goto,
+                );
+                $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
                 $del_query = 'KILL ' . $row[0];
                 $js_conf  = 'KILL ' . $row[0];
                 if ($GLOBALS['cfg']['PropertiesIconic'] === false) {
@@ -1223,27 +1250,33 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 } // end if transformation is set
             } // end if mime/transformation works.
 
-            $transform_options['wrapper_link'] = '?'
-                                                . (isset($url_query) ? $url_query : '')
-                                                . '&amp;primary_key=' . (isset($unique_condition_url) ? $unique_condition_url : '')
-                                                . '&amp;sql_query=' . (empty($sql_query) ? '' : urlencode($url_sql_query))
-                                                . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
-                                                . '&amp;transform_key=' . urlencode($meta->name);
+            $_url_params = array(
+                'db'            => $db,
+                'table'         => $table,
+                'primary_key'   => $unique_condition,
+                // $sql_goto ??? typo?
+                //'goto'          => (isset($sql_goto) ? $lnk_goto : ''),
+                'transform_key' => $meta->name,
+            );
 
+            if (! empty($sql_query)) {
+                $_url_params['sql_query'] = $url_sql_query;
+            }
+
+            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
 
             // n u m e r i c
             if ($meta->numeric == 1) {
 
-
-            // lem9: if two fields have the same name (this is possible
-            //       with self-join queries, for example), using $meta->name
-            //       will show both fields NULL even if only one is NULL,
-            //       so use the $pointer
-            //      (works only if function_exists('is_null')
-            // PS:   why not always work with the number ($i), since
-            //       the default second parameter of
-            //       mysql_fetch_array() is MYSQL_BOTH, so we always get
-            //       associative and numeric indices?
+                // lem9: if two fields have the same name (this is possible
+                //       with self-join queries, for example), using $meta->name
+                //       will show both fields NULL even if only one is NULL,
+                //       so use the $pointer
+                //      (works only if function_exists('is_null')
+                // PS:   why not always work with the number ($i), since
+                //       the default second parameter of
+                //       mysql_fetch_array() is MYSQL_BOTH, so we always get
+                //       associative and numeric indices?
 
                 //if (!isset($row[$meta->name])
                 if (!isset($row[$i]) || is_null($row[$i])) {
@@ -1286,11 +1319,22 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         } else {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
-                            $vertical_display['data'][$row_no][$i] .= '<a href="sql.php?'
-                                                                   .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
-                                                                   .  '&amp;pos=0'
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$i]) . '"' . $title . '>'
-                                                                   .  ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta)) . '</a>';
+                            $_url_params = array(
+                                'db'    => $map[$meta->name][3],
+                                'table' => $map[$meta->name][0],
+                                'pos'   => '0',
+                                'sql_query' => 'SELECT * FROM '
+                                    . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
+                                    . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                                    . ' = ' . $row[$i],
+                            );
+                            $vertical_display['data'][$row_no][$i]
+                                .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
+                                 . '"' . $title . '>'
+                                 . ($transform_function != $default_function
+                                        ? $transform_function($row[$i], $transform_options, $meta)
+                                        : $transform_function($row[$i], array(), $meta))
+                                 . '</a>';
                         }
                     } else {
                         $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta));
@@ -1422,11 +1466,18 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         }
                         $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
-                        $vertical_display['data'][$row_no][$i] .= '<a href="sql.php?'
-                                                               .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
-                                                               .  '&amp;pos=0'
-                                                               .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
-                                                               .  $row[$i] . '</a>';
+                        $_url_params = array(
+                            'db'    => $map[$meta->name][3],
+                            'table' => $map[$meta->name][0],
+                            'pos'   => '0',
+                            'sql_query' => 'SELECT * FROM '
+                                . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
+                                . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                                . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'',
+                        );
+                        $vertical_display['data'][$row_no][$i]
+                            .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
+                            . '"' . $title . '>' . $row[$i] . '</a>';
                     } else {
                         $vertical_display['data'][$row_no][$i] .= $row[$i];
                     }
@@ -1512,10 +1563,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         echo (($_SESSION['userconf']['disp_direction'] == 'horizontal' || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') ? "\n" : '');
         $row_no++;
     } // end while
-
-    if (isset($url_query)) {
-        $GLOBALS['url_query'] = $url_query;
-    }
 
     return true;
 } // end of the 'PMA_displayTableBody()' function
@@ -1839,7 +1886,8 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     } // end if
 
     // 1.3 URL-encodes the query to use in input form fields
-    $encoded_sql_query = urlencode($sql_query);
+    // @todo where is this used?
+    //$encoded_sql_query = urlencode($sql_query);
 
     // 2. ----- Displays the top of the page -----
 
@@ -1926,7 +1974,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 3. ----- Displays the results table -----
     PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql);
-    $url_query='';
+    $url_query = '';
     echo '<tbody>' . "\n";
     PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
     // vertical output case
@@ -1945,11 +1993,16 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
 
-        $uncheckall_url = 'sql.php?'
-                  . PMA_generate_common_url($db, $table)
-                  . '&amp;sql_query=' . urlencode($sql_query)
-                  . '&amp;goto=' . $goto;
-        $checkall_url = $uncheckall_url . '&amp;checkall=1';
+        $_url_params = array(
+            'db'        => $db,
+            'table'     => $table,
+            'sql_query' => $sql_query,
+            'goto'      => $goto,
+        );
+        $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
+
+        $_url_params['checkall'] = '1';
+        $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
         if ($_SESSION['userconf']['disp_direction'] == 'vertical') {
             $checkall_params['onclick'] = 'if (setCheckboxes(\'rowsDeleteForm\', true)) return false;';
@@ -2061,26 +2114,28 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
                 $header_shown = TRUE;
             }
 
-            $url_query = '?'
-                       . PMA_generate_common_url($db, $table)
-                       . '&amp;printview=1'
-                       . '&amp;sql_query=' . urlencode($sql_query);
-            echo '    <!-- Print view -->' . "\n";
+            $_url_params = array(
+                'db'        => $db,
+                'table'     => $table,
+                'printview' => '1',
+                'sql_query' => $sql_query,
+            );
+            $url_query = PMA_generate_common_url($_url_params);
+
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
                 ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintView'] . '"/>' : '') . $GLOBALS['strPrintView'],
                 '', true, true, 'print_view') . "\n";
 
             if (! $_SESSION['userconf']['dontlimitchars']) {
-                echo   '    &nbsp;&nbsp;' . "\n";
+                $_url_params['dontlimitchars'] = 1;
                 echo PMA_linkOrButton(
-                    'sql.php' . $url_query . '&amp;dontlimitchars=1',
+                    'sql.php' . PMA_generate_common_url($_url_params),
                     ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_print.png" height="16" width="16" alt="' . $GLOBALS['strPrintViewFull'] . '"/>' : '') . $GLOBALS['strPrintViewFull'],
                     '', true, true, 'print_view') . "\n";
+                unset($_url_params['dontlimitchars']);
             }
         } // end displays "printable view"
-
-        echo "\n";
     }
 
     // Export link
@@ -2089,18 +2144,15 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     //  to hide the SQL and the structure export dialogs)
     if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
         if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
-            $single_table   = '&amp;single_table=true';
-        } else {
-            $single_table   = '';
+            $_url_params['single_table'] = 'true';
         }
         if (!$header_shown) {
             echo $header;
             $header_shown = TRUE;
         }
-        echo '    <!-- Export -->' . "\n";
-        echo   '    &nbsp;&nbsp;' . "\n";
+        $_url_params['unlim_num_rows'] = $unlim_num_rows;
         echo PMA_linkOrButton(
-            'tbl_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
+            'tbl_export.php' . PMA_generate_common_url($_url_params),
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" height="16" width="16" alt="' . $GLOBALS['strExport'] . '" />' : '') . $GLOBALS['strExport'],
             '', true, true, '') . "\n";
     }
@@ -2117,8 +2169,6 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             echo $header;
             $header_shown = TRUE;
         }
-        echo '    <!-- Create View -->' . "\n";
-        echo '    &nbsp;&nbsp;' . "\n";
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
             ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_views.png" height="16" width="16" alt="CREATE VIEW" />' : '') . 'CREATE VIEW',
