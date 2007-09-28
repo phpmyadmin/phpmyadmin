@@ -102,20 +102,7 @@ if (! empty($submit_mult)
                 require './tbl_alter.php';
                 break;
             case $strBrowse:
-                $sql_query = '';
-                foreach ($selected AS $idx => $sval) {
-                    if ($sql_query == '') {
-                        $sql_query .= 'SELECT ' . PMA_backquote(urldecode($sval));
-                    } else {
-                        $sql_query .=  ', ' . PMA_backquote(urldecode($sval));
-                    }
-                }
-
-                // what is this htmlspecialchars() for??
-                //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
-                $sql_query .= ' FROM ' . PMA_backquote($table);
-                require './sql.php';
-                break;
+                // this should already be handled by tbl_structure.php
         }
     } else {
         $what = 'row_delete';

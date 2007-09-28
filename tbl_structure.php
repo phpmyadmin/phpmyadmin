@@ -35,15 +35,34 @@ if (isset($submit_mult_change_x)) {
     $submit_mult = $strUnique;
 } elseif (isset($submit_mult_fulltext_x)) {
     $submit_mult = $strIdxFulltext;
+} elseif (isset($submit_mult_browse_x)) {
+    $submit_mult = $strBrowse;
 }
 
-if ((!empty($submit_mult) && isset($selected_fld))
-    || isset($mult_btn)) {
-    $action = 'tbl_structure.php';
+if ((!empty($submit_mult) && isset($selected_fld)) || isset($mult_btn)) {
     $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
-    require_once('./libraries/header.inc.php');
-    require_once './libraries/tbl_links.inc.php';
-    require './libraries/mult_submits.inc.php';
+    if ($submit_mult == $strBrowse) {
+        $GLOBALS['active_page'] = 'sql.php';
+        $sql_query = '';
+        foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
+            if ($sql_query == '') {
+                $sql_query .= 'SELECT ' . PMA_backquote($sval);
+            } else {
+                $sql_query .=  ', ' . PMA_backquote($sval);
+            }
+        }
+
+        // what is this htmlspecialchars() for??
+        //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
+        $sql_query .= ' FROM ' . PMA_backquote($table);
+        require './sql.php';
+    } else {
+        $action = 'tbl_structure.php';
+        require_once './libraries/header.inc.php';
+        require_once './libraries/tbl_links.inc.php';
+        require './libraries/mult_submits.inc.php';
+    }
+    exit;
 }
 
 /**
