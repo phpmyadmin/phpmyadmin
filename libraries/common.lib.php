@@ -1536,11 +1536,12 @@ function PMA_getTab($tab)
         if ($tab['text'] == $GLOBALS['strEmpty']
             || $tab['text'] == $GLOBALS['strDrop']) {
             $tab['class'] = 'caution';
-        } elseif (!empty($tab['active'])
-          || (isset($GLOBALS['active_page'])
-               && $GLOBALS['active_page'] == $tab['link'])
-          || (basename(PMA_getenv('PHP_SELF')) == $tab['link'] && empty($tab['warning'])))
-        {
+        } elseif (! empty($tab['active'])
+         || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
+            $tab['class'] = 'active';
+        } elseif (empty($GLOBALS['active_page'])
+          && basename(PMA_getenv('PHP_SELF')) == $tab['link']
+          && empty($tab['warning'])) {
             $tab['class'] = 'active';
         }
     }
