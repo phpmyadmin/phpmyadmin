@@ -93,95 +93,103 @@ function PMA_getRelationsParam($verbose = false)
  * @uses    $GLOBALS['strQuerySQLHistory']
  * @uses    $GLOBALS['strDesigner']
  * @uses    $cfg['Server']['pmadb']
- * quses    sprintf()
+ * @uses    sprintf()
+ * @uses    PMA_printDiagMessageForFeature()
+ * @uses    PMA_printDiagMessageForParameter()
  * @param   array   $cfgRelation
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
+    $messages['error'] = '<font color="red"><b>' . $GLOBALS['strNotOK']
+                   . '</b></font> [ <a href="Documentation.html#%s" target="documentation">'
+                   . $GLOBALS['strDocu'] . '</a> ]';
+
+    $messages['ok'] = '<font color="green"><b>' . $GLOBALS['strOK'] . '</b></font>';
+    $messages['enabled']  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
+    $messages['disabled'] = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
+
     if (false === $GLOBALS['cfg']['Server']['pmadb']) {
         echo 'PMA Database ... '
-             . '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font>'
-             . '[ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu']
-             . '</a> ]<br />' . "\n"
+             . sprintf($messages['error'], 'pmadb')
+             . '<br />' . "\n"
              . $GLOBALS['strGeneralRelationFeat']
              . ' <font color="green">' . $GLOBALS['strDisabled']
              . '</font>' . "\n";
         return;
     }
 
-    $shit     = '<font color="red"><b>' . $GLOBALS['strNotOK']
-        . '</b></font> [ <a href="Documentation.html#%s">'
-        . $GLOBALS['strDocu'] . '</a> ]';
-    $hit      = '<font color="green"><b>' . $GLOBALS['strOK'] . '</b></font>';
-    $enabled  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
-    $disabled = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
-
     echo '<table>' . "\n";
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'pmadb\'] ... </th><td align="right">'
-         . (($GLOBALS['cfg']['Server']['pmadb'] == false) ? sprintf($shit, 'pmadb') : $hit)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+    
+    PMA_printDiagMessageForParameter('pmadb', $GLOBALS['cfg']['Server']['pmadb'], $messages, 'pmadb'); 
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'relation\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['relation'])) ? $hit : sprintf($shit, 'relation'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ': '
-         . ($cfgRelation['relwork'] ? $enabled :  $disabled)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+    PMA_printDiagMessageForParameter('relation', isset($cfgRelation['relation']), $messages, 'relation'); 
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'table_info\']   ... </th><td align="right">'
-         . (($cfgRelation['displaywork'] == false) ? sprintf($shit, 'table_info') : $hit)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ': '
-         . ($cfgRelation['displaywork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+    PMA_printDiagMessageForFeature('strGeneralRelationFeat', 'relwork', $messages);
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'table_coords\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['table_coords'])) ? $hit : sprintf($shit, 'table_coords'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'pdf_pages\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['pdf_pages'])) ? $hit : sprintf($shit, 'table_coords'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ': '
-         . ($cfgRelation['pdfwork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+    PMA_printDiagMessageForParameter('table_info', isset($cfgRelation['displaywork']), $messages, 'table_info'); 
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'column_info\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['column_info'])) ? $hit : sprintf($shit, 'col_com'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
-         . ($cfgRelation['commwork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strBookmarkQuery'] . ': '
-         . ($cfgRelation['bookmarkwork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
-    echo '    <tr><th align="left">MIME ...</th><td align="right">'
-         . ($cfgRelation['mimework'] ? $hit : sprintf($shit, 'col_com'))
-         . '</td></tr>' . "\n";
+    PMA_printDiagMessageForFeature('strDisplayFeat', 'displaywork', $messages);
+
+    PMA_printDiagMessageForParameter('table_coords', isset($cfgRelation['table_coords']), $messages, 'table_coords'); 
+
+    PMA_printDiagMessageForParameter('pdf_pages', isset($cfgRelation['pdf_pages']), $messages, 'table_coords'); 
+
+    PMA_printDiagMessageForFeature('strCreatePdfFeat', 'pdfwork', $messages);
+
+    PMA_printDiagMessageForParameter('column_info', isset($cfgRelation['column_info']), $messages, 'col_com'); 
+
+    PMA_printDiagMessageForFeature('strColComFeat', 'commwork', $messages, false);
+
+    PMA_printDiagMessageForFeature('strBookmarkQuery', 'bookmarkwork', $messages, false);
+
+    PMA_printDiagMessageForFeature('strMIME_transformation', 'mimework', $messages);
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
         echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
     }
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'history\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['history'])) ? $hit : sprintf($shit, 'history'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strQuerySQLHistory'] . ': '
-         . ($cfgRelation['historywork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
+    PMA_printDiagMessageForParameter('history', isset($cfgRelation['history']), $messages, 'history'); 
 
-    echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'designer_coords\'] ... </th><td align="right">'
-         . ((isset($cfgRelation['designer_coords'])) ? $hit : sprintf($shit, 'designer_coords'))
-         . '</td></tr>' . "\n";
-    echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strDesigner'] . ': '
-         . ($cfgRelation['designerwork'] ? $enabled : $disabled)
-         . '</td></tr>' . "\n";
+    PMA_printDiagMessageForFeature('strQuerySQLHistory', 'historywork', $messages);
+
+    PMA_printDiagMessageForParameter('designer_coords', isset($cfgRelation['designer_coords']), $messages, 'designer_coords'); 
+
+    PMA_printDiagMessageForFeature('strDesigner', 'designerwork', $messages);
 
     echo '</table>' . "\n";
 }
+
+/**
+ * prints out one diagnostic message for a feature 
+ *
+ * @param   string  feature name in a message string 
+ * @param   string  the $GLOBALS['cfgRelation'] parameter to check 
+ * @param   array   utility messages 
+ * @param   boolean whether to skip a line after the message 
+ */
+function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true) {
+    echo '    <tr><td colspan=2 align="right">' . $GLOBALS[$feature_name] . ': '
+         . ($GLOBALS['cfgRelation'][$relation_parameter] ? $messages['enabled'] : $messages['disabled'])
+         . '</td></tr>' . "\n";
+    if ($skip_line) {
+        echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+    }
+}
+
+/**
+ * prints out one diagnostic message for a configuration parameter 
+ *
+ * @param   string  config parameter name to display 
+ * @param   boolean whether this parameter is set 
+ * @param   array   utility messages 
+ * @param   string  anchor in Documentation.html 
+ */
+function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor) {
+    echo '    <tr><th align="left">';
+    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... </th><td align="right">';
+    echo ($relation_parameter_set ? $messages['ok'] : sprintf($messages['error'], $doc_anchor)) . '</td></tr>' . "\n";
+}
+
 
 /**
  * Defines the relation parameters for the current user
