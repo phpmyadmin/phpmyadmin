@@ -585,6 +585,20 @@ $cfg['DisplayServersList'] = false;
  */
 $cfg['DisplayDatabasesList'] = 'auto';
 
+/**
+ * target of the navigation panel quick access icon
+ *
+ * Possible values:
+ * 'tbl_structure.php' = fields list
+ * 'tbl_sql.php' = SQL form
+ * 'tbl_select.php' = search page
+ * 'tbl_change.php' = insert row page
+ * 'sql.php' = browse page
+ *
+ * @global string $cfg['LeftDefaultTabTable']
+ */
+$cfg['LeftDefaultTabTable'] = 'tbl_structure.php';
+
 
 /*******************************************************************************
  * In the main frame, at startup...
@@ -820,13 +834,13 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  * Possible values:
  * 'tbl_structure.php' = fields list
  * 'tbl_sql.php' = SQL form
- * 'tbl_select.php' = select page
+ * 'tbl_select.php' = search page
  * 'tbl_change.php' = insert row page
  * 'sql.php' = browse page
  *
  * @global string $cfg['DefaultTabTable']
  */
-$cfg['DefaultTabTable'] = 'tbl_structure.php';
+$cfg['DefaultTabTable'] = 'sql.php';
 
 
 /*******************************************************************************

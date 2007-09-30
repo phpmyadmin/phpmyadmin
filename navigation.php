@@ -581,17 +581,17 @@ function PMA_displayTableList($tables, $visible = false,
             }
             echo '</li>' . "\n";
         } elseif (is_array($table)) {
-            $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
-                .$GLOBALS['common_url_query'] . '&amp;table='
-                .urlencode($table['Name']);
+            // quick access icon next to each table name
             echo '<li>' . "\n";
-            echo '<a title="' . $GLOBALS['strBrowse'] . ': '
-                . htmlspecialchars($table['Comment'])
+            echo '<a title="'
+                . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable']))
+                . ': ' . htmlspecialchars($table['Comment'])
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
-                .' id="browse_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-                .' href="sql.php?' . $GLOBALS['common_url_query']
+                .' id="quick_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
+                .' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?' 
+                . $GLOBALS['common_url_query']
                 .'&amp;table=' . urlencode($table['Name'])
-                .'&amp;goto=' . $GLOBALS['cfg']['DefaultTabTable']
+                .'&amp;goto=' . $GLOBALS['cfg']['LeftDefaultTabTable']
                 . '" >'
                 .'<img class="icon"';
             if ('VIEW' === strtoupper($table['Comment'])) {
@@ -600,8 +600,14 @@ function PMA_displayTableList($tables, $visible = false,
                 echo ' src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"';
             }
             echo ' id="icon_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-                .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n"
-                .'<a href="' . $href . '" title="' . htmlspecialchars($table['Comment']
+                .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n";
+
+            // link for the table name itself
+            $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
+                .$GLOBALS['common_url_query'] . '&amp;table='
+                .urlencode($table['Name']);
+            echo '<a href="' . $href 
+            . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'
                 .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
                 // preserve spaces in table name
@@ -610,6 +616,38 @@ function PMA_displayTableList($tables, $visible = false,
         }
     }
     echo '</ul>';
+}
+
+/**
+ * get the action word corresponding to a script name 
+ * in order to display it as a title in navigation panel
+ *
+ * @uses    switch() 
+ * @uses    $GLOBALS
+ * @param   string  a valid value for $cfg['LeftDefaultTabTable']
+ *                  or $cfg['DefaultTabTable'] 
+ */
+function PMA_getTitleForTarget($target) {
+    switch ($target) {
+        case 'tbl_structure.php':
+            $message = 'strStructure';
+            break;
+        case 'tbl_sql.php':
+            $message = 'strSQL';
+            break;
+        case 'tbl_select.php':
+            $message = 'strSearch';
+            break;
+        case 'tbl_change.php':
+            $message = 'strInsert';
+            break;
+        case 'sql.php':
+            $message = 'strBrowse';
+            break;
+        default:
+            $message = '';
+    }
+    return $GLOBALS[$message];
 }
 
 echo '</div>' . "\n";

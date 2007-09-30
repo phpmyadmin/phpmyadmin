@@ -1267,6 +1267,14 @@ ALTER TABLE `pma_column_comments`
     <dd>Defines whether to display database choice in light navigation frame as links 
         instead of in a drop-down. Defaults to 'auto' - on main page list is
         shown, when database is selected, only drop down is displayed.</dd>
+
+    <dt id="cfg_LeftDefaultTabTable">$cfg['LeftDefaultTabTable'] string</dt>
+    <dd>Defines the tab displayed by default when clicking the small
+        icon next to each table name in the navigation panel. Possible
+        values: &quot;tbl_structure.php&quot;,
+        &quot;tbl_sql.php&quot;, &quot;tbl_select.php&quot;,
+        &quot;tbl_change.php&quot; or &quot;sql.php&quot;.</dd>
+
     <dt id="cfg_ShowStats">$cfg['ShowStats'] boolean</dt>
     <dd>Defines whether or not to display space usage and statistics about databases
         and tables.<br />

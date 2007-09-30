@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.0.0.0 (not yet released)
++ [navi] new parameter $cfg['LeftDefaultTabTable']
+
 2.11.2.0 (not yet released)
 - patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
 + [lang] Serbian update, thanks to Mihailo Stefanovic  
