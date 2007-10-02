@@ -69,27 +69,6 @@ require_once './libraries/List.class.php';
     }
 
     /**
-     * removes all databases not accessible by current user from list
-     *
-     * @access  protected
-     * @uses    PMA_List_Database::$items
-     * @uses    PMA_List_Database::$_db_link_user
-     * @uses    PMA_List_Database::$_need_to_reindex to set it if reuqired
-     * @uses    PMA_DBI_select_db()
-     */
-    function _checkAccess()
-    {
-        foreach ($this->items as $key => $db) {
-            if (! @PMA_DBI_select_db($db, $this->_db_link_user)) {
-                unset($this->items[$key]);
-            }
-        }
-
-        // re-index values
-        $this->_need_to_reindex = true;
-    }
-
-    /**
      * checks if the configuration wants to hide some databases
      *
      * @todo temporaly use this docblock to test how to doc $GLOBALS
@@ -171,8 +150,6 @@ require_once './libraries/List.class.php';
      * @uses    PMA_List_Database::_checkOnlyDatabase()
      * @uses    PMA_List_Database::_retrieve()
      * @uses    PMA_List_Database::_checkHideDatabase()
-     * @uses    PMA_List_Database::_checkAccess()
-     * @uses    PMA_MYSQL_INT_VERSION
      * @uses    array_values()
      * @uses    natsort()
      * @uses    $cfg['NaturalOrder']
@@ -190,12 +167,6 @@ require_once './libraries/List.class.php';
         }
 
         $this->_checkHideDatabase();
-
-        // Before MySQL 4.0.2, SHOW DATABASES could send the
-        // whole list, so check if we really have access:
-        if (PMA_MYSQL_INT_VERSION < 40002) {
-            $this->_checkAccess();
-        }
 
         if ($this->_need_to_reindex) {
             $this->items = array_values($this->items);

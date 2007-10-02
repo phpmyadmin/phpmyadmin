@@ -465,11 +465,6 @@ $this_url_params = array_merge($url_params,
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
-
-    // we need this PMA_DBI_select_db if the user has access to more than one db
-    // and $GLOBALS['db'] is not the last of the list, because
-    // PMA_List_Database::_checkAccess()
-    // has made a PMA_DBI_select_db() on the last one
     PMA_DBI_select_db($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
