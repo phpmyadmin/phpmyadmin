@@ -691,8 +691,6 @@ class PMA_Config
      */
     function checkCollationConnection()
     {
-        // (could be improved by executing it after the MySQL connection only if
-        //  PMA_MYSQL_INT_VERSION >= 40100)
         if (! empty($_REQUEST['collation_connection'])) {
             $this->set('collation_connection',
                 strip_tags($_REQUEST['collation_connection']));
