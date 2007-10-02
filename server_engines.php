@@ -53,11 +53,9 @@ if (empty($_REQUEST['engine'])
      */
     echo '<table>' . "\n"
        . '<thead>' . "\n"
-       . '<tr><th>' . $strStorageEngine . '</th>' . "\n";
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
-        echo '    <th>' . $strDescription . '</th>' . "\n";
-    }
-    echo '</tr>' . "\n"
+       . '<tr><th>' . $strStorageEngine . '</th>' . "\n"
+       . '    <th>' . $strDescription . '</th>' . "\n"
+       . '</tr>' . "\n"
        . '</thead>' . "\n"
        . '<tbody>' . "\n";
 
@@ -76,13 +74,9 @@ if (empty($_REQUEST['engine'])
            . '    <td><a href="./server_engines.php'
            . PMA_generate_common_url(array('engine' => $engine)) . '">' . "\n"
            . '            ' . htmlspecialchars($details['Engine']) . "\n"
-           . '        </a>' . "\n"
-           . '    </td>' . "\n";
-        if (PMA_MYSQL_INT_VERSION >= 40102) {
-            echo '    <td>' . htmlspecialchars($details['Comment']) . "\n"
-               . '    </td>' . "\n";
-        }
-        echo '</tr>' . "\n";
+           . '        </a></td>' . "\n"
+           . '    <td>' . htmlspecialchars($details['Comment']) . '</td>' . "\n"
+           . '</tr>' . "\n";
         $odd_row = !$odd_row;
     }
     unset($odd_row, $engine, $details);
@@ -103,13 +97,11 @@ if (empty($_REQUEST['engine'])
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
        . '    ' . PMA_showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
        . '</h2>' . "\n\n";
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
-        echo '<p>' . "\n"
-           . '    <em>' . "\n"
-           . '        ' . htmlspecialchars($engine_plugin->getComment()) . "\n"
-           . '    </em>' . "\n"
-           . '</p>' . "\n\n";
-    }
+    echo '<p>' . "\n"
+       . '    <em>' . "\n"
+       . '        ' . htmlspecialchars($engine_plugin->getComment()) . "\n"
+       . '    </em>' . "\n"
+       . '</p>' . "\n\n";
     $infoPages = $engine_plugin->getInfoPages();
     if (!empty($infoPages) && is_array($infoPages)) {
         echo '<p>' . "\n"

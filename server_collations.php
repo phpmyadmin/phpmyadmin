@@ -35,16 +35,6 @@ echo '<h2>' . "\n"
    . '' . $strCharsetsAndCollations . "\n"
    . '</h2>' . "\n";
 
-
-/**
- * exits if wrong MySQL version
- * @todo Some nice Message :-)
- */
-if (PMA_MYSQL_INT_VERSION < 40100) {
-    require_once './libraries/footer.inc.php';
-}
-
-
 /**
  * Includes the required charset library
  */

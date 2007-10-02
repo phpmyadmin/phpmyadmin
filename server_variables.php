@@ -37,12 +37,8 @@ echo '<h2>' . "\n"
 /**
  * Sends the queries and buffers the results
  */
-if (PMA_MYSQL_INT_VERSION >= 40003) {
-    $serverVars = PMA_DBI_fetch_result('SHOW SESSION VARIABLES;', 0, 1);
-    $serverVarsGlobal = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
-} else {
-    $serverVars = PMA_DBI_fetch_result('SHOW VARIABLES;', 0, 1);
-}
+$serverVars = PMA_DBI_fetch_result('SHOW SESSION VARIABLES;', 0, 1);
+$serverVarsGlobal = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 
 
 /**
@@ -54,11 +50,7 @@ if (PMA_MYSQL_INT_VERSION >= 40003) {
 <tr><th><?php echo $strVar; ?></th>
     <th>
 <?php
-if (PMA_MYSQL_INT_VERSION >= 40003) {
-    echo $strSessionValue . ' / ' . $strGlobalValue;
-} else {
-    echo $strValue;
-}
+echo $strSessionValue . ' / ' . $strGlobalValue;
 ?>
     </th>
 </tr>
@@ -70,8 +62,7 @@ foreach ($serverVars as $name => $value) {
     ?>
 <tr class="<?php
     echo $odd_row ? 'odd' : 'even';
-    if (PMA_MYSQL_INT_VERSION >= 40003
-     && $serverVarsGlobal[$name] !== $value) {
+    if ($serverVarsGlobal[$name] !== $value) {
         echo ' marked';
     }
     ?>">
@@ -87,8 +78,7 @@ foreach ($serverVars as $name => $value) {
     }
     ?></td>
     <?php
-    if (PMA_MYSQL_INT_VERSION >= 40003
-     && $serverVarsGlobal[$name] !== $value) {
+    if ($serverVarsGlobal[$name] !== $value) {
         ?>
 </tr>
 <tr class="<?php

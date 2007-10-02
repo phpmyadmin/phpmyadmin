@@ -101,15 +101,12 @@ if ($databases_count > 0) {
     reset($databases);
     $first_database = current($databases);
     // table col order
-    // there is no db specific collation or charset prior 4.1.0
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $column_order['DEFAULT_COLLATION_NAME'] = array(
-                'disp_name' => $strCollation,
-                'description_function' => 'PMA_getCollationDescr',
-                'format'    => 'string',
-                'footer'    => PMA_getServerCollation(),
-            );
-    }
+    $column_order['DEFAULT_COLLATION_NAME'] = array(
+            'disp_name' => $strCollation,
+            'description_function' => 'PMA_getCollationDescr',
+            'format'    => 'string',
+            'footer'    => PMA_getServerCollation(),
+        );
     $column_order['SCHEMA_TABLES'] = array(
         'disp_name' => $strNumTables,
         'format'    => 'number',
@@ -200,7 +197,8 @@ if ($databases_count > 0) {
 
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {
             echo '    <td class="tool">' . "\n";
-            if ($current['SCHEMA_NAME'] != 'mysql' && (PMA_MYSQL_INT_VERSION < 50002 || $current['SCHEMA_NAME'] != 'information_schema')) {
+            if ($current['SCHEMA_NAME'] != 'mysql'
+             && $current['SCHEMA_NAME'] != 'information_schema') {
                 echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
             } else {
                 echo '        <input type="checkbox" name="selected_dbs[]" title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" disabled="disabled"/>' . "\n";

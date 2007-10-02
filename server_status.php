@@ -60,21 +60,13 @@ if (isset($_REQUEST['flush'])) {
 /**
  * get status from server
  */
-if (PMA_MYSQL_INT_VERSION >= 50002) {
-    $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
-} else {
-    $server_status = PMA_DBI_fetch_result('SHOW STATUS', 0, 1);
-}
+$server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
 
 
 /**
  * for some calculations we require also some server settings
  */
-if (PMA_MYSQL_INT_VERSION >= 40003) {
-    $server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
-} else {
-    $server_variables = PMA_DBI_fetch_result('SHOW VARIABLES', 0, 1);
-}
+$server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
 
 
 /**

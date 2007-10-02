@@ -112,13 +112,9 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Show view_priv', 'SHOW VIEW', $GLOBALS['strPrivDescShowView']),
         array('Create_routine_priv', 'CREATE ROUTINE', $GLOBALS['strPrivDescCreateRoutine']),
         array('Alter_routine_priv', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']),
-        array('Create_user_priv', 'CREATE USER', $GLOBALS['strPrivDescCreateUser'])
+        array('Create_user_priv', 'CREATE USER', $GLOBALS['strPrivDescCreateUser']),
+        array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute5']),
     );
-    if (PMA_MYSQL_INT_VERSION >= 40002 && PMA_MYSQL_INT_VERSION <50003) {
-        $grants[] = array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
-    } else {
-        $grants[] = array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
-    }
 
     if (!empty($row) && isset($row['Table_priv'])) {
         $res = PMA_DBI_query(
@@ -429,11 +425,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             $privTable[1][] = array('Alter_routine', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']);
         }
         if (isset($row['Execute_priv'])) {
-            if (PMA_MYSQL_INT_VERSION >= 40002 && PMA_MYSQL_INT_VERSION <50003) {
-                $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
-            } else {
-                $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
-            }
+            $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
         }
 
         // a d m i n i s t r a t i o n
@@ -512,7 +504,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
 
         echo $spaces . '    </fieldset>' . "\n";
         // The "Resource limits" box is not displayed for db-specific privs
-        if ($db == '*' && PMA_MYSQL_INT_VERSION >= 40002) {
+        if ($db == '*') {
             echo $spaces . '    <fieldset>' . "\n"
                . $spaces . '        <legend>' . $GLOBALS['strResourceLimits'] . '</legend>' . "\n"
                . $spaces . '        <p><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></p>' . "\n"
@@ -527,15 +519,12 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                . $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
                . $spaces . '            <input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n";
-
-            if (PMA_MYSQL_INT_VERSION >= 50003) {
-                echo $spaces . '        <div class="item">' . "\n"
-                   . $spaces . '            <label for="text_max_user_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
-                   . $spaces . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
-                   . $spaces . '        </div>' . "\n";
-            }
-            echo $spaces . '    </fieldset>' . "\n";
+               . $spaces . '        </div>' . "\n"
+               . $spaces . '        <div class="item">' . "\n"
+               . $spaces . '            <label for="text_max_user_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
+               . $spaces . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
+               . $spaces . '        </div>' . "\n"
+               . $spaces . '    </fieldset>' . "\n";
            }
         // for Safari 2.0.2
         echo $spaces . '    <div class="clearfloat"></div>' . "\n";
@@ -761,10 +750,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     } else {
         PMA_DBI_free_result($res);
 
-        if (50002 <= PMA_MYSQL_INT_VERSION) {
-            // MySQL 5 requires CREATE USER before any GRANT on this user can done
-            $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
-        }
+        $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
         $real_sql_query =
             'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
@@ -792,37 +778,35 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         /**
          * @todo similar code appears twice in this script
          */
-        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
+        if ((isset($Grant_priv) && $Grant_priv == 'Y')
+         || (isset($max_questions) || isset($max_connections)
+          || isset($max_updates) || isset($max_user_connections))) {
             $real_sql_query .= 'WITH';
             $sql_query .= 'WITH';
             if (isset($Grant_priv) && $Grant_priv == 'Y') {
                 $real_sql_query .= ' GRANT OPTION';
                 $sql_query .= ' GRANT OPTION';
             }
-            if (PMA_MYSQL_INT_VERSION >= 40002) {
-                if (isset($max_questions)) {
-                    // avoid negative values
-                    $max_questions = max(0, (int)$max_questions);
-                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-                    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-                }
-                if (isset($max_connections)) {
-                    $max_connections = max(0, (int)$max_connections);
-                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-                    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-                }
-                if (isset($max_updates)) {
-                    $max_updates = max(0, (int)$max_updates);
-                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-                    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-                }
+            if (isset($max_questions)) {
+                // avoid negative values
+                $max_questions = max(0, (int)$max_questions);
+                $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
+                $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
             }
-            if (PMA_MYSQL_INT_VERSION >= 50003) {
-                if (isset($max_user_connections)) {
-                    $max_user_connections = max(0, (int)$max_user_connections);
-                    $real_sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-                    $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-                }
+            if (isset($max_connections)) {
+                $max_connections = max(0, (int)$max_connections);
+                $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+                $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+            }
+            if (isset($max_updates)) {
+                $max_updates = max(0, (int)$max_updates);
+                $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+                $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+            }
+            if (isset($max_user_connections)) {
+                $max_user_connections = max(0, (int)$max_user_connections);
+                $real_sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
+                $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
             }
         }
         if (isset($create_user_real)) {
@@ -1003,33 +987,29 @@ if (!empty($update_privs)) {
      * @todo similar code appears twice in this script
      */
     if ((isset($Grant_priv) && $Grant_priv == 'Y')
-      || ((! isset($dbname) || ! strlen($dbname)) && PMA_MYSQL_INT_VERSION >= 40002
-        && (isset($max_questions) || isset($max_connections)
-          || isset($max_updates) || isset($max_user_connections))))
+     || ((! isset($dbname) || ! strlen($dbname))
+      && (isset($max_questions) || isset($max_connections)
+       || isset($max_updates) || isset($max_user_connections))))
     {
         $sql_query2 .= 'WITH';
         if (isset($Grant_priv) && $Grant_priv == 'Y') {
             $sql_query2 .= ' GRANT OPTION';
         }
-        if (PMA_MYSQL_INT_VERSION >= 40002) {
-            if (isset($max_questions)) {
-                $max_questions = max(0, (int)$max_questions);
-                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-            }
-            if (isset($max_connections)) {
-                $max_connections = max(0, (int)$max_connections);
-                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-            }
-            if (isset($max_updates)) {
-                $max_updates = max(0, (int)$max_updates);
-                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-            }
+        if (isset($max_questions)) {
+            $max_questions = max(0, (int)$max_questions);
+            $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
         }
-        if (PMA_MYSQL_INT_VERSION >= 50003) {
-            if (isset($max_user_connections)) {
-                $max_user_connections = max(0, (int)$max_user_connections);
-                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-            }
+        if (isset($max_connections)) {
+            $max_connections = max(0, (int)$max_connections);
+            $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+        }
+        if (isset($max_updates)) {
+            $max_updates = max(0, (int)$max_updates);
+            $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+        }
+        if (isset($max_user_connections)) {
+            $max_user_connections = max(0, (int)$max_user_connections);
+            $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
     }
     $sql_query2 .= ';';
@@ -1107,7 +1087,7 @@ if (!empty($change_pw)) {
     // here $nopass could be == 1
     if (empty($message)) {
 
-        $hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+        $hashing_function = (!empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
                       . 'PASSWORD';
 
         // in $sql_query which will be displayed, hide the password
@@ -1134,51 +1114,8 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
     for ($i = 0; isset($selected_usr[$i]); $i++) {
         list($this_user, $this_host) = explode($user_host_separator, $selected_usr[$i]);
         $queries[] = '# ' . sprintf($GLOBALS['strDeleting'], '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
-        if (PMA_MYSQL_INT_VERSION >= 50002) {
-            $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-        } else {
-            if ($mode == 2) {
-                // The SHOW GRANTS query may fail if the user has not been loaded
-                // into memory
-                $res = PMA_DBI_try_query('SHOW GRANTS FOR \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';');
-                if ($res) {
-                    $queries[] = 'REVOKE ALL PRIVILEGES ON *.* FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-                    while ($row = PMA_DBI_fetch_row($res)) {
-                        $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
-                        if ($this_table != '*.*') {
-                            $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+        $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
 
-                            if (strpos($row[0], 'WITH GRANT OPTION')) {
-                                $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-                            }
-                        }
-                        unset($this_table);
-                    }
-                    PMA_DBI_free_result($res);
-                }
-                unset($res);
-            }
-            if (PMA_MYSQL_INT_VERSION >= 40101) {
-                if (PMA_MYSQL_INT_VERSION < 50002) {
-                    $queries[] = 'REVOKE GRANT OPTION ON *.* FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-                }
-                $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-            } else {
-                $queries[] = 'DELETE FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
-            }
-            if ($mode != 2) {
-                // If we REVOKE the table grants, we should not need to modify the
-                // `mysql`.`db`, `mysql`.`tables_priv` and `mysql`.`columns_priv` tables manually...
-                $user_host_condition =
-                    ' WHERE ' . PMA_convert_using('User')
-                    . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted')
-                    . ' AND ' . PMA_convert_using('Host')
-                    . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
-                $queries[] = 'DELETE FROM `mysql`.`db`' . $user_host_condition;
-                $queries[] = 'DELETE FROM `mysql`.`tables_priv`' . $user_host_condition;
-                $queries[] = 'DELETE FROM `mysql`.`columns_priv`' . $user_host_condition;
-            }
-        }
         if (!empty($drop_users_db)) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = TRUE;
@@ -1296,7 +1233,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
         $sql_query =
             'SELECT `User`,' .
             '       `Host`,' .
-            '       IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\',' .
+            "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'," .
             '       `Select_priv`,' .
             '       `Insert_priv`,' .
             '       `Update_priv`,' .
@@ -1310,21 +1247,20 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             '       `Reload_priv`,' .
             '       `Shutdown_priv`,' .
             '       `Process_priv`,' .
-            '       `File_priv`';
-
-        if (PMA_MYSQL_INT_VERSION >= 40002) {
-            $sql_query .= ', `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv`';
-        }
-
-        if (PMA_MYSQL_INT_VERSION >= 50001) {
-            $sql_query .= ', `Create_view_priv`, `Show_view_priv`';
-        }
-
-        if (PMA_MYSQL_INT_VERSION >= 50003) {
-            $sql_query .= ', `Create_user_priv`, `Create_routine_priv`, `Alter_routine_priv`';
-        }
-
-        $sql_query .= '  FROM `mysql`.`user`';
+            '       `File_priv`,' .
+            '       `Show_db_priv`,' .
+            '       `Super_priv`,' .
+            '       `Create_tmp_table_priv`,' .
+            '       `Lock_tables_priv`,' .
+            '       `Execute_priv`,' .
+            '       `Repl_slave_priv`,' .
+            '       `Repl_client_priv`,' .
+            '       `Create_view_priv`,' .
+            '       `Show_view_priv`,' .
+            '       `Create_user_priv`,' .
+            '       `Create_routine_priv`,' .
+            '       `Alter_routine_priv`' .
+            '  FROM `mysql`.`user`';
 
         $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
 
@@ -1381,29 +1317,15 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             // for the rights
             $db_rights = array();
 
-            // do not use UNION DISTINCT, as it's not allowed before
-            // MySQL 4.0.17, and because "it does nothing" (cf manual)
-            if (PMA_MYSQL_INT_VERSION >= 40000) {
-                $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                    .' ORDER BY `User` ASC, `Host` ASC';
+            $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
+                .' ORDER BY `User` ASC, `Host` ASC';
 
-                $db_rights_result = PMA_DBI_query($db_rights_sql);
+            $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-                while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                    $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                    $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
-                        $db_rights_row;
-                }
-            } else {
-                foreach ($db_rights_sqls as $db_rights_sql) {
-                    $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-                    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                        $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                        $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
-                            $db_rights_row;
-                    }
-                }
+            while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+                $db_rights_row = array_merge($user_defaults, $db_rights_row);
+                $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
+                    $db_rights_row;
             }
             PMA_DBI_free_result($db_rights_result);
             unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
@@ -1533,31 +1455,10 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                    . '        <legend>' . "\n"
                    . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" alt="" />' . "\n" : '')
                    . '            ' . $GLOBALS['strRemoveSelectedUsers'] . '' . "\n"
-                   . '        </legend>' . "\n";
-
-                // before MySQL 4.1.1, we offer some choices for the delete
-                // mode, but for 4.1.1+, it will be done with REVOKEing the
-                // privileges then a DROP USER (even no REVOKE at all
-                // for MySQL 5), so no need to offer so many options
-                if (PMA_MYSQL_INT_VERSION < 40101) {
-                   echo '        <input type="radio" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
-                   . '        <label for="radio_mode_1" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '">' . "\n"
-                   . '            ' . $GLOBALS['strJustDelete'] . "\n"
-                   . '        </label><br />' . "\n"
-                   . '        <input type="radio" title="' . $GLOBALS['strRevokeAndDelete'] . ' ' . $GLOBALS['strRevokeAndDeleteDescr'] . '" name="mode" id="radio_mode_2" value="2" />' . "\n"
-                   . '        <label for="radio_mode_2" title="' . $GLOBALS['strRevokeAndDelete'] . ' ' . $GLOBALS['strRevokeAndDeleteDescr'] . '">' . "\n"
-                   . '            ' . $GLOBALS['strRevokeAndDelete'] . "\n"
-                   . '        </label><br />' . "\n"
-                   . '        <input type="radio" title="' . $GLOBALS['strDeleteAndFlush'] . ' ' . $GLOBALS['strDeleteAndFlushDescr'] . '" name="mode" id="radio_mode_3" value="3" />' . "\n"
-                   . '        <label for="radio_mode_3" title="' . $GLOBALS['strDeleteAndFlush'] . ' ' . $GLOBALS['strDeleteAndFlushDescr'] . '">' . "\n"
-                   . '            ' . $GLOBALS['strDeleteAndFlush'] . "\n"
-                   . '        </label><br />' . "\n";
-                 } else {
-                     echo '        <input type="hidden" name="mode" value="2" />' . "\n"
-                     . '(' . $GLOBALS['strRevokeAndDelete'] . ')<br />' . "\n";
-                 }
-
-                 echo '        <input type="checkbox" title="' . $GLOBALS['strDropUsersDb'] . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
+                   . '        </legend>' . "\n"
+                   . '        <input type="hidden" name="mode" value="2" />' . "\n"
+                   . '(' . $GLOBALS['strRevokeAndDelete'] . ')<br />' . "\n"
+                   . '        <input type="checkbox" title="' . $GLOBALS['strDropUsersDb'] . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
                    . '        <label for="checkbox_drop_users_db" title="' . $GLOBALS['strDropUsersDb'] . '">' . "\n"
                    . '            ' . $GLOBALS['strDropUsersDb'] . "\n"
                    . '        </label>' . "\n"
@@ -1688,31 +1589,21 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 // for the rights
                 $db_rights = array();
 
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                        .' ORDER BY `Db` ASC';
+                $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
+                    .' ORDER BY `Db` ASC';
 
-                    $db_rights_result = PMA_DBI_query($db_rights_sql);
+                $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-                    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                        $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                        // only Db names in the table `mysql`.`db` uses wildcards
-                        // as we are in the db specific rights display we want
-                        // all db names escaped, also from other sources
-                        $db_rights_row['Db'] = PMA_escape_mysql_wildcards(
-                            $db_rights_row['Db']);
-                        $db_rights[$db_rights_row['Db']] = $db_rights_row;
-                    }
-                } else {
-                    foreach ($db_rights_sqls as $db_rights_sql) {
-                        $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-                        while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                            $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                            $db_rights[$db_rights_row['Db']] = $db_rights_row;
-                        }
-                    }
+                while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+                    $db_rights_row = array_merge($user_defaults, $db_rights_row);
+                    // only Db names in the table `mysql`.`db` uses wildcards
+                    // as we are in the db specific rights display we want
+                    // all db names escaped, also from other sources
+                    $db_rights_row['Db'] = PMA_escape_mysql_wildcards(
+                        $db_rights_row['Db']);
+                    $db_rights[$db_rights_row['Db']] = $db_rights_row;
                 }
+
                 PMA_DBI_free_result($db_rights_result);
                 unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
 
@@ -1766,25 +1657,14 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 // for the rights
                 $db_rights = array();
 
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                        .' ORDER BY `Table_name` ASC';
+                $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
+                    .' ORDER BY `Table_name` ASC';
 
-                    $db_rights_result = PMA_DBI_query($db_rights_sql);
+                $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-                    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                        $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                        $db_rights[$db_rights_row['Table_name']] = $db_rights_row;
-                    }
-                } else {
-                    foreach ($db_rights_sqls as $db_rights_sql) {
-                        $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-                        while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                            $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                            $db_rights[$db_rights_row['Table_name']] = $db_rights_row;
-                        }
-                    }
+                while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+                    $db_rights_row = array_merge($user_defaults, $db_rights_row);
+                    $db_rights[$db_rights_row['Table_name']] = $db_rights_row;
                 }
                 PMA_DBI_free_result($db_rights_result);
                 unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
@@ -1792,7 +1672,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 $sql_query =
                     'SELECT `Table_name`,'
                     .' `Table_priv`,'
-                    .' IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' \'\', 0, 1)'
+                    .' IF(`Column_priv` = _latin1 \'\', 0, 1)'
                     .' AS \'Column_priv\''
                     .' FROM `mysql`.`tables_priv`'
                     . $user_host_condition
@@ -2000,107 +1880,62 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
     unset($row1);
     unset($row2);
     // now, we build the table...
-    if (PMA_MYSQL_INT_VERSION >= 40000) {
-        // Starting with MySQL 4.0.0, we may use UNION SELECTs and this makes
-        // the job much easier here!
+    $no = PMA_convert_using('N', 'quoted');
 
-        $no = PMA_convert_using('N', 'quoted');
+    $list_of_privileges =
+        PMA_convert_using('Select_priv') . ' AS Select_priv, '
+        . PMA_convert_using('Insert_priv') . ' AS Insert_priv, '
+        . PMA_convert_using('Update_priv') . ' AS Update_priv, '
+        . PMA_convert_using('Delete_priv') . ' AS Delete_priv, '
+        . PMA_convert_using('Create_priv') . ' AS Create_priv, '
+        . PMA_convert_using('Drop_priv') . ' AS Drop_priv, '
+        . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '
+        . PMA_convert_using('References_priv') . ' AS References_priv';
 
-        $list_of_privileges =
-            PMA_convert_using('Select_priv') . ' AS Select_priv, '
-            . PMA_convert_using('Insert_priv') . ' AS Insert_priv, '
-            . PMA_convert_using('Update_priv') . ' AS Update_priv, '
-            . PMA_convert_using('Delete_priv') . ' AS Delete_priv, '
-            . PMA_convert_using('Create_priv') . ' AS Create_priv, '
-            . PMA_convert_using('Drop_priv') . ' AS Drop_priv, '
-            . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '
-            . PMA_convert_using('References_priv') . ' AS References_priv';
+    $list_of_compared_privileges =
+        PMA_convert_using('Select_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no
+        . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
 
-        $list_of_compared_privileges =
-            PMA_convert_using('Select_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no
-            . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
+    $sql_query =
+        '(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
+        .   PMA_convert_using('`Host`') . ' AS `Host`, '
+        .   PMA_convert_using('`Db`') . ' AS `Db`, '
+        .   $list_of_privileges
+        .' FROM `mysql`.`db`'
+        .' WHERE ' . PMA_convert_using($checkprivs, 'quoted')
+        .' LIKE ' . PMA_convert_using('`Db`')
+        .' AND NOT (' . $list_of_compared_privileges. ')) '
+        .'UNION '
+        .'(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
+        .   PMA_convert_using('`Host`') . ' AS `Host`, '
+        .   PMA_convert_using('*', 'quoted') .' AS `Db`, '
+        .   $list_of_privileges
+        .' FROM `mysql`.`user` '
+        .' WHERE NOT (' . $list_of_compared_privileges . ')) '
+        .' ORDER BY `User` ASC,'
+        .'  `Host` ASC,'
+        .'  `Db` ASC;';
+    $res = PMA_DBI_query($sql_query);
+    $row = PMA_DBI_fetch_assoc($res);
+    if ($row) {
+        $found = TRUE;
+    }
 
-        $sql_query =
-            '(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
-            .   PMA_convert_using('`Host`') . ' AS `Host`, '
-            .   PMA_convert_using('`Db`') . ' AS `Db`, '
-            .   $list_of_privileges
-            .' FROM `mysql`.`db`'
-            .' WHERE ' . PMA_convert_using($checkprivs, 'quoted')
-            .' LIKE ' . PMA_convert_using('`Db`')
-            .' AND NOT (' . $list_of_compared_privileges. ')) '
-            .'UNION '
-            .'(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
-            .   PMA_convert_using('`Host`') . ' AS `Host`, '
-            .   PMA_convert_using('*', 'quoted') .' AS `Db`, '
-            .   $list_of_privileges
-            .' FROM `mysql`.`user` '
-            .' WHERE NOT (' . $list_of_compared_privileges . ')) '
-            .' ORDER BY `User` ASC,'
-            .'  `Host` ASC,'
-            .'  `Db` ASC;';
-        $res = PMA_DBI_query($sql_query);
-        $row = PMA_DBI_fetch_assoc($res);
-        if ($row) {
-            $found = TRUE;
-        }
-    } else {
-        // With MySQL 3, we need 2 seperate queries here.
-        $sql_query = 'SELECT * FROM `mysql`.`user` WHERE NOT (`Select_priv` = \'N\' AND `Insert_priv` = \'N\' AND `Update_priv` = \'N\' AND `Delete_priv` = \'N\' AND `Create_priv` = \'N\' AND `Drop_priv` = \'N\' AND `Grant_priv` = \'N\' AND `References_priv` = \'N\') ORDER BY `User` ASC, `Host` ASC;';
-        $res1 = PMA_DBI_query($sql_query);
-        $row1 = PMA_DBI_fetch_assoc($res1);
-        $sql_query =
-            'SELECT * FROM `mysql`.`db`'
-            .' WHERE \'' . $checkprivs . '\''
-            .'   LIKE `Db`'
-            .'  AND NOT (`Select_priv` = \'N\''
-            .'   AND `Insert_priv` = \'N\''
-            .'   AND `Update_priv` = \'N\''
-            .'   AND `Delete_priv` = \'N\''
-            .'   AND `Create_priv` = \'N\''
-            .'   AND `Drop_priv` = \'N\''
-            .'   AND `Grant_priv` = \'N\''
-            .'   AND `References_priv` = \'N\')'
-            .' ORDER BY `User` ASC, `Host` ASC;';
-        $res2 = PMA_DBI_query($sql_query);
-        $row2 = PMA_DBI_fetch_assoc($res2);
-        if ($row1 || $row2) {
-            $found = TRUE;
-        }
-    } // end if (PMA_MYSQL_INT_VERSION >= 40000) ... else ...
     if ($found) {
         while (TRUE) {
             // prepare the current user
-            if (PMA_MYSQL_INT_VERSION >= 40000) {
-                $current_privileges = array();
-                $current_user = $row['User'];
-                $current_host = $row['Host'];
-                while ($row && $current_user == $row['User'] && $current_host == $row['Host']) {
-                    $current_privileges[] = $row;
-                    $row = PMA_DBI_fetch_assoc($res);
-                }
-            } else {
-                $current_privileges = array();
-                if ($row1 && (!$row2 || ($row1['User'] < $row2['User'] || ($row1['User'] == $row2['User'] && $row1['Host'] <= $row2['Host'])))) {
-                    $current_user = $row1['User'];
-                    $current_host = $row1['Host'];
-                    $current_privileges = array($row1);
-                    $row1 = PMA_DBI_fetch_assoc($res1);
-                } else {
-                    $current_user = $row2['User'];
-                    $current_host = $row2['Host'];
-                    $current_privileges = array();
-                }
-                while ($row2 && $current_user == $row2['User'] && $current_host == $row2['Host']) {
-                    $current_privileges[] = $row2;
-                    $row2 = PMA_DBI_fetch_assoc($res2);
-                }
+            $current_privileges = array();
+            $current_user = $row['User'];
+            $current_host = $row['Host'];
+            while ($row && $current_user == $row['User'] && $current_host == $row['Host']) {
+                $current_privileges[] = $row;
+                $row = PMA_DBI_fetch_assoc($res);
             }
             echo '    <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                . '        <td';
