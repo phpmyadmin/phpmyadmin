@@ -678,8 +678,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // 2.0.1 Prepare Display column comments if enabled ($GLOBALS['cfg']['ShowBrowseComments']).
     //       Do not show comments, if using horizontalflipped mode, because of space usage
     if ($GLOBALS['cfg']['ShowBrowseComments']
-     && ($GLOBALS['cfgRelation']['commwork']
-      || PMA_MYSQL_INT_VERSION >= 40100)
      && $_SESSION['userconf']['disp_direction'] != 'horizontalflipped') {
         $comments_map = array();
         if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
@@ -2120,16 +2118,14 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
      *       (but see 2006-01-19 note in display_create_table.lib.php,
      *        I think we cannot detect db-specific privileges reliably)
      */
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
-        if (!$header_shown) {
-            echo $header;
-            $header_shown = TRUE;
-        }
-        echo PMA_linkOrButton(
-            'view_create.php' . $url_query,
-            PMA_getIcon('b_views.png', 'CREATE VIEW', false, true),
-            '', true, true, '') . "\n";
+    if (!$header_shown) {
+        echo $header;
+        $header_shown = TRUE;
     }
+    echo PMA_linkOrButton(
+        'view_create.php' . $url_query,
+        PMA_getIcon('b_views.png', 'CREATE VIEW', false, true),
+        '', true, true, '') . "\n";
 
     if ($header_shown) {
         echo '</fieldset><br />';

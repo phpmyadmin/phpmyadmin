@@ -106,7 +106,7 @@ if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         echo '>' . htmlentities($temp_charset) . '</option>' . "\n";
     }
     echo '        </select><br />' . "\n" . '    ';
-} elseif (PMA_MYSQL_INT_VERSION >= 40100) {
+} else {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
 } // end if (recoding)
