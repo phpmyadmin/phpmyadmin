@@ -22,11 +22,9 @@ require_once './libraries/mysql_charsets.lib.php';
 /**
  * Rename/move or copy database
  */
-if (strlen($db) &&
-    ((isset($db_rename) && $db_rename == 'true') ||
-    (isset($db_copy) && $db_copy == 'true'))) {
+if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
-    if (isset($db_rename) && $db_rename == 'true') {
+    if (! empty($db_rename)) {
         $move = true;
     } else {
         $move = false;
@@ -188,8 +186,8 @@ $cfgRelation = PMA_getRelationsParam();
  * Check if comments were updated
  * (must be done before displaying the menu tabs)
  */
-if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
-    PMA_SetComment($db, '', '(db_comment)', $comment);
+if (isset($_REQUEST['comment'])) {
+    PMA_setDbComment($db, $comment);
 }
 
 /**
@@ -224,23 +222,13 @@ if (!$is_information_schema) {
         ?>
     <form method="post" action="db_operations.php">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <input type="hidden" name="db_comment" value="true" />
     <fieldset>
         <legend>
-        <?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'b_comment.png"'
-                .' alt="" border="0" width="16" height="16" hspace="2" align="middle" />';
-        }
-        echo $strDBComment;
-        $comment = PMA_getComments($db);
-        ?>
+        <?php PMA_getIcon('b_comment.png', $strDBComment, false, true); ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
-            echo (isset($comment) && is_array($comment)
-                ? htmlspecialchars(implode(' ', $comment))
-                : ''); ?>" />
+            echo htmlspecialchars(PMA_getDbComment($db)); ?>" />
         <input type="submit" value="<?php echo $strGo; ?>" />
     </fieldset>
     </form>

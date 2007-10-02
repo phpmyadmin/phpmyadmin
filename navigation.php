@@ -29,7 +29,7 @@
  * @uses PMA_List_Database::getGroupedDetails()
  * @uses PMA_generate_common_url()
  * @uses PMA_generate_common_hidden_inputs()
- * @uses PMA_getComments();
+ * @uses PMA_getDbComment();
  * @uses PMA_getTableCount()
  * @uses PMA_getTableList()
  * @uses PMA_getRelationsParam()
@@ -79,7 +79,7 @@ if (! isset($_SESSION['navi_limit_offset'])) {
 if (isset($_REQUEST['pos'])) {
     $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['navi_limit_offset']; 
+$pos = $_SESSION['navi_limit_offset'];
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -118,7 +118,7 @@ if (! isset($_SESSION['navi_limit_offset'])) {
 if (isset($_REQUEST['pos'])) {
     $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['navi_limit_offset']; 
+$pos = $_SESSION['navi_limit_offset'];
 
 /*
  * Displays the frame
@@ -249,9 +249,9 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 
     if ($GLOBALS['cfg']['ShowTooltip']
       && $GLOBALS['cfgRelation']['commwork']) {
-        $_db_tooltip = PMA_getComments($GLOBALS['db']);
-        if (is_array($_db_tooltip)) {
-            $db_tooltip = implode(' ', $_db_tooltip);
+        $_db_tooltip = PMA_getDbComment($GLOBALS['db']);
+        if ($_db_tooltip) {
+            $db_tooltip = $_db_tooltip;
         }
     }
 
@@ -284,15 +284,15 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
      *       offset in the list of tables ($_SESSION['navi_table_limit_offset'])
      *       and use PMA_listNavigator(); do not just check pos in REQUEST
      *       but add another hidden param to see if it's the pos of databases
-     *       or the pos of tables. 
+     *       or the pos of tables.
      */
     $table_list = PMA_getTableList($GLOBALS['db'], null, 0, $cfg['MaxTableList']);
     if (! empty($table_list)) {
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
         // hint user that the table list is larger, until the todo is done
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && PMA_getTableCount($GLOBALS['db']) > $GLOBALS['cfg']['MaxTableList']) {
-            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', PMA_getTableCount($GLOBALS['db']), ' )'; 
-        } 
+            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', PMA_getTableCount($GLOBALS['db']), ' )';
+        }
     } else {
         echo $GLOBALS['strNoTablesFound'];
     }
@@ -588,7 +588,7 @@ function PMA_displayTableList($tables, $visible = false,
                 . ': ' . htmlspecialchars($table['Comment'])
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
                 .' id="quick_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-                .' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?' 
+                .' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?'
                 . $GLOBALS['common_url_query']
                 .'&amp;table=' . urlencode($table['Name'])
                 .'&amp;goto=' . $GLOBALS['cfg']['LeftDefaultTabTable']
@@ -606,7 +606,7 @@ function PMA_displayTableList($tables, $visible = false,
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
                 .$GLOBALS['common_url_query'] . '&amp;table='
                 .urlencode($table['Name']);
-            echo '<a href="' . $href 
+            echo '<a href="' . $href
             . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'
                 .' id="' . htmlspecialchars($table_db . '.' . $table['Name']) . '">'
@@ -619,13 +619,13 @@ function PMA_displayTableList($tables, $visible = false,
 }
 
 /**
- * get the action word corresponding to a script name 
+ * get the action word corresponding to a script name
  * in order to display it as a title in navigation panel
  *
- * @uses    switch() 
+ * @uses    switch()
  * @uses    $GLOBALS
  * @param   string  a valid value for $cfg['LeftDefaultTabTable']
- *                  or $cfg['DefaultTabTable'] 
+ *                  or $cfg['DefaultTabTable']
  */
 function PMA_getTitleForTarget($target) {
     switch ($target) {

@@ -244,16 +244,15 @@ if (empty($GLOBALS['is_header_sent'])) {
                 // Get additional information about tables for tooltip is done
                 // in libraries/db_info.inc.php only once
                 if ($cfgRelation['commwork']) {
-                    $comment = PMA_getComments($GLOBALS['db']);
-
+                    $comment = PMA_getDbComment($GLOBALS['db']);
                     /**
                      * Displays table comment
                      */
-                    if (is_array($comment) && ! empty($comment)) {
+                    if (! empty($comment)) {
                         echo '<span class="table_comment"'
-                            .' id="span_table_comment">&quot;'
-                            .htmlspecialchars(implode(' ', $comment))
-                            .'&quot;</span>' . "\n";
+                           . ' id="span_table_comment">&quot;'
+                           . htmlspecialchars($comment)
+                           . '&quot;</span>' . "\n";
                     } // end if
                 }
             }

@@ -257,7 +257,7 @@ require_once './libraries/List.class.php';
      * @uses    $cfg['LeftFrameDBSeparator']
      * @uses    $cfg['ShowTooltipAliasDB']
      * @uses    PMA_getTableCount()
-     * @uses    PMA_getComments()
+     * @uses    PMA_getDbComment()
      * @uses    is_array()
      * @uses    implode()
      * @uses    strstr()
@@ -275,9 +275,9 @@ require_once './libraries/List.class.php';
             $db_tooltip = '';
             if ($GLOBALS['cfg']['ShowTooltip']
               && $GLOBALS['cfgRelation']['commwork']) {
-                $_db_tooltip = PMA_getComments($db);
-                if (is_array($_db_tooltip)) {
-                    $db_tooltip = implode(' ', $_db_tooltip);
+                $_db_tooltip = PMA_getDbComment($db);
+                if ($_db_tooltip) {
+                    $db_tooltip = $_db_tooltip;
                 }
             }
 

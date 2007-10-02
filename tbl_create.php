@@ -15,7 +15,6 @@
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_DBI_try_query()
  * @uses    PMA_getRelationsParam()
- * @uses    PMA_setComment()
  * @uses    PMA_setMIME()
  * @uses    PMA_mysqlDie()
  * @uses    PMA_generate_common_url()

@@ -38,15 +38,15 @@ if (strlen($table)) {
 }
 
 if ($cfgRelation['commwork']) {
-    $comment = PMA_getComments($db);
+    $comment = PMA_getDbComment($db);
 
     /**
      * Displays DB comment
      */
-    if (is_array($comment)) {
+    if ($comment) {
         ?>
     <p> <?php echo $strDBComment; ?>
-        <i><?php echo htmlspecialchars(implode(' ', $comment)); ?></i></p>
+        <i><?php echo htmlspecialchars($comment); ?></i></p>
         <?php
     } // end if
 }
