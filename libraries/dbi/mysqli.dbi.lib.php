@@ -125,7 +125,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
  * selects given database
  *
  * @uses    $GLOBALS['userlink']
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_convert_charset()
  * @uses    mysqli_select_db()
  * @param   string          $dbname database name to select
@@ -141,9 +140,6 @@ function PMA_DBI_select_db($dbname, $link = null)
             return false;
         }
     }
-    if (PMA_MYSQL_INT_VERSION < 40100) {
-        $dbname = PMA_convert_charset($dbname);
-    }
     return mysqli_select_db($link, $dbname);
 }
 
@@ -152,7 +148,6 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_DBI_QUERY_UNBUFFERED
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $GLOBALS['userlink']
  * @uses    PMA_convert_charset()
  * @uses    MYSQLI_STORE_RESULT
@@ -181,9 +176,6 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
             return false;
         }
     }
-    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 40100) {
-        $query = PMA_convert_charset($query);
-    }
     return mysqli_query($link, $query, $method);
 
     // From the PHP manual:
@@ -201,7 +193,6 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
  *
  * @uses    $GLOBALS['allow_recoding']
  * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_DBI_get_fields_meta()
  * @uses    PMA_convert_display_charset()
  * @uses    mysqli_fetch_array()
@@ -220,65 +211,7 @@ function PMA_mysqli_fetch_array($result, $type = false)
         $data = @mysqli_fetch_array($result);
     }
 
-    /* No data returned => do not touch it */
-    if (! $data) {
-        return $data;
-    }
-
-    if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
-      || !(isset($GLOBALS['cfg']['AllowAnywhereRecoding'])
-        && $GLOBALS['cfg']['AllowAnywhereRecoding']
-        && $GLOBALS['allow_recoding'])) {
-        /* No recoding -> return data as we got them */
-        return $data;
-    }
-
-    $ret    = array();
-    $num    = mysqli_num_fields($result);
-    if ($num > 0) {
-        $fields = PMA_DBI_get_fields_meta($result);
-    }
-    // sometimes, mysqli_fetch_fields() does not return results
-    // (as seen in PHP 5.1.0-dev), so for now, return $data unchanged
-    if (!$fields) {
-        return $data;
-    }
-    $i = 0;
-    for ($i = 0; $i < $num; $i++) {
-        if (!isset($fields[$i]->type)) {
-            /* No meta information available -> we guess that it should be
-             * converted */
-            if (isset($data[$i])) {
-                $ret[$i] = PMA_convert_display_charset($data[$i]);
-            }
-            if (isset($fields[$i]->name) && isset($data[$fields[$i]->name])) {
-                $ret[PMA_convert_display_charset($fields[$i]->name)] =
-                    PMA_convert_display_charset($data[$fields[$i]->name]);
-            }
-        } else {
-            /* Meta information available -> check type of field and convert
-             * it according to the type */
-            if (stristr($fields[$i]->type, 'BLOB')
-              || stristr($fields[$i]->type, 'BINARY')) {
-                if (isset($data[$i])) {
-                    $ret[$i] = $data[$i];
-                }
-                if (isset($data[$fields[$i]->name])) {
-                    $ret[PMA_convert_display_charset($fields[$i]->name)] =
-                        $data[$fields[$i]->name];
-                }
-            } else {
-                if (isset($data[$i])) {
-                    $ret[$i] = PMA_convert_display_charset($data[$i]);
-                }
-                if (isset($data[$fields[$i]->name])) {
-                    $ret[PMA_convert_display_charset($fields[$i]->name)] =
-                        PMA_convert_display_charset($data[$fields[$i]->name]);
-                }
-            }
-        }
-    }
-    return $ret;
+    return $data;
 }
 
 /**
@@ -388,7 +321,6 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_convert_display_charset()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
@@ -435,10 +367,8 @@ function PMA_DBI_getError($link = null)
 
     if ($error_number == 2002) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
-    } elseif (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
-        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     } else {
-        $error = '#' . ((string) $error_number) . ' - ' . PMA_convert_display_charset($error_message);
+        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }
     return $error;
 }
