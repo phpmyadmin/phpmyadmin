@@ -9,7 +9,6 @@
  *
  * staybyte: speedup view on locked tables - 11 June 2001
  *
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $cfg['ShowStats']
  * @uses    $cfg['ShowTooltip']
  * @uses    $cfg['ShowTooltipAliasTB']
@@ -108,7 +107,7 @@ $is_show_stats = $cfg['ShowStats'];
  */
 $db_is_information_schema = false;
 
-if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema') {
+if ($db == 'information_schema') {
     $is_show_stats = false;
     $db_is_information_schema = true;
 }
@@ -207,7 +206,7 @@ if (! isset($sot_ready)) {
         $total_num_tables = count($tables);
         if (isset($sub_part) && $sub_part == '_export') {
             // (don't fetch only a subset if we are coming from db_export.php,
-            // because I think it's too risky to display only a subset of the 
+            // because I think it's too risky to display only a subset of the
             // table names when exporting a db)
             /**
              *
