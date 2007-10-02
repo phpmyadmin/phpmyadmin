@@ -399,12 +399,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
             $mysql = '5.0';
             $lang = 'en';
             if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION < 50000) {
-                    $mysql = '4.1';
-                    if (!empty($GLOBALS['mysql_4_1_doc_lang'])) {
-                        $lang = $GLOBALS['mysql_4_1_doc_lang'];
-                    }
-                } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
+                if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
                     if (!empty($GLOBALS['mysql_5_1_doc_lang'])) {
                         $lang = $GLOBALS['mysql_5_1_doc_lang'];
@@ -609,7 +604,6 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
  * Returns a string formatted with CONVERT ... USING
  * if MySQL supports it
  *
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $GLOBALS['collation_connection']
  * @uses    explode()
  * @param   string  the string itself
@@ -627,12 +621,8 @@ function PMA_convert_using($string, $mode='unquoted')
         $possible_quote = "";
     }
 
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
-        $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $conn_charset . ")";
-    } else {
-        $converted_string = $possible_quote . $string . $possible_quote;
-    }
+    list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+    $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $conn_charset . ")";
     return $converted_string;
 } // end function
 
@@ -1889,7 +1879,6 @@ function PMA_checkParameters($params, $die = true, $request = true)
 /**
  * Function to generate unique condition for specified row.
  *
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $GLOBALS['analyzed_sql'][0]
  * @uses    PMA_DBI_field_flags()
  * @uses    PMA_backquote()
@@ -1960,8 +1949,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             // string and blob fields have to be converted using
             // the system character set (always utf8) since
             // mysql4.1 can use different charset for fields.
-            if (PMA_MYSQL_INT_VERSION >= 40100
-              && ($meta->type == 'string' || $meta->type == 'blob')) {
+            if ($meta->type == 'string' || $meta->type == 'blob') {
                 $condition = ' CONVERT(' . PMA_backquote($meta->table) . '.'
                     . PMA_backquote($meta->orgname) . ' USING utf8) ';
             } else {
@@ -1982,14 +1970,10 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                  && !empty($row[$i])) {
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
-                        if (PMA_MYSQL_INT_VERSION < 40002) {
-                            $condition .= 'LIKE 0x' . bin2hex($row[$i]) . ' AND';
-                        } else {
-                            // use a CAST if possible, to avoid problems
-                            // if the field contains wildcard characters % or _
-                            $condition .= '= CAST(0x' . bin2hex($row[$i])
-                                . ' AS BINARY) AND';
-                        }
+                        // use a CAST if possible, to avoid problems
+                        // if the field contains wildcard characters % or _
+                        $condition .= '= CAST(0x' . bin2hex($row[$i])
+                            . ' AS BINARY) AND';
                     } else {
                         // this blob won't be part of the final condition
                         $condition = '';
