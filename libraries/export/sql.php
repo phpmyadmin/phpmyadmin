@@ -59,10 +59,8 @@ if (isset($plugin_list)) {
                 } else {
                     $drop_clause = 'DROP TABLE';
                 }
-            } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
-                $drop_clause = 'DROP TABLE / DROP VIEW';
             } else {
-                $drop_clause = 'DROP TABLE';
+                $drop_clause = 'DROP TABLE / DROP VIEW';
             }
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'drop_table', 'text' => sprintf($GLOBALS['strAddClause'], $drop_clause));
@@ -83,10 +81,6 @@ if (isset($plugin_list)) {
             if (!empty($GLOBALS['cfgRelation']['relation'])) {
                 $plugin_list['sql']['options'][] =
                     array('type' => 'bool', 'name' => 'relation', 'text' => 'strRelations');
-            }
-            if (!empty($GLOBALS['cfgRelation']['commwork']) && PMA_MYSQL_INT_VERSION < 40100) {
-                $plugin_list['sql']['options'][] =
-                    array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
             }
             if (!empty($GLOBALS['cfgRelation']['mimework'])) {
                 $plugin_list['sql']['options'][] =
@@ -189,7 +183,7 @@ function PMA_exportHeader()
     global $cfg;
     global $mysql_charset_map;
 
-    if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] != 'NONE') {
+    if (isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] != 'NONE') {
         PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compatibility'] . '"');
     }
     $head  =  PMA_exportComment('phpMyAdmin SQL Dump')
@@ -219,7 +213,7 @@ function PMA_exportHeader()
 
     /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
     if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') {
-        $head .=  $crlf . (PMA_MYSQL_INT_VERSION >= 40101 ? 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf : '');
+        $head .=  $crlf . 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
     }
 
     if (isset($GLOBALS['sql_use_transaction'])) {
@@ -259,19 +253,17 @@ function PMA_exportDBCreate($db)
         }
     }
     $create_query = 'CREATE DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db);
-    if (PMA_MYSQL_INT_VERSION >= 40101) {
-        $collation = PMA_getDbCollation($db);
-        if (strpos($collation, '_')) {
-            $create_query .= ' DEFAULT CHARACTER SET ' . substr($collation, 0, strpos($collation, '_')) . ' COLLATE ' . $collation;
-        } else {
-            $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
-        }
+    $collation = PMA_getDbCollation($db);
+    if (strpos($collation, '_')) {
+        $create_query .= ' DEFAULT CHARACTER SET ' . substr($collation, 0, strpos($collation, '_')) . ' COLLATE ' . $collation;
+    } else {
+        $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
     }
     $create_query .= ';' . $crlf;
     if (!PMA_exportOutputHandler($create_query)) {
         return FALSE;
     }
-    if (isset($GLOBALS['sql_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') {
+    if (isset($GLOBALS['sql_backquotes']) && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') {
         return PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
     }
     return PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -313,7 +305,7 @@ function PMA_exportDBFooter($db)
         unset($GLOBALS['sql_constraints']);
     }
 
-    if (PMA_MYSQL_INT_VERSION >= 50000 && isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
+    if (isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
         $procs_funcs = '';
 
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');

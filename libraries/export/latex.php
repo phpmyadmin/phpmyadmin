@@ -37,10 +37,8 @@ if (isset($plugin_list)) {
             $plugin_list['latex']['options'][] =
                 array('type' => 'bool', 'name' => 'relation', 'text' => 'strRelations');
         }
-        if (!empty($GLOBALS['cfgRelation']['commwork']) || PMA_MYSQL_INT_VERSION >= 40100) {
-            $plugin_list['latex']['options'][] =
-                array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
-        }
+        $plugin_list['latex']['options'][] =
+            array('type' => 'bool', 'name' => 'comments', 'text' => 'strComments');
         if (!empty($GLOBALS['cfgRelation']['mimework'])) {
             $plugin_list['latex']['options'][] =
                 array('type' => 'bool', 'name' => 'mime', 'text' => 'strMIME_MIMEtype');
@@ -344,7 +342,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $columns_cnt++;
         $alignment .= 'l|';
     }
-    if ($do_comments && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
+    if ($do_comments) {
         $columns_cnt++;
         $alignment .= 'l|';
     }
@@ -359,7 +357,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     if ($do_relation && $have_rel) {
         $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strLinksTo'] . '}}';
     }
-    if ($do_comments && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
+    if ($do_comments) {
         $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strComments'] . '}}';
         $comments = PMA_getComments($db, $table);
     }
