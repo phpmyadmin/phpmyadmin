@@ -373,13 +373,11 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     }
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
-        echo '<label for="id_sql_delimiter">[ ' . $GLOBALS['strDelimiter']
-            .'</label>' . "\n";
-        echo '<input type="text" name="sql_delimiter" size="3" '
-            .'value="' . $delimiter . '" '
-            .'id="id_sql_delimiter" /> ]' . "\n";
-    }
+    echo '<label for="id_sql_delimiter">[ ' . $GLOBALS['strDelimiter']
+        .'</label>' . "\n";
+    echo '<input type="text" name="sql_delimiter" size="3" '
+        .'value="' . $delimiter . '" '
+        .'id="id_sql_delimiter" /> ]' . "\n";
 
     echo '<input type="checkbox" name="show_query" value="1" '
         .'id="checkbox_show_query" checked="checked" />' . "\n"
@@ -496,7 +494,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    PMA_displayMaximumUploadSize()
  * @uses    PMA_generateCharsetDropdownBox()
  * @uses    PMA_generateHiddenMaxFileSize()
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_CSDROPDOWN_CHARSET
  * @uses    empty()
  */
@@ -539,24 +536,9 @@ function PMA_sqlQueryFormUpload(){
 
 
     echo '<fieldset id="" class="tblFooters">';
-    if (PMA_MYSQL_INT_VERSION < 40100
-      && $GLOBALS['cfg']['AllowAnywhereRecoding']
-      && $GLOBALS['allow_recoding']) {
-        echo $GLOBALS['strCharsetOfFile'] . "\n"
-             . '<select name="charset_of_file" size="1">' . "\n";
-        foreach ($GLOBALS['cfg']['AvailableCharsets'] as $temp_charset) {
-            echo '<option value="' . $temp_charset . '"';
-            if ($temp_charset == $GLOBALS['charset']) {
-                echo ' selected="selected"';
-            }
-            echo '>' . $temp_charset . '</option>' . "\n";
-        }
-        echo '</select>' . "\n";
-    } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-        echo $GLOBALS['strCharsetOfFile'] . "\n";
-        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
-                'charset_of_file', null, 'utf8', FALSE);
-    } // end if (recoding)
+    echo $GLOBALS['strCharsetOfFile'] . "\n";
+    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
+            'charset_of_file', null, 'utf8', FALSE);
     echo '<input type="submit" name="SQL" value="' . $GLOBALS['strGo']
         .'" />' . "\n";
     echo '<div class="clearfloat"></div>' . "\n";

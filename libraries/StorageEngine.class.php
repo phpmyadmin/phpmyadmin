@@ -50,8 +50,6 @@ class PMA_StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access  public
-     * @uses    PMA_MYSQL_INT_VERSION
-     * @uses    PMA_StorageEngine::_getStorageEnginesBefore40102()
      * @uses    PMA_DBI_fetch_result()
      * @return  array    of storage engines
      */
@@ -63,16 +61,7 @@ class PMA_StorageEngine
             return $storage_engines;
         }
 
-        $storage_engines = array();
-
-        // SHOW STORAGE ENGINES comes with MySQL 4.1.2
-        if (PMA_MYSQL_INT_VERSION < 40102) {
-            $storage_engines = PMA_StorageEngine::_getStorageEnginesBefore40102();
-        } else {
-            $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
-        }
-
-        return $storage_engines;
+        return PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
     }
 
     /**
@@ -113,62 +102,6 @@ class PMA_StorageEngine
         $output .= '</select>' . "\n";
         return $output;
     }
-
-    /**
-     * returns array of storage engines for MySQL < 4.1, hard coded
-     * Emulating SHOW STORAGE ENGINES...
-     *
-     * @static
-     * @access  public
-     * @uses    PMA_DBI_query()
-     * @uses    PMA_DBI_fetch_row()
-     * @uses    PMA_DBI_free_result()
-     * @uses    substr()
-     * @return  array    of storage engines
-     */
-    static protected function _getStorageEnginesBefore40102()
-    {
-        $storage_engines = array(
-            'myisam' => array(
-                'Engine'  => 'MyISAM',
-                'Support' => 'DEFAULT'
-            ),
-            'merge' => array(
-                'Engine'  => 'MERGE',
-                'Support' => 'YES'
-            ),
-            'heap' => array(
-                'Engine'  => 'HEAP',
-                'Support' => 'YES'
-            ),
-            'memory' => array(
-                'Engine'  => 'MEMORY',
-                'Support' => 'YES'
-            )
-        );
-        $known_engines = array(
-            'archive' => 'ARCHIVE',
-            'bdb'     => 'BDB',
-            'csv'     => 'CSV',
-            'innodb'  => 'InnoDB',
-            'isam'    => 'ISAM',
-            'gemini'  => 'Gemini'
-        );
-        $res = PMA_DBI_query('SHOW VARIABLES LIKE \'have\\_%\';');
-        while ($row = PMA_DBI_fetch_row($res)) {
-            $current = substr($row[0], 5);
-            if (! empty($known_engines[$current])) {
-                $storage_engines[$current] = array(
-                    'Engine'  => $known_engines[$current],
-                    'Support' => $row[1]
-                );
-            }
-        }
-        PMA_DBI_free_result($res);
-
-        return $storage_engines;
-    }
-
 
     /**
      * public static final PMA_StorageEngine getEngine()
@@ -270,7 +203,6 @@ class PMA_StorageEngine
      * @uses    PMA_ENGINE_DETAILS_TYPE_PLAINTEXT
      * @uses    PMA_StorageEngine::getVariables()
      * @uses    PMA_StorageEngine::getVariablesLikePattern()
-     * @uses    PMA_MYSQL_INT_VERSION
      * @uses    PMA_DBI_query()
      * @uses    PMA_DBI_fetch_assoc()
      * @uses    PMA_DBI_free_result()
@@ -287,15 +219,9 @@ class PMA_StorageEngine
             $like = '';
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 40102) {
-            $global = ' GLOBAL ';
-        } else {
-            $global = '';
-        }
-
         $mysql_vars = array();
 
-        $sql_query = 'SHOW ' . $global . ' VARIABLES ' . $like . ';';
+        $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = PMA_DBI_query($sql_query);
         while ($row = PMA_DBI_fetch_assoc($res)) {
             if (isset($variables[$row['Variable_name']])) {

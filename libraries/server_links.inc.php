@@ -48,11 +48,9 @@ $tabs['vars']['icon'] = 's_vars.png';
 $tabs['vars']['link'] = 'server_variables.php';
 $tabs['vars']['text'] = $strServerTabVariables;
 
-if (PMA_MYSQL_INT_VERSION >= 40100) {
-    $tabs['charset']['icon'] = 's_asci.png';
-    $tabs['charset']['link'] = 'server_collations.php';
-    $tabs['charset']['text'] = $strCharsets;
-}
+$tabs['charset']['icon'] = 's_asci.png';
+$tabs['charset']['link'] = 'server_collations.php';
+$tabs['charset']['text'] = $strCharsets;
 
 $tabs['engine']['icon'] = 'b_engine.png';
 $tabs['engine']['link'] = 'server_engines.php';

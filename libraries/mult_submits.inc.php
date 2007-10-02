@@ -161,11 +161,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 break;
 
             case 'empty_tbl':
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $full_query .= 'TRUNCATE ';
-                } else {
-                    $full_query .= 'DELETE FROM ';
-                }
+                $full_query .= 'TRUNCATE ';
                 $full_query .= PMA_backquote(htmlspecialchars(urldecode($sval)))
                             . ';<br />';
                 break;
