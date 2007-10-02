@@ -194,7 +194,6 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
  * @uses    $GLOBALS['allow_recoding']
  * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
  * @uses    PMA_DBI_get_fields_meta()
- * @uses    PMA_convert_display_charset()
  * @uses    mysqli_fetch_array()
  * @uses    mysqli_num_fields()
  * @uses    stristr()
@@ -321,7 +320,6 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_convert_display_charset()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
@@ -600,7 +598,6 @@ function PMA_DBI_field_name($result, $i)
  * @uses    MYSQLI_PRI_KEY_FLAG
  * @uses    MYSQLI_NOT_NULL_FLAG
  * @uses    mysqli_fetch_field_direct()
- * @uses    PMA_convert_display_charset()
  * @param   object mysqli result    $result
  * @param   integer                 $i      field
  * @return  string                  field flags
@@ -626,7 +623,7 @@ function PMA_DBI_field_flags($result, $i)
     if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique_key ';}
     if ($f & MYSQLI_PRI_KEY_FLAG)        { $flags .= 'primary_key ';}
     if ($f & MYSQLI_NOT_NULL_FLAG)       { $flags .= 'not_null ';}
-    return PMA_convert_display_charset(trim($flags));
+    return trim($flags);
 }
 
 ?>

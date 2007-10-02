@@ -234,7 +234,6 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_convert_display_charset()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
  * @uses    $GLOBALS['userlink']
@@ -347,7 +346,7 @@ function PMA_DBI_get_fields_meta($result)
     $fields       = array();
     $num_fields   = mysql_num_fields($result);
     for ($i = 0; $i < $num_fields; $i++) {
-        $fields[] = PMA_convert_display_charset(mysql_fetch_field($result, $i));
+        $fields[] = mysql_fetch_field($result, $i);
     }
     return $fields;
 }
@@ -369,7 +368,7 @@ function PMA_DBI_field_name($result, $i)
 
 function PMA_DBI_field_flags($result, $i)
 {
-    return PMA_convert_display_charset(mysql_field_flags($result, $i));
+    return mysql_field_flags($result, $i);
 }
 
 ?>

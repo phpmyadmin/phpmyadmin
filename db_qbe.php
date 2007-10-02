@@ -126,7 +126,7 @@ while ($i < $tbl_result_cnt) {
     if ($tbl_names[$tbl] == ' selected="selected"') {
         $fld[$k++]   =  PMA_backquote($tbl) . '.*';
         while ($j < $fld_results_cnt) {
-            $fld[$k] = PMA_convert_display_charset($fld_results[$j]['Field']);
+            $fld[$k] = $fld_results[$j]['Field'];
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
 
             // increase the width if necessary
