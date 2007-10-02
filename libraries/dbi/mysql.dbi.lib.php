@@ -7,20 +7,16 @@
  */
 
 /**
- *
+ * MySQL client API
  */
-// MySQL client API
-if (!defined('PMA_MYSQL_CLIENT_API')) {
-    if (function_exists('mysql_get_client_info')) {
-        $client_api = explode('.', mysql_get_client_info());
-        define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
-        unset($client_api);
-    } else {
-        define('PMA_MYSQL_CLIENT_API', 32332); // always expect the worst...
-    }
+if (! defined('PMA_MYSQL_CLIENT_API')) {
+    $client_api = explode('.', mysql_get_client_info());
+    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    unset($client_api);
 }
 
-function PMA_DBI_real_connect($server, $user, $password, $client_flags) {
+function PMA_DBI_real_connect($server, $user, $password, $client_flags)
+{
     global $cfg;
 
     if (empty($client_flags)) {
@@ -33,14 +29,15 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags) {
         if ($cfg['PersistentConnections']) {
             $link = @mysql_pconnect($server, $user, $password, $client_flags);
         } else {
-            $link = @mysql_connect($server, $user, $password, FALSE, $client_flags);
+            $link = @mysql_connect($server, $user, $password, false, $client_flags);
         }
     }
 
     return $link;
 }
 
-function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
+function PMA_DBI_connect($user, $password, $is_controluser = false)
+{
     global $cfg, $php_errormsg;
 
     $server_port   = (empty($cfg['Server']['port']))
@@ -94,31 +91,43 @@ function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
     return $link;
 }
 
-function PMA_DBI_select_db($dbname, $link = null) {
+/**
+ * select a db
+ *
+ * @param string $dbname name of db to select
+ * @param resource $link mysql link resource
+ * @return boolean success
+ */
+function PMA_DBI_select_db($dbname, $link = null)
+{
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
         } else {
-            return FALSE;
+            return false;
         }
-    }
-    if (PMA_MYSQL_INT_VERSION < 40100) {
-        $dbname = PMA_convert_charset($dbname);
     }
     return mysql_select_db($dbname, $link);
 }
 
-function PMA_DBI_try_query($query, $link = null, $options = 0) {
+/**
+ * runs a query and returns the result
+ *
+ * @param string $query query to run
+ * @param resource $link mysql link resource
+ * @param integer $options
+ * @return mixed
+ */
+function PMA_DBI_try_query($query, $link = null, $options = 0)
+{
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
         } else {
-            return FALSE;
+            return false;
         }
     }
-    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 40100) {
-        $query = PMA_convert_charset($query);
-    }
+
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         return @mysql_query($query, $link);
     } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
@@ -128,55 +137,25 @@ function PMA_DBI_try_query($query, $link = null, $options = 0) {
     }
 }
 
-// The following function is meant for internal use only.
-// Do not call it from outside this library!
-function PMA_mysql_fetch_array($result, $type = FALSE) {
+/**
+ *  The following function is meant for internal use only.
+ * Do not call it from outside this library!
+ */
+function PMA_mysql_fetch_array($result, $type = false)
+{
     global $cfg, $allow_recoding, $charset, $convcharset;
 
-    if ($type != FALSE) {
+    if ($type != false) {
         $data = mysql_fetch_array($result, $type);
     } else {
         $data = mysql_fetch_array($result);
     }
 
-    /* No data returned => do not touch it */
-    if (! $data) {
-        return $data;
-    }
-
-    if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
-        || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
-        /* No recoding -> return data as we got them */
-        return $data;
-    } else {
-        $ret = array();
-        $num = mysql_num_fields($result);
-        $i = 0;
-        for ($i = 0; $i < $num; $i++) {
-            $name = mysql_field_name($result, $i);
-            $flags = mysql_field_flags($result, $i);
-            /* Field is BINARY (either marked manually, or it is BLOB) => do not convert it */
-            if (stristr($flags, 'BINARY')) {
-                if (isset($data[$i])) {
-                    $ret[$i] = $data[$i];
-                }
-                if (isset($data[$name])) {
-                    $ret[PMA_convert_display_charset($name)] = $data[$name];
-                }
-            } else {
-                if (isset($data[$i])) {
-                    $ret[$i] = PMA_convert_display_charset($data[$i]);
-                }
-                if (isset($data[$name])) {
-                    $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
-                }
-            }
-        }
-        return $ret;
-    }
+    return $data;
 }
 
-function PMA_DBI_fetch_array($result) {
+function PMA_DBI_fetch_array($result)
+{
     return PMA_mysql_fetch_array($result);
 }
 
@@ -184,7 +163,8 @@ function PMA_DBI_fetch_assoc($result) {
     return PMA_mysql_fetch_array($result, MYSQL_ASSOC);
 }
 
-function PMA_DBI_fetch_row($result) {
+function PMA_DBI_fetch_row($result)
+{
     return PMA_mysql_fetch_array($result, MYSQL_NUM);
 }
 
@@ -193,7 +173,8 @@ function PMA_DBI_fetch_row($result) {
  *
  * @param result    $result,...     one or more mysql result resources
  */
-function PMA_DBI_free_result() {
+function PMA_DBI_free_result()
+{
     foreach (func_get_args() as $result) {
         if (is_resource($result)
          && get_resource_type($result) === 'mysql result') {
@@ -245,14 +226,14 @@ function PMA_DBI_get_proto_info($link = null)
  * @uses    mysql_get_client_info()
  * @return  string          MySQL client library version
  */
-function PMA_DBI_get_client_info() {
+function PMA_DBI_get_client_info()
+{
     return mysql_get_client_info();
 }
 
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_convert_display_charset()
  * @uses    PMA_DBI_convert_message()
  * @uses    $GLOBALS['errno']
@@ -274,7 +255,7 @@ function PMA_DBI_getError($link = null)
 // Do not stop now. On the initial connection, we don't have a $link,
 // we don't have a $GLOBALS['userlink'], but we can catch the error code
 //    } else {
-//            return FALSE;
+//            return false;
     }
 
     if (null !== $link) {
@@ -300,10 +281,8 @@ function PMA_DBI_getError($link = null)
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
     } elseif ($error_number == 2003) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'];
-    } elseif (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
-        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     } else {
-        $error = '#' . ((string) $error_number) . ' - ' . PMA_convert_display_charset($error_message);
+        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }
     return $error;
 }
@@ -314,13 +293,14 @@ function PMA_DBI_close($link = null)
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
         } else {
-            return FALSE;
+            return false;
         }
     }
     return @mysql_close($link);
 }
 
-function PMA_DBI_num_rows($result) {
+function PMA_DBI_num_rows($result)
+{
     if (!is_bool($result)) {
         return mysql_num_rows($result);
     } else {
@@ -334,7 +314,7 @@ function PMA_DBI_insert_id($link = null)
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
         } else {
-            return FALSE;
+            return false;
         }
     }
     //$insert_id = mysql_insert_id($link);
@@ -353,7 +333,7 @@ function PMA_DBI_affected_rows($link = null)
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
         } else {
-            return FALSE;
+            return false;
         }
     }
     return mysql_affected_rows($link);
@@ -362,7 +342,8 @@ function PMA_DBI_affected_rows($link = null)
 /**
  * @todo add missing keys like in from mysqli_query (orgname, orgtable, flags, decimals)
  */
-function PMA_DBI_get_fields_meta($result) {
+function PMA_DBI_get_fields_meta($result)
+{
     $fields       = array();
     $num_fields   = mysql_num_fields($result);
     for ($i = 0; $i < $num_fields; $i++) {
@@ -371,19 +352,23 @@ function PMA_DBI_get_fields_meta($result) {
     return $fields;
 }
 
-function PMA_DBI_num_fields($result) {
+function PMA_DBI_num_fields($result)
+{
     return mysql_num_fields($result);
 }
 
-function PMA_DBI_field_len($result, $i) {
+function PMA_DBI_field_len($result, $i)
+{
     return mysql_field_len($result, $i);
 }
 
-function PMA_DBI_field_name($result, $i) {
+function PMA_DBI_field_name($result, $i)
+{
     return mysql_field_name($result, $i);
 }
 
-function PMA_DBI_field_flags($result, $i) {
+function PMA_DBI_field_flags($result, $i)
+{
     return PMA_convert_display_charset(mysql_field_flags($result, $i));
 }
 
