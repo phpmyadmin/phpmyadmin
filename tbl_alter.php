@@ -83,16 +83,6 @@ if (isset($do_save_data)) {
 
         $cfgRelation = PMA_getRelationsParam();
 
-        // take care of pmadb internal comments here
-        // garvin: Update comment table, if a comment was set.
-        if (PMA_MYSQL_INT_VERSION < 40100 && isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-            foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
-                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex], 'pmadb');
-                }
-            }
-        }
-
         // garvin: Rename relations&display fields, if altered.
         if (($cfgRelation['displaywork'] || $cfgRelation['relwork']) && isset($field_orig) && is_array($field_orig)) {
             foreach ($field_orig AS $fieldindex => $fieldcontent) {

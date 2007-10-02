@@ -168,15 +168,6 @@ if (isset($submit_num_fields)) {
 
         $cfgRelation = PMA_getRelationsParam();
 
-        // garvin: Update comment table, if a comment was set.
-        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
-            foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
-                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
-                }
-            }
-        }
-
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             foreach ($field_mimetype AS $fieldindex => $mimetype) {

@@ -166,7 +166,7 @@ $i = 0;
     <th id="th<?php echo ++$i; ?>"></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strField; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strType; ?></th>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th id="th' . ++$i . '">' . $strCollation . '</th>' . "\n" : ''; ?>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strCollation; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strAttr; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strNull; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strDefault; ?></th>
@@ -195,12 +195,10 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 
     //$cfgRelation = PMA_getRelationsParam();
 
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        $comments_map = PMA_getComments($db, $table);
+    $comments_map = PMA_getComments($db, $table);
 
-        if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-            $mime_map = PMA_getMIME($db, $table, true);
-        }
+    if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+        $mime_map = PMA_getMIME($db, $table, true);
     }
 }
 
@@ -252,29 +250,26 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $zerofill     = stristr($row['Type'], 'zerofill');
     }
 
-    // rabus: Divide charset from the rest of the type definition (MySQL >= 4.1)
     unset($field_charset);
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        if ((substr($type, 0, 4) == 'char'
-            || substr($type, 0, 7) == 'varchar'
-            || substr($type, 0, 4) == 'text'
-            || substr($type, 0, 8) == 'tinytext'
-            || substr($type, 0, 10) == 'mediumtext'
-            || substr($type, 0, 8) == 'longtext'
-            || substr($type, 0, 3) == 'set'
-            || substr($type, 0, 4) == 'enum'
-            ) && !$binary) {
-            if (strpos($type, ' character set ')) {
-                $type = substr($type, 0, strpos($type, ' character set '));
-            }
-            if (!empty($row['Collation'])) {
-                $field_charset = $row['Collation'];
-            } else {
-                $field_charset = '';
-            }
+    if ((substr($type, 0, 4) == 'char'
+        || substr($type, 0, 7) == 'varchar'
+        || substr($type, 0, 4) == 'text'
+        || substr($type, 0, 8) == 'tinytext'
+        || substr($type, 0, 10) == 'mediumtext'
+        || substr($type, 0, 8) == 'longtext'
+        || substr($type, 0, 3) == 'set'
+        || substr($type, 0, 4) == 'enum'
+        ) && !$binary) {
+        if (strpos($type, ' character set ')) {
+            $type = substr($type, 0, strpos($type, ' character set '));
+        }
+        if (!empty($row['Collation'])) {
+            $field_charset = $row['Collation'];
         } else {
             $field_charset = '';
         }
+    } else {
+        $field_charset = '';
     }
 
     // garvin: Display basic mimetype [MIME]
@@ -338,7 +333,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $field_name; ?></label></th>
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td>' . (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
+    <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
@@ -690,7 +685,7 @@ if ($cfg['ShowStats']) {
     </tr>
         <?php
     }
-    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
+    if (!empty($tbl_collation)) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo $strCollation; ?></th>

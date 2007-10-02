@@ -220,10 +220,7 @@ elseif (!defined('PMA_IDX_INCLUDED')
         $edited_index_data                    = $indexes_data[$old_index];
 
 
-        if ((PMA_MYSQL_INT_VERSION < 40002
-            && $edited_index_info['Comment'] == 'FULLTEXT')
-          || (PMA_MYSQL_INT_VERSION >= 40002
-            && $edited_index_info['Index_type'] == 'FULLTEXT')) {
+        if ($edited_index_info['Index_type'] == 'FULLTEXT') {
             $index_type                       = 'FULLTEXT';
         } elseif ($index == 'PRIMARY') {
             $index_type                       = 'PRIMARY';

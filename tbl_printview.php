@@ -170,9 +170,7 @@ foreach ($the_tables as $key => $table) {
     if ($have_rel) {
         echo '<th>' . $strLinksTo . '</th>' . "\n";
     }
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '    <th>' . $strComments . '</th>' . "\n";
-    }
+    echo '    <th>' . $strComments . '</th>' . "\n";
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
@@ -260,14 +258,12 @@ foreach ($the_tables as $key => $table) {
         }
         echo '&nbsp;</td>' . "\n";
     }
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '    <td>';
-        $comments = PMA_getComments($db, $table);
-        if (isset($comments[$field_name])) {
-            echo htmlspecialchars($comments[$field_name]);
-        }
-        echo '&nbsp;</td>' . "\n";
+    echo '    <td>';
+    $comments = PMA_getComments($db, $table);
+    if (isset($comments[$field_name])) {
+        echo htmlspecialchars($comments[$field_name]);
     }
+    echo '&nbsp;</td>' . "\n";
     if ($cfgRelation['mimework']) {
         $mime_map = PMA_getMIME($db, $table, true);
 
@@ -288,8 +284,7 @@ foreach ($the_tables as $key => $table) {
 
     <?php
 
-    if (! $tbl_is_view
-     && ($db != 'information_schema' || PMA_MYSQL_INT_VERSION < 50002)) {
+    if (! $tbl_is_view && $db != 'information_schema') {
 
         /**
          * Displays indexes

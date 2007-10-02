@@ -51,7 +51,7 @@ if (!isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    $result     = PMA_DBI_query('SHOW' . (PMA_MYSQL_INT_VERSION >= 40100 ? ' FULL' : '') . ' FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+    $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt = PMA_DBI_num_rows($result);
     // rabue: we'd better ensure, that all arrays are empty.
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
@@ -79,7 +79,7 @@ if (!isset($param) || $param[0] == '') {
         }
         $fields_null[] = $row['Null'];
         $fields_type[] = $type;
-        $fields_collation[] = PMA_MYSQL_INT_VERSION >= 40100 && !empty($row['Collation']) && $row['Collation'] != 'NULL'
+        $fields_collation[] = !empty($row['Collation']) && $row['Collation'] != 'NULL'
                           ? $row['Collation']
                           : '';
     } // end while
@@ -186,7 +186,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     <thead>
     <tr><th><?php echo $strField; ?></th>
         <th><?php echo $strType; ?></th>
-        <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<th>' . $strCollation . '</th>' . "\n" : ''; ?>
+        <th><?php echo $strCollation; ?></th>
         <th><?php echo $strOperator; ?></th>
         <th><?php echo $strValue; ?></th>
     </tr>
@@ -202,8 +202,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
             <td><?php echo $fields_type[$i]; ?></td>
-            <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<td>'
-                . $fields_collation[$i] . '</td>' . "\n" : ''; ?>
+            <td><?php echo $fields_collation[$i]; ?></td>
             <td><select name="func[]">
         <?php
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
@@ -251,7 +250,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
             // here, the 4th parameter is empty because there is no current
             // value of data for the dropdown (the search page initial values
             // are displayed empty)
-            echo PMA_foreignDropdown($foreignData['disp_row'], 
+            echo PMA_foreignDropdown($foreignData['disp_row'],
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],
                 '', $GLOBALS['cfg']['ForeignKeyMaxLimit']);
@@ -288,7 +287,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         ?>
                     <script type="text/javascript">
                     //<![CDATA[
-                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($i); ?>\', \'<?php echo (PMA_MYSQL_INT_VERSION >= 40100 && substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
+                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($i); ?>\', \'<?php echo (substr($type, 0, 9) == 'timestamp') ? 'datetime' : substr($type, 0, 9); ?>\')"><img class="calendar" src="<?php echo $pmaThemeImage; ?>b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
                     //]]>
                     </script>
         <?php
@@ -349,9 +348,7 @@ else {
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
-            if (PMA_MYSQL_INT_VERSION >= 40100) {
-                list($charsets[$i]) = explode('_', $collations[$i]);
-            }
+            list($charsets[$i]) = explode('_', $collations[$i]);
             if (@$GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
@@ -377,13 +374,13 @@ else {
                         $parens_close = '';
                     }
                     $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
-                    if (PMA_MYSQL_INT_VERSION >= 40100 && $charsets[$i] != $charset_connection) {
+                    if ($charsets[$i] != $charset_connection) {
                         $enum_where = 'CONVERT(_utf8 ' . $enum_where . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                     }
                     for ($e = 1; $e < $enum_selected_count; $e++) {
                         $enum_where .= ', ';
                         $tmp_literal = '\'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
-                        if (PMA_MYSQL_INT_VERSION >= 40100 && $charsets[$i] != $charset_connection) {
+                        if ($charsets[$i] != $charset_connection) {
                             $tmp_literal = 'CONVERT(_utf8 ' . $tmp_literal . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                         }
                         $enum_where .= $tmp_literal;
@@ -407,7 +404,7 @@ else {
                 // But if the field's type is VARBINARY, it has no charset
                 // and $charsets[$i] is empty, so we cannot generate a CONVERT
 
-                if (PMA_MYSQL_INT_VERSION >= 40101 && !empty($charsets[$i]) && $charsets[$i] != $charset_connection && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
+                if (!empty($charsets[$i]) && $charsets[$i] != $charset_connection && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
                     $prefix = 'CONVERT(_utf8 ';
                     $suffix = ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                 } else {

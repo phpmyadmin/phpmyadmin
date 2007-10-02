@@ -9,7 +9,6 @@
  * @uses    $strTable
  * @uses    $strHasBeenCreated
  * @uses    PMA_ENGINE_KEYWORD
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
  * @uses    PMA_generateCharsetQueryPart()
@@ -185,7 +184,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
         $sql_query .= ' ' . PMA_ENGINE_KEYWORD  . ' = ' . $tbl_type;
     }
-    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
+    if (!empty($tbl_collation)) {
         $sql_query .= PMA_generateCharsetQueryPart($tbl_collation);
     }
 
@@ -203,16 +202,6 @@ if (isset($_REQUEST['do_save_data'])) {
         require_once './libraries/transformations.lib.php';
 
         $cfgRelation = PMA_getRelationsParam();
-
-        // garvin: Update comment table, if a comment was set.
-        if (isset($field_comments) && is_array($field_comments)
-         && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
-            foreach ($field_comments as $fieldindex => $fieldcomment) {
-                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
-                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
-                }
-            }
-        }
 
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype)

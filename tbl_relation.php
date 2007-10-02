@@ -171,15 +171,13 @@ if (isset($_REQUEST['destination_innodb'])) {
                 // an option has been changed for ON DELETE or ON UPDATE
 
                 // remove existing key
-                if (PMA_MYSQL_INT_VERSION >= 40013) {
-                    $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                                . ' DROP FOREIGN KEY '
-                                . PMA_backquote($existrel_innodb[$master_field]['constraint']) . ';';
+                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
+                            . ' DROP FOREIGN KEY '
+                            . PMA_backquote($existrel_innodb[$master_field]['constraint']) . ';';
 
-                    // I tried to send both in one query but it failed
-                    $upd_rs     = PMA_DBI_query($sql_query);
-                    $display_query .= $sql_query . "\n";
-                }
+                // I tried to send both in one query but it failed
+                $upd_rs     = PMA_DBI_query($sql_query);
+                $display_query .= $sql_query . "\n";
 
                 // add another
                 $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
@@ -203,13 +201,11 @@ if (isset($_REQUEST['destination_innodb'])) {
 
             } // end if... else....
         } elseif (isset($existrel_innodb[$master_field])) {
-            if (PMA_MYSQL_INT_VERSION >= 40013) {
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
-                        . ' DROP FOREIGN KEY '
-                        . PMA_backquote($existrel_innodb[$master_field]['constraint']);
-                $sql_query .= ';';
-                $display_query .= $sql_query . "\n";
-            }
+            $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
+                    . ' DROP FOREIGN KEY '
+                    . PMA_backquote($existrel_innodb[$master_field]['constraint']);
+            $sql_query .= ';';
+            $display_query .= $sql_query . "\n";
         } // end if... else....
 
         if (! empty($sql_query)) {
@@ -407,11 +403,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         }
         echo '</th>';
     }
-    if ($tbl_type=='INNODB') {
+    if ($tbl_type == 'INNODB') {
         echo '<th colspan="2">InnoDB';
-        if (PMA_MYSQL_INT_VERSION < 40013) {
-            echo '(**)';
-        }
         echo '</th>';
     }
     ?>
@@ -557,12 +550,6 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
 </form>
     <?php
 } // end if (we have columns in this table)
-
-if ($tbl_type === 'INNODB' && PMA_MYSQL_INT_VERSION < 40013) {
-    echo '<div class="warning">'
-        .'** ' . sprintf($strUpgrade, 'MySQL', '4.0.13')
-        .'</div>';
-}
 
 /**
  * Displays the footer
