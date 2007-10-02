@@ -15,7 +15,7 @@
  */
 require_once './libraries/common.inc.php';
 
-// $sub_part is also used in db_info.inc.php to see if we are coming from 
+// $sub_part is also used in db_info.inc.php to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
 require_once './libraries/db_common.inc.php';
@@ -48,7 +48,7 @@ $multi_values .= "\n";
 
 foreach ($tables as $each_table) {
     // ok we show also views
-    //if (PMA_MYSQL_INT_VERSION >= 50000 && is_null($each_table['Engine'])) {
+    //if (is_null($each_table['Engine'])) {
         // Don't offer to export views yet.
     //    continue;
     //}

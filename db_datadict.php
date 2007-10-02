@@ -61,9 +61,7 @@ $count  = 0;
 while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $myfieldname = 'Tables_in_' . htmlspecialchars($db);
     $table        = $row[$myfieldname];
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        $comments = PMA_getComments($db, $table);
-    }
+    $comments = PMA_getComments($db, $table);
 
     if ($count != 0) {
         echo '<div style="page-break-before: always;">' . "\n";
@@ -184,9 +182,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     if ($have_rel) {
         echo '    <th>' . $strLinksTo . '</th>' . "\n";
     }
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '    <th>' . $strComments . '</th>' . "\n";
-    }
+    echo '    <th>' . $strComments . '</th>' . "\n";
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
@@ -274,13 +270,11 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
             }
             echo '</td>' . "\n";
         }
-        if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-            echo '    <td>';
-            if (isset($comments[$field_name])) {
-                echo htmlspecialchars($comments[$field_name]);
-            }
-            echo '</td>' . "\n";
+        echo '    <td>';
+        if (isset($comments[$field_name])) {
+            echo htmlspecialchars($comments[$field_name]);
         }
+        echo '</td>' . "\n";
         if ($cfgRelation['mimework']) {
             $mime_map = PMA_getMIME($db, $table, true);
 

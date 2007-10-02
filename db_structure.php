@@ -52,10 +52,8 @@ if ($num_tables == 0) {
 
 require_once './libraries/bookmark.lib.php';
 
-if (PMA_MYSQL_INT_VERSION >= 40101) {
-    require_once './libraries/mysql_charsets.lib.php';
-    $db_collation = PMA_getDbCollation($db);
-}
+require_once './libraries/mysql_charsets.lib.php';
+$db_collation = PMA_getDbCollation($db);
 
 // Display function
 /**
@@ -63,7 +61,6 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
  * display table header (<table><thead>...</thead><tbody>)
  *
  * @uses    PMA_showHint()
- * @uses    PMA_MYSQL_INT_VERSION
  * @uses    $GLOBALS['cfg']['PropertiesNumColumns']
  * @uses    $GLOBALS['is_show_stats']
  * @uses    $GLOBALS['strTable']
@@ -100,10 +97,8 @@ function PMA_TableHeader($db_is_information_schema = false)
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         echo '    <th>' . $GLOBALS['strType'] . '</th>' . "\n";
         $cnt++;
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            echo '    <th>' . $GLOBALS['strCollation'] . '</th>' . "\n";
-            $cnt++;
-        }
+        echo '    <th>' . $GLOBALS['strCollation'] . '</th>' . "\n";
+        $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
         echo '    <th>' . $GLOBALS['strSize'] . '</th>' . "\n"
@@ -227,17 +222,10 @@ foreach ($tables as $keyname => $each_table) {
         if (! empty($each_table['TABLE_ROWS'])) {
             $empty_table = '<a href="sql.php?' . $tbl_url_query
                  . '&amp;sql_query=';
-            if (PMA_MYSQL_INT_VERSION >= 40000) {
-                $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
-                     . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($each_table['TABLE_NAME'])))
-                     . '" onclick="return confirmLink(this, \'TRUNCATE ';
-            } else {
-                $empty_table .= urlencode('DELETE FROM ' . PMA_backquote($each_table['TABLE_NAME']))
-                     . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($each_table['TABLE_NAME'])))
-                     . '" onclick="return confirmLink(this, \'DELETE FROM ';
-            }
+            $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
+                 . '&amp;zero_rows='
+                 . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($each_table['TABLE_NAME'])))
+                 . '" onclick="return confirmLink(this, \'TRUNCATE ';
             $empty_table .= PMA_jsFormat($each_table['TABLE_NAME']) . '\')">' . $titles['Empty'] . '</a>';
         } else {
             $empty_table = $titles['NoEmpty'];
@@ -292,14 +280,12 @@ foreach ($tables as $keyname => $each_table) {
             }
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            if (isset($each_table['Collation'])) {
-                $collation = '<dfn title="'
-                    . PMA_getCollationDescr($each_table['Collation']) . '">'
-                    . $each_table['Collation'] . '</dfn>';
-            } else {
-                $collation = '---';
-            }
+        if (isset($each_table['Collation'])) {
+            $collation = '<dfn title="'
+                . PMA_getCollationDescr($each_table['Collation']) . '">'
+                . $each_table['Collation'] . '</dfn>';
+        } else {
+            $collation = '---';
         }
 
         if ($is_show_stats) {
@@ -430,17 +416,14 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     echo '    <th align="center">' . "\n"
        . '        <dfn title="'
        . sprintf($strDefaultEngine, $default_engine) . '">' .$default_engine . '</dfn></th>' . "\n";
-    // Have to account for old MySQL with no collation (bug 1554885)
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        // we got a case where $db_collation was empty
-        echo '    <th align="center">' . "\n";
-        if (! empty($db_collation)) {
-            echo '        <dfn title="'
-                . PMA_getCollationDescr($db_collation) . ' (' . $strDefault . ')">' . $db_collation
-                . '</dfn>';
-        }
-        echo '</th>';
+    // we got a case where $db_collation was empty
+    echo '    <th align="center">' . "\n";
+    if (! empty($db_collation)) {
+        echo '        <dfn title="'
+            . PMA_getCollationDescr($db_collation) . ' (' . $strDefault . ')">' . $db_collation
+            . '</dfn>';
     }
+    echo '</th>';
 }
 
 if ($is_show_stats) {

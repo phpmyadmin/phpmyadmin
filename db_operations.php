@@ -40,7 +40,7 @@ if (strlen($db) &&
            (isset($create_database_before_copying) && $create_database_before_copying)) {
             /**
              * @todo activate this with the correct version of MySQL
-             *       when they fix the problem when the db contains a VIEW 
+             *       when they fix the problem when the db contains a VIEW
              *       (problem exists in 5.1.20)
              *       also, in 6.0.0 when the db contains a Falcon table,
              *       renaming it results in a unusable db!
@@ -206,14 +206,11 @@ if (empty($is_info)) {
     echo "\n";
 }
 
-if (PMA_MYSQL_INT_VERSION >= 40101) {
-    $db_collation = PMA_getDbCollation($db);
-}
-if (PMA_MYSQL_INT_VERSION < 50002
-  || (PMA_MYSQL_INT_VERSION >= 50002 && $db != 'information_schema')) {
-    $is_information_schema = false;
-} else {
+$db_collation = PMA_getDbCollation($db);
+if ($db == 'information_schema') {
     $is_information_schema = true;
+} else {
+    $is_information_schema = false;
 }
 
 if (!$is_information_schema) {
@@ -278,7 +275,7 @@ if (!$is_information_schema) {
         <?php
     echo '(' . $strCommand . ': ';
     /**
-     * @todo (see explanations above in a previous todo) 
+     * @todo (see explanations above in a previous todo)
      */
     //if (PMA_MYSQL_INT_VERSION >= 50107) {
     //    echo 'RENAME DATABASE';
@@ -313,11 +310,7 @@ if (!$is_information_schema) {
             .' alt="" width="16" height="16" />';
     }
     echo $strDBCopy . ':';
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
-        $drop_clause = 'DROP TABLE / DROP VIEW';
-    } else {
-        $drop_clause = 'DROP TABLE';
-    }
+    $drop_clause = 'DROP TABLE / DROP VIEW';
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" /><br />
@@ -370,26 +363,22 @@ if (!$is_information_schema) {
     /**
      * Change database charset
      */
-    if (PMA_MYSQL_INT_VERSION >= 40101) {
-    // MySQL supports setting default charsets / collations for databases since
-    // version 4.1.1.
-        echo '<form method="post" action="./db_operations.php">' . "\n"
-           . PMA_generate_common_hidden_inputs($db, $table)
-           . '<fieldset>' . "\n"
-           . '    <legend>';
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 's_asci.png"'
-                .' alt="" width="16" height="16" />';
-        }
-        echo '    <label for="select_db_collation">' . $strCollation . ':</label>' . "\n"
-           . '    </legend>' . "\n"
-           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
-                'db_collation', 'select_db_collation', $db_collation, false, 3)
-           . '    <input type="submit" name="submitcollation"'
-           . ' value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
-           . '</fieldset>' . "\n"
-           . '</form>' . "\n";
+    echo '<form method="post" action="./db_operations.php">' . "\n"
+       . PMA_generate_common_hidden_inputs($db, $table)
+       . '<fieldset>' . "\n"
+       . '    <legend>';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon" src="' . $pmaThemeImage . 's_asci.png"'
+            .' alt="" width="16" height="16" />';
     }
+    echo '    <label for="select_db_collation">' . $strCollation . ':</label>' . "\n"
+       . '    </legend>' . "\n"
+       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
+            'db_collation', 'select_db_collation', $db_collation, false, 3)
+       . '    <input type="submit" name="submitcollation"'
+       . ' value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
+       . '</fieldset>' . "\n"
+       . '</form>' . "\n";
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {

@@ -129,7 +129,6 @@ if (isset($_REQUEST['submit_search'])) {
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * @uses    PMA_DBI_query
-     * PMA_MYSQL_INT_VERSION
      * PMA_backquote
      * PMA_DBI_free_result
      * PMA_DBI_fetch_assoc
@@ -156,11 +155,9 @@ if (isset($_REQUEST['submit_search'])) {
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $res                  = PMA_DBI_query('SHOW ' . (PMA_MYSQL_INT_VERSION >= 40100 ? 'FULL ' : '') . 'FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
+        $res                  = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
         while ($current = PMA_DBI_fetch_assoc($res)) {
-            if (PMA_MYSQL_INT_VERSION >= 40100) {
-                list($current['Charset']) = explode('_', $current['Collation']);
-            }
+            list($current['Charset']) = explode('_', $current['Collation']);
             $current['Field'] = PMA_backquote($current['Field']);
             $tblfields[]      = $current;
         } // while
@@ -187,8 +184,7 @@ if (isset($_REQUEST['submit_search'])) {
 
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
-                if (PMA_MYSQL_INT_VERSION >= 40100
-                 && $tblfield['Charset'] != $charset_connection
+                if ($tblfield['Charset'] != $charset_connection
                  && $tblfield['Charset'] != 'NULL'
                  && $tblfield['Charset'] != '') {
                     $prefix = 'CONVERT(_utf8 ';
