@@ -1,7 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * Displays table structure infos like fields/columns, indexes, size, rows
+ * and allows manipulation of indexes and columns/fields
  * @version $Id$
  */
 
@@ -13,35 +14,37 @@ require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/relation.lib.php';
 
 /**
- * Gets the relation settings
+ * handle mutliple field commands if required
+ *
+ * submit_mult_*_x comes from IE if <input type="img" ...> is used
  */
-$cfgRelation = PMA_getRelationsParam();
-
-
-/**
- * Drop multiple fields if required
- */
-
-// workaround for IE problem:
-if (isset($submit_mult_change_x)) {
+if (isset($_REQUEST['submit_mult_change_x'])) {
     $submit_mult = $strChange;
-} elseif (isset($submit_mult_drop_x)) {
+} elseif (isset($_REQUEST['submit_mult_drop_x'])) {
     $submit_mult = $strDrop;
-} elseif (isset($submit_mult_primary_x)) {
+} elseif (isset($_REQUEST['submit_mult_primary_x'])) {
     $submit_mult = $strPrimary;
-} elseif (isset($submit_mult_index_x)) {
+} elseif (isset($_REQUEST['submit_mult_index_x'])) {
     $submit_mult = $strIndex;
-} elseif (isset($submit_mult_unique_x)) {
+} elseif (isset($_REQUEST['submit_mult_unique_x'])) {
     $submit_mult = $strUnique;
-} elseif (isset($submit_mult_fulltext_x)) {
+} elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
     $submit_mult = $strIdxFulltext;
-} elseif (isset($submit_mult_browse_x)) {
+} elseif (isset($_REQUEST['submit_mult_browse_x'])) {
     $submit_mult = $strBrowse;
+} elseif (isset($_REQUEST['submit_mult'])) {
+    $submit_mult = $_REQUEST['submit_mult'];
+} elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == $strYes) {
+    $submit_mult = 'row_delete';
+    if (isset($_REQUEST['selected'])) {
+        $_REQUEST['selected_fld'] = $_REQUEST['selected'];
+    }
 }
 
-if ((!empty($submit_mult) && isset($selected_fld)) || isset($mult_btn)) {
+if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
     $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
     if ($submit_mult == $strBrowse) {
+        // browsing the table displaying only selected fields/columns
         $GLOBALS['active_page'] = 'sql.php';
         $sql_query = '';
         foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
@@ -54,16 +57,25 @@ if ((!empty($submit_mult) && isset($selected_fld)) || isset($mult_btn)) {
 
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
-        $sql_query .= ' FROM ' . PMA_backquote($table);
+        $sql_query .= ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         require './sql.php';
+        exit;
     } else {
+        // handle multiple field commands
+        // handle confirmation of deleting multiple fields/columns
         $action = 'tbl_structure.php';
-        require_once './libraries/header.inc.php';
-        require_once './libraries/tbl_links.inc.php';
         require './libraries/mult_submits.inc.php';
+        //require_once './libraries/header.inc.php';
+        //require_once './libraries/tbl_links.inc.php';
+
+        $message = $strSuccess;
     }
-    exit;
 }
+
+/**
+ * Gets the relation settings
+ */
+$cfgRelation = PMA_getRelationsParam();
 
 /**
  * Runs common work
@@ -75,18 +87,11 @@ $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
  * Prepares the table structure display
  */
 
+
 /**
  * Gets tables informations
  */
 require_once './libraries/tbl_info.inc.php';
-
-/**
- * Show result of multi submit operation
- */
-if ((!empty($submit_mult) && isset($selected_fld))
-    || isset($mult_btn)) {
-    $message = $strSuccess;
-}
 
 /**
  * Displays top menu links
@@ -94,7 +99,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 require_once './libraries/tbl_links.inc.php';
 
 // 2. Gets table keys and retains them
-$result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table) . ';');
+$result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ';');
 $primary     = '';
 $ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
@@ -133,79 +138,18 @@ $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
  */
 // action titles (image or string)
 $titles = array();
-if ($cfg['PropertiesIconic'] == true) {
-    if ($cfg['PropertiesIconic'] === 'both') {
-        $iconic_spacer = '<div class="nowrap">';
-    } else {
-        $iconic_spacer = '';
-    }
-
-    // images replaced 2004-05-08 by mkkeck
-    $titles['Change']        = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" />';
-    $titles['Drop']          = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
-    $titles['NoDrop']        = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
-    $titles['Primary']       = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
-    $titles['Index']         = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
-    $titles['Unique']        = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
-    $titles['IdxFulltext']   = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
-    $titles['NoPrimary']     = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
-    $titles['NoIndex']       = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
-    $titles['NoUnique']      = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
-    $titles['NoIdxFulltext'] = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
-    $titles['BrowseDistinctValues']        = $iconic_spacer
-        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_browse.png" alt="' . $strBrowseDistinctValues . '" title="' . $strBrowseDistinctValues . '" />';
-
-    if ($cfg['PropertiesIconic'] === 'both') {
-        $titles['Change']               .= $strChange . '</div>';
-        $titles['Drop']                 .= $strDrop . '</div>';
-        $titles['NoDrop']               .= $strDrop . '</div>';
-        $titles['Primary']              .= $strPrimary . '</div>';
-        $titles['Index']                .= $strIndex . '</div>';
-        $titles['Unique']               .= $strUnique . '</div>';
-        $titles['IdxFulltext'  ]        .= $strIdxFulltext . '</div>';
-        $titles['NoPrimary']            .= $strPrimary . '</div>';
-        $titles['NoIndex']              .= $strIndex . '</div>';
-        $titles['NoUnique']             .= $strUnique . '</div>';
-        $titles['NoIdxFulltext']        .= $strIdxFulltext . '</div>';
-        $titles['BrowseDistinctValues'] .= $strBrowseDistinctValues . '</div>';
-    }
-} else {
-    $titles['Change']               = $strChange;
-    $titles['Drop']                 = $strDrop;
-    $titles['NoDrop']               = $strDrop;
-    $titles['Primary']              = $strPrimary;
-    $titles['Index']                = $strIndex;
-    $titles['Unique']               = $strUnique;
-    $titles['IdxFulltext']          = $strIdxFulltext;
-    $titles['NoPrimary']            = $strPrimary;
-    $titles['NoIndex']              = $strIndex;
-    $titles['NoUnique']             = $strUnique;
-    $titles['NoIdxFulltext']        = $strIdxFulltext;
-    $titles['BrowseDistinctValues'] = $strBrowseDistinctValues;
-}
+$titles['Change']               = PMA_getIcon('b_edit.png', $strChange, true);
+$titles['Drop']                 = PMA_getIcon('b_drop.png', $strDrop, true);
+$titles['NoDrop']               = PMA_getIcon('b_drop.png', $strDrop, true);
+$titles['Primary']              = PMA_getIcon('b_primary.png', $strPrimary, true);
+$titles['Index']                = PMA_getIcon('b_index.png', $strIndex, true);
+$titles['Unique']               = PMA_getIcon('b_unique.png', $strUnique, true);
+$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', $strIdxFulltext, true);
+$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', $strPrimary, true);
+$titles['NoIndex']              = PMA_getIcon('bd_index.png', $strIndex, true);
+$titles['NoUnique']             = PMA_getIcon('bd_unique.png', $strUnique, true);
+$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', $strIdxFulltext, true);
+$titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', $strBrowseDistinctValues, true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
@@ -249,7 +193,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     require_once './libraries/relation.lib.php';
     require_once './libraries/transformations.lib.php';
 
-    $cfgRelation = PMA_getRelationsParam();
+    //$cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         $comments_map = PMA_getComments($db, $table);

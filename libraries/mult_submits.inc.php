@@ -117,14 +117,18 @@ if (! empty($submit_mult)
 if (!empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
+
+    require_once './libraries/header.inc.php';
     if (strlen($table)) {
         require './libraries/tbl_common.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
         require './libraries/tbl_info.inc.php';
+        require_once './libraries/tbl_links.inc.php';
     } elseif (strlen($db)) {
         require './libraries/db_common.inc.php';
         require './libraries/db_info.inc.php';
     }
+
     // Builds the query
     $full_query     = '';
     if ($what == 'drop_tbl') {
@@ -214,35 +218,33 @@ if (!empty($submit_mult) && !empty($what)) {
         unset($full_query_views);
     }
 
-    // Displays the form
-    ?>
-<!-- Do it really ? -->
-<form action="<?php echo $action; ?>" method="post">
-<input type="hidden" name="query_type" value="<?php echo $what; ?>" />
-    <?php
+    // Displays the confirmation form
+    $_url_params = array(
+        'query_type' => $what,
+        'reload' => (isset($reload) ? PMA_sanitize($reload) : 0),
+    );
     if (strpos(' ' . $action, 'db_') == 1) {
-        echo PMA_generate_common_hidden_inputs($db);
-    } elseif (strpos(' ' . $action, 'tbl_') == 1
-              || $what == 'row_delete') {
-        echo PMA_generate_common_hidden_inputs($db, $table);
-    } else  {
-        echo PMA_generate_common_hidden_inputs();
+        $_url_params['db']= $db;
+    } elseif (strpos(' ' . $action, 'tbl_') == 1 || $what == 'row_delete') {
+        $_url_params['db']= $db;
+        $_url_params['table']= $table;
     }
-?>
-<input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload) : 0; ?>" />
-<?php
     foreach ($selected as $idx => $sval) {
-        echo '<input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
+        $_url_params['selected'][] = $sval;
     }
     if ($what == 'drop_tbl' && !empty($views)) {
         foreach ($views as $current) {
-           echo '<input type="hidden" name="views[]" value="' . htmlspecialchars($current) . '" />' . "\n";
+            $_url_params['views'][] = $current;
        }
     }
     if ($what == 'row_delete') {
-        echo '<input type="hidden" name="original_sql_query" value="' . htmlspecialchars($original_sql_query) . '" />' . "\n";
-        echo '<input type="hidden" name="original_url_query" value="' . htmlspecialchars($original_url_query) . '" />' . "\n";
+        $_url_params['original_sql_query'] = $original_sql_query;
+        $_url_params['original_url_query'] = $original_url_query;
     }
+    ?>
+<form action="<?php echo $action; ?>" method="post">
+    <?php
+    echo PMA_generate_common_hidden_inputs($_url_params);
     ?>
 <fieldset class="confirmation">
     <legend><?php echo ($what == 'drop_db' ? $strDropDatabaseStrongWarning . '&nbsp;' : '') . $strDoYouReally; ?>:</legend>
@@ -258,7 +260,7 @@ if (!empty($submit_mult) && !empty($what)) {
 
 
 /**
- * Executes the query
+ * Executes the query - dropping rows, columns/fields, tables or dbs
  */
 elseif ($mult_btn == $strYes) {
 
