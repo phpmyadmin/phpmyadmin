@@ -10,6 +10,7 @@
  * Generates text with hidden inputs.
  *
  * @see     PMA_generate_common_url()
+ * @uses    PMA_getHiddenFields
  * @param   string   optional database name
  * @param   string   optional table name
  * @param   int      indenting level
@@ -76,14 +77,56 @@ function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $
         }
     }
 
-    $spaces = str_repeat('    ', $indent);
+    return PMA_getHiddenFields($params);
+}
 
-    $return = '';
-    foreach ($params as $key => $val) {
-        $return .= $spaces . '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($val) . '" />' . "\n";
+/**
+ * create hidden form fields from array with name => value
+ *
+ * <code>
+ * $values = array(
+ *     'aaa' => aaa,
+ *     'bbb' => array(
+ *          'bbb_0',
+ *          'bbb_1',
+ *     ),
+ *     'ccc' => array(
+ *          'a' => 'ccc_a',
+ *          'b' => 'ccc_b',
+ *     ),
+ * );
+ * echo PMA_getHiddenFields($values);
+ *
+ * // produces:
+ * <input type="hidden" name="aaa" Value="aaa" />
+ * <input type="hidden" name="bbb[0]" Value="bbb_0" />
+ * <input type="hidden" name="bbb[1]" Value="bbb_1" />
+ * <input type="hidden" name="ccc[a]" Value="ccc_a" />
+ * <input type="hidden" name="ccc[b]" Value="ccc_b" />
+ * </code>
+ *
+ * @param array $values
+ * @param string $pre
+ * @return string form fields of type hidden
+ */
+function PMA_getHiddenFields($values, $pre = '')
+{
+    $fields = '';
+
+    foreach ($values as $name => $value) {
+        if (! empty($pre)) {
+            $name = $pre. '[' . $name . ']';
+        }
+
+        if (is_array($value)) {
+            $fields .= PMA_getHiddenFields($value, $name);
+        } else {
+            $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
+                . '" value="' . htmlspecialchars($value) . '" />' . "\n";
+        }
     }
 
-    return $return;
+    return $fields;
 }
 
 /**
