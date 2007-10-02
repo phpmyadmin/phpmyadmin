@@ -41,8 +41,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 // the default CURRENT TIMESTAMP checkbox and label
 // and, field_x_7a represents the checkbox itself
 
-if (PMA_MYSQL_INT_VERSION >= 40102) {
-    ?>
+?>
 <script type="text/javascript">
 // <![CDATA[
 function display_field_options(field_type, i) {
@@ -56,7 +55,6 @@ function display_field_options(field_type, i) {
 }
 // ]]>
 </script>
-<?php } ?>
 
 <form method="post" action="<?php echo $action; ?>">
 <?php
@@ -126,9 +124,7 @@ $content_cells = array();
 $header_cells[] = $strField;
 $header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('SQL-Syntax', 'data-types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types') . '</span>');
 $header_cells[] = $strLengthSet . '<sup>1</sup>';
-if (PMA_MYSQL_INT_VERSION >= 40100) {
-    $header_cells[] = $strCollation;
-}
+$header_cells[] = $strCollation;
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
 $header_cells[] = $strDefault . '<sup>2</sup>';
@@ -156,18 +152,16 @@ $comments_map = array();
 $mime_map = array();
 $available_mime = array();
 
-if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-    $comments_map = PMA_getComments($db, $table);
-    $header_cells[] = $strComments;
+$comments_map = PMA_getComments($db, $table);
+$header_cells[] = $strComments;
 
-    if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-        $mime_map = PMA_getMIME($db, $table);
-        $available_mime = PMA_getAvailableMIMEtypes();
+if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+    $mime_map = PMA_getMIME($db, $table);
+    $available_mime = PMA_getAvailableMIMEtypes();
 
-        $header_cells[] = $strMIME_MIMEtype;
-        $header_cells[] = $strMIME_transformation;
-        $header_cells[] = $strMIME_transformation_options . '<sup>3</sup>';
-    }
+    $header_cells[] = $strMIME_MIMEtype;
+    $header_cells[] = $strMIME_transformation;
+    $header_cells[] = $strMIME_transformation_options . '<sup>3</sup>';
 }
 
 // garvin: workaround for field_fulltext, because its submitted indizes contain
@@ -187,9 +181,7 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
 
         $row['Field']     = (isset($field_name) && isset($field_name[$i]) ? $field_name[$i] : FALSE);
         $row['Type']      = (isset($field_type) && isset($field_type[$i]) ? $field_type[$i] : FALSE);
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $row['Collation']      = (isset($field_collation) && isset($field_collation[$i]) ? $field_collation[$i] : '');
-        }
+        $row['Collation']      = (isset($field_collation) && isset($field_collation[$i]) ? $field_collation[$i] : '');
         $row['Null']      = (isset($field_null) && isset($field_null[$i]) ? $field_null[$i] : '');
         if (isset($field_type[$i]) && $row['Null'] == '') {
             $submit_null = TRUE;
@@ -250,9 +242,7 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" title="' . $strField . '" />';
     $ci++;
     $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '" ';
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
-        $content_cells[$i][$ci] .= 'onchange="display_field_options(this.options[this.selectedIndex].value,' . $i .')" ';
-    }
+    $content_cells[$i][$ci] .= 'onchange="display_field_options(this.options[this.selectedIndex].value,' . $i .')" ';
     $content_cells[$i][$ci] .= '>' . "\n";
 
     if (empty($row['Type'])) {
@@ -283,11 +273,9 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
     // differs from the ones of the corresponding database.
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $tmp = strpos($type, 'character set');
-        if ($tmp) {
-            $type = substr($type, 0, $tmp-1);
-        }
+    $tmp = strpos($type, 'character set');
+    if ($tmp) {
+        $type = substr($type, 0, $tmp - 1);
     }
 
     if (isset($submit_length) && $submit_length != FALSE) {
@@ -323,11 +311,7 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
         $length_to_display = htmlspecialchars($length);
     } else {
         $length_to_display = $length;
-        if (!preg_match('@BINARY[\(]@i', $row['Type']) && PMA_MYSQL_INT_VERSION < 40100) {
-            $binary           = stristr($row['Type'], 'binary');
-        } else {
-            $binary           = FALSE;
-        }
+        $binary           = FALSE;
         $unsigned         = stristr($row['Type'], 'unsigned');
         $zerofill         = stristr($row['Type'], 'zerofill');
     }
@@ -335,12 +319,10 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length_to_display) . '" class="textfield" />' . "\n";
     $ci++;
 
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
-        $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'field_collation[]', 'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, FALSE);
-        unset($tmp_collation);
-        $ci++;
-    }
+    $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
+    $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'field_collation[]', 'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, FALSE);
+    unset($tmp_collation);
+    $ci++;
 
     $content_cells[$i][$ci] = '<select style="font-size: 70%;" name="field_attribute[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
 
@@ -384,14 +366,14 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     }
 
     // Dynamically add ON UPDATE CURRENT_TIMESTAMP to the possible attributes
-    if (PMA_MYSQL_INT_VERSION >= 40102 && !in_array('ON UPDATE CURRENT_TIMESTAMP', $cfg['AttributeTypes'])) {
+    if (! in_array('ON UPDATE CURRENT_TIMESTAMP', $cfg['AttributeTypes'])) {
         $cfg['AttributeTypes'][] = 'ON UPDATE CURRENT_TIMESTAMP';
     }
 
 
     $cnt_attribute_types = count($cfg['AttributeTypes']);
     for ($j = 0;$j < $cnt_attribute_types; $j++) {
-        if (PMA_MYSQL_INT_VERSION >= 40100 && $cfg['AttributeTypes'][$j] == 'BINARY') {
+        if ($cfg['AttributeTypes'][$j] == 'BINARY') {
             continue;
         }
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
@@ -431,28 +413,24 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     }
 
     // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
-    if (PMA_MYSQL_INT_VERSION >= 40102
-        && $type_upper == 'TIMESTAMP'
-        && $default_current_timestamp
-        && isset($row)
-        && isset($row['Default'])) {
+    if ($type_upper == 'TIMESTAMP'
+     && $default_current_timestamp
+     && isset($row['Default'])) {
         $row['Default'] = '';
     }
 
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
-        if ($type_upper == 'TIMESTAMP') {
-            $tmp_display_type = 'block';
-        } else {
-            $tmp_display_type = 'none';
-            $default_current_timestamp = FALSE;
-        }
-        $content_cells[$i][$ci] .= '<br /><div id="div_' . $i . '_' . ($ci - $ci_offset) . '" style="white-space: nowrap; display: ' . $tmp_display_type . '"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
-        if ($default_current_timestamp) {
-            $content_cells[$i][$ci] .= ' checked="checked" ';
-        }
-        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: 70%;">CURRENT_TIMESTAMP</label></div>';
+    if ($type_upper == 'TIMESTAMP') {
+        $tmp_display_type = 'block';
+    } else {
+        $tmp_display_type = 'none';
+        $default_current_timestamp = FALSE;
     }
+    $content_cells[$i][$ci] .= '<br /><div id="div_' . $i . '_' . ($ci - $ci_offset) . '" style="white-space: nowrap; display: ' . $tmp_display_type . '"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
+    if ($default_current_timestamp) {
+        $content_cells[$i][$ci] .= ' checked="checked" ';
+    }
+    $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: 70%;">CURRENT_TIMESTAMP</label></div>';
     $ci++;
 
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
@@ -519,10 +497,8 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     } // end if ($action ==...)
 
     // garvin: comments
-    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[]" size="12" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
-        $ci++;
-    }
+    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[]" size="12" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
+    $ci++;
 
     // garvin: MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
@@ -656,12 +632,8 @@ if ($action == 'tbl_create.php') {
         <td width="25">&nbsp;</td>
     <th><?php echo $strStorageEngine; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
-    <?php
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '        <td width="25">&nbsp;</td>' . "\n"
-           . '        <th>' . $strCollation . ':&nbsp;</th>' . "\n";
-    }
-    ?>
+    <td width="25">&nbsp;</td>
+    <th><?php echo $strCollation ;?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
                 value="<?php echo (isset($comment) ? $comment : ''); ?>"
@@ -669,16 +641,18 @@ if ($action == 'tbl_create.php') {
         </td>
         <td width="25">&nbsp;</td>
         <td>
-<?php echo PMA_StorageEngine::getHtmlSelect('tbl_type', null, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null)); ?>
-        </td>
-        <?php
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            echo '        <td width="25">&nbsp;</td>' . "\n"
-               . '        <td>' . "\n"
-               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', null, (isset($tbl_collation) ? $tbl_collation : null), FALSE, 3)
-               . '        </td>' . "\n";
-        }
+    <?php
+    echo PMA_StorageEngine::getHtmlSelect('tbl_type', null,
+        (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null));
     ?>
+        </td>
+        <td width="25">&nbsp;</td>
+        <td>
+    <?php
+    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation',
+        null, (isset($tbl_collation) ? $tbl_collation : null), FALSE, 3);
+    ?>
+        </td>
     </tr>
     </table>
     <br />

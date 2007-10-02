@@ -204,8 +204,7 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data,
                . '            </th>' . "\n";
         }
 
-        if ((PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
-            || (PMA_MYSQL_INT_VERSION >= 40002 && $indexes_info[$index_name]['Index_type'] == 'FULLTEXT')) {
+        if ($indexes_info[$index_name]['Index_type'] == 'FULLTEXT') {
             $index_type = 'FULLTEXT';
         } elseif ($index_name == 'PRIMARY') {
             $index_type = 'PRIMARY';

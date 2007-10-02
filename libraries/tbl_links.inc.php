@@ -86,13 +86,10 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = $strOperations;
 
-    $ln8_stt = (PMA_MYSQL_INT_VERSION >= 40000)
-             ? 'TRUNCATE TABLE '
-             : 'DELETE FROM ';
     $tabs['empty']['link']  = 'sql.php';
-    $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
+    $tabs['empty']['args']['sql_query'] = 'TRUNCATE TABLE ' . PMA_backquote($table);
     $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
-    $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
+    $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'TRUNCATE TABLE ' . PMA_jsFormat($table) . '\')"';
     $tabs['empty']['args']['goto'] = 'tbl_structure.php';
     $tabs['empty']['class'] = 'caution';
     $tabs['empty']['icon'] = 'b_empty.png';
