@@ -342,11 +342,7 @@ elseif ($mult_btn == $strYes) {
                 break;
 
             case 'empty_tbl':
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $a_query = 'TRUNCATE ';
-                } else {
-                    $a_query = 'DELETE FROM ';
-                }
+                $a_query = 'TRUNCATE ';
                 $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])));
                 $run_parts = TRUE;
                 break;
