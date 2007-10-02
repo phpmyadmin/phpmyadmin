@@ -226,10 +226,7 @@ class PMA_Table {
         if (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']) {
             return true;
         }
-        // old MySQL version: no view
-        if (PMA_MYSQL_INT_VERSION < 50000) {
-            return false;
-        }
+
         // This would be the correct way of doing the check but at least in
         // MySQL 5.0.33 it's too slow when there are hundreds of databases
         // and/or tables (more than 3 minutes for 400 tables)
@@ -296,8 +293,7 @@ class PMA_Table {
             $query .= ' ' . $attribute;
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation)
-          && $collation != 'NULL'
+        if (!empty($collation) && $collation != 'NULL'
           && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
@@ -346,7 +342,7 @@ class PMA_Table {
                 } // end if
             } // end if (auto_increment)
         }
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($comment)) {
+        if (!empty($comment)) {
             $query .= " COMMENT '" . PMA_sqlAddslashes($comment) . "'";
         }
         return $query;
@@ -800,7 +796,7 @@ class PMA_Table {
                 PMA_query_as_cu($table_query);
                 unset($table_query);
             }
-            
+
             $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_query . ';';
         // end if ($move)
         } else {
@@ -843,7 +839,7 @@ class PMA_Table {
                 $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
                 $new_fields = array('db_name' => $target_db, 'table_name' => $target_table);
                 PMA_Table::duplicateInfo('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
-                
+
 
                 /**
                  * @todo revise this code when we support cross-db relations

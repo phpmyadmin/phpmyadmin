@@ -262,17 +262,13 @@ if (strstr($show_comment, '; InnoDB free') === false) {
         </td>
     </tr>
 
-<?php
-if (PMA_MYSQL_INT_VERSION >= 40100) {
-    ?>
     <!-- Table character set -->
     <tr><td><?php echo $strCollation; ?></td>
         <td><?php echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION,
                 'tbl_collation', null, $tbl_collation, false, 3); ?>
         </td>
     </tr>
-    <?php
-}
+<?php
 if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
     ?>
     <tr>

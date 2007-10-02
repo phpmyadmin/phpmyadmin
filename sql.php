@@ -283,25 +283,6 @@ if (strlen($db)) {
     PMA_DBI_select_db($db);
 }
 
-// If the query is a DELETE query with no WHERE clause, get the number of
-// rows that will be deleted (mysql_affected_rows will always return 0 in
-// this case)
-// Note: testing shows that this no longer applies since MySQL 4.0.x
-
-if (PMA_MYSQL_INT_VERSION < 40000) {
-    if ($is_delete
-        && preg_match('@^DELETE([[:space:]].+)?(FROM[[:space:]](.+))$@i', $sql_query, $parts)
-        && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
-        $cnt_all_result = @PMA_DBI_try_query('SELECT COUNT(*) as count ' .  $parts[2]);
-        if ($cnt_all_result) {
-            list($num_rows) = PMA_DBI_fetch_row($cnt_all_result);
-            PMA_DBI_free_result($cnt_all_result);
-        } else {
-            $num_rows   = 0;
-        }
-    }
-}
-
 //  E x e c u t e    t h e    q u e r y
 
 // Only if we didn't ask to see the php code (mikebeck)
@@ -312,7 +293,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     if (isset($_SESSION['profiling'])) {
         PMA_DBI_query('SET PROFILING=1;');
     }
-        
+
     // garvin: Measure query time.
     // TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
     $querytime_before = array_sum(explode(' ', microtime()));
@@ -347,7 +328,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     if (isset($_SESSION['profiling'])) {
         $profiling_results = PMA_DBI_fetch_result('SHOW PROFILE;');
     }
-        
+
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
     $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
@@ -399,122 +380,53 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
         } else { // n o t   " j u s t   b r o w s i n g "
 
-            if (PMA_MYSQL_INT_VERSION < 40000) {
+            // add select expression after the SQL_CALC_FOUND_ROWS
 
-                // detect this case:
-                // SELECT DISTINCT x AS foo, y AS bar FROM sometable
+            // for UNION, just adding SQL_CALC_FOUND_ROWS
+            // after the first SELECT works.
 
-                if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
-                    $count_what = 'DISTINCT ';
-                    $first_expr = true;
-                    foreach ($analyzed_sql[0]['select_expr'] as $part) {
-                        $count_what .= (!$first_expr ? ', ' : '') . $part['expr'];
-                        $first_expr = false;
-                    }
-                } else {
-                    $count_what = '*';
-                }
-                // this one does not apply to VIEWs
-                $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
-            }
-
-            // add the remaining of select expression if there is
-            // a GROUP BY or HAVING clause
-            if (PMA_MYSQL_INT_VERSION < 40000
-             && $count_what =='*'
-             && (!empty($analyzed_sql[0]['group_by_clause'])
-                || !empty($analyzed_sql[0]['having_clause']))) {
-                $count_query .= ' ,' . $analyzed_sql[0]['select_expr_clause'];
-            }
-
-            if (PMA_MYSQL_INT_VERSION >= 40000) {
-                // add select expression after the SQL_CALC_FOUND_ROWS
-
-                // for UNION, just adding SQL_CALC_FOUND_ROWS
-                // after the first SELECT works.
-
-                // take the left part, could be:
-                // SELECT
-                // (SELECT
-                $count_query = PMA_SQP_formatHtml($parsed_sql, 'query_only', 0, $analyzed_sql[0]['position_of_first_select'] + 1);
-                $count_query .= ' SQL_CALC_FOUND_ROWS ';
-                // add everything that was after the first SELECT
-                $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
-                // ensure there is no semicolon at the end of the
-                // count query because we'll probably add
-                // a LIMIT 1 clause after it
-                $count_query = rtrim($count_query);
-                $count_query = rtrim($count_query, ';');
-            } else { // PMA_MYSQL_INT_VERSION < 40000
-
-                if (!empty($analyzed_sql[0]['from_clause'])) {
-                    $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-                }
-                if (!empty($analyzed_sql[0]['where_clause'])) {
-                    $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
-                }
-                if (!empty($analyzed_sql[0]['group_by_clause'])) {
-                    $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
-                }
-                if (!empty($analyzed_sql[0]['having_clause'])) {
-                    $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
-                }
-            } // end if
+            // take the left part, could be:
+            // SELECT
+            // (SELECT
+            $count_query = PMA_SQP_formatHtml($parsed_sql, 'query_only', 0, $analyzed_sql[0]['position_of_first_select'] + 1);
+            $count_query .= ' SQL_CALC_FOUND_ROWS ';
+            // add everything that was after the first SELECT
+            $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
+            // ensure there is no semicolon at the end of the
+            // count query because we'll probably add
+            // a LIMIT 1 clause after it
+            $count_query = rtrim($count_query);
+            $count_query = rtrim($count_query, ';');
 
             // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
             // long delays. Returned count will be complete anyway.
             // (but a LIMIT would disrupt results in an UNION)
 
-            if (PMA_MYSQL_INT_VERSION >= 40000
-             && !isset($analyzed_sql[0]['queryflags']['union'])) {
+            if (!isset($analyzed_sql[0]['queryflags']['union'])) {
                 $count_query .= ' LIMIT 1';
             }
 
             // run the count query
 
-            if (PMA_MYSQL_INT_VERSION < 40000) {
-                if ($cnt_all_result = PMA_DBI_try_query($count_query)) {
-                    if ($is_group && $count_what == '*') {
-                        $unlim_num_rows = @PMA_DBI_num_rows($cnt_all_result);
-                    } else {
-                        $unlim_num_rows = PMA_DBI_fetch_assoc($cnt_all_result);
-                        $unlim_num_rows = $unlim_num_rows['count'];
-                    }
-                    PMA_DBI_free_result($cnt_all_result);
-                } else {
-                    if (PMA_DBI_getError()) {
-
-                        // there are some cases where the generated
-                        // count_query (for MySQL 3) is wrong,
-                        // so we get here.
-                        /**
-                         * @todo use a big unlimited query to get the correct
-                         * number of rows (depending on a config variable?)
-                         */
-                        $unlim_num_rows = 0;
-                    }
-                }
-            } else {
-                PMA_DBI_try_query($count_query);
-                // if (mysql_error()) {
-                // void.
-                // I tried the case
-                // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
-                // UNION (SELECT `User`, `Host`, "%" AS "Db",
-                // `Select_priv`
-                // FROM `user`) ORDER BY `User`, `Host`, `Db`;
-                // and although the generated count_query is wrong
-                // the SELECT FOUND_ROWS() work! (maybe it gets the
-                // count from the latest query that worked)
-                //
-                // another case where the count_query is wrong:
-                // SELECT COUNT(*), f1 from t1 group by f1
-                // and you click to sort on count(*)
-                // }
-                $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
-                list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
-                @PMA_DBI_free_result($cnt_all_result);
-            }
+            PMA_DBI_try_query($count_query);
+            // if (mysql_error()) {
+            // void.
+            // I tried the case
+            // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
+            // UNION (SELECT `User`, `Host`, "%" AS "Db",
+            // `Select_priv`
+            // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+            // and although the generated count_query is wrong
+            // the SELECT FOUND_ROWS() work! (maybe it gets the
+            // count from the latest query that worked)
+            //
+            // another case where the count_query is wrong:
+            // SELECT COUNT(*), f1 from t1 group by f1
+            // and you click to sort on count(*)
+            // }
+            $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
+            list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
+            @PMA_DBI_free_result($cnt_all_result);
         } // end else "just browsing"
 
     } else { // not $is_select
@@ -678,7 +590,7 @@ else {
     }
 
     // hide edit and delete links for information_schema
-    if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema') {
+    if ($db == 'information_schema') {
         $disp_mode = 'nnnn110111';
     }
 
