@@ -127,12 +127,8 @@ if ($server > 0) {
         './server_variables.php?' . $common_url_query, 'show-variables');
     PMA_printListItem($strProcesses, 'li_mysql_processes',
         './server_processlist.php?' . $common_url_query, 'show-processlist');
-
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        PMA_printListItem($strCharsetsAndCollations, 'li_mysql_collations',
-            './server_collations.php?' . $common_url_query);
-    }
-
+    PMA_printListItem($strCharsetsAndCollations, 'li_mysql_collations',
+        './server_collations.php?' . $common_url_query);
     PMA_printListItem($strStorageEngines, 'li_mysql_engines',
         './server_engines.php?' . $common_url_query);
 
@@ -221,35 +217,6 @@ if (empty($cfg['Lang'])) {
     echo '</li>';
 }
 
-
-if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
-  && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
-    echo '<li id="li_select_charset">';
-    ?>
-    <form method="post" action="index.php" target="_parent">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <?php echo $strMySQLCharset;?>:
-    <select name="convcharset"  xml:lang="en" dir="ltr"
-        onchange="this.form.submit();">
-    <?php
-    foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
-        if ($convcharset == $tmpcharset) {
-            $selected = ' selected="selected"';
-        } else {
-            $selected = '';
-        }
-        echo '        '
-           . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
-    }
-    ?>
-    </select>
-    <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
-    </form>
-    </li>
-    <?php
-}
-
 // added by Michael Keck <mail_at_michaelkeck_dot_de>
 // ThemeManager if available
 
@@ -329,14 +296,6 @@ if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
  */
 if (PMA_PHP_INT_VERSION < 50200) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '5.2.0') . '</div>' . "\n";
-}
-
-/**
- * Warning for old MySQL version
- */
-// not yet defined before the server choice
-if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 50000) {
-    echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '5.0') . '</div>' . "\n";
 }
 
 /**

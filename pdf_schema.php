@@ -1125,9 +1125,7 @@ function PMA_RT_DOC($alltables)
         $pdf->ln();
 
         $cfgRelation = PMA_getRelationsParam();
-        if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
-            $comments = PMA_getComments($db, $table);
-        }
+        $comments = PMA_getComments($db, $table);
         if ($cfgRelation['mimework']) {
             $mime_map = PMA_getMIME($db, $table, true);
         }

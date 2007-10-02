@@ -49,7 +49,7 @@ if (isset($nopass)) {
         $common_url_query = PMA_generate_common_url();
 
         $err_url          = 'user_password.php?' . $common_url_query;
-    $hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+        $hashing_function = (!empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
                       . 'PASSWORD';
 
         $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');

@@ -27,7 +27,7 @@ if ($type_T1 == 'INNODB' && $type_T2 == 'INNODB') {
     // InnoDB
     $existrel_innodb = PMA_getForeigners($DB2, $T2, '', 'innodb');
 
-    if (PMA_MYSQL_INT_VERSION >= 40013 && isset($existrel_innodb[$F2]['constraint'])) {
+    if (isset($existrel_innodb[$F2]['constraint'])) {
         $upd_query  = 'ALTER TABLE ' . PMA_backquote($T2)
                   . ' DROP FOREIGN KEY '
                   . PMA_backquote($existrel_innodb[$F2]['constraint']);
