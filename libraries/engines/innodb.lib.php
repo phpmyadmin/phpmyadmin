@@ -129,7 +129,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * @uses    $this->support
      * @uses    PMA_ENGINE_SUPPORT_YES
-     * @uses    PMA_MYSQL_INT_VERSION
      * @uses    $GLOBALS['strBufferPool']
      * @uses    $GLOBALS['strInnodbStat']
      * @return  array   detail pages
@@ -140,9 +139,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
             return array();
         }
         $pages = array();
-        if (PMA_MYSQL_INT_VERSION >= 50002) {
-            $pages['Bufferpool'] = $GLOBALS['strBufferPool'];
-        }
+        $pages['Bufferpool'] = $GLOBALS['strBufferPool'];
         $pages['Status'] = $GLOBALS['strInnodbStat'];
         return $pages;
     }
@@ -150,7 +147,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     /**
      * returns html tables with stats over inno db buffer pool
      *
-     * @uses    PMA_MYSQL_INT_VERSION
      * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_formatNumber()
      * @uses    PMA_formatByteDown()
@@ -177,9 +173,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getPageBufferpool()
     {
-        if (PMA_MYSQL_INT_VERSION < 50002) {
-            return false;
-        }
         // rabus: The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)
