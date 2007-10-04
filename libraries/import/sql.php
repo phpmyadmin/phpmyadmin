@@ -73,43 +73,51 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         //while (($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
         //if ($i == $len) break;
         $oi = $i;
-        $p1 = strpos($buffer, '\'', $i);
-        if ($p1 === FALSE) {
-            $p1 = 2147483647;
+        $big_value = 2147483647;
+        $first_quote = strpos($buffer, '\'', $i);
+        if ($first_quote === FALSE) {
+            $first_quote = $big_value;
+        } else {
+            $next_quote = strpos($buffer, '\'', $first_quote + 1);
         }
         $p2 = strpos($buffer, '"', $i);
         if ($p2 === FALSE) {
-            $p2 = 2147483647;
+            $p2 = $big_value;
         }
-        $p3 = strpos($buffer, $sql_delimiter, $i);
-        if ($p3 === FALSE) {
-            $p3 = 2147483647;
-        } else {
+        /**
+         * @todo it's a shortcoming to look for a delimiter that might be
+         *       inside quotes (or even double-quotes)
+         *       for the moment, catch the case of delimiter between quotes
+         */
+        $first_sql_delimiter = strpos($buffer, $sql_delimiter, $i);
+        if ($first_sql_delimiter === FALSE) {
+            $first_sql_delimiter = $big_value;
+        } elseif ($first_sql_delimiter < $first_quote && $first_sql_delimiter > $next_quote) {
             $found_delimiter = true;
         }
         $p4 = strpos($buffer, '#', $i);
         if ($p4 === FALSE) {
-            $p4 = 2147483647;
+            $p4 = $big_value;
         }
         $p5 = strpos($buffer, '--', $i);
         if ($p5 === FALSE || $p5 >= ($len - 2) || $buffer[$p5 + 2] > ' ') {
-            $p5 = 2147483647;
+            $p5 = $big_value;
         }
         $p6 = strpos($buffer, '/*', $i);
         if ($p6 === FALSE) {
-            $p6 = 2147483647;
+            $p6 = $big_value;
         }
         $p7 = strpos($buffer, '`', $i);
         if ($p7 === FALSE) {
-            $p7 = 2147483647;
+            $p7 = $big_value;
         }
         $p8 = strpos($buffer, 'DELIMITER', $i);
         if ($p8 === FALSE || $p8 >= ($len - 11) || $buffer[$p8 + 9] > ' ') {
-            $p8 = 2147483647;
+            $p8 = $big_value;
         }
-        $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7, $p8);
-        unset($p1, $p2, $p3, $p4, $p5, $p6, $p7, $p8);
-        if ($i == 2147483647) {
+        $i = min ($first_quote, $p2, $first_sql_delimiter, $p4, $p5, $p6, $p7, $p8);
+        unset($first_quote, $p2, $first_sql_delimiter, $p4, $p5, $p6, $p7, $p8);
+        if ($i == $big_value) {
             $i = $oi;
             if (!$finished) {
                 break;
