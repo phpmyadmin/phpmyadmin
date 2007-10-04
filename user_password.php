@@ -88,7 +88,7 @@ if (isset($nopass)) {
  * aren't valid -> displays the form
  */
 // Loads the headers
-$GLOBALS['js_include'][] = 'user_password.js';
+$GLOBALS['js_include'][] = 'server_privileges.js';
 require_once './libraries/header.inc.php';
 echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
 

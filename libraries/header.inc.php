@@ -83,8 +83,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         <?php
     }
 
-    if (in_array('user_password.js', $GLOBALS['js_include'])
-     || in_array('server_privileges.js', $GLOBALS['js_include'])) {
+    if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
         ?>
     // js form validation stuff
     var jsHostEmpty       = '<?php echo PMA_escapeJsString($GLOBALS['strHostEmpty']); ?>';
