@@ -115,7 +115,7 @@ if (! empty($submit_mult)
  * Displays the confirmation form if required
  */
 if (!empty($submit_mult) && !empty($what)) {
-    $js_to_run = 'functions.js';
+    $GLOBALS['js_include'][] = 'functions.js';
     unset($message);
 
     require_once './libraries/header.inc.php';

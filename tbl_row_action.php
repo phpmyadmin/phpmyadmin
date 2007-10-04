@@ -70,13 +70,8 @@ switch($submit_mult) {
         break;
 }
 
-if ($submit_mult == 'row_edit') {
-    $js_to_run = 'tbl_change.js';
-}
-
-if ($submit_mult == 'row_delete' || $submit_mult == 'row_export') {
-    $js_to_run = 'functions.js';
-}
+$GLOBALS['js_include'][] = 'tbl_change.js';
+$GLOBALS['js_include'][] = 'functions.js';
 
 require_once './libraries/header.inc.php';
 

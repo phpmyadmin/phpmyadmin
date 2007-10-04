@@ -11,7 +11,7 @@
 require_once './libraries/common.inc.php';
 
 
-$js_to_run = 'functions.js';
+$GLOBALS['js_include'][] = 'functions.js';
 require './libraries/server_common.inc.php';
 
 /**

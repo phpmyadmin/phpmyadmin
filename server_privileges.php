@@ -13,7 +13,8 @@ require_once './libraries/common.inc.php';
 /**
  * Does the common work
  */
-$js_to_run = 'server_privileges.js';
+$GLOBALS['js_include'][] = 'server_privileges.js';
+$GLOBALS['js_include'][] = 'functions.js';
 require './libraries/server_common.inc.php';
 
 

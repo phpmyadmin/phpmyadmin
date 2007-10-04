@@ -441,6 +441,11 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
 
+/**
+ * holds name of JavaScript files to be included in HTML header
+ * @global array $js_include
+ */
+$GLOBALS['js_include'] = array();
 
 /******************************************************************************/
 /* parsing configuration file                         LABEL_parsing_config_file      */

@@ -111,7 +111,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * used in ./libraries/header.inc.php to load JavaScript library file
  */
-$js_to_run = 'tbl_change.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 /**
  * HTTP and HTML headers
@@ -610,7 +610,7 @@ foreach ($rows as $row_id => $vrow) {
         // The value column (depends on type)
         // ----------------
 
-        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', ''); 
+        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
         echo '        <td>' . "\n";
         if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";

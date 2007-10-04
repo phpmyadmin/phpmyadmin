@@ -37,7 +37,7 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
 /**
  * Displays headers
  */
-$js_to_run = 'functions.js';
+$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/header.inc.php';
 
 /**

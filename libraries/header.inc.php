@@ -59,79 +59,54 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Updates the title of the frameset if possible (ns4 does not allow this)
     if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
         && typeof(parent.document.title) == 'string') {
-        parent.document.title = '<?php echo PMA_sanitize(str_replace('\'', '\\\'', $title)); ?>';
+        parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString($title)); ?>';
     }
+
     <?php
     // Add some javascript instructions if required
-    if (isset($js_to_run) && $js_to_run == 'functions.js') {
-        echo "\n";
+    if (in_array('functions.js', $GLOBALS['js_include'])) {
+        PMA_jsFormat()
         ?>
     // js form validation stuff
-    var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strFormEmpty']); ?>';
-    var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']); ?>';
+    var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
+    var errorMsg1   = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
     var noDropDbMsg = '<?php echo (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase'])
-        ? str_replace('\'', '\\\'', $GLOBALS['strNoDropDatabases']) : ''; ?>';
-    var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDoYouReally']) : ''); ?>';
-    var confirmMsgDropDB  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDropDatabaseStrongWarning']) : ''); ?>';
-    // ]]>
-    </script>
-    <script src="./js/functions.js" type="text/javascript"></script>
+        ? PMA_escapeJsString($GLOBALS['strNoDropDatabases']) : ''; ?>';
+    var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? PMA_escapeJsString($GLOBALS['strDoYouReally']) : ''); ?>';
+    var confirmMsgDropDB  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? PMA_escapeJsString($GLOBALS['strDropDatabaseStrongWarning']) : ''); ?>';
         <?php
-    } elseif (isset($js_to_run) && $js_to_run == 'user_password.js') {
-        echo "\n";
-        ?>
-    // js form validation stuff
-    var jsHostEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strHostEmpty']); ?>';
-    var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
-    var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
-    var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
-    // ]]>
-    </script>
-    <script src="./js/user_password.js" type="text/javascript"></script>
-        <?php
-    } elseif (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
-        echo "\n";
-        ?>
-    // js form validation stuff
-    var jsHostEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strHostEmpty']); ?>';
-    var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
-    var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
-    var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
-    // ]]>
-    </script>
-    <script src="./js/server_privileges.js" type="text/javascript"></script>
-    <script src="./js/functions.js" type="text/javascript"></script>
-        <?php
-    } elseif (isset($js_to_run) && $js_to_run == 'indexes.js') {
-        echo "\n";
+    } elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
         ?>
     // js index validation stuff
-    var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strFormEmpty']); ?>';
-    var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']); ?>';
-    // ]]>
-    </script>
-    <script src="./js/indexes.js" type="text/javascript"></script>
-        <?php
-    } elseif (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
-        echo "\n";
-        ?>
-    // ]]>
-    </script>
-    <script src="./js/tbl_change.js" type="text/javascript"></script>
-        <?php
-    } else {
-        echo "\n";
-        ?>
-    // ]]>
-    </script>
+    var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
+    var errorMsg1   = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
         <?php
     }
-    echo "\n";
+
+    if (in_array('user_password.js', $GLOBALS['js_include'])
+     || in_array('server_privileges.js', $GLOBALS['js_include'])) {
+        ?>
+    // js form validation stuff
+    var jsHostEmpty       = '<?php echo PMA_escapeJsString($GLOBALS['strHostEmpty']); ?>';
+    var jsUserEmpty       = '<?php echo PMA_escapeJsString($GLOBALS['strUserEmpty']); ?>';
+    var jsPasswordEmpty   = '<?php echo PMA_escapeJsString($GLOBALS['strPasswordEmpty']); ?>';
+    var jsPasswordNotSame = '<?php echo PMA_escapeJsString($GLOBALS['strPasswordNotSame']); ?>';
+        <?php
+    }
+
+    ?>
+    // ]]>
+    </script>
+
+    <?php
+    $GLOBALS['js_include'][] = 'tooltip.js';
+    foreach ($GLOBALS['js_include'] as $js_script_file) {
+        echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
+    }
 
     // Reloads the navigation frame via JavaScript if required
     PMA_reloadNavigation();
     ?>
-    <script src="./js/tooltip.js" type="text/javascript"></script>
     <meta name="OBGZip" content="<?php echo ($GLOBALS['cfg']['OBGzip'] ? 'true' : 'false'); ?>" />
     <?php /* remove vertical scroll bar bug in ie */ ?>
     <!--[if IE 6]>

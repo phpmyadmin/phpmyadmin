@@ -60,7 +60,7 @@ if (empty($_REQUEST['asfile'])) {
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
     $message = $strExportMustBeFile;
     $GLOBALS['show_error_header'] = true;
-    $js_to_run = 'functions.js';
+    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -315,7 +315,7 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        $js_to_run = 'functions.js';
+        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
@@ -362,7 +362,7 @@ if (!$save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = $strNoTablesFound;
-                $js_to_run = 'functions.js';
+                $GLOBALS['js_include'][] = 'functions.js';
                 require_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
                 require './db_export.php';
@@ -553,7 +553,7 @@ if (!PMA_exportFooter()) {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    $js_to_run = 'functions.js';
+    $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -610,7 +610,7 @@ if (!empty($asfile)) {
             $message = sprintf($strDumpSaved, htmlspecialchars($save_filename));
         }
 
-        $js_to_run = 'functions.js';
+        $GLOBALS['js_include'][] = 'functions.js';
         require_once './libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';

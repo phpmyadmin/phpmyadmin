@@ -66,7 +66,7 @@ $goto_include = false;
 
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
-    $js_to_run = 'tbl_change.js';
+    $GLOBALS['js_include'][] = 'tbl_change.js';
     require_once './libraries/header.inc.php';
     require './tbl_change.php';
     exit;
@@ -280,7 +280,7 @@ if ($is_insert && count($value_sets) > 0) {
 } else {
     // No change -> move back to the calling script
     $message .= $GLOBALS['strNoModification'];
-    $js_to_run = 'functions.js';
+    $GLOBALS['js_include'][] = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
     require './' . PMA_securePath($goto_include);
@@ -307,7 +307,7 @@ foreach ($query as $single_query) {
     } else {
         $result = PMA_DBI_query($single_query);
     }
-    
+
     if (! $result) {
         $message .= PMA_DBI_getError();
     } else {
@@ -329,10 +329,10 @@ foreach ($query as $single_query) {
     } // end if
 
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_message .= $warning['Level'] . ': #' . $warning['Code'] 
+        $warning_message .= $warning['Level'] . ': #' . $warning['Code']
             . ' ' . $warning['Message'] . '[br]';
     }
-    
+
     unset($result);
 }
 unset($single_query, $query);
@@ -355,18 +355,9 @@ if (isset($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 
-// if user asked to "Insert another new row", we need tbl_change.js
-// otherwise the calendar icon does not work
-if ($goto_include == 'tbl_change.php') {
-    /**
-     * @todo if we really need to run many different js at header time,
-     * $js_to_run would become an array and header.inc.php would iterate
-     * thru it, instead of the bunch of if/elseif it does now
-     */
-    $js_to_run = 'tbl_change.js';
-} else {
-    $js_to_run = 'functions.js';
-}
+$GLOBALS['js_include'][] = 'tbl_change.js';
+$GLOBALS['js_include'][] = 'functions.js';
+
 $active_page = $goto_include;
 require_once './libraries/header.inc.php';
 require './' . PMA_securePath($goto_include);

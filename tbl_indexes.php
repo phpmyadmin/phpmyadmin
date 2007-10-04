@@ -51,9 +51,8 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
 
     // Displays headers (if needed)
-    $js_to_run = isset($index) && isset($do_save_data)
-        ? 'functions.js'
-        : 'indexes.js';
+    $GLOBALS['js_include'][] = 'functions.js';
+    $GLOBALS['js_include'][] = 'indexes.js';
     require_once './libraries/header.inc.php';
 } // end if
 

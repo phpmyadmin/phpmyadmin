@@ -9,7 +9,7 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-$js_to_run = 'functions.js';
+$GLOBALS['js_include'][] = 'functions.js';
 require_once './libraries/mysql_charsets.lib.php';
 
 PMA_checkParameters(array('db'));
