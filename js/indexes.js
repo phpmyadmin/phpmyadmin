@@ -30,7 +30,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's not a number
     if (isNaN(val)) {
         theField.select();
-        alert(errorMsg1);
+        alert(PMA_messages['strNotNumber']);
         theField.focus();
         return false;
     }

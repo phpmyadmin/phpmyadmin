@@ -170,11 +170,12 @@ require_once './libraries/header_meta_style.inc.php';
 ?>
 <script type="text/javascript">
 //<![CDATA[
-var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
-var errorMsg1   = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
-var noDropDbMsg = '<?php echo (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase'])
+var PMA_messages = new Array();
+PMA_messages['strFormEmpty'] = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
+PMA_messages['strNotNumber'] = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
+PMA_messages['strNoDropDatabases'] = '<?php echo (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase'])
     ? PMA_escapeJsString($GLOBALS['strNoDropDatabases']) : ''; ?>';
-var confirmMsg  = '<?php echo $GLOBALS['cfg']['Confirm']
+PMA_messages['strDoYouReally'] = '<?php echo $GLOBALS['cfg']['Confirm']
     ? PMA_escapeJsString($GLOBALS['strDoYouReally']) : ''; ?>';
 
 function PMA_queryAutoCommit() {

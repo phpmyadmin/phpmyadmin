@@ -51,11 +51,11 @@ function confirmLinkDropDB(theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
-    if (confirmMsg == '' || typeof(window.opera) != 'undefined') {
+    if (PMA_messages['strDoYouReally'] == '' || typeof(window.opera) != 'undefined') {
         return true;
     }
 
-    var is_confirmed = confirm(confirmMsgDropDB + '\n' + confirmMsg + ' :\n' + theSqlQuery);
+    var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
         theLink.href += '&is_js_confirmed=1';
     }
@@ -76,11 +76,11 @@ function confirmLink(theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
-    if (confirmMsg == '' || typeof(window.opera) != 'undefined') {
+    if (PMA_messages['strDoYouReally'] == '' || typeof(window.opera) != 'undefined') {
         return true;
     }
 
-    var is_confirmed = confirm(confirmMsg + ' :\n' + theSqlQuery);
+    var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
         if ( typeof(theLink.href) != 'undefined' ) {
             theLink.href += '&is_js_confirmed=1';
@@ -130,7 +130,7 @@ function confirmAction(theMessage)
 function confirmQuery(theForm1, sqlQuery1)
 {
     // Confirmation is not required in the configuration file
-    if (confirmMsg == '') {
+    if (PMA_messages['strDoYouReally'] == '') {
         return true;
     }
 
@@ -142,10 +142,10 @@ function confirmQuery(theForm1, sqlQuery1)
     // js1.2+ -> validation with regular expressions
     else {
         // "DROP DATABASE" statement isn't allowed
-        if (noDropDbMsg != '') {
+        if (PMA_messages['strNoDropDatabases'] != '') {
             var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
             if (drop_re.test(sqlQuery1.value)) {
-                alert(noDropDbMsg);
+                alert(PMA_messages['strNoDropDatabases']);
                 theForm1.reset();
                 sqlQuery1.focus();
                 return false;
@@ -168,7 +168,7 @@ function confirmQuery(theForm1, sqlQuery1)
             var message      = (sqlQuery1.value.length > 100)
                              ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                              : sqlQuery1.value;
-            var is_confirmed = confirm(confirmMsg + ' :\n' + message);
+            var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
             // drop/delete/alter statement is confirmed -> update the
             // "is_js_confirmed" form field so the confirm test won't be
             // run on the server side and allows to submit the form
@@ -249,7 +249,7 @@ function checkSqlQuery(theForm)
 
     if (isEmpty) {
         sqlQuery.select();
-        alert(errorMsg0);
+        alert(PMA_messages['strFormEmpty']);
         sqlQuery.focus();
         return false;
     }
@@ -302,7 +302,7 @@ function emptyFormElements(theForm, theFieldName)
     if (isEmpty) {
         theForm.reset();
         theField.select();
-        alert(errorMsg0);
+        alert(PMA_messages['strFormEmpty']);
         theField.focus();
         return false;
     }
@@ -336,7 +336,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's not a number
     if (isNaN(val)) {
         theField.select();
-        alert(errorMsg1);
+        alert(PMA_messages['strNotNumber']);
         theField.focus();
         return false;
     }
@@ -374,7 +374,7 @@ function checkTableEditForm(theForm, fieldsCnt)
             elm3 = getElement("field_" + i + "_1");
             if (isNaN(val) && elm3.value != "") {
                 elm2.select();
-                alert(errorMsg1);
+                alert(PMA_messages['strNotNumber']);
                 elm2.focus();
                 return false;
             }
@@ -389,7 +389,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     }
     if (atLeastOneField == 0) {
         var theField = theForm.elements["field_0_1"];
-        alert(errorMsg0);
+        alert(PMA_messages['strFormEmpty']);
         theField.focus();
         return false;
     }

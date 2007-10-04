@@ -27,32 +27,63 @@ if (empty($GLOBALS['is_header_sent'])) {
     require_once './libraries/header_meta_style.inc.php';
 
     // generate title
-    $title     = str_replace(
-                    array(
-                        '@HTTP_HOST@',
-                        '@SERVER@',
-                        '@VERBOSE@',
-                        '@VSERVER@',
-                        '@DATABASE@',
-                        '@TABLE@',
-                        '@PHPMYADMIN@',
-                        ),
-                    array(
-                        PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
-                        isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
-                        isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
-                        !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
-                        $GLOBALS['db'],
-                        $GLOBALS['table'],
-                        'phpMyAdmin ' . PMA_VERSION,
-                        ),
-                    !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
-                    (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
-                    (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
-                    $GLOBALS['cfg']['TitleDefault']))
-                    );
+    $title = str_replace(
+                array(
+                    '@HTTP_HOST@',
+                    '@SERVER@',
+                    '@VERBOSE@',
+                    '@VSERVER@',
+                    '@DATABASE@',
+                    '@TABLE@',
+                    '@PHPMYADMIN@',
+                    ),
+                array(
+                    PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '',
+                    isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : '',
+                    isset($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : '',
+                    !empty($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : (isset($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['Server']['host'] : ''),
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
+                    'phpMyAdmin ' . PMA_VERSION,
+                    ),
+                !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
+                (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
+                (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
+                $GLOBALS['cfg']['TitleDefault']))
+                );
     // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
     $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
+
+    if (in_array('functions.js', $GLOBALS['js_include'])) {
+        $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
+        $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
+
+        if (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
+            $js_messages['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];
+        } else {
+            $js_messages['strNoDropDatabases'] = '';
+        }
+
+        if ($GLOBALS['cfg']['Confirm']) {
+            $js_messages['strDoYouReally'] = $GLOBALS['strDoYouReally'];
+            $js_messages['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
+        } else {
+            $js_messages['strDoYouReally'] = '';
+            $js_messages['strDropDatabaseStrongWarning'] = '';
+        }
+    } elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
+        $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
+        $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
+    }
+
+    if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
+        $js_messages['strHostEmpty'] = $GLOBALS['strHostEmpty'];
+        $js_messages['strUserEmpty'] = $GLOBALS['strUserEmpty'];
+        $js_messages['strPasswordEmpty'] = $GLOBALS['strPasswordEmpty'];
+        $js_messages['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
+    }
+
+    $GLOBALS['js_include'][] = 'tooltip.js';
     ?>
     <script type="text/javascript">
     // <![CDATA[
@@ -62,42 +93,16 @@ if (empty($GLOBALS['is_header_sent'])) {
         parent.document.title = '<?php echo PMA_sanitize(PMA_escapeJsString($title)); ?>';
     }
 
+    var PMA_messages = new Array();
     <?php
-    // Add some javascript instructions if required
-    if (in_array('functions.js', $GLOBALS['js_include'])) {
-        ?>
-    // js form validation stuff
-    var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
-    var errorMsg1   = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
-    var noDropDbMsg = '<?php echo (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase'])
-        ? PMA_escapeJsString($GLOBALS['strNoDropDatabases']) : ''; ?>';
-    var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? PMA_escapeJsString($GLOBALS['strDoYouReally']) : ''); ?>';
-    var confirmMsgDropDB  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? PMA_escapeJsString($GLOBALS['strDropDatabaseStrongWarning']) : ''); ?>';
-        <?php
-    } elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
-        ?>
-    // js index validation stuff
-    var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
-    var errorMsg1   = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
-        <?php
+    foreach ($js_messages as $name => $js_message) {
+        echo "PMA_messages['" . $name . "'] = '" . PMA_escapeJsString($js_message) . "';\n";
     }
-
-    if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
-        ?>
-    // js form validation stuff
-    var jsHostEmpty       = '<?php echo PMA_escapeJsString($GLOBALS['strHostEmpty']); ?>';
-    var jsUserEmpty       = '<?php echo PMA_escapeJsString($GLOBALS['strUserEmpty']); ?>';
-    var jsPasswordEmpty   = '<?php echo PMA_escapeJsString($GLOBALS['strPasswordEmpty']); ?>';
-    var jsPasswordNotSame = '<?php echo PMA_escapeJsString($GLOBALS['strPasswordNotSame']); ?>';
-        <?php
-    }
-
     ?>
     // ]]>
     </script>
 
     <?php
-    $GLOBALS['js_include'][] = 'tooltip.js';
     foreach ($GLOBALS['js_include'] as $js_script_file) {
         echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
     }

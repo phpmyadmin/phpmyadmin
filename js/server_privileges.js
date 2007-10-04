@@ -8,8 +8,8 @@
 /**
  * Validates the password field in a form
  *
- * @uses    jsPasswordEmpty
- * @uses    jsPasswordNotSame
+ * @uses    PMA_messages['strPasswordEmpty']
+ * @uses    PMA_messages['strPasswordNotSame']
  * @param   object   the form
  * @return  boolean  whether the field value is valid or not
  */
@@ -30,9 +30,9 @@ function checkPassword(the_form)
     var alert_msg = false;
 
     if (password.value == '') {
-        alert_msg = jsPasswordEmpty;
+        alert_msg = PMA_messages['strPasswordEmpty'];
     } else if (password.value != password_repeat.value) {
-        alert_msg = jsPasswordNotSame;
+        alert_msg = PMA_messages['strPasswordNotSame'];
     }
 
     if (alert_msg) {
@@ -55,13 +55,13 @@ function checkPassword(the_form)
 function checkAddUser(the_form)
 {
     if (the_form.elements['pred_hostname'].value == 'userdefined' && the_form.elements['hostname'].value == '') {
-        alert(jsHostEmpty);
+        alert(PMA_messages['strHostEmpty']);
         the_form.elements['hostname'].focus();
         return false;
     }
 
     if (the_form.elements['pred_username'].value == 'userdefined' && the_form.elements['username'].value == '') {
-        alert(jsUserEmpty);
+        alert(PMA_messages['strUserEmpty']);
         the_form.elements['username'].focus();
         return false;
     }
