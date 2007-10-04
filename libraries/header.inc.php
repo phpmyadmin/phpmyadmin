@@ -65,7 +65,6 @@ if (empty($GLOBALS['is_header_sent'])) {
     <?php
     // Add some javascript instructions if required
     if (in_array('functions.js', $GLOBALS['js_include'])) {
-        PMA_jsFormat()
         ?>
     // js form validation stuff
     var errorMsg0   = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
