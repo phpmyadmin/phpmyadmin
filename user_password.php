@@ -1,9 +1,39 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * displays and handles the form where the user can change his password
+ * linked from main.php
  *
+ * @uses    $GLOBALS['strUpdateProfileMessage']
+ * @uses    $GLOBALS['strBack']
+ * @uses    $GLOBALS['js_include']
+ * @uses    $GLOBALS['strChangePassword']
+ * @uses    $GLOBALS['strPasswordEmpty']
+ * @uses    $GLOBALS['strPasswordNotSame']
+ * @uses    $GLOBALS['strError']
+ * @uses    $GLOBALS['strNoRights']
+ * @uses    $cfg['ShowChgPassword']
+ * @uses    $cfg['Server']['auth_type']
+ * @uses    PMA_DBI_select_db()
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_getError()
+ * @uses    PMA_sanitize()
+ * @uses    PMA_generate_common_url()
+ * @uses    PMA_isValid()
+ * @uses    PMA_mysqlDie()
+ * @uses    PMA_setCookie()
+ * @uses    PMA_blowfish_encrypt()
+ * @uses    PMA_showMessage()
+ * @uses    define()
  * @version $Id$
  */
+
+/**
+ * no need for variables importing
+ */
+if (! defined('PMA_NO_VARIABLES_IMPORT')) {
+    define('PMA_NO_VARIABLES_IMPORT', true);
+}
 
 /**
  * Gets some core libraries
@@ -19,8 +49,10 @@ if (!$cfg['ShowChgPassword']) {
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once './libraries/header.inc.php';
-    echo '<p><b>' . $strError . '</b></p>' . "\n"
-       . '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
+    echo '<div class="error">' . "\n";
+    echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+    echo PMA_sanitize($strNoRights);
+    echo '</div>';
     require_once './libraries/footer.inc.php';
 } // end if
 
@@ -29,56 +61,59 @@ if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
  * If the "change password" form has been submitted, checks for valid values
  * and submit the query or logout
  */
-if (isset($nopass)) {
+if (isset($_REQUEST['nopass'])) {
     // similar logic in server_privileges.php
     $error_msg = '';
 
-    if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
-        if ($pma_pw != $pma_pw2) {
-            $error_msg = $strPasswordNotSame;
-        }
-        if (empty($pma_pw) || empty($pma_pw2)) {
-            $error_msg = $strPasswordEmpty;
-        }
-    } // end if
+    if ($_REQUEST['nopass'] == '1') {
+        $password = '';
+    } elseif (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
+        $error_msg = $strPasswordEmpty;
+    } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
+        $error_msg = $strPasswordNotSame;
+    } else {
+        $password = $_REQUEST['pma_pw'];
+    }
 
-    // here $nopass could be == 1
     if (empty($error_msg)) {
 
         // Defines the url to return to in case of error in the sql statement
-        $common_url_query = PMA_generate_common_url();
+        $_url_params = array();
 
-        $err_url          = 'user_password.php?' . $common_url_query;
-        $hashing_function = (!empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
-                      . 'PASSWORD';
+        $err_url          = 'user_password.php' . PMA_generate_common_url($_url_params);
+        if (PMA_isValid($_REQUEST['pw_hash'], 'identical', 'old')) {
+            $hashing_function = 'OLD_PASSWORD';
+        } else {
+            $hashing_function = 'PASSWORD';
+        }
 
-        $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
-        $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
-        $result           = @PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
+        $sql_query        = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+        $local_query      = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($password) . '\')');
+        $result           = @PMA_DBI_try_query($local_query)
+            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
 
         // Changes password cookie if required
         // Duration = till the browser is closed for password (we don't want this to be saved)
         if ($cfg['Server']['auth_type'] == 'cookie') {
-
-            PMA_setCookie('pmaPass-' . $server, PMA_blowfish_encrypt($pma_pw, $GLOBALS['cfg']['blowfish_secret']));
-
+            PMA_setCookie('pmaPass-' . $server,
+                PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
         } // end if
+
         // For http auth. mode, the "back" link will also enforce new
         // authentication
-        $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                     ? '&amp;old_usr=relog'
-                     : '';
+        if ($cfg['Server']['auth_type'] == 'http') {
+            $_url_params['old_usr'] = 'relog';
+        }
 
         // Displays the page
         require_once './libraries/header.inc.php';
         echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
-        $show_query = 'y';
-        PMA_showMessage($strUpdateProfileMessage);
+        PMA_showMessage($strUpdateProfileMessage, $sql_query);
         ?>
-        <a href="index.php?<?php echo $common_url_query . $http_logout; ?>" target="_parent">
+        <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
             <b><?php echo $strBack; ?></b></a>
         <?php
-        exit();
+        require_once './libraries/footer.inc.php';
     } // end if
 } // end if
 
@@ -94,7 +129,10 @@ echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
 
 // Displays an error message if required
 if (!empty($error_msg)) {
-    echo '<p><b>' . $strError . ':&nbsp;' . $error_msg . '</b></p>' . "\n";
+    echo '<div class="error">' . "\n";
+    echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+    echo PMA_sanitize($error_msg);
+    echo '</div>';
 }
 
 require_once './libraries/display_change_password.lib.php';
