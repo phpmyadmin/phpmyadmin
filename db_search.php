@@ -304,11 +304,13 @@ if (isset($_REQUEST['submit_search'])) {
         <td><input type="radio" id="search_option_1" name="search_option"
                 value="1"<?php if ($search_option == 1) echo ' checked="checked"'; ?> />
             <label for="search_option_1">
-                <?php echo $GLOBALS['strSearchOption1']; ?></label><sup>1</sup><br />
+                <?php echo $GLOBALS['strSearchOption1']; ?></label>
+                <?php echo PMA_showHint($GLOBALS['strSplitWordsWithSpace']); ?><br />
             <input type="radio" id="search_option_2" name="search_option"
                 value="2"<?php if ($search_option == 2) echo ' checked="checked"'; ?> />
             <label for="search_option_2">
-                <?php echo $GLOBALS['strSearchOption2']; ?></label><sup>1</sup><br />
+                <?php echo $GLOBALS['strSearchOption2']; ?></label>
+                <?php echo PMA_showHint($GLOBALS['strSplitWordsWithSpace']); ?><br />
             <input type="radio" id="search_option_3" name="search_option"
                 value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> />
             <label for="search_option_3">
@@ -319,8 +321,7 @@ if (isset($_REQUEST['submit_search'])) {
                 <?php echo $GLOBALS['strSearchOption4']; ?></label>
 
             <?php echo PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
-            <br />
-            <sup>1</sup><?php echo $GLOBALS['strSplitWordsWithSpace']; ?></td>
+            </td>
     </tr>
     <tr><td align="right" valign="top">
             <?php echo $GLOBALS['strSearchInTables']; ?></td>

@@ -142,8 +142,21 @@ echo PMA_pluginGetJavascript($export_list);
     <?php } ?>
 
     <label for="filename_template">
-        <?php echo $strFileNameTemplate; ?>
-        <sup>(1)</sup></label>:
+        <?php
+        echo $strFileNameTemplate;
+
+        $trans = '__SERVER__/' . $strFileNameTemplateDescriptionServer;
+        if ($export_type == 'database' || $export_type == 'table') {
+            $trans .= ', __DB__/' . $strFileNameTemplateDescriptionDatabase;
+        }
+        if ($export_type == 'table') {
+            $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
+        }
+        echo PMA_showHint(sprintf($strFileNameTemplateDescription,
+            '<a href="http://www.php.net/strftime" target="documentation" title="'
+            . $strDocu . '">', '</a>', $trans));
+        ?>
+        </label>:
     <input type="text" name="filename_template" id="filename_template"
     <?php
         echo ' value="';
@@ -252,18 +265,3 @@ if ($is_zip || $is_gzip || $is_bzip) { ?>
     <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
 </fieldset>
 </form>
-
-<div class="notice">
-    <sup id="FileNameTemplateHelp">(1)</sup>
-    <?php
-    $trans = '__SERVER__/' . $strFileNameTemplateDescriptionServer;
-    if ($export_type == 'database' || $export_type == 'table') {
-        $trans .= ', __DB__/' . $strFileNameTemplateDescriptionDatabase;
-    }
-    if ($export_type == 'table') {
-        $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
-    }
-    echo sprintf($strFileNameTemplateDescription,
-        '<a href="http://www.php.net/strftime" target="documentation" title="'
-        . $strDocu . '">', '</a>', $trans); ?>
-</div>

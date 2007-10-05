@@ -1825,7 +1825,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
       || $analyzed_sql[0]['where_clause'] == '1 ')) {
         // "j u s t   b r o w s i n g"
         $pre_count = '~';
-        $after_count = '[sup]1[/sup]';
+        $after_count = PMA_showHint($GLOBALS['strApproximateCount'], true);
     } else {
         $pre_count = '';
         $after_count = '';
@@ -1875,12 +1875,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             echo PMA_sanitize(sprintf($GLOBALS['strViewMaxExactCount'], PMA_formatNumber($GLOBALS['cfg']['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
             echo '</div>' . "\n";
         }
-        if ($pre_count) {
-            echo '<div class="notice">' . "\n";
-            echo '<sup>1</sup>' . PMA_sanitize($GLOBALS['strApproximateCount']) . "\n";
-            echo '</div>' . "\n";
-        }
-
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_showMessage($GLOBALS['strSQLQuery']);
     }

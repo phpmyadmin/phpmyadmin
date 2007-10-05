@@ -183,6 +183,8 @@ $odd_row       = true;
 $at_least_one_view_exceeds_max_count = false;
 $sum_row_count_pre = '';
 
+$max_exact_count_note = PMA_showHint(PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCountViews'], 0), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
+
 foreach ($tables as $keyname => $each_table) {
     if ($each_table['TABLE_ROWS'] === null || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
         $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
@@ -352,7 +354,7 @@ foreach ($tables as $keyname => $each_table) {
             $at_least_one_view_exceeds_max_count = true;
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
-            $show_superscript = '<sup>1</sup>';
+            $show_superscript = $max_exact_count_note;
         } elseif($each_table['ENGINE'] == 'InnoDB') {
             // InnoDB table: Row count is not accurate
             $row_count_pre = '~';
@@ -490,13 +492,6 @@ echo '    <option value="' . $strAnalyzeTable . '" >'
 </div>
 </form>
 <?php
-// Notice about row count for views
-
-if ($at_least_one_view_exceeds_max_count && !$db_is_information_schema) {
-    echo '<div class="notice">' . "\n";
-    echo '<sup>1</sup>' . PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCountViews'], 0), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')) . "\n";
-    echo '</div>' . "\n";
-}
 // display again the table list navigator
 PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
 ?>

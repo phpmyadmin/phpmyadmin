@@ -432,7 +432,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
  * @return  string html code for a footnote marker
  * @access  public
  */
-function PMA_showHint($hint_message, $type = 'notice')
+function PMA_showHint($hint_message, $bbcode = false, $type = 'notice')
 {
     $key = md5($hint_message);
 
@@ -445,6 +445,10 @@ function PMA_showHint($hint_message, $type = 'notice')
         );
     } else {
         $nr = $GLOBALS['footnotes'][$key]['nr'];
+    }
+
+    if ($bbcode) {
+        return '[sup]' . $nr . '[/sup]';
     }
 
     return '<sup class="footnotemarker" name="footnote_' . $nr . '">' . $nr . '</sup>';

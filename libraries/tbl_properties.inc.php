@@ -123,11 +123,11 @@ $content_cells = array();
 
 $header_cells[] = $strField;
 $header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('SQL-Syntax', 'data-types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types') . '</span>');
-$header_cells[] = $strLengthSet . '<sup>1</sup>';
+$header_cells[] = $strLengthSet . PMA_showHint($strSetEnumVal);
 $header_cells[] = $strCollation;
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
-$header_cells[] = $strDefault . '<sup>2</sup>';
+$header_cells[] = $strDefault . PMA_showHint($strDefaultValueHelp);
 $header_cells[] = $strExtra;
 
 
@@ -159,9 +159,16 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
 
+    $hint = '<p>' .
+        sprintf($strMIME_transformation_note,
+            '<a href="transformation_overview.php?'
+            . PMA_generate_common_url($db, $table) . '" target="_blank">',
+            '</a>') . '</p>';
+
+
     $header_cells[] = $strMIME_MIMEtype;
     $header_cells[] = $strMIME_transformation;
-    $header_cells[] = $strMIME_transformation_options . '<sup>3</sup>';
+    $header_cells[] = $strMIME_transformation_options . PMA_showHint($strMIME_transformation_options_note . $hint);
 }
 
 // garvin: workaround for field_fulltext, because its submitted indizes contain
@@ -674,21 +681,5 @@ if ($action == 'tbl_create.php') {
 </fieldset>
 
 </form>
-
-<div class="notice">
-    <p> <a name="footnoote_setenumval"><sup>1</sup></a> <?php echo $strSetEnumVal; ?></p>
-    <p> <a name="footnoote_defaultvalue"><sup>2</sup></a> <?php echo $strDefaultValueHelp; ?></p>
-<?php
-if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-    echo '<p> <a name="footnoote_mime"><sup>3</sup></a> ' . $strMIME_transformation_options_note . '</p>';
-    echo '<p> ';
-    printf($strMIME_transformation_note,
-            '<a href="transformation_overview.php?'
-            . PMA_generate_common_url($db, $table) . '" target="_blank">',
-            '</a>');
-    echo '</p>';
-}
-?>
-</div>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
