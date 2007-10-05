@@ -447,6 +447,13 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
  */
 $GLOBALS['js_include'] = array();
 
+/**
+ * holds locale messages required by JavaScript function
+ * @global array $js_messages
+ */
+$GLOBALS['js_messages'] = array();
+
+
 /******************************************************************************/
 /* parsing configuration file                         LABEL_parsing_config_file      */
 
