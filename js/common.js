@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * functions used by and for querywindow
+ * common functions used for communicating between main, navigation and querywindow
  *
  * @version $Id$
  */

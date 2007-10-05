@@ -113,7 +113,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <script type="text/javascript">
 // <![CDATA[
-    // definitions used in querywindow.js
+    // definitions used in common.js
     var common_query = '<?php echo PMA_escapeJsString(PMA_generate_common_url('', '', '&'));?>';
     var opendb_url = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['DefaultTabDatabase']); ?>';
     var safari_browser = <?php echo PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false' ?>;
@@ -140,22 +140,22 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
         frame_navigation = window.frames[1];
 <?php } ?>
     }
-    var onloadCnt = 0; 
+    var onloadCnt = 0;
     var onLoadHandler = window.onload;
     window.onload = function() {
         if (onloadCnt == 0) {
-            if (typeof(onLoadHandler) == "function") { 
-                onLoadHandler(); 
+            if (typeof(onLoadHandler) == "function") {
+                onLoadHandler();
             }
-            if (typeof(getFrames) != 'undefined' && typeof(getFrames) == 'function') { 
-                getFrames(); 
+            if (typeof(getFrames) != 'undefined' && typeof(getFrames) == 'function') {
+                getFrames();
             }
             onloadCnt++;
         }
     };
 // ]]>
 </script>
-<script src="./js/querywindow.js" type="text/javascript"></script>
+<script src="./js/common.js" type="text/javascript"></script>
 </head>
 <frameset cols="<?php
 if ($GLOBALS['text_dir'] === 'rtl') {
