@@ -94,19 +94,9 @@ function PMA_auth_fails()
 <table border="0" cellpadding="0" cellspacing="3" align="center" width="80%">
     <tr>
         <td>
-    <?php
-    echo "\n";
-    $GLOBALS['is_header_sent'] = TRUE;
 
-    /**
-     * @todo I have included this div from libraries/header.inc.php to work around
-     * an undefined variable in tooltip.js, when the server is not responding.
-     * Work has to be done to merge all code that starts the page (DOCTYPE and
-     * this div) to one place
-     */
-    ?>
-    <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
+    $GLOBALS['is_header_sent'] = TRUE;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         echo '<p>' . $GLOBALS['strAccessDenied'] . '</p>' . "\n";

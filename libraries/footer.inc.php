@@ -32,7 +32,7 @@
  * @uses    $cfg['DBG']['enable']
  * @uses    $cfg['DBG']['profile']['enable']
  * @uses    $GLOBALS['strOpenNewWindow']
- * @uses    $cfg['MaxCharactersInDisplayedSQL'] 
+ * @uses    $cfg['MaxCharactersInDisplayedSQL']
  * @uses    PMA_isValid()
  * @uses    PMA_setHistory()
  * @uses    PMA_ifSetOr()
@@ -56,6 +56,15 @@ if (! PMA_isValid($_REQUEST['no_history']) && empty($GLOBALS['error_message'])
         PMA_ifSetOr($GLOBALS['table'], ''),
         $GLOBALS['cfg']['Server']['user'],
         $GLOBALS['sql_query']);
+}
+
+if (count($GLOBALS['footnotes'])) {
+    echo '<div class="notice">';
+    foreach ($GLOBALS['footnotes'] as $footnote) {
+        echo '<span id="footnote_' . $footnote['nr'] . '"><sup>'
+            . $footnote['nr'] . '</sup> ' . $footnote['note'] . '</span><br />';
+    }
+    echo '</div>';
 }
 
 ?>

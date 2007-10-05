@@ -12,23 +12,46 @@
 var ttXpos = 0, ttYpos = 0;
 var ttXadd = 10, ttYadd = -10;
 var ttDisplay = 0, ttHoldIt = 0;
+
 // Check if browser does support dynamic content and dhtml
-var ttNS4 = (document.layers) ? 1 : 0;           // the old Netscape 4
-var ttIE4 = (document.all) ? 1 : 0;              // browser wich uses document.all
-var ttDOM = (document.getElementById) ? 1 : 0;   // DOM-compatible browsers
-if (ttDOM) { // if DOM-compatible, set the others to false
-    ttNS4 = 0;
-    ttIE4 = 0;
+if (document.getElementById) {
+    // DOM-compatible browsers
+    var ttDOM = 1;
+} else {
+    // the old Netscape 4
+    var ttNS4 = (document.layers) ? 1 : 0;
+    // browser wich uses document.all
+    var ttIE4 = (document.all) ? 1 : 0;
 }
 
 var myTooltipContainer = null;
 
-if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
-    // mouse-event
-    if ( ttNS4 ) {
-        document.captureEvents(Event.MOUSEMOVE);
-    } else {
-        document.onmousemove = mouseMove;
+/**
+ * initialize tooltip
+ */
+function PMA_TT_init()
+{
+    // get all 'light bubbles' on page
+    var tooltip_icons = window.parent.getElementsByClassName('footnotemarker', document, 'sup');
+    var tooltip_count = tooltip_icons.length;
+
+    if (tooltip_count < 1) {
+        // no 'bubbles' found
+        return;
+    }
+
+    // insert tooltip container
+    myTooltipContainer = document.createElement("div");
+    myTooltipContainer.id = 'TooltipContainer';
+    window.parent.addEvent(myTooltipContainer, 'mouseover', holdTooltip);
+    window.parent.addEvent(myTooltipContainer, 'mouseout', swapTooltip);
+    document.body.appendChild(myTooltipContainer);
+
+    // capture mouse-events
+    for (i = 0; i < tooltip_count; i++) {
+        window.parent.addEvent(tooltip_icons[i], 'mousemove', mouseMove);
+        window.parent.addEvent(tooltip_icons[i], 'mouseover', pmaTooltip);
+        window.parent.addEvent(tooltip_icons[i], 'mouseout', swapTooltip);
     }
 }
 
@@ -37,8 +60,9 @@ if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
  *
  * @param string theText tooltip content
  */
-function textTooltip(theText) {
-    if	(ttDOM || ttIE4) {                   // document.getEelementById || document.all
+function PMA_TT_setText(theText)
+{
+    if (ttDOM || ttIE4) {                   // document.getEelementById || document.all
         myTooltipContainer.innerHTML = "";  // we should empty it first
         myTooltipContainer.innerHTML = theText;
     } else if (ttNS4) {                     // document.layers
@@ -58,18 +82,15 @@ var ttTimerID = 0;
  *
  * @param boolean stat view status
  */
-function swapTooltip(stat) {
-    if (ttHoldIt!=1) {
-        if (stat!='default') {
-            if (stat=='true')
-                showTooltip(true);
-            else if (stat=='false')
-                showTooltip(false);
+function swapTooltip(stat)
+{
+    if (ttHoldIt != 1) {
+        if (stat == 'true') {
+            showTooltip(true);
+        } else if (ttDisplay) {
+            ttTimerID = setTimeout("showTooltip(false);", 500);
         } else {
-            if (ttDisplay)
-                ttTimerID = setTimeout("showTooltip(false);",500);
-            else
-                showTooltip(true);
+            showTooltip(true);
         }
     } else {
         if (ttTimerID) {
@@ -85,8 +106,9 @@ function swapTooltip(stat) {
  *
  * @param boolean stat view status
  */
-function showTooltip(stat) {
-    if (stat==false) {
+function showTooltip(stat)
+{
+    if (stat == false) {
         if (ttNS4)
             myTooltipContainer.visibility = "hide";
         else
@@ -100,10 +122,12 @@ function showTooltip(stat) {
         ttDisplay = 1;
     }
 }
+
 /**
  * hold it, if we create or move the mouse over the tooltip
  */
-function holdTooltip() {
+function holdTooltip()
+{
     ttHoldIt = 1;
     swapTooltip('true');
     ttHoldIt = 0;
@@ -115,10 +139,11 @@ function holdTooltip() {
  * @param integer posX    horiz. position
  * @param integer posY    vert. position
  */
-function moveTooltip(posX, posY) {
+function moveTooltip(posX, posY)
+{
     if (ttDOM || ttIE4) {
-        myTooltipContainer.style.left	=	posX + "px";
-        myTooltipContainer.style.top  =	posY + "px";
+        myTooltipContainer.style.left = posX + "px";
+        myTooltipContainer.style.top  = posY + "px";
     } else if (ttNS4) {
         myTooltipContainer.left = posX;
         myTooltipContainer.top  = posY;
@@ -127,31 +152,20 @@ function moveTooltip(posX, posY) {
 
 /**
  * build the tooltip
+ * usally called from eventhandler
  *
  * @param    string    theText    tooltip content
  */
-function pmaTooltip( theText ) {
-    // reference to TooltipContainer
-    if ( null == myTooltipContainer ) {
-        if (ttNS4) {
-            myTooltipContainer = document.TooltipContainer;
-        } else if (ttIE4) {
-            myTooltipContainer = document.all('TooltipContainer');
-        } else if (ttDOM) {
-            myTooltipContainer = document.getElementById('TooltipContainer');
-        } else {
-            return;
-        }
+function pmaTooltip(e)
+{
+    var theText = document.getElementById(this.getAttribute('name')).innerHTML;
 
-        if ( typeof( myTooltipContainer ) == 'undefined' ) {
-            return;
-        }
-    }
-
-    var plusX=0, plusY=0, docX=0, docY=0;
+    var plusX = 0, plusY = 0, docX = 0, docY = 0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;
-    if (navigator.appName.indexOf("Explorer")!=-1) {
+
+    if (navigator.appName.indexOf("Explorer") != -1) {
+        // IE ...
         if (document.documentElement && document.documentElement.scrollTop) {
             plusX = document.documentElement.scrollLeft;
             plusY = document.documentElement.scrollTop;
@@ -176,7 +190,7 @@ function pmaTooltip( theText ) {
     if ((ttYpos + divHeight) > docY)
         ttYpos = ttYpos - (divHeight + (ttYadd * 2));
 
-    textTooltip(theText);
+    PMA_TT_setText(theText);
     moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
     holdTooltip();
 }
@@ -194,4 +208,5 @@ function mouseMove(e) {
         ttXpos = e.pageX;
         ttYpos = e.pageY;
     }
+    moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
 }

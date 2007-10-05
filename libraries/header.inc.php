@@ -41,7 +41,6 @@ if (empty($GLOBALS['is_header_sent'])) {
 </head>
 
 <body>
-<div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
 
     // Include possible custom headers

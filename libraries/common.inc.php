@@ -459,6 +459,11 @@ $GLOBALS['js_messages'] = array();
  */
 $GLOBALS['js_events'] = array();
 
+/**
+ * footnotes to be displayed ot the page bottom
+ * @global array $footnotes
+ */
+$GLOBALS['footnotes'] = array();
 
 /******************************************************************************/
 /* parsing configuration file                         LABEL_parsing_config_file      */

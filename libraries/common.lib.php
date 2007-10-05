@@ -425,20 +425,29 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
 } // end of the 'PMA_showMySQLDocu()' function
 
 /**
- * Displays a hint icon, on mouse over show the hint
+ * returns HTML for a footnote marker and add the messsage to the footnotes
  *
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    PMA_jsFormat()
+ * @uses    $GLOBALS['footnotes']
  * @param   string   the error message
- *
+ * @return  string html code for a footnote marker
  * @access  public
  */
-function PMA_showHint($hint_message)
+function PMA_showHint($hint_message, $type = 'notice')
 {
-    //return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, false) . '\');" />';
-    return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage']
-        . 'b_tipp.png" width="16" height="16" alt="Tip" title="Tip" onmouseover="pmaTooltip(\''
-        .  PMA_jsFormat($hint_message, false) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
+    $key = md5($hint_message);
+
+    if (! isset($GLOBALS['footnotes'][$key])) {
+        $nr = count($GLOBALS['footnotes']) + 1;
+        $GLOBALS['footnotes'][$key] = array(
+            'note' => $hint_message,
+            'type' => $type,
+            'nr'   => $nr,
+        );
+    } else {
+        $nr = $GLOBALS['footnotes'][$key]['nr'];
+    }
+
+    return '<sup class="footnotemarker" name="footnote_' . $nr . '">' . $nr . '</sup>';
 }
 
 /**
