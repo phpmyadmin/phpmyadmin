@@ -16,6 +16,78 @@ var querywindow = '';
 var query_to_load = '';
 
 /**
+ * attach a function to opbject event
+ *
+ * <code>
+ * addEvent(window, 'load', PMA_initPage);
+ * </code>
+ * @param object or id
+ * @param string event type (load, mouseover, focus, ...)
+ * @param function to be attached
+ */
+function addEvent(obj, type, fn)
+{
+    if (obj.attachEvent) {
+        obj['e' + type + fn] = fn;
+        obj[type + fn] = function() {obj['e' + type + fn](window.event);}
+        obj.attachEvent('on' + type, obj[type + fn]);
+    } else {
+        obj.addEventListener(type, fn, false);
+    }
+}
+
+/**
+ * detach/remove a function from an object event
+ *
+ * @param object or id
+ * @param event type (load, mouseover, focus, ...)
+ * @param function naem of function to be attached
+ */
+function removeEvent(obj, type, fn)
+{
+    if (obj.detachEvent) {
+        obj.detachEvent('on' + type, obj[type + fn]);
+        obj[type + fn] = null;
+    } else {
+        obj.removeEventListener(type, fn, false);
+    }
+}
+
+/**
+ * get DOM elements by html class
+ *
+ * @param string class_name - name of class
+ * @param node node - search only sub nodes of this node (optional)
+ * @param string tag - search only these tags (optional)
+ */
+function getElementsByClassName(class_name, node, tag)
+{
+    var classElements = new Array();
+
+    if (node == null) {
+        node = document;
+    }
+    if (tag == null) {
+        tag = '*';
+    }
+
+    var j = 0, teststr;
+    var els = node.getElementsByTagName(tag);
+    var elsLen = els.length;
+
+    for (i = 0; i < elsLen; i++) {
+        if (els[i].className.indexOf(class_name) != -1) {
+            teststr = "," + els[i].className.split(" ").join(",") + ",";
+            if (teststr.indexOf("," + class_name + ",") != -1) {
+                classElements[j] = els[i];
+                j++;
+            }
+        }
+    }
+    return classElements;
+}
+
+/**
  * sets current selected db
  *
  * @param    string    db name
