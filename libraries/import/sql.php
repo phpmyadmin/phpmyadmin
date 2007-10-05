@@ -77,8 +77,12 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         $first_quote = strpos($buffer, '\'', $i);
         if ($first_quote === FALSE) {
             $first_quote = $big_value;
+            $next_quote = $big_value;
         } else {
             $next_quote = strpos($buffer, '\'', $first_quote + 1);
+            if ($next_quote === FALSE) {
+                $next_quote = $big_value;
+            }
         }
         $p2 = strpos($buffer, '"', $i);
         if ($p2 === FALSE) {
