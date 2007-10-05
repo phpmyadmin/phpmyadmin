@@ -163,74 +163,37 @@ if (! empty($show_query)) {
 $sql_query = '';
 
 /**
- * start HTML output
+ * prepare JavaScript functionality
+ */
+$js_include[] = 'common.js';
+$js_include[] = 'functions.js';
+$js_include[] = 'querywindow.js';
+
+if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
+    $js_events[] = array(
+        'object'    => 'window',
+        'event'     => 'load',
+        'function'  => 'PMA_queryAutoCommit',
+    );
+}
+if (PMA_isValid($_REQUEST['init'])) {
+    $js_events[] = array(
+        'object'    => 'window',
+        'event'     => 'load',
+        'function'  => 'PMA_querywindowResize',
+    );
+}
+
+/**
+ * start HTTP/HTML output
  */
 require_once './libraries/header_http.inc.php';
 require_once './libraries/header_meta_style.inc.php';
+require_once './libraries/header_scripts.inc.php';
 ?>
-<script type="text/javascript">
-//<![CDATA[
-var PMA_messages = new Array();
-PMA_messages['strFormEmpty'] = '<?php echo PMA_escapeJsString($GLOBALS['strFormEmpty']); ?>';
-PMA_messages['strNotNumber'] = '<?php echo PMA_escapeJsString($GLOBALS['strNotNumber']); ?>';
-PMA_messages['strNoDropDatabases'] = '<?php echo (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase'])
-    ? PMA_escapeJsString($GLOBALS['strNoDropDatabases']) : ''; ?>';
-PMA_messages['strDoYouReally'] = '<?php echo $GLOBALS['cfg']['Confirm']
-    ? PMA_escapeJsString($GLOBALS['strDoYouReally']) : ''; ?>';
-
-function PMA_queryAutoCommit() {
-    document.getElementById('sqlqueryform').target = window.opener.frame_content.name;
-    document.getElementById('sqlqueryform').submit();
-    return;
-}
-
-function PMA_querywindowCommit(tab) {
-    document.getElementById('hiddenqueryform').querydisplay_tab.value = tab;
-    document.getElementById('hiddenqueryform').submit();
-    return false;
-}
-
-function PMA_querywindowResize() {
-    // for Gecko
-    if (typeof(self.sizeToContent) == 'function') {
-        self.sizeToContent();
-        //self.scrollbars.visible = false;
-        // give some more space ... to prevent 'fli(pp/ck)ing'
-        self.resizeBy(10, 50);
-        return;
-    }
-
-    // for IE, Opera
-    if (document.getElementById && typeof(document.getElementById('querywindowcontainer')) != 'undefined') {
-
-        // get content size
-        var newWidth  = document.getElementById('querywindowcontainer').offsetWidth;
-        var newHeight = document.getElementById('querywindowcontainer').offsetHeight;
-
-        // set size to contentsize
-        // plus some offset for scrollbars, borders, statusbar, menus ...
-        self.resizeTo(newWidth + 45, newHeight + 75);
-    }
-}
-
-function PMA_querywindowInit()
-{
-<?php
-if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
-    echo 'PMA_queryAutoCommit();' . "\n";
-}
-if (PMA_isValid($_REQUEST['init'])) {
-    echo 'PMA_querywindowResize();' . "\n";
-}
-?>
-}
-
-//]]>
-</script>
-<script src="./js/functions.js" type="text/javascript"></script>
 </head>
 
-<body id="bodyquerywindow" onload="PMA_querywindowInit();">
+<body id="bodyquerywindow">
 <div id="querywindowcontainer">
 <?php
 

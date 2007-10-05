@@ -453,6 +453,12 @@ $GLOBALS['js_include'] = array();
  */
 $GLOBALS['js_messages'] = array();
 
+/**
+ * JavaScript events that will be registered
+ * @global array $js_events
+ */
+$GLOBALS['js_events'] = array();
+
 
 /******************************************************************************/
 /* parsing configuration file                         LABEL_parsing_config_file      */
