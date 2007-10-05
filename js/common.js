@@ -436,7 +436,7 @@ function updateTableTitle( table_link_id, new_title ) {
         var left = window.parent.frame_navigation.document;
         left.getElementById(table_link_id).title = new_title;
         new_title = left.getElementById('icon_' + table_link_id).alt + ': ' + new_title;
-        left.getElementById('browse_' + table_link_id).title = new_title;
+        left.getElementById('quick_' + table_link_id).title = new_title;
         return true;
     }
 
