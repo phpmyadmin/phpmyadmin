@@ -1026,4 +1026,5 @@ $strYes = 'Да';
 
 $strZeroRemovesTheLimit = 'Замечание: Установка значения параметров в 0 (ноль), снимает ограничения.';
 $strZip = 'zip';
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

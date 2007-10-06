@@ -571,6 +571,8 @@ $PMA_SQPdata_reserved_word = array (
     'OUTFILE',
     'PACK_KEYS',
     'PARTIAL',
+    'PARTITION',            // 5.1
+    'PARTITIONS',           // 5.1
     'PASSWORD',
     'PRIMARY',
     'PRIVILEGES',
@@ -680,7 +682,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 279;
+$PMA_SQPdata_reserved_word_cnt = 281;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes

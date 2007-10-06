@@ -1023,4 +1023,5 @@ $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os li
 $strZip = '"compactado com zip"'; 
 
 $strProfiling = 'Profiling';  //to translate
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

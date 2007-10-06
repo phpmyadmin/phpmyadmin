@@ -1024,4 +1024,5 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strProfiling = 'Profiling';  //to translate
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

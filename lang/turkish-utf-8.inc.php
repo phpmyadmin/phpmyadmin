@@ -1031,4 +1031,5 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sıfır)\'a ayarlanması sı
 $strZip = '"zip olarak"';
 
 $strProfiling = 'Profiling';  //to translate
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

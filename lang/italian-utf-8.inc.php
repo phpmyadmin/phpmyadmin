@@ -1025,4 +1025,5 @@ $strYes = 'Sì';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

@@ -545,6 +545,7 @@ $strPagesToBeFlushed = 'Pages to be flushed';
 $strPaperSize = 'Paper size';
 $strPartialImport = 'Partial import';
 $strPartialText = 'Partial Texts';
+$strPartitionDefinition = 'PARTITION definition';
 $strPasswordChanged = 'The password for %s was changed successfully.';
 $strPasswordEmpty = 'The password is empty!';
 $strPasswordHashing = 'Password Hashing';

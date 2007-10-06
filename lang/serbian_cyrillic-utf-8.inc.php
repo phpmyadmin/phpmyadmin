@@ -1025,4 +1025,5 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
+$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>

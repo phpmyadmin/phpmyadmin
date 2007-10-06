@@ -661,6 +661,21 @@ if ($action == 'tbl_create.php') {
     ?>
         </td>
     </tr>
+    <?php
+    if (PMA_MYSQL_INT_VERSION >= 50100 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'have_partitioning';")) {
+    ?>
+    <tr valign="top">
+        <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitionning', 'Partitionning'); ?>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <textarea name="partition_definition" id="partitiondefinition" cols="<?php echo $GLOBALS['cfg']['TextareaCols'];?>" rows="<?php echo $GLOBALS['cfg']['TextareaRows'];?>" dir="<?php echo $GLOBALS['text_dir'];?>"></textarea>
+        </td>
+    </tr>
+    <?php
+    }
+    ?>
     </table>
     <br />
     <?php
