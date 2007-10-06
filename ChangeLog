@@ -17,6 +17,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Alex Rambau
 - bug #1798786 [import] Wrong error message when a string contains semicolon
 - bug #1807923 [login] Login with html entities in password fails
+- [core] Undefined variable when creating a table that exists
 
 2.11.1.0 (2007-09-20)
 
