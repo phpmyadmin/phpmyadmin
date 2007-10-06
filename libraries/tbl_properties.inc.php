@@ -665,7 +665,7 @@ if ($action == 'tbl_create.php') {
     if (PMA_MYSQL_INT_VERSION >= 50100 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'have_partitioning';")) {
     ?>
     <tr valign="top">
-        <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitionning', 'Partitionning'); ?>
+        <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
     </tr>
     <tr>
