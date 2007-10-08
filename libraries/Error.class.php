@@ -414,7 +414,7 @@ class PMA_Error
     {
         echo '<div class="' . $this->getLevel() . '">';
         echo '<strong>' . $this->getType() . '</strong>';
-        echo ' (' . $this->getHash() . ')';
+        echo ' in ' . $this->getFile() . '#' . $this->getLine();
         echo "<br />\n";
         echo $this->getMessage();
         echo "<br />\n";

@@ -29,8 +29,14 @@
  * @version $Id$
  */
 
+/**
+ * the error handler
+ */
 require_once './libraries/Error_Handler.class.php';
 
+/**
+ * initialize the error handler
+ */
 $GLOBALS['error_handler'] = new PMA_Error_Handler();
 
 // at this point PMA_PHP_INT_VERSION is not yet defined

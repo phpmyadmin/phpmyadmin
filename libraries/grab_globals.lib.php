@@ -75,6 +75,7 @@ $_import_blacklist = array(
     '/^sql_query$/i',   // the query to be executed
     '/^GLOBALS$/i',     // the global scope
     '/^str.*$/i',       // PMA localized strings
+    '/^error_handler.*$/i',       // the error handler
     '/^_.*$/i',         // PMA does not use variables starting with _ from extern
     '/^.*\s+.*$/i',     // no whitespaces anywhere
     '/^[0-9]+.*$/i',    // numeric variable names
