@@ -10,8 +10,6 @@
  * @uses    session_name()
  * @uses    session_start()
  * @uses    ini_set()
- * @uses    version_compare()
- * @uses    PHP_VERSION
  */
 
 // verify if PHP supports session, die if it does not
