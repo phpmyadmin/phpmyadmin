@@ -105,7 +105,7 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     /**
      * display warning in main.php
      */
-    define('PMA_WARN_FOR_MCRYPT', 1);
+    trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
 }
 
 
@@ -123,7 +123,6 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['PMA_errors']
  * @uses    $GLOBALS['convcharset']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['strWelcome']
@@ -261,8 +260,8 @@ if (top != self) {
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login">
     <fieldset>
     <legend>
-<?php 
-    echo $GLOBALS['strLogin']; 
+<?php
+    echo $GLOBALS['strLogin'];
     echo '<a href="./Documentation.html" target="documentation" ' .
         'title="' . $GLOBALS['strPmaDocumentation'] . '">';
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
@@ -330,13 +329,9 @@ if (top != self) {
     // show the "Cookies required" message only if cookies are disabled
     // (we previously tried to set some cookies)
     if (empty($_COOKIE)) {
-        echo '<div class="notice">' . $GLOBALS['strCookiesRequired'] . '</div>' . "\n";
+        trigger_error($GLOBALS['strCookiesRequired'], E_USER_NOTICE);
     }
-    if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
-        foreach ($GLOBALS['PMA_errors'] as $error) {
-            echo '<div class="error">' . $error . '</div>' . "\n";
-        }
-    }
+    $GLOBALS['error_handler']->dispUserErrors();
     ?>
 </div>
 <script type="text/javascript">
@@ -433,9 +428,9 @@ function PMA_auth_check()
     }
 
     if (! empty($_REQUEST['old_usr'])) {
-        // The user wants to be logged out 
-        // -> delete his choices that were stored in session 
-        session_destroy(); 
+        // The user wants to be logged out
+        // -> delete his choices that were stored in session
+        session_destroy();
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach($GLOBALS['cfg']['Servers'] as $key => $val) {

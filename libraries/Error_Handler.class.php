@@ -126,15 +126,15 @@ class PMA_Error_Handler
             case E_WARNING:
             case E_CORE_WARNING:
             case E_COMPILE_WARNING:
+            case E_USER_ERROR:
+            case E_RECOVERABLE_ERROR:
                 // just collect the error
                 // display is called from outside
                 break;
-            case E_USER_ERROR:
             case E_ERROR:
             case E_PARSE:
             case E_CORE_ERROR:
             case E_COMPILE_ERROR:
-            case E_RECOVERABLE_ERROR:
             default:
                 // FATAL error, dislay it and exit
                 $this->_dispFatalError($error);
@@ -276,8 +276,12 @@ class PMA_Error_Handler
     {
         if ($GLOBALS['cfg']['Error_Handler']['display']) {
             foreach ($this->getErrors() as $error) {
-                if (! $error->isDisplayed()) {
-                    $error->display();
+                if ($error instanceof PMA_Error) {
+                    if (! $error->isDisplayed()) {
+                        $error->display();
+                    }
+                } else {
+                    var_dump($error);
                 }
             }
         } else {
@@ -295,10 +299,17 @@ class PMA_Error_Handler
     protected function _checkSavedErrors()
     {
         if (isset($_SESSION['errors'])) {
+
             // restore saved errors
-            $this->_errors = array_merge($_SESSION['errors'], $this->_errors);
+            foreach ($_SESSION['errors'] as $hash => $error) {
+                if ($error instanceof PMA_Error && ! isset($this->_errors[$hash])) {
+                    $this->_errors[$hash] = $error;
+                }
+            }
+            //$this->_errors = array_merge($_SESSION['errors'], $this->_errors);
 
             // delet stored errors
+            $_SESSION['errors'] = array();
             unset($_SESSION['errors']);
         }
     }

@@ -413,15 +413,19 @@ class PMA_Error
     public function display()
     {
         echo '<div class="' . $this->getLevel() . '">';
-        echo '<strong>' . $this->getType() . '</strong>';
-        echo ' in ' . $this->getFile() . '#' . $this->getLine();
-        echo "<br />\n";
+        if (! $this->isUserError()) {
+            echo '<strong>' . $this->getType() . '</strong>';
+            echo ' in ' . $this->getFile() . '#' . $this->getLine();
+            echo "<br />\n";
+        }
         echo $this->getMessage();
-        echo "<br />\n";
-        echo "<br />\n";
-        echo "<strong>Backtrace</strong><br />\n";
-        echo "<br />\n";
-        echo $this->displayBacktrace();
+        if (! $this->isUserError()) {
+            echo "<br />\n";
+            echo "<br />\n";
+            echo "<strong>Backtrace</strong><br />\n";
+            echo "<br />\n";
+            echo $this->displayBacktrace();
+        }
         echo '</div>';
         $this->isDisplayed(true);
     }

@@ -259,12 +259,6 @@ PMA_printListItem($strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmi
 </div>
 
 <?php
-if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
-    foreach ($GLOBALS['PMA_errors'] as $error) {
-        echo '<div class="error">' . $error . '</div>' . "\n";
-    }
-}
-
 /**
  * Warning if using the default MySQL privileged account
  * modified: 2004-05-05 mkkeck
@@ -272,7 +266,7 @@ if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
 if ($server != 0
  && $cfg['Server']['user'] == 'root'
  && $cfg['Server']['password'] == '') {
-    echo '<div class="warning">' . $strInsecureMySQL . '</div>' . "\n";
+    trigger_error($strInsecureMySQL, E_USER_WARNING);
 }
 
 /**
@@ -280,7 +274,7 @@ if ($server != 0
  * break it, see bug 1063821.
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    echo '<div class="warning">' . $strMbOverloadWarning . '</div>' . "\n";
+    trigger_error($strMbOverloadWarning, E_USER_WARNING);
 }
 
 /**
@@ -288,14 +282,7 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
  * to tell user something might be broken without it, see bug #1063149.
  */
 if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
-    echo '<div class="warning">' . $strMbExtensionMissing . '</div>' . "\n";
-}
-
-/**
- * Warning for old PHP version
- */
-if (PMA_PHP_INT_VERSION < 50200) {
-    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '5.2.0') . '</div>' . "\n";
+    trigger_error($strMbExtensionMissing, E_USER_WARNING);
 }
 
 /**
@@ -303,23 +290,10 @@ if (PMA_PHP_INT_VERSION < 50200) {
  * (a difference on the third digit does not count)
  */
 if ($server > 0 && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
-    echo '<div class="notice">'
-     . PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
+    trigger_error(PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
             PMA_DBI_get_client_info(),
-            substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-'))))
-     . '</div>' . "\n";
-}
-
-/**
- * Warning about wrong controluser settings
- */
-$strControluserFailed = 'Connection for controluser as defined in your config.inc.php failed.';
-if (defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
-    echo '<div class="warning">' . $strControluserFailed . '</div>' . "\n";
-}
-
-if (defined('PMA_WARN_FOR_MCRYPT')) {
-    echo '<div class="warning">' . PMA_sanitize(sprintf($strCantLoad, 'mcrypt')) . '</div>' . "\n";
+            substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-')))),
+        E_USER_NOTICE);
 }
 
 /**

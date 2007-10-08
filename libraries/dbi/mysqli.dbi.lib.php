@@ -108,9 +108,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
 
     if ($return_value == false) {
         if ($is_controluser) {
-            if (! defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
-                define('PMA_DBI_CONNECT_FAILED_CONTROLUSER', true);
-            }
+            trigger_error($strControluserFailed, E_USER_WARNING);
             return false;
         }
         PMA_auth_fails();

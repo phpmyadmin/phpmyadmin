@@ -367,13 +367,22 @@ require_once $lang_file;
 
 // now, that we have loaded the language strings we can send the errors
 if ($GLOBALS['lang_failed_cfg']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_cfg']));
+    trigger_error(
+        sprintf($GLOBALS['strLanguageUnknown'],
+            htmlspecialchars($GLOBALS['lang_failed_cfg'])),
+        E_USER_ERROR);
 }
 if ($GLOBALS['lang_failed_cookie']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_cookie']));
+    trigger_error(
+        sprintf($GLOBALS['strLanguageUnknown'],
+            htmlspecialchars($GLOBALS['lang_failed_cookie'])),
+        E_USER_ERROR);
 }
 if ($GLOBALS['lang_failed_request']) {
-    $GLOBALS['PMA_errors'][] = sprintf($GLOBALS['strLanguageUnknown'], htmlspecialchars($GLOBALS['lang_failed_request']));
+    trigger_error(
+        sprintf($GLOBALS['strLanguageUnknown'],
+            htmlspecialchars($GLOBALS['lang_failed_request'])),
+        E_USER_ERROR);
 }
 
 unset($line, $fall_back_lang,

@@ -46,11 +46,12 @@ if (! PMA_DBI_checkAndLoadMysqlExtension($GLOBALS['cfg']['Server']['extension'])
      * @todo 2.7.1: add different messages for alternativ extension
      * and complete fail (no alternativ extension too)
      */
-    $GLOBALS['PMA_errors'][] =
+    $error =
         sprintf(PMA_sanitize($GLOBALS['strCantLoad']),
             $GLOBALS['cfg']['Server']['extension'])
         .' - <a href="./Documentation.html#faqmysql" target="documentation">'
         .$GLOBALS['strDocu'] . '</a>';
+    trigger_error($error, E_USER_ERROR);
 
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
         $alternativ_extension = 'mysqli';

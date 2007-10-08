@@ -99,7 +99,7 @@ function PMA_auth_fails()
     $GLOBALS['is_header_sent'] = TRUE;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
-        echo '<p>' . $GLOBALS['strAccessDenied'] . '</p>' . "\n";
+        trigger_error($GLOBALS['strAccessDenied'], E_USER_NOTICE);
     } else {
         // Check whether user has configured something
         if ($_SESSION['PMA_Config']->source_mtime == 0) {
@@ -116,11 +116,7 @@ function PMA_auth_fails()
         }
         PMA_mysqlDie($conn_error, '', true, '', false);
     }
-    if (! empty($GLOBALS['PMA_errors']) && is_array($GLOBALS['PMA_errors'])) {
-        foreach ($GLOBALS['PMA_errors'] as $error) {
-            echo '<div class="error">' . $error . '</div>' . "\n";
-        }
-    }
+    $GLOBALS['error_handler']->dispUserErrors();
 ?>
         </td>
     </tr>

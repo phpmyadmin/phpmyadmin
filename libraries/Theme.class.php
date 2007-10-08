@@ -133,7 +133,6 @@ class PMA_Theme {
      * @uses    PMA_Theme::setImgPath()
      * @uses    PMA_Theme::getName()
      * @uses    $GLOBALS['cfg']['ThemePath']
-     * @uses    $GLOBALS['PMA_errors']
      * @uses    $GLOBALS['strThemeNoValidImgPath']
      * @uses    is_dir()
      * @uses    sprintf()
@@ -147,13 +146,9 @@ class PMA_Theme {
             $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/original/img/');
             return true;
         } else {
-            $GLOBALS['PMA_errors'][] =
-                sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName());
-            /*
             trigger_error(
                 sprintf($GLOBALS['strThemeNoValidImgPath'], $this->getName()),
-                E_USER_WARNING);
-            */
+                E_USER_ERROR);
             return false;
         }
     }

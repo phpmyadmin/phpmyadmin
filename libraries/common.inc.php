@@ -255,12 +255,6 @@ require_once './libraries/session.inc.php';
  */
 
 /**
- * holds errors
- * @global array $GLOBALS['PMA_errors']
- */
-$GLOBALS['PMA_errors'] = array();
-
-/**
  * holds parameters to be passed to next page
  * @global array $GLOBALS['url_params']
  */
@@ -546,7 +540,7 @@ require_once $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php'
  * this check is done here after loading language files to present errors in locale
  */
 if ($_SESSION['PMA_Config']->error_config_file) {
-    $GLOBALS['PMA_errors'][] = $strConfigFileError
+    $error = $strConfigFileError
         . '<br /><br />'
         . ($_SESSION['PMA_Config']->getSource() == './config.inc.php' ?
         '<a href="show_config_errors.php"'
@@ -554,13 +548,15 @@ if ($_SESSION['PMA_Config']->error_config_file) {
         :
         '<a href="' . $_SESSION['PMA_Config']->getSource() . '"'
         .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>');
+    trigger_error($error, E_USER_ERROR);
 }
 if ($_SESSION['PMA_Config']->error_config_default_file) {
-    $GLOBALS['PMA_errors'][] = sprintf($strConfigDefaultFileError,
+    $error = sprintf($strConfigDefaultFileError,
         $_SESSION['PMA_Config']->default_source);
+    trigger_error($error, E_USER_ERROR);
 }
 if ($_SESSION['PMA_Config']->error_pma_uri) {
-    $GLOBALS['PMA_errors'][] = sprintf($strPmaUriError);
+    trigger_error($strPmaUriError, E_USER_ERROR);
 }
 
 /**
@@ -586,14 +582,14 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 
         // Detect wrong configuration
         if (!is_int($server_index) || $server_index < 1) {
-            $GLOBALS['PMA_errors'][] = sprintf($strInvalidServerIndex, $server_index);
+            trigger_error(sprintf($strInvalidServerIndex, $server_index), E_USER_ERROR);
         }
 
         $each_server = array_merge($default_server, $each_server);
 
         // Don't use servers with no hostname
         if ($each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            $GLOBALS['PMA_errors'][] = sprintf($strInvalidServerHostname, $server_index);
+            trigger_error(sprintf($strInvalidServerHostname, $server_index), E_USER_ERROR);
         }
 
         // Final solution to bug #582890
