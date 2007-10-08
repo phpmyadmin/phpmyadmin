@@ -58,6 +58,12 @@ if (! PMA_isValid($_REQUEST['no_history']) && empty($GLOBALS['error_message'])
         $GLOBALS['sql_query']);
 }
 
+if ($GLOBALS['error_handler']->hasDisplayErrors()) {
+    echo '<div>';
+    $GLOBALS['error_handler']->dispErrors();
+    echo '</div>';
+}
+
 if (count($GLOBALS['footnotes'])) {
     echo '<div class="notice">';
     foreach ($GLOBALS['footnotes'] as $footnote) {

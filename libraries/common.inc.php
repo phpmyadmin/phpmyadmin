@@ -29,6 +29,10 @@
  * @version $Id$
  */
 
+require_once './libraries/Error_Handler.class.php';
+
+$GLOBALS['error_handler'] = new PMA_Error_Handler();
+
 // at this point PMA_PHP_INT_VERSION is not yet defined
 if (version_compare(phpversion(), '6', 'lt')) {
     /**
@@ -140,6 +144,7 @@ $variables_whitelist = array (
     '_ENV',
     '_COOKIE',
     '_SESSION',
+    'error_handler',
 );
 
 foreach (get_defined_vars() as $key => $value) {
