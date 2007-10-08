@@ -77,12 +77,6 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         $first_quote = strpos($buffer, '\'', $i);
         if ($first_quote === FALSE) {
             $first_quote = $big_value;
-            $next_quote = $big_value;
-        } else {
-            $next_quote = strpos($buffer, '\'', $first_quote + 1);
-            if ($next_quote === FALSE) {
-                $next_quote = $big_value;
-            }
         }
         $p2 = strpos($buffer, '"', $i);
         if ($p2 === FALSE) {
@@ -91,12 +85,11 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         /**
          * @todo it's a shortcoming to look for a delimiter that might be
          *       inside quotes (or even double-quotes)
-         *       for the moment, catch the case of delimiter between quotes
          */
         $first_sql_delimiter = strpos($buffer, $sql_delimiter, $i);
         if ($first_sql_delimiter === FALSE) {
             $first_sql_delimiter = $big_value;
-        } elseif ($first_sql_delimiter < $first_quote && $first_sql_delimiter > $next_quote) {
+        } else {
             $found_delimiter = true;
         }
         $p4 = strpos($buffer, '#', $i);
