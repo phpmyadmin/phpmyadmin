@@ -202,8 +202,8 @@ if (empty($is_info)) {
     $sub_part = '_structure';
     require './libraries/db_info.inc.php';
     echo "\n";
-    
-    if (iseet($_message)) {
+
+    if (isset($_message)) {
         PMA_showMessage($_message, $sql_query, $_msg_type);
         unset($_message, $_msg_type);
     }
