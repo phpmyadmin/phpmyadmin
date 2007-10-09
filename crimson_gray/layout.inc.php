@@ -25,6 +25,8 @@ $GLOBALS['cfg']['NaviBackground']           = '#8B8F94';
 $GLOBALS['cfg']['NaviPointerColor']         = '#000000';
 // background of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerBackground']    = '#C0C0C0';
+// text color of the selected database name (when showing the table list)
+$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#AA0000';
 
 /**
  * main frame

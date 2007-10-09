@@ -7,10 +7,11 @@
  * @package phpMyAdmin-theme
  * @subpackage Crimson-Gray
  */
-    // unplanned execution path
-    if (!defined('PMA_MINIMUM_COMMON')) {
-        exit();
-    }
+
+// unplanned execution path
+if (!defined('PMA_MINIMUM_COMMON')) {
+    exit();
+}
 ?>
 /******************************************************************************/
 /* general tags */
@@ -105,6 +106,8 @@ fieldset fieldset {
 
 fieldset legend {
     background-color:   transparent;
+    font-weight:        bold;
+    color:              #444444;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -135,6 +138,8 @@ button {
 fieldset.tblFooters {
     margin-top:         0;
     margin-bottom:      0.5em;
+    /* avoid a thick line since this should be used under another fieldset */
+    border-top:         0;
     text-align:         <?php echo $right; ?>;
     float:              none;
     clear:              both;
@@ -351,10 +356,10 @@ h1.notice,
 div.notice {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #FFD700;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -381,10 +386,10 @@ h1.warning,
 div.warning {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #CC0000;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -411,10 +416,10 @@ h1.error,
 div.error {
     margin:             0.5em 0 0.5em 0;
     border:             0.1em solid #ff0000;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            10px 10px 10px 36px;
         <?php } else { ?>
@@ -442,10 +447,10 @@ fieldset.confirmation legend {
     border-left:        0.1em solid #FF0000;
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
-    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
     background-repeat:  no-repeat;
-        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
         <?php } else { ?>
@@ -535,7 +540,7 @@ body.loginform div.container {
 
 form.login label {
     float: <?php echo $left; ?>;
-    width: 10em;
+    width: 11.5em;
     font-weight: bolder;
 }
 
@@ -590,7 +595,7 @@ a.tabcaution:hover {
     background-color:   #AA0000;
 }
 
-<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+<?php if ($GLOBALS['cfg']['LightTabs']) { ?>
 /* active tab */
 a.tabactive {
     color:              black;
@@ -626,7 +631,12 @@ a.tabcaution:hover,
 
 a.tab:hover,
 .tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
+/* to be able to cancel the bottom border, use <li class="active"> */
+ul#topmenu li.active {
+     border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 /* disabled drop/empty tabs */
@@ -943,7 +953,8 @@ li#li_select_theme{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
 }
 
-li#li_server_info{
+li#li_server_info,
+li#li_server_version{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
 }
 
@@ -995,7 +1006,8 @@ li#li_log_out {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
 }
 
-li#li_pma_docs {
+li#li_pma_docs,
+li#li_pma_wiki {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
 }
 
