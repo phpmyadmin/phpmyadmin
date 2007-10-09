@@ -49,7 +49,7 @@ echo '<h2>' . "\n"
 $sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST';
 $result = PMA_DBI_query($sql_query);
 
-PMA_showMessage($GLOBALS['strSuccess']);
+PMA_showMessage($GLOBALS['strSuccess'], null, 'success');
 
 
 /**

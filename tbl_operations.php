@@ -43,23 +43,23 @@ PMA_DBI_select_db($GLOBALS['db']);
 require './libraries/tbl_info.inc.php';
 
 $reread_info = false;
-$errors = array();
 $table_alters = array();
 
 /**
  * Updates table comment, type and options if required
  */
 if (isset($_REQUEST['submitoptions'])) {
-    $message = '';
+    $_message = '';
     if (isset($_REQUEST['new_name'])) {
         if ($pma_table->rename($_REQUEST['new_name'])) {
-            $message .= $pma_table->getLastMessage();
-            $GLOBALS['table'] = $pma_table->getName();;
+            $_message .= $pma_table->getLastMessage();
+            $result = true;
+            $GLOBALS['table'] = $pma_table->getName();
             $reread_info = true;
             $reload = true;
         } else {
-            $errors[] = $pma_table->getLastError();
-            $message .= $pma_table->getLastError();
+            $_message .= $pma_table->getLastError();
+            $result = false;
         }
     }
     if (isset($_REQUEST['comment'])
@@ -108,7 +108,7 @@ if (isset($_REQUEST['submitoptions'])) {
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
-        $message        .= PMA_DBI_query($sql_query) ? $strSuccess : $strError;
+        $result        .= PMA_DBI_query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
     }
@@ -123,7 +123,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
     if (isset($_REQUEST['order_order']) && $_REQUEST['order_order'] === 'desc') {
         $sql_query .= ' DESC';
     }
-    $message = PMA_DBI_query($sql_query) ? $strSuccess : $strError;
+    $result = PMA_DBI_query($sql_query);
 } // end if
 
 
@@ -137,6 +137,14 @@ unset($reread_info);
  * Displays top menu links
  */
 require_once './libraries/tbl_links.inc.php';
+
+if (isset($result)) {
+    if (empty($_message)) {
+        $_message = $result ? $strSuccess : $strError;
+        $_type    = $result ? 'success' : 'error';
+    }
+    PMA_showMessage($_message, $sql_query, $_type);
+}
 
 $url_params['goto'] = 'tbl_operations.php';
 $url_params['back'] = 'tbl_operations.php';
@@ -501,7 +509,7 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
         ?>
     </ul>
         <?php
-    } // end if ($result)
+    } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
 

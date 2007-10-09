@@ -144,7 +144,7 @@ if (count($binary_logs) > 1) {
     echo '</form>';
 }
 
-PMA_showMessage($GLOBALS['strSuccess']);
+PMA_showMessage($GLOBALS['strSuccess'], null, 'success');
 
 /**
  * Displays the page

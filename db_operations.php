@@ -30,12 +30,15 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $move = false;
     }
 
+    $_msg_type = 'success';
+
     if (!isset($newname) || !strlen($newname)) {
-        $message = $strDatabaseEmpty;
+        $_message = $strDatabaseEmpty;
+        $_msg_type = 'error';
     } else {
         $sql_query = ''; // in case target db exists
         if ($move ||
-           (isset($create_database_before_copying) && $create_database_before_copying)) {
+         (isset($create_database_before_copying) && $create_database_before_copying)) {
             /**
              * @todo activate this with the correct version of MySQL
              *       when they fix the problem when the db contains a VIEW
@@ -85,9 +88,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // value of $what for this table only
             $this_what = $what;
 
-            if (!isset($tables_full[$each_table]['Engine'])) {
-                $tables_full[$each_table]['Engine'] = $tables_full[$each_table]['Type'];
-            }
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
             if ($tables_full[$each_table]['Engine'] == 'MRG_MyISAM') {
@@ -107,7 +107,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
-
+            // $sql_query is filled by PMA_Table::moveCopy()
             $sql_query = $back . $sql_query;
         } // end (foreach)
         unset($each_table);
@@ -154,10 +154,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 $sql_query .= "\n" . $local_query;
                 PMA_DBI_query($local_query);
             }
-            $message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db),
+            $_message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db),
                 htmlspecialchars($newname));
         } else {
-            $message    = sprintf($strCopyDatabaseOK, htmlspecialchars($db),
+            $_message    = sprintf($strCopyDatabaseOK, htmlspecialchars($db),
                 htmlspecialchars($newname));
         }
         $reload     = true;
@@ -202,6 +202,11 @@ if (empty($is_info)) {
     $sub_part = '_structure';
     require './libraries/db_info.inc.php';
     echo "\n";
+    
+    if (iseet($_message)) {
+        PMA_showMessage($_message, $sql_query, $_msg_type);
+        unset($_message, $_msg_type);
+    }
 }
 
 $db_collation = PMA_getDbCollation($db);

@@ -50,8 +50,8 @@ if (!empty($sql_query)) {
 // upload limit has been reached, let's assume the second possibility.
 if ($_POST == array() && $_GET == array()) {
     require_once './libraries/header.inc.php';
-    $show_error_header = TRUE;
-    PMA_showMessage(sprintf($strUploadLimit, '[a@./Documentation.html#faq1_16@_blank]', '[/a]'));
+    PMA_showMessage(sprintf($strUploadLimit, '[a@./Documentation.html#faq1_16@_blank]', '[/a]'),
+        null, 'error');
     require './libraries/footer.inc.php';
 }
 

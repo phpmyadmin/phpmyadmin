@@ -1868,7 +1868,13 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $last_shown_rec = ($_SESSION['userconf']['max_rows'] == 'all' || $pos_next > $total)
                         ? $total - 1
                         : $pos_next - 1;
-        PMA_showMessage($GLOBALS['strShowingRecords'] . ' ' . $_SESSION['userconf']['pos'] . ' - ' . $last_shown_rec . ' (' . $pre_count . PMA_formatNumber($total, 0) . $after_count . ' ' . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
+        PMA_showMessage($GLOBALS['strShowingRecords'] . ' '
+            . $_SESSION['userconf']['pos'] . ' - ' . $last_shown_rec
+            . ' (' . $pre_count . PMA_formatNumber($total, 0) . $after_count
+            . ' ' . $GLOBALS['strTotal'] . $selectstring . ', '
+            . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')',
+            $sql_query,
+            'success');
 
         if (PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
             echo '<div class="notice">' . "\n";
@@ -1876,7 +1882,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             echo '</div>' . "\n";
         }
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
-        PMA_showMessage($GLOBALS['strSQLQuery']);
+        PMA_showMessage($GLOBALS['strSuccess'], $sql_query, 'success');
     }
 
     // 2.3 Displays the navigation bars

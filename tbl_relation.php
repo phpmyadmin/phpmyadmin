@@ -229,9 +229,9 @@ if (isset($_REQUEST['destination_innodb'])) {
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            PMA_showMessage($strError);
+            PMA_showMessage($strError, null, 'error');
         } else {
-            PMA_showMessage($strSuccess);
+            PMA_showMessage($strSuccess, null, 'success');
         }
     }
 } // end if isset($destination_innodb)

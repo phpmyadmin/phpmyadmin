@@ -108,7 +108,7 @@ if (isset($_REQUEST['nopass'])) {
         // Displays the page
         require_once './libraries/header.inc.php';
         echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
-        PMA_showMessage($strUpdateProfileMessage, $sql_query);
+        PMA_showMessage($strUpdateProfileMessage, $sql_query, 'success');
         ?>
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
             <b><?php echo $strBack; ?></b></a>

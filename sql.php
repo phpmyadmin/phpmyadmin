@@ -572,10 +572,7 @@ else {
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && $cfg['ShowSQL'] == true) {
-        $tmp_sql_query = $GLOBALS['sql_query'];
-        $GLOBALS['sql_query'] = $disp_query;
-        PMA_showMessage($disp_message);
-        $GLOBALS['sql_query'] = $tmp_sql_query;
+        PMA_showMessage($disp_message, $disp_query, 'success');
     }
 
     if (isset($profiling_results)) {
