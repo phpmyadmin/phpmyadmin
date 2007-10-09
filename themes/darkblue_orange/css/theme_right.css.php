@@ -370,17 +370,24 @@ td .icon {
 }
 
 /* message boxes: warning, error, confirmation */
-.notice {
-    color:              #000000;
-    background-color:   #FFFFDD;
+.success h1,
+.notice h1,
+.warning h1,
+div.error h1 {
+    border-bottom:      2px solid;
+    font-weight:        bold;
+    text-align:         <?php echo $left; ?>;
+    margin:             0 0 0.2em 0;
 }
-h1.notice,
-div.notice {
-    margin:             0.5em 0 0.5em 0;
-    border:             0.1em solid #FFD700;
+
+div.success,
+div.notice,
+div.warning,
+div.error {
+    margin:             0.3em 0 0.3em 0;
+    border:             2px solid;
     width:              90%;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
@@ -393,11 +400,35 @@ div.notice {
     padding:            0.5em;
     <?php } ?>
 }
+
+.success {
+    color:              #000000;
+    background-color:   #f0fff0;
+}
+h1.success,
+div.success {
+    border-color:       #00FF00;
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
+    <?php } ?>
+}
+.success h1 {
+    border-color:       #00FF00;
+}
+
+.notice {
+    color:              #000000;
+    background-color:   #FFFFDD;
+}
+h1.notice,
+div.notice {
+    border-color:       #FFD700;
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
+    <?php } ?>
+}
 .notice h1 {
-    border-bottom:      0.1em solid #FFD700;
-    font-weight:        bold;
-    text-align:         <?php echo $left; ?>;
-    margin:             0 0 0.2em 0;
+    border-color:       #FFD700;
 }
 
 .warning {
@@ -407,28 +438,13 @@ div.notice {
 p.warning,
 h1.warning,
 div.warning {
-    margin:             0.5em 0 0.5em 0;
-    border:             0.1em solid #CC0000;
-    width:              90%;
+    border-color:       #CC0000;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_warn.png);
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding:            10px 10px 10px 36px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding:            10px 5% 10px 10px;
-        <?php } ?>
-    <?php } else { ?>
-    padding:            0.5em;
     <?php } ?>
 }
 .warning h1 {
-    border-bottom:      0.1em solid #cc0000;
-    font-weight:        bold;
-    text-align:         <?php echo $left; ?>;
-    margin:             0 0 0.2em 0;
+    border-color:       #cc0000;
 }
 
 .error {
@@ -438,28 +454,13 @@ div.warning {
 
 h1.error,
 div.error {
-    margin:             0.5em 0 0.5em 0;
-    border:             0.1em solid #ff0000;
-    width:              90%;
+    border-color:       #ff0000;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding:            10px 10px 10px 36px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding:            10px 5% 10px 10px;
-        <?php } ?>
-    <?php } else { ?>
-    padding:            0.5em;
     <?php } ?>
 }
 div.error h1 {
-    border-bottom:      0.1em solid #ff0000;
-    font-weight:        bold;
-    text-align:         <?php echo $left; ?>;
-    margin:             0 0 0.2em 0;
+    border-color:       #ff0000;
 }
 
 .confirmation {
