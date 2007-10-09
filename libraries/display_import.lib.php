@@ -33,10 +33,6 @@ if ($import_type == 'server') {
 echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />';
 echo PMA_pluginGetJavascript($import_list);
 ?>
-
-    <h2><?php echo $strImport; ?></h2>
-
-    <!-- File name, and some other common options -->
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
 

@@ -92,4 +92,3 @@ if (!empty($message)) {
 }
 
 ?>
-<br />

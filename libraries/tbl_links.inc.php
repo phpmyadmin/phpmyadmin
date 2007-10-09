@@ -133,4 +133,4 @@ if (!empty($message)) {
     unset($message);
 }
 
-?><br />
+?>

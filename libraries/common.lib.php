@@ -999,7 +999,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         }
     }
     unset($tbl_status);
-    echo '<br />' . "\n";
 
     echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
     if (!empty($GLOBALS['show_error_header'])) {
