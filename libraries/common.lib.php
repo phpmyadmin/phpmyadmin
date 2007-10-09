@@ -944,7 +944,7 @@ if (typeof(window.parent) != 'undefined'
  * @uses    $cfg
  * @access  public
  */
-function PMA_showMessage($message, $sql_query = null)
+function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 {
     global $cfg;
     $query_too_big = false;
@@ -1007,7 +1007,7 @@ function PMA_showMessage($message, $sql_query = null)
         echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
     }
 
-    echo '<div class="notice">';
+    echo '<div class="' . $type . '">';
     echo PMA_sanitize($message);
     if (isset($GLOBALS['special_message'])) {
         echo PMA_sanitize($GLOBALS['special_message']);
