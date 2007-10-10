@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.1.1 (not yet released)
+- bug #1810629 [setup] XSS in setup.php
+
 2.11.1.0 (2007-09-20)
 
 - bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version 

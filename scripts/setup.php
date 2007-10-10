@@ -1951,7 +1951,10 @@ switch ($action) {
             if (empty($_SERVER['REQUEST_URI']) || empty($_SERVER['HTTP_HOST'])) {
                 $redir = '';
             } else {
-                $redir = ' If your server is also configured to accept HTTPS request follow <a href="https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '">this link</a> to use secure connection.';
+                $redir = ' If your server is also configured to accept HTTPS request'
+                    . ' follow <a href="https://'
+                    . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])
+                    . '">this link</a> to use secure connection.';
             }
             message('warning', 'You are not using secure connection, all data (including sensitive, like passwords) are transfered unencrypted!' . $redir, 'Not secure connection');
         }
