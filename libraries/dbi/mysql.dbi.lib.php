@@ -78,7 +78,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
 
     if (empty($link) && ! $is_controluser) {
         if ($is_controluser) {
-            trigger_error($strControluserFailed, E_USER_WARNING);
+            trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
             return false;
         }
         PMA_auth_fails();
