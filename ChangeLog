@@ -23,6 +23,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [core] Undefined variable when creating a table that exists
 - patch #1808578 Changes in font size were no longer detected after patch
   #1787915
++ [lang] Croatian update, thanks to Renato Pavicic
 
 2.11.1.1 (not yet released)
 - bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
