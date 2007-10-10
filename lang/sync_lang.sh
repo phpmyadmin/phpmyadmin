@@ -94,7 +94,7 @@ bulgarian-utf-8
 catalan-iso-8859-1
 chinese_traditional-utf-8
 chinese_simplified-gb2312
-croatian-windows-1250
+croatian-utf-8
 czech-utf-8
 danish-iso-8859-1
 dutch-iso-8859-1
