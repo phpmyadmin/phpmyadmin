@@ -58,8 +58,7 @@ if (empty($_REQUEST['asfile'])) {
 
 // Does export require to be into file?
 if (isset($export_list[$type]['force_file']) && ! $asfile) {
-    $message = $strExportMustBeFile;
-    $GLOBALS['show_error_header'] = true;
+    $message = new PMA_Message('strExportMustBeFile', PMA_Message::ERROR);
     $GLOBALS['js_include'][] = 'functions.js';
     require_once './libraries/header.inc.php';
     if ($export_type == 'server') {
@@ -301,15 +300,15 @@ if ($save_on_server) {
     $save_filename = PMA_userDir($cfg['SaveDir']) . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
-        $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));
+        $message = new PMA_Message('strFileAlreadyExists', PMA_Message::ERROR, $save_filename);
         $GLOBALS['show_error_header'] = true;
     } else {
         if (is_file($save_filename) && !is_writable($save_filename)) {
-            $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
+            $message = new PMA_Message('strNoPermission', PMA_Message::ERROR, $save_filename);
             $GLOBALS['show_error_header'] = true;
         } else {
             if (!$file_handle = @fopen($save_filename, 'w')) {
-                $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
+                $message = new PMA_Message('strNoPermission', PMA_Message::ERROR, $save_filename);
                 $GLOBALS['show_error_header'] = true;
             }
         }
@@ -361,7 +360,7 @@ if (!$save_on_server) {
         if ($export_type == 'database') {
             $num_tables = count($tables);
             if ($num_tables == 0) {
-                $message = $strNoTablesFound;
+                $message = new PMA_Message('strNoTablesFound', PMA_Message::ERROR);
                 $GLOBALS['js_include'][] = 'functions.js';
                 require_once './libraries/header.inc.php';
                 $active_page = 'db_export.php';
@@ -605,9 +604,9 @@ if (!empty($asfile)) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
         if (strlen($dump_buffer) !=0 && (!$write_result || ($write_result != strlen($dump_buffer)))) {
-            $message = sprintf($strNoSpace, htmlspecialchars($save_filename));
+            $message = new PMA_Message('strNoSpace', PMA_Message::ERROR, $save_filename);
         } else {
-            $message = sprintf($strDumpSaved, htmlspecialchars($save_filename));
+            $message = new PMA_Message('strDumpSaved', PMA_Message::SUCCESS, $save_filename);
         }
 
         $GLOBALS['js_include'][] = 'functions.js';
