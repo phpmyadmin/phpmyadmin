@@ -432,14 +432,19 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
  * @return  string html code for a footnote marker
  * @access  public
  */
-function PMA_showHint($hint_message, $bbcode = false, $type = 'notice')
+function PMA_showHint($message, $bbcode = false, $type = 'notice')
 {
-    $key = md5($hint_message);
+    if ($message instanceof PMA_Message) {
+        $key = $message->getHash();
+        $type = $message->getLevel();
+    } else {
+        $key = md5($message);
+    }
 
     if (! isset($GLOBALS['footnotes'][$key])) {
         $nr = count($GLOBALS['footnotes']) + 1;
         $GLOBALS['footnotes'][$key] = array(
-            'note' => $hint_message,
+            'note' => $message,
             'type' => $type,
             'nr'   => $nr,
         );
@@ -1006,13 +1011,17 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
     }
 
-    echo '<div class="' . $type . '">';
-    echo PMA_sanitize($message);
-    if (isset($GLOBALS['special_message'])) {
-        echo PMA_sanitize($GLOBALS['special_message']);
-        unset($GLOBALS['special_message']);
+    if ($message instanceof PMA_Message) {
+        $message->display();
+    } else {
+        echo '<div class="' . $type . '">';
+        echo PMA_sanitize($message);
+        if (isset($GLOBALS['special_message'])) {
+            echo PMA_sanitize($GLOBALS['special_message']);
+            unset($GLOBALS['special_message']);
+        }
+        echo '</div>';
     }
-    echo '</div>';
 
     if (!empty($GLOBALS['show_error_header'])) {
         echo '</div>';
@@ -1141,15 +1150,15 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_link .= urlencode('EXPLAIN ' . $sql_query);
-                $message = $GLOBALS['strExplain'];
+                $_message = $GLOBALS['strExplain'];
             } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
                 $explain_link .= urlencode(substr($sql_query, 8));
-                $message = $GLOBALS['strNoExplain'];
+                $_message = $GLOBALS['strNoExplain'];
             } else {
                 $explain_link = '';
             }
             if (!empty($explain_link)) {
-                $explain_link = ' [' . PMA_linkOrButton($explain_link, $message) . ']';
+                $explain_link = ' [' . PMA_linkOrButton($explain_link, $_message) . ']';
             }
         } else {
             $explain_link = '';
@@ -1168,12 +1177,12 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
             if (!empty($GLOBALS['show_as_php'])) {
                 $php_link .= '0';
-                $message = $GLOBALS['strNoPhp'];
+                $_message = $GLOBALS['strNoPhp'];
             } else {
                 $php_link .= '1';
-                $message = $GLOBALS['strPhp'];
+                $_message = $GLOBALS['strPhp'];
             }
-            $php_link = ' [' . PMA_linkOrButton($php_link, $message) . ']';
+            $php_link = ' [' . PMA_linkOrButton($php_link, $_message) . ']';
 
             if (isset($GLOBALS['show_as_php'])) {
                 $runquery_link

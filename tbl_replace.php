@@ -150,7 +150,7 @@ if (isset($_REQUEST['primary_key'])) {
 }
 
 $query = array();
-$message = '';
+$message = new PMA_Message();
 $value_sets = array();
 $func_no_param = array(
     'NOW',
@@ -274,12 +274,15 @@ if ($is_insert && count($value_sets) > 0) {
 
     unset($query_fields, $value_sets);
 
-    $message .= $GLOBALS['strInsertedRows'] . '&nbsp;';
+    $message->setString('strInsertedRows');
+    $message->isSuccess(true);
 } elseif (! empty($query)) {
-    $message .= $GLOBALS['strAffectedRows'] . '&nbsp;';
+    $message->setString('strAffectedRows');
+    $message->isSuccess(true);
 } else {
     // No change -> move back to the calling script
-    $message .= $GLOBALS['strNoModification'];
+    $message->setString('strNoModification');
+    $message->isSuccess(true);
     $GLOBALS['js_include'][] = 'functions.js';
     $active_page = $goto_include;
     require_once './libraries/header.inc.php';
@@ -300,6 +303,7 @@ $GLOBALS['sql_query'] = implode('; ', $query) . ';';
 $total_affected_rows = 0;
 $last_message = '';
 $warning_message = '';
+$error_message = '';
 
 foreach ($query as $single_query) {
     if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
@@ -309,7 +313,7 @@ foreach ($query as $single_query) {
     }
 
     if (! $result) {
-        $message .= PMA_DBI_getError();
+        $error_message .= '<br />' . PMA_DBI_getError();
     } else {
         if (@PMA_DBI_affected_rows()) {
             $total_affected_rows += @PMA_DBI_affected_rows();
@@ -323,30 +327,35 @@ foreach ($query as $single_query) {
             if ($total_affected_rows > 0) {
                 $insert_id = $insert_id + $total_affected_rows - 1;
             }
-            $last_message .= '[br]' . $GLOBALS['strInsertedRowId'] . '&nbsp;' . $insert_id;
+            $last_message .= '<br />' . $GLOBALS['strInsertedRowId'] . '&nbsp;' . $insert_id;
         }
         PMA_DBI_free_result($result);
     } // end if
 
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_message .= $warning['Level'] . ': #' . $warning['Code']
-            . ' ' . $warning['Message'] . '[br]';
+        $warning_message .= '<br />' . $warning['Level'] . ': #' . $warning['Code']
+            . ' ' . $warning['Message'];
     }
 
     unset($result);
 }
 unset($single_query, $query);
 
-$message .= $total_affected_rows . $last_message;
+$message->append(' ' . $total_affected_rows . $last_message);
 
 if (! empty($warning_message)) {
     /**
      * @todo use a <div class="warning"> in PMA_showMessage() for this part of
      * the message
      */
-    $message .= '[br]' . $warning_message;
+    $message->append($warning_message);
+    $message->isWarning(true);
 }
-unset($warning_message, $total_affected_rows, $last_message);
+if (! empty($error_message)) {
+    $message->append($error_message);
+    $message->isError(true);
+}
+unset($error_message, $warning_message, $total_affected_rows, $last_message);
 
 if (isset($return_to_sql_query)) {
     $disp_query = $GLOBALS['sql_query'];

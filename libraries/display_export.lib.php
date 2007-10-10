@@ -146,13 +146,18 @@ echo PMA_pluginGetJavascript($export_list);
         $trans = '__SERVER__/' . $strFileNameTemplateDescriptionServer;
         if ($export_type == 'database' || $export_type == 'table') {
             $trans .= ', __DB__/' . $strFileNameTemplateDescriptionDatabase;
+            if ($export_type == 'table') {
+                $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
+            }
         }
-        if ($export_type == 'table') {
-            $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
-        }
-        echo PMA_showHint(sprintf($strFileNameTemplateDescription,
-            '<a href="http://www.php.net/strftime" target="documentation" title="'
-            . $strDocu . '">', '</a>', $trans));
+
+        $message = new PMA_Message('strFileNameTemplateDescription');
+        $message->addParam('<a href="http://php.net/strftime" target="documentation" title="'
+            . $strDocu . '">');
+        $message->addParam('</a>');
+        $message->addParam($trans);
+
+        echo PMA_showHint($message);
         ?>
         </label>:
     <input type="text" name="filename_template" id="filename_template"
