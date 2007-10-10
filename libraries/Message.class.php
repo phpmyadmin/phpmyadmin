@@ -87,27 +87,12 @@ class PMA_Message
      * @param   boolean $sanitize
      * @param   scalare $parameters,...
      */
-    public function __construct()
+    public function __construct($string = '', $number = PMA_Message::NOTICE,
+        $params = array(), $sanitize = PMA_Message::SANITIZE_NONE)
     {
-        $args = func_get_args();
-
-        if (isset($args[0])) {
-            $this->setString(array_shift($args));
-        }
-        if (isset($args[0])) {
-            $this->setNumber(array_shift($args));
-        }
-
-        /*
-        $sanitize = true;
-        if (isset($args[0])) {
-            $sanitize = array_shift($args);
-        }
-
-        if (isset($args[0])) {
-            $this->setParams($args);
-        }
-        */
+        $this->setString($string, $sanitize & PMA_Message::SANITIZE_STRING);
+        $this->setNumber($number);
+        $this->setParams($params, $sanitize & PMA_Message::SANITIZE_PARAMS);
     }
 
     public function __toString()
@@ -201,8 +186,11 @@ class PMA_Message
         $this->_params[] = $param;
     }
 
-    public function setParams($params)
+    public function setParams($params, $sanitize = false)
     {
+        if ($sanitize) {
+            $params = PMA_Message::sanitize($params);
+        }
         $this->_params = $params;
     }
 
@@ -215,6 +203,28 @@ class PMA_Message
      * Sanitizes $message, taking into account our special codes
      * for formatting
      *
+     * @uses    htmlspecialchars()
+     * @param   string   the message
+     * @return  string   the sanitized message
+     * @access  public
+     */
+    static public function sanitize($message)
+    {
+        if (is_array($message)) {
+            foreach ($message as $key => $val) {
+                $message[$key] = PMA_Message::sanitize($val);
+            }
+
+            return $message;
+        }
+
+        return htmlspecialchars($message);
+    }
+
+    /**
+     * decode $message, taking into account our special codes
+     * for formatting
+     *
      * @uses    PREG_SET_ORDER
      * @uses    in_array()
      * @uses    preg_match_all()
@@ -223,14 +233,12 @@ class PMA_Message
      * @uses    substr()
      * @uses    strtr()
      * @param   string   the message
-     * @return  string   the sanitized message
+     * @return  string   the decoded message
      * @access  public
      */
-    static public function sanitize($message)
+    static public function decodeBB($message)
     {
         $replace_pairs = array(
-            '<'         => '&lt;',
-            '>'         => '&gt;',
             '[i]'       => '<em>',      // deprecated by em
             '[/i]'      => '</em>',     // deprecated by em
             '[em]'      => '<em>',
@@ -250,6 +258,7 @@ class PMA_Message
             '[sup]'     => '<sup>',
             '[/sup]'    => '</sup>',
         );
+
         $message = strtr($message, $replace_pairs);
 
         $pattern = '/\[a@([^"@]*)@([^]"]*)\]/';
@@ -293,7 +302,8 @@ class PMA_Message
      *
      * @uses    PMA_Message::$_hash as return value and to set it if required
      * @uses    PMA_Message::getNumber()
-     * @uses    PMA_Message::getMessage()
+     * @uses    PMA_Message::$_string
+     * @uses    PMA_Message::$_message
      * @uses    md5()
      * @param   string $file
      * @return  string PMA_Message::$_hash
@@ -303,7 +313,8 @@ class PMA_Message
         if (null === $this->_hash) {
             $this->_hash = md5(
                 $this->getNumber() .
-                $this->getMessage()
+                $this->_string .
+                $this->_message
             );
         }
 
@@ -322,13 +333,16 @@ class PMA_Message
 
         if (0 === strlen($message)) {
             $message = $GLOBALS[$this->getString()];
+            echo '<pre>';
+            debug_print_backtrace();
+            echo '</pre>';
         }
 
         if (count($this->getParams()) > 0) {
             $message = PMA_Message::format($message, $this->getParams());
         }
 
-        return $message;
+        return PMA_Message::decodeBB($message);
     }
 
     /**
