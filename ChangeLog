@@ -19,7 +19,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [core] Undefined variable when creating a table that exists
 
 2.11.1.1 (not yet released)
-- bug #1810629 [setup] XSS in setup.php
+- bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
 
 2.11.1.0 (2007-09-20)
 
