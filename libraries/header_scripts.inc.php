@@ -39,37 +39,37 @@ $title = str_replace(
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
 if (in_array('functions.js', $GLOBALS['js_include'])) {
-    $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-    $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
+    $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];
+    $GLOBALS['js_messages']['strNotNumber'] = $GLOBALS['strNotNumber'];
 
     if (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
-        $js_messages['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];
+        $GLOBALS['js_messages']['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];
     } else {
-        $js_messages['strNoDropDatabases'] = '';
+        $GLOBALS['js_messages']['strNoDropDatabases'] = '';
     }
 
     if ($GLOBALS['cfg']['Confirm']) {
-        $js_messages['strDoYouReally'] = $GLOBALS['strDoYouReally'];
-        $js_messages['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
+        $GLOBALS['js_messages']['strDoYouReally'] = $GLOBALS['strDoYouReally'];
+        $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
     } else {
-        $js_messages['strDoYouReally'] = '';
-        $js_messages['strDropDatabaseStrongWarning'] = '';
+        $GLOBALS['js_messages']['strDoYouReally'] = '';
+        $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = '';
     }
 } elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
-    $js_messages['strFormEmpty'] = $GLOBALS['strFormEmpty'];
-    $js_messages['strNotNumber'] = $GLOBALS['strNotNumber'];
+    $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];
+    $GLOBALS['js_messages']['strNotNumber'] = $GLOBALS['strNotNumber'];
 }
 
 if (in_array('server_privileges.js', $GLOBALS['js_include'])) {
-    $js_messages['strHostEmpty'] = $GLOBALS['strHostEmpty'];
-    $js_messages['strUserEmpty'] = $GLOBALS['strUserEmpty'];
-    $js_messages['strPasswordEmpty'] = $GLOBALS['strPasswordEmpty'];
-    $js_messages['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
+    $GLOBALS['js_messages']['strHostEmpty'] = $GLOBALS['strHostEmpty'];
+    $GLOBALS['js_messages']['strUserEmpty'] = $GLOBALS['strUserEmpty'];
+    $GLOBALS['js_messages']['strPasswordEmpty'] = $GLOBALS['strPasswordEmpty'];
+    $GLOBALS['js_messages']['strPasswordNotSame'] = $GLOBALS['strPasswordNotSame'];
 }
 
 $GLOBALS['js_include'][] = 'tooltip.js';
 
-$js_events[] = array(
+$GLOBALS['js_events'][] = array(
     'object'    => 'window',
     'event'     => 'load',
     'function'  => 'PMA_TT_init',
@@ -89,11 +89,11 @@ if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknow
 
 var PMA_messages = new Array();
 <?php
-foreach ($js_messages as $name => $js_message) {
+foreach ($GLOBALS['js_messages'] as $name => $js_message) {
     echo "PMA_messages['" . $name . "'] = '" . PMA_escapeJsString($js_message) . "';\n";
 }
 
-foreach ($js_events as $js_event) {
+foreach ($GLOBALS['js_events'] as $js_event) {
     echo "window.parent.addEvent(" . $js_event['object'] . ", '" . $js_event['event'] . "', "
         . $js_event['function'] . ");\n";
 }
