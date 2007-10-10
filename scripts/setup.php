@@ -1395,7 +1395,7 @@ switch ($action) {
                         } else {
                             mysql_close($conn);
                         }
-                    } else { 
+                    } else {
                         $socket = empty($new_server['socket']) || $new_server['connect_type'] == 'tcp' ? NULL : $new_server['socket'];
                         $port = empty($new_server['port']) || $new_server['connect_type'] == 'socket' ? NULL : $new_server['port'];
                         $conn = @mysqli_connect($new_server['host'], $new_server['controluser'], $new_server['controlpass'], NULL, $port, $socket);
@@ -1951,12 +1951,16 @@ switch ($action) {
             if (empty($_SERVER['REQUEST_URI']) || empty($_SERVER['HTTP_HOST'])) {
                 $redir = '';
             } else {
-                $redir = ' If your server is also configured to accept HTTPS request follow <a href="https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '">this link</a> to use secure connection.';
+                $redir = ' If your server is also configured to accept HTTPS request'
+                    . ' follow <a href="https://'
+                    . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])
+                    . '">this link</a> to use secure connection.';
             }
             message('warning', 'You are not using secure connection, all data (including sensitive, like passwords) are transfered unencrypted!' . $redir, 'Not secure connection');
         }
         break;
 }
+echo $_SERVER['REQUEST_URI'];
 
 // Should we show information?
 if ($show_info) {
