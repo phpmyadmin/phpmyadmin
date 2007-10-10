@@ -1960,7 +1960,6 @@ switch ($action) {
         }
         break;
 }
-echo $_SERVER['REQUEST_URI'];
 
 // Should we show information?
 if ($show_info) {
