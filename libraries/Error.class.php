@@ -7,10 +7,15 @@
  */
 
 /**
+ * base class
+ */
+require_once './libraries/Message.class.php';
+
+/**
  * a single error
  *
  */
-class PMA_Error
+class PMA_Error extends PMA_Message
 {
     /**
      * Error types
@@ -55,20 +60,6 @@ class PMA_Error
     );
 
     /**
-     * The error number
-     *
-     * @var integer
-     */
-    protected $_number = 0;
-
-    /**
-     * The error message/string
-     *
-     * @var string
-     */
-    protected $_string = '';
-
-    /**
      * The file in which the error occured
      *
      * @var string
@@ -98,13 +89,6 @@ class PMA_Error
     protected $_backtrace = array();
 
     /**
-     * Whether the error was already displayed
-     *
-     * @var boolean
-     */
-    protected $_is_displayed = false;
-
-    /**
      * Unique id
      *
      * @var string
@@ -130,7 +114,7 @@ class PMA_Error
     public function __construct($errno, $errstr, $errfile, $errline, $errcontext)
     {
         $this->setNumber($errno);
-        $this->setMessage($errstr);
+        $this->setMessage($errstr, false);
         $this->setFile($errfile);
         $this->setLine($errline);
         $this->setContext($errcontext);
@@ -174,28 +158,6 @@ class PMA_Error
     public function setLine($line)
     {
         $this->_line = $line;
-    }
-
-    /**
-     * sets PMA_Error::$_string
-     *
-     * @uses    PMA_Error::$_string to set it
-     * @param   string $message
-     */
-    public function setMessage($message)
-    {
-        $this->_string = $message;
-    }
-
-    /**
-     * sets PMA_Error::$_number
-     *
-     * @uses    PMA_Error::$_number to set it
-     * @param   integer $number
-     */
-    public function setNumber($number)
-    {
-        $this->_number = $number;
     }
 
     /**
@@ -270,28 +232,6 @@ class PMA_Error
     public function getLine()
     {
         return $this->_line;
-    }
-
-    /**
-     * returns PMA_Error::$_string
-     *
-     * @uses    PMA_Error::$_string as return value
-     * @return  string PMA_Error::$_string
-     */
-    public function getMessage()
-    {
-        return $this->_string;
-    }
-
-    /**
-     * returns PMA_Error::$_number
-     *
-     * @uses    PMA_Error::$_number as return value
-     * @return  integer PMA_Error::$_number
-     */
-    public function getNumber()
-    {
-        return $this->_number;
     }
 
     /**
@@ -428,22 +368,6 @@ class PMA_Error
         }
         echo '</div>';
         $this->isDisplayed(true);
-    }
-
-    /**
-     * sets and returns PMA_Error::$_is_displayed
-     *
-     * @uses    PMA_Error::$_is_displayed
-     * @param   boolean $is_displayed
-     * @return  boolean PMA_Error::$_is_displayed
-     */
-    public function isDisplayed($is_displayed = false)
-    {
-        if ($is_displayed){
-            $this->_is_displayed = $is_displayed;
-        }
-
-        return $this->_is_displayed;
     }
 
     /**
