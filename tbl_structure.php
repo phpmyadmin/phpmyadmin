@@ -685,6 +685,20 @@ if ($cfg['ShowStats']) {
     </tr>
         <?php
     }
+    if (! empty($showtable['Create_options'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strOptions; ?></th>
+        <td class="value"><?php
+        if ($showtable['Create_options'] == 'partitioned') {
+            echo $strPartitioned;
+        } else {
+            echo $showtable['Create_options'];
+        }
+        ?></td>
+    </tr>
+        <?php
+    }
     if (!empty($tbl_collation)) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
