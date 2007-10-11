@@ -1256,7 +1256,7 @@ if (!empty($change_copy)) {
 /**
  * Reloads the privilege tables into memory
  */
-if (!empty($flush_privileges)) {
+if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
     $message = new PMA_Message('strPrivilegesReloaded', PMA_Message::SUCCESS);
@@ -1534,7 +1534,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
             echo '</form>' . "\n";
-            $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::WARNING);
+            $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::NOTICE);
             $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">');
             $flushnote->addParam('</a>');
             $flushnote->display();
