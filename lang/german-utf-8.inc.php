@@ -255,7 +255,7 @@ $strEngineDisabled = '%s wurde auf diesem MySQL-Server deaktiviert.';
 $strEngines = 'Formate';
 $strEngineUnsupported = 'Dieser MySQL-Server unterstützt %s nicht.';
 $strEnglish = 'Englisch';
-$strEnglishPrivileges = ' Anmerkung: MySQL-Rechte werden auf Englisch angegeben. ';
+$strEnglishPrivileges = ' MySQL-Rechte werden auf Englisch angegeben. ';
 $strError = 'Fehler';
 $strErrorInZipFile = 'Fehler im ZIP-Archiv:';
 $strErrorRenamingTable = 'Fehler beim umbenennen von Tabelle %1$s nach %2$s';
@@ -287,7 +287,7 @@ $strFileNameTemplateDescriptionTable = 'Tabellen-Name';
 $strFileNameTemplateRemember = 'Konvention merken';
 $strFileToImport = 'Zu importierende Datei';
 $strFixed = 'starr';
-$strFlushPrivilegesNote = 'Anmerkung: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, die MySQL z.Zt. verwendet, unterscheiden, wenn manuelle Änderungen vorgenommen wurden. In diesem Fall sollten Sie  %sdie Benutzerprofile neu laden%s bevor Sie fortfahren.';
+$strFlushPrivilegesNote = 'phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, die MySQL z.Zt. verwendet, unterscheiden, wenn manuelle Änderungen vorgenommen wurden. In diesem Fall sollten Sie  %sdie Benutzerprofile neu laden%s bevor Sie fortfahren.';
 $strFlushQueryCache = 'Den Abfragencache leeren (FLUSH)';
 $strFlushTable = 'Leeren des Tabellencaches ("FLUSH")';
 $strFlushTables = 'Den Tabellencache leeren ("FLUSH")';
@@ -957,7 +957,7 @@ $strXML = 'XML';
 
 $strYes = 'Ja';
 
-$strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
+$strZeroRemovesTheLimit = 'Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 $strPmaWiki = 'phpMyAdmin Wiki';
 $strTransformation_text_plain__dateformat = 'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as formatted date. The first option is the offset (in hours) which will be added to the timestamp (Default: 0). Use second option to specify a different date/time format string. Third option determines whether you want to see local date or UTC one (use "local" or "utc" strings) for that. According to that, date format has different value - for "local" see the documentation for PHP\'s strftime() function and for "utc" it is done using gmdate() function.';  //to translate
