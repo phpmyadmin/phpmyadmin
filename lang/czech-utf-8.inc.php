@@ -545,6 +545,7 @@ $strPagesToBeFlushed = 'Stránek určených k&nbsp;uvolnění';
 $strPaperSize = 'Velikost stránky';
 $strPartialImport = 'Částečný import';
 $strPartialText = 'Zkrácené texty';
+$strPartitionDefinition = 'Definice PARTITION';
 $strPasswordChanged = 'Heslo pro %s bylo úspěšně změněno.';
 $strPasswordEmpty = 'Heslo je prázdné!';
 $strPasswordHashing = 'Hašovací funkce pro heslo';
@@ -1025,5 +1026,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strPartitionDefinition = 'PARTITION definition';  //to translate
 ?>
