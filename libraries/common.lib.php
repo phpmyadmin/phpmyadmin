@@ -84,10 +84,7 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $alternate    = htmlspecialchars($alternate);
     $button       = '';
 
-    if (($GLOBALS['cfg']['PropertiesIconic'] && $icon)
-     || ! strlen($alternate)) {
-         // we have valid icon and $cfg['PropertiesIconic'] is true or both
-         // OR $alternate is empty
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
          $include_icon = true;
     }
 
