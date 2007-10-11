@@ -46,10 +46,11 @@ if (isset($dbname)) {
 if (!$is_superuser) {
     require './libraries/server_links.inc.php';
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
+       . PMA_getIcon('b_usrlist.png')
        . $GLOBALS['strPrivileges'] . "\n"
-       . '</h2>' . "\n"
-       . $GLOBALS['strNoPrivileges'] . "\n";
+       . '</h2>' . "\n";
+    $message = new PMA_Message('strNoPrivileges', PMA_Message::ERROR);
+    $message->display();
     require_once './libraries/footer.inc.php';
 }
 
@@ -59,9 +60,10 @@ if (!$is_superuser) {
  * @param   string   the user's initial
  * @return  string   the generated condition
  */
-function PMA_RangeOfUsers($initial = '') {
-// strtolower() is used because the User field
-// might be BINARY, so LIKE would be case sensitive
+function PMA_RangeOfUsers($initial = '')
+{
+    // strtolower() is used because the User field
+    // might be BINARY, so LIKE would be case sensitive
     if (!empty($initial)) {
         $ret = " WHERE " . PMA_convert_using('User')
          . " LIKE " . PMA_convert_using($initial . '%', 'quoted')
@@ -94,7 +96,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Drop_priv', 'DROP', $GLOBALS['strPrivDescDropDb']),
         array('Reload_priv', 'RELOAD', $GLOBALS['strPrivDescReload']),
         array('Shutdown_priv', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']),
-        array('Process_priv', 'PROCESS', $GLOBALS['strPrivDescProcess' . ((!empty($row) && isset($row['Super_priv'])) || (empty($row) && isset($GLOBALS['Super_priv'])) ? '4' : '3')]),
+        array('Process_priv', 'PROCESS', $GLOBALS['strPrivDescProcess4']),
         array('File_priv', 'FILE', $GLOBALS['strPrivDescFile']),
         array('References_priv', 'REFERENCES', $GLOBALS['strPrivDescReferences']),
         array('Index_priv', 'INDEX', $GLOBALS['strPrivDescIndex']),
@@ -106,6 +108,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Repl_slave_priv', 'REPLICATION SLAVE', $GLOBALS['strPrivDescReplSlave']),
         array('Repl_client_priv', 'REPLICATION CLIENT', $GLOBALS['strPrivDescReplClient']),
         array('Create_view_priv', 'CREATE VIEW', $GLOBALS['strPrivDescCreateView']),
+        array('Event_priv', 'EVENT', $GLOBALS['strPrivDescEvent']),
+        array('Trigger_priv', 'TRIGGER', $GLOBALS['strPrivDescTrigger']),
         // for table privs:
         array('Create View_priv', 'CREATE VIEW', $GLOBALS['strPrivDescCreateView']),
         array('Show_view_priv', 'SHOW VIEW', $GLOBALS['strPrivDescShowView']),
@@ -136,14 +140,23 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     $privs = array();
     $allPrivileges = TRUE;
     foreach ($grants as $current_grant) {
-        if ((!empty($row) && isset($row[$current_grant[0]])) || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
-            if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && ($GLOBALS[$current_grant[0]] == 'Y' || (is_array($GLOBALS[$current_grant[0]]) && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count'] && empty($GLOBALS[$current_grant[0] . '_none']))))) {
+        if ((!empty($row) && isset($row[$current_grant[0]]))
+         || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
+            if ((!empty($row) && $row[$current_grant[0]] == 'Y')
+             || (empty($row)
+              && ($GLOBALS[$current_grant[0]] == 'Y'
+               || (is_array($GLOBALS[$current_grant[0]])
+                && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count']
+                && empty($GLOBALS[$current_grant[0] . '_none'])))))
+            {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $current_grant[2] . '">' . $current_grant[1] . '</dfn>';
                 } else {
                     $privs[] = $current_grant[1];
                 }
-            } elseif (!empty($GLOBALS[$current_grant[0]]) && is_array($GLOBALS[$current_grant[0]]) && empty($GLOBALS[$current_grant[0] . '_none'])) {
+            } elseif (!empty($GLOBALS[$current_grant[0]])
+             && is_array($GLOBALS[$current_grant[0]])
+             && empty($GLOBALS[$current_grant[0] . '_none'])) {
                 if ($enableHTML) {
                     $priv_string = '<dfn title="' . $current_grant[2] . '">' . $current_grant[1] . '</dfn>';
                 } else {
@@ -171,32 +184,39 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     return $privs;
 } // end of the 'PMA_extractPrivInfo()' function
 
-
 /**
  * Displays on which column(s) a table-specific privilege is granted
  */
-function PMA_display_column_privs($spaces, $columns, $row, $name_for_select, $priv_for_header, $name, $name_for_dfn, $name_for_current) {
-
-        echo $spaces . '    <div class="item" id="div_item_' . $name . '">' . "\n"
-           . $spaces . '        <label for="select_' . $name . '_priv">' . "\n"
-           . $spaces . '            <tt><dfn title="' . $name_for_dfn . '">' . $priv_for_header . '</dfn></tt>' . "\n"
-           . $spaces . '        </label>' . "\n"
-           . $spaces . '        <select id="select_' . $name . '_priv" name="' . $name_for_select . '[]" multiple="multiple">' . "\n";
+function PMA_display_column_privs($columns, $row, $name_for_select,
+    $priv_for_header, $name, $name_for_dfn, $name_for_current)
+{
+        echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
+           . '        <label for="select_' . $name . '_priv">' . "\n"
+           . '            <tt><dfn title="' . $name_for_dfn . '">'
+            . $priv_for_header . '</dfn></tt>' . "\n"
+           . '        </label>' . "\n"
+           . '        <select id="select_' . $name . '_priv" name="'
+            . $name_for_select . '[]" multiple="multiple">' . "\n";
 
         foreach ($columns as $current_column => $current_column_privileges) {
-            echo $spaces . '            <option value="' . htmlspecialchars($current_column) . '"';
+            echo '            <option value="' . htmlspecialchars($current_column) . '"';
             if ($row[$name_for_select] == 'Y' || $current_column_privileges[$name_for_current]) {
                 echo ' selected="selected"';
             }
             echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
 
-        echo $spaces . '        </select>' . "\n"
-           . $spaces . '        <i>' . $GLOBALS['strOr'] . '</i>' . "\n"
-           . $spaces . '        <label for="checkbox_' . $name_for_select . '_none"><input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $name_for_select . '_none" id="checkbox_' . $name_for_select . '_none" title="' . $GLOBALS['strNone'] . '" />'
-           . $GLOBALS['strNone'] . '</label>' . "\n"
-           . $spaces . '    </div>' . "\n";
+        echo '        </select>' . "\n"
+           . '        <i>' . $GLOBALS['strOr'] . '</i>' . "\n"
+           . '        <label for="checkbox_' . $name_for_select
+            . '_none"><input type="checkbox"'
+            . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+            . ' name="' . $name_for_select . '_none" id="checkbox_'
+            . $name_for_select . '_none" title="' . $GLOBALS['strNone'] . '" />'
+            . $GLOBALS['strNone'] . '</label>' . "\n"
+           . '    </div>' . "\n";
 } // end function
+
 
 /**
  * Displays the privileges form table
@@ -204,19 +224,16 @@ function PMA_display_column_privs($spaces, $columns, $row, $name_for_select, $pr
  * @param   string  $db     the database
  * @param   string  $table  the table
  * @param   boolean $submit wheather to display the submit button or not
- * @param   int     $indent the indenting level of the code
- *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
  * @return  void
  */
-function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent = 0)
+function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
 {
     if ($db == '*') {
         $table = '*';
     }
-    $spaces = str_repeat('    ', $indent);
 
     if (isset($GLOBALS['username'])) {
         $username = $GLOBALS['username'];
@@ -333,27 +350,32 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         PMA_DBI_free_result($res);
         unset($res, $row1, $current);
 
-        echo $spaces . '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
-           . $spaces . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
-           . $spaces . '<fieldset id="fieldset_user_priv">' . "\n"
-           . $spaces . '    <legend>' . $GLOBALS['strTblPrivileges'] . '</legend>' . "\n"
-           . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n";
+        echo '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
+           . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
+           . '<fieldset id="fieldset_user_priv">' . "\n"
+           . '    <legend>' . $GLOBALS['strTblPrivileges'] . '</legend>' . "\n"
+           . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n";
 
 
         // privs that are attached to a specific column
-        PMA_display_column_privs($spaces, $columns, $row, 'Select_priv', 'SELECT', 'select', $GLOBALS['strPrivDescSelect'], 'Select');
+        PMA_display_column_privs($columns, $row, 'Select_priv',
+            'SELECT', 'select', $GLOBALS['strPrivDescSelect'], 'Select');
 
-        PMA_display_column_privs($spaces, $columns, $row, 'Insert_priv', 'INSERT', 'insert', $GLOBALS['strPrivDescInsert'], 'Insert');
+        PMA_display_column_privs($columns, $row, 'Insert_priv',
+            'INSERT', 'insert', $GLOBALS['strPrivDescInsert'], 'Insert');
 
-        PMA_display_column_privs($spaces, $columns, $row, 'Update_priv', 'UPDATE', 'update', $GLOBALS['strPrivDescUpdate'], 'Update');
+        PMA_display_column_privs($columns, $row, 'Update_priv',
+            'UPDATE', 'update', $GLOBALS['strPrivDescUpdate'], 'Update');
 
-        PMA_display_column_privs($spaces, $columns, $row, 'References_priv', 'REFERENCES', 'references', $GLOBALS['strPrivDescReferences'], 'References');
+        PMA_display_column_privs($columns, $row, 'References_priv',
+            'REFERENCES', 'references', $GLOBALS['strPrivDescReferences'], 'References');
 
         // privs that are not attached to a specific column
 
-        echo $spaces . '    <div class="item">' . "\n";
+        echo '    <div class="item">' . "\n";
         foreach ($row as $current_grant => $current_grant_value) {
-            if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
+            if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)),
+                    array('Select', 'Insert', 'Update', 'References'))) {
                 continue;
             }
             // make a substitution to match the messages variables;
@@ -370,18 +392,30 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                 $tmp_current_grant = $current_grant;
             }
 
-            echo $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="';
+            echo '        <div class="item">' . "\n"
+               . '            <input type="checkbox"'
+               . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+               . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
+               . '" value="Y" '
+               . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
+               . 'title="';
 
-            echo (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
+            echo (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
+                ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
+                : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
 
-            echo $spaces . '            <label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label>' . "\n"
-               . $spaces . '        </div>' . "\n";
+            echo '            <label for="checkbox_' . $current_grant
+                . '"><tt><dfn title="'
+                . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
+                    ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
+                    : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
+               . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label>' . "\n"
+               . '        </div>' . "\n";
         } // end foreach ()
 
-        echo $spaces . '    </div>' . "\n";
+        echo '    </div>' . "\n";
         // for Safari 2.0.2
-        echo $spaces . '    <div class="clearfloat"></div>' . "\n";
+        echo '    <div class="clearfloat"></div>' . "\n";
 
     } else {
 
@@ -403,11 +437,13 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             array('Create', 'CREATE', ($table == '*' ? $GLOBALS['strPrivDescCreateDb'] : $GLOBALS['strPrivDescCreateTbl'])),
             array('Alter', 'ALTER', $GLOBALS['strPrivDescAlter']),
             array('Index', 'INDEX', $GLOBALS['strPrivDescIndex']),
-            array('Drop', 'DROP', ($table == '*' ? $GLOBALS['strPrivDescDropDb'] : $GLOBALS['strPrivDescDropTbl']))
+            array('Drop', 'DROP', ($table == '*' ? $GLOBALS['strPrivDescDropDb'] : $GLOBALS['strPrivDescDropTbl'])),
+            array('Create_tmp_table', 'CREATE TEMPORARY TABLES', $GLOBALS['strPrivDescCreateTmpTable']),
+            array('Show_view', 'SHOW VIEW', $GLOBALS['strPrivDescShowView']),
+            array('Create_routine', 'CREATE ROUTINE', $GLOBALS['strPrivDescCreateRoutine']),
+            array('Alter_routine', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']),
+            array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']),
         );
-        if (isset($row['Create_tmp_table_priv'])) {
-            $privTable[1][] = array('Create_tmp_table', 'CREATE TEMPORARY TABLES', $GLOBALS['strPrivDescCreateTmpTable']);
-        }
         // this one is for a db-specific priv: Create_view_priv
         if (isset($row['Create_view_priv'])) {
             $privTable[1][] = array('Create_view', 'CREATE VIEW', $GLOBALS['strPrivDescCreateView']);
@@ -416,125 +452,140 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         if (isset($row['Create View_priv'])) {
             $privTable[1][] = array('Create View', 'CREATE VIEW', $GLOBALS['strPrivDescCreateView']);
         }
-        if (isset($row['Show_view_priv'])) {
-            $privTable[1][] = array('Show_view', 'SHOW VIEW', $GLOBALS['strPrivDescShowView']);
-        }
-        if (isset($row['Create_routine_priv'])) {
-            $privTable[1][] = array('Create_routine', 'CREATE ROUTINE', $GLOBALS['strPrivDescCreateRoutine']);
-        }
-        if (isset($row['Alter_routine_priv'])) {
-            $privTable[1][] = array('Alter_routine', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']);
-        }
-        if (isset($row['Execute_priv'])) {
-            $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
+        if (isset($row['Event_priv'])) {
+            // MySQL 5.1.6
+            $privTable[1][] = array('Event', 'EVENT', $GLOBALS['strPrivDescEvent']);
+            $privTable[1][] = array('Trigger', 'TRIGGER', $GLOBALS['strPrivDescTrigger']);
         }
 
         // a d m i n i s t r a t i o n
-        $privTable[2] = array();
-        if (isset($row['Grant_priv'])) {
-            $privTable[2][] = array('Grant', 'GRANT', $GLOBALS['strPrivDescGrant']);
-        }
+        $privTable[2] = array(
+            array('Grant', 'GRANT', $GLOBALS['strPrivDescGrant']),
+        );
         if ($db == '*') {
-            if (isset($row['Super_priv'])) {
-                $privTable[2][] = array('Super', 'SUPER', $GLOBALS['strPrivDescSuper']);
-                $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess4']);
-            } else {
-                $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess3']);
-            }
+            $privTable[2][] = array('Super', 'SUPER', $GLOBALS['strPrivDescSuper']);
+            $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess4']);
             $privTable[2][] = array('Reload', 'RELOAD', $GLOBALS['strPrivDescReload']);
             $privTable[2][] = array('Shutdown', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']);
-            if (isset($row['Show_db_priv'])) {
-                $privTable[2][] = array('Show_db', 'SHOW DATABASES', $GLOBALS['strPrivDescShowDb']);
-            }
+            $privTable[2][] = array('Show_db', 'SHOW DATABASES', $GLOBALS['strPrivDescShowDb']);
         }
-        if (isset($row['Lock_tables_priv'])) {
-            $privTable[2][] = array('Lock_tables', 'LOCK TABLES', $GLOBALS['strPrivDescLockTables']);
-        }
+        $privTable[2][] = array('Lock_tables', 'LOCK TABLES', $GLOBALS['strPrivDescLockTables']);
         $privTable[2][] = array('References', 'REFERENCES', $GLOBALS['strPrivDescReferences']);
         if ($db == '*') {
-            //if (isset($row['Execute_priv'])) {
-            //    $privTable[2][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
-            //}
-            if (isset($row['Repl_client_priv'])) {
-                $privTable[2][] = array('Repl_client', 'REPLICATION CLIENT', $GLOBALS['strPrivDescReplClient']);
-            }
-            if (isset($row['Repl_slave_priv'])) {
-                $privTable[2][] = array('Repl_slave', 'REPLICATION SLAVE', $GLOBALS['strPrivDescReplSlave']);
-            }
-            if (isset($row['Create_user_priv'])) {
-                $privTable[2][] = array('Create_user', 'CREATE USER', $GLOBALS['strPrivDescCreateUser']);
-            }
+            $privTable[2][] = array('Repl_client', 'REPLICATION CLIENT', $GLOBALS['strPrivDescReplClient']);
+            $privTable[2][] = array('Repl_slave', 'REPLICATION SLAVE', $GLOBALS['strPrivDescReplSlave']);
+            $privTable[2][] = array('Create_user', 'CREATE USER', $GLOBALS['strPrivDescCreateUser']);
         }
-        echo $spaces . '<input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0)) . '" />' . "\n"
-           . $spaces . '<fieldset id="fieldset_user_global_rights">' . "\n"
-           . $spaces . '    <legend>' . "\n"
-           . $spaces . '        ' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . "\n"
-           . $spaces . '        (<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a> /' . "\n"
-           . $spaces . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] .  '" onclick="setCheckboxes(\'usersForm\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a>)' . "\n"
-           . $spaces . '    </legend>' . "\n"
-           . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n"
-           . $spaces . '    <fieldset>' . "\n"
-           . $spaces . '        <legend>' . $GLOBALS['strData'] . '</legend>' . "\n";
+        echo '<input type="hidden" name="grant_count" value="'
+            . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0))
+            . '" />' . "\n"
+           . '<fieldset id="fieldset_user_global_rights">' . "\n"
+           . '    <legend>' . "\n"
+           . '        '
+            . ($db == '*'
+                ? $GLOBALS['strGlobalPrivileges']
+                : ($table == '*'
+                    ? $GLOBALS['strDbPrivileges']
+                    : $GLOBALS['strTblPrivileges'])) . "\n"
+           . '        (<a href="server_privileges.php?'
+            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">'
+            . $GLOBALS['strCheckAll'] . '</a> /' . "\n"
+           . '        <a href="server_privileges.php?'
+            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'usersForm\', false); return false;">'
+            . $GLOBALS['strUncheckAll'] . '</a>)' . "\n"
+           . '    </legend>' . "\n"
+           . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n"
+           . '    <fieldset>' . "\n"
+           . '        <legend>' . $GLOBALS['strData'] . '</legend>' . "\n";
         foreach ($privTable[0] as $priv)
         {
-            echo $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv" value="Y" ' . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $priv[2] . '"/>' . "\n"
-               . $spaces . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1] . '</dfn></tt></label>' . "\n"
-               . $spaces . '        </div>' . "\n";
+            echo '        <div class="item">' . "\n"
+               . '            <input type="checkbox"'
+                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
+                . '_priv" value="Y" '
+                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
+                . 'title="' . $priv[2] . '"/>' . "\n"
+               . '            <label for="checkbox_' . $priv[0]
+                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
+                . '</dfn></tt></label>' . "\n"
+               . '        </div>' . "\n";
         }
-        echo $spaces . '    </fieldset>' . "\n"
-           . $spaces . '    <fieldset>' . "\n"
-           . $spaces . '        <legend>' . $GLOBALS['strStructure'] . '</legend>' . "\n";
+        echo '    </fieldset>' . "\n"
+           . '    <fieldset>' . "\n"
+           . '        <legend>' . $GLOBALS['strStructure'] . '</legend>' . "\n";
         foreach ($privTable[1] as $priv)
         {
-            echo $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv" value="Y" ' . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $priv[2] . '"/>' . "\n"
-               . $spaces . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1] . '</dfn></tt></label>' . "\n"
-               . $spaces . '        </div>' . "\n";
+            echo '        <div class="item">' . "\n"
+               . '            <input type="checkbox"'
+                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
+                . '_priv" value="Y" '
+                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
+                . 'title="' . $priv[2] . '"/>' . "\n"
+               . '            <label for="checkbox_' . $priv[0]
+                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
+                . '</dfn></tt></label>' . "\n"
+               . '        </div>' . "\n";
         }
-        echo $spaces . '    </fieldset>' . "\n"
-           . $spaces . '    <fieldset>' . "\n"
-           . $spaces . '        <legend>' . $GLOBALS['strAdministration'] . '</legend>' . "\n";
+        echo '    </fieldset>' . "\n"
+           . '    <fieldset>' . "\n"
+           . '        <legend>' . $GLOBALS['strAdministration'] . '</legend>' . "\n";
         foreach ($privTable[2] as $priv)
         {
-            echo $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv" value="Y" ' . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $priv[2] . '"/>' . "\n"
-               . $spaces . '            <label for="checkbox_' . $priv[0] . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1] . '</dfn></tt></label>' . "\n"
-               . $spaces . '        </div>' . "\n";
+            echo '        <div class="item">' . "\n"
+               . '            <input type="checkbox"'
+                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0]
+                . '_priv" value="Y" '
+                . ($row[$priv[0] . '_priv'] == 'Y' ? 'checked="checked" ' : '')
+                . 'title="' . $priv[2] . '"/>' . "\n"
+               . '            <label for="checkbox_' . $priv[0]
+                . '_priv"><tt><dfn title="' . $priv[2] . '">' . $priv[1]
+                . '</dfn></tt></label>' . "\n"
+               . '        </div>' . "\n";
         }
 
-        echo $spaces . '    </fieldset>' . "\n";
+        echo '    </fieldset>' . "\n";
         // The "Resource limits" box is not displayed for db-specific privs
         if ($db == '*') {
-            echo $spaces . '    <fieldset>' . "\n"
-               . $spaces . '        <legend>' . $GLOBALS['strResourceLimits'] . '</legend>' . "\n"
-               . $spaces . '        <p><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></p>' . "\n"
-               . $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <label for="text_max_questions"><tt><dfn title="' . $GLOBALS['strPrivDescMaxQuestions'] . '">MAX QUERIES PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n"
-               . $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <label for="text_max_updates"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUpdates'] . '">MAX UPDATES PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n"
-               . $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n"
-               . $spaces . '        <div class="item">' . "\n"
-               . $spaces . '            <label for="text_max_user_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n"
-               . $spaces . '    </fieldset>' . "\n";
+            echo '    <fieldset>' . "\n"
+               . '        <legend>' . $GLOBALS['strResourceLimits'] . '</legend>' . "\n"
+               . '        <p><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></p>' . "\n"
+               . '        <div class="item">' . "\n"
+               . '            <label for="text_max_questions"><tt><dfn title="'
+                . $GLOBALS['strPrivDescMaxQuestions'] . '">MAX QUERIES PER HOUR</dfn></tt></label>' . "\n"
+               . '            <input type="text" name="max_questions" id="text_max_questions" value="'
+                . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" />' . "\n"
+               . '        </div>' . "\n"
+               . '        <div class="item">' . "\n"
+               . '            <label for="text_max_updates"><tt><dfn title="'
+                . $GLOBALS['strPrivDescMaxUpdates'] . '">MAX UPDATES PER HOUR</dfn></tt></label>' . "\n"
+               . '            <input type="text" name="max_updates" id="text_max_updates" value="'
+                . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" />' . "\n"
+               . '        </div>' . "\n"
+               . '        <div class="item">' . "\n"
+               . '            <label for="text_max_connections"><tt><dfn title="'
+                . $GLOBALS['strPrivDescMaxConnections'] . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
+               . '            <input type="text" name="max_connections" id="text_max_connections" value="'
+                . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
+               . '        </div>' . "\n"
+               . '        <div class="item">' . "\n"
+               . '            <label for="text_max_user_connections"><tt><dfn title="'
+                . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
+               . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="'
+                . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
+               . '        </div>' . "\n"
+               . '    </fieldset>' . "\n";
            }
         // for Safari 2.0.2
-        echo $spaces . '    <div class="clearfloat"></div>' . "\n";
+        echo '    <div class="clearfloat"></div>' . "\n";
     }
-    echo $spaces . '</fieldset>' . "\n";
+    echo '</fieldset>' . "\n";
     if ($submit) {
-        echo $spaces . '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">' . "\n"
-           . $spaces . '    <input type="submit" name="update_privs" value="' . $GLOBALS['strGo'] . '" />' . "\n"
-           . $spaces . '</fieldset>' . "\n";
+        echo '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">' . "\n"
+           . '    <input type="submit" name="update_privs" value="' . $GLOBALS['strGo'] . '" />' . "\n"
+           . '</fieldset>' . "\n";
     }
 } // end of the 'PMA_displayPrivTable()' function
 
@@ -545,16 +596,13 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
  *
  * @param   string     $mode    are we creating a new user or are we just
  *                              changing  one? (allowed values: 'new', 'change')
- * @param   int        $indent  the indenting level of the code
- *
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection
  *
  * @return  void
  */
-function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
-    $spaces = str_repeat('    ', $indent);
-
+function PMA_displayLoginInformationFields($mode = 'new')
+{
     // Get user/host name lengths
     $fields_info = PMA_DBI_get_fields('mysql', 'user');
     $username_length = 16;
@@ -579,27 +627,34 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
     if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
     }
-    echo $spaces . '<fieldset id="fieldset_add_user_login">' . "\n"
-       . $spaces . '<legend>' . $GLOBALS['strLoginInformation'] . '</legend>' . "\n"
-       . $spaces . '<div class="item">' . "\n"
-       . $spaces . '<label for="select_pred_username">' . "\n"
-       . $spaces . '    ' . $GLOBALS['strUserName'] . ':' . "\n"
-       . $spaces . '</label>' . "\n"
-       . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '"' . "\n"
-       . $spaces . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
-       . $spaces . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyUser'] . '</option>' . "\n"
-       . $spaces . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
-       . $spaces . '    </select>' . "\n"
-       . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
-       . $spaces . '</div>' . "\n"
-       . $spaces . '<div class="item">' . "\n"
-       . $spaces . '<label for="select_pred_hostname">' . "\n"
-       . $spaces . '    ' . $GLOBALS['strHost'] . ':' . "\n"
-       . $spaces . '</label>' . "\n"
-       . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '"' . "\n";
+    echo '<fieldset id="fieldset_add_user_login">' . "\n"
+       . '<legend>' . $GLOBALS['strLoginInformation'] . '</legend>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="select_pred_username">' . "\n"
+       . '    ' . $GLOBALS['strUserName'] . ':' . "\n"
+       . '</label>' . "\n"
+       . '<span class="options">' . "\n"
+       . '    <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '"' . "\n"
+       . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
+       . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyUser'] . '</option>' . "\n"
+       . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . '    </select>' . "\n"
+       . '</span>' . "\n"
+       . '<input type="text" name="username" maxlength="'
+        . $username_length . '" title="' . $GLOBALS['strUserName'] . '"'
+        . (empty($GLOBALS['username'])
+            ? ''
+            : ' value="' . (isset($GLOBALS['new_username'])
+                ? $GLOBALS['new_username']
+                : $GLOBALS['username']) . '"')
+        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="select_pred_hostname">' . "\n"
+       . '    ' . $GLOBALS['strHost'] . ':' . "\n"
+       . '</label>' . "\n"
+       . '<span class="options">' . "\n"
+       . '    <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '"' . "\n";
     $res = PMA_DBI_query('SELECT USER();');
     $row = PMA_DBI_fetch_row($res);
     PMA_DBI_free_result($res);
@@ -610,7 +665,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
             unset($thishost);
         }
     }
-    echo $spaces . '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
+    echo '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
        . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
        . 'else if (this.value == \'hosttable\') { hostname.value = \'\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
     unset($row);
@@ -630,54 +685,74 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0) {
                 break;
         }
     }
-    echo $spaces . '        <option value="any"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost'] . '</option>' . "\n"
-       . $spaces . '        <option value="localhost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost'] . '</option>' . "\n";
+    echo '        <option value="any"'
+        . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any')
+            ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost']
+        . '</option>' . "\n"
+       . '        <option value="localhost"'
+        . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
+            ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost']
+        . '</option>' . "\n";
     if (!empty($thishost)) {
-        echo $spaces . '        <option value="thishost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strThisHost'] . '</option>' . "\n";
+        echo '        <option value="thishost"'
+            . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
+                ? ' selected="selected"' : '') . '>' . $GLOBALS['strThisHost']
+            . '</option>' . "\n";
     }
     unset($thishost);
-    echo $spaces . '        <option value="hosttable"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseHostTable'] . '</option>' . "\n"
-       . $spaces . '        <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
-       . $spaces . '    </select>' . "\n"
-       . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="hostname" maxlength="' . $hostname_length . '" value="' . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '') . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
-       . $spaces . '</div>' . "\n"
-       . $spaces . '<div class="item">' . "\n"
-       . $spaces . '<label for="select_pred_password">' . "\n"
-       . $spaces . '    ' . $GLOBALS['strPassword'] . ':' . "\n"
-       . $spaces . '</label>' . "\n"
-       . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <select name="pred_password" id="select_pred_password" title="' . $GLOBALS['strPassword'] . '"' . "\n"
-       . $spaces . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
-       . ($mode == 'change' ? $spaces . '            <option value="keep" selected="selected">' . $GLOBALS['strKeepPass'] . '</option>' . "\n" : '')
-       . $spaces . '        <option value="none"';
+    echo '        <option value="hosttable"'
+        . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable')
+            ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseHostTable']
+        . '</option>' . "\n"
+       . '        <option value="userdefined"'
+        . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined')
+            ? ' selected="selected"' : '')
+        . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . '    </select>' . "\n"
+       . '</span>' . "\n"
+       . '<input type="text" name="hostname" maxlength="'
+        . $hostname_length . '" value="'
+        . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
+        . '" title="' . $GLOBALS['strHost']
+        . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="select_pred_password">' . "\n"
+       . '    ' . $GLOBALS['strPassword'] . ':' . "\n"
+       . '</label>' . "\n"
+       . '<span class="options">' . "\n"
+       . '    <select name="pred_password" id="select_pred_password" title="'
+        . $GLOBALS['strPassword'] . '"' . "\n"
+       . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
+       . ($mode == 'change' ? '            <option value="keep" selected="selected">' . $GLOBALS['strKeepPass'] . '</option>' . "\n" : '')
+       . '        <option value="none"';
     if (isset($GLOBALS['username']) && $mode != 'change') {
         echo '  selected="selected"';
     }
-    echo $spaces . '>' . $GLOBALS['strNoPassword'] . '</option>' . "\n"
-       . $spaces . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
-       . $spaces . '    </select>' . "\n"
-       . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . $spaces . '</div>' . "\n"
-       . $spaces . '<div class="item">' . "\n"
-       . $spaces . '<label for="text_pma_pw2">' . "\n"
-       . $spaces . '    ' . $GLOBALS['strReType'] . ':' . "\n"
-       . $spaces . '</label>' . "\n"
-       . $spaces . '<span class="options">&nbsp;</span>' . "\n"
-       . $spaces . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . $spaces . '</div>' . "\n"
-       . $spaces . '<div class="item">' . "\n"
-       . $spaces . '<label for="button_generate_password">' . "\n"
-       . $spaces . '    ' . $GLOBALS['strGeneratePassword'] . ':' . "\n"
-       . $spaces . '</label>' . "\n"
-       . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword()" />' . "\n"
-       . $spaces . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onclick="suggestPasswordCopy(this.form)" />' . "\n"
-       . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="generated_pw" id="generated_pw" />' . "\n"
-       . $spaces . '</div>' . "\n"
-       . $spaces . '</fieldset>' . "\n";
+    echo '>' . $GLOBALS['strNoPassword'] . '</option>' . "\n"
+       . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . '    </select>' . "\n"
+       . '</span>' . "\n"
+       . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="text_pma_pw2">' . "\n"
+       . '    ' . $GLOBALS['strReType'] . ':' . "\n"
+       . '</label>' . "\n"
+       . '<span class="options">&nbsp;</span>' . "\n"
+       . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="button_generate_password">' . "\n"
+       . '    ' . $GLOBALS['strGeneratePassword'] . ':' . "\n"
+       . '</label>' . "\n"
+       . '<span class="options">' . "\n"
+       . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword()" />' . "\n"
+       . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onclick="suggestPasswordCopy(this.form)" />' . "\n"
+       . '</span>' . "\n"
+       . '<input type="text" name="generated_pw" id="generated_pw" />' . "\n"
+       . '</div>' . "\n"
+       . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
 
 
@@ -1196,29 +1271,21 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
  * defines some standard links
  */
 $link_edit = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-    .'&amp;username=%s'
-    .'&amp;hostname=%s'
-    .'&amp;dbname=%s'
-    .'&amp;tablename=%s">';
-if ($GLOBALS['cfg']['PropertiesIconic']) {
-    $link_edit .= '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" alt="' . $GLOBALS['strEditPrivileges'] . '" title="' . $GLOBALS['strEditPrivileges'] . '" />';
-} else {
-    $link_edit .= $GLOBALS['strEditPrivileges'];
-}
-$link_edit .= '</a>';
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;dbname=%s'
+    . '&amp;tablename=%s">'
+    . PMA_getIcon('b_usredit.png', $GLOBALS['strEditPrivileges'])
+    . '</a>';
 
 $link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-    .'&amp;username=%s'
-    .'&amp;hostname=%s'
-    .'&amp;dbname=%s'
-    .'&amp;tablename=%s'
-    .'&amp;revokeall=1">';
-if ($GLOBALS['cfg']['PropertiesIconic']) {
-    $link_revoke .= '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usrdrop.png" width="16" height="16" alt="' . $GLOBALS['strRevoke'] . '" title="' . $GLOBALS['strRevoke'] . '" />';
-} else {
-    $link_revoke .= $GLOBALS['strRevoke'];
-}
-$link_revoke .= '</a>';
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;dbname=%s'
+    . '&amp;tablename=%s'
+    . '&amp;revokeall=1">'
+    . PMA_getIcon('b_usrdrop.png', $GLOBALS['strRevoke'])
+    . '</a>';
 
 /**
  * Displays the page
@@ -1227,40 +1294,13 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
     if (! isset($username)) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
-           . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
+           . PMA_getIcon('b_usrlist.png')
            . $GLOBALS['strUserOverview'] . "\n"
            . '</h2>' . "\n";
 
         $sql_query =
-            'SELECT `User`,' .
-            '       `Host`,' .
-            "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'," .
-            '       `Select_priv`,' .
-            '       `Insert_priv`,' .
-            '       `Update_priv`,' .
-            '       `Delete_priv`,' .
-            '       `Index_priv`,' .
-            '       `Alter_priv`,' .
-            '       `Create_priv`,' .
-            '       `Drop_priv`,' .
-            '       `Grant_priv`,' .
-            '       `References_priv`,' .
-            '       `Reload_priv`,' .
-            '       `Shutdown_priv`,' .
-            '       `Process_priv`,' .
-            '       `File_priv`,' .
-            '       `Show_db_priv`,' .
-            '       `Super_priv`,' .
-            '       `Create_tmp_table_priv`,' .
-            '       `Lock_tables_priv`,' .
-            '       `Execute_priv`,' .
-            '       `Repl_slave_priv`,' .
-            '       `Repl_client_priv`,' .
-            '       `Create_view_priv`,' .
-            '       `Show_view_priv`,' .
-            '       `Create_user_priv`,' .
-            '       `Create_routine_priv`,' .
-            '       `Alter_routine_priv`' .
+            'SELECT *,' .
+            "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
             '  FROM `mysql`.`user`';
 
         $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
@@ -1380,7 +1420,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 unset($res);
 
                 echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
-                   . PMA_generate_common_hidden_inputs('', '', 1)
+                   . PMA_generate_common_hidden_inputs('', '')
                    . '    <table id="tableuserrights" class="data">' . "\n"
                    . '    <thead>' . "\n"
                    . '        <tr><td></td>' . "\n"
@@ -1402,7 +1442,12 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                     foreach ($user as $host) {
                         $index_checkbox++;
                         echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                           . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $index_checkbox . '" value="' . str_replace(chr(27), '&#27;', htmlentities($host['User'] . $user_host_separator . $host['Host'])) . '"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
+                           . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_'
+                            . $index_checkbox . '" value="'
+                            . str_replace(chr(27), '&#27;', htmlentities($host['User'] . $user_host_separator . $host['Host']))
+                            . '"'
+                            . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                            . ' /></td>' . "\n"
                            . '            <td><label for="checkbox_sel_users_' . $index_checkbox . '">' . (empty($host['User']) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
                            . '            <td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
                         echo '            <td>';
@@ -1449,12 +1494,12 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' . "\n" : '')
+                   . PMA_getIcon('b_usradd.png')
                    . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
                    . '    </fieldset>' . "\n"
                    . '    <fieldset id="fieldset_delete_user">'
                    . '        <legend>' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" alt="" />' . "\n" : '')
+                   . PMA_getIcon('b_usrdrop.png')
                    . '            ' . $GLOBALS['strRemoveSelectedUsers'] . '' . "\n"
                    . '        </legend>' . "\n"
                    . '        <input type="hidden" name="mode" value="2" />' . "\n"
@@ -1472,14 +1517,15 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                 unset ($row);
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' . "\n" : '')
+                   . PMA_getIcon('b_usradd.png')
                    . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
-            echo '</form>' . "\n"
-               . '<div class="warning">' . "\n"
-               . '    ' . sprintf($GLOBALS['strFlushPrivilegesNote'], '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', '</a>') . "\n"
-               . '</div>' . "\n";
+            echo '</form>' . "\n";
+            $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::WARNING);
+            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">');
+            $flushnote->addParam('</a>');
+            $flushnote->display();
          }
 
 
@@ -1488,18 +1534,28 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
         // A user was selected -> display the user's properties
 
         echo '<h2>' . "\n"
-           . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" alt="" />' : '')
-           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
+           . PMA_getIcon('b_usredit.png')
+           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?'
+           . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username)
+           . '&amp;hostname=' . urlencode($hostname) . '">\''
+           . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname)
+           . '\'</a></i>' . "\n";
         if (isset($dbname) && strlen($dbname)) {
             if ($dbname_is_wildcard) {
-            echo '    - ' . $GLOBALS['strDatabases'];
+                echo '    - ' . $GLOBALS['strDatabases'];
             } else {
-            echo '    - ' . $GLOBALS['strDatabase'];
+                echo '    - ' . $GLOBALS['strDatabase'];
             }
             $url_dbname = urlencode(str_replace('\_', '_', $dbname));
-            echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
+            echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
+                . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
+                . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (isset($tablename) && strlen($tablename)) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
+                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="'
+                    . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
+                    . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename)
+                    . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>'
+                    . "\n";
             }
             unset($url_dbname);
         }
@@ -1514,7 +1570,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             //require_once './libraries/footer.inc.php';
         }
         echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
-           . PMA_generate_common_hidden_inputs('', '', 3)
+           . PMA_generate_common_hidden_inputs('', '')
            . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
            . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
         if (isset($dbname) && strlen($dbname)) {
@@ -1524,8 +1580,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             }
         }
         PMA_displayPrivTable(((! isset($dbname) || ! strlen($dbname)) ? '*' : $dbname),
-            (((! isset($dbname) || ! strlen($dbname)) || (! isset($tablename) || ! strlen($tablename))) ? '*' : $tablename),
-            TRUE, 3);
+            (((! isset($dbname) || ! strlen($dbname)) || (! isset($tablename) || ! strlen($tablename))) ? '*' : $tablename));
         echo '</form>' . "\n";
 
         if ((! isset($tablename) || ! strlen($tablename)) && empty($dbname_is_wildcard)) {
@@ -1535,7 +1590,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
 
             // table header
             echo '<form action="server_privileges.php" method="post">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '', 6)
+               . PMA_generate_common_hidden_inputs('', '')
                . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset>' . "\n"
@@ -1801,12 +1856,12 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             require_once './libraries/display_change_password.lib.php';
 
             echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '', 3)
+               . PMA_generate_common_hidden_inputs('', '')
                . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset id="fieldset_change_copy_user">' . "\n"
                . '    <legend>' . $GLOBALS['strChangeCopyUser'] . '</legend>' . "\n";
-            PMA_displayLoginInformationFields('change', 3);
+            PMA_displayLoginInformationFields('change');
             echo '    <fieldset>' . "\n"
                . '        <legend>' . $GLOBALS['strChangeCopyMode'] . '</legend>' . "\n"
                . '        <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" /><label for="radio_mode_4">' . "\n"
@@ -1833,12 +1888,11 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
     // Add a new user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' : '')
-       . '    ' . $GLOBALS['strAddUser'] . "\n"
+       . PMA_getIcon('b_usradd.png') . $GLOBALS['strAddUser'] . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
-       . PMA_generate_common_hidden_inputs('', '', 1);
-    PMA_displayLoginInformationFields('new', 2);
+       . PMA_generate_common_hidden_inputs('', '');
+    PMA_displayLoginInformationFields('new');
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
        . '<legend>' . $GLOBALS['strCreateUserDatabase'] . '</legend>' . "\n"
        . '    <div class="item">' . "\n"
@@ -1854,7 +1908,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
        . '        <label for="radio_createdb_2">' . $GLOBALS['strCreateUserDatabaseWildcard'] . '</label>' . "\n"
        . '    </div>' . "\n"
        . '</fieldset>' . "\n";
-    PMA_displayPrivTable('*', '*', FALSE, 1);
+    PMA_displayPrivTable('*', '*', FALSE);
     echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
        . '        <input type="submit" name="adduser_submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
        . '    </fieldset>' . "\n"
@@ -1863,7 +1917,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
     // check the privileges for a particular database.
     echo '<table id="tablespecificuserrights" class="data">' . "\n"
        . '<caption class="tblHeaders">' . "\n"
-       . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrcheck.png" width="16" height="16" alt="" />' . "\n" : '')
+       . PMA_getIcon('b_usrcheck.png')
        . '    ' . sprintf($GLOBALS['strUsersHavingAccessToDb'], '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
        . '</caption>' . "\n"
        . '<thead>' . "\n"
