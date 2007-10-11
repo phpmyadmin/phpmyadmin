@@ -303,7 +303,7 @@ class PMA_Error extends PMA_Message
                 echo "<br />\n";
                 foreach ($step['args'] as $arg) {
                     echo "\t";
-                    $this->displayArg($arg);
+                    $this->displayArg($arg, $step['function']);
                     echo ',' . "<br />\n";
                 }
             } elseif (count($step['args']) > 0) {
