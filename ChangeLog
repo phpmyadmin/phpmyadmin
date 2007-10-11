@@ -8,6 +8,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.0.0.0 (not yet released)
 + [navi] new parameter $cfg['LeftDefaultTabTable']
 + [table] support MySQL 5.1 PARTITION in CREATE TABLE dialog 
++ [privileges] support for EVENT and TRIGGER
++ [error handler] NEW handle errors to prevent path disclosure and display/collect errors
 
 2.11.2.0 (not yet released)
 - patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
