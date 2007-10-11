@@ -333,9 +333,6 @@ class PMA_Message
 
         if (0 === strlen($message)) {
             $message = $GLOBALS[$this->getString()];
-            echo '<pre>';
-            debug_print_backtrace();
-            echo '</pre>';
         }
 
         if (count($this->getParams()) > 0) {
