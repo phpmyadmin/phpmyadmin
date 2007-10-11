@@ -598,8 +598,6 @@ $strPrivDescMaxConnections = 'Rajoittaa käyttäjän tunnissa luomien uusien yht
 $strPrivDescMaxQuestions = 'Rajoittaa käyttäjän tunnissa palvelimelle lähettämien kyselyjen määrän.';
 $strPrivDescMaxUpdates = 'Rajoittaa, kuinka monta monta kertaa käyttäjä saa suorittaa tauluihin tai tietokantoihin muutoksia tekeviä komentoja tunnin aikana.';
 $strPrivDescMaxUserConnections = 'Asettaa rajan käyttäjän yhtäaikaisten yhteyksien määrälle.';
-$strPrivDescProcess3 = 'Sallii muiden käyttäjien prosessien lopettamisen.';
-$strPrivDescProcess4 = 'Sallii kokonaisten kyselyjen näyttämisen prosessilistassa.';
 $strPrivDescReferences = 'Ei vaikutusta tässä MySQL-palvelimen versiossa.';
 $strPrivDescReload = 'Sallii palvelinasetusten uudelleenlataamisen ja palvelimen välimuistin tyhjentämisen.';
 $strPrivDescReplClient = 'Antaa käyttäjälle oikeuden kysyä, missä ali-/pääpalvelimet sijaitsevat.';
@@ -1029,4 +1027,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

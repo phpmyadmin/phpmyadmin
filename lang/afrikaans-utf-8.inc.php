@@ -689,8 +689,6 @@ $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
 $strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
@@ -1051,4 +1049,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

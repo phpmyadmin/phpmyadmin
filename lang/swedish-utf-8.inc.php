@@ -600,8 +600,6 @@ $strPrivDescMaxConnections = 'Begränsar antalet nya förbindelser användaren k
 $strPrivDescMaxQuestions = 'Begränsar antalet frågor användaren kan skicka till servern per timme.';
 $strPrivDescMaxUpdates = 'Begränsar antalet kommandon, vilka ändrar någon tabell eller databas, som användaren kan utföra per timme.';
 $strPrivDescMaxUserConnections = 'Begränsar antalet samtidiga förbindelser som användaren kan ha.';
-$strPrivDescProcess3 = 'Tillåter dödande av andra användares processer.';
-$strPrivDescProcess4 = 'Tillåter visning av fullständiga frågor i processlistan.';
 $strPrivDescReferences = 'Har ingen verkan i denna MySQL-version.';
 $strPrivDescReload = 'Tillåter omladdning av serverinställningar och rensning av serverns cache.';
 $strPrivDescReplClient = 'Ger användaren rätt att fråga var slav- / huvudservrarna är.';
@@ -1025,4 +1023,7 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

@@ -440,8 +440,6 @@ $strPrivDescLockTables = 'Ļauj bloķēt tabulas tekošajai darbībai.';
 $strPrivDescMaxConnections = 'Ierobežo jauno konekciju skaitu, ko lietotājs var atvērt stundas laikā.';
 $strPrivDescMaxQuestions = 'Ierobežo vaicājumu skaitu, ko lietotājs var mosūtīt uz serveri stundas laikā.';
 $strPrivDescMaxUpdates = 'Ierobežo komandu skaitu, kas maina kas maina tabulas vai datubāzes, ko lietotājs var izpildīt stundas laikā.';
-$strPrivDescProcess3 = 'Ļauj nogalināt citu lietotāju procesus.';
-$strPrivDescProcess4 = 'Ļauj apskatīt pieprasījumu un procesu sarakstus.';
 $strPrivDescReferences = 'Nedarbojas šajā MySQL versijā.';
 $strPrivDescReload = 'Ļauj prlādēt servera iestādījumus un iztukšot servera kešu.';
 $strPrivDescReplClient = 'Dod lietotājam tiesības jautāt, kur ir replikācijas oriģināli / kopijas.';
@@ -1049,4 +1047,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

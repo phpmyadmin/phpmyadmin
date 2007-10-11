@@ -604,8 +604,6 @@ $strPrivDescMaxConnections = '単位時間内に可能な新規接続回数を�
 $strPrivDescMaxQuestions = '単位時間内にサーバに送信可能なクエリ数を制限する';
 $strPrivDescMaxUpdates = '単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する';
 $strPrivDescMaxUserConnections = 'ユーザの同時接続数を制限する';
-$strPrivDescProcess3 = '他のユーザのプロセスの停止を許可する';
-$strPrivDescProcess4 = 'プロセス一覧で完全なクエリの表示を許可する';
 $strPrivDescReferences = 'このバージョンの MySQL では無効です';
 $strPrivDescReload = 'サーバ設定のリロード、サーバキャッシュのフラッシュを許可する';
 $strPrivDescReplClient = 'スレーブ/マスターの照会を許可する';
@@ -1030,4 +1028,7 @@ $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定する�
 $strZip = '"zip 形式"';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

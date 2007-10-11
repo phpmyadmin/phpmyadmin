@@ -412,8 +412,6 @@ $strPrivDescLockTables = 'Omogoča zaklepanje tabel za trenutno temo.';
 $strPrivDescMaxConnections = 'Omeji število povezav, ki jih uporabnik lahko odpre v eni uri.';
 $strPrivDescMaxQuestions = 'Omeji število poizved, ki jih uporabnik lahko pošlje strežniku v eni uri.';
 $strPrivDescMaxUpdates = 'Omeji število ukazov za spremembo tabel ali podatkovne baze, ki jih uporabnik lahko izvrši v eni uri.';
-$strPrivDescProcess3 = 'Omogoča ukinjanje procesov drugih uporabnikov.';
-$strPrivDescProcess4 = 'Omogoča pregled popolnih poizvedb v spisku procesov.';
 $strPrivDescReferences = 'V tej verziji MySQL nima pomena.';
 $strPrivDescReload = 'Omogoča osveževanje strežnikovih nastavitev in praznjenje strežnikovih predpomnilnikov.';
 $strPrivDescReplClient = 'Da uporabniku pravico poizvedovati kje so njegovi nadrejeni / podrjeni strežniki.';
@@ -1046,4 +1044,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

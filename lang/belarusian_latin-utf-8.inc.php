@@ -565,8 +565,6 @@ $strPrivDescMaxConnections = 'Abmiažoŭvaje kolkaść novych złučeńniaŭ, ja
 $strPrivDescMaxQuestions = 'Abmiažoŭvaje kolkaść zapytaŭ, jakija karystalnik moža adpravić na server na praciahu hadziny.';
 $strPrivDescMaxUpdates = 'Abmiažoŭvaje kolkaść kamandaŭ, źmianiajučych lubuju tablicu abo bazu dadzienych, jakija karystalnik moža vykanać na praciahu hadziny.';
 $strPrivDescMaxUserConnections = 'Abmiažoŭvaje kolkaść adnačasovych złučeńniaŭ, jakija moža mieć karystalnik.';
-$strPrivDescProcess3 = 'Dazvalaje spyniać pracesy inšych karystalnikaŭ.';
-$strPrivDescProcess4 = 'Dazvalaje prahladać poŭnyja zapyty ŭ śpisie pracesaŭ.';
 $strPrivDescReferences = 'Nie pracuje ŭ hetaj versii MySQL.';
 $strPrivDescReload = 'Dazvalaje pierazahružać nałady servera i ačyščać keš servera.';
 $strPrivDescReplClient = 'Dazvalaje karystalniku pytacca, dzie znachodziacca slaves / masters.';
@@ -1026,4 +1024,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

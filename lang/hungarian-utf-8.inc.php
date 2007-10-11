@@ -489,8 +489,6 @@ $strPrivDescMaxConnections = 'Korlátozza az új kapcsolatok számát, amit a fe
 $strPrivDescMaxQuestions = 'Korlátozza a felhasználói lekérések számát óránként.';
 $strPrivDescMaxUpdates = 'Korlátozza azon utasítások számát óránként, amelyek megváltoztatnak egy táblát vagy adatbázist.';
 $strPrivDescMaxUserConnections = 'Korlátozza a felhasználó egyidej&#369; kapcsolatainak számát.';
-$strPrivDescProcess3 = 'Engedélyezi más felhasználók folyamatainak megszüntetését.'; 
-$strPrivDescProcess4 = 'Engedélyezi a teljes lekérések megtekintését a folyamatlistában.'; 
 $strPrivDescReferences = 'Nem valósult meg ebben a MySQL verzióban'; 
 $strPrivDescReload = 'Engedélyezi a szerver beállítások újratöltését és a szerver-cache törlését.'; 
 $strPrivDescReplClient = 'Jogokat ad a felhasználónak, hogy lekérdezhessék a slave/master helyeket.'; 
@@ -1044,4 +1042,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

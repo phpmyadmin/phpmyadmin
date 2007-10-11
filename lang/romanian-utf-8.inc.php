@@ -456,8 +456,6 @@ $strPrivDescLockTables = 'Permite blocarea tabelelor din firul curent de executi
 $strPrivDescMaxConnections = 'Limiteaza numarul de noi conexiuni care pot fi deschise de utilizator intr-o ora.';
 $strPrivDescMaxQuestions = 'Limiteaza numarul de comenzi care pot fi trimise de utilizator catre server intr-o ora.';
 $strPrivDescMaxUpdates = 'Limiteaza numarul de comenzi pentru schimbarea vreunui tabel sau vreunei baza de date executabile de utilizator intr-o ora.';
-$strPrivDescProcess3 = 'Permite oprirea proceselor altor utilizatori.';
-$strPrivDescProcess4 = 'Permite vizualizarea comenzilor procesate in lista.';
 $strPrivDescReferences = 'Nu are efect in aceasta versiune MySQL.';
 $strPrivDescReload = 'Permite reincarcarea setarilor de server si golirea memoriei cache a serverului.';
 $strPrivDescReplClient = 'Permite utilizatorului de a interoga locatia slave/master.';
@@ -1045,4 +1043,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

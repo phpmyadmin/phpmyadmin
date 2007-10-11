@@ -497,8 +497,6 @@ $strPrivDescLockTables = 'Позволява заключване на табл�
 $strPrivDescMaxConnections = 'Ограничава броя на новите конекции, които потребителя може да отвори на час.';
 $strPrivDescMaxQuestions = 'Ограничава броя на заявките, които потребителя може да изпрати към сървъра на час.';
 $strPrivDescMaxUpdates = 'Ограничава броя на командите, които променят някоя таблица или база от данни, които даден потребител може да стартира за час.';
-$strPrivDescProcess3 = 'Позволява спирането на процеси на други потребители.';
-$strPrivDescProcess4 = 'Позволява преглед на целите заявки в списъка с процесите.';
 $strPrivDescReferences = 'Няма ефект в тази версия на MySQL.';
 $strPrivDescReload = 'Позволява презареждане на сървърните настройки и изчистване(flashing) на кеша на сървъра.';
 $strPrivDescReplClient = 'Дава правото на потребител да знае къде са slaves / masters.';
@@ -1047,4 +1045,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

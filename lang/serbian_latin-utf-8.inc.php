@@ -601,8 +601,6 @@ $strPrivDescMaxConnections = 'Ograničava broj novih konekcija koje korisnik mo�
 $strPrivDescMaxQuestions = 'Ograničava broj upita koje korisnik može da uputi serveru za sat.';
 $strPrivDescMaxUpdates = 'Ograničava broj komandi koje menjaju tabele ili baze koje korisnik može da izvrši na sat.';
 $strPrivDescMaxUserConnections = 'Ograničava broj istovremenih konekcija koje korisnik može da ima.';
-$strPrivDescProcess3 = 'Dozvoljava prekidanje procesa drugih korisnika.';
-$strPrivDescProcess4 = 'Dozvoljava pregled kompletnih upita u listi procesa.';
 $strPrivDescReferences = 'Nema efekta u ovoj verziji MySQL-a.';
 $strPrivDescReload = 'Dozvoljava ponovno učitavanje podešavanja servera i pražnjenje keša servera.';
 $strPrivDescReplClient = 'Daje pravo korisniku da pita gde su glavni/pomoćni serveri.';
@@ -1026,4 +1024,7 @@ $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanj
 $strZip = '"zipovano"';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

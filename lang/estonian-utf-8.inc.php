@@ -589,8 +589,6 @@ $strPrivDescMaxConnections = 'Limiteerib ühenduste arvu tunnis kasutaja jaoks.'
 $strPrivDescMaxQuestions = 'Limiteerib päringute arvu tunnis kasutaja jaoks.';
 $strPrivDescMaxUpdates = 'Limiteerib käskude, mis muudavad suvalist tabelit või andmebaasi, arvu tunnis kasutaja jaoks';
 $strPrivDescMaxUserConnections = 'Piirab ühenduste arvu mida kasutajal võib korraga olla.';
-$strPrivDescProcess3 = 'Lubab tappa kasutajate protsesse.';
-$strPrivDescProcess4 = 'Lubab vaadata täielikult päringuid protsessitabelis.';
 $strPrivDescReferences = 'Ei oma antud MySQL versioonis mingit effekti.';
 $strPrivDescReload = 'Lubab taaslaadida serveri seadmeid ja puhastada serveri cachet.';
 $strPrivDescReplClient = 'Lubab kasutajal küsida kus on slaved/masterid.';
@@ -1032,4 +1030,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

@@ -600,8 +600,6 @@ $strPrivDescMaxConnections = 'Begrænser antallet af nye forbindelser brugeren m
 $strPrivDescMaxQuestions = 'Begrænser antallet af forespørgsler brugeren må sende til serveren pr. time.';
 $strPrivDescMaxUpdates = 'Begrænser antallet af kommandoer som ændrer enhver tabel eller database brugeren må udføre pr. time.';
 $strPrivDescMaxUserConnections = 'Begrænser antallet af samtidige forbindelser brugere må have.';
-$strPrivDescProcess3 = 'Tillader at dræbe andre brugeres processer.';
-$strPrivDescProcess4 = 'Tillader at se komplette forespørgsler i proceslisten.';
 $strPrivDescReferences = 'Har ingen effekt i denne MySQL version.';
 $strPrivDescReload = 'Tillader genindlæsning af serverindstillinger og tømning af caches.';
 $strPrivDescReplClient = 'Giver brugeren rettigheder til at spørge hvor Slaves / Masters er.';
@@ -1026,4 +1024,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

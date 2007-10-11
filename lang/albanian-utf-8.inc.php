@@ -423,8 +423,6 @@ $strPrivDescLockTables = 'Lejon bllokimin e tabelave për thread e momentit.';
 $strPrivDescMaxConnections = 'Kufizon numrin e lidhjeve të reja që një përdorues mund të hapë në një orë.';
 $strPrivDescMaxQuestions = 'Kufizon numrin e kërkesave që një përdorues mund ti dërgojë server-it në një orë.';
 $strPrivDescMaxUpdates = 'Kufizon numrin e komandave që mund të ndryshojnë një tabelë apo databazë që një përdorues mund të zbatojë në një orë.';
-$strPrivDescProcess3 = 'Lejon vrasjen e proçeseve të përdoruesve të tjerë.';
-$strPrivDescProcess4 = 'Lejon shikimin e të gjitha kërkesave tek lista e proçeseve.';
 $strPrivDescReferences = 'Nuk ka asnjë efekt tek ky version i MySQL.';
 $strPrivDescReload = 'Lejon ringarkimin e parametrave të server-it dhe risetimin e cache të servërve.';
 $strPrivDescReplClient = 'I jep të drejtën një përdoruesi të pyesë se ku gjenden slaves / masters.';
@@ -1050,4 +1048,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

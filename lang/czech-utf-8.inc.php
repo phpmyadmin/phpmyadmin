@@ -602,8 +602,6 @@ $strPrivDescMaxConnections = 'Omezuje počet nových připojení, která může 
 $strPrivDescMaxQuestions = 'Omezuje, kolik dotazů může uživatel odeslat serveru za hodinu.';
 $strPrivDescMaxUpdates = 'Omezuje, kolik dotazů měnících nějakou tabulku nebo databázi může uživatel spustit za hodinu.';
 $strPrivDescMaxUserConnections = 'Omezuje počet současných připojení uživatele.';
-$strPrivDescProcess3 = 'Umožňuje ukončit procesy jiným uživatelům.';
-$strPrivDescProcess4 = 'Umožňuje vidět celé dotazy v&nbsp;seznamu procesů.';
 $strPrivDescReferences = 'Nemá žádný vliv v&nbsp;této verzi MySQL.';
 $strPrivDescReload = 'Umožňuje znovu načíst nastavení a vyprázdnění vyrovnávacích pamětí MySQL serveru.';
 $strPrivDescReplClient = 'Umožní uživateli zjistit, kde je hlavní / pomocný server.';
@@ -1026,4 +1024,7 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

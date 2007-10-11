@@ -391,8 +391,6 @@ $strPrivDescInsert = 'Permite inserir e substituir dados.';
 $strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
 $strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
 $strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
-$strPrivDescProcess3 = 'Permite eliminar processos de outros utilizadores.';
-$strPrivDescProcess4 = 'Permite ver o queries completos na lista de processos.';
 $strPrivDescReferences = 'Não tem efeito nesta versão do MySQL.';
 $strPrivDescSelect = 'Permite ler dados.';
 $strPrivDescShowDb = 'Dá acesso à lista de bases de dados completa.';
@@ -1053,4 +1051,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

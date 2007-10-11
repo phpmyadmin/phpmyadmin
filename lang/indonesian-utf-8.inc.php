@@ -494,8 +494,6 @@ $strPrivDescLockTables = 'Mengizinkan untuk mengunci tabel dalam Thread yang lag
 $strPrivDescMaxConnections = 'Membatasi jumlah koneksi baru yang diperbolehkan untuk setiap pengguna dalam batas waktu satu jam.';
 $strPrivDescMaxQuestions = 'Membatasi jumlah pencarian (Queries) yang diperbolehkan untuk setiap pengguna dalam batas waktu satu jam.';
 $strPrivDescMaxUpdates = 'Membatasi jumlah perintah untuk merubah sebuah tabel atau database untuk setiap pengguna dalam batas waktu satu jam.';
-$strPrivDescProcess3 = 'Mengizinkan untuk hentikan proses yang dimiliki pengguna lain.';
-$strPrivDescProcess4 = 'Mengizinkan untuk tampilkan seluruh pencarian dalam daftar proses.';
 $strPrivDescReferences = 'Tidak ada efek dalam versi MySQL yang digunakan.';
 $strPrivDescReload = 'Mengizinkan untuk reload stelan dari server dan untuk flush cache dari server.';
 $strPrivDescReplClient = 'Memberi hak kepada pengguna untuk menanyakan lokasi dari slaves / masters.';
@@ -1042,4 +1040,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

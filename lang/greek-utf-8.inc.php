@@ -376,8 +376,6 @@ $strPrivDescLockTables = 'Επιτρέπει το κλείδωμα πινάκω�
 $strPrivDescMaxConnections = 'Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει ανά ώρα.';
 $strPrivDescMaxQuestions = 'Περιορίζει τον αριθμό των επερωτημάτων που ο χρήστης μπορεί να στείλει στον διακομιστή ανά ώρα.';
 $strPrivDescMaxUpdates = 'Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να εκετελέσει ανά ώρα.';
-$strPrivDescProcess3 = 'Επιτρέπει την διακοπή διεργασιών άλλων χρηστών.'; 
-$strPrivDescProcess4 = 'Επιτρέπει την εμφάνιση ολοκληρωμένων επερωτημάτων στη λίστα διεργασιών.'; 
 $strPrivDescReferences = 'Δεν έχει χρήση σε αυτήν την έκδοση MySQL.'; 
 $strPrivDescReload = 'Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών αρχείων του.'; 
 $strPrivDescReplClient = 'Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι και δευτερεύοντες διακομιστές.'; 
@@ -1049,4 +1047,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

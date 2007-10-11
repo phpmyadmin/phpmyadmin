@@ -390,8 +390,6 @@ $strPrivDescLockTables = 'Momentuko harian taulak blokeatzea baimentzen du.';
 $strPrivDescMaxConnections = 'Erabiltzaileak orduko ireki dezakeen konexio berrien kopurua mugatzen du.';
 $strPrivDescMaxQuestions = 'Erabiltzaileak orduko zerbitzarira bidali dezakeen kontsulta kopurua mugatzen du.';
 $strPrivDescMaxUpdates = 'Erabiltzaileak orduko exekuta dezakeen taula edo datu-baserik alda dezaketen komando kopurua mugatzen du.';
-$strPrivDescProcess3 = 'Beste erabiltzaileen prosezuak hiltzen baimentzen du.';
-$strPrivDescProcess4 = 'Kontsulta osoak prozesuen zerrendan ikustea baimentzen du.';
 $strPrivDescReferences = 'Ez du eraginik MySQL bertsio honetan.';
 $strPrivDescReload = 'Zerbitzariaren hobespenak berkargatu eta beraren cacheak hustea baimentzen du.';
 $strPrivDescReplClient = 'Erabiltzailea baimentzen du morroiak / nagusiak non dauden galdetzeko.';
@@ -1044,4 +1042,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

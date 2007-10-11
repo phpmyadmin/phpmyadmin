@@ -486,8 +486,6 @@ $strPrivDescLockTables = 'Дозволува заклучување на таб�
 $strPrivDescMaxConnections = 'Го ограничува бројот на нови конекции кои корисникот може да ги отвори за еден час.';
 $strPrivDescMaxQuestions = 'Го ограничува бројот на упити кои корисникот може да ги постави на серверот за еден час.';
 $strPrivDescMaxUpdates = 'Го ограничува бројот на команди кои ги менуваат табелите или базите на податоци кои корисникот може да ги изврши за еден час.';
-$strPrivDescProcess3 = 'Дозволува прекинување на процесите на другите корисници.';
-$strPrivDescProcess4 = 'Дозволува преглед на комплетните упити во листата на процеси.';
 $strPrivDescReferences = 'Нема ефект во оваа верзији на MySQL.';
 $strPrivDescReload = 'Дозволува повтоно вчитување на подесувањата на серверот и празнење на кешот на серверот.';
 $strPrivDescReplClient = 'Дава права на кориснику да праша каде се главните/помошни сервери.';
@@ -1027,4 +1025,7 @@ $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocu
 $strViewName = 'VIEW name';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

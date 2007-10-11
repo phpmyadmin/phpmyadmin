@@ -559,8 +559,6 @@ $strPrivDescMaxConnections = 'Ogranicz liczbę nowych połączeń, które może 
 $strPrivDescMaxQuestions = 'Ogranicz liczbę zapytań, które może wysłać użytkownik w ciągu godziny.';
 $strPrivDescMaxUpdates = 'Ogranicz liczbę poleceń zmieniających jakąkolwiek tabelę lub bazę danych, które może wykonać użytkownik w ciągu godziny.';
 $strPrivDescMaxUserConnections = 'Ogranicz liczbę jednoczesnych połączeń, które może użytkownik.';
-$strPrivDescProcess3 = 'Pozwól unicestwiać procesy innych użytkowników.';
-$strPrivDescProcess4 = 'Pozwól zobaczyć pełną listę zapytań na liście procesów.';
 $strPrivDescReferences = 'Nie ma żadnych skutków w tej wersji MySQL.';
 $strPrivDescReload = 'Pozwól przeładowywać ustawienia serwera i opróżniać pamięć podręczną serwera.';
 $strPrivDescReplClient = 'Nadaj użytkownikowi prawo, by zapytać gdzie są serwery podrzędne / nadrzędne.';
@@ -1020,4 +1018,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

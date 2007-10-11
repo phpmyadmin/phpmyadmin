@@ -598,8 +598,6 @@ $strPrivDescMaxConnections = 'Limite du nombre de nouvelles connexions qu\'un ut
 $strPrivDescMaxQuestions = 'Limite du nombre de requêtes qu\'un utilisateur peut envoyer au serveur, par heure.';
 $strPrivDescMaxUpdates = 'Limite du nombre de commandes changeant une table ou base de données, qu\'un utilisateur peut exécuter, par heure.';
 $strPrivDescMaxUserConnections = 'Limite le nombre de connexions simultanées autorisées pour un utilisateur.';
-$strPrivDescProcess3 = 'Permission de détruire les processus de d\'autres utilisateurs.';
-$strPrivDescProcess4 = 'Permission de voir le texte complet des requêtes, dans la liste des processus.';
 $strPrivDescReferences = 'Non effectif dans cette version de MySQL.';
 $strPrivDescReload = 'Permission de recharger les réglages du serveur, et de vidanger la mémoire cache.';
 $strPrivDescReplClient = 'Permission de demander où sont les maîtres et les esclaves (système de duplication).';
@@ -1023,4 +1021,7 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

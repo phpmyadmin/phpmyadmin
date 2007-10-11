@@ -377,8 +377,6 @@ $strPrivDescLockTables = 'อนุญาตให้ล็อกตาราง
 $strPrivDescMaxConnections = 'จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง';
 $strPrivDescMaxQuestions = 'จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง';
 $strPrivDescMaxUpdates = 'จำกัดจำนวนของคำสั่ง ที่จะเปลี่ยนแปลงตาราง หรือฐานข้อมูลใดๆ ที่ผู้ใช้จะสามารถสั่งได้ ต่อชั่วโมง';
-$strPrivDescProcess3 = 'อนุญาตให้ทำลายโพรเซสของผู้ใช้อื่น';
-$strPrivDescProcess4 = 'อนุญาตให้ดูคำค้นทั้งหมดในรายการโพรเซส';
 $strPrivDescReferences = 'ไม่มีผลใน MySQL รุ่นนี้';
 $strPrivDescReload = 'อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์';
 $strPrivDescReplClient = 'มอบสิทธิให้ผู้ใช้ ในการถามว่า slaves หรือ masters อยู่ที่ไหน.';
@@ -1048,4 +1046,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

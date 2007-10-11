@@ -499,8 +499,6 @@ $strPrivDescLockTables = 'Тухайн процесст хүснэгт түгж�
 $strPrivDescMaxConnections = 'Цаг тутамд шинээр холбогдох хэрэглэгчийн тоог хязгаарлах.';
 $strPrivDescMaxQuestions = 'Цаг тутамд хэрэглэгчийн асуулт (query) илгээхийг хязгаарлах.';
 $strPrivDescMaxUpdates = 'Цаг тутамд хэрэглэгчийн хүснэгт эсвэл өгөгдлийн сан солих командыг хязгаарлах.';
-$strPrivDescProcess3 = 'Бусад хэрэглэгчийн процессыг үгүй хийхийг зөвшөөрөх.';
-$strPrivDescProcess4 = 'Процессын жагсаалт дахь дууссан асуултыг харахыг зөвшөөрөх.';
 $strPrivDescReferences = 'MySQL-ын энэ хувилбарт үйлчлэлгүй.';
 $strPrivDescReload = 'Сервэрийн тохиргоог дахин дуудахыг зөвшөөрөх.';
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.';
@@ -1047,4 +1045,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

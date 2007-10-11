@@ -599,8 +599,6 @@ $strPrivDescMaxConnections = 'Begrenser antall nye tilkoblinger brukeren kan åp
 $strPrivDescMaxQuestions = 'Begrenser antall spørringer brukeren kan sende til tjeneren per time.';
 $strPrivDescMaxUpdates = 'Begrenser antall kommandoer som kan endre tabeller eller databaser brukeren kan utføre per time.';
 $strPrivDescMaxUserConnections = 'Begrens antall samtidige tilkoblinger brukeren kan ha.';
-$strPrivDescProcess3 = 'Tillater avslutting av prosesser som tilhører andre brukere.';
-$strPrivDescProcess4 = 'Tillater visning av komplette spørringer i prosesslisten.';
 $strPrivDescReferences = 'har ingen effekt i denne versjonen av MySQL.';
 $strPrivDescReload = 'Tillater oppfrisking av tjenerinnstillinger og oppfrisking av mellomlager.';
 $strPrivDescReplClient = 'Gir tillatelse til brukeren til å spørre hvor replikasjonsslaver eller -tjenere er.';
@@ -1024,4 +1022,7 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrens
 $strZip = 'Komprimert (zip)';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

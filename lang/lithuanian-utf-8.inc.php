@@ -463,8 +463,6 @@ $strPrivDescLockTables = 'Leisti užrakinti lenteles procesų metu.';
 $strPrivDescMaxConnections = 'Riboti prisijungimų kiekį per valandą.';
 $strPrivDescMaxQuestions = 'Riboti užklausų kiekį per valandą';
 $strPrivDescMaxUpdates = 'Riboti komandų (kurios vienaip ar kitaip modifikuoja lenteles ar duombazes) kiekį per valandą.';
-$strPrivDescProcess3 = 'Leisti išjungti kitų vartotojų procesus.';
-$strPrivDescProcess4 = 'Leisti peržiūrėti procesų sąraše pilną užklausų sąrašą.';
 $strPrivDescReferences = ' Negalioja šioje MySQL versijoje.';
 $strPrivDescReload = 'Leisti perkrauti darbinę stotį, bei išvalyti laikinąją atmintį (cache).';
 $strPrivDescReplClient = 'Leisti vartotojo užklausas dėl atstatymo master / slave darbinių stočių.';
@@ -1042,4 +1040,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

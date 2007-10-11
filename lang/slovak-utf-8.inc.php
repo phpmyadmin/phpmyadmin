@@ -560,8 +560,6 @@ $strPrivDescMaxConnections = 'Obmedzí počet nových spojení, ktoré môže po
 $strPrivDescMaxQuestions = 'Obmedzí počet dopytov, ktoré môže používateľ odoslať za hodinu.';
 $strPrivDescMaxUpdates = 'Obmedzí počet príkazov meniacich tabuľku alebo databázu, ktorá môže používateľ odoslať za hodinu.';
 $strPrivDescMaxUserConnections = 'Obmedzuje počet simultánnych pripojení používateľa.';
-$strPrivDescProcess3 = 'Povolí zabíjanie procesov iným používateľlom.';
-$strPrivDescProcess4 = 'Povolí prezeranie kompletných dopytov v zozname procesov.';
 $strPrivDescReferences = 'Nefunguje v tejto verzii MySQL.';
 $strPrivDescReload = 'Povolí znovunačítanie nastavení a vyprázdňovanie vyrovnávacích pamätí serveru.';
 $strPrivDescReplClient = 'Povolí používateľovi zistiť kde je hlavný / pomocný server.';
@@ -1027,4 +1025,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

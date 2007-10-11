@@ -96,7 +96,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Drop_priv', 'DROP', $GLOBALS['strPrivDescDropDb']),
         array('Reload_priv', 'RELOAD', $GLOBALS['strPrivDescReload']),
         array('Shutdown_priv', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']),
-        array('Process_priv', 'PROCESS', $GLOBALS['strPrivDescProcess4']),
+        array('Process_priv', 'PROCESS', $GLOBALS['strPrivDescProcess']),
         array('File_priv', 'FILE', $GLOBALS['strPrivDescFile']),
         array('References_priv', 'REFERENCES', $GLOBALS['strPrivDescReferences']),
         array('Index_priv', 'INDEX', $GLOBALS['strPrivDescIndex']),
@@ -464,7 +464,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
         );
         if ($db == '*') {
             $privTable[2][] = array('Super', 'SUPER', $GLOBALS['strPrivDescSuper']);
-            $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess4']);
+            $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess']);
             $privTable[2][] = array('Reload', 'RELOAD', $GLOBALS['strPrivDescReload']);
             $privTable[2][] = array('Shutdown', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']);
             $privTable[2][] = array('Show_db', 'SHOW DATABASES', $GLOBALS['strPrivDescShowDb']);

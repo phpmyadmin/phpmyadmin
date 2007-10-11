@@ -595,8 +595,6 @@ $strPrivDescMaxConnections = 'Limita el numero de noves connexions que pot obrir
 $strPrivDescMaxQuestions = 'Limita el numero de consultes que pot enviar l\'usuari al servidor per hora.';
 $strPrivDescMaxUpdates = 'Limita el numero d\'ordres que pot executar l\'usuari canviant qualsevol taula o base de dades per hora.';
 $strPrivDescMaxUserConnections = 'Límita el nombre de connexions simultànies que l\'usuari pot tenir.';
-$strPrivDescProcess3 = 'Permet cancel.lar processos d\'altres usuaris.';
-$strPrivDescProcess4 = 'Permet veure completament les consultes a la llista de processos.';
 $strPrivDescReferences = 'No té efecte en aquesta versió de MySQL.';
 $strPrivDescReload = 'Permet recarregar les configuracions del servidor i buidar les seves memòries cau.';
 $strPrivDescReplClient = 'Dona el dret a l\'usuari de preguntar quins servidors mestres / esclaus hi ha.';
@@ -1020,4 +1018,7 @@ $strZeroRemovesTheLimit = 'Nota: Es treu el limit establint aquestes opcions a 0
 $strZip = '"comprimit amb zip"';
 
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

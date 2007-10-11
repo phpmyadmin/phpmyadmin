@@ -607,8 +607,6 @@ $strPrivDescMaxConnections = 'Kullanıcının saat başına açabileceği yeni b
 $strPrivDescMaxQuestions = 'Kullanıcının saat başına sunucuya gönderebileceği sorgu sayısını sınırlar.';
 $strPrivDescMaxUpdates = 'Kullanıcının saat başına çalıştırabileceği herhangi bir tabloyu veya veritabanını değiştiren komut sayısını sınırlar.';
 $strPrivDescMaxUserConnections = 'Kullanıcının eşzamanlı bağlantı sayısını sınırlar.';
-$strPrivDescProcess3 = 'Diğer kullanıcıların işlemlerinin sonlandırılmasına izin verir.';
-$strPrivDescProcess4 = 'İşlem listesindeki bütün sorguların görüntülenmesine izin verir.';
 $strPrivDescReferences = 'Bu MySQL sürümünde etkisi yoktur.';
 $strPrivDescReload = 'Sunucu ayarlarının yeniden yüklenmesine ve sunucunun önbelleğinin temizlenmesine izin verir';
 $strPrivDescReplClient = 'Kullanıcılara Slave ve Master\'ların nerede olduğunu sormasına izin verir.';
@@ -1032,4 +1030,7 @@ $strZip = '"zip olarak"';
 
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

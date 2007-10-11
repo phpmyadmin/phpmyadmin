@@ -442,8 +442,6 @@ $strPrivDescLockTables = 'Maakt het mogelijk tabellen op slot te zetten voor de 
 $strPrivDescMaxConnections = 'Limiteert het aantal nieuwe connecties die een gebruiker per uur mag openen.';
 $strPrivDescMaxQuestions = 'Limiteert het aantal queries dat een gebruiker mag versturen per uur.';
 $strPrivDescMaxUpdates = 'Limiteert het aantal commando\'s, welke een database of tabel veranderen, die een gebruiker per uur mag uitvoeren.';
-$strPrivDescProcess3 = 'Maakt het mogelijk processen te stoppen voor andere gebruikers.';
-$strPrivDescProcess4 = 'Maakt het mogelijk om complete queries in de process lijst te zien.';
 $strPrivDescReferences = 'Heeft geen effect in deze MySQL versie.';
 $strPrivDescReload = 'Maakt het mogelijk om de server instellingen opnieuw op te vragen en de cache van de server leeg te maken.';
 $strPrivDescReplClient = 'Geeft het recht aan de gebruiker om te vragen waar de slaves (slaven) / masters (meesters) zijn.';
@@ -1048,4 +1046,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

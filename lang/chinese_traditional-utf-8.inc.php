@@ -547,8 +547,6 @@ $strPrivDescMaxConnections = '限制每小時使用者開啟新連線的數目.'
 $strPrivDescMaxQuestions = '限制每小時使用者查詢的數目.';
 $strPrivDescMaxUpdates = '限制每小時使用者更改資料表及數據表之指令的數目.';
 $strPrivDescMaxUserConnections = '限制每個使用者之同步連線.';
-$strPrivDescProcess3 = '容許中止其他使用者之程序.';
-$strPrivDescProcess4 = '容許檢視系統執行清單完整之查詢.';
 $strPrivDescReferences = '於本 MySQL 版本無效.';
 $strPrivDescReload = '容許重新讀取伺服器設定及強行更新伺服器快取記憶.';
 $strPrivDescReplClient = '容許用戶查詢 slaves / masters 在何處.';
@@ -1031,4 +1029,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

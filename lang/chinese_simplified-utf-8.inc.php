@@ -446,8 +446,6 @@ $strPrivDescLockTables = '允许锁住当前线索的表。';
 $strPrivDescMaxConnections = '限制用户每小时打开的新连接数。';
 $strPrivDescMaxQuestions = '限制用户每小时可发送的查询数。';
 $strPrivDescMaxUpdates = '限制用户每小时可执行的将会更改任何表或数据库的命令数。';
-$strPrivDescProcess3 = '允许杀死其它用户的进程。';
-$strPrivDescProcess4 = '允许查看进程列表中的完整查询。';
 $strPrivDescReferences = '在此版本的 MySQL 中无效。';
 $strPrivDescReload = '允许重新载入服务器设置并刷新服务器的缓存。';
 $strPrivDescReplClient = '用户有权询问附属者/控制者在哪里。';
@@ -1052,4 +1050,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

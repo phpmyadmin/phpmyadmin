@@ -403,8 +403,6 @@ $strPrivDescLockTables = 'يسمح بقفل الجداول للعمليّة ال
 $strPrivDescMaxConnections = 'يحدّ من عدد الاتصالات الجديدة التي يمكن للمستخدم فتحها بكل ساعة.';
 $strPrivDescMaxQuestions = 'يحدّ عدد الاستعلامات التي يستطيع المستخدم إرسالها إلى الخادم بكل ساعة.';
 $strPrivDescMaxUpdates = 'يحدّ عدد الأوامر التي ينفذها المستخدم بكل ساعة، والتي تغير أي جدول أو قاعدة بيانات.';
-$strPrivDescProcess3 = 'يسمح بإيقاف عمليّات المستخدمين الأخرين.';
-$strPrivDescProcess4 = 'يسمح بعرض الاستعلام بالكامل في سرد العمليات.';
 $strPrivDescReferences = 'ليس له أي تأثير في نسخة MySQL الحاليّة.';
 $strPrivDescReload = 'يسمح بإعادة تحميل إعدادات الخادم وتفريغ كاش الخادم.';
 $strPrivDescReplClient = 'يعطي الحق للمستخدم بالسؤال عن مكان وجود slaves/masters.';
@@ -1052,4 +1050,7 @@ $strTriggers = 'Triggers';  //to translate
 $strEvent = 'Event';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>

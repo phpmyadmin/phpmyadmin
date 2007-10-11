@@ -603,8 +603,6 @@ $strPrivDescMaxConnections = 'Максимальное количество но
 $strPrivDescMaxQuestions = 'Максимальное количество запросов, которые пользователь может отправить в течение часа';
 $strPrivDescMaxUpdates = 'Максимальное количество команд изменяющих какую-либо таблицу или базу данных, которые пользователь может выполнить в течение часа';
 $strPrivDescMaxUserConnections = 'Максимальное количество одновременных подключений одного пользователя';
-$strPrivDescProcess3 = 'Разрешает завершение процессов других пользователей';
-$strPrivDescProcess4 = 'Разрешает просмотр полных запросов в списке процессов';
 $strPrivDescReferences = 'Не доступно в данной версии MySQL!';
 $strPrivDescReload = 'Разрешает перезагрузку настроек сервера и очистку его кешей';
 $strPrivDescReplClient = 'Разрешает запрашивать местонахождение головного и подчиненных серверов';
@@ -1027,4 +1025,7 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Замечание: Установка значения параметров в 0 (ноль), снимает ограничения.';
 $strZip = 'zip';
 $strPartitionDefinition = 'PARTITION definition';  //to translate
+$strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
+$strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
+$strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 ?>
