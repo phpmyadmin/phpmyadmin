@@ -183,8 +183,8 @@ function PMA_display_column_privs($spaces, $columns, $row, $name_for_select, $pr
         echo $spaces . '    <div class="item" id="div_item_' . $name . '">' . "\n"
            . $spaces . '        <label for="select_' . $name . '_priv">' . "\n"
            . $spaces . '            <tt><dfn title="' . $name_for_dfn . '">' . $priv_for_header . '</dfn></tt>' . "\n"
-           . $spaces . '        </label>' . "\n"
-           . $spaces . '        <select id="select_' . $name . '_priv" name="' . $name_for_select . '[]" multiple="multiple">' . "\n";
+           . $spaces . '        </label><br />' . "\n"
+           . $spaces . '        <select id="select_' . $name . '_priv" name="' . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
 
         foreach ($columns as $current_column => $current_column_privileges) {
             echo $spaces . '            <option value="' . htmlspecialchars($current_column) . '"';
