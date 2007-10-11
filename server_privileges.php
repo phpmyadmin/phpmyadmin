@@ -194,9 +194,9 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
            . '        <label for="select_' . $name . '_priv">' . "\n"
            . '            <tt><dfn title="' . $name_for_dfn . '">'
             . $priv_for_header . '</dfn></tt>' . "\n"
-           . '        </label>' . "\n"
+           . '        </label><br />' . "\n"
            . '        <select id="select_' . $name . '_priv" name="'
-            . $name_for_select . '[]" multiple="multiple">' . "\n";
+            . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
 
         foreach ($columns as $current_column => $current_column_privileges) {
             echo '            <option value="' . htmlspecialchars($current_column) . '"';
@@ -353,8 +353,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
         echo '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
            . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
            . '<fieldset id="fieldset_user_priv">' . "\n"
-           . '    <legend>' . $GLOBALS['strTblPrivileges'] . '</legend>' . "\n"
-           . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n";
+           . '    <legend>' . $GLOBALS['strTblPrivileges']
+           . PMA_showHint($GLOBALS['strEnglishPrivileges'])
+           . '</legend>' . "\n";
+
 
 
         // privs that are attached to a specific column
@@ -767,7 +769,8 @@ if (!empty($change_copy)) {
         .' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (!$res) {
-        $message = $GLOBALS['strNoUsersFound'];
+        $message = new PMA_Message('strNoUsersFound');
+        $message->display();
         unset($change_copy);
     } else {
         $row = PMA_DBI_fetch_assoc($res);
@@ -776,7 +779,7 @@ if (!empty($change_copy)) {
         // so the previous extract creates $Password but this script
         // uses $password
         if (!isset($password) && isset($Password)) {
-            $password=$Password;
+            $password = $Password;
         }
         PMA_DBI_free_result($res);
         $queries = array();
@@ -821,7 +824,8 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         null, PMA_DBI_QUERY_STORE);
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
-        $message = sprintf($GLOBALS['strUserAlreadyExists'], '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
+        $message = new PMA_Message('strUserAlreadyExists', PMA_Message::ERROR);
+        $message->addParam('[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
         $adduser = 1;
     } else {
         PMA_DBI_free_result($res);
@@ -832,11 +836,10 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
             . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         if ($pred_password != 'none' && $pred_password != 'keep') {
-            $pma_pw_hidden = str_repeat('*', strlen($pma_pw));
-            $sql_query = $real_sql_query . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
+            $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
             $real_sql_query .= ' IDENTIFIED BY \'' . PMA_sqlAddslashes($pma_pw) . '\'';
             if (isset($create_user_real)) {
-                $create_user_show = $create_user_real . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
+                $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
                 $create_user_real .= ' IDENTIFIED BY \'' . PMA_sqlAddslashes($pma_pw) . '\'';
             }
         } else {
@@ -893,28 +896,33 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         $sql_query .= ';';
         if (empty($change_copy)) {
             if (isset($create_user_real)) {
-                PMA_DBI_try_query($create_user_real) or PMA_mysqlDie(PMA_DBI_getError(), $create_user_show);
+                PMA_DBI_try_query($create_user_real)
+                    or PMA_mysqlDie(PMA_DBI_getError(), $create_user_show);
                 $sql_query = $create_user_show . $sql_query;
             }
-            PMA_DBI_try_query($real_sql_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
-            $message = $GLOBALS['strAddUserMessage'];
+            PMA_DBI_try_query($real_sql_query)
+                or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+            $message = new PMA_Message('strAddUserMessage', PMA_Message::SUCCESS);
 
             /* Create database for new user */
             if (isset($createdb) && $createdb > 0) {
                 if ($createdb == 1) {
                     $q = 'CREATE DATABASE IF NOT EXISTS ' . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
                     $sql_query .= $q;
-                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                    PMA_DBI_try_query($q)
+                        or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
                     $GLOBALS['reload'] = TRUE;
                     PMA_reloadNavigation();
 
                     $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username)) . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
                     $sql_query .= $q;
-                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                    PMA_DBI_try_query($q)
+                        or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
                 } elseif ($createdb == 2) {
                     $q = 'GRANT ALL PRIVILEGES ON ' . PMA_backquote(PMA_sqlAddslashes($username) . '\_%') . '.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
                     $sql_query .= $q;
-                    PMA_DBI_try_query($q) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
+                    PMA_DBI_try_query($q)
+                        or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
                 }
             }
         } else {
@@ -1053,6 +1061,8 @@ if (!empty($update_privs)) {
         $sql_query1 =
             'REVOKE GRANT OPTION ON ' . $db_and_table
             . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+    } else {
+        $sql_query1 = '';
     }
     $sql_query2 =
         'GRANT ' . join(', ', PMA_extractPrivInfo())
@@ -1089,28 +1099,29 @@ if (!empty($update_privs)) {
         }
     }
     $sql_query2 .= ';';
-    if (!PMA_DBI_try_query($sql_query0)) { // this query may fail, but this does not matter :o)
+    if (!PMA_DBI_try_query($sql_query0)) {
+        // this query may fail, but this does not matter :o)
         // a case when it can fail is when the admin does not have all
         // privileges: he can't do a REVOKE ALL PRIVILEGES !
         // so at least we display the error
         echo PMA_DBI_getError();
-        unset($sql_query0);
+        $sql_query0 = '';
     }
-    if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) { // this one may fail, too...
-        unset($sql_query1);
+    if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) {
+        // this one may fail, too...
+        $sql_query1 = '';
     }
     PMA_DBI_query($sql_query2);
-    $sql_query = (isset($sql_query0) ? $sql_query0 . ' ' : '')
-               . (isset($sql_query1) ? $sql_query1 . ' ' : '')
-               . $sql_query2;
-    $message = sprintf($GLOBALS['strUpdatePrivMessage'], '\'' . $username . '\'@\'' . $hostname . '\'');
+    $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
+    $message = new PMA_Message('strUpdatePrivMessage', PMA_Message::SUCCESS);
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 }
 
 
 /**
  * Revokes Privileges
  */
-if (!empty($revokeall)) {
+if (isset($_REQUEST['revokeall'])) {
 
     if (! isset($dbname) || ! strlen($dbname)) {
         $db_and_table = '*.*';
@@ -1131,11 +1142,13 @@ if (!empty($revokeall)) {
         'REVOKE GRANT OPTION ON ' . $db_and_table
         . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
     PMA_DBI_query($sql_query0);
-    if (!PMA_DBI_try_query($sql_query1)) { // this one may fail, too...
-        unset($sql_query1);
+    if (!PMA_DBI_try_query($sql_query1)) {
+        // this one may fail, too...
+        $sql_query1 = '';
     }
-    $sql_query = $sql_query0 . (isset($sql_query1) ? ' ' . $sql_query1 : '');
-    $message = sprintf($GLOBALS['strRevokeMessage'], '\'' . $username . '\'@\'' . $hostname . '\'');
+    $sql_query = $sql_query0 . ' ' . $sql_query1;
+    $message = new PMA_Message('strRevokeMessage', PMA_Message::SUCCESS);
+    $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
     if (! isset($tablename) || ! strlen($tablename)) {
         unset($dbname);
     } else {
@@ -1153,10 +1166,9 @@ if (!empty($change_pw)) {
 
     if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
         if ($pma_pw != $pma_pw2) {
-            $message = $strPasswordNotSame;
-        }
-        if (empty($pma_pw) || empty($pma_pw2)) {
-            $message = $strPasswordEmpty;
+            $message = new PMA_Message('strPasswordNotSame', PMA_Message::ERROR);
+        } elseif (empty($pma_pw) || empty($pma_pw2)) {
+            $message = new PMA_Message('strPasswordEmpty', PMA_Message::ERROR);
         }
     } // end if
 
@@ -1170,7 +1182,8 @@ if (!empty($change_pw)) {
         $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
         $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
         PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
-        $message = sprintf($GLOBALS['strPasswordChanged'], '\'' . $username . '\'@\'' . $hostname . '\'');
+        $message = new PMA_Message('strPasswordEmpty', PMA_Message::SUCCESS);
+        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
     }
 }
 
@@ -1200,8 +1213,7 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
     }
     if (empty($change_copy)) {
         if (empty($queries)) {
-            $show_error_header = TRUE;
-            $message = $GLOBALS['strDeleteNoUsersSelected'];
+            $message = new PMA_Message('strDeleteNoUsersSelected', PMA_Message::ERROR);
         } else {
             if ($mode == 3) {
                 $queries[] = '# ' . $GLOBALS['strReloadingThePrivileges'] . ' ...';
@@ -1213,7 +1225,7 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                 }
             }
             $sql_query = join("\n", $queries);
-            $message = $GLOBALS['strUsersDeleted'];
+            $message = new PMA_Message('strUsersDeleted', PMA_Message::SUCCESS);
         }
         unset($queries);
     }
@@ -1236,7 +1248,7 @@ if (!empty($change_copy)) {
         }
         $tmp_count++;
     }
-    $message = $GLOBALS['strSuccess'];
+    $message = new PMA_Message('strSuccess', PMA_Message::SUCCESS);
     $sql_query = join("\n", $queries);
 }
 
@@ -1247,7 +1259,7 @@ if (!empty($change_copy)) {
 if (!empty($flush_privileges)) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
-    $message = $GLOBALS['strPrivilegesReloaded'];
+    $message = new PMA_Message('strPrivilegesReloaded', PMA_Message::SUCCESS);
 }
 
 
@@ -1565,7 +1577,8 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
         PMA_DBI_free_result($res);
         unset($res);
         if ($user_does_not_exists) {
-            echo $GLOBALS['strUserNotFound'];
+            $message = new PMA_Message('strUserNotFound');
+            $message->display();
             PMA_displayLoginInformationFields();
             //require_once './libraries/footer.inc.php';
         }
@@ -1819,7 +1832,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
                     echo '    </select>' . "\n";
                 }
                 echo '    <input type="text" id="text_dbname" name="dbname" />' . "\n"
-                    .PMA_showHint($GLOBALS['strEscapeWildcards']);
+                    . PMA_showHint($GLOBALS['strEscapeWildcards']);
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . $GLOBALS['strAddPrivilegesOnTbl'] . ':</label>' . "\n";

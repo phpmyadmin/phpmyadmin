@@ -26,6 +26,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1808578 Changes in font size were no longer detected after patch
   #1787915
 + [lang] Croatian update, thanks to Renato Pavicic
+- patch #1807615 [GUI] Display patch for column rights in Opera
 
 2.11.1.1 (not yet released)
 - bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
