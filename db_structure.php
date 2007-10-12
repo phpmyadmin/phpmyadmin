@@ -22,7 +22,9 @@ if (empty($is_info)) {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
         require './libraries/mult_submits.inc.php';
-        $message = $strSuccess;
+        if (empty($message)) {
+            $message = PMA_Message::success();
+        }
     }
     require './libraries/db_common.inc.php';
     $url_query .= '&amp;goto=db_structure.php';

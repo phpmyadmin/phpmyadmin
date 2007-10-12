@@ -57,11 +57,15 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         }
         require './libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db);
-        if ($mult_btn == $strYes) {
-            $message = sprintf($strDatabasesDropped, count($selected));
-        } else {
-            $message = sprintf($strDatabasesDropped, 0);
+        if (empty($message)) {
+            $message = new PMA_Message('strDatabasesDropped');
+            if ($mult_btn == $strYes) {
+                $message->addParam(count($selected));
+            } else {
+                $message->addParam(0);
+            }
         }
+
     }
 }
 
