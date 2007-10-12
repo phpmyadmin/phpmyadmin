@@ -67,15 +67,15 @@ if (isset($do_save_data)) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-     PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_backquote($db) . ';', '', $err_url);
+    PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_backquote($db) . ';', '', $err_url);
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE ' . $query;
     $error_create = FALSE;
     $result    = PMA_DBI_try_query($sql_query) or $error_create = TRUE;
 
     if ($error_create == FALSE) {
-        $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-        $btnDrop   = 'Fake';
+        $message = PMA_Message::success('strTableHasBeenAlteredSuccessfully');
+        $btnDrop = 'Fake';
 
         // garvin: If comments were sent, enable relation stuff
         require_once './libraries/relation.lib.php';
