@@ -26,49 +26,54 @@ $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
  */
 PMA_DBI_select_db($db);
 
+$goto = $cfg['DefaultTabTable'];
+
 /**
  * A target table name has been sent to this script -> do the work
  */
-if (isset($new_name) && trim($new_name) != '') {
-    if ($db == $target_db && $table == $new_name) {
-        $message   = (isset($submit_move) ? $strMoveTableSameNames : $strCopyTableSameNames);
-    } else {
-        PMA_Table::moveCopy($db, $table, $target_db, $new_name, $what, isset($submit_move), 'one_table');
-        $GLOBALS['js_include'][] = 'functions.js';
-        $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
-        $message   = sprintf($message, htmlspecialchars($table), htmlspecialchars($new_name));
-        $reload    = 1;
-        /* Check: Work on new table or on old table? */
-        if (isset($submit_move)) {
-            $db        = $target_db;
-            $table     = $new_name;
+if (PMA_isValid($_REQUEST['new_name'])) {
+    if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
+        if (isset($_REQUEST['submit_move'])) {
+            $message = PMA_Message::error('strMoveTableSameNames');
         } else {
-            $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-            if (isset($switch_to_new) && $switch_to_new == 'true') {
-                PMA_setCookie('pma_switch_to_new', 'true');
-                $db        = $target_db;
-                $table     = $new_name;
-            } else {
-                PMA_removeCookie('pma_switch_to_new');
-            }
+            $message = PMA_Message::error('strCopyTableSameNames');
         }
+        $goto = './tbl_operations.php';
+    } else {
+        PMA_Table::moveCopy($db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
+            $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table');
+
+        if (isset($_REQUEST['submit_move'])) {
+            $message = PMA_Message::success('strMoveTableOK');
+        } else {
+            $message = PMA_Message::success('strCopyTableOK');
+        }
+        $message->addParam(htmlspecialchars($table));
+        $message->addParam(htmlspecialchars($_REQUEST['new_name']));
+
+        /* Check: Work on new table or on old table? */
+        if (isset($_REQUEST['submit_move']) || PMA_isValid($_REQUEST['switch_to_new'])) {
+            $db        = $_REQUEST['target_db'];
+            $table     = $_REQUEST['new_name'];
+        }
+        $reload = 1;
+
+        $disp_query = $sql_query;
+        $disp_message = $message;
+        unset($sql_query, $message);
+
+        $goto = $cfg['DefaultTabTable'];
     }
-    require_once './libraries/header.inc.php';
-} // end is target table name
-
-
-/**
- * No new name for the table!
- */
-else {
-    require_once './libraries/header.inc.php';
-    PMA_mysqlDie($strTableEmpty, '', '', $err_url);
+} else {
+    /**
+     * No new name for the table!
+     */
+    $message = PMA_Message::error('strTableEmpty');
+    $goto = './tbl_operations.php';
 }
-
 
 /**
  * Back to the calling script
  */
-
-require './tbl_sql.php';
+require $goto;
 ?>
