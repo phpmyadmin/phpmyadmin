@@ -133,7 +133,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if ($is_gotofile) {
-        if (strpos(' ' . $goto, 'db_') == 1 && strlen($table)) {
+        if (strpos($goto, 'db_') === 0 && strlen($table)) {
             $table = '';
         }
         $active_page = $goto;
@@ -306,11 +306,21 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // Displays an error message if required and stop parsing the script
     if ($error        = PMA_DBI_getError()) {
-        require_once './libraries/header.inc.php';
-        $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
-                      ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
-                      : $err_url;
-        PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
+        if ($is_gotofile) {
+            if (strpos($goto, 'db_') === 0 && strlen($table)) {
+                $table = '';
+            }
+            $active_page = $goto;
+            $message = PMA_Message::raw($error, PMA_Message::ERROR);
+            require './' . PMA_securePath($goto);
+        } else {
+            require_once './libraries/header.inc.php';
+            $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
+                          ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
+                          : $err_url;
+            PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
+        }
+        exit;
     }
     unset($error);
 
@@ -331,14 +341,12 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
-    $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
-    $row = PMA_DBI_fetch_row($res);
-    if (strlen($db) && is_array($row) && isset($row[0]) && (strcasecmp($db, $row[0]) != 0)) {
-        $db     = $row[0];
+    $current_db = PMA_DBI_fetch_value('SELECT DATABASE()');
+    if ($db !== $current_db) {
+        $db     = $current_db;
         $reload = 1;
     }
-    @PMA_DBI_free_result($res);
-    unset($res, $row);
+    unset($current_db);
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')
@@ -424,9 +432,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             // SELECT COUNT(*), f1 from t1 group by f1
             // and you click to sort on count(*)
             // }
-            $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
-            list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
-            @PMA_DBI_free_result($cnt_all_result);
+            $unlim_num_rows = PMA_DBI_fetch_value('SELECT FOUND_ROWS()');
         } // end else "just browsing"
 
     } else { // not $is_select
