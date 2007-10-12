@@ -16,9 +16,11 @@ if (! empty($submit_mult)
   || ! empty($rows_to_delete))) {
     define('PMA_SUBMIT_MULT', 1);
     if (isset($selected_db) && !empty($selected_db)) {
+        // coming from server database view - do something with selected databases
         $selected     = $selected_db;
         $what         = 'drop_db';
     } elseif (isset($selected_tbl) && !empty($selected_tbl)) {
+        // coming from database structure view - do something with selected tables
         if ($submit_mult == $strPrintView) {
             require './tbl_printview.php';
         } else {
@@ -56,6 +58,7 @@ if (! empty($submit_mult)
            } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
+        // coming from table structure view - do something with selected columns/fileds
         $selected     = $selected_fld;
         switch ($submit_mult) {
             case $strDrop:
@@ -105,6 +108,7 @@ if (! empty($submit_mult)
                 // this should already be handled by tbl_structure.php
         }
     } else {
+        // coming from borwsing - do something with selected rows
         $what = 'row_delete';
         $selected = $rows_to_delete;
     }
@@ -188,16 +192,12 @@ if (!empty($submit_mult) && !empty($what)) {
             case 'drop_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
-                        . PMA_backquote(htmlspecialchars($table))
-                        . '<br />&nbsp;&nbsp;DROP '
-                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                        . ',';
-                } else {
-                    $full_query .= '<br />&nbsp;&nbsp;DROP '
-                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                        . ',';
+                        . PMA_backquote(htmlspecialchars($table));
                 }
-                if ($i == $selected_cnt-1) {
+                $full_query .= '<br />&nbsp;&nbsp;DROP '
+                    . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                    . ',';
+                if ($i == $selected_cnt - 1) {
                     $full_query = preg_replace('@,$@', ';<br />', $full_query);
                 }
                 break;
@@ -217,7 +217,7 @@ if (!empty($submit_mult) && !empty($what)) {
     // Displays the confirmation form
     $_url_params = array(
         'query_type' => $what,
-        'reload' => (isset($reload) ? PMA_sanitize($reload) : 0),
+        'reload' => (! empty($reload) ? 1 : 0),
     );
     if (strpos(' ' . $action, 'db_') == 1) {
         $_url_params['db']= $db;
@@ -386,7 +386,7 @@ elseif ($mult_btn == $strYes) {
             if ($query_type != 'drop_db') {
                 PMA_DBI_select_db($db);
             }
-            $result = @PMA_DBI_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
+            $result = PMA_DBI_query($a_query);
         } // end if
     } // end for
 
@@ -403,11 +403,15 @@ elseif ($mult_btn == $strYes) {
         require './sql.php';
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
-        $result = PMA_DBI_query($sql_query);
-        if (!empty($sql_query_views)) {
+        $result = PMA_DBI_try_query($sql_query);
+        if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            PMA_DBI_query($sql_query_views);
+            $result = PMA_DBI_try_query($sql_query_views);
             unset($sql_query_views);
+        }
+
+        if (! $result) {
+            $message = PMA_Message::error(PMA_DBI_getError());
         }
     }
     if ($rebuild_database_list) {
