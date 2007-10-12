@@ -105,6 +105,56 @@ class PMA_Message
         $this->setMessage($this->getMessage() . $message);
     }
 
+    /**
+     * return success PMA_Message
+     *
+     * shorthand for getting a simple success message
+     *
+     * @static
+     * @uses    PMA_Message
+     * @uses    PMA_Message::SUCCESS
+     * @param   string $string
+     * @return  PMA_Message
+     */
+    static public function success($string = '')
+    {
+        if (empty($string)) {
+            $string = 'strSuccess';
+        }
+        return new PMA_Message($string, PMA_Message::SUCCESS);
+    }
+
+    /**
+     * return success PMA_Message
+     *
+     * shorthand for getting a simple success message
+     *
+     * @static
+     * @uses    PMA_Message
+     * @uses    PMA_Message::SUCCESS
+     * @param   string $string
+     * @return  PMA_Message
+     */
+    static public function error($string = '')
+    {
+        if (empty($string)) {
+            $string = 'strError';
+        }
+
+        if (substr($string, 0, 3) === 'str') {
+            return new PMA_Message($string, PMA_Message::ERROR);
+        }
+
+        return PMA_Message::raw($string, PMA_Message::ERROR);
+    }
+
+    static public function raw($message, $type = PMA_Message::NOTICE)
+    {
+        $r = new PMA_Message('', $type);
+        $r->setMessage($message);
+        return $r;
+    }
+
     public function isSuccess($set = false)
     {
         if ($set) {
