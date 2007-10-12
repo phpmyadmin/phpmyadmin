@@ -1217,13 +1217,21 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
                 $queries[] = '# ' . $GLOBALS['strReloadingThePrivileges'] . ' ...';
                 $queries[] = 'FLUSH PRIVILEGES;';
             }
+            $drop_user_error = '';
             foreach ($queries as $sql_query) {
                 if ($sql_query{0} != '#') {
-                    PMA_DBI_query($sql_query, $GLOBALS['userlink']);
+                    if (! PMA_DBI_try_query($sql_query, $GLOBALS['userlink'])) {
+                        $drop_user_error .= PMA_DBI_getError() . "\n";
+                    }
                 }
             }
             $sql_query = join("\n", $queries);
-            $message = new PMA_Message('strUsersDeleted', PMA_Message::SUCCESS);
+            if (! empty($drop_user_error)) {
+                $message = PMA_Message::error();
+                $message->setMessage($drop_user_error);
+            } else {
+                $message = PMA_Message::success('strUsersDeleted');
+            }
         }
         unset($queries);
     }
@@ -1454,7 +1462,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                            . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_'
                             . $index_checkbox . '" value="'
-                            . str_replace(chr(27), '&#27;', htmlentities($host['User'] . $user_host_separator . $host['Host']))
+                            . str_replace(chr(27), '&#27;', htmlspecialchars($host['User'] . $user_host_separator . $host['Host']))
                             . '"'
                             . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
                             . ' /></td>' . "\n"
