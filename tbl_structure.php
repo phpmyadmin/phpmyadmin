@@ -68,7 +68,9 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         //require_once './libraries/header.inc.php';
         //require_once './libraries/tbl_links.inc.php';
 
-        $message = $strSuccess;
+        if (empty($message)) {
+            $message = PMA_Message::success();
+        }
     }
 }
 
@@ -348,20 +350,9 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td align="center">
-        <?php
-        // loic1: Drop field only if there is more than one field in the table
-        if ($fields_cnt > 1) {
-            echo "\n";
-            ?>
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $titles['Drop']; ?></a>
-            <?php
-        } else {
-            echo "\n" . '        ' . $titles['NoDrop'];
-        }
-        echo "\n";
-        ?>
     </td>
     <td align="center">
         <?php
@@ -455,10 +446,7 @@ PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
-    // Drop button if there is at least two fields
-    if ($fields_cnt > 1) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
-    }
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
