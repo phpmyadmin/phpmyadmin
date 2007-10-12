@@ -902,6 +902,7 @@ $strSwitchToDatabase = 'Switch to copied database';
 $strSwitchToTable = 'Switch to copied table';
 
 $strTableAlreadyExists = 'Table %s already exists!';
+$strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';
 $strTableComments = 'Table comments';
 $strTableEmpty = 'The table name is empty!';
 $strTableHasBeenDropped = 'Table %s has been dropped';

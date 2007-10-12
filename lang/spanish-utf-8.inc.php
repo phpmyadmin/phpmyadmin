@@ -1024,4 +1024,5 @@ $strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
 $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
+$strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 ?>

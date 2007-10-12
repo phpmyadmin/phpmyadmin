@@ -74,7 +74,8 @@ if (isset($do_save_data)) {
     $result    = PMA_DBI_try_query($sql_query) or $error_create = TRUE;
 
     if ($error_create == FALSE) {
-        $message = PMA_Message::success('strTableHasBeenAlteredSuccessfully');
+        $message = PMA_Message::success('strTableAlteredSuccessfully');
+        $message->addParam(htmlspecialchars($table));
         $btnDrop = 'Fake';
 
         // garvin: If comments were sent, enable relation stuff
