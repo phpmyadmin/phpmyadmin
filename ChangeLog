@@ -22,6 +22,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Croatian update, thanks to Renato Pavicic
 - patch #1807615 [GUI] Display patch for column rights in Opera
 - bug #1811519 Can't delete user with a german umlaut.
+- it should not be possible to move or copy a table to information_schema
 
 2.11.1.1 (not yet released)
 - bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
