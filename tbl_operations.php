@@ -197,7 +197,7 @@ unset($columns);
 <fieldset id="fieldset_table_rename">
     <legend><?php echo $strMoveTable; ?></legend>
     <select name="target_db">
-        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(); ?>
+        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
@@ -347,7 +347,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 <fieldset>
     <legend><?php echo $strCopyTable; ?></legend>
     <select name="target_db">
-        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true); ?>
+        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />

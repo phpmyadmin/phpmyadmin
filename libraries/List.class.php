@@ -113,12 +113,13 @@
      * returns HTML <option>-tags to be used inside <select></select>
      *
      * @uses    PMA_List::$items to build up the option items
-     * @uses    PMA_List::getDefault() to mark this as sleected if requested
+     * @uses    PMA_List::getDefault() to mark this as selected if requested
      * @uses    htmlspecialchars() to escape items
      * @param   mixed   $selected   the selected db or true for selecting current db
+     * @param   boolean $include_information_schema
      * @return  string  HTML option tags
      */
-    function getHtmlOptions($selected = '')
+    function getHtmlOptions($selected = '', $include_information_schema = true)
     {
         if (true === $selected) {
             $selected = $this->getDefault();
@@ -126,6 +127,9 @@
 
         $options = '';
         foreach ($this->items as $each_db) {
+            if (false === $include_information_schema && 'information_schema' === $each_db) {
+                continue;
+            }
             $options .= '<option value="' . htmlspecialchars($each_db) . '"';
             if ($selected === $each_db) {
                 $options .= ' selected="selected"';
