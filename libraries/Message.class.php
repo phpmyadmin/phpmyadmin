@@ -145,7 +145,25 @@ class PMA_Message
             return new PMA_Message($string, PMA_Message::ERROR);
         }
 
-        return PMA_Message::raw($string, PMA_Message::ERROR);
+        return PMA_Message::rawError($string);
+    }
+
+    static public function warning($string)
+    {
+        if (substr($string, 0, 3) === 'str') {
+            return new PMA_Message($string, PMA_Message::WARNING);
+        }
+
+        return PMA_Message::raw($string, PMA_Message::WARNING);
+    }
+
+    static public function notice($string)
+    {
+        if (substr($string, 0, 3) === 'str') {
+            return new PMA_Message($string, PMA_Message::NOTICE);
+        }
+
+        return PMA_Message::raw($string, PMA_Message::NOTICE);
     }
 
     static public function raw($message, $type = PMA_Message::NOTICE)
@@ -153,6 +171,11 @@ class PMA_Message
         $r = new PMA_Message('', $type);
         $r->setMessage($message);
         return $r;
+    }
+
+    static public function rawError($message)
+    {
+        return PMA_Message::raw($message, PMA_Message::ERROR);
     }
 
     public function isSuccess($set = false)
