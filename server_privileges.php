@@ -749,10 +749,10 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     }
     $res = PMA_DBI_query(
         'SELECT \'foo\' FROM `mysql`.`user`'
-        .' WHERE ' . PMA_convert_using('User')
-        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
-        .' AND ' . PMA_convert_using('Host')
-        .' = ' . PMA_convert_using($hostname, 'quoted') . ';',
+        .' WHERE CONVERT(`User` USING utf8) COLLATE utf8_bin '
+        .' = CONVERT(\'' . PMA_sqlAddslashes($username) . '\' USING utf8) COLLATE utf8_bin '
+        .' AND CONVERT(`Host` USING utf8) COLLATE utf8_bin '
+        .' = CONVERT(\'' . PMA_sqlAddslashes($hostname) . '\' USING utf8) COLLATE utf8_bin ;',
         null, PMA_DBI_QUERY_STORE);
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
