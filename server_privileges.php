@@ -836,13 +836,10 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             unset($row);
             break;
     }
-    $res = PMA_DBI_query(
-        'SELECT \'foo\' FROM `mysql`.`user`'
-        .' WHERE ' . PMA_convert_using('User')
-        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
-        .' AND ' . PMA_convert_using('Host')
-        .' = ' . PMA_convert_using($hostname, 'quoted') . ';',
-        null, PMA_DBI_QUERY_STORE);
+    $sql = "SELECT 'foo' FROM `mysql`.`user`"
+        . " WHERE `User` = '" . PMA_sqlAddslashes($username) . "'"
+        . " AND `Host` = '" . PMA_sqlAddslashes($hostname) . "';";
+    $res = PMA_DBI_query($sql, null, PMA_DBI_QUERY_STORE);
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
         $message = new PMA_Message('strUserAlreadyExists', PMA_Message::ERROR);
