@@ -28,6 +28,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Croatian update, thanks to Renato Pavicic
 - patch #1807615 [GUI] Display patch for column rights in Opera
 - bug #1811519 Can't delete user with a german umlaut.
+- bug #1811519 [privileges] fixed used collation for accessing mysql.user in server privileges
 - it should not be possible to move or copy a table to information_schema
 
 2.11.1.1 (not yet released)
