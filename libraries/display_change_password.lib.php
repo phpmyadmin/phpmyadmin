@@ -12,13 +12,11 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
                  ? 'onpropertychange'
                  : 'onchange';
 
-$calling_script = PMA_getenv('PHP_SELF');
-
 // Displays the form
 ?>
-<form method="post" action="<?php echo $calling_script; ?>" name="chgPassword" onsubmit="return checkPassword(this)">
+<form method="post" action="<?php echo $GLOBALS['PMA_PHP_SELF']; ?>" name="chgPassword" onsubmit="return checkPassword(this)">
     <?php   echo PMA_generate_common_hidden_inputs();
-            if (strpos($calling_script, 'server_privileges') !== false) {
+            if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
                 echo '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                    . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }?>
