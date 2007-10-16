@@ -557,12 +557,16 @@ class PMA_Config
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URL
+            /**
+             * REQUEST_URI contains PATH_INFO too, this is not what we want
+             * script-php/pathinfo/
             if (PMA_getenv('REQUEST_URI')) {
                 $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
                 if ($url === false) {
                     $url = array('path' => $_SERVER['REQUEST_URI']);
                 }
             }
+             */
 
             // If we don't have scheme, we didn't have full URL so we need to
             // dig deeper
@@ -599,13 +603,17 @@ class PMA_Config
 
                 // And finally the path could be already set from REQUEST_URI
                 if (empty($url['path'])) {
+                    /**
+                     * REQUEST_URI contains PATH_INFO too, this is not what we want
+                     * script-php/pathinfo/
                     if (PMA_getenv('PATH_INFO')) {
                         $path = parse_url(PMA_getenv('PATH_INFO'));
                     } else {
                         // PHP_SELF in CGI often points to cgi executable, so use it
                         // as last choice
-                        $path = parse_url(PMA_getenv('PHP_SELF'));
-                    }
+                     */
+                        $path = parse_url($GLOBALS['PMA_PHP_SELF']);
+                    //}
                     $url['path'] = $path['path'];
                 }
             }
@@ -836,27 +844,36 @@ class PMA_Config
 
         $url = '';
 
+        /**
+         * REQUEST_URI contains PATH_INFO too, this is not what we want
+         * script-php/pathinfo/
         if (PMA_getenv('REQUEST_URI')) {
             $url = PMA_getenv('REQUEST_URI');
         }
+         */
 
         // If we don't have path
         if (empty($url)) {
-            if (PMA_getenv('PATH_INFO')) {
-                $url = PMA_getenv('PATH_INFO');
-            } elseif (PMA_getenv('PHP_SELF')) {
+            //if (PMA_getenv('PATH_INFO')) {
+            //    $url = PMA_getenv('PATH_INFO');
+            //} else
+            if ($GLOBALS['PMA_PHP_SELF']) {
                 // PHP_SELF in CGI often points to cgi executable, so use it
                 // as last choice
-                $url = PMA_getenv('PHP_SELF');
+                $url = $GLOBALS['PMA_PHP_SELF'];
             } elseif (PMA_getenv('SCRIPT_NAME')) {
-                $url = PMA_getenv('PHP_SELF');
+                $url = $GLOBALS['PMA_PHP_SELF'];
             }
         }
 
+        /**
+         * REQUEST_URI contains PATH_INFO too, this is not what we want
+         * script-php/pathinfo/
         $parsed_url = @parse_url($_SERVER['REQUEST_URI']); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
         if ($parsed_url === false) {
+         */
             $parsed_url = array('path' => $url);
-        }
+        //}
 
         $cookie_path   = substr($parsed_url['path'], 0, strrpos($parsed_url['path'], '/'))  . '/';
 

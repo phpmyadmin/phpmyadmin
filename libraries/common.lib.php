@@ -1504,6 +1504,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * returns a tab for tabbed navigation.
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
+ * @uses    $GLOBALS['PMA_PHP_SELF']
  * @uses    $GLOBALS['strEmpty']
  * @uses    $GLOBALS['strDrop']
  * @uses    $GLOBALS['active_page']
@@ -1548,7 +1549,7 @@ function PMA_getTab($tab)
          || PMA_isValid($GLOBALS['active_page'], 'identical', $tab['link'])) {
             $tab['class'] = 'active';
         } elseif (empty($GLOBALS['active_page'])
-          && basename(PMA_getenv('PHP_SELF')) == $tab['link']
+          && basename($GLOBALS['PMA_PHP_SELF']) == $tab['link']
           && empty($tab['warning'])) {
             $tab['class'] = 'active';
         }
@@ -1844,6 +1845,7 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * @todo    use PMA_fatalError() if $die === true?
  * @uses    PMA_getenv()
  * @uses    header_meta_style.inc.php
+ * @uses    $GLOBALS['PMA_PHP_SELF']
  * basename
  * @param   array   The names of the parameters needed by the calling
  *                  script.
@@ -1865,7 +1867,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
         $checked_special = false;
     }
 
-    $reported_script_name = basename(PMA_getenv('PHP_SELF'));
+    $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
     $found_error = false;
     $error_message = '';
 
