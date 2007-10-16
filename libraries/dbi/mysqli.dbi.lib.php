@@ -370,26 +370,6 @@ function PMA_DBI_getError($link = null)
 }
 
 /**
- * closes given database $link or $GLOBALS['userlink']
- *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_close()
- * @param   object mysqli   $link   the mysqli object
- * @return  boolean         treu or false
- */
-function PMA_DBI_close($link = null)
-{
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
-    }
-    return @mysqli_close($link);
-}
-
-/**
  *
  * @param   object mysqli result    $result
  */

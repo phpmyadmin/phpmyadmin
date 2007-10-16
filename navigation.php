@@ -52,23 +52,11 @@ require_once './libraries/common.inc.php';
  *
  * @uses $GLOBALS['controllink'] to close it
  * @uses $GLOBALS['userlink'] to close it
- * @uses PMA_DBI_close()
  * @access private only to be used in navigation.php
  */
 function PMA_exitNavigationFrame()
 {
     echo '</body></html>';
-
-    /**
-     * Close MySQL connections
-     */
-    if (isset($GLOBALS['controllink']) && $GLOBALS['controllink']) {
-        @PMA_DBI_close($GLOBALS['controllink']);
-    }
-    if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
-        @PMA_DBI_close($GLOBALS['userlink']);
-    }
-
     exit;
 }
 

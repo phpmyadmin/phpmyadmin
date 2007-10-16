@@ -287,15 +287,3 @@ if (is_array($foreignData['disp_row'])) {
 
 </body>
 </html>
-
-<?php
-/**
- * Close MySql connections
- */
-if (isset($controllink) && $controllink) {
-    @PMA_DBI_close($controllink);
-}
-if (isset($userlink) && $userlink) {
-    @PMA_DBI_close($userlink);
-}
-?>

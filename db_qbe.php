@@ -628,7 +628,7 @@ echo PMA_generate_common_hidden_inputs($url_params);
 <?php
 $strTableListOptions = '';
 $numTableListOptions = 0;
-foreach ($tbl_names AS $key => $val) {
+foreach ($tbl_names as $key => $val) {
     $strTableListOptions .= '                        ';
     $strTableListOptions .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
         . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
@@ -694,7 +694,7 @@ if (isset($Field) && count($Field) > 0) {
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
-    foreach ($Field AS $value) {
+    foreach ($Field as $value) {
         $parts             = explode('.', $value);
         if (!empty($parts[0]) && !empty($parts[1])) {
             $tab_raw       = urldecode($parts[0]);
@@ -746,7 +746,7 @@ if (isset($Field) && count($Field) > 0) {
             // the last db selected is not always the one where we need to work)
             PMA_DBI_select_db($db);
 
-            foreach ($tab_all AS $tab) {
+            foreach ($tab_all as $tab) {
                 $ind_rs   = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($tab) . ';');
                 while ($ind = PMA_DBI_fetch_assoc($ind_rs)) {
                     $col1 = $tab . '.' . $ind['Column_name'];
@@ -787,7 +787,7 @@ if (isset($Field) && count($Field) > 0) {
             // (that would mean that they were also found in the whereclauses
             // which would be great). if yes, we take only those
             if ($needsort == 1) {
-                foreach ($col_cand AS $col => $is_where) {
+                foreach ($col_cand as $col => $is_where) {
                     $tab           = explode('.', $col);
                     $tab           = $tab[0];
                     if ($is_where == 'Y') {
@@ -813,7 +813,7 @@ if (isset($Field) && count($Field) > 0) {
             if (count($col_cand) > 1) {
                 // Of course we only want to check each table once
                 $checked_tables = $col_cand;
-                foreach ($col_cand AS $tab) {
+                foreach ($col_cand as $tab) {
                     if ($checked_tables[$tab] != 1) {
                         $tsize[$tab] = PMA_Table::countRecords($db, $tab, true, false);
                         $checked_tables[$tab] = 1;
@@ -829,86 +829,7 @@ if (isset($Field) && count($Field) > 0) {
             }
         } // end if (exactly one where clause)
 
-        /**
-         * Removes unwanted entries from an array (PHP3 compliant)
-         *
-         * @param   array  the array to work with
-         * @param   array  the list of keys to remove
-         *
-         * @return  array  the cleaned up array
-         *
-         * @access  private
-         */
-        function PMA_arrayShort($array, $key)
-        {
-            foreach ($array AS $k => $v) {
-                if ($k != $key) {
-                    $reta[$k] = $v;
-                }
-            }
-            if (!isset($reta)) {
-                $reta = array();
-            }
-
-            return $reta;
-        } // end of the "PMA_arrayShort()" function
-
-
-        /**
-         * Finds all related tables
-         *
-         * @param   string   wether to go from master to foreign or vice versa
-         *
-         * @return  boolean  always TRUE
-         *
-         * @global  array    the list of tables that we still couldn't connect
-         * @global  array    the list of allready connected tables
-         * @global  string   the current databse name
-         * @global  string   the super user connection id
-         * @global  array    the list of relation settings
-         *
-         * @access  private
-         */
-        function PMA_getRelatives($from) {
-            global $tab_left, $tab_know, $fromclause;
-            global $controllink, $db, $cfgRelation;
-
-            if ($from == 'master') {
-                $to    = 'foreign';
-            } else {
-                $to    = 'master';
-            }
-            $in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
-            $in_left = '(\'' . implode('\', \'', $tab_left) . '\')';
-
-            $rel_query = 'SELECT *'
-                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE ' . $from . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND ' . $to   . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND ' . $from . '_table IN ' . $in_know
-                       . ' AND ' . $to   . '_table IN ' . $in_left;
-            PMA_DBI_select_db($cfgRelation['db'], $controllink);
-            $relations = @PMA_DBI_query($rel_query, $controllink);
-            PMA_DBI_select_db($db, $controllink);
-            while ($row = PMA_DBI_fetch_assoc($relations)) {
-                $found_table                = $row[$to . '_table'];
-                if (isset($tab_left[$found_table])) {
-                    $fromclause             .= "\n" . ' LEFT JOIN '
-                                            . PMA_backquote($row[$to . '_table']) . ' ON '
-                                            . PMA_backquote($row[$from . '_table']) . '.'
-                                            . PMA_backquote($row[$from . '_field']) . ' = '
-                                            . PMA_backquote($row[$to . '_table']) . '.'
-                                            . PMA_backquote($row[$to . '_field']) . ' ';
-                    $tab_know[$found_table] = $found_table;
-                    $tab_left               = PMA_arrayShort($tab_left, $found_table);
-                }
-            } // end while
-
-            return TRUE;
-        } // end of the "PMA_getRelatives()" function
-
-
-        $tab_left          = PMA_arrayShort($tab_all, $master);
+        unset($tab_all[$master]);
         $tab_know[$master] = $master;
 
         $run   = 0;
@@ -922,9 +843,9 @@ if (isset($Field) && count($Field) > 0) {
             $run++;
             if ($run > 5) {
 
-                foreach ($tab_left AS $tab) {
-                    $emerg    .= ', ' . PMA_backquote($tab);
-                    $tab_left = PMA_arrayShort($tab_left, $tab);
+                foreach ($tab_left as $tab) {
+                    $emerg .= ', ' . PMA_backquote($tab);
+                    unset($tab_left[$tab]);
                 }
             }
         } // end while

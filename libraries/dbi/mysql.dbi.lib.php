@@ -284,18 +284,6 @@ function PMA_DBI_getError($link = null)
     return $error;
 }
 
-function PMA_DBI_close($link = null)
-{
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
-    }
-    return @mysql_close($link);
-}
-
 function PMA_DBI_num_rows($result)
 {
     if (!is_bool($result)) {

@@ -39,7 +39,6 @@
  * @uses    PMA_escapeJsString()
  * @uses    PMA_getenv()
  * @uses    PMA_generate_common_url()
- * @uses    PMA_DBI_close()
  * @uses    basename()
  * @uses    file_exists()
  * @version $Id$
@@ -163,16 +162,6 @@ if (PMA_getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) 
     }
     echo '</a>' . "\n";
     echo '</div>' . "\n";
-}
-
-/**
- * Close database connections
- */
-if (! empty($GLOBALS['controllink'])) {
-    @PMA_DBI_close($GLOBALS['controllink']);
-}
-if (! empty($GLOBALS['userlink'])) {
-    @PMA_DBI_close($GLOBALS['userlink']);
 }
 
 // Include possible custom footers

@@ -114,14 +114,4 @@ if (!isset($resize)) {
     ImageDestroy($srcImage);
     ImageDestroy($destImage);
 }
-
-/**
- * Close MySql non-persistent connections
- */
-if (isset($GLOBALS['controllink']) && $GLOBALS['controllink']) {
-    @PMA_DBI_close($GLOBALS['controllink']);
-}
-if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
-    @PMA_DBI_close($GLOBALS['userlink']);
-}
 ?>

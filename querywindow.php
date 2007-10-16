@@ -264,15 +264,3 @@ if (! empty($_sql_history)
 </div>
 </body>
 </html>
-
-<?php
-/**
- * Close MySql connections
- */
-if (! empty($controllink)) {
-    PMA_DBI_close($controllink);
-}
-if (! empty($userlink)) {
-    PMA_DBI_close($userlink);
-}
-?>

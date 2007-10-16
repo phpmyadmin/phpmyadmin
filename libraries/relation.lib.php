@@ -107,7 +107,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     }
 
     echo '<table>' . "\n";
-    
+
     PMA_printDiagMessageForParameter('pmadb', $GLOBALS['cfg']['Server']['pmadb'], $messages, 'pmadb');
 
     PMA_printDiagMessageForParameter('relation', isset($cfgRelation['relation']), $messages, 'relation');
@@ -992,5 +992,57 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
     $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
     return $foreignData;
 } // end of 'PMA_getForeignData()' function
+
+/**
+ * Finds all related tables
+ *
+ * @param   string   wether to go from master to foreign or vice versa
+ *
+ * @return  boolean  always TRUE
+ *
+ * @global  array    the list of tables that we still couldn't connect
+ * @global  array    the list of allready connected tables
+ * @global  string   the current databse name
+ * @global  string   the super user connection id
+ * @global  array    the list of relation settings
+ *
+ * @access  private
+ */
+function PMA_getRelatives($from) {
+    global $tab_left, $tab_know, $fromclause;
+    global $db, $cfgRelation;
+
+    if ($from == 'master') {
+        $to    = 'foreign';
+    } else {
+        $to    = 'master';
+    }
+    $in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
+    $in_left = '(\'' . implode('\', \'', $tab_left) . '\')';
+
+    $rel_query = 'SELECT *'
+               . '  FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+               . ' WHERE ' . $from . '_db = \'' . PMA_sqlAddslashes($db) . '\''
+               . '   AND ' . $to   . '_db = \'' . PMA_sqlAddslashes($db) . '\''
+               . '   AND ' . $from . '_table IN ' . $in_know
+               . '   AND ' . $to   . '_table IN ' . $in_left;
+    $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
+    while ($row = PMA_DBI_fetch_assoc($relations)) {
+        $found_table                = $row[$to . '_table'];
+        if (isset($tab_left[$found_table])) {
+            $fromclause
+                .= "\n" . ' LEFT JOIN '
+                . PMA_backquote($db) . '.' . PMA_backquote($row[$to . '_table']) . ' ON '
+                . PMA_backquote($row[$from . '_table']) . '.'
+                . PMA_backquote($row[$from . '_field']) . ' = '
+                . PMA_backquote($row[$to . '_table']) . '.'
+                . PMA_backquote($row[$to . '_field']) . ' ';
+            $tab_know[$found_table] = $found_table;
+            unset($tab_left[$found_table]);
+        }
+    } // end while
+
+    return TRUE;
+} // end of the "PMA_getRelatives()" function
 
 ?>
