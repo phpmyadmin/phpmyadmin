@@ -6,7 +6,7 @@
  */
 
 /**
- *
+ * @todo make use of PMA_Message and PMA_Error
  */
 class PMA_Table {
 

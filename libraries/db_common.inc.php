@@ -51,7 +51,7 @@ if (isset($submitcollation) && !empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
     $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     $result           = PMA_DBI_query($sql_query);
-    $message          = $strSuccess;
+    $message          = PMA_Message::success();
     unset($db_charset, $db_collation);
 }
 

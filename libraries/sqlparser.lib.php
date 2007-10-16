@@ -124,7 +124,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_throwError($message, $sql)
     {
-
         global $SQP_errorString;
         $SQP_errorString = '<p>'.$GLOBALS['strSQLParserUserError'] . '</p>' . "\n"
             . '<pre>' . "\n"
@@ -2370,7 +2369,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 case 'quote_backtick':
                     // here we check for punct_user to handle correctly
                     // DEFINER = `username`@`%`
-                    // where @ is the punct_user and `%` is the quote_backtick 
+                    // where @ is the punct_user and `%` is the quote_backtick
                     if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable' && $typearr[3] != 'punct_user') {
                         $after     .= ' ';
                     }

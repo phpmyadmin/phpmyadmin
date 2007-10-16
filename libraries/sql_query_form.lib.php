@@ -520,7 +520,7 @@ function PMA_sqlQueryFormUpload(){
     echo '</div>';
 
     if ($files === FALSE) {
-        $errors[$GLOBALS['strError']] = $GLOBALS['strWebServerUploadDirectoryError'];
+        $errors[] = PMA_Message::error('strWebServerUploadDirectoryError');
     } elseif (!empty($files)) {
         echo '<div class="formelement">';
         echo '<strong>' . $GLOBALS['strWebServerUploadDirectory'] .':</strong>' . "\n";
@@ -544,9 +544,8 @@ function PMA_sqlQueryFormUpload(){
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>';
 
-    foreach ($errors as $error => $message) {
-        echo '<div>' . $error . '</div>';
-        echo '<div>' . $message . '</div>';
+    foreach ($errors as $error) {
+        $error->display();
     }
 }
 ?>
