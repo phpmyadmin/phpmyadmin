@@ -76,6 +76,8 @@ class PMA_Message
 
     protected $_params = array();
 
+    protected $_added_messages = array();
+
     /**
      * Constructor
      *
@@ -178,6 +180,16 @@ class PMA_Message
         return PMA_Message::raw($message, PMA_Message::ERROR);
     }
 
+    static public function rawNotice($message)
+    {
+        return PMA_Message::raw($message, PMA_Message::NOTICE);
+    }
+
+    static public function rawSuccess($message)
+    {
+        return PMA_Message::raw($message, PMA_Message::SUCCESS);
+    }
+
     public function isSuccess($set = false)
     {
         if ($set) {
@@ -257,9 +269,32 @@ class PMA_Message
     public function addParam($param, $raw = true)
     {
         if ($raw) {
-            $this->_params[] = $param;
+            $this->_params[] = htmlspecialchars($param);
         } else {
             $this->_params[] = PMA_Message::notice($param);
+        }
+    }
+
+    public function addString($string, $separator = ' ')
+    {
+        $this->_added_messages[] = $separator;
+        $this->_added_messages[] = PMA_Message::notice($string);
+    }
+
+    public function addMessages($messages, $separator = ' ')
+    {
+        foreach ($messages as $message) {
+            $this->addMessage($message, $separator);
+        }
+    }
+
+    public function addMessage($message, $separator = ' ')
+    {
+        $this->_added_messages[] = $separator;
+        if ($message instanceof PMA_Message) {
+            $this->_added_messages[] = $message;
+        } else {
+            $this->_added_messages[] = PMA_Message::rawNotice($message);
         }
     }
 
@@ -274,6 +309,11 @@ class PMA_Message
     public function getParams()
     {
         return $this->_params;
+    }
+
+    public function getAddedMessages()
+    {
+        return $this->_added_messages;
     }
 
     /**
@@ -416,7 +456,13 @@ class PMA_Message
             $message = PMA_Message::format($message, $this->getParams());
         }
 
-        return PMA_Message::decodeBB($message);
+        $message = PMA_Message::decodeBB($message);
+
+        foreach ($this->getAddedMessages() as $add_message) {
+            $message .= ' ' . $add_message;
+        }
+
+        return $message;
     }
 
     /**
