@@ -168,6 +168,7 @@ $variables_whitelist = array (
     '_ENV',
     '_COOKIE',
     '_SESSION',
+    'PMA_PHP_SELF',
 );
 
 foreach (get_defined_vars() as $key => $value) {
