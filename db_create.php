@@ -35,14 +35,18 @@ $sql_query .= ';';
 $result = PMA_DBI_try_query($sql_query);
 
 if (! $result) {
-    $message = PMA_DBI_getError();
+    $message = PMA_Message::rawError(PMA_DBI_getError());
     // avoid displaying the not-created db name in header or navi panel
     $GLOBALS['db'] = '';
     $GLOBALS['table'] = '';
     require_once './libraries/header.inc.php';
     require_once './main.php';
 } else {
-    $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
+    $message = PMA_Message::success();
+    $message->setMessage($strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated);
+    //$message = PMA_Message::success('strDatabaseHasBeenCreated');
+    //$message->addParam($db);
+
     require_once './libraries/header.inc.php';
     require_once './' . $cfg['DefaultTabDatabase'];
 }

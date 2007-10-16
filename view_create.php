@@ -75,8 +75,7 @@ if (isset($_REQUEST['createview'])) {
         require './' . $cfg['DefaultTabDatabase'];
         exit();
     } else {
-        $message = PMA_Message::error();
-        $message->setMessage(PMA_DBI_getError());
+        $message = PMA_Message::rawError(PMA_DBI_getError());
     }
 }
 

@@ -47,7 +47,7 @@ if (isset($_REQUEST['drop_selected_dbs_x'])) {
 if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
   && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
     if (! isset($_REQUEST['selected_dbs']) && ! isset($_REQUEST['query_type'])) {
-        $message = $strNoDatabasesSelected;
+        $message = PMA_Message::error('strNoDatabasesSelected');
     } else {
         $action = 'server_databases.php';
         $submit_mult = 'drop_db' ;
@@ -58,7 +58,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         require './libraries/mult_submits.inc.php';
         unset($action, $submit_mult, $err_url, $selected_db);
         if (empty($message)) {
-            $message = new PMA_Message('strDatabasesDropped');
+            $message = PMA_Message::success('strDatabasesDropped');
             if ($mult_btn == $strYes) {
                 $message->addParam(count($selected));
             } else {

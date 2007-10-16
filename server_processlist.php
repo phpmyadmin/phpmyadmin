@@ -21,10 +21,11 @@ require_once './libraries/server_common.inc.php';
  */
 if (!empty($kill)) {
     if (PMA_DBI_try_query('KILL ' . $kill . ';')) {
-        $message = sprintf($strThreadSuccessfullyKilled, $kill);
+        $message = PMA_Message::success('strThreadSuccessfullyKilled');
     } else {
-        $message = sprintf($strCouldNotKill, $kill);
+        $message = PMA_Message::error('strCouldNotKill');
     }
+    $message->addParam($kill);
 }
 
 

@@ -217,9 +217,12 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
-        $message = $strTable . ' '
-         . htmlspecialchars(PMA_backquote($db) . '.' . PMA_backquote($table))
-         . ' ' . $strHasBeenCreated;
+        //$message = PMA_Message::success('strTableCreatedSuccessfully');
+        //$message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
+        $message = PMA_Message::success('strTable');
+        $message->addMessage(htmlspecialchars(PMA_backquote($db) . '.' . PMA_backquote($table)));
+        $message->addString('strHasBeenCreated');
+
         $display_query = $sql_query;
         $sql_query = '';
 

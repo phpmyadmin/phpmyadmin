@@ -180,7 +180,8 @@ if (isset($submit_num_fields)) {
         // Go back to the structure sub-page
         $sql_query = $sql_query_cpy;
         unset($sql_query_cpy);
-        $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+        $message = PMA_Message::success('strTableAlteredSuccessfully');
+        $message->addParam($table);
         $active_page = 'tbl_structure.php';
         require './tbl_structure.php';
     } else {

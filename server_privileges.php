@@ -70,8 +70,7 @@ if (!$is_superuser) {
        . PMA_getIcon('b_usrlist.png')
        . $GLOBALS['strPrivileges'] . "\n"
        . '</h2>' . "\n";
-    $message = new PMA_Message('strNoPrivileges', PMA_Message::ERROR);
-    $message->display();
+    PMA_Message::error('strNoPrivileges')->display();
     require_once './libraries/footer.inc.php';
 }
 
@@ -815,7 +814,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         . " WHERE `User` = '" . PMA_sqlAddslashes($username) . "'"
         . " AND `Host` = '" . PMA_sqlAddslashes($hostname) . "';";
     if (PMA_DBI_fetch_value($sql) == 1) {
-        $message = new PMA_Message('strUserAlreadyExists', PMA_Message::ERROR);
+        $message = PMA_Message::error('strUserAlreadyExists');
         $message->addParam('[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
         $_REQUEST['adduser'] = true;
     } else {
@@ -1200,7 +1199,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
     }
     if (empty($_REQUEST['change_copy'])) {
         if (empty($queries)) {
-            $message = new PMA_Message('strDeleteNoUsersSelected', PMA_Message::ERROR);
+            $message = PMA_Message::error('strDeleteNoUsersSelected');
         } else {
             if ($_REQUEST['mode'] == 3) {
                 $queries[] = '# ' . $GLOBALS['strReloadingThePrivileges'] . ' ...';
@@ -1216,8 +1215,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             }
             $sql_query = join("\n", $queries);
             if (! empty($drop_user_error)) {
-                $message = PMA_Message::error();
-                $message->setMessage($drop_user_error);
+                $message = PMA_Message::rawError($drop_user_error);
             } else {
                 $message = PMA_Message::success('strUsersDeleted');
             }
@@ -1243,7 +1241,7 @@ if (isset($_REQUEST['change_copy'])) {
         }
         $tmp_count++;
     }
-    $message = new PMA_Message('strSuccess', PMA_Message::SUCCESS);
+    $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
 
@@ -1254,7 +1252,7 @@ if (isset($_REQUEST['change_copy'])) {
 if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
-    $message = new PMA_Message('strPrivilegesReloaded', PMA_Message::SUCCESS);
+    $message = PMA_Message::success('strPrivilegesReloaded');
 }
 
 

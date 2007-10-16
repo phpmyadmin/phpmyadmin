@@ -251,8 +251,7 @@ if ($import_file != 'none' && !$error) {
     // Handle file compression
     $compression = PMA_detectCompression($import_file);
     if ($compression === FALSE) {
-        $message = $strFileCouldNotBeRead;
-        $show_error_header = TRUE;
+        $message = PMA_Message::error('strFileCouldNotBeRead');
         $error = TRUE;
     } else {
         switch ($compression) {
@@ -260,8 +259,8 @@ if ($import_file != 'none' && !$error) {
                 if ($cfg['BZipDump'] && @function_exists('bzopen')) {
                     $import_handle = @bzopen($import_file, 'r');
                 } else {
-                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                    $show_error_header = TRUE;
+                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message->addParam($compression);
                     $error = TRUE;
                 }
                 break;
@@ -269,8 +268,8 @@ if ($import_file != 'none' && !$error) {
                 if ($cfg['GZipDump'] && @function_exists('gzopen')) {
                     $import_handle = @gzopen($import_file, 'r');
                 } else {
-                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                    $show_error_header = TRUE;
+                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message->addParam($compression);
                     $error = TRUE;
                 }
                 break;
@@ -280,12 +279,10 @@ if ($import_file != 'none' && !$error) {
                     $import_handle = new SimpleUnzip();
                     $import_handle->ReadFile($import_file);
                     if ($import_handle->Count() == 0) {
-                        $message = $strNoFilesFoundInZip;
-                        $show_error_header = TRUE;
+                        $message = PMA_Message::error('strNoFilesFoundInZip');
                         $error = TRUE;
                     } elseif ($import_handle->GetError(0) != 0) {
-                        $message = $strErrorInZipFile . ' ' . $import_handle->GetErrorMsg(0);
-                        $show_error_header = TRUE;
+                        $message = PMA_Message::rawError($strErrorInZipFile . ' ' . $import_handle->GetErrorMsg(0));
                         $error = TRUE;
                     } else {
                         $import_text = $import_handle->GetData(0);
@@ -293,8 +290,8 @@ if ($import_file != 'none' && !$error) {
                     // We don't need to store it further
                     $import_handle = '';
                 } else {
-                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                    $show_error_header = TRUE;
+                    $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                    $message->addParam($compression);
                     $error = TRUE;
                 }
                 break;
@@ -302,21 +299,19 @@ if ($import_file != 'none' && !$error) {
                 $import_handle = @fopen($import_file, 'r');
                 break;
             default:
-                $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                $show_error_header = TRUE;
+                $message = PMA_Message::error('strUnsupportedCompressionDetected');
+                $message->addParam($compression);
                 $error = TRUE;
                 break;
         }
     }
     if (!$error && $import_handle === FALSE) {
-        $message = $strFileCouldNotBeRead;
-        $show_error_header = TRUE;
+        $message = PMA_Message::error('strFileCouldNotBeRead');
         $error = TRUE;
     }
 } elseif (!$error) {
     if (!isset($import_text) || empty($import_text)) {
-        $message = $strNoDataReceived;
-        $show_error_header = TRUE;
+        $message = PMA_Message::error('strNoDataReceived');
         $error = TRUE;
     }
 }
@@ -349,8 +344,7 @@ if (!$error) {
     // Check for file existance
     if (!file_exists('./libraries/import/' . $format . '.php')) {
         $error = TRUE;
-        $message = $strCanNotLoadImportPlugins;
-        $show_error_header = TRUE;
+        $message = PMA_Message::error('strCanNotLoadImportPlugins');
     } else {
         // Do the real import
         $plugin_param = $import_type;
@@ -371,26 +365,27 @@ if ($reset_charset) {
 
 // Show correct message
 if (!empty($id_bookmark) && $action_bookmark == 2) {
-    $message = $strBookmarkDeleted;
+    $message = PMA_Message::success('strBookmarkDeleted');
     $display_query = $import_text;
     $error = FALSE; // unset error marker, it was used just to skip processing
 } elseif (!empty($id_bookmark) && $action_bookmark == 1) {
-    $message = $strShowingBookmark;
+    $message = PMA_Message::notice('strShowingBookmark');
 } elseif ($bookmark_created) {
     $special_message = '[br]' . sprintf($strBookmarkCreated, htmlspecialchars($bkm_label));
 } elseif ($finished && !$error) {
     if ($import_type == 'query') {
-        $message = $strSuccess;
+        $message = PMA_Message::success();
     } else {
-        $message = sprintf($strImportSuccessfullyFinished, $executed_queries);
+        $message = PMA_Message::success('strImportSuccessfullyFinished');
+        $message->addParam($executed_queries);
     }
 }
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $message = $strTimeoutPassed;
+    $message = PMA_Message::error('strTimeoutPassed');
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
-        $message .= ' ' . $strTimeoutNothingParsed;
+        $message->addString('strTimeoutNothingParsed');
     }
 }
 

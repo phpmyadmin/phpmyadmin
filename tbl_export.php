@@ -108,7 +108,7 @@ if (! empty($sql_query)) {
             }
         }
     }
-    $message = $GLOBALS['strSuccess'];
+    $message = PMA_Message::success();
 }
 
 /**

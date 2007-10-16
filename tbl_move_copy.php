@@ -49,9 +49,9 @@ if (PMA_isValid($_REQUEST['new_name'])) {
             $message = PMA_Message::success('strCopyTableOK');
         }
         $old = PMA_backquote($db) . '.' . PMA_backquote($table);
-        $message->addParam(htmlspecialchars($old));
+        $message->addParam($old);
         $new = PMA_backquote($_REQUEST['target_db']) . '.' . PMA_backquote($_REQUEST['new_name']);
-        $message->addParam(htmlspecialchars($new));
+        $message->addParam($new);
 
         /* Check: Work on new table or on old table? */
         if (isset($_REQUEST['submit_move']) || PMA_isValid($_REQUEST['switch_to_new'])) {

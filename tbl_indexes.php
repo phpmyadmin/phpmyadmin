@@ -176,9 +176,9 @@ if (!defined('PMA_IDX_INCLUDED')
         $sql_query .= $index_fields . ')';
     }
 
-    $result    = PMA_DBI_query($sql_query);
-    $message   = $strTable . ' ' . htmlspecialchars($table) . ' '
-        . $strHasBeenAltered;
+    $result  = PMA_DBI_query($sql_query);
+    $message = PMA_Message::success('strTableAlteredSuccessfully');
+    $message->addParam($table);
 
     $active_page = 'tbl_structure.php';
     require './tbl_structure.php';
