@@ -832,8 +832,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($allowDeny_forbidden); //Clean up after you!
         }
 
-        $bkp_track_err = @ini_set('track_errors', 1);
-
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
@@ -843,20 +841,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
                 $cfg['Server']['controlpass'], true);
         }
-        if (! $controllink) {
-            $controllink = PMA_DBI_connect($cfg['Server']['user'],
-                $cfg['Server']['password'], true);
-        } // end if ... else
-
-        // Pass #1 of DB-Config to read in master level DB-Config will go here
-        // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
         $userlink = PMA_DBI_connect($cfg['Server']['user'],
             $cfg['Server']['password'], false);
 
-        // Pass #2 of DB-Config to read in user level DB-Config will go here
-        // Robbat2 - May 11, 2002
+        if (! $controllink) {
+            $controllink = $userlink;
+        }
 
         /**
          * with phpMyAdmin 3 we support MySQL >=5
@@ -866,9 +858,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (PMA_MYSQL_INT_VERSION < 50015) {
             PMA_fatalError('strUpgrade', array('MySQL', '5.0.15'));
         }
-
-        @ini_set('track_errors', $bkp_track_err);
-        unset($bkp_track_err);
 
         /**
          * SQL Parser code
