@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.1.2 (not yet released)
+- fixed XSS in server_status.php, thanks to Omer Singer, The DigiTrust Group
+- fixed some possible XSS with PHP_SELF, PATH_INFO, REQUEST_URI
+
 2.11.1.1 (2007-10-15)
 - bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
 

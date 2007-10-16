@@ -103,7 +103,7 @@ if (! empty($_FILES)) {
 /**
  * globalize some environment variables
  */
-$server_vars = array('PHP_SELF', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
+$server_vars = array('HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
 foreach ($server_vars as $current) {
     // its not important HOW we detect html tags
     // its more important to prevent XSS
