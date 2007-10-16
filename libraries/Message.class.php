@@ -125,7 +125,7 @@ class PMA_Message
     }
 
     /**
-     * return success PMA_Message
+     * return PMA_Message of type error
      *
      * shorthand for getting a simple success message
      *
@@ -254,9 +254,13 @@ class PMA_Message
         $this->_number = $number;
     }
 
-    public function addParam($param)
+    public function addParam($param, $raw = true)
     {
-        $this->_params[] = $param;
+        if ($raw) {
+            $this->_params[] = $param;
+        } else {
+            $this->_params[] = PMA_Message::notice($param);
+        }
     }
 
     public function setParams($params, $sanitize = false)
