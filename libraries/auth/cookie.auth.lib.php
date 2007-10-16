@@ -34,36 +34,6 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     }
 
     /**
-     * String padding
-     *
-     * @param   string  input string
-     * @param   integer length of the result
-     * @param   string  the filling string
-     * @param   integer padding mode
-     *
-     * @return  string  the padded string
-     *
-     * @access  public
-     */
-    function full_str_pad($input, $pad_length, $pad_string = '', $pad_type = 0) {
-        $str = '';
-        $length = $pad_length - strlen($input);
-        if ($length > 0) { // str_repeat doesn't like negatives
-            if ($pad_type == STR_PAD_RIGHT) { // STR_PAD_RIGHT == 1
-                $str = $input.str_repeat($pad_string, $length);
-            } elseif ($pad_type == STR_PAD_BOTH) { // STR_PAD_BOTH == 2
-                $str = str_repeat($pad_string, floor($length/2));
-                $str .= $input;
-                $str .= str_repeat($pad_string, ceil($length/2));
-            } else { // defaults to STR_PAD_LEFT == 0
-                $str = str_repeat($pad_string, $length).$input;
-            }
-        } else { // if $length is negative or zero we don't need to do anything
-            $str = $input;
-        }
-        return $str;
-    }
-    /**
      * Encryption using blowfish algorithm (mcrypt)
      *
      * @param   string  original data
@@ -75,11 +45,9 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
      *
      * @author  lem9
      */
-    function PMA_blowfish_encrypt($data, $secret) {
+    function PMA_blowfish_encrypt($data, $secret)
+    {
         global $iv;
-        // Seems we don't need the padding. Anyway if we need it,
-        // we would have to replace 8 by the next 8-byte boundary.
-        //$data = full_str_pad($data, 8, "\0", STR_PAD_RIGHT);
         return base64_encode(mcrypt_encrypt(MCRYPT_BLOWFISH, $secret, $data, MCRYPT_MODE_CBC, $iv));
     }
 
@@ -95,19 +63,16 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
      *
      * @author  lem9
      */
-    function PMA_blowfish_decrypt($encdata, $secret) {
+    function PMA_blowfish_decrypt($encdata, $secret)
+    {
         global $iv;
         return trim(mcrypt_decrypt(MCRYPT_BLOWFISH, $secret, base64_decode($encdata), MCRYPT_MODE_CBC, $iv));
     }
 
 } else {
     require_once './libraries/blowfish.php';
-    /**
-     * display warning in main.php
-     */
     trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
 }
-
 
 /**
  * Displays authentication form
@@ -230,8 +195,7 @@ if (top != self) {
 
     // Show error message
     if (! empty($conn_error)) {
-        echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
-        echo $conn_error . '</div>' . "\n";
+        PMA_Message::rawError($conn_error)->display();
     }
 
     // Displays the languages form
@@ -242,11 +206,12 @@ if (top != self) {
 
     // Displays the warning message and the login form
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-        ?>
-        <div class="error"><h1><?php echo $GLOBALS['strError']; ?></h1>
-            <?php echo $GLOBALS['strSecretRequired']; ?>
-        </div>
-        <?php
+        PMA_Message::error('strSecretRequired')->display();
+        if ($GLOBALS['error_handler']->hasDisplayErrors()) {
+            echo '<div>';
+            $GLOBALS['error_handler']->dispErrors();
+            echo '</div>';
+        }
         echo '</div>' . "\n";
         if (file_exists('./config.footer.inc.php')) {
             require './config.footer.inc.php';
@@ -331,7 +296,11 @@ if (top != self) {
     if (empty($_COOKIE)) {
         trigger_error($GLOBALS['strCookiesRequired'], E_USER_NOTICE);
     }
-    $GLOBALS['error_handler']->dispUserErrors();
+    if ($GLOBALS['error_handler']->hasDisplayErrors()) {
+        echo '<div>';
+        $GLOBALS['error_handler']->dispErrors();
+        echo '</div>';
+    }
     ?>
 </div>
 <script type="text/javascript">
@@ -350,14 +319,17 @@ function PMA_focusInput()
 window.setTimeout('PMA_focusInput()', 500);
 // ]]>
 </script>
-</body>
-</html>
     <?php
     if (file_exists('./config.footer.inc.php')) {
          require './config.footer.inc.php';
     }
+    ?>
+</body>
+</html>
+    <?php
     exit;
 } // end of the 'PMA_auth()' function
+
 
 
 /**
