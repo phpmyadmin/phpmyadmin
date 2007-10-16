@@ -73,7 +73,6 @@ if (@extension_loaded('ctype')) {
 
 /**
  * This checks if a string actually exists inside another string
- * We try to do it in a PHP3-portable way.
  * We don't care about the position it is in.
  *
  * @uses    PMA_STR_pos()
