@@ -1204,7 +1204,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $include_file = PMA_sanitizeTransformationFile($GLOBALS['mime_map'][$meta->name]['transformation']);
 
                     if (file_exists('./libraries/transformations/' . $include_file)) {
-                        $transformfunction_name = preg_replace('@(\.inc\.php3?)$@i', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
+                        $transformfunction_name = preg_replace('@(\.inc\.php)$@i', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
                         require_once './libraries/transformations/' . $include_file;
 
