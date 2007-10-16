@@ -336,8 +336,10 @@ class PMA_Error extends PMA_Message
 
         if (in_array($function, $include_functions)) {
             echo PMA_Error::relPath($arg);
-        } else {
+        } elseif (is_scalar($arg)) {
             echo gettype($arg) . ' ' . $arg;
+        } else {
+            echo gettype($arg);
         }
     }
 
