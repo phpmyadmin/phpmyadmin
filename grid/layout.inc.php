@@ -1,8 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * 2007-08-26: IE6 bugfixes, non Gecko tab appearance
- * 2007-08-01: navidbpageselector, recoding, bugfixes ...
  * for nicer (human readable) css formating add "$cfg['NiceCss'] = true;" in your config.inc.php
  * 2007-05-11: layout choosable in config.inc.php :
  * you can switch to an alternate Color/Font set simply by putting the line
@@ -280,7 +278,7 @@ if (!empty($GLOBALS['cfg']['customGrid']))
     $GLOBALS['cfg']['BgTwo']                = '#D5D5D5';
     $GLOBALS['cfg']['QueryWindowWidth']     = 600;
     $GLOBALS['cfg']['QueryWindowHeight']    = 400;
-    $GLOBALS['cfg']['LegendBoder']            = 0;
+    $GLOBALS['cfg']['LegendBorder']           = 0;
     $GLOBALS['cfg']['LegendColor']            = '#000';
 //    $GLOBALS['cfg']['LegendBGC']       = '#fff';//??
   }

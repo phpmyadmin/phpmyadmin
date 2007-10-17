@@ -8,10 +8,11 @@
  * @subpackage Grid
  */
 
-define('_NaviGridVersion', 'navi Grid-2.11 070902');
+define('_NaviGridVersion', 'navi Grid-2.11 2007-12');
+// css for navigation.php (former left.php)
 
 if (!defined('PMA_MINIMUM_COMMON')) {
-    die( '/* ' . _NaviGridVersion . ' illegal execution path */');
+    die('/* ' . _NaviGridVersion . ' illegal execution path */');
 }
 
 if (!isset($GLOBALS['cfg']['LeftMarkerEnable'])) {
@@ -28,7 +29,7 @@ if (!$GLOBALS['cfg']['LeftMarkerEnable']) {
     $GLOBALS['cfg']['NaviMarkedBGC']    = $GLOBALS['cfg']['NaviBackground'];
 }
 
-if ('IE' == PMA_USR_BROWSER_AGENT) {
+if ('IE' == PMA_USR_BROWSER_AGENT && !empty($GLOBALS['cfg']['NiceCss'])) {
     define('_NL', chr(13) . chr(10));
 } else {
     define('_NL', chr(10));
@@ -47,13 +48,10 @@ if (empty($GLOBALS['cfg']['NiceCss'])) {
     define('_E', ';'  . _NL . '}' . _NL . _NL );
     define('_K', ','  . _NL );
     define('_T', "\t");
-    define('_D', "\t\t"); //double tab needed?
+    define('_D', "\t\t");
 }
 
-
-// css for  navigation.php  (former left.php)
-
-if (version_compare(PMA_VERSION,'2.9','lt') && ! empty($GLOBALS['cfg']['FontSize'])) {
+if (version_compare(PMA_VERSION,'2.9','lt') && !empty($GLOBALS['cfg']['FontSize'])) {
     echo
     'html',
     _S, 'font-size:', _T, $GLOBALS['cfg']['FontSize'],
@@ -65,18 +63,18 @@ echo '/* ', _NaviGridVersion, ' for pma 2.8 ... 2.11+ */', _NL,
 //general tags
 '*',
 _S, 'margin:',  _T, 0,
-//no good (select): 'padding:', _T, 0,
+_M, 'line-height:', _T, 1.33, // "line-spacing"
 _E,
 
 'body', _S;
-if (! empty($GLOBALS['cfg']['FontFamily'])) {
+if (!empty($GLOBALS['cfg']['FontFamily'])) {
     echo 'font-family:', _T,    $GLOBALS['cfg']['FontFamily'],
     _M;
 }
 echo
-    'background:', _T, $GLOBALS['cfg']['NaviBGC'],
-_M, 'color:',      _D, $GLOBALS['cfg']['NaviColor'],
-_M, 'padding:',    _T, 0,
+    'background:',  _T, $GLOBALS['cfg']['NaviBGC'],
+_M, 'color:',       _D, $GLOBALS['cfg']['NaviColor'],
+_M, 'padding:',     _T, 0,
 _E,
 
 'hr',
@@ -90,19 +88,21 @@ _E,
 
 // Links:
 'a',
-_S, 'padding:',    _T, '0 2px 1px 2px', //top l? bot r?
+_S, 'text-decoration:', _T, 'none',
+_M, 'padding:',    _T, '0 2px 1px 2px', //top l? bot r?
 _M, 'color:', _D, $GLOBALS['cfg']['NaviLinkColor'],
-_E;
+_E,
 
+'a:hover',
+    _S, 'text-decoration:', _T, 'underline';
 if ($GLOBALS['cfg']['LeftPointerEnable']) {
     echo
-    'a:hover',
-    _S, 'background:', _T, $GLOBALS['cfg']['NaviPointerBGC'],
-    _M, 'color:',      _D, $GLOBALS['cfg']['NaviPointerColor'], //doesn'work on dbname
-    _E;
+    _M, 'background:',      _T, $GLOBALS['cfg']['NaviPointerBGC'],
+    _M, 'color:',           _D, $GLOBALS['cfg']['NaviPointerColor']; //doesn'work on dbname
 }
-
 echo
+_E,
+
 'a:active',
 _S, 'background:', _T, $GLOBALS['cfg']['NaviActiveBGC'],
 _E,
@@ -111,12 +111,10 @@ _E,
 _S, 'text-decoration:', _T, 'none',
 _E,
 
-
 'a img',
-_S, 'border:', _D, 0,//avoid thick link border
+_S, 'border:', _D, 0, //avoid thick link border
 _E,
 // end Links
-
 
 'form',
 _S, 'display:', _T, 'inline',
@@ -126,11 +124,11 @@ _E,
 _S, 'margin-top:',  _T, '.2em',
 _E;
 
-echo version_compare(PMA_VERSION, '2.11', 'lt') // here only concat!
+echo version_compare(PMA_VERSION, '2.11', 'lt')
 ?
 'select'
 :
-'#navidbpageselector' .
+'#navidbpageselector' . // here only concat!
 _S . "padding-$left:" . _T . '.2em' .
 _M . 'text-align:' .  _T . 'center' .
 _E .
@@ -143,7 +141,7 @@ _S, 'width:', _D, '100%',
 _E,
 
 
-// buttons in some browsers (eg. Konqueror) are block elements, this breaks design:
+// buttons in some browsers (e.g., Konqueror) are block elements, this breaks design:
 'button',
 _S, 'display:', _T, 'inline',
 _E,
@@ -153,16 +151,9 @@ _E,
 
 'ul#databaseList', _K,
 '#databaseList ul',
-_S, 'list-style-type:', _T, 'none', // needed for Gecko
-//_M, "padding-$left:", _T, '.1em',
+_S, 'list-style-type:', _T, 'none', // Gecko
 _M, 'padding:', _T, 0,
 _E;
-
-/**
-'ul#databaseList a',
-_S, 'display:', _T, 'block', //with a line break before and after the element
-_E;
-**/
 
 if (!$GLOBALS['cfg']['LeftMarkerEnable']) {
     echo
@@ -188,8 +179,12 @@ if (!empty($GLOBALS['cfg']['NaviDbNameBGC'])) {
     echo _M, 'background:',  _T, $GLOBALS['cfg']['NaviDbNameBGC'];
 }
 echo
-_M, 'text-decoration:', _T, 'underline',
 _E,
+
+'.navi_dbName:hover',
+_S, 'text-decoration:', _T, 'underline',
+_E,
+
 
 
 // specific elements
@@ -241,14 +236,14 @@ _E,
 
 // left_tableList
 '#left_tableList',
-_S, 'margin:',     _T, '0 .2em',
-_M, 'padding:',    _T, '.2em',
-_M, 'background:', _T, $GLOBALS['cfg']['Navi2ndBGC'],
+_S, 'margin:',      _T, '0 .2em',
+_M, 'padding:',     _T, '0 .2em',
+_M, 'background:',  _T, $GLOBALS['cfg']['Navi2ndBGC'],
 _E,
 
 '#left_tableList li',
 _S, 'white-space:',    _T, 'nowrap',
-_M, 'padding-bottom:', _T, '.1em'; //4 __ spacing
+_M, 'padding-bottom:', _T, '.1em'; //for "__" spacing
 if ('IE' == PMA_USR_BROWSER_AGENT) {
     echo
     _M, 'margin:', _T, 0, //'1px 0 0 0',

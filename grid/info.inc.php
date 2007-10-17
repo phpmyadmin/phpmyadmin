@@ -1,9 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* info.inc.php 2007/07 windkiel */
+/* info.inc.php 2007-10-09 windkiel */
 
 /**
- * 2007-08-25 "Grid" working with version 2.8 .. 2.11+ ...
+ * 2007-10-12: minor changes th{}, a:hover{'underline'}, 'none' else 
+ * 2007-10-10: pma 3.0 main frame: new success.png
+ * bugfixes, non Gecko tab appearance, mult_submit hover=pointer and BGC=white
+ * 2007-08-01: navidbpageselector, recoding, bugfixes ...
+ * 2007-10-09 "Grid" working with version 2.8 .. 3+
  * main differences to theme "original" in:
  *
  * smaller table margins/paddings

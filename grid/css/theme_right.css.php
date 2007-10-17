@@ -9,13 +9,13 @@
  * @subpackage Grid
  */
 
-define('_MainGridVersion', 'main Grid-2.11 070826');
+define('_MainGridVersion', 'main Grid-3 2007-10');
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     die('/* ' . _MainGridVersion . ' unplanned execution path */');
 }
 
-if ('IE' == PMA_USR_BROWSER_AGENT) {
+if ('IE' == PMA_USR_BROWSER_AGENT && !empty($GLOBALS['cfg']['NiceCss'])) {
     define('_NL', chr(13) . chr(10));
 } else {
     define('_NL', chr(10));
@@ -108,14 +108,6 @@ _E,
 'h2',
 _S, 'font-size:', _T, '120%',
 _E,
-
-/**
-'h1', _K,
-'h2', _K,
-'h3'
-_S, 'font-weight:', _T, 'bold', // should be browser default anyway
-_E,
-**/
 
 'a', //        top/bot  left/right
 _S, 'padding:', _T, '0 .2em',
@@ -214,27 +206,32 @@ _S, 'display:', _T, 'inline',
 _E,
 
 'table',
-_S, 'margin:', _D, '1px',
+_S, 'margin:', _D, '3px 1px 1px 1px',
 _M, 'border-collapse:', _T, 'collapse',
 _E,
 
 'table caption', _K,
-'table th', _K,
-'table td',
-_S, 'padding:', _T, '0 .2em 0 .2em',
+'th', _K,
+'td',
+_S, 'padding:', _T, '0 .2em 0 .2em';
 //margin default
-_M, 'vertical-align:', _T, 'top';
 if ($GLOBALS['cfg']['Border']) {
    echo _M, 'border:', _D, $GLOBALS['cfg']['Border'], ' solid ', $GLOBALS['cfg']['MainGridColor'];
 }
-
 echo
+_E,
+
+'td',
+_S, 'vertical-align:', _T, 'top',
+_E,
+
+'th',
+_S, 'vertical-align:', _T, 'bottom',
 _E,
 
 'input', _K,
 'select', _K,
-'button', _K,
-// ^ ???
+'button', _K, //??
 'img',
 _S, 'vertical-align:', _T, 'middle',
 _E,
@@ -262,8 +259,17 @@ _S, 'white-space:', _T, 'normal',
 _E,
 
 'button.mult_submit',
-_S, 'border:', _D, 'none',
+_S, 'border:', _D, 0,
+//_M, 'border-bottom:', _D, '1px solid blue',
+_M, 'margin:',     _D, '0 2px',
+_M, 'padding:',    _T, 0,
 _M, 'background:', _T, 'transparent',
+_E,
+
+'button.mult_submit:hover',
+_S, 'background:', _T, $GLOBALS['cfg']['MainLinkHoverBGC'], //not IE6
+_M, 'cursor:',_T, 'pointer',
+//IE4 _M, 'cursor:',_T, 'hand',
 _E,
 
 // odd items 1,3,5,7,...
@@ -277,13 +283,6 @@ _E,
 '.even',
 _S, 'background:', _T, $GLOBALS['cfg']['BgTwo'],
 _E,
-
-/**test
-'.value',
-_S, 'white-space:', _T, 'nowrap',
-_E,
-KiB no effect
-**/
 
 // odd table rows 1,3,5,7,...
 'table tr.odd th', _K,
@@ -436,117 +435,215 @@ _E,
 
 
 // message boxes: warning, error, confirmation
-'.notice',
-_S, 'color:', _D, '#000',
-_M, 'background:', _T, '#FFFFDD',
-_E,
-
-'h1.notice', _K,
-'div.notice',
-_S, 'margin:', _D, '.5em 0 .5em 0',
-_M, 'border:', _D, '1px solid #FFD700';
-if ($GLOBALS['cfg']['ErrorIconic']) {
-   echo
-   _M, 'background-image:', _T, 'url("', _imgPath, 's_notice.png")',
-   _M, 'background-repeat: no-repeat';
-    if ($GLOBALS['text_dir'] === 'ltr') {
-        echo
-        _M, 'background-position:', _T, '1em 50%',
-        _M, 'padding:', _T, '1em 1em 1em 3.6em';
-    } else {
-        echo
-        _M, 'background-position:', _T, '99% 50%',
-        _M, 'padding:', _T, '1em 5% 1em 1em';
-    }
-} else {
-    echo
-    'padding:', _T, '.5em';
-}
-
-echo
-_E,
-
-'.notice h1',
-_S, 'border-bottom:', _T, '1px solid #FFD700',
-_M, 'font-weight:', _T, 'bold',
-_M, 'text-align:', _T, $left,
-_M, 'margin:', _D, '0 0 .2em 0',
-_E,
-
 '.warning',
-_S, 'color:', _D, '#c00',
+_S, 'color:',      _D, '#c00',
 _M, 'background:', _T, '#ffc',
-_E,
-
-'p.warning', _K,
-'h1.warning', _K,
-'div.warning',
-_S, 'margin:', _D, '.5em 0 .5em 0',
-_M, 'border:', _D, '1px solid #c00';
-if ($GLOBALS['cfg']['ErrorIconic']) {
-    echo
-        _M, 'background-image:', _T, 'url("', _imgPath, 's_warn.png")',
-        _M, ' background-repeat:', _T, 'no-repeat';
-    if ($GLOBALS['text_dir'] === 'ltr') {
-        echo
-        _M, 'background-position:', _T, '1em 50%',
-        _M, 'padding:', _T, '1em 1em 1em 3.6em';
-    } else {
-        echo
-        _M, 'background-position:', _T, '99% 50%',
-        _M, 'padding:', _T, '1em 5% 1em 1em';
-    }
-} else {
-    echo _M, 'padding:', _T, '.5em';
-}
-
-echo
-_E,
-
-'.warning h1',
-_S, 'border-bottom:', _T, '1px solid #c00',
-_M, 'font-weight:',   _T, 'bold',
-_M, 'text-align:',    _T, $left,
-_M, 'margin:',        _T, '0 0 .2em 0',
 _E,
 
 '.error',
 _S, 'background:', _T, '#ffc',
-_M, 'color:', _D, '#f00',
-_E,
+_M, 'color:',      _D, '#f00',
+_E;
 
-'h1.error,div.error',
-_S, 'margin:', _D, '.5em 0 .5em 0',
-_M, 'border:', _D, '1px solid #f00';
+echo version_compare(PMA_VERSION,'3', 'lt') //r10741
+?
+'.notice' .
+_S . 'color:'      . _D . '#000' .
+_M . 'background:' . _T . '#ffd' .
+_E .
 
+'h1.notice'  . _K .
+'div.notice' .
+_S . 'margin:' . _D . '5px 0' .
+_M . 'border:' . _D . '1px solid #FFD700'
+:
+'.notice h1'   . _K .
+'.success h1'  . _K .
+'.warning h1'  . _K .
+'div.error h1' .
+_S . 'border-bottom:' . _T . '2px solid' . //??
+_M . 'font-weight:'   . _T . 'bold' .
+_M . 'text-align:'    . _T . $left .
+_M . 'margin:'        . _D . '0 0 2px 0' .
+_E .
+
+'div.success' . _K .
+'div.notice'  . _K .
+'div.warning' . _K .
+'div.error'   .
+_S . 'margin:' . _D . '2px 0 0 0' .
+_M . 'border:' . _D . '1px solid';
 if ($GLOBALS['cfg']['ErrorIconic']) {
-    echo
-    _M, 'background-image:', _T, 'url("', _imgPath, 's_error.png")',
-    _M, 'background-repeat:', _T, 'no-repeat';
+   if (version_compare(PMA_VERSION,'3', 'lt')) {
+      echo _M, 'background-image:', _T, 'url("', _imgPath, 's_notice.png")';
+   }
+   echo _M, 'background-repeat:', _T, 'no-repeat';
     if ($GLOBALS['text_dir'] === 'ltr') {
-       echo
+        echo
         _M, 'background-position:', _T, '1em 50%',
-        _M, 'padding:', _T, '1em 1em 1em 3.6em';
+        _M, 'padding:', _T, '4px 1em 4px 3.6em';
     } else {
         echo
         _M, 'background-position:', _T, '99% 50%',
-        _M, 'padding:', _T, '1em 5% 1em 1em';
-   }
+        _M, 'padding:', _T, '4px 5% 4px 1em';
+    }
 } else {
     echo
-        _M, 'padding:', _T, '.5em';
+    'padding:', _T, '5px';
 }
 
 echo
-_E,
+_E;
 
-'div.error h1',
-_S, 'border-bottom:', _T, '1px solid #f00',
-_M, 'font-weight:', _T, 'bold',
-_M, 'text-align:', _T, $left,
-_M, 'margin:', _D, '0 0 .2em 0',
-_E,
+if (version_compare(PMA_VERSION,'3', 'lt')) { //r10741
+    echo
+    '.notice h1',
+    _S, 'border-bottom:', _T, '1px solid #FFD700',
+    _M, 'font-weight:',   _T, 'bold',
+    _M, 'text-align:',    _T, $left,
+    _M, 'margin:',        _D, '0 0 .2em 0',
+    _E,
 
+    'p.warning', _K,
+    'h1.warning', _K,
+    'div.warning',
+
+    _S, 'margin:', _T, '3px 0 0 0',
+    _M, 'border:', _T, '1px solid #c00';
+
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo
+        _M, 'background-image:',  _T, 'url("', _imgPath, 's_warn.png")',
+        _M, 'background-repeat:', _T, 'no-repeat';
+        if ($GLOBALS['text_dir'] === 'ltr') {
+            echo
+            _M, 'background-position:', _T, '1em 50%',
+            _M, 'padding:', _T, '4px 1em 4px 3.6em';
+        } else {
+            echo
+            _M, 'background-position:', _T, '99% 50%',
+            _M, 'padding:', _T, '4px 5% 4px 1em';
+        }
+    } else {
+        echo _M, 'padding:', _T, '4px';
+    }
+
+    echo
+    _E,
+
+    '.warning h1',
+    _S, 'border-bottom:', _T, '1px solid #c00',
+    _M, 'font-weight:',   _T, 'bold',
+    _M, 'text-align:',    _T, $left,
+    _M, 'margin:',        _T, '0 0 2px 0',
+    _E,
+
+    '.error',
+    _S, 'background:', _T, '#ffc',
+    _M, 'color:', _D, '#f00',
+    _E,
+
+    'h1.error', _K,
+    'div.error',
+    _S, 'margin:', _D, '5px 0',
+    _M, 'border:', _D, '1px solid #f00';
+
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo
+        _M, 'background-image:', _T, 'url("', _imgPath, 's_error.png")',
+        _M, 'background-repeat:', _T, 'no-repeat';
+        if ($GLOBALS['text_dir'] === 'ltr') {
+           echo
+            _M, 'background-position:', _T, '1em 50%',
+            _M, 'padding:', _T, '5px 1em 5px 3.6em';
+        } else {
+            echo
+            _M, 'background-position:', _T, '99% 50%',
+            _M, 'padding:', _T, '5px 5% 5px 1em';
+       }
+    } else {
+        echo
+            _M, 'padding:', _T, '.5em';
+    }
+
+    echo
+    _E,
+
+    'div.error h1',
+    _S, 'border-bottom:', _T, '1px solid #f00',
+    _M, 'font-weight:', _T, 'bold',
+    _M, 'text-align:', _T, $left,
+    _M, 'margin:', _D, '0 0 2px 0',
+    _E;
+
+} else {
+
+    echo
+    '.success',
+    _S, 'color:',      _D, '#000',
+    _M, 'background:', _T, '#f0fff0',
+    _E,
+
+    'h1.success', _K,
+    'div.success',
+    _S, 'border-color:', _T, '#0f0';
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo _M, 'background-image:', _T, 'url("', _imgPath, 's_success.png")';
+    }
+    echo
+    _E,
+
+    '.success h1',
+    _S, 'border-color:', _T, '#0d0',
+    _E,
+
+    '.notice',
+    _S, 'color:',      _D, '#000',
+    _M, 'background:', _T, '#ffd',
+    _E,
+
+    'h1.notice', _K,
+    'div.notice',
+    _S, 'border-color:', _T, '#FFD700';
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo _M, 'background-image:', _T, 'url("', _imgPath, 's_notice.png")';
+    }
+    echo
+    _E,
+
+    '.notice h1',
+    _S, 'border-color:', _T, '#FFD700',
+    _E,
+
+    'p.warning', _K,
+    'h1.warning', _K,
+    'div.warning',
+    _S, 'border-color:', _T, '#ffd700';
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo _M, 'background-image:',  _T, 'url("', _imgPath, 's_warn.png")';
+    }
+    echo
+    _E,
+
+    '.warning h1',
+    _S, 'border-color:', _T, '#c00',
+    _E,
+
+    'h1.error', _K,
+    'div.error',
+    _S, 'border-color:', _T, '#f00';
+    if ($GLOBALS['cfg']['ErrorIconic']) {
+        echo _M, 'background-image:', _T, 'url("', _imgPath, 's_error.png")';
+    }
+    echo
+    _E,
+
+    'div.error h1',
+    _S, 'border-color:', _T, '#f00',
+    _E;
+}//r10741
+
+echo
 '.confirmation',
 _S, 'background:', _T, '#ffc',
 _E,
@@ -1052,7 +1149,8 @@ if ($GLOBALS['cfg']['MainPageIconic']) {
     _S, _listImgUrl,'s_theme.png")',
     _E,
 
-    'li#li_server_info',
+    'li#li_server_info',_K,
+    'li#li_server_version',
     _S, _listImgUrl,'s_host.png")',
     _E,
 
@@ -1100,7 +1198,8 @@ if ($GLOBALS['cfg']['MainPageIconic']) {
     _S, _listImgUrl,'s_loggoff.png")',
     _E,
 
-    'li#li_pma_docs',
+    'li#li_pma_docs', _K,
+    'li#li_pma_wiki',
     _S, _listImgUrl,'b_docs.png")',
     _E,
 
@@ -1155,13 +1254,8 @@ _E,
 
 '#selflink',
 _S, 'clear:',           _T, 'both',  //No floating elements allowed on either side
-//_M, 'display:',         _T, 'block', //with a line break before and after the element
 _M, 'margin:',          _T, '.2em',
 _M, 'padding:',         _T, '.2em',
-//_M, "padding-$right:",  _T, '1em',
-//_M, 'width:',           _D, '100%', //responsible for horizontal scrollbar in IE 6
-//_M, 'border:',          _T, '1px solid ', _silver, //test
-//_M, 'border-top:',      _T, '1px solid ', $GLOBALS['cfg']['MainColor'], // _silver,
 _M, 'background:',      _T, $GLOBALS['cfg']['FieldsetFooterBGC'],
 _M, 'text-align:',      _T, $right,
 _E,
