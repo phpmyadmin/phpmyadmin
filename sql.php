@@ -341,7 +341,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
-    /*
+    /**
+     * commented out auto-switching to active database - really required?
+     * bug #1814718 win: table list disappears (mixed case db names)
+     * https://sourceforge.net/support/tracker.php?aid=1814718
+     * @todo RELEASE test and comit or rollback before release
     $current_db = PMA_DBI_fetch_value('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
