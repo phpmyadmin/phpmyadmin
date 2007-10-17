@@ -1012,10 +1012,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     unset($tbl_status);
 
     echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
-    if (!empty($GLOBALS['show_error_header'])) {
-        echo '<div class="error">' . "\n";
-        echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
-    }
 
     if ($message instanceof PMA_Message) {
         $message->display();
@@ -1026,10 +1022,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
             echo PMA_sanitize($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
         }
-        echo '</div>';
-    }
-
-    if (!empty($GLOBALS['show_error_header'])) {
         echo '</div>';
     }
 
