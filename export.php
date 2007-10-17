@@ -150,8 +150,8 @@ function PMA_exportOutputHandler($line)
                 if ($GLOBALS['save_on_server']) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
                     if (!$write_result || ($write_result != strlen($dump_buffer))) {
-                        $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
-                        $GLOBALS['show_error_header'] = true;
+                        $GLOBALS['message'] = PMA_Message::error('strNoSpace');
+                        $GLOBALS['message']->addParam($save_filename);
                         return false;
                     }
                 } else {
@@ -172,8 +172,8 @@ function PMA_exportOutputHandler($line)
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
-                    $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
-                    $GLOBALS['show_error_header'] = true;
+                    $GLOBALS['message'] = PMA_Message::error('strNoSpace');
+                    $GLOBALS['message']->addParam($save_filename);
                     return false;
                 }
                 $time_now = time();
