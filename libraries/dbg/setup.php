@@ -15,11 +15,12 @@ if ($GLOBALS['cfg']['DBG']['enable']) {
      * Loads the DBG extension if needed
      */
     if (! @extension_loaded('dbg') && ! PMA_dl('dbg')) {
-        echo '<div class="warning">'
-            .sprintf($GLOBALS['strCantLoad'], 'DBG')
-            .' <a href="./Documentation.html#faqdbg" target="documentation">'
-            .$GLOBALS['strDocu'] . '</a>'
-            .'</div>';
+        $message = PMA_Message::error('strCantLoad');
+        $message->addParam('DBG');
+        $message->addMessage('<a href="./Documentation.html#faqdbg" target="documentation">');
+        $message->addString('strDocu');
+        $message->addMessage('</a>');
+        $message->display();
     } else {
         $GLOBALS['DBG'] = true;
     }

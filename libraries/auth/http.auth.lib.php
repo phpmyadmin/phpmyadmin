@@ -19,8 +19,8 @@
  *
  * @access  public
  */
-function PMA_auth() {
-
+function PMA_auth()
+{
     /* Perform logout to custom URL */
     if (!empty($_REQUEST['old_usr']) && !empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
         PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
@@ -46,22 +46,25 @@ function PMA_auth() {
     ?>
 </head>
 <body>
-<?php if (file_exists('./config.header.inc.php')) {
-          require './config.header.inc.php';
-      }
- ?>
+    <?php
+    if (file_exists('./config.header.inc.php')) {
+        require './config.header.inc.php';
+    }
+    ?>
 
 <br /><br />
 <center>
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 </center>
 <br />
-<div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
-<?php if (file_exists('./config.footer.inc.php')) {
-         require './config.footer.inc.php';
-      }
- ?>
+    <?php
+    PMA_Message::error('strWrongUser')->display();
+
+    if (file_exists('./config.footer.inc.php')) {
+        require './config.footer.inc.php';
+    }
+    ?>
 
 </body>
 </html>
@@ -145,8 +148,8 @@ function PMA_auth_check()
     if (!empty($old_usr)
         && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)) {
         $PHP_AUTH_USER = '';
-        // -> delete user's choices that were stored in session 
-        session_destroy(); 
+        // -> delete user's choices that were stored in session
+        session_destroy();
     }
 
     // Returns whether we get authentication settings or not

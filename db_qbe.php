@@ -38,7 +38,7 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
 
 if (isset($_REQUEST['submit_sql'])
  && ! preg_match('@^SELECT@i', $sql_query)) {
-    echo '<div class="warning">' . $GLOBALS['strHaveToShow'] . '</div>';
+    PMA_Message::warning('strHaveToShow')->display();
 }
 
 

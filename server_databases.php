@@ -328,9 +328,9 @@ if (window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\
             .' title="' . $strDatabasesStatsDisable . '">' . "\n"
             .'            ' . $strDatabasesStatsDisable;
     }
-    echo '</a></strong><br />' . "\n"
-        .'        <div class="warning">'
-        . $strDatabasesStatsHeavyTraffic . '</div></li>' . "\n"
+    echo '</a></strong><br />' . "\n";
+    PMA_Message::warning('strDatabasesStatsHeavyTraffic')->display();
+    echo '</li>' . "\n"
         .'</ul>' . "\n";
     echo '</form>';
 } else {

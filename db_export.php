@@ -29,7 +29,7 @@ $export_page_title = $strViewDumpDB;
 
 // exit if no tables in db found
 if ($num_tables < 1) {
-    echo '<div class="warning">' . $strNoTablesFound . '</div>';
+    PMA_Message::error('strNoTablesFound')->display();
     require './libraries/footer.inc.php';
     exit;
 } // end if

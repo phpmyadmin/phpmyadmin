@@ -309,7 +309,9 @@ elseif (!defined('PMA_IDX_INCLUDED')
 
 
 <br class="clearfloat" />
-<div class="warning"><?php echo $strPrimaryKeyWarning; ?></div>
+<?php
+PMA_Message::warning('strPrimaryKeyWarning')->display();
+?>
 
 <table>
 <thead>
@@ -441,8 +443,9 @@ elseif (!defined('PMA_IDX_INCLUDED')
     else {
         // none indexes
         echo '<tbody>'
-            .'<tr><td colspan="7"><div class="warning">' . $strNoIndex
-            .'</div></td></tr>' . "\n";
+            .'<tr><td colspan="7">';
+        PMA_Message::warning('strNoIndex')->display();
+        echo '</td></tr>' . "\n";
     }
     ?>
 

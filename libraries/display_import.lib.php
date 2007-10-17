@@ -36,23 +36,22 @@ echo PMA_pluginGetJavascript($import_list);
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
 
-        <?php
-        if ($GLOBALS['is_upload']) {
-        ?>
+<?php
+if ($GLOBALS['is_upload']) {
+    ?>
         <div class="formelementrow">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-        <?php
-        echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
-        // some browsers should respect this :)
-        echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-        } else {
-            echo '<div class="warning">' . "\n";
-            echo $strUploadsNotAllowed . "\n";
-        }
-        ?>
+    <?php
+    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
+    // some browsers should respect this :)
+    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+    ?>
         </div>
-<?php
+    <?php
+} else {
+    PMA_Message::warning('strUploadsNotAllowed')->display();
+}
 if (!empty($cfg['UploadDir'])) {
     $extensions = '';
     foreach ($import_list as $key => $val) {
@@ -66,10 +65,7 @@ if (!empty($cfg['UploadDir'])) {
     $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
     echo '<div class="formelementrow">' . "\n";
     if ($files === FALSE) {
-        echo '    <div class="warning">' . "\n";
-        echo '        <strong>' . $strError . '</strong>: ' . "\n";
-        echo '        ' . $strWebServerUploadDirectoryError . "\n";
-        echo '    </div>' . "\n";
+        PMA_Message::error('strWebServerUploadDirectoryError')->display();
     } elseif (!empty($files)) {
         echo "\n";
         echo '    <i>' . $strOr . '</i><br/><label for="select_local_import_file">' . $strWebServerUploadDirectory . '</label>&nbsp;: ' . "\n";

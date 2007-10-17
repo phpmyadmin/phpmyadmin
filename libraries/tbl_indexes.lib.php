@@ -106,10 +106,9 @@ function PMA_check_indexes($idx_collection)
             reset($while_index);
             $first_column = current($while_index);
 
-            $output .= '<div class="warning">';
-            $output .= $GLOBALS['strIndexesSeemEqual'] . ' ';
-            $output .= $each_index_name . ', ' . $first_column['Key_name'];
-            $output .= '</div>';
+            $message = PMA_Message::warning('strIndexesSeemEqual');
+            $message->addMessage($each_index_name . ', ' . $first_column['Key_name']);
+            $output .= $message->getDisplay();
 
             // there is no need to check any further indexes if we have already
             // found that this one has a duplicate
