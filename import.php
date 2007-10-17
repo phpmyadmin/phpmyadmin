@@ -240,8 +240,7 @@ if ($import_file != 'none' && !$error) {
 
         $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
 
-        // function is_writeable() is valid on PHP3 and 4
-        if (is_writeable($tmp_subdir)) {
+        if (is_writable($tmp_subdir)) {
             $import_file_new = $tmp_subdir . basename($import_file);
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;

@@ -52,7 +52,7 @@ foreach ($types['mimetype'] as $key => $mimetype) {
 <?php
 $odd_row = true;
 foreach ($types['transformation'] as $key => $transform) {
-    $func = strtolower(preg_replace('@(\.inc\.php3?)$@i', '', $types['transformation_file'][$key]));
+    $func = strtolower(str_ireplace('.inc.php', '', $types['transformation_file'][$key]));
     $desc = 'strTransformation_' . $func;
     ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
