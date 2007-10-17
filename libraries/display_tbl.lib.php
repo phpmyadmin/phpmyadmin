@@ -1868,19 +1868,40 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $last_shown_rec = ($_SESSION['userconf']['max_rows'] == 'all' || $pos_next > $total)
                         ? $total - 1
                         : $pos_next - 1;
-        PMA_showMessage($GLOBALS['strShowingRecords'] . ' '
-            . $_SESSION['userconf']['pos'] . ' - ' . $last_shown_rec
-            . ' (' . $pre_count . PMA_formatNumber($total, 0) . $after_count
-            . ' ' . $GLOBALS['strTotal'] . $selectstring . ', '
-            . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')',
-            $sql_query,
-            'success');
 
-        if (PMA_Table::isView($db, $table) && $total ==  $GLOBALS['cfg']['MaxExactCount']) {
-            echo '<div class="notice">' . "\n";
-            echo PMA_sanitize(sprintf($GLOBALS['strViewMaxExactCount'], PMA_formatNumber($GLOBALS['cfg']['MaxExactCount'], 0), '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]')) . "\n";
-            echo '</div>' . "\n";
+        if (PMA_Table::isView($db, $table)
+         && $total == $GLOBALS['cfg']['MaxExactCountViews']) {
+            $message = PMA_Message::notice('strViewMaxExactCount');
+            $message->addParam(PMA_formatNumber($GLOBALS['cfg']['MaxExactCountViews'], 0));
+            $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
+            $message->addParam('[/a]');
+            $message_view_warning = PMA_showHint($message);
+        } else {
+            $message_view_warning = false;
         }
+
+        $message = PMA_Message::success('strShowingRecords');
+        $message->addMessage($_SESSION['userconf']['pos']);
+        if ($message_view_warning) {
+            $message->addMessage('...', ' - ');
+            $message->addMessage($message_view_warning);
+            $message->addMessage('(');
+        } else {
+            $message->addMessage($last_shown_rec, ' - ');
+            $message->addMessage($pre_count  . PMA_formatNumber($total, 0) . $after_count, ' (');
+            $message->addString('strTotal');
+            $message->addMessage($selectstring, '');
+            $message->addMessage(', ', '');
+        }
+
+        $messagge_qt = PMA_Message::notice('strQueryTime');
+        $messagge_qt->addParam($GLOBALS['querytime']);
+
+        $message->addMessage($messagge_qt, '');
+        $message->addMessage(')', '');
+
+        PMA_showMessage($message, $sql_query, 'success');
+
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_showMessage($GLOBALS['strSuccess'], $sql_query, 'success');
     }
