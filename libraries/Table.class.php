@@ -546,10 +546,15 @@ class PMA_Table {
 
         // Ensure the target is valid
         if (! $GLOBALS['PMA_List_Database']->exists($source_db, $target_db)) {
-            /**
-             * @todo exit really needed here? or just a return?
-             */
-            exit;
+            if (! $GLOBALS['PMA_List_Database']->exists($source_db)) {
+                $GLOBALS['message'] = PMA_Message::rawError('source database `'
+                    . htmlspecialchars($source_db) . '` not found');
+            }
+            if (! $GLOBALS['PMA_List_Database']->exists($target_db)) {
+                $GLOBALS['message'] = PMA_Message::rawError('target database `'
+                    . htmlspecialchars($target_db) . '` not found');
+            }
+            return false;
         }
 
         $source = PMA_backquote($source_db) . '.' . PMA_backquote($source_table);
@@ -882,7 +887,7 @@ class PMA_Table {
                  */
             }
         }
-
+        return true;
     }
 
     /**

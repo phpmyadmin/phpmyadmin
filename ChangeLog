@@ -30,6 +30,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1811519 Can't delete user with a german umlaut.
 - bug #1811519 [privileges] fixed used collation for accessing mysql.user in server privileges
 - it should not be possible to move or copy a table to information_schema
+- bug #1814733 win: copy db to mixed name db fails
 
 2.11.1.2 (not yet released)
 - fixed XSS in server_status.php, thanks to Omer Singer, The DigiTrust Group

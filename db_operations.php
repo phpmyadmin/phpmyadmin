@@ -30,13 +30,11 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $move = false;
     }
 
-    $_msg_type = 'success';
-
     if (!isset($newname) || !strlen($newname)) {
-        $_message = $strDatabaseEmpty;
-        $_msg_type = 'error';
+        $message = PMA_Message::error('strDatabaseEmpty');
     } else {
         $sql_query = ''; // in case target db exists
+        $_error = false;
         if ($move ||
          (isset($create_database_before_copying) && $create_database_before_copying)) {
             /**
@@ -52,6 +50,13 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             //    PMA_DBI_query($local_query);
             //} else {
             // please indent ->
+
+            // lower_case_table_names=1 `DB` becomes `db`
+            $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
+            if ($lower_case_table_names === '1') {
+                $newname = strtolower($newname);
+            }
+
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
             if (isset($db_collation)) {
                 $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
@@ -59,6 +64,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $local_query .= ';';
             $sql_query = $local_query;
             PMA_DBI_query($local_query);
+            
             // rebuild the database list because PMA_Table::moveCopy
             // checks in this list if the target db exists
             $GLOBALS['PMA_List_Database']->build();
@@ -100,8 +106,14 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             }
 
             if ($this_what != 'nocopy') {
-                PMA_Table::moveCopy($db, $each_table, $newname, $each_table,
-                    isset($this_what) ? $this_what : 'data', $move, 'db_copy');
+                if (! PMA_Table::moveCopy($db, $each_table, $newname, $each_table,
+                    isset($this_what) ? $this_what : 'data', $move, 'db_copy'))
+                {
+                    $_error = true;
+                    // $sql_query is filled by PMA_Table::moveCopy()
+                    $sql_query = $back . $sql_query;
+                    break;
+                }
                 if (isset($GLOBALS['add_constraints'])) {
                     $GLOBALS['sql_constraints_query_full_db'] .= $GLOBALS['sql_constraints_query'];
                     unset($GLOBALS['sql_constraints_query']);
@@ -113,14 +125,19 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         unset($each_table);
 
         // handle the views
-        foreach ($views as $view) {
-            PMA_Table::moveCopy($db, $view, $newname, $view,
-                'structure', $move, 'db_copy');
+        if (! $_error) {
+            foreach ($views as $view) {
+                if (! PMA_Table::moveCopy($db, $view, $newname, $view,
+                 'structure', $move, 'db_copy')) {
+                    $_error = true;
+                    break;
+                }
+            }
         }
         unset($view, $views);
 
         // now that all tables exist, create all the accumulated constraints
-        if (isset($GLOBALS['add_constraints'])) {
+        if (! $_error && isset($GLOBALS['add_constraints'])) {
             /**
              * @todo this works with mysqli but not with mysql, because
              * mysql extension does not accept more than one statement; maybe
@@ -136,7 +153,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 //        } // end else MySQL < 50107
 
         // Duplicate the bookmarks for this db (done once for each db)
-        if ($db != $newname) {
+        if (! $_error && $db != $newname) {
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
             $new_fields = array('dbase' => $newname);
@@ -144,7 +161,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 $where_fields, $new_fields);
         }
 
-        if ($move) {
+        if (! $_error && $move) {
             // cleanup pmadb stuff for this db
             require_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
@@ -154,24 +171,30 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 $sql_query .= "\n" . $local_query;
                 PMA_DBI_query($local_query);
             }
-            $_message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db),
-                htmlspecialchars($newname));
-        } else {
-            $_message    = sprintf($strCopyDatabaseOK, htmlspecialchars($db),
-                htmlspecialchars($newname));
+            $message = PMA_Message::success('strRenameDatabaseOK');
+            $message->addParam($db);
+            $message->addParam($newname);
+        } elseif (! $_error)  {
+            $message = PMA_Message::success('strCopyDatabaseOK');
+            $message->addParam($db);
+            $message->addParam($newname);
         }
         $reload     = true;
 
         /* Change database to be used */
-        if ($move) {
-            $db         = $newname;
-        } else {
+        if (! $_error && $move) {
+            $db = $newname;
+        } elseif (! $_error) {
             if (isset($switch_to_new) && $switch_to_new == 'true') {
                 PMA_setCookie('pma_switch_to_new', 'true');
-                $db         = $newname;
+                $db = $newname;
             } else {
                 PMA_setCookie('pma_switch_to_new', '');
             }
+        }
+
+        if ($_error && ! isset($message)) {
+            $message = PMA_Message::error();
         }
     }
 }
@@ -203,9 +226,9 @@ if (empty($is_info)) {
     require './libraries/db_info.inc.php';
     echo "\n";
 
-    if (isset($_message)) {
-        PMA_showMessage($_message, $sql_query, $_msg_type);
-        unset($_message, $_msg_type);
+    if (isset($message)) {
+        PMA_showMessage($message, $sql_query);
+        unset($message);
     }
 }
 
