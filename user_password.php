@@ -49,10 +49,7 @@ if (!$cfg['ShowChgPassword']) {
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once './libraries/header.inc.php';
-    echo '<div class="error">' . "\n";
-    echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
-    echo PMA_sanitize($strNoRights);
-    echo '</div>';
+    PMA_Message::error('strNoRights')->display();
     require_once './libraries/footer.inc.php';
 } // end if
 
@@ -63,19 +60,21 @@ if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
  */
 if (isset($_REQUEST['nopass'])) {
     // similar logic in server_privileges.php
-    $error_msg = '';
+    $_error = false;
 
     if ($_REQUEST['nopass'] == '1') {
         $password = '';
     } elseif (empty($_REQUEST['pma_pw']) || empty($_REQUEST['pma_pw2'])) {
-        $error_msg = $strPasswordEmpty;
+        $message = PMA_Message::error('strPasswordEmpty');
+        $_error = true;
     } elseif ($_REQUEST['pma_pw'] != $_REQUEST['pma_pw2']) {
-        $error_msg = $strPasswordNotSame;
+        $message = PMA_Message::error('strPasswordNotSame');
+        $_error = true;
     } else {
         $password = $_REQUEST['pma_pw'];
     }
 
-    if (empty($error_msg)) {
+    if (! $_error) {
 
         // Defines the url to return to in case of error in the sql statement
         $_url_params = array();
@@ -128,11 +127,8 @@ require_once './libraries/header.inc.php';
 echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
 
 // Displays an error message if required
-if (!empty($error_msg)) {
-    echo '<div class="error">' . "\n";
-    echo '<h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
-    echo PMA_sanitize($error_msg);
-    echo '</div>';
+if (isset($message)) {
+    $message->display();
 }
 
 require_once './libraries/display_change_password.lib.php';

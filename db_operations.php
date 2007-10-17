@@ -64,7 +64,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $local_query .= ';';
             $sql_query = $local_query;
             PMA_DBI_query($local_query);
-            
+
             // rebuild the database list because PMA_Table::moveCopy
             // checks in this list if the target db exists
             $GLOBALS['PMA_List_Database']->build();
@@ -398,14 +398,14 @@ if (!$is_information_schema) {
 
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+        $message = PMA_Message::notice('strRelationNotWorking');
+        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">');
+        $message->addParam('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
-            echo '<div class="error"><h1>' . $strError . '</h1>';
-        } else {
-            echo '<div class="notice">';
+            $message->isError(true);
         }
-        printf($strRelationNotWorking, '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', '</a>');
-        echo '</div>';
+        $message->display();
     } // end if
 } // end if (!$is_information_schema)
 
