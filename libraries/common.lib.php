@@ -550,21 +550,25 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
             echo PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
         }
-        if ($is_modify_link && strlen($db)) {
+        if ($is_modify_link) {
+            $_url_params = array(
+                'sql_query' => $the_query,
+                'show_query' => 1,
+            );
             if (strlen($table)) {
-                $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($db, $table) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                $_url_params['db'] = $db;
+                $_url_params['table'] = $table;
+                $doedit_goto = '<a href="tbl_sql.php?' . PMA_generate_common_url($_url_params) . '">';
+            } elseif (strlen($db)) {
+                $_url_params['db'] = $db;
+                $doedit_goto = '<a href="db_sql.php?' . PMA_generate_common_url($_url_params) . '">';
             } else {
-                $doedit_goto = '<a href="db_sql.php?' . PMA_generate_common_url($db) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                $doedit_goto = '<a href="server_sql.php?' . PMA_generate_common_url($_url_params) . '">';
             }
-            if ($GLOBALS['cfg']['PropertiesIconic']) {
-                echo $doedit_goto
-                   . '<img class="icon" src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" alt="' . $GLOBALS['strEdit'] .'" />'
-                   . '</a>';
-            } else {
-                echo '    ['
-                   . $doedit_goto . $GLOBALS['strEdit'] . '</a>'
-                   . ']' . "\n";
-            }
+
+            echo $doedit_goto
+               . PMA_getIcon('b_edit.png', $GLOBALS['strEdit'])
+               . '</a>';
         } // end if
         echo '    </p>' . "\n"
             .'    <p>' . "\n"
@@ -600,20 +604,25 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         . $error_message . "\n"
         . '</code><br />' . "\n";
     echo '</div>';
-    echo '<fieldset class="tblFooters">';
 
-    if (!empty($back_url) && $exit) {
-        $goto_back_url='<a href="' . (strstr($back_url, '?') ? $back_url . '&amp;no_history=true' : $back_url . '?no_history=true') . '">';
-        echo '[ ' . $goto_back_url . $GLOBALS['strBack'] . '</a> ]';
-    }
-    echo '    </fieldset>' . "\n\n";
     if ($exit) {
+        if (! empty($back_url)) {
+            if (strstr($back_url, '?')) {
+                $back_url .= '&amp;no_history=true';
+            } else {
+                $back_url .= '?no_history=true';
+            }
+            echo '<fieldset class="tblFooters">';
+            echo '[ <a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a> ]';
+            echo '</fieldset>' . "\n\n";
+        }
         /**
          * display footer and exit
          */
         require_once './libraries/footer.inc.php';
     }
 } // end of the 'PMA_mysqlDie()' function
+
 
 /**
  * Returns a string formatted with CONVERT ... USING
