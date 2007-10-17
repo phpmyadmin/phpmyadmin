@@ -313,7 +313,6 @@ $strGzip = 'архіваваны ў gzip';
 
 $strHandler = 'Апрацоўнік';
 $strHasBeenAltered = 'была зьмененая.';
-$strHasBeenCreated = 'была створаная.';
 $strHaveToShow = 'Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня';
 $strHebrew = 'Габрэйская';
 $strHome = 'Да пачатку';
@@ -1030,4 +1029,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

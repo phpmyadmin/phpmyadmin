@@ -220,7 +220,6 @@ $strGrantOption = 'İcaze ver';
 $strGzip = '"gzip"lenmiş';
 
 $strHasBeenAltered = 'deyişdirildi.';
-$strHasBeenCreated = 'quruldu.';
 $strHaveToShow = 'Gösterilmesi üçün en az bir sütun seçmelisiniz';
 $strHebrew = 'İbrani Dili';
 $strHome = 'Başlanğıc';
@@ -1050,4 +1049,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

@@ -325,7 +325,6 @@ $strGzip = '"comprimit amb gzip"';
 
 $strHandler = 'Gestor';
 $strHasBeenAltered = 'ha estat alterada.';
-$strHasBeenCreated = 'ha estat creada.';
 $strHaveToShow = 'Has de triar al menys una columna per mostrar';
 $strHebrew = 'Hebreu';
 $strHelp = 'Ajuda';
@@ -1023,4 +1022,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

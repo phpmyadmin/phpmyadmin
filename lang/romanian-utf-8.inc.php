@@ -260,7 +260,6 @@ $strGreek = 'Grec';
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'a fost alterat.';
-$strHasBeenCreated = 'a fost creat.';
 $strHaveToShow = 'Trebuie sa alegi cel putin o coloana pentru a putea afisa';
 $strHebrew = 'Ebraica';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
@@ -1048,4 +1047,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

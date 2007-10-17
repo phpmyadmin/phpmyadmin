@@ -331,7 +331,6 @@ $strGzip = '"compresso con gzip"';
 
 $strHandler = 'Handler';
 $strHasBeenAltered = 'è stato modificato.';
-$strHasBeenCreated = 'è stato creato.';
 $strHaveToShow = 'Devi scegliere almeno una Colonna da mostrare';
 $strHebrew = 'Ebreo';
 $strHelp = 'Aiuto';
@@ -1029,4 +1028,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

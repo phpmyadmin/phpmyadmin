@@ -219,7 +219,6 @@ $strGreek = 'Грецьке';
 $strGzip = 'запакувати в "gzip"';
 
 $strHasBeenAltered = 'була змінена.';
-$strHasBeenCreated = 'була створена.';
 $strHaveToShow = 'Необхідно вибрати принаймі один Стовпчик для показу';
 $strHebrew = 'Іврит';
 $strHomepageOfficial = 'Офіційна сторінка phpMyAdmin';
@@ -1049,4 +1048,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

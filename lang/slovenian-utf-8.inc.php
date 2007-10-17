@@ -240,7 +240,6 @@ $strGreek = 'Grško';
 $strGzip = '"gzipano"';
 
 $strHasBeenAltered = 'je bil spremenjen(a).';
-$strHasBeenCreated = 'je bil ustvarjen(a).';
 $strHaveToShow = 'Za prikaz morate izbrati morate vsaj en stolpec';
 $strHebrew = 'Hebrejsko';
 $strHome = 'Domov';
@@ -1049,4 +1048,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

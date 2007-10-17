@@ -219,7 +219,6 @@ $strGreek = 'Ελληνικά';
 $strGzip = 'συμπίεση «gzip»';
 
 $strHasBeenAltered = 'έχει αλλαχθεί.';
-$strHasBeenCreated = 'έχει δημιουργηθεί.';
 $strHaveToShow = 'Πρέπει να επιλέξετε τουλάχιστον μία στήλη για εμφάνιση';  
 $strHebrew = 'Εβραϊκά';  
 $strHomepageOfficial = 'Επίσημη σελίδα του phpMyAdmin';
@@ -1052,4 +1051,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

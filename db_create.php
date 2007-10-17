@@ -42,10 +42,8 @@ if (! $result) {
     require_once './libraries/header.inc.php';
     require_once './main.php';
 } else {
-    $message = PMA_Message::success();
-    $message->setMessage($strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated);
-    //$message = PMA_Message::success('strDatabaseHasBeenCreated');
-    //$message->addParam($db);
+    $message = PMA_Message::success('strDatabaseHasBeenCreated');
+    $message->addParam($db);
 
     require_once './libraries/header.inc.php';
     require_once './' . $cfg['DefaultTabDatabase'];

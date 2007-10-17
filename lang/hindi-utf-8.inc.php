@@ -447,7 +447,6 @@ $strGrantOption = 'Grant'; //to translate
 $strGzip = '"gzipped"'; //to translate
 
 $strHandler = 'Handler';  //to translate
-$strHasBeenCreated = 'has been created.'; //to translate
 $strHaveToShow = 'You have to choose at least one Column to display'; //to translate
 $strHebrew = 'Hebrew';  //to translate
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
@@ -1055,4 +1054,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

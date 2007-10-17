@@ -283,7 +283,6 @@ $strGreek = 'Гръцки';
 $strGzip = '"gzip-нато"';
 
 $strHasBeenAltered = 'беше променена.';
-$strHasBeenCreated = 'беше създадена.';
 $strHaveToShow = 'Трябва да изберете поне една Колона за показване';
 $strHebrew = 'Иврит';
 $strHome = 'Начало';
@@ -1050,4 +1049,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

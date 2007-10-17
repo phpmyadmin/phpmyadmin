@@ -7,7 +7,7 @@
  * @uses    $strTableEmpty
  * @uses    $strTableAlreadyExists
  * @uses    $strTable
- * @uses    $strHasBeenCreated
+ * @uses    $strTableHasBeenCreated
  * @uses    PMA_ENGINE_KEYWORD
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
@@ -217,11 +217,8 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
-        //$message = PMA_Message::success('strTableCreatedSuccessfully');
-        //$message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
-        $message = PMA_Message::success('strTable');
-        $message->addMessage(htmlspecialchars(PMA_backquote($db) . '.' . PMA_backquote($table)));
-        $message->addString('strHasBeenCreated');
+        $message = PMA_Message::success('strTableHasBeenCreated');
+        $message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
 
         $display_query = $sql_query;
         $sql_query = '';

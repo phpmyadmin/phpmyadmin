@@ -331,7 +331,6 @@ $strGzip = '"gzipano"';
 
 $strHandler = 'Hvatišta';
 $strHasBeenAltered = 'izmijenjeno je.';
-$strHasBeenCreated = 'izrađeno je.';
 $strHaveToShow = 'Morate odabrati najmanje jedan stupac za prikazivanje';
 $strHebrew = 'Hebrejski';
 $strHelp = 'Pomoć';
@@ -1028,4 +1027,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

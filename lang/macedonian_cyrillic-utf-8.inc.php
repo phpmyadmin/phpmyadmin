@@ -278,7 +278,6 @@ $strGzip = '"gzip"';
 $strHTMLExcel = 'Microsoft Excel 2000';
 $strHTMLWord = 'Microsoft Word 2000';
 $strHasBeenAltered = 'е променет(а).';
-$strHasBeenCreated = 'е креиран(а).';
 $strHaveToShow = 'Морате да изберете барем една колона за приказ';
 $strHebrew = 'Хебрејски';
 $strHome = 'Почетна страница';
@@ -1030,4 +1029,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

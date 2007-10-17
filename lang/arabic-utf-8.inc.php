@@ -235,7 +235,6 @@ $strGreek = 'اليونانية';
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'لقد عُدِل.';
-$strHasBeenCreated = 'لقد تكون.';
 $strHaveToShow = 'عليك اختيار عمود واحد على الأقل للعرض';
 $strHebrew = 'العبرية';
 $strHomepageOfficial = 'الصفحة الرئيسية الرسمية لـ phpMyAdmin';
@@ -1055,4 +1054,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

@@ -301,7 +301,6 @@ $strGzip = '"gzipped"';
 
 $strHandler = '操作者';
 $strHasBeenAltered = '已經修改';
-$strHasBeenCreated = '已經建立';
 $strHaveToShow = '您需要選擇最少顯示一行欄位';
 $strHebrew = '希伯來語';
 $strHome = '主目錄';
@@ -1034,4 +1033,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

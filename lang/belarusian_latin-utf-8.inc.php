@@ -312,7 +312,6 @@ $strGzip = 'archivavany ŭ gzip';
 
 $strHandler = 'Apracoŭnik';
 $strHasBeenAltered = 'była źmienienaja.';
-$strHasBeenCreated = 'była stvoranaja.';
 $strHaveToShow = 'Vam nieabchodna vybrać prynamsi adnu kalonku dla adlustravańnia';
 $strHebrew = 'Habrejskaja';
 $strHome = 'Da pačatku';
@@ -1029,4 +1028,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

@@ -175,7 +175,6 @@ $strGo = 'Pergi';
 $strGzip = '"digzip"';
 
 $strHasBeenAltered = 'telah diubahsuai.';
-$strHasBeenCreated = 'telah dicipta.';
 $strHaveToShow = 'Anda mesti pilih sekurang-kurangnya satu Kolum untuk dipapar';
 $strHomepageOfficial = 'Laman Rasmi phpMyAdmin';
 $strHome = 'Rumah';
@@ -1067,4 +1066,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

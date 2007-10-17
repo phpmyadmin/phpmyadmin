@@ -258,7 +258,6 @@ $strGreek = 'Grieks';
 $strGzip = '"ge-gzipt"';
 
 $strHasBeenAltered = 'is veranderd.';
-$strHasBeenCreated = 'is aangemaakt.';
 $strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen';
 $strHebrew = 'Hebreeuws';
 $strHome = 'Home';
@@ -1051,4 +1050,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

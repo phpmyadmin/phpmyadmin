@@ -151,7 +151,6 @@ $strGo = '실행';
 $strGzip = 'gz 압축';
 
 $strHasBeenAltered = '을(를) 변경하였습니다.';
-$strHasBeenCreated = '을(를) 작성하였습니다.';
 $strHaveToShow = '출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다.';
 $strHome = '시작페이지';
 $strHomepageOfficial = 'phpMyAdmin 공식 홈';
@@ -1050,4 +1049,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

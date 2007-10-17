@@ -295,7 +295,6 @@ $strGzip = '"gziple"';
 
 $strHandler = 'Eşkärtkeç';
 $strHasBeenAltered = 'üzgärtelde.';
-$strHasBeenCreated = 'yaratıldı.';
 $strHaveToShow = 'You have to choose at least one Column to display';
 $strHebrew = 'Yähüdçä';
 $strHome = 'Başbit';
@@ -1041,4 +1040,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

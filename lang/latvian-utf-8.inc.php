@@ -258,7 +258,6 @@ $strGreek = 'Grieķu';
 $strGzip = 'Arhivēts ar gzip';
 
 $strHasBeenAltered = 'tika modificēta.';
-$strHasBeenCreated = 'tika izveidota.';
 $strHaveToShow = 'Izvēlieties vismaz vienu kolonnu attēlošanai';
 $strHebrew = 'Ebreju';
 $strHomepageOfficial = 'Oficiālā phpMyAdmin mājaslapa';
@@ -1052,4 +1051,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

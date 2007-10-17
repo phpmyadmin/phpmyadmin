@@ -324,7 +324,6 @@ $strGzip = '"gzipitud"';
 
 $strHandler = 'Töötleja';
 $strHasBeenAltered = 'on muudetud.';
-$strHasBeenCreated = 'on loodud.';
 $strHaveToShow = 'Te peate valima vähemalt ühe veeru kuvamiseks';
 $strHebrew = 'Heebrea';
 $strHelp = 'Abi';  
@@ -1035,4 +1034,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>

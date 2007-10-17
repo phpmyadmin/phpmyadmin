@@ -218,7 +218,6 @@ $strGreek = 'กรีก';
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'เปลี่ยนเสร็จแล้ว';
-$strHasBeenCreated = 'สร้างเสร็จแล้ว';
 $strHaveToShow = 'ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์';
 $strHebrew = 'ฮิบรู';
 $strHome = 'หน้าบ้าน';
@@ -1051,4 +1050,6 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
+$strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
+$strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 ?>
