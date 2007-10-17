@@ -13,6 +13,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
 ?> 
+html {
+    height:100%;
+    border-right:1px solid #AAA;
+}
 html,body{padding-top:0;margin:0;}
 body, input, select {
     font-family:    Tahoma, Arial, Helvetica, Verdana, sans-serif;
@@ -25,8 +29,6 @@ body#body_leftFrame {
     height:100%;
     overflow:auto;
      background: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?> url(themes/pixeline/img/pixeline_light.png) top left repeat-x;
-     border-right:1px solid #AAA;
-
 }
 
 select {

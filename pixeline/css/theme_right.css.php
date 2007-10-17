@@ -14,13 +14,16 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 }
 ?>
 /* Always enabled stylesheets (right frame) */
+html {
+    height:100%;
+    border-left:1px solid #AAA;
+}
 html, body {
 margin:0;
 padding:0;
 }
 
 body {
-border-left:1px solid #AAA;
     font-family:    Tahoma, Arial, Helvetica, Verdana, sans-serif;
     font-size:         11px;
     color: #000000;
