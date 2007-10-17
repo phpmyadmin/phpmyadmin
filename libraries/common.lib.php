@@ -1110,6 +1110,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         // Want to have the query explained (Mike Beck 2002-05-22)
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
+        $explain_link = '';
         if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
             $explain_params = $url_params;
             // Detect if we are validating as well
@@ -1125,12 +1126,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
                 $explain_params['sql_query'] = substr($sql_query, 8);
                 $_message = $GLOBALS['strNoExplain'];
             }
-            if (isset($explain_params['validatequery'])) {
+            if (isset($explain_params['sql_query'])) {
                 $explain_link = 'import.php' . PMA_generate_common_url($explain_params);
                 $explain_link = ' [' . PMA_linkOrButton($explain_link, $_message) . ']';
             }
-        } else {
-            $explain_link = '';
         } //show explain
 
         $url_params['sql_query']  = $sql_query;
