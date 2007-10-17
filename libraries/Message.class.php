@@ -468,7 +468,10 @@ class PMA_Message
      */
     public function addMessage($message, $separator = ' ')
     {
-        $this->_added_messages[] = $separator;
+        if (strlen($separator)) {
+            $this->_added_messages[] = $separator;
+        }
+
         if ($message instanceof PMA_Message) {
             $this->_added_messages[] = $message;
         } else {
@@ -666,7 +669,14 @@ class PMA_Message
         $message = $this->_message;
 
         if (0 === strlen($message)) {
-            $message = $GLOBALS[$this->getString()];
+            $string = $this->getString();
+            if (isset($GLOBALS[$string])) {
+                $message = $GLOBALS[$string];
+            } elseif (0 === strlen($string)) {
+                $message = '';
+            } else {
+                $message = $string;
+            }
         }
 
         if (count($this->getParams()) > 0) {
@@ -676,7 +686,7 @@ class PMA_Message
         $message = PMA_Message::decodeBB($message);
 
         foreach ($this->getAddedMessages() as $add_message) {
-            $message .= ' ' . $add_message;
+            $message .= $add_message;
         }
 
         return $message;
