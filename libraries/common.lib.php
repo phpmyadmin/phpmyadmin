@@ -958,7 +958,6 @@ if (typeof(window.parent) != 'undefined'
 function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 {
     global $cfg;
-    $query_too_big = false;
 
     if (null === $sql_query) {
         if (! empty($GLOBALS['display_query'])) {
@@ -1026,220 +1025,184 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     }
 
     if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
-        // Basic url query part
-        $url_qpart = '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
-
         // Html format the query to be displayed
-        // The nl2br function isn't used because its result isn't a valid
-        // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
         // If we want to show some sql code it is easiest to create it here
-         /* SQL-Parser-Analyzer */
+        /* SQL-Parser-Analyzer */
 
-        if (!empty($GLOBALS['show_as_php'])) {
+        if (! empty($GLOBALS['show_as_php'])) {
             $new_line = '\'<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \' ';
-        }
-        if (isset($new_line)) {
-             /* SQL-Parser-Analyzer */
+            /* SQL-Parser-Analyzer */
             $query_base = PMA_sqlAddslashes(htmlspecialchars($sql_query), false, false, true);
-             /* SQL-Parser-Analyzer */
+            /* SQL-Parser-Analyzer */
             $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
         } else {
             $query_base = $sql_query;
         }
 
-        if (strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']) {
-            $query_too_big = true;
-            $query_base = nl2br(htmlspecialchars($sql_query));
-            unset($GLOBALS['parsed_sql']);
-        }
+        $query_too_big = false;
 
-        // Parse SQL if needed
-        // (here, use "! empty" because when deleting a bookmark,
-        // $GLOBALS['parsed_sql'] is set but empty
-        if (! empty($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
-            $parsed_sql = $GLOBALS['parsed_sql'];
-        } else {
+        if (strlen($query_base) > $cfg['MaxCharactersInDisplayedSQL']) {
             // when the query is large (for example an INSERT of binary
             // data), the parser chokes; so avoid parsing the query
-            if (! $query_too_big) {
-                $parsed_sql = PMA_SQP_parse($query_base);
-            }
+            $query_too_big = true;
+            $query_base = nl2br(htmlspecialchars($sql_query));
+        } elseif (! empty($GLOBALS['parsed_sql'])
+         && $query_base == $GLOBALS['parsed_sql']['raw']) {
+            // (here, use "! empty" because when deleting a bookmark,
+            // $GLOBALS['parsed_sql'] is set but empty
+            $parsed_sql = $GLOBALS['parsed_sql'];
+        } else {
+            // Parse SQL if needed
+            $parsed_sql = PMA_SQP_parse($query_base);
         }
 
         // Analyze it
         if (isset($parsed_sql)) {
             $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
-        }
+            // Here we append the LIMIT added for navigation, to
+            // enable its display. Adding it higher in the code
+            // to $sql_query would create a problem when
+            // using the Refresh or Edit links.
 
-        // Here we append the LIMIT added for navigation, to
-        // enable its display. Adding it higher in the code
-        // to $sql_query would create a problem when
-        // using the Refresh or Edit links.
+            // Only append it on SELECTs.
 
-        // Only append it on SELECTs.
+            /**
+             * @todo what would be the best to do when someone hits Refresh:
+             * use the current LIMITs ?
+             */
 
-        /**
-         * @todo what would be the best to do when someone hits Refresh:
-         * use the current LIMITs ?
-         */
-
-        if (isset($analyzed_display_query[0]['queryflags']['select_from'])
-         && isset($GLOBALS['sql_limit_to_append'])) {
-            $query_base  = $analyzed_display_query[0]['section_before_limit'] . "\n" . $GLOBALS['sql_limit_to_append'] . $analyzed_display_query[0]['section_after_limit'];
-            // Need to reparse query
-            $parsed_sql = PMA_SQP_parse($query_base);
-        }
-
-        if (!empty($GLOBALS['show_as_php'])) {
-            $query_base = '$sql  = \'' . $query_base;
-        } elseif (!empty($GLOBALS['validatequery'])) {
-            $query_base = PMA_validateSQL($query_base);
-        } else {
-            if (isset($parsed_sql)) {
-                $query_base = PMA_formatSql($parsed_sql, $query_base);
+            if (isset($analyzed_display_query[0]['queryflags']['select_from'])
+             && isset($GLOBALS['sql_limit_to_append'])) {
+                $query_base = $analyzed_display_query[0]['section_before_limit']
+                    . "\n" . $GLOBALS['sql_limit_to_append']
+                    . $analyzed_display_query[0]['section_after_limit'];
+                // Need to reparse query
+                $parsed_sql = PMA_SQP_parse($query_base);
             }
+        }
+
+        if (! empty($GLOBALS['show_as_php'])) {
+            $query_base = '$sql  = \'' . $query_base;
+        } elseif (! empty($GLOBALS['validatequery'])) {
+            $query_base = PMA_validateSQL($query_base);
+        } elseif (isset($parsed_sql)) {
+            $query_base = PMA_formatSql($parsed_sql, $query_base);
         }
 
         // Prepares links that may be displayed to edit/explain the query
         // (don't go to default pages, we must go to the page
         // where the query box is available)
 
-        $edit_target = strlen($GLOBALS['db']) ? (strlen($GLOBALS['table']) ? 'tbl_sql.php' : 'db_sql.php') : 'server_sql.php';
-
-        if (isset($cfg['SQLQuery']['Edit'])
-            && ($cfg['SQLQuery']['Edit'] == true)
-            && (!empty($edit_target))
-            && ! $query_too_big) {
-
-            if ($cfg['EditInWindow'] == true) {
-                $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
+        // Basic url query part
+        $url_params = array();
+        if (strlen($GLOBALS['db'])) {
+            $url_params['db'] = $GLOBALS['db'];
+            if (strlen($GLOBALS['table'])) {
+                $url_params['table'] = $GLOBALS['table'];
+                $edit_link = 'tbl_sql.php';
             } else {
-                $onclick = '';
+                $edit_link = 'db_sql.php';
             }
-
-            $edit_link = $edit_target
-                       . $url_qpart
-                       . '&amp;sql_query=' . urlencode($sql_query)
-                       . '&amp;show_query=1#querybox';
-            $edit_link = ' [' . PMA_linkOrButton($edit_link, $GLOBALS['strEdit'], array('onclick' => $onclick)) . ']';
         } else {
-            $edit_link = '';
+            $edit_link = 'server_sql.php';
         }
 
         // Want to have the query explained (Mike Beck 2002-05-22)
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
-        if (isset($cfg['SQLQuery']['Explain'])
-            && $cfg['SQLQuery']['Explain'] == true
-            && ! $query_too_big) {
-
+        if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
+            $explain_params = $url_params;
             // Detect if we are validating as well
             // To preserve the validate uRL data
-            if (!empty($GLOBALS['validatequery'])) {
-                $explain_link_validate = '&amp;validatequery=1';
-            } else {
-                $explain_link_validate = '';
+            if (! empty($GLOBALS['validatequery'])) {
+                $explain_params['validatequery'] = 1;
             }
-
-            $explain_link = 'import.php'
-                          . $url_qpart
-                          . $explain_link_validate
-                          . '&amp;sql_query=';
 
             if (preg_match('@^SELECT[[:space:]]+@i', $sql_query)) {
-                $explain_link .= urlencode('EXPLAIN ' . $sql_query);
+                $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                 $_message = $GLOBALS['strExplain'];
             } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
-                $explain_link .= urlencode(substr($sql_query, 8));
+                $explain_params['sql_query'] = substr($sql_query, 8);
                 $_message = $GLOBALS['strNoExplain'];
-            } else {
-                $explain_link = '';
             }
-            if (!empty($explain_link)) {
+            if (isset($explain_params['validatequery'])) {
+                $explain_link = 'import.php' . PMA_generate_common_url($explain_params);
                 $explain_link = ' [' . PMA_linkOrButton($explain_link, $_message) . ']';
             }
         } else {
             $explain_link = '';
         } //show explain
 
+        $url_params['sql_query']  = $sql_query;
+        $url_params['show_query'] = 1;
+
+        if (! empty($cfg['SQLQuery']['Edit']) && ! $query_too_big) {
+            if ($cfg['EditInWindow'] == true) {
+                $onclick = 'window.parent.focus_querywindow(\'' . PMA_jsFormat($sql_query, false) . '\'); return false;';
+            } else {
+                $onclick = '';
+            }
+
+            $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
+            $edit_link = ' [' . PMA_linkOrButton($edit_link, $GLOBALS['strEdit'], array('onclick' => $onclick)) . ']';
+        } else {
+            $edit_link = '';
+        }
+
+        $url_qpart = PMA_generate_common_url($url_params);
+
         // Also we would like to get the SQL formed in some nice
         // php-code (Mike Beck 2002-05-22)
-        if (isset($cfg['SQLQuery']['ShowAsPHP'])
-            && $cfg['SQLQuery']['ShowAsPHP'] == true
-            && ! $query_too_big) {
-            $php_link = 'import.php'
-                      . $url_qpart
-                      . '&amp;show_query=1'
-                      . '&amp;sql_query=' . urlencode($sql_query)
-                      . '&amp;show_as_php=';
+        if (! empty($cfg['SQLQuery']['ShowAsPHP']) && ! $query_too_big) {
+            $php_params = $url_params;
 
-            if (!empty($GLOBALS['show_as_php'])) {
-                $php_link .= '0';
+            if (! empty($GLOBALS['show_as_php'])) {
                 $_message = $GLOBALS['strNoPhp'];
             } else {
-                $php_link .= '1';
+                $php_params['show_as_php'] = 1;
                 $_message = $GLOBALS['strPhp'];
             }
+
+            $php_link = 'import.php' . PMA_generate_common_url($php_params);
             $php_link = ' [' . PMA_linkOrButton($php_link, $_message) . ']';
 
             if (isset($GLOBALS['show_as_php'])) {
-                $runquery_link
-                     = 'import.php'
-                     . $url_qpart
-                     . '&amp;show_query=1'
-                     . '&amp;sql_query=' . urlencode($sql_query);
+                $runquery_link = 'import.php' . PMA_generate_common_url($url_params);
                 $php_link .= ' [' . PMA_linkOrButton($runquery_link, $GLOBALS['strRunQuery']) . ']';
             }
-
         } else {
             $php_link = '';
         } //show as php
 
         // Refresh query
-        if (isset($cfg['SQLQuery']['Refresh'])
-            && $cfg['SQLQuery']['Refresh']
-            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)) {
-
-            $refresh_link = 'import.php'
-                      . $url_qpart
-                      . '&amp;show_query=1'
-                      . '&amp;sql_query=' . urlencode($sql_query);
+        if (! empty($cfg['SQLQuery']['Refresh'])
+         && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)) {
+            $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
             $refresh_link = ' [' . PMA_linkOrButton($refresh_link, $GLOBALS['strRefresh']) . ']';
         } else {
             $refresh_link = '';
         } //show as php
 
-        if (isset($cfg['SQLValidator']['use'])
-            && $cfg['SQLValidator']['use'] == true
-            && isset($cfg['SQLQuery']['Validate'])
-            && $cfg['SQLQuery']['Validate'] == true) {
-            $validate_link = 'import.php'
-                           . $url_qpart
-                           . '&amp;show_query=1'
-                           . '&amp;sql_query=' . urlencode($sql_query)
-                           . '&amp;validatequery=';
+        if (! empty($cfg['SQLValidator']['use'])
+         && ! empty($cfg['SQLQuery']['Validate'])) {
+            $validate_params = $url_params;
             if (!empty($GLOBALS['validatequery'])) {
-                $validate_link .= '0';
                 $validate_message = $GLOBALS['strNoValidateSQL'] ;
             } else {
-                $validate_link .= '1';
+                $validate_params['validatequery'] = 1;
                 $validate_message = $GLOBALS['strValidateSQL'] ;
             }
+
+            $validate_link = 'import.php' . PMA_generate_common_url($validate_params);
             $validate_link = ' [' . PMA_linkOrButton($validate_link, $validate_message) . ']';
         } else {
             $validate_link = '';
         } //validator
 
-        // why this?
-        //unset($sql_query);
-
         // Displays the message
         echo '<fieldset class="">' . "\n";
         echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
         echo '    <div>';
-        // when uploading a 700 Kio binary file into a LONGBLOB,
-        // I get a white page, strlen($query_base) is 2 x 700 Kio
-        // so put a hard limit here (let's say 1000)
         if ($query_too_big) {
             echo '    ' . substr($query_base, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
         } else {
@@ -1247,18 +1210,16 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         }
 
         //Clean up the end of the PHP
-        if (!empty($GLOBALS['show_as_php'])) {
+        if (! empty($GLOBALS['show_as_php'])) {
             echo '\';';
         }
         echo '    </div>';
         echo '</fieldset>' . "\n";
 
-        if (!empty($edit_target)) {
-            echo '<fieldset class="tblFooters">';
-            PMA_profilingCheckbox($sql_query);
-            echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
-            echo '</fieldset>';
-        }
+        echo '<fieldset class="tblFooters">';
+        PMA_profilingCheckbox($sql_query);
+        echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
+        echo '</fieldset>';
     }
     echo '</div><br />' . "\n";
 } // end of the 'PMA_showMessage()' function
