@@ -502,11 +502,6 @@ if (empty($_SESSION['PMA_Config'])) {
      */
     $_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
 
-} elseif (version_compare(phpversion(), '5', 'lt')) {
-    /**
-     * @todo move all __wakeup() functionality into session.inc.php
-     */
-    $_SESSION['PMA_Config']->__wakeup();
 }
 
 if (!defined('PMA_MINIMUM_COMMON')) {
