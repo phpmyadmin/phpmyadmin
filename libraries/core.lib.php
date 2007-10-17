@@ -599,14 +599,8 @@ function PMA_setCookie($cookie, $value, $default = null, $validity = null, $http
         } else {
             $v = time() + $validity;
         }
-        /* Use native support for httponly cookies if available */
-        if (version_compare(PHP_VERSION, '5.2.0', 'ge')) {
-            return setcookie($cookie, $value, $v,
-                PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
-        } else {
-            return setcookie($cookie, $value, $v,
-                PMA_Config::getCookiePath() . ($httponly ? '; HttpOnly' : ''), '', PMA_Config::isHttps());
-        }
+        return setcookie($cookie, $value, $v,
+            PMA_Config::getCookiePath(), '', PMA_Config::isHttps(), $httponly);
     }
 
     // cookie has already $value as value
