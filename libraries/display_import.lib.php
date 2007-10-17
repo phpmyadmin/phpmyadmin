@@ -16,7 +16,7 @@ $import_list = PMA_getPlugins('./libraries/import/', $import_type);
 
 /* Fail if we didn't find any plugin */
 if (empty($import_list)) {
-    PMA_showMessage($strCanNotLoadImportPlugins, null, 'error');
+    PMA_Message::error('strCanNotLoadImportPlugins')->display();
     require './libraries/footer.inc.php';
 }
 ?>

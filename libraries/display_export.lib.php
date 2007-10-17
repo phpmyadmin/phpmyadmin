@@ -35,7 +35,7 @@ $export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $exp
 
 /* Fail if we didn't find any plugin */
 if (empty($export_list)) {
-    PMA_showMessage($strCanNotLoadExportPlugins, null, 'error');
+    PMA_Message::error('strCanNotLoadExportPlugins')->display();
     require './libraries/footer.inc.php';
 }
 ?>

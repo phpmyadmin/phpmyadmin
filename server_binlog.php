@@ -25,7 +25,6 @@
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    PMA_generate_common_url()
  * @uses    PMA_formatByteDown()
- * @uses    PMA_showMessage()
  * @uses    PMA_DBI_fetch_assoc()
  * @uses    PMA_strlen()
  * @uses    PMA_substr()
@@ -144,7 +143,7 @@ if (count($binary_logs) > 1) {
     echo '</form>';
 }
 
-PMA_showMessage($GLOBALS['strSuccess'], null, 'success');
+PMA_Message::success()->display();
 
 /**
  * Displays the page
