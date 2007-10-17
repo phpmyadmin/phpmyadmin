@@ -341,12 +341,14 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     // Checks if the current database has changed
     // This could happen if the user sends a query like "USE `database`;"
+    /*
     $current_db = PMA_DBI_fetch_value('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
         $reload = 1;
     }
     unset($current_db);
+     */
 
     // tmpfile remove after convert encoding appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')
