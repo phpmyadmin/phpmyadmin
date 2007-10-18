@@ -4120,8 +4120,13 @@ if(!class_exists('TCPDF')) {
 		 * @return string converted
 		 */
 		function unhtmlentities($text_to_convert) {
+            /**
+             * PHP 5 supports specifying charset
+             * cybot_tm 2007-10-18
 			require_once(dirname(__FILE__).'/html_entity_decode_php4.php');
 			return html_entity_decode_php4($text_to_convert);
+             */
+            return html_entity_decode($text_to_convert, ENT_QUOTES, 'UTF-8');
 		}
 	} // END OF CLASS
 
