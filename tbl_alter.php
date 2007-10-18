@@ -75,7 +75,7 @@ if (isset($do_save_data)) {
 
     if ($error_create == FALSE) {
         $message = PMA_Message::success('strTableAlteredSuccessfully');
-        $message->addParam(htmlspecialchars($table));
+        $message->addParam($table);
         $btnDrop = 'Fake';
 
         // garvin: If comments were sent, enable relation stuff

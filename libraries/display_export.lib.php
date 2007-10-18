@@ -143,18 +143,22 @@ echo PMA_pluginGetJavascript($export_list);
         <?php
         echo $strFileNameTemplate;
 
-        $trans = '__SERVER__/' . $strFileNameTemplateDescriptionServer;
+        $trans = new PMA_Message;
+        $trans->addMessage('__SERVER__/');
+        $trans->addString('strFileNameTemplateDescriptionServer');
         if ($export_type == 'database' || $export_type == 'table') {
-            $trans .= ', __DB__/' . $strFileNameTemplateDescriptionDatabase;
+            $trans->addMessage('__DB__/');
+            $trans->addString('strFileNameTemplateDescriptionDatabase');
             if ($export_type == 'table') {
-                $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
+                $trans->addMessage('__TABLE__/');
+                $trans->addString('strFileNameTemplateDescriptionTable');
             }
         }
 
         $message = new PMA_Message('strFileNameTemplateDescription');
         $message->addParam('<a href="http://php.net/strftime" target="documentation" title="'
-            . $strDocu . '">');
-        $message->addParam('</a>');
+            . $strDocu . '">', false);
+        $message->addParam('</a>', false);
         $message->addParam($trans);
 
         echo PMA_showHint($message);

@@ -1530,8 +1530,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             } // end if (display overview)
             echo '</form>' . "\n";
             $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::NOTICE);
-            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">');
-            $flushnote->addParam('</a>');
+            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', false);
+            $flushnote->addParam('</a>', false);
             $flushnote->display();
          }
 

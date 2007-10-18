@@ -17,9 +17,9 @@ if ($GLOBALS['cfg']['DBG']['enable']) {
     if (! @extension_loaded('dbg') && ! PMA_dl('dbg')) {
         $message = PMA_Message::error('strCantLoad');
         $message->addParam('DBG');
-        $message->addMessage('<a href="./Documentation.html#faqdbg" target="documentation">');
+        $message->addMessage('<a href="./Documentation.html#faqdbg" target="documentation">', false);
         $message->addString('strDocu');
-        $message->addMessage('</a>');
+        $message->addMessage('</a>', false);
         $message->display();
     } else {
         $GLOBALS['DBG'] = true;

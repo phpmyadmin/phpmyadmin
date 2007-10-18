@@ -399,8 +399,8 @@ if (!$is_information_schema) {
     if ($num_tables > 0
       && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice('strRelationNotWorking');
-        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">');
-        $message->addParam('</a>');
+        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
+        $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
