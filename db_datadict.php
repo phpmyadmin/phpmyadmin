@@ -132,16 +132,17 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
+    if (PMA_MYSQL_INT_VERSION < 50025) {
+        // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
+        // SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+        // and SHOW CREATE TABLE says NOT NULL
+        // http://bugs.mysql.com/20910.
 
-// We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
-// and SHOW CREATE TABLE says NOT NULL (tested
-// in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
-
-    $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-        0, 1);
-    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+        $show_create_table = PMA_DBI_fetch_value(
+            'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+            0, 1);
+        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    }
 
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
@@ -192,6 +193,9 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $odd_row = true;
     while ($row = PMA_DBI_fetch_assoc($result)) {
 
+        if ($row['Null'] == '') {
+            $row['Null'] = 'NO';
+        }
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
         // loic1: set or enum types: slashes single quotes inside options
@@ -226,7 +230,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
             $strAttribute = 'UNSIGNED ZEROFILL';
         }
         if (!isset($row['Default'])) {
-            if ($row['Null'] != '' && $row['Null'] != 'NO') {
+            if ($row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
             }
         } else {
@@ -234,17 +238,20 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         }
         $field_name = htmlspecialchars($row['Field']);
 
-        // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
-        // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
-        // the latter.
-        /**
-         * @todo merge this logic with the one in tbl_structure.php
-         * or move it in a function similar to PMA_DBI_get_columns_full()
-         * but based on SHOW CREATE TABLE because information_schema
-         * cannot be trusted in this case (MySQL bug)
-         */
-        if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type']) && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
-            $row['Null'] = '';
+        if (PMA_MYSQL_INT_VERSION < 50025
+         && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
+         && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
+         && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
+            // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+            // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+            // the latter.
+            /**
+             * @todo merge this logic with the one in tbl_structure.php
+             * or move it in a function similar to PMA_DBI_get_columns_full()
+             * but based on SHOW CREATE TABLE because information_schema
+             * cannot be trusted in this case (MySQL bug)
+             */
+             $row['Null'] = 'NO';
         }
         ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
@@ -259,7 +266,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     </td>
     <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $strAttribute; ?></td>*/ ?>
-    <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?></td>
+    <td><?php echo (($row['Null'] == 'NO') ? $strNo : $strYes); ?></td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
         <?php
