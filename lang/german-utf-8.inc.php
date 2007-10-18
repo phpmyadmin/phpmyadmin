@@ -989,7 +989,6 @@ $strRecommended = 'empfohlen';
 $strToFromPage = 'nach/von Seite';
 $strSelectReferencedKey = 'Select referenced key';  //to translate
 $strPleaseSelectPrimaryOrUniqueKey = 'Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen';
-$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 $strHelp = 'Hilfe';
 $strCancel = 'Abbrechen';
 $strDeleteRelation = 'Verknüpfung löschen';
@@ -1033,4 +1032,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

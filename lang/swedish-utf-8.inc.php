@@ -305,7 +305,6 @@ $strFlushQueryCache = 'Rensa frågecache';
 $strFlushTable = 'Rensa tabell';
 $strFlushTables = 'Stäng alla tabeller';
 $strFontSize = 'Teckenstorlek';
-$strForeignKeyError = 'Fel vid skapande av främmande nyckel (kontrollera datatyper)';
 $strFormat = 'Format';
 $strFormEmpty = 'Värde saknas i formuläret!';
 $strFreePages = 'Fria sidor';
@@ -1029,4 +1028,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

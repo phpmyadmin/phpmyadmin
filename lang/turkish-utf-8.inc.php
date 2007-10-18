@@ -312,7 +312,6 @@ $strFlushQueryCache = 'Sorgu önbelleğini temizle';
 $strFlushTables = 'Tüm tabloları temizle (kapat)';
 $strFlushTable = 'Tabloyu temizle ("FLUSH")';
 $strFontSize = 'Yazı Tipi boyutu';
-$strForeignKeyError = 'Dış anahtar oluşturma hatası (veri türlerini kontrol edin)';
 $strFormat = 'Biçim';
 $strFormEmpty = 'Formda eksik değer!';
 $strFreePages = 'Serbest sayfalar';   
@@ -1036,4 +1035,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

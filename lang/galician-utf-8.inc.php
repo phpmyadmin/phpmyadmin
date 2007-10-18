@@ -305,7 +305,6 @@ $strFlushQueryCache = 'Limpar a caché da pesquisa';
 $strFlushTable = 'Fechar a tabela ("FLUSH")';
 $strFlushTables = 'Limpar (fechar) todas as tabelas';
 $strFontSize = 'TamaÃ±o da letra';
-$strForeignKeyError = 'Erro ao crear unha chave externa (comprobe os tipos de datos)';
 $strFormat = 'Formato';
 $strFormEmpty = 'Falta un valor no formulario!';
 $strFreePages = 'Páxinas libres';
@@ -1029,4 +1028,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

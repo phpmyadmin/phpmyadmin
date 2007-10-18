@@ -790,7 +790,6 @@ $strFileToImport = 'File to import';  //to translate
 $strFlushQueryCache = 'Flush query cache';  //to translate
 $strFlushTables = 'Flush (close) all tables';  //to translate
 $strFontSize = 'Font size';  //to translate
-$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 $strFunctions = 'Functions';  //to translate
 $strHandler = 'Handler';  //to translate
 $strHelp = 'Help';  //to translate
@@ -1031,4 +1030,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

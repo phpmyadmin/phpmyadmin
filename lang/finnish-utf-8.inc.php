@@ -306,7 +306,6 @@ $strFlushQueryCache = 'Tyhjennä kyselymuisti';
 $strFlushTables = 'Tyhjennä (sulje) kaikki taulut';
 $strFlushTable = 'Tyhjennä taulun välimuisti ("FLUSH")';
 $strFontSize = 'Fonttikoko';
-$strForeignKeyError = 'Virhe luotaessa vierasta avainta (tarkista tietotyypit)';
 $strFormat = 'Muoto';
 $strFormEmpty = 'Tarvittava tieto puuttuu lomakkeesta!';
 $strFreePages = "Vapaat sivut";
@@ -1033,4 +1032,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

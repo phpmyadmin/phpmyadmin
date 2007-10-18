@@ -306,7 +306,6 @@ $strFlushQueryCache = 'Vyprázdnit vyrovnávací paměť dotazů';
 $strFlushTables = 'Zavřít všechny tabulky';
 $strFlushTable = 'Vyprázdnit vyrovnávací paměť pro tabulku (&bdquo;FLUSH&ldquo;)';
 $strFontSize = 'Velikost písma';
-$strForeignKeyError = 'Chyba při vytváření cizího klíče (zkontrolujte typ dat)';
 $strFormat = 'Formát';
 $strFormEmpty = 'Chybějící hodnota ve formuláři!';
 $strFreePages = 'Volných stránek';
@@ -1030,4 +1029,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

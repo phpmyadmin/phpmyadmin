@@ -306,7 +306,6 @@ $strFlushQueryCache = 'Isprazni pohranu upita';
 $strFlushTable = 'Isprazni tablicu ("FLUSH")';
 $strFlushTables = 'Isprazni (zatvori) sve tablice';
 $strFontSize = 'Veličina fonta';
-$strForeignKeyError = 'Pogreška tijekom izrade stranog ključa (provjerite vrste podataka)';
 $strFormat = 'Oblikovanje';
 $strFormEmpty = 'U obrascu nedostaje vrijednost!';
 $strFreePages = 'Slobodne stranice';
@@ -1029,4 +1028,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

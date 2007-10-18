@@ -304,7 +304,6 @@ $strFlushQueryCache = 'Flush query cache';
 $strFlushTable = 'Oppfrisk tabellen ("FLUSH")';
 $strFlushTables = 'Flush (close) all tables';
 $strFontSize = 'Fontstørrelse';
-$strForeignKeyError = 'Feil under opprettelse av fremmednøkkel (kontroller datatyper)';
 $strFormat = 'Format';
 $strFormEmpty = 'Manglende verdi i skjemaet!';
 $strFreePages = 'Ledige sider';
@@ -1028,4 +1027,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

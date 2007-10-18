@@ -299,7 +299,6 @@ $strFlushQueryCache = 'Tühjenda päringute vahemälu';
 $strFlushTables = 'Tühjenda (sulge) kõik tabelid';
 $strFlushTable = 'Ühtlusta tabelid ("FLUSH")';
 $strFontSize = 'Fondi suurus';
-$strForeignKeyError = 'Viga luues võõrvõtit (foreign key) (kontrolli admetüüpe)';
 $strFormat = 'Formaat';
 $strFormEmpty = 'Puuduv väärtus vormis !';
 $strFreePages = 'Vabad lehed';
@@ -1036,4 +1035,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

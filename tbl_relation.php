@@ -221,7 +221,7 @@ if (isset($_REQUEST['destination_innodb'])) {
             }
             if (substr($tmp_error, 1, 4) == '1005') {
                 $message = PMA_Message::warning('strForeignKeyError');
-                $message->addMessage(htmlspecialchars($master_field), ' : ');
+                $message->addParam(htmlspecialchars($master_field));
                 $message->display();
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }

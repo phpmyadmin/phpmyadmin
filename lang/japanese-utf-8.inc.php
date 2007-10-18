@@ -308,7 +308,6 @@ $strFlushQueryCache = 'クエリキャッシュをフラッシュする';
 $strFlushTable = 'テーブルをフラッシュする("FLUSH")';
 $strFlushTables = 'すべてのテーブルをフラッシュする(閉じる)';
 $strFontSize = 'フォントサイズ';
-$strForeignKeyError = '外部キーを作成中にエラーが発生しました (データ型を確認してください)';
 $strFormat = 'フォーマット';
 $strFormEmpty = 'フォームに入力されていない値があります!';
 $strFreePages = 'フリーページ数';
@@ -1034,4 +1033,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

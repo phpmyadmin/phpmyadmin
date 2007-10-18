@@ -1010,7 +1010,6 @@ $strRecommended = 'recommended';  //to translate
 $strToFromPage = 'to/from page';  //to translate
 $strSelectReferencedKey = 'Select referenced key';  //to translate
 $strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
-$strForeignKeyError = 'Error creating foreign key (check data types)';  //to translate
 $strHelp = 'Help';  //to translate
 $strCancel = 'Cancel';  //to translate
 $strDeleteRelation = 'Delete relation';  //to translate
@@ -1054,4 +1053,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

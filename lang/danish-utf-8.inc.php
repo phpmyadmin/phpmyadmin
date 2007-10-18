@@ -305,7 +305,6 @@ $strFlushQueryCache = 'Flush forespørgsel-mellemlager (query cache)';
 $strFlushTable = 'Flush tabellen ("FLUSH")';
 $strFlushTables = 'Flush (luk) alle tabeller';
 $strFontSize = 'Skriftstørrelse';
-$strForeignKeyError = 'Fejl ved oprettelse af fremmednøgle (check datatyper)';
 $strFormat = 'Format';
 $strFormEmpty = 'Ingen værdi i formularen !';
 $strFreePages = 'Frie sider';
@@ -1030,4 +1029,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

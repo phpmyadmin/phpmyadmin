@@ -300,7 +300,6 @@ $strFlushQueryCache = 'Buidar la memòria intermèdia de consultes';
 $strFlushTable = 'Buidar la memòria cau de la taula ("FLUSH")';
 $strFlushTables = 'Sincronitzar (tancar) totes les taules';
 $strFontSize = 'Tamany de lletra';
-$strForeignKeyError = 'Error creant clau externa (comprova els tipus de dades)';
 $strFormat = 'Format';
 $strFormEmpty = 'Falta un valor al formulari !';
 $strFreePages = 'Pàgines lliures';
@@ -1024,4 +1023,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>

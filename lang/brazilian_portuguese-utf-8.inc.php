@@ -304,7 +304,6 @@ $strFlushQueryCache = 'Nivelar cache da consulta';  //está correto isso?
 $strFlushTable = 'Limpar a tabela ("LIMPAR")'; 
 $strFlushTables = 'Nivelar (fechar) todas as tabelas';  //está correto isso?
 $strFontSize = 'Tamanho da fonte';
-$strForeignKeyError = 'Erro na criação da chave estrangeira (cheque o tipo de dado)';
 $strFormat = 'Formato'; 
 $strFormEmpty = 'Faltando valores no formulário!'; 
 $strFreePages = 'Páginas livres';
@@ -1028,4 +1027,5 @@ $strPartitioned = 'partitioned';  //to translate
 $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';  //to translate
 $strDatabaseHasBeenCreated = 'Database %1$s has been created.';  //to translate
 $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
+$strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 ?>
