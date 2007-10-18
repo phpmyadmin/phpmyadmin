@@ -9,19 +9,43 @@
 /**
  * a single message
  *
- * usage:
+ * simple usage examples:
  * <code>
- * // display simple error message
+ * // display simple error message 'Error'
  * PMA_Message::error()->display();
  *
- * // get simple success message
- * $message = PMA_Message::error();
+ * // get simple success message 'Success'
+ * $message = PMA_Message::success();
  *
- * // get special notice
- * $message = PMA_Message::notice('strSomeLocaleString');
+ * // get special notice 'Some locale notice'
+ * $message = PMA_Message::notice('strSomeLocaleNotice');
  *
- * // display raw warning message
+ * // display raw warning message 'This is a warning!'
  * PMA_Message::rawWarning('This is a warning!')->display();
+ * </code>
+ *
+ * more advanced usage example:
+ * <code>
+ * $message = PMA_Message::success('strSomeLocaleMessage');
+ *
+ * $hint = PMA_Message::notice('strSomeFootnote');
+ * $hint->addParam('[a@./Documentation.html#cfg_Example@_blank]');
+ * $hint->addParam('[/a]');
+ * $hint = PMA_showHint($hint);
+ *
+ * $message->addMessage($hint);
+ *
+ * $more = PMA_Message::notice('strSomeMoreLocale');
+ * $more->addString('strSomeEvenMoreLocale', '<br />');
+ * $more->addParam('parameter for strSomeMoreLocale');
+ * $more->addParam('more parameter for strSomeMoreLocale');
+ *
+ * $message->addMessage($more);
+ * $message->addMessage('some final words', ' - ');
+ *
+ * $message->display();
+ * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
+ * // strSomeEvenMoreLocale - some final words
  * </code>
  */
 class PMA_Message
@@ -165,7 +189,7 @@ class PMA_Message
      *
      * @static
      * @uses    PMA_Message as returned object
-     * @uses    PMA_Message::SUCCESS
+     * @uses    PMA_Message::ERROR
      * @param   string $string
      * @return  PMA_Message
      */
@@ -370,7 +394,7 @@ class PMA_Message
     }
 
     /**
-     * set raw message
+     * set raw message (overrides string)
      *
      * @uses    PMA_Message::$_message to set it
      * @uses    PMA_Message::sanitize()
@@ -386,7 +410,7 @@ class PMA_Message
     }
 
     /**
-     * set string (overrides message)
+     * set string (does not take effect if raw message is set)
      *
      * @uses    PMA_Message::$_string to set it
      * @uses    PMA_Message::sanitize()
@@ -415,15 +439,24 @@ class PMA_Message
     /**
      * add parameter, usually in conjunction with strings
      *
+     * usage
+     * <code>
+     * $message->addParam('strLocale', false);
+     * $message->addParam('[em]somes tring[/em]');
+     * $message->addParam('<img src="img" />', false);
+     * </code>
+     *
      * @uses    htmlspecialchars()
      * @uses    PMA_Message::$_params to fill
      * @uses    PMA_Message::notice()
-     * @param   string  $param
+     * @param   mixed   $param
      * @param   boolean $raw
      */
     public function addParam($param, $raw = true)
     {
-        if ($raw) {
+        if ($param instanceof PMA_Message) {
+            $this->_params[] = $param;
+        } elseif ($raw) {
             $this->_params[] = htmlspecialchars($param);
         } else {
             $this->_params[] = PMA_Message::notice($param);
@@ -431,7 +464,7 @@ class PMA_Message
     }
 
     /**
-     * add another string to be concatenaded on displaying
+     * add another string to be concatenated on displaying
      *
      * @uses    PMA_Message::$_added_messages to fill
      * @uses    PMA_Message::notice()
@@ -459,11 +492,11 @@ class PMA_Message
     }
 
     /**
-     * add another raw message to be concatenaded on displaying
+     * add another raw message to be concatenated on displaying
      *
      * @uses    PMA_Message::$_added_messages to fill
      * @uses    PMA_Message::rawNotice()
-     * @param   string  $string    to be added
+     * @param   mixed   $message   to be added
      * @param   string  $separator to use between this and previous string/message
      */
     public function addMessage($message, $separator = ' ')
