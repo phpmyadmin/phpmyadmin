@@ -18,6 +18,8 @@
  *  - parsing of the configuration file
  * LABEL_loading_language_file
  *  - loading language file
+ * LABEL_setup_servers
+ *  - check and setup configured servers
  * LABEL_theme_setup
  *  - setting up themes
  *
@@ -411,11 +413,11 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
 
 
 /**
- * @global string $convcharset
+ * @global string $GLOBALS['convcharset']
  * @see select_lang.lib.php
  */
 if (isset($_REQUEST['convcharset'])) {
-    $convcharset = strip_tags($_REQUEST['convcharset']);
+    $GLOBALS['convcharset'] = strip_tags($_REQUEST['convcharset']);
 }
 
 /**
@@ -569,6 +571,10 @@ if ($_SESSION['PMA_Config']->error_config_default_file) {
 if ($_SESSION['PMA_Config']->error_pma_uri) {
     trigger_error($strPmaUriError, E_USER_ERROR);
 }
+
+
+/******************************************************************************/
+/* setup servers                                       LABEL_setup_servers    */
 
 /**
  * current server
