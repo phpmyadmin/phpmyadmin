@@ -141,7 +141,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                                 $msg .= $GLOBALS['strRows'] . ': ' . $a_num_rows;
                             } elseif ($a_aff_rows > 0) {
                                 $a_rows =
-                                $msg .= $GLOBALS['strAffectedRows'] . ' ' . $a_aff_rows;
+                                $msg .= sprintf($GLOBALS['strRowsAffected'], $a_aff_rows);
                             } else {
                                 $msg .= $GLOBALS['strEmptyResultSet'];
                             }

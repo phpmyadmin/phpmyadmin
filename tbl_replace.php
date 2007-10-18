@@ -275,7 +275,7 @@ if ($is_insert && count($value_sets) > 0) {
 
     $message = PMA_Message::success('strInsertedRows');
 } elseif (! empty($query)) {
-    $message = PMA_Message::success('strAffectedRows');
+    $message = PMA_Message::success('strRowsAffected');
 } else {
     // No change -> move back to the calling script
     $message = PMA_Message::success('strNoModification');
@@ -339,7 +339,7 @@ foreach ($query as $single_query) {
 }
 unset($single_query, $query);
 
-$message->addMessage($total_affected_rows);
+$message->addParam($total_affected_rows);
 $message->addMessages($last_messages, '<br />');
 
 if (! empty($warning_messages)) {
