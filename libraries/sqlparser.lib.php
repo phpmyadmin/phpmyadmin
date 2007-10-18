@@ -1890,25 +1890,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // of the foreign key REFERENCES
                     if ($brackets_level > 1) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
-                    } else {
-                        // for MySQL 4.0.18, identifier is
-                        // `table` or `db`.`table`
+                    } elseif ($arr[$i+1]['type'] == 'punct_qualifier') {
+                        // identifier is `db`.`table`
                         // the first pass will pick the db name
-                        // the next pass will execute the else and pick the
-                        // db name in $db_table[0]
-                        if ($arr[$i+1]['type'] == 'punct_qualifier') {
-                                $foreign[$foreign_key_number]['ref_db_name'] = $identifier;
-                        } else {
-                        // for MySQL 4.0.16, identifier is
-                        // `table` or `db.table`
-                            $db_table = explode('.', $identifier);
-                            if (isset($db_table[1])) {
-                                $foreign[$foreign_key_number]['ref_db_name'] = $db_table[0];
-                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[1];
-                            } else {
-                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[0];
-                            }
-                        }
+                        // the next pass will pick the table name
+                        $foreign[$foreign_key_number]['ref_db_name'] = $identifier;
+                    } else {
+                        // identifier is `table`
+                        $foreign[$foreign_key_number]['ref_table_name'] = $identifier;
                     }
                 }
             }
