@@ -9,21 +9,19 @@
 /**
  * display server selection in list or selectbox form, or option tags only
  *
- * @globals $lang
- * @globals $convcharset
  * @uses    $GLOBALS['cfg']['DisplayServersList']
  * @uses    $GLOBALS['strServer']
  * @uses    $GLOBALS['cfg']['Servers']
  * @uses    $GLOBALS['strGo']
  * @uses    implode()
  * @uses    htmlspecialchars()
+ * @uses    PMA_generate_common_hidden_inputs()
+ * @uses    PMA_generate_common_url()
  * @param   boolean $not_only_options   whether to include form tags or not
  * @param   boolean $ommit_fieldset     whether to ommit fieldset tag or not
  */
 function PMA_select_server($not_only_options, $ommit_fieldset)
 {
-    global $lang, $convcharset;
-
     // Show as list?
     if ($not_only_options) {
         $list = $GLOBALS['cfg']['DisplayServersList'];
@@ -34,6 +32,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
 
     if ($not_only_options) {
         echo '<form method="post" action="index.php" target="_parent">';
+        echo PMA_generate_common_hidden_inputs();
 
         if (! $ommit_fieldset) {
             echo '<fieldset>';
@@ -84,20 +83,21 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
             if ($selected && !$ommit_fieldset) {
                 echo '<b>' . htmlspecialchars($label) . '</b>';
             } else {
-                echo '<a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a>';
+
+                echo '<a class="item" href="index.php'
+                    . PMA_generate_common_url(array('server' => $key))
+                    . '" target="_top">' . htmlspecialchars($label) . '</a>';
             }
             echo '</li>';
         } else {
-            echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
+            echo '<option value="' . $key . '" '
+                . ($selected ? ' selected="selected"' : '') . '>'
+                . htmlspecialchars($label) . '</option>' . "\n";
         }
     } // end while
 
     if ($not_only_options) {
         echo '</select>';
-        ?>
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <?php
         // Show submit button if we have just one server (this happens with no default)
         echo '<noscript>';
         echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
