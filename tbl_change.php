@@ -399,15 +399,11 @@ foreach ($rows as $row_id => $vrow) {
 
         if ($field['Type'] == 'datetime'
          && ! isset($field['Default'])
-         && ! is_null($field['Default'])) {
-            // INSERT case
-            if ($insert_mode) {
-                $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
-            }
-            // UPDATE case with an empty and not NULL value under PHP4
-            elseif (empty($vrow[$field['Field']]) && is_null($vrow[$field['Field']])) {
-                $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
-            } // end if... elseif...
+         && ! is_null($field['Default'])
+         && ($insert_mode || ! isset($vrow[$field['Field']]))) {
+            // INSERT case or
+            // UPDATE case with an NULL value
+            $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
         }
         ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">

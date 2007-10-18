@@ -1168,10 +1168,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         // 2. Displays the rows' values
         for ($i = 0; $i < $fields_cnt; ++$i) {
             $meta    = $fields_meta[$i];
-            // loic1: To fix bug #474943 under php4, the row pointer will
-            //        depend on whether the "is_null" php4 function is
-            //        available or not
-            $pointer = (function_exists('is_null') ? $i : $meta->name);
+            $pointer = $i;
             // garvin: See if this column should get highlight because it's used in the
             //  where-query.
             if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
@@ -1239,7 +1236,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       with self-join queries, for example), using $meta->name
                 //       will show both fields NULL even if only one is NULL,
                 //       so use the $pointer
-                //      (works only if function_exists('is_null')
                 // PS:   why not always work with the number ($i), since
                 //       the default second parameter of
                 //       mysql_fetch_array() is MYSQL_BOTH, so we always get
