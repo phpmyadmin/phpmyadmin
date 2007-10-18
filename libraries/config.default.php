@@ -1605,19 +1605,19 @@ $cfg['PDFDefaultPageSize'] = 'A4';
  *
  * @global string $cfg['DefaultLang']
  */
-$cfg['DefaultLang'] = 'en-iso-8859-1';
+$cfg['DefaultLang'] = 'en-utf-8';
 
 /**
- * Default connection collation (used for MySQL >= 4.1)
+ * Default connection collation
  *
  * @global string $cfg['DefaultConnectionCollation']
  */
-$cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
+$cfg['DefaultConnectionCollation'] = 'utf8_general_ci';
 
 /**
  * Force: always use this language - must be defined in
  *        libraries/select_lang.lib.php
- * $cfg['Lang'] = 'en-iso-8859-1';
+ * $cfg['Lang'] = 'en-utf-8';
  *
  * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
  * English only
@@ -1634,7 +1634,7 @@ $cfg['FilterLanguages'] = '';
  *
  * @global string $cfg['DefaultCharset']
  */
-$cfg['DefaultCharset'] = 'iso-8859-1';
+$cfg['DefaultCharset'] = 'utf-8';
 
 /**
  * Allow character set recoding of MySQL queries, must be also enabled in language
