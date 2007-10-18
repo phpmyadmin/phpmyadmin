@@ -88,8 +88,6 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['convcharset']
- * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['strWelcome']
  * @uses    $GLOBALS['strSecretRequired']
  * @uses    $GLOBALS['strError']
@@ -275,18 +273,18 @@ if (top != self) {
     </fieldset>
     <fieldset class="tblFooters">
         <input value="<?php echo $GLOBALS['strGo']; ?>" type="submit" />
-        <input type="hidden" name="lang" value="<?php echo $GLOBALS['lang']; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $GLOBALS['convcharset']; ?>" />
     <?php
-    if (!empty($GLOBALS['target'])) {
-        echo '            <input type="hidden" name="target" value="' . htmlspecialchars($GLOBALS['target']) . '" />' . "\n";
+    $_form_params = array();
+    if (! empty($GLOBALS['target'])) {
+        $_form_params['target'] = $GLOBALS['target'];
     }
-    if (!empty($GLOBALS['db'])) {
-        echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
+    if (! empty($GLOBALS['db'])) {
+        $_form_params['db'] = $GLOBALS['db'];
     }
-    if (!empty($GLOBALS['table'])) {
-        echo '            <input type="hidden" name="table" value="' . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
+    if (! empty($GLOBALS['table'])) {
+        $_form_params['table'] = $GLOBALS['table'];
     }
+    echo PMA_generate_common_hidden_inputs();
     ?>
     </fieldset>
 </form>
@@ -572,10 +570,6 @@ function PMA_auth_set_user()
         }
         if (strlen($GLOBALS['table'])) {
             $url_params['table'] = $GLOBALS['table'];
-        }
-        // Language change from the login panel needs to be remembered
-        if (! empty($GLOBALS['lang'])) {
-            $url_params['lang'] = $GLOBALS['lang'];
         }
         // any target to pass?
         if (! empty($GLOBALS['target']) && $GLOBALS['target'] != 'index.php') {
