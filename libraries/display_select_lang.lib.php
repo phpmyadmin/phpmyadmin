@@ -29,31 +29,18 @@ function PMA_select_language($use_fieldset = FALSE) {
 
 <form method="post" action="index.php" target="_parent">
     <?php
-    if (isset($GLOBALS['collation_connection'])) {
-        echo '            <input type="hidden" name="collation_connection" value="'
-            . htmlspecialchars($GLOBALS['collation_connection']) . '" />' . "\n";
-    }
-    if (isset($GLOBALS['convcharset'])) {
-        echo '            <input type="hidden" name="convcharset" value="'
-            . htmlspecialchars($GLOBALS['convcharset']) . '" />' . "\n";
-    }
-    if (strlen($GLOBALS['db'])) {
-        echo '            <input type="hidden" name="db" value="'
-            . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
-    }
-    if (strlen($GLOBALS['table'])) {
-        echo '            <input type="hidden" name="table" value="'
-            . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
-    }
-    if (isset($GLOBALS['server'])) {
-        echo '            <input type="hidden" name="server" value="'
-            . ((int)$GLOBALS['server']) . '" />' . "\n";
-    }
+    $_form_params = array(
+        'db' => $GLOBALS['db'],
+        'table' => $GLOBALS['table'],
+    );
+    echo PMA_generate_common_hidden_inputs($_form_params);
 
-    $language_title = $GLOBALS['strLanguage'] . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '') . ' <a href="./translators.html" target="documentation">' .
-            ($cfg['ReplaceHelpImg'] ?
-                '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />' :
-                '(*)') . '</a>';
+    $language_title = $GLOBALS['strLanguage']
+        . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '')
+        . ' <a href="./translators.html" target="documentation">' .
+            ($cfg['ReplaceHelpImg']
+                ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />'
+                : '(*)') . '</a>';
     if ($use_fieldset) {
         echo '<fieldset><legend xml:lang="en" dir="ltr">' . $language_title . '</legend>';
     } else {
@@ -65,7 +52,7 @@ function PMA_select_language($use_fieldset = FALSE) {
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');
-    foreach ($GLOBALS['available_languages'] AS $id => $tmplang) {
+    foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
         $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 
         // Include native name if non empty
@@ -73,12 +60,6 @@ function PMA_select_language($use_fieldset = FALSE) {
             $lang_name = $tmplang[3] . ' - '
                 . $lang_name;
         }
-
-        // Include charset if it makes sense
-        // (no longer need this I guess)
-        //if (!defined('PMA_REMOVED_NON_UTF_8')) {
-        //    $lang_name .= ' (' . substr($id, strpos($id, '-') + 1) . ')';
-        //}
 
         //Is current one active?
         if ($lang == $id) {
