@@ -170,7 +170,6 @@ function PMA_allowDeny($type)
         }
 
         // Handle shortcuts with above array
-        // DON'T use "array_key_exists" as it's only PHP 4.1 and newer.
         if (isset($shortcuts[$rule_data[2]])) {
             $rule_data[2] = $shortcuts[$rule_data[2]];
         }

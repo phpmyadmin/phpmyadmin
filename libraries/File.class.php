@@ -342,13 +342,8 @@ class PMA_File
             'type' => $file['type']['multi_edit'][$primary],
             'size' => $file['size']['multi_edit'][$primary],
             'tmp_name' => $file['tmp_name']['multi_edit'][$primary],
-            //'error' => $file['error']['multi_edit'][$primary],
+            'error' => $file['error']['multi_edit'][$primary],
         );
-
-        // ['error'] exists since PHP 4.2.0
-        if (isset($file['error'])) {
-            $new_file['error'] = $file['error']['multi_edit'][$primary];
-        }
 
         return $new_file;
     }

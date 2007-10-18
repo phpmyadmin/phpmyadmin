@@ -6,8 +6,6 @@
  * the same work for the $PHP_SELF, $HTTP_ACCEPT_LANGUAGE and
  * $HTTP_AUTHORIZATION variables.
  *
- * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
- *
  * @version $Id$
  */
 

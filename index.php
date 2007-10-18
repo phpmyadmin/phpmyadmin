@@ -42,7 +42,6 @@ require_once './libraries/relation.lib.php';
 session_write_close();
 
 // Gets the host name
-// loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
 if (empty($HTTP_HOST)) {
     if (PMA_getenv('HTTP_HOST')) {
         $HTTP_HOST = PMA_getenv('HTTP_HOST');

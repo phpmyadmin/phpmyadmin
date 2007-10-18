@@ -99,7 +99,6 @@ function PMA_auth_check()
 
     // Grabs the $PHP_AUTH_USER variable whatever are the values of the
     // 'register_globals' and the 'variables_order' directives
-    // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_USER)) {
         if (PMA_getenv('PHP_AUTH_USER')) {
             $PHP_AUTH_USER = PMA_getenv('PHP_AUTH_USER');
@@ -122,7 +121,6 @@ function PMA_auth_check()
     }
     // Grabs the $PHP_AUTH_PW variable whatever are the values of the
     // 'register_globals' and the 'variables_order' directives
-    // loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
     if (empty($PHP_AUTH_PW)) {
         if (PMA_getenv('PHP_AUTH_PW')) {
             $PHP_AUTH_PW = PMA_getenv('PHP_AUTH_PW');
