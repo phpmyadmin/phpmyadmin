@@ -141,7 +141,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
  */
 function PMA_mysql_fetch_array($result, $type = false)
 {
-    global $cfg, $allow_recoding, $charset, $convcharset;
+    global $cfg, $allow_recoding, $charset;
 
     if ($type != false) {
         $data = mysql_fetch_array($result, $type);
