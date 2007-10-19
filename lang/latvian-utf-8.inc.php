@@ -280,7 +280,6 @@ $strInnodbStat = 'InnoDB statuss';
 $strInsecureMySQL = 'Jūsu konfigurācijas fails satur iestādījumus (lietotājs "root" bez paroles), kas atbilst noklusētajam MySQL priviliģētajam lietotājam. Jūsu MySQL serveris strādā ar šo noklusēto variantu, ir atvērts uzbrukumiem, un Jums tiešām jāaiztaisa šis drošības caurums.';
 $strInsertAsNewRow = 'Ievietot kā jaunu rindu';
 $strInsertedRowId = 'Ievietotās rindas id:';
-$strInsertedRows = 'Rindas pievienotas:';
 $strInsert = 'Pievienot';
 $strInternalNotNecessary = '* Iekšējā relācija nav nepieciešama, kad tā eksistē arī iekš InnoDB.';
 $strInternalRelations = 'Iekšējās relācijas';
@@ -1053,4 +1052,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

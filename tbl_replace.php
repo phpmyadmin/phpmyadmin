@@ -273,7 +273,7 @@ if ($is_insert && count($value_sets) > 0) {
 
     unset($query_fields, $value_sets);
 
-    $message = PMA_Message::success('strInsertedRows');
+    $message = PMA_Message::success('strRowsInserted');
 } elseif (! empty($query)) {
     $message = PMA_Message::success('strRowsAffected');
 } else {

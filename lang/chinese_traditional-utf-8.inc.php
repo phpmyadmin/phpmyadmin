@@ -338,7 +338,6 @@ $strInsecureMySQL = '設定檔內有關設定 (root登入及沒有密碼) 與預
 $strInsert = '新增';
 $strInsertAsNewRow = '儲存為新記錄';
 $strInsertedRowId = '新增資料列 id:';
-$strInsertedRows = '新增列數:';
 $strInternalNotNecessary = '* 當內部關聯在 InnoDB 已存在時是無需要的.';
 $strInternalRelations = '內部關聯';
 $strInUse = '使用中';
@@ -1035,4 +1034,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

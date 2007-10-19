@@ -291,7 +291,6 @@ $strInnodbStat = 'מצב InnoDB';
 $strInsecureMySQL = 'קובץ ההגדרות שלך מכיל הגדרות (root ללא סיסמא) אשר תואמות את חשבון הרשאה ברירת מחדל של MySQL. שרת MySQL שלך פועל עם ברירת מחדל זאת, והוא פתוח לחדירות,ואתה ממש צריך לתקן את חור אבטחה זה.';
 $strInsertAsNewRow = 'הכנסה כשורה חדשה';
 $strInsertedRowId = 'קוד שורה שהוכנסה:';
-$strInsertedRows = 'שורות הוכנסו:';
 $strInsert = 'הכנסה';
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';
 $strInternalRelations = 'יחסים פנימיים';
@@ -1048,4 +1047,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

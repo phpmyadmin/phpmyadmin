@@ -238,7 +238,6 @@ $strInnodbStat = 'Κατάσταση InnoDB';
 $strInsecureMySQL = 'Το αρχείο ρυθμίσεών σας περιέχει ρυθμίσεις (χρήστης root χωρίς κωδικό πρόσβασης) που αντιστοιχούν στον εξ\' ορισμού λογαριασμό χρήστη MySQL. Ο διακομιστής MySQL σας που τρέχει με αυτή τη ρύθμιση, είναι ανοιχτός σε επιθέσεις και θα πρέπει να διορθώσετε το πρόβλημα.';  
 $strInsertAsNewRow = 'Εισαγωγή ως νέα εγγραφές';
 $strInsertedRowId = 'id εισαγμένης εγγραφής:';  
-$strInsertedRows = 'Εισαγόμενες εγγραφές:';
 $strInsert = 'Εισαγωγή';
 $strInUse = 'σε χρήση';
 
@@ -1053,4 +1052,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

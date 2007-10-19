@@ -244,7 +244,6 @@ $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Vaš konfiguracioni fajl sadrži podešavanja (root bez lozinke) koja odgovaraju standardnom MySQL privilegovanom nalogu. Vaš MySQL server radi sa ovim podešavanjima, otvoren je za hakovanje, i zaista treba da ispravite ovaj sigurnosni rizik.';
 $strInsertAsNewRow = 'Unesi kao novi red';
 $strInsertedRowId = 'ID umetnutih redova:';
-$strInsertedRows = 'Uneseno redova:';
 $strInsert = 'Novi zapis';
 $strInUse = 'se koristi';
 
@@ -1054,4 +1053,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

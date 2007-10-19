@@ -310,7 +310,6 @@ $strInsecureMySQL = 'Вашата конфигурациска податоте�
 $strInsert = 'Нов запис';
 $strInsertAsNewRow = 'Внеси како нов запис';
 $strInsertedRowId = 'ID на вметнати записи:';
-$strInsertedRows = 'Внесено записи:';
 $strInternalNotNecessary = '* Внатрешната релација не е неопходна кога постои и во InnoDB.';
 $strInternalRelations = 'Внатрешни релации';
 
@@ -1031,4 +1030,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

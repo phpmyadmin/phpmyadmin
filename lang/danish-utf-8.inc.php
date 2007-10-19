@@ -374,7 +374,6 @@ $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Din konfigurationsfil indeholder indstillinger (root og intet kodeord) som svarer til en standard MySQL-priviligeret brugerkonto. Din MySQL server kører med denne standardindstilling, <u>er åben for indtrængen</u>, og du opfordres stærkt til at gøre noget ved dette sikkerhedshul.';
 $strInsertAsNewRow = 'Indsæt som ny række';
 $strInsertedRowId = 'Indsat række-id:';
-$strInsertedRows = 'Indsatte rækker:';
 $strInsert = 'Indsæt';
 $strInternalNotNecessary = '* En intern relation er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelationAdded = 'Intern relation tilføjet';
@@ -1030,4 +1029,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

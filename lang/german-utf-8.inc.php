@@ -352,7 +352,6 @@ $strInnodbStat = 'InnoDB-Status';
 $strInsecureMySQL = 'Ihre Konfigurationsdatei enthält Einstellungen (Benutzer &quot;root&quot; ohne Passwort), welche denen des MySQL-Standardbenutzers entsprechen. Wird Ihr MySQL-Server mit diesen Einstellungen betrieben, so können Unbefugte leicht von außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke unbedingt schließen!';
 $strInsertAsNewRow = ' Als neuen Datensatz speichern ';
 $strInsertedRowId = 'Letzte automatisch eingefügte ID:';
-$strInsertedRows = 'Eingefügte Zeilen:';
 $strInsert = 'Einfügen';
 $strInternalNotNecessary = '* Eine interne Beziehung ist nicht notwendig, wenn sie bereits im InnoDB-Format vorliegt.';
 $strInternalRelations = 'Interne Beziehungen';
@@ -1033,4 +1032,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

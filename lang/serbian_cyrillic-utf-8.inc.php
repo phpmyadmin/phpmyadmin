@@ -375,7 +375,6 @@ $strInnodbStat = 'InnoDB статус';
 $strInsecureMySQL = 'Ваша конфигурациона датотека садржи подешавања (root без лозинке) која одговарају стандардном MySQL привилегованом налогу. Ваш MySQL сервер ради са овим подешавањима, отворен је за упаде, и заиста треба да исправите овај сигурносни ризик.';
 $strInsertAsNewRow = 'Унеси као нови ред';
 $strInsertedRowId = 'ID уметнутих редова:';
-$strInsertedRows = 'Унесено редова:';
 $strInsert = 'Нови запис';
 $strInternalNotNecessary = '* Унутрашња релација није неопходна када постоји и у InnoDB.';
 $strInternalRelationAdded = 'Додата интерна релација';
@@ -1030,4 +1029,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

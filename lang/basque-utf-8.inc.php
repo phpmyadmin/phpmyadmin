@@ -245,7 +245,6 @@ $strInnodbStat = 'InnoDB Egoera';
 $strInsecureMySQL = 'Zure konfigurazio fitxategiak MySQL-ren kontu pribilegiatuari dagozkion ezarpenak (root pasahitzik gabe) dauzka . Zure MySQL zerbitzaria lehenetsitako balio hauekin ari da lanean; atzipen-saiakera arrotzei irekita beraz. Segurtasun-zulo hau konpondu beharko zenuke.';
 $strInsertAsNewRow = 'Txertatu errenkada berri batean';
 $strInsertedRowId = 'Txertatutako errenkararen id-a:';
-$strInsertedRows = 'Txartatutako errenkadak:';
 $strInsert = 'Txertatu';
 $strInternalNotNecessary = '* Barne-erlaziorik ez da beharrezkoa InnoDB-en ere existitzen denean.';
 $strInternalRelations = 'Barne-erlazioak';
@@ -1048,4 +1047,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

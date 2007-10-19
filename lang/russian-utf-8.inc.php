@@ -378,7 +378,6 @@ $strInsecureMySQL = 'Конфигурационный файл phpMyAdmin сод
 $strInsert = 'Вставить';
 $strInsertAsNewRow = 'Вставить запись';
 $strInsertedRowId = 'Идентификатор вставляемой строки:';
-$strInsertedRows = 'Добавлены строки:';
 $strInternalNotNecessary = '* При наличии внутренней связи в таблице типа InnoDB, ее установка не обязательна.';
 $strInternalRelationAdded = 'Добавлена внутренняя связь';
 $strInternalRelations = 'Внутренние связи';
@@ -1031,4 +1030,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

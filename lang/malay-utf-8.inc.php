@@ -189,7 +189,6 @@ $strIndexName = 'Nama indeks&nbsp;:';
 $strIndexType = 'Jenis indeks&nbsp;:';
 $strInsecureMySQL = 'Fail Konfigurasi anda mengandungi pelengkapan (root tidak berkata laluan) yang bersesuaian dengan privilej akaun MySQL. Pelayan MySQL anda dilaksanakan dengan pelengkapan asas, ianya terdedah kepada pencerobohan, dan anda hendaklah membetulkan lubang keselamatan ini.';
 $strInsertAsNewRow = 'Selitkan baris baru';
-$strInsertedRows = 'Baris diselit:';
 $strInsert = 'Selit';
 $strInUse = 'sedang digunakan';
 
@@ -1068,4 +1067,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

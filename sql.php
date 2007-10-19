@@ -478,8 +478,8 @@ if ($num_rows < 1 || $is_affected) {
             $message = PMA_Message::success('strRowsAffected');
             $message->addParam($num_rows);
         } else {
-            $message = PMA_Message::success('strInsertedRows');
-            $message->addMessage($num_rows);
+            $message = PMA_Message::success('strRowsInserted');
+            $message->addParam($num_rows);
         }
         $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {

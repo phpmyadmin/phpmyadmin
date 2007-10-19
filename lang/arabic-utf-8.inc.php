@@ -254,7 +254,6 @@ $strInnodbStat = 'وضع InnoDB';
 $strInsecureMySQL = 'يحتوي ملف الإعدادت الخاص بك تعيينات )المستخدم root دون كلمة مرور( والذي يشير إلى حساب المستخدم الرئيسي لـMySQL. خادم MySQL الذي يعمل بهذه الإعدادت الافتراضية معرض لخطر الاقتحام، وعليك أن تقوم بإصلاح ثغرة الأمان هذه في أقرب وقت ممكن.';
 $strInsertAsNewRow = 'إدخال كتسجيل جديد';
 $strInsertedRowId = 'رقم معرّف السّطر المضاف:';
-$strInsertedRows = 'صفوف مدخله:';
 $strInsert = 'إدخال';
 $strInternalNotNecessary = '* العلاقة الداخلية غير ضرورية عندما تكون موجودة مسبقاً في InnoDB.';
 $strInternalRelations = 'العلاقات الداخلية';
@@ -1056,4 +1055,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

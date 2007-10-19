@@ -239,7 +239,6 @@ $strInsecureMySQL = 'จากไฟล์เก็บค่ากำหนด�
 $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
 $strInsertedRowId = 'แทรกเลขประจำแถว:';
-$strInsertedRows = 'แถวที่ถูกแทรก:';
 $strInternalRelations = 'รีเลชันภายใน';
 $strInUse = 'ใช้อยู่';
 
@@ -1052,4 +1051,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

@@ -243,7 +243,6 @@ $strInnodbStat = 'Estado da InnoDB';
 $strInsecureMySQL = 'O seu ficheiro de configuração contem configurações (root sem palavra-passe) que correspondem à conta privilegiada por defeito do MySQL. O servidor MySQL está a correr com este valor por defeito, assim aberto a intrusões, deveria corrigir este buraco de segurança.';
 $strInsertAsNewRow = 'Insere como novo registo';
 $strInsertedRowId = 'Inserir id de linha:';
-$strInsertedRows = 'Registos inseridos :';
 $strInsert = 'Insere';
 $strInternalNotNecessary = '* Não é necessária uma relação interna quando também já existe na InnoDB.';
 $strInternalRelations = 'Relações internas';
@@ -1057,4 +1056,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

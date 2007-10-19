@@ -371,7 +371,6 @@ $strInnodbStat = 'Estado del InnoDB';
 $strInsecureMySQL = 'Su archivo de configuración contiene parámetros (root sin contraseña) que corresponden a la cuenta privilegiada predeterminada de MySQL. Su servidor de MySQL está usando estos valores, lo que constituye una vulnerabilidad.  Se le recomienda corregir esta brecha de seguridad.  Por ejemplo, desde la página de inicio de phpMyAdmin seleccione Privilegios y agregue la contraseña a root@localhost.  Deberá escribir la misma contraseña en config.inc.php de phpMyAdmin';
 $strInsertAsNewRow = 'Insertar como una nueva fila';
 $strInsertedRowId = 'Se insertó la ID de la fila:';
-$strInsertedRows = 'Filas insertadas:';
 $strInsert = 'Insertar';
 $strInternalNotNecessary = '* No es necesaria una relación interna cuando también existe en InnoDB.';
 $strInternalRelationAdded = 'Se añadió la relación interna';
@@ -1026,4 +1025,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

@@ -375,7 +375,6 @@ $strInnodbStat = 'InnoDB stanje';
 $strInsecureMySQL = 'Vaša konfiguracijska datoteka sadrži postavke (root korisnik bez lozinke) koja odgovara zadanom privilegiranom nalogu MySQL-a. Vaš MySQL poslužitelj pokrenut je sa zadanim postavkama i kao takav otvoren je upadima. Potrebno je ispraviti ovaj sigurnosni nedostatak.';
 $strInsertAsNewRow = 'Umetni kao novi redak';
 $strInsertedRowId = 'ID umetnutog retka:';
-$strInsertedRows = 'Umetnuti redovi:';
 $strInsert = 'Umetni';
 $strInternalNotNecessary = '* Interna relacija nije potrebna ako također postoji unutar InnoDB.';
 $strInternalRelationAdded = 'Dodane interne povezanosti';
@@ -1029,4 +1028,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

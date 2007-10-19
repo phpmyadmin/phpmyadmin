@@ -307,7 +307,6 @@ $strInsecureMySQL = 'A konfigurációs fájl beállítása (root hozzáférés j
 $strInsertAsNewRow = 'Beszúrás új sorként';
 $strInsert = 'Beszúr';
 $strInsertedRowId = 'A beszúrt rekord id-je:';  
-$strInsertedRows = 'Beszúrt sorok:';
 $strInternalNotNecessary = '* Egy bels&#337; kapcsolat nem szükséges, ha az létezik az InnoDB-ben is.';  
 $strInternalRelations = 'Bels&#337; kapcsolatok';  
 $strInUse = 'használatban';
@@ -1048,4 +1047,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

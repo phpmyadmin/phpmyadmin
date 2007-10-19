@@ -348,7 +348,6 @@ $strInnodbStat = 'Stan InnoDB';
 $strInsecureMySQL = 'Vaš kanfihuracyjny fajł utrymlivaje nałady (karystalnik root biez parolu), jakija adpaviadajuć pryvilejavanamu karystalniku MySQL pa zmoŭčańni. Vaš server MySQL pracuje z hetaj naładaj pa zmoŭčańni i źjaŭlajecca adkrytym dla źniešniaha ŭryvańnia, i tamu vam abaviazkova treba vypravić hetuju chibu ŭ biaśpiecy.';
 $strInsertAsNewRow = 'Ustavić jak novy radok';
 $strInsertedRowId = 'Id ustaŭlenaha radka:';
-$strInsertedRows = 'Dadanyja radki:';
 $strInsert = 'Ustavić';
 $strInternalNotNecessary = '* Unutranaja suviaź nie źjaŭlajecca abaviazkovaj, kali jana ŭžo isnuje ŭ InnoDB.';
 $strInternalRelations = 'Unutranyja suviazi';
@@ -1030,4 +1029,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

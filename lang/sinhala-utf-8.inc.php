@@ -350,7 +350,6 @@ $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';
 $strInsertAsNewRow = 'Insert as new row';
 $strInsertedRowId = 'ඇතුලත් කරන ලද පේළි අංකය:';
-$strInsertedRows = 'ඇතුලත් කරන ලද පේළි:';
 $strInsert = 'ඇතුල් කරන්න';
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';
 $strInternalRelations = 'Internal relations';
@@ -1033,4 +1032,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

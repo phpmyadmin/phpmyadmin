@@ -375,7 +375,6 @@ $strInnodbStat = 'Stato InnoDB';
 $strInsecureMySQL = 'Il file di configurazione in uso contiene impostazioni (root con nessuna password) che corrispondono ai privilegi dell\'account MySQL predefinito. Un server MySQL funzionante con queste impostazioni è aperto a intrusioni, e si dovrebbe realmente riparare a questa falla nella sicurezza.';
 $strInsertAsNewRow = 'Inserisci come nuova riga';
 $strInsertedRowId = 'Inserito id riga:';
-$strInsertedRows = 'Righe inserite:';
 $strInsert = 'Inserisci';
 $strInternalNotNecessary = '* Non è necessaria una relazione interna quando già esiste in InnoDB.';
 $strInternalRelationAdded = 'Aggiunte relazioni internet';
@@ -1030,4 +1029,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

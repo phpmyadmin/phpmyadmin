@@ -374,7 +374,6 @@ $strInnodbStat = 'Estado de InnoDB';
 $strInsecureMySQL = 'O seu ficheiro de configuración contén axustes (en concreto, o usuário root non ten contrasinal) que corresponden coa conta con todos os privilexios que MySQL fai por omisión. O seu servidor de MySQL está a rodar con esta configuración, está aberto a intrusións e habería que mirar de solucionar este problema de seguranza.';
 $strInsertAsNewRow = 'Inserir unha nova columna';
 $strInsertedRowId = 'Identificador da fileira inserida:';
-$strInsertedRows = 'Fileiras inseridas:';
 $strInsert = 'Inserir';
 $strInternalNotNecessary = '* Non se precisa dunha relación interna cando existe tamén en InnoDB.';
 $strInternalRelationAdded = 'Engadiuse relaciÃ³n interna';
@@ -1029,4 +1028,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

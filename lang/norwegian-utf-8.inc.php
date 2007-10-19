@@ -374,7 +374,6 @@ $strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten p
 $strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
 $strInsertedRowId = 'Satt inn rad id:';
-$strInsertedRows = 'Innsatte rader:';
 $strInternalNotNecessary = '* En intern relasjon er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelationAdded = 'Intern relasjon lagt til';
 $strInternalRelations = 'Interne relasjoner';
@@ -1028,4 +1027,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

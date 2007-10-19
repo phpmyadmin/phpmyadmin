@@ -343,7 +343,6 @@ $strInsecureMySQL = 'Twój plik konfiguracyjny zawiera ustawienia (konto roota b
 $strInsertAsNewRow = 'Dodaj jako nowy rekord';
 $strInsert = 'Dodaj';
 $strInsertedRowId = 'Identyfikator dodanego rekordu:';
-$strInsertedRows = 'Dodane rekordy:';
 $strInternalNotNecessary = '* Wewnętrzna relacja nie jest konieczna gdy istnieje również w InnoDB.';
 $strInternalRelations = 'Wewnętrzne relacje';
 $strInUse = 'w użyciu';
@@ -1024,4 +1023,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

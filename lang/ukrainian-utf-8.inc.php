@@ -238,7 +238,6 @@ $strInnodbStat = 'Статус InnoDB';
 $strInsecureMySQL = 'Ваш файл конфіґурації містить параметри (root без паролю) які відповідають привілейованому користувачу MySQL. Ваш MySQL сервер у цьому випадку відкритий для вторгнення і тому Вам обов\'язково слід виправити цю прогалину у безпеці.';
 $strInsertAsNewRow = 'Вставити як новий рядок';
 $strInsertedRowId = 'Вставлено рядок id:';
-$strInsertedRows = 'Додані рядки:';
 $strInsert = 'Вставити';
 $strInUse = 'використовується';
 
@@ -1050,4 +1049,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

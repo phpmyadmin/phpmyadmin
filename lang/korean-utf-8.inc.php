@@ -165,7 +165,6 @@ $strIndexType = '인덱스 종류:';
 $strInsecureMySQL = '환경설정파일에 MySQL 관리자 암호가 없습니다. 이같은 기본설정상태로 MySQL 서버가 작동한다면 누구나 침입할 수 있으므로, 이 보안상 허점을 수정하시기 바랍니다.';
 $strInsert = '삽입';
 $strInsertAsNewRow = '새 열을 삽입합니다';
-$strInsertedRows = '삽입된 열:';
 $strInUse = '사용중';
 
 $strJumpToDB = '데이터베이스 &quot;%s&quot; 로 이동.';
@@ -1051,4 +1050,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

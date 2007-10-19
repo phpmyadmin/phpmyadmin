@@ -136,7 +136,6 @@ $strHostEmpty = 'होस्ट का नाम (hostname) खाली है
 
 $strInsert = 'इनसर्ट';
 $strInsertAsNewRow = 'इसको नया रौ में जोडे '; 
-$strInsertedRows = ' रौ जोडे गये:'; 
 
 $strJapanese = 'जापानी';  
 
@@ -1056,4 +1055,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

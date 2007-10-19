@@ -156,7 +156,6 @@ $strIndexType = 'نوع فهرست&nbsp;:';
 $strInsecureMySQL = 'پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد.';
 $strInsert = 'درج';
 $strInsertAsNewRow = 'درج به عنوان يك سطر جديد';
-$strInsertedRows = 'سطرهاي درج‌شده:';
 $strInUse = 'in use';
 
 $strKeepPass = 'عدم تغيير اسم رمز';
@@ -1053,4 +1052,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

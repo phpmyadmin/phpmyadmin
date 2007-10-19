@@ -369,7 +369,6 @@ $strInnodbStat = 'Estat InnoDB';
 $strInsecureMySQL = 'El vostre arxiu de configuració té paràmetres (root sense contrasenya) que corresponen al compte privilegiat predetermitat de MySQL. El servidor MySQL està funcionant amb aquests valors, el que significa un forat de seguretat, i s\'exposa a intrusions, pel que recomanem la reparació urgent d\'aquest forat de seguretat.';
 $strInsertAsNewRow = 'Inserir com a nova fila';
 $strInsertedRowId = 'Id de la fila inserida:';
-$strInsertedRows = 'Files Inserides:';
 $strInsert = 'Insereix';
 $strInternalNotNecessary = '* No es necessita una relació interna si ja existeix a InnoDB.';
 $strInternalRelationAdded = 'Afegida relació interna';
@@ -1024,4 +1023,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

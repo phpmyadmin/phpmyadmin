@@ -165,7 +165,6 @@ $strIndex = 'Indeks';
 $strIndexName = 'Indeks naam&nbsp;:';
 $strIndexType = 'Indeks tipe&nbsp;:';
 $strInsertAsNewRow = 'Voeg by as \'n nuwe ry';
-$strInsertedRows = 'Toegevoegde rye:';
 $strInsert = 'Voeg by';
 $strInUse = 'in gebruik';
 
@@ -1055,4 +1054,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

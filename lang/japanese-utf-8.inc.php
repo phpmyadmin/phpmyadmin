@@ -378,7 +378,6 @@ $strInsecureMySQL = 'お使いの設定ファイルに MySQL のデフォルト�
 $strInsert = '挿入';
 $strInsertAsNewRow = '新しい行として挿入する';
 $strInsertedRowId = '挿入した行 ID:';
-$strInsertedRows = '挿入した行数:';
 $strInternalNotNecessary = '* InnoDB にも内部リレーションが存在している場合は不要です';
 $strInternalRelationAdded = '内部リレーションを追加しました';
 $strInternalRelations = '内部リレーション';
@@ -1034,4 +1033,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

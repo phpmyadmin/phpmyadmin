@@ -153,7 +153,6 @@ $strIndexName = 'ინდექსის სახელი&nbsp;:';
 $strIndexType = 'ინდექსის ტიპი&nbsp;:';
 $strInsert = 'დამატება';
 $strInsertAsNewRow = 'დამატება ახალ ჩანაწერად';
-$strInsertedRows = 'სტრიქონების დამატება:';
 $strInUse = 'გამოყენებულია';
 
 $strKeepPass = 'არ შეცვალო ეს პაროლი';
@@ -1056,4 +1055,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>

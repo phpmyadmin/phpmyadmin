@@ -375,7 +375,6 @@ $strInnodbStat = 'Stav InnoDB';
 $strInsecureMySQL = 'Máte standardní nastavení hesla uživatele root v&nbsp;MySQL. Doporučujeme změnit toto nastavení a tím podstatně zvýšit zabezpečení vašeho serveru.';
 $strInsertAsNewRow = 'Vložit jako nový řádek';
 $strInsertedRowId = 'Id vloženého řádku:';
-$strInsertedRows = 'Vloženo řádků:';
 $strInsert = 'Vložit';
 $strInternalNotNecessary = '* Interní relace není potřebná, pokud již relace existuje v&nbsp;InnoDB.';
 $strInternalRelationAdded = 'Interní relace vytvořena';
@@ -1030,4 +1029,5 @@ $strTableHasBeenCreated = 'Table %1$s has been created.';  //to translate
 $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  //to translate
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
+$strRowsInserted = '%1$d row(s) inserted.';  //to translate
 ?>
