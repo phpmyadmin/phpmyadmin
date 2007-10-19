@@ -309,7 +309,6 @@ $strInnoDBPages = 'страници';
 $strInnodbStat = 'InnoDB Състояние';
 $strInsecureMySQL = 'Вашият конфигурационен файл съдържа настройки (root без парола), които съответстват на привилегирования акаунт на MySQL по подразбиране. Вашият MySQL сървър е стартиран с това по подразбиране и може да бъде лесно хакнат. Трябва да оправите тази дупка в сигурността.';
 $strInsertAsNewRow = 'Вмъкване като нов ред';
-$strInsertedRowId = 'Вмъкнато ID на реда:';
 $strInsert = 'Вмъкване';
 $strInternalNotNecessary = '* Вътрешната релация не е необходима когато съществува също в InnoDB.';
 $strInternalRelations = 'Вътрешни релации';
@@ -1051,4 +1050,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

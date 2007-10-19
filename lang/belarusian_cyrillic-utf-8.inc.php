@@ -348,7 +348,6 @@ $strInnoDBPages = 'старонак';
 $strInnodbStat = 'Стан InnoDB';
 $strInsecureMySQL = 'Ваш канфігурацыйны файл утрымлівае налады (карыстальнік root без паролю), якія адпавядаюць прывілеяванаму карыстальніку MySQL па змоўчаньні. Ваш сэрвэр MySQL працуе з гэтай наладай па змоўчаньні і зьяўляецца адкрытым для зьнешняга ўрываньня, і таму вам абавязкова трэба выправіць гэтую хібу ў бясьпецы.';
 $strInsertAsNewRow = 'Уставіць як новы радок';
-$strInsertedRowId = 'Id устаўленага радка:';
 $strInsert = 'Уставіць';
 $strInternalNotNecessary = '* Унутраная сувязь не зьяўляецца абавязковай, калі яна ўжо існуе ў InnoDB.';
 $strInternalRelations = 'Унутраныя сувязі';
@@ -1031,4 +1030,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

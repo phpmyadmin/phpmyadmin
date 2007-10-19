@@ -290,7 +290,6 @@ $strInnoDBDataHomeDirDesc = 'Bendra direktorijų kelio dalis visiems InnoDB duom
 $strInnodbStat = 'InnoDB būsena';
 $strInsecureMySQL = 'Jūsų parinkčių byloje yra nurodyti standartiniai nustatymai (pvz: root vartotojas be slaptažožio). Taip sutinkinta MySQL darbinė stotis yra nesaugi, bei gali būti atvira įsilaužimams, todėl rekomenduojame pakeisti šias parinktis.';
 $strInsertAsNewRow = 'Įterpti naują įrašą';
-$strInsertedRowId = 'Įterptos eilutės id:';
 $strInsert = 'Įterpti';
 $strInternalNotNecessary = '* Galite nenaudoti vidinių sąryšių, jeigu jie jau apibrėžti InnoDB.';
 $strInternalRelations = 'Vidiniai sąryšiai';
@@ -1046,4 +1045,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

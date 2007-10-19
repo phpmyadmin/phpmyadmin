@@ -529,7 +529,6 @@ $strInnoDBDataHomeDir = 'Data home directory';  //to translate
 $strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
 $strInnoDBPages = 'pages';  //to translate
 $strInnodbStat = 'InnoDB Status'; //to translate
-$strInsertedRowId = 'Inserted row id:'; //to translate
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.'; //to translate
 $strInternalRelations = 'Internal relations'; //to translate
 $strInvalidAuthMethod = 'Invalid authentication method set in configuration:';  //to translate
@@ -1053,4 +1052,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

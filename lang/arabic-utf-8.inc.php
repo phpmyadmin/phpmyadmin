@@ -253,7 +253,6 @@ $strIndex = 'فهرست';
 $strInnodbStat = 'وضع InnoDB';
 $strInsecureMySQL = 'يحتوي ملف الإعدادت الخاص بك تعيينات )المستخدم root دون كلمة مرور( والذي يشير إلى حساب المستخدم الرئيسي لـMySQL. خادم MySQL الذي يعمل بهذه الإعدادت الافتراضية معرض لخطر الاقتحام، وعليك أن تقوم بإصلاح ثغرة الأمان هذه في أقرب وقت ممكن.';
 $strInsertAsNewRow = 'إدخال كتسجيل جديد';
-$strInsertedRowId = 'رقم معرّف السّطر المضاف:';
 $strInsert = 'إدخال';
 $strInternalNotNecessary = '* العلاقة الداخلية غير ضرورية عندما تكون موجودة مسبقاً في InnoDB.';
 $strInternalRelations = 'العلاقات الداخلية';
@@ -1056,4 +1055,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

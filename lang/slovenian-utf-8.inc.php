@@ -259,7 +259,6 @@ $strIndexType = 'Vrsta indeksa&nbsp;:';
 $strInnodbStat = 'InnoDB stanje';
 $strInsecureMySQL = 'Konfiguracijska datoteka vsebuje nastavitve (uporabnik root brez gesla), ki odgovarjajo privzetemu privlegiranemu računu MySQLa. MySQL strežnik teče s privzetimi nastavitvami, zato je izpostavljen vdorom. Čimprej odpravite ti dve varnostni luknji.';
 $strInsertAsNewRow = 'Vstavi kot novo vrstico';
-$strInsertedRowId = 'Vstavljen id vrstice:';
 $strInsert = 'Vstavi';
 $strInternalNotNecessary = '* Notranja relacija je nepotrebna, če obstaja tudi v InnoDB.';
 $strInternalRelations = 'Notranje relacije';
@@ -1050,4 +1049,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

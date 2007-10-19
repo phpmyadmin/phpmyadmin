@@ -329,7 +329,6 @@ $strInnoDBPages = 'bit';
 $strInnodbStat = 'InnoDB Torışı';
 $strInsecureMySQL = 'MySQL-servergä ireşü öçen qullanası xisap bularaq, caylaw biremendä töp xisap saylanğan (sersüzsez "root"). MySQL-server şul töp xisap belän açılğan da, andıy xällär iminlekneñ citdi tişege tip sanala.';
 $strInsertAsNewRow = 'Yaña yazma kert tä';
-$strInsertedRowId = 'Kertelgän yazmanıñ id:';
 $strInsert = 'Östäw';
 $strInternalNotNecessary = '* InnoDB eçendä bulğan eçke bäyläneşlär qabatlarğa kiräk tügel.';
 $strInternalRelations = 'Eçke bäyläneş';
@@ -1042,4 +1041,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

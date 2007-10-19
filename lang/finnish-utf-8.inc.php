@@ -372,7 +372,6 @@ $strInnoDBRelationAdded = 'InnoDB-relaatio luotu';
 $strInnodbStat = 'InnoDB:n tila';
 $strInsecureMySQL = 'Asetustiedostosi käyttää asetuksia, jotka viittaavat MySQL-palvelimen oletusarvoiseen käyttäjään (root ilman salasanaa). Tällaisin asetuksin MySQL-palvelin on altis hyökkäyksille. Tämä tietoturvariski olisi syytä korjata pikimmiten!';
 $strInsertAsNewRow = 'Lisää uutena rivinä';
-$strInsertedRowId = 'Sijoitetun rivin id:';
 $strInsert = 'Lisää rivi';
 $strInternalNotNecessary = '* Sisäistä relaatiota ei tarvita silloin, kun sellainen on jo InnoDB:ssä.';
 $strInternalRelationAdded = 'Sisäinen relaatio luotu';
@@ -1033,4 +1032,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

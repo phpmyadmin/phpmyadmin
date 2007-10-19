@@ -284,7 +284,6 @@ $strInnodbStat = 'InnoDB 状态';
 $strInsecureMySQL = '您配置文件中的设定与 MySQL 默认权限账户对应(没有密码的 root)。您的 MySQL 服务器使用默认值运行当然没有问题，不过这样的话，被入侵的可能性会很大，您真的应该先补上这个安全漏洞。';
 $strInsert = '插入';
 $strInsertAsNewRow = '以新行插入';
-$strInsertedRowId = '插入行 id：';
 $strInternalNotNecessary = '当 * 也存在于InnoDB中的时候，内部关联并不必要。';
 $strInternalRelations = '内在联系';
 $strInUse = '使用中';
@@ -1056,4 +1055,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

@@ -311,7 +311,6 @@ $strInnoDBPages = 'хуудсууд';
 $strInnodbStat = 'InnoDB байдал';
 $strInsecureMySQL = 'Таны тохиргооны файл нь MySQL-ын анхдагч онцгой эрхийг (нэвтрэгч root нь нууц үггүй) агуулжээ. Таны MySQL сервэр энэ анхдагчаар ажиллаж байгаа нь хэн ч урилгагүй орох боломжийг өгнө. Та хамгаалалтын асуудлаа засах хэрэгтэй';
 $strInsertAsNewRow = 'Шинэ мөр оруулаад';
-$strInsertedRowId = 'Орсон мөрийн id:';
 $strInsert = 'Оруулах';
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';
 $strInternalRelations = 'Дотоод хамаарал';
@@ -1051,4 +1050,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

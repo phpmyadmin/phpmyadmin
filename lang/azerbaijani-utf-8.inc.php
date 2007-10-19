@@ -240,7 +240,6 @@ $strIndexType = 'İndex tipi&nbsp;:';
 $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Konfiqurasiya faylınızda MySQL başlanğıc deyerleri (parolsuz root istifadeçisi) mövcuddur ki, bu da tehlükesizlik nöqteyi nezerinden e\'tibarlı deyildir.';
 $strInsertAsNewRow = 'Yeni setir olaraq elave et';
-$strInsertedRowId = 'Elave edilen setir nömresi (id):';
 $strInsert = 'Elave et';
 $strInUse = 'istifadede';
 
@@ -1051,4 +1050,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

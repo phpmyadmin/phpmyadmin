@@ -380,7 +380,6 @@ $strInnoDBRelationAdded = 'InnoDB ilişkisi eklendi';
 $strInnodbStat = 'InnoDB Durumu';
 $strInsecureMySQL = 'Yapılandırma dosyanız varsayılan MySQL yetkili hesapla uyuşan ayarlar (parolasız root) içeriyor. MySQL sunucunuz bu varsayılan, dışardan girişe açık ayarlarla çalışıyor ve bu güvenlik açığını gerçekten düzeltmeniz gerekmektedir.';
 $strInsertAsNewRow = 'Yeni satır olarak ekle';
-$strInsertedRowId = 'Satır id\'si eklendi:';
 $strInsert = 'Ekle';
 $strInternalNotNecessary = '* InnoDb\'de zaten bir iç ilişki olduğunda bu gerekli değildir.';
 $strInternalRelationAdded = 'Dahili ilişki eklendi';
@@ -1036,4 +1035,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

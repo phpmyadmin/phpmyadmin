@@ -485,8 +485,12 @@ if ($num_rows < 1 || $is_affected) {
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert, so if we inserted multiple rows, we had to increment this
             $message->addMessage('[br]');
-            $message->addString('strInsertedRowId');
-            $message->addMessage($insert_id + $num_rows - 1);
+            // need to use a temporary because the Message class
+            // currently supports adding parameters only to the first
+            // message
+            $_inserted = PMA_Message::notice('strInsertedRowId');
+            $_inserted->addParam($insert_id + $num_rows - 1);
+            $message->addMessage($_inserted);
         }
     } elseif ($is_affected) {
         $message = PMA_Message::success('strRowsAffected');

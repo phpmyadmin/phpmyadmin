@@ -238,7 +238,6 @@ $strInnodbStat = 'สถานะของ InnoDB';
 $strInsecureMySQL = 'จากไฟล์เก็บค่ากำหนดของคุณ คุณไม่ได้ตั้งรหัสผ่านสำหรับ root ซึ่งจะถูกใช้เป็นชื่อปริยายซึ่งมีสิทธิพิเศษ.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่าปริยายนี้ อาจถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
 $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
-$strInsertedRowId = 'แทรกเลขประจำแถว:';
 $strInternalRelations = 'รีเลชันภายใน';
 $strInUse = 'ใช้อยู่';
 
@@ -1052,4 +1051,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

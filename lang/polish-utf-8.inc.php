@@ -342,7 +342,6 @@ $strInnodbStat = 'Status InnoDB';
 $strInsecureMySQL = 'Twój plik konfiguracyjny zawiera ustawienia (konto roota bez hasła), które odpowiadają domyślnemu uprzywilejowanemu kontu MySQL. Twój serwer MySQL działa z takim ustawieniem, jest otwarty dla włamywaczy. Ta luka w bezpieczeństwie naprawdę powinna zostać naprawiona.';
 $strInsertAsNewRow = 'Dodaj jako nowy rekord';
 $strInsert = 'Dodaj';
-$strInsertedRowId = 'Identyfikator dodanego rekordu:';
 $strInternalNotNecessary = '* Wewnętrzna relacja nie jest konieczna gdy istnieje również w InnoDB.';
 $strInternalRelations = 'Wewnętrzne relacje';
 $strInUse = 'w użyciu';
@@ -1024,4 +1023,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

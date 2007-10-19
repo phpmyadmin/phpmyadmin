@@ -306,7 +306,6 @@ $strInnoDBPages = 'halaman';
 $strInnodbStat = 'Status dari InnoDB';
 $strInsecureMySQL = 'File konfigurasi Anda ditentukan dengan pengguna Root dan tanpa adanya Kata Sandi (sama dengan Default MySQL Privileged Account). Jika MySQL-Server dijalankan dengan sedemikian, server Anda terbuka lebar untuk suatu penyerangan. Disarankan untuk memperbaiki kelemahan keamanan (security hole) ini.';
 $strInsertAsNewRow = 'Sisipkan sebagai baris baru';
-$strInsertedRowId = 'Menyisip baris id:';
 $strInsert = 'Sisipkan';
 $strInternalNotNecessary = '* Relasi internal tidak dibutuhkan bila ia telah berada dalam InnoDB.';
 $strInternalRelations = 'Relasi internal';
@@ -1046,4 +1045,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

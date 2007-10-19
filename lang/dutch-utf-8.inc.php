@@ -279,7 +279,6 @@ $strIndexWarningTable = 'Problemen met de index(en) van de tabel `%s`';
 $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Uw configuratie bestand bevat instellingen (root zonder wachtwoord) die betrekking hebben tot de standaard MySQL account. Uw MySQL server draait met deze standaard waardes, en is open voor ongewilde toegang, het wordt dus aangeraden dit op te lossen.';
 $strInsertAsNewRow = 'Voeg toe als nieuwe rij';
-$strInsertedRowId = 'Ingevoegde rij id:';
 $strInsert = 'Invoegen';
 $strInternalNotNecessary = '* Een interne relatie is niet nodig wanneer er ook een InnoDB aanwezig is.';
 $strInternalRelations = 'Interne relaties';
@@ -1052,4 +1051,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

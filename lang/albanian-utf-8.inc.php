@@ -266,7 +266,6 @@ $strIndexType = 'Lloji i treguesit&nbsp;:';
 $strInnodbStat = 'Gjëndja InnoDB';
 $strInsecureMySQL = 'File i konfigurimit në përdorim përmban zgjedhje (root pa asnjë password) që korrispondojnë me të drejtat e account MySQL të paracaktuar. Një server MySQL funksionues me këto zgjedhje është i pambrojtur ndaj sulmeve, dhe ju duhet patjetër të korrigjoni këtë vrimë në siguri.';
 $strInsertAsNewRow = 'Shto një rresht të ri';
-$strInsertedRowId = 'U shtua id e rreshtit:';
 $strInsert = 'Shto';
 $strInternalNotNecessary = '* Nuk ka nevojë për një relacion të brendshëm kur ky relacion ekziston në InnoDB.';
 $strInternalRelations = 'Relacione të brendshme';
@@ -1054,4 +1053,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

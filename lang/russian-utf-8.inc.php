@@ -377,7 +377,6 @@ $strInnodbStat = 'Состояние InnoDB';
 $strInsecureMySQL = 'Конфигурационный файл phpMyAdmin содержит настройки MySQL по-умолчанию, согласно которым для привилегированного пользователя &quot;root&quot; не задан пароль. Такие настройки делают MySQL-сервер уязвимым  для несанкционированного доступа, поэтому настоятельно рекомендуется установить пароль для пользователя &quot;root&quot;.';
 $strInsert = 'Вставить';
 $strInsertAsNewRow = 'Вставить запись';
-$strInsertedRowId = 'Идентификатор вставляемой строки:';
 $strInternalNotNecessary = '* При наличии внутренней связи в таблице типа InnoDB, ее установка не обязательна.';
 $strInternalRelationAdded = 'Добавлена внутренняя связь';
 $strInternalRelations = 'Внутренние связи';
@@ -1031,4 +1030,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

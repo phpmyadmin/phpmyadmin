@@ -373,7 +373,6 @@ $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten passord) som korrensponderer med MySQLs standard priviligerte brukerkonto. Din MySQL-tjener kjører med denne standardinnstillingen, er åpen for misbruk, og du burde fikse dette sikkerhetshullet snarest.';
 $strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
-$strInsertedRowId = 'Satt inn rad id:';
 $strInternalNotNecessary = '* En intern relasjon er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelationAdded = 'Intern relasjon lagt til';
 $strInternalRelations = 'Interne relasjoner';
@@ -1028,4 +1027,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

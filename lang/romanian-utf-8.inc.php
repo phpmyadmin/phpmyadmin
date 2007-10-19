@@ -281,7 +281,6 @@ $strIndexWarningTable = 'Probleme cu indexul tabelului `%s`';
 $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Configurarea ta contine setarile ce baza (utilizator root fara parola). Serverul MySQL poate fi astfel vulnerabil, neaparat sa repari aceasta greseala.';
 $strInsertAsNewRow = 'Insereaza ca o noua linie';
-$strInsertedRowId = 'ID rand inserat:';
 $strInsert = 'Inserare';
 $strInternalNotNecessary = '* Nu se cere o relatie interna in cazul in care exista si in InnoDB.';
 $strInternalRelations = 'Relatii interne';
@@ -1049,4 +1048,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

@@ -344,7 +344,6 @@ $strInnoDBPages = 'stránok';
 $strInnodbStat = 'Stav InnoDB';
 $strInsecureMySQL = 'Konfiguračný súbor obsahuje nastavenia (root bez hesla), ktoré zodpovedajú predvolenému privilegovanému MySQL účtu. Ak MySQL server beží s týmto nastavením, nie je zabezpečený proti napadnutiu, táto bezpečnostná chyba by mala byť urýchlene odstránená.';
 $strInsertAsNewRow = 'Vložiť ako nový riadok';
-$strInsertedRowId = 'Id vloženého riadku:';
 $strInsert = 'Vložiť';
 $strInternalNotNecessary = '* Vnútorný vzťah nie je nutný ak už vzťah existuje v InnoDB.';
 $strInternalRelations = 'Interné vzťahy';
@@ -1031,4 +1030,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

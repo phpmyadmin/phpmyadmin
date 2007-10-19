@@ -373,7 +373,6 @@ $strInnoDBRelationAdded = 'InnoDB relation tillagd';
 $strInnodbStat = 'InnoDB-status';
 $strInsecureMySQL = 'Din konfigurationsfil innehåller inställningar (root-konto utan lösenord) som motsvarar MySQL:s privilegierade standardkonto. Din MySQL-server körs med denna standardinställning och är öppen för intrång, så du bör verkligen täppa till detta säkerhetshål.';
 $strInsertAsNewRow = 'Lägg till som ny rad';
-$strInsertedRowId = 'Tillagd rads id:';
 $strInsert = 'Lägg till';
 $strInternalNotNecessary = '* En intern relation är inte nödvändig när den även finns i InnoDB.';
 $strInternalRelationAdded = 'Intern relation tillagd';
@@ -1029,4 +1028,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

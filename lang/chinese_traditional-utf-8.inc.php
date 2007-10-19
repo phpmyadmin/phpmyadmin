@@ -337,7 +337,6 @@ $strInnodbStat = 'InnoDB 狀態';
 $strInsecureMySQL = '設定檔內有關設定 (root登入及沒有密碼) 與預設的 MySQL 權限戶口相同。 MySQL 伺服器在這預設的設定運行的話會很容易被入侵，您應更改有關設定去防止安全漏洞。';
 $strInsert = '新增';
 $strInsertAsNewRow = '儲存為新記錄';
-$strInsertedRowId = '新增資料列 id:';
 $strInternalNotNecessary = '* 當內部關聯在 InnoDB 已存在時是無需要的.';
 $strInternalRelations = '內部關聯';
 $strInUse = '使用中';
@@ -1035,4 +1034,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

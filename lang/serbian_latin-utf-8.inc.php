@@ -374,7 +374,6 @@ $strInnoDBRelationAdded = 'Dodata InnoDB relacija';
 $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Vaša konfiguraciona datoteka sadrži podešavanja (root bez lozinke) koja odgovaraju standardnom MySQL privilegovanom nalogu. Vaš MySQL server radi sa ovim podešavanjima, otvoren je za upade, i zaista treba da ispravite ovaj sigurnosni rizik.';
 $strInsertAsNewRow = 'Unesi kao novi red';
-$strInsertedRowId = 'ID umetnutih redova:';
 $strInsert = 'Novi zapis';
 $strInternalNotNecessary = '* Unutrašnja relacija nije neophodna kada postoji i u InnoDB.';
 $strInternalRelationAdded = 'Dodata interna relacija';
@@ -1030,4 +1029,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

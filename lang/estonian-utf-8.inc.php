@@ -364,7 +364,6 @@ $strInnoDBRelationAdded = 'InnoDB suhe lisatud';
 $strInnodbStat = 'InnoDB staatus';
 $strInsecureMySQL = 'Teie konfiguratsioonifail sisaldab seadeid (root kasutaja ilma paroolita) mis vastab MySQL-i vaikimisi priviligeeritud kasutajale. Kui Teie MySQL-i server jookseb sellise seadega on ta avatud rünnakutele, soovitav on see turvaauk kiiresti parandada.';
 $strInsertAsNewRow = 'Lisa uue reana';
-$strInsertedRowId = 'Lisatud rea id:';
 $strInsert = 'Lisa';
 $strInternalNotNecessary = '* Sisene seos ei ole vajalik kui ta eksisteerib ka InnoDB-s.';
 $strInternalRelationAdded = 'Sisemine suhe loodud'; 
@@ -1036,4 +1035,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

@@ -377,7 +377,6 @@ $strInnodbStat = 'InnoDB ステータス';
 $strInsecureMySQL = 'お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root ユーザでパスワードなし) が含まれています。お使いの MySQL サーバはこのデフォルト設定で動作しているため不正アクセス可能な状態になっています。このセキュリティーホールはかならず閉ざしてください';
 $strInsert = '挿入';
 $strInsertAsNewRow = '新しい行として挿入する';
-$strInsertedRowId = '挿入した行 ID:';
 $strInternalNotNecessary = '* InnoDB にも内部リレーションが存在している場合は不要です';
 $strInternalRelationAdded = '内部リレーションを追加しました';
 $strInternalRelations = '内部リレーション';
@@ -1034,4 +1033,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>

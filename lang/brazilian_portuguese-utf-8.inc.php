@@ -372,7 +372,6 @@ $strInnoDBRelationAdded = 'Adicionado relacionamento InnoDB';
 $strInnodbStat = 'Status do InnoDB'; 
 $strInsecureMySQL = 'O seu arquivo de configuração contém configurações (root sem senha) que correspondem à conta privilegiada padrão do MySQL. O servidor MySQL rodando com esse padrão estará aberto a invasões, você realmente deveria corrigir este furo de segurança.'; 
 $strInsertAsNewRow = 'Inserir como um novo registro'; 
-$strInsertedRowId = 'Inserir ID do registro:'; 
 $strInsert = 'Inserir'; 
 $strInternalNotNecessary = '* Não é necessária uma relação interna quando também já existe na InnoDB.'; 
 $strInternalRelationAdded = 'Adicionado relacionamento Interno';
@@ -1028,4 +1027,5 @@ $strForeignKeyError = 'Error creating foreign key on %1$s (check data types)';  
 $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
+$strInsertedRowId = 'Inserted row id: %1$d';  //to translate
 ?>
