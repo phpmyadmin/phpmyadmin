@@ -356,7 +356,6 @@ $strImportFormat = 'Oblikovanje uvezene datoteke';
 $strImportSuccessfullyFinished = 'Uvoz je uspješno dovršen. Izvršeno upita: %d .';
 $strImport = 'Uvoz';
 $strIndexes = 'Indeksi';
-$strIndexesSeemEqual = 'Sljedeći indeksi izgledaju jednakim i jednog je potrebno ukloniti:';
 $strIndexHasBeenDropped = 'Index %s je odbačen';
 $strIndex = 'Indeks';
 $strIndexName = 'Naziv indeksa:';
@@ -1029,4 +1028,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

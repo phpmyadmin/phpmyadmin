@@ -107,7 +107,8 @@ function PMA_check_indexes($idx_collection)
             $first_column = current($while_index);
 
             $message = PMA_Message::warning('strIndexesSeemEqual');
-            $message->addMessage($each_index_name . ', ' . $first_column['Key_name']);
+            $message->addParam($each_index_name);
+            $message->addParam($first_column['Key_name']);
             $output .= $message->getDisplay();
 
             // there is no need to check any further indexes if we have already

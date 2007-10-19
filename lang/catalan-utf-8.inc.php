@@ -350,7 +350,6 @@ $strImportFormat = 'Format de l\'arxiu importat';
 $strImport = 'Importar';
 $strImportSuccessfullyFinished = 'Importació finalitzada correctament, %d consultes executades.';
 $strIndexes = 'Indexos';
-$strIndexesSeemEqual = 'Els seguents indexos semblen iguals i un d\'ells s\'ha d\'esborrar:';
 $strIndexHasBeenDropped = 'S\'ha esborrat l\'índex %s';
 $strIndex = 'Índex';
 $strIndexName = 'Nom d\'índex:';
@@ -1024,4 +1023,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

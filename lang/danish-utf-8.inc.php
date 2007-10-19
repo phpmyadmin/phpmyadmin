@@ -355,7 +355,6 @@ $strImportFormat = 'Format på importeret fil';
 $strImport = 'Import';
 $strImportSuccessfullyFinished = 'Importen er korrekt gennemført, %d forespørgsler udført.';
 $strIndexes = 'Indeks';
-$strIndexesSeemEqual = 'Følgende indeks ser ud til at være ens og et af dem burde fjernes:';
 $strIndexHasBeenDropped = 'Indeks %s er blevet slettet';
 $strIndex = 'Indeks';
 $strIndexName = 'Indeksnavn&nbsp;:';
@@ -1030,4 +1029,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

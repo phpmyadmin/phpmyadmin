@@ -359,7 +359,6 @@ $strImportFormat = 'Формат импортируемого файла';
 $strImportSuccessfullyFinished = 'Импорт успешно завершен, запросов выполнено: %d.';
 $strIndex = 'Индекс';
 $strIndexes = 'Индексы';
-$strIndexesSeemEqual = 'Следующие индексы определены как идентичные, и один из них должен быть удален:';
 $strIndexHasBeenDropped = 'Индекс %s был удален';
 $strIndexName = 'Имя индекса&nbsp;:';
 $strIndexType = 'Тип индекса&nbsp;:';
@@ -1031,4 +1030,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

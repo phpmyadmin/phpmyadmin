@@ -355,7 +355,6 @@ $strImportFormat = 'Formato do ficheiro importado';
 $strImport = 'Importar';
 $strImportSuccessfullyFinished = 'A importación rematou sen problemas. Executáronse %d procuras.';
 $strIndexes = 'Índices';
-$strIndexesSeemEqual = 'Parece que os Ã­ndices seguintes son iguais e haberÃ­a que eliminar un deles:';
 $strIndexHasBeenDropped = 'Eliminouse o índice %s';
 $strIndex = 'Índice';
 $strIndexName = 'Nome do índice&nbsp;:';
@@ -1029,4 +1028,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

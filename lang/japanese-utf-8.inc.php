@@ -359,7 +359,6 @@ $strImportFormat = 'インポートするファイルの形式';
 $strImportSuccessfullyFinished = 'インポートは正常終了しました。%d 個のクエリを実行しました';
 $strIndex = 'インデックス';
 $strIndexes = 'インデックスサイズ';
-$strIndexesSeemEqual = '以下のインデックスは同じもののように思われます。いずれかを削除してください :';
 $strIndexHasBeenDropped = 'インデックス %s を削除しました';
 $strIndexName = 'インデックス名:';
 $strIndexType = 'インデックスの種類:';
@@ -1034,4 +1033,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>

@@ -1010,7 +1010,6 @@ $strFieldInsertFromFileTempDirNotExists = 'Fehler beim verschieben der hochgelad
 $strViewName = 'VIEW Name';
 $strOptions = 'Optionen';
 $strFiles = 'Dateien';
-$strIndexesSeemEqual = 'Die folgenden Indizes scheinen identisch und einer von ihnen sollte entfernt werden:';
 $strMysqlLibDiffersServerVersion = 'Die Version der verwendeten PHP MySQL Bibliothek %s unterscheidet sich von der Version des MySQL Servers %s. Dies kann zu unerwartetem Verhalten führen.';
 $strRoutines = 'Routines';  //to translate
 $strRoutineReturnType = 'Rückgabe-Typ';
@@ -1033,4 +1032,5 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 $strInsertedRowId = 'Inserted row id: %1$d';  //to translate
+$strIndexesSeemEqual = 'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.';  //to translate
 ?>
