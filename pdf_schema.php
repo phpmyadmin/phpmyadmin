@@ -56,35 +56,32 @@ class PMA_PDF extends TCPDF {
     var $l_marg = 10;
     var $t_marg = 10;
     var $scale;
-    var $title;
     var $PMA_links;
     var $Outlines = array();
     var $def_outlines;
-    var $Alias ;
+    var $Alias = array();
     var $widths;
 
-    /**
-     * The PMA_PDF constructor
-     *
-     * This function just refers to the "FPDF" constructor: with PHP3 a class
-     * must have a constructor
-     *
-     * @param string $ The page orientation (p, portrait, l or landscape)
-     * @param string $ The unit for sizes (pt, mm, cm or in)
-     * @param mixed $ The page format (A3, A4, A5, letter, legal or an array
-     *                  with page sizes)
-     * @access public
-     * @see FPDF::FPDF()
-     */
-    function __construct($orientation = 'L', $unit = 'mm', $format = 'A4')
+    public function getFh()
     {
-        $this->Alias = array() ;
-        $this->TCPDF($orientation, $unit, $format);
-    } // end of the "PMA_PDF()" method
+        return $this->fh;
+    }
+
+    public function getFw()
+    {
+        return $this->fw;
+    }
+
+    public function setCMargin($c_margin)
+    {
+        $this->cMargin = $c_margin;
+    }
+
     function SetAlias($name, $value)
     {
         $this->Alias[$name] = $value ;
     }
+
     function _putpages()
     {
         if (count($this->Alias) > 0) {
@@ -490,6 +487,8 @@ class PMA_PDF extends TCPDF {
         return $nl;
     }
 } // end of the "PMA_PDF" class
+
+
 /**
  * Draws tables schema
  *
@@ -966,17 +965,15 @@ class PMA_RT {
         $this->same_wide = $all_tab_same_wide;
         // Initializes a new document
         $pdf = new PMA_PDF('L', 'mm', $paper);
-        $pdf->title = sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel);
-        $pdf->cMargin = 0;
+        $pdf->SetTitle(sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel));
+        $pdf->setCMargin(0);
         $pdf->Open();
-        $pdf->SetTitle($pdf->title);
         $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $pdf->AliasNbPages();
-
         $pdf->AddFont('DejaVuSans', '', 'dejavusans.php');
-        $pdf->AddFont('DejaVuSans', 'B', 'dejavusans-bold.php');
+        $pdf->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $pdf->AddFont('DejaVuSerif', '', 'dejavuserif.php');
-        $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserif-bold.php');
+        $pdf->AddFont('DejaVuSerif', 'B', 'dejavuserifb.php');
         $this->ff = PMA_PDF_FONT;
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
@@ -995,10 +992,10 @@ class PMA_RT {
         // make doc                    //
         if ($with_doc) {
             $pdf->SetAutoPageBreak('auto', 15);
-            $pdf->cMargin = 1;
+            $pdf->setCMargin(1);
             PMA_RT_DOC($alltables);
             $pdf->SetAutoPageBreak('auto');
-            $pdf->cMargin = 0;
+            $pdf->setCMargin(0);
         }
 
         $pdf->Addpage();
@@ -1024,7 +1021,12 @@ class PMA_RT {
             $this->PMA_RT_setMinMax($this->tables[$table]);
         }
         // Defines the scale factor
-        $this->scale = ceil(max(($this->x_max - $this->x_min) / ($pdf->fh - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / ($pdf->fw - $this->t_marg - $this->b_marg)) * 100) / 100;
+        $this->scale = ceil(
+            max(
+                ($this->x_max - $this->x_min) / ($pdf->getFh() - $this->r_marg - $this->l_marg),
+                ($this->y_max - $this->y_min) / ($pdf->getFw() - $this->t_marg - $this->b_marg))
+             * 100) / 100;
+
         $pdf->PMA_PDF_setScale($this->scale, $this->x_min, $this->y_min, $this->l_marg, $this->t_marg);
         // Builds and save the PDF document
         $pdf->PMA_PDF_setLineWidthScale(0.1);

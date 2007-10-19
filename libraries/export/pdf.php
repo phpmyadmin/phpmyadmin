@@ -40,6 +40,11 @@ class PMA_PDF extends TCPDF
     var $headerset;
     var $footerset;
 
+    public function getState()
+    {
+        return $this->state;
+    }
+
     // overloading of a tcpdf function:
     function _beginpage($orientation)
     {
@@ -233,7 +238,7 @@ class PMA_PDF extends TCPDF
             for ($i = 0; $i < $this->numFields; $i++){
                 $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
                 // save the real title's width
-                $titleWidth[$i] = $stringWidth; 
+                $titleWidth[$i] = $stringWidth;
                 $totalTitleWidth += $stringWidth;
 
                 // set any column titles less than the start width to the column title width
@@ -450,7 +455,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $pdf->mysql_report($sql_query, $attr);
 
     // instead of $pdf->Output():
-    if ($pdf->state < 3) {
+    if ($pdf->getState() < 3) {
         $pdf->Close();
     }
     if (!PMA_exportOutputHandler($pdf->buffer)) {
