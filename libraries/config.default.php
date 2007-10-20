@@ -1772,7 +1772,7 @@ $cfg['LongtextDoubleTextarea'] = true;
  *
  * @global boolean $cfg['TextareaAutoSelect']
  */
-$cfg['TextareaAutoSelect'] = true;
+$cfg['TextareaAutoSelect'] = false;
 
 /**
  * textarea size (columns) for CHAR/VARCHAR

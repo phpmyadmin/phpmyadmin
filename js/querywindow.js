@@ -12,6 +12,11 @@ function PMA_querywindowCommit(tab)
     return false;
 }
 
+function PMA_querywindowSetFocus()
+{
+    document.getElementById('sqlquery').focus();
+}
+
 function PMA_querywindowResize()
 {
     // for Gecko

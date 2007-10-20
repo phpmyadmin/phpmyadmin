@@ -183,6 +183,12 @@ if (PMA_isValid($_REQUEST['init'])) {
         'function'  => 'PMA_querywindowResize',
     );
 }
+// always set focus to the textarea
+$js_events[] = array(
+    'object'    => 'window',
+    'event'     => 'load',
+    'function'  => 'PMA_querywindowSetFocus',
+);
 
 /**
  * start HTTP/HTML output
