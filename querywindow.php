@@ -222,6 +222,7 @@ if (PMA_isValid($_REQUEST['init'])) {
     echo 'PMA_querywindowResize();' . "\n";
 }
 ?>
+document.getElementById('sqlquery').focus();
 }
 
 //]]>

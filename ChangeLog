@@ -26,6 +26,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - it should not be possible to move or copy a table to information_schema
 - bug #1814733 win: copy db to mixed name db fails
 - bug #1777249 [display] Remove horizontal lines in navigation panel 
+- bug #1805102 [display] TextareaAutoSelect issues: set this parameter
+  default value to false to help cut&paste from a terminal window; also
+  set focus to the textarea
 
 2.11.1.2 (2007-10-17)
 - fixed XSS in server_status.php, thanks to Omer Singer, The DigiTrust Group
