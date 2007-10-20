@@ -98,6 +98,6 @@ if ($GLOBALS['cfg']['LeftDisplayServers'] && (count($GLOBALS['cfg']['Servers']) 
     echo '<div id="serverinfo">';
     include './libraries/select_server.lib.php';
     PMA_select_server(true, true);
-    echo '</div><hr />';
+    echo '</div><br />';
 } // end if LeftDisplayServers
 ?>
