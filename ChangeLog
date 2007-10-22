@@ -31,6 +31,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   set focus to the textarea
 - bug #1814463 [display] Wrong database size
 - bug #1811527 [display] Problem with links to the MySQL manual
+- patch #1817529 [auth] Incorrect login via URL when AllowArbitraryServer
+  is true, thanks to Juergen Wind
 
 2.11.1.2 (2007-10-17)
 - fixed XSS in server_status.php, thanks to Omer Singer, The DigiTrust Group
