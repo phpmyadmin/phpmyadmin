@@ -421,7 +421,7 @@ function PMA_auth_check()
         // The user just logged in
         $GLOBALS['PHP_AUTH_USER'] = $_REQUEST['pma_username'];
         $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password']) ? '' : $_REQUEST['pma_password'];
-        if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
             $GLOBALS['pma_auth_server'] = $_REQUEST['pma_servername'];
         }
         return true;
