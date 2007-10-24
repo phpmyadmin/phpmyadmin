@@ -40,6 +40,12 @@ class PMA_PDF extends TCPDF
     var $headerset;
     var $footerset;
 
+    // added because tcpdf for PHP 5 has a protected $buffer
+    public function getBuffer()
+    {
+        return $this->buffer;
+    }
+
     public function getState()
     {
         return $this->state;
@@ -458,7 +464,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     if ($pdf->getState() < 3) {
         $pdf->Close();
     }
-    if (!PMA_exportOutputHandler($pdf->buffer)) {
+    if (!PMA_exportOutputHandler($pdf->getBuffer())) {
         return FALSE;
     }
 
