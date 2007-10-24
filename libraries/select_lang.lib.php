@@ -14,6 +14,7 @@
  * @uses    $GLOBALS['lang_failed_cfg']
  * @uses    $GLOBALS['lang_failed_cookie']
  * @uses    $GLOBALS['lang_failed_request']
+ * @uses    $GLOBALS['convcharset'] to set it if not set
  * @uses    $_REQUEST['lang']
  * @uses    $_COOKIE['pma_lang']
  * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
@@ -343,7 +344,7 @@ if (empty($GLOBALS['convcharset'])) {
         $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];
     } else {
         // session.save_path might point to a bad folder
-        $convcharset = isset($GLOBALS['cfg']['DefaultCharset']) ? $GLOBALS['cfg']['DefaultCharset'] : 'en-utf-8';
+        $GLOBALS['convcharset'] = $GLOBALS['cfg']['DefaultCharset'];
     }
 }
 
