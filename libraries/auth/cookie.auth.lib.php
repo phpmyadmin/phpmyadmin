@@ -284,7 +284,9 @@ if (top != self) {
     if (! empty($GLOBALS['table'])) {
         $_form_params['table'] = $GLOBALS['table'];
     }
-    echo PMA_generate_common_hidden_inputs();
+    // do not generate a "server" hidden field as we want the "server"
+    // drop-down to have priority
+    echo PMA_generate_common_hidden_inputs($_form_params, '', 0, 'server');
     ?>
     </fieldset>
 </form>

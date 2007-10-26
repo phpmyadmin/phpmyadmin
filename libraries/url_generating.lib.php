@@ -12,8 +12,11 @@
  * @see     PMA_generate_common_url()
  * @uses    PMA_getHiddenFields
  * @param   string   optional database name
+ *                   (can also be an array of parameters)
  * @param   string   optional table name
  * @param   int      indenting level
+ * @param   string   do not generate a hidden field for this parameter
+ *                  (can be an array of strings) 
  *
  * @return  string   string with input fields
  *
