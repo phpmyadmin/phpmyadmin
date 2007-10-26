@@ -16,6 +16,11 @@ PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/StorageEngine.class.php';
 
+/**
+ * Class for partition management 
+ */
+require_once './libraries/Partition.class.php';
+
 if (is_int($cfg['DefaultPropDisplay'])) {
     if ($num_fields <= $cfg['DefaultPropDisplay']) {
         $display_type = 'vertical';
@@ -662,7 +667,7 @@ if ($action == 'tbl_create.php') {
         </td>
     </tr>
     <?php
-    if (PMA_MYSQL_INT_VERSION >= 50100 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'have_partitioning';")) {
+    if (PMA_Partition::havePartitioning()) {
     ?>
     <tr valign="top">
         <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>

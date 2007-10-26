@@ -32,6 +32,11 @@ $cfgRelation = PMA_getRelationsParam();
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/StorageEngine.class.php';
 
+/**
+ * Class for partition management 
+ */
+require_once './libraries/Partition.class.php';
+
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
 PMA_DBI_select_db($GLOBALS['db']);
