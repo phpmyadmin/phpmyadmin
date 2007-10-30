@@ -1098,6 +1098,11 @@ li#li_flush_privileges {
     float: <?php echo $left; ?>;
 }
 
+#div_table_maintenance {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
 #div_table_options {
     clear: both;
     min-width: 48%;

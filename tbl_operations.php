@@ -397,7 +397,9 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 
 <br class="clearfloat"/>
 
-<h1><?php echo $strTableMaintenance; ?></h1>
+<div id="div_table_maintenance">
+<fieldset>
+ <legend><?php echo $strTableMaintenance; ?></legend>
 
 <ul>
 <?php
@@ -466,7 +468,31 @@ $this_url_params = array_merge($url_params,
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH'); ?>
     </li>
 </ul>
+</fieldset>
+</div>
+<?php if (PMA_Partition::havePartitioning()) {
+    ?>
+<div id="div_partition_maintenance">
+<form method="post" action="tbl_operations.php">
+<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<fieldset>
+ <legend><?php echo $strPartitionMaintenance; ?></legend>
 <?php
+    $partition_names = PMA_Partition::getPartitionNames($db, $table);
+    $html_select = '<select name="partition_name">' . "\n";
+    foreach($partition_names as $one_partition) {
+        $one_partition = htmlspecialchars($one_partition);
+        $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
+    }
+    $html_select .= '</select>' . "\n";
+    printf($GLOBALS['strPartition'], $html_select);
+    unset($partition_names, $one_partition, $html_select);
+?>
+</fieldset>
+</form>
+</div>
+<?php
+    } // end if
 // Referential integrity check
 // The Referential integrity check was intended for the non-InnoDB
 // tables for which the relations are defined in pmadb
