@@ -1093,7 +1093,7 @@ li#li_flush_privileges {
     float: <?php echo $left; ?>;
 }
 
-#div_table_copy {
+#div_table_copy, #div_partition_maintenance {
     min-width: 48%;
     float: <?php echo $left; ?>;
 }

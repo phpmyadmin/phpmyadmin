@@ -131,6 +131,13 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
     $result = PMA_DBI_query($sql_query);
 } // end if
 
+/**
+ * A partition operation has been requested by the user
+ */
+if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operation'])) {
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ' . $_REQUEST['partition_operation'] . ' PARTITION ' . $_REQUEST['partition_name'];
+    $result = PMA_DBI_query($sql_query);
+} // end if
 
 if ($reread_info) {
     $checksum = $delay_key_write = 0;
@@ -487,12 +494,25 @@ $this_url_params = array_merge($url_params,
     $html_select .= '</select>' . "\n";
     printf($GLOBALS['strPartition'], $html_select);
     unset($partition_names, $one_partition, $html_select);
+    $choices = array(
+        'ANALYZE' => $strAnalyze, 
+        'CHECK' => $strCheck, 
+        'OPTIMIZE' => $strOptimize, 
+        'REBUILD' => $strRebuild,
+        'REPAIR' => $strRepair);
+    PMA_generate_html_radio('partition_operation', $choices, '', false);
+    unset($choices);
+    echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
 ?>
+</fieldset>
+<fieldset class="tblFooters">
+    <input type="submit" name="submit_partition" value="<?php echo $strGo; ?>" />
 </fieldset>
 </form>
 </div>
 <?php
     } // end if
+
 // Referential integrity check
 // The Referential integrity check was intended for the non-InnoDB
 // tables for which the relations are defined in pmadb
