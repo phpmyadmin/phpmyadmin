@@ -36,7 +36,9 @@ function PMA_auth()
     $server_message = preg_replace('/[^\x20-\x7e]/i', '', $server_message);
     header('WWW-Authenticate: Basic realm="phpMyAdmin ' . $server_message .  '"');
     header('HTTP/1.0 401 Unauthorized');
-    header('status: 401 Unauthorized');
+    if (php_sapi_name() !== 'cgi-fcgi') {
+	header('status: 401 Unauthorized');
+    }
 
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
