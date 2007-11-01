@@ -97,7 +97,7 @@ function PMA_outBufferPre()
  */
 function PMA_outBufferPost()
 {
-    if (PMA_outBufferModeGet()) {
+    if (ob_get_status() && PMA_outBufferModeGet()) {
         ob_flush();
     } else {
         flush();
