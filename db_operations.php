@@ -252,7 +252,7 @@ if (!$is_information_schema) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
         <legend>
-        <?php PMA_getIcon('b_comment.png', $strDBComment, false, true); ?>
+        <?php echo PMA_getIcon('b_comment.png', $strDBComment, false, true); ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php
