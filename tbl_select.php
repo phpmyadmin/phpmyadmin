@@ -349,7 +349,7 @@ else {
         reset($func);
         while (list($i, $func_type) = each($func)) {
             list($charsets[$i]) = explode('_', $collations[$i]);
-            if (@$GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
+            if (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
 
