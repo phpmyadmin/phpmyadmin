@@ -290,7 +290,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     unset($result);
     $num_rows = 0;
 } else {
-    if (isset($_SESSION['profiling'])) {
+    if (isset($_SESSION['profiling']) && PMA_profilingSupported()) {
         PMA_DBI_query('SET PROFILING=1;');
     }
 
@@ -335,7 +335,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     }
 
     // Grabs the profiling results
-    if (isset($_SESSION['profiling'])) {
+    if (isset($_SESSION['profiling']) && PMA_profilingSupported()) {
         $profiling_results = PMA_DBI_fetch_result('SHOW PROFILE;');
     }
 

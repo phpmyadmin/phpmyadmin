@@ -1223,6 +1223,24 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     echo '</div><br />' . "\n";
 } // end of the 'PMA_showMessage()' function
 
+/**
+ * Verifies if current MySQL server supports profiling 
+ *
+ * @access  public
+ * @return  boolean whether profiling is supported 
+ *
+ * @author   Marc Delisle 
+ */
+function PMA_profilingSupported() {
+    // 5.0.37 has profiling but for example, 5.1.20 does not
+    // (avoid a trip to the server for MySQL before 5.0.37)
+    // and do not set a constant as we might be switching servers
+    if (PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 /**
  * Displays a form with the Profiling checkbox
@@ -1233,9 +1251,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
  * @author   Marc Delisle
  */
 function PMA_profilingCheckbox($sql_query) {
-    // 5.0.37 has profiling but for example, 5.1.20 does not
-    // (avoid doing a fetch_value for MySQL before 5.0.37)
-    if (PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
+    if (PMA_profilingSupported()) {
         echo '<form action="sql.php" method="post">' . "\n";
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
