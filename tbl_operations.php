@@ -153,8 +153,9 @@ require_once './libraries/tbl_links.inc.php';
 if (isset($result)) {
     if (empty($_message)) {
         $_message = $result ? $strSuccess : $strError;
-        $_type    = $result ? 'success' : 'error';
     }
+    // $result should exist, regardless of $_message
+    $_type = $result ? 'success' : 'error';
     PMA_showMessage($_message, $sql_query, $_type);
 }
 
