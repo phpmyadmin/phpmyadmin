@@ -315,36 +315,42 @@ function PMA_exportDBFooter($db)
 
     if (PMA_MYSQL_INT_VERSION >= 50000 && isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
         $procs_funcs = '';
+        $delimiter = '$$';
 
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+
+        if ($procedure_names || $function_names) {
+            $procs_funcs .= $crlf
+              . 'DELIMITER ' . $delimiter . $crlf;
+        }
+
         if ($procedure_names) {
-            $delimiter = '$$';
-            $procs_funcs = $crlf
-              . PMA_exportComment() 
+            $procs_funcs .= 
+                PMA_exportComment() 
               . PMA_exportComment($GLOBALS['strProcedures'])
-              . PMA_exportComment() 
-              . 'DELIMITER ' . $delimiter . $crlf
               . PMA_exportComment();
 
             foreach($procedure_names as $procedure_name) {
                 $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
-
-            $procs_funcs .= PMA_exportComment() 
-              . 'DELIMITER ;' . $crlf
-              . PMA_exportComment();
         }
-
-        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
 
         if ($function_names) {
-            $procs_funcs .= PMA_exportComment($GLOBALS['strFunctions'])
-              . PMA_exportComment() . $crlf;
+            $procs_funcs .= 
+                PMA_exportComment()
+              . PMA_exportComment($GLOBALS['strFunctions'])
+              . PMA_exportComment();
 
             foreach($function_names as $function_name) {
-                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $crlf . $crlf;
+                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
         }
+
+        if ($procedure_names || $function_names) {
+            $procs_funcs .= 'DELIMITER ;' . $crlf;
+        }
+
         if (!empty($procs_funcs)) {
             $result = PMA_exportOutputHandler($procs_funcs);
         }
