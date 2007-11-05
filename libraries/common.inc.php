@@ -751,6 +751,28 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
     $GLOBALS['url_params']['server'] = $GLOBALS['server'];
 
+    /**
+     * Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
+     */
+    if (function_exists('mb_convert_encoding')
+     && strpos($lang, 'ja-') !== false) {
+        require_once './libraries/kanji-encoding.lib.php';
+        /**
+         * enable multibyte string support
+         */
+        define('PMA_MULTIBYTE_ENCODING', 1);
+    } // end if
+
+    /**
+     * save some settings in cookies
+     * @todo should be done in PMA_Config
+     */
+    PMA_setCookie('pma_lang', $GLOBALS['lang']);
+    PMA_setCookie('pma_charset', $GLOBALS['convcharset']);
+    PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
+
+    $_SESSION['PMA_Theme_Manager']->setThemeCookie();
+
     if (! empty($cfg['Server'])) {
 
         /**
@@ -877,29 +899,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
 
     } // end server connecting
-
-    /**
-     * Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
-     */
-    if (@function_exists('mb_convert_encoding')
-        && strpos(' ' . $lang, 'ja-')
-        && file_exists('./libraries/kanji-encoding.lib.php')) {
-        require_once './libraries/kanji-encoding.lib.php';
-        /**
-         * enable multibyte string support
-         */
-        define('PMA_MULTIBYTE_ENCODING', 1);
-    } // end if
-
-    /**
-     * save some settings in cookies
-     * @todo should be done in PMA_Config
-     */
-    PMA_setCookie('pma_lang', $GLOBALS['lang']);
-    PMA_setCookie('pma_charset', $GLOBALS['convcharset']);
-    PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
-
-    $_SESSION['PMA_Theme_Manager']->setThemeCookie();
 
     /**
      * check if profiling was requested and remember it
