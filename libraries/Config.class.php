@@ -745,13 +745,19 @@ class PMA_Config
      * checks if upload is enabled
      *
      */
+
     function checkUpload()
     {
-        $this->set('enable_upload', true);
-        if (strtolower(@ini_get('file_uploads')) == 'off'
-          || @ini_get('file_uploads') == 0) {
+        if (ini_get('file_uploads')) {
+            $this->set('enable_upload', true);
+            // if set "php_admin_value file_uploads Off" in httpd.conf
+            // ini_get() also returns the string "Off" in this case:
+            if ('off' == strtolower(ini_get('file_uploads'))) {
+                $this->set('enable_upload', false);
+            }
+         } else {
             $this->set('enable_upload', false);
-        }
+         }
     }
 
     /**
