@@ -30,6 +30,13 @@ a img {
     border: 0;
 }
 
+a:link,
+a:visited,
+a:active {
+    text-decoration:    none;
+    color:              #0000FF;
+}
+
 ul {
 	margin:0;
 }	
