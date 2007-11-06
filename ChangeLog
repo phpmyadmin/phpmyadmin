@@ -14,6 +14,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [mysqlnd] do not display $strMysqlLibDiffersServerVersion if the client
   is mysqlnd
 + [webapp] experimental Mozilla Prism support
++ [export] new plugin "codegen" for NHibernate, thanks to caocao; I'm
+  looking for a name more descriptive than codegen, taking into account
+  that it might later support other formats like JSON in the same plugin
 
 2.11.3.0 (not yet released)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
