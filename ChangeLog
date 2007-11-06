@@ -13,6 +13,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [error handler] NEW handle errors to prevent path disclosure and display/collect errors
 + [mysqlnd] do not display $strMysqlLibDiffersServerVersion if the client
   is mysqlnd
++ [webapp] experimental Mozilla Prism support
 
 2.11.3.0 (not yet released)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
@@ -29,10 +30,10 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 2.11.2.0 (2007-10-27)
 - patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
-+ [lang] Serbian update, thanks to Mihailo Stefanovic  
++ [lang] Serbian update, thanks to Mihailo Stefanovic
 - bug #1798841 [relations] Copying db does not copy internal relations
-- bug #1798646 [display] Character '+' in query wrongly interpreted 
-- bug #1801919 [themes] Do not use NaviDatabaseNameColor for fieldset legend 
+- bug #1798646 [display] Character '+' in query wrongly interpreted
+- bug #1801919 [themes] Do not use NaviDatabaseNameColor for fieldset legend
 - bug #1764735 [core] Designer: PDF error when deleting a table
 - bug #1764195 [views] DROP button does not work on defective views
 - bug #1805773 [relations] browse foreign values: return values not escaped,
@@ -66,7 +67,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 2.11.1.0 (2007-09-20)
 
-- bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version 
+- bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version
 - bug #1780098 [GUI] Logout causes CSS loss, thanks to Juergen Wind
 . incorrect field ids, thanks to Michael Keck
 - bug #1787522 [view] wrong choice in algorithm drop-down
@@ -76,10 +77,10 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   is different
 - bugs #1767759, 1216521 [data] Duplicate entry error Browse feature: this minor
   feature removed due to its complexity
-- bug #1774825 [operations] Rename database loses charset info 
+- bug #1774825 [operations] Rename database loses charset info
 - bug #1791568 [core] Undefined cfg, thanks to Christian Schmidt
 - bug #1782332 [structure] New table form does not overtake data
-- bug #1793763 [requirements] minimum PHP should be 4.2.0 
+- bug #1793763 [requirements] minimum PHP should be 4.2.0
 - patch #1787915 Avoid CSS reloading on every click, thanks to Juergen Wind
 - bug #1798627 [GUI] Wrong storage engine displayed
 
@@ -143,14 +144,14 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Turkish update, thanks to Burak Yavuz
 + [lang] Galician update, thanks to Xosé Calvo
 + [lang] Brazilian-Portuguese update, thanks to Airon Luis Pereira
-+ [gui] Insert/Edit: no longer display the Go button each 15 lines 
++ [gui] Insert/Edit: no longer display the Go button each 15 lines
   but just at the end of a row
-+ [gui] Query window: use verbose server name if any 
++ [gui] Query window: use verbose server name if any
 + [auth] patch #1712514 specify host for single signon, thanks to Thierry
-+ [gui] Navigator for the db list in the navigation panel 
-+ [gui] Navigator for the table list in the content panel 
++ [gui] Navigator for the db list in the navigation panel
++ [gui] Navigator for the table list in the content panel
 - bug #1727138 HTML not encoded (more than 1000 characters)
-+ [display] Support for MySQL 5.0.37 profiling 
++ [display] Support for MySQL 5.0.37 profiling
 + RFE #1743983 [gui] Replace $max_characters by a configurable param:
   $cfg['MaxCharactersInDisplayedSQL']
 - bug #1746186 LeftLogoLink fails if set to some external site
@@ -159,25 +160,25 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to garas
 - bug #1747215 Export emits blanks at line ends
 - bug #1751172 Do not export data when exporting a single VIEW
-+ [lang] Swedish update, thanks to Björn T. Hallberg 
-+ [lang] Russian update, thanks to Victor Volkov and the php-myadmin.ru users 
-+ [privileges] Support password hashing on the Edit Privileges interface 
++ [lang] Swedish update, thanks to Björn T. Hallberg
++ [lang] Russian update, thanks to Victor Volkov and the php-myadmin.ru users
++ [privileges] Support password hashing on the Edit Privileges interface
 - bug #1755339 Warn about rename dataase actually being copy/delete
 - bug #1746921 Left frame shrinks on db change, thanks to Juergen Wind
 + [gui] Export: Select All/Unselect All over the choices,
   thanks to Florian Schmitz
-+ [lang] Japanese update, thanks to Ishigaki Kenichi 
++ [lang] Japanese update, thanks to Ishigaki Kenichi
 - bug #1759528 browse_foreigners fails due to newlines,
   thanks to Hanno Boeck
-+ [lang] Norwegian update, thanks to Sven-Erik Andersen 
-+ [lang] Italian update, thanks to Luca Rebellato 
-+ [lang] Spanish update, thanks to Daniel Hinostroza 
++ [lang] Norwegian update, thanks to Sven-Erik Andersen
++ [lang] Italian update, thanks to Luca Rebellato
++ [lang] Spanish update, thanks to Daniel Hinostroza
 . [export] Do not obey $cfg['MaxTableList'] on database export
 - [doc] UploadDir and the Import tab, thanks to Juergen Wind
 - bug #1766975 Parameters lost when editing stored routine
 - [export] patch #1766633 Incorrect export with specified MySQL port,
   thanks to Juergen Wind
-+ [lang] Catalan update, thanks to Xavier Navarro 
++ [lang] Catalan update, thanks to Xavier Navarro
 - bug #1751553 Drop-down instead of input when editing
 - [data] foreign key browser: encoding mixups, thanks to Thijs Kinkhorst
 - bug #1771721 Old SVN URLs
