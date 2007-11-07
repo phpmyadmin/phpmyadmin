@@ -749,11 +749,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     }
     $res = PMA_DBI_query(
         'SELECT \'foo\' FROM `mysql`.`user`'
-        .' WHERE CONVERT(`User` USING utf8) COLLATE utf8_bin '
-        .' = CONVERT(\'' . PMA_sqlAddslashes($username) . '\' USING utf8) COLLATE utf8_bin '
-        .' AND CONVERT(`Host` USING utf8) COLLATE utf8_bin '
-        .' = CONVERT(\'' . PMA_sqlAddslashes($hostname) . '\' USING utf8) COLLATE utf8_bin ;',
+        .' WHERE ' . PMA_convert_using('User', 'unquoted', true)
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted', true)
+        .' AND ' . PMA_convert_using('Host', 'unquoted', true)
+        .' = ' . PMA_convert_using($hostname, 'quoted', true) . ';',
         null, PMA_DBI_QUERY_STORE);
+
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
         $message = sprintf($GLOBALS['strUserAlreadyExists'], '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');

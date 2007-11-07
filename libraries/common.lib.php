@@ -572,7 +572,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
  *
  * @access  private
  */
-function PMA_convert_using($string, $mode='unquoted')
+function PMA_convert_using($string, $mode='unquoted', $force_utf8 = false)
 {
     if ($mode == 'quoted') {
         $possible_quote = "'";
@@ -581,8 +581,14 @@ function PMA_convert_using($string, $mode='unquoted')
     }
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
-        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
-        $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $conn_charset . ")";
+        if ($force_utf8) {
+            $charset = 'utf8';
+            $collate = ' COLLATE utf8_bin';
+        } else {
+            list($charset) = explode('_', $GLOBALS['collation_connection']);
+            $collate = '';
+        }
+        $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $charset . ")" . $collate;
     } else {
         $converted_string = $possible_quote . $string . $possible_quote;
     }
