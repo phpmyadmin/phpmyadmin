@@ -2032,7 +2032,7 @@ if (empty($adduser) && (! isset($checkprivs) || ! strlen($checkprivs))) {
             .   PMA_convert_using('`Db`') . ' AS `Db`, '
             .   $list_of_privileges
             .' FROM `mysql`.`db`'
-            .' WHERE ' . PMA_convert_using($checkprivs, 'quoted')
+            .' WHERE ' . PMA_convert_using(PMA_sqlAddslashes($checkprivs), 'quoted')
             .' LIKE ' . PMA_convert_using('`Db`')
             .' AND NOT (' . $list_of_compared_privileges. ')) '
             .'UNION '
