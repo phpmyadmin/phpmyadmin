@@ -399,7 +399,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <?php
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')
-            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'varchar'))) {
+            // FULLTEXT is possible on TEXT, CHAR and VARCHAR
+            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))) {
             echo "\n";
             ?>
     <td align="center" nowrap="nowrap">
