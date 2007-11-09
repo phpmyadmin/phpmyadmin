@@ -378,25 +378,29 @@ require_once './libraries/List.class.php';
             $selected = $this->getDefault();
         }
 
-    $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
+        $return = '<ul id="databaseList" xml:lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
-                $return .= '<li>' . $group . '<ul>' . "\n";
+                $return .= '<li>' . htmlspecialchars($group) . '<ul>' . "\n";
                 // wether display db_name cuted by the group part
-                $cut = true;
+                $cut = htmlspecialchars($db['disp_name_cut']);
             } else {
                 // .. or full
-                $cut = false;
+                $cut = htmlspecialchars($db['disp_name']);
             }
             foreach ($dbs as $db) {
-            $return .= '<li';
-            if ($db['name'] == $selected) {
-                $return .= ' class="selected"';
-            }
-        $return .= '><a' . (! empty($db['comment']) ? ' title="' . $db['comment'] . '"' : '') . ' href="index.php?' . PMA_generate_common_url($db['name']) . '" target="_parent">';
-                $return .= ($cut ? $db['disp_name_cut'] : $db['disp_name'])
-            .' (' . $db['num_tables'] . ')';
-        $return .= '</a></li>' . "\n";
+                $return .= '<li';
+                if ($db['name'] == $selected) {
+                    $return .= ' class="selected"';
+                }
+                $return .= '><a';
+                if (! empty($db['comment'])) {
+                    $return .= ' title="' . htmlspecialchars($db['comment']) . '"';
+                }
+                $return .= ' href="index.php?' . PMA_generate_common_url($db['name'])
+                    . '" target="_parent">';
+                $return .= $cut .' (' . $db['num_tables'] . ')';
+                $return .= '</a></li>' . "\n";
             }
             if (count($dbs) > 1) {
                 $return .= '</ul></li>' . "\n";
