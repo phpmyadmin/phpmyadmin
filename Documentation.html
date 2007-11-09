@@ -172,12 +172,12 @@
 
 <h3 id="quick_install">Quick Install</h3>
 <ol><li>Choose an appropriate distribution kit from the phpmyadmin.net
-	Downloads page. Some kits contain only the English messages, 
-	others contain all languages in UTF-8 format (this should be fine
-	in most situations), others contain all
-	languages and all character sets. We'll assume you chose a kit whose
-	name looks like <tt>phpMyAdmin-x.x.x-all-languages.tar.gz</tt>.	
-	</li>
+    Downloads page. Some kits contain only the English messages,
+    others contain all languages in UTF-8 format (this should be fine
+    in most situations), others contain all
+    languages and all character sets. We'll assume you chose a kit whose
+    name looks like <tt>phpMyAdmin-x.x.x-all-languages.tar.gz</tt>.
+    </li>
     <li>Untar or unzip the distribution (be sure to unzip the subdirectories):
         <tt>tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz</tt> in your webserver's
         document root. If you don't have direct access to your document root,
@@ -192,9 +192,9 @@
         1.26</a> for suggestions.</li>
     <li>Now you must configure your installation. There are two methods that
         can be used. Traditionally, users have hand-edited a copy of
-	<tt>config.inc.php</tt>, but now a wizard-style setup script is 
-	provided for those who prefer a graphical installation. Creating a 
-	<tt>config.inc.php</tt> is still a quick way to get started and needed for some advanced features.
+    <tt>config.inc.php</tt>, but now a wizard-style setup script is
+    provided for those who prefer a graphical installation. Creating a
+    <tt>config.inc.php</tt> is still a quick way to get started and needed for some advanced features.
         <ul><li>To manually create the file, simply use your text editor to
                 create the file <tt>config.inc.php</tt> (you can copy
                 <tt>config.sample.inc.php</tt> to get minimal configuration
@@ -481,11 +481,11 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 <h4>'signon' authentication mode</h4>
 
 <ul><li>This mode is a convenient way of using credentials from another
-	application to authenticate to phpMyAdmin.</li>
-    <li>The other application has to store login information into 
-	session data.</li>
+    application to authenticate to phpMyAdmin.</li>
+    <li>The other application has to store login information into
+    session data.</li>
     <li>More details in the <a href="#cfg_Servers_auth_type">auth_type</a>
-	section.</li>
+    section.</li>
 </ul>
 <h4>'config' authentication mode</h4>
 
@@ -690,7 +690,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
             <li>'<abbr title="HyperText Transfer Protocol">HTTP</abbr>' authentication (was called 'advanced' in previous versions and can be written also as 'http')
                 (<tt>$auth_type&nbsp;=&nbsp;'<abbr title="HyperText Transfer Protocol">HTTP</abbr>'</tt>) as introduced in 1.3.0
                 allows you to log in as any valid MySQL user via HTTP-Auth.</li>
-            <li>'signon' authentication mode 
+            <li>'signon' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'signon'</tt>)
                 as introduced in 2.10.0 allows you to log in from prepared PHP
                 session data. This is useful for implementing single signon
@@ -774,8 +774,8 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     <dd>Only useful when using phpMyAdmin with multiple server entries. If set,
         this string will be displayed instead of the hostname in the pull-down
         menu on the main page. This can be useful if you want to show only
-	certain databases on your system, for example. For HTTP auth, all 
-	non-US-ASCII characters will be stripped.</dd>
+    certain databases on your system, for example. For HTTP auth, all
+    non-US-ASCII characters will be stripped.</dd>
 
     <dt id="pmadb">
         <span id="cfg_Servers_pmadb">$cfg['Servers'][$i]['pmadb']</span> string
@@ -971,7 +971,7 @@ ALTER TABLE `pma_column_comments`
         <span id="cfg_Servers_designer_coords">$cfg['Servers'][$i]['designer_coords']</span> string
     </dt>
     <dd>Since release 2.10.0 a Designer interface is available; it permits
-        to visually manage the relations. 
+        to visually manage the relations.
         <br /><br />
 
         To allow the usage of this functionality:
@@ -1085,14 +1085,14 @@ ALTER TABLE `pma_column_comments`
     <dt id="cfg_MaxDbList">$cfg['MaxDbList'] integer</dt>
     <dd>The maximum number of database names to be displayed in the
         navigation frame and the database list.</dd>
-	
+
     <dt id="cfg_MaxTableList">$cfg['MaxTableList'] integer</dt>
     <dd>The maximum number of table names to be displayed in the
-    main panel's list (except on the Export page). This limit is also enforced in the navigation panel 
+    main panel's list (except on the Export page). This limit is also enforced in the navigation panel
     when in Light mode.</dd>
 
     <dt id="cfg_MaxCharactersInDisplayedSQL">$cfg['MaxCharactersInDisplayedSQL'] integer</dt>
-    <dd>The maximum number of characters when a SQL query is displayed. The 
+    <dd>The maximum number of characters when a SQL query is displayed. The
     default limit of 1000 should be correct to avoid the display of tons
     of hexadecimal codes that represent BLOBs, but some users have real
     SQL queries that are longer than 1000 characters.</dd>
@@ -1244,7 +1244,7 @@ ALTER TABLE `pma_column_comments`
     <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <tt>TRUE</tt>.</dd>
     <dt id="cfg_LeftLogoLink">$cfg['LeftLogoLink'] string</dt>
-    <dd>Enter URL where logo in the navigation frame will point to. 
+    <dd>Enter URL where logo in the navigation frame will point to.
     For use especially with self made theme which changes this.
     The default value for this is <tt>main.php</tt>.</dd>
 
@@ -1260,7 +1260,7 @@ ALTER TABLE `pma_column_comments`
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
     <dt id="cfg_DisplayDatabasesList">$cfg['DisplayDatabasesList'] boolean or text</dt>
-    <dd>Defines whether to display database choice in light navigation frame as links 
+    <dd>Defines whether to display database choice in light navigation frame as links
         instead of in a drop-down. Defaults to 'auto' - on main page list is
         shown, when database is selected, only drop down is displayed.</dd>
 
@@ -1279,7 +1279,7 @@ ALTER TABLE `pma_column_comments`
 
     <dt><span id="cfg_ShowServerInfo">$cfg['ShowServerInfo'] </span>boolean</dt>
     <dd>Defines whether to display detailed server information on main page.
-        You can additionally hide more information by using 
+        You can additionally hide more information by using
         <tt><a href="#cfg_Servers_verbose">$cfg['Servers'][$i]['verbose']</a></tt>.
         </dd>
 
@@ -1340,7 +1340,7 @@ ALTER TABLE `pma_column_comments`
     </dd>
 
     <dt id="cfg_ShowFunctionFields">$cfg['ShowFunctionFields'] boolean</dt>
-    <dd>Defines whether or not MySQL functions fields should be initially 
+    <dd>Defines whether or not MySQL functions fields should be initially
         displayed in edit/insert mode. Since version 2.10, the user can
         toggle this setting from the interface.
     </dd>
@@ -1506,13 +1506,13 @@ ALTER TABLE `pma_column_comments`
         default empty, you need to fill in some trusted proxy servers if you
         want to use rules for IP addresses behind proxy.<br /><br />
 
-        The following example specifies that phpMyAdmin should trust a 
+        The following example specifies that phpMyAdmin should trust a
         HTTP_X_FORWARDED_FOR (<tt>X-Forwarded-For</tt>) header coming from the proxy 1.2.3.4:
 <pre>
 $cfg['TrustedProxies'] =
      array('1.2.3.4' =&gt; 'HTTP_X_FORWARDED_FOR');
 </pre>
-        The $cfg['Servers'][$i]['AllowDeny']['rules'] directive uses the 
+        The $cfg['Servers'][$i]['AllowDeny']['rules'] directive uses the
         client's IP address as usual.
     </dd>
 
@@ -1545,6 +1545,7 @@ $cfg['TrustedProxies'] =
         See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
     <dt id="cfg_NaviDatabaseNameColor">$cfg['NaviDatabaseNameColor'] string [valid css code]<br />
+    </dt>
     <dd>The color used for the database name in the navi frame.
     See <tt>themes/themename/layout.inc.php</tt>.</dd>
 
@@ -1693,8 +1694,8 @@ $cfg['TrustedProxies'] =
         The name of the directory where
         <abbr title="structured query language">SQL</abbr> files have been
         uploaded by other means than phpMyAdmin (for example, ftp).  Those files
-	are available under a drop-down box when you click the database or
-	table name, then the Import tab.
+    are available under a drop-down box when you click the database or
+    table name, then the Import tab.
         <br /><br />
 
         If you want different directory for each user, %u will be replaced
@@ -1724,8 +1725,8 @@ $cfg['TrustedProxies'] =
         If you want different directory for each user, %u will be replaced
         with username.<br /><br />
 
-	Please note that the directory must exist and has to be writable for 
-	the user running webserver.<br /><br />
+    Please note that the directory must exist and has to be writable for
+    the user running webserver.<br /><br />
 
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
@@ -1831,7 +1832,7 @@ $cfg['TrustedProxies'] =
     <dt id="cfg_MaxExactCountViews">$cfg['MaxExactCountViews'] integer</dt>
     <dd>For VIEWs, since obtaining the exact count could have an
     impact on performance, this value is the maximum to be displayed, using
-    a <code>SELECT COUNT ... LIMIT</code>. The default value of 0 bypasses 
+    a <code>SELECT COUNT ... LIMIT</code>. The default value of 0 bypasses
     any row counting.
     </dd>
 
@@ -2009,8 +2010,8 @@ $cfg['TrustedProxies'] =
         to the end of every page displayed in the main window with profiling
         statistics for that page.<br />
         You may need to increase the maximum execution time for this to
-	complete successfully.<i>Profiling was removed from the code for
-	version 2.9.0 due to licensing issues.</i></dd>
+    complete successfully.<i>Profiling was removed from the code for
+    version 2.9.0 due to licensing issues.</i></dd>
 
     <dt id="cfg_DBG_profile_threshold">$cfg['DBG']['profile']['threshold'] float (units in milliseconds)</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
@@ -2110,7 +2111,7 @@ $cfg['TrustedProxies'] =
     'Transformation options'.</p>
 
     <ul><li>The field 'MIME-type' is a drop-down field. Select the MIME-type
-	that corresponds to the column's contents. Please note that
+    that corresponds to the column's contents. Please note that
         transformations are inactive as long as no MIME-type is selected.</li>
 
     <li>The field 'Browser transformation' is a drop-down field. You can choose from a
@@ -2377,7 +2378,7 @@ $cfg['TrustedProxies'] =
 
 <p> These features are based on the <tt>gzencode()</tt> and <tt>bzcompress()</tt>
     PHP functions to be more independent of the platform (Unix/Windows, Safe Mode
-    or not, and so on). So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib/Bzip2
+    or not, and so on). So, you must have PHP4&nbsp;&gt;=&nbsp;4.0.4 and Zlib/Bzip2
     support (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).<br />
     We faced PHP crashes when trying to download a dump with MS Internet
     Explorer when phpMyAdmin is run with a release candidate of PHP 4.2.0. In
@@ -2513,8 +2514,8 @@ $cfg['TrustedProxies'] =
     <a id="faqmysqlversions" href="#faq1_17">1.17 Which MySQL versions does phpMyAdmin
     support?</a></h4>
 
-<p> In phpMyAdmin 3.0.x, versions starting with MySQL 5.0.1 are 
-fully supported. phpMyAdmin may connect to your MySQL server 
+<p> In phpMyAdmin 3.0.x, versions starting with MySQL 5.0.1 are
+fully supported. phpMyAdmin may connect to your MySQL server
 using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
@@ -2533,7 +2534,7 @@ using PHP's classic
     php Win32 builds.</p>
 
 <h5 id="faq1_17a">
-	<a href="#faq1_17a">1.17a I cannot connect to the MySQL server. It always returns the error
+    <a href="#faq1_17a">1.17a I cannot connect to the MySQL server. It always returns the error
     message, &quot;Client does not support authentication protocol requested
     by server; consider upgrading MySQL client&quot;</a></h5>
 
@@ -2722,7 +2723,7 @@ SetInputFilter PHP
     mode under <abbr title="Internet Information Services">IIS</abbr> 5.1.</p>
 
 <ol><li>In your <tt>php.ini</tt> file, set <tt>cgi.rfc2616_headers = 0</tt></li>
-    <li>In <tt>Web Site Properties -> File/Directory Security -> Anonymous
+    <li>In <tt>Web Site Properties -&gt; File/Directory Security -&gt; Anonymous
         Access</tt> dialog box, check the <tt>Anonymous access</tt> checkbox and
         uncheck any other checkboxes (i.e. uncheck <tt>Basic authentication</tt>,
         <tt>Integrated Windows authentication</tt>, and <tt>Digest</tt> if it's
@@ -2960,8 +2961,8 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     <li>In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
         of &quot;;&quot; will cause this error. Replace it with &quot;&amp;;&quot;.
     </li>
-    <li>If you are using <a href="http://www.hardened-php.net/">Hardened-PHP</a>, 
-       you might want to increase 
+    <li>If you are using <a href="http://www.hardened-php.net/">Hardened-PHP</a>,
+       you might want to increase
        <a href="http://www.hardened-php.net/hphp/troubleshooting.html">request limits</a>.
     </li>
     <li>The directory specified in the <tt>php.ini</tt> directive <tt>session.save_path</tt> does not exist or is read-only.
@@ -3124,7 +3125,7 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 </p>
 
 <h4 id="faq3_14">
-	<a href="#faq3_14">3.14 I am not able to browse a table when I don't have the right to SELECT one of the columns.</a></h4>
+    <a href="#faq3_14">3.14 I am not able to browse a table when I don't have the right to SELECT one of the columns.</a></h4>
 <p>
     This has been a known limitation of phpMyAdmin since the beginning and
     it's not likely to be solved in the future.
@@ -3248,7 +3249,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
     while a domain name is defined in the config file.</p>
 
 <h4 id="faq4_8">
-	<a href="#faq4_8">4.8 Which parameters can I use in the URL that starts phpMyAdmin?</a></h4>
+    <a href="#faq4_8">4.8 Which parameters can I use in the URL that starts phpMyAdmin?</a></h4>
 
 <p>When starting phpMyAdmin, you can use the <tt>db</tt>, <tt>pma_username</tt>, <tt>pma_password</tt> and <tt>server</tt> parameters. This last one can contain either the numeric host index (from <tt>$i</tt> of the configuration file) or one of the host names present in the configuration file. Using <tt>pma_username</tt> and <tt>pma_password</tt> has been tested along with the usage of 'cookie' <tt>auth_type</tt>.</p>
 
@@ -4335,7 +4336,7 @@ Original Credits of Version 2.1.0
          applications.</li>
     <li><a href="http://www.wikipedia.org/wiki/Port_%28computing%29">port</a>
          - a connection through which data is sent and received.</li>
-	 <li><a href="http://www.wikipedia.org/wiki/Request_for_Comments">RFC</a>
+    <li><a href="http://www.wikipedia.org/wiki/Request_for_Comments">RFC</a>
          - Request for Comments (RFC) documents are a series of memoranda
          encompassing new research, innovations, and methodologies applicable to
          Internet technologies.</li>
