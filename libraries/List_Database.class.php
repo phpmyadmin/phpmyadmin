@@ -383,10 +383,10 @@ require_once './libraries/List.class.php';
             if (count($dbs) > 1) {
                 $return .= '<li>' . htmlspecialchars($group) . '<ul>' . "\n";
                 // wether display db_name cuted by the group part
-                $cut = htmlspecialchars($db['disp_name_cut']);
+                $cut = true;
             } else {
                 // .. or full
-                $cut = htmlspecialchars($db['disp_name']);
+                $cut = false;
             }
             foreach ($dbs as $db) {
                 $return .= '<li';
@@ -399,7 +399,12 @@ require_once './libraries/List.class.php';
                 }
                 $return .= ' href="index.php?' . PMA_generate_common_url($db['name'])
                     . '" target="_parent">';
-                $return .= $cut .' (' . $db['num_tables'] . ')';
+                if ($cut) {
+                    $return .= htmlspecialchars($db['disp_name_cut']);
+                } else {
+                    $return .= htmlspecialchars($db['disp_name']);
+                }
+                $return .= ' (' . $db['num_tables'] . ')';
                 $return .= '</a></li>' . "\n";
             }
             if (count($dbs) > 1) {
