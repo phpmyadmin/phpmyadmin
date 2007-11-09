@@ -33,6 +33,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1826022 [privileges] unable to add user (MySQL 3.23) since PMA 2.11.2
 - bug #1823045 [import] Error importing file with lowercase "delimiter"
 
+2.11.2.1 (not yet released)
+- fixed possible SQL injection using database name
+
 2.11.2.0 (2007-10-27)
 - patch #1791576 HTTP auth: support REDIRECT_REMOTE_USER, thanks to Allard
 + [lang] Serbian update, thanks to Mihailo Stefanovic
