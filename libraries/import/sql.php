@@ -66,6 +66,11 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
     }
     // Current length of our buffer
     $len = strlen($buffer);
+    // prepare an uppercase copy of buffer for PHP < 5
+    // outside of the loop
+    if (PMA_PHP_INT_VERSION < 50000) {
+        $buffer_upper = strtoupper($buffer);
+    }
     // Grab some SQL queries out of it
      while ($i < $len) {
         $found_delimiter = false;
@@ -109,7 +114,11 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $p7 = $big_value;
         }
         // catch also "delimiter"
-        $p8 = stripos($buffer, 'DELIMITER', $i);
+        if (PMA_PHP_INT_VERSION >= 50000) {
+            $p8 = stripos($buffer, 'DELIMITER', $i);
+        } else {
+            $p8 = strpos($buffer_upper, 'DELIMITER', $i);
+        }
         if ($p8 === FALSE || $p8 >= ($len - 11) || $buffer[$p8 + 9] > ' ') {
             $p8 = $big_value;
         }
