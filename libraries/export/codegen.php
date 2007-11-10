@@ -6,11 +6,14 @@
  * @version $Id$
  */
 
-define("CG_FORMAT_NHIBERNATE_CS", "NHibernate C# DO");
-define("CG_FORMAT_NHIBERNATE_XML", "NHibernate XML");
+// this gets executed twice so avoid a notice
+if (! defined('CG_FORMAT_NHIBERNATE_CS')) {
+    define("CG_FORMAT_NHIBERNATE_CS", "NHibernate C# DO");
+    define("CG_FORMAT_NHIBERNATE_XML", "NHibernate XML");
 
-define("CG_HANDLER_NHIBERNATE_CS_BODY", "handleNHibernateCSBody");
-define("CG_HANDLER_NHIBERNATE_XML_BODY", "handleNHibernateXMLBody");
+    define("CG_HANDLER_NHIBERNATE_CS_BODY", "handleNHibernateCSBody");
+    define("CG_HANDLER_NHIBERNATE_XML_BODY", "handleNHibernateXMLBody");
+}
 
 $CG_FORMATS = array(CG_FORMAT_NHIBERNATE_CS, CG_FORMAT_NHIBERNATE_XML);
 $CG_HANDLERS = array(CG_HANDLER_NHIBERNATE_CS_BODY, CG_HANDLER_NHIBERNATE_XML_BODY);
