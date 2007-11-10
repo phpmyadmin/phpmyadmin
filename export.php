@@ -170,6 +170,9 @@ function PMA_exportOutputHandler($line)
         }
     } else {
         if ($GLOBALS['asfile']) {
+            if ($GLOBALS['output_charset_conversion']) {
+                $line = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $line);
+            }
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
@@ -184,9 +187,6 @@ function PMA_exportOutputHandler($line)
                 } // end if
             } else {
                 // We export as file - output normally
-                if ($GLOBALS['output_charset_conversion']) {
-                    $line = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $line);
-                }
                 echo $line;
             }
         } else {
