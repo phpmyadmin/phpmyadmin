@@ -245,7 +245,7 @@ if ($is_select) { // see line 141
     }
 } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
     $is_affected = true;
-} elseif (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
+} elseif (preg_match('@^[[:space:]]*SHOW[[:space:]]+@i', $sql_query)) {
     $is_show     = true;
 } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
     $is_maint    = true;
