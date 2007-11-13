@@ -479,6 +479,9 @@ $this_url_params = array_merge($url_params,
 </fieldset>
 </div>
 <?php if (PMA_Partition::havePartitioning()) {
+    $partition_names = PMA_Partition::getPartitionNames($db, $table);
+    // show the Partition maintenance section only if we detect a partition
+    if (! is_null($partition_names[0])) {
     ?>
 <div id="div_partition_maintenance">
 <form method="post" action="tbl_operations.php">
@@ -486,24 +489,23 @@ $this_url_params = array_merge($url_params,
 <fieldset>
  <legend><?php echo $strPartitionMaintenance; ?></legend>
 <?php
-    $partition_names = PMA_Partition::getPartitionNames($db, $table);
-    $html_select = '<select name="partition_name">' . "\n";
-    foreach($partition_names as $one_partition) {
-        $one_partition = htmlspecialchars($one_partition);
-        $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
-    }
-    $html_select .= '</select>' . "\n";
-    printf($GLOBALS['strPartition'], $html_select);
-    unset($partition_names, $one_partition, $html_select);
-    $choices = array(
-        'ANALYZE' => $strAnalyze, 
-        'CHECK' => $strCheck, 
-        'OPTIMIZE' => $strOptimize, 
-        'REBUILD' => $strRebuild,
-        'REPAIR' => $strRepair);
-    PMA_generate_html_radio('partition_operation', $choices, '', false);
-    unset($choices);
-    echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
+        $html_select = '<select name="partition_name">' . "\n";
+        foreach($partition_names as $one_partition) {
+            $one_partition = htmlspecialchars($one_partition);
+            $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
+        }
+        $html_select .= '</select>' . "\n";
+        printf($GLOBALS['strPartition'], $html_select);
+        unset($partition_names, $one_partition, $html_select);
+        $choices = array(
+            'ANALYZE' => $strAnalyze, 
+            'CHECK' => $strCheck, 
+            'OPTIMIZE' => $strOptimize, 
+            'REBUILD' => $strRebuild,
+            'REPAIR' => $strRepair);
+        PMA_generate_html_radio('partition_operation', $choices, '', false);
+        unset($choices);
+        echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
 ?>
 </fieldset>
 <fieldset class="tblFooters">
@@ -512,6 +514,7 @@ $this_url_params = array_merge($url_params,
 </form>
 </div>
 <?php
+        } // end if
     } // end if
 
 // Referential integrity check
