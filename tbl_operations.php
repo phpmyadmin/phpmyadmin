@@ -506,7 +506,15 @@ $this_url_params = array_merge($url_params,
         PMA_generate_html_radio('partition_operation', $choices, '', false);
         unset($choices);
         echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
+        // I'm not sure of the best way to display that; this link does
+        // not depend on the Go button
+    $this_url_params = array_merge($url_params,
+        array(
+            'sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' REMOVE PARTITIONING'
+            ));
 ?>
+    <br /><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
+            <?php echo $strRemovePartitioning; ?></a>
 </fieldset>
 <fieldset class="tblFooters">
     <input type="submit" name="submit_partition" value="<?php echo $strGo; ?>" />

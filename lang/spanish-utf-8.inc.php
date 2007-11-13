@@ -1033,4 +1033,5 @@ $strCheck = 'Check';  //to translate
 $strOptimize = 'Optimize';  //to translate
 $strRebuild = 'Rebuild';  //to translate
 $strRepair = 'Repair';  //to translate
+$strRemovePartitioning = 'Remove partitioning';  //to translate
 ?>

@@ -657,6 +657,7 @@ $strRelationView = 'Relation view';
 $strReloadingThePrivileges = 'Reloading the privileges';
 $strReloadPrivileges = 'Reload privileges';
 $strReload = 'Reload';
+$strRemovePartitioning = 'Remove partitioning';
 $strRemoveSelectedUsers = 'Remove selected users';
 $strRenameDatabaseOK = 'Database %s has been renamed to %s';
 $strRenameTableOK = 'Table %s has been renamed to %s';
