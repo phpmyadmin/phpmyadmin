@@ -255,7 +255,7 @@ function PMA_DBI_getError($link = null)
 //            return false;
     }
 
-    if (null !== $link) {
+    if (null !== $link && false !== $link) {
         $error_number = mysql_errno($link);
         $error_message = mysql_error($link);
     } else {
