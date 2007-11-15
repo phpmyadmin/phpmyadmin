@@ -352,10 +352,12 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 
 
     //page redirection
-    $pageNow = @floor($_SESSION['userconf']['pos'] / $_SESSION['userconf']['max_rows']) + 1;
-    $nbTotalPage = @ceil($unlim_num_rows / $_SESSION['userconf']['max_rows']);
+    // (unless we are showing all records)
+    if ('all' != $_SESSION['userconf']['max_rows']) { //if1
+        $pageNow = @floor($_SESSION['userconf']['pos'] / $_SESSION['userconf']['max_rows']) + 1;
+        $nbTotalPage = @ceil($unlim_num_rows / $_SESSION['userconf']['max_rows']);
 
-    if ($nbTotalPage > 1){ //if1
+        if ($nbTotalPage > 1){ //if2
        ?>
    <td>
        &nbsp;&nbsp;&nbsp;
@@ -364,32 +366,32 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         <?php //<form> for keep the form alignment of button < and << ?>
         <form action="none">
         <?php
-        $_url_params = array(
-            'db'        => $db,
-            'table'     => $table,
-            'sql_query' => $sql_query,
-            'goto'      => $goto,
-        );
-        echo PMA_pageselector(
-                 'sql.php' . PMA_generate_common_url($_url_params) . PMA_get_arg_separator('js'),
-                 $_SESSION['userconf']['max_rows'],
-                 $pageNow,
-                 $nbTotalPage,
-                 200,
-                 5,
-                 5,
-                 20,
-                 10,
-                 $GLOBALS['strPageNumber']
-          );
+            $_url_params = array(
+                'db'        => $db,
+                'table'     => $table,
+                'sql_query' => $sql_query,
+                'goto'      => $goto,
+            );
+            echo PMA_pageselector(
+                     'sql.php' . PMA_generate_common_url($_url_params) . PMA_get_arg_separator('js'),
+                     $_SESSION['userconf']['max_rows'],
+                    $pageNow,
+                    $nbTotalPage,
+                    200,
+                    5,
+                    5,
+                    20,
+                    10,
+                    $GLOBALS['strPageNumber']
+            );
         ?>
         </form>
     </td>
         <?php
+        } //_if2
     } //_if1
 
-
-    // Show all the records if allowed
+    // Display the "Show all" button if allowed
     if ($GLOBALS['cfg']['ShowAll'] && ($num_rows < $unlim_num_rows)) {
         echo "\n";
         ?>
