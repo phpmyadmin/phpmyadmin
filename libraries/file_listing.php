@@ -21,7 +21,9 @@ function PMA_getDirContent($dir, $expression = '')
             $dir .= '/';
         }
         while ($file = @readdir($handle)) {
-            if (is_file($dir . $file) && ($expression == '' || preg_match($expression, $file))) {
+        // for PHP < 5.2.4, is_file() gives a warning when using open_basedir
+        // and opening '..'
+            if ('..' != $file && is_file($dir . $file) && ($expression == '' || preg_match($expression, $file))) {
                 $result[] = $file;
             }
         }
