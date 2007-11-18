@@ -39,6 +39,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   keys and AUTO_INCREMENT
 - [display] Division by zero when showing all records (page selector)
 - bug #1828265 [privileges] No weird characters in generated password
+- bug #1759194 [import] open_basedir warning
 
 2.11.2.1 (2007-11-11)
 - fixed possible SQL injection using database name
