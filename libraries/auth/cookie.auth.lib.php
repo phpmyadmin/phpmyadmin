@@ -233,7 +233,7 @@ if (top != self) {
     <fieldset class="tblFooters">
         <input value="<?php echo $GLOBALS['strGo']; ?>" type="submit" />
         <input type="hidden" name="lang" value="<?php echo $GLOBALS['lang']; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $GLOBALS['convcharset']; ?>" />
+        <input type="hidden" name="convcharset" value="<?php echo htmlspecialchars($GLOBALS['convcharset'], ENT_QUOTES); ?>" />
     <?php
     if (!empty($GLOBALS['target'])) {
         echo '            <input type="hidden" name="target" value="' . htmlspecialchars($GLOBALS['target']) . '" />' . "\n";
