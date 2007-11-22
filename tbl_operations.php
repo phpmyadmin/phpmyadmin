@@ -538,8 +538,10 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
     if ($foreign) {
         ?>
     <!-- Referential integrity check -->
+<div id="div_referential_integrity">
+<fieldset>
+ <legend><?php echo $strReferentialIntegrity; ?></legend>
     <ul>
-        <?php echo $strReferentialIntegrity; ?><br />
         <?php
         echo "\n";
         foreach ($foreign AS $master => $arr) {
@@ -571,6 +573,8 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
         unset($foreign_table, $join_query);
         ?>
     </ul>
+   </fieldset>
+  </div>
         <?php
     } // end if ($foreign)
 
