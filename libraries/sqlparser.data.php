@@ -545,9 +545,9 @@ $PMA_SQPdata_reserved_word = array (
     'MAX_USER_CONNECTIONS',
     'MEDIUM',
     'MERGE',
-    'MIN_ROWS',
     'MINUTE',
     'MINUTE_SECOND',
+    'MIN_ROWS',
     'MODE',
     'MODIFY',
     'MONTH',
@@ -605,8 +605,8 @@ $PMA_SQPdata_reserved_word = array (
     'RLIKE',
     'ROLLBACK',
     'ROW',
-    'ROW_FORMAT',
     'ROWS',
+    'ROW_FORMAT',
     'SECOND',
     'SELECT',
     'SEPARATOR',
@@ -681,7 +681,23 @@ $PMA_SQPdata_reserved_word = array (
  * @global integer MySQL reserved words count
  */
 $PMA_SQPdata_reserved_word_cnt = 279;
-
+/**
+ * The previous array must be sorted so that the binary search work. 
+ * Sometimes a word is not added in the correct order, so
+ * this debugging code shows the problem. The same should be
+ * done for all arrays.
+ */
+/*
+$original = $PMA_SQPdata_reserved_word;
+sort($PMA_SQPdata_reserved_word);
+$difference = array_diff_assoc($original, $PMA_SQPdata_reserved_word);
+echo '<pre>';
+print_r($difference);
+echo '</pre>';
+echo '<pre>';
+print_r($PMA_SQPdata_reserved_word);
+echo '</pre>';
+*/
 /**
  * words forbidden to be used as column or table name wihtout quotes
  * as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html
