@@ -41,6 +41,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [display] Division by zero when showing all records (page selector)
 - bug #1828265 [privileges] No weird characters in generated password
 - bug #1759194 [import] open_basedir warning
+- bug #1793948 [parser] ROW_FORMAT incorrectly parsed
 
 2.11.2.2 (2007-11-20)
 - bug #1835123 [security] fixed XSS vulnerability on login page, 
