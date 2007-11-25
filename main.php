@@ -290,16 +290,18 @@ if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd, we can use it instead
  * of strpos().
+ * If no default server is set, PMA_DBI_get_client_info() is not defined yet.
  */
-$_client_info = PMA_DBI_get_client_info();
-if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
-    trigger_error(PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
-            $_client_info,
-            substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-')))),
-        E_USER_NOTICE);
+if (function_exists('PMA_DBI_get_client_info')) {
+    $_client_info = PMA_DBI_get_client_info();
+    if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
+        trigger_error(PMA_sanitize(sprintf($strMysqlLibDiffersServerVersion,
+                $_client_info,
+                substr(PMA_MYSQL_STR_VERSION, 0, strpos(PMA_MYSQL_STR_VERSION . '-', '-')))),
+            E_USER_NOTICE);
+    }
+    unset($_client_info);
 }
-unset($_client_info);
-
 /**
  * prints list item for main page
  *
