@@ -19,12 +19,9 @@
 if (!@function_exists('session_name')) {
     PMA_fatalError('strCantLoad', 'session');
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
-    $_SESSION = array();
-    if (isset($_COOKIE[session_name()])) {
-        PMA_removeCookie(session_name());
-    }
-    session_unset();
-    @session_destroy();
+    // Do not delete the existing session, it might be used by other 
+    // applications; instead just close it.
+    session_write_close();
 }
 
 // disable starting of sessions before all settings are done
