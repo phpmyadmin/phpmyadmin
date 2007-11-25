@@ -1226,7 +1226,7 @@ function PMA_profilingSupported() {
     // 5.0.37 has profiling but for example, 5.1.20 does not
     // (avoid a trip to the server for MySQL before 5.0.37)
     // and do not set a constant as we might be switching servers
-    if (PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
+    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
         return true;
     } else {
         return false;
