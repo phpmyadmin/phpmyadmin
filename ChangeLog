@@ -30,6 +30,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - undefined PMA_MYSQL_INT_VERSION when no default server is set 
 - bug #1763343 [session] Behavior with session.auto_start enabled 
 + [lang] Hungarian update, thanks to Mihály Mészáros 
+- patch #1837691 [query window] js errors, thanks to Victor Volkov 
 
 2.11.2.2 (2007-11-20)
 - bug #1835123 [security] fixed XSS vulnerability on login page, 

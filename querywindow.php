@@ -221,8 +221,10 @@ if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
 if (PMA_isValid($_REQUEST['init'])) {
     echo 'PMA_querywindowResize();' . "\n";
 }
+if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
+    echo "document.getElementById('sqlquery').focus();" . "\n";
+}
 ?>
-document.getElementById('sqlquery').focus();
 }
 
 //]]>
