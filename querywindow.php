@@ -184,11 +184,13 @@ if (PMA_isValid($_REQUEST['init'])) {
     );
 }
 // always set focus to the textarea
-$js_events[] = array(
-    'object'    => 'window',
-    'event'     => 'load',
-    'function'  => 'PMA_querywindowSetFocus',
-);
+if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
+    $js_events[] = array(
+        'object'    => 'window',
+        'event'     => 'load',
+        'function'  => 'PMA_querywindowSetFocus',
+    );
+}
 
 /**
  * start HTTP/HTML output
