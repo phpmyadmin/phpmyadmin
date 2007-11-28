@@ -75,7 +75,7 @@ $GLOBALS['cfg']['BrowseMarkerBackground']   = '#e9c7b4'; // background of the ma
 // the font family as a valid css font family value,
 // if not set the browser default will be used
 // (depending on browser, DTD and system settings)
-$GLOBALS['cfg']['FontFamily']               = 'Arial, Helvetica, sans-serif';
+$GLOBALS['cfg']['FontFamily']               = 'Tahoma, Arial, Helvetica, sans-serif';
 $GLOBALS['cfg']['FontFamilyFixed']          = '\'Courier New\', Courier, monospace'; // fixed width font family, used in textarea
 $GLOBALS['cfg']['FontSize']                 = '11'; // default width of the font
 $GLOBALS['cfg']['FontSizePrefix']           = 'px'; // pt (Points) | px (Pixel), default is 'pt'

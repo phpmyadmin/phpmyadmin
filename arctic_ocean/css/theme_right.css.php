@@ -16,31 +16,45 @@
     //            Added some special fixes
     //            for better behaviors on old IE
     $forIE = false;
-    if (defined('PMA_USR_BROWSER_AGENT') && PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 7)
+    if (defined('PMA_USR_BROWSER_AGENT') && PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 7) {
         $forIE = true;
+    }
 
-    // 2007-05-10 (mkkeck)
+    // 2007-08-24 (mkkeck)
     //            Get the whole http_url for the images
-    $ipath = ( (isset($GLOBALS['pma_http_url']) && !empty($GLOBALS['pma_http_url'])) ? $GLOBALS['pma_http_url'] : '../' )
-           . $_SESSION['PMA_Theme']->getImgPath();
+    $ipath = $_SESSION['PMA_Theme']->getImgPath();
 
-    // 2007-05-10 (mkkeck)
+    // 2007-08-24 (mkkeck)
     //            Get font-sizes
     $pma_fsize = $_SESSION['PMA_Config']->get('fontsize');
     $pma_fsize = preg_replace("/[^0-9]/", "", $pma_fsize);
-    $pma_fsize = @($pma_fsize / 100);
+    if (!empty($pma_fsize)) {
+        $pma_fsize = ($pma_fsize * 0.01);
+    } else {
+        $pma_fsize = 1;
+    }
     if ( isset($GLOBALS['cfg']['FontSize']) && !empty($GLOBALS['cfg']['FontSize']) ) {
         $usr_fsize = preg_replace("/[^0-9]/", "", $GLOBALS['cfg']['FontSize']);
-        $fsize     = ceil($usr_fsize * $pma_fsize) 
-                   . ( (isset($GLOBALS['cfg']['FontSizePrefix']) && !empty($GLOBALS['cfg']['FontSizePrefix'])) ? $GLOBALS['cfg']['FontSizePrefix'] : 'pt' );
-    } else
-        $fsize = $_SESSION['PMA_Config']->get('fontsize');
+    }
+    if (!isset($usr_fsize)) {
+        $usr_fsize = 11;
+    }
+    if ( isset($GLOBALS['cfg']['FontSizePrefix']) && !empty($GLOBALS['cfg']['FontSizePrefix']) ) {
+        $funit = strtolower($GLOBALS['cfg']['FontSizePrefix']);
+    }
+    if (!isset($funit) || ($funit!='px' && $funit != 'pt')) {
+        $funit = 'pt';
+    }
+    $fsize = $usr_fsize;
+    if ($pma_fsize) {
+        $fsize = number_format( (intval($usr_fsize) * $pma_fsize), 0 );
+    }
 
     // 2007-05-10 (mkkeck)
     //            Get the file name for the css-style
     //    TODO:
     //        replace on /libraries/header_meta_style.inc.php
-    //            echo '<link rel="stylesheet" type="text/css" href="' 
+    //            echo '<link rel="stylesheet" type="text/css" href="'
     //               . (defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : './')
     //               . 'css/phpmyadmin.css.php?' . PMA_generate_common_url()
     //               . '&amp;js_frame=' . ( isset($print_view) ? 'print' : 'right')
@@ -62,29 +76,39 @@
         } else if (stristr($_GET['type'], 'querywin')) {
             // query window
             $tmp_css_type = 'popup';
+        } else if (stristr($_GET['type'], 'inline')) {
+            // inline popup
+            $tmp_css_type = 'inline';
         }
     }
-    if ($GLOBALS['cfg']['LightTabs'])
-        $tmp_css_type = 'default';
+    if ($GLOBALS['cfg']['LightTabs']) {
+        $tmp_css_type = '';
+    }
 ?>
 /* BASICS */
-html, td, body {
+html, body, td, th {
 <?php if (!empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:             <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } else { ?>
+    font-family:             sans-serif;
 <?php } ?>
-    font-size:               <?php echo $fsize; ?>;
+    font-size:               <?php echo $fsize . $funit; ?>;
 }
 body {
     background:              <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+<?php if ($tmp_css_type != 'inline') { ?>
     background-attachment:   fixed;
     background-image:        url('<?php echo $ipath; ?>wbg_right.jpg');
     background-position:     100% 100%;
     background-repeat:       no-repeat;
+<?php } ?>
     color:                   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 <?php if ($tmp_css_type == 'browse') { ?>
     margin:                  55px 5px 5px 5px;
 <?php } else if ($tmp_css_type == 'popup') { ?>
     margin:                  25px 5px 5px 5px;
+<?php } else if ($tmp_css_type == 'inline') { ?>
+    margin:                  0px 0px 0px 0px;
 <?php } else { ?>
     margin:                  5px 5px 5px 5px;
 <?php } ?>
@@ -107,13 +131,13 @@ a:hover {
 a img         { border:      none;    }
 button        { display:     inline;  }
 h1, h2, h3    { font-weight: bold;    }
-h1            { font-size:   130%;    }
-h2            { font-size:   120%;    }
-h3            { font-size:   110%;    }
+h1            { font-size:   <?php echo number_format( ($fsize * 1.50), 0 ) . $funit; ?>; }
+h2            { font-size:   <?php echo number_format( ($fsize * 1.35), 0 ) . $funit; ?>; }
+h3            { font-size:   <?php echo number_format( ($fsize * 1.20), 0 ) . $funit; ?>; }
 
 img.icon {
-    margin-left:             2px;
-    margin-right:            2px;
+    margin-left:             <?php echo number_format( ($fsize * 0.1), 0 ) . $funit; ?>;
+    margin-right:            <?php echo number_format( ($fsize * 0.1), 0 )  . $funit; ?>;
 }
 img.lightbulb  { cursor:     pointer; }
 dfn, dfn:hover { font-style: normal; }
@@ -123,13 +147,13 @@ hr {
     background:              #585880;
     border:                  1px none #585880;
     height:                  1px;
-    margin-bottom:           5px;
-    margin-top:              5px;
+    margin-bottom:           <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
+    margin-top:              <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
 }
 
 /* TABLES */
 table caption, table th, table td {
-    padding:                 2px 2px 2px 2px;
+    padding:                 <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?>;
     vertical-align:          top;
 }
 table tr.odd th, table tr.odd td, .odd {
@@ -169,7 +193,7 @@ th {
     color:                   <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:              <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-table caption.tblHeaders { background-image: url('<?php echo $ipath; ?>tbg_th0.png'); }
+table caption.tblHeaders, th.tblHeaders { background-image: url('<?php echo $ipath; ?>tbg_th0.png'); }
 thead th                 { background-image: url('<?php echo $ipath; ?>tbg_th1.png'); }
 
 /* end TABLES */
@@ -183,21 +207,21 @@ form {
 fieldset {
     background:              transparent;
     border:                  1px solid #585880;
-    margin-top:              5px;
-    padding:                 5px;
+    margin-top:              <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
+    padding:                 <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
 
 }
 fieldset fieldset {
     background:              transparent;
-    margin:                  5px;
+    margin:                  <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
 }
 fieldset legend, fieldset fieldset legend {
     background-position:     left top;
     background-repeat:       repeat-x;
     border:                  1px solid #585880;
     color:                   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-    margin-bottom:           5px;
-    padding:                 3px 5px 3px 5px;
+    margin-bottom:           <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
+    padding:                 <?php echo number_format( ($fsize * 0.3), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.3), 0 ) . $funit; ?> <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
 }
 fieldset legend {
     background-color:        <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
@@ -225,7 +249,7 @@ fieldset.tblFooters {
     color:                   <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     float:                   none;
     margin-top:              0px;
-    margin-bottom:           5px;
+    margin-bottom:           <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
     text-align:              center;
 }
 
@@ -275,7 +299,7 @@ button.mult_submit {
     color:                   #000000;
     cursor:                  move;
     display:                 inline;
-    font-size:               80%;
+    font-size:               <?php echo number_format( ($fsize * 0.85), 0 ) . $funit; ?>;
     overflow:                hidden;
     position:                absolute;
     visibility:              inherit;
@@ -285,7 +309,7 @@ button.mult_submit {
 
 /* PARSER */
 .syntax {
-    font-size:               80%;
+    font-size:               <?php echo number_format( ($fsize * 0.85), 0 ) . $funit; ?>;
 }
 .syntax_comment {
     padding-left:            5px;
@@ -385,7 +409,7 @@ fieldset.confirmation legend {
     background-image:        url('<?php echo $ipath; ?>s_really.png');
     background-repeat:       no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) { ?>
-    background-position:     5px 50%;
+    background-position:     1px 50%;
     padding:                 2px 2px 2px 25px;
         <?php } else { ?>
     background-position:     97% 50%;
@@ -409,7 +433,7 @@ fieldset.confirmation legend {
 
 .tblcomment {
     color:                   #000099;
-    font-size:               70%;
+    font-size:               <?php echo number_format( ($fsize * 0.70), 0 ) . $funit; ?>;
     font-weight:             normal;
 }
 
@@ -533,7 +557,7 @@ a.tabactive:link, a.tabactive:active, a.tabactive:visited { color: #585880; }
 #serverinfo .separator img {
     width:                   9px;
     height:                  11px;
-    margin:                  0px 2px 0px 2px;
+    margin:                  0px <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?> 0px <?php echo number_format( ($fsize * 0.2), 0 ) . $funit; ?>;
     vertical-align:          middle;
 }
 #topmenucontainer {
@@ -620,42 +644,56 @@ span.tab img, span.tabcaution img {
     opacity:                 0.5;
 }
 <?php } ?>
+
+div.tablepagenav, div.tablepagenav table tr td {
+    font-size:               <?php echo number_format( ($fsize * 0.80), 0 ) . $funit; ?>;
+    text-align:              center;
+}
+div.tablepagenav {
+    border-bottom:           1px solid #585880;
+    border-top:              1px solid #585880;
+    margin-bottom:           <?php echo number_format( ($fsize * 0.1), 0 ) . $funit; ?>;
+    margin-top:              <?php echo number_format( ($fsize * 0.5), 0 ) . $funit; ?>;
+}
+div.tablepagenav form {
+    margin:                  0px 0px 0px 0px;
+    padding:                 0px 0px 0px 0px;
+}
+div.tablepagenav table tr td { vertical-align: middle; }
+div.tablepagenav table tr td input, div.tablepagenav table tr td input.textfield {
+    font-size:               <?php echo number_format( ($fsize * 0.80), 0 ) . $funit; ?>;
+    text-align:              center;
+}
+div.tablepagenav table tr td input.textfield { width: 25px; }
+div.tablepagenav table tr td select {
+    font-size:               <?php echo number_format( ($fsize * 0.80), 0 ) . $funit; ?>;
+}
+
 /* -- Top-Navi -- */
 
 
 /* CALENDAR */
-table.calendar {
-    width:                   100%;
-}
+table.calendar { width: 100%; }
 table.calendar td {
-    color:                   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background-color:        <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    color:                   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     text-align:              center;
 }
-table.calendar td a {
-    display:                 block;
-}
-
+table.calendar td a { display: block; }
 table.calendar td a:hover {
-    color:                   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
     background-color:        <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color:                   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
-
 table.calendar th {
-    color:                   <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background-color:        <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    color:                   <?php echo $GLOBALS['cfg']['ThColor']; ?>;
 }
-
 table.calendar td.selected {
-    color:                   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
     background-color:        <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color:                   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
-img.calendar {
-    border:                  none;
-}
-#clock_data, form.clock {
-    text-align:              center;
-}
+img.calendar { border: none; }
+#clock_data, form.clock { text-align: center; }
 #clock_data input, form.clock  input {
     text-align:              center;
     width:                   50px;
@@ -665,29 +703,21 @@ img.calendar {
 
 /* table stats */
 div#tablestatistics {
-    border-bottom:           0.1em solid #669999;
-    margin-bottom:           0.5em;
-    padding-bottom:          0.5em;
+    border-bottom:           1px solid #669999;
+    margin-bottom:           5px;
+    padding-bottom:          5px;
 }
-
 div#tablestatistics table {
     float:                   <?php echo $left; ?>;
-    margin-bottom:           0.5em;
-    margin-<?php echo $right; ?>: 0.5em;
+    margin-bottom:           5px;
+    margin-<?php echo $right; ?>: 5px;
 }
-
-div#tablestatistics table caption {
-    margin-<?php echo $right; ?>: 0.5em;
-}
+div#tablestatistics table caption { margin-<?php echo $right; ?>: 5px; }
 /* END table stats */
 
 
 /* server privileges */
-#tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td {
-    vertical-align:          middle;
-}
+#tableuserrights td, #tablespecificuserrights td, #tabledatabases td { vertical-align: middle; }
 /* END server privileges */
 
 
@@ -699,17 +729,17 @@ div#tablestatistics table caption {
 }
 
 #TooltipContainer {
-    font-size:               inherit;
+    font-size:               <?php echo number_format( ($fsize * 0.85), 0, '', '' ) . $funit; ?>;
     color:                   #ffffff;
     background-color:        #9eb1cc;
     position:                absolute;
     z-index:                 99;
-    width:                   25em;
+    width:                   <?php echo number_format( ($fsize * 0.85 * 25), 0, '', '' ) . $funit; ?>;
     height:                  auto;
     overflow:                auto;
     visibility:              hidden;
     border:                  1px solid #333333;
-    padding:                 0.5em;
+    padding:                 <?php echo number_format( ($fsize * 0.85 * 0.5), 0, '', '' ) . $funit; ?>;
 <?php if ($forIE) { ?>
     filter:                  progid:DXImageTransform.Microsoft.Alpha(opacity=95);
 <?php } else { ?>
@@ -939,12 +969,40 @@ li#li_used_php_extension     { list-style-image: url('<?php echo $ipath; ?>b_dbp
 
 
 #body_browse_foreigners {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    margin:             0.5em 0.5em 0 0.5em;
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+    margin:             <?php echo (($tmp_css_type == 'inline') ? 6 : 4); ?>em 0.5em 0 0.5em;
+    text-align:         center;
 }
+#body_browse_foreigners form {
+    left:               0px;
+    background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+    margin:             0 0 0 0;
+    padding:            0 0 0 0;
+<?php if ($forIE) { ?>
+    position:           absolute;
+    top:                expression(eval(document.documentElement.scrollTop));
+<?php } else { ?>
+    position:           fixed;
+    top:                0px;
+<?php } ?>
+    width:              100%;
+}
+#body_browse_foreigners, #body_browse_foreigners th, #body_browse_foreigners td  {
+    font-size:          <?php echo number_format($fsize * 0.9) . $funit; ?>;
+    text-align:         <?php echo $left; ?>;
+}
+#body_browse_foreigners tfoot th {
+    background-color:        <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    background-image:        url('<?php echo $ipath; ?>tbg_th3.png');
+    background-position:     left bottom;
+}
+#body_browse_foreigners .formelement {
+    float: none; clear: both;
+}
+#body_browse_foreigners fieldset { text-align: center; padding: 0.1em 0.1em 0.1em 0.1em; margin: 0.1em 0.1em 0.1em 0.1em; }
 
 #bodyquerywindow {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 #bodythemes {
@@ -1003,10 +1061,10 @@ label.desc {
     float: <?php echo $left; ?>;
 }
 
-#buttonGo, #buttonNo, #buttonYes { font-weight: bold; }
-#buttonGo     { color: #585880; }
-#buttonNo     { color: #aa0000; }
-#buttonYes    { color: #006600; }
+#buttonGo, #buttonNo, #buttonYes, #submit, #cancel { font-weight: bold; }
+#buttonGo              { color: #585880; }
+#buttonNo, #cancel     { color: #aa0000; }
+#buttonYes, #submit    { color: #006600; }
 #listTable    { width: 260px;}
 #textSqlquery { width: 450px; }
 #textSQLDUMP {
