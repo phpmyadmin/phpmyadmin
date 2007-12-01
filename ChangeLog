@@ -47,6 +47,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Hungarian update, thanks to Mihály Mészáros 
 - patch #1837691 [query window] js errors, thanks to Victor Volkov
 - patch #1839052 [lang] catalan not in UTF-8, thanks to jaz001 
+- patch #1838626 [GUI] Login interface broken on Konqueror, thanks to fhimpe
 
 2.11.2.2 (2007-11-20)
 - bug #1835123 [security] fixed XSS vulnerability on login page, 

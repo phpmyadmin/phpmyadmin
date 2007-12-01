@@ -46,6 +46,10 @@ input, select, textarea {
     font-size: 1em;
 }
 
+div.item label {
+    white-space: nowrap;
+}
+
 /* @deprecated */
 .nowrap {
     white-space: nowrap;
