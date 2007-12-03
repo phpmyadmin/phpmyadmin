@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 2.11.4.0 (not yet released)
+- bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE 
 
 2.11.3.0 (not yet released)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
