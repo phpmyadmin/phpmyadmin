@@ -82,14 +82,6 @@ $search_options = array(
     '4' => $GLOBALS['strSearchOption4'],
 );
 
-if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
-    unset($_REQUEST['submit_search']);
-    $searched = '';
-} else {
-    $searched = htmlspecialchars($_REQUEST['search_str']);
-    $search_str = PMA_sqlAddslashes($_REQUEST['search_str'], true);
-}
-
 if (empty($_REQUEST['search_option']) || ! is_string($_REQUEST['search_option'])
  || ! array_key_exists($_REQUEST['search_option'], $search_options)) {
     $search_option = 1;
@@ -97,6 +89,20 @@ if (empty($_REQUEST['search_option']) || ! is_string($_REQUEST['search_option'])
 } else {
     $search_option = (int) $_REQUEST['search_option'];
     $option_str = $search_options[$_REQUEST['search_option']];
+}
+
+if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
+    unset($_REQUEST['submit_search']);
+    $searched = '';
+} else {
+    $searched = htmlspecialchars($_REQUEST['search_str']);
+    // For "as regular expression" (search option 4), we should not treat
+    // this as an expression that contains a LIKE (second parameter of
+    // PMA_sqlAddslashes()).
+    // 
+    // Usage example: If user is seaching for a literal $ in a regexp search,
+    // he should enter \$ as the value.
+    $search_str = PMA_sqlAddslashes($_REQUEST['search_str'], ($search_option == 4 ? false : true));
 }
 
 $tables_selected = array();
@@ -219,7 +225,6 @@ if (isset($_REQUEST['submit_search'])) {
         // VIEWs, anyway we have a WHERE clause that should limit results
         $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $sqlstr_where;
         $sql['delete']        = $sqlstr_delete . $sqlstr_from . $sqlstr_where;
-
         return $sql;
     } // end of the "PMA_getSearchSqls()" function
 

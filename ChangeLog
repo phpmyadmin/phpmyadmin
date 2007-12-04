@@ -7,6 +7,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 2.11.4.0 (not yet released)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE 
+- bug #1807816 [search] regular expression search doesn't work with
+  backslashes
 
 2.11.3.0 (not yet released)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
