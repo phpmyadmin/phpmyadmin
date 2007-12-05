@@ -12,7 +12,6 @@
  */
 
 $charset = 'iso-8859-15';
-$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';
