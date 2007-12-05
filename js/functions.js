@@ -159,7 +159,7 @@ function confirmQuery(theForm1, sqlQuery1)
         // For now, I just added a ^ to check for the statement at
         // beginning of expression
 
-        var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
+        var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
         var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
         var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
         if (do_confirm_re_0.test(sqlQuery1.value)
