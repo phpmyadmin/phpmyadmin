@@ -8,7 +8,7 @@
  * @subpackage Grid
  */
 
-define('_NaviGridVersion', 'navi Grid-2.11 2007-12');
+define('_NaviGridVersion', 'navi Grid-2.11 2007-11-22');
 // css for navigation.php (former left.php)
 
 if (!defined('PMA_MINIMUM_COMMON')) {
@@ -247,7 +247,7 @@ _M, 'padding-bottom:', _T, '.1em'; //for "__" spacing
 if ('IE' == PMA_USR_BROWSER_AGENT) {
     echo
     _M, 'margin:', _T, 0, //'1px 0 0 0',
-    _M, 'border:', _T, '1px solid ', $GLOBALS['cfg']['Navi2ndBGC'], //test
+//    _M, 'border:', _T, '1px solid ', $GLOBALS['cfg']['Navi2ndBGC'], //test
     _M, 'padding:', _T, 0;
 } else {
     echo
@@ -260,7 +260,7 @@ if ($GLOBALS['cfg']['LeftMarkerEnable']) { // orig:NaviMarkedColor???
 // marked items
     if (!$GLOBALS['cfg']['LeftFrameLight']) {
         echo
-        '#left_tableList > ul li.marked > a,', _K; //4 overiding Link(Color)
+        '#left_tableList > ul li.marked > a', _K; //4 overiding Link(Color)
     }
     echo
     '#left_tableList > ul li.marked',

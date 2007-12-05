@@ -85,51 +85,50 @@ $GLOBALS['cfg']['NaviTblBGC'] = '#eee'; //#dfdfdc'; // '#9df';
 $GLOBALS['cfg']['NaviDbNameBGC']   = $GLOBALS['cfg']['NaviLightMarkedBGC'];
 
 //$GLOBALS['cfg']['NaviFocusBGC']    = '#fd9';
-
-
+//$GLOBALS['cfg']['NaviDatabaseNameColor'] = '' ; // not used
 
 // ~~~~~~~~~~~~~~~~~           MAIN frame           ~~~~~~~~~~~~~~~~~~~~~~~~
 // foreground (text) color for the main frame
 $GLOBALS['cfg']['MainColor'] = '#000';
 
 // BackgroundColor for the main frame, different solution than in ´original´!
-$GLOBALS['cfg']['MainBGC']  = '#d6d6d6'; //e7e7e7 same as scrollbar color;
+$GLOBALS['cfg']['MainBGC']   = '#d6d6d6'; //e7e7e7 same as scrollbar color;
 
 //at least 1 bit difference from $GLOBALS['cfg']['MainBGC'] to show the grid!(?)
-$GLOBALS['cfg']['MainGridColor']        = '#d6d6d5';
+$GLOBALS['cfg']['MainGridColor']      = '#d6d6d5';
 
 // link color
-$GLOBALS['cfg']['MainLinkColor'] = '#00d';
+$GLOBALS['cfg']['MainLinkColor']      = '#00d';
 $GLOBALS['cfg']['MainLinkHoverColor'] = '#000';
 
 // link BGcolor
 // $GLOBALS['cfg']['MainLinkBGC'] = $GLOBALS['cfg']['MainBGC'];
-$GLOBALS['cfg']['MainLinkHoverBGC'] = '#fff';
-$GLOBALS['cfg']['MainActiveBGC']    = '#cfc';
+$GLOBALS['cfg']['MainLinkHoverBGC']   = '#fff';
+$GLOBALS['cfg']['MainActiveBGC']      = '#cfc';
 
 // foreground (text) color of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerColor'] = '#000';
 
 // background of the pointer in browse mode
-$GLOBALS['cfg']['BrowsePointerBGC'] = '#dfd';#f3f3f3'; // '#cfc';
+$GLOBALS['cfg']['BrowsePointerBGC']   = '#dfd';#f3f3f3'; // '#cfc';
 
 // foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerColor'] = '#000';
+$GLOBALS['cfg']['BrowseMarkerColor']  = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode
-$GLOBALS['cfg']['BrowseMarkerBGC'] = '#ffb'; // '#fc9';
+$GLOBALS['cfg']['BrowseMarkerBGC']    = '#ffb'; // '#fc9';
 
 // tab decorations
-$GLOBALS['cfg']['TabBGC']    = '#f3f3f3';//??
+$GLOBALS['cfg']['TabBGC']             = '#f3f3f3';//??
 
-$GLOBALS['cfg']['TabHoverColor']  = '#55f';
-$GLOBALS['cfg']['TabHoverBGC']    = '#fff'; //dfd
+$GLOBALS['cfg']['TabHoverColor']      = '#55f';
+$GLOBALS['cfg']['TabHoverBGC']        = '#fff'; //dfd
 
-$GLOBALS['cfg']['TabActiveColor'] = '#000';
-$GLOBALS['cfg']['TabActiveBGC']   = '#ffb'; //afa
+$GLOBALS['cfg']['TabActiveColor']     = '#000';
+$GLOBALS['cfg']['TabActiveBGC']       = '#ffb'; //afa
 
-$GLOBALS['cfg']['TabBorderColor'] = '#bbb';
-$GLOBALS['cfg']['TabUnderlineColor'] = '#888';
+$GLOBALS['cfg']['TabBorderColor']     = '#bbb';
+$GLOBALS['cfg']['TabUnderlineColor']  = '#888';
 
 
 // top (former legend)
@@ -339,7 +338,7 @@ if (!empty($GLOBALS['cfg']['customGrid']))
     $GLOBALS['cfg']['NaviPointerColor']     = '#000';
     $GLOBALS['cfg']['NaviPointerBGC']       = '#fff';
     $GLOBALS['cfg']['NaviDbLinkBGC']  = '#77a';
-    $GLOBALS['cfg']['NaviActiveBGC']  = '#00f'; // 0
+    $GLOBALS['cfg']['NaviActiveBGC']  = '#ff5'; // 0
     $GLOBALS['cfg']['NaviTblBGC']     = '#77a';
     $GLOBALS['cfg']['NaviDbNameColor'] = '#000'; #66f';
     $GLOBALS['cfg']['NaviDbNameBGC']   = 0 ; // '#fff'; // effect?

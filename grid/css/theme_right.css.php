@@ -9,14 +9,14 @@
  * @subpackage Grid
  */
 
-define('_MainGridVersion', 'main Grid-3 2007-10');
+define('_MainGridVersion', 'main Grid-3 2007-11-22');
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     die('/* ' . _MainGridVersion . ' unplanned execution path */');
 }
 
 if ('IE' == PMA_USR_BROWSER_AGENT && !empty($GLOBALS['cfg']['NiceCss'])) {
-    define('_NL', chr(13) . chr(10));
+    define('_NL', chr(13) . chr(10)); //win clients
 } else {
     define('_NL', chr(10));
 }
@@ -25,8 +25,8 @@ if (empty($GLOBALS['cfg']['NiceCss'])) {
     define('_S', '{');       //start
     define('_M', ';');       //mid
     define('_E', '}' . _NL); //end
-    define('_K', ',');         //komma
-    define('_T', '');         //tab #8
+    define('_K', ',');       //komma
+    define('_T', '');        //tab #8
     define('_D', '');
 } else {
     define('_S', ' {' . _NL  . "\t");
@@ -386,7 +386,8 @@ _E,
 
 // MySQL Parser:
 '.syntax',
-_S, 'font-size:', _T, '90%',
+_S, 'font-size:',   _T, '80%',
+_M, 'line-height:', _T, 1.3, // "line-spacing"
 _E,
 
 '.syntax_comment',
@@ -1260,10 +1261,10 @@ _M, 'background:',      _T, $GLOBALS['cfg']['FieldsetFooterBGC'],
 _M, 'text-align:',      _T, $right,
 _E,
 
-'#div_table_options',
-_S, 'clear:',           _T, 'both',
-_E,
 
+'#div_referential_integrity', _K, 
+'#div_table_maintenance', _K,
+'#div_partition_maintenance', _K,
 '#div_table_options', _K,
 '#div_table_order',   _K,
 '#div_table_rename',  _K,
@@ -1271,6 +1272,9 @@ _E,
 _S, 'min-width:', _T, '48%',
 _E,
 
+'#div_referential_integrity', _K, 
+'#div_table_maintenance', _K,
+'#div_partition_maintenance', _K,
 '#div_table_options', _K,
 '#div_table_order', _K,
 '#div_table_rename', _K,
@@ -1291,12 +1295,16 @@ _E,
 '#pmamaininformation', _K,
 '#fieldset_select_fields', _K,
 '#div_table_options', _K,
-'#table_innodb_bufferpool_usage', _K, //table_innodb_bufferpool_activity', _K,
+'#table_innodb_bufferpool_usage', _K, 
 '#div_mysql_charset_collations table', _K,
 '#qbe_div_table_list', _K,
 '#qbe_div_sql_query', _K,
 'label.desc',
 _S, 'float:', _D, $left,
+_E,
+
+'#div_table_options',
+_S, 'clear:',           _T, 'both',
 _E,
 
 'label.desc',
