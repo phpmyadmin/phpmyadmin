@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - undefined PMA_MYSQL_INT_VERSION when no default server is set 
 - bug #1763343 [session] Behavior with session.auto_start enabled 
 + [lang] Hungarian update, thanks to Mihály Mészáros 
++ [lang] German update, thanks to Jürgen Wind - windkiel
 - patch #1837691 [query window] js errors, thanks to Victor Volkov 
 - patch #1839052 [lang] catalan not in UTF-8, thanks to jaz001 
 - patch #1838626 [GUI] Login interface broken on Konqueror, thanks to fhimpe
