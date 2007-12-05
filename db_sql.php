@@ -16,6 +16,11 @@ require_once './libraries/common.inc.php';
 require './libraries/db_common.inc.php';
 require_once './libraries/sql_query_form.lib.php';
 
+// After a syntax error, we return to this script
+// with the typed query in the textarea.
+$goto = 'db_sql.php';
+$back = 'db_sql.php';
+
 /**
  * Gets informations about the database and, if it is empty, move to the
  * "db_structure.php" script where table can be created
