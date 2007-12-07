@@ -112,7 +112,7 @@ function PMA_auth_fails()
         //  rejected the connection, which is not really what happened)
         // 2002 is the error given by mysqli
         // 2003 is the error given by mysql
-            echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+            trigger_error($GLOBALS['strAccessDeniedExplanation'], E_USER_WARNING);
         }
         PMA_mysqlDie($conn_error, '', true, '', false);
     }
