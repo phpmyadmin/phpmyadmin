@@ -10,7 +10,7 @@ phpMyAdmin - Readme
   http://www.phpmyadmin.net/
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-    Copyright (C) 2001-2006 Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
+    Copyright (C) 2001-2007 Marc Delisle <Marc.Delisle_at_cegepsherbrooke.qc.ca>
                             Olivier Müller <om_at_omnis.ch>
                             Robin Johnson <robbat2_at_users.sourceforge.net>
                             Alexander M. Turek <me_at_derrabus.de>
@@ -34,8 +34,8 @@ phpMyAdmin - Readme
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
   Requirements:
-    php 4.1.0 or later
-    MySQL 3.23.32 or later
+    php 5.2 or later
+    MySQL 5.0 or later
     a web-browser (doh!)
 
   Summary:
