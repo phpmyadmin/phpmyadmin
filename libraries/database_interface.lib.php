@@ -1037,8 +1037,14 @@ function PMA_DBI_get_warnings($link = null)
  * @return integer  $is_superuser
  */
 function PMA_isSuperuser() {
-    return PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
-        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+    // with mysql extension, when connection failed we don't have
+    // a $userlink
+    if (isset($GLOBALS['userlink'])) {
+        return PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
+		$GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+    } else {
+        return false;
+    }
 }
 
 

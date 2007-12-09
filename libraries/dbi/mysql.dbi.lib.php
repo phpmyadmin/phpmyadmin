@@ -76,7 +76,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
         $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
     }
 
-    if (empty($link) && ! $is_controluser) {
+    if (empty($link)) {
         if ($is_controluser) {
             trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
             return false;
