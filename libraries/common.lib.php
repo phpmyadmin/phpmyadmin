@@ -1254,7 +1254,7 @@ function PMA_profilingCheckbox($sql_query) {
     if (PMA_profilingSupported()) {
         echo '<form action="sql.php" method="post">' . "\n";
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
-        echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
+        echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
         echo '<input type="checkbox" name="profiling" id="profiling"' . (isset($_SESSION['profiling']) ? ' checked="checked"' : '') . ' onclick="this.form.submit();" /><label for="profiling">' . $GLOBALS['strProfiling'] . '</label>' . "\n";
         echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>' . "\n";
