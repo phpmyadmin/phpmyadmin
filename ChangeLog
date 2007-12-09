@@ -11,6 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   backslashes
 - bug #1843463 [GUI] DROP PROCEDURE does not show alert 
 - bug #1835904 [GUI] Back link after a SQL error forgets the query 
+- bug #1835654 [core] wrong escaping when using double quotes 
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
