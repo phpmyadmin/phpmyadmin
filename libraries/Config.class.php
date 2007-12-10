@@ -478,7 +478,6 @@ class PMA_Config
 
         // Check for permissions (on platforms that support it):
 	if ($this->get('CheckConfigurationPermissions')) {
-		echo 'trace';
             $perms = @fileperms($this->getSource());
             if (!($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
