@@ -1529,6 +1529,15 @@ $cfg['TrustedProxies'] =
         Default is auto.
     </dd>
 
+    <dt id="cfg_CheckConfigurationPermissions">$cfg['CheckConfigurationPermissions'] boolean</dt>
+    <dd>
+    We normally check the permissions on the configuration file to ensure
+    it's not world writable. However, phpMyAdmin could be installed on 
+    a NTFS filesystem mounted on a non-Windows server, in which case the
+    permissions seems wrong but in fact cannot be detected. In this case
+    a sysadmin would set this parameter to <tt>FALSE</tt>. Default is <tt>TRUE</tt>.
+    </dd>
+    
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
     <dd>Navi frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>

@@ -2163,6 +2163,14 @@ $cfg['GD2Available'] = 'auto';
  */
 $cfg['TrustedProxies'] = array();
 
+/**
+ * We normally check the permissions on the configuration file to ensure
+ * it's not world writable. However, phpMyAdmin could be installed on 
+ * a NTFS filesystem mounted on a non-Windows server, in which case the
+ * permissions seems wrong but in fact cannot be detected. In this case
+ * a sysadmin would set the following to false.
+ */
+$cfg['CheckConfigurationPermissions'] = true;
 
 /*******************************************************************************
  * SQL Parser Settings
