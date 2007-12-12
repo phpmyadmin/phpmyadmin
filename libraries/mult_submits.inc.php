@@ -131,6 +131,9 @@ if (!empty($submit_mult) && !empty($what)) {
     } elseif (strlen($db)) {
         require './libraries/db_common.inc.php';
         require './libraries/db_info.inc.php';
+    } else {
+        require_once './libraries/server_common.inc.php';
+        require_once './libraries/server_links.inc.php';
     }
 
     // Builds the query
