@@ -184,14 +184,16 @@ if ($abort == FALSE) {
      * or maybe make it part of PMA_DBI_get_fields();
      */
 
-    // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
-    // in MySQL 4.0.25).
+    if (PMA_MYSQL_INT_VERSION < 50025) {
+        // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+        // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
+        // in MySQL 4.0.25).
 
-    $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-        0, 1);
-    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+        $show_create_table = PMA_DBI_fetch_value(
+            'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+            0, 1);
+        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    }
 
     require './libraries/tbl_properties.inc.php';
 }
