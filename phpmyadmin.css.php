@@ -525,7 +525,6 @@ form.login label {
     background-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/logo_right.png);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
-    border-bottom: 1px solid silver;
 }
 
 #mysqlmaininformation,

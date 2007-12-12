@@ -917,7 +917,6 @@ div#queryboxcontainer div#bookmarkoptions {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
-    border-bottom: 1px solid silver;
 }
 
 #mysqlmaininformation,
