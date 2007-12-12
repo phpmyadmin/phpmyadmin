@@ -31,94 +31,50 @@ if (is_int($cfg['DefaultPropDisplay'])) {
     $display_type = $cfg['DefaultPropDisplay'];
 }
 
-if ($cfg['CtrlArrowsMoving']) {
-    ?>
-<script src="./js/keyhandler.js" type="text/javascript"></script>
-<script type="text/javascript">
-// <![CDATA[
-var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
-document.onkeydown = onKeyDownArrowsHandler;
-// ]]>
-</script>
-    <?php
-}
-// here, the div_x_7 represents a div id which contains
-// the default CURRENT TIMESTAMP checkbox and label
-// and, field_x_7a represents the checkbox itself
+$_form_aprams = array(
+    'db' => $db,
+    'table' => $table,
+);
 
-?>
-<script type="text/javascript">
-// <![CDATA[
-function display_field_options(field_type, i) {
-    if (field_type == 'TIMESTAMP') {
-        getElement('div_' + i + '_7').style.display = 'block';
-    } else {
-        getElement('div_' + i + '_7').style.display = 'none';
-        getElement('field_' + i + '_7a').checked = false;
-    }
-    return true;
-}
-// ]]>
-</script>
-
-<form method="post" action="<?php echo $action; ?>">
-<?php
-echo PMA_generate_common_hidden_inputs($db, $table);
 if ($action == 'tbl_create.php') {
-    ?>
-    <input type="hidden" name="reload" value="1" />
-    <?php
+    $_form_aprams['reload'] = 1;
 } elseif ($action == 'tbl_addfield.php') {
-    ?>
-    <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
-    <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
-    <?php
+    $_form_aprams['field_where'] = $field_where;
+    $_form_aprams['after_field'] = $after_field;
 }
 
 if (isset($num_fields)) {
-    ?>
-    <input type="hidden" name="orig_num_fields" value="<?php echo $num_fields; ?>" />
-    <?php
+    $_form_aprams['orig_num_fields'] = $num_fields;
 }
 
 if (isset($field_where)) {
-    ?>
-    <input type="hidden" name="orig_field_where" value="<?php echo $field_where; ?>" />
-    <?php
+    $_form_aprams['orig_field_where'] = $field_where;
 }
 
 if (isset($after_field)) {
-    ?>
-    <input type="hidden" name="orig_after_field" value="<?php echo $after_field; ?>" />
-    <?php
+    $_form_aprams['orig_after_field'] = $after_field;
 }
 
 if (isset($selected) && is_array($selected)) {
-    foreach ($selected AS $o_fld_nr => $o_fld_val) {
-        ?>
-    <input type="hidden" name="selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
-        <?php
-        if (!isset($true_selected)) {
-            ?>
-    <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
-            <?php
+    foreach ($selected as $o_fld_nr => $o_fld_val) {
+        $_form_aprams['selected[' . $o_fld_nr . ']'] = $o_fld_val;
+        if (! isset($true_selected)) {
+            $_form_aprams['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
-
     }
 
     if (isset($true_selected) && is_array($true_selected)) {
-        foreach ($true_selected AS $o_fld_nr => $o_fld_val) {
-            ?>
-        <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
-            <?php
+        foreach ($true_selected as $o_fld_nr => $o_fld_val) {
+            $_form_aprams['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
     }
-
 } elseif (isset($field)) {
-    ?>
-    <input type="hidden" name="orig_field" value="<?php echo urlencode($field); ?>" />
-    <input type="hidden" name="true_selected[] value="<?php echo (isset($orig_field) ? $orig_field : urlencode($field)); ?>" />
-    <?php
+    $_form_aprams['orig_field'] = $field;
+    if (isset($orig_field)) {
+        $_form_aprams['true_selected[]'] = $orig_field;
+    } else {
+        $_form_aprams['true_selected[]'] = $field;
+    }
 }
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
@@ -356,21 +312,22 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if (isset($row['Field'])
-    && isset($analyzed_sql[0])
-    && isset($analyzed_sql[0]['create_table_fields'])
-    && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
-    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
-    && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true) {
+    if (PMA_MYSQL_INT_VERSION < 50025
+     && isset($row['Field'])
+     && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'])
+     && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP'
+     && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == true) {
         $row['Null'] = '';
     }
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
-    if (isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
+    if (isset($row['Field'])
+     && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
-    if ((isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
+    if ((isset($row['Field'])
+      && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
      || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)) {
         $default_current_timestamp = TRUE;
     } else {
@@ -546,6 +503,40 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     }
 } // end for
 
+if ($cfg['CtrlArrowsMoving']) {
+    ?>
+<script src="./js/keyhandler.js" type="text/javascript"></script>
+<script type="text/javascript">
+// <![CDATA[
+var switch_movement = <?php echo $display_type == 'horizontal' ? '0' : '1'; ?>;
+document.onkeydown = onKeyDownArrowsHandler;
+// ]]>
+</script>
+    <?php
+}
+// here, the div_x_7 represents a div id which contains
+// the default CURRENT TIMESTAMP checkbox and label
+// and, field_x_7a represents the checkbox itself
+
+?>
+<script type="text/javascript">
+// <![CDATA[
+function display_field_options(field_type, i) {
+    if (field_type == 'TIMESTAMP') {
+        getElement('div_' + i + '_7').style.display = 'block';
+    } else {
+        getElement('div_' + i + '_7').style.display = 'none';
+        getElement('field_' + i + '_7a').checked = false;
+    }
+    return true;
+}
+// ]]>
+</script>
+
+<form method="post" action="<?php echo $action; ?>">
+<?php
+echo PMA_generate_common_hidden_inputs($_form_aprams);
+
 if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
     $empty_row = array_pop($content_cells);
@@ -617,7 +608,7 @@ var odd_row = <?php echo $odd_row; ?>;
 function addField() {
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace('�\s+�', ' ', preg_replace('�\'�', '\\\'', $new_field)); ?>';
+    var new_field = '<?php echo preg_replace('|\s+|', ' ', preg_replace('|\'|', '\\\'', $new_field)); ?>';
     var i = 0;
     for (i = 0; i < new_fields; i++) {
         if (odd_row) {
@@ -642,10 +633,11 @@ if ($action == 'tbl_create.php') {
     <tr valign="top">
         <th><?php echo $strTableComments; ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
-    <th><?php echo $strStorageEngine; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
+        <th><?php echo $strStorageEngine; ?>:
+            <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
-    <td width="25">&nbsp;</td>
-    <th><?php echo $strCollation ;?>:&nbsp;</th>
+        <td width="25">&nbsp;</td>
+        <th><?php echo $strCollation ;?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
                 value="<?php echo (isset($comment) ? $comment : ''); ?>"
@@ -668,7 +660,7 @@ if ($action == 'tbl_create.php') {
     </tr>
     <?php
     if (PMA_Partition::havePartitioning()) {
-    ?>
+        ?>
     <tr valign="top">
         <th><?php echo $strPartitionDefinition; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
@@ -678,7 +670,7 @@ if ($action == 'tbl_create.php') {
             <textarea name="partition_definition" id="partitiondefinition" cols="<?php echo $GLOBALS['cfg']['TextareaCols'];?>" rows="<?php echo $GLOBALS['cfg']['TextareaRows'];?>" dir="<?php echo $GLOBALS['text_dir'];?>"></textarea>
         </td>
     </tr>
-    <?php
+        <?php
     }
     ?>
     </table>
