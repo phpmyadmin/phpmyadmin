@@ -3,8 +3,6 @@
  * generate an WebApp file for Prism / WebRunner
  *
  * @see http://wiki.mozilla.org/Prism
- * @todo send zip file without saving
- * @todo use own zip class and make use of PHP zip function in there if available
  */
 
 /**
@@ -12,6 +10,7 @@
  */
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
+require_once './libraries/zip.lib.php';
 
 // ini file
 $parameters = array(
@@ -38,16 +37,11 @@ foreach ($parameters as $key => $value) {
     $ini_file .= $key . '=' . $value . "\n";
 }
 
-$zip = new ZipArchive();
-$filename = './' . $name;
+$zip = new zipfile;
+$zip->addFile($ini_file, 'webapp.ini');
+$zip->addFile(file_get_contents($icon), 'phpMyAdmin.ico');
 
-if ($zip->open($filename, ZIPARCHIVE::CREATE) !== true) {
-    exit("cannot open <$filename>\n");
-}
-
-$zip->addFromString("webapp.ini", $ini_file);
-$zip->addFile($icon, 'phpMyAdmin.ico');
-$zip->close();
-
-header('Location: ' . $_SESSION['PMA_Config']->get('PmaAbsoluteUri') . $filename);
+header('Content-Type: application/webapp');
+header('Content-Disposition: attachment; filename="' . $name . '"');
+echo $zip->file();
 ?>
