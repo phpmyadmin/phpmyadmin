@@ -76,7 +76,7 @@ if ($server > 0) {
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
                         ? $GLOBALS['cfg']['Server']['verbose']
                         : $GLOBALS['cfg']['Server']['host']);
-    echo '<h1 xml:lang="en" dir="ltr">' . $short_server_info .'</h1>' . "\n";
+    echo '<h1><span xml:lang="en" dir="ltr">' . $short_server_info . '</span></h1>' . "\n";
     unset($short_server_info);
 }
 
@@ -187,7 +187,7 @@ if ($server > 0) {
 <div id="pmamaininformation">
 <?php
 
-echo '<h1 xml:lang="en" dir="ltr">phpMyAdmin - ' . PMA_VERSION . '</h1>'
+echo '<h1><span xml:lang="en" dir="ltr">phpMyAdmin - ' . PMA_VERSION . '</span></h1>'
     . "\n";
 
 echo '<ul>' . "\n";
