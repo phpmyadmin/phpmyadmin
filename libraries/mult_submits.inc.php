@@ -151,7 +151,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 break;
             case 'drop_db':
                 $full_query .= 'DROP DATABASE '
-                    . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                    . PMA_backquote(htmlspecialchars($sval))
                     . ';<br />';
                 $reload = 1;
                 break;
@@ -301,7 +301,7 @@ elseif ($mult_btn == $strYes) {
             case 'drop_db':
                 PMA_relationsCleanupDatabase($selected[$i]);
                 $a_query   = 'DROP DATABASE '
-                           . PMA_backquote(urldecode($selected[$i]));
+                           . PMA_backquote($selected[$i]);
                 $reload    = 1;
                 $run_parts = TRUE;
                 $rebuild_database_list = true;
