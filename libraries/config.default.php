@@ -313,6 +313,15 @@ $cfg['Servers'][$i]['AllowRoot'] = true;
 $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 
 /**
+ * Disable use of INFORMATION_SCHEMA
+ *
+ * @see http://sf.net/support/tracker.php?aid=1849494
+ * @see http://bugs.mysql.com/19588
+ * @global boolean $cfg['Servers'][$i]['DisableIS']
+ */
+$cfg['Servers'][$i]['DisableIS'] = true;
+
+/**
  * Host authentication rules, leave blank for defaults
  *
  * @global array $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -2165,7 +2174,7 @@ $cfg['TrustedProxies'] = array();
 
 /**
  * We normally check the permissions on the configuration file to ensure
- * it's not world writable. However, phpMyAdmin could be installed on 
+ * it's not world writable. However, phpMyAdmin could be installed on
  * a NTFS filesystem mounted on a non-Windows server, in which case the
  * permissions seems wrong but in fact cannot be detected. In this case
  * a sysadmin would set the following to false.
