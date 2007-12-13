@@ -2285,33 +2285,63 @@ $cfg['DBG']['profile']['threshold'] = 0.5;
  * @global array $cfg['ColumnTypes']
  */
 $cfg['ColumnTypes'] = array(
-   'VARCHAR',
-   'TINYINT',
-   'TEXT',
-   'DATE',
-   'SMALLINT',
-   'MEDIUMINT',
-   'INT',
-   'BIGINT',
-   'FLOAT',
-   'DOUBLE',
-   'DECIMAL',
-   'DATETIME',
-   'TIMESTAMP',
-   'TIME',
-   'YEAR',
-   'CHAR',
-   'TINYBLOB',
-   'TINYTEXT',
-   'BLOB',
-   'MEDIUMBLOB',
-   'MEDIUMTEXT',
-   'LONGBLOB',
-   'LONGTEXT',
-   'ENUM',
-   'SET',
-   'BIT',
-   'BOOL'
+    // most used
+    'INT',
+    'VARCHAR',
+    'TEXT',
+    'DATE',
+
+    // numeric
+    'TINYINT',
+    'SMALLINT',
+    'MEDIUMINT',
+    //'INT',
+    'BIGINT',
+
+    'DECIMAL',
+    'FLOAT',
+    'DOUBLE',
+    'REAL',
+
+    // Date/Time
+    //'DATE',
+    'DATETIME',
+    'TIMESTAMP',
+    'TIME',
+    'YEAR',
+
+    // Text
+    'CHAR',
+    //'VARCHAR',
+
+    'TINYTEXT',
+    //'TEXT',
+    'MEDIUMTEXT',
+    'LONGTEXT',
+
+    'BINARY',
+    'VARBINARY',
+
+    'TINYBLOB',
+    'MEDIUMBLOB',
+    'BLOB',
+    'LONGBLOB',
+
+    'ENUM',
+    'SET',
+
+    'BIT',
+    'BOOL',
+    'SERIAL',
+
+    'GEOMETRY',
+    'POINT',
+    'LINESTRING',
+    'POLYGON',
+    'MULTIPOINT',
+    'MULTILINESTRING',
+    'MULTIPOLYGON',
+    'GEOMETRYCOLLECTION',
 );
 
 /**
