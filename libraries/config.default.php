@@ -2298,12 +2298,12 @@ $cfg['ColumnTypes'] = array(
         'MEDIUMINT',
         'INT',
         'BIGINT',
-        '',
+        '-',
         'DECIMAL',
         'FLOAT',
         'DOUBLE',
         'REAL',
-        '',
+        '-',
         'BIT',
         'BOOL',
         'SERIAL',
@@ -2323,24 +2323,20 @@ $cfg['ColumnTypes'] = array(
     'STRING' => array(
         'CHAR',
         'VARCHAR',
-        '',
-
+        '-',
         'TINYTEXT',
         'TEXT',
         'MEDIUMTEXT',
         'LONGTEXT',
-        '',
-
+        '-',
         'BINARY',
         'VARBINARY',
-        '',
-
+        '-',
         'TINYBLOB',
         'MEDIUMBLOB',
         'BLOB',
         'LONGBLOB',
-        '',
-
+        '-',
         'ENUM',
         'SET',
     ),
@@ -2368,7 +2364,7 @@ $cfg['AttributeTypes'] = array(
    '',
    'BINARY',
    'UNSIGNED',
-   'UNSIGNED ZEROFILL'
+   'UNSIGNED ZEROFILL',
 );
 
 
@@ -2379,40 +2375,75 @@ if ($cfg['ShowFunctionFields']) {
      * @global array $cfg['Functions']
      */
     $cfg['Functions'] = array(
-       'ASCII',
-       'CHAR',
-       'SOUNDEX',
-       'LCASE',
-       'UCASE',
-       'NOW',
-       'PASSWORD',
-       'OLD_PASSWORD',
-       'MD5',
-       'SHA1',
-       'ENCRYPT',
-       'COMPRESS',
-       'UNCOMPRESS',
-       'RAND',
-       'LAST_INSERT_ID',
-       'COUNT',
-       'AVG',
-       'SUM',
-       'CURDATE',
-       'CURTIME',
-       'UTC_DATE',
-       'UTC_TIME',
-       'UTC_TIMESTAMP',
-       'FROM_DAYS',
-       'FROM_UNIXTIME',
-       'PERIOD_ADD',
-       'PERIOD_DIFF',
-       'TO_DAYS',
-       'UNIX_TIMESTAMP',
-       'USER',
-       'WEEKDAY',
-       'CONCAT',
-       'HEX',
-       'UNHEX'
+        'ABS',
+        'ACOS',
+        'ASCII',
+        'ASIN',
+        'ATAN',
+        'BIN',
+        'BIT_COUNT',
+        'BIT_LENGTH',
+        'CEILING',
+        'CHAR',
+        'CHAR_LENGTH',
+        'COMPRESS',
+        'COS',
+        'COT',
+        'CRC32',
+        'CURDATE',
+        'CURRENT_USER',
+        'CURTIME',
+        'DATE',
+        'DAYNAME',
+        'DEGREES',
+        'DES_DECRYPT',
+        'DES_ENCRYPT',
+        'ENCRYPT',
+        'EXP',
+        'FLOOR',
+        'FROM_DAYS',
+        'FROM_UNIXTIME',
+        'HEX',
+        'INET_ATON',
+        'INET_NTOA',
+        'LENGTH',
+        'LN',
+        'LOG',
+        'LOG10',
+        'LOG2',
+        'LOWER',
+        'MD5',
+        'NOW',
+        'OCT',
+        'OLD_PASSWORD',
+        'ORD',
+        'PASSWORD',
+        'RADIANS',
+        'RAND',
+        'REVERSE',
+        'ROUND',
+        'SEC_TO_TIME',
+        'SHA1',
+        'SOUNDEX',
+        'SPACE',
+        'SQRT',
+        'STDDEV_POP',
+        'STDDEV_SAMP',
+        'TAN',
+        'TIMESTAMP',
+        'TIME_TO_SEC',
+        'UNCOMPRESS',
+        'UNHEX',
+        'UNIX_TIMESTAMP',
+        'UPPER',
+        'USER',
+        'UTC_DATE',
+        'UTC_TIME',
+        'UTC_TIMESTAMP',
+        'UUID',
+        'VAR_POP',
+        'VAR_SAMP',
+        'YEAR',
     );
 
     /**
@@ -2421,31 +2452,49 @@ if ($cfg['ShowFunctionFields']) {
      * @global array $cfg['RestrictColumnTypes']
      */
     $cfg['RestrictColumnTypes'] = array(
-       'VARCHAR' => 'FUNC_CHAR',
-       'TINYINT' => 'FUNC_NUMBER',
-       'TEXT' => 'FUNC_CHAR',
-       'DATE' => 'FUNC_DATE',
-       'SMALLINT' => 'FUNC_NUMBER',
-       'MEDIUMINT' => 'FUNC_NUMBER',
-       'INT' => 'FUNC_NUMBER',
-       'BIGINT' => 'FUNC_NUMBER',
-       'FLOAT' => 'FUNC_NUMBER',
-       'DOUBLE' => 'FUNC_NUMBER',
-       'DECIMAL' => 'FUNC_NUMBER',
-       'DATETIME' => 'FUNC_DATE',
-       'TIMESTAMP' => 'FUNC_DATE',
-       'TIME' => 'FUNC_DATE',
-       'YEAR' => 'FUNC_DATE',
-       'CHAR' => 'FUNC_CHAR',
-       'TINYBLOB' => 'FUNC_CHAR',
-       'TINYTEXT' => 'FUNC_CHAR',
-       'BLOB' => 'FUNC_CHAR',
-       'MEDIUMBLOB' => 'FUNC_CHAR',
-       'MEDIUMTEXT' => 'FUNC_CHAR',
-       'LONGBLOB' => 'FUNC_CHAR',
-       'LONGTEXT' => 'FUNC_CHAR',
-       'ENUM' => '',
-       'SET' => ''
+        'TINYINT'   => 'FUNC_NUMBER',
+        'SMALLINT'  => 'FUNC_NUMBER',
+        'MEDIUMINT' => 'FUNC_NUMBER',
+        'INT'       => 'FUNC_NUMBER',
+        'BIGINT'    => 'FUNC_NUMBER',
+        'DECIMAL'   => 'FUNC_NUMBER',
+        'FLOAT'     => 'FUNC_NUMBER',
+        'DOUBLE'    => 'FUNC_NUMBER',
+        'REAL'      => 'FUNC_NUMBER',
+        'BIT'       => 'FUNC_NUMBER',
+        'BOOL'      => 'FUNC_NUMBER',
+        'SERIAL'    => 'FUNC_NUMBER',
+
+        'DATE'      => 'FUNC_DATE',
+        'DATETIME'  => 'FUNC_DATE',
+        'TIMESTAMP' => 'FUNC_DATE',
+        'TIME'      => 'FUNC_DATE',
+        'YEAR'      => 'FUNC_DATE',
+
+        'CHAR'          => 'FUNC_CHAR',
+        'VARCHAR'       => 'FUNC_CHAR',
+        'TINYTEXT'      => 'FUNC_CHAR',
+        'TEXT'          => 'FUNC_CHAR',
+        'MEDIUMTEXT'    => 'FUNC_CHAR',
+        'LONGTEXT'      => 'FUNC_CHAR',
+        'BINARY'        => 'FUNC_CHAR',
+        'VARBINARY'     => 'FUNC_CHAR',
+        'TINYBLOB'      => 'FUNC_CHAR',
+        'MEDIUMBLOB'    => 'FUNC_CHAR',
+        'BLOB'          => 'FUNC_CHAR',
+        'LONGBLOB'      => 'FUNC_CHAR',
+        'ENUM'          => '',
+        'SET'           => '',
+
+        'GEOMETRY'              => 'FUNC_SPATIAL',
+        'POINT'                 => 'FUNC_SPATIAL',
+        'LINESTRING'            => 'FUNC_SPATIAL',
+        'POLYGON'               => 'FUNC_SPATIAL',
+        'MULTIPOINT'            => 'FUNC_SPATIAL',
+        'MULTILINESTRING'       => 'FUNC_SPATIAL',
+        'MULTIPOLYGON'          => 'FUNC_SPATIAL',
+        'GEOMETRYCOLLECTION'    => 'FUNC_SPATIAL',
+
     );
 
     /**
@@ -2455,54 +2504,103 @@ if ($cfg['ShowFunctionFields']) {
      */
     $cfg['RestrictFunctions'] = array(
         'FUNC_CHAR' => array(
-            'ASCII',
+            'BIN',
             'CHAR',
-            'SOUNDEX',
-            'LCASE',
-            'UCASE',
-            'PASSWORD',
-            'OLD_PASSWORD',
-            'MD5',
-            'SHA1',
-            'ENCRYPT',
+            'CURRENT_USER',
             'COMPRESS',
-            'UNCOMPRESS',
-            'LAST_INSERT_ID',
-            'USER',
-            'CONCAT',
+            'DAYNAME',
+            'DES_DECRYPT',
+            'DES_ENCRYPT',
+            'ENCRYPT',
             'HEX',
-            'UNHEX'
+            'INET_NTOA',
+            'LOWER',
+            'MD5',
+            'OLD_PASSWORD',
+            'PASSWORD',
+            'REVERSE',
+            'SHA1',
+            'SOUNDEX',
+            'SPACE',
+            'UNCOMPRESS',
+            'UNHEX',
+            'UPPER',
+            'USER',
+            'UUID',
         ),
 
         'FUNC_DATE' => array(
-            'NOW',
             'CURDATE',
             'CURTIME',
+            'DATE',
             'FROM_DAYS',
             'FROM_UNIXTIME',
-            'PERIOD_ADD',
-            'PERIOD_DIFF',
-            'TO_DAYS',
-            'UNIX_TIMESTAMP',
+            'NOW',
+            'SEC_TO_TIME',
+            'TIMESTAMP',
             'UTC_DATE',
             'UTC_TIME',
             'UTC_TIMESTAMP',
-            'WEEKDAY'
+            'YEAR',
         ),
 
         'FUNC_NUMBER' => array(
+            'ABS',
+            'ACOS',
             'ASCII',
-            'CHAR',
-            'MD5',
-            'SHA1',
-            'ENCRYPT',
+            'ASIN',
+            'ATAN',
+            'BIT_LENGTH',
+            'BIT_COUNT',
+            'CEILING',
+            'CHAR_LENGTH',
+            'COS',
+            'COT',
+            'CRC32',
+            'DEGREES',
+            'EXP',
+            'FLOOR',
+            'INET_ATON',
+            'LENGTH',
+            'LN',
+            'LOG',
+            'LOG2',
+            'LOG10',
+            'OCT',
+            'ORD',
+            'RADIANS',
             'RAND',
-            'LAST_INSERT_ID',
+            'ROUND',
+            'SQRT',
+            'STDDEV_POP',
+            'STDDEV_SAMP',
+            'TAN',
+            'TIME_TO_SEC',
             'UNIX_TIMESTAMP',
-            'COUNT',
-            'AVG',
-            'SUM'
-        )
+            'VAR_POP',
+            'VAR_SAMP',
+        ),
+
+        'FUNC_SPATIAL' => array(
+            'GeomFromText',
+            'GeomFromWKB',
+
+            'GeomCollFromText',
+            'LineFromText',
+            'MLineFromText',
+            'PointFromText',
+            'MPointFromText',
+            'PolyFromText',
+            'MPolyFromText',
+
+            'GeomCollFromWKB',
+            'LineFromWKB',
+            'MLineFromWKB',
+            'PointFromWKB',
+            'MPointFromWKB',
+            'PolyFromWKB',
+            'MPolyFromWKB',
+        ),
     );
 
     /**
@@ -2514,7 +2612,7 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_CHAR' => '',
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
-        'first_timestamp' => 'NOW'
+        'first_timestamp' => 'NOW',
     );
 
 
@@ -2533,7 +2631,7 @@ $cfg['NumOperators'] = array(
    '<=',
    '!=',
    'LIKE',
-   'NOT LIKE'
+   'NOT LIKE',
 );
 
 /**
@@ -2548,7 +2646,7 @@ $cfg['TextOperators'] = array(
    '=',
    '!=',
    'REGEXP',
-   'NOT REGEXP'
+   'NOT REGEXP',
 );
 
 /**
@@ -2558,7 +2656,7 @@ $cfg['TextOperators'] = array(
  */
 $cfg['EnumOperators'] = array(
    '=',
-   '!='
+   '!=',
 );
 
 /**
@@ -2568,7 +2666,7 @@ $cfg['EnumOperators'] = array(
  */
 $cfg['SetOperators'] = array(
    'IN',
-   'NOT IN'
+   'NOT IN',
 );
 
 /**
@@ -2578,7 +2676,7 @@ $cfg['SetOperators'] = array(
  */
 $cfg['NullOperators'] = array(
    'IS NULL',
-   'IS NOT NULL'
+   'IS NOT NULL',
 );
 
 /**
@@ -2588,7 +2686,7 @@ $cfg['NullOperators'] = array(
  */
 $cfg['UnaryOperators'] = array(
    'IS NULL' => 1,
-   'IS NOT NULL' => 1
+   'IS NOT NULL' => 1,
 );
 
 ?>
