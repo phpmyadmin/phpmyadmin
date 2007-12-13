@@ -861,17 +861,18 @@ class PMA_Config
         if (empty($url)) {
             if (PMA_getenv('PATH_INFO')) {
                 $url = PMA_getenv('PATH_INFO');
+            // on IIS with PHP-CGI:
+            } elseif (PMA_getenv('SCRIPT_NAME')) {
+                $url = PMA_getenv('SCRIPT_NAME');
             } elseif (PMA_getenv('PHP_SELF')) {
                 // PHP_SELF in CGI often points to cgi executable, so use it
                 // as last choice
-                $url = PMA_getenv('PHP_SELF');
-            } elseif (PMA_getenv('SCRIPT_NAME')) {
                 $url = PMA_getenv('PHP_SELF');
             }
         }
 
         $parsed_url = @parse_url($_SERVER['REQUEST_URI']); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-        if ($parsed_url === false) {
+        if ($parsed_url === false || empty($parsed_url['path'])) {
             $parsed_url = array('path' => $url);
         }
 
