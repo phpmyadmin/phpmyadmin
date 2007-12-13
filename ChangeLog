@@ -31,6 +31,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1843463 [GUI] DROP PROCEDURE does not show alert
 - bug #1835904 [GUI] Back link after a SQL error forgets the query
 - bug #1835654 [core] wrong escaping when using double quotes
+- bug #1817612 [cookies] Wrong cookie path on IIS with PHP-CGI, 
+  thanks to Carsten Wiedmann
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to

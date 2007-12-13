@@ -862,15 +862,13 @@ class PMA_Config
 
         // If we don't have path
         if (empty($url)) {
-            //if (PMA_getenv('PATH_INFO')) {
-            //    $url = PMA_getenv('PATH_INFO');
-            //} else
             if ($GLOBALS['PMA_PHP_SELF']) {
                 // PHP_SELF in CGI often points to cgi executable, so use it
                 // as last choice
                 $url = $GLOBALS['PMA_PHP_SELF'];
+            // on IIS with PHP-CGI:
             } elseif (PMA_getenv('SCRIPT_NAME')) {
-                $url = $GLOBALS['PMA_PHP_SELF'];
+                $url = PMA_getenv('SCRIPT_NAME');
             }
         }
 
