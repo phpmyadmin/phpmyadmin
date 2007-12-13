@@ -73,9 +73,20 @@ if (count($GLOBALS['footnotes'])) {
 }
 
 if (! empty($_SESSION['debug'])) {
+    $sum_time = 0;
+    $sum_exec = 0;
+    foreach ($_SESSION['debug']['queries'] as $query) {
+        $sum_time += $query['count'] * $query['time'];
+        $sum_exec += $query['count'];
+    }
+
+    echo '<div>';
+    echo count($_SESSION['debug']['queries']) . ' queries executed'
+        . $sum_exec . ' times in ' . $sum_time . ' seconds';
     echo '<pre>';
     print_r($_SESSION['debug']);
     echo '</pre>';
+    echo '</div>';
     $_SESSION['debug'] = array();
 }
 
