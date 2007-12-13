@@ -17,7 +17,7 @@ require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/StorageEngine.class.php';
 
 /**
- * Class for partition management 
+ * Class for partition management
  */
 require_once './libraries/Partition.class.php';
 
@@ -254,13 +254,25 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     $type = rtrim($type);
     $type_upper = strtoupper($type);
 
-    $cnt_column_types = count($cfg['ColumnTypes']);
-    for ($j = 0; $j < $cnt_column_types; $j++) {
-        $content_cells[$i][$ci] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
-        if ($type_upper == strtoupper($cfg['ColumnTypes'][$j])) {
+    foreach ($cfg['ColumnTypes'] as $col_goup => $column_type) {
+        if (is_array($column_type)) {
+            $content_cells[$i][$ci] .= '<optgroup label="' . htmlspecialchars($col_goup) . '">';
+            foreach ($column_type as $col_group_type) {
+                $content_cells[$i][$ci] .= '<option value="'. $col_group_type . '"';
+                if ($type_upper == strtoupper($col_group_type)) {
+                    $content_cells[$i][$ci] .= ' selected="selected"';
+                }
+                $content_cells[$i][$ci] .= '>' . $col_group_type . '</option>' . "\n";
+            }
+            $content_cells[$i][$ci] .= '</optgroup>';
+            continue;
+        }
+
+        $content_cells[$i][$ci] .= '<option value="'. $column_type . '"';
+        if ($type_upper == strtoupper($column_type)) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][$ci] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
+        $content_cells[$i][$ci] .= '>' . $column_type . '</option>' . "\n";
     } // end for
 
     $content_cells[$i][$ci] .= '    </select>';
