@@ -2613,6 +2613,7 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
         'first_timestamp' => 'NOW',
+        'pk_char36' => 'UUID',
     );
 
 

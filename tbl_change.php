@@ -488,9 +488,7 @@ foreach ($rows as $row_id => $vrow) {
                 // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
                 // or something similar. Then directly look up the entry in the RestrictFunctions array,
                 // which will then reveal the available dropdown options
-                if (isset($cfg['RestrictFunctions'])
-                 && isset($cfg['RestrictColumnTypes'])
-                 && isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
+                if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
                  && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
                     $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
                     $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
@@ -502,30 +500,33 @@ foreach ($rows as $row_id => $vrow) {
 
                 $dropdown_built = array();
                 $op_spacing_needed = FALSE;
-                // garvin: loop on the dropdown array and print all available options for that field.
-                $cnt_dropdown = count($dropdown);
-                for ($j = 0; $j < $cnt_dropdown; $j++) {
-                    // Is current function defined as default?
-                    // For MySQL < 4.1.2, for the first timestamp we set as
-                    // default function the one defined in config (which
-                    // should be NOW()).
-                    // For MySQL >= 4.1.2, we don't set the default function
-                    // if there is a default value for the timestamp
-                    // (not including CURRENT_TIMESTAMP)
-                    // and the column does not have the
-                    // ON UPDATE DEFAULT TIMESTAMP attribute.
 
-                    if (!($field['True_Type'] == 'timestamp'
-                      && !empty($field['Default'])
-                      && !isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp']))) {
-                    $selected = ($field['first_timestamp'] && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                                || (!$field['first_timestamp'] && $dropdown[$j] == $default_function)
-                              ? ' selected="selected"'
-                              : '';
+                // what function defined as default?
+                // for the first timestamp we don't set the default function
+                // if there is a default value for the timestamp
+                // (not including CURRENT_TIMESTAMP)
+                // and the column does not have the
+                // ON UPDATE DEFAULT TIMESTAMP attribute.
+
+                if ($field['True_Type'] == 'timestamp'
+                  && empty($field['Default'])
+                  && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])) {
+                    $default_function = $cfg['DefaultFunctions']['first_timestamp'];
                 }
-                    echo '                ';
-                    echo '<option' . $selected . '>' . $dropdown[$j] . '</option>' . "\n";
-                    $dropdown_built[$dropdown[$j]] = 'TRUE';
+
+                if ($field['Key'] == 'PRI'
+                 && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')) {
+                     $default_function = $cfg['DefaultFunctions']['pk_char36'];
+                }
+
+                // garvin: loop on the dropdown array and print all available options for that field.
+                foreach ($dropdown as $each_dropdown){
+                    echo '<option';
+                    if ($default_function === $each_dropdown) {
+                        echo ' selected="selected"';
+                    }
+                    echo '>' . $each_dropdown . '</option>' . "\n";
+                    $dropdown_built[$each_dropdown] = 'TRUE';
                     $op_spacing_needed = TRUE;
                 }
 
