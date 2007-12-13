@@ -245,7 +245,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
       } else {
           $sql_where_table = '';
       }
-  
+
       // for PMA bc:
       // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
       //
@@ -254,7 +254,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
       // comparison (if we are looking for the db Aa we don't want
       // to find the db aa)
       $this_databases = array_map('PMA_sqlAddslashes', $databases);
-  
+
       $sql = '
            SELECT *,
                   `TABLE_SCHEMA`       AS `Db`,
@@ -280,7 +280,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
              FROM `information_schema`.`TABLES`
             WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
               ' . $sql_where_table;
-  
+
       if ($limit_count) {
           $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
       }
@@ -302,7 +302,13 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database) . ';';
             }
+
             $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+
+            if ($limit_count) {
+                $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
+            }
+
             foreach ($each_tables as $table_name => $each_table) {
                 if ('comment' === $tbl_is_group
                   && 0 === strpos($each_table['Comment'], $table))
@@ -530,7 +536,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             }
         }
     }
-    
+
 
     /**
      * apply limit and order manually now
@@ -785,7 +791,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['cfg']['Lang']
- * @uses    $GLOBALS['cfg']['ColumnTypes']
  * @uses    defined()
  * @uses    explode()
  * @uses    sprintf()
@@ -810,8 +815,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             define('PMA_MYSQL_STR_VERSION', $mysql_version);
             unset($mysql_version, $match);
         } else {
-            define('PMA_MYSQL_INT_VERSION', 32332);
-            define('PMA_MYSQL_STR_VERSION', '3.23.32');
+            define('PMA_MYSQL_INT_VERSION', 50015);
+            define('PMA_MYSQL_STR_VERSION', '5.00.15');
         }
     }
 
@@ -819,36 +824,12 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         define('PMA_ENGINE_KEYWORD','ENGINE');
     }
 
-    $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
-    if ($is_controluser
-      || empty($GLOBALS['collation_connection'])
-      || (strpos($GLOBALS['collation_connection'], '_')
-            ? substr($GLOBALS['collation_connection'], 0, strpos($GLOBALS['collation_connection'], '_'))
-            : $GLOBALS['collation_connection']) == $mysql_charset) {
-
-        PMA_DBI_query('SET NAMES ' . $mysql_charset . ';', $link,
-            PMA_DBI_QUERY_STORE);
-    } else {
-        PMA_DBI_query('SET CHARACTER SET ' . $mysql_charset . ';', $link,
-            PMA_DBI_QUERY_STORE);
-    }
-    if (!empty($GLOBALS['collation_connection'])) {
-        PMA_DBI_query('SET collation_connection = \'' . $GLOBALS['collation_connection'] . '\';',
+    if (! empty($GLOBALS['collation_connection'])) {
+        $mysql_charset = explode('_', $GLOBALS['collation_connection']);
+        PMA_DBI_query("SET NAMES '" . $mysql_charset[0] . "' COLLATE '" . $GLOBALS['collation_connection'] . "';",
             $link, PMA_DBI_QUERY_STORE);
-    }
-    if (!$is_controluser) {
-        $GLOBALS['collation_connection'] = PMA_DBI_get_variable('collation_connection',
-            PMA_DBI_GETVAR_SESSION, $link);
-        $GLOBALS['charset_connection']   = PMA_DBI_get_variable('character_set_connection',
-            PMA_DBI_GETVAR_SESSION, $link);
-    }
-
-    // Add some field types to the list, this needs to be done once per session!
-    if (!in_array('BINARY', $GLOBALS['cfg']['ColumnTypes'])) {
-        $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
-    }
-    if (!in_array('VARBINARY', $GLOBALS['cfg']['ColumnTypes'])) {
-        $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
+    } else {
+        PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
     }
 }
 
@@ -1159,7 +1140,7 @@ function PMA_isSuperuser() {
     // a $userlink
     if (isset($GLOBALS['userlink'])) {
         return PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
-		$GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
     } else {
         return false;
     }
