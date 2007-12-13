@@ -72,6 +72,13 @@ if (count($GLOBALS['footnotes'])) {
     echo '</div>';
 }
 
+if (! empty($_SESSION['debug'])) {
+    echo '<pre>';
+    print_r($_SESSION['debug']);
+    echo '</pre>';
+    $_SESSION['debug'] = array();
+}
+
 ?>
 <script type="text/javascript">
 //<![CDATA[

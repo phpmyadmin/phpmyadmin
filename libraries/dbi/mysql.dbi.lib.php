@@ -126,13 +126,33 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         }
     }
 
-    if ($options == ($options | PMA_DBI_QUERY_STORE)) {
-        return @mysql_query($query, $link);
-    } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
-        return @mysql_unbuffered_query($query, $link);
-    } else {
-        return @mysql_query($query, $link);
+    if ($GLOBALS['cfg']['DBG']['enable']) {
+        $time = microtime(true);
     }
+    if ($options == ($options | PMA_DBI_QUERY_STORE)) {
+        $r = mysql_query($query, $link);
+    } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
+        $r = mysql_unbuffered_query($query, $link);
+    } else {
+        $r = mysql_query($query, $link);
+    }
+
+    if ($GLOBALS['cfg']['DBG']['enable']) {
+        $time = microtime(true) - $time;
+
+        $hash = md5($query);
+
+        if (isset($_SESSION['debug']['queries'][$hash])) {
+            $_SESSION['debug']['queries'][$hash]['count']++;
+        } else {
+            $_SESSION['debug']['queries'][$hash] = array();
+            $_SESSION['debug']['queries'][$hash]['count'] = 1;
+            $_SESSION['debug']['queries'][$hash]['query'] = $query;
+            $_SESSION['debug']['queries'][$hash]['time'] = $time;
+        }
+    }
+
+    return $r;
 }
 
 /**
