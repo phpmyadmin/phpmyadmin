@@ -623,33 +623,6 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     }
 } // end of the 'PMA_mysqlDie()' function
 
-
-/**
- * Returns a string formatted with CONVERT ... USING
- * if MySQL supports it
- *
- * @uses    $GLOBALS['collation_connection']
- * @uses    explode()
- * @param   string  the string itself
- * @param   string  the mode: quoted or unquoted (this one by default)
- *
- * @return  the formatted string
- *
- * @access  private
- */
-function PMA_convert_using($string, $mode='unquoted')
-{
-    if ($mode == 'quoted') {
-        $possible_quote = "'";
-    } else {
-        $possible_quote = "";
-    }
-
-    list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
-    $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $conn_charset . ")";
-    return $converted_string;
-} // end function
-
 /**
  * Send HTTP header, taking IIS limits into account (600 seems ok)
  *
@@ -1946,16 +1919,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $condition = ' CONCAT(' . PMA_backquote($meta->table) . '.'
                 . PMA_backquote($meta->orgname) . ') ';
         } else {
-            // string and blob fields have to be converted using
-            // the system character set (always utf8) since
-            // mysql4.1 can use different charset for fields.
-            if ($meta->type == 'string' || $meta->type == 'blob') {
-                $condition = ' CONVERT(' . PMA_backquote($meta->table) . '.'
-                    . PMA_backquote($meta->orgname) . ' USING utf8) ';
-            } else {
-                $condition = ' ' . PMA_backquote($meta->table) . '.'
-                    . PMA_backquote($meta->orgname) . ' ';
-            }
+            $condition = ' ' . PMA_backquote($meta->table) . '.'
+                . PMA_backquote($meta->orgname) . ' ';
         } // end if... else...
 
         if (!isset($row[$i]) || is_null($row[$i])) {
