@@ -25,6 +25,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Gert Palok - gert_p
 - bug #1664240 [GUI] css height makes cfg TextareaRows useless
 - bug #1724217 [Create PHP Code] doesn't include newlines for text fields
+- bug #1845605 [i18n] translators.html still uses iso-8859-1
 
 2.11.4.0 (not yet released)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
