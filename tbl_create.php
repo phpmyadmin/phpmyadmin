@@ -100,7 +100,8 @@ if (isset($_REQUEST['do_save_data'])) {
         $query = PMA_Table::generateFieldSpec($field_name[$i], $field_type[$i],
             $field_length[$i], $field_attribute[$i],
             isset($field_collation[$i]) ? $field_collation[$i] : '',
-            $field_null[$i], $field_default[$i],
+            isset($field_null[$i]) ? $field_null[$i] : 'NOT NULL',
+            $field_default[$i],
             isset($field_default_current_timestamp[$i]), $field_extra[$i],
             isset($field_comments[$i]) ? $field_comments[$i] : '',
             $field_primary, $i);

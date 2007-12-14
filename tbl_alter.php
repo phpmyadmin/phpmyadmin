@@ -1,6 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Alter one or more table columns/fields
+ *
+ * linked from table_structure, uses libraries/tbl_properties.inc.php to display
+ * form and handles this form data
  *
  * @version $Id$
  */
@@ -62,7 +66,14 @@ if (isset($do_save_data)) {
             $query .= ', CHANGE ';
         }
 
-        $query .= PMA_Table::generateAlter($field_orig[$i], $field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], isset($field_collation[$i]) ? $field_collation[$i] : '', $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], (isset($field_comments[$i]) ? $field_comments[$i] : ''), $field_default_orig[$i]);
+        $query .= PMA_Table::generateAlter($field_orig[$i], $field_name[$i],
+            $field_type[$i], $field_length[$i], $field_attribute[$i],
+            isset($field_collation[$i]) ? $field_collation[$i] : '',
+            isset($field_null[$i]) ? $field_null[$i] : 'NOT NULL',
+            $field_default[$i],
+            isset($field_default_current_timestamp[$i]), $field_extra[$i],
+            isset($field_comments[$i]) ? $field_comments[$i] : '',
+            $field_default_orig[$i]);
     } // end for
 
     // To allow replication, we first select the db to use and then run queries

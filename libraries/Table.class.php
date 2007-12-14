@@ -299,10 +299,10 @@ class PMA_Table {
         }
 
         if ($null !== false) {
-            if (!empty($null)) {
-                $query .= ' NOT NULL';
-            } else {
+            if ($null == 'NULL') {
                 $query .= ' NULL';
+            } else {
+                $query .= ' NOT NULL';
             }
         }
 
@@ -331,7 +331,7 @@ class PMA_Table {
         if (!empty($extra)) {
             $query .= ' ' . $extra;
             // Force an auto_increment field to be part of the primary key
-            // even if user did not tick the PK box; 
+            // even if user did not tick the PK box;
             // but the PK could contain other columns so do not append
             // a PRIMARY KEY clause, just add a member to $field_primary
             if ($extra == 'AUTO_INCREMENT') {
