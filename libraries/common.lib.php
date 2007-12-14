@@ -1030,11 +1030,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         /* SQL-Parser-Analyzer */
 
         if (! empty($GLOBALS['show_as_php'])) {
-            $new_line = '\'<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \' ';
-            /* SQL-Parser-Analyzer */
-            $query_base = PMA_sqlAddslashes(htmlspecialchars($sql_query), false, false, true);
-            /* SQL-Parser-Analyzer */
-            $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
+            $new_line = '\\n"<br />' . "\n"
+                . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+            $query_base = htmlspecialchars(addslashes($sql_query));
+            $query_base = preg_replace('/((\015\012)|(\015)|(\012))/', $new_line, $query_base);
         } else {
             $query_base = $sql_query;
         }
@@ -1082,7 +1081,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         }
 
         if (! empty($GLOBALS['show_as_php'])) {
-            $query_base = '$sql  = \'' . $query_base;
+            $query_base = '$sql  = "' . $query_base;
         } elseif (! empty($GLOBALS['validatequery'])) {
             $query_base = PMA_validateSQL($query_base);
         } elseif (isset($parsed_sql)) {
@@ -1210,7 +1209,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
         //Clean up the end of the PHP
         if (! empty($GLOBALS['show_as_php'])) {
-            echo '\';';
+            echo '";';
         }
         echo '    </div>';
         echo '</fieldset>' . "\n";
@@ -1224,12 +1223,12 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 } // end of the 'PMA_showMessage()' function
 
 /**
- * Verifies if current MySQL server supports profiling 
+ * Verifies if current MySQL server supports profiling
  *
  * @access  public
- * @return  boolean whether profiling is supported 
+ * @return  boolean whether profiling is supported
  *
- * @author   Marc Delisle 
+ * @author   Marc Delisle
  */
 function PMA_profilingSupported() {
     // 5.0.37 has profiling but for example, 5.1.20 does not
@@ -2311,13 +2310,13 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 
 
 /**
- * Generates a set of radio HTML fields 
+ * Generates a set of radio HTML fields
  *
  * @uses    htmlspecialchars()
  * @param   string  $html_field_name the radio HTML field
- * @param   array   $choices the choices values and labels 
- * @param   string  $checked_choice the choice to check by default 
- * @param   boolean $line_break whether to add an HTML line break after a choice 
+ * @param   array   $choices the choices values and labels
+ * @param   string  $checked_choice the choice to check by default
+ * @param   boolean $line_break whether to add an HTML line break after a choice
  */
 function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true) {
     foreach ($choices as $choice_value => $choice_label) {
