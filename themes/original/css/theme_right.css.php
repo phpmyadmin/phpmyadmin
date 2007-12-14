@@ -91,6 +91,7 @@ form {
 
 textarea {
     overflow:           visible;
+    height:             <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
 }
 
 fieldset {

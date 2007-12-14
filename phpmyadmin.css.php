@@ -290,7 +290,10 @@ fieldset legend {
 button { display: inline; }
 
 /* Textarea */
-textarea { overflow: auto; }
+textarea {
+    overflow: auto;
+    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+}
 
 
 /* topmenu */

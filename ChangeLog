@@ -23,6 +23,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1758177 [core] Add the Geometry DataTypes
 + rfe #1741101, patch #1798184 UUID default for CHAR(36) PRIMARY KEY,
   thanks to Gert Palok - gert_p
+- bug #1664240 [GUI] css height makes cfg TextareaRows useless
+
 
 2.11.4.0 (not yet released)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
