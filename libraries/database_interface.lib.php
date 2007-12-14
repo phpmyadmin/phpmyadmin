@@ -1211,7 +1211,7 @@ function PMA_DBI_get_triggers($db, $table) {
             $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
 
             $one_result['full_trigger_name'] = PMA_backquote($trigger['TRIGGER_SCHEMA']) . '.' . PMA_backquote($trigger['TRIGGER_NAME']);
-            $one_result['drop'] = 'DROP TRIGGER ' . $one_result['full_trigger_name'];
+            $one_result['drop'] = 'DROP TRIGGER IF EXISTS ' . $one_result['full_trigger_name'];
             $one_result['create'] = 'CREATE TRIGGER ' . $one_result['full_trigger_name'] . ' ' . $trigger['ACTION_TIMING']. ' ' . $trigger['EVENT_MANIPULATION'] . ' ON ' . PMA_backquote($trigger['EVENT_OBJECT_SCHEMA']) . '.' . PMA_backquote($trigger['EVENT_OBJECT_TABLE']) . "\n" . ' FOR EACH ROW ' . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
 
             $result[] = $one_result;
