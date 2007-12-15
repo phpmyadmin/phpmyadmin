@@ -15,7 +15,7 @@
  */
 function PMA_getDirContent($dir, $expression = '')
 {
-    if ($handle = @opendir($dir)) {
+    if (file_exists($dir) && $handle = @opendir($dir)) {
         $result = array();
         if (substr($dir, -1) != '/') {
             $dir .= '/';
