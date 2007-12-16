@@ -809,6 +809,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             'group_by_clause'=> '',
             'order_by_clause'=> '',
             'having_clause'  => '',
+            'limit_clause'   => '',
             'where_clause'   => '',
             'where_clause_identifiers'   => array(),
             'unsorted_query' => '',
@@ -886,6 +887,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
  * ['order_by_clause']
  * ['having_clause']
  * ['where_clause']
+ * ['limit_clause']
  *
  * The identifiers of the WHERE clause are put into the array
  * ['where_clause_identifier']
@@ -1421,7 +1423,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $subresult['queryflags']['select_from'] = 1;
         }
 
-        $collect_section_before_limit = TRUE;
         $section_before_limit = '';
         $section_after_limit = '';
         $seen_reserved_word = FALSE;
@@ -1432,7 +1433,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_having = FALSE; // true when we are inside the HAVING clause
         $in_select_expr = FALSE; // true when we are inside the select expr clause
         $in_where = FALSE; // true when we are inside the WHERE clause
-        $in_from = FALSE;
+        $in_limit = FALSE; // true when we are inside the LIMIT clause
+        $before_limit = TRUE; // true when we are before the LIMIT clause
+        $after_limit = FALSE; // true when we are after the LIMIT clause
+        $in_from = FALSE; // true when we are in the FROM clause
         $in_group_concat = FALSE;
         $unsorted_query = '';
         $first_reserved_word = '';
@@ -1458,7 +1462,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * @todo verify C-style comments?
              */
             if ($arr[$i]['type'] == 'comment_ansi') {
-                $collect_section_before_limit = FALSE;
+                $before_limit = FALSE;
+                $after_limit = FALSE;
             }
 
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
@@ -1481,13 +1486,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
 
                 } else {
-                    if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
+                    if ($upper_data == 'DROP' && $first_reserved_word == 'ALTER') {
                         $subresult['queryflags']['need_confirm'] = 1;
                     }
                 }
 
+                if ($upper_data == 'LIMIT') {
+                    $in_limit = TRUE;
+                    $limit_clause = '';
+                    $before_limit = FALSE;
+                }
+
                 if ($upper_data == 'PROCEDURE') {
-                    $collect_section_before_limit = FALSE;
+                    $in_limit = FALSE;
+                    $after_limit = TRUE;
                 }
                 /**
                  * @todo set also to FALSE if we find FOR UPDATE or LOCK IN SHARE MODE
@@ -1674,15 +1686,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
-            // clear $upper_data for next iteration
-            $upper_data='';
-
-            if ($collect_section_before_limit  && $arr[$i]['type'] != 'punct_queryend') {
+	    if ($in_limit) {
+                if ($upper_data == 'OFFSET') {
+                    $limit_clause .= $sep;
+                }
+		$limit_clause .= $arr[$i]['data'];
+                if ($upper_data == 'LIMIT' || $upper_data == 'OFFSET') {
+                    $limit_clause .= $sep;
+                }
+            }
+            if (! $in_limit  && $before_limit && $arr[$i]['type'] != 'punct_queryend') {
                 $section_before_limit .= $arr[$i]['data'] . $sep;
-            } else {
+            }
+            if ($after_limit) { 
                 $section_after_limit .= $arr[$i]['data'] . $sep;
             }
 
+            // clear $upper_data for next iteration
+            $upper_data='';
 
         } // end for $i (loop #2)
 
@@ -1942,6 +1963,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         if (isset($having_clause)) {
             $subresult['having_clause'] = $having_clause;
+        }
+        if (isset($limit_clause)) {
+            $subresult['limit_clause'] = $limit_clause;
         }
         if (isset($where_clause)) {
             $subresult['where_clause'] = $where_clause;
