@@ -1491,7 +1491,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($upper_data == 'LIMIT') {
                     $in_limit = TRUE;
                     $limit_clause = '';
-                    $before_limit = FALSE;
+		    $before_limit = FALSE;
+                    $in_order_by = FALSE; // @todo maybe others to set FALSE
                 }
 
                 if ($upper_data == 'PROCEDURE') {
@@ -1673,7 +1674,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             if (isset($subresult['queryflags']['select_from'])
              && $subresult['queryflags']['select_from'] == 1
-             && !$seen_order) {
+             && ! $in_order_by
+             && $upper_data != 'ORDER') {
                 $unsorted_query .= $arr[$i]['data'];
 
                 if ($arr[$i]['type'] != 'punct_bracket_open_round'
