@@ -252,11 +252,11 @@ if ($is_select) { // see line 141
 }
 
 // Do append a "LIMIT" clause?
-if ((!$cfg['ShowAll'] || $_SESSION['userconf']['max_rows'] != 'all')
- && !($is_count || $is_export || $is_func || $is_analyse)
+if ((! $cfg['ShowAll'] || $_SESSION['userconf']['max_rows'] != 'all')
+ && ! ($is_count || $is_export || $is_func || $is_analyse)
  && isset($analyzed_sql[0]['queryflags']['select_from'])
- && !isset($analyzed_sql[0]['queryflags']['offset'])
- && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+(;)?$@i', $sql_query)
+ && ! isset($analyzed_sql[0]['queryflags']['offset'])
+ && empty($analyzed_sql[0]['limit_clause'])
  ) {
     $sql_limit_to_append = ' LIMIT ' . $_SESSION['userconf']['pos'] . ', ' . $_SESSION['userconf']['max_rows'] . " ";
 
