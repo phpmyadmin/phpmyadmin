@@ -15,6 +15,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1817612 [cookies] Wrong cookie path on IIS with PHP-CGI, 
   thanks to Carsten Wiedmann
 - bug #1848889 [export] export trigger should use DROP TRIGGER IF EXISTS
+- bug #1851833 [display] Sorting forgets an explicit LIMIT
+ (fix for sorting on column headers)
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
