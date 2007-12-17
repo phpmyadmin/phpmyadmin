@@ -11,15 +11,18 @@
  */
 if (isset($plugin_list)) {
     $plugin_list['yaml'] = array(
-        'text' => 'YAML',
-        'extension' => 'yml',
-        'mime_type' => 'text/yaml',
-        'force_file' => true,
-          'options' => array(
-            array('type' => 'hidden', 'name' => 'data'),
+        'text'          => 'YAML',
+        'extension'     => 'yml',
+        'mime_type'     => 'text/yaml',
+        'force_file'    => true,
+        'options'       => array(
+            array(
+                'type' => 'hidden',
+                'name' => 'data',
             ),
-        'options_text' => 'strOptions',
-        );
+        ),
+        'options_text'  => 'strOptions',
+    );
 } else {
 
 /**
@@ -35,7 +38,8 @@ if (isset($plugin_list)) {
  */
 function PMA_exportComment($text)
 {
-    return TRUE;
+    PMA_exportOutputHandler('# ' . $text . $GLOBALS['crlf']);
+    return true;
 }
 
 /**
@@ -47,7 +51,8 @@ function PMA_exportComment($text)
  */
 function PMA_exportFooter()
 {
-    return TRUE;
+    PMA_exportOutputHandler('...' . $GLOBALS['crlf']);
+    return true;
 }
 
 /**
@@ -59,7 +64,8 @@ function PMA_exportFooter()
  */
 function PMA_exportHeader()
 {
-    return TRUE;
+    PMA_exportOutputHandler('%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']);
+    return true;
 }
 
 /**
@@ -73,7 +79,7 @@ function PMA_exportHeader()
  */
 function PMA_exportDBHeader($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -87,7 +93,7 @@ function PMA_exportDBHeader($db)
  */
 function PMA_exportDBFooter($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -101,7 +107,7 @@ function PMA_exportDBFooter($db)
  */
 function PMA_exportDBCreate($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -131,11 +137,27 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $buffer = '';
     while ($record = PMA_DBI_fetch_row($result)) {
         $cnt++;
-        $buffer = $cnt . ":$crlf";
+        $buffer = '-' . $crlf;
         for ($i = 0; $i < $columns_cnt; $i++) {
-            if (isset($record[$i]) && !is_null($record[$i])) {
-                $buffer .= '  ' . $columns[$i] . ': '  . htmlspecialchars($record[$i]) . $crlf;
+            if (! isset($record[$i])) {
+                continue;
             }
+
+            $column = "'" . str_replace("'", "''", $columns[$i]) . "'";
+
+            if (is_null($record[$i])) {
+                $buffer .= '  ' . $column . ': null' . $crlf;
+                continue;
+            }
+
+            if (is_numeric($record[$i])) {
+                $buffer .= '  ' . $column . ': '  . $record[$i] . $crlf;
+                continue;
+            }
+
+            $record[$i] = "'" . str_replace("'", "''", $record[$i]) . "'";
+            //$record[$i] = '    ' . preg_replace('/\r\n|\r|\n/', '$0    ', $record[$i]);
+            $buffer .= '  ' . $column . ': ' . $record[$i] . $crlf;
         }
 
         if (!PMA_exportOutputHandler($buffer)) {
@@ -144,7 +166,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
     PMA_DBI_free_result($result);
 
-    return TRUE;
+    return true;
 }
 
 }

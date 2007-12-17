@@ -27,6 +27,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1724217 [Create PHP Code] doesn't include newlines for text fields
 - bug #1845605 [i18n] translators.html still uses iso-8859-1
 - bug #1823018 [charset] Edit(Delete) img-links pointing to wrong row
+- bug #1826205 [export] Problems with yaml text export
 
 2.11.4.0 (not yet released)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
