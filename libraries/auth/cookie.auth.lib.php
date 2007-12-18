@@ -588,6 +588,10 @@ function PMA_auth_fails()
         // Remember where we got timeout to return on same place
         if (PMA_getenv('SCRIPT_NAME')) {
             $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+            // avoid "missing parameter: field" on re-entry
+            if ('tbl_alter.php' == $GLOBALS['target']) {
+                $GLOBALS['target'] = 'tbl_structure.php';
+            }
         }
     } elseif (PMA_DBI_getError()) {
         $conn_error = PMA_sanitize(PMA_DBI_getError());
