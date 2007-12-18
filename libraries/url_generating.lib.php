@@ -226,6 +226,8 @@ function PMA_generate_common_url()
         $questionmark = '';
     }
 
+    $separator = PMA_get_arg_separator();
+
     if (isset($GLOBALS['server'])
       && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
         $params['server'] = $GLOBALS['server'];
@@ -252,11 +254,20 @@ function PMA_generate_common_url()
         return '';
     }
 
-    return $questionmark . http_build_query($params);
+    $query = $questionmark . http_build_query($params, null, $separator);
+
+    if ($encode === 'html') {
+        $query = htmlspecialchars($query);
+    }
+
+    return $query;
 }
 
 /**
  * Returns url separator
+ *
+ * extracted from arg_separator.input as set in php.ini
+ * we do not use arg_separator.output to avoid problems with &amp; and &
  *
  * @uses    ini_get()
  * @uses    strpos()
