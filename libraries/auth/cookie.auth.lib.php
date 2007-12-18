@@ -25,12 +25,11 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
      * further decryption. I don't think necessary to have one iv
      * per server so I don't put the server number in the cookie name.
      */
-    if (!isset($_COOKIE['pma_mcrypt_iv'])) {
+    if (empty($_COOKIE['pma_mcrypt_iv'])
+     || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
         srand((double) microtime() * 1000000);
         $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_CBC), MCRYPT_RAND);
         PMA_setCookie('pma_mcrypt_iv', base64_encode($iv));
-    } else {
-        $iv = base64_decode($_COOKIE['pma_mcrypt_iv']);
     }
 
     /**
