@@ -16,7 +16,7 @@
  * @param   string   optional table name
  * @param   int      indenting level
  * @param   string   do not generate a hidden field for this parameter
- *                  (can be an array of strings) 
+ *                  (can be an array of strings)
  *
  * @return  string   string with input fields
  *
@@ -226,10 +226,6 @@ function PMA_generate_common_url()
         $questionmark = '';
     }
 
-    // use seperators defined by php, but prefer ';'
-    // as recommended by W3C
-    $separator = PMA_get_arg_separator($encode);
-
     if (isset($GLOBALS['server'])
       && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
         $params['server'] = $GLOBALS['server'];
@@ -252,19 +248,11 @@ function PMA_generate_common_url()
         $params['token'] = $_SESSION[' PMA_token '];
     }
 
-    $param_strings = array();
-    foreach ($params as $key => $val) {
-        /* We ignore arrays as we don't use them! */
-        if (! is_array($val)) {
-            $param_strings[] = urlencode($key) . '=' . urlencode($val);
-        }
-    }
-
-    if (empty($param_strings)) {
+    if (empty($params)) {
         return '';
     }
 
-    return $questionmark . implode($separator, $param_strings);
+    return $questionmark . http_build_query($params);
 }
 
 /**
