@@ -981,6 +981,16 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $optio
  * $users = PMA_DBI_fetch_result($sql);
  * // produces
  * // $users[] = 'John Doe'
+ *
+ * $sql = 'SELECT `group`, `name` FROM `user`'
+ * $users = PMA_DBI_fetch_result($sql, array('group', null), 'name');
+ * // produces
+ * // $users['admin'][] = 'John Doe'
+ *
+ * $sql = 'SELECT `group`, `name` FROM `user`'
+ * $users = PMA_DBI_fetch_result($sql, array('group', 'name'), 'id');
+ * // produces
+ * // $users['admin']['John Doe'] = '123'
  * </code>
  *
  * @uses    is_string()
@@ -1040,6 +1050,11 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
             while ($row = $fetch_function($result)) {
                 $result_target =& $resultrows;
                 foreach ($key as $key_index) {
+                    if (null === $key_index) {
+                        $result_target =& $result_target[];
+                        continue;
+                    }
+
                     if (! isset($result_target[$row[$key_index]])) {
                         $result_target[$row[$key_index]] = array();
                     }
@@ -1057,6 +1072,11 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
             while ($row = $fetch_function($result)) {
                 $result_target =& $resultrows;
                 foreach ($key as $key_index) {
+                    if (null === $key_index) {
+                        $result_target =& $result_target[];
+                        continue;
+                    }
+
                     if (! isset($result_target[$row[$key_index]])) {
                         $result_target[$row[$key_index]] = array();
                     }
