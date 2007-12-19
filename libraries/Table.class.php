@@ -1047,5 +1047,59 @@ class PMA_Table {
             htmlspecialchars($old_name), htmlspecialchars($new_name));
         return true;
     }
+
+    /**
+     * Get all unique columns
+     *
+     * returns an array with all columns with unqiue content, in fact these are
+     * all columns being single indexed in PRIMARY or UNIQUE
+     *
+     * f.e.
+     *  - PRIMARY(id) // id
+     *  - UNIQUE(name) // name
+     *  - PRIMARY(fk_id1, fk_id2) // NONE
+     *  - UNIQUE(x,y) // NONE
+     *
+     *
+     * @return array
+     */
+    public function getUniqueColumns()
+    {
+        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Non_unique = 0';
+        $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
+
+        $return = array();
+        foreach ($uniques as $index) {
+            if (count($index) > 1) {
+                continue;
+            }
+            $return[] = $this->getFullName(true) . '.' . PMA_backquote($index[0]);
+        }
+
+        return $return;
+    }
+
+    /**
+     * Get all indexed columns
+     *
+     * returns an array with all columns make use of an index, in fact only
+     * first columns in an index
+     *
+     * f.e. index(col1, col2) would only return col1
+     *
+     * @return array
+     */
+    public function getIndexedColumns()
+    {
+        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
+        $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
+
+        $return = array();
+        foreach ($indexed as $column) {
+            $return[] = $this->getFullName(true) . '.' . PMA_backquote($column);
+        }
+
+        return $return;
+    }
 }
 ?>
