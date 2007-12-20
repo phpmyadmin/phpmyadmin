@@ -173,7 +173,14 @@ echo sprintf($strWelcome,
 <h3>H3 Header</h3>
 <h4>H4 Header</h4>
 
-<h1 class="notice">Notice header!</h1>
+<div class="success">
+    success message box content!
+</div>
+<div class="success">
+    <h1>Auccess message box header!</h1>
+    success message box content!
+</div>
+
 <div class="notice">
     notice message box content!
 </div>
@@ -182,7 +189,6 @@ echo sprintf($strWelcome,
     notice message box content!
 </div>
 
-<h1 class="warning">Warning header!</h1>
 <div class="warning">
     warning message box content!
 </div>
@@ -191,7 +197,6 @@ echo sprintf($strWelcome,
     warning message box content!
 </div>
 
-<h1 class="error">Error header!</h1>
 <div class="error">
     error message box content!
 </div>
@@ -208,6 +213,40 @@ echo sprintf($strWelcome,
     <input type="submit" name="yes" value="YES" />
     <input type="submit" name="no" value="NO" />
 </fieldset>
+
+<hr />
+
+<div class="success">
+    success message box content!
+</div>
+<code class="sql">
+<span class="syntax">
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
+<span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span> <span class="syntax_punct">*</span> <br />
+<span class="syntax_alpha syntax_alpha_reservedWord">FROM</span> <span class="syntax_quote syntax_quote_backtick">`test`</span> <span class="syntax_white syntax_white_newline"></span><br />
+<span class="syntax_alpha syntax_alpha_reservedWord">LIMIT</span> <span class="syntax_digit syntax_digit_integer">0</span><span class="syntax_punct syntax_punct_listsep">,</span> <span class="syntax_digit syntax_digit_integer">30</span>;<br />
+</span>
+</code>
+<div class="tools">
+[
+<a href="tbl_sql.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf#querybox" onclick="window.parent.focus_querywindow('SELECT * FROM `test`'); return false;">Bearbeiten</a>
+] [
+<a href="import.php?db=test;table=test;sql_query=EXPLAIN+SELECT+%2A+FROM+%60test%60;token=266edabf70fa6368498d89b4054d01bf" >SQL erklären</a>
+] [
+<a href="import.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;show_as_php=1;token=266edabf70fa6368498d89b4054d01bf" >PHP-Code erzeugen</a>
+] [
+<a href="import.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf" >Aktualisieren</a>
+]</div>
+
+<hr />
 
 <table class="data">
     <caption>table.data caption</caption>
