@@ -15,6 +15,13 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 ?>
 /******************************************************************************/
 /* general tags */
+html {
+    font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;
+}
+
+input, select, textarea {
+    font-size: 1em;
+}
 
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
@@ -38,8 +45,8 @@ a:active {
 }
 
 ul {
-	margin:0;
-}	
+    margin:0;
+}
 
 form {
     margin:             0;
@@ -204,7 +211,7 @@ div#left_tableList ul ul {
     padding-<?php echo $left; ?>:       0.1em;
     border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>; 
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
 /* for the servers list in navi panel */

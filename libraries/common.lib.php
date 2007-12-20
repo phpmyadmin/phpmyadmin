@@ -987,6 +987,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
     if ($message instanceof PMA_Message) {
         $message->display();
+        $type = $message->getLevel();
     } else {
         echo '<div class="' . $type . '">';
         echo PMA_sanitize($message);
@@ -1170,27 +1171,23 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
             $validate_link = '';
         } //validator
 
-        // Displays the message
-        echo '<fieldset class="">' . "\n";
-        echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
-        echo '    <div>';
+        echo '<code class="sql">';
         if ($query_too_big) {
-            echo '    ' . substr($query_base, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
+            echo substr($query_base, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
         } else {
-            echo '    ' . $query_base;
+            echo $query_base;
         }
 
         //Clean up the end of the PHP
         if (! empty($GLOBALS['show_as_php'])) {
             echo '";';
         }
-        echo '    </div>';
-        echo '</fieldset>' . "\n";
+        echo '</code>';
 
-        echo '<fieldset class="tblFooters">';
+        echo '<div class="tools">';
         PMA_profilingCheckbox($sql_query);
         echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
-        echo '</fieldset>';
+        echo '</div>';
     }
     echo '</div><br />' . "\n";
 } // end of the 'PMA_showMessage()' function

@@ -15,6 +15,14 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 ?>
 /******************************************************************************/
 /* general tags */
+html {
+    font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;
+}
+
+input, select, textarea {
+    font-size: 1em;
+}
+
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
@@ -30,7 +38,6 @@ textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
 }
 <?php } ?>
-
 h1 {
     font-size:          140%;
     font-weight:        bold;
@@ -135,7 +142,12 @@ button {
 
 /******************************************************************************/
 /* classes */
+div.tools {
+    border: 1px solid #000000;
+    padding: 0.2em;
+}
 
+div.tools,
 fieldset.tblFooters {
     margin-top:         0;
     margin-bottom:      0.5em;
@@ -363,19 +375,19 @@ div.success,
 div.notice,
 div.warning,
 div.error {
-    margin:             0.3em 0 0.3em 0;
+    margin:             0.3em 0 0 0;
     border:             2px solid;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
-    padding:            10px 10px 10px 36px;
+    padding:            0.1em 0.1em 0.1em 36px;
         <?php } else { ?>
     background-position: 99% 50%;
     padding:            10px 5% 10px 10px;
         <?php } ?>
     <?php } else { ?>
-    padding:            0.5em;
+    padding:            0.3em;
     <?php } ?>
 }
 
@@ -478,16 +490,19 @@ fieldset.confirmation legend {
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
 
+div.tools,
 .tblFooters {
     font-weight:        normal;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-
 }
 
 .tblHeaders a:link,
 .tblHeaders a:active,
 .tblHeaders a:visited,
+div.tools a:link,
+div.tools a:visited,
+div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
@@ -495,6 +510,7 @@ fieldset.confirmation legend {
 }
 
 .tblHeaders a:hover,
+div.tools a:hover,
 .tblFooters a:hover {
     color:              #FF0000;
 }
@@ -1093,7 +1109,10 @@ li#li_flush_privileges {
     float: <?php echo $left; ?>;
 }
 
-#div_table_copy, #div_partition_maintenance, #div_referential_integrity, #div_table_maintenance {
+#div_table_copy, 
+#div_partition_maintenance, 
+#div_referential_integrity, 
+#div_table_maintenance {
     min-width: 48%;
     float: <?php echo $left; ?>;
 }
@@ -1115,4 +1134,17 @@ li#li_flush_privileges {
 label.desc {
     width: 30em;
     float: <?php echo $left; ?>;
+}
+
+code.sql {
+    display:            block;
+    padding:            0.3em;
+    margin-top:         0;
+    margin-bottom:      0;
+    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    border-top:         0;
+    border-bottom:      0;
+    max-height:         10em;
+    overflow:           auto;
+    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
