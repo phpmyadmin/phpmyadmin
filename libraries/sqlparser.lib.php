@@ -53,18 +53,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
 
     if (!defined('DEBUG_TIMING')) {
-        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
+        // currently we don't need the $pos (token position in query)
+        // for other purposes than LIMIT clause verification,
+        // so many calls to this function do not include the 4th parameter
+        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
         {
-            $arr[] = array('type' => $type, 'data' => $data);
+            $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos);
             $arrsize++;
         } // end of the "PMA_SQP_arrayAdd()" function
     } else {
-        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
+        function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
         {
             global $timer;
 
             $t     = $timer;
-            $arr[] = array('type' => $type, 'data' => $data, 'time' => $t);
+            $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos, 'time' => $t);
             $timer = microtime();
             $arrsize++;
         } // end of the "PMA_SQP_arrayAdd()" function
@@ -529,7 +532,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } else {
                     $type = 'alpha';
                 } // end if... else....
-                PMA_SQP_arrayAdd($sql_array, $type, $str, $arraysize);
+                PMA_SQP_arrayAdd($sql_array, $type, $str, $arraysize, $count2);
 
                 continue;
             }
@@ -1421,7 +1424,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         $section_before_limit = '';
-        $section_after_limit = '';
+        $section_after_limit = ''; // truly the section after the limit clause
         $seen_reserved_word = FALSE;
         $seen_group = FALSE;
         $seen_order = FALSE;
@@ -1431,7 +1434,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_select_expr = FALSE; // true when we are inside the select expr clause
         $in_where = FALSE; // true when we are inside the WHERE clause
         $in_limit = FALSE; // true when we are inside the LIMIT clause
-        $before_limit = TRUE; // true when we are before the LIMIT clause
         $after_limit = FALSE; // true when we are after the LIMIT clause
         $in_from = FALSE; // true when we are in the FROM clause
         $in_group_concat = FALSE;
@@ -1453,15 +1455,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             //   DELETE FROM...
             //
             // this code is not used for confirmations coming from functions.js
-
-            /**
-             * @todo check for punct_queryend
-             * @todo verify C-style comments?
-             */
-            if ($arr[$i]['type'] == 'comment_ansi') {
-                $before_limit = FALSE;
-                $after_limit = FALSE;
-            }
 
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 $upper_data = strtoupper($arr[$i]['data']);
@@ -1489,9 +1482,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
 
                 if ($upper_data == 'LIMIT') {
+                    $section_before_limit = substr($arr['raw'], 0, $arr[$i]['pos'] - 5);
                     $in_limit = TRUE;
                     $limit_clause = '';
-		    $before_limit = FALSE;
                     $in_order_by = FALSE; // @todo maybe others to set FALSE
                 }
 
@@ -1694,9 +1687,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $limit_clause .= $sep;
                 }
             }
-            if (! $in_limit  && $before_limit && $arr[$i]['type'] != 'punct_queryend') {
-                $section_before_limit .= $arr[$i]['data'] . $sep;
-            }
             if ($after_limit) { 
                 $section_after_limit .= $arr[$i]['data'] . $sep;
             }
@@ -1704,7 +1694,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // clear $upper_data for next iteration
             $upper_data='';
         } // end for $i (loop #2)
-
+        if (empty($section_before_limit)) {
+            $section_before_limit = $arr['raw'];
+        }
 
         // -----------------------------------------------------
         // loop #3: foreign keys and MySQL 4.1.2+ TIMESTAMP options

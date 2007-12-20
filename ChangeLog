@@ -44,6 +44,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1764182 [cookies] Suhosin cookie encryption breaks phpMyAdmin
 - bug #1798786 [import] Wrong error when a string contains semicolon
 - bug #1813508 [login] Missing parameter: field after re-login 
+- bug #1710144 [parser] space after COUNT breaks Export but not Query
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
