@@ -827,6 +827,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $number_of_brackets = 0;
         $in_subquery = false;
+        $seen_subquery = false;
 
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
@@ -1098,6 +1099,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($upper_data == 'SELECT') {
                     if ($number_of_brackets > 0) {
                         $in_subquery = true;
+                        $seen_subquery = true;
                         // this is a subquery so do not analyze inside it
                         continue;
                     }
@@ -1146,7 +1148,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         break;
                 } // end switch
 
-                if ($subresult['querytype'] == 'SELECT' && !$in_group_concat) {
+                if ($subresult['querytype'] == 'SELECT' 
+                 && ! $in_group_concat
+                 && ! ($seen_subquery && $arr[$i - 1]['type'] == 'punct_bracket_close_round')) {
                     if (!$seen_from) {
                         if ($previous_was_identifier && isset($chain)) {
                             // found alias for this select_expr, save it
