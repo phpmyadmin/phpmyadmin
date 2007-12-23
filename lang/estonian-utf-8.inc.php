@@ -143,7 +143,6 @@ $strCollation = 'Määrang';
 $strColumnNames = 'Väljade nimed';
 $strColumnPrivileges = 'Väli-spetsiifilised privileegid';
 $strCommand = 'Käsk';
-$strCommentsForTable = 'KOMMENTAARID TABELILE';
 $strComments = 'Kommentaarid';
 $strCompatibleHashing = 'MySQL&nbsp;4.0-iga ühilduv';
 $strCompleteInserts = 'Täispikk INSERT';

@@ -132,7 +132,6 @@ $strCollation = 'Egybevetés';
 $strColumnNames = 'Oszlop nevek';
 $strColumnPrivileges = 'Oszlop-specifikus privilégiumok';
 $strCommand = 'Parancs';
-$strCommentsForTable = 'Tábla-megjegyzések';
 $strComments = 'Megjegyzések';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibilis';
 $strCompleteInserts = 'Mez&#337;neveket is hozzáadja';

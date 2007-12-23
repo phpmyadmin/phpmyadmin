@@ -142,7 +142,6 @@ $strCollation = 'Sortiranje';
 $strColumnNames = 'Imena kolona';
 $strColumnPrivileges = 'Privilegije vezane za kolone';
 $strCommand = 'Naredba';
-$strCommentsForTable = 'KOMENTARI TABELE';
 $strComments = 'Komentari';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibilno';
 $strCompleteInserts = 'Kompletan INSERT (sa imenima polja)';

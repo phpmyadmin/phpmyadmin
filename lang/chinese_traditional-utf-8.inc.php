@@ -140,7 +140,6 @@ $strColumnNames = '欄位名稱';
 $strColumnPrivileges = '指定欄位權限';
 $strCommand = '指令';
 $strComments = '註解';
-$strCommentsForTable = 'COMMENTS FOR TABLE';  // keep in SQL statement
 $strCompatibleHashing = 'MySQL&nbsp;4.0 相容';
 $strCompleteInserts = '使用完整新增指令';
 $strCompression = '壓縮';

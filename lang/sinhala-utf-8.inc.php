@@ -143,7 +143,6 @@ $strColumnNames = 'තීර නම්';
 $strColumnPrivileges = 'Column-specific privileges';
 $strCommand = 'විධානය';
 $strComments = 'විස්තරය';
-$strCommentsForTable = 'COMMENTS FOR TABLE';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';
 $strCompleteInserts = 'Complete inserts';
 $strCompression = 'Compression';

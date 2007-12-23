@@ -119,7 +119,6 @@ $strCollation = 'Palyginimas';
 $strColumnNames = 'Stulpelių vardai';
 $strColumnPrivileges = 'Specifinės stulpelių privilegijos';
 $strCommand = 'Komanda';
-$strCommentsForTable = 'COMMENTS FOR TABLE';
 $strComments = 'Komentarai';
 $strCompatibleHashing = 'Suderinamas sy MySQL&nbsp;4.0';
 $strCompleteInserts = 'Visiškas įterpimas';

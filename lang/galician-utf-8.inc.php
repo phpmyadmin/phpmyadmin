@@ -142,7 +142,6 @@ $strColumnNames = 'Nomes das Columnas';
 $strColumnPrivileges = 'Privilexios proprios de columna';
 $strCommand = 'Comando';
 $strComments = 'Comentarios';
-$strCommentsForTable = 'COMENTARIOS PARA A TABELA';
 $strCompatibleHashing = 'Compatíbel co MySQL&nbsp;4.0';
 $strCompleteInserts = 'Insercións completas';
 $strCompression = 'Compresión';

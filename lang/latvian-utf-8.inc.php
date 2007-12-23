@@ -121,7 +121,6 @@ $strCollation = 'Izkārtojumi';
 $strColumnNames = 'Kolonnu nosaukumi';
 $strColumnPrivileges = 'Kolonnu specifiskās privilēģijas';
 $strCommand = 'Komanda';
-$strCommentsForTable = 'KOMENTĀRI TABULAI';
 $strComments = 'Komentāri';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 savietojams';
 $strCompleteInserts = 'Pilnas INSERT izteiksmes';

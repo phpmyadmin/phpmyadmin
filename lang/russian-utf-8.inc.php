@@ -145,7 +145,6 @@ $strColumnNames = 'Названия столбцов';
 $strColumnPrivileges = 'Привилегии уровня столбца';
 $strCommand = 'Команда';
 $strComments = 'Комментарии';
-$strCommentsForTable = 'Комментарии к таблице';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 совместимо';
 $strCompleteInserts = 'Полная вставка';
 $strCompression = 'Упаковать';

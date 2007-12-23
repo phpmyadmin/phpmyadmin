@@ -138,7 +138,6 @@ $strCollation = 'Zotriedenie';
 $strColumnNames = 'Názvy stĺpcov';
 $strColumnPrivileges = 'Oprávnenia pre jednotlivé stĺpce';
 $strCommand = 'Príkaz';
-$strCommentsForTable = 'KOMENTÁRE PRE TABUĽKU';
 $strComments = 'Komentáre';
 $strCompatibleHashing = 'Kompatibilné s&nbsp;MySQL&nbsp;4.0';
 $strCompleteInserts = 'Úplné vloženie';

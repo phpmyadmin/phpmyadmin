@@ -124,7 +124,6 @@ $strCollation = 'Колация';
 $strColumnNames = 'Име на колона';
 $strColumnPrivileges = 'Привилегии специфични за колоната';
 $strCommand = 'Команда';
-$strCommentsForTable = 'КОМЕНТАРИ ЗА ТАБЛИЦА';
 $strComments = 'Коментари';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 съвместимо';
 $strCompleteInserts = 'Пълни INSERT-и';

@@ -628,7 +628,6 @@ $strCaseSensitive = 'case-sensitive';  //to translate
 $strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
 $strCheckOverhead = 'Check tables with overhead';  //to translate
 $strCollation = 'Collation';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate

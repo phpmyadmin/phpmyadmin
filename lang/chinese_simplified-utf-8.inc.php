@@ -125,7 +125,6 @@ $strCollation = '整理';
 $strColumnNames = '列名';
 $strColumnPrivileges = '按列指定权限';
 $strCommand = '命令';
-$strCommentsForTable = '表的注释';
 $strComments = '注释';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 兼容';
 $strCompleteInserts = '完整插入';

@@ -118,7 +118,6 @@ $strCollation = 'קידוד';
 $strColumnNames = 'שמות עמודה';
 $strColumnPrivileges = 'הרשאות ספציפיות-לעמודה';
 $strCommand = 'פקודה';
-$strCommentsForTable = 'הערות עבור טבלה';
 $strComments = 'הערות';
 $strCompatibleHashing = 'תואם MySQL&nbsp;4.0';
 $strCompleteInserts = 'השלם הכנסות';

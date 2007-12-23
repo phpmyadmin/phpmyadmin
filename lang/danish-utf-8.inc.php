@@ -142,7 +142,6 @@ $strCollation = 'Kollation (Collation)';
 $strColumnNames = 'Kolonnenavne';
 $strColumnPrivileges = 'Kolonne-specifikke privilegier';
 $strCommand = 'Kommando';
-$strCommentsForTable = 'COMMENTS FOR TABLE (tabel-kommentarer)';
 $strComments = 'Kommentarer';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibel';
 $strCompleteInserts = 'Komplette inserts';

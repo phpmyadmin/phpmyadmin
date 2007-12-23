@@ -415,7 +415,6 @@ $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.'; //to trans
 $strCollation = 'Collation'; //to translate
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
 $strCommand = 'Command'; //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate

@@ -109,7 +109,6 @@ $strCollation = 'Pravilo za razvrščanje znakov';
 $strColumnNames = 'Imena stolpcev';
 $strColumnPrivileges = 'Privilegiji tipični za stolpec';
 $strCommand = 'Ukaz';
-$strCommentsForTable = 'KOMENTARJI ZA TABELO';
 $strComments = 'Komentarji';
 $strCompleteInserts = 'Popolne \'insert\' poizvedbe';
 $strCompression = 'Stiskanje';

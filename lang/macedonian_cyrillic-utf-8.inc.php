@@ -132,7 +132,6 @@ $strColumnNames = 'Имиња на колони';
 $strColumnPrivileges = 'Привилегии врзани за колоните';
 $strCommand = 'Наредба';
 $strComments = 'Коментари';
-$strCommentsForTable = 'КОМЕНТАР НА ТАБЕЛАТА';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 компатибилно';
 $strCompleteInserts = 'Комплетен INSERT (со имиња на полињата)';
 $strCompression = 'Компресија';

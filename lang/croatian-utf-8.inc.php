@@ -142,7 +142,6 @@ $strCollation = 'Uspoređivanje';
 $strColumnNames = 'Nazivi stupaca';
 $strColumnPrivileges = 'Privilegije specifične za stupac';
 $strCommand = 'Naredba';
-$strCommentsForTable = 'COMMENTS FOR TABLE';
 $strComments = 'Komentari';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibilno';
 $strCompleteInserts = 'Dovrši umetanja';

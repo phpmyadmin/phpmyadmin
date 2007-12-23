@@ -122,7 +122,6 @@ $strColumnNames = 'Kolom namen';
 $strColumnPrivileges = 'Kolom-specifieke privileges';
 $strCommand = 'Commando';
 $strComments = 'Commentaar';
-$strCommentsForTable = 'COMMENTAAR VOOR TABEL';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatibel';
 $strCompleteInserts = 'Invoegen voltooid';
 $strCompression = 'Compressie';

@@ -134,7 +134,6 @@ $strCollation = 'Metoda porównywania napisów';
 $strColumnNames = 'Nazwy kolumn';
 $strColumnPrivileges = 'Uprawnienia specyficzne dla kolumn';
 $strCommand = 'Polecenie';
-$strCommentsForTable = 'KOMENTARZE TABELI';
 $strComments = 'Komentarze';
 $strCompatibleHashing = 'Kompatybilny z MySQL-em&nbsp;4.0';
 $strCompleteInserts = 'Pełne dodania';

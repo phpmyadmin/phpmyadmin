@@ -137,7 +137,6 @@ $strColumnNames = 'Nom de les columnes';
 $strColumnPrivileges = 'Permissos especfics de columna';
 $strCommand = 'Ordre';
 $strComments = 'Comentaris';
-$strCommentsForTable = 'COMENTARIS PER LA TAULA';
 $strCompatibleHashing = 'Compatible amb MySQL&nbsp;4.0';
 $strCompleteInserts = 'Completar insercions';
 $strCompression = 'Compressi';

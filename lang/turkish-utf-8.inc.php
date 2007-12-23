@@ -148,7 +148,6 @@ $strCollation = 'Karşılaştırma';
 $strColumnNames = 'Sütun adları';
 $strColumnPrivileges = 'Sütuna özgü yetkiler';
 $strCommand = 'Komut';
-$strCommentsForTable = 'TABLO YORUMLARI';
 $strComments = 'Yorumlar';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 uyumlu'; 
 $strCompleteInserts = 'Bütün eklemeler';

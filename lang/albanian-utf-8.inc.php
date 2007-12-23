@@ -113,7 +113,6 @@ $strCollation = 'Collation';
 $strColumnNames = 'Emrat e kollonave';
 $strColumnPrivileges = 'Të drejtat relative të kollonave';
 $strCommand = 'Komanda';
-$strCommentsForTable = 'KOMENTET PËR TABELËN';  
 $strComments = 'Komente';
 $strCompleteInserts = 'Të shtuarat komplet';
 $strCompression = 'Kompresim';

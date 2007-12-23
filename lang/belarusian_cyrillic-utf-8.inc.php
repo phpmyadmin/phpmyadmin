@@ -142,7 +142,6 @@ $strColumnNames = 'Назвы калёнак';
 $strColumnPrivileges = 'Спэцыфічныя прывілеі калёнак';
 $strCommand = 'Каманда';
 $strComments = 'Камэнтары';
-$strCommentsForTable = 'Камэнтары да табліцы';
 $strCompatibleHashing = 'Сумяшчальнае з MySQL&nbsp;4.0';
 $strCompleteInserts = 'Поўная ўстаўка';
 $strCompression = 'Сьціск';

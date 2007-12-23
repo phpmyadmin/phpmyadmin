@@ -144,7 +144,6 @@ $strCollation = 'Porovnávání';
 $strColumnNames = 'Názvy sloupců';
 $strColumnPrivileges = 'Oprávnění pro jednotlivé sloupce';
 $strCommand = 'Příkaz';
-$strCommentsForTable = 'KOMENTÁŘE PRO TABULKU';
 $strComments = 'Komentáře';
 $strCompatibleHashing = 'Kompatibilní s MySQL 4.0';
 $strCompleteInserts = 'Úplné inserty';

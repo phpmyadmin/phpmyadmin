@@ -572,27 +572,19 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
  * @param   string   the table name
  * @param   string   the end of line sequence
  * @param   boolean  whether to include relation comments
- * @param   boolean  whether to include column comments
  * @param   boolean  whether to include mime comments
  *
  * @return  string   resulting comments
  *
  * @access  public
  */
-function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comments = false, $do_mime = false)
+function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mime = false)
 {
     global $cfgRelation;
     global $sql_backquotes;
     global $sql_constraints;
 
     $schema_create = '';
-
-    // triggered only for MySQL < 4.1.x (pmadb-style comments)
-    if ($do_comments && $cfgRelation['commwork']) {
-        if (!($comments_map = PMA_getComments($db, $table))) {
-            unset($comments_map);
-        }
-    }
 
     // Check if we can use Relations (Mike Beck)
     if ($do_relation && !empty($cfgRelation['relation'])) {
@@ -613,17 +605,6 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
         if (!($mime_map = PMA_getMIME($db, $table, true))) {
             unset($mime_map);
         }
-    }
-
-    if (isset($comments_map) && count($comments_map) > 0) {
-        $schema_create .= $crlf
-                       . PMA_exportComment()
-                       . PMA_exportComment($GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $sql_backquotes) . ':');
-        foreach ($comments_map AS $comment_field => $comment) {
-            $schema_create .= PMA_exportComment('  ' . PMA_backquote($comment_field, $sql_backquotes))
-                            . PMA_exportComment('      ' . PMA_backquote($comment, $sql_backquotes));
-        }
-        $schema_create .= PMA_exportComment();
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
@@ -662,7 +643,11 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
  * @param   string   the end of line sequence
  * @param   string   the url to go back in case of error
  * @param   boolean  whether to include relation comments
- * @param   boolean  whether to include column comments
+ * @param   boolean  whether to include the pmadb-style column comments
+ *                   as comments in the structure; this is deprecated
+ *                   but the parameter is left here because export.php
+ *                   calls PMA_exportStructure() also for other export
+ *                   types which use this parameter
  * @param   boolean  whether to include mime comments
  * @param   string   'stand_in', 'create_table', 'create_view'
  * @param   string   'server', 'database', 'table'
@@ -717,7 +702,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
     } // end switch
 
-    $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
+    $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
     // this one is built by PMA_getTableDef() to use in table copy/move
     // but not in the case of export
     unset($GLOBALS['sql_constraints_query']);

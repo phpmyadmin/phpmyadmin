@@ -144,7 +144,6 @@ $strCollation = 'Aakkosjärjestys';
 $strColumnNames = 'Sarakkeiden nimet';
 $strColumnPrivileges = 'Sarakekohtaiset käyttöoikeudet';
 $strCommand = 'Komento';
-$strCommentsForTable = 'KOMMENTIT TAULULLE';
 $strComments = 'Kommentit';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 -yhteensopiva';
 $strCompleteInserts = 'Kokonaiset lisäyslauseet';

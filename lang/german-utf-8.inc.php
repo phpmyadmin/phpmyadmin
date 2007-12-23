@@ -152,7 +152,6 @@ $strColumnNames = 'Spaltennamen';
 $strColumnPrivileges = 'Spaltenspezifische Rechte';
 $strCommand = 'Befehl';
 $strComments = 'Kommentare';
-$strCommentsForTable = 'TABELLENKOMMENTARE';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibel';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strCompression = 'Kompression';

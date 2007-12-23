@@ -141,7 +141,6 @@ $strColumnNames = 'Kolonnenavn';
 $strColumnPrivileges = 'Kolonne-spesifikke privilegier';
 $strCommand = 'Kommando';
 $strComments = 'Kommentarer';
-$strCommentsForTable = 'TABELLKOMMENTARER';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 kompatibel';
 $strCompleteInserts = 'Komplette innlegg';
 $strCompression = 'Kompresjon';

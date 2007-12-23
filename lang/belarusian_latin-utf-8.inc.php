@@ -140,7 +140,6 @@ $strCollation = 'Supastaŭleńnie';
 $strColumnNames = 'Nazvy kalonak';
 $strColumnPrivileges = 'Specyfičnyja pryvilei kalonak';
 $strCommand = 'Kamanda';
-$strCommentsForTable = 'Kamentary da tablicy';
 $strComments = 'Kamentary';
 $strCompatibleHashing = 'Sumiaščalnaje z MySQL 4.0';
 $strCompleteInserts = 'Poŭnaja ŭstaŭka';

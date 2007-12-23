@@ -126,7 +126,6 @@ $strCollation = 'Penyortiran';
 $strColumnNames = 'Nama kolom';
 $strColumnPrivileges = 'Hak (privileges) khusus terhadap kolum';
 $strCommand = 'Perintah';
-$strCommentsForTable = 'KOMENTAR UNTUK TABEL';
 $strComments = 'Komentar';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';
 $strCompleteInserts = 'INSERT lengkap';

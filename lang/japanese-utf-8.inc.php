@@ -144,7 +144,6 @@ $strColumnNames = 'カラム名';
 $strColumnPrivileges = 'このカラムに固有の特権';
 $strCommand = 'コマンド';
 $strComments = 'コメント';
-$strCommentsForTable = 'COMMENTS FOR TABLE'; // XXX
 $strCompatibleHashing = 'MySQL&nbsp;4.0 互換';
 $strCompleteInserts = '完全な INSERT 文を作成する';
 $strCompression = '圧縮';

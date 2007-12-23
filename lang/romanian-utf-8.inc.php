@@ -119,7 +119,6 @@ $strColumnNames = 'Numele coloanelor';
 $strColumnPrivileges = 'Drepturi specifice de coloana';
 $strCommand = 'Comanda';
 $strComments = 'Comentarii';
-$strCommentsForTable = 'COMENTARII PENTRU TABEL';
 $strCompatibleHashing = 'Compatibil MySQL&nbsp;4.0';
 $strCompleteInserts = 'Rezolva inserarea';
 $strCompression = 'Compresie';

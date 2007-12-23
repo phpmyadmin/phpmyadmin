@@ -132,7 +132,6 @@ $strColumnNames = 'Alan iseme';
 $strColumnPrivileges = 'Berär bağana öçen xoquqlar';
 $strCommand = 'Ämer';
 $strComments = 'Açıqlama';
-$strCommentsForTable = 'COMMENTS FOR TABLE';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 öçen yaraqlı';
 $strCompleteInserts = 'Tulayım östise';
 $strCompression = 'Qısu';

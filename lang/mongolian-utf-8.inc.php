@@ -131,7 +131,6 @@ $strCollation = 'Жишилт';
 $strColumnNames = 'Баганын нэрс';
 $strColumnPrivileges = 'Онцгой эрх, баганын эрх';
 $strCommand = 'Команд';
-$strCommentsForTable = 'Хүснэгтийн тайлбар';
 $strComments = 'Тайлбар';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';
 $strCompleteInserts = 'Оруулалтыг дуусгах';

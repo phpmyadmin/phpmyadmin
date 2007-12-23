@@ -141,7 +141,6 @@ $strCollation = 'Kollationering';
 $strColumnNames = 'Kolumn-namn';
 $strColumnPrivileges = 'Kolumnspecifika privilegier';
 $strCommand = 'Kommando';
-$strCommentsForTable = 'KOMMENTARER FÖR TABELL';
 $strComments = 'Kommentarer';
 $strCompatibleHashing = 'Kompatibel med MySQL&nbsp;4.0';
 $strCompleteInserts = 'Kompletta infogningar';
