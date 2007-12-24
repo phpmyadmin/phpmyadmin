@@ -47,7 +47,20 @@ form {
 select#select_server,
 select#lightm_db {
     width:              100%;
+    margin-top: 3px;
 }
+
+#databaseList label {
+	width:				100%;
+    font-weight:        bold;
+    text-align:			left;
+    background-image: 	url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+	background-position:left top;
+	background-repeat: 	no-repeat;
+	padding-left:		16px;
+	padding-bottom: 	3px;
+}
+
 
 select {
     background-color:   #ffffff;
@@ -83,11 +96,13 @@ button {
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
-    text-align:         center;
     border-bottom:      1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
+
+div#pmalogo, div#leftframelinks { text-align: center; }
+div#databaseList                { text-align: left;   }
 
 ul#databaseList {
     border-bottom:      1px solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;

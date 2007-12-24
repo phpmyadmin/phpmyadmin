@@ -644,7 +644,7 @@ body.loginform div.container {
 
 form.login label {
     float: <?php echo $left; ?>;
-    width: 10em;
+    width: 11em;
     font-weight: bolder;
 }
 
@@ -663,7 +663,7 @@ form.login fieldset div.item select {
 }
 
 .loginform .container fieldset select[name=lang] {
-    width:				24em;
+    width:				25em;
 }
 
 /******************************************************************************/
