@@ -46,6 +46,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1813508 [login] Missing parameter: field after re-login 
 - bug #1710144 [parser] Space after COUNT breaks Export but not Query
 - bug #1783620 [parser] Subquery results without "as" are ignored 
+- bug #1821264 [display] MaxTableList and INFORMATION_SCHEMA 
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to
