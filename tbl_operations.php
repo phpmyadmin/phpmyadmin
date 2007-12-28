@@ -364,13 +364,14 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
     </select>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
-
-    <input type="radio" name="what" value="structure" id="radio_copy_structure" />
-    <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label><br />
-    <input type="radio" name="what" value="data" id="radio_copy_data" checked="checked" />
-    <label for="radio_copy_data"><?php echo $strStrucData; ?></label><br />
-    <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" />
-    <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label><br />
+<?php
+        $choices = array(
+            'structure' => $strStrucOnly,
+            'data'      => $strStrucData, 
+            'dataonly'  => $strDataOnly);
+        PMA_generate_html_radio('what', $choices, 'data', true);
+        unset($choices);
+?>
 
     <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
     <label for="checkbox_drop"><?php echo sprintf($strAddClause, 'DROP TABLE'); ?></label><br />
