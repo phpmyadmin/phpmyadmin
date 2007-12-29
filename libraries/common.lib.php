@@ -874,6 +874,11 @@ function PMA_reloadNavigation()
 
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
+        // one of the reasons for a reload is when a table is dropped
+        // in this case, get rid of the table limit offset, otherwise
+        // we have a problem when dropping a table on the last page
+        // and the offset becomes greater than the total number of tables
+        unset($_SESSION['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
         ?>
