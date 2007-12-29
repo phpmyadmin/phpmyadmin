@@ -2293,10 +2293,11 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
             echo ' checked="checked"';
         }
         echo ' />' . "\n";
-        echo '<label for="' . $html_field_id . '">' . htmlspecialchars($choice_label) . '</label>' . "\n";
+        echo '<label for="' . $html_field_id . '">' . htmlspecialchars($choice_label) . '</label>';
         if ($line_break) {
             echo '<br />';
         }
+        echo "\n";
     }
 }
 ?>

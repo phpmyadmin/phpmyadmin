@@ -330,16 +330,14 @@ if (!$is_information_schema) {
     ?>
         </legend>
         <input type="text" name="newname" size="30" class="textfield" value="" /><br />
-        <input type="radio" name="what" value="structure"
-            id="radio_copy_structure" style="vertical-align: middle" />
-        <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label><br />
-        <input type="radio" name="what" value="data" id="radio_copy_data"
-            checked="checked" style="vertical-align: middle" />
-        <label for="radio_copy_data"><?php echo $strStrucData; ?></label><br />
-        <input type="radio" name="what" value="dataonly"
-            id="radio_copy_dataonly" style="vertical-align: middle" />
-        <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label><br />
-
+<?php
+        $choices = array(
+            'structure' => $strStrucOnly,
+            'data'      => $strStrucData, 
+            'dataonly'  => $strDataOnly);
+        PMA_generate_html_radio('what', $choices, 'data', true);
+        unset($choices);
+?>
         <input type="checkbox" name="create_database_before_copying" value="1"
             id="checkbox_create_database_before_copying"
             style="vertical-align: middle" checked="checked" />
