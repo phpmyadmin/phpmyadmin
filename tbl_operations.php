@@ -190,7 +190,7 @@ unset($columns);
     <legend><?php echo $strMoveTable; ?></legend>
 <?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
 ?>
-    <input type="text" maxlength="100" size="30" name="target_db" />
+    <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
 <?php
     } else {
 ?>
@@ -353,7 +353,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
     <legend><?php echo $strCopyTable; ?></legend>
 <?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
 ?>
-    <input type="text" maxlength="100" size="30" name="target_db" />
+    <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
 <?php
     } else {
 ?>

@@ -26,6 +26,14 @@ $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
  */
 PMA_DBI_select_db($db);
 
+/** 
+ * $target_db could be empty in case we came from an input field 
+ * (when there are many databases, no drop-down)
+ */
+if (empty($target_db)) {
+    $target_db = $db;
+}
+
 /**
  * A target table name has been sent to this script -> do the work
  */
