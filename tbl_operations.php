@@ -209,9 +209,18 @@ unset($columns);
 <input type="hidden" name="what" value="data" />
 <fieldset id="fieldset_table_rename">
     <legend><?php echo $strMoveTable; ?></legend>
+<?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
+?>
+    <input type="text" maxlength="100" size="30" name="target_db" />
+<?php
+    } else {
+?>
     <select name="target_db">
         <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
+<?php 
+    } // end if
+?>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
@@ -359,9 +368,18 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo $strCopyTable; ?></legend>
+<?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
+?>
+    <input type="text" maxlength="100" size="30" name="target_db" />
+<?php
+    } else {
+?>
     <select name="target_db">
         <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
+<?php 
+    } // end if
+?>
     &nbsp;<b>.</b>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
 <?php
