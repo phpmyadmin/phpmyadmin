@@ -28,6 +28,14 @@ PMA_DBI_select_db($db);
 
 $goto = $cfg['DefaultTabTable'];
 
+/** 
+ * $_REQUEST['target_db'] could be empty in case we came from an input field 
+ * (when there are many databases, no drop-down)
+ */
+if (empty($_REQUEST['target_db'])) {
+    $_REQUEST['target_db'] = $db;
+}
+
 /**
  * A target table name has been sent to this script -> do the work
  */
