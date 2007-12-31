@@ -1034,4 +1034,5 @@ $strOptimize = 'Optimiser';
 $strRebuild = 'Reconstruire';
 $strRepair = 'Réparer';
 $strRemovePartitioning = 'Supprimer le partitionnement';
+$strSearchInField = 'Inside field:';  //to translate
 ?>

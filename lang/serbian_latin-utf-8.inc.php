@@ -1037,4 +1037,5 @@ $strOptimize = 'Optimize';  //to translate
 $strRebuild = 'Rebuild';  //to translate
 $strRepair = 'Repair';  //to translate
 $strRemovePartitioning = 'Remove partitioning';  //to translate
+$strSearchInField = 'Inside field:';  //to translate
 ?>

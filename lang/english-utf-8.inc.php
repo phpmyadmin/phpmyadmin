@@ -700,6 +700,7 @@ $strSavePosition = 'Save position';
 $strSave = 'Save';
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';
 $strSearchFormTitle = 'Search in database';
+$strSearchInField = 'Inside field:';
 $strSearchInTables = 'Inside table(s):';
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';
 $strSearchOption1 = 'at least one of the words';

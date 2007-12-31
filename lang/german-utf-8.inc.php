@@ -1043,4 +1043,5 @@ $strZeroRemovesTheLimit = 'Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
 $strExportImportToScale = 'Export/Import to scale';  // to translate
+$strSearchInField = 'Inside field:';  //to translate
 ?>

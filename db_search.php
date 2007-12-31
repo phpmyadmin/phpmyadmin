@@ -38,6 +38,7 @@
  * @uses    $_REQUEST['table_select']
  * @uses    $_REQUEST['unselectall']
  * @uses    $_REQUEST['selectall']
+ * @uses    $_REQUEST['field_str']
  * @uses    is_string()
  * @uses    htmlspecialchars()
  * @uses    array_key_exists()
@@ -118,6 +119,12 @@ if (isset($_REQUEST['selectall'])) {
     $tables_selected = array();
 }
 
+if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
+    unset($field_str);
+} else {
+    $field_str = PMA_sqlAddslashes($_REQUEST['field_str'], true);
+}
+
 /**
  * Displays top links
  */
@@ -143,6 +150,7 @@ if (isset($_REQUEST['submit_search'])) {
      * count
      * strlen
      * @param   string   the table name
+     * @param   string   restrict the search to this field 
      * @param   string   the string to search
      * @param   integer  type of search (1 -> 1 word at least, 2 -> all words,
      *                                   3 -> exact string, 4 -> regexp)
@@ -152,7 +160,7 @@ if (isset($_REQUEST['submit_search'])) {
      * @global  string   the url to return to in case of errors
      * @global  string   charset connection
      */
-    function PMA_getSearchSqls($table, $search_str, $search_option)
+    function PMA_getSearchSqls($table, $field, $search_str, $search_option)
     {
         global $err_url, $charset_connection;
 
@@ -198,21 +206,31 @@ if (isset($_REQUEST['submit_search'])) {
                 } else {
                     $prefix = $suffix = '';
                 }
-                $thefieldlikevalue[] = $tblfield['Field']
-                                     . ' ' . $like_or_regex . ' '
-                                     . $prefix
-                                     . "'"
-                                     . $automatic_wildcard
-                                     . $search_word
-                                     . $automatic_wildcard . "'"
-                                     . $suffix;
+                if ((!isset($field)) || (strlen($field) == 0) || ($tblfield['Field'] == PMA_backquote($field))) {
+                    $thefieldlikevalue[] = $tblfield['Field']
+                                         . ' ' . $like_or_regex . ' '
+                                         . $prefix
+                                         . "'"
+                                         . $automatic_wildcard
+                                         . $search_word
+                                         . $automatic_wildcard . "'"
+                                         . $suffix;
+                }
             } // end for
 
-            $fieldslikevalues[]      = implode(' OR ', $thefieldlikevalue);
+            if (count($thefieldlikevalue) > 0) {
+                $fieldslikevalues[]      = implode(' OR ', $thefieldlikevalue);
+            }
         } // end for
 
         $implode_str  = ($search_option == 1 ? ' OR ' : ' AND ');
-        $sqlstr_where = ' WHERE (' . implode(') ' . $implode_str . ' (', $fieldslikevalues) . ')';
+        if ( empty($fieldslikevalues)) {
+            // this could happen when the "inside field" does not exist
+            // in any selected tables
+            $sqlstr_where = ' WHERE FALSE';
+        } else {
+            $sqlstr_where = ' WHERE (' . implode(') ' . $implode_str . ' (', $fieldslikevalues) . ')';
+        }
         unset($fieldslikevalues);
 
         // Builds complete queries
@@ -249,8 +267,7 @@ if (isset($_REQUEST['submit_search'])) {
 
     foreach ($tables_selected as $each_table) {
         // Gets the SQL statements
-        $newsearchsqls = PMA_getSearchSqls($each_table,
-            $search_str, $search_option);
+        $newsearchsqls = PMA_getSearchSqls($each_table, (! empty($field_str) ? $field_str : ''), $search_str, $search_option);
 
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
@@ -358,6 +375,11 @@ $alter_select =
     </tr>
     <tr><td align="right" valign="bottom">
             <?php echo $alter_select; ?></td></tr>
+    </tr>
+    <tr><td align="right">
+            <?php echo $GLOBALS['strSearchInField']; ?></td>
+        <td><input type="text" name="field_str" size="60"
+                value="<?php echo ! empty($field_str) ? $field_str : ''; ?>" /></td>
     </tr>
     </table>
 </fieldset>
