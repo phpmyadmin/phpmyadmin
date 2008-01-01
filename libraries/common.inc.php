@@ -847,6 +847,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         require_once './libraries/List_Database.class.php';
         $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
 
+        /**
+         * some resetting has to be done when switching servers
+         */
+        if (isset($_SESSION['previous_server']) && $_SESSION['previous_server'] != $GLOBALS['server']) {
+            unset($_SESSION ['navi_limit_offset']);
+        }
+        $_SESSION['previous_server'] = $GLOBALS['server'];
+
     } // end server connecting
 
     /**
