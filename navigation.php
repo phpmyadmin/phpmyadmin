@@ -61,13 +61,13 @@ function PMA_exitNavigationFrame()
 }
 
 // keep the offset of the db list in session before closing it
-if (! isset($_SESSION['navi_limit_offset'])) {
-    $_SESSION['navi_limit_offset'] = 0;
+if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
+    $_SESSION['userconf']['navi_limit_offset'] = 0;
 }
 if (isset($_REQUEST['pos'])) {
-    $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
+    $_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['navi_limit_offset'];
+$pos = $_SESSION['userconf']['navi_limit_offset'];
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -100,13 +100,13 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once './libraries/header_http.inc.php';
 
-if (! isset($_SESSION['navi_limit_offset'])) {
-    $_SESSION['navi_limit_offset'] = 0;
+if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
+    $_SESSION['userconf']['navi_limit_offset'] = 0;
 }
 if (isset($_REQUEST['pos'])) {
-    $_SESSION['navi_limit_offset'] = (int) $_REQUEST['pos'];
+    $_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['navi_limit_offset'];
+$pos = $_SESSION['userconf']['navi_limit_offset'];
 
 /*
  * Displays the frame
@@ -188,7 +188,7 @@ if (! $GLOBALS['server']) {
     <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             .'</noscript>' . "\n"
@@ -197,7 +197,7 @@ if (! $GLOBALS['server']) {
         if (! empty($db)) {
             echo '<div id="databaseList">' . "\n";
         }
-        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
     PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
@@ -294,7 +294,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     echo '</div>' . "\n";
 
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails($_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
+    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails($_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
 }
 
 /**
