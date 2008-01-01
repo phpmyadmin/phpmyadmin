@@ -8,13 +8,6 @@
  *
  * Order of sections for common.inc.php:
  *
- * the include of libraries/defines_mysql.lib.php must be after the connection
- * to db to get the MySql version
- *
- * the authentication libraries must be before the connection to db
- *
- * ... so the required order is:
- *
  * LABEL_variables_init
  *  - initialize some variables always needed
  * LABEL_parsing_config_file
@@ -28,8 +21,6 @@
  * - loading of an authentication library
  * - db connection
  * - authentication work
- * - load of the libraries/defines_mysql.lib.php library to get the MySQL
- *   release number
  *
  * @version $Id$
  */
