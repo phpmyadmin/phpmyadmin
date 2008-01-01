@@ -850,10 +850,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['previous_server']) && $_SESSION['previous_server'] != $GLOBALS['server']) {
-            unset($_SESSION ['navi_limit_offset']);
+        if (isset($_SESSION['userconf']['previous_server']) && $_SESSION['userconf']['previous_server'] != $GLOBALS['server']) {
+            unset($_SESSION['userconf']['navi_limit_offset']);
         }
-        $_SESSION['previous_server'] = $GLOBALS['server'];
+        $_SESSION['userconf']['previous_server'] = $GLOBALS['server'];
 
     } // end server connecting
 
