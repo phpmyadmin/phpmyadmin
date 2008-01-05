@@ -43,13 +43,13 @@ require_once './libraries/common.inc.php';
 /**
  * limits for table list
  */
-if (! isset($_SESSION['table_limit_offset'])) {
-    $_SESSION['table_limit_offset'] = 0;
+if (! isset($_SESSION['userconf']['table_limit_offset'])) {
+    $_SESSION['userconf']['table_limit_offset'] = 0;
 }
 if (isset($_REQUEST['pos'])) {
-    $_SESSION['table_limit_offset'] = (int) $_REQUEST['pos'];
+    $_SESSION['userconf']['table_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['table_limit_offset'];
+$pos = $_SESSION['userconf']['table_limit_offset'];
 
 /**
  * fills given tooltip arrays

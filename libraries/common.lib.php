@@ -878,7 +878,7 @@ function PMA_reloadNavigation()
         // in this case, get rid of the table limit offset, otherwise
         // we have a problem when dropping a table on the last page
         // and the offset becomes greater than the total number of tables
-        unset($_SESSION['table_limit_offset']);
+        unset($_SESSION['userconf']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
         ?>
