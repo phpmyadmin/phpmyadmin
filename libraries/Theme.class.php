@@ -9,9 +9,9 @@
 /**
  * handles theme
  *
- * @todo add the possibility to make a theme depends on another theme and by default on orignal
- * @todo make all components optional - taking missing compnents from 'parent' theme
- * @todo make css optionaly replacing 'parent' css or extending it (by appending at the end)
+ * @todo add the possibility to make a theme depends on another theme and by default on original
+ * @todo make all components optional - taking missing components from 'parent' theme
+ * @todo make css optionally replacing 'parent' css or extending it (by appending at the end)
  * @todo add an optional global css file - which will be used for both frames
  *
  */
@@ -59,12 +59,21 @@ class PMA_Theme {
     var $mtime_info = 0;
 
     /**
+     * needed because sometimes, the mtime for different themes
+     * is identical
+     * @var integer filesize for info file
+     * @access  protected
+     */
+    var $filesize_info = 0;
+
+    /**
      * @access  public
      * @uses    PMA_Theme::getPath()
      * @uses    PMA_Theme::$mtime_info
      * @uses    PMA_Theme::setVersion()
      * @uses    PMA_Theme::setName()
      * @uses    filemtime()
+     * @uses    filesize()
      * @uses    file_exists()
      * @return  boolean     whether loading them info was successful or not
      */
@@ -86,6 +95,7 @@ class PMA_Theme {
         }
 
         $this->mtime_info = filemtime($this->getPath() . '/info.inc.php');
+        $this->filesize_info = filesize($this->getPath() . '/info.inc.php');
 
         if (isset($theme_full_version)) {
             $this->setVersion($theme_full_version);

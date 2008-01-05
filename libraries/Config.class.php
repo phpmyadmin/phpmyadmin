@@ -542,9 +542,9 @@ class PMA_Config
      * or the theme changes
      * @return  int  Unix timestamp
      */
-    function getMtime()
+    function getThemeUniqueValue()
     {
-        return intval($_SESSION['PMA_Config']->get('fontsize')) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info);
+        return intval($_SESSION['PMA_Config']->get('fontsize')) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info + $_SESSION['PMA_Theme']->filesize_info);
     }
 
     /**
