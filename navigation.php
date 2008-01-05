@@ -129,7 +129,7 @@ $pos = $_SESSION['userconf']['navi_limit_offset'];
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
-        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $_SESSION['PMA_Config']->getMtime(); ?>" />
+        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $_SESSION['PMA_Config']->getThemeUniqueValue(); ?>" />
     <script type="text/javascript" src="js/navigation.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript">
