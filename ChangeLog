@@ -55,6 +55,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1861717 [export] CSV Escape character not exported right,
   thanks to nicolasdigraf
 - bug #1864468 [display] Theme does not switch to darkblue_orange
+- bug #1847409 [security] Path disclosure on darkblue_orange/layout.inc.php,
+  thanks to Jürgen Wind - windkiel
 
 2.11.3.0 (2007-12-08)
 - patch #1818389 to remove a notice (failed to flush buffer), thanks to

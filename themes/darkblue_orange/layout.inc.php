@@ -9,6 +9,11 @@
  * @subpackage Darkblue_orange
  */
 
+// protect against path disclosure
+if (empty($_SESSION['PMA_Theme'])) {
+    exit;
+}
+
 /**
  * navi frame
  */
