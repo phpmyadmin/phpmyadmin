@@ -1877,20 +1877,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                . '    <legend>' . $GLOBALS['strChangeCopyUser'] . '</legend>' . "\n";
             PMA_displayLoginInformationFields('change');
             echo '    <fieldset>' . "\n"
-               . '        <legend>' . $GLOBALS['strChangeCopyMode'] . '</legend>' . "\n"
-               . '        <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" /><label for="radio_mode_4">' . "\n"
-               . '            ' . $GLOBALS['strChangeCopyModeCopy'] . "\n"
-               . '        </label><br />' . "\n"
-               . '        <input type="radio" name="mode" value="1" id="radio_mode_1" /><label for="radio_mode_1">' . "\n"
-               . '            ' . $GLOBALS['strChangeCopyModeJustDelete'] . "\n"
-               . '        </label><br />' . "\n"
-               . '        <input type="radio" name="mode" value="2" id="radio_mode_2" /><label for="radio_mode_2">' . "\n"
-               . '            ' . $GLOBALS['strChangeCopyModeRevoke'] . "\n"
-               . '        </label><br />' . "\n"
-               . '        <input type="radio" name="mode" value="3" id="radio_mode_3" /><label for="radio_mode_3">' . "\n"
-               . '            ' . $GLOBALS['strChangeCopyModeDeleteAndReload'] . "\n"
-               . '        </label>' . "\n"
-               . '    </fieldset>' . "\n"
+                . '        <legend>' . $GLOBALS['strChangeCopyMode'] . '</legend>' . "\n";
+            $choices = array(
+                '4' => $GLOBALS['strChangeCopyModeCopy'],
+                '1' => $GLOBALS['strChangeCopyModeJustDelete'],
+                '2' => $GLOBALS['strChangeCopyModeRevoke'],
+                '3' => $GLOBALS['strChangeCopyModeDeleteAndReload']);
+            PMA_generate_html_radio('mode', $choices, '4', true);
+            unset($choices);
+
+            echo '    </fieldset>' . "\n"
                . '</fieldset>' . "\n"
                . '<fieldset id="fieldset_change_copy_user_footer" class="tblFooters">' . "\n"
                . '    <input type="submit" name="change_copy" value="' . $GLOBALS['strGo'] . '" />' . "\n"
@@ -1908,20 +1904,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . PMA_generate_common_hidden_inputs('', '');
     PMA_displayLoginInformationFields('new');
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
-       . '<legend>' . $GLOBALS['strCreateUserDatabase'] . '</legend>' . "\n"
-       . '    <div class="item">' . "\n"
-       . '        <input type="radio" name="createdb" value="0" id="radio_createdb_0" checked="checked" />' . "\n"
-       . '        <label for="radio_createdb_0">' . $GLOBALS['strCreateUserDatabaseNone'] . '</label>' . "\n"
-       . '    </div>' . "\n"
-       . '    <div class="item">' . "\n"
-       . '        <input type="radio" name="createdb" value="1" id="radio_createdb_1" />' . "\n"
-       . '        <label for="radio_createdb_1">' . $GLOBALS['strCreateUserDatabaseName'] . '</label>' . "\n"
-       . '    </div>' . "\n"
-       . '    <div class="item">' . "\n"
-       . '        <input type="radio" name="createdb" value="2" id="radio_createdb_2" />' . "\n"
-       . '        <label for="radio_createdb_2">' . $GLOBALS['strCreateUserDatabaseWildcard'] . '</label>' . "\n"
-       . '    </div>' . "\n"
-       . '</fieldset>' . "\n";
+        . '<legend>' . $GLOBALS['strCreateUserDatabase'] . '</legend>' . "\n";
+
+    $choices = array(
+        '0' => $GLOBALS['strCreateUserDatabaseNone'],
+        '1' => $GLOBALS['strCreateUserDatabaseName'],
+        '2' => $GLOBALS['strCreateUserDatabaseWildcard']);
+    PMA_generate_html_radio('createdb', $choices, '0', true);
+    unset($choices);
+
+    echo '</fieldset>' . "\n";
     PMA_displayPrivTable('*', '*', FALSE);
     echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
        . '        <input type="submit" name="adduser_submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"

@@ -278,10 +278,13 @@ if ($cfgRelation['pdfwork']) {
         echo "\n";
         ?>
     </select>
-    <input type="radio" name="action_choose" value="0" id="radio_choose0" checked="checked" style="vertical-align: middle" /><label for="radio_choose0">
-<?php echo $strEdit; ?> </label>
-    <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /><label for="radio_choose1">
-<?php echo $strDelete; ?> </label>
+<?php
+    $choices = array(
+        '0' => $strEdit,
+        '1' => $strDelete);
+        PMA_generate_html_radio('action_choose', $choices, '0', false);
+    unset($choices);
+?>
        <input type="submit" value="<?php echo $strGo; ?>" /><br />
     </fieldset>
 </form>
