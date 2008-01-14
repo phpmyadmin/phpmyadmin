@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 2.11.5.0 (not yet released)
 - bug #1862661 [GUI] Warn about rename deleting database
 - bug #1866041 [interface] Incorrect sorting with AS
+- bug #1871038 [import] Notice: undefined variable first_sql_delimiter 
 
 2.11.4.0 (2008-01-12)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
