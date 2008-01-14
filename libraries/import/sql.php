@@ -123,7 +123,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $p8 = $big_value;
         }
         $i = min ($first_quote, $p2, $first_sql_delimiter, $p4, $p5, $p6, $p7, $p8);
-        unset($first_quote, $p2, $first_sql_delimiter, $p4, $p5, $p6, $p7, $p8);
+        unset($first_quote, $p2, $p4, $p5, $p6, $p7, $p8);
         if ($i == $big_value) {
             $i = $oi;
             if (!$finished) {
