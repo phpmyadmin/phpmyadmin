@@ -1038,4 +1038,5 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poi
 $strZip = '"zip-pakattu"';
 
 $strSearchInField = 'Inside field:';  //to translate
+$strTexyText = 'Texy! text';  //to translate
 ?>

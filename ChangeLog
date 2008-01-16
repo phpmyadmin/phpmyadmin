@@ -17,6 +17,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [export] new plugin "codegen" for NHibernate, thanks to caocao; I'm
   looking for a name more descriptive than codegen, taking into account
   that it might later support other formats like JSON in the same plugin
++ [export] new export to Texy! markup
 + [lang] Finnish update, thanks to Jouni Kahkonen
 + [config] new parameter $cfg['CheckConfigurationPermissions']
 + rfe #1775288 [transformation] proper display if IP-address stored as INT

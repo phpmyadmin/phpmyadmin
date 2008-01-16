@@ -1055,4 +1055,5 @@ $strUploadLimit = 'You probably tried to upload too large file. Please refer to 
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';//to translate
 
 $strSearchInField = 'Inside field:';  //to translate
+$strTexyText = 'Texy! text';  //to translate
 ?>

@@ -929,6 +929,7 @@ $strTakeIt = 'take it';
 $strTblPrivileges = 'Table-specific privileges';
 $strTempData = 'Temporary data';
 $strTextAreaLength = ' Because of its length,<br /> this field might not be editable ';
+$strTexyText = 'Texy! text';
 $strThai = 'Thai';
 $strThemeDefaultNotFound = 'Default theme %s not found!';
 $strThemeNoPreviewAvailable = 'No preview available.';
