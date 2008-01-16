@@ -1080,30 +1080,30 @@ $cfg['Export']['htmlword_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['texy_structure']
+ * @global boolean $cfg['Export']['texytext_structure']
  */
-$cfg['Export']['texy_structure'] = TRUE;
+$cfg['Export']['texytext_structure'] = TRUE;
 
 /**
  *
  *
- * @global boolean $cfg['Export']['texy_data']
+ * @global boolean $cfg['Export']['texytext_data']
  */
-$cfg['Export']['texy_data'] = TRUE;
+$cfg['Export']['texytext_data'] = TRUE;
 
 /**
  *
  *
- * @global boolean $cfg['Export']['texy_columns']
+ * @global boolean $cfg['Export']['texytext_columns']
  */
-$cfg['Export']['texy_columns'] = FALSE;
+$cfg['Export']['texytext_columns'] = FALSE;
 
 /**
  *
  *
- * @global string $cfg['Export']['texy_null']
+ * @global string $cfg['Export']['texytext_null']
  */
-$cfg['Export']['texy_null'] = 'NULL';
+$cfg['Export']['texytext_null'] = 'NULL';
 
 /**
  *
