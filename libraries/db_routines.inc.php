@@ -19,6 +19,9 @@ $url_query .= '&amp;goto=db_structure.php';
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
 if ($routines) {
+    PMA_generate_slider_effect('routines', $strRoutines);
+    echo '<div id="routines_anchor"></div>';
+    echo '<div id="routines">' . "\n";
     echo '<fieldset>' . "\n";
     echo ' <legend>' . $strRoutines . '</legend>' . "\n";
     echo '<table border="0">';
@@ -79,5 +82,6 @@ if ($routines) {
     }
     echo '</table>';
     echo '</fieldset>' . "\n";
+    echo '</div>' . "\n";
 }
 ?>
