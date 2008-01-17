@@ -1039,4 +1039,5 @@ $strZip = '"zip-pakattu"';
 
 $strSearchInField = 'Inside field:';  //to translate
 $strTexyText = 'Texy! text';  //to translate
+$strDetails = 'Details...';  //to translate
 ?>

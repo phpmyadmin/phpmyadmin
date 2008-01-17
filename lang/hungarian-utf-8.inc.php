@@ -1056,4 +1056,5 @@ $strUploadsNotAllowed = 'File uploads are not allowed on this server.';//to tran
 
 $strSearchInField = 'Inside field:';  //to translate
 $strTexyText = 'Texy! text';  //to translate
+$strDetails = 'Details...';  //to translate
 ?>

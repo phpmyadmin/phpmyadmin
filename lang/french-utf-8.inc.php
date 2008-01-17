@@ -1036,4 +1036,5 @@ $strRepair = 'Réparer';
 $strRemovePartitioning = 'Supprimer le partitionnement';
 $strSearchInField = 'Inside field:';  //to translate
 $strTexyText = 'Texy! text';  //to translate
+$strDetails = 'Details...';  //to translate
 ?>

@@ -1045,4 +1045,5 @@ $strZip = 'Zip-komprimiert';
 $strExportImportToScale = 'Export/Import to scale';  // to translate
 $strSearchInField = 'Inside field:';  //to translate
 $strTexyText = 'Texy! text';  //to translate
+$strDetails = 'Details...';  //to translate
 ?>
