@@ -12,6 +12,9 @@ require_once './libraries/common.inc.php';
 require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
+$GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-domready.js';
+
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =
         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
@@ -121,67 +124,8 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 
 <fieldset id="fieldset_table_search">
 
-<fieldset id="fieldset_select_fields">
-    <legend><?php echo $strSelectFields; ?></legend>
-    <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>"
-        multiple="multiple">
-    <?php
-    // Displays the list of the fields
-    foreach ($fields_list as $each_field) {
-        echo '        '
-            .'<option value="' . htmlspecialchars($each_field) . '"'
-            .' selected="selected">' . htmlspecialchars($each_field)
-            .'</option>' . "\n";
-    }
-    ?>
-    </select>
-    <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
-    <label for="oDistinct">DISTINCT</label>
-</fieldset>
-
-<fieldset id="fieldset_limit_rows">
-    <legend><?php echo $strLimitNumRows; ?></legend>
-    <input type="text" size="4" name="session_max_rows"
-        value="<?php echo $GLOBALS['cfg']['MaxRows']; ?>" class="textfield" />
-</fieldset>
-
-<fieldset id="fieldset_display_order">
-    <legend><?php echo $strDisplayOrder; ?></legend>
-    <select name="orderField" style="vertical-align: middle">
-        <option value="--nil--"></option>
-    <?php
-    foreach ($fields_list as $each_field) {
-        echo '        '
-            .'<option value="' . htmlspecialchars($each_field) . '">'
-            .htmlspecialchars($each_field) . '</option>' . "\n";
-    } // end for
-    ?>
-    </select>
-
-    <div class="formelement">
-        <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" />
-        <label for="sortASC"><?php echo $strAscending; ?></label>
-    </div>
-
-    <div class="formelement">
-        <input type="radio" name="order" value="DESC" id="sortDESC" />
-        <label for="sortDESC"><?php echo $strDescending; ?></label>
-    </div>
-</fieldset>
-
-<br class="clearfloat" />
-<?php echo $strAddSearchConditions; ?>
-<?php echo PMA_showMySQLDocu('SQL-Syntax', 'Functions'); ?>
-
-<input type="text" name="where" class="textfield" size="64" />
-
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
-</fieldset>
-
 <fieldset id="fieldset_table_qbe">
-    <legend><?php echo '<em>' . $strOr . '</em> ' . $strDoAQuery; ?></legend>
+    <legend><?php echo $strDoAQuery; ?></legend>
     <table class="data">
     <thead>
     <tr><th><?php echo $strField; ?></th>
@@ -306,6 +250,68 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     ?>
     </tbody>
     </table>
+</fieldset>
+<?php
+    PMA_generate_slider_effect('searchoptions', $strOptions);
+?>
+<div id="searchoptions_anchor"></div>
+<div id="searchoptions">'
+
+<fieldset id="fieldset_select_fields">
+    <legend><?php echo $strSelectFields; ?></legend>
+    <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>"
+        multiple="multiple">
+    <?php
+    // Displays the list of the fields
+    foreach ($fields_list as $each_field) {
+        echo '        '
+            .'<option value="' . htmlspecialchars($each_field) . '"'
+            .' selected="selected">' . htmlspecialchars($each_field)
+            .'</option>' . "\n";
+    }
+    ?>
+    </select>
+    <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
+    <label for="oDistinct">DISTINCT</label>
+</fieldset>
+
+<fieldset id="fieldset_search_conditions">
+    <legend><?php echo '<em>' . $strOr . '</em> ' .$strAddSearchConditions; ?></legend>
+<?php echo PMA_showMySQLDocu('SQL-Syntax', 'Functions'); ?>
+
+<input type="text" name="where" class="textfield" size="64" />
+</fieldset>
+
+<fieldset id="fieldset_limit_rows">
+    <legend><?php echo $strLimitNumRows; ?></legend>
+    <input type="text" size="4" name="session_max_rows"
+        value="<?php echo $GLOBALS['cfg']['MaxRows']; ?>" class="textfield" />
+</fieldset>
+
+<fieldset id="fieldset_display_order">
+    <legend><?php echo $strDisplayOrder; ?></legend>
+    <select name="orderField" style="vertical-align: middle">
+        <option value="--nil--"></option>
+    <?php
+    foreach ($fields_list as $each_field) {
+        echo '        '
+            .'<option value="' . htmlspecialchars($each_field) . '">'
+            .htmlspecialchars($each_field) . '</option>' . "\n";
+    } // end for
+    ?>
+    </select>
+
+    <div class="formelement">
+        <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" />
+        <label for="sortASC"><?php echo $strAscending; ?></label>
+    </div>
+
+    <div class="formelement">
+        <input type="radio" name="order" value="DESC" id="sortDESC" />
+        <label for="sortDESC"><?php echo $strDescending; ?></label>
+    </div>
+</fieldset>
+</div>
 </fieldset>
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"
