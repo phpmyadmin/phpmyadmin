@@ -27,12 +27,12 @@ $export_page_title = $strViewDump;
 if (! empty($sql_query)) {
     // Parse query so we can work with tokens
     $parsed_sql = PMA_SQP_parse($sql_query);
+    $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 
     // Need to generate WHERE clause?
     if (isset($primary_key)) {
         // Yes => rebuild query from scracts, this doesn't work with nested
         // selects :-(
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
         $sql_query = 'SELECT ';
 
         if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
@@ -71,42 +71,7 @@ if (! empty($sql_query)) {
         }
     } else {
         // Just crop LIMIT clause
-        $inside_bracket = FALSE;
-        for ($i = $parsed_sql['len'] - 1; $i >= 0; $i--) {
-            if ($parsed_sql[$i]['type'] == 'punct_bracket_close_round') {
-                $inside_bracket = TRUE;
-                continue;
-            }
-            if ($parsed_sql[$i]['type'] == 'punct_bracket_open_round') {
-                $inside_bracket = FALSE;
-                continue;
-            }
-            if (!$inside_bracket && $parsed_sql[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_sql[$i]['data']) == 'LIMIT') {
-                // We found LIMIT to remove
-
-                $sql_query = '';
-
-                // Concatenate parts before
-                for ($j = 0; $j < $i; $j++) {
-                    $sql_query .= $parsed_sql[$j]['data'] . ' ';
-                }
-
-                // Skip LIMIT
-                $i++;
-                while ($i < $parsed_sql['len'] &&
-                    ($parsed_sql[$i]['type'] != 'alpha_reservedWord' ||
-                    ($parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'OFFSET'))) {
-                    $i++;
-                }
-
-                // Add remaining parts
-                while ($i < $parsed_sql['len']) {
-                    $sql_query .= $parsed_sql[$i]['data'] . ' ';
-                    $i++;
-                }
-                break;
-            }
-        }
+        $sql_query = $analyzed_sql[0]['section_before_limit'] . $analyzed_sql[0]['section_after_limit'];
     }
     $message = $GLOBALS['strSuccess'];
 }
