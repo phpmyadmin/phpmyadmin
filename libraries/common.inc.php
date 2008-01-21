@@ -912,8 +912,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * check if profiling was requested and remember it
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
      */
-
-    if (PMA_profilingSupported() && isset($_REQUEST['profiling'])) {
+    if (isset($_REQUEST['profiling']) && PMA_profilingSupported()) {
         $_SESSION['profiling'] = true;
     } elseif (isset($_REQUEST['profiling_form'])) {
         // the checkbox was unchecked
