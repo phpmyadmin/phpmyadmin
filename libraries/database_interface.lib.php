@@ -805,18 +805,25 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
     if (! defined('PMA_MYSQL_INT_VERSION')) {
-        $mysql_version = PMA_DBI_fetch_value(
-            'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
-        if ($mysql_version) {
-            $match = explode('.', $mysql_version);
-            define('PMA_MYSQL_INT_VERSION',
-                (int) sprintf('%d%02d%02d', $match[0], $match[1],
-                        intval($match[2])));
-            define('PMA_MYSQL_STR_VERSION', $mysql_version);
-            unset($mysql_version, $match);
+        if (isset($_SESSION['PMA_MYSQL_INT_VERSION'])) {
+            define('PMA_MYSQL_INT_VERSION', $_SESSION['PMA_MYSQL_INT_VERSION']);
+            define('PMA_MYSQL_STR_VERSION', $_SESSION['PMA_MYSQL_STR_VERSION']);
         } else {
-            define('PMA_MYSQL_INT_VERSION', 50015);
-            define('PMA_MYSQL_STR_VERSION', '5.00.15');
+            $mysql_version = PMA_DBI_fetch_value(
+                'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
+            if ($mysql_version) {
+                $match = explode('.', $mysql_version);
+                define('PMA_MYSQL_INT_VERSION',
+                    (int) sprintf('%d%02d%02d', $match[0], $match[1],
+                            intval($match[2])));
+                define('PMA_MYSQL_STR_VERSION', $mysql_version);
+                unset($mysql_version, $match);
+            } else {
+                define('PMA_MYSQL_INT_VERSION', 50015);
+                define('PMA_MYSQL_STR_VERSION', '5.00.15');
+            }
+            $_SESSION['PMA_MYSQL_INT_VERSION'] = PMA_MYSQL_INT_VERSION;
+            $_SESSION['PMA_MYSQL_STR_VERSION'] = PMA_MYSQL_STR_VERSION;
         }
     }
 
