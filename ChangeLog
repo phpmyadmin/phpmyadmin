@@ -29,16 +29,17 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1845605 [i18n] translators.html still uses iso-8859-1
 - bug #1823018 [charset] Edit(Delete) img-links pointing to wrong row
 - bug #1826205 [export] Problems with yaml text export
-+ rfe #1840165 [interface] Enlarge column name field in vertical mode 
-+ patch #1847534 [interface] New "Inside field" in db search, 
++ rfe #1840165 [interface] Enlarge column name field in vertical mode
++ patch #1847534 [interface] New "Inside field" in db search,
   thanks to obiserver
 + [GUI] Mootools js library (http://mootools.net) and new parameter
   $cfg['InitialSlidersStatus']
+* [core] cache some MySQL stats (do not query them with every page request)
 
 2.11.5.0 (not yet released)
 - bug #1862661 [GUI] Warn about rename deleting database
 - bug #1866041 [interface] Incorrect sorting with AS
-- bug #1871038 [import] Notice: undefined variable first_sql_delimiter 
+- bug #1871038 [import] Notice: undefined variable first_sql_delimiter
 - bug #1873110 [export] Problem exporting with a LIMIT clause
 
 2.11.4.0 (2008-01-12)
@@ -55,10 +56,10 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
  (fix for sorting on column headers)
 - bug #1764182 [cookies] Suhosin cookie encryption breaks phpMyAdmin
 - bug #1798786 [import] Wrong error when a string contains semicolon
-- bug #1813508 [login] Missing parameter: field after re-login 
+- bug #1813508 [login] Missing parameter: field after re-login
 - bug #1710144 [parser] Space after COUNT breaks Export but not Query
-- bug #1783620 [parser] Subquery results without "as" are ignored 
-- bug #1821264 [display] MaxTableList and INFORMATION_SCHEMA 
+- bug #1783620 [parser] Subquery results without "as" are ignored
+- bug #1821264 [display] MaxTableList and INFORMATION_SCHEMA
 - bug #1859460 [display] Operations and many databases
 - bug #1814679 [display] Database selection pagination when switching servers
 - patch #1861717 [export] CSV Escape character not exported right,
