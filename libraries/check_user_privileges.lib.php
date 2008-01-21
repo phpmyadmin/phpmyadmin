@@ -37,6 +37,7 @@ $GLOBALS['is_superuser']       = PMA_isSuperuser();
  * @uses    $GLOBALS['is_reload_priv'] to set it
  * @uses    $GLOBALS['db_to_create'] to set it
  * @uses    $GLOBALS['dbs_where_create_table_allowed'] to set it
+ * @uses    $GLOBALS['server']
  * @uses    PMA_DBI_try_query()
  * @uses    PMA_DBI_fetch_row()
  * @uses    PMA_DBI_free_result()
@@ -50,13 +51,13 @@ $GLOBALS['is_superuser']       = PMA_isSuperuser();
  */
 function PMA_analyseShowGrant()
 {
-    if (isset($_SESSION['is_create_db_priv'])) {
-        $GLOBALS['is_create_db_priv']  = $_SESSION['is_create_db_priv'];
-        $GLOBALS['is_process_priv']    = $_SESSION['is_create_db_priv'];
-        $GLOBALS['is_reload_priv']     = $_SESSION['is_create_db_priv'];
-        $GLOBALS['db_to_create']       = $_SESSION['is_create_db_priv'];
+    if (isset($_SESSION[$GLOBALS['server']]['is_create_db_priv'])) {
+        $GLOBALS['is_create_db_priv']  = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
+        $GLOBALS['is_process_priv']    = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
+        $GLOBALS['is_reload_priv']     = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
+        $GLOBALS['db_to_create']       = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
         $GLOBALS['dbs_where_create_table_allowed']
-            = $_SESSION['is_create_db_priv'];
+            = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
         return;
     }
 
@@ -143,11 +144,11 @@ function PMA_analyseShowGrant()
 
     PMA_DBI_free_result($rs_usr);
 
-    $_SESSION['is_create_db_priv']  = $GLOBALS['is_create_db_priv'];
-    $_SESSION['is_process_priv']    = $GLOBALS['is_create_db_priv'];
-    $_SESSION['is_reload_priv']     = $GLOBALS['is_create_db_priv'];
-    $_SESSION['db_to_create']       = $GLOBALS['is_create_db_priv'];
-    $_SESSION['dbs_where_create_table_allowed']
+    $_SESSION[$GLOBALS['server']]['is_create_db_priv']  = $GLOBALS['is_create_db_priv'];
+    $_SESSION[$GLOBALS['server']]['is_process_priv']    = $GLOBALS['is_create_db_priv'];
+    $_SESSION[$GLOBALS['server']]['is_reload_priv']     = $GLOBALS['is_create_db_priv'];
+    $_SESSION[$GLOBALS['server']]['db_to_create']       = $GLOBALS['is_create_db_priv'];
+    $_SESSION[$GLOBALS['server']]['dbs_where_create_table_allowed']
         = $GLOBALS['is_create_db_priv'];
 } // end function
 

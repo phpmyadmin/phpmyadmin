@@ -1201,6 +1201,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
  * Verifies if current MySQL server supports profiling
  *
  * @uses    $_SESSION['profiling_supported'] for caching
+ * @uses    $GLOBALS['server']
  * @uses    PMA_DBI_fetch_value()
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    defined()
@@ -1211,20 +1212,20 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
  */
 function PMA_profilingSupported()
 {
-    if (! isset($_SESSION['profiling_supported'])) {
+    if (! isset($_SESSION[$GLOBALS['server']]['profiling_supported'])) {
         // 5.0.37 has profiling but for example, 5.1.20 does not
         // (avoid a trip to the server for MySQL before 5.0.37)
         // and do not set a constant as we might be switching servers
         if (defined('PMA_MYSQL_INT_VERSION')
          && PMA_MYSQL_INT_VERSION >= 50037
          && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
-            $_SESSION['profiling_supported'] = true;
+            $_SESSION[$GLOBALS['server']]['profiling_supported'] = true;
         } else {
-            $_SESSION['profiling_supported'] = false;
+            $_SESSION[$GLOBALS['server']]['profiling_supported'] = false;
         }
     }
 
-    return $_SESSION['profiling_supported'];
+    return $_SESSION[$GLOBALS['server']]['profiling_supported'];
 }
 
 /**

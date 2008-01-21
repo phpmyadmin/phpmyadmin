@@ -779,8 +779,10 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 /**
  * @uses    ./libraries/charset_conversion.lib.php
  * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_MYSQL_INT_VERSION
- * @uses    PMA_MYSQL_STR_VERSION
+ * @uses    PMA_MYSQL_INT_VERSION to set it
+ * @uses    PMA_MYSQL_STR_VERSION to set it
+ * @uses    $_SESSION['PMA_MYSQL_INT_VERSION'] for caching
+ * @uses    $_SESSION['PMA_MYSQL_STR_VERSION'] for caching
  * @uses    PMA_DBI_GETVAR_SESSION
  * @uses    PMA_DBI_fetch_value()
  * @uses    PMA_DBI_query()
@@ -790,6 +792,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  * @uses    $GLOBALS['mysql_charset_map']
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
+ * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['cfg']['Lang']
  * @uses    defined()
  * @uses    explode()
@@ -806,8 +809,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
 {
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (isset($_SESSION['PMA_MYSQL_INT_VERSION'])) {
-            define('PMA_MYSQL_INT_VERSION', $_SESSION['PMA_MYSQL_INT_VERSION']);
-            define('PMA_MYSQL_STR_VERSION', $_SESSION['PMA_MYSQL_STR_VERSION']);
+            define('PMA_MYSQL_INT_VERSION', $_SESSION[$GLOBALS['server']]['PMA_MYSQL_INT_VERSION']);
+            define('PMA_MYSQL_STR_VERSION', $_SESSION[$GLOBALS['server']]['PMA_MYSQL_STR_VERSION']);
         } else {
             $mysql_version = PMA_DBI_fetch_value(
                 'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
@@ -822,8 +825,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 define('PMA_MYSQL_INT_VERSION', 50015);
                 define('PMA_MYSQL_STR_VERSION', '5.00.15');
             }
-            $_SESSION['PMA_MYSQL_INT_VERSION'] = PMA_MYSQL_INT_VERSION;
-            $_SESSION['PMA_MYSQL_STR_VERSION'] = PMA_MYSQL_STR_VERSION;
+            $_SESSION[$GLOBALS['server']]['PMA_MYSQL_INT_VERSION'] = PMA_MYSQL_INT_VERSION;
+            $_SESSION[$GLOBALS['server']]['PMA_MYSQL_STR_VERSION'] = PMA_MYSQL_STR_VERSION;
         }
     }
 
@@ -1158,26 +1161,27 @@ function PMA_DBI_get_warnings($link = null)
  *
  * @uses    $_SESSION['is_superuser'] for caching
  * @uses    $GLOBALS['userlink']
+ * @uses    $GLOBALS['server']
  * @uses    PMA_DBI_try_query()
  * @uses    PMA_DBI_QUERY_STORE
  * @return  integer  $is_superuser
  */
 function PMA_isSuperuser()
 {
-    if (isset($_SESSION['is_superuser'])) {
-        return $_SESSION['is_superuser'];
+    if (isset($_SESSION[$GLOBALS['server']]['is_superuser'])) {
+        return $_SESSION[$GLOBALS['server']]['is_superuser'];
     }
 
     // with mysql extension, when connection failed we don't have
     // a $userlink
     if (isset($GLOBALS['userlink'])) {
-        $_SESSION['is_superuser'] = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
+        $_SESSION[$GLOBALS['server']]['is_superuser'] = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
         $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
     } else {
-        $_SESSION['is_superuser'] = false;
+        $_SESSION[$GLOBALS['server']]['is_superuser'] = false;
     }
 
-    return $_SESSION['is_superuser'];
+    return $_SESSION[$GLOBALS['server']]['is_superuser'];
 }
 
 /**
