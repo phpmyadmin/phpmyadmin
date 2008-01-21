@@ -74,8 +74,8 @@ function PMA_analyseShowGrant()
         return;
     }
 
-    $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
-    $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
+    $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
+    $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
     while ($row = PMA_DBI_fetch_row($rs_usr)) {
         // extract db from GRANT ... ON *.* or GRANT ... ON db.*
