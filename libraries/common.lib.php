@@ -1200,20 +1200,31 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 /**
  * Verifies if current MySQL server supports profiling
  *
+ * @uses    $_SESSION['profiling_supported'] for caching
+ * @uses    PMA_DBI_fetch_value()
+ * @uses    PMA_MYSQL_INT_VERSION
+ * @uses    defined()
  * @access  public
  * @return  boolean whether profiling is supported
  *
  * @author   Marc Delisle
  */
-function PMA_profilingSupported() {
-    // 5.0.37 has profiling but for example, 5.1.20 does not
-    // (avoid a trip to the server for MySQL before 5.0.37)
-    // and do not set a constant as we might be switching servers
-    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 50037 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
-        return true;
-    } else {
-        return false;
+function PMA_profilingSupported()
+{
+    if (! isset($_SESSION['profiling_supported'])) {
+        // 5.0.37 has profiling but for example, 5.1.20 does not
+        // (avoid a trip to the server for MySQL before 5.0.37)
+        // and do not set a constant as we might be switching servers
+        if (defined('PMA_MYSQL_INT_VERSION')
+         && PMA_MYSQL_INT_VERSION >= 50037
+         && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
+            $_SESSION['profiling_supported'] = true;
+        } else {
+            $_SESSION['profiling_supported'] = false;
+        }
     }
+
+    return $_SESSION['profiling_supported'];
 }
 
 /**
@@ -1224,7 +1235,8 @@ function PMA_profilingSupported() {
  *
  * @author   Marc Delisle
  */
-function PMA_profilingCheckbox($sql_query) {
+function PMA_profilingCheckbox($sql_query)
+{
     if (PMA_profilingSupported()) {
         echo '<form action="sql.php" method="post">' . "\n";
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
@@ -1244,7 +1256,8 @@ function PMA_profilingCheckbox($sql_query) {
  *
  * @author   Marc Delisle
  */
-function PMA_profilingResults($profiling_results) {
+function PMA_profilingResults($profiling_results)
+{
     echo '<fieldset><legend>' . $GLOBALS['strProfiling'] . '</legend>' . "\n";
     echo '<table>' . "\n";
     echo ' <tr>' .  "\n";
@@ -2302,7 +2315,7 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
 }
 
 /**
- * Generates a slider effect (Mootools) 
+ * Generates a slider effect (Mootools)
  *
  * @uses    $GLOBALS['cfg']['InitialSlidersStatus']
  * @param   string  $id the id of the <div> on which to apply the effect
@@ -2331,9 +2344,9 @@ function PMA_generate_slider_effect($id, $message) {
             mySlide<?php echo $id; ?>.toggle();
             e.stop();
         });
-    }); 
+    });
 // ]]>
 </script>
-<?php 
+<?php
 }
 ?>
