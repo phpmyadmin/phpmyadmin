@@ -8,54 +8,83 @@
 /**
  *
  */
-$res = PMA_DBI_query('SHOW CHARACTER SET;');
 
-$mysql_charsets = array();
-while ($row = PMA_DBI_fetch_assoc($res)) {
-    $mysql_charsets[] = $row['Charset'];
-    // never used
-    //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
-    $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
-}
-@PMA_DBI_free_result($res);
+if (! isset($_SESSION['mysql_charsets_count'])) {
+    $res = PMA_DBI_query('SHOW CHARACTER SET;');
 
-$mysql_charsets_count = count($mysql_charsets);
-sort($mysql_charsets, SORT_STRING);
-
-$mysql_collations = array_flip($mysql_charsets);
-$mysql_default_collations = $mysql_collations_flat = $mysql_charsets_available = $mysql_collations_available = array();
-
-$res = PMA_DBI_query('SHOW COLLATION;');
-while ($row = PMA_DBI_fetch_assoc($res)) {
-    if (!is_array($mysql_collations[$row['Charset']])) {
-        $mysql_collations[$row['Charset']] = array($row['Collation']);
-    } else {
-        $mysql_collations[$row['Charset']][] = $row['Collation'];
+    $mysql_charsets = array();
+    while ($row = PMA_DBI_fetch_assoc($res)) {
+        $mysql_charsets[] = $row['Charset'];
+        // never used
+        //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
+        $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
     }
-    $mysql_collations_flat[] = $row['Collation'];
-    if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
-        $mysql_default_collations[$row['Charset']] = $row['Collation'];
-    }
-    //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
-    $mysql_collations_available[$row['Collation']] = TRUE;
-    $mysql_charsets_available[$row['Charset']] = !empty($mysql_charsets_available[$row['Charset']]) || !empty($mysql_collations_available[$row['Collation']]);
-}
-@PMA_DBI_free_result($res);
-unset($res, $row);
+    PMA_DBI_free_result($res);
 
-$mysql_collations_count = count($mysql_collations_flat);
-sort($mysql_collations_flat, SORT_STRING);
-foreach ($mysql_collations AS $key => $value) {
-    sort($mysql_collations[$key], SORT_STRING);
-    reset($mysql_collations[$key]);
+    $mysql_charsets_count = count($mysql_charsets);
+    sort($mysql_charsets, SORT_STRING);
+
+    $mysql_collations = array_flip($mysql_charsets);
+    $mysql_default_collations = $mysql_collations_flat = $mysql_charsets_available = $mysql_collations_available = array();
+
+    $res = PMA_DBI_query('SHOW COLLATION;');
+    while ($row = PMA_DBI_fetch_assoc($res)) {
+        if (!is_array($mysql_collations[$row['Charset']])) {
+            $mysql_collations[$row['Charset']] = array($row['Collation']);
+        } else {
+            $mysql_collations[$row['Charset']][] = $row['Collation'];
+        }
+        $mysql_collations_flat[] = $row['Collation'];
+        if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
+            $mysql_default_collations[$row['Charset']] = $row['Collation'];
+        }
+        //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
+        $mysql_collations_available[$row['Collation']] = TRUE;
+        $mysql_charsets_available[$row['Charset']] =
+            !empty($mysql_charsets_available[$row['Charset']])
+         || !empty($mysql_collations_available[$row['Collation']]);
+    }
+    PMA_DBI_free_result($res);
+    unset($res, $row);
+
+    $mysql_collations_count = count($mysql_collations_flat);
+    sort($mysql_collations_flat, SORT_STRING);
+    foreach ($mysql_collations AS $key => $value) {
+        sort($mysql_collations[$key], SORT_STRING);
+        reset($mysql_collations[$key]);
+    }
+    unset($key, $value);
+
+    $_SESSION['mysql_charsets']                 = $GLOBALS['mysql_charsets'];
+    $_SESSION['mysql_charsets_descriptions']    = $GLOBALS['mysql_charsets_descriptions'];
+    $_SESSION['mysql_charsets_count']           = $GLOBALS['mysql_charsets_count'];
+    $_SESSION['mysql_charsets_available']       = $GLOBALS['mysql_charsets_available'];
+    $_SESSION['mysql_collations']               = $GLOBALS['mysql_collations'];
+    $_SESSION['mysql_default_collations']       = $GLOBALS['mysql_default_collations'];
+    $_SESSION['mysql_collations_flat']          = $GLOBALS['mysql_collations_flat'];
+    $_SESSION['mysql_collations_count']         = $GLOBALS['mysql_collations_count'];
+    $_SESSION['mysql_collations_available']     = $GLOBALS['mysql_collations_available'];
+} else {
+    $GLOBALS['mysql_charsets']                  = $_SESSION['mysql_charsets'];
+    $GLOBALS['mysql_charsets_descriptions']     = $_SESSION['mysql_charsets_descriptions'];
+    $GLOBALS['mysql_charsets_count']            = $_SESSION['mysql_charsets_count'];
+    $GLOBALS['mysql_charsets_available']        = $_SESSION['mysql_charsets_available'];
+    $GLOBALS['mysql_collations']                = $_SESSION['mysql_collations'];
+    $GLOBALS['mysql_default_collations']        = $_SESSION['mysql_default_collations'];
+    $GLOBALS['mysql_collations_flat']           = $_SESSION['mysql_collations_flat'];
+    $GLOBALS['mysql_collations_count']          = $_SESSION['mysql_collations_count'];
+    $GLOBALS['mysql_collations_available']      = $_SESSION['mysql_collations_available'];
 }
-unset($key, $value);
 
 define('PMA_CSDROPDOWN_COLLATION', 0);
 define('PMA_CSDROPDOWN_CHARSET',   1);
 
-function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = null, $id = null, $default = null, $label = TRUE, $indent = 0, $submitOnChange = FALSE, $displayUnavailable = FALSE) {
-    global $mysql_charsets, $mysql_charsets_descriptions, $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
+function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
+    $name = null, $id = null, $default = null, $label = TRUE, $indent = 0,
+    $submitOnChange = FALSE, $displayUnavailable = FALSE)
+{
+    global $mysql_charsets, $mysql_charsets_descriptions,
+        $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
 
     if (empty($name)) {
         if ($type == PMA_CSDROPDOWN_COLLATION) {
@@ -65,33 +94,46 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name 
         }
     }
 
-    $spacer = '';
-    for ($i = 1; $i <= $indent; $i++) $spacer .= '    ';
-
-    $return_str  = $spacer . '<select xml:lang="en" dir="ltr" name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
+    $return_str  = '<select xml:lang="en" dir="ltr" name="'
+        . htmlspecialchars($name) . '"'
+        . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"')
+        . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
     if ($label) {
-        $return_str .= $spacer . '    <option value="">' . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
+        $return_str .= '<option value="">'
+            . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset'])
+            . '</option>' . "\n";
     }
-    $return_str .= $spacer . '    <option value="">&nbsp;</option>' . "\n";
+    $return_str .= '<option value=""></option>' . "\n";
     foreach ($mysql_charsets as $current_charset) {
         if (!$mysql_charsets_available[$current_charset]) {
             continue;
         }
-        $current_cs_descr = empty($mysql_charsets_descriptions[$current_charset]) ? $current_charset : $mysql_charsets_descriptions[$current_charset];
+        $current_cs_descr =
+            empty($mysql_charsets_descriptions[$current_charset])
+            ? $current_charset
+            : $mysql_charsets_descriptions[$current_charset];
+
         if ($type == PMA_CSDROPDOWN_COLLATION) {
-            $return_str .= $spacer . '    <optgroup label="' . $current_charset . '" title="' . $current_cs_descr . '">' . "\n";
+            $return_str .= '<optgroup label="' . $current_charset
+                . '" title="' . $current_cs_descr . '">' . "\n";
             foreach ($mysql_collations[$current_charset] as $current_collation) {
                 if (!$mysql_collations_available[$current_collation]) {
                     continue;
                 }
-                $return_str .= $spacer . '        <option value="' . $current_collation . '" title="' . PMA_getCollationDescr($current_collation) . '"' . ($default == $current_collation ? ' selected="selected"' : '') . '>' . $current_collation . '</option>' . "\n";
+                $return_str .= '<option value="' . $current_collation
+                    . '" title="' . PMA_getCollationDescr($current_collation) . '"'
+                    . ($default == $current_collation ? ' selected="selected"' : '') . '>'
+                    . $current_collation . '</option>' . "\n";
             }
-            $return_str .= $spacer . '    </optgroup>' . "\n";
+            $return_str .= '</optgroup>' . "\n";
         } else {
-            $return_str .= $spacer . '    <option value="' . $current_charset . '" title="' . $current_cs_descr . '"' . ($default == $current_charset ? ' selected="selected"' : '') . '>' . $current_charset . '</option>' . "\n";
+            $return_str .= '<option value="' . $current_charset
+                . '" title="' . $current_cs_descr . '"'
+                . ($default == $current_charset ? ' selected="selected"' : '') . '>'
+                . $current_charset . '</option>' . "\n";
         }
     }
-    $return_str .= $spacer . '</select>' . "\n";
+    $return_str .= '</select>' . "\n";
 
     return $return_str;
 }
