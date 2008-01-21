@@ -8,7 +8,6 @@
  * @uses    $strTableAlreadyExists
  * @uses    $strTable
  * @uses    $strTableHasBeenCreated
- * @uses    PMA_ENGINE_KEYWORD
  * @uses    PMA_Table::generateFieldSpec()
  * @uses    PMA_checkParameters()
  * @uses    PMA_generateCharsetQueryPart()
@@ -182,7 +181,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // Adds table type, character set, comments and partition definition
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
-        $sql_query .= ' ' . PMA_ENGINE_KEYWORD  . ' = ' . $tbl_type;
+        $sql_query .= ' ENGINE = ' . $tbl_type;
     }
     if (!empty($tbl_collation)) {
         $sql_query .= PMA_generateCharsetQueryPart($tbl_collation);

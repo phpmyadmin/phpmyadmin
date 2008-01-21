@@ -33,7 +33,7 @@ require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/StorageEngine.class.php';
 
 /**
- * Class for partition management 
+ * Class for partition management
  */
 require_once './libraries/Partition.class.php';
 
@@ -73,7 +73,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
     if (! empty($_REQUEST['new_tbl_type'])
       && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
-        $table_alters[] = PMA_ENGINE_KEYWORD . ' = ' . $_REQUEST['new_tbl_type'];
+        $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_type'];
         $tbl_type = $_REQUEST['new_tbl_type'];
     }
 
@@ -218,7 +218,7 @@ unset($columns);
     <select name="target_db">
         <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
-<?php 
+<?php
     } // end if
 ?>
     &nbsp;<b>.</b>&nbsp;
@@ -377,7 +377,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
     <select name="target_db">
         <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
     </select>
-<?php 
+<?php
     } // end if
 ?>
     &nbsp;<b>.</b>&nbsp;
@@ -385,7 +385,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 <?php
         $choices = array(
             'structure' => $strStrucOnly,
-            'data'      => $strStrucData, 
+            'data'      => $strStrucData,
             'dataonly'  => $strDataOnly);
         PMA_generate_html_radio('what', $choices, 'data', true);
         unset($choices);
@@ -443,7 +443,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     }
     if ($tbl_type == 'INNODB') {
         $this_url_params = array_merge($url_params,
-            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ' . PMA_ENGINE_KEYWORD . '=InnoDB'));
+            array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ENGINE = InnoDB'));
         ?>
     <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
             <?php echo $strDefragment; ?></a>
@@ -517,9 +517,9 @@ $this_url_params = array_merge($url_params,
         printf($GLOBALS['strPartition'], $html_select);
         unset($partition_names, $one_partition, $html_select);
         $choices = array(
-            'ANALYZE' => $strAnalyze, 
-            'CHECK' => $strCheck, 
-            'OPTIMIZE' => $strOptimize, 
+            'ANALYZE' => $strAnalyze,
+            'CHECK' => $strCheck,
+            'OPTIMIZE' => $strOptimize,
             'REBUILD' => $strRebuild,
             'REPAIR' => $strRepair);
         PMA_generate_html_radio('partition_operation', $choices, '', false);

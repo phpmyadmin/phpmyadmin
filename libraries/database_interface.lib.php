@@ -804,7 +804,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
-    if (!defined('PMA_MYSQL_INT_VERSION')) {
+    if (! defined('PMA_MYSQL_INT_VERSION')) {
         $mysql_version = PMA_DBI_fetch_value(
             'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
         if ($mysql_version) {
@@ -818,10 +818,6 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             define('PMA_MYSQL_INT_VERSION', 50015);
             define('PMA_MYSQL_STR_VERSION', '5.00.15');
         }
-    }
-
-    if (!defined('PMA_ENGINE_KEYWORD')) {
-        define('PMA_ENGINE_KEYWORD','ENGINE');
     }
 
     if (! empty($GLOBALS['collation_connection'])) {
