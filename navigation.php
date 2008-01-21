@@ -70,7 +70,10 @@ if (isset($_REQUEST['pos'])) {
 $pos = $_SESSION['userconf']['navi_limit_offset'];
 
 // free the session file, for the other frames to be loaded
-session_write_close();
+// but only if debugging is not enabled
+if (empty($_SESSION['debug'])) {
+    session_write_close();
+}
 
 /**
  * the output compression library
