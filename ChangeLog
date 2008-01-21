@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [GUI] Mootools js library (http://mootools.net) and new parameter
   $cfg['InitialSlidersStatus']
 * [core] cache some MySQL stats (do not query them with every page request)
++ [view] clearer dialog WITH (CASCADED | LOCAL) CHECK OPTION 
 
 2.11.5.0 (not yet released)
 - bug #1862661 [GUI] Warn about rename deleting database

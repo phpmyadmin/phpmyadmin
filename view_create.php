@@ -34,9 +34,8 @@ $view_algorithm_options = array(
 );
 
 $view_with_options = array(
-    'CASCADED',
-    'LOCAL',
-    'CHECK OPTION',
+    'CASCADED CHECK OPTION',
+    'LOCAL CHECK OPTION'
 );
 
 if (isset($_REQUEST['createview'])) {
