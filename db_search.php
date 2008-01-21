@@ -100,7 +100,7 @@ if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
     // For "as regular expression" (search option 4), we should not treat
     // this as an expression that contains a LIKE (second parameter of
     // PMA_sqlAddslashes()).
-    // 
+    //
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
     $search_str = PMA_sqlAddslashes($_REQUEST['search_str'], ($search_option == 4 ? false : true));
@@ -150,7 +150,7 @@ if (isset($_REQUEST['submit_search'])) {
      * count
      * strlen
      * @param   string   the table name
-     * @param   string   restrict the search to this field 
+     * @param   string   restrict the search to this field
      * @param   string   the string to search
      * @param   integer  type of search (1 -> 1 word at least, 2 -> all words,
      *                                   3 -> exact string, 4 -> regexp)
@@ -162,21 +162,15 @@ if (isset($_REQUEST['submit_search'])) {
      */
     function PMA_getSearchSqls($table, $field, $search_str, $search_option)
     {
-        global $err_url, $charset_connection;
+        global $err_url;
 
         // Statement types
         $sqlstr_select = 'SELECT';
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $res                  = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
-        while ($current = PMA_DBI_fetch_assoc($res)) {
-            list($current['Charset']) = explode('_', $current['Collation']);
-            $current['Field'] = PMA_backquote($current['Field']);
-            $tblfields[]      = $current;
-        } // while
-        PMA_DBI_free_result($res);
-        unset($current, $res);
+        $tblfields = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']),
+            null, 'Field');
 
         // Table to use
         $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
@@ -185,36 +179,23 @@ if (isset($_REQUEST['submit_search'])) {
         $search_wds_cnt  = count($search_words);
 
         $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = (($search_option <3) ? '%' : '');
+        $automatic_wildcard   = (($search_option < 3) ? '%' : '');
 
         $fieldslikevalues = array();
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            // In MySQL 4.1, if a field has no collation we get NULL in Charset
-            // but in MySQL 5.0.x we get ''
             if (strlen($search_word) === 0) {
                 continue;
             }
 
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
-                if ($tblfield['Charset'] != $charset_connection
-                 && $tblfield['Charset'] != 'NULL'
-                 && $tblfield['Charset'] != '') {
-                    $prefix = 'CONVERT(_utf8 ';
-                    $suffix = ' USING ' . $tblfield['Charset'] . ') COLLATE ' . $tblfield['Collation'];
-                } else {
-                    $prefix = $suffix = '';
-                }
-                if ((!isset($field)) || (strlen($field) == 0) || ($tblfield['Field'] == PMA_backquote($field))) {
-                    $thefieldlikevalue[] = $tblfield['Field']
+                if (! isset($field) || strlen($field) == 0 || $tblfield == $field) {
+                    $thefieldlikevalue[] = PMA_backquote($tblfield)
                                          . ' ' . $like_or_regex . ' '
-                                         . $prefix
-                                         . "'"
-                                         . $automatic_wildcard
+                                         . "'" . $automatic_wildcard
                                          . $search_word
-                                         . $automatic_wildcard . "'"
-                                         . $suffix;
+                                         . $automatic_wildcard . "'";
                 }
             } // end for
 

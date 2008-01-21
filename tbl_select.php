@@ -1,7 +1,12 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Handles table search tab
  *
+ * display table search form, create SQL query from form data
+ * and include sql.php to execute it
+ *
+ * @todo display search form again if no results from previous search
  * @version $Id$
  */
 
@@ -357,7 +362,7 @@ else {
             list($charsets[$i]) = explode('_', $collations[$i]);
             if (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
-                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
+                $w[] = PMA_backquote($names[$i]) . ' ' . $func_type;
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
@@ -380,20 +385,11 @@ else {
                         $parens_close = '';
                     }
                     $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
-                    if ($charsets[$i] != $charset_connection) {
-                        $enum_where = 'CONVERT(_utf8 ' . $enum_where . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
-                    }
                     for ($e = 1; $e < $enum_selected_count; $e++) {
-                        $enum_where .= ', ';
-                        $tmp_literal = '\'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
-                        if ($charsets[$i] != $charset_connection) {
-                            $tmp_literal = 'CONVERT(_utf8 ' . $tmp_literal . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
-                        }
-                        $enum_where .= $tmp_literal;
-                        unset($tmp_literal);
+                        $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
                     }
 
-                    $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
                 }
 
             } elseif ($fields[$i] != '') {
@@ -406,23 +402,12 @@ else {
                     $quot = '';
                 }
 
-                // Make query independant from the selected connection charset.
-                // But if the field's type is VARBINARY, it has no charset
-                // and $charsets[$i] is empty, so we cannot generate a CONVERT
-
-                if (!empty($charsets[$i]) && $charsets[$i] != $charset_connection && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
-                    $prefix = 'CONVERT(_utf8 ';
-                    $suffix = ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
-                } else {
-                    $prefix = $suffix = '';
-                }
-
                 // LIKE %...%
                 if ($func_type == 'LIKE %...%') {
                     $func_type = 'LIKE';
                     $fields[$i] = '%' . $fields[$i] . '%';
                 }
-                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $prefix . $quot . PMA_sqlAddslashes($fields[$i]) . $quot . $suffix;
+                $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
 
             } // end if
         } // end for
@@ -433,9 +418,10 @@ else {
     } // end if
 
     if ($orderField != '--nil--') {
-        $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
+        $sql_query .= ' ORDER BY ' . PMA_backquote($orderField) . ' ' . $order;
     } // end if
-    include './sql.php';
+
+    require './sql.php';
 }
 
 ?>

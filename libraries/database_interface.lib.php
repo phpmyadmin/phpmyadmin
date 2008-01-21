@@ -212,7 +212,7 @@ function PMA_DBI_get_tables($database, $link = null)
  * @param   string          $table          table
  * @param   boolean|string  $tbl_is_group   $table is a table group
  * @param   resource        $link           mysql link
- * @param   integer         $limit_offset   zero-based offset for the count 
+ * @param   integer         $limit_offset   zero-based offset for the count
  * @param   boolean|integer $limit_count    number of tables to return
  * @return  array           list of tables in given db(s)
  */
@@ -786,7 +786,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  * @uses    PMA_DBI_query()
  * @uses    PMA_DBI_get_variable()
  * @uses    $GLOBALS['collation_connection']
- * @uses    $GLOBALS['charset_connection']
  * @uses    $GLOBALS['available_languages']
  * @uses    $GLOBALS['mysql_charset_map']
  * @uses    $GLOBALS['charset']
