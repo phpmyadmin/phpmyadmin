@@ -270,15 +270,18 @@ require_once './libraries/List.class.php';
     {
         $dbgroups   = array();
         $parts      = array();
+
+        if ($GLOBALS['cfg']['ShowTooltip']
+          && $GLOBALS['cfgRelation']['commwork']) {
+            $db_tooltips = PMA_getDbComments();
+        }
+
         foreach ($this->getLimitedItems($offset, $count) as $key => $db) {
             // garvin: Get comments from PMA comments table
             $db_tooltip = '';
-            if ($GLOBALS['cfg']['ShowTooltip']
-              && $GLOBALS['cfgRelation']['commwork']) {
-                $_db_tooltip = PMA_getDbComment($db);
-                if ($_db_tooltip) {
-                    $db_tooltip = $_db_tooltip;
-                }
+
+            if (isset($db_tooltips[$db])) {
+                $db_tooltip = $_db_tooltips[$db];
             }
 
             if ($GLOBALS['cfg']['LeftFrameDBTree']

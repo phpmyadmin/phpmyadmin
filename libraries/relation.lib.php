@@ -569,6 +569,48 @@ function PMA_getDbComment($db)
 } // end of the 'PMA_getDbComment()' function
 
 /**
+ * Gets the comment for a db
+ *
+ * @author  Mike Beck <mikebeck@users.sourceforge.net>
+ * @author  lem9
+ * @access  public
+ * @uses    PMA_DBI_QUERY_STORE
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_fetch_assoc()
+ * @uses    PMA_DBI_free_result()
+ * @uses    PMA_getRelationsParam()
+ * @uses    PMA_backquote()
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_query_as_cu()
+ * @uses    strlen()
+ * @param   string   the name of the db to check for
+ * @return  string   comment
+ */
+function PMA_getDbComments()
+{
+    $cfgRelation = PMA_getRelationsParam();
+    $comments = array();
+
+    if ($cfgRelation['commwork']) {
+        // pmadb internal db comment
+        $com_qry = "
+             SELECT `db_name`, `comment`
+               FROM " . PMA_backquote($cfgRelation['db']) . "." . PMA_backquote($cfgRelation['column_info']) . "
+              WHERE `column_name` = '(db_comment)'";
+        $com_rs = PMA_query_as_cu($com_qry, true, PMA_DBI_QUERY_STORE);
+
+        if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
+            while ($row = PMA_DBI_fetch_assoc($com_rs)) {
+                $comments[$row['db_name']] = $row['comment'];
+            }
+        }
+        PMA_DBI_free_result($com_rs);
+    }
+
+    return $comments;
+} // end of the 'PMA_getDbComments()' function
+
+/**
  * Set a database comment to a certain value.
  *
  * @uses    PMA_getRelationsParam()
