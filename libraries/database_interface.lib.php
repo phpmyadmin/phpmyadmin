@@ -1156,19 +1156,29 @@ function PMA_DBI_get_warnings($link = null)
  * returns true (int > 0) if current user is superuser
  * otherwise 0
  *
- * @return integer  $is_superuser
+ * @uses    $_SESSION['is_superuser'] for caching
+ * @uses    $GLOBALS['userlink']
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_QUERY_STORE
+ * @return  integer  $is_superuser
  */
-function PMA_isSuperuser() {
+function PMA_isSuperuser()
+{
+    if (isset($_SESSION['is_superuser'])) {
+        return $_SESSION['is_superuser'];
+    }
+
     // with mysql extension, when connection failed we don't have
     // a $userlink
     if (isset($GLOBALS['userlink'])) {
-        return PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
+        $_SESSION['is_superuser'] = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
         $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
     } else {
-        return false;
+        $_SESSION['is_superuser'] = false;
     }
-}
 
+    return $_SESSION['is_superuser'];
+}
 
 /**
  * returns an array of PROCEDURE or FUNCTION names for a db
@@ -1180,8 +1190,8 @@ function PMA_isSuperuser() {
  *
  * @return  array   the procedure names or function names
  */
-function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
-
+function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
+{
     $shows = PMA_DBI_fetch_result('SHOW ' . $which . ' STATUS;', null, null, $link);
     $result = array();
     foreach ($shows as $one_show) {
@@ -1203,8 +1213,8 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null) {
  *
  * @return  string              the procedure's or function's definition
  */
-function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_name, $link = null) {
-
+function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_name, $link = null)
+{
     $returned_field = array('PROCEDURE' => 'Create Procedure', 'FUNCTION' => 'Create Function');
     $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($proc_or_function_name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
@@ -1219,8 +1229,8 @@ function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_na
  *
  * @return  array               information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table) {
-
+function PMA_DBI_get_triggers($db, $table)
+{
     $result = array();
 
     $triggers = PMA_DBI_fetch_result("SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "' and EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';");
