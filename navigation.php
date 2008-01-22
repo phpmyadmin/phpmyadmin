@@ -231,6 +231,8 @@ $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
 
 $element_counter = 0;
 
+$table_count = PMA_getTableCount($GLOBALS['db']);
+
 if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
@@ -259,11 +261,11 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         title="<?php echo htmlspecialchars($db_tooltip); ?>" >
     <?php
     if ($GLOBALS['text_dir'] === 'rtl') {
-        echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
+        echo ' <bdo dir="ltr">(' . $table_count . ')</bdo> ';
     }
     echo '<span class="navi_dbName">' . htmlspecialchars($disp_name) . '</span>';
     if ($GLOBALS['text_dir'] === 'ltr') {
-        echo ' <bdo dir="ltr">(' . PMA_getTableCount($GLOBALS['db']) . ')</bdo> ';
+        echo ' <bdo dir="ltr">(' . $table_count . ')</bdo> ';
     }
     echo '</a></p>';
 
@@ -281,8 +283,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     if (! empty($table_list)) {
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
         // hint user that the table list is larger, until the todo is done
-        if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && PMA_getTableCount($GLOBALS['db']) > $GLOBALS['cfg']['MaxTableList']) {
-            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', PMA_getTableCount($GLOBALS['db']), ' )';
+        if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {
+            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', $table_count, ' )';
         }
     } else {
         echo $GLOBALS['strNoTablesFound'];
