@@ -1983,7 +1983,7 @@ $cfg['NaturalOrder'] = true;
 
 /**
  * Initial status for sliders
- * (open | closed) 
+ * (open | closed)
  *
  * @global string $cfg['InitialSlidersStatus']
  */
@@ -2282,18 +2282,25 @@ $cfg['SQLValidator']['password'] = '';
 
 /*******************************************************************************
  * Developers ONLY!
- * To use the following, please install the DBG extension from http://dd.cron.ru/dbg/
  *
  * @global array $cfg['DBG']
  */
 $cfg['DBG'] = array();
 
 /**
- * Make the DBG stuff available
+ * Output executed queries and their execution times
  *
  * @global boolean $cfg['DBG']['enable']
  */
-$cfg['DBG']['enable'] = false;
+$cfg['DBG']['sql'] = false;
+
+/**
+ * Make the DBG stuff available
+ * To use the following, please install the DBG extension from http://dd.cron.ru/dbg/
+ *
+ * @global boolean $cfg['DBG']['enable']
+ */
+$cfg['DBG']['php'] = false;
 
 /**
  * Produce profiling results of PHP

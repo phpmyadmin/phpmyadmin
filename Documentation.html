@@ -1532,12 +1532,12 @@ $cfg['TrustedProxies'] =
     <dt id="cfg_CheckConfigurationPermissions">$cfg['CheckConfigurationPermissions'] boolean</dt>
     <dd>
     We normally check the permissions on the configuration file to ensure
-    it's not world writable. However, phpMyAdmin could be installed on 
+    it's not world writable. However, phpMyAdmin could be installed on
     a NTFS filesystem mounted on a non-Windows server, in which case the
     permissions seems wrong but in fact cannot be detected. In this case
     a sysadmin would set this parameter to <tt>FALSE</tt>. Default is <tt>TRUE</tt>.
     </dd>
-    
+
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
     <dd>Navi frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
@@ -2010,7 +2010,12 @@ $cfg['TrustedProxies'] =
     <dt id="cfg_DBG">$cfg['DBG']</dt>
     <dd><b>DEVELOPERS ONLY!</b></dd>
 
-    <dt id="cfg_DBG_enable">$cfg['DBG']['enable'] boolean</dt>
+    <dt id="cfg_DBG_enable">$cfg['DBG']['sql'] boolean</dt>
+    <dd><b>DEVELOPERS ONLY!</b><br />
+        Enable logging queries and execution times to be displayed in the bottom
+        of main (right frame).</dd>
+
+    <dt id="cfg_DBG_enable">$cfg['DBG']['php'] boolean</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />
         Enable the DBG extension for debugging phpMyAdmin. Required for profiling
         the code.<br />
@@ -2023,8 +2028,8 @@ $cfg['TrustedProxies'] =
         to the end of every page displayed in the main window with profiling
         statistics for that page.<br />
         You may need to increase the maximum execution time for this to
-    complete successfully.<i>Profiling was removed from the code for
-    version 2.9.0 due to licensing issues.</i></dd>
+        complete successfully.<i>Profiling was removed from the code for
+        version 2.9.0 due to licensing issues.</i></dd>
 
     <dt id="cfg_DBG_profile_threshold">$cfg['DBG']['profile']['threshold'] float (units in milliseconds)</dt>
     <dd><b>DEVELOPERS ONLY!</b><br />

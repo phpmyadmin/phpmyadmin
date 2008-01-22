@@ -126,7 +126,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         }
     }
 
-    if ($GLOBALS['cfg']['DBG']['enable']) {
+    if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true);
     }
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
@@ -137,7 +137,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         $r = mysql_query($query, $link);
     }
 
-    if ($GLOBALS['cfg']['DBG']['enable']) {
+    if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
 
         $hash = md5($query);

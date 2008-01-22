@@ -193,8 +193,8 @@ if (file_exists('./config.footer.inc.php')) {
  */
 
 // profiling deactivated due to licensing issues
-if (! empty($GLOBALS['cfg']['DBG']['enable'])
-  && ! empty($GLOBALS['cfg']['DBG']['profile']['enable'])) {
+if (! empty($GLOBALS['cfg']['DBG']['php'])
+ && ! empty($GLOBALS['cfg']['DBG']['profile']['enable'])) {
     //run the basic setup code first
     require_once './libraries/dbg/setup.php';
     //if the setup ran fine, then do the profiling

@@ -10,7 +10,7 @@
  * allways use $GLOBALS here, as this script is included by footer.inc.hp
  * which can also be included from inside a function
  */
-if ($GLOBALS['cfg']['DBG']['enable']) {
+if ($GLOBALS['cfg']['DBG']['php']) {
     /**
      * Loads the DBG extension if needed
      */
