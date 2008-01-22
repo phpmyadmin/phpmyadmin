@@ -51,13 +51,13 @@ $GLOBALS['is_superuser']       = PMA_isSuperuser();
  */
 function PMA_analyseShowGrant()
 {
-    if (isset($_SESSION[$GLOBALS['server']]['is_create_db_priv'])) {
-        $GLOBALS['is_create_db_priv']  = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
-        $GLOBALS['is_process_priv']    = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
-        $GLOBALS['is_reload_priv']     = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
-        $GLOBALS['db_to_create']       = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
+    if (PMA_cacheExists('is_create_db_priv', true)) {
+        $GLOBALS['is_create_db_priv']  = PMA_cacheGet('is_create_db_priv', true);
+        $GLOBALS['is_process_priv']    = PMA_cacheGet('is_process_priv', true);
+        $GLOBALS['is_reload_priv']     = PMA_cacheGet('is_reload_priv', true);
+        $GLOBALS['db_to_create']       = PMA_cacheGet('db_to_create', true);
         $GLOBALS['dbs_where_create_table_allowed']
-            = $_SESSION[$GLOBALS['server']]['is_create_db_priv'];
+            = PMA_cacheGet('dbs_where_create_table_allowed', true);
         return;
     }
 
@@ -144,12 +144,11 @@ function PMA_analyseShowGrant()
 
     PMA_DBI_free_result($rs_usr);
 
-    $_SESSION[$GLOBALS['server']]['is_create_db_priv']  = $GLOBALS['is_create_db_priv'];
-    $_SESSION[$GLOBALS['server']]['is_process_priv']    = $GLOBALS['is_create_db_priv'];
-    $_SESSION[$GLOBALS['server']]['is_reload_priv']     = $GLOBALS['is_create_db_priv'];
-    $_SESSION[$GLOBALS['server']]['db_to_create']       = $GLOBALS['is_create_db_priv'];
-    $_SESSION[$GLOBALS['server']]['dbs_where_create_table_allowed']
-        = $GLOBALS['is_create_db_priv'];
+    PMA_cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv'], true);
+    PMA_cacheSet('is_process_priv', $GLOBALS['is_process_priv'], true);
+    PMA_cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], true);
+    PMA_cacheSet('db_to_create', $GLOBALS['db_to_create'], true);
+    PMA_cacheSet('dbs_where_create_table_allowed', $GLOBALS['dbs_where_create_table_allowed'], true);
 } // end function
 
 PMA_analyseShowGrant();

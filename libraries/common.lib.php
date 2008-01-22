@@ -1212,20 +1212,20 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
  */
 function PMA_profilingSupported()
 {
-    if (! isset($_SESSION[$GLOBALS['server']]['profiling_supported'])) {
+    if (! PMA_cacheExists('profiling_supported', true)) {
         // 5.0.37 has profiling but for example, 5.1.20 does not
         // (avoid a trip to the server for MySQL before 5.0.37)
         // and do not set a constant as we might be switching servers
         if (defined('PMA_MYSQL_INT_VERSION')
          && PMA_MYSQL_INT_VERSION >= 50037
          && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")) {
-            $_SESSION[$GLOBALS['server']]['profiling_supported'] = true;
+            PMA_cacheSet('profiling_supported', true, true);
         } else {
-            $_SESSION[$GLOBALS['server']]['profiling_supported'] = false;
+            PMA_cacheSet('profiling_supported', false, true);
         }
     }
 
-    return $_SESSION[$GLOBALS['server']]['profiling_supported'];
+    return PMA_cacheGet('profiling_supported', true);
 }
 
 /**
@@ -2350,4 +2350,57 @@ function PMA_generate_slider_effect($id, $message) {
 </script>
 <?php
 }
+
+/**
+ * Cache information in the session
+ *
+ * @param unknown_type $var
+ * @param unknown_type $val
+ * @param unknown_type $server
+ * @return mixed
+ */
+function PMA_cacheExists($var, $server = 0)
+{
+    if (true === $server) {
+        $server = $GLOBALS['server'];
+    }
+    return isset($_SESSION['cache']['server_' . $server][$var]);
+}
+
+/**
+ * Cache information in the session
+ *
+ * @param unknown_type $var
+ * @param unknown_type $val
+ * @param unknown_type $server
+ * @return mixed
+ */
+function PMA_cacheGet($var, $server = 0)
+{
+    if (true === $server) {
+        $server = $GLOBALS['server'];
+    }
+    if (isset($_SESSION['cache']['server_' . $server][$var])) {
+        return $_SESSION['cache']['server_' . $server][$var];
+    } else {
+        return null;
+    }
+}
+
+/**
+ * Cache information in the session
+ *
+ * @param unknown_type $var
+ * @param unknown_type $val
+ * @param unknown_type $server
+ * @return mixed
+ */
+function PMA_cacheSet($var, $val = null, $server = 0)
+{
+    if (true === $server) {
+        $server = $GLOBALS['server'];
+    }
+    $_SESSION['cache']['server_' . $server][$var] = $val;
+}
+
 ?>

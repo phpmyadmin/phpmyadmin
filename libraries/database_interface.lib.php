@@ -808,9 +808,9 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
     if (! defined('PMA_MYSQL_INT_VERSION')) {
-        if (isset($_SESSION['PMA_MYSQL_INT_VERSION'])) {
-            define('PMA_MYSQL_INT_VERSION', $_SESSION[$GLOBALS['server']]['PMA_MYSQL_INT_VERSION']);
-            define('PMA_MYSQL_STR_VERSION', $_SESSION[$GLOBALS['server']]['PMA_MYSQL_STR_VERSION']);
+        if (PMA_cacheExists('PMA_MYSQL_INT_VERSION', true)) {
+            define('PMA_MYSQL_INT_VERSION', PMA_cacheGet('PMA_MYSQL_INT_VERSION', true));
+            define('PMA_MYSQL_STR_VERSION', PMA_cacheGet('PMA_MYSQL_STR_VERSION', true));
         } else {
             $mysql_version = PMA_DBI_fetch_value(
                 'SELECT VERSION()', 0, 0, $link, PMA_DBI_QUERY_STORE);
@@ -825,8 +825,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 define('PMA_MYSQL_INT_VERSION', 50015);
                 define('PMA_MYSQL_STR_VERSION', '5.00.15');
             }
-            $_SESSION[$GLOBALS['server']]['PMA_MYSQL_INT_VERSION'] = PMA_MYSQL_INT_VERSION;
-            $_SESSION[$GLOBALS['server']]['PMA_MYSQL_STR_VERSION'] = PMA_MYSQL_STR_VERSION;
+            PMA_cacheSet('PMA_MYSQL_INT_VERSION', PMA_MYSQL_INT_VERSION, true);
+            PMA_cacheSet('PMA_MYSQL_STR_VERSION', PMA_MYSQL_STR_VERSION, true);
         }
     }
 
@@ -1168,20 +1168,20 @@ function PMA_DBI_get_warnings($link = null)
  */
 function PMA_isSuperuser()
 {
-    if (isset($_SESSION[$GLOBALS['server']]['is_superuser'])) {
-        return $_SESSION[$GLOBALS['server']]['is_superuser'];
+    if (PMA_cacheExists('is_superuser', true)) {
+        return PMA_cacheGet('is_superuser', true);
     }
 
     // with mysql extension, when connection failed we don't have
     // a $userlink
     if (isset($GLOBALS['userlink'])) {
-        $_SESSION[$GLOBALS['server']]['is_superuser'] = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user',
-        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+        $r = (bool) PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+        PMA_cacheSet('is_superuser', $r, true);
     } else {
-        $_SESSION[$GLOBALS['server']]['is_superuser'] = false;
+        PMA_cacheSet('is_superuser', false, true);
     }
 
-    return $_SESSION[$GLOBALS['server']]['is_superuser'];
+    return PMA_cacheGet('is_superuser', true);
 }
 
 /**
