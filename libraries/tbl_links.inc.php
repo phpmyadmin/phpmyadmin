@@ -90,6 +90,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
              ? 'TRUNCATE TABLE '
              : 'DELETE FROM ';
     $tabs['empty']['link']  = 'sql.php';
+    $tabs['empty']['args']['reload']    = 1;
     $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
     $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
     $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
