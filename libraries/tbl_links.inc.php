@@ -87,6 +87,7 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
     $tabs['operation']['text'] = $strOperations;
 
     $tabs['empty']['link']  = 'sql.php';
+    $tabs['empty']['args']['reload']    = 1;
     $tabs['empty']['args']['sql_query'] = 'TRUNCATE TABLE ' . PMA_backquote($table);
     $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
     $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'TRUNCATE TABLE ' . PMA_jsFormat($table) . '\')"';
