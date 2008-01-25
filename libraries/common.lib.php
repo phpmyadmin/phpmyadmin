@@ -2059,7 +2059,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $range = 10, $prompt = '')
 {
     $gotopage = $prompt
-              . ' <select name="goToPage" onchange="goToUrl(this, \''
+              . ' <select name="pos" onchange="goToUrl(this, \''
               . $url . '\');">' . "\n";
     if ($nbTotalPage < $showAll) {
         $pages = range(1, $nbTotalPage);
@@ -2123,7 +2123,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
         $gotopage .= '                <option ' . $selected . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
     }
 
-    $gotopage .= ' </select>';
+    $gotopage .= ' </select><noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>';
 
     return $gotopage;
 } // end function
@@ -2175,7 +2175,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 . $caption2 . '</a>';
         }
 
-        echo '<form action="./' . $script . '" method="post">' . "\n";
+        echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
             $script . PMA_generate_common_url($_url_params) . '&',
