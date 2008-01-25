@@ -32,6 +32,7 @@ require_once './test/PMA_transformation_getOptions_test.php';
 require_once './test/PMA_STR_sub_test.php';
 require_once './test/PMA_generateCommonUrl_test.php';
 //require_once './test/PMA_arrayWalkRecursive_test.php';
+require_once './test/PMA_blowfish_test.php';
 
 class AllTests
 {
@@ -59,6 +60,7 @@ class AllTests
         $suite->addTestSuite('PMA_STR_sub_test');
         $suite->addTestSuite('PMA_generate_common_url_test');
         //$suite->addTestSuite('PMA_arrayWalkRecursive_test');
+        $suite->addTestSuite('PMA_blowfish_test');
         return $suite;
     }
 }
