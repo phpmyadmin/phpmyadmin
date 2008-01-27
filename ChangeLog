@@ -46,6 +46,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1873188 [GUI] Making db pager work when js is disabled,
   thanks to Jürgen Wind - windkiel
 - bug #1875010 [auth] MySQL server and client version mismatch (mysql ext.)
+- patch #1879031 [transform] dateformat transformation and UNIX timestamps,
+  thanks to Tim Steiner - spam38
 
 2.11.4.0 (2008-01-12)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
