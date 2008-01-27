@@ -33,8 +33,17 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
 
     $timestamp = -1;
 
-    // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14), (2 | 4) not supported here.
-    if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
+    // INT columns will be treated as UNIX timestamps
+    // and need to be detected before the verification for
+    // MySQL TIMESTAMP
+    if ($meta->type == 'int') {
+        $timestamp = $buffer;
+
+    // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
+    // TIMESTAMP (2 | 4) not supported here.
+    // (Note: prior to MySQL 4.1, TIMESTAMP has a display size, for example
+    // TIMESTAMP(8) means YYYYMMDD)
+    } else if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
 
         if (strlen($buffer) == 14 || strlen($buffer) == 8) {
             $offset = 4;
