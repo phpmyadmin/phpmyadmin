@@ -126,8 +126,8 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
  * @uses    PMA_convert_charset()
  * @uses    mysqli_select_db()
  * @param   string          $dbname database name to select
- * @param   object mysqli   $link   the mysli object
- * @return  boolean         treu or false
+ * @param   object mysqli   $link   the mysqli object
+ * @return  boolean         true or false
  */
 function PMA_DBI_select_db($dbname, $link = null)
 {
