@@ -2322,33 +2322,36 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
  * @param   string  $id the id of the <div> on which to apply the effect
  * @param   string  $message the message to show as a link
  */
-function PMA_generate_slider_effect($id, $message) {
-?>
+function PMA_generate_slider_effect($id, $message)
+{
+    ?>
 <script type="text/javascript">
-    // <![CDATA[
-    window.addEvent('domready', function(){
-        var anchor<?php echo $id; ?> = new Element('a', {
-            'id': 'toggle_<?php echo $id; ?>',
-            'href': '#'
-        });
-        anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
-        anchor<?php echo $id; ?>.injectBefore($('<?php echo $id; ?>'));
-
-        var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
-<?php if ($GLOBALS['cfg']['InitialSlidersStatus'] == 'closed') {
-?>
-        mySlide<?php echo $id; ?>.hide();
-<?php }
-?>
-        $('toggle_<?php echo $id; ?>').addEvent('click', function(e){
-            e = new Event(e);
-            mySlide<?php echo $id; ?>.toggle();
-            e.stop();
-        });
+// <![CDATA[
+window.addEvent('domready', function(){
+    var anchor<?php echo $id; ?> = new Element('a', {
+        'id': 'toggle_<?php echo $id; ?>',
+        'href': '#',
+        'events': {
+            'click': function(){
+                mySlide<?php echo $id; ?>.toggle();
+            }
+        }
     });
+    anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
+    anchor<?php echo $id; ?>.injectBefore($('<?php echo $id; ?>'));
+
+    var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
+    <?php
+    if ($GLOBALS['cfg']['InitialSlidersStatus'] == 'closed') {
+        ?>
+    mySlide<?php echo $id; ?>.hide();
+        <?php
+    }
+    ?>
+});
 // ]]>
 </script>
-<?php
+    <?php
 }
 
 /**
