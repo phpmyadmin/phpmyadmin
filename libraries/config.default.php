@@ -355,6 +355,13 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
 
 /**
+ * Whether to count tables when showing database list
+ *
+ * @global array $cfg['Servers'][$i]['CountTables']
+ */
+$cfg['Servers'][$i]['CountTables'] = true;
+
+/**
  * Default server (0 = no default server)
  *
  * If you have more than one server configured, you can set $cfg['ServerDefault']

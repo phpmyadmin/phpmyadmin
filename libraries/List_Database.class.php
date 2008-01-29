@@ -322,8 +322,11 @@ require_once './libraries/List.class.php';
                 'disp_name_cut' => $disp_name_cut,
                 'disp_name'     => $disp_name,
                 'comment'       => $db_tooltip,
-                'num_tables'    => PMA_getTableCount($db),
             );
+            
+            if ($GLOBALS['cfg']['Server']['CountTables']) {
+                $dbgroups[$group][$db]['num_tables'] = PMA_getTableCount($db);
+            }
         } // end foreach ($GLOBALS['PMA_List_Database']->items as $db)
         return $dbgroups;
     }
@@ -379,7 +382,10 @@ require_once './libraries/List.class.php';
                 } else {
                     $return .= htmlspecialchars($db['disp_name']);
                 }
-                $return .= ' (' . $db['num_tables'] . ')';
+                
+                if (! empty($db['num_tables'])) {
+                    $return .= ' (' . $db['num_tables'] . ')';
+                }
                 $return .= '</a></li>' . "\n";
             }
             if (count($dbs) > 1) {
