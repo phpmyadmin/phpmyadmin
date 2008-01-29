@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [export] new export to Texy! markup
 + [lang] Finnish update, thanks to Jouni Kahkonen
 + [config] new parameter $cfg['CheckConfigurationPermissions']
++ [config] new parameter $cfg['Servers'][$i]['ShowDatabasesCommand']
 + rfe #1775288 [transformation] proper display if IP-address stored as INT
 + rfe #1758177 [core] Add the Geometry DataTypes
 + rfe #1741101, patch #1798184 UUID default for CHAR(36) PRIMARY KEY,

@@ -49,6 +49,12 @@ require_once './libraries/List.class.php';
      * @access protected
      */
     var $_show_databases_disabled = false;
+    
+    /**
+     * @var string command to retrieve databases from server
+     * @access protected
+     */
+    var $_command = null;
 
     /**
      * Constructor
@@ -107,26 +113,30 @@ require_once './libraries/List.class.php';
      * @uses    $GLOBALS['errno']
      * @param   string  $like_db_name   usally a db_name containing wildcards
      */
-    function _retrieve($like_db_name = '')
+    function _retrieve($like_db_name = null)
     {
         if ($this->_show_databases_disabled) {
             return array();
         }
-
-        if (! empty($like_db_name)) {
-            $like = " LIKE '" . $like_db_name . "';";
+        
+        if (null !== $like_db_name) {
+            $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
+        } elseif (null === $this->_command) {
+            $command = str_replace('#user#', $GLOBALS['cfg']['Server']['user'], 
+                $GLOBALS['cfg']['Server']['ShowDatabasesCommand']);
+            $this->_command = $command;
         } else {
-            $like = ";";
+            $command = $this->_command;
         }
 
-        $database_list = PMA_DBI_fetch_result('SHOW DATABASES' . $like, null, null, $this->_db_link);
+        $database_list = PMA_DBI_fetch_result($command, null, null, $this->_db_link);
         PMA_DBI_getError();
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
             // (hopefully there is one and he has SHOW DATABASES right)
             $this->_db_link = $this->_db_link_control;
-            $database_list = PMA_DBI_fetch_result('SHOW DATABASES' . $like, null, null, $this->_db_link);
+            $database_list = PMA_DBI_fetch_result($command, null, null, $this->_db_link);
 
             PMA_DBI_getError();
 
