@@ -47,10 +47,16 @@ if (strlen($csv_terminated) != 1) {
     $message = sprintf($strInvalidCSVParameter, $strFieldsTerminatedBy);
     $show_error_header = TRUE;
     $error = TRUE;
-} elseif (strlen($csv_enclosed) != 1) {
-    $message = sprintf($strInvalidCSVParameter, $strFieldsEnclosedBy);
-    $show_error_header = TRUE;
-    $error = TRUE;
+    // The default dialog of MS Excel when generating a CSV produces a 
+    // semi-colon-separated file with no chance of specifying the 
+    // enclosing character. Thus, users who want to import this file 
+    // tend to remove the enclosing character on the Import dialog. 
+    // I could not find a test case where having no enclosing characters 
+    // confuses this script.
+//} elseif (strlen($csv_enclosed) != 1) {
+//    $message = sprintf($strInvalidCSVParameter, $strFieldsEnclosedBy);
+//    $show_error_header = TRUE;
+//    $error = TRUE;
 } elseif (strlen($csv_escaped) != 1) {
     $message = sprintf($strInvalidCSVParameter, $strFieldsEscapedBy);
     $show_error_header = TRUE;
