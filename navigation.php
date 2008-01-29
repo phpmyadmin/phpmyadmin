@@ -231,9 +231,10 @@ $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
 
 $element_counter = 0;
 
-$table_count = PMA_getTableCount($GLOBALS['db']);
 
 if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
+    $table_count = PMA_getTableCount($GLOBALS['db']);
+    
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
     $common_url_query = PMA_generate_common_url($GLOBALS['db']);
