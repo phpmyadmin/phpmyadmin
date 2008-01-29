@@ -537,7 +537,6 @@ echo "\n\n";
  * Displays indexes
  */
 PMA_generate_slider_effect('tablestatistics', $strDetails);
-echo '<div id="tablestatistics_anchor"></div>';
 echo '<div id="tablestatistics">' . "\n";
 if (! $tbl_is_view && ! $db_is_information_schema) {
     define('PMA_IDX_INCLUDED', 1);

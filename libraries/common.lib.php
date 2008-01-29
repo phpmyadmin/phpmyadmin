@@ -2327,19 +2327,19 @@ function PMA_generate_slider_effect($id, $message) {
 <script type="text/javascript">
     // <![CDATA[
     window.addEvent('domready', function(){
+        var anchor<?php echo $id; ?> = new Element('a', {
+            'id': 'toggle_<?php echo $id; ?>',
+            'href': '#'
+        });
+        anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
+        anchor<?php echo $id; ?>.injectBefore($('<?php echo $id; ?>'));
+
         var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
 <?php if ($GLOBALS['cfg']['InitialSlidersStatus'] == 'closed') {
 ?>
         mySlide<?php echo $id; ?>.hide();
 <?php }
 ?>
-        var anchor<?php echo $id; ?> = new Element('a', {
-            'id': 'toggle_<?php echo $id; ?>',
-            'href': '#'
-        });
-        anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
-        anchor<?php echo $id; ?>.injectBefore($('<?php echo $id; ?>_anchor'));
-
         $('toggle_<?php echo $id; ?>').addEvent('click', function(e){
             e = new Event(e);
             mySlide<?php echo $id; ?>.toggle();
