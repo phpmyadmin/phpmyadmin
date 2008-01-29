@@ -432,8 +432,11 @@ require_once './libraries/List.class.php';
                 if ($db['name'] == $selected) {
                     $return .= ' selected="selected"';
                 }
-                $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name'])
-                    .' (' . $db['num_tables'] . ')</option>' . "\n";
+                $return .= '>' . htmlspecialchars($cut ? $db['disp_name_cut'] : $db['disp_name']);
+                if (! empty($db['num_tables'])) {
+                    $return .= ' (' . $db['num_tables'] . ')';
+                }
+                $return .= '</option>' . "\n";
             }
             if (count($dbs) > 1) {
                 $return .= '</optgroup>' . "\n";
