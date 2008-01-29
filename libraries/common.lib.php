@@ -2338,7 +2338,7 @@ window.addEvent('domready', function(){
         }
     });
     anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
-    anchor<?php echo $id; ?>.injectBefore($('<?php echo $id; ?>'));
+    anchor<?php echo $id; ?>.injectBefore('<?php echo $id; ?>');
 
     var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
     <?php
