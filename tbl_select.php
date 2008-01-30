@@ -259,7 +259,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 <?php
     PMA_generate_slider_effect('searchoptions', $strOptions);
 ?>
-<div id="searchoptions">'
+<div id="searchoptions">
 
 <fieldset id="fieldset_select_fields">
     <legend><?php echo $strSelectFields; ?></legend>
