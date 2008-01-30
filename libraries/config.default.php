@@ -333,17 +333,17 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
  *
  * by default most user will be fine with SHOW DATABASES,
  * for servers with a huge amount of databases it is possible to
- * define a command which executes faster but wiht less information
+ * define a command which executes faster but with less information
  * 
- * especialy when accessing database servers from ISPs chaning this command can
- * result in a great speed improvement
+ * especially when accessing database servers from ISPs changing this command 
+ * can result in a great speed improvement
  * 
- * fasle will disable fetching databases from the server, only databases in
+ * false will disable fetching databases from the server, only databases in
  * $cfg['Servers'][$i]['only_db'] will be displayed
  * 
  * #user# will be replaced by current user
  * 
- * example:
+ * examples:
  * 'SHOW DATABASES'
  * "SHOW DATABASES LIKE '#user#\_%'"
  * 'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'
