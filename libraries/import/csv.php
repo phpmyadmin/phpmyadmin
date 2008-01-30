@@ -53,10 +53,12 @@ if (strlen($csv_terminated) != 1) {
     // tend to remove the enclosing character on the Import dialog. 
     // I could not find a test case where having no enclosing characters 
     // confuses this script.
-//} elseif (strlen($csv_enclosed) != 1) {
-//    $message = PMA_Message::error('strInvalidCSVParameter');
-//    $message->addParam('strFieldsEnclosedBy', false);
-//    $error = TRUE;
+    // But the parser won't work correctly with strings so we allow just
+    // one character.
+} elseif (strlen($csv_enclosed) > 1) {
+    $message = PMA_Message::error('strInvalidCSVParameter');
+    $message->addParam('strFieldsEnclosedBy', false);
+    $error = TRUE;
 } elseif (strlen($csv_escaped) != 1) {
     $message = PMA_Message::error('strInvalidCSVParameter');
     $message->addParam('strFieldsEscapedBy', false);
