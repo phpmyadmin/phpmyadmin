@@ -2015,12 +2015,12 @@ $cfg['WYSIWYG-PDF'] = true;
 $cfg['NaturalOrder'] = true;
 
 /**
- * Initial status for sliders
+ * Initial state for sliders
  * (open | closed)
  *
- * @global string $cfg['InitialSlidersStatus']
+ * @global string $cfg['InitialSlidersState']
  */
-$cfg['InitialSlidersStatus'] = 'closed';
+$cfg['InitialSlidersState'] = 'closed';
 
 
 

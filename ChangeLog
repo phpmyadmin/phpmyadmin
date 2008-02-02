@@ -35,7 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + patch #1847534 [interface] New "Inside field" in db search,
   thanks to obiserver
 + [GUI] Mootools js library (http://mootools.net) and new parameter
-  $cfg['InitialSlidersStatus']
+  $cfg['InitialSlidersState']
 * [core] cache some MySQL stats (do not query them with every page request)
 + [view] clearer dialog WITH (CASCADED | LOCAL) CHECK OPTION 
 

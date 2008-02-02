@@ -2318,7 +2318,7 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
 /**
  * Generates a slider effect (Mootools)
  *
- * @uses    $GLOBALS['cfg']['InitialSlidersStatus']
+ * @uses    $GLOBALS['cfg']['InitialSlidersState']
  * @param   string  $id the id of the <div> on which to apply the effect
  * @param   string  $message the message to show as a link
  */
@@ -2342,7 +2342,7 @@ window.addEvent('domready', function(){
 
     var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
     <?php
-    if ($GLOBALS['cfg']['InitialSlidersStatus'] == 'closed') {
+    if ($GLOBALS['cfg']['InitialSlidersState'] == 'closed') {
         ?>
     mySlide<?php echo $id; ?>.hide();
         <?php
