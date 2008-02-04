@@ -1040,4 +1040,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '„zazipováno“';
 
 $strDetails = 'Details...';  //to translate
+$strComment = 'Comment';  //to translate
+$strPacked = 'Packed';  //to translate
 ?>

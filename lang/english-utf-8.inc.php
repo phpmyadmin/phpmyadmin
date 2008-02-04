@@ -144,6 +144,7 @@ $strCollation = 'Collation';
 $strColumnNames = 'Column names';
 $strColumnPrivileges = 'Column-specific privileges';
 $strCommand = 'Command';
+$strComment = 'Comment';
 $strComments = 'Comments';
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';
 $strCompleteInserts = 'Complete inserts';
@@ -540,6 +541,7 @@ $strOr = 'Or';
 $strOverhead = 'Overhead';
 $strOverwriteExisting = 'Overwrite existing file(s)';
 
+$strPacked = 'Packed';
 $strPageNumber = 'Page number:';
 $strPagesToBeFlushed = 'Pages to be flushed';
 $strPaperSize = 'Paper size';

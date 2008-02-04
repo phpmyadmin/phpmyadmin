@@ -1060,4 +1060,6 @@ $strRemovePartitioning = 'Remove partitioning';  //to translate
 $strSearchInField = 'Inside field:';  //to translate
 $strTexyText = 'Texy! text';  //to translate
 $strDetails = 'Details...';  //to translate
+$strComment = 'Comment';  //to translate
+$strPacked = 'Packed';  //to translate
 ?>
