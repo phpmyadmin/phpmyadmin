@@ -3,7 +3,7 @@
 /**
  * holds the datasbe index class
  *
- * @version $Id: List.class.php 10786 2007-10-14 12:23:22Z lem9 $
+ * @version $Id$
  */
 
 /**
