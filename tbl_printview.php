@@ -32,6 +32,7 @@ if (! isset($the_tables) || ! is_array($the_tables)) {
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 require_once './libraries/tbl_indexes.lib.php';
+require_once './libraries/Index.class.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -100,14 +101,6 @@ foreach ($the_tables as $key => $table) {
     PMA_DBI_free_result($result);
 
     $tbl_is_view = PMA_Table::isView($db, $table);
-
-    //  Gets table keys and store them in arrays
-    $indexes      = array();
-    $indexes_info = array();
-    $indexes_data = array();
-    $ret_keys = PMA_get_indexes($table, $err_url_0);
-
-    PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
 
     /**
      * Gets fields properties
@@ -281,41 +274,12 @@ foreach ($the_tables as $key => $table) {
     ?>
 </tbody>
 </table>
-
     <?php
-
     if (! $tbl_is_view && $db != 'information_schema') {
-
         /**
          * Displays indexes
          */
-        $index_count = (isset($indexes))
-                     ? count($indexes)
-                     : 0;
-        if ($index_count > 0) {
-            echo "\n";
-            ?>
-    <br /><br />
-
-    <!-- Indexes -->
-    <big><?php echo $strIndexes . ':'; ?></big>
-    <table>
-        <tr>
-            <th><?php echo $strKeyname; ?></th>
-            <th><?php echo $strType; ?></th>
-            <th><?php echo $strCardinality; ?></th>
-            <th colspan="2"><?php echo $strField; ?></th>
-        </tr>
-            <?php
-            echo "\n";
-            PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, true, true);
-            echo "\n";
-            ?>
-    </table>
-            <?php
-            echo "\n";
-        } // end display indexes
-
+        echo PMA_Index::getView($table, $db, true);
 
         /**
          * Displays Space usage and row statistics
@@ -522,7 +486,7 @@ foreach ($the_tables as $key => $table) {
         } // end if ($cfg['ShowStats'])
     }
     if ($multi_tables) {
-        unset($ret_keys, $num_rows, $show_comment);
+        unset($num_rows, $show_comment);
         echo '<hr />' . "\n";
     } // end if
     echo '</div>' . "\n";

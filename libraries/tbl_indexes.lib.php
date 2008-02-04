@@ -131,13 +131,12 @@ function PMA_check_indexes($idx_collection)
  * @param   array       Referenced Array of indexes
  * @param   array       Referenced return array
  * @param   array       Referenced return array
- * @param   array       Referenced return array
  *
  * @access  public
  * @return  boolean     void
  * @author  Garvin Hicking (pma@supergarv.de)
  */
-function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_data)
+function PMA_extract_indexes(&$ret_keys, &$indexes_info, &$indexes_data)
 {
     if (! is_array($ret_keys)) {
         return false;
@@ -173,122 +172,6 @@ function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_da
     } // end while
 
     return true;
-}
-
-/**
- * Show index data and prepare returned collection array for index
- * key checks.
- *
- * @param   string      $table          The tablename
- * @param   array       $indexes        Referenced Array of indexes
- * @param   array       $indexes_info   Referenced info array
- * @param   array       $indexes_data   Referenced data array
- * @param   boolean     $display_html   Output HTML code, or just return collection array?
- * @param   boolean     $print_mode
- * @access  public
- * @return  array       Index collection array
- * @author  Garvin Hicking (pma@supergarv.de)
- */
-function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data,
-    $display_html = true, $print_mode = false)
-{
-    $idx_collection = array();
-    $odd_row = true;
-    foreach ($indexes as $index_name) {
-        if ($display_html) {
-            $row_span = ' rowspan="' . count($indexes_info[$index_name]['Sequences']) . '" ';
-
-            echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
-            echo '            <th ' . $row_span . '>' . "\n"
-               . '                ' . htmlspecialchars($index_name) . "\n"
-               . '            </th>' . "\n";
-        }
-
-        if ($indexes_info[$index_name]['Index_type'] == 'FULLTEXT') {
-            $index_type = 'FULLTEXT';
-        } elseif ($index_name == 'PRIMARY') {
-            $index_type = 'PRIMARY';
-        } elseif ($indexes_info[$index_name]['Non_unique'] == '0') {
-            $index_type = 'UNIQUE';
-        } else {
-            $index_type = 'INDEX';
-        }
-
-        if ($display_html) {
-            echo '            <td ' . $row_span . '>' . "\n"
-               . '                ' . $index_type . '</td>' . "\n";
-
-            echo '            <td ' . $row_span . ' align="right">' . "\n"
-               . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $GLOBALS['strNone']) . '&nbsp;' . "\n"
-               . '            </td>' . "\n";
-
-            if (!$print_mode) {
-                echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="tbl_indexes.php?'
-                   . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name)
-                   . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
-                   . '            </td>' . "\n";
-
-                if ($index_name == 'PRIMARY') {
-                    $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
-                    $js_msg      = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
-                    $zero_rows   = urlencode($GLOBALS['strPrimaryKeyHasBeenDropped']);
-                } else {
-                    $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
-                    $js_msg      = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP INDEX ' . PMA_jsFormat($index_name);
-                    $zero_rows   = urlencode(sprintf($GLOBALS['strIndexHasBeenDropped'], htmlspecialchars($index_name)));
-                }
-
-                echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="sql.php?' . $GLOBALS['url_query']
-                   . '&amp;sql_query=' . $local_query . '&amp;zero_rows='
-                   . $zero_rows . '" onclick="return confirmLink(this, \''
-                   . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
-                   . '            </td>' . "\n";
-            }
-        }
-
-        foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
-            $col_name = $indexes_data[$index_name][$seq_index]['Column_name'];
-            if ($row_no == 0) {
-                if (isset($idx_collection[$index_type][$col_name])) {
-                    $idx_collection[$index_type][$col_name]++;
-                } else {
-                    $idx_collection[$index_type][$col_name] = 1;
-                }
-
-                if (isset($idx_collection['ALL'][$col_name])) {
-                    $idx_collection['ALL'][$col_name]++;
-                } else {
-                    $idx_collection['ALL'][$col_name] = 1;
-                }
-            }
-
-            if ($display_html) {
-                if ($row_no > 0) {
-                    echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
-                }
-
-                if (isset($indexes_data[$index_name][$seq_index]['Sub_part'])
-                 && strlen($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                    echo '            <td>' . $col_name . '</td>' . "\n";
-                    echo '            <td align="right">' . "\n"
-                       . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
-                       . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                } else {
-                    echo '            <td colspan="2">' . "\n"
-                       . '                ' . htmlspecialchars($col_name) . "\n"
-                       . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                }
-            }
-        } // end foreach $indexes_info[$index_name]['Sequences']
-
-        $odd_row = ! $odd_row;
-    } // end while
-
-    return $idx_collection;
 }
 
 ?>

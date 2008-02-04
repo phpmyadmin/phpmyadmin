@@ -205,8 +205,8 @@ function get_pk_or_unique_keys()
         $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
         if (! empty($ret_keys)) {
             // reset those as the function uses them by reference
-            $indexes = $indexes_info = $indexes_data = array();
-            PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
+            $indexes_info = $indexes_data = array();
+            PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
             // for now, take into account only the first index segment
             foreach ($indexes_data as $key_name => $one_index) {
                 $column_name = $one_index[1]['Column_name'];
@@ -242,8 +242,8 @@ function get_all_keys()
         $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
         if (! empty($ret_keys)) {
             // reset those as the function uses them by reference
-            $indexes = $indexes_info = $indexes_data = array();
-            PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
+            $indexes_info = $indexes_data = array();
+            PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
             // for now, take into account only the first index segment
             foreach ($indexes_data as $one_index) {
                 $column_name = $one_index[1]['Column_name'];

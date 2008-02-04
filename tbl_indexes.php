@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * display information about indexes in a table
+ * Displays index edit/creation form and handles it
  *
  * @version $Id$
  */
@@ -11,79 +11,72 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/tbl_indexes.lib.php';
+require_once './libraries/Index.class.php';
 
 /**
  * Ensures the db & table are valid, then loads headers and gets indexes
  * informations.
  * Skipped if this script is called by "tbl_sql.php"
  */
-if (!defined('PMA_IDX_INCLUDED')) {
-    // Not a valid db name -> back to the welcome page
-    if (strlen($db)) {
-        $is_db = PMA_DBI_select_db($db);
+// Not a valid db name -> back to the welcome page
+if (strlen($db)) {
+    $is_db = PMA_DBI_select_db($db);
+}
+if (!strlen($db) || !$is_db) {
+    $uri_params = array('reload' => '1');
+    if (isset($message)) {
+        $uri_params['message'] = $message;
     }
-    if (!strlen($db) || !$is_db) {
-        $uri_params = array('reload' => '1');
-        if (isset($message)) {
-            $uri_params['message'] = $message;
-        }
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php'
-            . PMA_generate_common_url($uri_params, '&'));
-        exit;
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php'
+        . PMA_generate_common_url($uri_params, '&'));
+    exit;
+}
+// Not a valid table name -> back to the default db sub-page
+if (strlen($table)) {
+    $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
+        . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
+}
+if (! strlen($table)
+ || !($is_table && PMA_DBI_num_rows($is_table))) {
+    $uri_params = array('reload' => '1', 'db' => $db);
+    if (isset($message)) {
+        $uri_params['message'] = $message;
     }
-    // Not a valid table name -> back to the default db sub-page
-    if (strlen($table)) {
-        $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
-            . PMA_sqlAddslashes($table, TRUE) . '\'', null, PMA_DBI_QUERY_STORE);
-    }
-    if (! strlen($table)
-      || !($is_table && PMA_DBI_num_rows($is_table))) {
-        $uri_params = array('reload' => '1', 'db' => $db);
-        if (isset($message)) {
-            $uri_params['message'] = $message;
-        }
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri']
-            . $cfg['DefaultTabDatabase']
-            . PMA_generate_common_url($uri_params, '&'));
-        exit;
-    } elseif (isset($is_table)) {
-        PMA_DBI_free_result($is_table);
-    }
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri']
+        . $cfg['DefaultTabDatabase']
+        . PMA_generate_common_url($uri_params, '&'));
+    exit;
+} elseif (isset($is_table)) {
+    PMA_DBI_free_result($is_table);
+}
 
-    // Displays headers (if needed)
-    $GLOBALS['js_include'][] = 'functions.js';
-    $GLOBALS['js_include'][] = 'indexes.js';
-    require_once './libraries/header.inc.php';
-} // end if
+// Displays headers (if needed)
+$GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'indexes.js';
+require_once './libraries/header.inc.php';
 
 
 /**
  * Gets fields and indexes informations
  */
-if (!defined('PMA_IDX_INCLUDED')) {
-    $err_url_0 = 'db_sql.php?' . PMA_generate_common_url($db);
-}
+$err_url_0 = 'db_sql.php?' . PMA_generate_common_url($db);
 
 //  Gets table keys and store them in arrays
-$indexes      = array();
 $indexes_info = array();
 $indexes_data = array();
-// keys had already been grabbed in "tbl_sql.php"
-if (!defined('PMA_IDX_INCLUDED')) {
-    $ret_keys = PMA_get_indexes($table, $err_url_0);
-}
+$ret_keys = PMA_get_indexes($table, $err_url_0);
 
-PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
+PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
+
+$indexes = PMA_Index::getFromTable($table, $db);
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_sql.php"
-if (!defined('PMA_IDX_INCLUDED')) {
-    $fields_rs   = PMA_DBI_query('SHOW FIELDS FROM '
-        . PMA_backquote($table) . ';');
-    $save_row   = array();
-    while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
-        $save_row[] = $row;
-    }
+$fields_rs   = PMA_DBI_query('SHOW FIELDS FROM '
+    . PMA_backquote($table) . ';');
+$save_row   = array();
+while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+    $save_row[] = $row;
 }
 
 $fields_names           = array();
@@ -109,9 +102,7 @@ if ($fields_rs) {
  * Do run the query to build the new index and moves back to
  * "tbl_sql.php"
  */
-if (!defined('PMA_IDX_INCLUDED')
-    && (isset($index) && isset($do_save_data))) {
-
+if (isset($index) && isset($do_save_data)) {
     $err_url     = 'tbl_indexes.php?' . PMA_generate_common_url($db, $table);
     if (empty($old_index)) {
         $err_url .= '&amp;create_index=1&amp;idx_num_fields=' . $idx_num_fields;
@@ -188,8 +179,7 @@ if (!defined('PMA_IDX_INCLUDED')
 /**
  * Edits an index or defines a new one
  */
-elseif (!defined('PMA_IDX_INCLUDED')
-         && (isset($index) || isset($create_index))) {
+elseif (isset($index) || isset($create_index)) {
 
     // Prepares the form values
     if (!isset($index)) {
@@ -256,8 +246,9 @@ elseif (!defined('PMA_IDX_INCLUDED')
 <form action="./tbl_indexes.php" method="post" name="index_frm"
     onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {
         this.elements['index'].disabled = false}">
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <?php
+    <?php 
+    echo PMA_generate_common_hidden_inputs($db, $table);
+    
     if (isset($create_index)) {
         echo '<input type="hidden" name="create_index" value="1" />' . "\n";
     }
@@ -380,97 +371,11 @@ PMA_Message::warning('strPrimaryKeyWarning')->display();
 </fieldset>
 </form>
 </div>
-<?php
-} else {
-    /**
-     * Display indexes
-     */
-    ?>
-    <form action="./tbl_indexes.php" method="post"
-        onsubmit="return checkFormElementInRange(this, 'idx_num_fields',
-            '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
-            1)">
     <?php
-    echo PMA_generate_common_hidden_inputs($db, $table);
-    ?>
-    <table id="table_indexes" class="data">
-        <caption class="tblHeaders">
-        <?php
-        echo $strIndexes . ':' . "\n";
-        echo '        ' . PMA_showMySQLDocu('optimization',
-            'optimizing-database-structure');
-        ?>
-
-        </caption>
-    <?php
-
-    if (count($ret_keys) > 0) {
-        $edit_link_text = '';
-        $drop_link_text = '';
-
-        if ($cfg['PropertiesIconic'] === true || $cfg['PropertiesIconic'] === 'both') {
-            $edit_link_text = '<img class="icon" src="' . $pmaThemeImage
-                . 'b_edit.png" width="16" height="16" title="' . $strEdit
-                . '" alt="' . $strEdit . '" />';
-            $drop_link_text = '<img class="icon" src="' . $pmaThemeImage
-                . 'b_drop.png" width="16" height="16" title="' . $strDrop
-                . '" alt="' . $strDrop . '" />';
-        }
-        if ($cfg['PropertiesIconic'] === false || $cfg['PropertiesIconic'] === 'both') {
-            $edit_link_text .= $strEdit;
-            $drop_link_text .= $strDrop;
-        }
-        if ($cfg['PropertiesIconic'] === 'both') {
-            $edit_link_text = '<nobr>' . $edit_link_text . '</nobr>';
-            $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
-        }
-        ?>
-
-        <thead>
-        <tr><th><?php echo $strKeyname; ?></th>
-            <th><?php echo $strType; ?></th>
-            <th><?php echo $strCardinality; ?></th>
-            <th colspan="2"><?php echo $strAction; ?></th>
-            <th colspan="2"><?php echo $strField; ?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $idx_collection = PMA_show_indexes($table, $indexes, $indexes_info,
-            $indexes_data, true);
-        echo PMA_check_indexes($ret_keys);
-    } // end display indexes
-    else {
-        // none indexes
-        echo '<tbody>'
-            .'<tr><td colspan="7">';
-        PMA_Message::warning('strNoIndex')->display();
-        echo '</td></tr>' . "\n";
-    }
-    ?>
-
-    <tr class="tblFooters"><td colspan="7">
-    <?php echo sprintf($strCreateIndex,
-        '<input type="text" size="2" name="idx_num_fields" value="1" />'); ?>
-    <input type="submit" name="create_index" value="<?php echo $strGo; ?>"
-        onclick="return checkFormElementInRange(this.form,
-            'idx_num_fields',
-            '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
-            1)" />
-    </td></tr>
-    </tbody>
-    </table>
-    </form>
-    <?php
-} // end display indexes
-
+}
 
 /**
  * Displays the footer
  */
-echo "\n";
-
-if (!defined('PMA_IDX_INCLUDED')){
-    require_once './libraries/footer.inc.php';
-}
+require_once './libraries/footer.inc.php';
 ?>

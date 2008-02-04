@@ -87,6 +87,8 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once './libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
+$url_params['goto'] = 'tbl_structure.php';
+$url_params['back'] = 'tbl_structure.php';
 
 /**
  * Prepares the table structure display
@@ -102,25 +104,17 @@ require_once './libraries/tbl_info.inc.php';
  * Displays top menu links
  */
 require_once './libraries/tbl_links.inc.php';
+require_once './libraries/Index.class.php';
 
 // 2. Gets table keys and retains them
-$result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ';');
-$primary     = '';
-$ret_keys    = array();
-$pk_array    = array(); // will be use to emphasis prim. keys in the table view
-while ($row = PMA_DBI_fetch_assoc($result)) {
-    $ret_keys[]  = $row;
-    // Backups the list of primary keys
-    if ($row['Key_name'] == 'PRIMARY') {
-        $primary .= $row['Column_name'] . ', ';
-        $pk_array[$row['Column_name']] = 1;
-    }
-} // end while
-PMA_DBI_free_result($result);
+// @todo should be: $server->db($db)->table($table)->primary()
+$primary = PMA_Index::getPrimary($table, $db);
+
 
 // 3. Get fields
 $fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
+
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -327,7 +321,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
     }
 
-    if (isset($pk_array[$row['Field']])) {
+    if ($primary && $primary->hasColumn($field_name)) {
         $field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
@@ -364,8 +358,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . (empty($primary) ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
-            onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . (empty($primary) ? '' : ' DROP PRIMARY KEY,'); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
+            onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table) . ($primary ? '' : ' DROP PRIMARY KEY,'); ?> ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $titles['Primary']; ?></a>
             <?php
         }
@@ -531,17 +525,40 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 if ($fields_cnt > 20) {
     require './libraries/tbl_links.inc.php';
 } // end if ($fields_cnt > 20)
-echo "\n\n";
 
 /**
  * Displays indexes
  */
-PMA_generate_slider_effect('tablestatistics', $strDetails);
-echo '<div id="tablestatistics">' . "\n";
+PMA_generate_slider_effect('tablestatistics_indexes', $strDetails);
+echo '<div id="tablestatistics_indexes">' . "\n";
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    define('PMA_IDX_INCLUDED', 1);
-    require './tbl_indexes.php';
+    /**
+     * Display indexes
+     */
+    echo PMA_Index::getView($table, $db);
+    ?>
+<br />
+<form action="./tbl_indexes.php" method="post"
+    onsubmit="return checkFormElementInRange(this, 'idx_num_fields',
+        '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
+        1)">
+<fieldset>
+    <?php
+    echo PMA_generate_common_hidden_inputs($db, $table);
+    echo sprintf($strCreateIndex,
+        '<input type="text" size="2" name="idx_num_fields" value="1" />');
+    ?>
+    <input type="submit" name="create_index" value="<?php echo $strGo; ?>"
+        onclick="return checkFormElementInRange(this.form,
+            'idx_num_fields',
+            '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
+            1)" />
+</fieldset>
+</form>
+<br />
+    <?php
 }
+echo '<div id="tablestatistics">' . "\n";
 
 /**
  * Displays Space usage and row statistics
@@ -768,6 +785,7 @@ if ($cfg['ShowStats']) {
 require './libraries/tbl_triggers.lib.php';
 
 echo '<div class="clearfloat"></div>' . "\n";
+echo '</div>' . "\n";
 echo '</div>' . "\n";
 
 /**
