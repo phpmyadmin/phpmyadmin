@@ -1063,4 +1063,9 @@ $strTexyText = 'Texy! text';  //to translate
 $strDetails = 'Details...';  //to translate
 $strComment = 'Comment';  //to translate
 $strPacked = 'Packed';  //to translate
+$strActions = 'Actions';  //to translate
+$strInterface = 'Interface';  //to translate
+$strMySQLServerInformation = 'MySQL server information';  //to translate
+$strWebServerInformation = 'Web server information';  //to translate
+$strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 ?>

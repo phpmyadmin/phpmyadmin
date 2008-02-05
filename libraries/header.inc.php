@@ -64,7 +64,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      * Display heading if needed. Design can be set in css file.
      */
 
-    if (PMA_DISPLAY_HEADING) {
+    if (PMA_DISPLAY_HEADING && $server > 0) {
         $server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
                         ? $GLOBALS['cfg']['Server']['verbose']
                         : $GLOBALS['cfg']['Server']['host'] . (empty($GLOBALS['cfg']['Server']['port'])

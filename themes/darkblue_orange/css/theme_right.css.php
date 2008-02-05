@@ -1197,3 +1197,15 @@ code.sql {
     overflow:           auto;
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
+
+.box {
+    float: <?php echo $left; ?>;
+    width: 49%;
+    border:             solid 1px;
+    margin:             2px;
+}
+
+.box_smaller {
+    width: 24%;
+}
+
