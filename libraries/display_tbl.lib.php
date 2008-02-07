@@ -10,6 +10,7 @@
  *
  */
 require_once './libraries/Table.class.php';
+require_once './libraries/Index.class.php';
 
 /**
  * Defines the display mode to use for the results of a SQL query
@@ -483,40 +484,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             isset($analyzed_sql[0]['table_ref']) && count($analyzed_sql[0]['table_ref']) == 1) {
 
             // grab indexes data:
-            PMA_DBI_select_db($db);
-            if (!defined('PMA_IDX_INCLUDED')) {
-                $ret_keys = PMA_get_indexes($table);
-            }
-
-            $prev_index = '';
-            foreach ($ret_keys as $row) {
-
-                if ($row['Key_name'] != $prev_index){
-                    $indexes[]  = $row['Key_name'];
-                    $prev_index = $row['Key_name'];
-                }
-                $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-                $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-                if (isset($row['Cardinality'])) {
-                    $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-                }
-            //    I don't know what does the following column mean....
-            //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-                $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
-                                                                   ? $row['Comment']
-                                                                   : '';
-                $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
-                                                                   ? $row['Index_type']
-                                                                   : '';
-
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-                if (isset($row['Sub_part'])) {
-                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-                }
-            } // end while
+            $indexes = PMA_Index::getFromTable($table, $db);
 
             // do we have any index?
-            if (isset($indexes_data)) {
+            if ($indexes) {
 
                 if ($_SESSION['userconf']['disp_direction'] == 'horizontal'
                  || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') {
@@ -535,30 +506,28 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 }
 
                 echo '<form action="sql.php" method="post">' . "\n";
-                echo PMA_generate_common_hidden_inputs($db, $table, 5);
+                echo PMA_generate_common_hidden_inputs($db, $table);
                 echo $GLOBALS['strSortByKey'] . ': <select name="sql_query" onchange="this.form.submit();">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
-                foreach ($indexes_data AS $key => $val) {
-                    $asc_sort = '';
-                    $desc_sort = '';
-                    foreach ($val AS $key2 => $val2) {
-                        $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
-                        $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
-                    }
-                    $asc_sort = substr($asc_sort, 0, -3);
-                    $desc_sort = substr($desc_sort, 0, -3);
+                foreach ($indexes as $index) {
+                    $asc_sort = '`' . implode('` ASC, `', array_keys($index->getColumns())) . '` ASC';
+                    $desc_sort = '`' . implode('` DESC, `', array_keys($index->getColumns())) . '` DESC';
                     $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
-                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
-                    echo "\n";
-                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
-                    echo "\n";
+                    echo '<option value="' 
+                        . htmlspecialchars($unsorted_sql_query  . ' ORDER BY ' . $asc_sort) 
+                        . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') 
+                        . '>' . htmlspecialchars($index->getName()) . ' (' 
+                        . $GLOBALS['strAscending'] . ')</option>';
+                    echo '<option value="' 
+                        . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $desc_sort) 
+                        . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') 
+                        . '>' . htmlspecialchars($index->getName()) . ' (' 
+                        . $GLOBALS['strDescending'] . ')</option>';
                 }
                 echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"') . '>' . $GLOBALS['strNone'] . '</option>';
-                echo "\n";
                 echo '</select>' . "\n";
                 echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>';
-                echo "\n";
                 echo '</form>' . "\n";
             }
         }

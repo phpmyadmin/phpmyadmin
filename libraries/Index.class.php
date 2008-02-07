@@ -290,6 +290,40 @@ class PMA_Index
         return $this->_type;
     }
     
+    /**
+     * Return a list of all index types
+     *
+     * @return  array index types
+     */
+    static public function getTypes()
+    {
+        return array(
+            'PRIMARY',
+            'INDEX',
+            'UNIQUE',
+            'FULLTEXT',
+        );        
+    }
+
+    public function getTypeSelector()
+    {
+        $html_options = '';
+        
+        foreach (PMA_Index::getTypes() as $each_index_type) {
+            if ($each_index_type === 'PRIMARY'
+             && $this->_name !== 'PRIMARY'
+             && PMA_Index::getPrimary($this->_table, $this->_schema)) {
+                // skip PRIMARY if there is already one in the table
+                continue;
+            }
+            $html_options .= '<option value="' . $each_index_type . '"'
+                 . (($this->_type == $each_index_type) ? ' selected="selected"' : '')
+                 . '>'. $each_index_type . '</option>' . "\n";
+        }
+        
+        return $html_options;
+    }
+    
     public function getPacked()
     {
         return $this->_packed;
@@ -364,9 +398,9 @@ class PMA_Index
      * @return  array       Index collection array
      * @author  Garvin Hicking (pma@supergarv.de)
      */
-    static public function getView($table, $db, $print_mode = false)
+    static public function getView($table, $schema, $print_mode = false)
     {
-        $indexes = PMA_Index::getFromTable($table, $db);
+        $indexes = PMA_Index::getFromTable($table, $schema);
 
         if (count($indexes) < 1) {
             return PMA_Message::warning('strNoIndex')->getDisplay();
@@ -459,10 +493,75 @@ class PMA_Index
         $r .= '</table>';
         
         if (! $print_mode) {
-            //$r .= PMA_check_indexes($ret_keys);
+            $r .= PMA_Index::findDuplicates($table, $schema);
         }
         
         return $r;
+    }
+    
+    public function getCompareData()
+    {
+        $data = array(
+            // 'Non_unique'    => $this->_non_unique,
+            'Packed'        => $this->_packed,
+            'Index_type'    => $this->_type,
+        );
+        
+        foreach ($this->_columns as $column) {
+            $data['columns'][] = $column->getCompareData();
+        }
+        
+        return $data;
+    }
+    
+    /**
+     * Function to check over array of indexes and look for common problems
+     *
+     * @uses    $GLOBALS['strIndexesSeemEqual']
+     * @uses    is_string()
+     * @uses    is_array()
+     * @uses    count()
+     * @uses    array_pop()
+     * @uses    reset()
+     * @uses    current()
+     * @access  public
+     * @param   string      name of table
+     * @return  string      Output HTML
+     */
+    function findDuplicates($table, $schema)
+    {
+        $indexes = PMA_Index::getFromTable($table, $schema);
+    
+        $output  = '';
+        
+        // count($indexes) < 2:
+        //   there is no need to check if there less than two indexes
+        if (count($indexes) < 2) {
+            return $output;
+        }
+    
+        // remove last index from stack and ...
+        while ($while_index = array_pop($indexes)) {
+            // ... compare with every remaining index in stack
+            foreach ($indexes as $each_index) {
+                if ($each_index->getCompareData() !== $while_index->getCompareData()) {
+                    continue;
+                }
+                
+                // did not find any difference
+                // so it makes no sense to have this two equal indexes
+    
+                $message = PMA_Message::warning('strIndexesSeemEqual');
+                $message->addParam($each_index->getName());
+                $message->addParam($while_index->getName());
+                $output .= $message->getDisplay();
+    
+                // there is no need to check any further indexes if we have already
+                // found that this one has a duplicate
+                continue 2;
+            }
+        }
+        return $output;
     }
 }
 
@@ -565,6 +664,17 @@ class PMA_Index_Column
     public function getSubPart()
     {
         return $this->_sub_part;
+    }
+
+    public function getCompareData()
+    {
+        return array(
+            'Column_name'   => $this->_name,
+            'Seq_in_index'  => $this->_seq_in_index,
+            'Collation'     => $this->_collation,
+            'Sub_part'      => $this->_sub_part,
+            'Null'          => $this->_null,
+        );
     }
 }
 ?>

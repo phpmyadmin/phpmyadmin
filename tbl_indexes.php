@@ -10,21 +10,8 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/tbl_indexes.lib.php';
 require_once './libraries/Index.class.php';
 require_once './libraries/tbl_common.php';
-
-/**
- * Gets fields and indexes informations
- */
-$err_url_0 = 'db_sql.php?' . PMA_generate_common_url($db);
-
-//  Gets table keys and store them in arrays
-$indexes_info = array();
-$indexes_data = array();
-$ret_keys = PMA_get_indexes($table, $err_url_0);
-
-PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
 
 // Get fields and stores their name/type
 $fields = array();
@@ -183,19 +170,7 @@ echo (isset($_REQUEST['create_index'])
 <div class="formelement">
 <label for="select_index_type"><?php echo $strIndexType; ?></label>
 <select name="index[Index_type]" id="select_index_type" onchange="return checkIndexName()">
-<?php
-foreach (PMA_get_indextypes() as $each_index_type) {
-    if ($each_index_type === 'PRIMARY'
-     && $index->getName() !== 'PRIMARY'
-     && isset($indexes_info['PRIMARY'])) {
-        // skip PRIMARY if there is already one in the table
-        continue;
-    }
-    echo '<option value="' . $each_index_type . '"'
-         . (($index->getType() == $each_index_type) ? ' selected="selected"' : '')
-         . '>'. $each_index_type . '</option>' . "\n";
-}
-?>
+    <?php echo $index->getTypeSelector(); ?>
 </select>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
 </div>

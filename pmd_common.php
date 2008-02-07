@@ -186,72 +186,42 @@ function get_script_contr()
 }
 
 /**
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['PMD']
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_get_indexes()
- * @uses    PMA_extract_indexes()
- * @uses    count()
+ * @uses    get_all_keys()
  * @return  array unique or primary indizes
  */
 function get_pk_or_unique_keys()
 {
-    require_once './libraries/tbl_indexes.lib.php';
-
-    PMA_DBI_select_db($GLOBALS['db']);
-    $tables_pk_or_unique_keys = array();
-
-    for ($I = 0; $I < count($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
-        $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
-        if (! empty($ret_keys)) {
-            // reset those as the function uses them by reference
-            $indexes_info = $indexes_data = array();
-            PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
-            // for now, take into account only the first index segment
-            foreach ($indexes_data as $key_name => $one_index) {
-                $column_name = $one_index[1]['Column_name'];
-                if (isset($indexes_info[$key_name])
-                 && $indexes_info[$key_name]['Non_unique'] == 0) {
-                    $tables_pk_or_unique_keys[$GLOBALS['PMD']['OWNER'][$I] . '.' .$GLOBALS['PMD']['TABLE_NAME_SMALL'][$I] . '.' . $column_name] = 1;
-                }
-            }
-        }
-    }
-    return $tables_pk_or_unique_keys;
+    return get_all_keys(true);
 }
 
 /**
  * returns all indizes
  *
- * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['PMD']
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_get_indexes()
- * @uses    PMA_extract_indexes()
- * @uses    count()
+ * @uses    PMA_Index::getFromTable()
+ * @uses    PMA_Index->isUnique()
+ * @uses    PMA_Index->getColumns()
+ * @param   boolean whether to include ony unique ones
  * @return  array indizes
  */
-function get_all_keys()
+function get_all_keys($unique_only = false)
 {
-    require_once './libraries/tbl_indexes.lib.php';
+    require_once './libraries/Index.class.php';
 
-    PMA_DBI_select_db($GLOBALS['db']);
-    $tables_all_keys = array();
-
-    for ($I = 0; $I < count($GLOBALS['PMD']['TABLE_NAME_SMALL']); $I++) {
-        $ret_keys = PMA_get_indexes($GLOBALS['PMD']['TABLE_NAME_SMALL'][$I]);
-        if (! empty($ret_keys)) {
-            // reset those as the function uses them by reference
-            $indexes_info = $indexes_data = array();
-            PMA_extract_indexes($ret_keys, $indexes_info, $indexes_data);
-            // for now, take into account only the first index segment
-            foreach ($indexes_data as $one_index) {
-                $column_name = $one_index[1]['Column_name'];
-                $tables_all_keys[$GLOBALS['PMD']['OWNER'][$I] . '.' .$GLOBALS['PMD']['TABLE_NAME_SMALL'][$I] . '.' . $column_name] = 1;
+    $keys = array();
+        
+    foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {
+        $schema = $GLOBALS['PMD']['OWNER'][$I];
+        // for now, take into account only the first index segment
+        foreach (PMA_Index::getFromTable($table, $schema) as $index) {
+            if ($unique_only && $index->isUnique()) {
+                $column = key($index->getColumns());
+                $keys[$schema . '.' .$table . '.' . $column] = 1;
             }
         }
     }
-    return $tables_all_keys;
+    
+    return $keys;
 }
 
 /**

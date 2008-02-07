@@ -11,7 +11,6 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
-require_once './libraries/tbl_indexes.lib.php';
 require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
@@ -625,16 +624,10 @@ else {
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type) && $query_type == 'check_tbl' && isset($selected) && is_array($selected)) {
         foreach ($selected as $idx => $tbl_name) {
-            $check = PMA_check_indexes($tbl_name);
+            $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
-                ?>
-<table border="0" cellpadding="2" cellspacing="0">
-    <tr>
-        <td class="tblHeaders" colspan="7"><?php printf($strIndexWarningTable, urldecode($tbl_name)); ?></td>
-    </tr>
-    <?php echo $check; ?>
-</table>
-                <?php
+                printf($strIndexWarningTable, $tbl_name);
+                echo $check;
             }
         }
     } // End INDEX CHECK
