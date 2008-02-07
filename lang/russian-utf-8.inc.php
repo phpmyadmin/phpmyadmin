@@ -480,8 +480,6 @@ $strMySQLConnectionCollation = 'Сопоставление соединения 
 $strMysqlLibDiffersServerVersion = 'Версия клиентской библиотеки MySQL (%s) отличается от версии установленного MySQL-сервера (%s). Это может привести к некорректной работе.';
 $strMySQLSaid = 'Ответ MySQL: ';
 $strMySQLShowProcess = 'Список процессов';
-$strMySQLShowStatus = 'Текущее состояние MySQL';
-$strMySQLShowVars = 'Системные переменные MySQL';
 
 $strName = 'Имя';
 $strNext = 'Следующий';

@@ -484,8 +484,6 @@ $strMySQLConnectionCollation = 'MySQL bağlantı karşılaştırması';
 $strMysqlLibDiffersServerVersion = 'PHP MySQL kütüphanenizin %s sürümü MySQL sunucunuzun %s sürümünden farklı. Bu tarafsız davranışa sebep olabilir.';
 $strMySQLSaid = 'MySQL çıktısı: ';
 $strMySQLShowProcess = 'İşlemleri göster';
-$strMySQLShowStatus = 'MySQL çalışma süresi bilgisini göster';
-$strMySQLShowVars = 'MySQL sistem değişkenlerini göster';
 
 $strName = 'İsim';
 $strNext = 'Sonraki';

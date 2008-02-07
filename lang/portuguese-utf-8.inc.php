@@ -301,8 +301,6 @@ $strMultilingual = 'multilingua';
 $strMySQLCharset = 'Mapa de Caracteres do mySQL';
 $strMySQLSaid = 'Mensagens do MySQL : ';
 $strMySQLShowProcess = 'Mostra os Processos';
-$strMySQLShowStatus = 'Mostra informação do estado do MySQL';
-$strMySQLShowVars = 'Mostra as variáveis de sistema do MySQL';
 
 $strName = 'Nome';
 $strNext = 'Próximo';

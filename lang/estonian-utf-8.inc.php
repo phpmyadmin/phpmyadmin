@@ -468,8 +468,6 @@ $strMysqlClientVersion = 'MySQL kliendi versioon';
 $strMySQLConnectionCollation = 'MySQL ühenduse kollatsioon';
 $strMySQLSaid = 'MySQL ütles: ';
 $strMySQLShowProcess = 'Näita protsesse';
-$strMySQLShowStatus = 'Näita MySQL-i jooksvat informatsiooni';
-$strMySQLShowVars = 'Näita MySQL süsteemseid muutujaid';
 
 $strName = 'Nimi';
 $strNext = 'Järgmine';

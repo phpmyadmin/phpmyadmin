@@ -444,8 +444,6 @@ $strMysqlClientVersion = 'Verzia MySQL klienta';
 $strMySQLConnectionCollation = 'Overenie MySQL spojenia';
 $strMySQLSaid = 'MySQL hlási: ';
 $strMySQLShowProcess = 'Zobraziť procesy';
-$strMySQLShowStatus = 'Zobraziť MySQL informácie o behu';
-$strMySQLShowVars = 'Zobraziť MySQL systémové premenné';
 
 $strName = 'Názov';
 $strNext = 'Ďalší';

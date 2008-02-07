@@ -287,8 +287,6 @@ $strMultilingual = 'หลายภาษา';
 $strMySQLCharset = 'ชุดตัวอักษร (charset) ของ MySQL';
 $strMySQLSaid = 'MySQL แสดง: ';
 $strMySQLShowProcess = 'แสดงงานที่ทำอยู่ของ MySQL';
-$strMySQLShowStatus = 'แสดงสถานะของ MySQL';
-$strMySQLShowVars = 'แสดงตัวแปรระบบของ MySQL';
 
 $strName = 'ชื่อ';
 $strNext = 'ต่อไป';

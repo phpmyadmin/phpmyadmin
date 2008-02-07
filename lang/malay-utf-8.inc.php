@@ -218,8 +218,6 @@ $strMoveTable = 'Pindahkan jadual ke (pangkalandata<b>.</b>jadual):';
 $strMySQLCharset = 'Set Aksara MySQL';
 $strMySQLSaid = 'MySQL berkata: ';
 $strMySQLShowProcess = 'Papar proses';
-$strMySQLShowStatus = 'Papar maklumat masalaksana MySQL';
-$strMySQLShowVars = 'Papar pembolehubah sistem MySQL';
 
 $strName = 'Nama';
 $strNext = 'Berikut';

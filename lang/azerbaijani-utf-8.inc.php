@@ -296,8 +296,6 @@ $strMyISAMSortBufferSize = 'Sıralama buferinin (keçici yaddaşının) boyu';
 $strMySQLCharset = 'MySQL charset';
 $strMySQLSaid = 'MySQL deyir: ';
 $strMySQLShowProcess = 'Prosesleri göster';
-$strMySQLShowStatus = 'MySQL runtime me\'lumatını göster';
-$strMySQLShowVars = 'MySQL sistem deyişenlerini göster';
 
 $strName = 'Adı';
 $strNext = 'Sonrakı';

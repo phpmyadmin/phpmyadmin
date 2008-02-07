@@ -286,8 +286,6 @@ $strMultilingual = 'πολυγλωσσικό';
 $strMySQLCharset = 'Σετ χαρακτήρων της MySQL';  
 $strMySQLSaid = 'Η MySQL επέστρεψε το μύνημα: ';
 $strMySQLShowProcess = 'Εμφάνιση διεργασιών';
-$strMySQLShowStatus = 'Εμφάνιση πληροφορών εκτέλεσης της MySQL';
-$strMySQLShowVars = 'Εμφάνιση μεταβλητών της MySQL';
 
 $strName = 'Όνομα';
 $strNext = 'Επόμενο';

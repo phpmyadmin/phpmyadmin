@@ -449,8 +449,6 @@ $strMysqlClientVersion = 'Вэрсія кліента MySQL';
 $strMySQLConnectionCollation = 'Супастаўленьне падлучэньня да MySQL';
 $strMySQLSaid = 'Адказ MySQL: ';
 $strMySQLShowProcess = 'Паказаць працэсы';
-$strMySQLShowStatus = 'Паказаць стан MySQL';
-$strMySQLShowVars = 'Паказаць сыстэмныя зьменныя MySQL';
 
 $strName = 'Назва';
 $strNext = 'Наступны';

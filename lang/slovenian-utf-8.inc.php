@@ -319,8 +319,6 @@ $strMultilingual = 'večjezično';
 $strMySQLCharset = 'MySQL kodna tabela';
 $strMySQLSaid = 'MySQL je vrnil: ';
 $strMySQLShowProcess = 'Pokaži procese';
-$strMySQLShowStatus = 'Pokaži tekoče informacije o MySQL';
-$strMySQLShowVars = 'Pokaži sistemske spremenljivke MySQL';
 
 $strName = 'Ime';
 $strNext = 'Naslednji';

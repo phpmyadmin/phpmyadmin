@@ -292,8 +292,6 @@ $strMultilingual = 'višejezički';
 $strMySQLCharset = 'MySQL set karaktera';
 $strMySQLSaid = 'MySQL kaže: ';
 $strMySQLShowProcess = 'Prikaži listu procesa';
-$strMySQLShowStatus = 'Prikaži MySQL informacije o toku rada';
-$strMySQLShowVars = 'Prikaži MySQL sistemske promenljive';
 
 $strName = 'Ime';
 $strNext = 'Slijedeći';

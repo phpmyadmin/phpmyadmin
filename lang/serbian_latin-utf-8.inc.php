@@ -478,8 +478,6 @@ $strMySQLConnectionCollation = 'Sortiranje za MySQL vezu';
 $strMysqlLibDiffersServerVersion = 'Verzija vaše PHP MySQL biblioteke %s se razlikuje od verzije vašeg MySQL servera %s. Ovo može dovesti do nepredvidljivog ponašanja.';
 $strMySQLSaid = 'MySQL reče: ';
 $strMySQLShowProcess = 'Prikaži listu procesa';
-$strMySQLShowStatus = 'Prikaži MySQL informacije o toku rada';
-$strMySQLShowVars = 'Prikaži MySQL sistemske promenljive';
 
 $strName = 'Ime';
 $strNext = 'Sledeći';

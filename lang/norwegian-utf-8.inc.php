@@ -482,8 +482,6 @@ $strMySQLConnectionCollation = 'Kollasjon av MySQL-oppkobling';
 $strMysqlLibDiffersServerVersion = 'Din PHP MySQL bibliotekfilversjon %s er forskjellig fra din MySQL tjenerversjon %s. Dette kan forårsake uforutsett oppførsel.';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLShowProcess = 'Vis prosesser';
-$strMySQLShowStatus = 'Vis MySQL driftsstatus';
-$strMySQLShowVars = 'Vis MySQL systemvariabler';
 
 $strName = 'Navn';
 $strNext = 'Neste';

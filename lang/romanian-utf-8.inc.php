@@ -357,8 +357,6 @@ $strMyISAMSortBufferSize = 'Sortare marime buffer';
 $strMySQLCharset = 'Setul de caractere MySQL';
 $strMySQLSaid = 'MySQL zice: ';
 $strMySQLShowProcess = 'Afiseaza procesele';
-$strMySQLShowStatus = 'Afiseaza informatiile runtime MySQL';
-$strMySQLShowVars = 'Afiseaza variabilele de sistem MySQL';
 
 $strName = 'Nume';
 $strNext = 'Urmatorul';

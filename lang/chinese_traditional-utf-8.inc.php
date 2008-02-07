@@ -434,8 +434,6 @@ $strMysqlClientVersion = 'MySQL 客戶端版本';
 $strMySQLConnectionCollation = 'MySQL 連線校對';
 $strMySQLSaid = 'MySQL 傳回： ';
 $strMySQLShowProcess = '顯示程序 (Process)';
-$strMySQLShowStatus = '顯示 MySQL 執行狀態';
-$strMySQLShowVars = '顯示 MySQL 系統變數';
 
 $strName = '名稱';
 $strNext = '下一個';

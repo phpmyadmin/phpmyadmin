@@ -179,8 +179,6 @@ $strMoveTableOK = 'ცხრილი %s გადატანილია %s �
 $strMySQLCharset = 'MySQL Charset-ი';
 $strMySQLSaid = 'MySQL-მა თქვა: ';
 $strMySQLShowProcess = 'პროცესების შვენება';
-$strMySQLShowStatus = 'MySQL მონაცემთა ბაზის მდგომარეობის ჩვენება';
-$strMySQLShowVars = 'MySQL მონაცემთა ბაზის სისტემური ცვლადები';
 
 $strName = 'სახელი';
 $strNext = 'შემდეგი';

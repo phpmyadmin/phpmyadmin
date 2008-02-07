@@ -154,8 +154,6 @@ $strLogUsername = 'यूसरनेम:';
 $strMoveTable = ' टेबल को (database<b>.</b>table) में  मूव करें:';
 $strMoveTableOK = ' %s टेबल को %s में मूव कर दिया.';
 $strMySQLShowProcess = 'प्रोसेस दिखाओ';
-$strMySQLShowStatus = 'MySQL के runtime जानकारी  दिखाओ';
-$strMySQLShowVars = 'MySQL के  system variables दिखाओ';
 
 $strName = 'नाम';
 $strNext = ' अगला';

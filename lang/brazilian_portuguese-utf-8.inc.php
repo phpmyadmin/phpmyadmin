@@ -476,8 +476,6 @@ $strMySQLConnectionCollation = 'Collation de conexão do MySQL'; // Collation na
 $strMysqlLibDiffersServerVersion = 'Sua versão %s da biblioteca MySQL do PHP difere da versão %s do seu servidor MySQL. Isso pode causar um comportamento estranho.';
 $strMySQLSaid = 'Mensagens do MySQL : '; 
 $strMySQLShowProcess = 'Mostrar os Processos'; 
-$strMySQLShowStatus = 'Mostrar informação de runtime do MySQL'; 
-$strMySQLShowVars = 'Mostrar variáveis de sistema do MySQL'; 
 
 $strName = 'Nome'; 
 $strNext = 'Próximo'; 

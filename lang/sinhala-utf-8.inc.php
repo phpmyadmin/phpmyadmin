@@ -450,8 +450,6 @@ $strMysqlClientVersion = 'MySQL සේවාදායකයාගේ සංස�
 $strMySQLConnectionCollation = 'MySQL සම්බන්ධතා collation';
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLShowProcess = 'ක්‍රියාවලිය පෙන්වන්න';
-$strMySQLShowStatus = 'MySQL ධාවන තොරතු‍රු පෙන්වන්න';
-$strMySQLShowVars = 'MySQL පද්ධති විචල්‍යයන් පෙන්වන්න';
 
 $strName = 'නම';
 $strNext = 'මීලඟ';

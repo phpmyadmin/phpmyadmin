@@ -341,8 +341,6 @@ $strMySQLCharset = 'MySQL kodējums';
 $strMySQLConnectionCollation = 'MySQL konekcijas kārtošana';
 $strMySQLSaid = 'MySQL teica: ';
 $strMySQLShowProcess = 'Parādīt procesus';
-$strMySQLShowStatus = 'Parādīt MySQL izpildes laika informāciju';
-$strMySQLShowVars = 'Parādīt MySQL sistēmas mainīgos';
 
 $strName = 'Nosaukums';
 $strNext = 'Nākamie';

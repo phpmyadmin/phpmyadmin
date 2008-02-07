@@ -487,8 +487,6 @@ $strMySQLCharset = 'MySQL-Zeichensatz';
 $strMySQLConnectionCollation = 'Zeichensatz / Kollation der MySQL-Verbindung';
 $strMySQLSaid = 'MySQL meldet: ';
 $strMySQLShowProcess = 'Prozesse anzeigen';
-$strMySQLShowStatus = 'MySQL-Laufzeit-Informationen anzeigen';
-$strMySQLShowVars = 'MySQL-System-Variablen anzeigen';
 $strMysqlClientVersion = 'MySQL-Client-Version';
 $strMysqlLibDiffersServerVersion = 'Die Version der verwendeten PHP MySQL Bibliothek %s unterscheidet sich von der Version des MySQL Servers %s. Dies kann zu unerwartetem Verhalten führen.';
 

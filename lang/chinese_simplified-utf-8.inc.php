@@ -347,8 +347,6 @@ $strMySQLCharset = 'MySQL 字符集';
 $strMySQLConnectionCollation = 'MySQL 连接校对';
 $strMySQLSaid = 'MySQL 返回：';
 $strMySQLShowProcess = '显示进程';
-$strMySQLShowStatus = '显示 MySQL 的运行信息';
-$strMySQLShowVars = '显示 MySQL 的系统变量';
 
 $strName = '名字';
 $strNext = '下一个';

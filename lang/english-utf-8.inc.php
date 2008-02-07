@@ -490,8 +490,6 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLServerInformation = 'MySQL server information';
 $strMySQLShowProcess = 'Show processes';
-$strMySQLShowStatus = 'Show MySQL runtime information';
-$strMySQLShowVars = 'Show MySQL system variables';
 
 $strName = 'Name';
 $strNext = 'Next';

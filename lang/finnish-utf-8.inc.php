@@ -484,8 +484,6 @@ $strMySQLConnectionCollation = 'MySQL-yhteyden aakkosjärjestys';
 $strMysqlLibDiffersServerVersion = 'PHP:n MySQL-kirjaston versio %s on eri kuin MySQL-palvelimen versio %s. Tästä voi koitua arvaamattomia seurauksia.';
 $strMySQLSaid = 'MySQL ilmoittaa: ';
 $strMySQLShowProcess = 'Näytä prosessit';
-$strMySQLShowStatus = 'Näytä MySQL-palvelimen ajonaikaiset tiedot';
-$strMySQLShowVars = 'Näytä MySQL-palvelimen järjestelmämuuttujat';
 
 $strName = 'Nimi';
 $strNext = 'Seuraava';

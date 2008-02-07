@@ -328,8 +328,6 @@ $strMySQLCharset = 'Set simbolesh MySQL';
 $strMySQLConnectionCollation = 'Vendosja e lidhjes MySQL'; 
 $strMySQLSaid = 'Mesazh nga MySQL: ';
 $strMySQLShowProcess = 'Shfaq proceset në ekzekutim';
-$strMySQLShowStatus = 'Shfaq informacionet e nisjes së MySQL';
-$strMySQLShowVars = 'Shfaq të ndryshueshmet e sistemit të MySQL';
 
 $strName = 'Emri';
 $strNext = 'Në vazhdim';

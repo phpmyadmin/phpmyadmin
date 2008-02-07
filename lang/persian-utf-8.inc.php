@@ -181,8 +181,6 @@ $strMoveTableOK = 'جدول %s به %s انتقال داده‌شد.';
 $strMySQLCharset = 'مجموع كاراكترهاي MySQL';
 $strMySQLSaid = 'پيغام MySQL :';
 $strMySQLShowProcess = 'نمايش فرايندها';
-$strMySQLShowStatus = 'نمايش اطلاعات MySQL';
-$strMySQLShowVars = 'نمايش متغيرهاي سيستمي MySQL';
 
 $strName = 'اسم';
 $strNext = 'بعد';

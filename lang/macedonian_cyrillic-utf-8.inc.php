@@ -385,8 +385,6 @@ $strMySQLCharset = 'MySQL множество на знаци';
 $strMySQLConnectionCollation = 'Колација за MySQL врска';
 $strMySQLSaid = 'MySQL порака: ';
 $strMySQLShowProcess = 'Прикажи листа на процеси';
-$strMySQLShowStatus = 'Прикажи MySQL информации за текот на работата';
-$strMySQLShowVars = 'Прикажи системски променливи на MySQL';
 
 $strName = 'Име';
 $strNext = 'Следен';

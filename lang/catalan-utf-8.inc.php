@@ -472,8 +472,6 @@ $strMySQLConnectionCollation = 'Ordenaci de la connexi MySQL';
 $strMysqlLibDiffersServerVersion = 'La teva llibreria MySQL de PHP MySQL versi %s s diferent del teu servidor MySQL versi %s. Aix pot provocar comportaments inesperats.';
 $strMySQLSaid = 'MySQL diu: ';
 $strMySQLShowProcess = 'Mostrar processos';
-$strMySQLShowStatus = 'Mostra la informaci de funcionament del MySQL';
-$strMySQLShowVars = 'Mostra les variables de sistema del MySQL';
 
 $strName = 'Nom';
 $strNext = 'Segent';

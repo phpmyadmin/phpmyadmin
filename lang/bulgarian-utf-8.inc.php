@@ -389,8 +389,6 @@ $strMysqlClientVersion = 'Версия на клиента за MySQL';
 $strMySQLConnectionCollation = 'Колация на MySQL';
 $strMySQLSaid = 'MySQL отговори: ';
 $strMySQLShowProcess = 'MySQL процеси';
-$strMySQLShowStatus = 'Информация за състоянието на MySQL сървъра';
-$strMySQLShowVars = 'Системни променливи на MySQL';
 
 $strName = 'Име';
 $strNext = 'Следващ';

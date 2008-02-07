@@ -477,8 +477,6 @@ $strMySQLConnectionCollation = 'Kollation för MySQL-uppkoppling';
 $strMysqlLibDiffersServerVersion = 'Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL serverversion %s. Detta kan orsaka oförutsägbara beteenden.';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLShowProcess = 'Visa processer';
-$strMySQLShowStatus = 'Visa MySQL körningsinformation';
-$strMySQLShowVars = 'Visa MySQL systemvariabler';
 
 $strName = 'Namn';
 $strNext = 'Nästa';

@@ -474,8 +474,6 @@ $strMySQLConnectionCollation = 'Cotejamiento de las conexiones MySQL';
 $strMysqlLibDiffersServerVersion = 'Su versión de librería PHP MySQL  %s es distinta de aquella de su versión de servidor MySQL %s. Esto puede ocasionar un comportamiento impredecible.';
 $strMySQLSaid = 'MySQL ha dicho: ';
 $strMySQLShowProcess = 'Mostrar procesos';
-$strMySQLShowStatus = 'Mostrar información de tiempo de ejecución de MySQL';
-$strMySQLShowVars = 'Mostrar las variables del sistema MySQL';
 
 $strName = 'Nombre';
 $strNext = 'Próxima';

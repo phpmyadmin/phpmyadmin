@@ -192,8 +192,6 @@ $strMoveTable = 'Skuif tabel na (databasis<b>.</b>tabel):';
 $strMySQLCharset = 'MySQL Karakterstel';
 $strMySQLSaid = 'MySQL het gepraat: ';
 $strMySQLShowProcess = 'Wys prosesse';
-$strMySQLShowStatus = 'Wys MySQL in-proses informasie';
-$strMySQLShowVars = 'Wys MySQL stelsel veranderlikes';
 
 $strName = 'Naam';
 $strNext = 'Volgende';

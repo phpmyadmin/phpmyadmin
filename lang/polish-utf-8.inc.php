@@ -442,8 +442,6 @@ $strMysqlClientVersion = 'Wersja klienta MySQL';
 $strMySQLConnectionCollation = 'System porównań dla połączenia MySQL';
 $strMySQLSaid = 'MySQL zwrócił komunikat: ';
 $strMySQLShowProcess = 'Pokaż procesy';
-$strMySQLShowStatus = 'Informacje o stanie serwera MySQL';
-$strMySQLShowVars = 'Zmienne systemowe serwera MySQL';
 
 $strName = 'Nazwa';
 $strNext = 'Następne';

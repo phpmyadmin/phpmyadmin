@@ -393,8 +393,6 @@ $strMySQLCharset = 'MySQL-кодлол';
 $strMySQLConnectionCollation = 'MySQL холболтын кодлол';
 $strMySQLSaid = 'MySQL хэлэх нь: ';
 $strMySQLShowProcess = 'Процесууд харах';
-$strMySQLShowStatus = 'MySQL-ийн ажиллах үеийн мэдээлэл харах';
-$strMySQLShowVars = 'MySQL-ийн системийн утгыг харах';
 
 $strName = 'Нэр';
 $strNext = 'Цааш';

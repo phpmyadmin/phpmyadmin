@@ -286,8 +286,6 @@ $strMultilingual = 'багатомовні';
 $strMySQLCharset = 'MySQL Charset';
 $strMySQLSaid = 'Відповідь MySQL: ';
 $strMySQLShowProcess = 'Показати процеси';
-$strMySQLShowStatus = 'Показати стан MySQL';
-$strMySQLShowVars = 'Показати системні змінні MySQL';
 
 $strName = 'Назва';
 $strNext = 'Дальше';

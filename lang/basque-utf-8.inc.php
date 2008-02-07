@@ -299,8 +299,6 @@ $strMultilingual = 'eleanitza';
 $strMySQLCharset = 'MySQL karaktere-multzoa';
 $strMySQLSaid = 'MySQL-ek zera dio: ';
 $strMySQLShowProcess = 'Erakutsi prozesuak';
-$strMySQLShowStatus = 'MySQL-ren funtzionamenduari buruzko informazioa erakutsi';
-$strMySQLShowVars = 'MySQL-ren sistema-aldagaiak erakutsi';
 
 $strName = 'Izena';
 $strNext = 'Hurrengoa';

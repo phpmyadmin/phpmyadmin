@@ -448,8 +448,6 @@ $strMysqlClientVersion = 'Versija klijenta MySQL';
 $strMySQLConnectionCollation = 'Supastaŭleńnie padłučeńnia da MySQL';
 $strMySQLSaid = 'Adkaz MySQL: ';
 $strMySQLShowProcess = 'Pakazać pracesy';
-$strMySQLShowStatus = 'Pakazać stan MySQL';
-$strMySQLShowVars = 'Pakazać systemnyja źmiennyja MySQL';
 
 $strName = 'Nazva';
 $strNext = 'Nastupny';

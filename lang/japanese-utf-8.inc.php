@@ -481,8 +481,6 @@ $strMySQLConnectionCollation = 'MySQL の接続照合順序';
 $strMysqlLibDiffersServerVersion = 'お使いの PHP MySQL ライブラリのバージョン %s が MySQL サーバのバージョン %s と異なります。これは予期しない不具合を起こす可能性があります。';
 $strMySQLSaid = 'MySQLのメッセージ: ';
 $strMySQLShowProcess = 'MySQL プロセスの表示';
-$strMySQLShowStatus = 'MySQL のランタイム情報';
-$strMySQLShowVars = 'MySQL のシステム変数';
 
 $strName = '名前';
 $strNext = '次へ';

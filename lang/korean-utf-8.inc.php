@@ -194,8 +194,6 @@ $strMoveTableOK = '테이블 %s 을 %s 로 옮겼습니다.';
 $strMySQLCharset = 'MySQL 문자셋';
 $strMySQLSaid = 'MySQL 메시지: ';
 $strMySQLShowProcess = 'MySQL 프로세스 보기';
-$strMySQLShowStatus = 'MySQL 런타임 상태 보기';
-$strMySQLShowVars = 'MySQL 환경설정값 보기';
 
 $strName = '이름';
 $strNext = '다음';

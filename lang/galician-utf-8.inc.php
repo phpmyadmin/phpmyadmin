@@ -477,8 +477,6 @@ $strMySQLConnectionCollation = 'Codificación de caracteres (Collation) da conex
 $strMysqlLibDiffersServerVersion = 'A versiÃ³n %s da sÃºa librarÃ­a de PHP MySQL difire da versiÃ³n %s do seu servidor de MySQL. Isto pode ocasionar un comportamento impredicÃ­bel.';
 $strMySQLSaid = 'Mensaxes do MySQL: ';
 $strMySQLShowProcess = 'Mostrar os procesos';
-$strMySQLShowStatus = 'Mostrar información de tempo de execución do MySQL';
-$strMySQLShowVars = 'Mostrar as variábeis de sistema do MySQL';
 
 $strName = 'Nome';
 $strNext = 'Seguinte';

@@ -362,8 +362,6 @@ $strMySQLCharset = 'MySQL koduotė';
 $strMySQLConnectionCollation = 'MySQL prisijungimo rūšiavimas';
 $strMySQLSaid = 'MySQL atsakymas: ';
 $strMySQLShowProcess = 'Rodyti procesus';
-$strMySQLShowStatus = 'Rodyti MySQL aplinkos būseną';
-$strMySQLShowVars = 'Rodyti MySQL sistemos kintamuosius';
 
 $strName = 'Pavadinimas';
 $strNext = 'Sekantis';

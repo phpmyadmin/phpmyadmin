@@ -312,8 +312,6 @@ $strMultilingual = 'متعدد اللغات';
 $strMySQLCharset = 'شيفرة أحرف MySQL';
 $strMySQLSaid = 'MySQL قال: ';
 $strMySQLShowProcess = 'عرض العمليات';
-$strMySQLShowStatus = 'عرض حالة المزود MySQL';
-$strMySQLShowVars ='عرض متغيرات المزود MySQL';
 
 $strName = 'الإسم';
 $strNext = 'التالي';

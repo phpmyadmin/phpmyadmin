@@ -344,8 +344,6 @@ $strMySQLCharset = 'קידוד MySQL';
 $strMySQLConnectionCollation = 'קידוד חיבור MySQL';
 $strMySQLSaid = 'MySQL אמר: ';
 $strMySQLShowProcess = 'ראיית תהליכים';
-$strMySQLShowStatus = 'ראיית מידע זמן ריצה MySQL';
-$strMySQLShowVars = 'ראיית משתני מערכת MySQL';
 
 $strName = 'שם';
 $strNext = 'הבא';

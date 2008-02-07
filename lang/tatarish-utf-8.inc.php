@@ -421,8 +421,6 @@ $strMysqlClientVersion = 'MySQL belän totaştırğıç söreme';
 $strMySQLConnectionCollation = 'MySQL-totaşunıñ tezü cayı';
 $strMySQLSaid = 'MySQL qaytarışı:';
 $strMySQLShowProcess = 'Proseslär tezmäse';
-$strMySQLShowStatus = 'MySQL eşläw torışı';
-$strMySQLShowVars = 'MySQL üzgärmäläre';
 
 $strName = 'Adı';
 $strNext = 'Kiläse';

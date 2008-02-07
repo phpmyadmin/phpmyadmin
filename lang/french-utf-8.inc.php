@@ -475,8 +475,6 @@ $strMySQLConnectionCollation = 'Interclassement pour la connexion MySQL';
 $strMysqlLibDiffersServerVersion = 'La version de votre bibliothèque MySQL (%s) diffère de la version de votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible.';
 $strMySQLSaid = 'MySQL a répondu:';
 $strMySQLShowProcess = 'Afficher les processus';
-$strMySQLShowStatus = 'Afficher l\'état du serveur';
-$strMySQLShowVars = 'Afficher les variables du serveur';
 
 $strName = 'Nom';
 $strNext = 'Suivant';

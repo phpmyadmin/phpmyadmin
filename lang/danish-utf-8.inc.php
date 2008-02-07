@@ -477,8 +477,6 @@ $strMySQLConnectionCollation = 'MySQL forbindelses-sammenkøring';
 $strMysqlLibDiffersServerVersion = 'Din PHP MySQL-biblioteks version %s afviger fra din MySQL server version %s. Dette kan forårsage uforudsigelige resultater.';
 $strMySQLSaid = 'MySQL returnerede: ';
 $strMySQLShowProcess = 'Vis tråde';
-$strMySQLShowStatus = 'Vis MySQL runtime-information';
-$strMySQLShowVars = 'Vis MySQL systemvariabler';
 
 $strName = 'Navn';
 $strNext = 'Næste';

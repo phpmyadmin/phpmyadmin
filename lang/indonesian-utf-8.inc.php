@@ -388,8 +388,6 @@ $strMySQLCharset = 'Charset MySQL';
 $strMySQLConnectionCollation = 'Penyortiran koneksi MySQL';
 $strMySQLSaid = 'MySQL menyatakan: ';
 $strMySQLShowProcess = 'Tampilkan Proses';
-$strMySQLShowStatus = 'Tampilkan informasi runtime MySQL';
-$strMySQLShowVars = 'Tampilkan variabel sistem MySQL';
 
 $strName = 'Nama';
 $strNext = 'Berikutnya';

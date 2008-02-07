@@ -484,8 +484,6 @@ $strMySQLConnectionCollation = 'Porovnávání pro toto připojení k MySQL';
 $strMysqlLibDiffersServerVersion = 'Používaný MySQL modul v PHP je kompilován pro MySQL %s a server používá verzi %s. Používání různých verzí může způsobit problémy.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLShowProcess = 'Zobrazit procesy';
-$strMySQLShowStatus = 'Informace o stavu MySQL';
-$strMySQLShowVars = 'Systémové proměnné MySQL';
 
 $strName = 'Název';
 $strNext = 'Další';

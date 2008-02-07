@@ -343,8 +343,6 @@ $strMySQLCharset = 'MySQL Karakterset';
 $strMySQLConnectionCollation = 'MySQL verbindingscollatie';
 $strMySQLSaid = 'MySQL retourneerde: ';
 $strMySQLShowProcess = 'Laat processen zien';
-$strMySQLShowStatus = 'MySQL runtime informatie';
-$strMySQLShowVars = 'MySQL systeemvariabelen';
 
 $strName = 'Naam';
 $strNext = 'Volgende';

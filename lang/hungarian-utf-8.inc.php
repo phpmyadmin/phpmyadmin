@@ -420,8 +420,6 @@ $strMysqlClientVersion = 'MySQL kliens verzió';
 $strMySQLConnectionCollation = 'MySQL kapcsolat egyeztetés';
 $strMySQLSaid = 'MySQL jelzi: ';
 $strMySQLShowProcess = 'Mutasd meg a folyamatokat';
-$strMySQLShowStatus = 'Mutasd meg a MySQL futási információkat';
-$strMySQLShowVars = 'Mutasd meg a MySQL rendszer változókat';
 
 $strName = 'Név';
 $strNext = 'Következ&#337;';
