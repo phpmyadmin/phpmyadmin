@@ -32,7 +32,7 @@ if ($server > 0) {
 
 echo '<div id="maincontainer">' . "\n";
 echo '<div class="box">';
-echo $strActions;
+echo '<span class="boxtitle">' . $strActions . '</span>';
 
 /**
  * Displays the mysql server related links
@@ -100,7 +100,7 @@ echo '</ul>';
 echo '</div>';
 
 echo '<div class="box">';
-echo $strInterface;
+echo '<span class="boxtitle">' . $strInterface . '</span>';
 echo '  <ul>';
 
 // Displays language selection combo
@@ -129,7 +129,7 @@ echo '</div>';
 echo '<br class="clearfloat" />';
 echo '<div class="box">';
 if ($server > 0) {
-    echo $strMySQLServerInformation;
+    echo '<span class="boxtitle">' . $strMySQLServerInformation . '</span>';
     // robbat2: Use the verbose name of the server instead of the hostname
     //          if a value is set
     $server_info = '';
@@ -196,7 +196,7 @@ if ($server > 0) {
 
 if ($server > 0) {
     echo '<div class="box box_smaller">';
-    echo $strWebServerInformation;
+    echo '<span class="boxtitle">' . $strWebServerInformation . '</span>';
     echo '<ul>';
     PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
@@ -212,7 +212,7 @@ echo '  </ul>';
 echo ' </div>';
 
 echo '<div class="box box_smaller">';
-echo $strAboutphpMyAdmin;
+echo '<span class="boxtitle">' . $strAboutphpMyAdmin . '</span>';
 echo '<ul>';
 PMA_printListItem($strVersionInformation . ': ' . PMA_VERSION, 'li_pma_version');
 PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html', null, '_blank');

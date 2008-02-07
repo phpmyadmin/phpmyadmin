@@ -1209,3 +1209,6 @@ code.sql {
     width: 24%;
 }
 
+span.boxtitle {
+    background:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}

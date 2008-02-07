@@ -1159,3 +1159,7 @@ code.sql {
 .box_smaller {
     width: 24%;
 }
+
+span.boxtitle {
+    background-color:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}
