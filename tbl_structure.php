@@ -546,7 +546,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     echo sprintf($strCreateIndex,
-        '<input type="text" size="2" name="idx_num_fields" value="1" />');
+        '<input type="text" size="2" name="added_fields" value="1" />');
     ?>
     <input type="submit" name="create_index" value="<?php echo $strGo; ?>"
         onclick="return checkFormElementInRange(this.form,

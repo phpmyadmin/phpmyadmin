@@ -20,40 +20,40 @@ class PMA_Index
     protected static $_registry = array();
     
     /**
-     * @var string The name of the database
+     * @var string The name of the schema
      */
-    protected $_database    = '';
+    protected $_schema = '';
     
     /**
      * @var string The name of the table
      */
-    protected $_table       = '';
+    protected $_table = '';
     
     /**
      * @var string The name of the index
      */
-    protected $_name        = '';
+    protected $_name = '';
     
     /**
      * Columns in index
      *
      * @var array
      */
-    protected $_columns     = array();
+    protected $_columns = array();
     
     /**
      * The index method used (BTREE, FULLTEXT, HASH, RTREE).
      *
      * @var string
      */
-    protected $_type        = '';
+    protected $_type = '';
     
     /**
      * Various remarks.
      *
      * @var string
      */
-    protected $_remarks     = '';
+    protected $_remarks = '';
     
     /**
      * Any comment provided for the index with a COMMENT attribute when the 
@@ -61,19 +61,19 @@ class PMA_Index
      *
      * @var string
      */
-    protected $_comment     = '';
+    protected $_comment = '';
     
     /**
      * @var integer 0 if the index cannot contain duplicates, 1 if it can. 
      */
-    protected $_non_unique  = 0;
+    protected $_non_unique = 0;
     
     /**
      * Indicates how the key is packed. NULL if it is not.
      *
      * @var string
      */
-    protected $_packed      = null;
+    protected $_packed = null;
     
     /**
      * Constructor
@@ -86,21 +86,36 @@ class PMA_Index
         $this->set($params);
     }
     
+    static public function singleton($schema, $table, $index_name = '')
+    {
+        PMA_Index::_loadIndexes($table, $schema);
+        if (! isset(PMA_Index::$_registry[$schema][$table][$index_name])) {
+            $index = new PMA_Index;
+            if (strlen($index_name)) {
+                $index->setName($index_name);
+                PMA_Index::$_registry[$schema][$table][$index->getName()] = $index;
+            }
+            return $index;
+        } else {
+            return PMA_Index::$_registry[$schema][$table][$index_name];
+        }
+    }
+    
     /**
      * returns an array with all indexes from the given table
      *
      * @uses    PMA_Index::_loadIndexes()
      * @uses    PMA_Index::$_registry
      * @param   string $table
-     * @param   string $database
+     * @param   string $schema
      * @return  array
      */
-    static public function getFromTable($table, $database)
+    static public function getFromTable($table, $schema)
     {
-        PMA_Index::_loadIndexes($table, $database);
+        PMA_Index::_loadIndexes($table, $schema);
         
-        if (isset(PMA_Index::$_registry[$database][$table])) {
-            return PMA_Index::$_registry[$database][$table];
+        if (isset(PMA_Index::$_registry[$schema][$table])) {
+            return PMA_Index::$_registry[$schema][$table];
         } else {
             return array();
         }
@@ -112,15 +127,15 @@ class PMA_Index
      * @uses    PMA_Index::_loadIndexes()
      * @uses    PMA_Index::$_registry
      * @param   string $table
-     * @param   string $database
+     * @param   string $schema
      * @return  mixed primary index or false if no one exists
      */
-    static public function getPrimary($table, $database)
+    static public function getPrimary($table, $schema)
     {
-        PMA_Index::_loadIndexes($table, $database);
+        PMA_Index::_loadIndexes($table, $schema);
         
-        if (isset(PMA_Index::$_registry[$database][$table]['PRIMARY'])) {
-            return PMA_Index::$_registry[$database][$table]['PRIMARY'];
+        if (isset(PMA_Index::$_registry[$schema][$table]['PRIMARY'])) {
+            return PMA_Index::$_registry[$schema][$table]['PRIMARY'];
         } else {
             return false;
         }
@@ -135,22 +150,23 @@ class PMA_Index
      * @uses    PMA_Index
      * @uses    PMA_Index->addColumn()
      * @param   string $table
-     * @param   string $database
+     * @param   string $schema
      * @return  boolean
      */
-    static protected function _loadIndexes($table, $database)
+    static protected function _loadIndexes($table, $schema)
     {
-        if (isset(PMA_Index::$_registry[$database][$table])) {
+        if (isset(PMA_Index::$_registry[$schema][$table])) {
             return true;
         }
         
-        $_raw_indexes = PMA_DBI_fetch_result('SHOW INDEX FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table));
+        $_raw_indexes = PMA_DBI_fetch_result('SHOW INDEX FROM ' . PMA_backquote($schema) . '.' . PMA_backquote($table));
         foreach ($_raw_indexes as $_each_index) {
-            if (! isset(PMA_Index::$_registry[$database][$table][$_each_index['Key_name']])) {
+            $_each_index['Schema'] = $schema;
+            if (! isset(PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']])) {
                 $key = new PMA_Index($_each_index);
-                PMA_Index::$_registry[$database][$table][$_each_index['Key_name']] = $key;
+                PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']] = $key;
             } else {
-                $key = PMA_Index::$_registry[$database][$table][$_each_index['Key_name']];
+                $key = PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']];
             }
             
             $key->addColumn($_each_index);
@@ -168,7 +184,36 @@ class PMA_Index
      */
     public function addColumn($params)
     {
-        $this->_columns[$params['Column_name']] = new PMA_Index_Column($params);
+        if (strlen($params['Column_name'])) {
+            $this->_columns[$params['Column_name']] = new PMA_Index_Column($params);
+        }
+    }
+    
+    public function addColumns($columns)
+    {
+        $_columns = array();
+        
+        if (isset($columns['names'])) {
+            // coming from form
+            // $columns[names][]
+            // $columns[sub_parts][]
+            foreach ($columns['names'] as $key => $name) {
+                $_columns[] = array(
+                    'Column_name'   => $name,
+                    'Sub_part'      => $columns['sub_parts'][$key],
+                );
+            }
+        } else {
+            // coming from SHOW INDEXES
+            // $columns[][name]
+            // $columns[][sub_part]
+            // ...
+            $_columns = $columns;
+        }
+        
+        foreach ($_columns as $column) {
+            $this->addColumn($column);
+        }
     }
     
     /**
@@ -185,8 +230,11 @@ class PMA_Index
     
     public function set($params)
     {
-        if (isset($params['Column_name'])) {
-            $this->_database = $params['Column_name'];
+        if (isset($params['columns'])) {
+            $this->addColumns($params['columns']);
+        }
+        if (isset($params['Schema'])) {
+            $this->_schema = $params['Schema'];
         }
         if (isset($params['Table'])) {
             $this->_table = $params['Table'];
@@ -293,6 +341,11 @@ class PMA_Index
     public function getName()
     {
         return $this->_name;
+    }
+    
+    public function setName($name)
+    {
+        $this->_name = (string) $name;
     }
     
     public function getColumns()
