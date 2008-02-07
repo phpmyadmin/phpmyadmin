@@ -12,28 +12,20 @@
 include_once 'pmd_common.php';
 require_once './libraries/relation.lib.php';
 
-$alltab_rs = PMA_query_as_cu('SHOW TABLES FROM '.PMA_backquote($cfg['Server']['pmadb']),FALSE,PMA_DBI_QUERY_STORE) or PMD_err_sav();
+$cfgRelation = PMA_getRelationsParam();
 
-$seen_pmd_table = false;
-while ($tab_name = @PMA_DBI_fetch_row($alltab_rs)) {
-    if (stristr($tab_name[0],$GLOBALS['cfgRelation']['designer_coords'])) {
-        $seen_pmd_table = true;
-        break;
-    }
-}
-
-if (! $seen_pmd_table) {
+if (! $cfgRelation['designerwork']) {
     PMD_err_sav();
 }
 
 foreach ($t_x as $key => $value) {
     $KEY = empty($IS_AJAX) ? urldecode($key) : $key; // table name decode (post PDF exp/imp)
     list($DB,$TAB) = explode(".", $KEY);
-    PMA_query_as_cu('DELETE FROM '.$GLOBALS['cfgRelation']['designer_coords'].'
+    PMA_query_as_cu('DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']) . '
                       WHERE `db_name` = \'' . PMA_sqlAddslashes($DB) . '\'
-                        AND `table_name` = \'' . PMA_sqlAddslashes($TAB) . '\'', 1, PMA_DBI_QUERY_STORE);
+                        AND `table_name` = \'' . PMA_sqlAddslashes($TAB) . '\'', true, PMA_DBI_QUERY_STORE);
 
-    PMA_query_as_cu('INSERT INTO '.$GLOBALS['cfgRelation']['designer_coords'].'
+    PMA_query_as_cu('INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']) . '
                          (db_name, table_name, x, y, v, h)
                   VALUES ('
                   . '\'' . PMA_sqlAddslashes($DB) . '\', '
@@ -42,7 +34,7 @@ foreach ($t_x as $key => $value) {
                   . '\'' . PMA_sqlAddslashes($t_y[$key]) . '\', '
                   . '\'' . PMA_sqlAddslashes($t_v[$key]) . '\', '
                   . '\'' . PMA_sqlAddslashes($t_h[$key]) . '\''
-                  . ')', 1 ,PMA_DBI_QUERY_STORE);
+                  . ')', true, PMA_DBI_QUERY_STORE);
 }
 //----------------------------------------------------------------------------
 
