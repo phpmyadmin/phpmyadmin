@@ -528,7 +528,7 @@ class PMA_Index
      * @param   string      name of table
      * @return  string      Output HTML
      */
-    function findDuplicates($table, $schema)
+    static public function findDuplicates($table, $schema)
     {
         $indexes = PMA_Index::getFromTable($table, $schema);
     
