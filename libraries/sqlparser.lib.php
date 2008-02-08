@@ -877,6 +877,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
  * ['queryflags']['union'] = 1;        for a UNION
  * ['queryflags']['join'] = 1;         for a JOIN
  * ['queryflags']['offset'] = 1;       for the presence of OFFSET
+ * ['queryflags']['procedure'] = 1;    for the presence of PROCEDURE
  *
  * query clauses
  * -------------
@@ -1437,6 +1438,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_having = FALSE; // true when we are inside the HAVING clause
         $in_select_expr = FALSE; // true when we are inside the select expr clause
         $in_where = FALSE; // true when we are inside the WHERE clause
+        $seen_limit = FALSE; // true if we have seen a LIMIT clause
         $in_limit = FALSE; // true when we are inside the LIMIT clause
         $after_limit = FALSE; // true when we are after the LIMIT clause
         $in_from = FALSE; // true when we are in the FROM clause
@@ -1488,11 +1490,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($upper_data == 'LIMIT') {
                     $section_before_limit = substr($arr['raw'], 0, $arr[$i]['pos'] - 5);
                     $in_limit = TRUE;
+                    $seen_limit = TRUE;
                     $limit_clause = '';
                     $in_order_by = FALSE; // @todo maybe others to set FALSE
                 }
 
                 if ($upper_data == 'PROCEDURE') {
+                    $subresult['queryflags']['procedure'] = 1;
                     $in_limit = FALSE;
                     $after_limit = TRUE;
                 }
@@ -1682,16 +1686,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
-	    if ($in_limit) {
+	        if ($in_limit) {
                 if ($upper_data == 'OFFSET') {
                     $limit_clause .= $sep;
                 }
-		$limit_clause .= $arr[$i]['data'];
+		        $limit_clause .= $arr[$i]['data'];
                 if ($upper_data == 'LIMIT' || $upper_data == 'OFFSET') {
                     $limit_clause .= $sep;
                 }
             }
-            if ($after_limit) { 
+            if ($after_limit && $seen_limit) { 
                 $section_after_limit .= $arr[$i]['data'] . $sep;
             }
 
