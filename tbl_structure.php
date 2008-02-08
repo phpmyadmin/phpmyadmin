@@ -579,17 +579,20 @@ if ($cfg['ShowStats']) {
     if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
         $mergetable = true;
     }
-    list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
+    // this is to display for example 261.2 MiB instead of 268k KiB
+    $max_digits = 5;
+    $decimals = 1;
+    list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length'], $max_digits, $decimals);
     if ($mergetable == false) {
-        list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
+        list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length'], $max_digits, $decimals);
     }
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-        list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
-        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+        list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free'], $max_digits, $decimals);
+        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'], $max_digits, $decimals);
     } else {
-        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'], $max_digits, $decimals);
     }
-    list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+    list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'], $max_digits, $decimals);
     if ($table_info_num_rows > 0) {
         list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
     }
