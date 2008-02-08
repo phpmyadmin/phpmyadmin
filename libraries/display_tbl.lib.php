@@ -2087,7 +2087,11 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     // (the url_query has extra parameters that won't be used to export)
     // (the single_table parameter is used in display_export.lib.php
     //  to hide the SQL and the structure export dialogs)
-    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
+    // If the parser found a PROCEDURE clause 
+    // (most probably PROCEDURE ANALYSE()) it makes no sense to
+    // display the Export link).
+
+    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview) && ! isset($analyzed_sql[0]['queryflags']['procedure'])) {
         if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
             $single_table   = '&amp;single_table=true';
         } else {
@@ -2111,8 +2115,9 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
      * @todo detect privileges to create a view
      *       (but see 2006-01-19 note in display_create_table.lib.php,
      *        I think we cannot detect db-specific privileges reliably)
+     * Note: we don't display a Create view link if we found a PROCEDURE clause
      */
-    if (PMA_MYSQL_INT_VERSION >= 50000) {
+    if (PMA_MYSQL_INT_VERSION >= 50000 && ! isset($analyzed_sql[0]['queryflags']['procedure'])) {
         if (!$header_shown) {
             echo $header;
             $header_shown = TRUE;
