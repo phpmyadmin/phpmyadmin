@@ -1027,4 +1027,5 @@ $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 $strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strViewName = 'VIEW name';  //to translate
 $strProfiling = 'Profiling';  //to translate
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

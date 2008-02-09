@@ -403,8 +403,18 @@ if (defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
     echo '<div class="warning">' . $strControluserFailed . '</div>' . "\n";
 }
 
+/**
+ * Warning about missing mcrypt extension 
+ */
 if (defined('PMA_WARN_FOR_MCRYPT')) {
     echo '<div class="warning">' . PMA_sanitize(sprintf($strCantLoad, 'mcrypt')) . '</div>' . "\n";
+}
+
+/**
+ * Warning about Suhosin 
+ */
+if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_value_length')) {
+    echo '<div class="warning">' . PMA_sanitize(sprintf($strSuhosin, '[a@./Documentation.html#faq1_38@_blank]', '[/a]')) . '</div>' . "\n";
 }
 
 /**

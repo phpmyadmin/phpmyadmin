@@ -1031,4 +1031,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

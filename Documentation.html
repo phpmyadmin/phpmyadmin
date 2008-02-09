@@ -578,6 +578,11 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         If you do not want to use those features set this variable to
         <tt>TRUE</tt> to stop this message from appearing.</dd>
 
+    <dt id="cfg_SuhosinDisableWarning">$cfg['SuhosinDisableWarning'] boolean</dt>
+    <dd>A warning is displayed on the main page if Suhosin is detected.
+    You can set this parameter to <tt>TRUE</tt> to stop this message 
+    from appearing.</dd>
+
     <dt id="cfg_blowfish_secret">$cfg['blowfish_secret'] string</dt>
     <dd>The &quot;cookie&quot; auth_type uses blowfish
         algorithm to encrypt the password.<br />
@@ -2792,6 +2797,19 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
     encryption/decryption won't work correct. This is caused by use of
     pack/unpack functions in code. Only solution is to use mcrypt extension
     which works fine in this case.</p>
+
+<h4 id="faq1_38">
+    <a href="#faq1_38">1.38 Can I use phpMyAdmin on a server on which Suhosin is enabled?</a></h4>
+
+<p> Yes but the default configuration values of Suhosin are known to cause 
+    problems with some operations, for example editing a table with many
+    columns and no primary key. Tuning information is available at 
+    <a href="http://www.hardened-php.net/hphp/troubleshooting.html">
+	    http://www.hardened-php.net/hphp/troubleshooting.html</a>,
+    although the parameter names have changed (<tt>suhosin</tt> instead
+    of <tt>hphp</tt>). See also the <a href="#cfg_SuhosinDisableWarning">
+	    <tt>SuhosinDisableWarning</tt> directive</a>.
+    </p>
 
 <h3 id="faqconfig">Configuration</h3>
 

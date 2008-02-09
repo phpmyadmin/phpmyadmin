@@ -1026,4 +1026,5 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strProfiling = 'Profiling';  //to translate
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

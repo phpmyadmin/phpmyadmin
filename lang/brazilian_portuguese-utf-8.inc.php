@@ -1025,4 +1025,5 @@ $strZeroRemovesTheLimit = 'Nota: Ajustar essa opção para 0 (zero) remove os li
 $strZip = '"compactado com zip"'; 
 
 $strProfiling = 'Profiling';  //to translate
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

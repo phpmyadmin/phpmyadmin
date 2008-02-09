@@ -1027,4 +1027,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

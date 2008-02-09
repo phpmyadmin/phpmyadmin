@@ -1026,4 +1026,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na vrijednost 0 (nula) uklanja ogranièenje.';
 $strZip = '"zipano"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

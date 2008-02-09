@@ -1026,4 +1026,5 @@ $strYes = 'Sì';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

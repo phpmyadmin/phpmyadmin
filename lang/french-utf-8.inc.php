@@ -1024,4 +1024,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

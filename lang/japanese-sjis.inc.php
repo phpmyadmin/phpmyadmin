@@ -1031,4 +1031,5 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限を解除します';
 $strZip = '"zip 形式"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

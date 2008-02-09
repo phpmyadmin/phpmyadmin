@@ -1032,4 +1032,5 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sýfýr)\'a ayarlanmasý sýnýrý 
 $strZip = '"zip olarak"';
 
 $strProfiling = 'Profiling';  //to translate
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

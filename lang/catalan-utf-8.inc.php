@@ -1021,4 +1021,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Es treu el limit establint aquestes opcions a 0 (zero).';
 $strZip = '"comprimit amb zip"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

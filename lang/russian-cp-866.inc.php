@@ -1027,4 +1027,5 @@ $strYes = 'Да';
 
 $strZeroRemovesTheLimit = 'Замечание: Установка значения параметров в 0 (ноль), снимает ограничения.';
 $strZip = 'zip';
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

@@ -1026,4 +1026,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>

@@ -1022,4 +1022,5 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
