@@ -909,6 +909,7 @@ $strStructureForView = 'Structure for view';
 $strStructure = 'Structure';
 $strSubmit = 'Submit';
 $strSuccess = 'Your SQL query has been executed successfully';
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';
 $strSum = 'Sum';
 $strSwedish = 'Swedish';
 $strSwitchToDatabase = 'Switch to copied database';

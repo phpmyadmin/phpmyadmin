@@ -285,6 +285,14 @@ if (function_exists('PMA_DBI_get_client_info')) {
     }
     unset($_client_info);
 }
+
+/**
+ * Warning about Suhosin
+ */
+if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_value_length')) {
+    trigger_error(PMA_sanitize(sprintf($strSuhosin, '[a@./Documentation.html#faq1_38@_blank]', '[/a]')), E_USER_WARNING);
+    }
+
 /**
  * prints list item for main page
  *

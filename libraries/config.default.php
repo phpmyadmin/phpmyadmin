@@ -47,6 +47,13 @@ $cfg['PmaAbsoluteUri'] = '';
 $cfg['PmaNoRelation_DisableWarning'] = false;
 
 /**
+ * Disable the default warning that is displayed if Suhosin is detected 
+ *
+ * @global boolean $cfg['SuhosinDisableWarning']
+ */
+$cfg['SuhosinDisableWarning'] = false;
+
+/**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
  * pass phrase that will be used by blowfish. The maximum length seems to be 46

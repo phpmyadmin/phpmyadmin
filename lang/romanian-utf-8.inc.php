@@ -1064,4 +1064,5 @@ $strInterface = 'Interface';  //to translate
 $strMySQLServerInformation = 'MySQL server information';  //to translate
 $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
+$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
