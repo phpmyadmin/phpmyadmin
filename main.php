@@ -399,7 +399,6 @@ if ($server > 0 && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VE
 /**
  * Warning about wrong controluser settings
  */
-$strControluserFailed = 'Connection for controluser as defined in your config.inc.php failed.';
 if (defined('PMA_DBI_CONNECT_FAILED_CONTROLUSER')) {
     echo '<div class="warning">' . $strControluserFailed . '</div>' . "\n";
 }
