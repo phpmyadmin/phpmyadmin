@@ -2291,15 +2291,16 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 
 
 /**
- * Generates a set of radio HTML fields
+ * Generates and echoes a set of radio HTML fields
  *
  * @uses    htmlspecialchars()
  * @param   string  $html_field_name the radio HTML field
  * @param   array   $choices the choices values and labels
  * @param   string  $checked_choice the choice to check by default
  * @param   boolean $line_break whether to add an HTML line break after a choice
+ * @param   boolean $escape_label whether to use htmlspecialchars() on label 
  */
-function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true) {
+function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true) {
     foreach ($choices as $choice_value => $choice_label) {
         $html_field_id = $html_field_name . '_' . $choice_value;
         echo '<input type="radio" name="' . $html_field_name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
@@ -2307,7 +2308,7 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
             echo ' checked="checked"';
         }
         echo ' />' . "\n";
-        echo '<label for="' . $html_field_id . '">' . htmlspecialchars($choice_label) . '</label>';
+        echo '<label for="' . $html_field_id . '">' . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label) . '</label>';
         if ($line_break) {
             echo '<br />';
         }

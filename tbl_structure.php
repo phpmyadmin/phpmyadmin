@@ -500,17 +500,27 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . $strAddNewField . '"/>';
     }
     echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
-    ?>
-<input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" /><label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
-<input type="radio" name="field_where" id="radio_field_where_first" value="first" /><label for="radio_field_where_first"><?php echo $strAtBeginningOfTable; ?></label>
-<input type="radio" name="field_where" id="radio_field_where_after" value="after" /><?php
-    $fieldOptions = '</label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+
+    // here we want to display a field selector inside the label for
+    // the After choice, and $strAfter contains a parameter to display
+    // this selector at the best place for each language; thus we
+    // set the fifth parameter of PMA_generate_html_radio() to false
+    // in order to avoid the usual escaping with htmlspecialchars() inside
+    // the label
+    $fieldOptions = '<select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
     foreach ($aryFields as $fieldname) {
         $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
     unset($aryFields);
-    $fieldOptions .= '</select><label for="radio_field_where_after">';
-    echo str_replace('<label for="radio_field_where_after"></label>', '', '<label for="radio_field_where_after">' . sprintf($strAfter, $fieldOptions) . '</label>') . "\n";
+    $fieldOptions .= '</select>';
+
+    $choices = array(
+        'last'  => $strAtEndOfTable,
+        'first' => $strAtBeginningOfTable,
+        'after' => sprintf($strAfter, $fieldOptions) 
+    );
+    PMA_generate_html_radio('field_where', $choices, 'last', false, false);
+    unset($fieldOptions, $choices);
     ?>
 <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
 </form>
