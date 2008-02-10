@@ -304,16 +304,14 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     } // end for
     ?>
     </select>
-
-    <div class="formelement">
-        <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" />
-        <label for="sortASC"><?php echo $strAscending; ?></label>
-    </div>
-
-    <div class="formelement">
-        <input type="radio" name="order" value="DESC" id="sortDESC" />
-        <label for="sortDESC"><?php echo $strDescending; ?></label>
-    </div>
+<?php
+    $choices = array(
+        'ASC'  => $strAscending,
+        'DESC' => $strDescending
+    );
+    PMA_generate_html_radio('order', $choices, 'ASC', false, true, "formelement");
+    unset($choices);
+?>
 </fieldset>
 </div>
 </fieldset>

@@ -2299,9 +2299,13 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * @param   string  $checked_choice the choice to check by default
  * @param   boolean $line_break whether to add an HTML line break after a choice
  * @param   boolean $escape_label whether to use htmlspecialchars() on label 
+ * @param   string  $class enclose each choice with a div of this class
  */
-function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true) {
+function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
     foreach ($choices as $choice_value => $choice_label) {
+        if (! empty($class)) {
+            echo '<div class="' . $class . '">';
+        }
         $html_field_id = $html_field_name . '_' . $choice_value;
         echo '<input type="radio" name="' . $html_field_name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
         if ($choice_value == $checked_choice) {
@@ -2311,6 +2315,9 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
         echo '<label for="' . $html_field_id . '">' . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label) . '</label>';
         if ($line_break) {
             echo '<br />';
+        }
+        if (! empty($class)) {
+            echo '</div>';
         }
         echo "\n";
     }
