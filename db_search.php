@@ -305,26 +305,20 @@ if (isset($_REQUEST['submit_search'])) {
     </tr>
     <tr><td align="right" valign="top">
             <?php echo $GLOBALS['strSearchType']; ?></td>
-        <td><input type="radio" id="search_option_1" name="search_option"
-                value="1"<?php if ($search_option == 1) echo ' checked="checked"'; ?> />
-            <label for="search_option_1">
-                <?php echo $GLOBALS['strSearchOption1']; ?></label>
-                <?php echo PMA_showHint($GLOBALS['strSplitWordsWithSpace']); ?><br />
-            <input type="radio" id="search_option_2" name="search_option"
-                value="2"<?php if ($search_option == 2) echo ' checked="checked"'; ?> />
-            <label for="search_option_2">
-                <?php echo $GLOBALS['strSearchOption2']; ?></label>
-                <?php echo PMA_showHint($GLOBALS['strSplitWordsWithSpace']); ?><br />
-            <input type="radio" id="search_option_3" name="search_option"
-                value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> />
-            <label for="search_option_3">
-                <?php echo $GLOBALS['strSearchOption3']; ?></label><br />
-            <input type="radio" id="search_option_4" name="search_option"
-                value="4"<?php if ($search_option == 4) echo ' checked="checked"'; ?> />
-            <label for="search_option_4">
-                <?php echo $GLOBALS['strSearchOption4']; ?></label>
+            <td><?php
 
-            <?php echo PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
+$choices = array(
+    '1' => $GLOBALS['strSearchOption1'] . PMA_showHint($GLOBALS['strSplitWordsWithSpace']),
+    '2' => $GLOBALS['strSearchOption2'] . PMA_showHint($GLOBALS['strSplitWordsWithSpace']),
+    '3' => $GLOBALS['strSearchOption3'],
+    '4' => $GLOBALS['strSearchOption4'] . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
+); 
+// 4th parameter set to false to add line breaks
+// 5th parameter set to false to avoid htmlspecialchars() escaping in the label
+//  since we have some HTML in some labels
+PMA_generate_html_radio('search_option', $choices, $search_option, true, false);
+unset($choices);
+            ?>
             </td>
     </tr>
     <tr><td align="right" valign="top">
