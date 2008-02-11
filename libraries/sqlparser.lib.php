@@ -1433,6 +1433,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $seen_reserved_word = FALSE;
         $seen_group = FALSE;
         $seen_order = FALSE;
+        $seen_order_by = FALSE;
         $in_group_by = FALSE; // true when we are inside the GROUP BY clause
         $in_order_by = FALSE; // true when we are inside the ORDER BY clause
         $in_having = FALSE; // true when we are inside the HAVING clause
@@ -1443,7 +1444,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $after_limit = FALSE; // true when we are after the LIMIT clause
         $in_from = FALSE; // true when we are in the FROM clause
         $in_group_concat = FALSE;
-        $unsorted_query = '';
         $first_reserved_word = '';
         $current_identifier = '';
 
@@ -1586,6 +1586,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $group_by_clause = '';
                     }
                     if ($seen_order) {
+                        $seen_order_by = TRUE;
+                        // here we assume that the ORDER BY keywords took
+                        // exactly 8 characters
+                        $unsorted_query = substr($arr['raw'], 0, $arr[$i]['pos'] - 8);
                         $in_order_by = TRUE;
                         $order_by_clause = '';
                     }
@@ -1673,12 +1677,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
             }
 
+            // to grab the rest of the query after the ORDER BY clause
             if (isset($subresult['queryflags']['select_from'])
              && $subresult['queryflags']['select_from'] == 1
              && ! $in_order_by
-             && $upper_data != 'ORDER') {
+             && $seen_order_by
+             && $upper_data != 'BY') {
                 $unsorted_query .= $arr[$i]['data'];
-
                 if ($arr[$i]['type'] != 'punct_bracket_open_round'
                  && $arr[$i]['type'] != 'punct_bracket_close_round'
                  && $arr[$i]['type'] != 'punct') {
