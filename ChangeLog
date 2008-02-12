@@ -39,6 +39,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 * [core] cache some MySQL stats (do not query them with every page request)
 + [view] clearer dialog WITH (CASCADED | LOCAL) CHECK OPTION 
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
++ [lang] Japanese update, thanks to Ishigaki Kenichi
 
 2.11.5.0 (not yet released)
 - bug #1862661 [GUI] Warn about rename deleting database
