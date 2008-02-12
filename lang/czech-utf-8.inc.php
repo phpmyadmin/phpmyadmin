@@ -895,6 +895,7 @@ $strStructureForView = 'Struktura pro pohled';
 $strStructure = 'Struktura';
 $strSubmit = 'Provést';
 $strSuccess = 'Váš SQL-dotaz byl úspěšně vykonán';
+$strSuhosin = 'Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis problémů, které tím mohou být způsobeny.';
 $strSum = 'Celkem';
 $strSwedish = 'Švédština';
 $strSwitchToDatabase = 'Přepnout na zkopírovanou databázi';
@@ -1027,5 +1028,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
