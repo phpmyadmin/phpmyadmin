@@ -40,6 +40,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [view] clearer dialog WITH (CASCADED | LOCAL) CHECK OPTION 
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
 + [lang] Japanese update, thanks to Ishigaki Kenichi
++ [lang] Italian update, thanks to Luca Rebellato
 
 2.11.5.0 (not yet released)
 - bug #1862661 [GUI] Warn about rename deleting database

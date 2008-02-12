@@ -55,7 +55,7 @@ $strAlterOrderBy = 'Altera tabella ordinata per';
 $strAnalyzeTable = 'Analizza tabella';
 $strAnd = 'e';
 $strAndThen = 'e quindi';
-$strAngularLinks = 'Menùà angolari';
+$strAngularLinks = 'Link angolari';
 $strAnIndex = 'Un indice è stato aggiunto in %s';
 $strAnyHost = 'Qualsiasi host';
 $strAny = 'Qualsiasi';
@@ -106,7 +106,7 @@ $strBusyPages = 'Pagine occupate';
 $strBzip = '"compresso con bzip2"';
 
 $strCalendar = 'Calendario';
-$strCancel = 'Cancella';
+$strCancel = 'Annulla';
 $strCanNotLoadExportPlugins = 'Non posso caricare i plugins di esportazione. Controlla l\'installazione!';
 $strCanNotLoadImportPlugins = 'Non posso caricare i plugins di importazione, controlla la tua configurazione!';
 $strCannotLogin = 'Impossibile eseguire il login nel server MySQL';
@@ -212,10 +212,10 @@ $strDefragment = 'Deframmenta la tabella';
 $strDelayedInserts = 'Utilizza inserimenti ritardati';
 $strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
 $strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';
-$strDelete = 'Cancella';
+$strDelete = 'Elimina';
 $strDeleted = 'La riga è stata cancellata';
 $strDeleteNoUsersSelected = 'Nessun utente selezionato per la cancellazione!';
-$strDeleteRelation = 'Cancella relazione';
+$strDeleteRelation = 'Elimina relazione';
 $strDeleting = 'Cancellazione in corso di %s';
 $strDelimiter = 'Delimitatori';
 $strDelOld = 'La Pagina corrente contiene Riferimenti a Tabelle che non esistono più. Volete cancellare questi Riferimenti?';
@@ -611,7 +611,7 @@ $strProfiling = 'Profiling';
 $strProtocolVersion = 'Versione protocollo';
 $strPutColNames = 'Mette i nomi delle colonne alla prima riga';
 
-$strQBEDel = 'Cancella';
+$strQBEDel = 'Elimina';
 $strQBEIns = 'Aggiungi';
 $strQBE = 'Query da esempio';
 $strQueryCache = 'Cache delle query';
@@ -1013,6 +1013,8 @@ $strYes = 'Sì';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strSuhosin = 'Sul server è in esecuzione Suhosin. Controlla la documentazione: %sdocumentation%s per possibili problemi.';
+
 $strPartitionDefinition = 'PARTITION definition';  //to translate
 $strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
 $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to translate
@@ -1045,5 +1047,4 @@ $strInterface = 'Interface';  //to translate
 $strMySQLServerInformation = 'MySQL server information';  //to translate
 $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
-$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
