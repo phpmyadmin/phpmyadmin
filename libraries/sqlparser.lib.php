@@ -1446,6 +1446,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $in_group_concat = FALSE;
         $first_reserved_word = '';
         $current_identifier = '';
+        $unsorted_query = $arr['raw']; // in case there is no ORDER BY
 
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "Loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
