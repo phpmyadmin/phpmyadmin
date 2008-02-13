@@ -8,7 +8,7 @@
 $charset = 'iso-8859-1';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
-$number_thousands_separator = ' ';
+$number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
@@ -893,6 +893,7 @@ $strStructureForView = 'Struktur för visning';
 $strStructure = 'Struktur';
 $strSubmit = 'Sänd';
 $strSuccess = 'Din SQL-fråga utfördes korrekt';
+$strSuhosin = 'Server körs med Suhosin. Se %sdokumentation%s för möjliga frågor.';
 $strSum = 'Summa';
 $strSwedish = 'Svensk';
 $strSwitchToDatabase = 'Byt till kopierad databas';
@@ -1025,5 +1026,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
-$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
