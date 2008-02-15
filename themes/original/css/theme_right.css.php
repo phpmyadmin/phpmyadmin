@@ -116,6 +116,7 @@ fieldset legend {
     background-color:   transparent;
     font-weight:        bold;
     color:              #444444;
+    background:         <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
