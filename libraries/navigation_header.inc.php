@@ -10,7 +10,9 @@
  *
  */
 if (empty($query_url)) {
-    $query_url = PMA_generate_common_url($db, $table);
+    // avoid putting here $db because it could display a db name
+    // to which the next user does not have access
+    $query_url = PMA_generate_common_url();
 }
 
 // display Logo, depending on $GLOBALS['cfg']['LeftDisplayLogo']
