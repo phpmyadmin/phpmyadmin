@@ -906,6 +906,7 @@ $strStructureForView = 'Structure de la vue';
 $strStructure = 'Structure';
 $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';
+$strSuhosin = 'Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s pour en connaître les conséquences possibles.';
 $strSum = 'Somme';
 $strSwedish = 'suédois';
 $strSwitchToDatabase = 'Aller à la base de données copiée';
@@ -1042,5 +1043,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 ?>
