@@ -187,15 +187,15 @@ unset($key, $value, $variables_whitelist);
  * <code>
  * <form ...>
  * ... main form elments ...
- * <intput type="hidden" name="subform[action1][id]" value="1" />
+ * <input type="hidden" name="subform[action1][id]" value="1" />
  * ... other subform data ...
- * <intput type="submit" name="usesubform[action1]" value="do action1" />
+ * <input type="submit" name="usesubform[action1]" value="do action1" />
  * ... other subforms ...
- * <intput type="hidden" name="subform[actionX][id]" value="X" />
+ * <input type="hidden" name="subform[actionX][id]" value="X" />
  * ... other subform data ...
- * <intput type="submit" name="usesubform[actionX]" value="do actionX" />
+ * <input type="submit" name="usesubform[actionX]" value="do actionX" />
  * ... main form elments ...
- * <intput type="submit" name="main_action" value="submit form" />
+ * <input type="submit" name="main_action" value="submit form" />
  * </form>
  * </code
  *
