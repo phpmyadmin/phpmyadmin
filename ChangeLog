@@ -26,6 +26,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Jürgen Wind - windkiel
 - bug [GUI] Do not display the database name used by the previous user,
   thanks to Ronny Görner
+- bug [core] Remove cookies from $_REQUEST for better coexistence with
+  other applications, thanks to Richard Cunningham
 
 2.11.4.0 (2008-01-12)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE 
