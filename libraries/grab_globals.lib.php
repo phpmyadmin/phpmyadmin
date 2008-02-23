@@ -2,9 +2,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This library grabs the names and values of the variables sent or posted to a
- * script in the $_* arrays and sets simple globals variables from them. It does
- * the same work for the $PHP_SELF, $HTTP_ACCEPT_LANGUAGE and
- * $HTTP_AUTHORIZATION variables.
+ * script in $_GET, $_POST and $_FILES superglobals and sets simple globals 
+ * variables from them. It does the same work for $HTTP_ACCEPT_LANGUAGE and 
+ * $HTTP_AUTHORIZATION.
  *
  * @version $Id$
  */
@@ -21,7 +21,7 @@
  * @param   array   $target     values to
  * @param   boolean $sanitize   prevent importing key names in $_import_blacklist
  */
-function PMA_gpc_extract($array, &$target, $sanitize = true)
+function PMA_recursive_extract($array, &$target, $sanitize = true)
 {
     if (! is_array($array)) {
         return false;
@@ -46,7 +46,7 @@ function PMA_gpc_extract($array, &$target, $sanitize = true)
             // another application, with the same name as this array
             unset($target[$key]);
 
-            PMA_gpc_extract($array[$key], $target[$key], false);
+            PMA_recursive_extract($array[$key], $target[$key], false);
         } else {
             $target[$key] = $array[$key];
         }
@@ -81,11 +81,11 @@ $_import_blacklist = array(
 );
 
 if (! empty($_GET)) {
-    PMA_gpc_extract($_GET, $GLOBALS);
+    PMA_recursive_extract($_GET, $GLOBALS);
 }
 
 if (! empty($_POST)) {
-    PMA_gpc_extract($_POST, $GLOBALS);
+    PMA_recursive_extract($_POST, $GLOBALS);
 }
 
 if (! empty($_FILES)) {
@@ -104,13 +104,13 @@ if (! empty($_FILES)) {
  */
 $server_vars = array('HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
 foreach ($server_vars as $current) {
-    // its not important HOW we detect html tags
-    // its more important to prevent XSS
-    // so its not important if we result in an invalid string,
-    // its even better than a XSS capable string
+    // it's not important HOW we detect html tags
+    // it's more important to prevent XSS
+    // so it's not important if we result in an invalid string,
+    // it's even better than a XSS capable string
     if (PMA_getenv($current) && false === strpos(PMA_getenv($current), '<')) {
         $$current = PMA_getenv($current);
-    // already importet by register_globals?
+    // already imported by register_globals?
     } elseif (! isset($$current) || false !== strpos($$current, '<')) {
         $$current = '';
     }
