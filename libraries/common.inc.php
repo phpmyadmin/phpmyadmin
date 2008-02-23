@@ -220,6 +220,13 @@ if (isset($_POST['usesubform'])) {
         unset($_POST['redirect']);
     }
     unset($subform_id, $subform);
+} else {
+    // Note: here we overwrite $_REQUEST so that it does not contain cookies,
+    // because another application for the same domain could have set
+    // a cookie (with a compatible path) that overrides a variable 
+    // we expect from GET or POST.
+    // We'll refer to cookies explicitly with the $_COOKIE syntax.
+    $_REQUEST = array_merge($_GET, $_POST);
 }
 // end check if a subform is submitted
 
