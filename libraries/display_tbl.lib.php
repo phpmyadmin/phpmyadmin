@@ -759,9 +759,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             }
             // $name_to_use_in_sort might contain a space due to 
             // formatting of function expressions like "COUNT(name )"
-            // so we remove spaces; this might cause problems with spaces
-            // inside a column name.
-            $name_to_use_in_sort = str_replace(' ', '', $name_to_use_in_sort);
+            // so we remove the space in this situation
+            $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
 
             if (empty($sort_expression)) {
                 $is_in_sort = false;
