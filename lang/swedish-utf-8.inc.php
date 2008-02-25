@@ -1045,4 +1045,5 @@ $strMySQLServerInformation = 'MySQL server information';  //to translate
 $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server körs med Suhosin. Se %sdokumentation%s för möjliga frågor.';
+$strEvents = 'Events';  //to translate
 ?>

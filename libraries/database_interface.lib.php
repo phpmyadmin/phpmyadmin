@@ -1223,6 +1223,21 @@ function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_na
     $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($proc_or_function_name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
 }
+/**
+ * returns the definition of a specific EVENT 
+ *
+ * @uses    PMA_DBI_fetch_value()
+ * @param   string              $db     db name
+ * @param   string              $event_name
+ * @param   resource            $link   mysql link
+ *
+ * @return  string              the event's definition
+ */
+function PMA_DBI_get_event_def($db, $event_name, $link = null)
+{
+    $query = 'SHOW CREATE EVENT' . ' ' . PMA_backquote($db) . '.' . PMA_backquote($event_name);
+    return(PMA_DBI_fetch_value($query, 0, 'Create Event'));
+}
 
 /**
  * returns details about the TRIGGERs of a specific table

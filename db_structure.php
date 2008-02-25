@@ -520,6 +520,11 @@ PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'fr
 // Routines
 require './libraries/db_routines.inc.php';
 
+// Events
+if (PMA_MYSQL_INT_VERSION > 50100) {
+    require './libraries/db_events.inc.php';
+}
+
 /**
  * Work on the database
  * redesigned 2004-05-08 by mkkeck

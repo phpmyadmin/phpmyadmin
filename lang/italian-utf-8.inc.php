@@ -1047,4 +1047,5 @@ $strInterface = 'Interface';  //to translate
 $strMySQLServerInformation = 'MySQL server information';  //to translate
 $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
+$strEvents = 'Events';  //to translate
 ?>

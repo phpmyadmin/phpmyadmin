@@ -1063,4 +1063,5 @@ $strTexyText = 'Texy!テキスト';  //to translate
 
 $strWebServerInformation = 'ウェブサーバ情報';  //to translate
 
+$strEvents = 'Events';  //to translate
 ?>

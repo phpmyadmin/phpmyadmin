@@ -277,6 +277,7 @@ $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them 
 $strEsperanto = 'Esperanto';
 $strEstonian = 'Estonian';
 $strEvent = 'Event';
+$strEvents = 'Events';
 $strExcelEdition = 'Excel edition';
 $strExecuteBookmarked = 'Execute bookmarked query';
 $strExplain = 'Explain SQL';
