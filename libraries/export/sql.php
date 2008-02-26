@@ -324,7 +324,7 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment();
 
             foreach($procedure_names as $procedure_name) {
-                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
+                $procs_funcs .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
         }
 
@@ -335,7 +335,7 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment();
 
             foreach($function_names as $function_name) {
-                $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
+                $procs_funcs .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
         }
 

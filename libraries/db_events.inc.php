@@ -28,10 +28,10 @@ if ($events) {
 
         // information_schema (at least in MySQL 5.1.22) does not return 
         // the full CREATE EVENT statement in a way that could be useful for us
-        // so we rely on PMA_DBI_get_event_def() which uses SHOW CREATE EVENT
+        // so we rely on PMA_DBI_get_definition() which uses SHOW CREATE EVENT
 
         $definition = 'DROP EVENT ' . PMA_backquote($event['EVENT_NAME']) . $delimiter . "\n"
-            .  PMA_DBI_get_event_def($db, $event['EVENT_NAME'])
+            .  PMA_DBI_get_definition($db, 'EVENT', $event['EVENT_NAME'])
             . "\n";
 
         $sqlDrop = 'DROP EVENT ' . PMA_backquote($event['EVENT_NAME']);

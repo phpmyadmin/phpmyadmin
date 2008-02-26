@@ -40,11 +40,11 @@ if ($routines) {
 
         // information_schema (at least in MySQL 5.0.45)
         // does not return the routine parameters
-        // so we rely on PMA_DBI_get_procedure_or_function_def() which
+        // so we rely on PMA_DBI_get_definition() which
         // uses SHOW CREATE
 
         $definition = 'DROP ' . $routine['ROUTINE_TYPE'] . ' ' . PMA_backquote($routine['SPECIFIC_NAME']) . $delimiter . "\n"
-            .  PMA_DBI_get_procedure_or_function_def($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME'])
+            .  PMA_DBI_get_definition($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME'])
             . "\n";
 
         //if ($routine['ROUTINE_TYPE'] == 'PROCEDURE') {

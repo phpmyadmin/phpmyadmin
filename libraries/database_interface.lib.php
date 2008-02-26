@@ -1207,36 +1207,25 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 }
 
 /**
- * returns the definition of a specific PROCEDURE or FUNCTION
+ * returns the definition of a specific PROCEDURE, FUNCTION or EVENT
  *
  * @uses    PMA_DBI_fetch_value()
  * @param   string              $db     db name
- * @param   string              $which  PROCEDURE | FUNCTION
- * @param   string              $proc_or_function_name  the procedure name or function name
+ * @param   string              $which  PROCEDURE | FUNCTION | EVENT
+ * @param   string              $name  the procedure|function|event name
  * @param   resource            $link   mysql link
  *
- * @return  string              the procedure's or function's definition
+ * @return  string              the definition
  */
-function PMA_DBI_get_procedure_or_function_def($db, $which, $proc_or_function_name, $link = null)
+function PMA_DBI_get_definition($db, $which, $name, $link = null)
 {
-    $returned_field = array('PROCEDURE' => 'Create Procedure', 'FUNCTION' => 'Create Function');
-    $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($proc_or_function_name);
+    $returned_field = array(
+        'PROCEDURE' => 'Create Procedure', 
+        'FUNCTION'  => 'Create Function',
+        'EVENT'     => 'Create Event'
+    );
+    $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
-}
-/**
- * returns the definition of a specific EVENT 
- *
- * @uses    PMA_DBI_fetch_value()
- * @param   string              $db     db name
- * @param   string              $event_name
- * @param   resource            $link   mysql link
- *
- * @return  string              the event's definition
- */
-function PMA_DBI_get_event_def($db, $event_name, $link = null)
-{
-    $query = 'SHOW CREATE EVENT' . ' ' . PMA_backquote($db) . '.' . PMA_backquote($event_name);
-    return(PMA_DBI_fetch_value($query, 0, 'Create Event'));
 }
 
 /**
