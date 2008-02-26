@@ -196,6 +196,11 @@ foreach ($tables as $keyname => $each_table) {
 
     $table_is_view = false;
 
+    // $table_encoded and $tbl_url_query are needed inside the next "if"
+    $table_encoded = urlencode($each_table['TABLE_NAME']);
+    // Sets parameters for links
+    $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
+
     if (isset($each_table['TABLE_ROWS'])) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // is accurate.
@@ -277,8 +282,6 @@ foreach ($tables as $keyname => $each_table) {
         } // end if
     } // end if (isset($each_table['TABLE_ROWS'])
 
-    $table_encoded = urlencode($each_table['TABLE_NAME']);
-
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
@@ -286,8 +289,6 @@ foreach ($tables as $keyname => $each_table) {
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
                : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
 
-    // Sets parameters for links
-    $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
     $i++;
 
     $row_count++;
