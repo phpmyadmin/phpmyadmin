@@ -71,7 +71,7 @@ if (isset($plugin_list)) {
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'backquotes', 'text' => 'strUseBackquotes');
             $plugin_list['sql']['options'][] =
-                array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf($GLOBALS['strAddClause'], 'CREATE PROCEDURE / FUNCTION'));
+                array('type' => 'bool', 'name' => 'procedure_function', 'text' => sprintf($GLOBALS['strAddClause'], 'CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT' : '')));
 
             /* MIME stuff etc. */
             $plugin_list['sql']['options'][] =
@@ -306,45 +306,61 @@ function PMA_exportDBFooter($db)
     }
 
     if (isset($GLOBALS['sql_structure']) && isset($GLOBALS['sql_procedure_function'])) {
-        $procs_funcs = '';
+        $text = '';
         $delimiter = '$$';
 
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
         $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
 
-        if ($procedure_names || $function_names) {
-            $procs_funcs .= $crlf
+        if (PMA_MYSQL_INT_VERSION > 50100) {
+            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+        } else {
+            $event_names = array();
+        }
+
+        if ($procedure_names || $function_names || $event_names) {
+            $text .= $crlf
               . 'DELIMITER ' . $delimiter . $crlf;
         }
 
         if ($procedure_names) {
-            $procs_funcs .= 
+            $text .= 
                 PMA_exportComment()
               . PMA_exportComment($GLOBALS['strProcedures'])
               . PMA_exportComment();
 
             foreach($procedure_names as $procedure_name) {
-                $procs_funcs .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
+                $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
         }
 
         if ($function_names) {
-            $procs_funcs .= 
+            $text .= 
                 PMA_exportComment()
               . PMA_exportComment($GLOBALS['strFunctions'])
               . PMA_exportComment();
 
             foreach($function_names as $function_name) {
-                $procs_funcs .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
+                $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
         }
 
-        if ($procedure_names || $function_names) {
-            $procs_funcs .= 'DELIMITER ;' . $crlf;
+        if ($event_names) {
+            $text .= 
+                PMA_exportComment()
+              . PMA_exportComment($GLOBALS['strEvents'])
+              . PMA_exportComment();
+
+            foreach($event_names as $event_name) {
+                $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name) . $delimiter . $crlf . $crlf;
+            }
+        }
+        if ($procedure_names || $function_names || $event_names) {
+            $text .= 'DELIMITER ;' . $crlf;
         }
 
-        if (!empty($procs_funcs)) {
-            $result = PMA_exportOutputHandler($procs_funcs);
+        if (! empty($text)) {
+            $result = PMA_exportOutputHandler($text);
         }
     }
     return $result;
