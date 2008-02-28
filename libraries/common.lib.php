@@ -410,7 +410,8 @@ function PMA_showHint($hint_message)
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['strEdit']
  * @uses    $GLOBALS['strMySQLSaid']
- * @uses    $cfg['PropertiesIconic']
+ * @uses    $GLOBALS['cfg']['PropertiesIconic'] 
+ * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] 
  * @uses    PMA_backquote()
  * @uses    PMA_DBI_getError()
  * @uses    PMA_formatSql()
@@ -471,7 +472,11 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     } elseif (empty($the_query) || trim($the_query) == '') {
         $formatted_sql = '';
     } else {
-        $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
+        if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            $formatted_sql = substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+        } else {
+            $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
+        }
     }
     // ---
     echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
