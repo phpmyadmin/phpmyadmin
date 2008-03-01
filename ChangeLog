@@ -48,7 +48,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 2.11.6.0 (not yet released)
 - bug #1903724 [interface] Displaying of very large queries in error message
 
-2.11.5.0 (not yet released)
+2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database
 - bug #1866041 [interface] Incorrect sorting with AS
 - bug #1871038 [import] Notice: undefined variable first_sql_delimiter
@@ -69,8 +69,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Jürgen Wind - windkiel
 - bug [GUI] Do not display the database name used by the previous user,
   thanks to Ronny Görner
-- bug [core] Remove cookies from $_REQUEST for better coexistence with
-  other applications, thanks to Richard Cunningham
+- bug [security] Remove cookies from $_REQUEST for better coexistence with
+  other applications, thanks to Richard Cunningham. See PMASA-2008-1.
 
 2.11.4.0 (2008-01-12)
 - bug #1843428 [GUI] Space issue with DROP/DELETE/ALTER TABLE
