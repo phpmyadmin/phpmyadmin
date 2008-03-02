@@ -133,17 +133,15 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
     unset($i);
 
-    $cnt = 0;
     $buffer = '';
     while ($record = PMA_DBI_fetch_row($result)) {
-        $cnt++;
         $buffer = '-' . $crlf;
         for ($i = 0; $i < $columns_cnt; $i++) {
             if (! isset($record[$i])) {
                 continue;
             }
 
-            $column = "'" . str_replace("'", "''", $columns[$i]) . "'";
+            $column = $columns[$i];
 
             if (is_null($record[$i])) {
                 $buffer .= '  ' . $column . ': null' . $crlf;
@@ -155,8 +153,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 continue;
             }
 
-            $record[$i] = "'" . str_replace("'", "''", $record[$i]) . "'";
-            //$record[$i] = '    ' . preg_replace('/\r\n|\r|\n/', '$0    ', $record[$i]);
+            $record[$i] = preg_replace('/\r\n|\r|\n/', $crlf.'    ', $record[$i]);
+            if (strstr($record[$i], $crlf))
+              $record[$i] = '|-' . $crlf . '    '.$record[$i];
+
             $buffer .= '  ' . $column . ': ' . $record[$i] . $crlf;
         }
 

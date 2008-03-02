@@ -6,6 +6,8 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.0.0.0 (not yet released)
++ [export] properly handle line breaks for YAML, thanks to Dan Barry -
+danbarry
 + [navi] new parameter $cfg['LeftDefaultTabTable']
 + [table] support MySQL 5.1 PARTITION: CREATE TABLE / Table structure,
   partition maintenance
