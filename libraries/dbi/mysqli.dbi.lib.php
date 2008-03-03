@@ -326,15 +326,13 @@ function PMA_DBI_fetch_row($result)
  * @uses    mysqli_result
  * @uses    func_get_args()
  * @uses    is_object()
- * @uses    is_a()
  * @uses    mysqli_free_result()
  * @param   result  $result,...     one or more mysql result resources
  */
 function PMA_DBI_free_result()
 {
     foreach (func_get_args() as $result) {
-        if (is_object($result)
-          && is_a($result, 'mysqli_result')) {
+        if ($result instanceof mysqli_result) {
             mysqli_free_result($result);
         }
     }
