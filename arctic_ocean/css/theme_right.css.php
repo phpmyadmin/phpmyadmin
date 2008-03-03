@@ -12,20 +12,20 @@
         exit();
     }
 
-    // 2007-05-10 (mkkeck)
-    //            Added some special fixes
-    //            for better behaviors on old IE
+    // mkkeck: 2007-05-10
+    //    Added some special fixes
+    //    for better behaviors on old IE
     $forIE = false;
     if (defined('PMA_USR_BROWSER_AGENT') && PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 7) {
         $forIE = true;
     }
 
-    // 2007-08-24 (mkkeck)
-    //            Get the whole http_url for the images
+    // mkkeck: 2007-08-24
+    //    Get the whole http_url for the images
     $ipath = $_SESSION['PMA_Theme']->getImgPath();
 
     // 2007-08-24 (mkkeck)
-    //            Get font-sizes
+    //    Get font-sizes
     $pma_fsize = $_SESSION['PMA_Config']->get('fontsize');
     $pma_fsize = preg_replace("/[^0-9]/", "", $pma_fsize);
     if (!empty($pma_fsize)) {
@@ -50,8 +50,8 @@
         $fsize = number_format( (intval($usr_fsize) * $pma_fsize), 0 );
     }
 
-    // 2007-05-10 (mkkeck)
-    //            Get the file name for the css-style
+    // mkkeck: 2007-05-10
+    //    Get the file name for the css-style
     //    TODO:
     //        replace on /libraries/header_meta_style.inc.php
     //            echo '<link rel="stylesheet" type="text/css" href="'
@@ -69,29 +69,37 @@
 
     // default file
     $tmp_css_type = 'browse';
-    if (isset($_GET['type'])) {
-        if (stristr($_GET['type'], 'main')) {
+    if (isset($_REQUEST['type'])) {
+        if (stristr($_REQUEST['type'], 'main')) {
             // main window
             $tmp_css_type = 'main';
-        } else if (stristr($_GET['type'], 'querywin')) {
+        } else if (stristr($_REQUEST['type'], 'querywin')) {
             // query window
             $tmp_css_type = 'popup';
-        } else if (stristr($_GET['type'], 'inline')) {
+        } else if (stristr($_REQUEST['type'], 'inline')) {
             // inline popup
             $tmp_css_type = 'inline';
         }
     }
-    if ($GLOBALS['cfg']['LightTabs']) {
+    if (isset($GLOBALS['cfg']['LightTabs']) && $GLOBALS['cfg']['LightTabs']) {
         $tmp_css_type = '';
     }
+
+    // Check Fonts
+    $font_family = 'sans-serif';
+    $font_fixed = 'mono-space';
+    if (isset($GLOBALS['cfg']['FontFamily']) && !empty($GLOBALS['cfg']['FontFamily'])) {
+        $font_family = $GLOBALS['cfg']['FontFamily'];
+        $font_fixed = $GLOBALS['cfg']['FontFamily'];
+    }
+    if (isset($GLOBALS['cfg']['FontFamilyFixed']) && !empty($GLOBALS['cfg']['FontFamilyFixed'])) {
+        $font_fixed = $GLOBALS['cfg']['FontFamilyFixed'];
+    }
+
 ?>
 /* BASICS */
 html, body, td, th {
-<?php if (!empty($GLOBALS['cfg']['FontFamily'])) { ?>
-    font-family:             <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-<?php } else { ?>
-    font-family:             sans-serif;
-<?php } ?>
+    font-family:             <?php echo $font_family; ?>;
     font-size:               <?php echo $fsize . $funit; ?>;
 }
 body {
@@ -115,9 +123,7 @@ body {
     padding:                 0px 0px 0px 0px;
 }
 button, img, input, select { vertical-align:  middle; }
-<?php if (!empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-textarea, tt, pre, code    { font-family:     <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>; }
-<?php } ?>
+textarea, tt, pre, code    { font-family:     <?php echo $font_fixed; ?>; }
 
 a:link, a:visited, a:active {
     color:                   #696ab5;
@@ -273,10 +279,8 @@ button.mult_submit {
 
 
 .value {
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
-    font-family:             <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+    font-family:             <?php echo $font_family; ?>;
     white-space:             normal;
-<?php } ?>
 }
 .value .attention { color: #990000; }
 .value .allfine   { color: #006600; }
@@ -565,7 +569,7 @@ a.tabactive:link, a.tabactive:active, a.tabactive:visited { color: #585880; }
     background-image:        url('<?php echo $ipath; ?>tbg_nav0.png');
     background-repeat:       repeat-x;
     background-position:     center bottom;
-    border-top:              <?php echo (stristr($_GET['type'], 'querywin') ? '1px' : '5px'); ?> solid #ffffff;
+    border-top:              <?php echo ( (isset($_GET['type']) && stristr($_GET['type'], 'querywin')) ? '1px' : '5px' ); ?> solid #ffffff;
     border-right:            none;
     border-bottom:           5px solid #ffffff;
     border-left:             none;
@@ -576,10 +580,10 @@ a.tabactive:link, a.tabactive:active, a.tabactive:visited { color: #585880; }
     white-space:             nowrap;
 <?php if ($forIE) { ?>
     left:                    0px;
-    top:                     expression(eval(document.documentElement.scrollTop<?php echo (stristr($_GET['type'], 'querywin') ? '' : '+27'); ?>));
+    top:                     expression(eval(document.documentElement.scrollTop<?php echo ( (isset($_GET['type']) && stristr($_GET['type'], 'querywin')) ? '' : '+27' ); ?>));
     width:                   expression(eval(document.documentElement.clientWidth));
 <?php } else { ?>
-    top:                     <?php echo (stristr($_GET['type'], 'querywin') ? '0px' : '27px'); ?>;
+    top:                     <?php echo ( (isset($_GET['type']) && stristr($_GET['type'], 'querywin')) ? '0px' : '27px' ); ?>;
     left:                    0px;
 <?php } ?>
 }

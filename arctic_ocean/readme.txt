@@ -4,6 +4,9 @@
 
 CHANGE LOG:
 
+    - 2008-03-03:
+      > fixed bug #1901687 (undefined variable 'type')
+
     - 2007-05-11:
       > fixed bugs #1688536
         - fixed: resizing on each reload the width of left frame
