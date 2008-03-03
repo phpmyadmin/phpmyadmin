@@ -50,6 +50,8 @@ danbarry
 
 2.11.6.0 (not yet released)
 - bug #1903724 [interface] Displaying of very large queries in error message
+- bug #1905711 [compatibility] Functions deprecated in PHP 5.3: is_a() and
+  get_magic_quotes_gpc(), thanks to Dmitry N. Shilnikov - yrtimd
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database
