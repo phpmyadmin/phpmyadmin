@@ -229,13 +229,23 @@ function PMA_exportHeader()
 
     $head .= $crlf;
 
-    $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
-    if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
+    if (! empty($GLOBALS['asfile'])) {
+        // we are saving as file, therefore we provide charset information
+        // so that a utility like the mysql client can interpret
+        // the file correctly 
+        if (isset($GLOBALS['charset_of_file']) && isset($mysql_charset_map[$GLOBALS['charset_of_file']])) {
+            // $cfg['AllowAnywhereRecoding'] was true so we got a charset from 
+            // the export dialog
+            $set_names = $mysql_charset_map[$GLOBALS['charset_of_file']];
+        } else {
+            // by default we use the connection charset
+            $set_names = $mysql_charset_map[$GLOBALS['charset']]; 
+        } 
         $head .=  $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;' . $crlf
                . '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;' . $crlf
-               . '/*!40101 SET NAMES ' . $mysql_charset_map[$charset_of_file] . ' */;' . $crlf . $crlf;
+               . '/*!40101 SET NAMES ' . $set_names . ' */;' . $crlf . $crlf;
     }
 
     return PMA_exportOutputHandler($head);
