@@ -54,6 +54,7 @@ danbarry
   get_magic_quotes_gpc(), thanks to Dmitry N. Shilnikov - yrtimd
 - bug [lang] catalan wrong accented characters
 - bug #1893034 [Export] SET NAMES for importing with command-line client
++ [lang] Russian update, thanks to Victor Volkov
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database
