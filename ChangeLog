@@ -12,6 +12,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [lang] catalan wrong accented characters
 - bug #1893034 [Export] SET NAMES for importing with command-line client 
 + [lang] Russian update, thanks to Victor Volkov
+- bug #1910485 [core] Unsetting the whitelist during the loop,
+  thanks to Jeroen Vrijkorte - jv_map
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database 

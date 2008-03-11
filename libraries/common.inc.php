@@ -129,6 +129,7 @@ foreach ($GLOBALS as $key => $dummy) {
         die('numeric key detected');
     }
 }
+unset($dummy);
 
 /**
  * PATH_INFO could be compromised if set, so remove it from PHP_SELF
@@ -147,7 +148,8 @@ $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
 
 /**
  * just to be sure there was no import (registering) before here
- * we empty the global space
+ * we empty the global space (but avoid unsetting $variables_list
+ * and $key in the foreach(), we still need them!)
  */
 $variables_whitelist = array (
     'GLOBALS',
@@ -160,6 +162,8 @@ $variables_whitelist = array (
     '_COOKIE',
     '_SESSION',
     'PMA_PHP_SELF',
+    'variables_whitelist',
+    'key'
 );
 
 foreach (get_defined_vars() as $key => $value) {
