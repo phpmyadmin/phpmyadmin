@@ -180,6 +180,7 @@ class PMA_Table {
 
     /**
      * loads structure data
+     * (this function is work in progress? not yet used)
      */
     function loadStructure()
     {
