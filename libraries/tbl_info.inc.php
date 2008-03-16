@@ -36,7 +36,6 @@ global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
 // otherwise error #1046, no database selected
 PMA_DBI_select_db($GLOBALS['db']);
 
-// The 'show table' statement works correct since 3.23.03
 $table_info_result   = PMA_DBI_query(
     'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\';',
     null, PMA_DBI_QUERY_STORE);

@@ -47,6 +47,11 @@ PMA_DBI_select_db($GLOBALS['db']);
 
 require './libraries/tbl_info.inc.php';
 
+// define some globals here, for improved syntax in the conditionals
+$is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = false;
+// set initial value of these globals, based on the current table engine
+PMA_set_global_variables_for_engine($tbl_type);
+
 $reread_info = false;
 $table_alters = array();
 
@@ -75,6 +80,8 @@ if (isset($_REQUEST['submitoptions'])) {
       && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
         $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_type'];
         $tbl_type = $_REQUEST['new_tbl_type'];
+        // reset the globals for the new engine
+        PMA_set_global_variables_for_engine($tbl_type);
     }
 
     if (! empty($_REQUEST['tbl_collation'])
@@ -82,9 +89,7 @@ if (isset($_REQUEST['submitoptions'])) {
         $table_alters[] = 'DEFAULT ' . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
 
-    $l_tbl_type = strtolower($tbl_type);
-
-    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'isam')
+    if (($is_myisam_or_maria || $is_isam)
       && isset($_REQUEST['new_pack_keys'])
       && $_REQUEST['new_pack_keys'] != (string)$pack_keys) {
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
@@ -92,19 +97,19 @@ if (isset($_REQUEST['submitoptions'])) {
 
     $checksum = empty($checksum) ? '0' : '1';
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-    if (($l_tbl_type === 'myisam')
+    if ($is_myisam_or_maria
       && $_REQUEST['new_checksum'] !== $checksum) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
     }
 
     $delay_key_write = empty($delay_key_write) ? '0' : '1';
     $_REQUEST['new_delay_key_write'] = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-    if (($l_tbl_type === 'myisam')
+    if ($is_myisam_or_maria
       && $_REQUEST['new_delay_key_write'] !== $delay_key_write) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if (($l_tbl_type === 'myisam' || $l_tbl_type === 'innodb')
+    if (($is_myisam_or_maria || $is_innodb)
       &&  ! empty($_REQUEST['new_auto_increment'])
       && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
         $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
@@ -299,10 +304,10 @@ if (strstr($show_comment, '; InnoDB free') === false) {
         </td>
     </tr>
 <?php
-if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
+if ($is_myisam_or_maria || $is_isam) {
     ?>
     <tr>
-        <td><label for="new_pack_keys">pack_keys</label></td>
+        <td><label for="new_pack_keys">PACK_KEYS</label></td>
         <td><select name="new_pack_keys" id="new_pack_keys">
                 <option value="DEFAULT"
                     <?php if ($pack_keys == 'DEFAULT') echo 'selected="selected"'; ?>
@@ -319,9 +324,9 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
     <?php
 } // end if (MYISAM|ISAM)
 
-if ($tbl_type == 'MYISAM') {
+if ($is_myisam_or_maria) {
     ?>
-    <tr><td><label for="new_checksum">checksum</label></td>
+    <tr><td><label for="new_checksum">CHECKSUM</label></td>
         <td><input type="checkbox" name="new_checksum" id="new_checksum"
                 value="1"
     <?php echo (isset($checksum) && $checksum == 1)
@@ -330,7 +335,7 @@ if ($tbl_type == 'MYISAM') {
         </td>
     </tr>
 
-    <tr><td><label for="new_delay_key_write">delay_key_write</label></td>
+    <tr><td><label for="new_delay_key_write">DELAY_KEY_WRITE</label></td>
         <td><input type="checkbox" name="new_delay_key_write" id="new_delay_key_write"
                 value="1"
     <?php echo (isset($delay_key_write) && $delay_key_write == 1)
@@ -343,7 +348,7 @@ if ($tbl_type == 'MYISAM') {
 } // end if (MYISAM)
 
 if (isset($auto_increment) && strlen($auto_increment) > 0
-  && ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB')) {
+  && ($is_myisam_or_maria || $is_innodb)) {
     ?>
     <tr><td><label for="auto_increment_opt">auto_increment</label></td>
         <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
@@ -430,8 +435,9 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 
 <ul>
 <?php
-if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB') {
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB') {
+// Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
+if ($is_myisam_or_maria || $is_innodb || $is_berkeleydb) {
+    if ($is_myisam_or_maria || $is_innodb) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'CHECK TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
@@ -441,7 +447,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     </li>
         <?php
     }
-    if ($tbl_type == 'INNODB') {
+    if ($is_innodb) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']) . ' ENGINE = InnoDB'));
         ?>
@@ -451,7 +457,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     </li>
         <?php
     }
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
+    if ($is_myisam_or_maria || $is_berkeleydb) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'ANALYZE TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
@@ -461,7 +467,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     </li>
         <?php
     }
-    if ($tbl_type == 'MYISAM') {
+    if ($is_myisam_or_maria) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'REPAIR TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
@@ -471,7 +477,7 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
     </li>
         <?php
     }
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB') {
+    if ($is_myisam_or_maria || $is_innodb || $is_berkeleydb) {
         $this_url_params = array_merge($url_params,
             array('sql_query' => 'OPTIMIZE TABLE ' . PMA_backquote($GLOBALS['table'])));
         ?>
@@ -550,7 +556,7 @@ $this_url_params = array_merge($url_params,
 // so I assume that if the current table is InnoDB, I don't display
 // this choice (InnoDB maintains integrity by itself)
 
-if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
+if ($cfgRelation['relwork'] && ! $is_innodb) {
     PMA_DBI_select_db($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
@@ -604,4 +610,21 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
  * Displays the footer
  */
 require_once './libraries/footer.inc.php';
+
+
+function PMA_set_global_variables_for_engine($tbl_type) 
+{
+    global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb;
+
+    $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = false;
+    $upper_tbl_type = strtoupper($tbl_type);
+    
+    //Options that apply to MYISAM usually apply to MARIA
+    $is_myisam_or_maria = ($upper_tbl_type == 'MYISAM' || $upper_tbl_type == 'MARIA');
+
+    $is_isam = ($upper_tbl_type == 'ISAM');
+    $is_innodb = ($upper_tbl_type == 'INNODB');
+    $is_berkeleydb = ($upper_tbl_type == 'BERKELEYDB');
+}
+
 ?>
