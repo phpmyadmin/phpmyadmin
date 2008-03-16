@@ -114,48 +114,6 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
     return $bookmark_query;
 } // end of the 'PMA_queryBookmarks()' function
 
-
-/**
- * Gets bookmarked DefaultQuery for a Table
- *
- * @global  resource  the controluser db connection handle
- *
- * @param   string    the current database name
- * @param   array     the bookmark parameters for the current user
- * @param   array     the list of all labels to look for
- *
- * @return  array     bookmark SQL statements
- *
- * @access  public
- */
-function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
-{
-    global $controllink;
-    $bookmarks = array();
-
-    if (empty($cfgBookmark['db']) || empty($cfgBookmark['table'])) {
-        return $bookmarks;
-    }
-
-    $search_for = array();
-    foreach ($table_array AS $table => $table_sortkey) {
-        $search_for[] = "'" . PMA_sqlAddslashes($table) . "'";
-    }
-
-    $query          = 'SELECT label, query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-                    . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
-                    . (count($search_for) > 0 ? ' AND label IN (' . implode(', ', $search_for) . ')' : '');
-    $result = PMA_DBI_try_query($query, $controllink, PMA_DBI_QUERY_STORE);
-    if (!$result || PMA_DBI_num_rows($result) < 1) {
-        return $bookmarks;
-    }
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $bookmarks[$row['label']] = $row['query'];
-    }
-
-    return $bookmarks;
-} // end of the 'PMA_queryBookmarks()' function
-
 /**
  * Adds a bookmark
  *
