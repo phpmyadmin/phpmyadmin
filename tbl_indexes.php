@@ -117,7 +117,7 @@ $GLOBALS['js_include'][] = 'indexes.js';
 require_once './libraries/tbl_info.inc.php';
 require_once './libraries/tbl_links.inc.php';
 
-if (is_array($_REQUEST['index'])) {
+if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
     // coming already from form
     $add_fields = 
         count($_REQUEST['index']['columns']['names']) - $index->getColumnCount();
