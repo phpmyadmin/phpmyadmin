@@ -88,7 +88,7 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
         ? explode(' ', $showtable['Create_options'])
         : array();
 
-    // export create options by its name as variables into gloabel namespace
+    // export create options by its name as variables into global namespace
     // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
     unset($pack_keys);
     foreach ($create_options as $each_create_option) {

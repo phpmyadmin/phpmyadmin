@@ -657,6 +657,7 @@ $PMA_SQPdata_reserved_word = array (
     'THEN',
     'TO',
     'TRAILING',
+    'TRANSACTIONAL',    // 5.1 ?
     'TRUNCATE',
     'TYPE',
     'TYPES',
@@ -684,7 +685,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 282;
+$PMA_SQPdata_reserved_word_cnt = 283;
 /**
  * The previous array must be sorted so that the binary search work. 
  * Sometimes a word is not added in the correct order, so

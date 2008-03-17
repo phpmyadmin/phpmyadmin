@@ -48,9 +48,18 @@ PMA_DBI_select_db($GLOBALS['db']);
 require './libraries/tbl_info.inc.php';
 
 // define some globals here, for improved syntax in the conditionals
-$is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = false;
+$is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = false;
 // set initial value of these globals, based on the current table engine
 PMA_set_global_variables_for_engine($tbl_type);
+
+if ($is_maria) {
+    // the value for transactional can be implicit
+    // (no create option found, in this case it means 1)
+    // or explicit (option found with a value of 0 or 1)
+    // ($transactional may have been set by libraries/tbl_info.inc.php,
+    // from the $create_options)
+    $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
+}
 
 $reread_info = false;
 $table_alters = array();
@@ -100,6 +109,12 @@ if (isset($_REQUEST['submitoptions'])) {
     if ($is_myisam_or_maria
       && $_REQUEST['new_checksum'] !== $checksum) {
         $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
+    }
+
+    $_REQUEST['new_transactional'] = empty($_REQUEST['new_transactional']) ? '0' : '1';
+    if ($is_maria
+      && $_REQUEST['new_transactional'] !== $transactional) {
+        $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
     }
 
     $delay_key_write = empty($delay_key_write) ? '0' : '1';
@@ -347,10 +362,24 @@ if ($is_myisam_or_maria) {
     <?php
 } // end if (MYISAM)
 
+if ($is_maria) {
+    ?>
+    <tr><td><label for="new_transactional">TRANSACTIONAL</label></td>
+        <td><input type="checkbox" name="new_transactional" id="new_transactional"
+                value="1"
+    <?php echo (isset($transactional) && $transactional == 1)
+        ? ' checked="checked"'
+        : ''; ?> />
+        </td>
+    </tr>
+
+    <?php
+} // end if (MARIA)
+
 if (isset($auto_increment) && strlen($auto_increment) > 0
   && ($is_myisam_or_maria || $is_innodb)) {
     ?>
-    <tr><td><label for="auto_increment_opt">auto_increment</label></td>
+    <tr><td><label for="auto_increment_opt">AUTO_INCREMENT</label></td>
         <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
                 value="<?php echo $auto_increment; ?>" /></td>
     </tr>
@@ -614,13 +643,14 @@ require_once './libraries/footer.inc.php';
 
 function PMA_set_global_variables_for_engine($tbl_type) 
 {
-    global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb;
+    global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb, $is_maria;
 
-    $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = false;
+    $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = false;
     $upper_tbl_type = strtoupper($tbl_type);
     
     //Options that apply to MYISAM usually apply to MARIA
     $is_myisam_or_maria = ($upper_tbl_type == 'MYISAM' || $upper_tbl_type == 'MARIA');
+    $is_maria = ($upper_tbl_type == 'MARIA');
 
     $is_isam = ($upper_tbl_type == 'ISAM');
     $is_innodb = ($upper_tbl_type == 'INNODB');
