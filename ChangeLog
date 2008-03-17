@@ -47,6 +47,7 @@ danbarry
    * minimal support on db structure page
    * export
 + [pdf] Merged tcpdf 2.2.002 (PHP5 version), thanks to Nicola Asuni 
++ [engines] Maria (work in progress) 
 
 2.11.6.0 (not yet released)
 - bug #1903724 [interface] Displaying of very large queries in error message
