@@ -117,6 +117,12 @@ if (isset($_REQUEST['submitoptions'])) {
         $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
     }
 
+    $_REQUEST['new_page_checksum'] = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
+    if ($is_maria
+      && $_REQUEST['new_page_checksum'] !== $page_checksum) {
+        $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
+    }
+
     $delay_key_write = empty($delay_key_write) ? '0' : '1';
     $_REQUEST['new_delay_key_write'] = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
     if ($is_myisam_or_maria
@@ -160,7 +166,7 @@ if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operati
 } // end if
 
 if ($reread_info) {
-    $checksum = $delay_key_write = 0;
+    $page_checksum = $checksum = $delay_key_write = 0;
     require './libraries/tbl_info.inc.php';
 }
 unset($reread_info);
@@ -368,6 +374,15 @@ if ($is_maria) {
         <td><input type="checkbox" name="new_transactional" id="new_transactional"
                 value="1"
     <?php echo (isset($transactional) && $transactional == 1)
+        ? ' checked="checked"'
+        : ''; ?> />
+        </td>
+    </tr>
+
+    <tr><td><label for="new_page_checksum">PAGE_CHECKSUM</label></td>
+        <td><input type="checkbox" name="new_page_checksum" id="new_page_checksum"
+                value="1"
+    <?php echo (isset($page_checksum) && $page_checksum == 1)
         ? ' checked="checked"'
         : ''; ?> />
         </td>
