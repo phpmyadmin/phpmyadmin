@@ -58,6 +58,8 @@ danbarry
 + [lang] Russian update, thanks to Victor Volkov
 - bug #1910485 [core] Unsetting the whitelist during the loop,
   thanks to Jeroen Vrijkorte - jv_map
+- bug #1906980 [Export] Import of VIEWs fails if temp table exists,
+  thanks to Falk Nisius - klaf
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database

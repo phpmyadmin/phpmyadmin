@@ -389,7 +389,13 @@ function PMA_exportDBFooter($db)
  * @access  public
  */
 function PMA_getTableDefStandIn($db, $view, $crlf) {
-    $create_query = 'CREATE TABLE ';
+    $create_query = '';
+    if (! empty($GLOBALS['sql_drop_table'])) {
+        $create_query .= 'DROP VIEW IF EXISTS ' . PMA_backquote($view) . ';' . $crlf;
+    }
+
+    $create_query .= 'CREATE TABLE ';
+
     if (isset($GLOBALS['sql_if_not_exists']) && $GLOBALS['sql_if_not_exists']) {
         $create_query .= 'IF NOT EXISTS ';
     }
@@ -464,14 +470,9 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
     $schema_create .= $new_crlf;
 
-    if (!empty($sql_drop_table)) {
-        if (PMA_Table::isView($db,$table)) {
-            $drop_clause = 'DROP VIEW';
-        } else {
-            $drop_clause = 'DROP TABLE';
-        }
-        $schema_create .= $drop_clause . ' IF EXISTS ' . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
-        unset($drop_clause);
+    // no need to generate a DROP VIEW here, it was done earlier
+    if (! empty($sql_drop_table) && ! PMA_Table::isView($db,$table)) {
+        $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
     }
 
     // Steve Alberty's patch for complete table dump,
