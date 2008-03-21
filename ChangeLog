@@ -16,6 +16,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Jeroen Vrijkorte - jv_map
 - bug #1906980 [Export] Import of VIEWs fails if temp table exists,
   thanks to Falk Nisius - klaf
+- bug #1812763 [Copy] Table copy when server is in ANSI_QUOTES sql_mode 
+  thanks to Tony Marston - tonymarston 
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database 
