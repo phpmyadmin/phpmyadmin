@@ -80,6 +80,7 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
             $showtable['Name'], true, true);
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;
+    $row_format = isset($showtable['Row_format']) ? $showtable['Row_format'] : '';
     $auto_increment      = isset($showtable['Auto_increment'])
         ? $showtable['Auto_increment']
         : '';

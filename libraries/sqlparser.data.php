@@ -572,6 +572,7 @@ $PMA_SQPdata_reserved_word = array (
     'OUTER',
     'OUTFILE',
     'PACK_KEYS',
+    'PAGE',                 // 5.1-maria ?
     'PARTIAL',
     'PARTITION',            // 5.1
     'PARTITIONS',           // 5.1
@@ -685,7 +686,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 283;
+$PMA_SQPdata_reserved_word_cnt = 284;
 /**
  * The previous array must be sorted so that the binary search work. 
  * Sometimes a word is not added in the correct order, so

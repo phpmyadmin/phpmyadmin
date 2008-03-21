@@ -2329,6 +2329,29 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
 }
 
 /**
+ * Generates and echoes an HTML dropdown 
+ *
+ * @uses    htmlspecialchars()
+ * @param   string  $select_name
+ * @param   array   $choices the choices values
+ * @param   string  $active_choice the choice to select by default
+ * @todo    support titles
+ */
+function PMA_generate_html_dropdown($select_name, $choices, $active_choice)
+{
+    $result = '<select name="' . htmlspecialchars($select_name) . '" id="' . htmlspecialchars($select_name) . '">"' . "\n";
+    foreach ($choices as $one_choice) {
+        $result .= '<option value="' . htmlspecialchars($one_choice) . '"';
+        if ($one_choice == $active_choice) {
+            $result .= ' selected="selected"';
+        }
+        $result .= '>' . htmlspecialchars($one_choice) . '</option>' . "\n";
+    }
+    $result .= '</select>' . "\n";
+    echo $result;
+}
+
+/**
  * Generates a slider effect (Mootools)
  *
  * @uses    $GLOBALS['cfg']['InitialSlidersState']

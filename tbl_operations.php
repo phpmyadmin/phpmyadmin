@@ -59,6 +59,7 @@ if ($is_maria) {
     // ($transactional may have been set by libraries/tbl_info.inc.php,
     // from the $create_options)
     $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
+    $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
 }
 
 $reread_info = false;
@@ -69,6 +70,8 @@ $table_alters = array();
  */
 if (isset($_REQUEST['submitoptions'])) {
     $_message = '';
+    $warning_messages = array();
+
     if (isset($_REQUEST['new_name'])) {
         if ($pma_table->rename($_REQUEST['new_name'])) {
             $_message .= $pma_table->getLastMessage();
@@ -136,12 +139,22 @@ if (isset($_REQUEST['submitoptions'])) {
         $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
     }
 
+    if (($is_myisam_or_maria || $is_innodb)
+      &&  ! empty($_REQUEST['new_row_format'])
+      && (! isset($row_format) || $_REQUEST['new_row_format'] !== $row_format)) {
+        $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddslashes($_REQUEST['new_row_format']);
+    }
+
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE ' . PMA_backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $result        .= PMA_DBI_query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
+        foreach (PMA_DBI_get_warnings() as $warning) {
+            $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
+                            . ' ' . $warning['Message'];
+        }
     }
 }
 /**
@@ -179,10 +192,17 @@ require_once './libraries/tbl_links.inc.php';
 if (isset($result)) {
     if (empty($_message)) {
         $_message = $result ? $strSuccess : $strError;
+        // $result should exist, regardless of $_message
+        $_type = $result ? 'success' : 'error';
     }
-    // $result should exist, regardless of $_message
-    $_type = $result ? 'success' : 'error';
+    if (! empty($warning_messages)) {
+        $_message = new PMA_Message;
+        $_message->addMessages($warning_messages);
+        $_message->isWarning(true);
+        unset($warning_messages);
+    }
     PMA_showMessage($_message, $sql_query, $_type);
+    unset($_message, $_type);
 }
 
 $url_params['goto'] = 'tbl_operations.php';
@@ -400,6 +420,25 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
     </tr>
     <?php
 } // end if (MYISAM|INNODB)
+
+$possible_row_formats = array(
+    'MARIA'  => array('FIXED','DYNAMIC','PAGE'),
+    'MYISAM' => array('FIXED','DYNAMIC'),
+    'INNODB' => array('COMPACT','REDUNDANT')
+);
+// for MYISAM there is also COMPRESSED but it can be set only by the
+// myisampack utility, so don't offer here the choice because if we
+// try it inside an ALTER TABLE, MySQL (at least in 5.1.23-maria)
+// does not return a warning
+// (if the table was compressed, it can be seen on the Structure page)
+
+$current_row_format = strtoupper($showtable['Row_format']);
+echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
+echo '<td>';
+PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
+unset($possible_row_formats, $current_row_format);
+echo '</td>';
+echo '</tr>';
 ?>
     </table>
 </fieldset>
