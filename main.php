@@ -96,12 +96,15 @@ if ($server > 0) {
         PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
         PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
             'li_mysql_proto');
-        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+    /**
+     * @todo tweak the CSS to use same image as li_server_info 
+     */
+        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info2');
         PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
             'li_user_info');
     } else {
         PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_info');
-        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info2');
     }
 
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
@@ -298,7 +301,7 @@ echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();
 echo '</li>';
 PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html', null, '_blank');
-PMA_printListItem($strPmaWiki, 'li_pma_docs', 'http://wiki.cihar.com', null, '_blank');
+PMA_printListItem($strPmaWiki, 'li_pma_docs2', 'http://wiki.cihar.com', null, '_blank');
 
 if ($cfg['ShowPhpInfo']) {
     PMA_printListItem($strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query);
