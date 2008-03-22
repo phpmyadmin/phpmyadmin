@@ -63,6 +63,8 @@ danbarry
   thanks to Falk Nisius - klaf
 - bug #1812763 [Copy] Table copy when server is in ANSI_QUOTES sql_mode 
   thanks to Tony Marston - tonymarston 
+- bug #1918531 [compatibility] Navigation isn't w3.org valid 
+  thanks to Michael Keck - mkkeck
 
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database

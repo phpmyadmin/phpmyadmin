@@ -139,6 +139,31 @@ $pos = $_SESSION['userconf']['navi_limit_offset'];
     // <![CDATA[
     var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
     var image_plus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_plus.png';
+
+    // INIT PMA_setFrameSize
+    var onloadCnt = 0; 
+    var onLoadHandler = window.onload;  
+    var resizeHandler = window.onresize;
+    window.document.onresize  = resizeHandler;
+    window.onload = function() {
+        if (onloadCnt == 0) {
+            if (typeof(onLoadHandler) == "function") { 
+                onLoadHandler(); 
+            }
+            if (typeof(PMA_setFrameSize) != 'undefined' && typeof(PMA_setFrameSize) == 'function') { 
+                PMA_setFrameSize(); 
+            }
+            onloadCnt++;
+        }
+    };
+    window.onresize = function() {
+        if (typeof(resizeHandler) == "function") { 
+            resizeHandler(); 
+        }
+        if (typeof(PMA_saveFrameSize) != 'undefined' && typeof(PMA_saveFrameSize) == 'function') { 
+            PMA_saveFrameSize(); 
+        }
+    };
     // ]]>
     </script>
     <?php
@@ -157,7 +182,7 @@ $pos = $_SESSION['userconf']['navi_limit_offset'];
     <![endif]-->
 </head>
 
-<body id="body_leftFrame" onload="PMA_setFrameSize();" onresize="PMA_saveFrameSize();">
+<body id="body_leftFrame">
 <?php
 require './libraries/navigation_header.inc.php';
 if (! $GLOBALS['server']) {
