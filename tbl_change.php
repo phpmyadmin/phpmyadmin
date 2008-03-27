@@ -606,6 +606,8 @@ foreach ($rows as $row_id => $vrow) {
 
         // The value column (depends on type)
         // ----------------
+        // See bug #1667887 for the reason why we don't use the maxlength
+        // HTML attribute
 
         $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
         echo '        <td>' . "\n";
