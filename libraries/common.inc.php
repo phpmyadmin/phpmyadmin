@@ -468,25 +468,19 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
 /******************************************************************************/
 /* parsing configuration file                         LABEL_parsing_config_file      */
 
-if (empty($_SESSION['PMA_Config'])) {
-    /**
-     * We really need this one!
-     */
-    if (! function_exists('preg_replace')) {
-        PMA_fatalError('strCantLoad', 'pcre');
-    }
-
-    /**
-     * @global PMA_Config $_SESSION['PMA_Config']
-     */
-    $_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
-
-} elseif (version_compare(phpversion(), '5', 'lt')) {
-    /**
-     * @todo move all __wakeup() functionality into session.inc.php
-     */
-    $_SESSION['PMA_Config']->__wakeup();
+/**
+ * We really need this one!
+ */
+if (! function_exists('preg_replace')) {
+    PMA_fatalError('strCantLoad', 'pcre');
 }
+
+/**
+ * @global PMA_Config $_SESSION['PMA_Config']
+ * force reading of config file, because we removed sensitive values
+ * in the previous iteration
+ */
+$_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
 
 if (!defined('PMA_MINIMUM_COMMON')) {
     $_SESSION['PMA_Config']->checkPmaAbsoluteUri();
@@ -905,6 +899,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
 
 } // end if !defined('PMA_MINIMUM_COMMON')
+
+// remove sensitive values from session
+$_SESSION['PMA_Config']->set('blowfish_secret', '');
+$_SESSION['PMA_Config']->set('Servers', '');
+$_SESSION['PMA_Config']->set('default_server', '');
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
