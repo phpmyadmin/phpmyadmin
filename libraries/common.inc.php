@@ -235,8 +235,9 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 // remove quotes added by php
-// (@ before get_magic_quotes_gpc() because it's deprecated in PHP 5.3)
-if (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) {
+// (get_magic_quotes_gpc() is deprecated in PHP 5.3, but compare with 5.2.99
+// to be able to test with 5.3.0-dev)
+if (function_exists('get_magic_quotes_gpc') && -1 == version_compare(PHP_VERSION, '5.2.99') && get_magic_quotes_gpc()) {
     PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
     PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
     PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
