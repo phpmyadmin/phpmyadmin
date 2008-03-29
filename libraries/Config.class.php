@@ -891,8 +891,9 @@ class PMA_Config
      */
     function enableBc()
     {
-        $GLOBALS['cfg']             =& $this->settings;
-        $GLOBALS['default_server']  =& $this->default_server;
+        $GLOBALS['cfg']             = $this->settings;
+        $GLOBALS['default_server']  = $this->default_server;
+        unset($this->default_server);
         $GLOBALS['collation_connection'] = $this->get('collation_connection');
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
