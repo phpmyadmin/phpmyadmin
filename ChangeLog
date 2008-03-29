@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.5.1 (2008-03-29)
+- bug #1909711 [security] Sensitive data in session files
+
 2.11.5.0 (2008-03-01)
 - bug #1862661 [GUI] Warn about rename deleting database 
 - bug #1866041 [interface] Incorrect sorting with AS 
