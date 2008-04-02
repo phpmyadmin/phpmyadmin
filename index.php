@@ -110,6 +110,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     <?php echo htmlspecialchars($HTTP_HOST); ?></title>
 <meta http-equiv="Content-Type"
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
+<meta name="robots" content="noindex,nofollow" />
 <script type="text/javascript">
 // <![CDATA[
     // definitions used in common.js
