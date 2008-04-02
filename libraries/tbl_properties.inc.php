@@ -191,6 +191,11 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $row = $fields_meta[$i];
     }
 
+    $type_and_length = PMA_extract_type_length($row['Type']);
+    if ($type_and_length['type'] == 'bit') {
+        $row['Default'] = PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+    }
+    
     // Cell index: If certain fields get left out, the counter shouldn't chage.
     $ci = 0;
     // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
@@ -227,12 +232,10 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $type   = preg_replace('@ZEROFILL@i', '', $type);
         $type   = preg_replace('@UNSIGNED@i', '', $type);
 
-        if (strpos($type, '(')) {
-            $length = chop(substr($type, (strpos($type, '(') + 1), (strpos($type, ')') - strpos($type, '(') - 1)));
-            $type = chop(substr($type, 0, strpos($type, '(')));
-        } else {
-            $length = '';
-        }
+        $type_and_length = PMA_extract_type_length($type);
+        $type = $type_and_length['type'];
+        $length = $type_and_length['length'];
+        unset($type_and_length);
     } // end if else
 
     // some types, for example longtext, are reported as

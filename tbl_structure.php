@@ -212,6 +212,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
+    $type_and_length = PMA_extract_type_length($row['Type']);
+
     // reformat mysql query output - staybyte - 9. June 2001
     // loic1: set or enum types: slashes single quotes inside options
     if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
@@ -335,7 +337,14 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) { echo $row['Default']; } ?></td>
+    <td nowrap="nowrap"><?php
+    if (isset($row['Default'])) { 
+        if ($type_and_length['type'] == 'bit') {
+            echo PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+        } else {
+            echo $row['Default']; 
+        }
+    } ?></td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
     <td align="center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote($strRows) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">

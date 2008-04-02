@@ -1339,12 +1339,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     // loic1: displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-                        $db_value = $row[$i];
-                        $row[$i]  = '';
-                        for ($j = 0; $j < ceil($meta->length / 8); $j++) {
-                            $row[$i] .= sprintf('%08d', decbin(ord(substr($db_value, $j, 1))));
-                        }
-                        $row[$i]     = substr($row[$i], -$meta->length);
+                        $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                     } elseif (stristr($field_flags, 'BINARY')) {
                         $row[$i]     = str_replace("\x00", '\0', $row[$i]);
                         $row[$i]     = str_replace("\x08", '\b', $row[$i]);

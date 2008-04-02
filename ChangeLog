@@ -66,6 +66,7 @@ danbarry
   thanks to Tony Marston - tonymarston 
 - bug #1918531 [compatibility] Navigation isn't w3.org valid 
   thanks to Michael Keck - mkkeck
+- bug #1926357 [data] BIT defaults displayed incorrectly (todo: export?)
 
 2.11.5.1 (2008-03-29)
 - bug #1909711 [security] Sensitive data in session files

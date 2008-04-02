@@ -2442,4 +2442,50 @@ function PMA_cacheSet($var, $val = null, $server = 0)
     $_SESSION['cache']['server_' . $server][$var] = $val;
 }
 
+/**
+ * Converts a bit value to printable format;
+ * in MySQL a BIT field can be from 1 to 64 bits so we need this
+ * function because in PHP, decbin() supports only 32 bits
+ *
+ * @uses    ceil()
+ * @uses    decbin()
+ * @uses    ord()
+ * @uses    substr()
+ * @uses    sprintf()
+ * @param   numeric $value coming from a BIT field
+ * @param   integer $length 
+ * @return  string  the printable value 
+ */
+function PMA_printable_bit_value($value, $length) {
+    $printable = '';
+    for ($i = 0; $i < ceil($length / 8); $i++) {
+        $printable .= sprintf('%08d', decbin(ord(substr($value, $i, 1))));
+    }
+    $printable = substr($printable, -$length);
+    return $printable;
+}
+
+/**
+ * Extracts the true field type and length from a field type spec
+ *
+ * @uses    strpos()
+ * @uses    chop()
+ * @uses    substr()
+ * @param   string $fieldspec 
+ * @return  array associative array containing the type and length 
+ */
+function PMA_extract_type_length($fieldspec) {
+    $first_bracket_pos = strpos($fieldspec, '(');
+    if ($first_bracket_pos) {
+        $length = chop(substr($fieldspec, $first_bracket_pos + 1, (strpos($fieldspec, ')') - $first_bracket_pos - 1)));
+        $type = chop(substr($fieldspec, 0, $first_bracket_pos));
+    } else {
+        $type = $fieldspec;
+        $length = '';
+    }
+    return array(
+        'type' => $type,
+        'length' => $length
+    );
+}
 ?>
