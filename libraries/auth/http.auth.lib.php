@@ -135,10 +135,16 @@ function PMA_auth_check()
     }
 
     // Decode possibly encoded information (used by IIS/CGI/FastCGI)
+    // (do not use explode() because a user might have a colon in his password
     if (strcmp(substr($PHP_AUTH_USER, 0, 6), 'Basic ') == 0) {
         $usr_pass = base64_decode(substr($PHP_AUTH_USER, 6));
-        if (!empty($usr_pass) && strpos($usr_pass, ':') !== false) {
-            list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', $usr_pass);
+        if (! empty($usr_pass)) {
+            $colon = strpos($usr_pass, ':');
+            if ($colon) {
+                $PHP_AUTH_USER = substr($usr_pass, 0, $colon);
+                $PHP_AUTH_PW = substr($usr_pass, $colon + 1);
+            }
+            unset($colon);
         }
         unset($usr_pass);
     }
