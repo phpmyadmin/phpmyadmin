@@ -336,16 +336,16 @@ window.setTimeout('PMA_focusInput()', 500);
  *
  * this function DOES NOT check authentication - it just checks/provides
  * authentication credentials required to connect to the MySQL server
- * usally with PMA_DBI_connect()
+ * usually with PMA_DBI_connect()
  *
- * it returns false if there is missing something - which usally leads to
+ * it returns false if something is missing - which usually leads to
  * PMA_auth() which displays login form
  *
- * it returns true if all seems ok which usally leads to PMA_auth_set_user()
+ * it returns true if all seems ok which usually leads to PMA_auth_set_user()
  *
  * it directly switches to PMA_auth_fails() if user inactivity timout is reached
  *
- * @todo    AllowArbitraryServer on does not imply that the user wnats an
+ * @todo    AllowArbitraryServer on does not imply that the user wants an
  *          arbitrary server, or? so we should also check if this is filled and
  *          not only if allowed
  * @uses    $GLOBALS['PHP_AUTH_USER']
