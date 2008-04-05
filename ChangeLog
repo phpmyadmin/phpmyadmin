@@ -69,6 +69,8 @@ danbarry
 - bug #1926357 [data] BIT defaults displayed incorrectly (todo: export?)
 - patch #1930057 [auth] colon in password prevents HTTP login on CGI/IIS,
   thanks to Jürgen Wind - windkiel
+- patch #1929553 [lang] Don't output BOM character in Swedish language file,
+  thanks to Samuel L. B. - samuellb
 
 2.11.5.1 (2008-03-29)
 - bug #1909711 [security] Sensitive data in session files
