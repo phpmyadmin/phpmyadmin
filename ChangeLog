@@ -20,7 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Tony Marston - tonymarston 
 - bug #1918531 [compatibility] Navigation isn't w3.org valid 
   thanks to Michael Keck - mkkeck 
-- bug #1926357 [data] BIT defaults displayed incorrectly (todo: export?)
+- bug #1926357 [data] BIT defaults displayed incorrectly
 - patch #1930057 [auth] colon in password prevents HTTP login on CGI/IIS, 
   thanks to Jürgen Wind - windkiel
 - patch #1929553 [lang] Don't output BOM character in Swedish language file,
