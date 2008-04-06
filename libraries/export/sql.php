@@ -60,7 +60,10 @@ if (isset($plugin_list)) {
                     $drop_clause = 'DROP TABLE';
                 }
             } else {
-                $drop_clause = 'DROP TABLE / DROP VIEW';
+		$drop_clause = 'DROP TABLE / VIEW / PROCEDURE / FUNCTION';
+		if (PMA_MYSQL_INT_VERSION > 50100) {
+                    $drop_clause .= ' / EVENT';
+                }
             }
             $plugin_list['sql']['options'][] =
                 array('type' => 'bool', 'name' => 'drop_table', 'text' => sprintf($GLOBALS['strAddClause'], $drop_clause));
@@ -340,6 +343,9 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment();
 
             foreach($procedure_names as $procedure_name) {
+                if (! empty($GLOBALS['sql_drop_table'])) {
+		    $text .= 'DROP PROCEDURE ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
+                }	
                 $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
         }
@@ -351,6 +357,9 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment();
 
             foreach($function_names as $function_name) {
+                if (! empty($GLOBALS['sql_drop_table'])) {
+		    $text .= 'DROP FUNCTION ' . PMA_backquote($function_name) . $delimiter . $crlf;
+                }	
                 $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
         }
@@ -362,6 +371,9 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment();
 
             foreach($event_names as $event_name) {
+                if (! empty($GLOBALS['sql_drop_table'])) {
+		    $text .= 'DROP EVENT ' . PMA_backquote($event_name) . $delimiter . $crlf;
+                }	
                 $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name) . $delimiter . $crlf . $crlf;
             }
         }
