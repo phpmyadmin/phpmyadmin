@@ -528,7 +528,7 @@ $strNoValidateSQL = 'SQL の検証をスキップ';
 $strNull = 'ヌル(NULL)';
 $strNumberOfFields = 'フィールド数';
 $strNumberOfTables = 'テーブル数';
-$strNumSearchResultsInTable = '%s 件（テーブル <i>$s</i>)';
+$strNumSearchResultsInTable = '%s 件（テーブル <i>%s</i>)';
 $strNumSearchResultsTotal = '<b>合計:</b> <i>%s</i> 件';
 $strNumTables = 'テーブル';
 
