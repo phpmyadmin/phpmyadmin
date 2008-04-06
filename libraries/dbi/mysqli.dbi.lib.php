@@ -499,6 +499,7 @@ function PMA_DBI_get_fields_meta($result)
     // https://sf.net/tracker/?func=detail&aid=1532111&group_id=23067&atid=377408
     //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
     $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'unknown';
+    $typeAr[MYSQLI_TYPE_BIT]         = 'bit';
 
     $fields = mysqli_fetch_fields($result);
 

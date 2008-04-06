@@ -488,6 +488,10 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     // results below. Nonetheless, we got 2 user reports about this
     // (see bug 1562533) so I remove the unbuffered mode.
     //$result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
+    //
+    // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
+    // produce a displayable result for the default value of a BIT
+    // field, nor does the mysqldump command. See MySQL bug 35796
     $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
     if ($result != FALSE && ($row = PMA_DBI_fetch_row($result))) {
         $create_query = $row[1];
@@ -900,6 +904,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     } else {
                         $values[] = '0x' . bin2hex($row[$j]);
                     }
+                // detection of 'bit' works only on mysqli extension
+                } elseif ($fields_meta[$j]->type == 'bit') {
+                    $values[] = "b'" . PMA_sqlAddslashes(PMA_printable_bit_value($row[$j], $fields_meta[$j]->length)) . "'";
                 // something else -> treat as a string
                 } else {
                     $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
