@@ -258,6 +258,12 @@ if (top != self) {
             echo '<div class="error">' . $error . '</div>' . "\n";
         }
     }
+    // the warning is also displayed on main page but show it also here,
+    // because on some PHP versions running on 64-bit, the blowfish library
+    // does not work and this would prevent login
+    if (defined('PMA_WARN_FOR_MCRYPT')) {
+        echo '<div class="warning">' . PMA_sanitize(sprintf($GLOBALS['strCantLoad'], 'mcrypt')) . '</div>' . "\n";
+    }
     ?>
 </div>
 <script type="text/javascript">
