@@ -71,6 +71,8 @@ danbarry
   thanks to Jürgen Wind - windkiel
 - patch #1929553 [lang] Don't output BOM character in Swedish language file,
   thanks to Samuel L. B. - samuellb
+- patch #1895796 [lang] Typo in Japanese lang files,
+  thanks to tyman - acoustype
 
 2.11.5.1 (2008-03-29)
 - bug #1909711 [security] Sensitive data in session files
