@@ -28,6 +28,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #1895796 [lang] Typo in Japanese lang files,
   thanks to tyman - acoustype
 - bug #1935652 [auth] Access denied (show warning about mcrypt on login page)
+- bug #1906983 [export] Reimport of FUNCTION fails
 
 2.11.5.1 (2008-03-29)
 - bug #1909711 [security] Sensitive data in session files
