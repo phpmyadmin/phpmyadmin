@@ -191,11 +191,12 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $row = $fields_meta[$i];
     }
 
-    $type_and_length = PMA_extract_type_length($row['Type']);
-    if ($type_and_length['type'] == 'bit') {
-        $row['Default'] = PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+    if (isset($row) && isset($row['Type'])) {
+        $type_and_length = PMA_extract_type_length($row['Type']);
+        if ($type_and_length['type'] == 'bit') {
+            $row['Default'] = PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+        }
     }
-    
     // Cell index: If certain fields get left out, the counter shouldn't chage.
     $ci = 0;
     // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
