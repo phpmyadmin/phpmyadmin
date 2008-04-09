@@ -131,7 +131,7 @@ function PMA_getAvailableMIMEtypes()
 }
 
 /**
- * Gets the mimetypes for all rows of a table
+ * Gets the mimetypes for all columns of a table
  *
  * @uses    $GLOBALS['controllink']
  * @uses    PMA_getRelationsParam()

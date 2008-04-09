@@ -32,49 +32,49 @@ if (is_int($cfg['DefaultPropDisplay'])) {
     $display_type = $cfg['DefaultPropDisplay'];
 }
 
-$_form_aprams = array(
+$_form_params = array(
     'db' => $db,
     'table' => $table,
 );
 
 if ($action == 'tbl_create.php') {
-    $_form_aprams['reload'] = 1;
+    $_form_params['reload'] = 1;
 } elseif ($action == 'tbl_addfield.php') {
-    $_form_aprams['field_where'] = $field_where;
-    $_form_aprams['after_field'] = $after_field;
+    $_form_params['field_where'] = $field_where;
+    $_form_params['after_field'] = $after_field;
 }
 
 if (isset($num_fields)) {
-    $_form_aprams['orig_num_fields'] = $num_fields;
+    $_form_params['orig_num_fields'] = $num_fields;
 }
 
 if (isset($field_where)) {
-    $_form_aprams['orig_field_where'] = $field_where;
+    $_form_params['orig_field_where'] = $field_where;
 }
 
 if (isset($after_field)) {
-    $_form_aprams['orig_after_field'] = $after_field;
+    $_form_params['orig_after_field'] = $after_field;
 }
 
 if (isset($selected) && is_array($selected)) {
     foreach ($selected as $o_fld_nr => $o_fld_val) {
-        $_form_aprams['selected[' . $o_fld_nr . ']'] = $o_fld_val;
+        $_form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
         if (! isset($true_selected)) {
-            $_form_aprams['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
+            $_form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
     }
 
     if (isset($true_selected) && is_array($true_selected)) {
         foreach ($true_selected as $o_fld_nr => $o_fld_val) {
-            $_form_aprams['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
+            $_form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
     }
 } elseif (isset($field)) {
-    $_form_aprams['orig_field'] = $field;
+    $_form_params['orig_field'] = $field;
     if (isset($orig_field)) {
-        $_form_aprams['true_selected[]'] = $orig_field;
+        $_form_params['true_selected[]'] = $orig_field;
     } else {
-        $_form_aprams['true_selected[]'] = $field;
+        $_form_params['true_selected[]'] = $field;
     }
 }
 
@@ -543,7 +543,8 @@ function display_field_options(field_type, i) {
 
 <form method="post" action="<?php echo $action; ?>">
 <?php
-echo PMA_generate_common_hidden_inputs($_form_aprams);
+echo PMA_generate_common_hidden_inputs($_form_params);
+unset($_form_params);
 
 if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
