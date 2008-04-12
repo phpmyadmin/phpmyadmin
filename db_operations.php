@@ -40,12 +40,11 @@ if (strlen($db) &&
            (isset($create_database_before_copying) && $create_database_before_copying)) {
             /**
              * @todo activate this with the correct version of MySQL
-             *       when they fix the problem when the db contains a VIEW 
-             *       (problem exists in 5.1.20)
-             *       also, in 6.0.0 when the db contains a Falcon table,
-             *       renaming it results in a unusable db!
+             *       if/when they offer this functionality 
+	     *
+	     *       Note: RENAME DATABASE was removed in 5.1.23
              */
-            //if (PMA_MYSQL_INT_VERSION >= 50107) {
+            //if (PMA_MYSQL_INT_VERSION >= XYYZZ) {
             //    $local_query = 'RENAME DATABASE ' . PMA_backquote($db) . ' TO ' . PMA_backquote($newname) . ';';
             //    $sql_query = $local_query;
             //    PMA_DBI_query($local_query);
@@ -287,7 +286,7 @@ if (!$is_information_schema) {
     /**
      * @todo (see explanations above in a previous todo) 
      */
-    //if (PMA_MYSQL_INT_VERSION >= 50107) {
+    //if (PMA_MYSQL_INT_VERSION >= XYYZZ) {
     //    echo 'RENAME DATABASE';
     //} else {
         echo 'INSERT INTO ... SELECT';
