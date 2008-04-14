@@ -432,13 +432,15 @@ $possible_row_formats = array(
 // does not return a warning
 // (if the table was compressed, it can be seen on the Structure page)
 
-$current_row_format = strtoupper($showtable['Row_format']);
-echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
-echo '<td>';
-PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
-unset($possible_row_formats, $current_row_format);
-echo '</td>';
-echo '</tr>';
+if (isset($possible_row_formats[$tbl_type])) {
+    $current_row_format = strtoupper($showtable['Row_format']);
+    echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
+    echo '<td>';
+    PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
+    unset($possible_row_formats, $current_row_format);
+    echo '</td>';
+    echo '</tr>';
+}
 ?>
     </table>
 </fieldset>
