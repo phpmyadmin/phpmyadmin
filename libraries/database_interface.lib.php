@@ -848,7 +848,8 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         }
 
         // and we remove the non-UTF-8 choices to avoid confusion
-        if (!defined('PMA_REMOVED_NON_UTF_8')) {
+        // (unless there is a forced language)
+        if (!defined('PMA_REMOVED_NON_UTF_8') && ! isset($GLOBALS['cfg']['Lang'])) {
             foreach ($GLOBALS['available_languages'] as $each_lang => $dummy) {
                 if (substr($each_lang, -5) != 'utf-8') {
                     unset($GLOBALS['available_languages'][$each_lang]);
