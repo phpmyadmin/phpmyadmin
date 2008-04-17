@@ -77,6 +77,8 @@ danbarry
 - bug #1906983 [export] Reimport of FUNCTION fails
 - bug #1919808 [operations] Renaming a database fails to handle functions 
 - bug #1934401 [core] Cannot force a language
+- bug #1944077 [core] Config file containing a BOM,
+  thanks to Gaetano Giunta - ggiunta
 
 2.11.5.1 (2008-03-29)
 - bug #1909711 [security] Sensitive data in session files
