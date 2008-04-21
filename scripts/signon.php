@@ -41,7 +41,7 @@ if (isset($_POST['user'])) {
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin single signon example</title>
-<html>
+</head>
 <body>
 <form action="signon.php" method="post">
 Username: <input type="text" name="user" /><br />
