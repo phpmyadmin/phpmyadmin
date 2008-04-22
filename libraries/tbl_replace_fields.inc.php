@@ -116,7 +116,7 @@ if ($me_fields_upload != 'none') {
             }
             unset($tmp_subdir);
         }
-    } elseif (! empty($me_fields_uploadlocal)) {
+    } elseif (! empty($me_fields_uploadlocal) && !empty($GLOBALS['cfg']['UploadDir'])) {
         // ... or selected file from $cfg['UploadDir']
 
         $file_to_insert = PMA_userDir($GLOBALS['cfg']['UploadDir']) . preg_replace('@\.\.*@', '.', $me_fields_uploadlocal);
