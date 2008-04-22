@@ -273,9 +273,7 @@ Todo now:
  9. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
 
-10. Visit http://phpmyadmin.net/home_page/version.php then copy the results to /home/groups/p/ph/phpmyadmin/htdocs/latest.txt. This is needed for users of the pre-2.8.0 scripts/upgrade.pl.
-
-11. the end :-)
+10. the end :-)
 
 END
 
