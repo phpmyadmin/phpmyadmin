@@ -449,6 +449,8 @@ class PMA_File
      */
     function setLocalSelectedFile($name)
     {
+        if (empty($GLOBALS['cfg']['UploadDir'])) return false;
+
         $this->setName(PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name));
         if (! $this->isReadable()) {
             $this->_error_message = $GLOBALS['strFileCouldNotBeRead'];
