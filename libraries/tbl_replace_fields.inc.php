@@ -61,7 +61,7 @@ if (isset(${'me_fields_upload_' . $encoded_key}) && ${'me_fields_upload_' . $enc
             // void
         }
 
-    } elseif (!empty(${'me_fields_uploadlocal_' . $encoded_key})) {
+    } elseif (!empty(${'me_fields_uploadlocal_' . $encoded_key}) && !empty($GLOBALS['cfg']['UploadDir'])) {
         $file_to_upload = PMA_userDir($cfg['UploadDir']) . preg_replace('@\.\.*@', '.', ${'me_fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.
