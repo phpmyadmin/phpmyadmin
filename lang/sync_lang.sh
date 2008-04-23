@@ -125,7 +125,7 @@ serbian_cyrillic-utf-8
 serbian_latin-utf-8
 slovenian-iso-8859-2
 slovak-utf-8
-spanish-iso-8859-1
+spanish-utf-8
 swedish-iso-8859-1
 tatarish-iso-8859-9
 thai-utf-8
