@@ -119,7 +119,7 @@ norwegian-iso-8859-1
 persian-windows-1256
 polish-iso-8859-2
 portuguese-iso-8859-1
-romanian-iso-8859-1
+romanian-utf-8
 russian-windows-1251
 serbian_cyrillic-utf-8
 serbian_latin-utf-8

@@ -37,6 +37,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Gaetano Giunta - ggiunta
 - bug #1947189 [scripts] Missing </head> in scripts/signon.php,
   thanks to Dolf Schimmel
++ [lang] Romanian update, thanks to Sergiu Bivol - sbivol
 
 2.11.5.2 (2008-04-22)
 - PMASA-2008-3 [security] File disclosure 
