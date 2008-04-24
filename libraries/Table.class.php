@@ -345,19 +345,29 @@ class PMA_Table {
             $query .= ' ' . $extra;
             // Force an auto_increment field to be part of the primary key
             // even if user did not tick the PK box; 
-            // but the PK could contain other columns so do not append
-            // a PRIMARY KEY clause, just add a member to $field_primary
             if ($extra == 'AUTO_INCREMENT') {
                 $primary_cnt = count($field_primary);
-                $found_in_pk = false;
-                for ($j = 0; $j < $primary_cnt; $j++) {
-                    if ($field_primary[$j] == $index) {
-                        $found_in_pk = true;
-                        break;
+                if (1 == $primary_cnt) {
+                    for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $index; $j++) {
+                        //void
                     }
-                } // end for
-                if (! $found_in_pk) {
-                    $field_primary[] = $index;
+                    if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
+                        $query .= ' PRIMARY KEY';
+                        unset($field_primary[$j]);
+                    }
+                // but the PK could contain other columns so do not append
+                // a PRIMARY KEY clause, just add a member to $field_primary
+                } else {
+                    $found_in_pk = false;
+                    for ($j = 0; $j < $primary_cnt; $j++) {
+                        if ($field_primary[$j] == $index) {
+                            $found_in_pk = true;
+                            break;
+                        }
+                    } // end for
+                    if (! $found_in_pk) {
+                        $field_primary[] = $index;
+                    }
                 }
             } // end if (auto_increment)
         }
