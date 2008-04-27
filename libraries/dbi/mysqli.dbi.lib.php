@@ -13,26 +13,6 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
     unset($client_api);
 }
 
-// Constants from mysql_com.h of MySQL 4.1.3
-/**
- * @deprecated
-define('NOT_NULL_FLAG',         MYSQLI_NOT_NULL_FLAG);
-define('PRI_KEY_FLAG',          MYSQLI_PRI_KEY_FLAG);
-define('UNIQUE_KEY_FLAG',       MYSQLI_UNIQUE_KEY_FLAG);
-define('MULTIPLE_KEY_FLAG',     MYSQLI_MULTIPLE_KEY_FLAG);
-define('BLOB_FLAG',             MYSQLI_BLOB_FLAG);
-define('UNSIGNED_FLAG',         MYSQLI_UNSIGNED_FLAG);
-define('ZEROFILL_FLAG',         MYSQLI_ZEROFILL_FLAG);
-define('BINARY_FLAG',           MYSQLI_BINARY_FLAG);
-define('ENUM_FLAG',             MYSQLI_TYPE_ENUM);
-define('AUTO_INCREMENT_FLAG',   MYSQLI_AUTO_INCREMENT_FLAG);
-define('TIMESTAMP_FLAG',        MYSQLI_TIMESTAMP_FLAG);
-define('SET_FLAG',              MYSQLI_SET_FLAG);
-define('NUM_FLAG',              MYSQLI_NUM_FLAG);
-define('PART_KEY_FLAG',         MYSQLI_PART_KEY_FLAG);
-define('UNIQUE_FLAG',           MYSQLI_UNIQUE_FLAG);
- */
-
 /**
  * some older mysql client libs are missing this constants ...
  */
@@ -679,17 +659,20 @@ function PMA_DBI_field_name($result, $i)
  */
 function PMA_DBI_field_flags($result, $i)
 {
+    // This is missing from PHP 5.2.5, see http://bugs.php.net/bug.php?id=44846
+    if (! defined('MYSQLI_ENUM_FLAG')) {
+        define('MYSQLI_ENUM_FLAG', 256); // see MySQL source include/mysql_com.h
+    }
     $f = mysqli_fetch_field_direct($result, $i);
     $f = $f->flags;
     $flags = '';
     if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique ';}
     if ($f & MYSQLI_NUM_FLAG)            { $flags .= 'num ';}
     if ($f & MYSQLI_PART_KEY_FLAG)       { $flags .= 'part_key ';}
-    if ($f & MYSQLI_TYPE_SET)            { $flags .= 'set ';}
+    if ($f & MYSQLI_SET_FLAG)            { $flags .= 'set ';}
     if ($f & MYSQLI_TIMESTAMP_FLAG)      { $flags .= 'timestamp ';}
     if ($f & MYSQLI_AUTO_INCREMENT_FLAG) { $flags .= 'auto_increment ';}
-    if ($f & MYSQLI_TYPE_ENUM)           { $flags .= 'enum ';}
-    // @TODO seems to be outdated
+    if ($f & MYSQLI_ENUM_FLAG)           { $flags .= 'enum ';}
     if ($f & MYSQLI_BINARY_FLAG)         { $flags .= 'binary ';}
     if ($f & MYSQLI_ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
     if ($f & MYSQLI_UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
