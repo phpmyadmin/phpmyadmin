@@ -643,7 +643,6 @@ function PMA_DBI_field_name($result, $i)
  * @uses    MYSQLI_TIMESTAMP_FLAG
  * @uses    MYSQLI_AUTO_INCREMENT_FLAG
  * @uses    MYSQLI_TYPE_ENUM
- * @uses    MYSQLI_BINARY_FLAG
  * @uses    MYSQLI_ZEROFILL_FLAG
  * @uses    MYSQLI_UNSIGNED_FLAG
  * @uses    MYSQLI_BLOB_FLAG
@@ -664,6 +663,7 @@ function PMA_DBI_field_flags($result, $i)
         define('MYSQLI_ENUM_FLAG', 256); // see MySQL source include/mysql_com.h
     }
     $f = mysqli_fetch_field_direct($result, $i);
+    $charsetnr = $f->charsetnr;
     $f = $f->flags;
     $flags = '';
     if ($f & MYSQLI_UNIQUE_KEY_FLAG)     { $flags .= 'unique ';}
@@ -673,7 +673,11 @@ function PMA_DBI_field_flags($result, $i)
     if ($f & MYSQLI_TIMESTAMP_FLAG)      { $flags .= 'timestamp ';}
     if ($f & MYSQLI_AUTO_INCREMENT_FLAG) { $flags .= 'auto_increment ';}
     if ($f & MYSQLI_ENUM_FLAG)           { $flags .= 'enum ';}
-    if ($f & MYSQLI_BINARY_FLAG)         { $flags .= 'binary ';}
+    // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
+    // to determine the data type, we should not use MYSQLI_BINARY_FLAG
+    // the binary flag but instead the charsetnr member of the MYSQL_FIELD
+    // structure. Unfortunately there is no equivalent in the mysql extension.
+    if (63 == $charsetnr)                { $flags .= 'binary ';}
     if ($f & MYSQLI_ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
     if ($f & MYSQLI_UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
     if ($f & MYSQLI_BLOB_FLAG)           { $flags .= 'blob ';}
