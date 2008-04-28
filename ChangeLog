@@ -54,6 +54,8 @@ danbarry
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
 - [dbi] Incorrect interpretation for some mysqli field flags
+- bug #1910621 [display] part 1: do not display a TEXT utf8_bin as BLOB
+  (fixed for mysqli extension only)
 
 2.11.6.0 (not yet released)
 - bug #1903724 [interface] Displaying of very large queries in error message
