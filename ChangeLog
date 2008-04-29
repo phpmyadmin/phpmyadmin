@@ -57,7 +57,7 @@ danbarry
 - bug #1910621 [display] part 1: do not display a TEXT utf8_bin as BLOB
   (fixed for mysqli extension only)
 
-2.11.6.0 (not yet released)
+2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
 - bug #1905711 [compatibility] Functions deprecated in PHP 5.3: is_a() and
   get_magic_quotes_gpc(), thanks to Dmitry N. Shilnikov - yrtimd
