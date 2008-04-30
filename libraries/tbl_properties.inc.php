@@ -68,7 +68,7 @@ if ($action == 'tbl_create.php') {
 } elseif ($action == 'tbl_addfield.php') {
     ?>
     <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
-    <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
+    <input type="hidden" name="after_field" value="<?php echo PMA_sanitize($after_field); ?>" />
     <?php
 }
 
@@ -86,7 +86,7 @@ if (isset($field_where)) {
 
 if (isset($after_field)) {
     ?>
-    <input type="hidden" name="orig_after_field" value="<?php echo $after_field; ?>" />
+    <input type="hidden" name="orig_after_field" value="<?php echo PMA_sanitize($after_field); ?>" />
     <?php
 }
 
