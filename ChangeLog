@@ -58,6 +58,7 @@ danbarry
   (fixed for mysqli extension only)
 - [interface] sanitize the after_field parameter,
   thanks to Norman Hippert
+- [structure] do not remove the BINARY attribute in drop-down
 
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
