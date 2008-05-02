@@ -48,7 +48,7 @@ PMA_DBI_select_db($GLOBALS['db']);
 require './libraries/tbl_info.inc.php';
 
 // define some globals here, for improved syntax in the conditionals
-$is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = false;
+$is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = $is_pbxt = false;
 // set initial value of these globals, based on the current table engine
 PMA_set_global_variables_for_engine($tbl_type);
 
@@ -133,13 +133,13 @@ if (isset($_REQUEST['submitoptions'])) {
         $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
     }
 
-    if (($is_myisam_or_maria || $is_innodb)
+    if (($is_myisam_or_maria || $is_innodb || $is_pbxt)
       &&  ! empty($_REQUEST['new_auto_increment'])
       && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
         $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
     }
 
-    if (($is_myisam_or_maria || $is_innodb)
+    if (($is_myisam_or_maria || $is_innodb || $is_pbxt)
       &&  ! empty($_REQUEST['new_row_format'])
       && (! isset($row_format) || $_REQUEST['new_row_format'] !== $row_format)) {
         $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddslashes($_REQUEST['new_row_format']);
@@ -299,7 +299,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 
 // PACK_KEYS: MyISAM or ISAM
 // DELAY_KEY_WRITE, CHECKSUM, : MyISAM only
-// AUTO_INCREMENT: MyISAM and InnoDB since 5.0.3
+// AUTO_INCREMENT: MyISAM and InnoDB since 5.0.3, PBXT
 
 // nijel: Here should be version check for InnoDB, however it is supported
 // in >5.0.4, >4.1.12 and >4.0.11, so I decided not to
@@ -412,7 +412,7 @@ if ($is_maria) {
 } // end if (MARIA)
 
 if (isset($auto_increment) && strlen($auto_increment) > 0
-  && ($is_myisam_or_maria || $is_innodb)) {
+  && ($is_myisam_or_maria || $is_innodb || $is_pbxt)) {
     ?>
     <tr><td><label for="auto_increment_opt">AUTO_INCREMENT</label></td>
         <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
@@ -424,6 +424,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 $possible_row_formats = array(
     'MARIA'  => array('FIXED','DYNAMIC','PAGE'),
     'MYISAM' => array('FIXED','DYNAMIC'),
+    'PBXT'   => array('FIXED','DYNAMIC'),
     'INNODB' => array('COMPACT','REDUNDANT')
 );
 // for MYISAM there is also COMPRESSED but it can be set only by the
@@ -699,9 +700,9 @@ require_once './libraries/footer.inc.php';
 
 function PMA_set_global_variables_for_engine($tbl_type) 
 {
-    global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb, $is_maria;
+    global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb, $is_maria, $is_pbxt;
 
-    $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = false;
+    $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = $is_pbxt = false;
     $upper_tbl_type = strtoupper($tbl_type);
     
     //Options that apply to MYISAM usually apply to MARIA
@@ -711,6 +712,7 @@ function PMA_set_global_variables_for_engine($tbl_type)
     $is_isam = ($upper_tbl_type == 'ISAM');
     $is_innodb = ($upper_tbl_type == 'INNODB');
     $is_berkeleydb = ($upper_tbl_type == 'BERKELEYDB');
+    $is_pbxt = ($upper_tbl_type == 'PBXT');
 }
 
 ?>
