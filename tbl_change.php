@@ -385,6 +385,7 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         $field = $table_fields[$i];
+        $type_and_length = PMA_extract_type_length($field['Type']);
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
@@ -424,7 +425,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($vrow[$field], $len);
+                $special_chars = PMA_printable_bit_value($vrow[$field], $type_and_length['length']);
             } else {
                 // loic1: special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
@@ -454,7 +455,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($field['Default'], $len); 
+                $special_chars = PMA_printable_bit_value($field['Default'], $type_and_length['length']); 
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }
