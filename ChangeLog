@@ -61,6 +61,8 @@ danbarry
   thanks to Norman Hippert
 - [structure] do not remove the BINARY attribute in drop-down
 - bug #1955386 [session] Overriding session.hash_bits_per_character 
+- [interface] sanitize the table comments in table print view, 
+  thanks to Norman Hippert
 
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
