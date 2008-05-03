@@ -148,7 +148,7 @@ foreach ($the_tables as $key => $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo $strTableComments . ': ' . $show_comment . '<br /><br />';
+        echo $strTableComments . ': ' . htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
