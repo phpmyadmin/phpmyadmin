@@ -71,6 +71,7 @@ function get_tabs()
 
         $i++;
     }
+
     $GLOBALS['script_display_field'] .=
         '// ]]>' . "\n" .
         '</script>' . "\n";
@@ -142,7 +143,7 @@ function get_script_contr()
                 $i++;
             }
         }
-        $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'innodb');
+        $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
         //echo "<br> INNO ";
         //print_r($row);
         if ($row !== false) {
@@ -214,10 +215,11 @@ function get_all_keys($unique_only = false)
         $schema = $GLOBALS['PMD']['OWNER'][$I];
         // for now, take into account only the first index segment
         foreach (PMA_Index::getFromTable($table, $schema) as $index) {
-            if ($unique_only && $index->isUnique()) {
-                $column = key($index->getColumns());
-                $keys[$schema . '.' .$table . '.' . $column] = 1;
+            if ($unique_only && ! $index->isUnique()) {
+                continue;
             }
+            $column = key($index->getColumns());
+            $keys[$schema . '.' .$table . '.' . $column] = 1;
         }
     }
     

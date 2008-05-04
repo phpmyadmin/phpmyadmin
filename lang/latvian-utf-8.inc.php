@@ -279,7 +279,6 @@ $strInnodbStat = 'InnoDB statuss';
 $strInsecureMySQL = 'Jūsu konfigurācijas fails satur iestādījumus (lietotājs "root" bez paroles), kas atbilst noklusētajam MySQL priviliģētajam lietotājam. Jūsu MySQL serveris strādā ar šo noklusēto variantu, ir atvērts uzbrukumiem, un Jums tiešām jāaiztaisa šis drošības caurums.';
 $strInsertAsNewRow = 'Ievietot kā jaunu rindu';
 $strInsert = 'Pievienot';
-$strInternalNotNecessary = '* Iekšējā relācija nav nepieciešama, kad tā eksistē arī iekš InnoDB.';
 $strInternalRelations = 'Iekšējās relācijas';
 $strInUse = 'lietošanā';
 
@@ -994,7 +993,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1070,4 +1068,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

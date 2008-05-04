@@ -243,7 +243,6 @@ $strInnodbStat = 'Estado da InnoDB';
 $strInsecureMySQL = 'O seu ficheiro de configuração contem configurações (root sem palavra-passe) que correspondem à conta privilegiada por defeito do MySQL. O servidor MySQL está a correr com este valor por defeito, assim aberto a intrusões, deveria corrigir este buraco de segurança.';
 $strInsertAsNewRow = 'Insere como novo registo';
 $strInsert = 'Insere';
-$strInternalNotNecessary = '* Não é necessária uma relação interna quando também já existe na InnoDB.';
 $strInternalRelations = 'Relações internas';
 $strInUse = 'em uso';
 
@@ -998,7 +997,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1074,4 +1072,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

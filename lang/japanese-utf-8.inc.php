@@ -370,12 +370,10 @@ $strInnoDBDataFilePath = 'データファイル';
 $strInnoDBDataHomeDir = 'データのホームディレクトリ';
 $strInnoDBDataHomeDirDesc = 'すべての InnoDB データファイルに共通するディレクトリパス';
 $strInnoDBPages = 'ページ';
-$strInnoDBRelationAdded = 'InnoDB リレーションを追加しました';
 $strInnodbStat = 'InnoDB ステータス';
 $strInsecureMySQL = 'お使いの設定ファイルに MySQL のデフォルト特権アカウントに相当する設定 (root ユーザでパスワードなし) が含まれています。お使いの MySQL サーバはこのデフォルト設定で動作しているため不正アクセス可能な状態になっています。このセキュリティーホールはかならず閉ざしてください';
 $strInsertAsNewRow = '新しい行として挿入する';
 $strInsert = '挿入';
-$strInternalNotNecessary = '* InnoDB にも内部リレーションが存在している場合は不要です';
 $strInternalRelationAdded = '内部リレーションを追加しました';
 $strInternalRelations = '内部リレーション';
 $strInUse = '使用中';
@@ -1064,4 +1062,6 @@ $strTexyText = 'Texy!テキスト';  //to translate
 $strWebServerInformation = 'ウェブサーバ情報';  //to translate
 
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

@@ -290,7 +290,6 @@ $strInnodbStat = 'InnoDB būsena';
 $strInsecureMySQL = 'Jūsų parinkčių byloje yra nurodyti standartiniai nustatymai (pvz: root vartotojas be slaptažožio). Taip sutinkinta MySQL darbinė stotis yra nesaugi, bei gali būti atvira įsilaužimams, todėl rekomenduojame pakeisti šias parinktis.';
 $strInsertAsNewRow = 'Įterpti naują įrašą';
 $strInsert = 'Įterpti';
-$strInternalNotNecessary = '* Galite nenaudoti vidinių sąryšių, jeigu jie jau apibrėžti InnoDB.';
 $strInternalRelations = 'Vidiniai sąryšiai';
 $strInUse = 'šiuo metu naudojama';
 
@@ -987,7 +986,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1063,4 +1061,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

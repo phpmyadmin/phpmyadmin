@@ -259,7 +259,6 @@ $strInnodbStat = 'InnoDB stanje';
 $strInsecureMySQL = 'Konfiguracijska datoteka vsebuje nastavitve (uporabnik root brez gesla), ki odgovarjajo privzetemu privlegiranemu računu MySQLa. MySQL strežnik teče s privzetimi nastavitvami, zato je izpostavljen vdorom. Čimprej odpravite ti dve varnostni luknji.';
 $strInsertAsNewRow = 'Vstavi kot novo vrstico';
 $strInsert = 'Vstavi';
-$strInternalNotNecessary = '* Notranja relacija je nepotrebna, če obstaja tudi v InnoDB.';
 $strInternalRelations = 'Notranje relacije';
 $strInUse = 'v uporabi';
 
@@ -991,7 +990,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1067,4 +1065,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

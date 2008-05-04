@@ -492,7 +492,7 @@ if (isset($possible_row_formats[$tbl_type])) {
     <?php
         // display "Add constraints" choice only if there are
         // foreign keys
-        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'innodb')) {
+        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
         ?>
     <input type="checkbox" name="add_constraints" value="1" id="checkbox_constraints" />
     <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />

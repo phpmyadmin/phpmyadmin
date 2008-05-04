@@ -374,7 +374,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         $foreign = PMA_DBI_fetch_result($rel_query, 'master_field', null, $GLOBALS['controllink']);
     }
 
-    if (($source == 'both' || $source == 'innodb') && strlen($table)) {
+    if (($source == 'both' || $source == 'foreign') && strlen($table)) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_backquote($db) . '.' . PMA_backquote($table);
         $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 1);
@@ -388,8 +388,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             if (count($one_key['index_list']) == 1) {
                 foreach ($one_key['index_list'] as $i => $field) {
                     // If a foreign key is defined in the 'internal' source (pmadb)
-                    // and in 'innodb', we won't get it twice if $source='both'
-                    // because we use $field as key
+                    // and as a native foreign key, we won't get it twice 
+                    // if $source='both' because we use $field as key
 
                     // The parser looks for a CONSTRAINT clause just before
                     // the FOREIGN KEY clause. It finds it (as output from

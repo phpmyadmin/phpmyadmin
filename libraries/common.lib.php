@@ -2489,4 +2489,20 @@ function PMA_extract_type_length($fieldspec) {
         'length' => $length
     );
 }
+
+/**
+ * Verifies if this table's engine supports foreign keys 
+ *
+ * @uses    strtoupper()
+ * @param   string $engine
+ * @return  boolean 
+ */
+function PMA_foreignkey_supported($engine) {
+    $engine = strtoupper($engine);
+    if ('INNODB' == $engine || 'PBXT' == $engine) {
+        return true;
+    } else {
+        return false;
+    }
+} 
 ?>

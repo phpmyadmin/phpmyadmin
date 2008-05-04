@@ -254,7 +254,6 @@ $strInnodbStat = 'وضع InnoDB';
 $strInsecureMySQL = 'يحتوي ملف الإعدادت الخاص بك تعيينات )المستخدم root دون كلمة مرور( والذي يشير إلى حساب المستخدم الرئيسي لـMySQL. خادم MySQL الذي يعمل بهذه الإعدادت الافتراضية معرض لخطر الاقتحام، وعليك أن تقوم بإصلاح ثغرة الأمان هذه في أقرب وقت ممكن.';
 $strInsertAsNewRow = 'إدخال كتسجيل جديد';
 $strInsert = 'إدخال';
-$strInternalNotNecessary = '* العلاقة الداخلية غير ضرورية عندما تكون موجودة مسبقاً في InnoDB.';
 $strInternalRelations = 'العلاقات الداخلية';
 $strInUse = 'قيد الإستعمال';
 
@@ -997,7 +996,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1073,4 +1071,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

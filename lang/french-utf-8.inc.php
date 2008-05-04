@@ -374,14 +374,12 @@ $strInnoDBDataFilePath = 'Fichiers de données';
 $strInnoDBDataHomeDirDesc = 'Le chemin du répertoire pour tous les fichiers de données InnoDB.';
 $strInnoDBDataHomeDir = 'Répertoire des données';
 $strInnoDBPages = 'pages';
-$strInnoDBRelationAdded = 'Relation InnoDB ajoutée';
 $strInnodbStat = 'État InnoDB';
 $strInsecureMySQL = 'Votre fichier de configuration fait référence à l\'utilisateur root sans mot de passe, ce qui correspond à la valeur par défaut de MySQL.  Votre serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce problème de sécurité.';
 $strInsertAsNewRow = 'Sauvegarder un nouvel enregistrement';
 $strInsertedRowId = 'Identifiant de l\'enregistrement inséré : %1$d';
 $strInsert = 'Insérer';
 $strInterface = 'Interface';
-$strInternalNotNecessary = '* Si une relation existe dans InnoDB, il n\'est pas nécessaire de la définir dans les relations internes.';
 $strInternalRelationAdded = 'Relation interne ajoutée';
 $strInternalRelations = 'Relations internes';
 $strInUse = 'utilisé';
@@ -1044,4 +1042,6 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

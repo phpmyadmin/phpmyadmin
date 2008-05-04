@@ -377,14 +377,12 @@ $strInnoDBDataFilePath = 'Soubor s daty';
 $strInnoDBDataHomeDirDesc = 'Společná část cesty pro všechny soubory obsahující data InnoDB.';
 $strInnoDBDataHomeDir = 'Domovský adresář pro data';
 $strInnoDBPages = 'stránek';
-$strInnoDBRelationAdded = 'Vytvořena relace InnoDB';
 $strInnodbStat = 'Stav InnoDB';
 $strInsecureMySQL = 'Máte standardní nastavení hesla uživatele root v MySQL. Doporučujeme změnit toto nastavení a tím podstatně zvýšit zabezpečení vašeho serveru.';
 $strInsertAsNewRow = 'Vložit jako nový řádek';
 $strInsertedRowId = 'ID vloženého řádku: %1$d';
 $strInsert = 'Vložit';
 $strInterface = 'Rozhraní';
-$strInternalNotNecessary = '* Interní relace není potřebná, pokud již relace existuje v InnoDB.';
 $strInternalRelationAdded = 'Interní relace vytvořena';
 $strInternalRelations = 'Interní relace';
 $strInUse = 'právě se používá';
@@ -1047,4 +1045,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '„zazipováno“';
 
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

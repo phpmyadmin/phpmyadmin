@@ -23,14 +23,14 @@ $type_T1 = strtoupper($tables[$T1]['ENGINE']);
 $tables = PMA_DBI_get_tables_full($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
-if ($type_T1 == 'INNODB' && $type_T2 == 'INNODB') {
+if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && $type_T1 == $type_T2) {
     // InnoDB
-    $existrel_innodb = PMA_getForeigners($DB2, $T2, '', 'innodb');
+    $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
 
-    if (isset($existrel_innodb[$F2]['constraint'])) {
+    if (isset($existrel_foreign[$F2]['constraint'])) {
         $upd_query  = 'ALTER TABLE ' . PMA_backquote($T2)
                   . ' DROP FOREIGN KEY '
-                  . PMA_backquote($existrel_innodb[$F2]['constraint']);
+                  . PMA_backquote($existrel_foreign[$F2]['constraint']);
         $upd_rs     = PMA_DBI_query($upd_query);
     }
 } else {

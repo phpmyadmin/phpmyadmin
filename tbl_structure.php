@@ -480,9 +480,9 @@ echo $strPrintView;
 <?php
 if (! $tbl_is_view && ! $db_is_information_schema) {
 
-    // if internal relations are available, or the table type is INNODB
+    // if internal relations are available, or foreign keys are supported 
     // ($tbl_type comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork'] || $tbl_type=="INNODB") {
+    if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         if ($cfg['PropertiesIconic']) {

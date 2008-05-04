@@ -245,7 +245,6 @@ $strInnodbStat = 'InnoDB Egoera';
 $strInsecureMySQL = 'Zure konfigurazio fitxategiak MySQL-ren kontu pribilegiatuari dagozkion ezarpenak (root pasahitzik gabe) dauzka . Zure MySQL zerbitzaria lehenetsitako balio hauekin ari da lanean; atzipen-saiakera arrotzei irekita beraz. Segurtasun-zulo hau konpondu beharko zenuke.';
 $strInsertAsNewRow = 'Txertatu errenkada berri batean';
 $strInsert = 'Txertatu';
-$strInternalNotNecessary = '* Barne-erlaziorik ez da beharrezkoa InnoDB-en ere existitzen denean.';
 $strInternalRelations = 'Barne-erlazioak';
 $strInUse = 'lanean';
 
@@ -989,7 +988,6 @@ $strDirectLinks = 'Direct links';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strRelationDeleted = 'Relation deleted';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
 $strExportImportToScale = 'Export/Import to scale';  //to translate
@@ -1065,4 +1063,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

@@ -22,12 +22,12 @@ $tables = PMA_DBI_get_tables_full($db, $T2);
 //die();
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
-//  I n n o D B
-if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
+// native foreign key
+if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && $type_T1 == $type_T2) {
     // relation exists?
-    $existrel_innodb = PMA_getForeigners($db, $T2, '', 'innodb');
-    if (isset($existrel_innodb[$F2])
-     && isset($existrel_innodb[$F2]['constraint'])) {
+    $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
+    if (isset($existrel_foreign[$F2])
+     && isset($existrel_foreign[$F2]['constraint'])) {
          PMD_return(0,'strErrorRelationExists');
     }
 // note: in InnoDB, the index does not requires to be on a PRIMARY
@@ -61,10 +61,10 @@ if ($type_T1 == 'INNODB' and $type_T2 == 'INNODB') {
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
         PMA_DBI_try_query($upd_query) or PMD_return(0,'strErrorRelationAdded');
-    PMD_return(1,'strInnoDBRelationAdded');
+    PMD_return(1,'strForeignKeyRelationAdded');
     }
 
-//  n o n - I n n o D B
+// internal (pmadb) relation 
 } else {
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
         PMD_return(0, 'strGeneralRelationFeat:strDisabled');

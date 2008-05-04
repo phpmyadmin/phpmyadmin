@@ -308,7 +308,6 @@ $strInnodbStat = 'InnoDB статус';
 $strInsecureMySQL = 'Вашата конфигурациска податотека содржи подесувања (root без лозинка) кои одговараат на стандардниот MySQL привилегиран налог. Вашиот MySQL сервер работи со овие подесувања, отворен е за упди, и навистина треба да го поправите овој сигурносен ризик.';
 $strInsert = 'Нов запис';
 $strInsertAsNewRow = 'Внеси како нов запис';
-$strInternalNotNecessary = '* Внатрешната релација не е неопходна кога постои и во InnoDB.';
 $strInternalRelations = 'Внатрешни релации';
 
 $strJapanese = 'Јапонски';
@@ -796,7 +795,6 @@ $strImportExportCoords = 'Import/Export coordinates for PDF schema';  //to trans
 $strImportFormat = 'Format of imported file';  //to translate
 $strImport = 'Import';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
-$strInnoDBRelationAdded = 'InnoDB relation added';  //to translate
 $strInternalRelationAdded = 'Internal relation added';  //to translate
 $strInvalidAuthMethod = 'Invalid authentication method set in configuration:';  //to translate
 $strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
@@ -1048,4 +1046,6 @@ $strWebServerInformation = 'Web server information';  //to translate
 $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
+$strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
+$strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 ?>

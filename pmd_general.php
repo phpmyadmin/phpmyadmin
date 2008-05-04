@@ -45,7 +45,7 @@ echo '
     var strLang = Array();
     strLang["strModifications"] = "' . PMA_escapeJsString($strModifications) . '";
     strLang["strRelationDeleted"] = "' . PMA_escapeJsString($strRelationDeleted) . '";
-    strLang["strInnoDBRelationAdded"] = "' . PMA_escapeJsString($strInnoDBRelationAdded). '";
+    strLang["strForeignKeyRelationAdded"] = "' . PMA_escapeJsString($strForeignKeyRelationAdded). '";
     strLang["strGeneralRelationFeat:strDisabled"] = "' . PMA_escapeJsString($strGeneralRelationFeat . ' : ' . $strDisabled) . '";
     strLang["strInternalRelationAdded"] = "' . PMA_escapeJsString($strInternalRelationAdded) . '";
     strLang["strErrorRelationAdded"] = "' . PMA_escapeJsString($strErrorRelationAdded) . '";
@@ -243,10 +243,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     onmouseout="this.className = old_class;"
     onmousedown="Click_field('<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
-        if ($GLOBALS['PMD']['TABLE_TYPE'][$i] != 'INNODB') {
+        if (! PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
             echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
         } else {
-            // if this is an InnoDB table, it's not necessary that the
+            // if foreign keys are supported, it's not necessary that the
             // index is a primary key
             echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
         }
@@ -316,7 +316,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         </thead>
         <tbody id="InnoDB_relation">
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><b>InnoDB</b></td>
+        <td colspan="2" align="center" nowrap="nowrap"><b>FOREIGN KEY</b></td>
         </tr>
         <tr>
             <td width="58" nowrap="nowrap">on delete</td>

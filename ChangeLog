@@ -50,7 +50,7 @@ danbarry
 + [engines] Maria support 
 + [engines] MyISAM and InnoDB: support ROW_FORMAT table option 
 + prevent search indexes from indexing phpMyAdmin installations
-+ [engines] PBXT: table options 
++ [engines] PBXT: table options, foreign key (relation view, designer)
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
