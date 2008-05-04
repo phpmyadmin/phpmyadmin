@@ -934,6 +934,7 @@ if (typeof(window.parent) != 'undefined'
  *
  * @param   string  $message    the message to display
  * @param   string  $sql_query  the query to display
+ * @param   string  $type       the type (level) of the message 
  * @global  array   the configuration array
  * @uses    $cfg
  * @access  public
