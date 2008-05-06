@@ -306,26 +306,22 @@ class PMA_Table {
                 $query .= ' NOT NULL';
             }
         }
-
+        
         if ($default_current_timestamp && $is_timestamp) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
         // auto_increment field cannot have a default value
         } elseif ($extra !== 'AUTO_INCREMENT'
-          && (strlen($default) || $default != $default_orig)) {
+         && $default !== false) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
+            } elseif ($is_timestamp && $default === '0') {
+                // a TIMESTAMP does not accept DEFAULT '0'
+                // but DEFAULT 0  works
+                $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
+            } elseif ($type == 'BIT') {
+                $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default) . '\'';
             } else {
-                if (strlen($default)) {
-                    if ($is_timestamp && $default == '0') {
-                        // a TIMESTAMP does not accept DEFAULT '0'
-                        // but DEFAULT 0  works
-                        $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
-                    } elseif ($default && $type == 'BIT') {
-                        $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default) . '\'';
-                    } else {
-                        $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
-                    }
-                }
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
             }
         }
 
@@ -448,13 +444,12 @@ class PMA_Table {
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default, $default_current_timestamp,
-        $extra, $comment='', $default_orig)
+        $extra, $comment='', &$field_primary, $index, $default_orig)
     {
-        $empty_a = array();
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec($newcol, $type, $length, $attribute,
                 $collation, $null, $default, $default_current_timestamp, $extra,
-                $comment, $empty_a, -1, $default_orig);
+                $comment, $field_primary, $index, $default_orig);
     } // end function
 
     /**
