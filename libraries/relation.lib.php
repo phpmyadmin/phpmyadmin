@@ -1087,4 +1087,48 @@ function PMA_getRelatives($from)
     return true;
 } // end of the "PMA_getRelatives()" function
 
+/**
+ * Rename a field in relation tables
+ * 
+ * usually called after a field in a table was renamed in tbl_alter.php
+ *
+ * @uses    PMA_getRelationsParam()
+ * @uses    PMA_backquote()
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_query_as_cu()
+ * @param string $db
+ * @param string $table
+ * @param string $field
+ * @param string $new_name
+ */
+function PMA_REL_renameField($db, $table, $field, $new_name)
+{
+    $cfgRelation = PMA_getRelationsParam();
+    
+    if ($cfgRelation['displaywork']) {
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
+                      . '   SET display_field = \'' . PMA_sqlAddslashes($new_name) . '\''
+                      . ' WHERE db_name       = \'' . PMA_sqlAddslashes($db) . '\''
+                      . '   AND table_name    = \'' . PMA_sqlAddslashes($table) . '\''
+                      . '   AND display_field = \'' . PMA_sqlAddslashes($field) . '\'';
+        PMA_query_as_cu($table_query);
+    }
+
+    if ($cfgRelation['relwork']) {
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+                      . '   SET master_field = \'' . PMA_sqlAddslashes($new_name) . '\''
+                      . ' WHERE master_db    = \'' . PMA_sqlAddslashes($db) . '\''
+                      . '   AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
+                      . '   AND master_field = \'' . PMA_sqlAddslashes($field) . '\'';
+        PMA_query_as_cu($table_query);
+
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+                      . '   SET foreign_field = \'' . PMA_sqlAddslashes($new_name) . '\''
+                      . ' WHERE foreign_db    = \'' . PMA_sqlAddslashes($db) . '\''
+                      . '   AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
+                      . '   AND foreign_field = \'' . PMA_sqlAddslashes($field) . '\'';
+        PMA_query_as_cu($table_query);
+    } // end if relwork
+}
+
 ?>
