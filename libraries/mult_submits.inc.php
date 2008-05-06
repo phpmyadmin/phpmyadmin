@@ -146,7 +146,7 @@ if (!empty($submit_mult) && !empty($what)) {
     foreach ($selected AS $idx => $sval) {
         switch ($what) {
             case 'row_delete':
-                $full_query .= htmlspecialchars(urldecode($sval))
+                $full_query .= htmlspecialchars($sval)
                     . ';<br />';
                 break;
             case 'drop_db':
@@ -157,7 +157,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 break;
 
             case 'drop_tbl':
-                $current = urldecode($sval);
+                $current = $sval;
                 if (!empty($views) && in_array($current, $views)) {
                     $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
                         . PMA_backquote(htmlspecialchars($current));
@@ -169,7 +169,7 @@ if (!empty($submit_mult) && !empty($what)) {
 
             case 'empty_tbl':
                 $full_query .= 'TRUNCATE ';
-                $full_query .= PMA_backquote(htmlspecialchars(urldecode($sval)))
+                $full_query .= PMA_backquote(htmlspecialchars($sval))
                             . ';<br />';
                 break;
 
@@ -180,11 +180,11 @@ if (!empty($submit_mult) && !empty($what)) {
                         . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
                         . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
                         . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . PMA_backquote(htmlspecialchars($sval))
                         . ',';
                 } else {
                     $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . PMA_backquote(htmlspecialchars($sval))
                         . ',';
                 }
                 if ($i == $selected_cnt-1) {
@@ -198,7 +198,7 @@ if (!empty($submit_mult) && !empty($what)) {
                         . PMA_backquote(htmlspecialchars($table));
                 }
                 $full_query .= '<br />&nbsp;&nbsp;DROP '
-                    . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                    . PMA_backquote(htmlspecialchars($sval))
                     . ',';
                 if ($i == $selected_cnt - 1) {
                     $full_query = preg_replace('@,$@', ';<br />', $full_query);
@@ -294,7 +294,7 @@ elseif ($mult_btn == $strYes) {
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'row_delete':
-                $a_query = urldecode($selected[$i]);
+                $a_query = $selected[$i];
                 $run_parts = TRUE;
                 break;
 
@@ -309,7 +309,7 @@ elseif ($mult_btn == $strYes) {
 
             case 'drop_tbl':
                 PMA_relationsCleanupTable($db, $selected[$i]);
-                $current = urldecode($selected[$i]);
+                $current = $selected[$i];
                 if (!empty($views) && in_array($current, $views)) {
                     $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
                               . PMA_backquote($current);
@@ -322,62 +322,62 @@ elseif ($mult_btn == $strYes) {
 
             case 'check_tbl':
                 $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]));
+                           . PMA_backquote($selected[$i]);
                 $use_sql    = TRUE;
                 break;
 
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]));
+                           . PMA_backquote($selected[$i]);
                 $use_sql    = TRUE;
                 break;
 
             case 'analyze_tbl':
                 $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]));
+                           . PMA_backquote($selected[$i]);
                 $use_sql    = TRUE;
                 break;
 
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]));
+                           . PMA_backquote($selected[$i]);
                 $use_sql    = TRUE;
                 break;
 
             case 'empty_tbl':
                 $a_query = 'TRUNCATE ';
-                $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])));
+                $a_query .= PMA_backquote(htmlspecialchars($selected[$i]));
                 $run_parts = TRUE;
                 break;
 
             case 'drop_fld':
                 PMA_relationsCleanupColumn($db, $table, $selected[$i]);
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) : ',')
-                           . ' DROP ' . PMA_backquote(urldecode($selected[$i]))
+                           . ' DROP ' . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'primary_fld':
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . (empty($primary) ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
+                           . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
 
             case 'index_fld':
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX( ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
+                           . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
 
             case 'unique_fld':
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE( ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
+                           . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
 
             case 'fulltext_fld':
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT( ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
+                           . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
         } // end switch

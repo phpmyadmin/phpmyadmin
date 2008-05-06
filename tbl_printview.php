@@ -69,7 +69,7 @@ if ($multi_tables) {
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
-                  . PMA_backquote(urldecode($table));
+                  . PMA_backquote($table);
     }
     echo '<b>'.  $strShowTables . ': ' . $tbl_list . '</b>' . "\n";
     echo '<hr />' . "\n";
@@ -79,7 +79,6 @@ $tables_cnt = count($the_tables);
 $counter    = 0;
 
 foreach ($the_tables as $key => $table) {
-    $table = urldecode($table);
     if ($counter + 1 >= $tables_cnt) {
         $breakstyle = '';
     } else {

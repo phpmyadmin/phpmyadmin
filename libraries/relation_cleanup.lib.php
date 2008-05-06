@@ -18,7 +18,7 @@ function PMA_relationsCleanupColumn($db, $table, $column) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND column_name = \'' . PMA_sqlAddslashes(urldecode($column)) . '\'';
+                    . ' AND column_name = \'' . PMA_sqlAddslashes($column) . '\'';
         $rmv_rs    = PMA_query_as_cu($remove_query);
         unset($remove_query);
     }
@@ -27,7 +27,7 @@ function PMA_relationsCleanupColumn($db, $table, $column) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND display_field = \'' . PMA_sqlAddslashes(urldecode($column)) . '\'';
+                    . ' AND display_field = \'' . PMA_sqlAddslashes($column) . '\'';
         $rmv_rs    = PMA_query_as_cu($remove_query);
         unset($remove_query);
     }
@@ -36,14 +36,14 @@ function PMA_relationsCleanupColumn($db, $table, $column) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND master_field = \'' . PMA_sqlAddslashes(urldecode($column)) . '\'';
+                    . ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
         $rmv_rs    = PMA_query_as_cu($remove_query);
         unset($remove_query);
 
         $remove_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND foreign_field = \'' . PMA_sqlAddslashes(urldecode($column)) . '\'';
+                    . ' AND foreign_field = \'' . PMA_sqlAddslashes($column) . '\'';
         $rmv_rs    = PMA_query_as_cu($remove_query);
         unset($remove_query);
     }
