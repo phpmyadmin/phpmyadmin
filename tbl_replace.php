@@ -25,7 +25,6 @@
  * @uses    PMA_securePath()
  * @uses    PMA_sendHeaderLocation()
  * @uses    str_replace()
- * @uses    urlencode()
  * @uses    count()
  * @uses    file_exists()
  * @uses    strlen()

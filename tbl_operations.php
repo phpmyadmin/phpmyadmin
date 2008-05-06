@@ -329,7 +329,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
     <tr><td><?php echo $strTableComments; ?></td>
         <td><input type="text" name="comment" maxlength="60" size="30"
                 value="<?php echo htmlspecialchars($comment); ?>" onfocus="this.select()" />
-            <input type="hidden" name="prev_comment" value="<?php echo urlencode($comment); ?>" />
+            <input type="hidden" name="prev_comment" value="<?php echo htmlspecialchars($comment); ?>" />
         </td>
     </tr>
 
