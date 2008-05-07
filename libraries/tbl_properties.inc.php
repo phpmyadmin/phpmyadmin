@@ -359,6 +359,9 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
     if ($zerofill) {
         $attribute = 'UNSIGNED ZEROFILL';
     }
+    if (isset($row['Extra']) && $row['Extra'] == 'ON UPDATE CURRENT_TIMESTAMP') {
+        $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
+    }
 
     if (isset($submit_attribute) && $submit_attribute != FALSE) {
         $attribute = $submit_attribute;
@@ -459,7 +462,7 @@ for ($i = 0 ; $i <= $num_fields; $i++) {
 
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
-    if (!isset($row) || empty($row['Extra'])) {
+    if (!isset($row) || empty($row['Extra']) || $row['Extra'] != 'auto_increment') {
         $content_cells[$i][$ci] .= "\n";
         $content_cells[$i][$ci] .= '<option value="">&nbsp;</option>' . "\n";
         $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";

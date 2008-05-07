@@ -16,7 +16,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1955386 [session] Overriding session.hash_bits_per_character 
 - [interface] sanitize the table comments in table print view, 
   thanks to Norman Hippert
+- bug #1939031 Auto_Increment selected for TimeStamp by Default
 
+  
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message 
 - bug #1905711 [compatibility] Functions deprecated in PHP 5.3: is_a() and
