@@ -63,6 +63,16 @@ if (! strlen($table)) {
 
 $err_url = 'tbl_create.php?' . PMA_generate_common_url($db, $table);
 
+// check number of fields to be created
+if (isset($_REQUEST['submit_num_fields'])) {
+    $regenerate = true; // for libraries/tbl_properties.inc.php
+    $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
+} elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
+    $num_fields = (int) $_REQUEST['num_fields'];
+} else {
+    $num_fields = 2;
+}
+
 /**
  * Selects the database to work with
  */
@@ -75,35 +85,47 @@ if (isset($_REQUEST['do_save_data'])) {
     $sql_query = '';
 
     // Transforms the radio button field_key into 3 arrays
-    $field_cnt = count($field_name);
+    $field_cnt = count($_REQUEST['field_name']);
     for ($i = 0; $i < $field_cnt; ++$i) {
-        if (isset(${'field_key_' . $i})) {
-            if (${'field_key_' . $i} == 'primary_' . $i) {
+        if (isset($_REQUEST['field_key'][$i])) {
+            if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
                 $field_primary[] = $i;
             }
-            if (${'field_key_' . $i} == 'index_' . $i) {
+            if ($_REQUEST['field_key'][$i] == 'index_' . $i) {
                 $field_index[]   = $i;
             }
-            if (${'field_key_' . $i} == 'unique_' . $i) {
+            if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
                 $field_unique[]  = $i;
             }
         } // end if
     } // end for
+    
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
         // '0' is also empty for php :-(
-        if (empty($field_name[$i]) && $field_name[$i] != '0') {
+        if (empty($_REQUEST['field_name'][$i]) && $_REQUEST['field_name'][$i] != '0') {
             continue;
         }
 
-        $query = PMA_Table::generateFieldSpec($field_name[$i], $field_type[$i],
-            $field_length[$i], $field_attribute[$i],
-            isset($field_collation[$i]) ? $field_collation[$i] : '',
-            isset($field_null[$i]) ? $field_null[$i] : 'NOT NULL',
-            $field_default[$i],
-            isset($field_default_current_timestamp[$i]), $field_extra[$i],
-            isset($field_comments[$i]) ? $field_comments[$i] : '',
-            $field_primary, $i);
+        $query = PMA_Table::generateFieldSpec(
+            $_REQUEST['field_name'][$i], 
+            $_REQUEST['field_type'][$i],
+            $_REQUEST['field_length'][$i], 
+            $_REQUEST['field_attribute'][$i],
+            isset($_REQUEST['field_collation'][$i]) 
+                ? $_REQUEST['field_collation'][$i] 
+                : '',
+            isset($_REQUEST['field_null'][$i]) 
+                ? $_REQUEST['field_null'][$i] 
+                : 'NOT NULL',
+            $_REQUEST['field_default_type'][$i], 
+            $_REQUEST['field_default_value'][$i],
+            $_REQUEST['field_extra'][$i],
+            isset($_REQUEST['field_comments'][$i]) 
+                ? $_REQUEST['field_comments'][$i] 
+                : '',
+            $field_primary, 
+            $i);
 
         $query .= ', ';
         $sql_query .= $query;
@@ -116,8 +138,8 @@ if (isset($_REQUEST['do_save_data'])) {
     $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
     for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
-        if (isset($field_name[$j]) && strlen($field_name[$j])) {
-            $primary .= PMA_backquote($field_name[$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+            $primary .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($primary_cnt);
@@ -132,8 +154,8 @@ if (isset($_REQUEST['do_save_data'])) {
     $index_cnt = (isset($field_index) ? count($field_index) : 0);
     for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
-        if (isset($field_name[$j]) && strlen($field_name[$j])) {
-            $index .= PMA_backquote($field_name[$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+            $index .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($index_cnt);
@@ -148,8 +170,8 @@ if (isset($_REQUEST['do_save_data'])) {
     $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
     for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
-        if (isset($field_name[$j]) && strlen($field_name[$j])) {
-           $unique .= PMA_backquote($field_name[$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+           $unique .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
@@ -164,8 +186,8 @@ if (isset($_REQUEST['do_save_data'])) {
     $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
     for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
-        if (isset($field_name[$j]) && strlen($field_name[$j])) {
-           $fulltext .= PMA_backquote($field_name[$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+           $fulltext .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
 
@@ -180,17 +202,17 @@ if (isset($_REQUEST['do_save_data'])) {
      . ' (' . $sql_query . ')';
 
     // Adds table type, character set, comments and partition definition
-    if (!empty($tbl_type) && ($tbl_type != 'Default')) {
-        $sql_query .= ' ENGINE = ' . $tbl_type;
+    if (!empty($_REQUEST['tbl_type']) && ($_REQUEST['tbl_type'] != 'Default')) {
+        $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_type'];
     }
-    if (!empty($tbl_collation)) {
-        $sql_query .= PMA_generateCharsetQueryPart($tbl_collation);
+    if (!empty($_REQUEST['tbl_collation'])) {
+        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
-    if (!empty($comment)) {
-        $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
+    if (!empty($_REQUEST['comment'])) {
+        $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($_REQUEST['comment']) . '\'';
     }
-    if (!empty($partition_definition)) {
-        $sql_query .= ' ' . PMA_sqlAddslashes($partition_definition);
+    if (!empty($_REQUEST['partition_definition'])) {
+        $sql_query .= ' ' . PMA_sqlAddslashes($_REQUEST['partition_definition']);
     }
 
     // Executes the query
@@ -202,17 +224,16 @@ if (isset($_REQUEST['do_save_data'])) {
         require_once './libraries/relation.lib.php';
         require_once './libraries/transformations.lib.php';
 
-        $cfgRelation = PMA_getRelationsParam();
-
         // garvin: Update comment table for mime types [MIME]
-        if (isset($field_mimetype) && is_array($field_mimetype)
-         && $cfgRelation['commwork'] && $cfgRelation['mimework']
+        if (isset($_REQUEST['field_mimetype'])
+         && is_array($_REQUEST['field_mimetype'])
          && $cfg['BrowseMIME']) {
-            foreach ($field_mimetype as $fieldindex => $mimetype) {
-                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
-                    PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype,
-                            $field_transformation[$fieldindex],
-                            $field_transformation_options[$fieldindex]);
+            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_REQUEST['field_name'][$fieldindex])
+                 && strlen($_REQUEST['field_name'][$fieldindex])) {
+                    PMA_setMIME($db, $table, $_REQUEST['field_name'][$fieldindex], $mimetype,
+                            $_REQUEST['field_transformation'][$fieldindex],
+                            $_REQUEST['field_transformation_options'][$fieldindex]);
                 }
             }
         }
@@ -235,23 +256,13 @@ if (isset($_REQUEST['do_save_data'])) {
         // garvin: An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
-        $num_fields = $orig_num_fields;
+        $num_fields = $_REQUEST['orig_num_fields'];
     }
 } // end do create table
 
 /**
  * Displays the form used to define the structure of the table
  */
-// check number of fields to be created
-if (isset($_REQUEST['submit_num_fields'])) {
-    $regenerate = true; // for libraries/tbl_properties.inc.php
-    $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
-} elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
-    $num_fields = (int) $_REQUEST['num_fields'];
-} else {
-    $num_fields = 1;
-}
-
 $action = 'tbl_create.php';
 require './libraries/tbl_properties.inc.php';
 // Displays the footer

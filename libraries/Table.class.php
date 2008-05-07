@@ -259,26 +259,22 @@ class PMA_Table {
      * @param   string  $attribute
      * @param   string  $collation
      * @param   string  $null       with 'NULL' or 'NOT NULL'
-     * @param   string  $default    default value
-     * @param   boolean $default_current_timestamp  whether default value is
-     *                                              CURRENT_TIMESTAMP or not
-     *                                              this overrides $default value
+     * @param   string  $default_type   whether default is CURRENT_TIMESTAMP,
+     *                                  NULL, NONE, USER_DEFINED
+     * @param   boolean $default_value  default value for USER_DEFINED default type
      * @param   string  $extra      'AUTO_INCREMENT'
      * @param   string  $comment    field comment
      * @param   array   &$field_primary list of fields for PRIMARY KEY
      * @param   string  $index
-     * @param   string  $default_orig
      * @return  string  field specification
      */
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
-        $collation = '', $null = false, $default = '',
-        $default_current_timestamp = false, $extra = '', $comment = '',
+        $collation = '', $null = false, $default_type = 'USER_DEFINED',
+        $default_value = '', $extra = '', $comment = '',
         &$field_primary, $index, $default_orig = false)
     {
 
         $is_timestamp = strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1;
-
-        // $default_current_timestamp has priority over $default
 
         /**
          * @todo include db-name
@@ -307,22 +303,25 @@ class PMA_Table {
             }
         }
         
-        if ($default_current_timestamp && $is_timestamp) {
-            $query .= ' DEFAULT CURRENT_TIMESTAMP';
-        // auto_increment field cannot have a default value
-        } elseif ($extra !== 'AUTO_INCREMENT'
-         && $default !== false) {
-            if (strtoupper($default) == 'NULL') {
-                $query .= ' DEFAULT NULL';
-            } elseif ($is_timestamp && $default === '0') {
-                // a TIMESTAMP does not accept DEFAULT '0'
-                // but DEFAULT 0  works
-                $query .= ' DEFAULT ' . PMA_sqlAddslashes($default);
-            } elseif ($type == 'BIT') {
-                $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default) . '\'';
-            } else {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
-            }
+        switch ($default_type) {
+            case 'USER_DEFINED' :
+                if ($is_timestamp && $default_value === '0') {
+                    // a TIMESTAMP does not accept DEFAULT '0'
+                    // but DEFAULT 0 works
+                    $query .= ' DEFAULT 0';
+                } elseif ($type == 'BIT') {
+                    $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default_value) . '\'';
+                } else {
+                    $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default_value) . '\'';
+                }
+                break;
+            case 'NULL' :
+            case 'CURRENT_TIMESTAMP' :
+                $query .= ' DEFAULT ' . $default_type;
+                break;
+            case 'NONE' :
+            default :
+                break;
         }
 
         if (!empty($extra)) {
@@ -440,15 +439,15 @@ class PMA_Table {
     } // end of the 'PMA_Table::countRecords()' function
 
     /**
-     * @todo    add documentation
+     * @see PMA_Table::generateFieldSpec()
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
-        $attribute, $collation, $null, $default, $default_current_timestamp,
-        $extra, $comment='', &$field_primary, $index, $default_orig)
+        $attribute, $collation, $null, $default_type, $default_value,
+        $extra, $comment = '', &$field_primary, $index, $default_orig)
     {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec($newcol, $type, $length, $attribute,
-                $collation, $null, $default, $default_current_timestamp, $extra,
+                $collation, $null, $default_type, $default_value, $extra,
                 $comment, $field_primary, $index, $default_orig);
     } // end function
 

@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Display form for changing/adding table field/columns
+ * Display form for changing/adding table fields/columns
  *
+ * included by tbl_addfield.php, -_alter.php, -_create.php
  * @version $Id$
  */
 
@@ -40,20 +41,20 @@ $_form_params = array(
 if ($action == 'tbl_create.php') {
     $_form_params['reload'] = 1;
 } elseif ($action == 'tbl_addfield.php') {
-    $_form_params['field_where'] = $field_where;
-    $_form_params['after_field'] = $after_field;
+    $_form_params['field_where'] = $_REQUEST['field_where'];
+    $_form_params['after_field'] = $_REQUEST['after_field'];
 }
 
 if (isset($num_fields)) {
     $_form_params['orig_num_fields'] = $num_fields;
 }
 
-if (isset($field_where)) {
-    $_form_params['orig_field_where'] = $field_where;
+if (isset($_REQUEST['field_where'])) {
+    $_form_params['orig_field_where'] = $_REQUEST['field_where'];
 }
 
-if (isset($after_field)) {
-    $_form_params['orig_after_field'] = $after_field;
+if (isset($_REQUEST['after_field'])) {
+    $_form_params['orig_after_field'] = $_REQUEST['after_field'];
 }
 
 if (isset($selected) && is_array($selected)) {
@@ -69,12 +70,12 @@ if (isset($selected) && is_array($selected)) {
             $_form_params['true_selected[' . $o_fld_nr . ']'] = $o_fld_val;
         }
     }
-} elseif (isset($field)) {
-    $_form_params['orig_field'] = $field;
+} elseif (isset($_REQUEST['field'])) {
+    $_form_params['orig_field'] = $_REQUEST['field'];
     if (isset($orig_field)) {
         $_form_params['true_selected[]'] = $orig_field;
     } else {
-        $_form_params['true_selected[]'] = $field;
+        $_form_params['true_selected[]'] = $_REQUEST['field'];
     }
 }
 
@@ -84,27 +85,26 @@ $header_cells = array();
 $content_cells = array();
 
 $header_cells[] = $strField;
-$header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('SQL-Syntax', 'data-types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types') . '</span>');
+$header_cells[] = $strType
+     . ($GLOBALS['cfg']['ReplaceHelpImg'] 
+        ? PMA_showMySQLDocu('SQL-Syntax', 'data-types') 
+        : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'data-types')
+     . '</span>');
 $header_cells[] = $strLengthSet . PMA_showHint($strSetEnumVal);
+$header_cells[] = $strDefault . PMA_showHint($strDefaultValueHelp);
 $header_cells[] = $strCollation;
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
-$header_cells[] = $strDefault . PMA_showHint($strDefaultValueHelp);
-$header_cells[] = $strExtra;
-
-
 
 // lem9: We could remove this 'if' and let the key information be shown and
 // editable. However, for this to work, tbl_alter must be modified to use the
 // key fields, as tbl_addfield does.
 
 if (!$is_backup) {
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" title="' . $strPrimary . '" />' : $strPrimary;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" title="' . $strIndex . '" />' : $strIndex;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" title="' . $strUnique . '" />' : $strUnique;
-    $header_cells[] = '---';
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
+    $header_cells[] = $strIndex;
 }
+
+$header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
 
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
@@ -130,91 +130,138 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
 
     $header_cells[] = $strMIME_MIMEtype;
     $header_cells[] = $strMIME_transformation;
-    $header_cells[] = $strMIME_transformation_options . PMA_showHint($strMIME_transformation_options_note . $hint);
+    $header_cells[] = $strMIME_transformation_options 
+        . PMA_showHint($strMIME_transformation_options_note . $hint);
 }
 
 // garvin: workaround for field_fulltext, because its submitted indizes contain
 //         the index as a value, not a key. Inserted here for easier maintaineance
 //         and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
-    foreach ($field_fulltext AS $fulltext_nr => $fulltext_indexkey) {
+    foreach ($field_fulltext as $fulltext_nr => $fulltext_indexkey) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
 
-for ($i = 0; $i <= $num_fields; $i++) {
+for ($i = 0; $i < $num_fields; $i++) {
     if (! empty($regenerate)) {
         // An error happened with previous inputs, so we will restore the data
         // to embed it once again in this form.
 
-        $row['Field']     = (isset($field_name[$i]) ? $field_name[$i] : FALSE);
-        $row['Type']      = (isset($field_type[$i]) ? $field_type[$i] : FALSE);
-        $row['Collation'] = (isset($field_collation[$i]) ? $field_collation[$i] : '');
-        $row['Null']      = (isset($field_null[$i]) ? $field_null[$i] : '');
+        $row['Field']     = (isset($_REQUEST['field_name'][$i]) ? $_REQUEST['field_name'][$i] : false);
+        $row['Type']      = (isset($_REQUEST['field_type'][$i]) ? $_REQUEST['field_type'][$i] : false);
+        $row['Collation'] = (isset($_REQUEST['field_collation'][$i]) ? $_REQUEST['field_collation'][$i] : '');
+        $row['Null']      = (isset($_REQUEST['field_null'][$i]) ? $_REQUEST['field_null'][$i] : '');
 
-        if (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'primary_' . $i) {
+        if (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'primary_' . $i) {
             $row['Key'] = 'PRI';
-        } elseif (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'index_' . $i) {
+        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'index_' . $i) {
             $row['Key'] = 'MUL';
-        } elseif (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'unique_' . $i) {
+        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'unique_' . $i) {
             $row['Key'] = 'UNI';
+        } elseif (isset($_REQUEST['field_key'][$i]) && $_REQUEST['field_key'][$i] == 'fulltext_' . $i) {
+            $row['Key'] = 'FULLTEXT';
         } else {
             $row['Key'] = '';
         }
 
-        $row['Default']   = (isset($field_default[$i]) ? $field_default[$i] : FALSE);
-        $row['Extra']     = (isset($field_extra[$i]) ? $field_extra[$i] : FALSE);
-        $row['Comment']   = (isset($submit_fulltext[$i]) && ($submit_fulltext[$i] == $i) ? 'FULLTEXT' : FALSE);
+        $row['DefaultType']  = (isset($_REQUEST['field_default_type'][$i]) ? $_REQUEST['field_default_type'][$i] : 'USER_DEFINED');
+        $row['DefaultValue'] = (isset($_REQUEST['field_default_value'][$i]) ? $_REQUEST['field_default_value'][$i] : '');
 
-        $submit_length    = (isset($field_length[$i]) ? $field_length[$i] : FALSE);
-        $submit_attribute = (isset($field_attribute[$i]) ? $field_attribute[$i] : FALSE);
+        switch ($row['DefaultType']) {
+            case 'NONE' :
+                $row['Default'] = null;
+                break;
+            case 'USER_DEFINED' :
+                $row['Default'] = $row['DefaultValue'];
+                break;
+            case 'NULL' :
+            case 'CURRENT_TIMESTAMP' :
+                $row['Default'] = $row['DefaultType'];
+                break;
+        }
+        
+        $row['Extra']     = (isset($_REQUEST['field_extra'][$i]) ? $_REQUEST['field_extra'][$i] : false);
+        $row['Comment']   = (isset($submit_fulltext[$i]) && ($submit_fulltext[$i] == $i) ? 'FULLTEXT' : false);
 
-        $submit_default_current_timestamp = (isset($field_default_current_timestamp[$i]) ? TRUE : FALSE);
+        $submit_length    = (isset($_REQUEST['field_length'][$i]) ? $_REQUEST['field_length'][$i] : false);
+        $submit_attribute = (isset($_REQUEST['field_attribute'][$i]) ? $_REQUEST['field_attribute'][$i] : false);
 
-        if (isset($field_comments[$i])) {
-            $comments_map[$row['Field']] = $field_comments[$i];
+        $submit_default_current_timestamp = (isset($_REQUEST['field_default_current_timestamp'][$i]) ? true : false);
+
+        if (isset($_REQUEST['field_comments'][$i])) {
+            $comments_map[$row['Field']] = $_REQUEST['field_comments'][$i];
         }
 
-        if (isset($field_mimetype[$i])) {
-            $mime_map[$row['Field']]['mimetype'] = $field_mimetype[$i];
+        if (isset($_REQUEST['field_mimetype'][$i])) {
+            $mime_map[$row['Field']]['mimetype'] = $_REQUEST['field_mimetype'][$i];
         }
 
-        if (isset($field_transformation[$i])) {
-            $mime_map[$row['Field']]['transformation'] = $field_transformation[$i];
+        if (isset($_REQUEST['field_transformation'][$i])) {
+            $mime_map[$row['Field']]['transformation'] = $_REQUEST['field_transformation'][$i];
         }
 
-        if (isset($field_transformation_options[$i])) {
-            $mime_map[$row['Field']]['transformation_options'] = $field_transformation_options[$i];
+        if (isset($_REQUEST['field_transformation_options'][$i])) {
+            $mime_map[$row['Field']]['transformation_options'] = $_REQUEST['field_transformation_options'][$i];
         }
 
     } elseif (isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
+        switch ($row['Default']) {
+            case null:
+                if ($row['Null'] == 'YES') {
+                    $row['DefaultType']  = 'NULL';
+                } else {
+                    $row['DefaultType']  = 'NONE';
+                }
+                $row['DefaultValue'] = '';
+                break;
+            case 'CURRENT_TIMESTAMP':
+                $row['DefaultType']  = 'CURRENT_TIMESTAMP';
+                $row['DefaultValue'] = '';
+                break;
+            default:
+                $row['DefaultType']  = 'USER_DEFINED';
+                $row['DefaultValue'] = $row['Default'];
+                break;
+        }
     }
 
-    if (isset($row) && isset($row['Type'])) {
+    if (isset($row['Type'])) {
         $type_and_length = PMA_extract_type_length($row['Type']);
         if ($type_and_length['type'] == 'bit') {
             $row['Default'] = PMA_printable_bit_value($row['Default'], $type_and_length['length']);
         }
     }
-    // Cell index: If certain fields get left out, the counter shouldn't chage.
+    // Cell index: If certain fields get left out, the counter shouldn't change.
     $ci = 0;
     // Everytime a cell shall be left out the STRG-jumping feature, $ci_offset
     // has to be incremented ($ci_offset++)
     $ci_offset = -1;
 
+    // old column name
     if ($is_backup) {
-        $backup_field = (isset($true_selected) && isset($true_selected[$i]) && $true_selected[$i] ? $true_selected[$i] : (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : ''));
-        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . $backup_field . '" />' . "\n";
-    } else {
-        $content_cells[$i][$ci] = '';
+        if (! empty($true_selected[$i])) {
+            $_form_params['field_orig[' . $i . ']'] = $true_selected[$i];
+        } elseif (isset($row['Field'])) {
+            $_form_params['field_orig[' . $i . ']'] = $row['Field'];
+        } else {
+            $_form_params['field_orig[' . $i . ']'] = '';
+        }
     }
 
-    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_name[' . $i . ']" size="' . ($GLOBALS['cfg']['DefaultPropDisplay'] == 'horizontal' ? '10' : '30') . '" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" title="' . $strField . '" />';
+    // column name
+    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+        . ' type="text" name="field_name[' . $i . ']"'
+        . ' maxlength="64" class="textfield" title="' . $strField . '"'
+        . ' size="' . ($GLOBALS['cfg']['DefaultPropDisplay'] == 'horizontal' ? '10' : '30') . '"'
+        . ' value="' . (isset($row['Field']) ? htmlspecialchars($row['Field']) : '') . '"'
+        . ' />';
     $ci++;
-    $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']" id="field_' . $i . '_' . ($ci - $ci_offset) . '" ';
-    $content_cells[$i][$ci] .= 'onchange="display_field_options(this.options[this.selectedIndex].value,' . $i .')" ';
-    $content_cells[$i][$ci] .= '>' . "\n";
+    
+    // column type
+    $content_cells[$i][$ci] = '<select name="field_type[' . $i . ']"'
+        .' id="field_' . $i . '_' . ($ci - $ci_offset) . '" >';
 
     if (empty($row['Type'])) {
         $row['Type'] = '';
@@ -247,7 +294,7 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $type = substr($type, 0, $tmp - 1);
     }
 
-    if (isset($submit_length) && $submit_length != FALSE) {
+    if (isset($submit_length) && $submit_length != false) {
         $length = $submit_length;
     }
 
@@ -263,7 +310,7 @@ for ($i = 0; $i <= $num_fields; $i++) {
                 if ($type_upper == strtoupper($col_group_type)) {
                     $content_cells[$i][$ci] .= ' selected="selected"';
                 }
-                $content_cells[$i][$ci] .= '>' . $col_group_type . '</option>' . "\n";
+                $content_cells[$i][$ci] .= '>' . $col_group_type . '</option>';
             }
             $content_cells[$i][$ci] .= '</optgroup>';
             continue;
@@ -273,18 +320,18 @@ for ($i = 0; $i <= $num_fields; $i++) {
         if ($type_upper == strtoupper($column_type)) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][$ci] .= '>' . $column_type . '</option>' . "\n";
+        $content_cells[$i][$ci] .= '>' . $column_type . '</option>';
     } // end for
 
     $content_cells[$i][$ci] .= '    </select>';
     $ci++;
 
+    // old column length
     if ($is_backup) {
-        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_length_orig[' . $i . ']" value="' . urlencode($length) . '" />';
-    } else {
-        $content_cells[$i][$ci] = '';
+        $_form_params['field_length_orig[' . $i . ']'] = $length;
     }
 
+    // column length
     if (preg_match('@^(set|enum)$@i', $type)) {
         $binary           = 0;
         $unsigned         = 0;
@@ -292,20 +339,75 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $length_to_display = htmlspecialchars($length);
     } else {
         $length_to_display = $length;
-        $binary           = FALSE;
+        $binary           = false;
         $unsigned         = stristr($row['Type'], 'unsigned');
         $zerofill         = stristr($row['Type'], 'zerofill');
     }
 
-    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_length[' . $i . ']" size="8" value="' . str_replace('"', '&quot;', $length_to_display) . '" class="textfield" />' . "\n";
+    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+        . ' type="text" name="field_length[' . $i . ']" size="8"'
+        . ' value="' . htmlspecialchars($length_to_display) . '"'
+        . ' class="textfield" />';
     $ci++;
 
+    // column default
+    /**
+     * having NULL enabled does not implicit having Default with NULL
+     *
+    if (isset($row)
+      && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
+        $row['Default'] = 'NULL';
+    }
+     */
+
+    // old column default
+    if ($is_backup) {
+        $_form_params['field_default_orig[' . $i . ']'] = 
+            (isset($row['Default']) ? $row['Default'] : ''); 
+    }
+    
+    $default_options = array(
+        'USER_DEFINED'      => 'strUserDefined',
+        'NONE'              =>  $strNone,
+        'NULL'              => 'NULL',
+        'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
+    );
+
+    // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
+    if ($type_upper == 'TIMESTAMP'
+     && $default_current_timestamp
+     && isset($row['Default'])) {
+        $row['Default'] = '';
+    }
+
+    $content_cells[$i][$ci] = '<select name="field_default_type[' . $i . ']">';
+    foreach ($default_options as $key => $value) {
+        $content_cells[$i][$ci] .= '<option value="' . $key . '"';
+        if (($row['DefaultType']) == $key) {
+            $content_cells[$i][$ci] .= ' selected="selected"';
+        }
+        $content_cells[$i][$ci] .= ' >' . $value . '</option>';
+    }
+    $content_cells[$i][$ci] .= '</select>';
+    $content_cells[$i][$ci] .= '<br />';
+    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+        . ' type="text" name="field_default_value[' . $i . ']" size="12"'
+        . ' value="' . (isset($row['DefaultValue']) ? htmlspecialchars($row['DefaultValue']) : '') . '"'
+        . ' class="textfield" />';
+    $ci++;
+
+    // column collation
     $tmp_collation          = empty($row['Collation']) ? null : $row['Collation'];
-    $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']', 'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, FALSE);
+    $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(
+        PMA_CSDROPDOWN_COLLATION, 'field_collation[' . $i . ']', 
+        'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, false);
     unset($tmp_collation);
     $ci++;
 
-    $content_cells[$i][$ci] = '<select style="font-size: 70%;" name="field_attribute[' . $i . ']" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
+    // column attribute
+    $content_cells[$i][$ci] = '<select style="font-size: 70%;"'
+        . ' name="field_attribute[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
     if ($binary) {
@@ -317,8 +419,11 @@ for ($i = 0; $i <= $num_fields; $i++) {
     if ($zerofill) {
         $attribute = 'UNSIGNED ZEROFILL';
     }
+    if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
+        $attribute = 'on update CURRENT_TIMESTAMP';
+    }
 
-    if (isset($submit_attribute) && $submit_attribute != FALSE) {
+    if (isset($submit_attribute) && $submit_attribute != false) {
         $attribute = $submit_attribute;
     }
 
@@ -337,34 +442,29 @@ for ($i = 0; $i <= $num_fields; $i++) {
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($row['Field'])
      && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
-        $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
+        $attribute = 'on update CURRENT_TIMESTAMP';
     }
     if ((isset($row['Field'])
       && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
      || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)) {
-        $default_current_timestamp = TRUE;
+        $default_current_timestamp = true;
     } else {
-        $default_current_timestamp = FALSE;
+        $default_current_timestamp = false;
     }
-
-    // Dynamically add ON UPDATE CURRENT_TIMESTAMP to the possible attributes
-    if (! in_array('ON UPDATE CURRENT_TIMESTAMP', $cfg['AttributeTypes'])) {
-        $cfg['AttributeTypes'][] = 'ON UPDATE CURRENT_TIMESTAMP';
-    }
-
 
     $cnt_attribute_types = count($cfg['AttributeTypes']);
-    for ($j = 0;$j < $cnt_attribute_types; $j++) {
+    for ($j = 0; $j < $cnt_attribute_types; $j++) {
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
         if (strtoupper($attribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][$ci] .= '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
+        $content_cells[$i][$ci] .= '>' . $cfg['AttributeTypes'][$j] . '</option>';
     }
 
     $content_cells[$i][$ci] .= '</select>';
     $ci++;
 
+    // column NULL
     $content_cells[$i][$ci] = '<input name="field_null[' . $i . ']"'
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
 
@@ -375,113 +475,67 @@ for ($i = 0; $i <= $num_fields; $i++) {
     $content_cells[$i][$ci] .= ' type="checkbox" value="NULL" />';
     $ci++;
 
-    if (isset($row)
-      && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
-        $row['Default'] = 'NULL';
-    }
-
-    if ($is_backup) {
-        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_default_orig[' . $i . ']" size="8" value="' . (isset($row) && isset($row['Default']) ? urlencode($row['Default']) : '') . '" />';
-    } else {
-        $content_cells[$i][$ci] = "\n";
-    }
-
-    // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
-    if ($type_upper == 'TIMESTAMP'
-     && $default_current_timestamp
-     && isset($row['Default'])) {
-        $row['Default'] = '';
-    }
-
-    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[' . $i . ']" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
-    if ($type_upper == 'TIMESTAMP') {
-        $tmp_display_type = 'block';
-    } else {
-        $tmp_display_type = 'none';
-        $default_current_timestamp = FALSE;
-    }
-    $content_cells[$i][$ci] .= '<br /><div id="div_' . $i . '_' . ($ci - $ci_offset) . '" style="white-space: nowrap; display: ' . $tmp_display_type . '"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
-    if ($default_current_timestamp) {
-        $content_cells[$i][$ci] .= ' checked="checked" ';
-    }
-    $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: 70%;">CURRENT_TIMESTAMP</label></div>';
-    $ci++;
-
-    $content_cells[$i][$ci] = '<select name="field_extra[' . $i . ']" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
-
-    if (!isset($row) || empty($row['Extra'])) {
-        $content_cells[$i][$ci] .= "\n";
-        $content_cells[$i][$ci] .= '<option value="">&nbsp;</option>' . "\n";
-        $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
-    } else {
-        $content_cells[$i][$ci] .= "\n";
-        $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
-        $content_cells[$i][$ci] .= '<option value="">&nbsp;</option>' . "\n";
-    }
-
-    $content_cells[$i][$ci] .= "\n" . '</select>';
-    $ci++;
-
-
+    // column indexes
     // lem9: See my other comment about removing this 'if'.
     if (!$is_backup) {
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
-            $checked_primary = ' checked="checked"';
-        } else {
-            $checked_primary = '';
+        $content_cells[$i][$ci] = '<select name="field_key[' . $i . ']"'
+            . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
+        $content_cells[$i][$ci] .= '<option value="none_' . $i . '">---</option>';
+
+        $content_cells[$i][$ci] .= '<option value="primary_' . $i . '" title="' . $strPrimary . '"';
+        if (isset($row['Key']) && $row['Key'] == 'PRI') {
+            $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
-            $checked_index   = ' checked="checked"';
-        } else {
-            $checked_index   = '';
+        $content_cells[$i][$ci] .= '>PRIMARY</option>';
+
+        $content_cells[$i][$ci] .= '<option value="unique_' . $i . '" title="' . $strUnique . '"';
+        if (isset($row['Key']) && $row['Key'] == 'UNI') {
+            $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
-            $checked_unique   = ' checked="checked"';
-        } else {
-            $checked_unique   = '';
+        $content_cells[$i][$ci] .= '>UNIQUE</option>';
+
+        $content_cells[$i][$ci] .= '<option value="index_' . $i . '" title="' . $strIndex . '"';
+        if (isset($row['Key']) && $row['Key'] == 'MUL') {
+            $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        if (empty($checked_primary)
-            && empty($checked_index)
-            && empty($checked_unique)) {
-            $checked_none = ' checked="checked"';
-        } else {
-            $checked_none = '';
+        $content_cells[$i][$ci] .= '>INDEX</option>';
+
+        $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . $strIdxFulltext . '"';
+        if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
+            $content_cells[$i][$ci] .= ' selected="selected"';
         }
+        $content_cells[$i][$ci] .= '>FULLTEXT</option>';
 
-        if ((isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
-            $checked_fulltext = ' checked="checked"';
-        } else {
-            $checked_fulltext = '';
-        }
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' title="' . $strPrimary . '" />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' title="' . $strIndex . '" />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' title="' . $strUnique . '" />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' title="---" />';
-        $ci++;
-
-        $content_cells[$i][$ci] = '<input type="checkbox" name="field_fulltext[' . $i . ']" value="' . $i . '"' . $checked_fulltext . ' title="' . $strIdxFulltext . '" />';
+        $content_cells[$i][$ci] .= '</select>';
         $ci++;
     } // end if ($action ==...)
 
-    // garvin: comments
-    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[' . $i . ']" size="12" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
+    // column auto_increment
+    $content_cells[$i][$ci] = '<input name="field_extra[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
+
+    if (isset($row['Extra']) && $row['Extra'] == 'auto_increment') {
+        $content_cells[$i][$ci] .= ' checked="checked"';
+    }
+
+    $content_cells[$i][$ci] .= ' type="checkbox" value="AUTO_INCREMENT" />';
     $ci++;
 
-    // garvin: MIME-types
+    // column comments
+    $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+        . ' type="text" name="field_comments[' . $i . ']" size="12"'
+        . ' value="' . (isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '"'
+        . ' class="textfield" />';
+    $ci++;
+
+    // column MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
-        $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">' . "\n";
-        $content_cells[$i][$ci] .= '    <option value="">&nbsp;</option>' . "\n";
+        $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_mimetype[' . $i . ']">';
+        $content_cells[$i][$ci] .= '    <option value="">&nbsp;</option>';
 
         if (is_array($available_mime['mimetype'])) {
             foreach ($available_mime['mimetype'] AS $mimekey => $mimetype) {
-                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
+                $checked = (isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
                 $content_cells[$i][$ci] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
             }
         }
@@ -489,21 +543,25 @@ for ($i = 0; $i <= $num_fields; $i++) {
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
-        $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_transformation[' . $i . ']">' . "\n";
-        $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>' . "\n";
+        $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_transformation[' . $i . ']">';
+        $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>';
         if (is_array($available_mime['transformation'])) {
             foreach ($available_mime['transformation'] AS $mimekey => $transform) {
-                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
+                $checked = (isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
                 $tooltip = 'strTransformation_' . strtolower(str_replace('.inc.php', '', $available_mime['transformation_file'][$mimekey]));
                 $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', $strMIME_nodescription), 'PMA_transformation_' . $tooltip . '()');
-                $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . ' title="' . htmlspecialchars($tooltip) . '">' . htmlspecialchars($transform) . '</option>' . "\n";
+                $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . ' title="' . htmlspecialchars($tooltip) . '">' . htmlspecialchars($transform) . '</option>';
             }
         }
 
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
-        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_transformation_options[' . $i . ']" size="16" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
+        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
+            . ' type="text" name="field_transformation_options[' . $i . ']"'
+            . ' size="16" class="textfield"'
+            . ' value="' . (isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '"'
+            . ' />';
         //$ci++;
     }
 } // end for
@@ -519,24 +577,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
     <?php
 }
-// here, the div_x_7 represents a div id which contains
-// the default CURRENT TIMESTAMP checkbox and label
-// and, field_x_7a represents the checkbox itself
-
 ?>
-<script type="text/javascript">
-// <![CDATA[
-function display_field_options(field_type, i) {
-    if (field_type == 'TIMESTAMP') {
-        getElement('div_' + i + '_7').style.display = 'block';
-    } else {
-        getElement('div_' + i + '_7').style.display = 'none';
-        getElement('field_' + i + '_7a').checked = false;
-    }
-    return true;
-}
-// ]]>
-</script>
 
 <form method="post" action="<?php echo $action; ?>">
 <?php
@@ -545,7 +586,7 @@ unset($_form_params);
 
 if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
-    $empty_row = array_pop($content_cells);
+    //$empty_row = array_pop($content_cells);
 
     echo '<table id="table_columns">';
     if ($display_type == 'horizontal') {
@@ -646,21 +687,21 @@ if ($action == 'tbl_create.php') {
         <th><?php echo $strCollation ;?>:&nbsp;</th>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
-                value="<?php echo (isset($comment) ? $comment : ''); ?>"
+                value="<?php echo (isset($_REQUEST['comment']) ? htmlspecialchars($_REQUEST['comment']) : ''); ?>"
                 class="textfield" />
         </td>
         <td width="25">&nbsp;</td>
         <td>
     <?php
     echo PMA_StorageEngine::getHtmlSelect('tbl_type', null,
-        (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : null));
+        (isset($_REQUEST['tbl_type']) ? $_REQUEST['tbl_type'] : null));
     ?>
         </td>
         <td width="25">&nbsp;</td>
         <td>
     <?php
     echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation',
-        null, (isset($tbl_collation) ? $tbl_collation : null), FALSE, 3);
+        null, (isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null), false, 3);
     ?>
         </td>
     </tr>
@@ -673,7 +714,10 @@ if ($action == 'tbl_create.php') {
     </tr>
     <tr>
         <td>
-            <textarea name="partition_definition" id="partitiondefinition" cols="<?php echo $GLOBALS['cfg']['TextareaCols'];?>" rows="<?php echo $GLOBALS['cfg']['TextareaRows'];?>" dir="<?php echo $GLOBALS['text_dir'];?>"></textarea>
+            <textarea name="partition_definition" id="partitiondefinition" 
+                cols="<?php echo $GLOBALS['cfg']['TextareaCols'];?>" 
+                rows="<?php echo $GLOBALS['cfg']['TextareaRows'];?>" 
+                dir="<?php echo $GLOBALS['text_dir'];?>"><?php echo (isset($_REQUEST['partition_definition']) ? htmlspecialchars($_REQUEST['partition_definition']) : ''); ?></textarea>
         </td>
     </tr>
         <?php
@@ -686,7 +730,8 @@ if ($action == 'tbl_create.php') {
 ?>
 
 <fieldset class="tblFooters">
-    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
+    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" 
+        onclick="return checkTableEditForm(this.form, <?php echo $num_fields; ?>)" />
 <?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
     <?php echo $GLOBALS['strOr']; ?>
     <?php echo sprintf($strAddFields, '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />'); ?>

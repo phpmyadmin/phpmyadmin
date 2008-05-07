@@ -33,6 +33,8 @@ danbarry
 - bug #1845605 [i18n] translators.html still uses iso-8859-1
 - bug #1823018 [charset] Edit(Delete) img-links pointing to wrong row
 - bug #1826205 [export] Problems with yaml text export
+- bug #1344768 [database] create/alter table new field can not have empty string
+               as default
 + rfe #1840165 [interface] Enlarge column name field in vertical mode
 + patch #1847534 [interface] New "Inside field" in db search,
   thanks to obiserver
@@ -63,6 +65,7 @@ danbarry
 - bug #1955386 [session] Overriding session.hash_bits_per_character 
 - [interface] sanitize the table comments in table print view, 
   thanks to Norman Hippert
+- bug #1939031 Auto_Increment selected for TimeStamp by Default
 - bug #1910621 [display] part 2: do not display a BINARY content as text
 
 2.11.6.0 (2008-04-29)

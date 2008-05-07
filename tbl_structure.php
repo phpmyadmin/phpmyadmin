@@ -294,7 +294,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
-        $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
+        $attribute = 'on update CURRENT_TIMESTAMP';
     }
 
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
