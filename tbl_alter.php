@@ -40,7 +40,6 @@ $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
  */
 $abort = false;
 if (isset($_REQUEST['do_save_data'])) {
-    var_dump($_POST);
     $field_cnt = count($_REQUEST['field_orig']);
     $key_fields = array();
     $changes = array();

@@ -475,7 +475,6 @@ require_once './libraries/List.class.php';
             // populating $dblist[], as previous code did. But it is
             // now populated with actual database names instead of
             // with regular expressions.
-            var_dump($tmp_mydbs);
             $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
             // loic1: all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
