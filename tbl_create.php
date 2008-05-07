@@ -120,7 +120,9 @@ if (isset($_REQUEST['do_save_data'])) {
                 : 'NOT NULL',
             $_REQUEST['field_default_type'][$i], 
             $_REQUEST['field_default_value'][$i],
-            $_REQUEST['field_extra'][$i],
+            isset($_REQUEST['field_extra'][$i])
+                ? $_REQUEST['field_extra'][$i]
+                : false,
             isset($_REQUEST['field_comments'][$i]) 
                 ? $_REQUEST['field_comments'][$i] 
                 : '',
