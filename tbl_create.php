@@ -259,6 +259,7 @@ if (isset($_REQUEST['do_save_data'])) {
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
         $num_fields = $_REQUEST['orig_num_fields'];
+        $regenerate = true;
     }
 } // end do create table
 
