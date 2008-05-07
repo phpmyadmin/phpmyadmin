@@ -2439,8 +2439,6 @@ $cfg['ColumnTypes'] = array(
 
 /**
  * Attributes
- * Note: the "ON UPDATE CURRENT_TIMESTAMP" attribute is added dynamically
- * for MySQL >= 4.1.2, in libraries/tbl_properties.inc.php
  *
  * @global array $cfg['AttributeTypes']
  */
@@ -2449,6 +2447,7 @@ $cfg['AttributeTypes'] = array(
    'BINARY',
    'UNSIGNED',
    'UNSIGNED ZEROFILL',
+   'ON UPDATE CURRENT_TIMESTAMP',
 );
 
 
