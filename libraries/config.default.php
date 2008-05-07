@@ -2447,7 +2447,7 @@ $cfg['AttributeTypes'] = array(
    'BINARY',
    'UNSIGNED',
    'UNSIGNED ZEROFILL',
-   'ON UPDATE CURRENT_TIMESTAMP',
+   'on update CURRENT_TIMESTAMP',
 );
 
 
