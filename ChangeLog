@@ -63,6 +63,7 @@ danbarry
 - bug #1955386 [session] Overriding session.hash_bits_per_character 
 - [interface] sanitize the table comments in table print view, 
   thanks to Norman Hippert
+- bug #1910621 [display] part 2: do not display a BINARY content as text
 
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
