@@ -375,7 +375,8 @@ class PMA_Table {
      *
      * @access  public
      */
-    static public function countRecords($db, $table, $ret = false, $force_exact = false)
+    static public function countRecords($db, $table, $ret = false, 
+        $force_exact = false, $is_view = null)
     {
         $row_count = false;
 
@@ -386,11 +387,13 @@ class PMA_Table {
                 0, 'Rows');
         }
 
-        $tbl_is_view = PMA_Table::isView($db, $table);
+        if (null === $is_view) {
+            $is_view = PMA_Table::isView($db, $table);
+        }
 
         // for a VIEW, $row_count is always false at this point
         if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
-            if (! $tbl_is_view) {
+            if (! $is_view) {
                 $row_count = PMA_DBI_fetch_value(
                     'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
                     . PMA_backquote($table));
@@ -430,7 +433,7 @@ class PMA_Table {
         // Note: as of PMA 2.8.0, we no longer seem to be using
         // PMA_Table::countRecords() in display mode.
         echo PMA_formatNumber($row_count, 0);
-        if ($tbl_is_view) {
+        if ($is_view) {
             echo '&nbsp;'
                 . sprintf($GLOBALS['strViewMaxExactCount'],
                     $GLOBALS['cfg']['MaxExactCount'],

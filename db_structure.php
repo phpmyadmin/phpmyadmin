@@ -223,7 +223,8 @@ foreach ($tables as $keyname => $each_table) {
             if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
                 $each_table['COUNTED'] = true;
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $return = true, $force_exact = true);
+                    $each_table['TABLE_NAME'], $return = true, $force_exact = true,
+                    $is_view = false);
             } else {
                 $each_table['COUNTED'] = false;
             } 
@@ -249,7 +250,8 @@ foreach ($tables as $keyname => $each_table) {
             if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCountViews']) {
                 $each_table['COUNTED'] = true;
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $return = true, $force_exact = true);
+                    $each_table['TABLE_NAME'], $return = true, $force_exact = true,
+                    $is_view = true);
             } else {
                 $each_table['COUNTED'] = false;
             }
