@@ -39,6 +39,7 @@ function PMA_query_as_cu($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_cu()" function
 
 /**
+ * @uses    $_SESSION['relation'] for caching
  * @uses    $GLOBALS['cfgRelation'] to set it
  * @uses    PMA__getRelationsParam()
  * @uses    PMA_printRelationsParamDiagnostic()
@@ -47,20 +48,18 @@ function PMA_query_as_cu($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam($verbose = false)
 {
-    static $cfgRelation = null;
-
-    if (null === $cfgRelation) {
-        $cfgRelation = PMA__getRelationsParam();
+    if (empty($_SESSION['relation'])) {
+        $_SESSION['relation'] = PMA__getRelationsParam();
     }
 
     if ($verbose) {
-        PMA_printRelationsParamDiagnostic($cfgRelation);
+        PMA_printRelationsParamDiagnostic($_SESSION['relation']);
     }
 
     // just for BC
-    $GLOBALS['cfgRelation'] = $cfgRelation;
+    $GLOBALS['cfgRelation'] = $_SESSION['relation'];
 
-    return $cfgRelation;
+    return $_SESSION['relation'];
 }
 
 /**
