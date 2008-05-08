@@ -195,92 +195,95 @@ foreach ($tables as $keyname => $each_table) {
     //        statistics whatever is the table type
 
     $table_is_view = false;
-
-    // $table_encoded and $tbl_url_query are needed inside the next "if"
     $table_encoded = urlencode($each_table['TABLE_NAME']);
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
 
-    if (isset($each_table['TABLE_ROWS'])) {
+    switch ( $each_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
-        // is accurate.
-        switch ( $each_table['ENGINE']) {
-            case 'MyISAM' :
-            case 'ISAM' :
-            case 'HEAP' :
-            case 'MEMORY' :
-                if ($is_show_stats) {
-                    $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
-                    $sum_size                   += $tblsize;
-                    list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
-                    if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                        list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
-                        $overhead_size           += $each_table['Data_free'];
-                    }
+        // are accurate.
+        case 'MyISAM' :
+        case 'ISAM' :
+        case 'HEAP' :
+        case 'MEMORY' :
+            if ($is_show_stats) {
+                $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
+                $sum_size                   += $tblsize;
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
+                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0);
+                    $overhead_size           += $each_table['Data_free'];
                 }
-                break;
-            case 'InnoDB' :
-                // InnoDB table: Row count is not accurate but data and index
-                // sizes are.
-
-                if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
-                    $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                        $each_table['TABLE_NAME'], $return = true, $force_exact = true);
-                }
-
-                if ($is_show_stats) {
-                    $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
-                    $sum_size                   += $tblsize;
-                    list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
-                }
-                //$display_rows                   =  ' - ';
-                break;
-            case 'MRG_MyISAM' :
-            case 'BerkeleyDB' :
-                // Merge or BerkleyDB table: Only row count is accurate.
-                if ($is_show_stats) {
-                    $formatted_size =  ' - ';
-                    $unit          =  '';
-                }
-                break;
-            case 'VIEW' :
-            case 'SYSTEM VIEW' :
-                if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
-                    $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                        $each_table['TABLE_NAME'], $return = true, $force_exact = true);
-                }
-                $table_is_view = true;
-                break;
-            default :
-                // Unknown table type.
-                if ($is_show_stats) {
-                    $formatted_size =  'unknown';
-                    $unit          =  '';
-                }
-        }
-        $sum_entries += $each_table['TABLE_ROWS'];
-
-        if (isset($each_table['Collation'])) {
-            $collation = '<dfn title="'
-                . PMA_getCollationDescr($each_table['Collation']) . '">'
-                . $each_table['Collation'] . '</dfn>';
-        } else {
-            $collation = '---';
-        }
-
-        if ($is_show_stats) {
-            if (isset($formatted_overhead)) {
-                $overhead = '<a href="tbl_structure.php?'
-                    . $tbl_url_query . '#showusage">' . $formatted_overhead
-                    . ' ' . $overhead_unit . '</a>' . "\n";
-                unset($formatted_overhead);
-                $overhead_check .=
-                    "document.getElementById('checkbox_tbl_$i').checked = true;";
-            } else {
-                $overhead = '-';
             }
-        } // end if
-    } // end if (isset($each_table['TABLE_ROWS'])
+            break;
+        case 'InnoDB' :
+            // InnoDB table: Row count is not accurate but data and index
+            // sizes are.
+
+            if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
+                $each_table['COUNTED'] = true;
+                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+                    $each_table['TABLE_NAME'], $return = true, $force_exact = true);
+            } else {
+                $each_table['COUNTED'] = false;
+            } 
+
+            if ($is_show_stats) {
+                $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
+                $sum_size                   += $tblsize;
+                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            }
+            //$display_rows                   =  ' - ';
+            break;
+        case 'MRG_MyISAM' :
+        case 'BerkeleyDB' :
+            // Merge or BerkleyDB table: Only row count is accurate.
+            if ($is_show_stats) {
+                $formatted_size =  ' - ';
+                $unit          =  '';
+            }
+            break;
+        // for a view, the ENGINE is null 
+        case null :
+        case 'SYSTEM VIEW' :
+            if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCountViews']) {
+                $each_table['COUNTED'] = true;
+                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+                    $each_table['TABLE_NAME'], $return = true, $force_exact = true);
+            } else {
+                $each_table['COUNTED'] = false;
+            }
+            $table_is_view = true;
+            break;
+        default :
+            // Unknown table type.
+            if ($is_show_stats) {
+                $formatted_size =  'unknown';
+                $unit          =  '';
+            }
+    } // end switch
+    $sum_entries += $each_table['TABLE_ROWS'];
+
+    if (isset($each_table['Collation'])) {
+        $collation = '<dfn title="'
+            . PMA_getCollationDescr($each_table['Collation']) . '">'
+            . $each_table['Collation'] . '</dfn>';
+    } else {
+        $collation = '---';
+    }
+
+    if ($is_show_stats) {
+        if (isset($formatted_overhead)) {
+            $overhead = '<a href="tbl_structure.php?'
+                . $tbl_url_query . '#showusage">' . $formatted_overhead
+                . ' ' . $overhead_unit . '</a>' . "\n";
+            unset($formatted_overhead);
+            $overhead_check .=
+                "document.getElementById('checkbox_tbl_$i').checked = true;";
+        } else {
+            $overhead = '-';
+        }
+    } // end if
 
     $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
                ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
@@ -368,15 +371,14 @@ foreach ($tables as $keyname => $each_table) {
     // - when it's a view
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
-
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
-        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews']) {
+        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews'] && (! $each_table['COUNTED'])) {
             $at_least_one_view_exceeds_max_count = true;
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
             $show_superscript = $max_exact_count_note;
-        } elseif($each_table['ENGINE'] == 'InnoDB') {
-            // InnoDB table: Row count is not accurate
+        } elseif($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
+            // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
             $show_superscript = '';

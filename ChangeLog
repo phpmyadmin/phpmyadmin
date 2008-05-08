@@ -67,6 +67,8 @@ danbarry
   thanks to Norman Hippert
 - bug #1939031 Auto_Increment selected for TimeStamp by Default
 - bug #1910621 [display] part 2: do not display a BINARY content as text
+- patch #1957998 [display] No tilde for InnoDB row counter when we know
+  it for sure, thanks to Vladyslav Bakayev - dandy76
 
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
