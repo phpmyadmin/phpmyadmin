@@ -172,6 +172,21 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
             $_SESSION['debug']['queries'][$hash]['query'] = $query;
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
+
+        $trace = array();
+        foreach (debug_backtrace() as $trace_step) {
+            $trace[] = PMA_Error::relPath($trace_step['file']) . '#' 
+                . $trace_step['line'] . ': '
+                . (isset($trace_step['class']) ? $trace_step['class'] : '')
+                . (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
+                . (isset($trace_step['type']) ? $trace_step['type'] : '')
+                . (isset($trace_step['function']) ? $trace_step['function'] : '')
+                . '('
+                . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
+                . ')'
+                ;
+        }
+        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
 
     return $r;
