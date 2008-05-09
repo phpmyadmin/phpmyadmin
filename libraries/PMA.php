@@ -6,7 +6,7 @@
 require_once './libraries/List_Database.class.php';
 
 /**
- * phpMyAdmin mian Controller
+ * phpMyAdmin main Controller
  * 
  * 
  *
@@ -16,7 +16,7 @@ class PMA
     /**
      * Holds database list
      *
-     * @var PMA_List_Datase
+     * @var PMA_List_Database
      */
     protected $databases = null;
     
