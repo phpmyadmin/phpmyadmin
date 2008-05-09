@@ -257,7 +257,8 @@ $element_counter = 0;
 
 
 if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
-    $table_count = PMA_getTableCount($GLOBALS['db']);
+    $table_list = PMA_getTableList($GLOBALS['db']);
+    $table_count = count($table_list);
     
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
@@ -304,7 +305,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
      *       but add another hidden param to see if it's the pos of databases
      *       or the pos of tables.
      */
-    $table_list = PMA_getTableList($GLOBALS['db'], null, 0, $cfg['MaxTableList']);
+    $table_list = array_slice($table_list, 0, $cfg['MaxTableList']);
     if (! empty($table_list)) {
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
         // hint user that the table list is larger, until the todo is done
