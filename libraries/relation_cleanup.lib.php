@@ -11,6 +11,17 @@
  */
 require_once './libraries/relation.lib.php';
 
+/**
+ * Cleanu column related relation stuff
+ *
+ * @uses PMA_getRelationsParam()
+ * @uses PMA_backquote()
+ * @uses PMA_sqlAddslashes()
+ * @uses PMA_query_as_cu()
+ * @param string $db
+ * @param string $table
+ * @param string $column
+ */
 function PMA_relationsCleanupColumn($db, $table, $column)
 {
     $cfgRelation = PMA_getRelationsParam();
@@ -46,6 +57,16 @@ function PMA_relationsCleanupColumn($db, $table, $column)
     }
 }
 
+/**
+ * Cleanup table related relation stuff
+ *
+ * @uses PMA_getRelationsParam()
+ * @uses PMA_backquote()
+ * @uses PMA_sqlAddslashes()
+ * @uses PMA_query_as_cu()
+ * @param string $db
+ * @param string $table
+ */
 function PMA_relationsCleanupTable($db, $table)
 {
     $cfgRelation = PMA_getRelationsParam();
@@ -91,6 +112,15 @@ function PMA_relationsCleanupTable($db, $table)
     }
 }
 
+/**
+ * Cleanup database related relation stuff
+ *
+ * @uses PMA_getRelationsParam()
+ * @uses PMA_backquote()
+ * @uses PMA_sqlAddslashes()
+ * @uses PMA_query_as_cu()
+ * @param string $db
+ */
 function PMA_relationsCleanupDatabase($db)
 {
     $cfgRelation = PMA_getRelationsParam();
