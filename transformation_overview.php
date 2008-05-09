@@ -15,7 +15,6 @@ define('PMA_DISPLAY_HEADING', 0);
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/header.inc.php';
-require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
 
 $types = PMA_getAvailableMIMEtypes();
