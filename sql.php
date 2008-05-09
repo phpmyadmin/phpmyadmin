@@ -51,8 +51,7 @@ if (isset($fields['dbase'])) {
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
-    $book_sql_query = PMA_queryBookmarks($db,
-        $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'',
+    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddslashes($table) . '\'',
         'label');
 
     if (! empty($book_sql_query)) {
@@ -104,7 +103,7 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
+    PMA_Bookmark_save($fields, (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
     PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto);
 } // end if
 
@@ -634,7 +633,7 @@ else {
 
     // Bookmark support if required
     if ($disp_mode[7] == '1'
-        && (isset($cfg['Bookmark']) && ! empty($cfg['Bookmark']['db']) && ! empty($cfg['Bookmark']['table']) && empty($id_bookmark))
+        && (! empty($cfg['Bookmark']) && empty($id_bookmark))
         && !empty($sql_query)) {
         echo "\n";
 

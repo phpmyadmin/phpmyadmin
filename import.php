@@ -3,6 +3,7 @@
 /**
  * Core script for import, this is just the glue around all other stuff
  *
+ * @uses    PMA_Bookmark_getList()
  * @version $Id$
  */
 
@@ -137,7 +138,7 @@ if (!empty($id_bookmark)) {
     require_once './libraries/bookmark.lib.php';
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
-            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark, 'id', isset($action_bookmark_all));
+            $import_text = PMA_Bookmark_get($db, $id_bookmark, 'id', isset($action_bookmark_all));
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
                 $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
             }
@@ -149,12 +150,12 @@ if (!empty($id_bookmark)) {
 
             break;
         case 1: // bookmarked query that have to be displayed
-            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            $import_text = PMA_Bookmark_get($db, $id_bookmark);
             $run_query = FALSE;
             break;
         case 2: // bookmarked query that have to be deleted
-            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
-            PMA_deleteBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            $import_text = PMA_Bookmark_get($db, $id_bookmark);
+            PMA_Bookmark_delete($db, $id_bookmark);
             $run_query = FALSE;
             $error = TRUE; // this is kind of hack to skip processing the query
             break;
@@ -179,15 +180,15 @@ if (!empty($bkm_label) && !empty($import_text)) {
 
     // Should we replace bookmark?
     if (isset($bkm_replace)) {
-        $bookmarks = PMA_listBookmarks($db, $cfg['Bookmark']);
+        $bookmarks = PMA_Bookmark_getList($db);
         foreach ($bookmarks as $key => $val) {
             if ($val == $bkm_label) {
-                PMA_deleteBookmarks($db, $cfg['Bookmark'], $key);
+                PMA_Bookmark_delete($db, $key);
             }
         }
     }
 
-    PMA_addBookmarks($bfields, $cfg['Bookmark'], isset($bkm_all_users));
+    PMA_Bookmark_save($bfields, isset($bkm_all_users));
 
     $bookmark_created = TRUE;
 } // end store bookmarks
