@@ -178,7 +178,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
             $trace[] = PMA_Error::relPath($trace_step['file']) . '#' 
                 . $trace_step['line'] . ': '
                 . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
+                //. (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
                 . (isset($trace_step['type']) ? $trace_step['type'] : '')
                 . (isset($trace_step['function']) ? $trace_step['function'] : '')
                 . '('
