@@ -96,11 +96,6 @@ require_once './libraries/tbl_info.inc.php';
 $comments_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require_once './libraries/relation.lib.php';
-    require_once './libraries/transformations.lib.php';
-
-    $cfgRelation = PMA_getRelationsParam();
-
     $comments_map = PMA_getComments($db, $table);
 }
 
@@ -193,8 +188,7 @@ if (isset($primary_key)) {
 
 // <markus@noga.de>
 // retrieve keys into foreign fields, if any
-$cfgRelation = PMA_getRelationsParam();
-$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
+$foreigners  = PMA_getForeigners($db, $table);
 
 
 /**
