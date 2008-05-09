@@ -17,7 +17,6 @@ require_once './libraries/common.inc.php';
 require_once './libraries/header.inc.php';
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
-$cfgRelation = PMA_getRelationsParam();
 
 $types = PMA_getAvailableMIMEtypes();
 ?>
