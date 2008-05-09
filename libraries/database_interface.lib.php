@@ -201,6 +201,7 @@ function PMA_DBI_get_tables($database, $link = null)
  * PMA_DBI_get_tables_full('my_database', 'my_tables_', 'comment'));
  * </code>
  *
+ * @todo    move into PMA_Table
  * @uses    PMA_DBI_fetch_result()
  * @uses    PMA_escape_mysql_wildcards()
  * @uses    PMA_backquote()
@@ -219,6 +220,8 @@ function PMA_DBI_get_tables($database, $link = null)
 function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false, $link = null, $limit_offset = 0, $limit_count = false)
 {
+    require_once './libraries/Table.class.php';
+    
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }
@@ -301,7 +304,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     .' LIKE \'' . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
-                    . PMA_backquote($each_database) . ';';
+                    . PMA_backquote($each_database);
             }
 
             $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
@@ -372,6 +375,10 @@ function PMA_DBI_get_tables_full($database, $table = false,
             uksort($tables[$key], 'strnatcasecmp');
         }
     }
+    
+    // cache table data
+    // so PMA_Table does not require to issue SHOW TABLE STATUS again
+    PMA_Table::$cache = $tables;
 
     if (! is_array($database)) {
         if (isset($tables[$database])) {

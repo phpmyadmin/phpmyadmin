@@ -8,8 +8,11 @@
 /**
  * @todo make use of PMA_Message and PMA_Error
  */
-class PMA_Table {
+class PMA_Table
+{
 
+    static $cache = array();
+    
     /**
      * @var string  table name
      */
@@ -240,7 +243,10 @@ class PMA_Table {
         // from the result set are NULL except Name and Comment.
         // MySQL from 5.0.0 to 5.0.12 returns 'view',
         // from 5.0.13 returns 'VIEW'.
-        $comment = strtoupper(PMA_DBI_fetch_value('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'', 0, 'Comment'));
+        if (! isset(PMA_Table::$cache[$db][$table]['Comment'])) {
+            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
+        }
+        $comment = strtoupper(PMA_Table::$cache[$db][$table]['Comment']);
         // use substr() because the comment might contain something like:
         // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
         return (substr($comment, 0, 4) == 'VIEW');
@@ -380,15 +386,15 @@ class PMA_Table {
     {
         $row_count = false;
 
-        if (! $force_exact) {
-            $row_count = PMA_DBI_fetch_value(
-                'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \''
-                    . PMA_sqlAddslashes($table, true) . '\';',
-                0, 'Rows');
-        }
-
         if (null === $is_view) {
             $is_view = PMA_Table::isView($db, $table);
+        }
+
+        if (! $force_exact) {
+            if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
+                PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\'');
+            }
+            $row_count = PMA_Table::$cache[$db][$table]['Rows'];
         }
 
         // for a VIEW, $row_count is always false at this point
@@ -421,6 +427,7 @@ class PMA_Table {
                     }
                 }
             }
+            PMA_Table::$cache[$db][$table]['Rows'] = $row_count;
         }
 
         if ($ret) {
