@@ -714,6 +714,8 @@ function PMA_sendHeaderLocation($uri)
  * @uses    explode()
  * @param   string  $db     name of db
  * @param   string  $tables name of tables
+ * @param   integer $limit_offset   list offset
+ * @param   integer $limit_count    max tables to return
  * return   array   (recursive) grouped table list
  */
 function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
