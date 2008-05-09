@@ -907,9 +907,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * the PMA_List_Database class
          */
-        require_once './libraries/List_Database.class.php';
-        $PMA_List_Database = new PMA_List_Database($userlink, $controllink);
-
+        require_once './libraries/PMA.php';
+        $pma = new PMA;
+        $pma->userlink = $userlink;
+        $pma->controllink = $controllink;
+        
         /**
          * some resetting has to be done when switching servers
          */

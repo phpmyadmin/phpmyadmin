@@ -53,7 +53,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
             // rebuild the database list because PMA_Table::moveCopy
             // checks in this list if the target db exists
-            $GLOBALS['PMA_List_Database']->build();
+            $GLOBALS['pma']->databases->build();
         }
 
         if (isset($GLOBALS['add_constraints'])) {

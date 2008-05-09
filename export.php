@@ -417,7 +417,7 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     // Walk over databases
-    foreach ($GLOBALS['PMA_List_Database']->items as $current_db) {
+    foreach ($GLOBALS['pma']->databases as $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
             if (!PMA_exportDBHeader($current_db)) {

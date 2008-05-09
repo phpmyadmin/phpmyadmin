@@ -4,7 +4,7 @@
  * the navigation frame - displays server, db and table selection tree
  *
  * @version $Id$
- * @uses $GLOBALS['PMA_List_Database']
+ * @uses $GLOBALS['pma']->databases
  * @uses $GLOBALS['server']
  * @uses $GLOBALS['db']
  * @uses $GLOBALS['table']
@@ -24,7 +24,6 @@
  * @uses $GLOBALS['cfg']['DefaultTabDatabase']
  * @uses $GLOBALS['cfgRelation']['commwork']) {
  * @uses PMA_List_Database::getSingleItem()
- * @uses PMA_List_Database::count()
  * @uses PMA_List_Database::getHtmlSelectGrouped()
  * @uses PMA_List_Database::getGroupedDetails()
  * @uses PMA_generate_common_url()
@@ -86,7 +85,7 @@ PMA_outBufferPre();
  * selects the database if there is only one on current server
  */
 if ($GLOBALS['server'] && ! strlen($GLOBALS['db'])) {
-    $GLOBALS['db'] = $GLOBALS['PMA_List_Database']->getSingleItem();
+    $GLOBALS['db'] = $GLOBALS['pma']->databases->getSingleItem();
 }
 
 $db_start = $GLOBALS['db'];
@@ -188,11 +187,11 @@ require './libraries/navigation_header.inc.php';
 if (! $GLOBALS['server']) {
     // no server selected
     PMA_exitNavigationFrame();
-} elseif (! $GLOBALS['PMA_List_Database']->count()) {
+} elseif (! count($GLOBALS['pma']->databases)) {
     // no database available, so we break here
     echo '<p>' . $GLOBALS['strNoDatabases'] . '</p>';
     PMA_exitNavigationFrame();
-} elseif ($GLOBALS['cfg']['LeftFrameLight'] && $GLOBALS['PMA_List_Database']->count() > 1) {
+} elseif ($GLOBALS['cfg']['LeftFrameLight'] && count($GLOBALS['pma']->databases) > 1) {
     $list = $cfg['DisplayDatabasesList'];
     if ($list === 'auto') {
         if (empty($GLOBALS['db'])) {
@@ -216,7 +215,7 @@ if (! $GLOBALS['server']) {
     <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['PMA_List_Database']->getHtmlSelectGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             .'</noscript>' . "\n"
@@ -225,10 +224,10 @@ if (! $GLOBALS['server']) {
         if (! empty($db)) {
             echo '<div id="databaseList">' . "\n";
         }
-        echo $GLOBALS['PMA_List_Database']->getHtmlListGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
-    PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
+    PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
     if (! empty($db)) {
         echo '</div>' . "\n";
     }
@@ -321,11 +320,11 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
-    PMA_listNavigator($GLOBALS['PMA_List_Database']->count(), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
+    PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
     echo '</div>' . "\n";
 
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList($GLOBALS['PMA_List_Database']->getGroupedDetails($_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
+    PMA_displayDbList($GLOBALS['pma']->databases->getGroupedDetails($_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
 }
 
 /**
@@ -357,13 +356,13 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
 
     // get table list, for all databases
     // doing this in one step takes advantage of a single query with information_schema!
-    $tables_full = PMA_DBI_get_tables_full($GLOBALS['PMA_List_Database']->getLimitedItems($offset, $count));
+    $tables_full = PMA_DBI_get_tables_full($GLOBALS['pma']->databases->getLimitedItems($offset, $count));
 
     $url_dbgroup = '';
     echo '<ul id="leftdatabaselist">';
     $close_db_group = false;
     foreach ($ext_dblist as $group => $db_group) {
-        if ($GLOBALS['PMA_List_Database']->count() > 1) {
+        if (count($GLOBALS['pma']->databases) > 1) {
             if ($close_db_group) {
                 $url_dbgroup = '';
                 echo '</ul>';
@@ -402,7 +401,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
             // Displays the database name
             echo '<li>' . "\n";
 
-            if ($GLOBALS['PMA_List_Database']->count() > 1) {
+            if (count($GLOBALS['pma']->databases) > 1) {
                 // only with more than one db we need collapse ...
                 if ($db_start != $db['name'] || $db['num_tables'] < 1) {
                     // display + only if this db is not preselected
@@ -475,7 +474,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
                     $tables = PMA_getTableList($db['name']);
                 }
                 $child_visible =
-                    (bool) ($GLOBALS['PMA_List_Database']->count() === 1 || $db_start == $db['name']);
+                    (bool) (count($GLOBALS['pma']->databases) === 1 || $db_start == $db['name']);
                 PMA_displayTableList($tables, $child_visible, '', $db['name']);
             } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
                 // no tables and LeftFrameLight:

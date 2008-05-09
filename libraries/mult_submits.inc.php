@@ -420,7 +420,7 @@ elseif ($mult_btn == $strYes) {
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator
         // when dropping a db from server_databases
-        $GLOBALS['PMA_List_Database']->build();
+        $GLOBALS['pma']->databases->build();
     }
 }
 ?>

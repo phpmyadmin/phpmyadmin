@@ -92,7 +92,7 @@ echo '<h2>' . "\n"
 if ($server > 0) {
     $databases = PMA_DBI_get_databases_full(null, $dbstats, null, $sort_by,
         $sort_order, $pos, true);
-    $databases_count = $PMA_List_Database->count();
+    $databases_count = count($GLOBALS['pma']->databases);
 } else {
     $databases_count = 0;
 }

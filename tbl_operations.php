@@ -258,14 +258,14 @@ unset($columns);
 <input type="hidden" name="what" value="data" />
 <fieldset id="fieldset_table_rename">
     <legend><?php echo $strMoveTable; ?></legend>
-<?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
+<?php if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
 ?>
     <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
 <?php
     } else {
 ?>
     <select name="target_db">
-        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
+        <?php echo $GLOBALS['pma']->databases->getHtmlOptions(true, false); ?>
     </select>
 <?php
     } // end if
@@ -462,14 +462,14 @@ if (isset($possible_row_formats[$tbl_type])) {
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo $strCopyTable; ?></legend>
-<?php if ($GLOBALS['PMA_List_Database']->count() > $GLOBALS['cfg']['MaxDbList']) {
+<?php if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
 ?>
     <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
 <?php
     } else {
 ?>
     <select name="target_db">
-        <?php echo $GLOBALS['PMA_List_Database']->getHtmlOptions(true, false); ?>
+        <?php echo $GLOBALS['pma']->databases->getHtmlOptions(true, false); ?>
     </select>
 <?php
     } // end if

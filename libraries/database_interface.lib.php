@@ -487,7 +487,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 
         // display only databases also in official database list
         // f.e. to apply hide_db and only_db
-        $drops = array_diff(array_keys($databases), $GLOBALS['PMA_List_Database']->items);
+        $drops = array_diff(array_keys($databases), $GLOBALS['pma']->databases);
         if (count($drops)) {
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
@@ -496,7 +496,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         }
         unset($sql_where_schema, $sql, $drops);
     } else {
-        foreach ($GLOBALS['PMA_List_Database']->items as $database_name) {
+        foreach ($GLOBALS['pma']->databases as $database_name) {
             // MySQL forward compatibility
             // so pma could use this array as if every server is of version >5.0
             $databases[$database_name]['SCHEMA_NAME']      = $database_name;
@@ -630,7 +630,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         unset($sql_wheres, $sql);
     } else {
         if (null === $database) {
-            foreach ($GLOBALS['PMA_List_Database']->items as $database) {
+            foreach ($GLOBALS['pma']->databases as $database) {
                 $columns[$database] = PMA_DBI_get_columns_full($database, null,
                     null, $link);
             }

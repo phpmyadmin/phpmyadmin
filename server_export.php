@@ -30,7 +30,7 @@ $multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1" onclick="setSe
 $multi_values .= '<select name="db_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
-foreach ($GLOBALS['PMA_List_Database']->items as $current_db) {
+foreach ($GLOBALS['pma']->databases as $current_db) {
     if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
         $is_selected = ' selected="selected"';
     } else {

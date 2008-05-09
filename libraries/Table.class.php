@@ -559,12 +559,12 @@ class PMA_Table {
         $GLOBALS['asfile']         = 1;
 
         // Ensure the target is valid
-        if (! $GLOBALS['PMA_List_Database']->exists($source_db, $target_db)) {
-            if (! $GLOBALS['PMA_List_Database']->exists($source_db)) {
+        if (! $GLOBALS['pma']->databases->exists($source_db, $target_db)) {
+            if (! $GLOBALS['pma']->databases->exists($source_db)) {
                 $GLOBALS['message'] = PMA_Message::rawError('source database `'
                     . htmlspecialchars($source_db) . '` not found');
             }
-            if (! $GLOBALS['PMA_List_Database']->exists($target_db)) {
+            if (! $GLOBALS['pma']->databases->exists($target_db)) {
                 $GLOBALS['message'] = PMA_Message::rawError('target database `'
                     . htmlspecialchars($target_db) . '` not found');
             }
@@ -951,7 +951,7 @@ class PMA_Table {
     {
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
-            if (! $GLOBALS['PMA_List_Database']->exists($new_db)) {
+            if (! $GLOBALS['pma']->databases->exists($new_db)) {
                 $this->errors[] = $GLOBALS['strInvalidDatabase'] . ': ' . $new_db;
                 return false;
             }
