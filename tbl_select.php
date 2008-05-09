@@ -96,11 +96,9 @@ if (!isset($param) || $param[0] == '') {
 
     // <markus@noga.de>
     // retrieve keys into foreign fields, if any
-    $cfgRelation = PMA_getRelationsParam();
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
-    //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
-    $foreigners  = PMA_getForeigners($db, $table);
+    $foreigners = PMA_getForeigners($db, $table);
     ?>
 <script type="text/javascript">
 // <![CDATA[
