@@ -243,13 +243,32 @@ class PMA_Table
         // from the result set are NULL except Name and Comment.
         // MySQL from 5.0.0 to 5.0.12 returns 'view',
         // from 5.0.13 returns 'VIEW'.
-        if (! isset(PMA_Table::$cache[$db][$table]['Comment'])) {
-            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
-        }
-        $comment = strtoupper(PMA_Table::$cache[$db][$table]['Comment']);
         // use substr() because the comment might contain something like:
         // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
-        return (substr($comment, 0, 4) == 'VIEW');
+        $comment = strtoupper(PMA_Table::sGetStatusInfo($db, $table, 'Comment'));
+        return substr($comment, 0, 4) == 'VIEW';
+    }
+    
+    static public function sGetToolTip($db, $table)
+    {
+        return PMA_Table::sGetStatusInfo($db, $table, 'Comment') 
+            . ' (' . PMA_Table::countRecords($db, $table, true) . ')';
+    }
+
+    static public function sGetStatusInfo($db, $table, $info = null)
+    {
+        if (! isset(PMA_Table::$cache[$db][$table])) {
+            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
+        }
+        
+        if (null === $info) {
+            return PMA_Table::$cache[$db][$table];
+        }
+        
+        if (! isset(PMA_Table::$cache[$db][$table][$info])) {
+            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
+        }
+        return PMA_Table::$cache[$db][$table][$info];
     }
 
     /**
@@ -384,50 +403,54 @@ class PMA_Table
     static public function countRecords($db, $table, $ret = false, 
         $force_exact = false, $is_view = null)
     {
-        $row_count = false;
-
-        if (null === $is_view) {
-            $is_view = PMA_Table::isView($db, $table);
-        }
-
-        if (! $force_exact) {
-            if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\'');
+        if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
+            $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
+        } else {
+            $row_count = false;
+            
+            if (null === $is_view) {
+                $is_view = PMA_Table::isView($db, $table);
             }
-            $row_count = PMA_Table::$cache[$db][$table]['Rows'];
-        }
-
-        // for a VIEW, $row_count is always false at this point
-        if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
-            if (! $is_view) {
-                $row_count = PMA_DBI_fetch_value(
-                    'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
-                    . PMA_backquote($table));
-            } else {
-                // For complex views, even trying to get a partial record
-                // count could bring down a server, so we offer an
-                // alternative: setting MaxExactCountViews to 0 will bypass
-                // completely the record counting for views
-
-                if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
-                    $row_count = 0;
+            
+            if (! $force_exact) {
+                if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
+                    PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\'');
+                }
+                $row_count = PMA_Table::$cache[$db][$table]['Rows'];
+            }
+    
+            // for a VIEW, $row_count is always false at this point
+            if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
+                if (! $is_view) {
+                    $row_count = PMA_DBI_fetch_value(
+                        'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
+                        . PMA_backquote($table));
                 } else {
-                    // Counting all rows of a VIEW could be too long, so use
-                    // a LIMIT clause.
-                    // Use try_query because it can fail (a VIEW is based on
-                    // a table that no longer exists)
-                    $result = PMA_DBI_try_query(
-                        'SELECT 1 FROM ' . PMA_backquote($db) . '.'
-                            . PMA_backquote($table) . ' LIMIT '
-                            . $GLOBALS['cfg']['MaxExactCountViews'],
-                            null, PMA_DBI_QUERY_STORE);
-                    if (!PMA_DBI_getError()) {
-                        $row_count = PMA_DBI_num_rows($result);
-                        PMA_DBI_free_result($result);
+                    // For complex views, even trying to get a partial record
+                    // count could bring down a server, so we offer an
+                    // alternative: setting MaxExactCountViews to 0 will bypass
+                    // completely the record counting for views
+    
+                    if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
+                        $row_count = 0;
+                    } else {
+                        // Counting all rows of a VIEW could be too long, so use
+                        // a LIMIT clause.
+                        // Use try_query because it can fail (a VIEW is based on
+                        // a table that no longer exists)
+                        $result = PMA_DBI_try_query(
+                            'SELECT 1 FROM ' . PMA_backquote($db) . '.'
+                                . PMA_backquote($table) . ' LIMIT '
+                                . $GLOBALS['cfg']['MaxExactCountViews'],
+                                null, PMA_DBI_QUERY_STORE);
+                        if (!PMA_DBI_getError()) {
+                            $row_count = PMA_DBI_num_rows($result);
+                            PMA_DBI_free_result($result);
+                        }
                     }
                 }
+                PMA_Table::$cache[$db][$table]['ExactRows'] = $row_count;
             }
-            PMA_Table::$cache[$db][$table]['Rows'] = $row_count;
         }
 
         if ($ret) {

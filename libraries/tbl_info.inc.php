@@ -36,30 +36,21 @@ global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
 // otherwise error #1046, no database selected
 PMA_DBI_select_db($GLOBALS['db']);
 
-$table_info_result   = PMA_DBI_query(
-    'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\';',
-    null, PMA_DBI_QUERY_STORE);
+$showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table']);
 
 // need this test because when we are creating a table, we get 0 rows
 // from the SHOW TABLE query
 // and we don't want to mess up the $tbl_type coming from the form
 
-if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
-    $showtable           = PMA_DBI_fetch_assoc($table_info_result);
-    PMA_DBI_free_result($table_info_result);
-    unset($table_info_result);
-
-    if (!isset($showtable['Type']) && isset($showtable['Engine'])) {
-        $showtable['Type'] =& $showtable['Engine'];
-    }
+if ($showtable) {
     if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
         $tbl_is_view     = true;
         $tbl_type        = $GLOBALS['strView'];
         $show_comment    = null;
     } else {
         $tbl_is_view     = false;
-        $tbl_type        = isset($showtable['Type'])
-            ? strtoupper($showtable['Type'])
+        $tbl_type        = isset($showtable['Engine'])
+            ? strtoupper($showtable['Engine'])
             : '';
         // a new comment could be coming from tbl_operations.php
         // and we want to show it in the header

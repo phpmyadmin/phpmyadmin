@@ -960,22 +960,14 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     // Corrects the tooltip text via JS if required
     // @todo this is REALLY the wrong place to do this - very unexpected here
     if (strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
-        $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
-        if ($result) {
-            $tbl_status = PMA_DBI_fetch_assoc($result);
-            $tooltip    = (empty($tbl_status['Comment']))
-                        ? ''
-                        : $tbl_status['Comment'] . ' ';
-            $tooltip .= '(' . PMA_formatNumber($tbl_status['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')';
-            PMA_DBI_free_result($result);
-            $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
-            echo "\n";
-            echo '<script type="text/javascript">' . "\n";
-            echo '//<![CDATA[' . "\n";
-            echo "window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
-            echo '//]]>' . "\n";
-            echo '</script>' . "\n";
-        } // end if
+        $tooltip = PMA_Table::sGetToolTip($GLOBALS['db'], $GLOBALS['table']);
+        $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
+        echo "\n";
+        echo '<script type="text/javascript">' . "\n";
+        echo '//<![CDATA[' . "\n";
+        echo "window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
+        echo '//]]>' . "\n";
+        echo '</script>' . "\n";
     } // end if ... elseif
 
     // Checks if the table needs to be repaired after a TRUNCATE query.
@@ -983,14 +975,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     // @todo this is REALLY the wrong place to do this - very unexpected here
     if (strlen($GLOBALS['table'])
      && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
-        if (!isset($tbl_status)) {
-            $result = @PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
-            if ($result) {
-                $tbl_status = PMA_DBI_fetch_assoc($result);
-                PMA_DBI_free_result($result);
-            }
-        }
-        if (isset($tbl_status) && (int) $tbl_status['Index_length'] > 1024) {
+        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }

@@ -10,6 +10,8 @@
 /**
  *
  */
+require_once './libraries/Table.class.php';
+
 if (empty($is_db)) {
     if (strlen($db)) {
         $is_db = @PMA_DBI_select_db($db);
@@ -40,12 +42,17 @@ if (empty($is_db)) {
 
 if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
     // Not a valid table name -> back to the db_sql.php
+    
     if (strlen($table)) {
-        $_result = PMA_DBI_try_query(
-            'SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';',
-            null, PMA_DBI_QUERY_STORE);
-        $is_table = @PMA_DBI_num_rows($_result);
-        PMA_DBI_free_result($_result);
+        $is_table = isset(PMA_Table::$cache[$db][$table]);
+        
+        if (! $is_table) {
+            $_result = PMA_DBI_try_query(
+                'SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';',
+                null, PMA_DBI_QUERY_STORE);
+            $is_table = @PMA_DBI_num_rows($_result);
+            PMA_DBI_free_result($_result);
+        }
     } else {
         $is_table = false;
     }
