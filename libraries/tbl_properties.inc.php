@@ -383,7 +383,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<select name="field_default_type[' . $i . ']">';
     foreach ($default_options as $key => $value) {
         $content_cells[$i][$ci] .= '<option value="' . $key . '"';
-        if (($row['DefaultType']) == $key) {
+        // is only set when we go back to edit a field's structure
+        if (isset($row['DefaultType']) && $row['DefaultType'] == $key) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= ' >' . $value . '</option>';
