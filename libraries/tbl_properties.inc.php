@@ -367,7 +367,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
     
     $default_options = array(
-        'USER_DEFINED'      => 'strUserDefined',
+        'USER_DEFINED'      =>  $strUserDefined,
         'NONE'              =>  $strNone,
         'NULL'              => 'NULL',
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',

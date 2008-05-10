@@ -1004,6 +1004,7 @@ $strUseBackquotes = 'Enclose table and field names with backquotes';
 $strUsedPhpExtensions = 'Used PHP extensions';
 $strUseHostTable = 'Use Host Table';
 $strUserAlreadyExists = 'The user %s already exists!';
+$strUserDefined = 'User-defined';
 $strUserEmpty = 'The user name is empty!';
 $strUserName = 'User name';
 $strUserNotFound = 'The selected user was not found in the privilege table.';
