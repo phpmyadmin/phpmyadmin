@@ -55,11 +55,11 @@ $options_array = array(
  *
  * @access  public
  */
-function PMA_generate_dropdown($dropdown_question, $radio_name, $choices, $selected_value)
+function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $selected_value)
 {
     echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
 
-    echo '<select name="' . htmlspecialchars($radio_name) . '">' . "\n";
+    echo '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
     echo '<option value=""></option>' . "\n";
 
     foreach ($choices as $one_value => $one_label) {
