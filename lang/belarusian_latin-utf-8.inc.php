@@ -925,7 +925,6 @@ $strViewDumpDatabases = 'Prahladzieć damp (schiemu) bazaŭ dadzienych';
 $strViewDumpDB = 'Prahladzieć damp (schumu) bazy dadzienych';
 $strViewDump = 'Prahladzieć damp (schiemu) tablicy';
 $strViewHasBeenDropped = 'Vyhlad %s byŭ vydaleny';
-$strViewMaxExactCount = 'U hetym prahladzie bolš za %d radkoŭ. Kali łaska, źviarniciesia da %sdakumentacyi%s.';
 $strView = 'Vyhlad';
 
 $strWebServerUploadDirectoryError = 'Niemahčyma adkryć paznačanuju vami tečku dla zahruzki fajłaŭ';
@@ -1047,4 +1046,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

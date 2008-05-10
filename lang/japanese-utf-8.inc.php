@@ -994,7 +994,6 @@ $strViewDumpDatabases = 'データベースのダンプ(スキーマ)表示';
 $strViewDumpDB = 'DB のダンプ(スキーマ)表示';
 $strViewDump = 'テーブルのダンプ(スキーマ)表示';
 $strViewHasBeenDropped = 'ビュー %s を破棄しました';
-$strViewMaxExactCount = 'ビューの行数が %s を越えました。%sドキュメント%s をご覧ください';
 $strViewName = 'VIEW の名前';
 
 $strWebServerUploadDirectoryError = '指定したアップロードディレクトリが利用できません';
@@ -1064,4 +1063,5 @@ $strWebServerInformation = 'ウェブサーバ情報';  //to translate
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

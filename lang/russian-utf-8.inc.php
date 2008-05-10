@@ -994,7 +994,6 @@ $strViewDump = 'Отобразить дамп (схему) таблицы';
 $strViewDumpDatabases = 'Отобразить дамп (схему) баз данных';
 $strViewDumpDB = 'Отобразить дамп (схему) базы данных';
 $strViewHasBeenDropped = 'Представление %s было удалено';
-$strViewMaxExactCount = 'Это представление содержит больше %s строк. За разъяснениями, обратитесь к %sдокументации%s.';
 $strViewName = 'VIEW название';
 
 $strWebServerUploadDirectory = 'Из каталога загрузки';
@@ -1049,4 +1048,5 @@ $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

@@ -990,7 +990,6 @@ $strViewDumpDatabases = 'Prikaži sadržaj (shemu) baze';
 $strViewDumpDB = 'Prikaži sadržaj (shemu) baze';
 $strViewDump = 'Prikaži sadržaj (shemu) tabele';
 $strViewHasBeenDropped = 'Pogled %s je odbačen';
-$strViewMaxExactCount = 'Ovaj pogled ima više od %d redova. Molimo pogledajte %sdokumentaciju%s.';
 $strViewName = 'naziv za VIEW';
 $strView = 'Pogled';
 
@@ -1047,4 +1046,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

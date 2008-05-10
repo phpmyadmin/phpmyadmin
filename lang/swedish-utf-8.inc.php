@@ -989,7 +989,6 @@ $strViewDumpDatabases = 'Visa SQL-satser för databaser';
 $strViewDumpDB = 'Visa SQL-satser för databasen';
 $strViewDump = 'Visa SQL-satser för tabellen';
 $strViewHasBeenDropped = 'Vyn %s har tagits bort';
-$strViewMaxExactCount = 'Denna vy har mer än %s rader. Var god se %sdokumentationen%s.';
 $strViewName = 'Namn på vy';
 $strView = 'Vy';
 
@@ -1046,4 +1045,5 @@ $strSuhosin = 'Server körs med Suhosin. Se %sdokumentation%s för möjliga frå
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

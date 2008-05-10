@@ -742,7 +742,6 @@ $strViewDumpDatabases = 'Преглед на схемата на базата о
 $strViewDumpDB = 'Схема на БД';
 $strViewDump = 'Схема на таблицата';
 $strViewHasBeenDropped = 'Изглед %s беше изтрит';
-$strViewMaxExactCount = 'Този изглед има повече от %s реда. Моля, обърнете се към %sдокументацията%s.';
 
 $strWebServerUploadDirectoryError = 'Директорията която сте указали за upload не може да бъде достигната';
 $strWebServerUploadDirectory = 'директорията за upload на уеб сървъра';
@@ -1068,4 +1067,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

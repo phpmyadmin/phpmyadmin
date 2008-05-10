@@ -185,10 +185,7 @@ $row_count      = 0;
 
 $hidden_fields = array();
 $odd_row       = true;
-$at_least_one_view_exceeds_max_count = false;
 $sum_row_count_pre = '';
-
-$max_exact_count_note = PMA_showHint(PMA_sanitize(sprintf($strViewMaxExactCount, PMA_formatNumber($cfg['MaxExactCountViews'], 0), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
 
 foreach ($tables as $keyname => $each_table) {
     // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
@@ -247,14 +244,10 @@ foreach ($tables as $keyname => $each_table) {
         // for a view, the ENGINE is null 
         case null :
         case 'SYSTEM VIEW' :
-            if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCountViews']) {
-                $each_table['COUNTED'] = true;
-                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+            // countRecords() takes care of $cfg['MaxExactCountViews']
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
                     $each_table['TABLE_NAME'], $return = true, $force_exact = true,
                     $is_view = true);
-            } else {
-                $each_table['COUNTED'] = false;
-            }
             $table_is_view = true;
             break;
         default :
@@ -374,11 +367,10 @@ foreach ($tables as $keyname => $each_table) {
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
-        if ($table_is_view  && $each_table['TABLE_ROWS'] >= $cfg['MaxExactCountViews'] && (! $each_table['COUNTED'])) {
-            $at_least_one_view_exceeds_max_count = true;
+        if ($table_is_view) {
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
-            $show_superscript = $max_exact_count_note;
+            $show_superscript = PMA_showHint(PMA_sanitize(sprintf($strViewHasAtLeast, '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
         } elseif($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';

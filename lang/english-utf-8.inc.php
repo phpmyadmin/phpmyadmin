@@ -1024,8 +1024,8 @@ $strVersionInformation = 'Version information';
 $strViewDumpDatabases = 'View dump (schema) of databases';
 $strViewDumpDB = 'View dump (schema) of database';
 $strViewDump = 'View dump (schema) of table';
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';
 $strViewHasBeenDropped = 'View %s has been dropped';
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';
 $strViewName = 'VIEW name';
 $strView = 'View';
 

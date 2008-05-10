@@ -1019,7 +1019,6 @@ $strViewDump = '<b>Afficher le schéma</b> de la table';
 $strViewDumpDatabases = 'Schéma et/ou contenu des bases de données';
 $strViewDumpDB = 'Schéma et données de la base ';
 $strViewHasBeenDropped = 'La vue %s a été supprimée';
-$strViewMaxExactCount = 'Cette vue comporte plus de %d enregistrements. Veuillez vous référer à la %sdocumentation%s.';
 $strViewName = 'Nom de la vue';
 $strView = 'Vue';
 
@@ -1044,4 +1043,5 @@ $strZip = '"zippé"';
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

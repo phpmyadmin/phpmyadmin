@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * finishs HTML output
+ * finishes HTML output
  *
  * updates javascript variables in index.php for coorect working with querywindow
  * and navigation frame refreshing

@@ -1012,7 +1012,6 @@ $strViewDumpDatabases = 'Näytä tietokannoista vedos (skeema)';
 $strViewDumpDB = 'Tee vedos tietokannasta';
 $strViewDump = 'Tee vedos taulusta';
 $strViewHasBeenDropped = "Näkymä %s on poistettu";
-$strViewMaxExactCount = 'Tässä näkymässä on yli %s riviä. Katso lisätietoja %sdokumentaatiosta%s.';
 $strView = "Näkymä";
 $strViewName = 'VIEW-arvon nimi';
 
@@ -1047,4 +1046,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

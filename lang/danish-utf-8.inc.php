@@ -986,7 +986,6 @@ $strViewDumpDatabases = 'Vis dump (skema) for databaser';
 $strViewDumpDB = 'Vis dump (skema) af database';
 $strViewDump = 'Vis dump (skema) over tabel';
 $strViewHasBeenDropped = 'Visning %s er blevet droppet';
-$strViewMaxExactCount = 'Denne visning har mere end %d rækker. Se venligst %sdokumentationen%s.';
 $strViewName = 'VIEW navn';
 $strView = 'Visning';
 
@@ -1047,4 +1046,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

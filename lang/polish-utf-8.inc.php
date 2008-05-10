@@ -919,7 +919,6 @@ $strViewDumpDatabases = 'Zrzut baz danych';
 $strViewDumpDB = 'Zrzut bazy danych';
 $strViewDump = 'Zrzut tabeli';
 $strViewHasBeenDropped = 'Perspektywa %s została usunięta';
-$strViewMaxExactCount = 'Perspektywa ma ponad %d rekordów. Proszę zajrzeć do %sdokumentacji%s.';
 $strView = 'Perspektywa';
 
 $strWebServerUploadDirectoryError = 'Katalog ustalony dla uploadu jest nieosiągalny';
@@ -1041,4 +1040,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

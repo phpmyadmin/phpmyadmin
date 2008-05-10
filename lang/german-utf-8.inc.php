@@ -1018,7 +1018,6 @@ $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 $strViewDumpDatabases = 'Dump (Schema) der Datenbanken anzeigen';
 $strViewHasBeenDropped = 'Die Ansicht %s wurde gelöscht';
-$strViewMaxExactCount = 'Dieses View hat mehr als %d Zeilen. Bitte schlagen Sie im %sHandbuch%s nach.';
 $strViewName = 'VIEW Name';
 
 $strWebServerUploadDirectory = 'Upload-Verzeichnis auf dem Webserver';
@@ -1053,4 +1052,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

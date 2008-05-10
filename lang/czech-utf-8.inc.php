@@ -1022,7 +1022,6 @@ $strViewDumpDatabases = 'Export databází';
 $strViewDumpDB = 'Export databáze';
 $strViewDump = 'Export tabulky';
 $strViewHasBeenDropped = 'Pohled %s byl odstraněn';
-$strViewMaxExactCount = 'Tento pohled má více než %d záznamů. Viz %sdokumentace%s.';
 $strViewName = 'Jméno pohledu';
 $strView = 'Pohled';
 
@@ -1047,4 +1046,5 @@ $strZip = '„zazipováno“';
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

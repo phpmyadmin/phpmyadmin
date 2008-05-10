@@ -920,7 +920,6 @@ $strViewDumpDatabases = 'Export databáz';
 $strViewDumpDB = 'Zobraziť dump (schému) databázy';
 $strViewDump = 'Zobraziť dump (schému) tabuľky';
 $strViewHasBeenDropped = 'Pohľad %s bol odstránený';
-$strViewMaxExactCount = 'Tento pohľad obsahuje viac ako %s riadkov. Viď %sdokumentácia%s.';
 $strView = 'Pohľad';
 
 $strWebServerUploadDirectoryError = 'Adresár určený pre upload súborov sa nedá otvoriť';
@@ -1048,4 +1047,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

@@ -984,7 +984,6 @@ $strViewDumpDatabases = 'Veure volcat (esquema) de les bases de dades';
 $strViewDumpDB = 'Veure l\'esquema de la base de dades';
 $strViewDump = 'Veure un esquema de la taula';
 $strViewHasBeenDropped = 'Vista %s esborrada';
-$strViewMaxExactCount = 'Aquesta vista té més de %d arxius. Consulteu a %sdocumentació%s.';
 $strViewName = 'Nom de VISTA';
 $strView = 'Vista';
 
@@ -1043,4 +1042,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

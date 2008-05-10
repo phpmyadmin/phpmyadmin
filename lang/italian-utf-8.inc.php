@@ -990,7 +990,6 @@ $strViewDumpDatabases = 'Visualizza il dump (schema) dei databases';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewHasBeenDropped = 'La vista %s è stata eliminata';
-$strViewMaxExactCount = 'Questa vista ha più di %d righe. Per informazioni fare riferimento a %sdocumentation%s.';
 $strViewName = 'Nome VISTA';
 $strView = 'Vista';
 
@@ -1048,4 +1047,5 @@ $strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

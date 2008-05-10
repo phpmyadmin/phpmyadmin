@@ -927,7 +927,6 @@ $strViewDumpDatabases = 'Праглядзець дамп (схему) базаў
 $strViewDumpDB = 'Праглядзець дамп (схуму) базы дадзеных';
 $strViewDump = 'Праглядзець дамп (схему) табліцы';
 $strViewHasBeenDropped = 'Выгляд %s быў выдалены';
-$strViewMaxExactCount = 'У гэтым праглядзе больш за %d радкоў. Калі ласка, зьвярніцеся да %sдакумэнтацыі%s.';
 
 $strWebServerUploadDirectoryError = 'Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў';
 $strWebServerUploadDirectory = 'тэчка вэб-сэрвэра для загрузкі файлаў';
@@ -1048,4 +1047,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

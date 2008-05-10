@@ -942,7 +942,6 @@ $strUnsupportedCompressionDetected = 'You attempted to load file with unsupporte
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
 $strAddClause = 'Add %s';  //to translate
@@ -1068,4 +1067,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

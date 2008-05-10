@@ -987,7 +987,6 @@ $strViewDumpDatabases = 'Ver dump (esquema) dos Bancos de Dados';
 $strViewDumpDB = 'Ver o esquema do Banco de Dados'; 
 $strViewDump = 'Ver o esquema da tabela'; 
 $strViewHasBeenDropped = 'Visão %s foi apagada';
-$strViewMaxExactCount = 'Essa visão tem mais que %s linhas. Veja referências na %sdocumentation%s.';
 $strViewName = 'Nome da VISÃO';
 $strView = 'Visão';
 
@@ -1045,4 +1044,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

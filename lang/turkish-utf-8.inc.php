@@ -995,7 +995,6 @@ $strViewDumpDatabases = 'Veritabanlarının dökümünü (şemasını) göster';
 $strViewDumpDB = 'Veritabanının dökümünü (şemasını) göster';
 $strViewDump = 'Tablonun dökümünü (şemasını) göster';
 $strViewHasBeenDropped = '%s görünümü kaldırıldı';
-$strViewMaxExactCount = 'Bu görünüm %s satırdan daha fazla. Lütfen %sbelgelere%s başvurun.';
 $strViewName = 'GÖRÜNÜM adı';
 $strView = 'Görünüm';
 
@@ -1053,4 +1052,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

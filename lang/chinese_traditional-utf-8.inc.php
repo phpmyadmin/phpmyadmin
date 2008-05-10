@@ -795,7 +795,6 @@ $strViewDump = '檢視資料表的備份概要 (dump schema)';
 $strViewDumpDatabases = '顯示資料庫概要 (schema)';
 $strViewDumpDB = '檢視資料庫的備份概要 (dump schema)';
 $strViewHasBeenDropped = '檢視 %s 己被刪除.';
-$strViewMaxExactCount = '這個檢查已超過 %s 列, 詳情請參看此%s文件%s.';
 
 $strWebServerUploadDirectory = 'Web 伺服器上載目錄';
 $strWebServerUploadDirectoryError = '設定之上載目錄錯誤，未能使用';
@@ -1052,4 +1051,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

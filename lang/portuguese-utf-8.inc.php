@@ -943,7 +943,6 @@ $strValidatorError = 'The SQL validator could not be initialized. Please check i
 $strVersionInformation = 'Version information';  //to translate
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 $strViewHasBeenDropped = 'View %s has been dropped';  //to translate
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';  //to translate
 $strView = 'View';  //to translate
 
 $strWildcard = 'wildcard';  //to translate
@@ -1074,4 +1073,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

@@ -986,7 +986,6 @@ $strViewDumpDatabases = 'Ver el volcado (schema) de la base de datos';
 $strViewDumpDB = 'Ver el volcado esquema de la base de datos';
 $strViewDump = 'Mostrar el volcado esquema de la tabla';
 $strViewHasBeenDropped = 'Se descartó el modo de visualización %s';
-$strViewMaxExactCount = 'Esta visualización tiene más de %s filas. Por favor, refiérase a la %sdocumentación%s.';
 $strViewName = '(VIEW) VER nombre';
 $strView = 'Visualizar';
 
@@ -1043,4 +1042,5 @@ $strSuhosin = 'El servidor está utilizando Suhosin. Por favor, refiérase a %sd
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>

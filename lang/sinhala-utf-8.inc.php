@@ -927,7 +927,6 @@ $strViewDumpDatabases = 'View dump (schema) of databases';
 $strViewDumpDB = 'View dump (schema) of database';
 $strViewDump = 'View dump (schema) of table';
 $strViewHasBeenDropped = 'View %s has been dropped';
-$strViewMaxExactCount = 'This view has more than %s rows. Please refer to %sdocumentation%s.';
 $strView = 'දර්ශනය කරන්න';
 
 $strWebServerUploadDirectoryError = 'අප්ලෝඩ් කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක';
@@ -1050,4 +1049,5 @@ $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s fo
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
+$strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 ?>
