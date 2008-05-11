@@ -1131,17 +1131,17 @@ class PMA_Table
      * first columns in an index
      *
      * f.e. index(col1, col2) would only return col1
-     *
+     * @param   boolean wether to quote name with backticks ``
      * @return array
      */
-    public function getIndexedColumns()
+    public function getIndexedColumns($quoted = false)
     {
         $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName(true) . '.' . PMA_backquote($column);
+            $return[] = $this->getFullName($quoted) . '.' . ($quoted ? PMA_backquote($column) : $column);
         }
 
         return $return;

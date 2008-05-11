@@ -144,7 +144,7 @@ if (isset($_REQUEST['destination_foreign'])) {
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) =
-                explode('`.`', $foreign_string);
+                explode('.', $foreign_string);
             if (!isset($existrel_foreign[$master_field])) {
                 // no key defined for this field
 
@@ -198,11 +198,11 @@ if (isset($_REQUEST['destination_foreign'])) {
                             . PMA_backquote($foreign_table) . '('
                             . PMA_backquote($foreign_field) . ')';
 
-                if ($_REQUEST['on_delete'][$master_field] != 'nix') {
+                if (! empty($_REQUEST['on_delete'][$master_field])) {
                     $sql_query   .= ' ON DELETE '
                         . $options_array[$_REQUEST['on_delete'][$master_field]];
                 }
-                if ($_REQUEST['on_update'][$master_field] != 'nix') {
+                if (! empty($_REQUEST['on_update'][$master_field])) {
                     $sql_query   .= ' ON UPDATE '
                         . $options_array[$_REQUEST['on_update'][$master_field]];
                 }
@@ -331,11 +331,11 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
         if (PMA_foreignkey_supported($tbl_type)
          && isset($curr_table[1])
          && strtoupper($curr_table[1]) == $tbl_type) {
-            $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns());
+             // explicitely ask for non-quoted list of columns
+            $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns(false));
         }
     } // end while over tables
 } // end if
-
 
 // Now find out the columns of our $table
 // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
