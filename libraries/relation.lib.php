@@ -17,7 +17,7 @@ require_once './libraries/Table.class.php';
  * @param   string    the query to execute
  * @param   boolean   whether to display SQL error messages or not
  *
- * @return  integer   the result id
+ * @return  integer   the result set, or false if no result set
  *
  * @access  public
  *
