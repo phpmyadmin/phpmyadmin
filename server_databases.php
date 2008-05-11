@@ -218,11 +218,6 @@ if ($databases_count > 0) {
            . '" target="_parent">' . "\n"
            . '            ' . htmlspecialchars($current['SCHEMA_NAME']) . "\n"
            . '        </a>' . "\n"
-           . '        <a onclick="
-//<![CDATA[
-if (window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\', true)) return false;
-//]]>
-                ">T</a>' . "\n"
            . '    </td>' . "\n";
 
         foreach ($column_order as $stat_name => $stat) {
