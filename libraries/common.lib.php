@@ -1543,8 +1543,11 @@ function PMA_getTab($tab)
     // display icon, even if iconic is disabled but the link-text is missing
     if (($GLOBALS['cfg']['MainPageIconic'] || empty($tab['text']))
         && isset($tab['icon'])) {
+        // avoid generating an alt tag, because it only illustrates
+        // the text that follows and if browser does not display
+        // images, the text is duplicated
         $image = '<img class="icon" src="' . htmlentities($GLOBALS['pmaThemeImage'])
-            .'%1$s" width="16" height="16" alt="%2$s" />%2$s';
+            .'%1$s" width="16" height="16" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
     // check to not display an empty link-text
