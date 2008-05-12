@@ -1155,6 +1155,7 @@ div#tablestatistics {
 }
 
 li#li_server_info,
+li#li_server_info2,
 li#li_mysql_proto,
 li#li_user_info,
 li#li_used_php_extension,
@@ -1206,6 +1207,7 @@ li#li_select_theme{
 }
 
 li#li_server_info,
+li#li_server_info2,
 li#li_server_version {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
     font-size:			80%;
