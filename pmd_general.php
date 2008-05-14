@@ -314,7 +314,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             <td colspan="2" align="center" nowrap="nowrap"><b><?php echo $strCreateRelation; ?></b></td>
         </tr>
         </thead>
-        <tbody id="InnoDB_relation">
+        <tbody id="foreign_relation">
         <tr>
         <td colspan="2" align="center" nowrap="nowrap"><b>FOREIGN KEY</b></td>
         </tr>

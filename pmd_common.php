@@ -242,7 +242,7 @@ function get_script_tabs()
         'var j_tabs = new Array();' . "\n";
     for ($i = 0; $i < count($GLOBALS['PMD']['TABLE_NAME']); $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
-            . $GLOBALS['PMD']['TABLE_TYPE'][$i] . "';\n";
+            . (PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i]) ? '1' : '0') . "';\n";
     }
     $script_tabs .=
         '// ]]>' . "\n" .
