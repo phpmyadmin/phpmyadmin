@@ -141,7 +141,7 @@ if (isset($_REQUEST['do_save_data'])) {
     }
 
     // Builds the fulltext statements and updates the table
-    if (count($field_fulltext)) {
+    if (isset($field_fulltext) && count($field_fulltext)) {
         $fields = array();
         foreach ($field_fulltext as $field_nr) {
             $fields[] = $_REQUEST['field_name'][$field_nr];
