@@ -1343,7 +1343,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
-                    } elseif (stristr($field_flags, 'BINARY')) {
+                    } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
                         $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
                     }
                     // loic1: displays all space characters, 4 space
@@ -2113,6 +2113,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * @uses    strlen()
  * @uses    PMA_formatByteDown()
  * @uses    strpos()
+ * @uses    str_replace()
  * @param   string  $category BLOB|BINARY
  * @param   string  $content  the binary content
  * @param   string  $transform_function 
@@ -2131,13 +2132,25 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
         $display_size = PMA_formatByteDown($size, 3, 1);
         $result .= ' - '. $display_size[0] . $display_size[1];
     }
-
     $result .= ']';
+
     if (strpos($transform_function, 'octetstream')) {
         $result = $content;
     }
     if ($size > 0) {
-        $result = ($default_function != $transform_function ? $transform_function($result, $transform_options, $meta) : $default_function($result, array(), $meta));
+        if ($default_function != $transform_function) {
+            $result = $transform_function($result, $transform_options, $meta);
+        } else {
+            $result = $default_function($result, array(), $meta);
+            if (stristr($meta->type, 'BLOB') && $GLOBALS['cfg']['ShowBlob'] == true) {
+                // in this case, restart from the original $content
+                $result = str_replace("\x00", '\0', $content);
+                $result = str_replace("\x08", '\b', $result);
+                $result = str_replace("\x0a", '\n', $result);
+                $result = str_replace("\x0d", '\r', $result);
+                $result = str_replace("\x1a", '\Z', $result);
+            }
+        }
     }
     return($result);
 }
