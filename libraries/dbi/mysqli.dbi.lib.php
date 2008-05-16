@@ -586,6 +586,11 @@ function PMA_DBI_field_name($result, $i)
  * @uses    MYSQLI_UNIQUE_KEY_FLAG
  * @uses    MYSQLI_PRI_KEY_FLAG
  * @uses    MYSQLI_NOT_NULL_FLAG
+ * @uses    MYSQLI_TYPE_BLOB
+ * @uses    MYSQLI_TYPE_MEDIUM_BLOB  
+ * @uses    MYSQLI_TYPE_LONG_BLOB 
+ * @uses    MYSQLI_TYPE_VAR_STRING  
+ * @uses    MYSQLI_TYPE_STRING
  * @uses    mysqli_fetch_field_direct()
  * @param   object mysqli result    $result
  * @param   integer                 $i      field
@@ -598,6 +603,7 @@ function PMA_DBI_field_flags($result, $i)
         define('MYSQLI_ENUM_FLAG', 256); // see MySQL source include/mysql_com.h
     }
     $f = mysqli_fetch_field_direct($result, $i);
+    $type = $f->type;
     $charsetnr = $f->charsetnr;
     $f = $f->flags;
     $flags = '';
@@ -609,10 +615,12 @@ function PMA_DBI_field_flags($result, $i)
     if ($f & MYSQLI_AUTO_INCREMENT_FLAG) { $flags .= 'auto_increment ';}
     if ($f & MYSQLI_ENUM_FLAG)           { $flags .= 'enum ';}
     // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
-    // to determine the data type, we should not use MYSQLI_BINARY_FLAG
-    // the binary flag but instead the charsetnr member of the MYSQL_FIELD
-    // structure. Unfortunately there is no equivalent in the mysql extension.
-    if (63 == $charsetnr)                { $flags .= 'binary ';}
+    // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
+    // but instead the charsetnr member of the MYSQL_FIELD
+    // structure. Watch out: some types like DATE returns 63 in charsetnr
+    // so we have to check also the type.
+    // Unfortunately there is no equivalent in the mysql extension.
+    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING) && 63 == $charsetnr)                { $flags .= 'binary ';}
     if ($f & MYSQLI_ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
     if ($f & MYSQLI_UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
     if ($f & MYSQLI_BLOB_FLAG)           { $flags .= 'blob ';}
