@@ -412,8 +412,10 @@ foreach ($rows as $row_id => $vrow) {
         // Prepares the field value
         $real_null_value = FALSE;
         if (isset($vrow)) {
-            if (! isset($vrow[$field['Field']])
-             || is_null($vrow[$field['Field']])) {
+            // On a BLOB that can have a NULL value, the is_null() returns
+            // true if it has no content but for me this is different than
+            // having been set explicitely to NULL so I put an exception here
+            if (! $field['is_blob'] && is_null($vrow[$field['Field']])) {
                 $real_null_value = TRUE;
                 $vrow[$field['Field']]    = '';
                 $special_chars   = '';

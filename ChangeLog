@@ -71,6 +71,7 @@ danbarry
 - patch #1957998 [display] No tilde for InnoDB row counter when we know
   it for sure, thanks to Vladyslav Bakayev - dandy76
 - bug #1955572 [display] alt text causes duplicated strings
+- bug #1762029 [interface] Cannot upload BLOB into existing row
 
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message
