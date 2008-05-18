@@ -128,9 +128,6 @@ if (isset($_REQUEST['err_url'])) {
     $err_url = 'tbl_change.php' . PMA_generate_common_url($url_params);
 }
 
-// Misc
-$seen_binary = false;
-
 /**
  * Prepares the update/insert of a row
  */
