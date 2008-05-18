@@ -53,7 +53,6 @@ if ($file_to_insert->isError()) {
 $file_to_insert->cleanUp();
 
 if (false !== $possibly_uploaded_val) {
-    $seen_binary = true;
     $val = $possibly_uploaded_val;
 } else {
 
@@ -94,7 +93,6 @@ if (false !== $possibly_uploaded_val) {
                 // blobs where set, insert original fields content.
                 if (! empty($prot_row[$key])) {
                     $val = '0x' . bin2hex($prot_row[$key]);
-                    $seen_binary = true;
                 } else {
                     $val = '';
                 }
