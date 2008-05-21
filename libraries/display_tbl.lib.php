@@ -426,7 +426,8 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  * @uses    $_SESSION['userconf']['disp_direction']
  * @uses    $_SESSION['userconf']['repeat_cells']
  * @uses    $_SESSION['userconf']['max_rows']
- * @uses    $_SESSION['userconf']['dontlimitchars']
+ * @uses    $_SESSION['userconf']['display_text']
+ * @uses    $_SESSION['userconf']['display_binary']
  * @param   array    which elements to display
  * @param   array    the list of fields properties
  * @param   integer  the total number of fields returned by the SQL query
@@ -538,8 +539,36 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     $vertical_display['emptyafter'] = 0;
     $vertical_display['textbtn']    = '';
 
+    // Display options
 
-    // Start of form for multi-rows delete
+    echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm">';
+    $url_params = array(
+        'db' => $db,
+        'table' => $table,
+        'sql_query' => $sql_query,
+        'goto' => $goto,
+        'display_options_form' => 1
+    );
+    echo PMA_generate_common_hidden_inputs($url_params);
+    echo '<br />';
+    PMA_generate_slider_effect('displayoptions',$GLOBALS['strOptions']);
+    echo '<div id="displayoptions">';
+
+    $choices = array(
+        'P'   => $GLOBALS['strPartialText'],
+        'F'   => $GLOBALS['strFullText']
+    );
+    PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
+
+    PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
+
+    PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
+
+    echo '&nbsp;<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+    echo '</div>';
+    echo '</form>';
+
+    // Start of form for multi-rows edit/delete/export 
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
         echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm" id="rowsDeleteForm">' . "\n";
@@ -564,29 +593,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                   ? ' rowspan="3"'
                   : '';
     }
-    $url_params = array(
-        'db' => $db,
-        'table' => $table,
-        'sql_query' => $sql_query,
-        'goto' => $goto,
-    );
-    $text_message = '<img class="fulltext" width="50" height="20"';
-    if ($_SESSION['userconf']['dontlimitchars']) {
-        $url_params['dontlimitchars'] = '0';
-        $text_message .= ''
-            . ' src="' . $GLOBALS['pmaThemeImage'] . 's_partialtext.png"'
-            . ' alt="' . $GLOBALS['strPartialText'] . '"'
-            . ' title="' . $GLOBALS['strPartialText'] . '"';
-    } else {
-        $url_params['dontlimitchars'] = '1';
-        $text_message .= ''
-            . ' src="' . $GLOBALS['pmaThemeImage'] . 's_fulltext.png"'
-            . ' alt="' . $GLOBALS['strFullText'] . '"'
-            . ' title="' . $GLOBALS['strFullText'] . '"';
-    }
-    $text_message .= ' />';
-    $text_url = 'sql.php' . PMA_generate_common_url($url_params);
-    $text_link = PMA_linkOrButton($text_url, $text_message, array(), false);
 
     //     ... before the result table
     if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -595,7 +601,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($_SESSION['userconf']['disp_direction'] == 'horizontal'
          || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') {
             ?>
-    <th colspan="<?php echo $fields_cnt; ?>"><?php echo $text_link; ?></th>
+    <th colspan="<?php echo $fields_cnt; ?>"></th>
 </tr>
 <tr>
             <?php
@@ -603,8 +609,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         else {
             ?>
 <tr>
-    <th colspan="<?php echo $num_rows + floor($num_rows/$_SESSION['userconf']['repeat_cells']) + 1; ?>">
-        <?php echo $text_link; ?></th>
+    <th colspan="<?php echo $num_rows + floor($num_rows/$_SESSION['userconf']['repeat_cells']) + 1; ?>"></th>
 </tr>
             <?php
         } // end vertical mode
@@ -617,12 +622,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($_SESSION['userconf']['disp_direction'] == 'horizontal'
          || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') {
             ?>
-    <th <?php echo $colspan; ?>><?php echo $text_link; ?></th>
+    <th <?php echo $colspan; ?>></th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th ' . $rowspan . ' valign="middle">' . "\n"
-                                         . '        ' . $text_link . "\n"
+                                         . '        ' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -848,7 +853,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         } // end else (2.2)
     } // end for
 
-    // 3. Displays the full/partial text button (part 2) at the right
+    // 3. Displays the needed checkboxes at the right
     //    column of the result table header if possible and required...
     if ($GLOBALS['cfg']['ModifyDeleteAtRight']
         && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
@@ -859,13 +864,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo "\n";
             ?>
 <th <?php echo $colspan; ?>>
-    <?php echo $text_link; ?>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th ' . $rowspan . ' valign="middle">' . "\n"
-                                         . '        ' . $text_link . "\n"
+                                         . '        ' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -907,7 +911,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  * @uses    $_SESSION['userconf']['disp_direction']
  * @uses    $_SESSION['userconf']['repeat_cells']
  * @uses    $_SESSION['userconf']['max_rows']
- * @uses    $_SESSION['userconf']['dontlimitchars']
+ * @uses    $_SESSION['userconf']['display_text']
+ * @uses    $_SESSION['userconf']['display_binary']
+ * @uses    $_SESSION['userconf']['display_blob']
  * @param   integer  the link id associated to the query which results have
  *                   to be displayed
  * @param   array    which elements to display
@@ -1277,11 +1283,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             //  b l o b
 
-            } elseif ($GLOBALS['cfg']['ShowBlob'] == false && stristr($meta->type, 'BLOB')) {
+            } elseif (empty($_SESSION['userconf']['display_blob']) && stristr($meta->type, 'BLOB')) {
                 // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
-                // TEXT fields type, however TEXT fields must be displayed
-                // even if $GLOBALS['cfg']['ShowBlob'] is false -> get the true type
-                // of the fields.
+                // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
                     $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
@@ -1292,7 +1296,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                     } elseif ($row[$i] != '') {
                         // garvin: if a transform function for blob is set, none of these replacements will be made
-                        if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ! $_SESSION['userconf']['dontlimitchars']) {
+                        if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['userconf']['display_text'] == 'P') {
                             $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
                         // loic1: displays all space characters, 4 space
@@ -1313,7 +1317,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     // nijel: Cut all fields to $GLOBALS['cfg']['LimitChars']
                     // lem9: (unless it's a link-type transformation)
-                    if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ! $_SESSION['userconf']['dontlimitchars'] && !strpos($transform_function, 'link') === true) {
+                    if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['userconf']['display_text'] == 'P' && !strpos($transform_function, 'link') === true) {
                         $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
 
@@ -1322,7 +1326,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                     } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
-                        $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
+                        if (isset($_SESSION['userconf']['display_binary'])) {
+                            // user asked to see the real contents of BINARY fields
+                            $row[$i] = PMA_replace_binary_contents($row[$i]);
+                        } else {
+                            // we show the BINARY message and field's size
+                            // (or maybe use a transformation)
+                            $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
+                        }
                     }
                     // loic1: displays all space characters, 4 space
                     // characters for tabulations and <cr>/<lf>
@@ -1627,8 +1638,12 @@ function PMA_displayVerticalTable()
  * @uses    $GLOBALS['cfg']['MaxRows']
  * @uses    $_SESSION['userconf']['pos']
  * @uses    $_REQUEST['pos']
- * @uses    $_SESSION['userconf']['dontlimitchars']
- * @uses    $_REQUEST['dontlimitchars']
+ * @uses    $_SESSION['userconf']['display_text']
+ * @uses    $_REQUEST['display_text']
+ * @uses    $_SESSION['userconf']['display_binary']
+ * @uses    $_REQUEST['display_binary']
+ * @uses    $_SESSION['userconf']['display_blob']
+ * @uses    $_REQUEST['display_blob']
  * @uses    PMA_isValid()
  * @uses    $GLOBALS['sql_query']
  * @todo    make maximum remembered queries configurable
@@ -1670,11 +1685,27 @@ function PMA_displayTable_checkConfigParams()
         $_SESSION['userconf']['query'][$sql_key]['pos'] = 0;
     }
 
-    if (PMA_isValid($_REQUEST['dontlimitchars'], array('0', '1'))) {
-        $_SESSION['userconf']['query'][$sql_key]['dontlimitchars'] = (int) $_REQUEST['dontlimitchars'];
-        unset($_REQUEST['dontlimitchars']);
-    } elseif (empty($_SESSION['userconf']['query'][$sql_key]['dontlimitchars'])) {
-        $_SESSION['userconf']['query'][$sql_key]['dontlimitchars'] = 0;
+    if (PMA_isValid($_REQUEST['display_text'], array('P', 'F'))) {
+        $_SESSION['userconf']['query'][$sql_key]['display_text'] = $_REQUEST['display_text'];
+        unset($_REQUEST['display_text']);
+    } elseif (empty($_SESSION['userconf']['query'][$sql_key]['display_text'])) {
+        $_SESSION['userconf']['query'][$sql_key]['display_text'] = 'P';
+    }
+
+    if (isset($_REQUEST['display_binary'])) {
+        $_SESSION['userconf']['query'][$sql_key]['display_binary'] = true;
+        unset($_REQUEST['display_binary']);
+    } elseif (isset($_REQUEST['display_options_form'])) {
+        // we know that the checkbox was unchecked
+        unset($_SESSION['userconf']['query'][$sql_key]['display_binary']);
+    }
+
+    if (isset($_REQUEST['display_blob'])) {
+        $_SESSION['userconf']['query'][$sql_key]['display_blob'] = true;
+        unset($_REQUEST['display_blob']);
+    } elseif (isset($_REQUEST['display_options_form'])) {
+        // we know that the checkbox was unchecked
+        unset($_SESSION['userconf']['query'][$sql_key]['display_blob']);
     }
 
     // move current query to the last position, to be removed last
@@ -1691,18 +1722,20 @@ function PMA_displayTable_checkConfigParams()
     }
 
     // populate query configuration
-    $_SESSION['userconf']['dontlimitchars'] = $_SESSION['userconf']['query'][$sql_key]['dontlimitchars'];
+    $_SESSION['userconf']['display_text'] = $_SESSION['userconf']['query'][$sql_key]['display_text'];
+    $_SESSION['userconf']['display_binary'] = isset($_SESSION['userconf']['query'][$sql_key]['display_binary']) ? true : false;
+    $_SESSION['userconf']['display_blob'] = isset($_SESSION['userconf']['query'][$sql_key]['display_blob']) ? true : false;
     $_SESSION['userconf']['pos'] = $_SESSION['userconf']['query'][$sql_key]['pos'];
     $_SESSION['userconf']['max_rows'] = $_SESSION['userconf']['query'][$sql_key]['max_rows'];
     $_SESSION['userconf']['repeat_cells'] = $_SESSION['userconf']['query'][$sql_key]['repeat_cells'];
     $_SESSION['userconf']['disp_direction'] = $_SESSION['userconf']['query'][$sql_key]['disp_direction'];
 
     /*
-     * debugging
+    * debugging
     echo '<pre>';
     var_dump($_SESSION['userconf']);
     echo '</pre>';
-     */
+    */
 }
 
 /**
@@ -1746,7 +1779,8 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     global $cfgRelation;
     global $showtable;
 
-    PMA_displayTable_checkConfigParams();
+    // why was this called here? (already called from sql.php)
+    //PMA_displayTable_checkConfigParams();
 
     /**
      * @todo move this to a central place
@@ -1996,7 +2030,7 @@ function default_function($buffer) {
  * @param   array   the analyzed query
  *
  * @uses    $_SESSION['userconf']['pos']
- * @uses    $_SESSION['userconf']['dontlimitchars']
+ * @uses    $_SESSION['userconf']['display_text']
  * @global  string   $db                the database name
  * @global  string   $table             the table name
  * @global  string   $sql_query         the current SQL query
@@ -2038,13 +2072,13 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
                 PMA_getIcon('b_print.png', $GLOBALS['strPrintView'], false, true),
                 '', true, true, 'print_view') . "\n";
 
-            if (! $_SESSION['userconf']['dontlimitchars']) {
-                $_url_params['dontlimitchars'] = 1;
+            if ($_SESSION['userconf']['display_text']) {
+                $_url_params['display_text'] = 'F';
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
                     PMA_getIcon('b_print.png', $GLOBALS['strPrintViewFull'], false, true),
                     '', true, true, 'print_view') . "\n";
-                unset($_url_params['dontlimitchars']);
+                unset($_url_params['display_text']);
             }
         } // end displays "printable view"
     }
@@ -2132,13 +2166,9 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             $result = $transform_function($result, $transform_options, $meta);
         } else {
             $result = $default_function($result, array(), $meta);
-            if (stristr($meta->type, 'BLOB') && $GLOBALS['cfg']['ShowBlob'] == true) {
+            if (stristr($meta->type, 'BLOB') && isset($_SESSION['userconf']['display_blob'])) {
                 // in this case, restart from the original $content
-                $result = str_replace("\x00", '\0', $content);
-                $result = str_replace("\x08", '\b', $result);
-                $result = str_replace("\x0a", '\n', $result);
-                $result = str_replace("\x0d", '\r', $result);
-                $result = str_replace("\x1a", '\Z', $result);
+                $result = PMA_replace_binary_contents($content); 
             }
         }
     }

@@ -747,13 +747,6 @@ $cfg['SuggestDBName'] = true;
  */
 
 /**
- * display blob field contents
- *
- * @global boolean $cfg['ShowBlob']
- */
-$cfg['ShowBlob'] = false;
-
-/**
  * Use icons instead of text for the navigation bar buttons
  * and on right panel top menu (server db table) (true|false|'both')
  *

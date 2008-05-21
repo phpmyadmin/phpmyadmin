@@ -45,7 +45,7 @@ danbarry
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
 + [lang] Japanese update, thanks to Ishigaki Kenichi
 + [lang] Italian update, thanks to Luca Rebellato
-+ [gui] Events (work in progress)
++ [gui] Events
    * minimal support on db structure page
    * export
 + [pdf] Merged tcpdf 2.2.002 (PHP5 version), thanks to Nicola Asuni 
@@ -54,6 +54,7 @@ danbarry
 + prevent search indexes from indexing phpMyAdmin installations
 + [engines] PBXT: table options, foreign key (relation view, designer)
 + [lang] New Bangla, thanks to Raquibul Islam and Joy Kumar Nag
++ [interface] Display options (work in progress)
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key

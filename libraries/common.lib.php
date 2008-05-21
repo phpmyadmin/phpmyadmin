@@ -1236,7 +1236,7 @@ function PMA_profilingCheckbox($sql_query)
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        echo '<input type="checkbox" name="profiling" id="profiling"' . (isset($_SESSION['profiling']) ? ' checked="checked"' : '') . ' onclick="this.form.submit();" /><label for="profiling">' . $GLOBALS['strProfiling'] . '</label>' . "\n";
+        PMA_generate_html_checkbox('profiling', $GLOBALS['strProfiling'], isset($_SESSION['profiling']), true);
         echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>' . "\n";
         echo '</form>' . "\n";
     }
@@ -2285,6 +2285,18 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
     }
 }
 
+/**
+ * Generates and echoes an HTML checkbox
+ *
+ * @param   string  $html_field_name the checkbox HTML field
+ * @param   string  $label
+ * @param   boolean $checked is it initially checked? 
+ * @param   boolean $onclick should it submit the form on click?
+ */
+function PMA_generate_html_checkbox($html_field_name, $label, $checked, $onclick) {
+
+    echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' onclick="this.form.submit();"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
+}
 
 /**
  * Generates and echoes a set of radio HTML fields
@@ -2495,4 +2507,20 @@ function PMA_foreignkey_supported($engine) {
         return false;
     }
 } 
+
+/**
+ * Replaces some characters by a displayable equivalent 
+ *
+ * @uses    str_replace()
+ * @param   string $content
+ * @return  string the content with characters replaced 
+ */
+function PMA_replace_binary_contents($content) {
+    $result = str_replace("\x00", '\0', $content);
+    $result = str_replace("\x08", '\b', $result);
+    $result = str_replace("\x0a", '\n', $result);
+    $result = str_replace("\x0d", '\r', $result);
+    $result = str_replace("\x1a", '\Z', $result);
+    return $result;
+}
 ?>

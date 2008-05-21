@@ -425,11 +425,7 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // loic1: special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
-                    $vrow[$field['Field']] = str_replace("\x00", '\0', $vrow[$field['Field']]);
-                    $vrow[$field['Field']] = str_replace("\x08", '\b', $vrow[$field['Field']]);
-                    $vrow[$field['Field']] = str_replace("\x0a", '\n', $vrow[$field['Field']]);
-                    $vrow[$field['Field']] = str_replace("\x0d", '\r', $vrow[$field['Field']]);
-                    $vrow[$field['Field']] = str_replace("\x1a", '\Z', $vrow[$field['Field']]);
+                    $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]); 
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
                 $data            = $vrow[$field['Field']];
