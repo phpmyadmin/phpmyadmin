@@ -1283,7 +1283,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
             //  b l o b
 
-            } elseif (empty($_SESSION['userconf']['display_blob']) && stristr($meta->type, 'BLOB')) {
+            //} elseif (! empty($_SESSION['userconf']['display_blob']) && stristr($meta->type, 'BLOB')) {
+            } elseif (stristr($meta->type, 'BLOB')) {
                 // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
@@ -1731,11 +1732,11 @@ function PMA_displayTable_checkConfigParams()
     $_SESSION['userconf']['disp_direction'] = $_SESSION['userconf']['query'][$sql_key]['disp_direction'];
 
     /*
-    * debugging
+     * debugging
     echo '<pre>';
     var_dump($_SESSION['userconf']);
     echo '</pre>';
-    */
+     */
 }
 
 /**
@@ -2166,7 +2167,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             $result = $transform_function($result, $transform_options, $meta);
         } else {
             $result = $default_function($result, array(), $meta);
-            if (stristr($meta->type, 'BLOB') && isset($_SESSION['userconf']['display_blob'])) {
+            if (stristr($meta->type, 'BLOB') && ! empty($_SESSION['userconf']['display_blob'])) {
                 // in this case, restart from the original $content
                 $result = PMA_replace_binary_contents($content); 
             }
