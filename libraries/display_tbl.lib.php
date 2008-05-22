@@ -1219,71 +1219,17 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                 } elseif ($row[$i] != '') {
-                    $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . ' nowrap">';
 
-                    if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                        foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (isset($alias) && strlen($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $meta->name = $true_column;
-                                } // end if
-                            } // end if
-                        } // end while
-                    }
+                    $nowrap = ' nowrap';
+                    $where_comparison = ' = ' . $row[$i];
 
-                    if (isset($map[$meta->name])) {
-                        // Field to display from the foreign table?
-                        if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
-                            $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
-                                         . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
-                                         . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                         . ' = ' . $row[$i];
-                            $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
-                            if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                                list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
-                            } else {
-                                $dispval = $GLOBALS['strLinkNotFound'];
-                            }
-                            @PMA_DBI_free_result($dispresult);
-                        } else {
-                            $dispval     = '';
-                        } // end if... else...
-
-                        if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
-                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta)) . ' <code>[-&gt;' . $dispval . ']</code>';
-                        } else {
-                            $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
-
-                            $_url_params = array(
-                                'db'    => $map[$meta->name][3],
-                                'table' => $map[$meta->name][0],
-                                'pos'   => '0',
-                                'sql_query' => 'SELECT * FROM '
-                                    . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
-                                    . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                    . ' = ' . $row[$i],
-                            );
-                            $vertical_display['data'][$row_no][$i]
-                                .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
-                                 . '"' . $title . '>'
-                                 . ($transform_function != $default_function
-                                        ? $transform_function($row[$i], $transform_options, $meta)
-                                        : $transform_function($row[$i], array(), $meta))
-                                 . '</a>';
-                        }
-                    } else {
-                        $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta));
-                    }
-                    $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison);
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                 }
 
             //  b l o b
 
-            //} elseif (! empty($_SESSION['userconf']['display_blob']) && stristr($meta->type, 'BLOB')) {
             } elseif (stristr($meta->type, 'BLOB')) {
                 // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
@@ -1348,55 +1294,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     // loic1: do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
-                    $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . $nowrap . ($condition_field ? ' condition' : '') . '">';
+                    $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
+                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison);
 
-                    if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                        foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (isset($alias) && strlen($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $meta->name = $true_column;
-                                } // end if
-                            } // end if
-                        } // end while
-                    }
-
-                    if (isset($map[$meta->name])) {
-                        // Field to display from the foreign table?
-                        if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
-                            $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
-                                         . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
-                                         . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                         . ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
-                            $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
-                            if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                                list($dispval) = PMA_DBI_fetch_row($dispresult);
-                                @PMA_DBI_free_result($dispresult);
-                            } else {
-                                $dispval = $GLOBALS['strLinkNotFound'];
-                            }
-                        } else {
-                            $dispval = '';
-                        }
-                        $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
-
-                        $_url_params = array(
-                            'db'    => $map[$meta->name][3],
-                            'table' => $map[$meta->name][0],
-                            'pos'   => '0',
-                            'sql_query' => 'SELECT * FROM '
-                                . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
-                                . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'',
-                        );
-                        $vertical_display['data'][$row_no][$i]
-                            .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
-                            . '"' . $title . '>' . $row[$i] . '</a>';
-                    } else {
-                        $vertical_display['data'][$row_no][$i] .= $row[$i];
-                    }
-                    $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                 }
@@ -2174,5 +2074,99 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
         }
     }
     return($result);
+}
+
+/**
+ * Prepares the displayable content of a data cell in Browse mode,
+ * taking into account foreign key description field and transformations
+ *
+ * @uses    is_array()
+ * @uses    PMA_backquote() 
+ * @uses    PMA_DBI_try_query() 
+ * @uses    PMA_DBI_num_rows() 
+ * @uses    PMA_DBI_fetch_row() 
+ * @uses    $GLOBALS['strLinkNotFound'] 
+ * @uses    PMA_DBI_free_result() 
+ * @uses    $GLOBALS['printview'] 
+ * @uses    htmlspecialchars() 
+ * @uses    PMA_generate_common_url() 
+ * @param   string  $mouse_events 
+ * @param   string  $class
+ * @param   string  $condition_field
+ * @param   string  $analyzed_sql
+ * @param   object  $meta   the meta-information about this field 
+ * @param   string  $map
+ * @param   string  $data
+ * @param   string  $transform_function
+ * @param   string  $default_function
+ * @param   string  $nowrap
+ * @param   string  $where_comparison
+ * @return  string  formatted data
+ */
+function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison) {
+
+    // continue the <td> tag started before calling this function:
+    $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap . '">';
+
+    if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
+        foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
+            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+            if (isset($alias) && strlen($alias)) {
+                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                if ($alias == $meta->name) {
+                    // this change in the parameter does not matter
+                    // outside of the function
+                    $meta->name = $true_column;
+                } // end if
+            } // end if
+        } // end foreach 
+    } // end if
+
+    if (isset($map[$meta->name])) {
+        // Field to display from the foreign table?
+        if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
+            $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
+                . ' FROM ' . PMA_backquote($map[$meta->name][3]) 
+                . '.' . PMA_backquote($map[$meta->name][0])
+                . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                . $where_comparison; 
+            $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+            if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
+                list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+            } else {
+                $dispval = $GLOBALS['strLinkNotFound'];
+            }
+            @PMA_DBI_free_result($dispresult);
+        } else {
+            $dispval     = '';
+        } // end if... else...
+
+        if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+            $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta)) . ' <code>[-&gt;' . $dispval . ']</code>';
+        } else {
+            $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+
+            $_url_params = array(
+                'db'    => $map[$meta->name][3],
+                'table' => $map[$meta->name][0],
+                'pos'   => '0',
+                'sql_query' => 'SELECT * FROM '
+                                    . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
+                                    . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                                    . $where_comparison,
+             );
+             $result .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
+                     . '"' . $title . '>'
+                     . ($transform_function != $default_function
+                                        ? $transform_function($data, $transform_options, $meta)
+                                        : $transform_function($data, array(), $meta))
+                     . '</a>';
+        }
+    } else {
+        $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta));
+    }
+    $result .= '</td>' . "\n";
+
+    return $result;
 }
 ?>
