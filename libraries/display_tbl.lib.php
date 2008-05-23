@@ -539,34 +539,35 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     $vertical_display['emptyafter'] = 0;
     $vertical_display['textbtn']    = '';
 
-    // Display options
+    // Display options (if we are not in print view)
+    if (! (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1')) {
+        echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm">';
+        $url_params = array(
+            'db' => $db,
+            'table' => $table,
+            'sql_query' => $sql_query,
+            'goto' => $goto,
+            'display_options_form' => 1
+        );
+        echo PMA_generate_common_hidden_inputs($url_params);
+        echo '<br />';
+        PMA_generate_slider_effect('displayoptions',$GLOBALS['strOptions']);
+        echo '<div id="displayoptions">';
 
-    echo '<form method="post" action="sql.php" name="displayOptionsForm" id="displayOptionsForm">';
-    $url_params = array(
-        'db' => $db,
-        'table' => $table,
-        'sql_query' => $sql_query,
-        'goto' => $goto,
-        'display_options_form' => 1
-    );
-    echo PMA_generate_common_hidden_inputs($url_params);
-    echo '<br />';
-    PMA_generate_slider_effect('displayoptions',$GLOBALS['strOptions']);
-    echo '<div id="displayoptions">';
+        $choices = array(
+            'P'   => $GLOBALS['strPartialText'],
+            'F'   => $GLOBALS['strFullText']
+        );
+        PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
 
-    $choices = array(
-        'P'   => $GLOBALS['strPartialText'],
-        'F'   => $GLOBALS['strFullText']
-    );
-    PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
+        PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
 
-    PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
+        PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
 
-    PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
-
-    echo '&nbsp;<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
-    echo '</div>';
-    echo '</form>';
+        echo '&nbsp;<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+        echo '</div>';
+        echo '</form>';
+    }
 
     // Start of form for multi-rows edit/delete/export 
 
