@@ -54,7 +54,8 @@ danbarry
 + prevent search indexes from indexing phpMyAdmin installations
 + [engines] PBXT: table options, foreign key (relation view, designer)
 + [lang] New Bangla, thanks to Raquibul Islam and Joy Kumar Nag
-+ [interface] Display options (work in progress)
++ [interface] Display options (work in progress); thanks to Dave Grijalva
+  for the idea about showing the display field while browsing
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key

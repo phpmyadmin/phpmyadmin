@@ -1063,4 +1063,6 @@ $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strInternalAndForeign = 'An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.';  //to translate
 $strViewHasAtLeast = 'This view has at least this number of rows. Please refer to %sdocumentation%s.';  //to translate
 $strUserDefined = 'User-defined';  //to translate
+$strRelationalKey = 'Relational key';  //to translate
+$strRelationalDisplayField = 'Relational display field';  //to translate
 ?>

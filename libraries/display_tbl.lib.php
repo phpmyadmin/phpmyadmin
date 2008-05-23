@@ -560,6 +560,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         );
         PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
 
+        if ($GLOBALS['cfgRelation']['relwork']) {
+            $choices = array(
+                'K'   => $GLOBALS['strRelationalKey'],
+                'D'   => $GLOBALS['strRelationalDisplayField']
+            );
+            PMA_generate_html_radio('relational_display', $choices, $_SESSION['userconf']['relational_display']);
+        }
+
         PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
 
         PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
@@ -1542,6 +1550,8 @@ function PMA_displayVerticalTable()
  * @uses    $_REQUEST['pos']
  * @uses    $_SESSION['userconf']['display_text']
  * @uses    $_REQUEST['display_text']
+ * @uses    $_SESSION['userconf']['relational_display']
+ * @uses    $_REQUEST['relational_display']
  * @uses    $_SESSION['userconf']['display_binary']
  * @uses    $_REQUEST['display_binary']
  * @uses    $_SESSION['userconf']['display_blob']
@@ -1594,6 +1604,13 @@ function PMA_displayTable_checkConfigParams()
         $_SESSION['userconf']['query'][$sql_key]['display_text'] = 'P';
     }
 
+    if (PMA_isValid($_REQUEST['relational_display'], array('K', 'D'))) {
+        $_SESSION['userconf']['query'][$sql_key]['relational_display'] = $_REQUEST['relational_display'];
+        unset($_REQUEST['relational_display']);
+    } elseif (empty($_SESSION['userconf']['query'][$sql_key]['relational_display'])) {
+        $_SESSION['userconf']['query'][$sql_key]['relational_display'] = 'K';
+    }
+
     if (isset($_REQUEST['display_binary'])) {
         $_SESSION['userconf']['query'][$sql_key]['display_binary'] = true;
         unset($_REQUEST['display_binary']);
@@ -1625,6 +1642,7 @@ function PMA_displayTable_checkConfigParams()
 
     // populate query configuration
     $_SESSION['userconf']['display_text'] = $_SESSION['userconf']['query'][$sql_key]['display_text'];
+    $_SESSION['userconf']['relational_display'] = $_SESSION['userconf']['query'][$sql_key]['relational_display'];
     $_SESSION['userconf']['display_binary'] = isset($_SESSION['userconf']['query'][$sql_key]['display_binary']) ? true : false;
     $_SESSION['userconf']['display_blob'] = isset($_SESSION['userconf']['query'][$sql_key]['display_blob']) ? true : false;
     $_SESSION['userconf']['pos'] = $_SESSION['userconf']['query'][$sql_key]['pos'];
@@ -2145,7 +2163,14 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
         if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
             $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta)) . ' <code>[-&gt;' . $dispval . ']</code>';
         } else {
-            $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+
+            if ('K' == $_SESSION['userconf']['relational_display']) {
+                // user chose "relational key" in the display options, so
+                // the title contains the display field
+                $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+            } else {
+                $title = ' title="' . htmlspecialchars($data) . '"';
+            }
 
             $_url_params = array(
                 'db'    => $map[$meta->name][3],
@@ -2155,13 +2180,25 @@ function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed
                                     . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                     . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                     . $where_comparison,
-             );
-             $result .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
-                     . '"' . $title . '>'
-                     . ($transform_function != $default_function
-                                        ? $transform_function($data, $transform_options, $meta)
-                                        : $transform_function($data, array(), $meta))
-                     . '</a>';
+            );
+            $result .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
+                 . '"' . $title . '>';
+             
+            if ($transform_function != $default_function) {
+                // always apply a transformation on the real data, 
+                // not on the display field
+                $result .= $transform_function($data, $transform_options, $meta);
+            } else {
+                if ('D' == $_SESSION['userconf']['relational_display']) {
+                    // user chose "relational display field" in the 
+                    // display options, so show display field in the cell 
+                    $result .= $transform_function($dispval, array(), $meta);
+                } else {
+                    // otherwise display data in the cell
+                    $result .= $transform_function($data, array(), $meta);
+                }
+            }
+            $result .= '</a>';
         }
     } else {
         $result .= ($transform_function != $default_function ? $transform_function($data, $transform_options, $meta) : $transform_function($data, array(), $meta));
