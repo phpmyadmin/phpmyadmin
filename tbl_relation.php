@@ -99,7 +99,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) =
-                explode('`.`', $foreign_string);
+                explode('.', $foreign_string);
             if (! isset($existrel[$master_field])) {
                 $upd_query  = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                             . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
@@ -324,14 +324,15 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
     while ($curr_table = PMA_DBI_fetch_row($tab_rs)) {
         $current_table = new PMA_Table($curr_table[0], $db);
 
-        $selectboxall = array_merge($selectboxall, $current_table->getUniqueColumns());
+        // explicitely ask for non-quoted list of indexed columns
+        $selectboxall = array_merge($selectboxall, $current_table->getUniqueColumns(false));
 
         // if foreign keys are supported, collect all keys from other
         // tables of the same engine
         if (PMA_foreignkey_supported($tbl_type)
          && isset($curr_table[1])
          && strtoupper($curr_table[1]) == $tbl_type) {
-             // explicitely ask for non-quoted list of columns
+             // explicitely ask for non-quoted list of indexed columns
             $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns(false));
         }
     } // end while over tables

@@ -1106,9 +1106,10 @@ class PMA_Table
      *  - UNIQUE(x,y) // NONE
      *
      *
+     * @param   boolean wether to quote name with backticks ``
      * @return array
      */
-    public function getUniqueColumns()
+    public function getUniqueColumns($quoted = true)
     {
         $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Non_unique = 0';
         $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
@@ -1118,7 +1119,7 @@ class PMA_Table
             if (count($index) > 1) {
                 continue;
             }
-            $return[] = $this->getFullName(true) . '.' . PMA_backquote($index[0]);
+            $return[] = $this->getFullName($quoted) . '.' . ($quoted ? PMA_backquote($index[0]) : $index[0]);
         }
 
         return $return;
@@ -1134,7 +1135,7 @@ class PMA_Table
      * @param   boolean wether to quote name with backticks ``
      * @return array
      */
-    public function getIndexedColumns($quoted = false)
+    public function getIndexedColumns($quoted = true)
     {
         $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
