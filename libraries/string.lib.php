@@ -30,13 +30,7 @@
 $GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
 
 if ($GLOBALS['PMA_allow_mbstr']) {
-    // the hebrew lang file uses iso-8859-8-i, encoded RTL,
-    // but mb_internal_encoding only supports iso-8859-8
-    if ($GLOBALS['charset'] == 'iso-8859-8-i'){
-        mb_internal_encoding('iso-8859-8');
-    } else {
-        mb_internal_encoding($GLOBALS['charset']);
-    }
+    mb_internal_encoding($GLOBALS['charset']);
 }
 
 // This is for handling input better
