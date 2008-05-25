@@ -264,7 +264,7 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
  * Nijel: mbstring is used for handling multibyte inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
-if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
+if (! @extension_loaded('mbstring')) {
     trigger_error($strMbExtensionMissing, E_USER_WARNING);
 }
 

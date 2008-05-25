@@ -27,20 +27,7 @@
         PMA_dl('mbstring');
     }
 
-/**
- * windows-* and tis-620 are not supported and are not multibyte,
- * others can be ignored as they're not multibyte
- *
- * @global boolean $GLOBALS['using_mb_charset']
- */
-$GLOBALS['using_mb_charset'] =
-    substr($GLOBALS['charset'], 0, 8) != 'windows-' &&
-    substr($GLOBALS['charset'], 0, 9) != 'iso-8859-' &&
-    substr($GLOBALS['charset'], 0, 3) != 'cp-' &&
-    $GLOBALS['charset'] != 'koi8-r' &&
-    $GLOBALS['charset'] != 'tis-620';
-
-$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen') && $GLOBALS['using_mb_charset'];
+$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
 
 if ($GLOBALS['PMA_allow_mbstr']) {
     // the hebrew lang file uses iso-8859-8-i, encoded RTL,
