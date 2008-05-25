@@ -553,26 +553,38 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '<br />';
         PMA_generate_slider_effect('displayoptions',$GLOBALS['strOptions']);
         echo '<div id="displayoptions">';
+        echo '<fieldset>';
 
+        echo '<div class="formelement">';
         $choices = array(
             'P'   => $GLOBALS['strPartialText'],
             'F'   => $GLOBALS['strFullText']
         );
         PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
+        echo '</div>';
 
         if ($GLOBALS['cfgRelation']['relwork']) {
+            echo '<div class="formelement">';
             $choices = array(
                 'K'   => $GLOBALS['strRelationalKey'],
                 'D'   => $GLOBALS['strRelationalDisplayField']
             );
             PMA_generate_html_radio('relational_display', $choices, $_SESSION['userconf']['relational_display']);
+            echo '</div>';
         }
 
+        echo '<div class="formelement">';
         PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
 
         PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
+        echo '</div>';
 
-        echo '&nbsp;<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+        echo '<div class="clearfloat"></div>';
+        echo '</fieldset>';
+
+        echo '<fieldset class="tblFooters">';
+        echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+        echo '</fieldset>';
         echo '</div>';
         echo '</form>';
     }
