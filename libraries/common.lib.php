@@ -453,7 +453,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
         return '[sup]' . $nr . '[/sup]';
     }
 
-    return '<sup class="footnotemarker" name="footnote_' . $nr . '">' . $nr . '</sup>';
+    return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '">' . $nr . '</sup>';
 }
 
 /**
