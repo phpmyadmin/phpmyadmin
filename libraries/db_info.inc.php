@@ -202,6 +202,9 @@ if (! isset($sot_ready)) {
     } else {
         // all tables in db
         // - get the total number of tables
+        //  (needed for proper working of the MaxTableList feature)
+        $tables = PMA_DBI_get_tables($db);
+        $total_num_tables = count($tables);
         if (isset($sub_part) && $sub_part == '_export') {
             // (don't fetch only a subset if we are coming from db_export.php,
             // because I think it's too risky to display only a subset of the
@@ -228,7 +231,10 @@ if (! isset($sot_ready)) {
  * @global int count of tables in db
  */
 $num_tables = count($tables);
-$total_num_tables = $num_tables;
+//  (needed for proper working of the MaxTableList feature)
+if (! isset($total_num_tables)) {
+    $total_num_tables = $num_tables;
+}
 
 /**
  * cleanup
