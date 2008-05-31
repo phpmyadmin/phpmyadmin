@@ -1303,11 +1303,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
                         }
                     }
-                    // loic1: displays all space characters, 4 space
-                    // characters for tabulations and <cr>/<lf>
-                    else {
-                        $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
-                    }
 
                     // garvin: transform functions may enable no-wrapping:
                     $function_nowrap = $transform_function . '_nowrap';
