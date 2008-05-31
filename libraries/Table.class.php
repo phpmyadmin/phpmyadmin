@@ -255,9 +255,9 @@ class PMA_Table
             . ' (' . PMA_Table::countRecords($db, $table, true) . ')';
     }
 
-    static public function sGetStatusInfo($db, $table, $info = null)
+    static public function sGetStatusInfo($db, $table, $info = null, $force_read = false)
     {
-        if (! isset(PMA_Table::$cache[$db][$table])) {
+        if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
             PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
         }
         
@@ -265,7 +265,7 @@ class PMA_Table
             return PMA_Table::$cache[$db][$table];
         }
         
-        if (! isset(PMA_Table::$cache[$db][$table][$info])) {
+        if (! isset(PMA_Table::$cache[$db][$table][$info]) || $force_read) {
             PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
         }
         return PMA_Table::$cache[$db][$table][$info];

@@ -36,7 +36,11 @@ global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
 // otherwise error #1046, no database selected
 PMA_DBI_select_db($GLOBALS['db']);
 
-$showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table']);
+// PMA_Table::sGetStatusInfo() does caching by default, but here
+// we force reading of the current table status
+// if $reread_info is true (for example, coming from tbl_operations.php
+// and we just changed the table's storage engine)
+$showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, (isset($reread_info) && $reread_info ? true : false));
 
 // need this test because when we are creating a table, we get 0 rows
 // from the SHOW TABLE query
