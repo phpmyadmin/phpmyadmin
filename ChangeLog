@@ -22,6 +22,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   it for sure, thanks to Vladyslav Bakayev - dandy76 
 - bug #1955572 [display] alt text causes duplicated strings
 - bug #1762029 [interface] Cannot upload BLOB into existing row 
+- bug #1981043 [export] HTML in exports getting corrupted,
+  thanks to Jason Judge - jasonjudge
   
 2.11.6.0 (2008-04-29)
 - bug #1903724 [interface] Displaying of very large queries in error message 

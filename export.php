@@ -338,6 +338,10 @@ if ($save_on_server) {
 if (!$save_on_server) {
     if ($asfile) {
         // Download
+        // (avoid rewriting data containing HTML with anchors and forms;
+        // this was reported to happen under Plesk)
+        ini_set('url_rewriter.tags','');
+
         if (!empty($content_encoding)) {
             header('Content-Encoding: ' . $content_encoding);
         }
