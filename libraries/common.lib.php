@@ -1941,8 +1941,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             // timestamp is numeric on some MySQL 4.1
             if ($meta->numeric && $meta->type != 'timestamp') {
                 $condition .= '= ' . $row[$i] . ' AND';
-            } elseif ($meta->type == 'blob'
-                // hexify only if this is a true not empty BLOB
+            } elseif (($meta->type == 'blob' || $meta->type == 'string')
+                // hexify only if this is a true not empty BLOB or a BINARY
                  && stristr($field_flags, 'BINARY')
                  && !empty($row[$i])) {
                     // do not waste memory building a too big condition
