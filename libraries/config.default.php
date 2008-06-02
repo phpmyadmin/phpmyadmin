@@ -47,7 +47,7 @@ $cfg['PmaAbsoluteUri'] = '';
 $cfg['PmaNoRelation_DisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if Suhosin is detected 
+ * Disable the default warning that is displayed if Suhosin is detected
  *
  * @global boolean $cfg['SuhosinDisableWarning']
  */
@@ -130,12 +130,15 @@ $cfg['Servers'][$i]['compress'] = false;
 
 /**
  * MySQL control user settings (this user must have read-only
+ * access to the "mysql/user" and "mysql/db" tables). The controluser is also
+ * used for all relational features (pmadb)
  *
  * @global string $cfg['Servers'][$i]['controluser']
  */
 $cfg['Servers'][$i]['controluser'] = '';
 
 /**
+ * MySQL control user settings (this user must have read-only
  * access to the "mysql/user" and "mysql/db" tables). The controluser is also
  * used for all relational features (pmadb)
  *
@@ -341,22 +344,22 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
  * by default most user will be fine with SHOW DATABASES,
  * for servers with a huge amount of databases it is possible to
  * define a command which executes faster but with less information
- * 
- * especially when accessing database servers from ISPs changing this command 
+ *
+ * especially when accessing database servers from ISPs changing this command
  * can result in a great speed improvement
- * 
+ *
  * false will disable fetching databases from the server, only databases in
  * $cfg['Servers'][$i]['only_db'] will be displayed
- * 
+ *
  * #user# will be replaced by current user
- * 
+ *
  * examples:
  * 'SHOW DATABASES'
  * "SHOW DATABASES LIKE '#user#\_%'"
  * 'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'
  * 'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'
  * false
- * 
+ *
  * @global array $cfg['Servers'][$i]['ShowDatabasesCommand']
  */
 $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
