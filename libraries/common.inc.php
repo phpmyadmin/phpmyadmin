@@ -111,17 +111,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /* start procedural code                       label_start_procedural         */
 
 /**
- * protect against older PHP versions' bug about GLOBALS overwrite
- * (no need to localize this message :))
- * but what if script.php?GLOBALS[admin]=1&GLOBALS[_REQUEST]=1 ???
- */
-if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])
-  || isset($_SERVER['GLOBALS']) || isset($_COOKIE['GLOBALS'])
-  || isset($_ENV['GLOBALS'])) {
-    die('GLOBALS overwrite attempt');
-}
-
-/**
  * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
