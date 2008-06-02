@@ -227,7 +227,7 @@ if (isset($_POST['usesubform'])) {
 } else {
     // Note: here we overwrite $_REQUEST so that it does not contain cookies,
     // because another application for the same domain could have set
-    // a cookie (with a compatible path) that overrides a variable 
+    // a cookie (with a compatible path) that overrides a variable
     // we expect from GET or POST.
     // We'll refer to cookies explicitly with the $_COOKIE syntax.
     $_REQUEST = array_merge($_GET, $_POST);
@@ -556,9 +556,6 @@ if (file_exists('./lang/added_messages.php')) {
  * lang detection is done here
  */
 require_once './libraries/select_lang.lib.php';
-
-// Load the translation
-require_once $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
 
 /**
  * check for errors occurred while loading configuration
@@ -911,7 +908,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $pma = new PMA;
         $pma->userlink = $userlink;
         $pma->controllink = $controllink;
-        
+
         /**
          * some resetting has to be done when switching servers
          */
