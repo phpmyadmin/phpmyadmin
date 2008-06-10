@@ -1233,6 +1233,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // n u m e r i c
             if ($meta->numeric == 1) {
 
+
             // lem9: if two fields have the same name (this is possible
             //       with self-join queries, for example), using $meta->name
             //       will show both fields NULL even if only one is NULL,
@@ -1243,6 +1244,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             //       mysql_fetch_array() is MYSQL_BOTH, so we always get
             //       associative and numeric indices?
 
+                //if (!isset($row[$meta->name])
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                 } elseif ($row[$i] != '') {
@@ -1306,9 +1308,27 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // of the fields.
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
-                    $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                    $blobtext = '[BLOB';
+                    if (!isset($row[$i]) || is_null($row[$i])) {
+                        $blobtext .= ' - NULL';
+                        $blob_size = 0;
+                    } elseif (isset($row[$i])) {
+                        $blob_size = strlen($row[$i]);
+                        $display_blob_size = PMA_formatByteDown($blob_size, 3, 1);
+                        $blobtext .= ' - '. $display_blob_size[0] . ' ' . $display_blob_size[1];
+                        unset($display_blob_size);
+                    }
+
+                    $blobtext .= ']';
+                    if (strpos($transform_function, 'octetstream')) {
+                        $blobtext = $row[$i];
+                    }
+                    if ($blob_size > 0) {
+                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options, $meta) : $default_function($blobtext, array(), $meta));
+                    }
+                    unset($blob_size);
+
                     $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
-                    unset($blobtext);
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -1343,8 +1363,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
-                    } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
-                        $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
+                    } elseif (stristr($field_flags, 'BINARY')) {
+                        $row[$i]     = str_replace("\x00", '\0', $row[$i]);
+                        $row[$i]     = str_replace("\x08", '\b', $row[$i]);
+                        $row[$i]     = str_replace("\x0a", '\n', $row[$i]);
+                        $row[$i]     = str_replace("\x0d", '\r', $row[$i]);
+                        $row[$i]     = str_replace("\x1a", '\Z', $row[$i]);
+                        $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
                     }
                     // loic1: displays all space characters, 4 space
                     // characters for tabulations and <cr>/<lf>
@@ -2102,56 +2127,5 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     if ($header_shown) {
         echo '</fieldset><br />';
     }
-}
-
-/**
- * Verifies what to do with non-printable contents (binary or BLOB) 
- * in Browse mode.
- *
- * @uses    is_null()    
- * @uses    isset()
- * @uses    strlen()
- * @uses    PMA_formatByteDown()
- * @uses    strpos()
- * @uses    str_replace()
- * @param   string  $category BLOB|BINARY
- * @param   string  $content  the binary content
- * @param   string  $transform_function 
- * @param   string  $transform_options
- * @param   string  $default_function
- * @param   object  $meta   the meta-information about this field 
- * @return  mixed  string or float
- */
-function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta) {
-    $result = '[' . $category;
-    if (is_null($content)) {
-        $result .= ' - NULL';
-        $size = 0;
-    } elseif (isset($content)) {
-        $size = strlen($content);
-        $display_size = PMA_formatByteDown($size, 3, 1);
-        $result .= ' - '. $display_size[0] . $display_size[1];
-    }
-    $result .= ']';
-
-    if (strpos($transform_function, 'octetstream')) {
-        $result = $content;
-    }
-    if ($size > 0) {
-        if ($default_function != $transform_function) {
-            $result = $transform_function($result, $transform_options, $meta);
-        } else {
-            $result = $default_function($result, array(), $meta);
-            if (stristr($meta->type, 'BLOB') && $GLOBALS['cfg']['ShowBlob'] == true) {
-                // in this case, restart from the original $content
-                $result = str_replace("\x00", '\0', $content);
-                $result = str_replace("\x08", '\b', $result);
-                $result = str_replace("\x0a", '\n', $result);
-                $result = str_replace("\x0d", '\r', $result);
-                $result = str_replace("\x1a", '\Z', $result);
-            }
-        }
-    }
-    return($result);
 }
 ?>
