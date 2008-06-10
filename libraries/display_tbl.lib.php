@@ -1294,7 +1294,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                     } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
-                        if (isset($_SESSION['userconf']['display_binary'])) {
+                        if ($_SESSION['userconf']['display_binary']) {
                             // user asked to see the real contents of BINARY fields
                             $row[$i] = PMA_replace_binary_contents($row[$i]);
                         } else {
@@ -2093,7 +2093,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             $result = $transform_function($result, $transform_options, $meta);
         } else {
             $result = $default_function($result, array(), $meta);
-            if (stristr($meta->type, 'BLOB') && ! empty($_SESSION['userconf']['display_blob'])) {
+            if (stristr($meta->type, 'BLOB') && $_SESSION['userconf']['display_blob']) {
                 // in this case, restart from the original $content
                 $result = PMA_replace_binary_contents($content); 
             }
