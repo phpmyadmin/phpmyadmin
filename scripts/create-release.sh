@@ -243,11 +243,7 @@ Todo now:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
 
- 2. upload the files to SF:
-        ftp upload.sourceforge.net
-        cd incoming
-        binary
-        mput svn/*.gz *.zip *.bz2
+ 2. upload the files to SF (procedure explained on the sf.net Admin/File Releases page)
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
  5. update web page:
