@@ -56,6 +56,7 @@ danbarry
 + [lang] New Bangla, thanks to Raquibul Islam and Joy Kumar Nag
 + [interface] Display options (work in progress); thanks to Dave Grijalva
   for the idea about showing the display field while browsing
+- bug #1910621 [display] part 2: do not display a BINARY content as text
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
@@ -69,7 +70,6 @@ danbarry
 - [interface] sanitize the table comments in table print view, 
   thanks to Norman Hippert
 - bug #1939031 Auto_Increment selected for TimeStamp by Default
-- bug #1910621 [display] part 2: do not display a BINARY content as text
 - patch #1957998 [display] No tilde for InnoDB row counter when we know
   it for sure, thanks to Vladyslav Bakayev - dandy76
 - bug #1955572 [display] alt text causes duplicated strings
