@@ -22,7 +22,7 @@ abstract class PMA_List extends ArrayObject
     {
         parent::__construct($array, $flags, $iterator_class);
     }
-    
+
     /**
      * returns item only if there is only one in the list
      *
@@ -63,8 +63,9 @@ abstract class PMA_List extends ArrayObject
      */
     public function exists()
     {
+        $this_elements = $this->getArrayCopy();
         foreach (func_get_args() as $result) {
-            if (! in_array($result, $this)) {
+            if (! in_array($result, $this_elements)) {
                 return false;
             }
         }
