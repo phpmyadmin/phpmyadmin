@@ -154,6 +154,14 @@ $cfg['Servers'][$i]['controlpass'] = '';
 $cfg['Servers'][$i]['auth_type'] = 'config';
 
 /**
+ * File containing Feebee ids and login names (see /contrib);
+ * leave empty to deactivate Feebee hardware authentication  
+ *
+ * @global string $cfg['Servers'][$i]['auth_feebee_config']
+ */
+$cfg['Servers'][$i]['auth_feebee_config'] = '';
+
+/**
  * MySQL user
  *
  * @global string $cfg['Servers'][$i]['user']
