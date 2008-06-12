@@ -57,8 +57,9 @@ danbarry
 + [interface] Display options (work in progress); thanks to Dave Grijalva
   for the idea about showing the display field while browsing
 - bug #1910621 [display] part 2: do not display a BINARY content as text
-+ [auth] support Feebee hardware authentication (todo: Documentation.html,
-  improve code formatting)
++ [auth] support SweKey hardware authentication 
+  see http://store.swekey.com/index.php?promo=pma
+  (todo: Documentation.html, improve code formatting)
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
