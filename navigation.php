@@ -327,6 +327,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     $table_list = PMA_getTableList($GLOBALS['db'], null, $tpos, $cfg['MaxTableList']);
     if (! empty($table_list)) {
         $table_count = PMA_getTableCount($GLOBALS['db']);
+        // upper table list paginator
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {
             $_url_params = array(
               'tpos' => 'true',
@@ -336,9 +337,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
             PMA_listNavigator($table_count, $tpos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxTableList']);
         } 
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
-        // hint user that the table list is larger
+        // lower table list paginator
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {
-        	echo '&nbsp; ( ', $tpos, ' .. ', ($tpos+$GLOBALS['cfg']['MaxTableList']), ' / ', $table_count, ' )'; 
             PMA_listNavigator($table_count, $tpos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxTableList']);
         } 
     } else {
