@@ -76,10 +76,19 @@ function PMA_exitNavigationFrame()
 if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
     $_SESSION['userconf']['navi_limit_offset'] = 0;
 }
-if (isset($_REQUEST['pos'])) {
-    $_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+if (! isset($_SESSION['userconf']['table_limit_offset'])) {
+	$_SESSION['userconf']['table_limit_offset'] = 0;
 }
-$pos = $_SESSION['userconf']['navi_limit_offset']; 
+if (isset($_REQUEST['pos'])) {
+	if (isset($_REQUEST['tpos'])) {
+		$_SESSION['userconf']['table_limit_offset'] = (int) $_REQUEST['pos'];
+	}
+	else {
+		$_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+	}
+}
+$pos = $_SESSION['userconf']['navi_limit_offset'];
+$tpos = $_SESSION['userconf']['table_limit_offset'];
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -115,10 +124,19 @@ require_once './libraries/header_http.inc.php';
 if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
     $_SESSION['userconf']['navi_limit_offset'] = 0;
 }
-if (isset($_REQUEST['pos'])) {
-    $_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+if (! isset($_SESSION['userconf']['table_limit_offset'])) {
+	$_SESSION['userconf']['table_limit_offset'] = 0;
 }
-$pos = $_SESSION['userconf']['navi_limit_offset']; 
+if (isset($_REQUEST['pos'])) {
+	if (isset($_REQUEST['tpos'])) {
+		$_SESSION['userconf']['table_limit_offset'] = (int) $_REQUEST['pos'];
+	}
+	else {
+		$_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+	}
+}
+$pos = $_SESSION['userconf']['navi_limit_offset'];
+$tpos = $_SESSION['userconf']['table_limit_offset'];
 
 /*
  * Displays the frame
@@ -305,18 +323,23 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
      * This helps reducing the navi panel size; in the right panel,
      * user can find a navigator to page thru all tables.
      *
-     * @todo instead of the 0 parameter, keep track of the
-     *       offset in the list of tables ($_SESSION['userconf']['table_limit_offset'])
-     *       and use PMA_listNavigator(); do not just check pos in REQUEST
-     *       but add another hidden param to see if it's the pos of databases
-     *       or the pos of tables. 
      */
-    $table_list = PMA_getTableList($GLOBALS['db'], null, 0, $cfg['MaxTableList']);
+    $table_list = PMA_getTableList($GLOBALS['db'], null, $tpos, $cfg['MaxTableList']);
     if (! empty($table_list)) {
+        $table_count = PMA_getTableCount($GLOBALS['db']);
+        if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {
+            $_url_params = array(
+              'tpos' => 'true',
+              'pos' => $tpos,
+              'db' => $GLOBALS['db']
+            );
+            PMA_listNavigator($table_count, $tpos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxTableList']);
+        } 
         PMA_displayTableList($table_list, true, '', $GLOBALS['db']);
-        // hint user that the table list is larger, until the todo is done
-        if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && PMA_getTableCount($GLOBALS['db']) > $GLOBALS['cfg']['MaxTableList']) {
-            echo '&nbsp; ( 1 .. ', $GLOBALS['cfg']['MaxTableList'], ' / ', PMA_getTableCount($GLOBALS['db']), ' )'; 
+        // hint user that the table list is larger
+        if (count($table_list) <= $GLOBALS['cfg']['MaxTableList'] && $table_count > $GLOBALS['cfg']['MaxTableList']) {
+        	echo '&nbsp; ( ', $tpos, ' .. ', ($tpos+$GLOBALS['cfg']['MaxTableList']), ' / ', $table_count, ' )'; 
+            PMA_listNavigator($table_count, $tpos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxTableList']);
         } 
     } else {
         echo $GLOBALS['strNoTablesFound'];
