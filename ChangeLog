@@ -61,6 +61,10 @@ danbarry
   see http://store.swekey.com/index.php?promo=pma
   (todo: Documentation.html, improve code formatting)
 
+2.11.8.0 (not yet released)
+- patch #1987593 [interface] Table list pagination in navi, 
+  thanks to Jason Day - jday29
+
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
 - [dbi] Incorrect interpretation for some mysqli field flags
