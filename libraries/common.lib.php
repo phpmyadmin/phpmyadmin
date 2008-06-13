@@ -1215,7 +1215,11 @@ function PMA_showMessage($message, $sql_query = null)
 
         if (!empty($edit_target)) {
             echo '<fieldset class="tblFooters">';
-            PMA_profilingCheckbox($sql_query);
+            // avoid displaying a Profiling checkbox that could
+            // be checked, which would reexecute an INSERT, for example
+            if (! empty($refresh_link)) {
+                PMA_profilingCheckbox($sql_query);
+            }
             echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
             echo '</fieldset>';
         }
