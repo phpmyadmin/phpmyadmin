@@ -68,7 +68,9 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
     $len = strlen($buffer);
     // prepare an uppercase copy of buffer for PHP < 5
     // outside of the loop
-    if (PMA_PHP_INT_VERSION < 50000) {
+    // (but on Windows and PHP 5.2.5, stripos() is very slow
+    //  so prepare this buffer also in this case)
+    if (PMA_PHP_INT_VERSION < 50000 || PMA_IS_WINDOWS) {
         $buffer_upper = strtoupper($buffer);
     }
     // Grab some SQL queries out of it
@@ -114,7 +116,8 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $p7 = $big_value;
         }
         // catch also "delimiter"
-        if (PMA_PHP_INT_VERSION >= 50000) {
+        // stripos() very slow on Windows (at least on PHP 5.2.5)
+        if (PMA_PHP_INT_VERSION >= 50000 && ! PMA_IS_WINDOWS) {
             $p8 = stripos($buffer, 'DELIMITER', $i);
         } else {
             $p8 = strpos($buffer_upper, 'DELIMITER', $i);
