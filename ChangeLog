@@ -68,6 +68,7 @@ danbarry
   (really causes a problem in case of INSERT/UPDATE)
 - bug #1990342 [import] SQL file import very slow on Windows,
   thanks to Richard Heaton - wotnot
+- bug [XHTML] problem with tabindex and radio fields
 
 2.11.7.0 (not yet released)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key

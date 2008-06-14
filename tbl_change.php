@@ -740,7 +740,7 @@ foreach ($rows as $row_id => $vrow) {
                       && $enum_value['plain'] == $field['Default'])) {
                         echo ' checked="checked"';
                     }
-                    echo 'tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+                    echo ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
                     echo '<label for="field_' . $idindex . '_3_' . $j . '">'
                         . $enum_value['html'] . '</label>' . "\n";
                     $j++;
