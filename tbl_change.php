@@ -735,7 +735,7 @@ foreach ($loop_array as $vrowcount => $vrow) {
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                         echo ' checked="checked"';
                     }
-                    echo 'tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+                    echo ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
                     echo '<label for="field_' . $idindex . '_3_' . $j . '">'
                         . htmlspecialchars($enum_atom) . '</label>' . "\n";
                 } // end for
