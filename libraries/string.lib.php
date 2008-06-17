@@ -22,6 +22,9 @@
  * @uses    defined()
  * @todo a .lib filename should not have code in main(), split or rename file
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /* Try to load mbstring, unless we're using buggy php version */
 if (PMA_PHP_INT_VERSION != 40203) {

@@ -5,7 +5,9 @@
  *
  * @version $Id$
  */
-
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Loads the recode or iconv extensions if any of it is not loaded yet

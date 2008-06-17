@@ -4,6 +4,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 $url_query .= '&amp;goto=tbl_structure.php';
 

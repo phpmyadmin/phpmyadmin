@@ -5,9 +5,12 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
- * trys to find the language to use
+ * tries to find the language to use
  *
  * @uses    $GLOBALS['cfg']['lang']
  * @uses    $GLOBALS['cfg']['DefaultLang']

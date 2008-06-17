@@ -9,6 +9,9 @@
  * @uses    $userlink
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Gets some core libraries
