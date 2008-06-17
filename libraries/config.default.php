@@ -155,7 +155,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 
 /**
  * File containing Feebee ids and login names (see /contrib);
- * leave empty to deactivate Feebee hardware authentication  
+ * leave empty to deactivate Feebee hardware authentication
  *
  * @global string $cfg['Servers'][$i]['auth_feebee_config']
  */
@@ -622,7 +622,7 @@ $cfg['LeftFrameTableSeparator']= '__';
  *
  * @global integer $cfg['LeftFrameTableLevel']
  */
-$cfg['LeftFrameTableLevel'] = '1';
+$cfg['LeftFrameTableLevel'] = 1;
 
 /**
  * display table comment as tooltip in left frame
