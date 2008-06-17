@@ -288,10 +288,10 @@ $strExtendedInserts = 'Extended inserts';
 $strExtra = 'Extra';
 
 $strFailedAttempts = 'Failed attempts';
-$strFeebeeAuthenticating = 'Authenticating...';
-$strFeebeeAuthFailed = 'Hardware authentication failed';
-$strFeebeeNoKeyId = 'File %s does not contain any key id';
-$strFeebeeNoKey = 'No valid authentication key plugged';
+$strSwekeyAuthenticating = 'Authenticating...';
+$strSwekeyAuthFailed = 'Hardware authentication failed';
+$strSwekeyNoKeyId = 'File %s does not contain any key id';
+$strSwekeyNoKey = 'No valid authentication key plugged';
 $strField = 'Field';
 $strFieldHasBeenDropped = 'Field %s has been dropped';
 $strFieldInsertFromFileTempDirNotExists = 'Error moving the uploaded file, see FAQ 1.11';

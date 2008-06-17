@@ -1,92 +1,89 @@
 <?php
 
-    require_once "libraries/auth/feebee/fbauth.php";
-
-    $_SESSION['PHP_AUTH_FEEBEE_RND_TOKEN'] = FbAuth_GetFastRndToken();
 
 ?>
 	<embed type="application/fbauth-plugin" width=1 height=1 hidden="true" id="fbauth"><br>
 	<script>
-	var glob_FbAuthPlugin = document.embeds["fbauth"];
-	var glob_ValidFeebeeId;	
-	var glob_ValidFeebeeOtp;	
+	var glob_SwekeyPlugin = document.embeds["fbauth"];
+	var glob_ValidSwekeyId;	
+	var glob_ValidSwekeyOtp;	
 	
 	// -------------------------------------------------------------------
-	// List the id of the Feebee connected to the PC 
-	// Returns a string containing comma separated Feebee Ids
-    // A Feebee id is a 32 char hexadecimal value.  	
-	function FbAuth_ListKeyIds()
+	// List the id of the Swekey connected to the PC 
+	// Returns a string containing comma separated Swekey Ids
+    // A Swekey id is a 32 char hexadecimal value.  	
+	function Swekey_ListKeyIds()
 	{
 		try
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
+				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
 				return x.list();
 			}
 			else
-				return glob_FbAuthPlugin.list();
+				return glob_SwekeyPlugin.list();
 		}
 		catch (e)
 		{
-//			alert("FbAuth_ListKeyIds" + e);
+//			alert("Swekey_ListKeyIds" + e);
 		}
 		return "";
 	}
 
 	// -------------------------------------------------------------------
-	// Ask the Connected Feebee to generate an OTP
-	// fbid: The id of the connected Feebee (returne by FbAuth_ListKeyIds())
+	// Ask the Connected Swekey to generate an OTP
+	// fbid: The id of the connected Swekey (returne by Swekey_ListKeyIds())
 	// rt: A random token 	
 	// return: The calculated OTP encoded in a 64 chars hexadecimal value.
-	function FbAuth_GetOtp(fbid, rt)
+	function Swekey_GetOtp(fbid, rt)
 	{
 		try
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
+				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
 				return x.getotp(fbid, rt);
 			}
 			else
-				return glob_FbAuthPlugin.getotp(fbid, rt);
+				return glob_SwekeyPlugin.getotp(fbid, rt);
 		}
 		catch (e)
 		{
-//			alert("FbAuth_GetOtp " + e);
+//			alert("Swekey_GetOtp " + e);
 		}
 		return "";
 	}
 
 	// -------------------------------------------------------------------
-	// Set a unplug handler (url) to the specified connected feebee
-	// fbid: The id of the connected Feebee (returne by FbAuth_ListKeyIds())
+	// Set a unplug handler (url) to the specified connected swekey
+	// fbid: The id of the connected Swekey (returne by Swekey_ListKeyIds())
 	// key: The key that index that url, (aplhanumeric values only) 	
 	// url: The url that will be launched ("" deletes the url)
-	function FbAuth_SetUnplugUrl(fbid, key, url)
+	function Swekey_SetUnplugUrl(fbid, key, url)
 	{
 		try
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
+				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
 				return x.setunplugurl(fbid, key, url);
 			}
 			else
-				return glob_FbAuthPlugin.setunplugurl(fbid, key, url);
+				return glob_SwekeyPlugin.setunplugurl(fbid, key, url);
 		}
 		catch (e)
 		{
-//			alert("FbAuth_SetUnplugUrl " + e);
+//			alert("Swekey_SetUnplugUrl " + e);
 		}
 	}
 
 	// -------------------------------------------------------------------
 	// Return a valid connected key id
-	function Feebee_GetValidKey()
+	function Swekey_GetValidKey()
 	{
-	    var valids = <?php echo '"'.$_SESSION['PHP_AUTH_VALID_FEEBEES'].'"';?>;
-    	var connected_keys = FbAuth_ListKeyIds().split(",");
+	    var valids = <?php echo '"'.$_SESSION['PHP_AUTH_VALID_SWEKEYS'].'"';?>;
+    	var connected_keys = Swekey_ListKeyIds().split(",");
      	for (i in connected_keys) 
        	    if (connected_keys[i] != null && connected_keys[i].length == 32)
         	    if (valids.indexOf(connected_keys[i]) >= 0)
@@ -97,9 +94,9 @@
 	
 	// -------------------------------------------------------------------
 	// Return a valid connected key id
-	function Feebee_GetOtp()
+	function Swekey_GetOtpFromValidKey()
 	{
-        var key = Feebee_GetValidKey();
+        var key = Swekey_GetValidKey();
         if (key.length != 32)
             return "";
 
@@ -111,12 +108,8 @@
         if (url.lastIndexOf("/") > 0)
             url = url.substr(0, url.lastIndexOf("/"));
             
-        FbAuth_SetUnplugUrl(key, "pma_login", url + "/libraries/auth/feebee/unplugged.php?session_to_unset=<?php echo session_id();?>");
+        Swekey_SetUnplugUrl(key, "pma_login", url + "/libraries/auth/swekey/unplugged.php?session_to_unset=<?php echo session_id();?>");
                 
-        return FbAuth_GetOtp(key, <?php echo '"'.$_SESSION['PHP_AUTH_FEEBEE_RND_TOKEN'].'"';?>);
+        return Swekey_GetOtp(key, <?php echo '"'.$_SESSION['PHP_AUTH_SWEKEY_RND_TOKEN'].'"';?>);
     }
 	</script>	
-	
-<?php
-
-?>

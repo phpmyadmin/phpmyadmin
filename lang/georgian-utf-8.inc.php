@@ -1076,8 +1076,8 @@ $strViewHasAtLeast = 'This view has at least this number of rows. Please refer t
 $strUserDefined = 'User-defined';  //to translate
 $strRelationalKey = 'Relational key';  //to translate
 $strRelationalDisplayField = 'Relational display field';  //to translate
-$strFeebeeNoKey = 'No valid authentication key plugged';  //to translate
-$strFeebeeNoKeyId = 'File %s does not contain any key id';  //to translate
-$strFeebeeAuthFailed = 'Hardware authentication failed';  //to translate
-$strFeebeeAuthenticating = 'Authenticating...';  //to translate
+$strSwekeyNoKey = 'No valid authentication key plugged';  //to translate
+$strSwekeyNoKeyId = 'File %s does not contain any key id';  //to translate
+$strSwekeyAuthFailed = 'Hardware authentication failed';  //to translate
+$strSwekeyAuthenticating = 'Authenticating...';  //to translate
 ?>

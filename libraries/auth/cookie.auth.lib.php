@@ -12,7 +12,7 @@ if (! defined('PMA_COMING_FROM_COMMON')) {
    exit;
 }
 
-require './libraries/auth/feebee/feebee.auth.lib.php';
+require './libraries/auth/swekey/swekey.auth.lib.php';
 
 if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
     /**
@@ -219,10 +219,10 @@ if (top != self) {
         exit;
     }
    
-    // BEGIN Feebee Integration   
-    $feebeeErr = Feebee_auth_error();
-    if ($feebeeErr != null) {
-         PMA_Message::error($feebeeErr)->display();
+    // BEGIN Swekey Integration   
+    $swekeyErr = Swekey_auth_error();
+    if ($swekeyErr != null) {
+         PMA_Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();
@@ -242,7 +242,7 @@ if (top != self) {
     }
     else
          $user_input_disabled = '';
-     // END Feebee Integration   
+     // END Swekey Integration   
    
     ?>
 <br />
@@ -417,10 +417,10 @@ function PMA_auth_check()
         return false;
     }
 
-    // BEGIN Feebee Integration   
-    if (! Feebee_auth_check())
+    // BEGIN Swekey Integration   
+    if (! Swekey_auth_check())
         return false;
-    // END Feebee Integration   
+    // END Swekey Integration   
 
     if (defined('PMA_CLEAR_COOKIES')) {
         foreach($GLOBALS['cfg']['Servers'] as $key => $val) {

@@ -1049,8 +1049,8 @@ $strZip = 'comprimido no formato "zip"';
 
 $strRelationalKey = 'Relational key';  //to translate
 $strRelationalDisplayField = 'Relational display field';  //to translate
-$strFeebeeNoKey = 'No valid authentication key plugged';  //to translate
-$strFeebeeNoKeyId = 'File %s does not contain any key id';  //to translate
-$strFeebeeAuthFailed = 'Hardware authentication failed';  //to translate
-$strFeebeeAuthenticating = 'Authenticating...';  //to translate
+$strSwekeyNoKey = 'No valid authentication key plugged';  //to translate
+$strSwekeyNoKeyId = 'File %s does not contain any key id';  //to translate
+$strSwekeyAuthFailed = 'Hardware authentication failed';  //to translate
+$strSwekeyAuthenticating = 'Authenticating...';  //to translate
 ?>
