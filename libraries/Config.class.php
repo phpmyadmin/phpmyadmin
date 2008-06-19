@@ -178,6 +178,9 @@ class PMA_Config
                    && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
+        } elseif (preg_match('@Firefox(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
