@@ -585,7 +585,7 @@ if (!empty($asfile)) {
     }
 
     // Do the compression
-    // 1. as a gzipped file
+    // 1. as a zipped file
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new zipfile();
