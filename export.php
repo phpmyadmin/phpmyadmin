@@ -288,8 +288,8 @@ if ($asfile) {
         // to avoid compressing twice
         if (!@ini_get('zlib.output_compression')) {
             // On Firefox 3, sending this content encoding corrupts the .gz
-            // (as tested on Windows and Linux)
-            if (! (PMA_USR_BROWSER_AGENT == 'FIREFOX' && PMA_USR_BROWSER_VER >= '3.0')) {
+            // (as tested on Windows and Linux) but detect GECKO 1.9
+            if (! (PMA_USR_BROWSER_AGENT == 'GECKO' && PMA_USR_BROWSER_VER == '1.9')) {
                 $content_encoding = 'x-gzip';
             }
             $mime_type = 'application/x-gzip';
