@@ -166,7 +166,7 @@ else {
     <td>
         <?php
         if (! empty($sts_data['Comment'])) {
-            echo $sts_data['Comment'];
+            echo htmlspecialchars($sts_data['Comment']);
             $needs_break = '<br />';
         } else {
             $needs_break = '';
