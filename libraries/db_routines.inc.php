@@ -4,6 +4,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * @todo Support seeing the "results" of the called procedure or

@@ -8,12 +8,8 @@
  * @version $Id$
  */
 
-/**
- * @todo replace by constant
- * $coming_from_common can be set from outside with register_globals on
- */
-if (!isset($coming_from_common)) {
-   exit;
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {

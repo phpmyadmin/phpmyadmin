@@ -34,6 +34,9 @@
  * @uses    addslashes()
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * requirements

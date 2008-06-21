@@ -5,6 +5,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();

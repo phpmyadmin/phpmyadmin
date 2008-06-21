@@ -53,6 +53,11 @@ if (version_compare(phpversion(), '6', 'lt')) {
 }
 
 /**
+ * for verification in all procedural scripts under libraries
+ */
+define('PHPMYADMIN', true);
+
+/**
  * core functions
  */
 require_once './libraries/core.lib.php';
@@ -729,9 +734,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
-
-        // (for a quick check of path disclosure in auth/cookies:)
-        $coming_from_common = true;
 
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);

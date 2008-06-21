@@ -21,6 +21,9 @@
  *
  * @version$Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * @global array MySQL function names

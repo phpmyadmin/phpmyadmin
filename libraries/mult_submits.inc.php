@@ -4,6 +4,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Prepares the work and runs some other scripts if required

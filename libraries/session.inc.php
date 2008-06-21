@@ -13,6 +13,9 @@
  * @uses    version_compare()
  * @uses    PHP_VERSION
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // verify if PHP supports session, die if it does not
 

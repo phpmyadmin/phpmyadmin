@@ -8,6 +8,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * copy values from one array to another, usally from a superglobal into $GLOBALS

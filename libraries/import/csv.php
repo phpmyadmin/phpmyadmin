@@ -6,6 +6,9 @@
  * @todo    add an option for handling NULL values
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *

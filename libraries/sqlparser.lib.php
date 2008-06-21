@@ -29,7 +29,9 @@
  *
  * @version $Id$
  */
-
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Minimum inclusion? (i.e. for the stylesheet builder)

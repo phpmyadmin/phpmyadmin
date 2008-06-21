@@ -33,6 +33,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1981043 [export] HTML in exports getting corrupted,
   thanks to Jason Judge - jasonjudge
 - bug #1936761 [interface] BINARY not treated as BLOB: update/delete issues 
+- protection against XSS when register_globals is on and .htaccess has
+  no effect, thanks to Tim Starling
 - bug #1996943 [export] Firefox 3 and .sql.gz (corrupted); detect Gecko 1.9,
   thanks to Jürgen Wind - windkiel
 

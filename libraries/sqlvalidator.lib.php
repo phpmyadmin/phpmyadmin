@@ -29,6 +29,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * We need the PEAR libraries, so do a minimum version check first

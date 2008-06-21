@@ -10,6 +10,9 @@
  * @usedby  tbl_structure.php
  * @usedby  querywindow.php
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *
