@@ -4,6 +4,9 @@
  *
  * @version $Id: header.inc.php 10719 2007-10-04 15:03:44Z cybot_tm $
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *

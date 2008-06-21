@@ -5,6 +5,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Sorts available languages by their true english names

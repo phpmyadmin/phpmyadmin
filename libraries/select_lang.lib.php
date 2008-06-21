@@ -5,6 +5,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * tries to find the language to use

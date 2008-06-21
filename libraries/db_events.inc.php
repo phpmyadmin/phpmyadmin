@@ -4,6 +4,10 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $url_query .= '&amp;goto=db_structure.php';
 
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');

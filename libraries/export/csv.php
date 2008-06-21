@@ -3,6 +3,9 @@
 /**
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Set of functions used to build CSV dumps of tables

@@ -21,6 +21,9 @@
  * @uses    defined()
  * @todo a .lib filename should not have code in main(), split or rename file
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /* Try to load mbstring */
     if (!@extension_loaded('mbstring')) {

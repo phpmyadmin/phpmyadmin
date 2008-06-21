@@ -5,6 +5,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // MySQL client API
 if (!defined('PMA_MYSQL_CLIENT_API')) {

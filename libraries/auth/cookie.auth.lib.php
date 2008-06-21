@@ -8,8 +8,8 @@
  * @version $Id$
  */
 
-if (! defined('PMA_COMING_FROM_COMMON')) {
-   exit;
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 require './libraries/auth/swekey/swekey.auth.lib.php';

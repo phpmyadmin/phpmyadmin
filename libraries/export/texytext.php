@@ -3,6 +3,9 @@
 /**
  * Sample export to Texy! text.
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  *

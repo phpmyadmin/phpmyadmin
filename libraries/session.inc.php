@@ -11,6 +11,9 @@
  * @uses    session_start()
  * @uses    ini_set()
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // verify if PHP supports session, die if it does not
 

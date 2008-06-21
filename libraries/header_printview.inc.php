@@ -4,6 +4,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Gets a core script and starts output buffering work

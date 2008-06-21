@@ -6,6 +6,9 @@
  * included by tbl_addfield.php, -_alter.php, -_create.php
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Check parameters

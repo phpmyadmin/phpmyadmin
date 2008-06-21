@@ -5,6 +5,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // this gets executed twice so avoid a notice
 if (! defined('CG_FORMAT_NHIBERNATE_CS')) {

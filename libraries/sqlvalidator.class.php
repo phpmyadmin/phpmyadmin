@@ -27,6 +27,9 @@
 *
 * @version  $Id$
 */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 @include_once 'SOAP/Client.php';
 

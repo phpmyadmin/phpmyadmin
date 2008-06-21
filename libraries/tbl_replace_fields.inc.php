@@ -29,6 +29,9 @@
  * @uses PMA_NO_VARIABLES_IMPORT
  * @uses PMA_sqlAddslashes()
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * do not import request variable into global scope

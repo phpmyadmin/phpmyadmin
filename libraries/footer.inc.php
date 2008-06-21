@@ -43,6 +43,9 @@
  * @uses    file_exists()
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * for PMA_setHistory()

@@ -3,6 +3,9 @@
 /**
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * checks for DBG extension and trys to load if not loaded

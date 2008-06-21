@@ -11,6 +11,9 @@
  *
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Gets the php internal encoding codes and sets the available encoding

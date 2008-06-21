@@ -14,6 +14,10 @@
  *       Also, support DEFINER (like we do in export).
  * @version $Id$
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 $url_query .= '&amp;goto=db_structure.php';
 
 $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE,DTD_IDENTIFIER FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
