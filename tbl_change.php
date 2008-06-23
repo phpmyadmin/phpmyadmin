@@ -241,8 +241,8 @@ $timestamp_seen = 0;
 $fields_cnt     = count($table_fields);
 
 $tabindex = 0;
-$tabindex_for_function = +1000;
-$tabindex_for_null     = +2000;
+$tabindex_for_function = +3000;
+$tabindex_for_null     = +6000;
 $tabindex_for_value    = 0;
 $o_rows   = 0;
 $biggest_max_file_size = 0;
