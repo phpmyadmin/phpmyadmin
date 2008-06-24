@@ -70,6 +70,7 @@ danbarry
   thanks to Richard Heaton - wotnot
 - bug [XHTML] problem with tabindex and radio fields
 - bug #1971221 [interface] tabindex not set correctly
+- bug [views] VIEW name created via the GUI was not protected with backquotes
 
 2.11.7.0 (2008-06-23)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
