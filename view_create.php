@@ -29,7 +29,7 @@ if (isset($_POST['submitoptions'])) {
     if (isset($_POST['algorithm'])) {
         $create_query .= ' ALGORITHM = ' . $_POST['algorithm'] . $sep;
     }
-    $create_query .= ' VIEW ' . $_POST['view_name'] . $sep;
+    $create_query .= ' VIEW ' . PMA_backquote($_POST['view_name']) . $sep;
 
     if (!empty($_POST['column_names'])) {
         $create_query .= ' (' . $_POST['column_names'] . ')' . $sep;
