@@ -158,7 +158,7 @@ function moveTooltip(posX, posY)
  */
 function pmaTooltip(e)
 {
-    var theText = document.getElementById(this.getAttribute('name')).innerHTML;
+    var theText = document.getElementById('footnote_' + this.innerHTML).innerHTML;
 
     var plusX = 0, plusY = 0, docX = 0, docY = 0;
     var divHeight = myTooltipContainer.clientHeight;
