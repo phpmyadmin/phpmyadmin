@@ -453,6 +453,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
         return '[sup]' . $nr . '[/sup]';
     }
 
+    // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker" id="footnote_sup_' . $nr . '">' . $nr . '</sup>';
 }
 
