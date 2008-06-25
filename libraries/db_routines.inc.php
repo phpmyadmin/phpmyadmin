@@ -77,8 +77,7 @@ if ($routines) {
                      ($ct%2 == 0) ? 'even' : 'odd',
                      $routine['ROUTINE_NAME'],
                      ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;delimiter=' . urlencode($delimiter), $titles['Structure']) : '&nbsp;',
-                     //$routine['ROUTINE_TYPE'] == 'PROCEDURE' ? '<a href="sql.php?' . $url_query . '&sql_query=' . urlencode($sqlUseProc) . '">' . $titles['Browse'] . '</a>' : '&nbsp;',
-                     '<a href="sql.php?' . $url_query . '&sql_query=' . urlencode($sqlDropProc) . '" onclick="return confirmLink(this, \'' . PMA_jsFormat($sqlDropProc, false) . '\')">' . $titles['Drop'] . '</a>',
+                     '<a href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDropProc) . '" onclick="return confirmLink(this, \'' . PMA_jsFormat($sqlDropProc, false) . '\')">' . $titles['Drop'] . '</a>',
                      $routine['ROUTINE_TYPE'],
                      $routine['DTD_IDENTIFIER']);
         $ct++;
