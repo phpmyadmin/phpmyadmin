@@ -1103,4 +1103,6 @@ $strPBXTLogFileThresholdDesc = 'The size of a transaction log before rollover, a
 $strPBXTLogCacheSizeDesc = 'The amount of memory allocated to the transaction log cache used to cache on transaction log data. The default is 16MB.';  //to translate
 $strPBXTRecordCacheSizeDesc = 'This is the amount of memory allocated to the record cache used to cache table data. The default value is 32MB. This memory is used to cache changes to the handle data (.xtd) and row pointer (.xtr) files.';  //to translate
 $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the index cache. Default value is 32MB. The memory allocated here is used only for caching index pages.';  //to translate
+$strPBXTLogFileCount = 'Log file count';  //to translate
+$strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 ?>

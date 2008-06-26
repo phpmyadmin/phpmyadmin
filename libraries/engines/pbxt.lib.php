@@ -72,6 +72,11 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
                 'desc'  => $GLOBALS['strPBXTRowFileGrowSizeDesc'],
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
             ),
+            'pbxt_log_file_count' => array(
+                'title' => $GLOBALS['strPBXTLogFileCount'],
+                'desc'  => $GLOBALS['strPBXTLogFileCountDesc'],
+                'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC
+            ),
         );
     }
 }
