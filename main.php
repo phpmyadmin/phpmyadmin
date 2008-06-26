@@ -54,11 +54,6 @@ if ($server > 0) {
         echo '</li>' . "\n";
     }
 
-    if ($is_reload_priv) {
-        PMA_printListItem($strReloadPrivileges, 'li_flush_privileges',
-            './server_privileges.php?flush_privileges=1&amp;' . $common_url_query, 'flush');
-    }
-
     /**
      * Change password
      *
