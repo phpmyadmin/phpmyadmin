@@ -507,7 +507,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
     // produce a displayable result for the default value of a BIT
     // field, nor does the mysqldump command. See MySQL bug 35796
-    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    // an error can happen, for example the table is crashed
+    $tmp_error = PMA_DBI_getError();
+    if ($tmp_error) {
+        return PMA_exportComment($GLOBALS['strInUse'] . '(' . $tmp_error . ')');
+    }
+
     if ($result != FALSE && ($row = PMA_DBI_fetch_row($result))) {
         $create_query = $row[1];
         unset($row);
@@ -607,7 +613,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $schema_create .= $auto_increment;
 
     PMA_DBI_free_result($result);
-    return $schema_create;
+    return $schema_create . ';' . $crlf;
 } // end of the 'PMA_getTableDef()' function
 
 
@@ -716,7 +722,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
         case 'create_table':
             $dump .=  PMA_exportComment($GLOBALS['strTableStructure'] . ' ' . $formatted_table_name)
                   . PMA_exportComment();
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
                 $dump .=  $crlf
@@ -739,7 +745,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             if ($export_type != 'table') {
                 $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
             }
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf;
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
             break;
         case 'stand_in':
             $dump .=  PMA_exportComment($GLOBALS['strStandInStructureForView'] . ' ' . $formatted_table_name)
@@ -823,7 +829,13 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     //  are used, we did not get the true column name in case of aliases)
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
-    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+    $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+    // a possible error: the table has crashed
+    $tmp_error = PMA_DBI_getError();
+    if ($tmp_error) {
+        return PMA_exportOutputHandler(PMA_exportComment($GLOBALS['strInUse'] . ' (' . $tmp_error . ')')); 
+    }
+
     if ($result != FALSE) {
         $fields_cnt     = PMA_DBI_num_fields($result);
 
