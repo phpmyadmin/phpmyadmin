@@ -362,7 +362,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoPrimary'] . "\n";
         } else {
             echo "\n";
@@ -377,7 +377,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoUnique'] . "\n";
         } else {
             echo "\n";
@@ -391,7 +391,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
         } else {
             echo "\n";
@@ -454,9 +454,11 @@ PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse
 if (! $tbl_is_view && ! $db_is_information_schema) {
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
     PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+    if ('ARCHIVE' != $tbl_type) {
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+    }
     if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'MARIA')) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
     }
@@ -550,7 +552,7 @@ if ($fields_cnt > 20) {
  */
 PMA_generate_slider_effect('tablestatistics_indexes', $strDetails);
 echo '<div id="tablestatistics_indexes">' . "\n";
-if (! $tbl_is_view && ! $db_is_information_schema) {
+if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     /**
      * Display indexes
      */
