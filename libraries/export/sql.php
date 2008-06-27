@@ -418,6 +418,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
  * @param   string   the end of line sequence
  * @param   string   the url to go back in case of error
  * @param   boolean  whether to include creation/update/check dates
+ * @param   boolean  whether to add semicolon and end-of-line at the end
  *
  * @return  string   resulting schema
  *
@@ -427,7 +428,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
  *
  * @access  public
  */
-function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
+function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $add_semicolon = true)
 {
     global $sql_drop_table;
     global $sql_backquotes;
@@ -600,7 +601,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $schema_create .= $auto_increment;
 
     PMA_DBI_free_result($result);
-    return $schema_create . ';' . $crlf;
+    return $schema_create . ($add_semicolon ? ';' . $crlf : ''); 
 } // end of the 'PMA_getTableDef()' function
 
 
