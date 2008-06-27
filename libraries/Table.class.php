@@ -619,7 +619,7 @@ class PMA_Table
             $no_constraints_comments = true;
             $GLOBALS['sql_constraints_query'] = '';
 
-            $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url);
+            $sql_structure = PMA_getTableDef($source_db, $source_table, "\n", $err_url, false, false);
             unset($no_constraints_comments);
             $parsed_sql =  PMA_SQP_parse($sql_structure);
             $analyzed_sql = PMA_SQP_analyze($parsed_sql);
