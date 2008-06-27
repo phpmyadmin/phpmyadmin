@@ -416,7 +416,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoPrimary'] . "\n";
         } else {
             echo "\n";
@@ -431,7 +431,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoUnique'] . "\n";
         } else {
             echo "\n";
@@ -445,7 +445,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob') {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
             echo $titles['NoIndex'] . "\n";
         } else {
             echo "\n";
@@ -515,9 +515,11 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         if ($fields_cnt > 1) {
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
         }
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+        if ('ARCHIVE' != $tbl_type) {
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+        }
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
         }
@@ -527,12 +529,14 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
             echo '<i>' . $strOr . '</i>' . "\n"
                . '<input type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '" />' . "\n";
         }
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strPrimary . '" title="' . $strPrimary . '" />' . "\n";
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strIndex . '" title="' . $strIndex . '" />' . "\n";
-        echo '<i>' . $strOr . '</i>' . "\n"
-           . '<input type="submit" name="submit_mult" value="' . $strUnique . '" title="' . $strUnique . '" />' . "\n";
+        if ('ARCHIVE' != $tbl_type) {
+            echo '<i>' . $strOr . '</i>' . "\n"
+                . '<input type="submit" name="submit_mult" value="' . $strPrimary . '" title="' . $strPrimary . '" />' . "\n";
+            echo '<i>' . $strOr . '</i>' . "\n"
+                . '<input type="submit" name="submit_mult" value="' . $strIndex . '" title="' . $strIndex . '" />' . "\n";
+            echo '<i>' . $strOr . '</i>' . "\n"
+                . '<input type="submit" name="submit_mult" value="' . $strUnique . '" title="' . $strUnique . '" />' . "\n";
+        }
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
             echo '<i>' . $strOr . '</i>' . "\n"
                . '<input type="submit" name="submit_mult" value="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' . "\n";
@@ -618,7 +622,8 @@ echo "\n\n";
  * Displays indexes
  */
 echo '<div id="tablestatistics">' . "\n";
-if (! $tbl_is_view && ! $db_is_information_schema) {
+// $tbl_type is a global variable from libraries/tbl_info.inc.php
+if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     define('PMA_IDX_INCLUDED', 1);
     require './tbl_indexes.php';
 }
