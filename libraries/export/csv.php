@@ -184,9 +184,17 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                     $schema_insert .= $row[$j];
                 } else {
                     // also double the escape string if found in the data
-                    $schema_insert .= $csv_enclosed
+                    if ('csv' == $what) {
+                        $schema_insert .= $csv_enclosed
                                    . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, str_replace($csv_escaped, $csv_escaped . $csv_escaped, $row[$j]))
                                    . $csv_enclosed;
+                    } else {
+                        // for excel, avoid a problem when a field contains
+                        // double quotes
+                        $schema_insert .= $csv_enclosed
+                                   . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $row[$j])
+                                   . $csv_enclosed;
+                    }
                 }
             } else {
                 $schema_insert .= '';
