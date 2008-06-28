@@ -39,7 +39,7 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 ?>
 html {
-    font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;
+    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
 }
 
 input, select, textarea {
