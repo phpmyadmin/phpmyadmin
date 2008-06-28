@@ -76,6 +76,8 @@ danbarry
 - bug #1989281 [export] Export fails if one table is marked as crashed
 - bug #2001005 [GUI] ARCHIVE cannot have indexes 
 - bug #1989281 [export] CSV for MS Excel incorrect escaping of double quotes
+- bug #1959855 [interface] Font size option problem when no config file
+  (todo (trunk): navi frame size does not change for theme original)
 
 2.11.7.0 (2008-06-23)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
