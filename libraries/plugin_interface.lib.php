@@ -218,8 +218,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'message_only') {
         $ret .= '<div class="formelementrow">' . "\n";
-        $ret .= '<label for="text_' . $plugin_name . '_' . $opt['name'] . '" class="desc">'
-            . PMA_getString($opt['text']) . '</label>';
+        $ret .= '<p class="desc">' . PMA_getString($opt['text']) . '</p>';
         $ret .= '</div>' . "\n";
     } elseif ($opt['type'] == 'select') {
         $ret .= '<div class="formelementrow">' . "\n";
@@ -229,7 +228,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
             . ' id="select_' . $plugin_name . '_' . $opt['name'] . '">';
         $default = PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']);
         foreach($opt['values'] as $key => $val) {
-            $ret .= '<option name="' . $key . '"';
+            $ret .= '<option value="' . $key . '"';
             if ($key == $default) {
                 $ret .= ' selected="selected"';
             }
