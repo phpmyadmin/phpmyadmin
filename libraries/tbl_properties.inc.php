@@ -369,9 +369,12 @@ for ($i = 0; $i < $num_fields; $i++) {
             (isset($row['Default']) ? $row['Default'] : ''); 
     }
     
+    // here we put 'NONE' as the default value of drop-down; otherwise
+    // users would have problems if they forget to enter the default
+    // value (example, for an INT)
     $default_options = array(
-        'USER_DEFINED'      =>  $strUserDefined,
         'NONE'              =>  $strNone,
+        'USER_DEFINED'      =>  $strUserDefined,
         'NULL'              => 'NULL',
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
     );
