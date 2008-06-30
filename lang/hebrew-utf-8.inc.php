@@ -720,7 +720,7 @@ $strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
 
 $strPartialImport = 'Partial import';  //to translate
 $strPasswordHashing = 'Password Hashing';  //to translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
+$strPdfDbSchema = 'Schema of the "%s" database - Page %s';  //to translate
 $strPDF = 'PDF';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';  //to translate
