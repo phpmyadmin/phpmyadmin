@@ -16,7 +16,7 @@ if (! isset($scale)) {
 }
 require_once './libraries/relation.lib.php';
 
-if (isset($scale)) {
+if (isset($scale) && ! isset($createpage)) {
     if (empty($pdf_page_number)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
@@ -46,21 +46,24 @@ if (isset($scale)) {
 
     die("<script>alert('$strModifications');history.go(-2);</script>");
 }
+if (isset($createpage)) {
+    /*
+     * @see pdf_pages.php
+     */
+    $query_default_option = PMA_DBI_QUERY_STORE;
+
+    $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
+}
+// no need to use pmd/styles
+require_once './libraries/header_meta_style.inc.php';
 ?>
-<html>
-<head>
-<?php if(0){ ?>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-<link rel="stylesheet" type="text/css" href="pmd/styles/default/style1.css">
-<?php } ?>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset ?>" />
-<link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css">
-<title>Designer</title>
 </head>
 <body>
 <br>
-<div style="text-align:center; font-weight:bold;">
+<div>
   <form name="form1" method="post" action="pmd_pdf.php?server=<?php echo $server; ?>&db=<?php echo $db; ?>&token=<?php echo $token; ?>">
+    <div>
+    <fieldset><legend><?php echo $GLOBALS['strExport'] . '/' . $GLOBALS['strImport']; ?></legend>
     <p><?php echo $strExportImportToScale; ?>:
       <select name="scale">
         <option value="1">1:1</option>
@@ -84,11 +87,16 @@ if (isset($scale)) {
       }
       ?>
       </select>
-      <br>
-      <br>
   <input type="submit" name="exp" value="<?php echo $strExport; ?>">
   <input type="submit" name="imp" value="<?php echo $strImport; ?>">
-        </p>
+    </fieldset>
+    </div>
+    <div>
+    <fieldset><legend><?php echo $GLOBALS['strCreatePage']; ?></legend>
+        <input type="text" name="newpage" />
+        <input type="submit" name="createpage" value="<?php echo $strGo; ?>">
+        </fieldset>
+    </div>
   </form>
 </div>
 </body>

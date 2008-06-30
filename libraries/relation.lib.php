@@ -1133,4 +1133,30 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
     } // end if relwork
 }
 
+/**
+ * Create a PDF page
+ * 
+ * @uses    $GLOBALS['strNoDescription']
+ * @uses    PMA_backquote()
+ * @uses    $GLOBALS['cfgRelation']['db']
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_query_as_cu()
+ * @uses    PMA_DBI_insert_id()
+ * @uses    $GLOBALS['controllink']
+ * @param string    $newpage
+ * @param array     $cfgRelation
+ * @param string    $db
+ * @param string    $query_default_option
+ * @return string   $pdf_page_number 
+ */
+function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option) {
+    if (! isset($newpage) || $newpage == '') {
+        $newpage = $GLOBALS['strNoDescription'];
+    }
+    $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
+                 . ' (db_name, page_descr)'
+                 . ' VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($newpage) . '\')';
+    PMA_query_as_cu($ins_query, FALSE, $query_default_option);
+    return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
+}
 ?>

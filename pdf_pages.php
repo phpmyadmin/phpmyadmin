@@ -74,14 +74,7 @@ if ($cfgRelation['pdfwork']) {
                 }
                 break;
             case 'createpage':
-                if (!isset($newpage) || $newpage == '') {
-                    $newpage = $strNoDescription;
-                }
-                $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                             . ' (db_name, page_descr)'
-                             . ' VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($newpage) . '\')';
-                PMA_query_as_cu($ins_query, FALSE, $query_default_option);
-                $pdf_page_number = PMA_DBI_insert_id(isset($controllink) ? $controllink : '');
+                $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option); 
 
                 // A u t o m a t i c    l a y o u t
                 // ================================
