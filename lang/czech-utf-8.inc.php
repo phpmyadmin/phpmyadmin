@@ -1004,7 +1004,6 @@ $strUseBackquotes = 'Použít zpětné uvozovky u jmen tabulek a sloupců';
 $strUsedPhpExtensions = 'Použitá rozšíření PHP';
 $strUseHostTable = 'Použít tabulku s počítači';
 $strUserAlreadyExists = 'Uživatel %s již existuje!';
-$strUserDefined = 'Zadáno uživatelem';
 $strUserEmpty = 'Jméno uživatele je prázdné!';
 $strUserName = 'Jméno uživatele';
 $strUserNotFound = 'Zvolený uživatel nebyl nalezen v tabulce oprávnění.';
@@ -1078,4 +1077,5 @@ $strPBXTRecordCacheSizeDesc = 'This is the amount of memory allocated to the rec
 $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the index cache. Default value is 32MB. The memory allocated here is used only for caching index pages.';  //to translate
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
+$strAsDefined = 'As defined:';  //to translate
 ?>

@@ -1003,7 +1003,6 @@ $strUseBackquotes = 'Protexer os nomes das tabelas e dos campos con&nbsp;" ` "';
 $strUsedPhpExtensions = 'Extensións de PHP utilizadas';
 $strUseHostTable = 'Usar a tabela de Host';
 $strUserAlreadyExists = 'Xa existe o usuario %s';
-$strUserDefined = 'Definido polo usuario';
 $strUserEmpty = 'O nome do usuario está vacío!';
 $strUserName = 'Nome do usuario';
 $strUserNotFound = 'Non se atopou o usuario seleccionado na tabela de privilexios.';
@@ -1077,4 +1076,5 @@ $strPBXTRecordCacheSizeDesc = 'This is the amount of memory allocated to the rec
 $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the index cache. Default value is 32MB. The memory allocated here is used only for caching index pages.';  //to translate
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
+$strAsDefined = 'As defined:';  //to translate
 ?>

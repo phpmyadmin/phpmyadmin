@@ -374,7 +374,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     // value (example, for an INT)
     $default_options = array(
         'NONE'              =>  $strNone,
-        'USER_DEFINED'      =>  $strUserDefined,
+        'USER_DEFINED'      =>  $strAsDefined,
         'NULL'              => 'NULL',
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
     );
