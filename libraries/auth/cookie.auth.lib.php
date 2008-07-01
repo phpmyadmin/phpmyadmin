@@ -568,7 +568,7 @@ function PMA_auth_set_user()
 
     $_SESSION['last_access_time'] = time();
 
-    // Name and password cookies needs to be refreshed each time
+    // Name and password cookies need to be refreshed each time
     // Duration = one month for username
     PMA_setCookie('pmaUser-' . $GLOBALS['server'],
         PMA_blowfish_encrypt($cfg['Server']['user'],
@@ -586,7 +586,7 @@ function PMA_auth_set_user()
     if (! $GLOBALS['from_cookie']) {
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             if (! empty($GLOBALS['pma_auth_server'])) {
-                // Duration = one month for serverrname
+                // Duration = one month for servername
                 PMA_setCookie('pmaServer-' . $GLOBALS['server'], $cfg['Server']['host']);
             } else {
                 // Delete servername cookie

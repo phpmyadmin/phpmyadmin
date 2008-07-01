@@ -292,8 +292,8 @@ class PMA_PDF extends TCPDF
                 }
             }
 
-            // loop through the data, any column whose contents is bigger
-            // than the col size is resized
+            // loop through the data; any column whose contents 
+            // is greater than the column size is resized
             /**
               * @todo force here a LIMIT to avoid reading all rows
               */

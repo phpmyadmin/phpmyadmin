@@ -833,7 +833,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
-        // so we track wether we are in the EXTRACT()
+        // so we track whether we are in the EXTRACT()
         $in_extract          = FALSE;
 
         // for GROUP_CONCAT(...)

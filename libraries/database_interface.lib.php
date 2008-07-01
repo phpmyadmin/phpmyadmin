@@ -90,7 +90,7 @@ function PMA_DBI_query($query, $link = null, $options = 0) {
 }
 
 /**
- * converts charset of a mysql message, usally coming from mysql_error(),
+ * converts charset of a mysql message, usually coming from mysql_error(),
  * into PMA charset, usally UTF-8
  * uses language to charset mapping from mysql/share/errmsg.txt
  * and charset names to ISO charset from information_schema.CHARACTER_SETS
@@ -517,7 +517,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = PMA_getDbCollation($database_name);
 
-                // get additonal info about tables
+                // get additional info about tables
                 $databases[$database_name]['SCHEMA_TABLES']          = 0;
                 $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
                 $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
@@ -738,7 +738,7 @@ function PMA_DBI_get_fields($database, $table, $link = null)
  *
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
- * @param   boolean $full       wether to return full info or only column names
+ * @param   boolean $full       whether to return full info or only column names
  * @param   mixed   $link       mysql link resource
  * @return  array   column names
  */

@@ -9,8 +9,8 @@
 /**
  * handles theme
  *
- * @todo add the possibility to make a theme depends on another theme and by default on original
- * @todo make all components optional - taking missing components from 'parent' theme
+ * @todo add the possibility to make a theme depend on another theme and by default on original
+ * @todo make all components optional - get missing components from 'parent' theme
  * @todo make css optionally replacing 'parent' css or extending it (by appending at the end)
  * @todo add an optional global css file - which will be used for both frames
  *
@@ -89,7 +89,7 @@ class PMA_Theme {
 
         @include $this->getPath() . '/info.inc.php';
 
-        // did it set correctly?
+        // was it set correctly?
         if (! isset($theme_name)) {
             return false;
         }
@@ -308,7 +308,7 @@ class PMA_Theme {
     }
 
     /**
-     * load css (send to stdout, normaly the browser)
+     * load css (send to stdout, normally the browser)
      *
      * @access  public
      * @uses    PMA_Theme::getPath()

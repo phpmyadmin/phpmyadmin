@@ -8,7 +8,7 @@
  *
  * Order of sections for common.inc.php:
  *
- * the authentication libraries must be before the connection to db
+ * the authentication libraries must be loaded before db connections
  *
  * ... so the required order is:
  *
@@ -693,7 +693,7 @@ $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
 if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
     include $_SESSION['PMA_Theme']->getLayoutFile();
     /**
-     * @todo remove if all themes are update use Navi instead of Left as frame name
+     * @todo remove if all themes are updated to use Navi instead of Left as frame name
      */
     if (! isset($GLOBALS['cfg']['NaviWidth'])
      && isset($GLOBALS['cfg']['LeftWidth'])) {

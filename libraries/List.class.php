@@ -53,7 +53,7 @@ abstract class PMA_List extends ArrayObject
 
     /**
      * checks if the given db names exists in the current list, if there is
-     * missing at least one item it returns false other wise true
+     * missing at least one item it returns false otherwise true
      *
      * @uses    PMA_List::$items to check for existence of specific item
      * @uses    func_get_args()

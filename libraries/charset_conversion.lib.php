@@ -66,7 +66,7 @@ if (!isset($cfg['IconvExtraParams'])) {
     $cfg['IconvExtraParams'] = '';
 }
 
-// Finally detects which function will we use:
+// Finally detect which function we will use:
 if (isset($cfg['AllowAnywhereRecoding'])
     && $cfg['AllowAnywhereRecoding']
     && $allow_recoding) {

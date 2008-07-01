@@ -273,9 +273,9 @@ class PMA_Theme_Manager
     }
 
     /**
-     * returns HTML selectbox, with or without form enclsoed
+     * returns HTML selectbox, with or without form enclosed
      *
-     * @param   boolean $form   wether enclosed by from tags or not
+     * @param   boolean $form   whether enclosed by from tags or not
      */
     function getHtmlSelectBox($form = true)
     {
@@ -367,7 +367,7 @@ class PMA_Theme_Manager
             return true;
         }
 
-        // load css for this them failed, try default theme css
+        // if loading css for this theme failed, try default theme css
         $fallback_theme = $this->getFallBackTheme();
         if ($fallback_theme && $fallback_theme->loadCss($type)) {
             return true;

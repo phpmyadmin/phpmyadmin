@@ -122,7 +122,7 @@ class PMA_PDF extends TCPDF {
      * @param double $ The cell width
      * @param double $ The cell height
      * @param string $ The text to output
-     * @param mixed $ Wether to add borders or not
+     * @param mixed $ Whether to add borders or not
      * @param integer $ Where to put the cursor once the output is done
      * @param string $ Align mode
      * @param integer $ Whether to fill the cell with a color or not

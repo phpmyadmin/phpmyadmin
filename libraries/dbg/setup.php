@@ -8,7 +8,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * checks for DBG extension and trys to load if not loaded
+ * checks for DBG extension and tries to load if not loaded
  *
  * allways use $GLOBALS here, as this script is included by footer.inc.hp
  * which can also be included from inside a function

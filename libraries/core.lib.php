@@ -514,9 +514,9 @@ function PMA_checkPageValidity(&$page, $whitelist)
 }
 
 /**
- * trys to find the value for the given environment vriable name
+ * tries to find the value for the given environment variable name
  *
- * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
+ * searches in $_SERVER, $_ENV then tries getenv() and apache_getenv()
  * in this order
  *
  * @uses    $_SERVER
@@ -559,7 +559,7 @@ function PMA_removeCookie($cookie)
 }
 
 /**
- * sets cookie if value is different from current cokkie value,
+ * sets cookie if value is different from current cookie value,
  * or removes if value is equal to default
  *
  * @uses    PMA_Config::isHttps()

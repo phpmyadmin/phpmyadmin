@@ -79,7 +79,7 @@ class PMA_Table
     }
 
     /**
-     * sets table anme
+     * sets table name
      *
      * @uses    $this->name to set it
      * @param   string  $table_name new table name
@@ -93,7 +93,7 @@ class PMA_Table
      * returns table name
      *
      * @uses    $this->name as return value
-     * @param   boolean wether to quote name with backticks ``
+     * @param   boolean whether to quote name with backticks ``
      * @return  string  table name
      */
     function getName($quoted = false)
@@ -119,7 +119,7 @@ class PMA_Table
      * returns database name for this table
      *
      * @uses    $this->db_name  as return value
-     * @param   boolean wether to quote name with backticks ``
+     * @param   boolean whether to quote name with backticks ``
      * @return  string  database name for this table
      */
     function getDbName($quoted = false)
@@ -133,7 +133,7 @@ class PMA_Table
     /**
      * returns full name for table, including database name
      *
-     * @param   boolean wether to quote name with backticks ``
+     * @param   boolean whether to quote name with backticks ``
      */
     function getFullName($quoted = false)
     {
@@ -396,7 +396,8 @@ class PMA_Table
      * @param   boolean  whether to retain or to displays the result
      * @param   boolean  whether to force an exact count
      *
-     * @return  mixed    the number of records if retain is required, true else
+     * @return  mixed    the number of records if "retain" param is true,
+     *                   otherwise true
      *
      * @access  public
      */
@@ -1106,7 +1107,7 @@ class PMA_Table
      *  - UNIQUE(x,y) // NONE
      *
      *
-     * @param   boolean wether to quote name with backticks ``
+     * @param   boolean whether to quote name with backticks ``
      * @return array
      */
     public function getUniqueColumns($quoted = true)
@@ -1132,7 +1133,7 @@ class PMA_Table
      * first columns in an index
      *
      * f.e. index(col1, col2) would only return col1
-     * @param   boolean wether to quote name with backticks ``
+     * @param   boolean whether to quote name with backticks ``
      * @return array
      */
     public function getIndexedColumns($quoted = true)

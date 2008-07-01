@@ -545,7 +545,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
  * @global  string  html code for '+' image
  * @global  string  html code for self link
  * @param   array   $tables         array of tables/tablegroups
- * @param   boolean $visible        wether the list is visible or not
+ * @param   boolean $visible        whether the list is visible or not
  * @param   string  $tab_group_full full tab group name
  * @param   string  $table_db       db of this table
  */

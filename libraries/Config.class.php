@@ -55,7 +55,7 @@ class PMA_Config
     var $default_server = array();
 
     /**
-     * @var boolean wether init is done or mot
+     * @var boolean whether init is done or not
      * set this to false to force some initial checks
      * like checking for required functions
      */
@@ -74,7 +74,7 @@ class PMA_Config
         // PMA_Config::load()
         $this->load($source);
 
-        // other settings, independant from config file, comes in
+        // other settings, independent from config file, comes in
         $this->checkSystem();
 
         $this->checkIsHttps();
@@ -106,7 +106,7 @@ class PMA_Config
     }
 
     /**
-     * wether to use gzip output compression or not
+     * whether to use gzip output compression or not
      */
     function checkOutputCompression()
     {
@@ -453,7 +453,7 @@ class PMA_Config
     /**
      * check config source
      *
-     * @return  boolean wether source is valid or not
+     * @return  boolean whether source is valid or not
      */
     function checkConfigSource()
     {
@@ -551,7 +551,7 @@ class PMA_Config
      */
     function checkPmaAbsoluteUri()
     {
-        // Setup a default value to let the people and lazy syadmins work anyway,
+        // Setup a default value to let the people and lazy sysadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
         $is_https = $this->get('is_https');

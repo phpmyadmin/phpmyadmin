@@ -165,23 +165,23 @@ function PMA_langList()
     /**
      * All the supported languages have to be listed in the array below.
      * 1. The key must be the "official" ISO 639 language code and, if required,
-     *    the dialect code. It can also contain some informations about the
+     *    the dialect code. It can also contain some information about the
      *    charset (see the Russian case).
      * 2. The first of the values associated to the key is used in a regular
      *    expression to find some keywords corresponding to the language inside two
      *    environment variables.
-     *    These values contains:
+     *    These values contain:
      *    - the "official" ISO language code and, if required, the dialect code
-     *      also ('bu' for Bulgarian, 'fr([-_][[:alpha:]]{2})?' for all French
+     *      too ('bu' for Bulgarian, 'fr([-_][[:alpha:]]{2})?' for all French
      *      dialects, 'zh[-_]tw' for Chinese traditional...), the dialect has to
-     *      be specified as first;
+     *      be specified first;
      *    - the '|' character (it means 'OR');
      *    - the full language name.
-     * 3. The second values associated to the key is the name of the file to load
+     * 3. The second value associated to the key is the name of the file to load
      *    without the 'inc.php' extension.
-     * 4. The third values associated to the key is the language code as defined by
+     * 4. The third value associated to the key is the language code as defined by
      *    the RFC1766.
-     * 5. The fourth value is native name in html entities.
+     * 5. The fourth value is its native name in html entities.
      *
      * Beware that the sorting order (first values associated to keys by
      * alphabetical reverse order in the array) is important: 'zh-tw' (chinese
@@ -258,15 +258,15 @@ $GLOBALS['lang_path'] = './lang/';
  */
 $GLOBALS['lang'] = 'en-utf-8';
 /**
- * @global boolean wether loading lang from cfg failed
+ * @global boolean whether loading lang from cfg failed
  */
 $GLOBALS['lang_failed_cfg'] = false;
 /**
- * @global boolean wether loading lang from cookie failed
+ * @global boolean whether loading lang from cookie failed
  */
 $GLOBALS['lang_failed_cookie'] = false;
 /**
- * @global boolean wether loading lang from user request failed
+ * @global boolean whether loading lang from user request failed
  */
 $GLOBALS['lang_failed_request'] = false;
 /**

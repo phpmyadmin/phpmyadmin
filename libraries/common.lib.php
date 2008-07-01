@@ -1091,7 +1091,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
             $explain_params = $url_params;
             // Detect if we are validating as well
-            // To preserve the validate uRL data
+            // To preserve the validate URL data
             if (! empty($GLOBALS['validatequery'])) {
                 $explain_params['validatequery'] = 1;
             }
@@ -1512,7 +1512,7 @@ function PMA_getTab($tab)
 
     $tab = array_merge($defaults, $tab);
 
-    // determine additionnal style-class
+    // determine additional style-class
     if (empty($tab['class'])) {
         if ($tab['text'] == $GLOBALS['strEmpty']
             || $tab['text'] == $GLOBALS['strDrop']) {

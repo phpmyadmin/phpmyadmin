@@ -61,6 +61,7 @@ danbarry
   see http://store.swekey.com/index.php?promo=pma
   (todo: Documentation.html, improve code formatting)
 + rfe #1962383 [designer] Option to create a PDF page 
+- patch #2007196, Typos in comments, thanks to knittl - knittl
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 

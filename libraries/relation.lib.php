@@ -1043,7 +1043,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
  * @uses    $GLOBALS['controllink']
  * @uses    $GLOBALS['cfgRelation']
  * @uses    $GLOBALS['db']
- * @param   string   wether to go from master to foreign or vice versa
+ * @param   string   whether to go from master to foreign or vice versa
  * @return  boolean  always TRUE
  * @global  array    $tab_left the list of tables that we still couldn't connect
  * @global  array    $tab_know the list of allready connected tables

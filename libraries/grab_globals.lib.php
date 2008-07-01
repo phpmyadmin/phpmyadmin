@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * copy values from one array to another, usally from a superglobal into $GLOBALS
+ * copy values from one array to another, usually from a superglobal into $GLOBALS
  *
  * @uses    $GLOBALS['_import_blacklist']
  * @uses    preg_replace()

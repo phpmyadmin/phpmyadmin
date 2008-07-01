@@ -349,7 +349,7 @@ require_once './libraries/List.class.php';
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
                 $return .= '<li>' . htmlspecialchars($group) . '<ul>' . "\n";
-                // wether display db_name cuted by the group part
+                // whether display db_name cut by the group part
                 $cut = true;
             } else {
                 // .. or full
@@ -409,7 +409,7 @@ require_once './libraries/List.class.php';
             if (count($dbs) > 1) {
                 $return .= '<optgroup label="' . htmlspecialchars($group)
                     . '">' . "\n";
-                // wether display db_name cuted by the group part
+                // whether display db_name cuted by the group part
                 $cut = true;
             } else {
                 // .. or full

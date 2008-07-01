@@ -3,7 +3,7 @@
 /**
  * finishes HTML output
  *
- * updates javascript variables in index.php for coorect working with querywindow
+ * updates javascript variables in index.php for correct working with querywindow
  * and navigation frame refreshing
  *
  * send buffered data if buffered
