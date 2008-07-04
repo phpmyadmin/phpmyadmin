@@ -80,6 +80,7 @@ danbarry
 - bug #1989281 [export] CSV for MS Excel incorrect escaping of double quotes
 - bug #1959855 [interface] Font size option problem when no config file
   (todo (trunk): navi frame size does not change for theme original)
+- bug #1982489 [relation] Relationship view should check for changes 
 
 2.11.7.0 (2008-06-23)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
