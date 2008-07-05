@@ -212,13 +212,10 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
-    $type_and_length = PMA_extract_type_length($row['Type']);
+    $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
 
-    // reformat mysql query output - staybyte - 9. June 2001
-    // loic1: set or enum types: slashes single quotes inside options
-    if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-        $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
-        $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+    if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) { 
+        $type         = $extracted_fieldspec['type'] . '(' . $extracted_fieldspec['spec_in_brackets'] . ')'; 
 
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
@@ -339,8 +336,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
     <td nowrap="nowrap"><?php
     if (isset($row['Default'])) { 
-        if ($type_and_length['type'] == 'bit') {
-            echo PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+        if ($extracted_fieldspec['type'] == 'bit') {
+            echo PMA_printable_bit_value($row['Default'], $extracted_fieldspec['spec_in_brackets']);
         } else {
             echo $row['Default']; 
         }

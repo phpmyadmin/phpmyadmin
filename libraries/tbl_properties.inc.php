@@ -231,9 +231,9 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if (isset($row['Type'])) {
-        $type_and_length = PMA_extract_type_length($row['Type']);
-        if ($type_and_length['type'] == 'bit') {
-            $row['Default'] = PMA_printable_bit_value($row['Default'], $type_and_length['length']);
+        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        if ($extracted_fieldspec['type'] == 'bit') {
+            $row['Default'] = PMA_printable_bit_value($row['Default'], $extracted_fieldspec['spec_in_brackets']);
         }
     }
     // Cell index: If certain fields get left out, the counter shouldn't change.
@@ -267,27 +267,29 @@ for ($i = 0; $i < $num_fields; $i++) {
         .' id="field_' . $i . '_' . ($ci - $ci_offset) . '" >';
 
     if (empty($row['Type'])) {
+        // creating a column
         $row['Type'] = '';
         $type        = '';
     } else {
         $type        = $row['Type'];
     }
-    // set or enum types: slashes single quotes inside options
-    if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-        $type   = $tmp[1];
-        $length = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
-    } else {
-        // strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type
-        $type   = preg_replace('@BINARY([^\(])@i', '', $type);
-        $type   = preg_replace('@ZEROFILL@i', '', $type);
-        $type   = preg_replace('@UNSIGNED@i', '', $type);
 
-        $type_and_length = PMA_extract_type_length($type);
-        $type = $type_and_length['type'];
-        $length = $type_and_length['length'];
-        unset($type_and_length);
-    } // end if else
+    if (! empty($row['Type'])) {
+        $type = $extracted_fieldspec['type'];
+        if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
+            $length = $extracted_fieldspec['spec_in_brackets'];
+        } else {
+            // strip the "BINARY" attribute, except if we find "BINARY(" because
+            // this would be a BINARY or VARBINARY field type
+            $type   = preg_replace('@BINARY([^\(])@i', '', $type);
+            $type   = preg_replace('@ZEROFILL@i', '', $type);
+            $type   = preg_replace('@UNSIGNED@i', '', $type);
+            $length = $extracted_fieldspec['spec_in_brackets'];
+        } // end if else
+    } else {
+        // creating a column
+        $length = '';
+    }
 
     // some types, for example longtext, are reported as
     // "longtext character set latin7" when their charset and / or collation
@@ -335,7 +337,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     // column length
-    if (preg_match('@^(set|enum)$@i', $type)) {
+    if (isset($extracted_fieldspec) && ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type'])) {
         $binary           = 0;
         $unsigned         = 0;
         $zerofill         = 0;

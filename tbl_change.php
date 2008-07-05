@@ -312,6 +312,7 @@ foreach ($rows as $row_id => $vrow) {
         if (! isset($table_fields[$i]['processed'])) {
             $table_fields[$i]['Field_html'] = htmlspecialchars($table_fields[$i]['Field']);
             $table_fields[$i]['Field_md5']  = md5($table_fields[$i]['Field']);
+            // True_Type contains only the type (stops at first bracket)
             $table_fields[$i]['True_Type']  = preg_replace('@\(.*@s', '', $table_fields[$i]['Type']);
 
             // d a t e t i m e
@@ -379,7 +380,7 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         $field = $table_fields[$i];
-        $type_and_length = PMA_extract_type_length($field['Type']);
+        $extracted_fieldspec = PMA_extractFieldSpec($field['Type']);
 
         if (-1 === $field['len']) {
             $field['len'] = PMA_DBI_field_len($vresult, $i);
@@ -421,7 +422,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($vrow[$field], $type_and_length['length']);
+                $special_chars = PMA_printable_bit_value($vrow[$field], $extracted_fieldspec['spec_in_brackets']);
             } else {
                 // loic1: special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
@@ -447,7 +448,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($field['Default'], $type_and_length['length']); 
+                $special_chars = PMA_printable_bit_value($field['Default'], $extracted_fieldspec['spec_in_brackets']); 
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }
@@ -678,7 +679,7 @@ foreach ($rows as $row_id => $vrow) {
         } elseif ($field['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
-                foreach (PMA_getEnumSetOptions($field['Type']) as $val) {
+                foreach ($extracted_fieldspec['enum_set_values'] as $val) {
                     // Removes automatic MySQL escape format
                     $val = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $val));
                     $table_fields[$i]['values'][] = array(
@@ -749,7 +750,7 @@ foreach ($rows as $row_id => $vrow) {
         } elseif ($field['pma_type'] == 'set') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
-                foreach (PMA_getEnumSetOptions($field['Type']) as $val) {
+                foreach ($extracted_fieldspec['enum_set_values'] as $val) {
                     $table_fields[$i]['values'][] = array(
                         'plain' => $val,
                         'html'  => htmlspecialchars($val),

@@ -62,6 +62,7 @@ danbarry
   (todo: Documentation.html, improve code formatting)
 + rfe #1962383 [designer] Option to create a PDF page 
 - patch #2007196, Typos in comments, thanks to knittl - knittl
+- bug #1982315 [GUI] Comma and quote in ENUM, thanks to Joshua Hogendorn
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 

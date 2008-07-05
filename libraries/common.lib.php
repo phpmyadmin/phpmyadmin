@@ -1423,28 +1423,6 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
 } // end of the 'PMA_formatNumber' function
 
 /**
- * Extracts ENUM / SET options from a type definition string
- *
- * @param   string   The column type definition
- *
- * @return  array    The options or
- *          boolean  false in case of an error.
- *
- * @author  rabus
- */
-function PMA_getEnumSetOptions($type_def)
-{
-    $open = strpos($type_def, '(');
-    $close = strrpos($type_def, ')');
-    if (!$open || !$close) {
-        return false;
-    }
-    $options = substr($type_def, $open + 2, $close - $open - 3);
-    $options = explode('\',\'', $options);
-    return $options;
-} // end of the 'PMA_getEnumSetOptions' function
-
-/**
  * Writes localised date
  *
  * @param   string   the current timestamp
@@ -2479,26 +2457,83 @@ function PMA_printable_bit_value($value, $length) {
 }
 
 /**
- * Extracts the true field type and length from a field type spec
+ * Extracts the various parts from a field type spec
  *
  * @uses    strpos()
  * @uses    chop()
  * @uses    substr()
  * @param   string $fieldspec 
- * @return  array associative array containing the type and length 
+ * @return  array associative array containing type, spec_in_brackets 
+ *          and possibly enum_set_values (another array)
+ * @author  Marc Delisle
+ * @author  Joshua Hogendorn
  */
-function PMA_extract_type_length($fieldspec) {
+function PMA_extractFieldSpec($fieldspec) {
     $first_bracket_pos = strpos($fieldspec, '(');
     if ($first_bracket_pos) {
-        $length = chop(substr($fieldspec, $first_bracket_pos + 1, (strpos($fieldspec, ')') - $first_bracket_pos - 1)));
-        $type = chop(substr($fieldspec, 0, $first_bracket_pos));
+        $spec_in_brackets = chop(substr($fieldspec, $first_bracket_pos + 1, (strpos($fieldspec, ')') - $first_bracket_pos - 1)));
+        // convert to lowercase just to be sure
+        $type = strtolower(chop(substr($fieldspec, 0, $first_bracket_pos)));
     } else {
         $type = $fieldspec;
-        $length = '';
+        $spec_in_brackets = '';
     }
+
+    if ('enum' == $type || 'set' == $type) {
+        // Define our working vars
+        $enum_set_values = array();
+        $working = "";
+        $in_string = false;
+        $index = 0;
+
+        // While there is another character to process	
+        while (isset($fieldspec[$index])) {
+            // Grab the char to look at
+            $char = $fieldspec[$index];
+		
+            // If it is a single quote, needs to be handled specially
+            if ($char == "'") {
+                // If we are not currently in a string, begin one
+                if (! $in_string) {
+                    $in_string = true;
+                    $working = "";
+                // Otherwise, it may be either an end of a string, or a 'double quote' which can be handled as-is
+                } else {
+                // Check out the next character (if possible)
+                    $has_next = isset($fieldspec[$index + 1]);
+                    $next = $has_next ? $fieldspec[$index + 1] : null;
+				
+                // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
+                    if (! $has_next || $next != "'") {
+                        $enum_set_values[] = $working;
+                        $in_string = false;
+				
+                    // Otherwise, this is a 'double quote', and can be added to the working string
+                    } elseif ($next == "'") {
+                        $working .= "'";
+                        // Skip the next char; we already know what it is
+                        $index++;
+                    }
+                }
+            // escaping of a quote?
+            } elseif ('\\' == $char && isset($fieldspec[$index + 1]) && "'" == $fieldspec[$index + 1]) {
+                $working .= "'";
+                $index++;
+            // Otherwise, add it to our working string like normal
+            } else {
+                $working .= $char;
+            }
+            // Increment character index
+            $index++;
+        } // end while
+    } else {
+        $enum_set_values = array();
+    }
+
     return array(
         'type' => $type,
-        'length' => $length
+        'spec_in_brackets' => $spec_in_brackets,
+        'enum_set_values'  => $enum_set_values
     );
 }
 
