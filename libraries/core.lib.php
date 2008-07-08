@@ -2,6 +2,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Core functions used all over the scripts.
+ * This script is distinct from libraries/common.inc.php because this
+ * script is called from /test.
  *
  * @version $Id$
  */
