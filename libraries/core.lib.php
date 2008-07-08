@@ -213,7 +213,7 @@ function PMA_securePath($path)
 function PMA_fatalError($error_message, $message_args = null)
 {
     if (! isset($GLOBALS['available_languages'])) {
-        $GLOBALS['cfg'] = array('DefaultLang'           => 'en-iso-8859-1',
+        $GLOBALS['cfg'] = array('DefaultLang'           => 'en-utf-8',
                      'AllowAnywhereRecoding' => false);
         // Loads the language file
         require_once './libraries/select_lang.lib.php';
