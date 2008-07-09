@@ -965,7 +965,6 @@ $strUploadLimit = 'Вероватно сте покушали да увезет�
 $strUploadsNotAllowed = 'Слање датотека на овај сервер није дозвољено.';
 $strUsage = 'Заузеће';
 $strUseBackquotes = 'Користи \' за ограничавање имена поља';
-$strUsedPhpExtensions = 'Коришћене PHP екстензије';
 $strUseHostTable = 'Користи табелу домаћина';
 $strUserAlreadyExists = 'Корисник %s већ постоји!';
 $strUserEmpty = 'Име корисника није унето!';
@@ -1076,4 +1075,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

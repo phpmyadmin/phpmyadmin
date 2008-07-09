@@ -903,7 +903,6 @@ $strUploadLimit = 'You probably tried to upload too large file. Please refer to 
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';
 $strUsage = 'භාවිතය';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
-$strUsedPhpExtensions = 'භාවිත PHP දිගුවන්';
 $strUseHostTable = 'දායක වගුව භාවිතා කරන්න';
 $strUserAlreadyExists = '%s භාවිතා කරන්නා දැනටමත් පවතී!';
 $strUserEmpty = 'භාවිත නාමය හිස්ව පවතී!';
@@ -1079,4 +1078,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

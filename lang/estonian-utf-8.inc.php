@@ -939,7 +939,6 @@ $strUploadLimit = 'Te kindlasti proovisite laadida liiga suurt faili. Palun uuri
 $strUploadsNotAllowed = 'Faile pole lubatud laadida sellesse serverisse.';  
 $strUsage = 'Kasutus';
 $strUseBackquotes = 'Kasutage tagurpidi kaldkriipse tabelites või tabelinimedes';
-$strUsedPhpExtensions = 'Kasutatud PHP laiendid';
 $strUseHostTable = 'Kasuta host tabelit';
 $strUserAlreadyExists = 'Kasutaja %s on juba olemas!';
 $strUserEmpty = 'Kasutajanimi on tühi!';
@@ -1082,4 +1081,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

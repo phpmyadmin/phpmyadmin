@@ -770,7 +770,6 @@ $strUpgrade = '您應該更新到 %s %s 或之後.';
 $strUploadLimit = '你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制.';
 $strUsage = '使用';
 $strUseBackquotes = '在資料表及欄位使用引號';
-$strUsedPhpExtensions = '己使用 PHP 擴充附件';
 $strUseHostTable = '使用主機資料表';
 $strUser = '使用者';
 $strUserAlreadyExists = '使用者 %s 己存在!';
@@ -1081,4 +1080,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

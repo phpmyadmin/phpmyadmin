@@ -987,7 +987,6 @@ $strUploadLimit = 'Yritit todennäköisesti lähettää palvelimelle liian suurt
 $strUploadsNotAllowed = 'Tiedostojen lähetystä ei ole sallittu tällä palvelimella.';
 $strUsage = 'Käyttö';
 $strUseBackquotes = 'Pane taulujen ja sarakkeiden nimet lainausmerkkeihin';
-$strUsedPhpExtensions = 'Käytössä olevat PHP-laajennukset';
 $strUseHostTable = 'Käytä isäntätaulua';
 $strUserAlreadyExists = 'Käyttäjä %s on jo olemassa!';
 $strUserEmpty = 'Käyttäjän nimi puuttuu!';
@@ -1076,4 +1075,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

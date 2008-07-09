@@ -986,7 +986,6 @@ $strUploadLimit = 'Du forsøkte sansynligvis å laste opp en for stor fil. Sjekk
 $strUploadsNotAllowed = 'Filopplastinger er ikke tillatt på denne tjeneren.';
 $strUsage = 'Bruk';
 $strUseBackquotes = 'Bruk venstre anførselstegn med tabell og feltnavn';
-$strUsedPhpExtensions = 'Brukte PHP-tillegg';
 $strUseHostTable = 'Vis vert tabell';
 $strUser = 'Bruker';
 $strUserAlreadyExists = 'Brukeren %s finnes fra før!';
@@ -1074,4 +1073,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

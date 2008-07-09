@@ -968,7 +968,6 @@ $strUploadLimit = 'アップロードしようとしたファイルが大きす�
 $strUploadsNotAllowed = 'このサーバではファイルのアップロードはできません';
 $strUsage = '使用量';
 $strUseBackquotes = 'テーブル名やフィールド名を逆クォートで囲む';
-$strUsedPhpExtensions = '使用中の PHP 拡張';
 $strUseHostTable = 'ホストテーブルを使う';
 $strUser = 'ユーザ';
 $strUserAlreadyExists = 'ユーザ %s は既に存在します!';
@@ -1093,4 +1092,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

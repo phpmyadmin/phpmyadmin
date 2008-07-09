@@ -190,7 +190,7 @@ if ($server > 0) {
     PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
         'li_mysql_client_version');
-    PMA_printListItem($strUsedPhpExtensions . ': ' . $GLOBALS['cfg']['Server']['extension'],
+    PMA_printListItem($strPHPExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
         'li_used_php_extension');
 }
 

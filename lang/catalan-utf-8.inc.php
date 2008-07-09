@@ -959,7 +959,6 @@ $strUploadLimit = 'Probablement has triat d\'enviar un arxiu massa gran. Consult
 $strUploadsNotAllowed = 'No es permet pujar arxius en aquest servidor.';
 $strUsage = 'Ús';
 $strUseBackquotes = 'Usa &quot;backquotes&quot; amb taules i noms de camps';
-$strUsedPhpExtensions = 'Extensions de PHP usades';
 $strUseHostTable = 'Utilitza la Taula de Hosts';
 $strUserAlreadyExists = 'L\'usuari %s ja existeix!';
 $strUserEmpty = 'El nom d\'usuari és buit!';
@@ -1072,4 +1071,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

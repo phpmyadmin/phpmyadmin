@@ -717,7 +717,6 @@ $strUploadLimit = 'Вероятно сте направили опит да ка
 $strUploadsNotAllowed = 'На този сървър не е позволени качване на файлове.';
 $strUsage = 'Използвани';
 $strUseBackquotes = 'Използване на обратни кавички около имена на таблици и полета';
-$strUsedPhpExtensions = 'Използвани PHP разширения';
 $strUseHostTable = 'Използвай таблица Host';
 $strUserAlreadyExists = 'Потребител %s вече съществува!';
 $strUserEmpty = 'Потребителското име е празно!';
@@ -1097,4 +1096,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

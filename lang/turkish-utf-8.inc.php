@@ -970,7 +970,6 @@ $strUploadLimit = 'Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen 
 $strUploadsNotAllowed = 'Bu sunucuda dosya gönderimlerine izin verilmez.';
 $strUsage = 'Kullanım';
 $strUseBackquotes = 'Tablo ve alan adlarını ters tırnak ile kapsa';
-$strUsedPhpExtensions = 'Kullanılan PHP uzantıları';
 $strUseHostTable = 'Anamakine Tablosu kullan';
 $strUserAlreadyExists = '%s kullanıcısı zaten var!';
 $strUserEmpty = 'Kullanıcı adı boş!';
@@ -1082,4 +1081,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

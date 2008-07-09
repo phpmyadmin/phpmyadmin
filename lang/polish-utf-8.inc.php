@@ -895,7 +895,6 @@ $strUploadLimit = 'Prawdopodobnie próbowano wrzucić duży plik. Aby poznać sp
 $strUploadsNotAllowed = 'Serwer nie pozwala na upload plików.';
 $strUsage = 'Wykorzystanie';
 $strUseBackquotes = 'Użyj cudzysłowów z nazwami tabel i pól';
-$strUsedPhpExtensions = 'Używane rozszerzenia PHP';
 $strUseHostTable = 'Użyj tabeli hostów';
 $strUserAlreadyExists = 'Użytkownik %s już istnieje!';
 $strUserEmpty = 'Brak nazwy użytkownika!';
@@ -1070,4 +1069,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

@@ -799,7 +799,6 @@ $strUpgrade = 'Módosítás szükséges %s %s vagy kés&#337;bb.';
 $strUploadErrorCantWrite = 'Nem sikerült a fájlt lemezre írni.';
 $strUsage = 'Méret';
 $strUseBackquotes = 'Idéz&#337;jelek használata a tábla- és mez&#337;neveknél';
-$strUsedPhpExtensions = 'Használt PHP kiterjesztések';
 $strUseHostTable = 'Hoszt-tábla használata';
 $strUserAlreadyExists = '%s felhasználó már létezik!';
 $strUserEmpty = 'A felhasználói név mez&#337;je üres!';
@@ -1093,4 +1092,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

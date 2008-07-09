@@ -901,7 +901,6 @@ $strUploadLimit = 'Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali
 $strUploadsNotAllowed = 'Zahruzki fajłaŭ nie dazvolenyja na hetym servery.';
 $strUsage = 'Vykarystańnie';
 $strUseBackquotes = 'Zvarotnaje dvukośsie ŭ imionach tablic i paloŭ';
-$strUsedPhpExtensions = 'Vykarystoŭvajucca pašyreńni PHP';
 $strUseHostTable = 'Vykarystoŭvać tablicu chostaŭ';
 $strUserAlreadyExists = 'Karystalnik %s užo isnuje!';
 $strUserEmpty = 'Pustoje imia karystalnika!';
@@ -1076,4 +1075,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

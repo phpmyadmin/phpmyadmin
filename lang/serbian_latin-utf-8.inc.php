@@ -965,7 +965,6 @@ $strUploadLimit = 'Verovatno ste pokušali da uvezete preveliku datoteku. Molimo
 $strUploadsNotAllowed = 'Slanje datoteka na ovaj server nije dozvoljeno.';
 $strUsage = 'Zauzeće';
 $strUseBackquotes = 'Koristi \' za ograničavanje imena polja';
-$strUsedPhpExtensions = 'Korišćene PHP ekstenzije';
 $strUseHostTable = 'Koristi tabelu domaćina';
 $strUserAlreadyExists = 'Korisnik %s već postoji!';
 $strUserEmpty = 'Ime korisnika nije uneto!';
@@ -1076,4 +1075,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

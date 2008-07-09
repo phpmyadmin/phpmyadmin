@@ -940,7 +940,6 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
@@ -1097,4 +1096,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

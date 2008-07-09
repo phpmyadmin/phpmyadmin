@@ -740,7 +740,6 @@ $strUploadErrorPartial = 'Fișierul a fost încărcat numai parțial.';
 $strUploadErrorUnknown = 'Eroare necunoscută la încărcarea fișierului.';
 $strUsage = 'Utilizare';
 $strUseBackquotes = 'Utilizati apostroful pentru numele tabelelor și a campurilor';
-$strUsedPhpExtensions = 'Extensii PHP utilizate';
 $strUseHostTable = 'Utilizare tabel gazde';
 $strUserAlreadyExists = 'Utilizatorul %s există deja!';
 $strUserEmpty = 'Numele de utilizator este gol!';
@@ -1091,4 +1090,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

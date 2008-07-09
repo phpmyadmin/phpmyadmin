@@ -997,7 +997,6 @@ $strUploadLimit = 'Posibelmente tentou enviar un ficheiro demasiado grande. Cons
 $strUploadsNotAllowed = 'Este servidor non admite a recepción de ficheiros.';
 $strUsage = 'Uso';
 $strUseBackquotes = 'Protexer os nomes das tabelas e dos campos con&nbsp;" ` "';
-$strUsedPhpExtensions = 'Extensións de PHP utilizadas';
 $strUseHostTable = 'Usar a tabela de Host';
 $strUserAlreadyExists = 'Xa existe o usuario %s';
 $strUserEmpty = 'O nome do usuario está vacío!';
@@ -1075,4 +1074,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

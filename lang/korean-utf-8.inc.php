@@ -925,7 +925,6 @@ $strUnsupportedCompressionDetected = 'You attempted to load file with unsupporte
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 $strUpgrade = 'You should upgrade to %s %s or later.';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 $strUseHostTable = 'Use Host Table';  //to translate
 $strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 $strUseTextField = 'Use text field'; //to translate
@@ -1097,4 +1096,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

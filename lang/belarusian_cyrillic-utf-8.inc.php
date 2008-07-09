@@ -902,7 +902,6 @@ $strUploadLimit = 'Вы, мусіць, паспрабавалі загрузіц
 $strUploadsNotAllowed = 'Загрузкі файлаў не дазволеныя на гэтым сэрвэры.';
 $strUsage = 'Выкарыстаньне';
 $strUseBackquotes = 'Зваротнае двукосьсе ў імёнах табліц і палёў';
-$strUsedPhpExtensions = 'Выкарыстоўваюцца пашырэньні PHP';
 $strUseHostTable = 'Выкарыстоўваць табліцу хостаў';
 $strUserAlreadyExists = 'Карыстальнік %s ужо існуе!';
 $strUser = 'Карыстальнік';
@@ -1077,4 +1076,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

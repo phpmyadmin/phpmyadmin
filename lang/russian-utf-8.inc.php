@@ -968,7 +968,6 @@ $strUploadLimit = 'Вероятно, размер загружаемого фа�
 $strUploadsNotAllowed = 'Загрузка файлов на сервер, невозможна.';
 $strUsage = 'Использование';
 $strUseBackquotes = 'Заключить названия таблиц и полей в косые кавычки';
-$strUsedPhpExtensions = 'Используется расширение PHP';
 $strUseHostTable = 'Использовать таблицу хостов';
 $strUser = 'Пользователь';
 $strUserAlreadyExists = 'Пользователь %s уже существует!';
@@ -1078,4 +1077,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

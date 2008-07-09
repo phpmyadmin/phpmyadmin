@@ -1007,7 +1007,6 @@ $strUploadErrorPartial = 'The uploaded file was only partially uploaded.';  //to
 $strUploadErrorUnknown = 'Unknown error in file upload.';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 $strViewName = 'VIEW name';  //to translate
 $strProfiling = 'Profiling';  //to translate
 $strPartitionDefinition = 'PARTITION definition';  //to translate
@@ -1077,4 +1076,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

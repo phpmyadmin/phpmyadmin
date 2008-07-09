@@ -997,7 +997,6 @@ $strUseTabKey = 'Mittels TAB-Taste von Feld zu Feld springen, oder mit STRG+Pfei
 $strUseTables = 'Verwendete Tabellen';
 $strUseTextField = 'Textfeld verwenden';
 $strUseThisValue = 'Diesen Wert verwenden';
-$strUsedPhpExtensions = 'Verwandte php-Erweiterungen';
 $strUser = 'Benutzer';
 $strUserAlreadyExists = 'Der Benutzer %s existiert bereits!';
 $strUserEmpty = 'Kein Benutzername eingegeben!';
@@ -1082,4 +1081,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

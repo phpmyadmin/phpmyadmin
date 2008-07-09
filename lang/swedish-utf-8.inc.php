@@ -964,7 +964,6 @@ $strUploadLimit = 'Du försökte förmodligen ladda upp en för stor fil. Se %sd
 $strUploadsNotAllowed = 'Filuppladdningar är inte tillåtna på denna server.';
 $strUsage = 'Användning';
 $strUseBackquotes = 'Använd bakåtcitat runt tabell- och fältnamn';
-$strUsedPhpExtensions = 'Använda PHP-tillägg';
 $strUseHostTable = 'Använd värdtabell';
 $strUserAlreadyExists = 'Användaren %s finns redan!';
 $strUser = 'Användare';
@@ -1075,4 +1074,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

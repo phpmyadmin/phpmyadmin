@@ -896,7 +896,6 @@ $strUploadLimit = 'Pravdepodobne ste sa pokúsili uploadnuť príliš veľký s�
 $strUploadsNotAllowed = 'Ukladanie súborov na server nie je povolené.';
 $strUsage = 'Využitie';
 $strUseBackquotes = ' Použiť opačný apostrof pri názvoch tabuliek a polí ';
-$strUsedPhpExtensions = 'Použité rozšírenia PHP';
 $strUseHostTable = 'Použiť tabuľku s hostiteľmi';
 $strUserAlreadyExists = 'Používateľ %s už existuje!';
 $strUserEmpty = 'Meno používateľa je prázdne!';
@@ -1077,4 +1076,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

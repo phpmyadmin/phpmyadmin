@@ -760,7 +760,6 @@ $strUpdComTab = 'Sineñ Column_comments Tüşämä yañartu eşe turında Qullan
 $strUpgrade = 'You should upgrade to %s %s or later.';
 $strUsage = 'Totılu';
 $strUseBackquotes = 'Tüşämä/alan isemnären kirequote eçenä salası';
-$strUsedPhpExtensions = 'PHP östämäse qullanıla';
 $strUseHostTable = 'Host Tüşämä eçennän';
 $strUserAlreadyExists = '"%s" atlı qullanuçı bar inde!';
 $strUserEmpty = 'Atama buş!';
@@ -1088,4 +1087,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>

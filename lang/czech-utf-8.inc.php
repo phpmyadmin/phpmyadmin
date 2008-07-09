@@ -998,7 +998,6 @@ $strUploadLimit = 'Pravděpodobně jste se pokusili nahrát příliš velký sou
 $strUploadsNotAllowed = 'Upload souborů není na tomto serveru povolen.';
 $strUsage = 'Používá';
 $strUseBackquotes = 'Použít zpětné uvozovky u jmen tabulek a sloupců';
-$strUsedPhpExtensions = 'Použitá rozšíření PHP';
 $strUseHostTable = 'Použít tabulku s počítači';
 $strUserAlreadyExists = 'Uživatel %s již existuje!';
 $strUserEmpty = 'Jméno uživatele je prázdné!';
@@ -1076,4 +1075,5 @@ $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/sy
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
+$strPHPExtension = 'PHP extension';  //to translate
 ?>
