@@ -54,56 +54,49 @@ $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
 
 echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
-echo '<div class="group">';
-echo '<h2>' . $strActions . '</h2>';
 
-echo '<ul>';
-/**
- * Displays the MySQL servers choice form
- */
-if (! $cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
-    echo '<li id="li_select_server">';
-    require_once './libraries/select_server.lib.php';
-    PMA_select_server(true, true);
-    echo '</li>';
-}
+if ($server > 0
+ || (! $cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1)) {
+    echo '<div class="group">';
+    echo '<h2>' . $strActions . '</h2>';
+    echo '<ul>';
 
-/**
- * Displays the mysql server related links
- */
-if ($server > 0) {
-    require_once './libraries/check_user_privileges.lib.php';
-    $is_superuser = PMA_isSuperuser();
-
-    if ($cfg['Server']['auth_type'] == 'config') {
-        $cfg['ShowChgPassword'] = false;
+    /**
+     * Displays the MySQL servers choice form
+     */
+    if (! $cfg['LeftDisplayServers']
+     && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
+        echo '<li id="li_select_server">';
+        require_once './libraries/select_server.lib.php';
+        PMA_select_server(true, true);
+        echo '</li>';
     }
 
     /**
-     * Change password
-     *
-     * @todo ? needs another message
+     * Displays the mysql server related links
      */
-    if ($cfg['ShowChgPassword']) {
-        PMA_printListItem($strChangePassword, 'li_change_password',
-            './user_password.php?' . $common_url_query);
-    } // end if
+    if ($server > 0) {
+        require_once './libraries/check_user_privileges.lib.php';
 
-    // Logout for advanced authentication
-    if ($cfg['Server']['auth_type'] != 'config') {
-        $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                     ? '<a href="./Documentation.html#login_bug" target="documentation">'
-                        . ($cfg['ReplaceHelpImg'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />' : '(*)') . '</a>'
-                     : '';
-        PMA_printListItem('<strong>' . $strLogout . '</strong> ' . $http_logout,
-            'li_log_out',
-            './index.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER), null, '_parent');
-    } // end if
+        // Logout for advanced authentication
+        if ($cfg['Server']['auth_type'] != 'config') {
+            PMA_printListItem($strChangePassword, 'li_change_password',
+                './user_password.php?' . $common_url_query);
 
-} // end of if ($server > 0)
+            $http_logout = ($cfg['Server']['auth_type'] == 'http')
+                         ? '<a href="./Documentation.html#login_bug" target="documentation">'
+                            . ($cfg['ReplaceHelpImg'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />' : '(*)') . '</a>'
+                         : '';
+            PMA_printListItem('<strong>' . $strLogout . '</strong> ' . $http_logout,
+                'li_log_out',
+                './index.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER), null, '_parent');
+        } // end if
+    } // end of if ($server > 0)
 
-echo '</ul>';
-echo '</div>';
+    echo '</ul>';
+    echo '</div>';
+}
+
 
 if ($server > 0) {
     echo '<div class="group">';
