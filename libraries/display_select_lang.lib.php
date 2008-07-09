@@ -38,8 +38,11 @@ function PMA_select_language($use_fieldset = FALSE) {
     );
     echo PMA_generate_common_hidden_inputs($_form_params);
 
+    // For non-English, display "Language" with emphasis because it's
+    // not a proper word in the current language; we show it to help
+    // people recognize the dialog
     $language_title = $GLOBALS['strLanguage']
-        . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '')
+        . ($GLOBALS['strLanguage'] != 'Language' ? ' - <em>Language</em>' : '')
         . ' <a href="./translators.html" target="documentation">' .
             ($cfg['ReplaceHelpImg']
                 ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />'
