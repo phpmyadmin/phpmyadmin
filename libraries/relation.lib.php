@@ -681,6 +681,10 @@ function PMA_setDbComment($db, $comment = '')
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
+    if (strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        return;
+    }
+
     $cfgRelation = PMA_getRelationsParam();
 
     if (! isset($_SESSION['sql_history'])) {

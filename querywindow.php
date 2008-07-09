@@ -27,7 +27,6 @@
  * @uses    PMA_getRelationsParam()
  * @uses    PMA_isValid()
  * @uses    PMA_ifSetOr()
- * @uses    PMA_setHistory()
  * @uses    PMA_getHistory()
  * @uses    PMA_generate_common_url()
  * @uses    PMA_generate_common_hidden_inputs()
