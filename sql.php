@@ -21,19 +21,18 @@ $GLOBALS['js_include'][] = 'mootools-domready.js';
  * Defines the url to return to in case of error in a sql statement
  */
 // Security checkings
-if (!empty($goto)) {
+if (! empty($goto)) {
     $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
-    if (!@file_exists('./' . $is_gotofile)) {
+    if (! @file_exists('./' . $is_gotofile)) {
         unset($goto);
     } else {
         $is_gotofile = ($is_gotofile == $goto);
     }
-} // end if (security checkings)
-
-if (empty($goto)) {
+} else {
     $goto = (! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
     $is_gotofile  = true;
 } // end if
+
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
              . '?' . PMA_generate_common_url($db)
@@ -158,7 +157,6 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
 if (! $cfg['Confirm'] || isset($_REQUEST['is_js_confirmed']) || isset($btnDrop)
  // if we are coming from a "Create PHP code" or a "Without PHP Code"
  // dialog, we won't execute the query anyway, so don't confirm
- //|| !empty($GLOBALS['show_as_php'])
  || isset($GLOBALS['show_as_php'])
  || !empty($GLOBALS['validatequery'])) {
     $do_confirm = false;
