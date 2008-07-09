@@ -40,7 +40,7 @@ if ($events) {
 
         $sqlDrop = 'DROP EVENT ' . PMA_backquote($event['EVENT_NAME']);
         echo sprintf('<tr class="%s">
-                          <td><b>%s</b></td>
+                          <td><strong>%s</strong></td>
                           <td>%s</td>
                           <td>%s</td>
                           <td>%s</td>

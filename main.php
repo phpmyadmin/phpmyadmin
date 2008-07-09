@@ -173,10 +173,10 @@ if ($server > 0) {
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . $strMySQLCharset . ': '
-       . '        <strong xml:lang="en" dir="ltr">'
+       . '        <span xml:lang="en" dir="ltr">'
        . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
        . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '        </strong>' . "\n"
+       . '        </span>' . "\n"
        . '    </li>' . "\n";
     echo '  </ul>';
     echo ' </div>';

@@ -353,7 +353,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <b><?php echo $strAnd; ?>:</b>
+                <strong><?php echo $strAnd; ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
@@ -366,7 +366,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <b><?php echo $strOr; ?>:</b>
+                <strong><?php echo $strOr; ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
@@ -435,7 +435,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <input type="checkbox" name="ins_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <b><?php echo $strAnd; ?>:</b>
+                <strong><?php echo $strAnd; ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
@@ -447,7 +447,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <input type="checkbox" name="del_row[<?php echo $w; ?>]" />
             </td>
             <td align="<?php echo $cell_align_right; ?>">
-                <b><?php echo $strOr; ?>:</b>
+                <strong><?php echo $strOr; ?>:</strong>
             </td>
             <td>
                 <input type="radio" name="and_or_row[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
@@ -518,9 +518,9 @@ for ($x = 0; $x < $col; $x++) {
         }
         ?>
     <td align="center">
-        <b><?php echo $strOr; ?>:</b>
+        <strong><?php echo $strOr; ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<b><?php echo $strAnd; ?>:</b>
+        &nbsp;&nbsp;<strong><?php echo $strAnd; ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
         <br />
         <?php echo $strQBEIns . "\n"; ?>
@@ -549,9 +549,9 @@ for ($x = 0; $x < $col; $x++) {
     }
     ?>
     <td align="center">
-        <b><?php echo $strOr; ?>:</b>
+        <strong><?php echo $strOr; ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<b><?php echo $strAnd; ?>:</b>
+        &nbsp;&nbsp;<strong><?php echo $strAnd; ?>:</strong>
         <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
         <br />
         <?php echo $strQBEIns . "\n"; ?>

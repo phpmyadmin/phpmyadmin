@@ -54,13 +54,13 @@ if ($text_dir == 'ltr') {
 <body bgcolor="#ffffff">
 <h1><?php echo $strSQLResult; ?></h1>
 <p>
-    <b><?php echo $strHost; ?>:</b> <?php echo $cfg['Server']['verbose'] ? $cfg['Server']['verbose'] : $cfg['Server']['host'] . ((!empty($cfg['Server']['port'])) ? ':' . $cfg['Server']['port'] : ''); ?><br />
-    <b><?php echo $strDatabase; ?>:</b> <?php echo htmlspecialchars($db); ?><br />
-    <b><?php echo $strGenTime; ?>:</b> <?php echo PMA_localisedDate(); ?><br />
-    <b><?php echo $strGenBy; ?>:</b> phpMyAdmin&nbsp;<?php echo PMA_VERSION; ?>&nbsp;/ MySQL&nbsp;<?php echo PMA_MYSQL_STR_VERSION; ?><br />
-    <b><?php echo $strSQLQuery; ?>:</b> <?php echo htmlspecialchars($full_sql_query); ?>;
+    <strong><?php echo $strHost; ?>:</strong> <?php echo $cfg['Server']['verbose'] ? $cfg['Server']['verbose'] : $cfg['Server']['host'] . ((!empty($cfg['Server']['port'])) ? ':' . $cfg['Server']['port'] : ''); ?><br />
+    <strong><?php echo $strDatabase; ?>:</strong> <?php echo htmlspecialchars($db); ?><br />
+    <strong><?php echo $strGenTime; ?>:</strong> <?php echo PMA_localisedDate(); ?><br />
+    <strong><?php echo $strGenBy; ?>:</strong> phpMyAdmin&nbsp;<?php echo PMA_VERSION; ?>&nbsp;/ MySQL&nbsp;<?php echo PMA_MYSQL_STR_VERSION; ?><br />
+    <strong><?php echo $strSQLQuery; ?>:</strong> <?php echo htmlspecialchars($full_sql_query); ?>;
     <?php if (isset($num_rows)) { ?><br />
-    <b><?php echo $strRows; ?>:</b> <?php echo $num_rows; ?>
+    <strong><?php echo $strRows; ?>:</strong> <?php echo $num_rows; ?>
     <?php } ?>
 </p>
 

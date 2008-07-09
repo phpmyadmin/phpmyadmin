@@ -524,7 +524,7 @@ function resetDrag() {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
 
-    <?php echo '<br /><b>' . $strDisplayPDF . '</b>'; ?>:&nbsp;<br />
+    <?php echo '<br /><strong>' . $strDisplayPDF . '</strong>'; ?>:&nbsp;<br />
     <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
     <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
     <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />

@@ -32,7 +32,7 @@ if ($triggers) {
         $drop_and_create = $trigger['drop'] . $delimiter . "\n" . $trigger['create'] . "\n";
 
         echo sprintf('<tr class="%s">
-                              <td><b>%s</b></td>
+                              <td><strong>%s</strong></td>
                               <td>%s</td>
                               <td>%s</td>
                               <td>%s</td>

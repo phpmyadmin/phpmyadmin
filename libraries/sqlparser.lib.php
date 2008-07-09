@@ -665,7 +665,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $d_next_upper = '';
             }
 
-            //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br />";
+            //DEBUG echo "[prev: <strong>".$d_prev."</strong> ".$t_prev."][cur: <strong>".$d_cur."</strong> ".$t_cur."][next: <strong>".$d_next."</strong> ".$t_next."]<br />";
 
             if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
@@ -1002,7 +1002,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop1 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
+//DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -1451,7 +1451,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $unsorted_query = $arr['raw']; // in case there is no ORDER BY
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "Loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
+//DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // need_confirm
             //
@@ -1739,7 +1739,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $seen_default = FALSE;
 
         for ($i = 0; $i < $size; $i++) {
-        // DEBUG echo "Loop 3 <b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+        // DEBUG echo "Loop 3 <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
 
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 $upper_data = strtoupper($arr[$i]['data']);
@@ -2123,7 +2123,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $in_priv_list = FALSE;
         for ($i = $start_token; $i < $arraysize; $i++) {
-// DEBUG echo "Loop format <b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+// DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             $indent = 0;

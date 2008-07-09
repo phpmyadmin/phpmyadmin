@@ -964,7 +964,7 @@ if (!isset($after_insert)) {
 ?>
         </td>
         <td valign="middle">
-            &nbsp;&nbsp;&nbsp;<b><?php echo $strAndThen; ?></b>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;<strong><?php echo $strAndThen; ?></strong>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
             <select name="after_insert">

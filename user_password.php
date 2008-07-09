@@ -110,7 +110,7 @@ if (isset($_REQUEST['nopass'])) {
         PMA_showMessage($strUpdateProfileMessage, $sql_query, 'success');
         ?>
         <a href="index.php<?php echo PMA_generate_common_url($_url_params); ?>" target="_parent">
-            <b><?php echo $strBack; ?></b></a>
+            <strong><?php echo $strBack; ?></strong></a>
         <?php
         require_once './libraries/footer.inc.php';
     } // end if

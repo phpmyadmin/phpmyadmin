@@ -270,7 +270,7 @@ unset($columns);
 <?php
     } // end if
 ?>
-    &nbsp;<b>.</b>&nbsp;
+    &nbsp;<strong>.</strong>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()"
 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
     <?php
@@ -474,7 +474,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 <?php
     } // end if
 ?>
-    &nbsp;<b>.</b>&nbsp;
+    &nbsp;<strong>.</strong>&nbsp;
     <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
 <?php
         $choices = array(

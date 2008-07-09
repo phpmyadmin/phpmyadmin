@@ -227,7 +227,7 @@ class PMA_PDF extends TCPDF {
 
         require_once './libraries/header.inc.php';
 
-        echo '<p><b>PDF - ' . $GLOBALS['strError'] . '</b></p>' . "\n";
+        echo '<p><strong>PDF - ' . $GLOBALS['strError'] . '</strong></p>' . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }

@@ -242,20 +242,20 @@ if (is_array($foreignData['disp_row'])) {
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td nowrap="nowrap">
         <?php
-        echo ($key_ordered_current_equals_data ? '<b>' : '')
+        echo ($key_ordered_current_equals_data ? '<strong>' : '')
             .'<a href="#" title="' . $strUseThisValue
             . ($key_ordered_current_val_title != '' ? ': ' . $key_ordered_current_val_title : '') . '"'
             .' onclick="formupdate(\'' . md5($field) . '\', \''
             . PMA_jsFormat($key_ordered_current_key, false) . '\'); return false;">'
-            .htmlspecialchars($key_ordered_current_key) . '</a>' . ($key_ordered_current_equals_data ? '</b>' : '');
+            .htmlspecialchars($key_ordered_current_key) . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td>
         <?php
-        echo ($key_ordered_current_equals_data ? '<b>' : '')
+        echo ($key_ordered_current_equals_data ? '<strong>' : '')
             . '<a href="#" title="' . $strUseThisValue . ($key_ordered_current_val_title != '' ? ': '
             . $key_ordered_current_val_title : '') . '" onclick="formupdate(\''
             . md5($field) . '\', \'' . PMA_jsFormat($key_ordered_current_key, false) . '\'); return false;">'
-            . $key_ordered_current_val . '</a>' . ($key_ordered_current_equals_data ? '</b>' : '');
+            . $key_ordered_current_val . '</a>' . ($key_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td width="20%">
             <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>"
@@ -263,19 +263,19 @@ if (is_array($foreignData['disp_row'])) {
 
         <td>
         <?php
-        echo ($val_ordered_current_equals_data ? '<b>' : '')
+        echo ($val_ordered_current_equals_data ? '<strong>' : '')
             . '<a href="#" title="' . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': '
             . $val_ordered_current_val_title : '') . '" onclick="formupdate(\'' . md5($field)
             . '\', \'' . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">'
-            . $val_ordered_current_val . '</a>' . ($val_ordered_current_equals_data ? '</b>' : '');
+            . $val_ordered_current_val . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
         <td nowrap="nowrap">
         <?php
-        echo ($val_ordered_current_equals_data ? '<b>' : '') . '<a href="#" title="'
+        echo ($val_ordered_current_equals_data ? '<strong>' : '') . '<a href="#" title="'
         . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '')
         . '" onclick="formupdate(\'' . md5($field) . '\', \''
         . PMA_jsFormat($val_ordered_current_key, false) . '\'); return false;">' . htmlspecialchars($val_ordered_current_key)
-        . '</a>' . ($val_ordered_current_equals_data ? '</b>' : '');
+        . '</a>' . ($val_ordered_current_equals_data ? '</strong>' : '');
         ?></td>
     </tr>
         <?php

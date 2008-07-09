@@ -311,12 +311,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         <table width="168" border="0" align="center" cellpadding="2" cellspacing="0">
         <thead>
         <tr>
-            <td colspan="2" align="center" nowrap="nowrap"><b><?php echo $strCreateRelation; ?></b></td>
+            <td colspan="2" align="center" nowrap="nowrap"><strong><?php echo $strCreateRelation; ?></strong></td>
         </tr>
         </thead>
         <tbody id="foreign_relation">
         <tr>
-        <td colspan="2" align="center" nowrap="nowrap"><b>FOREIGN KEY</b></td>
+        <td colspan="2" align="center" nowrap="nowrap"><strong>FOREIGN KEY</strong></td>
         </tr>
         <tr>
             <td width="58" nowrap="nowrap">on delete</td>
@@ -377,7 +377,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <td class="input_tab">
         <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
         <tr>
-            <td colspan="3" align="center" nowrap="nowrap"><b><?php echo $strDeleteRelation; ?></b></td>
+            <td colspan="3" align="center" nowrap="nowrap"><strong><?php echo $strDeleteRelation; ?></strong></td>
         </tr>
         <tr>
             <td colspan="3" align="center" nowrap="nowrap">

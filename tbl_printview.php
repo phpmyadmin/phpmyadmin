@@ -71,7 +71,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<b>'.  $strShowTables . ': ' . $tbl_list . '</b>' . "\n";
+    echo '<strong>'.  $strShowTables . ': ' . $tbl_list . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 

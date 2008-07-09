@@ -375,7 +375,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td align="center">
-            <b><?php echo $save_row[$i]['Field']; ?></b></td>
+            <strong><?php echo $save_row[$i]['Field']; ?></strong></td>
         <?php
         if ($cfgRelation['relwork']) {
             ?>

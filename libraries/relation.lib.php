@@ -90,11 +90,11 @@ function PMA_getRelationsParam($verbose = false)
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
-    $messages['error'] = '<font color="red"><b>' . $GLOBALS['strNotOK']
-                   . '</b></font> [ <a href="Documentation.html#%s" target="documentation">'
+    $messages['error'] = '<font color="red"><strong>' . $GLOBALS['strNotOK']
+                   . '</strong></font> [ <a href="Documentation.html#%s" target="documentation">'
                    . $GLOBALS['strDocu'] . '</a> ]';
 
-    $messages['ok'] = '<font color="green"><b>' . $GLOBALS['strOK'] . '</b></font>';
+    $messages['ok'] = '<font color="green"><strong>' . $GLOBALS['strOK'] . '</strong></font>';
     $messages['enabled']  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
     $messages['disabled'] = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
 

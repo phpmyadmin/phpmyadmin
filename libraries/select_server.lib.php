@@ -81,7 +81,7 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         if ($list) {
             echo '<li>';
             if ($selected && !$ommit_fieldset) {
-                echo '<b>' . htmlspecialchars($label) . '</b>';
+                echo '<strong>' . htmlspecialchars($label) . '</strong>';
             } else {
 
                 echo '<a class="item" href="index.php'
