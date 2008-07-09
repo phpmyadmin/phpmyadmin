@@ -198,6 +198,8 @@ function PMA_securePath($path)
  * displays the given error message on phpMyAdmin error page in foreign language,
  * ends script execution and closes session
  *
+ * loads language file if not loaded already
+ *
  * @todo    use detected argument separator (PMA_Config)
  * @uses    $GLOBALS['session_name']
  * @uses    $GLOBALS['text_dir']
@@ -209,24 +211,40 @@ function PMA_securePath($path)
  * @uses    $_COOKIE
  * @uses    substr()
  * @uses    header()
- * @uses    urlencode()
- * @param string    $error_message the error message or named error message
+ * @uses    http_build_query()
+ * @uses    is_string()
+ * @uses    sprintf()
+ * @uses    vsprintf()
+ * @uses    strtr()
+ * @uses    defined()
+ * @param   string $error_message the error message or named error message
+ * @param   string|array $message_args arguments applied to $error_message
+ * @return  exit
  */
 function PMA_fatalError($error_message, $message_args = null)
 {
+    // it could happen PMA_fatalError() is called before language file is loaded
     if (! isset($GLOBALS['available_languages'])) {
-        $GLOBALS['cfg'] = array('DefaultLang'           => 'en-utf-8',
-                     'AllowAnywhereRecoding' => false);
+        $GLOBALS['cfg'] = array(
+            'DefaultLang'           => 'en-utf-8',
+            'AllowAnywhereRecoding' => false);
+
         // Loads the language file
         require_once './libraries/select_lang.lib.php';
+
         if (isset($strError)) {
             $GLOBALS['strError'] = $strError;
+        } else {
+            $GLOBALS['strError'] = 'Error';
         }
+
+        // $text_dir is set in lang/language-utf-8.inc.php
         if (isset($text_dir)) {
             $GLOBALS['text_dir'] = $text_dir;
         }
     }
 
+    // $error_message could be a language string identifier: strString
     if (substr($error_message, 0, 3) === 'str') {
         if (isset($$error_message)) {
             $error_message = $$error_message;
@@ -244,11 +262,14 @@ function PMA_fatalError($error_message, $message_args = null)
 
     // Displays the error message
     // (do not use &amp; for parameters sent by header)
+    $query_params = array(
+        'lang'  => $GLOBALS['available_languages'][$GLOBALS['lang']][2],
+        'dir'   => $GLOBALS['text_dir'],
+        'type'  => $GLOBALS['strError'],
+        'error' => $error_message,
+    );
     header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
-            . '?lang='  . urlencode($GLOBALS['available_languages'][$GLOBALS['lang']][2])
-            . '&dir='   . urlencode($GLOBALS['text_dir'])
-            . '&type='  . urlencode($GLOBALS['strError'])
-            . '&error=' . urlencode($error_message));
+            . http_build_query($query_params, null, '&'));
 
     // on fatal errors it cannot hurt to always delete the current session
     if (isset($GLOBALS['session_name']) && isset($_COOKIE[$GLOBALS['session_name']])) {
