@@ -556,7 +556,6 @@ $strPHPVersion = 'Версия PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Выберите поле являющееся первичным (PRIMARY), или уникальным (UNIQUE) индексом!';
 $strPmaDocumentation = 'Документация phpMyAdmin';
 $strPmaUriError = 'Директива <tt>$cfg[\'PmaAbsoluteUri\']</tt> ДОЛЖНА быть установлена в конфигурационном файле!';
-$strPmaWiki = 'phpMyAdmin вики';
 $strPolish = 'Польский';
 $strPortrait = 'Книжная';
 $strPos1 = 'Начало';
@@ -1080,4 +1079,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

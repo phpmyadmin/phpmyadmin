@@ -543,7 +543,6 @@ $strPHPVersion = 'PHP versioon';
 $strPleaseSelectPrimaryOrUniqueKey = 'Palun vali primaarne või unkaalne võti'; 
 $strPmaDocumentation = 'phpMyAdmini dokumentatsioon';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> konstant peab teie konfiguratsioonifailis määratud olema!';
-$strPmaWiki = 'phpMyAdmin wiki';  
 $strPolish = 'Poola';
 $strPortrait = 'Portreepilt';
 $strPos1 = 'Algus';
@@ -1084,4 +1083,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

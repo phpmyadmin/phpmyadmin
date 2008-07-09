@@ -574,7 +574,6 @@ $strPHPVersion = 'Versión do PHP';
 $strPleaseSelectPrimaryOrUniqueKey = 'Escolla a chave primaria ou unha chave única';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE estar asignada no seu ficheiro de configuración.';
-$strPmaWiki = 'wiki do phpMyAdmin';
 $strPolish = 'Polonés';
 $strPortrait = 'Vertical';
 $strPos1 = 'Inicio';
@@ -1077,4 +1076,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

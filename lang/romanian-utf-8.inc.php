@@ -478,7 +478,6 @@ $strPhp = 'Creează cod PHP';
 $strPHPVersion = 'Versiune PHP';
 $strPmaDocumentation = 'Documentație phpMyAdmin';
 $strPmaUriError = 'Directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> TREBUIE să fie stabilită în fișierul de configurare!';
-$strPmaWiki = 'Wiki phpMyAdmin';
 $strPolish = 'Polononez';
 $strPortrait = 'Portrait';
 $strPos1 = 'Începe';
@@ -1093,4 +1092,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

@@ -835,7 +835,6 @@ $strPDF = 'PDF';  //to translate
 $strPDFReportExplanation = '(Generates a report containing the data of a single table)';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
 $strPleaseSelectPrimaryOrUniqueKey = 'Please select the primary key or a unique key';  //to translate
-$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 $strProcedures = 'Procedures';  //to translate
 $strProcesses = 'Processes';  //to translate
@@ -1079,4 +1078,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

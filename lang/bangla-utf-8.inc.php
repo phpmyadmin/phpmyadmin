@@ -945,7 +945,6 @@ $strYes = 'হ্যাঁ';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strPmaWiki = 'phpMyAdmin wiki';  //to translate
 $strDocSQL = 'DocSQL';  //to translate
 $strTableName = 'Table name';  //to translate
 $strTableIsEmpty = 'Table seems to be empty!';  //to translate
@@ -1078,4 +1077,5 @@ $strPBXTIndexCacheSizeDesc = 'This is the amount of memory allocated to the inde
 $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
+$strWiki = 'Wiki';  //to translate
 ?>

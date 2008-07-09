@@ -211,8 +211,8 @@ echo '<div class="group">';
 echo '<h2>' . $strAboutphpMyAdmin . '</h2>';
 echo '<ul>';
 PMA_printListItem($strVersionInformation . ': ' . PMA_VERSION, 'li_pma_version');
-PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html', null, '_blank');
-PMA_printListItem($strPmaWiki, 'li_pma_wiki', 'http://wiki.cihar.com', null, '_blank');
+PMA_printListItem($strDocu, 'li_pma_docs', 'Documentation.html', null, '_blank');
+PMA_printListItem($strWiki, 'li_pma_wiki', 'http://wiki.cihar.com', null, '_blank');
 
 // does not work if no target specified, don't know why
 PMA_printListItem($strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmin.net/', null, '_blank');
