@@ -167,7 +167,7 @@ echo '<div id="main_pane_right">';
 
 if ($server > 0) {
     echo '<div class="group">';
-    echo '<h2>' . $strMySQLServerInformation . '</h2>';
+    echo '<h2>MySQL</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
     PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
@@ -192,7 +192,7 @@ if ($server > 0) {
 
 if ($server > 0) {
     echo '<div class="group">';
-    echo '<h2>' . $strWebServerInformation . '</h2>';
+    echo '<h2>' . $strWebServer . '</h2>';
     echo '<ul>';
     PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
@@ -208,7 +208,7 @@ echo '  </ul>';
 echo ' </div>';
 
 echo '<div class="group">';
-echo '<h2>' . $strAboutphpMyAdmin . '</h2>';
+echo '<h2>phpMyAdmin</h2>';
 echo '<ul>';
 PMA_printListItem($strVersionInformation . ': ' . PMA_VERSION, 'li_pma_version');
 PMA_printListItem($strDocu, 'li_pma_docs', 'Documentation.html', null, '_blank');

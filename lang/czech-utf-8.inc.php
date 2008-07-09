@@ -23,7 +23,6 @@ $datefmt = '%a %d. %b %Y, %H:%M';
 $timespanfmt = '%s dnů, %s hodin, %s minut a %s sekund';
 
 $strAbortedClients = 'Přerušené';
-$strAboutphpMyAdmin = 'O phpMyAdminovi';
 $strAccessDeniedCreateConfig = 'Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho vytvoření by se vám mohl hodit %1$snastavovací skript%2$s.';
 $strAccessDeniedExplanation = 'phpMyAdmin se pokusil připojit k MySQL serveru, a ten odmítl připojení. Zkontrolujte jméno serveru, uživatelské jméno a heslo v souboru config.inc.php a ujistěte se, že jsou totožné s těmi, které máte od administrátora MySQL serveru.';
 $strAccessDenied = 'Přístup odepřen';
@@ -489,7 +488,6 @@ $strMysqlClientVersion = 'Verze MySQL klienta';
 $strMySQLConnectionCollation = 'Porovnávání pro toto připojení k MySQL';
 $strMysqlLibDiffersServerVersion = 'Používaný MySQL modul v PHP je kompilován pro MySQL %s a server používá verzi %s. Používání různých verzí může způsobit problémy.';
 $strMySQLSaid = 'MySQL hlásí: ';
-$strMySQLServerInformation = 'Informace o MySQL serveru';
 $strMySQLShowProcess = 'Zobrazit procesy';
 
 $strName = 'Název';
@@ -1028,7 +1026,6 @@ $strViewHasBeenDropped = 'Pohled %s byl odstraněn';
 $strViewName = 'Jméno pohledu';
 $strView = 'Pohled';
 
-$strWebServerInformation = 'Informace o web serveru';
 $strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemohl být otevřen';
 $strWebServerUploadDirectory = 'soubor z adresáře pro upload';
 $strWelcome = 'Vítejte v %s';
@@ -1078,4 +1075,5 @@ $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
+$strWebServer = 'Web server';  //to translate
 ?>

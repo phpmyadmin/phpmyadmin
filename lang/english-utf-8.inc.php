@@ -23,7 +23,6 @@ $datefmt = '%B %d, %Y at %I:%M %p';
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds';
 
 $strAbortedClients = 'Aborted';
-$strAboutphpMyAdmin = 'About phpMyAdmin';
 $strAccessDenied = 'Access denied';
 $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';
 $strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.';
@@ -490,7 +489,6 @@ $strMysqlClientVersion = 'MySQL client version';
 $strMySQLConnectionCollation = 'MySQL connection collation';
 $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';
 $strMySQLSaid = 'MySQL said: ';
-$strMySQLServerInformation = 'MySQL server information';
 $strMySQLShowProcess = 'Show processes';
 
 $strName = 'Name';
@@ -1059,9 +1057,9 @@ $strViewHasBeenDropped = 'View %s has been dropped';
 $strViewName = 'VIEW name';
 $strView = 'View';
 
-$strWebServerInformation = 'Web server information';
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';
 $strWebServerUploadDirectory = 'web server upload directory';
+$strWebServer = 'Web server';
 $strWelcome = 'Welcome to %s';
 $strWestEuropean = 'West European';
 $strWiki = 'Wiki';

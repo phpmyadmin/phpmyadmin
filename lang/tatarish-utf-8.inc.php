@@ -1050,9 +1050,6 @@ $strComment = 'Comment';  //to translate
 $strPacked = 'Packed';  //to translate
 $strActions = 'Actions';  //to translate
 $strInterface = 'Interface';  //to translate
-$strMySQLServerInformation = 'MySQL server information';  //to translate
-$strWebServerInformation = 'Web server information';  //to translate
-$strAboutphpMyAdmin = 'About phpMyAdmin';  //to translate
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';  //to translate
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
@@ -1090,4 +1087,5 @@ $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
+$strWebServer = 'Web server';  //to translate
 ?>

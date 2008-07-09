@@ -1014,7 +1014,6 @@ $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定する�
 $strZip = '"zip 形式"';
 
 // To translate:
-$strAboutphpMyAdmin = 'phpMyAdmin について';  //to translate
 $strActions = 'アクション';  //to translate
 $strAnalyze = '分析';  //to translate
 
@@ -1030,7 +1029,6 @@ $strIndexesSeemEqual = 'インデックス %1$s と %2$s は同一のものの�
 $strInsertedRowId = 'id %1$d の行を挿入しました';  //to translate
 $strInterface = 'インタフェース';  //to translate
 
-$strMySQLServerInformation = 'MySQLサーバ情報';  //to translate
 
 $strOptimize = '最適化';  //to translate
 
@@ -1057,7 +1055,6 @@ $strTableAlteredSuccessfully = 'テーブル %1$s を変更しました';  //to 
 $strTableHasBeenCreated = 'テーブル %1$s を作成しました。';  //to translate
 $strTexyText = 'Texy!テキスト';  //to translate
 
-$strWebServerInformation = 'ウェブサーバ情報';  //to translate
 
 $strEvents = 'Events';  //to translate
 $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
@@ -1095,4 +1092,5 @@ $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
+$strWebServer = 'Web server';  //to translate
 ?>

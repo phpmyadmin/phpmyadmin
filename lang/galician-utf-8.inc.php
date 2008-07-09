@@ -22,7 +22,6 @@ $datefmt = '%d de %B de %Y ás %H:%M';
 $timespanfmt = '%s días, %s horas, %s minutos e %s segundos';
 
 $strAbortedClients = 'Cancelado';
-$strAboutphpMyAdmin = 'Acerca de phpMyAdmin';
 $strAccessDenied = 'Acceso Negado';
 $strAccessDeniedCreateConfig = 'Isto débese, posibelmente, a que non creou un ficheiro de configuración. Talvez queira utilizar %1$ssetup script%2$s para crear un.';
 $strAccessDeniedExplanation = 'O phpMyAdmin tentouse conectar ao servidor de MySQL, mais o servidor rexeitou a conexión. Deberá comprobar o nome do servidor, o nome de usuario e o contrasinal no ficheiro config.inc.php e asegurarse de que corresponden coa información proporcionada polo administrador do servidor do MySQL.';
@@ -488,7 +487,6 @@ $strMysqlClientVersion = 'Versión do cliente de MySQL';
 $strMySQLConnectionCollation = 'Codificación de caracteres (Collation) da conexión de MySQL';
 $strMysqlLibDiffersServerVersion = 'A versión %s da súa libraría de PHP MySQL difire da versión %s do seu servidor de MySQL. Isto pode ocasionar un comportamento impredicíbel.';
 $strMySQLSaid = 'Mensaxes do MySQL: ';
-$strMySQLServerInformation = 'Información do servidor de MySQL';
 $strMySQLShowProcess = 'Mostrar os procesos';
 
 $strName = 'Nome';
@@ -1027,7 +1025,6 @@ $strViewHasBeenDropped = 'Deixouse a vista %s';
 $strViewName = 'Nome da VISTA';
 $strView = 'Vista';
 
-$strWebServerInformation = 'Información do servidor web';
 $strWebServerUploadDirectory = 'directorio de recepción do servidor web';
 $strWebServerUploadDirectoryError = 'Non se pode acceder ao directorio que designou para os envíos';
 $strWelcome = 'Reciba a benvida a a %s';
@@ -1077,4 +1074,5 @@ $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
+$strWebServer = 'Web server';  //to translate
 ?>

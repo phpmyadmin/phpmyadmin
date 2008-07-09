@@ -20,7 +20,6 @@ $datefmt = '%A %d %B %Y à %H:%M';
 $timespanfmt = '%s jours, %s heures, %s minutes et %s secondes';
 
 $strAbortedClients = 'Arrêts prématurés';
-$strAboutphpMyAdmin = 'À propos de phpMyAdmin';
 $strAccessDenied = 'Accès refusé';
 $strAccessDeniedCreateConfig = 'La raison probable est que vous n\'avez pas créé de fichier de configuration. Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but.';
 $strAccessDeniedExplanation = 'phpMyAdmin a tenté de se connecter au serveur MySQL, et le serveur a rejeté la connexion. Veuillez vérifier les valeurs de "host", "username" et "password" dans votre configuration et vous assurer qu\'elles correspondent aux informations fournies par l\'administrateur du serveur MySQL.';
@@ -483,7 +482,6 @@ $strMysqlClientVersion = 'Version du client MySQL';
 $strMySQLConnectionCollation = 'Interclassement pour la connexion MySQL';
 $strMysqlLibDiffersServerVersion = 'La version de votre bibliothèque MySQL (%s) diffère de la version de votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible.';
 $strMySQLSaid = 'MySQL a répondu:';
-$strMySQLServerInformation = 'Serveur MySQL';
 $strMySQLShowProcess = 'Afficher les processus';
 
 $strName = 'Nom';
@@ -1021,7 +1019,6 @@ $strViewHasBeenDropped = 'La vue %s a été supprimée';
 $strViewName = 'Nom de la vue';
 $strView = 'Vue';
 
-$strWebServerInformation = 'Serveur web';
 $strWebServerUploadDirectoryError = 'Le répertoire de transfert est inaccessible';
 $strWebServerUploadDirectory = 'répertoire de transfert du serveur Web';
 $strWelcome = 'Bienvenue à %s ';
@@ -1075,4 +1072,5 @@ $strPBXTLogFileCount = 'Log file count';  //to translate
 $strPBXTLogFileCountDesc = 'This is the number of transaction log files (pbxt/system/xlog*.xt) the system will maintain. If the number of logs exceeds this value then old logs will be deleted, otherwise they are renamed and given the next highest number.';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
+$strWebServer = 'Web server';  //to translate
 ?>
