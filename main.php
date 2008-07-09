@@ -31,8 +31,9 @@ if ($server > 0) {
 }
 
 echo '<div id="maincontainer">' . "\n";
+echo '<div id="main_pane_left">';
 echo '<div class="box">';
-echo '<span class="boxtitle">' . $strActions . '</span>';
+echo '<h2>' . $strActions . '</h2>';
 
 /**
  * Displays the mysql server related links
@@ -95,36 +96,8 @@ echo '</ul>';
 echo '</div>';
 
 echo '<div class="box">';
-echo '<span class="boxtitle">' . $strInterface . '</span>';
-echo '  <ul>';
-
-// Displays language selection combo
-if (empty($cfg['Lang'])) {
-    echo '<li id="li_select_lang">';
-    require_once './libraries/display_select_lang.lib.php';
-    PMA_select_language();
-    echo '</li>';
-}
-
-// added by Michael Keck <mail_at_michaelkeck_dot_de>
-// ThemeManager if available
-
-if ($GLOBALS['cfg']['ThemeManager']) {
-    echo '<li id="li_select_theme">';
-    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
-    echo '</li>';
-}
-echo '<li id="li_select_fontsize">';
-echo PMA_Config::getFontsizeForm();
-echo '</li>';
-
-echo '</ul>';
-echo '</div>';
-
-echo '<br class="clearfloat" />';
-echo '<div class="box">';
 if ($server > 0) {
-    echo '<span class="boxtitle">' . $strMySQLServerInformation . '</span>';
+    echo '<h2>' . $strMySQLServerInformation . '</h2>';
     // robbat2: Use the verbose name of the server instead of the hostname
     //          if a value is set
     $server_info = '';
@@ -189,9 +162,39 @@ if ($server > 0) {
     echo ' </div>';
 }
 
+echo '</div>';
+echo '<div id="main_pane_right">';
+
+echo '<div class="box">';
+echo '<h2>' . $strInterface . '</h2>';
+echo '  <ul>';
+
+// Displays language selection combo
+if (empty($cfg['Lang'])) {
+    echo '<li id="li_select_lang">';
+    require_once './libraries/display_select_lang.lib.php';
+    PMA_select_language();
+    echo '</li>';
+}
+
+// added by Michael Keck <mail_at_michaelkeck_dot_de>
+// ThemeManager if available
+
+if ($GLOBALS['cfg']['ThemeManager']) {
+    echo '<li id="li_select_theme">';
+    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+    echo '</li>';
+}
+echo '<li id="li_select_fontsize">';
+echo PMA_Config::getFontsizeForm();
+echo '</li>';
+
+echo '</ul>';
+echo '</div>';
+
 if ($server > 0) {
-    echo '<div class="box box_smaller">';
-    echo '<span class="boxtitle">' . $strWebServerInformation . '</span>';
+    echo '<div class="box">';
+    echo '<h2>' . $strWebServerInformation . '</h2>';
     echo '<ul>';
     PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
@@ -206,8 +209,8 @@ if ($cfg['ShowPhpInfo']) {
 echo '  </ul>';
 echo ' </div>';
 
-echo '<div class="box box_smaller">';
-echo '<span class="boxtitle">' . $strAboutphpMyAdmin . '</span>';
+echo '<div class="box">';
+echo '<h2>' . $strAboutphpMyAdmin . '</h2>';
 echo '<ul>';
 PMA_printListItem($strVersionInformation . ': ' . PMA_VERSION, 'li_pma_version');
 PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html', null, '_blank');
@@ -226,6 +229,9 @@ PMA_printListItem($strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmi
     </li>
     </ul>
  </div>
+
+</div>
+
 <?php
 /**
  * BUG: MSIE needs two <br /> here, otherwise it will not extend the outer div to the

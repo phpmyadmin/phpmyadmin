@@ -1198,17 +1198,25 @@ code.sql {
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
+#main_pane_left {
+    width:              60%;
+    float:              <?php echo $left; ?>;
+    padding-top:        1em;
+}
+
+#main_pane_right {
+    margin-<?php echo $left; ?>: 60%;
+    padding-top: 1em;
+    padding-<?php echo $left; ?>: 1em;
+}
+
 .box {
-    float: <?php echo $left; ?>;
-    width: 49%;
-    border:             solid 1px;
-    margin:             2px;
+    border-<?php echo $left; ?>: 1pt solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    margin-bottom:      1em;
 }
 
-.box_smaller {
-    width: 24%;
-}
-
-span.boxtitle {
-    background:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+.box h2 {
+    background-color:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    padding:            0.1em 0.3em;
+    margin-top:         0;
 }
