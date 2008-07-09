@@ -1210,13 +1210,19 @@ code.sql {
     padding-<?php echo $left; ?>: 1em;
 }
 
-.box {
-    border-<?php echo $left; ?>: 1pt solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+.group {
+    border-<?php echo $left; ?>: 0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     margin-bottom:      1em;
 }
 
-.box h2 {
+.group h2 {
     background-color:   <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     padding:            0.1em 0.3em;
     margin-top:         0;
+}
+
+#li_select_server {
+    padding-bottom:     0.3em;
+    border-bottom:      0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    margin-bottom:      0.3em;
 }

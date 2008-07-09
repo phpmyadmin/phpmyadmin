@@ -30,10 +30,43 @@ if ($server > 0) {
     require './libraries/server_links.inc.php';
 }
 
+// robbat2: Use the verbose name of the server instead of the hostname
+//          if a value is set
+$server_info = '';
+if (! empty($cfg['Server']['verbose'])) {
+    $server_info .= htmlspecialchars($cfg['Server']['verbose']);
+    if ($GLOBALS['cfg']['ShowServerInfo']) {
+        $server_info .= ' (';
+    }
+}
+if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
+    $server_info .= PMA_DBI_get_host_info();
+}
+if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
+    $server_info .= ')';
+}
+$mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+
+// should we add the port info here?
+$short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+                    ? $GLOBALS['cfg']['Server']['verbose']
+                    : $GLOBALS['cfg']['Server']['host']);
+
 echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
-echo '<div class="box">';
+echo '<div class="group">';
 echo '<h2>' . $strActions . '</h2>';
+
+echo '<ul>';
+/**
+ * Displays the MySQL servers choice form
+ */
+if (! $cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
+    echo '<li id="li_select_server">';
+    require_once './libraries/select_server.lib.php';
+    PMA_select_server(true, true);
+    echo '</li>';
+}
 
 /**
  * Displays the mysql server related links
@@ -44,15 +77,6 @@ if ($server > 0) {
 
     if ($cfg['Server']['auth_type'] == 'config') {
         $cfg['ShowChgPassword'] = false;
-    }
-}
-
-if ($server > 0) {
-    echo '<ul>';
-    if ($cfg['ShowCreateDb']) {
-        echo '<li id="li_create_database">';
-        require './libraries/display_create_database.lib.php';
-        echo '</li>' . "\n";
     }
 
     /**
@@ -77,76 +101,22 @@ if ($server > 0) {
     } // end if
 
 } // end of if ($server > 0)
-?>
-<?php
 
-/**
- * Displays the MySQL servers choice form
- */
-if (! $cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
-    if ($server == 0) {
-        echo '<ul>';
-    }
-    echo '<li id="li_select_server">';
-    require_once './libraries/select_server.lib.php';
-    PMA_select_server(true, true);
-    echo '</li>';
-}
 echo '</ul>';
 echo '</div>';
 
-echo '<div class="box">';
 if ($server > 0) {
-    echo '<h2>' . $strMySQLServerInformation . '</h2>';
-    // robbat2: Use the verbose name of the server instead of the hostname
-    //          if a value is set
-    $server_info = '';
-    if (! empty($cfg['Server']['verbose'])) {
-        $server_info .= htmlspecialchars($cfg['Server']['verbose']);
-        if ($GLOBALS['cfg']['ShowServerInfo']) {
-            $server_info .= ' (';
-        }
-    }
-    if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-        $server_info .= PMA_DBI_get_host_info();
-    }
-
-    if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
-        $server_info .= ')';
-    }
-    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
-
-    // should we add the port info here?
-    $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
-                        ? $GLOBALS['cfg']['Server']['verbose']
-                        : $GLOBALS['cfg']['Server']['host']);
-    //echo '<h3><span xml:lang="en" dir="ltr">' . $short_server_info . '</span></h3>' . "\n";
-    unset($short_server_info);
-}
-
-if ($server > 0) {
+    echo '<div class="group">';
+    echo '<h2>MySQL ' . $short_server_info . '</h2>';
     echo '<ul>' . "\n";
 
-    if ($GLOBALS['cfg']['ShowServerInfo']) {
-        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
-        PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
-        PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
-            'li_mysql_proto');
-        PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
-            'li_user_info');
-    } else {
-        PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
-        PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+    if ($cfg['ShowCreateDb']) {
+        echo '<li id="li_create_database">';
+        require './libraries/display_create_database.lib.php';
+        echo '</li>' . "\n";
     }
 
-    echo '    <li id="li_select_mysql_charset">';
-    echo '        ' . $strMySQLCharset . ': '
-       . '        <strong xml:lang="en" dir="ltr">'
-       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
-       . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '        </strong>' . "\n"
-       . '    </li>' . "\n"
-       . '    <li id="li_select_mysql_collation">';
+    echo '    <li id="li_select_mysql_collation">';
     echo '        <form method="post" action="index.php" target="_parent">' . "\n"
        . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
        . '            <label for="select_collation_connection">' . "\n"
@@ -158,14 +128,12 @@ if ($server > 0) {
        . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
        . '        </form>' . "\n"
        . '    </li>' . "\n";
+
     echo '  </ul>';
     echo ' </div>';
 }
 
-echo '</div>';
-echo '<div id="main_pane_right">';
-
-echo '<div class="box">';
+echo '<div class="group">';
 echo '<h2>' . $strInterface . '</h2>';
 echo '  <ul>';
 
@@ -192,8 +160,38 @@ echo '</li>';
 echo '</ul>';
 echo '</div>';
 
+
+echo '</div>';
+echo '<div id="main_pane_right">';
+
+
 if ($server > 0) {
-    echo '<div class="box">';
+    echo '<div class="group">';
+    echo '<h2>' . $strMySQLServerInformation . '</h2>';
+    echo '<ul>' . "\n";
+    PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
+    PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
+    if ($GLOBALS['cfg']['ShowServerInfo']) {
+        PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
+            'li_mysql_proto');
+        PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
+            'li_user_info');
+    }
+
+    echo '    <li id="li_select_mysql_charset">';
+    echo '        ' . $strMySQLCharset . ': '
+       . '        <strong xml:lang="en" dir="ltr">'
+       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
+       . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+       . '        </strong>' . "\n"
+       . '    </li>' . "\n";
+    echo '  </ul>';
+    echo ' </div>';
+}
+
+
+if ($server > 0) {
+    echo '<div class="group">';
     echo '<h2>' . $strWebServerInformation . '</h2>';
     echo '<ul>';
     PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
@@ -209,7 +207,7 @@ if ($cfg['ShowPhpInfo']) {
 echo '  </ul>';
 echo ' </div>';
 
-echo '<div class="box">';
+echo '<div class="group">';
 echo '<h2>' . $strAboutphpMyAdmin . '</h2>';
 echo '<ul>';
 PMA_printListItem($strVersionInformation . ': ' . PMA_VERSION, 'li_pma_version');
