@@ -1107,7 +1107,8 @@ ALTER TABLE `pma_column_comments`
     <dd>The maximum number of characters when a SQL query is displayed. The 
     default limit of 1000 should be correct to avoid the display of tons
     of hexadecimal codes that represent BLOBs, but some users have real
-    SQL queries that are longer than 1000 characters.</dd>
+    SQL queries that are longer than 1000 characters. Also, if a query's
+    length exceeds this limit, this query is not saved in the history.</dd>
 
     <dt id="cfg_OBGzip">$cfg['OBGzip'] string/boolean</dt>
     <dd>Defines whether to use GZip output buffering for increased

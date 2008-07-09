@@ -711,6 +711,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode = 'a
  *
  * @uses    $_SESSION['sql_history']
  * @uses    $cfg['QueryHistoryMax']
+ * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] 
  * @uses    PMA_getRelationsParam()
  * @uses    PMA_query_as_cu()
  * @uses    PMA_backquote()
@@ -726,6 +727,9 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode = 'a
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
+    if (strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        return;
+    }
     $cfgRelation = PMA_getRelationsParam();
 
     if (! isset($_SESSION['sql_history'])) {
