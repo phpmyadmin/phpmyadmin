@@ -27,7 +27,7 @@ body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0.2em 0.2em 0.2em 0.2em;
@@ -85,7 +85,8 @@ button {
 /* specific elements */
 
 div#pmalogo {
-    background-color: #D0DCE0<?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : '#D0CDE0'); ?>;
     padding:.3em;
 }
 div#pmalogo,
@@ -159,7 +160,7 @@ div#left_tableList ul {
     margin:             0;
     padding:            0;
     font-size:          80%;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
 }
 
 div#left_tableList ul ul {

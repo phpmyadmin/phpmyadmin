@@ -541,7 +541,7 @@ class PMA_Config
      */
     function getThemeUniqueValue()
     {
-        return intval((null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize'])) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info + $_SESSION['PMA_Theme']->filesize_info);
+        return intval((null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize'])) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info + $_SESSION['PMA_Theme']->filesize_info) . (isset($_SESSION['userconf']['custom_color']) ? substr($_SESSION['userconf']['custom_color'],1,6) : '');
     }
 
     /**
