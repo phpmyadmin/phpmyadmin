@@ -322,7 +322,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             } // end if
 
             // Checks for something inside quotation marks
-            if (PMA_STR_strInStr($c, $quote_list)) {
+            if ($GLOBALS['PMA_strpos']($quote_list, $c) !== false) {
                 $startquotepos   = $count2;
                 $quotetype       = $c;
                 $count2++;
@@ -385,21 +385,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             // Checks for brackets
-            if (PMA_STR_strInStr($c, $bracket_list)) {
+            if ($GLOBALS['PMA_strpos']($bracket_list, $c) !== false) {
                 // All bracket tokens are only one item long
                 $this_was_bracket = true;
                 $count2++;
                 $type_type     = '';
-                if (PMA_STR_strInStr($c, '([{')) {
+                if ($GLOBALS['PMA_strpos']('([{', $c) !== false) {
                     $type_type = 'open';
                 } else {
                     $type_type = 'close';
                 }
 
                 $type_style     = '';
-                if (PMA_STR_strInStr($c, '()')) {
+                if ($GLOBALS['PMA_strpos']('()', $c) !== false) {
                     $type_style = 'round';
-                } elseif (PMA_STR_strInStr($c, '[]')) {
+                } elseif ($GLOBALS['PMA_strpos']('[]', $c) !== false) {
                     $type_style = 'square';
                 } else {
                     $type_style = 'curly';
@@ -540,8 +540,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             // Checks for punct
-            if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr($GLOBALS['PMA_substr']($sql, $count2, 1), $allpunct_list)) {
+            if ($GLOBALS['PMA_strpos']($allpunct_list, $c) !== false) {
+                while (($count2 < $len) && $GLOBALS['PMA_strpos']($allpunct_list, $GLOBALS['PMA_substr']($sql, $count2, 1)) !== false) {
                     $count2++;
                 }
                 $l = $count2 - $count1;

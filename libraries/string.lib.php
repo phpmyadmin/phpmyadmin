@@ -64,21 +64,6 @@ if (@extension_loaded('ctype')) {
 }
 
 /**
- * This checks if a string actually exists inside another string
- * We don't care about the position it is in.
- *
- * @uses    PMA_STR_pos()
- * @param   string   string to search for
- * @param   string   string to search in
- * @return  boolean  whether the needle is in the haystack or not
- * @todo    rename PMA_STR_inStr()
- */
-function PMA_STR_strInStr($needle, $haystack)
-{
-    return $GLOBALS['PMA_strpos']($haystack, $needle) !== false;
-} // end of the "PMA_STR_strInStr()" function
-
-/**
  * Checks if a given character position in the string is escaped or not
  *
  * @uses    PMA_strlen()
