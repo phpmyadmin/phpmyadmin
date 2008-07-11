@@ -130,7 +130,6 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
  * Checks if a character is an SQL identifier
  *
  * @uses    PMA_STR_isAlnum()
- * @uses    PMA_STR_isAccented()
  * @param   string   character to check for
  * @param   boolean  whether the dot character is valid or not
  * @return  boolean  whether the character is an SQL identifier or not
