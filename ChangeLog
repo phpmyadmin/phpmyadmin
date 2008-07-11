@@ -64,6 +64,7 @@ danbarry
 - patch #2007196, Typos in comments, thanks to knittl - knittl
 - bug #1982315 [GUI] Comma and quote in ENUM, thanks to Joshua Hogendorn
 + [GUI] Color picker (work in progress, now just for original theme) 
+- bug #1970836 [parser] SQL parser is slow, thanks to Christian Schmidt 
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 

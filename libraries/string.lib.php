@@ -38,10 +38,18 @@ if ($GLOBALS['PMA_allow_mbstr']) {
 
 // This is for handling input better
 if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
-    $GLOBALS['PMA_strpos']  = 'mb_strpos';
+    $GLOBALS['PMA_strpos']      = 'mb_strpos';
+    $GLOBALS['PMA_substr']      = 'mb_substr';
+    $GLOBALS['PMA_STR_isAlnum'] = 'ctype_alnum';
+    $GLOBALS['PMA_STR_isDigit'] = 'ctype_digit';
+    $GLOBALS['PMA_STR_isSpace'] = 'ctype_space';
     require './libraries/string_mb.lib.php';
 } else {
-    $GLOBALS['PMA_strpos']  = 'strpos';
+    $GLOBALS['PMA_strpos']      = 'strpos';
+    $GLOBALS['PMA_substr']      = 'substr';
+    $GLOBALS['PMA_STR_isAlnum'] = 'PMA_STR_isAlnum';
+    $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
+    $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_native.lib.php';
 }
 
@@ -67,9 +75,7 @@ if (@extension_loaded('ctype')) {
  */
 function PMA_STR_strInStr($needle, $haystack)
 {
-    // PMA_STR_pos($haystack, $needle) !== false
-    // return (is_integer(PMA_STR_pos($haystack, $needle)));
-    return (bool) PMA_STR_pos(' ' . $haystack, $needle);
+    return $GLOBALS['PMA_strpos']($haystack, $needle) !== false;
 } // end of the "PMA_STR_strInStr()" function
 
 /**
@@ -120,35 +126,6 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
     return ($num >= $lower && $num <= $upper);
 } // end of the "PMA_STR_numberInRangeInclusive()" function
 
-
-/**
- * Checks if a character is an accented character
- *
- * Presently this only works for some character sets. More work may be needed
- * to fix it.
- *
- * @uses    PMA_STR_numberInRangeInclusive()
- * @uses    ord()
- * @param   string   character to check for
- * @return  boolean  whether the character is an accented one or not
- */
-function PMA_STR_isAccented($c)
-{
-    $ord_min1 = 192; //ord('A');
-    $ord_max1 = 214; //ord('Z');
-    $ord_min2 = 216; //ord('A');
-    $ord_max2 = 246; //ord('Z');
-    $ord_min3 = 248; //ord('A');
-    $ord_max3 = 255; //ord('Z');
-
-    $ord_c    = ord($c);
-
-    return PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
-        || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2)
-        || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2);
-} // end of the "PMA_STR_isAccented()" function
-
-
 /**
  * Checks if a character is an SQL identifier
  *
@@ -160,11 +137,11 @@ function PMA_STR_isAccented($c)
  */
 function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
 {
-    return (PMA_STR_isAlnum($c)
-         || PMA_STR_isAccented($c)
-         || $c == '_'
-         || $c == '$'
-         || ($dot_is_valid != false && $c == '.'));
+    return ($GLOBALS['PMA_STR_isAlnum']($c)
+        || ($ord_c = ord($c)) && $ord_c >= 192 && $ord_c != 215 && $ord_c != 249
+        || $c == '_'
+        || $c == '$'
+        || ($dot_is_valid != false && $c == '.'));
 } // end of the "PMA_STR_isSqlIdentifier()" function
 
 

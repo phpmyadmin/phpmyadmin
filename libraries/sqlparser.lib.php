@@ -261,7 +261,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $this_was_quote       = false;
 
         while ($count2 < $len) {
-            $c      = PMA_substr($sql, $count2, 1);
+            $c      = $GLOBALS['PMA_substr']($sql, $count2, 1);
             $count1 = $count2;
 
             $previous_was_space = $this_was_space;
@@ -283,7 +283,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             // Checks for white space
-            if (PMA_STR_isSpace($c)) {
+            if ($GLOBALS['PMA_STR_isSpace']($c)) {
                 $this_was_space = true;
                 $count2++;
                 continue;
@@ -294,9 +294,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // C style /* */
             // ANSI style --
             if (($c == '#')
-                || (($count2 + 1 < $len) && ($c == '/') && (PMA_substr($sql, $count2 + 1, 1) == '*'))
-                || (($count2 + 2 == $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-'))
-                || (($count2 + 2 < $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-') && ((PMA_substr($sql, $count2 + 2, 1) <= ' ')))) {
+                || (($count2 + 1 < $len) && ($c == '/') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '*'))
+                || (($count2 + 2 == $len) && ($c == '-') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '-'))
+                || (($count2 + 2 < $len) && ($c == '-') && ($GLOBALS['PMA_substr']($sql, $count2 + 1, 1) == '-') && (($GLOBALS['PMA_substr']($sql, $count2 + 2, 1) <= ' ')))) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';
@@ -316,7 +316,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         break;
                 } // end switch
                 $count2 = ($pos < $count2) ? $len : $pos;
-                $str    = PMA_substr($sql, $count1, $count2 - $count1);
+                $str    = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
                 continue;
             } // end if
@@ -352,7 +352,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (($pos < $len) && PMA_STR_charIsEscaped($sql, $pos)) {
                         $pos ++;
                         continue;
-                    } elseif (($pos + 1 < $len) && (PMA_substr($sql, $pos, 1) == $quotetype) && (PMA_substr($sql, $pos + 1, 1) == $quotetype)) {
+                    } elseif (($pos + 1 < $len) && ($GLOBALS['PMA_substr']($sql, $pos, 1) == $quotetype) && ($GLOBALS['PMA_substr']($sql, $pos + 1, 1) == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
@@ -379,7 +379,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     default:
                         break;
                 } // end switch
-                $data = PMA_substr($sql, $count1, $count2 - $count1);
+                $data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
                 continue;
             }
@@ -426,7 +426,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if (PMA_STR_isSqlIdentifier($c, false)
              || $c == '@'
              || ($c == '.'
-              && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+              && $GLOBALS['PMA_STR_isDigit']($GLOBALS['PMA_substr']($sql, $count2 + 1, 1))
               && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))) {
 
                 /* DEBUG
@@ -444,8 +444,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $is_identifier           = $previous_was_punct;
                 $is_sql_variable         = $c == '@' && ! $previous_was_quote;
                 $is_user                 = $c == '@' && $previous_was_quote;
-                $is_digit                = !$is_identifier && !$is_sql_variable && PMA_STR_isDigit($c);
-                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && PMA_substr($sql, $count2, 1) == 'x';
+                $is_digit                = !$is_identifier && !$is_sql_variable && $GLOBALS['PMA_STR_isDigit']($c);
+                $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && $GLOBALS['PMA_substr']($sql, $count2, 1) == 'x';
                 $is_float_digit          = $c == '.';
                 $is_float_digit_exponent = FALSE;
 
@@ -474,8 +474,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     unset($pos);
                 }
 
-                while (($count2 < $len) && PMA_STR_isSqlIdentifier(PMA_substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
-                    $c2 = PMA_substr($sql, $count2, 1);
+                while (($count2 < $len) && PMA_STR_isSqlIdentifier($GLOBALS['PMA_substr']($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
+                    $c2 = $GLOBALS['PMA_substr']($sql, $count2, 1);
                     if ($is_sql_variable && ($c2 == '.')) {
                         $count2++;
                         continue;
@@ -503,7 +503,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $is_float_digit          = FALSE;
                         }
                     }
-                    if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && PMA_STR_isDigit($c2))) {
+                    if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_STR_isDigit']($c2))) {
                         $count2++;
                         continue;
                     } else {
@@ -515,7 +515,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 } // end while
 
                 $l    = $count2 - $count1;
-                $str  = PMA_substr($sql, $count1, $l);
+                $str  = $GLOBALS['PMA_substr']($sql, $count1, $l);
 
                 $type = '';
                 if ($is_digit || $is_float_digit || $is_hex_digit) {
@@ -541,14 +541,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             // Checks for punct
             if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
+                while (($count2 < $len) && PMA_STR_strInStr($GLOBALS['PMA_substr']($sql, $count2, 1), $allpunct_list)) {
                     $count2++;
                 }
                 $l = $count2 - $count1;
                 if ($l == 1) {
                     $punct_data = $c;
                 } else {
-                    $punct_data = PMA_substr($sql, $count1, $l);
+                    $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $l);
                 }
 
                 // Special case, sometimes, althought two characters are
@@ -590,12 +590,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                         $count2     = $count1 + 1;
                         $punct_data = $first;
-                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' '))) {
+                    } elseif (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || $GLOBALS['PMA_substr']($sql, $count2, 1) <= ' '))) {
                         $count2     -= 2;
-                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                     } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
-                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                     /**
                      * @todo for negation operator, split in 2 tokens ?
                      * "select x&~1 from t"
@@ -618,7 +618,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $count2++;
 
             $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-                      . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
+                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1) . "\n";
             PMA_SQP_bug($debugstr, $sql);
             return $sql;
 
