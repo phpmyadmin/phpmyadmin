@@ -579,6 +579,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
         echo '</div>';
 
+        // I would have preferred to name this "display_transformation".
+        // This is the only way I found to be able to keep this setting sticky
+        // per SQL query, and at the same time have a default that displays
+        // the transformations.
+        echo '<div class="formelement">';
+        PMA_generate_html_checkbox('hide_transformation', $GLOBALS['strHide'] . ' ' . $GLOBALS['strMIME_transformation'], ! empty($_SESSION['userconf']['hide_transformation']), false);
+        echo '</div>';
+
         echo '<div class="clearfloat"></div>';
         echo '</fieldset>';
 
@@ -686,7 +694,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
     }
 
-    if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
+    if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME'] && ! $_SESSION['userconf']['hide_transformation']) {
         require_once './libraries/transformations.lib.php';
         $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
     }
@@ -1634,6 +1642,14 @@ function PMA_displayTable_checkConfigParams()
         unset($_SESSION['userconf']['query'][$sql_key]['display_blob']);
     }
 
+    if (isset($_REQUEST['hide_transformation'])) {
+        $_SESSION['userconf']['query'][$sql_key]['hide_transformation'] = true;
+        unset($_REQUEST['hide_transformation']);
+    } elseif (isset($_REQUEST['display_options_form'])) {
+        // we know that the checkbox was unchecked
+        unset($_SESSION['userconf']['query'][$sql_key]['hide_transformation']);
+    }
+    
     // move current query to the last position, to be removed last
     // so only least executed query will be removed if maximum remembered queries
     // limit is reached
@@ -1652,6 +1668,7 @@ function PMA_displayTable_checkConfigParams()
     $_SESSION['userconf']['relational_display'] = $_SESSION['userconf']['query'][$sql_key]['relational_display'];
     $_SESSION['userconf']['display_binary'] = isset($_SESSION['userconf']['query'][$sql_key]['display_binary']) ? true : false;
     $_SESSION['userconf']['display_blob'] = isset($_SESSION['userconf']['query'][$sql_key]['display_blob']) ? true : false;
+    $_SESSION['userconf']['hide_transformation'] = isset($_SESSION['userconf']['query'][$sql_key]['hide_transformation']) ? true : false;
     $_SESSION['userconf']['pos'] = $_SESSION['userconf']['query'][$sql_key]['pos'];
     $_SESSION['userconf']['max_rows'] = $_SESSION['userconf']['query'][$sql_key]['max_rows'];
     $_SESSION['userconf']['repeat_cells'] = $_SESSION['userconf']['query'][$sql_key]['repeat_cells'];
