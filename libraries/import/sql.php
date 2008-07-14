@@ -48,6 +48,8 @@ $sql = '';
 $start_pos = 0;
 $i = 0;
 $len= 0;
+$big_value = 2147483647;
+
 if (isset($_POST['sql_delimiter'])) {
     $sql_delimiter = $_POST['sql_delimiter'];
 } else {
@@ -86,72 +88,40 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
     }
     // Current length of our buffer
     $len = strlen($buffer);
-    // prepare an uppercase copy of buffer for Windows because at least
-    // on PHP 5.2.5, stripos() is very slow
-    if (PMA_IS_WINDOWS) {
-        $buffer_upper = strtoupper($buffer);
-    } 
+    
     // Grab some SQL queries out of it
     while ($i < $len) {
         $found_delimiter = false;
-        // Find first interesting character, several strpos seem to be faster than simple loop in php:
-        //while (($i < $len) && (strpos('\'";#-/', $buffer[$i]) === FALSE)) $i++;
-        //if ($i == $len) break;
-        $oi = $i;
-        $big_value = 2147483647;
-        $first_quote = strpos($buffer, '\'', $i);
-        if ($first_quote === FALSE) {
-            $first_quote = $big_value;
-        }
-        $p2 = strpos($buffer, '"', $i);
-        if ($p2 === FALSE) {
-            $p2 = $big_value;
+        // Find first interesting character
+        $old_i = $i;
+        // this is about 7 times faster that looking for each sequence i
+        // one by one with strpos()
+        if (preg_match('/(\'|"|#|-- |\/\*|`|(?i)DELIMITER)/', $buffer, $matches, PREG_OFFSET_CAPTURE, $i)) {
+            // in $matches, index 0 contains the match for the complete 
+            // expression but we don't use it
+            $first_position = $matches[1][1];
+        } else {
+            $first_position = $big_value;
         }
         /**
-         * @todo it's a shortcoming to look for a delimiter that might be
+         * @todo we should not look for a delimiter that might be
          *       inside quotes (or even double-quotes)
          */
+        // the cost of doing this one with preg_match() would be too high
         $first_sql_delimiter = strpos($buffer, $sql_delimiter, $i);
         if ($first_sql_delimiter === FALSE) {
             $first_sql_delimiter = $big_value;
         } else {
             $found_delimiter = true;
         }
-        $p4 = strpos($buffer, '#', $i);
-        if ($p4 === FALSE) {
-            $p4 = $big_value;
-        }
-        $p5 = strpos($buffer, '--', $i);
-        if ($p5 === FALSE || $p5 >= ($len - 2) || $buffer[$p5 + 2] > ' ') {
-            $p5 = $big_value;
-        }
-        $p6 = strpos($buffer, '/*', $i);
-        if ($p6 === FALSE) {
-            $p6 = $big_value;
-        }
-        $p7 = strpos($buffer, '`', $i);
-        if ($p7 === FALSE) {
-            $p7 = $big_value;
-        }
-        // catch also "delimiter"
-        // stripos() very slow on Windows (at least on PHP 5.2.5)
-        if (! PMA_IS_WINDOWS) {
-            $p8 = stripos($buffer, 'DELIMITER', $i);
-        } else {
-            $p8 = strpos($buffer_upper, 'DELIMITER', $i);
-        }
-        if ($p8 === FALSE || $p8 >= ($len - 11) || $buffer[$p8 + 9] > ' ') {
-            $p8 = $big_value;
-        }
 
         // set $i to the position of the first quote, comment.start or delimiter found
-        $i = min($first_quote, $p2, $first_sql_delimiter, $p4, $p5, $p6, $p7, $p8);
-        unset($first_quote, $p2, $p4, $p5, $p6, $p7, $p8);
+        $i = min($first_position, $first_sql_delimiter);
 
         if ($i == $big_value) {
             // none of the above was found in the string
 
-            $i = $oi;
+            $i = $old_i;
             if (!$GLOBALS['finished']) {
                 break;
             }

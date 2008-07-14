@@ -66,6 +66,7 @@ danbarry
 + [GUI] Color picker (work in progress, now just for original theme) 
 - bug #1970836 [parser] SQL parser is slow, thanks to Christian Schmidt 
 + rfe #1692928 [transformation] Option to disable browser transformations 
++ [import] Speed optimization to be able to import the sakila database
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 
