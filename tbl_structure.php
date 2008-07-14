@@ -14,7 +14,6 @@ require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/relation.lib.php';
 
 $GLOBALS['js_include'][] = 'mootools.js';
-$GLOBALS['js_include'][] = 'mootools-domready.js';
 
 /**
  * handle multiple field commands if required

@@ -18,7 +18,6 @@ require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'mootools.js';
-$GLOBALS['js_include'][] = 'mootools-domready.js';
 
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =

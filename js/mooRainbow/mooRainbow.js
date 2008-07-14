@@ -1,16 +1,17 @@
 /***
  * MooRainbow
  *
- * @version		1.11
+ * @version		1.2b1
  * @license		MIT-style license
- * @author		w00fz - < w00fzIT [at] gmail.com >
+ * @author		Djamil Legato (w00fz) - < w00fzIT [at] gmail.com >
  * @infos		http://moorainbow.woolly-sheep.net
  * @copyright	Author
  * 
  *
  */
- 
+
 var MooRainbow = new Class({
+	Implements: [Options, Events],
 	options: {
 		id: 'mooRainbow',
 		prefix: 'moor-',
@@ -18,7 +19,8 @@ var MooRainbow = new Class({
 		startColor: [255, 0, 0],
 		wheel: false,
 		onComplete: Class.empty,
-		onChange: Class.empty
+		onChange: Class.empty,
+		selectText: 'Select'
 	},
 	
 	initialize: function(el, options) {
@@ -54,7 +56,7 @@ var MooRainbow = new Class({
 		this.pickerPos.y = this.snippet('curPos').t + this.snippet('curSize', 'int').h;
 		this.sliderPos = this.snippet('arrPos') - this.snippet('arrSize', 'int');
 
-		if (window.khtml) this.hide();
+		if (Browser.Engine.webkit) this.hide();
 	},
 	
 	toggle: function() {
@@ -154,19 +156,21 @@ var MooRainbow = new Class({
 		var lim, curH, curW, inputs;
 		curH = this.snippet('curSize', 'int').h;
 		curW = this.snippet('curSize', 'int').w;
-		inputs = this.arrRGB.copy().concat(this.arrHSB, this.hexInput);
+		inputs = $A(this.arrRGB).concat(this.arrHSB, this.hexInput);
 
 		document.addEvent('click', function() { 
 			if(this.visible) this.hide(this.layout); 
 		}.bind(this));
 
 		inputs.each(function(el) {
-			el.addEvent('keydown', this.eventKeydown.bindWithEvent(this, el));
-			el.addEvent('keyup', this.eventKeyup.bindWithEvent(this, el));
+			if(el) {
+				el.addEvent('keydown', this.eventKeydown.bindWithEvent(this, el));
+				el.addEvent('keyup', this.eventKeyup.bindWithEvent(this, el));
+			}
 		}, this);
 		[this.element, this.layout].each(function(el) {
 			el.addEvents({
-				'click': function(e) { new Event(e).stop(); },
+				'click': function(e) { new Event(e).stop();},
 				'keyup': function(e) {
 					e = new Event(e);
 					if(e.key == 'esc' && this.visible) this.hide(this.layout);
@@ -179,7 +183,7 @@ var MooRainbow = new Class({
 			y: [0 - curH, (this.layout.overlay.height - curH)]
 		};
 
-		this.layout.drag = new Drag.Base(this.layout.cursor, {
+		this.layout.drag = new Drag(this.layout.cursor, {
 			limit: lim,
 			onStart: this.overlayDrag.bind(this),
 			onDrag: this.overlayDrag.bind(this),
@@ -189,9 +193,10 @@ var MooRainbow = new Class({
 		this.layout.overlay2.addEvent('mousedown', function(e){
 			e = new Event(e);
 			this.layout.cursor.setStyles({
-				'top': e.page.y - this.layout.overlay.getTop() - curH,
-				'left': e.page.x - this.layout.overlay.getLeft() - curW
+				'top': e.page.y - this.layout.overlay.getPosition().y - curH,
+				'left': e.page.x - this.layout.overlay.getPosition().x - curW
 			});
+			this.overlayDrag();
 			this.layout.drag.start(e);
 		}.bind(this));
 		
@@ -223,7 +228,7 @@ var MooRainbow = new Class({
 		var arwH = this.snippet('arrSize', 'int'), lim;
 
 		lim = [0 + this.snippet('slider') - arwH, this.layout.slider.height - arwH + this.snippet('slider')];
-		this.layout.sliderDrag = new Drag.Base(this.layout.arrows, {
+		this.layout.sliderDrag = new Drag(this.layout.arrows, {
 			limit: {y: lim},
 			modifiers: {x: false},
 			onStart: this.sliderDrag.bind(this),
@@ -235,8 +240,9 @@ var MooRainbow = new Class({
 			e = new Event(e);
 
 			this.layout.arrows.setStyle(
-				'top', e.page.y - this.layout.slider.getTop() + this.snippet('slider') - arwH
+				'top', e.page.y - this.layout.slider.getPosition().y + this.snippet('slider') - arwH
 			);
+			this.sliderDrag();
 			this.layout.sliderDrag.start(e);
 		}.bind(this));
 	},
@@ -259,7 +265,7 @@ var MooRainbow = new Class({
 	},
 	
 	wheelEvents: function() {
-		var arrColors = this.arrRGB.copy().extend(this.arrHSB);
+		var arrColors = $A(this.arrRGB).extend(this.arrHSB);
 
 		arrColors.each(function(el) {
 			el.addEvents({
@@ -277,22 +283,22 @@ var MooRainbow = new Class({
 	},
 	
 	eventKeys: function(e, el, id) {
-		var wheel, type;		
+		var wheel, type;
 		id = (!id) ? el.id : this.arrHSB[0];
 
 		if (e.type == 'keydown') {
 			if (e.key == 'up') wheel = 1;
 			else if (e.key == 'down') wheel = -1;
 			else return;
-		} else if (e.type == Element.Events.mousewheel.type) wheel = (e.wheel > 0) ? 1 : -1;
-
-		if (this.arrRGB.test(el)) type = 'rgb';
-		else if (this.arrHSB.test(el)) type = 'hsb';
+		} else if (e.type == Element.Events.mousewheel.base) wheel = (e.wheel > 0) ? 1 : -1;
+		
+		if (this.arrRGB.contains(el)) type = 'rgb';
+		else if (this.arrHSB.contains(el)) type = 'hsb';
 		else type = 'hsb';
 
 		if (type == 'rgb') {
 			var rgb = this.sets.rgb, hsb = this.sets.hsb, prefix = this.options.prefix, pass;
-			var value = el.value.toInt() + wheel;
+			var value = (el.value.toInt() || 0) + wheel;
 			value = (value > 255) ? 255 : (value < 0) ? 0 : value;
 
 			switch(el.className) {
@@ -305,17 +311,18 @@ var MooRainbow = new Class({
 			this.fireEvent('onChange', [this.sets, this]);
 		} else {
 			var rgb = this.sets.rgb, hsb = this.sets.hsb, prefix = this.options.prefix, pass;
-			var value = el.value.toInt() + wheel;
+			var value = (el.value.toInt() || 0) + wheel;
 
 			if (el.className.test(/(HueInput)/)) value = (value > 359) ? 0 : (value < 0) ? 0 : value;
 			else value = (value > 100) ? 100 : (value < 0) ? 0 : value;
-
+			
 			switch(el.className) {
 				case prefix + 'HueInput': pass = [value, hsb[1], hsb[2]]; break;
 				case prefix + 'SatuInput': pass = [hsb[0], value, hsb[2]]; break;
 				case prefix + 'BrighInput':	pass = [hsb[0], hsb[1], value]; break;
 				default : pass = hsb;
 			}
+			
 			this.manualSet(pass, 'hsb');
 			this.fireEvent('onChange', [this.sets, this]);
 		}
@@ -338,7 +345,7 @@ var MooRainbow = new Class({
 			if (chr != "#" && el.value.length != 6) return;
 			if (chr == '#' && el.value.length != 7) return;
 		} else {
-			if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].test(k)) && el.value.length > 3) return;
+			if (!(n >= 48 && n <= 57) && (!['backspace', 'tab', 'delete', 'left', 'right'].contains(k)) && el.value.length > 3) return;
 		}
 		
 		prefix = this.options.prefix;
@@ -416,7 +423,7 @@ var MooRainbow = new Class({
 			'class': prefix + 'overlay'
 		}).inject(div);
 		
-		if (window.ie6) {
+		if (Browser.Engine.trident4) {
 			div.setStyle('overflow', '');
 			var src = ov.src;
 			ov.src = this.options.imgPath + 'blank.gif';
@@ -460,9 +467,9 @@ var MooRainbow = new Class({
 		}).inject(box);
 		
 		var R = new Element('label').inject(box).setStyle('position', 'absolute');
-		var G = R.clone().inject(box).addClass(prefix + 'gLabel').appendText('G: ');
-		var B = R.clone().inject(box).addClass(prefix + 'bLabel').appendText('B: ');
-		R.appendText('R: ').addClass(prefix + 'rLabel');
+		var G = R.clone().inject(box).addClass(prefix + 'gLabel').set('html', 'G: ');
+		var B = R.clone().inject(box).addClass(prefix + 'bLabel').set('html', 'B: ');
+		R.set('html', 'R: ').addClass(prefix + 'rLabel');
 		
 		var inputR = new Element('input');
 		var inputG = inputR.clone().inject(G).addClass(prefix + 'gInput');
@@ -470,23 +477,25 @@ var MooRainbow = new Class({
 		inputR.inject(R).addClass(prefix + 'rInput');
 		
 		var HU = new Element('label').inject(box).setStyle('position', 'absolute');
-		var SA = HU.clone().inject(box).addClass(prefix + 'SatuLabel').appendText('S: ');
-		var BR = HU.clone().inject(box).addClass(prefix + 'BrighLabel').appendText('B: ');
-		HU.appendText('H: ').addClass(prefix + 'HueLabel');
+		var SA = HU.clone().inject(box).addClass(prefix + 'SatuLabel').set('html', 'S: ');
+		var BR = HU.clone().inject(box).addClass(prefix + 'BrighLabel').set('html', 'B: ');
+		HU.set('html', 'H: ').addClass(prefix + 'HueLabel');
 
 		var inputHU = new Element('input');
 		var inputSA = inputHU.clone().inject(SA).addClass(prefix + 'SatuInput');
 		var inputBR = inputHU.clone().inject(BR).addClass(prefix + 'BrighInput');
 		inputHU.inject(HU).addClass(prefix + 'HueInput');
-		SA.appendText(' %'); BR.appendText(' %');
-		new Element('span', {'styles': {'position': 'absolute'}, 'class': prefix + 'ballino'}).setHTML(" &deg;").injectAfter(HU);
+		SA.innerHTML += " %"; BR.innerHTML += " %";
+		SP = new Element('span', {'styles': {'position': 'absolute'}, 'class': prefix + 'ballino'})
+		SP.innerHTML = " &deg;"
+		SP.inject(HU,'after');
 
-		var hex = new Element('label').inject(box).setStyle('position', 'absolute').addClass(prefix + 'hexLabel').appendText('#hex: ').adopt(new Element('input').addClass(prefix + 'hexInput'));
+		var hex = new Element('label').inject(box).setStyle('position', 'absolute').addClass(prefix + 'hexLabel').set('html', '#hex: ').adopt(new Element('input').addClass(prefix + 'hexInput'));
 		
 		var ok = new Element('input', {
 			'styles': {'position': 'absolute'},
 			'type': 'button',
-			'value': 'Select',
+			'value': this.options.selectText,
 			'class': prefix + 'okButton'
 		}).inject(box);
 		
@@ -511,7 +520,7 @@ var MooRainbow = new Class({
 		this.arrHSB = [this.HueInput, this.SatuInput, this.BrighInput];
 		this.okButton = $E('#' + idPrefix + 'okButton');
 		
-		if (!window.khtml) this.hide();
+		if (!Browser.Engine.webkit419) this.hide();
 	},
 	rePosition: function() {
 		var coords = this.element.getCoordinates();
@@ -553,6 +562,3 @@ var MooRainbow = new Class({
 		return size;
 	}
 });
-
-MooRainbow.implement(new Options);
-MooRainbow.implement(new Events);
