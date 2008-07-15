@@ -637,7 +637,10 @@ unset($default_server);
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
-if (isset($_REQUEST['custom_color'])) {
+if (isset($_REQUEST['custom_color_reset'])) {
+    unset($_SESSION['userconf']['custom_color']);
+    unset($_SESSION['userconf']['custom_color_rgb']);
+} elseif (isset($_REQUEST['custom_color'])) {
     $_SESSION['userconf']['custom_color'] = $_REQUEST['custom_color'];
     $_SESSION['userconf']['custom_color_rgb'] = $_REQUEST['custom_color_rgb'];
 }

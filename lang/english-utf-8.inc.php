@@ -185,6 +185,7 @@ $strCreationDates = 'Creation/Update/Check dates';
 $strCriteria = 'Criteria';
 $strCroatian = 'Croatian';
 $strCSV = 'CSV';
+$strCustomColor = 'Custom color';
 $strCyrillic = 'Cyrillic';
 $strCzech = 'Czech';
 $strCzechSlovak = 'Czech-Slovak';

@@ -1100,4 +1100,5 @@ $strAsDefined = 'As defined:';  //to translate
 $strWiki = 'Wiki';  //to translate
 $strWebServer = 'Web server';  //to translate
 $strPHPExtension = 'PHP extension';  //to translate
+$strCustomColor = 'Custom color';  //to translate
 ?>

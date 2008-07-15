@@ -147,13 +147,16 @@ if (empty($cfg['Lang'])) {
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme">';
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
-    /*
+    echo '</li>';
+    echo '<li id="li_custom_color">';
+    echo $strCustomColor . ': ';
     echo '<img id="myRainbow" src="js/mooRainbow/images/rainbow.png" alt="[r]" width="16" height="16" />';
     echo '<form name="rainbowform" id="rainbowform" method="post" action="index.php" target="_parent">';
     echo PMA_generate_common_hidden_inputs();
     echo '<input type="hidden" name="custom_color" />';
     echo '<input type="hidden" name="custom_color_rgb" />';
-    echo '</form>';*/
+    echo '<input type="submit" name="custom_color_reset" value="' . $strReset . '" />';
+    echo '</form>';
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';

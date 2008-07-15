@@ -7,7 +7,7 @@
  * @infos		http://moorainbow.woolly-sheep.net
  * @copyright	Author
  * 
- *
+ * includes a fix for mootools 1.2 by Piotr Przybylski
  */
 
 var MooRainbow = new Class({
@@ -447,7 +447,7 @@ var MooRainbow = new Class({
 			'src': this.options.imgPath + 'moor_slider.png',
 			'class': prefix + 'slider'
 		}).inject(box);
-		this.layout.slider = $E('#' + idPrefix + 'slider');
+		this.layout.slider = sl;
 		sl.width = sl.getStyle('width').toInt();
 		sl.height = sl.getStyle('height').toInt();
 
@@ -501,24 +501,23 @@ var MooRainbow = new Class({
 		
 		this.rePosition();
 
-		var overlays = $$('#' + idPrefix + 'overlay');
+		var overlays = $$('#' + id + ' .' + prefix + 'overlay');
 		this.layout.overlay = overlays[0];
 		this.layout.overlay2 = overlays[1];
-		this.layout.cursor = $E('#' + idPrefix + 'cursor');
-		this.layout.arrows = $E('#' + idPrefix + 'arrows');
-		this.chooseColor = $E('#' + idPrefix + 'chooseColor');
-		this.layout.backup = $E('#' + idPrefix + 'currentColor');
-		this.RedInput = $E('#' + idPrefix + 'rInput');
-		this.GreenInput = $E('#' + idPrefix + 'gInput');
-		this.BlueInput = $E('#' + idPrefix + 'bInput');
-		this.HueInput = $E('#' + idPrefix + 'HueInput');
-		this.SatuInput = $E('#' + idPrefix + 'SatuInput');
-		this.BrighInput = $E('#' + idPrefix + 'BrighInput');
-		this.hexInput = $E('#' + idPrefix + 'hexInput');
+		this.layout.cursor = cr;
+		this.layout.arrows = ar;
+		this.chooseColor = this.layout.getElement('.' + prefix + 'chooseColor');
+		this.RedInput = inputR;
+		this.GreenInput = inputG;
+		this.BlueInput = inputB;
+		this.HueInput = inputHU;
+		this.SatuInput = this.layout.getElement('.' + prefix + 'SatuInput');
+		this.BrighInput = this.layout.getElement('.' + prefix + 'BrighInput');
+		this.hexInput = this.layout.getElement('.' + prefix + 'hexInput');;
 
 		this.arrRGB = [this.RedInput, this.GreenInput, this.BlueInput];
 		this.arrHSB = [this.HueInput, this.SatuInput, this.BrighInput];
-		this.okButton = $E('#' + idPrefix + 'okButton');
+		this.okButton = ok;
 		
 		if (!Browser.Engine.webkit419) this.hide();
 	},
