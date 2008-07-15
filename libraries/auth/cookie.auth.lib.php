@@ -67,7 +67,6 @@ if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
  * @uses    PMA_sendHeaderLocation()
  * @uses    PMA_select_language()
  * @uses    PMA_select_server()
- * @uses    PMA_VERSION
  * @uses    file_exists()
  * @uses    sprintf()
  * @uses    count()
@@ -106,8 +105,8 @@ function PMA_auth()
     // Defines the "item" image depending on text direction
     $item_img = $GLOBALS['pmaThemeImage'] . 'item_' . $GLOBALS['text_dir'] . '.png';
 
-    /* HTML header */
-    $page_title = 'phpMyAdmin ' . PMA_VERSION;
+    /* HTML header; do not show here the PMA version to improve security  */
+    $page_title = 'phpMyAdmin ';
     require './libraries/header_meta_style.inc.php';
     ?>
 <script type="text/javascript">
