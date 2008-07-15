@@ -12,7 +12,7 @@ require_once './libraries/common.inc.php';
 $js_to_run = 'functions.js';
 require_once './libraries/mysql_charsets.lib.php';
 
-PMA_checkParameters(array('db'));
+PMA_checkParameters(array('new_db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -22,7 +22,7 @@ $err_url = 'main.php?' . PMA_generate_common_url();
 /**
  * Builds and executes the db creation sql query
  */
-$sql_query = 'CREATE DATABASE ' . PMA_backquote($db);
+$sql_query = 'CREATE DATABASE ' . PMA_backquote($new_db);
 if (!empty($db_collation) && PMA_MYSQL_INT_VERSION >= 40101) {
     list($db_charset) = explode('_', $db_collation);
     if (in_array($db_charset, $mysql_charsets) && in_array($db_collation, $mysql_collations[$db_charset])) {
@@ -42,7 +42,8 @@ if (! $result) {
     require_once './libraries/header.inc.php';
     require_once './main.php';
 } else {
-    $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
+    $message = $strDatabase . ' ' . htmlspecialchars($new_db) . ' ' . $strHasBeenCreated;
+    $GLOBALS['db'] = $new_db;
     require_once './libraries/header.inc.php';
     require_once './' . $cfg['DefaultTabDatabase'];
 }
