@@ -6,7 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 2.11.7.1 (2008-07-15)
-- bug #1908719 [security] XSRF/CSRF by manipulating the db,
+- bug [security] XSRF/CSRF by manipulating the db,
   convcharset and collation_connection parameters,
   thanks to YGN Ethical Hacker Group
 
