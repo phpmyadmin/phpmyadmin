@@ -2764,7 +2764,8 @@ SetInputFilter PHP
     <a href="#faq1_34">1.34 Can I access directly to database or table pages?</a></h4>
 
 <p> Yes. Out of the box, you can use <abbr title="Uniform Resource Locator">URL</abbr>s like
-    http://server/phpMyAdmin/index.php?db=database&amp;table=table&amp;target=script.
+http://server/phpMyAdmin/index.php?server=X&amp;db=database&amp;table=table&amp;target=script. For <tt>server</tt> you use the server number which refers to
+the order of the server paragraph in <tt>config.inc.php</tt>.
     Table and script parts are optional. If you want
     http://server/phpMyAdmin/database[/table][/script] <abbr title="Uniform Resource Locator">URL</abbr>s, you need to do
     some configuration. Following lines apply only for <a

@@ -106,7 +106,8 @@ if (window.parent.setAll) {
         echo PMA_escapeJsString($GLOBALS['collation_connection']) . "', '";
         echo PMA_escapeJsString($GLOBALS['server']) . "', '";
         echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "', '";
-        echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')); ?>');
+        echo PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "', '";
+        echo PMA_escapeJsString($_SESSION[' PMA_token ']);?>');
 }
     <?php
     if (! empty($GLOBALS['reload'])) {

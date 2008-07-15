@@ -124,6 +124,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var server = '<?php echo PMA_escapeJsString($GLOBALS['server']); ?>';
     var table = '<?php echo PMA_escapeJsString($GLOBALS['table']); ?>';
     var db    = '<?php echo PMA_escapeJsString($GLOBALS['db']); ?>';
+    var token = '<?php echo PMA_escapeJsString($_SESSION[' PMA_token ']); ?>';
     var text_dir = '<?php echo PMA_escapeJsString($GLOBALS['text_dir']); ?>';
     var pma_absolute_uri = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['PmaAbsoluteUri']); ?>';
 

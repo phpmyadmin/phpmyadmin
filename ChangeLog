@@ -89,6 +89,11 @@ danbarry
 - bug [history] Do not save too big queries in history
 - [security] Do not show version info on login screen
 
+2.11.7.1 (2008-07-15)
+- bug [security] XSRF/CSRF by manipulating the db,
+  convcharset and collation_connection parameters,
+  thanks to YGN Ethical Hacker Group
+
 2.11.7.0 (2008-06-23)
 - bug #1908719 [interface] New field cannot be auto-increment and primary key
 - [dbi] Incorrect interpretation for some mysqli field flags
@@ -279,7 +284,6 @@ danbarry
 - bug #1810629 [setup] XSS in setup.php, thanks to Omer Singer, The DigiTrust Group
 
 2.11.1.0 (2007-09-20)
-
 - bug #1783667 [export] NO_AUTO_VALUE_ON_ZERO and MySQL version
 - bug #1780098 [GUI] Logout causes CSS loss, thanks to Juergen Wind
 . incorrect field ids, thanks to Michael Keck
@@ -298,7 +302,6 @@ danbarry
 - bug #1798627 [GUI] Wrong storage engine displayed
 
 2.11.0.0 (2007-08-21)
-
 + [import] support handling of DELIMITER to mimic mysql CLI, thanks to fb1
 + improved PHP 6 compatibility
 - bug #1674914 [structure] changing definition of a TIMESTAMP field
@@ -397,7 +400,6 @@ danbarry
 - bug #1771721 Old SVN URLs
 
 2.10.3.0 (2007-07-20)
-
 - bug #1734285 Copy database with VIEWs
 - bug #1722502 DROP TABLE in export VIEW
 - bug #1729027 Sorting results of VIEW browsing
@@ -411,7 +413,6 @@ danbarry
 - Do not try to delete an internal relation if we just deleted an InnoDB one
 
 2.10.2.0 (2007-06-15)
-
 + [data] display all warnings, not only last one
 - typo in fix for bug #1671813
 - bug #1714908 Inserted Row Count is wrong
@@ -434,8 +435,6 @@ danbarry
 - patch #1731280 Avoid negative exponent in gmp_pow(), thanks to anosek
 
 2.10.1.0 (2007-04-23)
-=====================
-
 - bug #1541147 [js] '#' in database names not correctly handled by queywindow.js
 - bug #1671403 [parser] using "client" as table name
 - bug #1672379 [core] Call to undefined function PMA_removeCookie()
@@ -468,19 +467,13 @@ danbarry
 - bug #1704467 XSS vulnerability in browse_foreigners.php, thanks to sp3x SecurityReason
 
 2.10.0.2 (2007-03-02)
-=====================
-
 + bug #1671813 CVE-2006-1549 deep recursion crash
 
 2.10.0.1 (2007-03-01)
-=====================
-
 . [config] set $cfg['Servers'][$i]['ssl'] default value to false,
    we got reports from some users having problems with the default value of true
 
 2.10.0.0 (2007-02-28)
-=====================
-
 - bug #1659176 [general] memory error displaying a table with large BLOBs
 - bug #1668662 [install] can create the new pma_designer_coords table
 + [gui] navi logo now links to main page by default, with still the possibility

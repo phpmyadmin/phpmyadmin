@@ -147,6 +147,7 @@ function setTable(new_table) {
  *
  * @uses     goTo()
  * @uses     opendb_url
+ * @uses     token
  * @uses     db
  * @uses     server
  * @uses     table
@@ -165,6 +166,7 @@ function refreshMain(url) {
     }
     //alert(db);
     goTo(url + '?server=' + encodeURIComponent(server) +
+        '&token=' + encodeURIComponent(token) +
         '&db=' + encodeURIComponent(db) +
         '&table=' + encodeURIComponent(table) +
         '&lang=' + encodeURIComponent(lang) +
@@ -176,6 +178,7 @@ function refreshMain(url) {
  * reloads navigation frame
  *
  * @uses     goTo()
+ * @uses     token
  * @uses     db
  * @uses     server
  * @uses     table
@@ -185,6 +188,7 @@ function refreshMain(url) {
  */
 function refreshNavigation() {
     goTo('navigation.php?server=' + encodeURIComponent(server) +
+        '&token=' + encodeURIComponent(token)  +
         '&db=' + encodeURIComponent(db)  +
         '&table=' + encodeURIComponent(table) +
         '&lang=' + encodeURIComponent(lang) +
@@ -258,8 +262,8 @@ function markDbTable(db, table)
 /**
  * sets current selected server, table and db (called from libraries/footer.inc.php)
  */
-function setAll( new_lang, new_collation_connection, new_server, new_db, new_table ) {
-    //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ' )');
+function setAll( new_lang, new_collation_connection, new_server, new_db, new_table, new_token ) {
+    //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ', ' + new_token + ' )');
     if (new_server != server || new_lang != lang
       || new_collation_connection != collation_connection) {
         // something important has changed
@@ -268,6 +272,7 @@ function setAll( new_lang, new_collation_connection, new_server, new_db, new_tab
         table  = new_table;
         collation_connection  = new_collation_connection;
         lang  = new_lang;
+        token  = new_token;
         refreshNavigation();
     } else if (new_db != db || new_table != table) {
         // save new db and table
