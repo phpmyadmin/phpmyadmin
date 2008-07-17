@@ -22,6 +22,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1982489 [relation] Relationship view should check for changes 
 - bug [history] Do not save too big queries in history 
 - [security] Do not show version info on login screen 
+- bug #2018595 [import] Potential data loss on import resubmit 
 
 2.11.7.1 (2008-07-15)
 - bug [security] XSRF/CSRF by manipulating the db,
