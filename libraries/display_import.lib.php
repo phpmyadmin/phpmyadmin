@@ -144,10 +144,23 @@ echo "\n";
         <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
         </div>
 
+        <?php
+        if (! (isset($timeout_passed) && $timeout_passed)) {
+        ?>
         <div class="formelementrow">
         <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
         <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
+        <?php
+        } else {
+        // If timeout has passed,
+        // do not show the Skip dialog to avoid the risk of someone
+        // entering a value here that would interfere with "skip"
+        ?>
+        <input type="hidden" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
+        <?php
+        }
+        ?>
     </fieldset>
 
     <fieldset class="options">
