@@ -89,6 +89,8 @@ danbarry
 - bug [history] Do not save too big queries in history
 - [security] Do not show version info on login screen
 - bug #2018595 [import] Potential data loss on import resubmit 
+- patch #2020630 [export] Safari and timedate, thanks to Sebastian Mendel,
+  Isaac Bennetch and Jürgen Wind 
 
 2.11.7.1 (2008-07-15)
 - bug [security] XSRF/CSRF by manipulating the db,
