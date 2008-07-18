@@ -363,6 +363,11 @@ if (!$save_on_server) {
             header('Pragma: public');
         } else {
             header('Pragma: no-cache');
+            // test case: exporting a database into a .gz file with Safari
+            // would produce files not having the current time 
+            if ('SAFARI' == PMA_USR_BROWSER_AGENT) {
+                header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+            } 
         }
     } else {
         // HTML
