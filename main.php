@@ -149,16 +149,22 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme">';
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
-    echo '<li id="li_custom_color">';
-    echo $strCustomColor . ': ';
-    echo '<img id="myRainbow" src="js/mooRainbow/images/rainbow.png" alt="[r]" width="16" height="16" />';
-    echo '<form name="rainbowform" id="rainbowform" method="post" action="index.php" target="_parent">';
-    echo PMA_generate_common_hidden_inputs();
-    echo '<input type="hidden" name="custom_color" />';
-    echo '<input type="hidden" name="custom_color_rgb" />';
-    echo '<input type="submit" name="custom_color_reset" value="' . $strReset . '" />';
-    echo '</form>';
-    echo '</li>';
+?>
+    <script type="text/javascript">
+    //<![CDATA[
+    document.write('<li id="li_custom_color">');
+    document.write('<?php echo $strCustomColor . ': '; ?>');
+    document.write('<img id="myRainbow" src="js/mooRainbow/images/rainbow.png" alt="[r]" width="16" height="16" />');
+    document.write('<form name="rainbowform" id="rainbowform" method="post" action="index.php" target="_parent">');
+    document.write('<?php echo PMA_generate_common_hidden_inputs(); ?>');
+    document.write('<input type="hidden" name="custom_color" />');
+    document.write('<input type="hidden" name="custom_color_rgb" />');
+    document.write('<input type="submit" name="custom_color_reset" value="<?php echo $strReset; ?>" />');
+    document.write('</form>');
+    document.write('</li>');
+    //]]>
+    </script>
+    <?php
 }
 echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();

@@ -124,8 +124,11 @@ function PMA_getHiddenFields($values, $pre = '')
         if (is_array($value)) {
             $fields .= PMA_getHiddenFields($value, $name);
         } else {
+            // do not generate an ending "\n" because 
+            // PMA_generate_common_hidden_inputs() is sometimes called
+            // from a JS document.write()
             $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
-                . '" value="' . htmlspecialchars($value) . '" />' . "\n";
+                . '" value="' . htmlspecialchars($value) . '" />';
         }
     }
 
