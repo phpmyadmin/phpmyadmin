@@ -46,6 +46,10 @@ if ($GLOBALS['text_dir'] == 'ltr') {
     }
 ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : ''; ?>phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=<?php echo isset($print_view) ? 'print' : 'right'; ?>&amp;nocache=<?php echo $_SESSION['PMA_Config']->getThemeUniqueValue(); ?>" />
+<?php if (defined('PMA_MOORAINBOW')) { ?>
     <link rel="stylesheet" type="text/css" href="js/mooRainbow/mooRainbow.css" />
+<?php
+      }
+?>
     <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : ''; ?>print.css" media="print" />
     <meta name="robots" content="noindex,nofollow" />

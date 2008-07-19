@@ -8,6 +8,7 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
+define('PMA_MOORAINBOW', true);
 require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'mootools.js';
 $GLOBALS['js_include'][] = 'mooRainbow/mooRainbow.js';
