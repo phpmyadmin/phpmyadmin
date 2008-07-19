@@ -86,7 +86,7 @@ button {
 
 div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
-    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : '#D0CDE0'); ?>;
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     padding:.3em;
 }
 div#pmalogo,
