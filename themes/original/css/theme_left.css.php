@@ -78,7 +78,8 @@ button {
 /* specific elements */
 
 div#pmalogo {
-    background-color: #D0DCE0<?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     padding:.3em;
 }
 div#pmalogo,
