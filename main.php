@@ -28,33 +28,35 @@ if (! empty($message)) {
 
 $common_url_query =  PMA_generate_common_url('', '');
 
+// when $server > 0, a server has been chosen so we can display
+// all MySQL-related information
 if ($server > 0) {
     require './libraries/server_common.inc.php';
     require './libraries/StorageEngine.class.php';
     require './libraries/server_links.inc.php';
-}
 
-// robbat2: Use the verbose name of the server instead of the hostname
-//          if a value is set
-$server_info = '';
-if (! empty($cfg['Server']['verbose'])) {
-    $server_info .= htmlspecialchars($cfg['Server']['verbose']);
-    if ($GLOBALS['cfg']['ShowServerInfo']) {
-        $server_info .= ' (';
+    // Use the verbose name of the server instead of the hostname
+    // if a value is set
+    $server_info = '';
+    if (! empty($cfg['Server']['verbose'])) {
+        $server_info .= htmlspecialchars($cfg['Server']['verbose']);
+        if ($GLOBALS['cfg']['ShowServerInfo']) {
+            $server_info .= ' (';
+        }
     }
-}
-if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-    $server_info .= PMA_DBI_get_host_info();
-}
-if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
+    if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
+        $server_info .= PMA_DBI_get_host_info();
+    }
+    if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
     $server_info .= ')';
-}
-$mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+    }
+    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
 
-// should we add the port info here?
-$short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+    // should we add the port info here?
+    $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
                     ? $GLOBALS['cfg']['Server']['verbose']
                     : $GLOBALS['cfg']['Server']['host']);
+}
 
 echo '<div id="maincontainer">' . "\n";
 echo '<div id="main_pane_left">';
@@ -203,11 +205,12 @@ if ($server > 0) {
 }
 
 
+echo '<div class="group">';
+echo '<h2>' . $strWebServer . '</h2>';
+echo '<ul>';
+PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
+
 if ($server > 0) {
-    echo '<div class="group">';
-    echo '<h2>' . $strWebServer . '</h2>';
-    echo '<ul>';
-    PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
     PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
         'li_mysql_client_version');
     PMA_printListItem($strPHPExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
