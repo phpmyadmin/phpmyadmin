@@ -17,6 +17,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/relation.lib.php'; // foreign keys
 require_once './libraries/mysql_charsets.lib.php';
 
+$GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'mootools.js';
 
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
@@ -140,9 +141,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     <tbody>
     <?php
     $odd_row = true;
-?>
-<script type="text/javascript" src="./js/tbl_change.js"></script>
-<?php
+
     for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
