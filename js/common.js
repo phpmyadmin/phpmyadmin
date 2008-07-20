@@ -16,7 +16,7 @@ var querywindow = '';
 var query_to_load = '';
 
 /**
- * attach a function to opbject event
+ * attach a function to object event
  *
  * <code>
  * addEvent(window, 'load', PMA_initPage);
@@ -143,7 +143,7 @@ function setTable(new_table) {
 }
 
 /**
- * reloads mian frame
+ * reloads main frame
  *
  * @uses     goTo()
  * @uses     opendb_url
@@ -392,7 +392,7 @@ function refreshQuerywindow( url ) {
 }
 
 /**
- * opens new url in target frame, with default beeing left frame
+ * opens new url in target frame, with default being left frame
  * valid is 'main' and 'querywindow' all others leads to 'left'
  *
  * @param    string    targeturl    new url to load
