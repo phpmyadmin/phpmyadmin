@@ -255,7 +255,14 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 <?php
     PMA_generate_slider_effect('searchoptions', $strOptions);
 ?>
-<div id="searchoptions">
+    <script type="text/javascript">
+    //<![CDATA[
+    document.write('<div id="searchoptions" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none;"' : ''; ?>>');
+    //]]>
+    </script>
+    <noscript>
+    <div id="searchoptions">
+    </noscript>
 
 <fieldset id="fieldset_select_fields">
     <legend><?php echo $strSelectFields; ?></legend>

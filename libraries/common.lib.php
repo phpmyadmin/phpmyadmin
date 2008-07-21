@@ -2375,6 +2375,7 @@ window.addEvent('domready', function(){
         <?php
     }
     ?>
+    $('<?php echo $id; ?>').style.display="block";
 });
 // ]]>
 </script>
