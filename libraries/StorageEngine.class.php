@@ -91,6 +91,12 @@ class PMA_StorageEngine
               && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
                 continue;
             }
+            // currently (MySQL 5.1.26) there is no way we can be informed
+            // that MyBS does not support normal table creation so
+            // we use an exception here
+            if ('MyBS' == $details['Engine']) {
+                continue;
+            }
             $output .= '    <option value="' . htmlspecialchars($key). '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
