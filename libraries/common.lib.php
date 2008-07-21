@@ -2344,6 +2344,9 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice)
 
 /**
  * Generates a slider effect (Mootools)
+ * Takes care of generating the initial <div> and the link
+ * controlling the slider; you have to generate the </div> yourself
+ * after the sliding section.
  *
  * @uses    $GLOBALS['cfg']['InitialSlidersState']
  * @param   string  $id the id of the <div> on which to apply the effect
