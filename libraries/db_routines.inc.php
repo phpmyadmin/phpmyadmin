@@ -24,7 +24,6 @@ $routines = PMA_DBI_fetch_result('SELECT SPECIFIC_NAME,ROUTINE_NAME,ROUTINE_TYPE
 
 if ($routines) {
     PMA_generate_slider_effect('routines', $strRoutines);
-    echo '<div id="routines">' . "\n";
     echo '<fieldset>' . "\n";
     echo ' <legend>' . $strRoutines . '</legend>' . "\n";
     echo '<table border="0">';

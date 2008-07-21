@@ -2377,8 +2377,12 @@ window.addEvent('domready', function(){
     ?>
     $('<?php echo $id; ?>').style.display="block";
 });
-// ]]>
-</script>
+    document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none;"' : ''; ?>>');
+    //]]>
+    </script>
+    <noscript>
+    <div id="<?php echo $id; ?>">
+    </noscript>
     <?php
 }
 

@@ -552,7 +552,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo PMA_generate_common_hidden_inputs($url_params);
         echo '<br />';
         PMA_generate_slider_effect('displayoptions',$GLOBALS['strOptions']);
-        echo '<div id="displayoptions">';
         echo '<fieldset>';
 
         echo '<div class="formelement">';

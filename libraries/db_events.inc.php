@@ -14,7 +14,6 @@ $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_s
 
 if ($events) {
     PMA_generate_slider_effect('events', $strEvents);
-    echo '<div id="events">' . "\n";
     echo '<fieldset>' . "\n";
     echo ' <legend>' . $strEvents . '</legend>' . "\n";
     echo '<table border="0">';

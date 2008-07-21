@@ -547,7 +547,7 @@ if ($fields_cnt > 20) {
  * Displays indexes
  */
 PMA_generate_slider_effect('tablestatistics_indexes', $strDetails);
-echo '<div id="tablestatistics_indexes">' . "\n";
+
 if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     /**
      * Display indexes
