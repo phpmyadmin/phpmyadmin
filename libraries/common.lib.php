@@ -2358,6 +2358,11 @@ function PMA_generate_slider_effect($id, $message)
 <script type="text/javascript">
 // <![CDATA[
 window.addEvent('domready', function(){
+    var status = {
+        'true': '- ',
+        'false': '+ '
+    };
+
     var anchor<?php echo $id; ?> = new Element('a', {
         'id': 'toggle_<?php echo $id; ?>',
         'href': '#',
@@ -2367,8 +2372,15 @@ window.addEvent('domready', function(){
             }
         }
     });
+
     anchor<?php echo $id; ?>.appendText('<?php echo $message; ?>');
     anchor<?php echo $id; ?>.injectBefore('<?php echo $id; ?>');
+
+    var slider_status<?php echo $id; ?> = new Element('span', {
+        'id': 'slider_status_<?php echo $id; ?>'
+    });
+    slider_status<?php echo $id; ?>.appendText('<?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? '+' : '-';?> ');
+    slider_status<?php echo $id; ?>.injectBefore('toggle_<?php echo $id; ?>');
 
     var mySlide<?php echo $id; ?> = new Fx.Slide('<?php echo $id; ?>');
     <?php
@@ -2378,6 +2390,10 @@ window.addEvent('domready', function(){
         <?php
     }
     ?>
+    mySlide<?php echo $id; ?>.addEvent('complete', function() {
+                $('slider_status_<?php echo $id; ?>').set('html', status[mySlide<?php echo $id; ?>.open]);
+                    });
+
     $('<?php echo $id; ?>').style.display="block";
 });
     document.write('<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none;"' : ''; ?>>');
