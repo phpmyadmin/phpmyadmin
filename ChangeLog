@@ -67,6 +67,7 @@ danbarry
 - bug #1970836 [parser] SQL parser is slow, thanks to Christian Schmidt 
 + rfe #1692928 [transformation] Option to disable browser transformations 
 + [import] Speed optimization to be able to import the sakila database
++ [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 
