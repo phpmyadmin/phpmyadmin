@@ -27,7 +27,11 @@ function PMA_getPlugins($plugins_dir, $plugin_param)
     if ($handle = @opendir($plugins_dir)) {
         $is_first = 0;
         while ($file = @readdir($handle)) {
-            if (is_file($plugins_dir . $file) && eregi('\.php$', $file)) {
+            // In some situations, Mac OS creates a new file for each file
+            // (for example ._csv.php) so the following regexp
+            // matches a file which does not start with a dot but ends
+            // with ".php"
+            if (is_file($plugins_dir . $file) && preg_match('@^[^\.](.)*\.php$@i', $file)) {
                 include $plugins_dir . $file;
             }
         }
