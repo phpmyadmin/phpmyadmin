@@ -92,6 +92,7 @@ danbarry
 - bug #2018595 [import] Potential data loss on import resubmit 
 - patch #2020630 [export] Safari and timedate, thanks to Sebastian Mendel,
   Isaac Bennetch and Jürgen Wind 
+- bug #2022182 [import, export] Import/Export fails because of Mac files
 
 2.11.7.1 (2008-07-15)
 - bug [security] XSRF/CSRF by manipulating the db,
