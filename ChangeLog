@@ -95,6 +95,7 @@ danbarry
 - bug #2022182 [import, export] Import/Export fails because of Mac files
 - [security] protection against cross-frame scripting and
   new directive AllowThirdPartyFraming, thanks to YGN Ethical Hacker Group
+- [security] possible XSS during setup, thanks to YGN Ethical Hacker Group
 
 2.11.7.1 (2008-07-15)
 - bug [security] XSRF/CSRF by manipulating the db,
