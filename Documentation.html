@@ -583,6 +583,11 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
     You can set this parameter to <tt>TRUE</tt> to stop this message 
     from appearing.</dd>
 
+    <dt id="cfg_AllowThirdPartyFraming">$cfg['AllowThirdPartyFraming'] boolean</dt>
+    <dd>Setting this to <tt>true</tt> allows a page located on a different
+    domain to call phpMyAdmin inside a frame, and is a potential security
+    hole allowing cross-frame scripting attacks.</dd>
+
     <dt id="cfg_blowfish_secret">$cfg['blowfish_secret'] string</dt>
     <dd>The &quot;cookie&quot; auth_type uses blowfish
         algorithm to encrypt the password.<br />
