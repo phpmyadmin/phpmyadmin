@@ -402,6 +402,8 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
          * also, server needed for cookie login screen (multi-server)
          */
         'server', 'db', 'table', 'target',
+        /* to change the language on login screen or main page */
+        lang,
         /* Session ID */
         'phpMyAdmin',
         /* Cookie preferences */

@@ -29,6 +29,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [security] protection against cross-frame scripting and
   new directive AllowThirdPartyFraming, thanks to YGN Ethical Hacker Group
 - [security] possible XSS during setup, thanks to YGN Ethical Hacker Group 
+- [interface] revert language changing problem introduced with 2.11.7.1 
 
 2.11.7.1 (2008-07-15)
 - bug [security] XSRF/CSRF by manipulating the db,
