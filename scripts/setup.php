@@ -682,7 +682,7 @@ function show_overview($title, $list, $buttons = '') {
         echo $val[0];
         echo '</div>';
         echo '<div class="data">';
-        echo $val[1];
+        echo htmlspecialchars($val[1]);
         echo '</div>';
         echo '</div>' . "\n";
     }
