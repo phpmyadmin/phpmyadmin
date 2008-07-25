@@ -1012,15 +1012,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     // table being displayed has one or more keys; but to display
     // delete/edit options correctly for tables without keys.
 
-    // loic1: use 'PMA_mysql_fetch_array' rather than 'PMA_mysql_fetch_row'
-    //        to get the NULL values
-
-    // rabus: This function needs a little rework.
-    //        Using MYSQL_BOTH just pollutes the memory!
-
-    // ne0x:  Use function PMA_DBI_fetch_array() due to mysqli
-    //        compatibility. Now this function is wrapped.
-
     $odd_row = true;
     while ($row = PMA_DBI_fetch_row($dt_result)) {
         // lem9: "vertical display" mode stuff
@@ -1239,10 +1230,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 //       with self-join queries, for example), using $meta->name
                 //       will show both fields NULL even if only one is NULL,
                 //       so use the $pointer
-                // PS:   why not always work with the number ($i), since
-                //       the default second parameter of
-                //       mysql_fetch_array() is MYSQL_BOTH, so we always get
-                //       associative and numeric indices?
 
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
