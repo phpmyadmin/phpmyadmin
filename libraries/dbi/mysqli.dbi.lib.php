@@ -202,70 +202,42 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
 }
 
 /**
- * returns $type array of rows from given $result
- *
- * The following function is meant for internal use only.
- * Do not call it from outside this library!
- *
- * @uses    $GLOBALS['allow_recoding']
- * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
- * @uses    PMA_DBI_get_fields_meta()
- * @uses    mysqli_fetch_array()
- * @uses    mysqli_num_fields()
- * @uses    stristr()
- * @param   object mysqli result    $result
- * @param   integer                 $type   ASSOC, BOTH, or NUMERIC array
- * @return  array                   results
- * @access  protected
- */
-function PMA_mysqli_fetch_array($result, $type = false)
-{
-    if ($type != false) {
-        $data = @mysqli_fetch_array($result, $type);
-    } else {
-        $data = @mysqli_fetch_array($result);
-    }
-
-    return $data;
-}
-
-/**
  * returns array of rows with associative and numeric keys from $result
  *
- * @uses    PMA_mysqli_fetch_array()
+ * @uses    mysqli_fetch_array()
  * @uses    MYSQLI_BOTH
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
 function PMA_DBI_fetch_array($result)
 {
-    return PMA_mysqli_fetch_array($result, MYSQLI_BOTH);
+    return mysqli_fetch_array($result, MYSQLI_BOTH);
 }
 
 /**
  * returns array of rows with associative keys from $result
  *
- * @uses    PMA_mysqli_fetch_array()
+ * @uses    mysqli_fetch_array()
  * @uses    MYSQLI_ASSOC
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
 function PMA_DBI_fetch_assoc($result)
 {
-    return PMA_mysqli_fetch_array($result, MYSQLI_ASSOC);
+    return mysqli_fetch_array($result, MYSQLI_ASSOC);
 }
 
 /**
  * returns array of rows with numeric keys from $result
  *
- * @uses    PMA_mysqli_fetch_array()
+ * @uses    mysqli_fetch_array()
  * @uses    MYSQLI_NUM
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
 function PMA_DBI_fetch_row($result)
 {
-    return PMA_mysqli_fetch_array($result, MYSQLI_NUM);
+    return mysqli_fetch_array($result, MYSQLI_NUM);
 }
 
 /**

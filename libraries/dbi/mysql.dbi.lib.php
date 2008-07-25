@@ -173,35 +173,18 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
     return $r;
 }
 
-/**
- *  The following function is meant for internal use only.
- * Do not call it from outside this library!
- */
-function PMA_mysql_fetch_array($result, $type = false)
-{
-    global $cfg, $allow_recoding, $charset;
-
-    if ($type != false) {
-        $data = mysql_fetch_array($result, $type);
-    } else {
-        $data = mysql_fetch_array($result);
-    }
-
-    return $data;
-}
-
 function PMA_DBI_fetch_array($result)
 {
-    return PMA_mysql_fetch_array($result);
+    return mysql_fetch_array($result, MYSQL_BOTH);
 }
 
 function PMA_DBI_fetch_assoc($result) {
-    return PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+    return mysql_fetch_array($result, MYSQL_ASSOC);
 }
 
 function PMA_DBI_fetch_row($result)
 {
-    return PMA_mysql_fetch_array($result, MYSQL_NUM);
+    return mysql_fetch_array($result, MYSQL_NUM);
 }
 
 /**
