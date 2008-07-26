@@ -1781,7 +1781,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             // reset to first row for the loop in PMA_displayTableBody()
             PMA_DBI_data_seek($dt_result, 0);
             // we could also use here $sort_expression_nodirection
-            $sorted_column_message = ' [' . $sort_column . ': ' . $column_for_first_row . ' - ' . $column_for_last_row . ']';
+            $sorted_column_message = ' [' . htmlspecialchars($sort_column) . ': <strong>' . htmlspecialchars($column_for_first_row) . ' - ' . htmlspecialchars($column_for_last_row) . '</strong>]';
             unset($row, $column_for_first_row, $column_for_last_row);
         }
         unset($sorted_column_index, $sort_table, $sort_column);
@@ -1831,7 +1831,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $message->addMessage($messagge_qt, '');
         $message->addMessage(')', '');
 
-        $message->addMessage(isset($sorted_column_message) ? htmlspecialchars($sorted_column_message) : '', '');
+        $message->addMessage(isset($sorted_column_message) ? $sorted_column_message : '', '');
 
         PMA_showMessage($message, $sql_query, 'success');
 
