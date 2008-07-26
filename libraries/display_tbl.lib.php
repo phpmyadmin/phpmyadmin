@@ -1754,7 +1754,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
     $sort_expression_nodirection = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
     unset($matches);
-    list($sort_db, $sort_table) = explode('.', $sort_expression_nodirection);
 
     // 1.4 Prepares display of first and last value of the sorted column 
     
