@@ -2022,7 +2022,7 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * @param   string      current page number
  * @param   string      number of total pages
  * @param   string      If the number of pages is lower than this
- *                      variable, no pages will be ommitted in
+ *                      variable, no pages will be omitted in
  *                      pagination
  * @param   string      How many rows at the beginning should always
  *                      be shown?
@@ -2061,12 +2061,11 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
         }
 
         // garvin: Based on the number of results we add the specified
-        // $percent percentate to each page number,
+        // $percent percentage to each page number,
         // so that we have a representing page number every now and then to
-        // immideately jump to specific pages.
+        // immediately jump to specific pages.
         // As soon as we get near our currently chosen page ($pageNow -
-        // $range), every page number will be
-        // shown.
+        // $range), every page number will be shown.
         $i = $sliceStart;
         $x = $nbTotalPage - $sliceEnd;
         $met_boundary = false;
@@ -2077,7 +2076,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
                 $i++;
                 $met_boundary = true;
             } else {
-                // We add the percentate increment to our current page to
+                // We add the percentage increment to our current page to
                 // hop to the next one in range
                 $i = $i + floor($nbTotalPage / $percent);
 
