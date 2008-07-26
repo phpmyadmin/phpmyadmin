@@ -448,7 +448,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  *
  * @see     PMA_displayTable()
  */
-function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '', $sort_expression, $sort_expression_nodirection)
+function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '', $sort_expression, $sort_expression_nodirection, $sort_direction)
 {
     global $db, $table, $goto;
     global $sql_query, $num_rows;
@@ -781,7 +781,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     $sort_order .= $GLOBALS['cfg']['Order'];
                 }
                 $order_img   = '';
-            } elseif (preg_match('@[[:space:]]DESC$@i', $sort_expression)) {
+            } elseif ('DESC' == $sort_direction) {
                 $sort_order .= ' ASC';
                 $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
             } else {
@@ -1744,16 +1744,18 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // we need $sort_expression and $sort_expression_nodirection
     // even if there are many table references
-
-    $sort_expression = trim(str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause']));
-
-    /**
-     * Get rid of ASC|DESC
-     * @todo analyzer
-     */
-    preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
-    $sort_expression_nodirection = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
-    unset($matches);
+    if (! empty($analyzed_sql[0]['order_by_clause'])) {
+        $sort_expression = trim(str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause']));
+        /**
+         * Get rid of ASC|DESC
+         */
+        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
+        $sort_expression_nodirection = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
+        $sort_direction = isset($matches[2]) ? trim($matches[2]) : '';
+        unset($matches);
+    } else {
+        $sort_expression = $sort_expression_nodirection = $sort_direction = '';
+    }
 
     // 1.4 Prepares display of first and last value of the sorted column 
     
@@ -1894,7 +1896,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     // end 2b
 
     // 3. ----- Displays the results table -----
-    PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql, $sort_expression, $sort_expression_nodirection);
+    PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql, $sort_expression, $sort_expression_nodirection, $sort_direction);
     $url_query = '';
     echo '<tbody>' . "\n";
     PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
