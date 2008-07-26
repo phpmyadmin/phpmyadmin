@@ -2042,6 +2042,10 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
     $range = 10, $prompt = '')
 {
+    $increment = floor($nbTotalPage / $percent);
+    $pageNowMinusRange = ($pageNow - $range);
+    $pageNowPlusRange = ($pageNow + $range);
+
     $gotopage = $prompt
               . ' <select name="pos" onchange="goToUrl(this, \''
               . $url . '\');">' . "\n";
@@ -2070,7 +2074,7 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
         $x = $nbTotalPage - $sliceEnd;
         $met_boundary = false;
         while ($i <= $x) {
-            if ($i >= ($pageNow - $range) && $i <= ($pageNow + $range)) {
+            if ($i >= $pageNowMinusRange && $i <= $pageNowPlusRange) {
                 // If our pageselector comes near the current page, we use 1
                 // counter increments
                 $i++;
@@ -2078,11 +2082,11 @@ function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
             } else {
                 // We add the percentage increment to our current page to
                 // hop to the next one in range
-                $i = $i + floor($nbTotalPage / $percent);
+                $i += $increment;
 
                 // Make sure that we do not cross our boundaries.
-                if ($i > ($pageNow - $range) && !$met_boundary) {
-                    $i = $pageNow - $range;
+                if ($i > $pageNowMinusRange && ! $met_boundary) {
+                    $i = $pageNowMinusRange;
                 }
             }
 
