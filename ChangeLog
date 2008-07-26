@@ -68,6 +68,7 @@ danbarry
 + rfe #1692928 [transformation] Option to disable browser transformations 
 + [import] Speed optimization to be able to import the sakila database
 + [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
++ [display] headwords for sorted column 
 
 2.11.8.0 (not yet released)
 - patch #1987593 [interface] Table list pagination in navi, 

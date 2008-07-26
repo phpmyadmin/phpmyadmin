@@ -448,7 +448,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  *
  * @see     PMA_displayTable()
  */
-function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '')
+function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '', $sort_expression, $sort_expression_nodirection)
 {
     global $db, $table, $goto;
     global $sql_query, $num_rows;
@@ -466,18 +466,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if (isset($analyzed_sql[0]['unsorted_query'])) {
             $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
         }
-
-        // we need $sort_expression and $sort_expression_nodirection
-        // even if there are many table references
-
-        $sort_expression = trim(str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause']));
-
-        /**
-         * Get rid of ASC|DESC
-         * @todo analyzer
-         */
-        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
-        $sort_expression_nodirection = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
         // sorting by indexes, only if it makes sense (only one table ref)
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
@@ -1752,10 +1740,54 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         }
     } // end if
 
-    // 1.3 URL-encodes the query to use in input form fields
-    // @todo where is this used?
-    //$encoded_sql_query = urlencode($sql_query);
+    // 1.3 Find the sort expression
 
+    // we need $sort_expression and $sort_expression_nodirection
+    // even if there are many table references
+
+    $sort_expression = trim(str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause']));
+
+    /**
+     * Get rid of ASC|DESC
+     * @todo analyzer
+     */
+    preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
+    $sort_expression_nodirection = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
+    unset($matches);
+    list($sort_db, $sort_table) = explode('.', $sort_expression_nodirection);
+
+    // 1.4 Prepares display of first and last value of the sorted column 
+    
+    if (! empty($sort_expression_nodirection)) {
+        list($sort_table, $sort_column) = explode('.', $sort_expression_nodirection);
+        $sort_table = PMA_unQuote($sort_table);
+        $sort_column = PMA_unQuote($sort_column);
+        // find the sorted column index in row result
+        // (this might be a multi-table query)
+        $sorted_column_index = false;
+        foreach($fields_meta as $key => $meta) {
+            if ($meta->table == $sort_table && $meta->name == $sort_column) {
+                $sorted_column_index = $key;
+                break;
+            }
+        }
+        if ($sorted_column_index !== false) {
+            // fetch first row of the result set
+            $row = PMA_DBI_fetch_row($dt_result);
+            $column_for_first_row = $row[$sorted_column_index]; 
+            // fetch last row of the result set
+            PMA_DBI_data_seek($dt_result, $num_rows - 1);
+            $row = PMA_DBI_fetch_row($dt_result);
+            $column_for_last_row = $row[$sorted_column_index]; 
+            // reset to first row for the loop in PMA_displayTableBody()
+            PMA_DBI_data_seek($dt_result, 0);
+            // we could also use here $sort_expression_nodirection
+            $sorted_column_message = ' [' . $sort_column . ': ' . $column_for_first_row . ' - ' . $column_for_last_row . ']';
+            unset($row, $column_for_first_row, $column_for_last_row);
+        }
+        unset($sorted_column_index, $sort_table, $sort_column);
+    }
+     
     // 2. ----- Displays the top of the page -----
 
     // 2.1 Displays a messages with position informations
@@ -1799,6 +1831,8 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         $message->addMessage($messagge_qt, '');
         $message->addMessage(')', '');
+
+        $message->addMessage(isset($sorted_column_message) ? htmlspecialchars($sorted_column_message) : '', '');
 
         PMA_showMessage($message, $sql_query, 'success');
 
@@ -1861,7 +1895,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     // end 2b
 
     // 3. ----- Displays the results table -----
-    PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql);
+    PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql, $sort_expression, $sort_expression_nodirection);
     $url_query = '';
     echo '<tbody>' . "\n";
     PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);

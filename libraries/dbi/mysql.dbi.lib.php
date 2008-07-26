@@ -187,6 +187,19 @@ function PMA_DBI_fetch_row($result)
     return mysql_fetch_array($result, MYSQL_NUM);
 }
 
+/*
+ * Adjusts the result pointer to an arbitrary row in the result
+ *
+ * @uses    mysql_data_seek()
+ * @param   $result
+ * @param   $offset
+ * @return  boolean true on success, false on failure
+ */
+function PMA_DBI_data_seek($result, $offset)
+{
+    return mysql_data_seek($result, $offset);
+}
+
 /**
  * Frees the memory associated with the results
  *

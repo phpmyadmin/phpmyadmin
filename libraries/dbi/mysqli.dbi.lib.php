@@ -240,6 +240,19 @@ function PMA_DBI_fetch_row($result)
     return mysqli_fetch_array($result, MYSQLI_NUM);
 }
 
+/*
+ * Adjusts the result pointer to an arbitrary row in the result
+ *
+ * @uses    mysqli_data_seek()
+ * @param   $result
+ * @param   $offset
+ * @return  boolean true on success, false on failure
+ */
+function PMA_DBI_data_seek($result, $offset)
+{
+    return mysqli_data_seek($result, $offset);
+}
+
 /**
  * Frees the memory associated with the results
  *
