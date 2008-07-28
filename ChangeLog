@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.8.1 (2008-07-28)
+- bug #2027102, small fix for a notice about "lang" 
+
 2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 
   thanks to Jason Day - jday29
