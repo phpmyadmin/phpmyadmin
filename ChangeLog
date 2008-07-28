@@ -70,7 +70,7 @@ danbarry
 + [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
 + [display] headwords for sorted column 
 
-2.11.8.0 (not yet released)
+2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 
   thanks to Jason Day - jday29
 - bug #1989081 [profiling] Profiling causes query to be executed again
