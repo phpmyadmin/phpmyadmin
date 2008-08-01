@@ -58,7 +58,7 @@ function PMA_Bookmark_getParams()
  *
  * @param   string    the current database name
  *
- * @return  array     the bookmarks list
+ * @return  array     the bookmarks list (key as index, label as value) 
  *
  * @access  public
  */
@@ -77,7 +77,7 @@ function PMA_Bookmark_getList($db)
             . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
             . '      OR user = \'\')'
             . ' ORDER BY label';
-    return PMA_DBI_fetch_result($query, 'label', 'id', $controllink, PMA_DBI_QUERY_STORE);
+    return PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
 } // end of the 'PMA_Bookmark_getList()' function
 
 
