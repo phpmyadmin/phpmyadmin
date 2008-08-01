@@ -19,7 +19,7 @@ require_once './libraries/sqlparser.lib.php';
 // when zlib_compression is on
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER == '6'
  && (ini_get('zlib.output_compression'))) {
-    ini_set('zlib.output_compression', 'Off');
+    @ini_set('zlib.output_compression', 'Off');
 }
 
 if ($GLOBALS['text_dir'] === 'ltr') {
