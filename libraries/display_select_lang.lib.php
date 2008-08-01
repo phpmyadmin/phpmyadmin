@@ -26,7 +26,7 @@ function PMA_language_cmp(&$a, &$b) {
  *
  * @access  public
  */
-function PMA_select_language($use_fieldset = FALSE) {
+function PMA_select_language($use_fieldset = FALSE, $show_doc = TRUE) {
     global $cfg, $lang;
     ?>
 
@@ -42,11 +42,13 @@ function PMA_select_language($use_fieldset = FALSE) {
     // not a proper word in the current language; we show it to help
     // people recognize the dialog
     $language_title = $GLOBALS['strLanguage']
-        . ($GLOBALS['strLanguage'] != 'Language' ? ' - <em>Language</em>' : '')
-        . ' <a href="./translators.html" target="documentation">' .
+        . ($GLOBALS['strLanguage'] != 'Language' ? ' - <em>Language</em>' : '');
+    if ($show_doc) {
+        $language_title .= ' <a href="./translators.html" target="documentation">' .
             ($cfg['ReplaceHelpImg']
                 ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />'
                 : '(*)') . '</a>';
+    }
     if ($use_fieldset) {
         echo '<fieldset><legend xml:lang="en" dir="ltr">' . $language_title . '</legend>';
     } else {

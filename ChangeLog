@@ -70,6 +70,9 @@ danbarry
 + [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
 + [display] headwords for sorted column 
 
+2.11.9.0 (not yet released)
+- bug #2031221 [auth] Links to version number on login screen 
+
 2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 
   thanks to Jason Day - jday29
