@@ -126,7 +126,8 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = FAL
  * @uses    PMA_Bookmark_getParams()
  * @global  resource  the controluser db connection handle
  *
- * @param   array     the properties of the bookmark to add
+ * @param   array     the properties of the bookmark to add; here,
+ *                    $fields['query'] is urlencoded
  * @param   boolean   whether to make the bookmark available for all users
  *
  * @return  boolean   whether the INSERT succeeds or not
@@ -144,7 +145,7 @@ function PMA_Bookmark_save($fields, $all_users = false)
     }
     
     $query = 'INSERT INTO ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-           . ' (id, dbase, user, query, label) VALUES (NULL, \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . ($all_users ? '' : PMA_sqlAddslashes($fields['user'])) . '\', \'' . PMA_sqlAddslashes($fields['query']) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
+           . ' (id, dbase, user, query, label) VALUES (NULL, \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . ($all_users ? '' : PMA_sqlAddslashes($fields['user'])) . '\', \'' . PMA_sqlAddslashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
     return PMA_DBI_query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
 
