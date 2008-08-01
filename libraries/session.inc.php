@@ -35,26 +35,26 @@ if (!@function_exists('session_name')) {
 session_set_cookie_params(0, PMA_Config::getCookiePath() . '; HttpOnly',
     '', PMA_Config::isHttps());
 
-// cookies are safer
-ini_set('session.use_cookies', true);
+// cookies are safer (use @ini_set() in case this function is disabled)
+@ini_set('session.use_cookies', true);
 
 // but not all user allow cookies
-ini_set('session.use_only_cookies', false);
-ini_set('session.use_trans_sid', true);
-ini_set('url_rewriter.tags',
+@ini_set('session.use_only_cookies', false);
+@ini_set('session.use_trans_sid', true);
+@ini_set('url_rewriter.tags',
     'a=href,frame=src,input=src,form=fakeentry,fieldset=');
 //ini_set('arg_separator.output', '&amp;');
 
 // delete session/cookies when browser is closed
-ini_set('session.cookie_lifetime', 0);
+@ini_set('session.cookie_lifetime', 0);
 
 // warn but dont work with bug
-ini_set('session.bug_compat_42', false);
-ini_set('session.bug_compat_warn', true);
+@ini_set('session.bug_compat_42', false);
+@ini_set('session.bug_compat_warn', true);
 
 // use more secure session ids (with PHP 5)
 if (version_compare(PHP_VERSION, '5.0.0', 'ge')) {
-    ini_set('session.hash_function', 1);
+    @ini_set('session.hash_function', 1);
 }
 
 // some pages (e.g. stylesheet) may be cached on clients, but not in shared
@@ -83,9 +83,9 @@ if (! isset($_COOKIE[$session_name])) {
     ob_start();
     $old_display_errors = ini_get('display_errors');
     $old_error_reporting = error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    @ini_set('display_errors', 1);
     $r = session_start();
-    ini_set('display_errors', $old_display_errors);
+    @ini_set('display_errors', $old_display_errors);
     error_reporting($old_error_reporting);
     unset($old_display_errors, $old_error_reporting);
     $session_error = ob_get_contents();
