@@ -684,8 +684,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                      */
                     $t_suffix = '_functionName';
                     /* There are functions which might be as well column types */
-                    if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
-                    }
                 } elseif (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt)) {
                     $t_suffix = '_columnType';
 
