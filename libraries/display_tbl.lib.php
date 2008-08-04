@@ -1042,7 +1042,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       with only one field and it's a BLOB; in this case,
          *       avoid to display the delete and edit links
          */
-        //$unique_condition     = urlencode(PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row));
         $unique_condition      = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
         $unique_condition_html = htmlspecialchars($unique_condition);
 
@@ -1200,8 +1199,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 'db'            => $db,
                 'table'         => $table,
                 'primary_key'   => $unique_condition,
-                // $sql_goto ??? typo?
-                //'goto'          => (isset($sql_goto) ? $lnk_goto : ''),
                 'transform_key' => $meta->name,
             );
 
