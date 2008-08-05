@@ -18,7 +18,7 @@
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
+				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
 				return x.list();
 			}
 			else
@@ -42,7 +42,7 @@
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
+				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
 				return x.getotp(fbid, rt);
 			}
 			else
@@ -66,7 +66,7 @@
 		{
 			if (window.ActiveXObject)
 			{
-				var x = new ActiveXObject("FbAuthAx.SwekeyCtl");
+				var x = new ActiveXObject("FbAuthAx.FbAuthCtl");
 				return x.setunplugurl(fbid, key, url);
 			}
 			else

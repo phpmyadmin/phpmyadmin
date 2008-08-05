@@ -34,6 +34,9 @@ define ("SWEKEY_ERR_DEV_NOT_FOUND",922);
 global $gSwekeyLastError;
 $gSwekeyLastError = 0;
 
+global $gSwekeyLastResult;
+$gSwekeyLastResult = "<not set>";
+
 /**
  * Servers addresses
  * Use the  Swekey_SetXxxServer($server) functions to set them
@@ -112,6 +115,18 @@ function Swekey_GetLastError()
 }
 
 /**
+ *  Return the last result.
+ *   
+ *  @return                     The Last Error
+ *  @access public
+ */
+function Swekey_GetLastResult()
+{    
+    global $gSwekeyLastResult;
+    return $gSwekeyLastResult;
+}
+
+/**
  *  Send a synchronous request to the  server.
  *  This function manages timeout then will not block if one of the server is down     
  *
@@ -123,6 +138,9 @@ function Swekey_GetLastError()
 function Swekey_HttpGet($url, &$response_code)
 {    
     global $gSwekeyLastError;
+    $gSwekeyLastError = 0;
+    global $gSwekeyLastResult;
+    $gSwekeyLastResult = "<not set>";
  
     // you should install the pecl_http to be able to handle timeouts
     if (class_exists('HttpRequest'))
@@ -135,20 +153,27 @@ function Swekey_HttpGet($url, &$response_code)
             
             if (substr($url,0, 6) == "https:")
             {
-                $cert = __FILE__;
-                $cert = substr($cert, 0, strlen($crt) - 3).'cert'; // replace ending 'php' by "cert"
-                if (file_exists($cert))
-                {
-                    //TOFIX Don't know how to verify the certificate yet
-                    //$options['ssl'] = array('cert' => $cert);   
-                }
+                $sslOptions = array(); 
+                $sslOptions['verifypeer'] = true;
+
+                $capath = __FILE__;
+                $name = strrchr($capath, '/');
+                if (empty($name)) // windows
+                    $name = strrchr($capath, '\\');                    
+                $capath = substr($capath, 0, strlen($capath) - strlen($name) + 1).'musbe-ca.crt'; 
+                
+                if (file_exists($capath))
+                    $sslOptions['capath'] = $capath;
+                
+                $options['ssl'] = $sslOptions; 
             }
 
             $r->setOptions($options);
             
-            try 
+ //           try 
             {
-	           $res = $r->send()->getBody();
+               $reply = $r->send();
+               $res = $reply->getBody();
 	           $info = $r->getResponseInfo();
 	           $response_code = $info['response_code'];
 	           if ($response_code != 200)
@@ -158,12 +183,14 @@ function Swekey_HttpGet($url, &$response_code)
                     return "";
                }
 
+
+	           $gSwekeyLastResult = $res;
 	           return $res;
             } 
-            catch (HttpException $e) 
-            {
-                error_log("SWEKEY_WARNING:HttpException ".$e." getting ".$url);
-            }        
+ //           catch (HttpException $e) 
+ //           {
+ //               error_log("SWEKEY_WARNING:HttpException ".$e." getting ".$url);
+ //           }        
         } 
         
         $response_code = 408; // Request Timeout
@@ -176,9 +203,11 @@ function Swekey_HttpGet($url, &$response_code)
 	$res = @file_get_contents($url);
 	$response_code = substr($http_response_header[0], 9, 3); //HTTP/1.0
 	if ($response_code == 200)
+	{
+	   $gSwekeyLastResult = $res;
 	   return $res;
-	   
-    global $gSwekeyLastError;
+	}
+      
     $gSwekeyLastError = $response_code;
     error_log("SWEKEY_ERROR:Error ".$response_code." getting ".$url);
     return "";
@@ -209,17 +238,17 @@ function Swekey_GetHalfRndToken()
 } 
 
 /**
- *  Get a Random Token     
+ *  Get a Half Random Token     
  *  The RT is a 64 vhars hexadecimal value   
- *  This function generates a unique random token for each call but call the       
- *  server only once every 30 seconds.
- *  You should always use this function to get random token.      
+ *  This function get a new random token and reuse it.       
+ *  Token are refetched from the server only once every 30 seconds.
+ *  You should always use this function to get half random token.      
  *  @access public
  */
-function Swekey_GetFastRndToken()
+function Swekey_GetFastHalfRndToken()
 {
     $res = "";
-    
+
     // We check if we have a valid RT is the session
     if (isset($_SESSION['rnd-token-date']))
        if (time() - $_SESSION['rnd-token-date'] < 30)
@@ -261,8 +290,26 @@ function Swekey_GetFastRndToken()
         }
    }
    
-   return $res.strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM))); 
+   return $res."00000000000000000000000000000000";
 }
+
+/**
+ *  Get a Random Token     
+ *  The RT is a 64 vhars hexadecimal value   
+ *  This function generates a unique random token for each call but call the       
+ *  server only once every 30 seconds.
+ *  You should always use this function to get random token.      
+ *  @access public
+ */
+function Swekey_GetFastRndToken()
+{
+    $res = Swekey_GetFastHalfRndToken();
+    if (strlen($res) == 64)
+        return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM))); 
+    
+    return "";
+}
+
 
 /**
  *  Checks that an OTP generated by a Swekey is valid
@@ -288,7 +335,8 @@ define ("SWEKEY_STATUS_OK",0);
 define ("SWEKEY_STATUS_NOT_FOUND",1);  // The key does not exist in the db
 define ("SWEKEY_STATUS_INACTIVE",2);   // The key has never been activated
 define ("SWEKEY_STATUS_LOST",3);	   // The user has lost his key
-define ("SWEKEY_STATUS_STOLLEN",4);	   // The key was stollen
+define ("SWEKEY_STATUS_STOLLEN",4);	   // The key was stolen (typo kept for backward comp)
+define ("SWEKEY_STATUS_STOLEN",4);	   // The key was stolen
 define ("SWEKEY_STATUS_FEE_DUE",5);	   // The annual fee was not paid
 define ("SWEKEY_STATUS_OBSOLETE",6);   // The hardware is no longer supported
 define ("SWEKEY_STATUS_UNKOWN",201);   // We could not connect to the authentication server

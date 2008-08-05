@@ -46,6 +46,8 @@ $cfg['Servers'][$i]['extension'] = 'mysql';
 // $cfg['Servers'][$i]['column_info'] = 'pma_column_info';
 // $cfg['Servers'][$i]['history'] = 'pma_history';
 // $cfg['Servers'][$i]['designer_coords'] = 'pma_designer_coords';
+/* Contrib / Swekey authentication */
+// $cfg['Servers'][$i]['auth_swekey_config'] = './swekey.conf';
 
 /*
  * End of servers configuration
