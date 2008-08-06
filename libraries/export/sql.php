@@ -115,7 +115,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] =
             array('type' => 'bool', 'name' => 'hex_for_blob', 'text' => 'strHexForBLOB');
         $plugin_list['sql']['options'][] =
-            array('type' => 'select', 'name' => 'type', 'text' => 'strSQLExportType', 'values' => array('INSERT', 'UPDATE', 'REPLACE'));
+            array('type' => 'select', 'name' => 'type', 'text' => 'strSQLExportType', 'values' => array('INSERT' => 'INSERT', 'UPDATE' => 'UPDATE', 'REPLACE' => 'REPLACE'));
         $plugin_list['sql']['options'][] =
             array('type' => 'egroup');
     }

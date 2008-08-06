@@ -75,6 +75,7 @@ danbarry
 - bug #2032707 [core] PMA does not start if ini_set() is disabled 
 - bug #2004915 [bookmarks] Saved queries greater than 1000 chars not
   displayed, thanks to Maik Wiege - mswiege
+- bug #2037381 [export] Export type "replace" does not work
 
 2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 
