@@ -106,10 +106,7 @@ Please ensure you have:
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
      - in README
-  2. synchronized the language files:
-       cd lang
-       ./sync_lang.sh
-     and checked all language files are valid (use
+  2. checked that all language files are valid (use
      the "./scripts/check_lang.php" script to do it).
 
 Continue (y/n)?
