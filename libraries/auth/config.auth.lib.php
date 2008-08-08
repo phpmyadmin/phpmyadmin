@@ -88,7 +88,7 @@ function PMA_auth_fails()
 <body>
 <br /><br />
 <center>
-    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
+    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin '); ?></h1>
 </center>
 <br />
 <table border="0" cellpadding="0" cellspacing="3" align="center" width="80%">
