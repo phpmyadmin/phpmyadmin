@@ -506,7 +506,28 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         one&#8217;s router or firewall will suffice (both of which
         are beyond the scope of this manual but easily searchable with Google).</li>
 </ul>
-
+<h4 id="swekey">Swekey authentication</h4>
+<p>
+The Swekey is a low cost authentication USB key that can be used in
+web applications.<br /><br />
+When Swekey authentication is activated, phpMyAdmin requires the
+users's Swekey to be plugged before entering the login page (currently
+supported for cookie authentication mode only). Swekey Authentication is 
+disabled by default.<br /><br />
+To enable it, add the following line to <tt>config.inc.php</tt>:
+</p>
+<pre>
+$cfg['Servers'][$i]['auth_swekey_config'] = './swekey.conf';
+</pre>
+<p>
+You then have to create the <tt>swekey.conf</tt> file that will associate
+each user with their Swekey Id. A self documented sample file is provided 
+in the <tt>contrib</tt> directory. Feel free to use it with your own 
+users' information.<br /><br />
+If you want to purchase a Swekey please visit
+<a href="http://phpmyadmin.net/auth_key">http://phpmyadmin.net/auth_key</a>
+since this link provides funding for phpMyAdmin.
+</p>
 <!-- CONFIGURATION -->
 <h2 id="config">Configuration</h2>
 
@@ -702,6 +723,13 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
 
         Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
         for more information.
+	</dd>
+    <dt id="servers_auth_swekey_config">
+    <span id="cfg_Servers_auth_swekey_config">$cfg['Servers'][$i]['auth_swekey_config']</span> string<br />
+    </dt>
+    <dd>
+    The name of the file containing <a href="#swekey">Swekey</a> ids and login 
+    names for hardware authentication. Leave empty to deactivate this feature.
     </dd>
     <dt id="servers_user">
         <span id="cfg_Servers_user">$cfg['Servers'][$i]['user']</span> string<br />
