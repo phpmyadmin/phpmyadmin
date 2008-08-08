@@ -24,7 +24,7 @@ $timespanfmt = '%s days, %s hours, %s minutes and %s seconds';
 
 $strAbortedClients = 'Aborted';
 $strAccessDenied = 'Access denied';
-$strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';
+$strAccessDeniedCreateConfig = 'You probably did not create a configuration file. You might want to use %1$ssetup script%2$s to create one.';
 $strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.';
 $strAction = 'Action';
 $strActions = 'Actions';
