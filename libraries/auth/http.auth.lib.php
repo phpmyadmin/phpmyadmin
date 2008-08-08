@@ -56,7 +56,7 @@ function PMA_auth()
 
 <br /><br />
 <center>
-    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
+    <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin'); ?></h1>
 </center>
 <br />
 
