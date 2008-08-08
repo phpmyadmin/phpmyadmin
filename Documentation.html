@@ -309,7 +309,7 @@ chmod o-rw config.inc.php          # remove world read and write permissions
     <abbr title="Frequently Asked Questions">FAQ</abbr> 1.23</a>).</p>
 
 <p> If you already had this infrastructure and upgraded to MySQL 4.1.2
-    or later, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>.</p>
+    or newer, please use <i>./scripts/upgrade_tables_mysql_4_1_2+.sql</i>.</p>
 
 <p> You can use your phpMyAdmin to create the tables for you. Please be aware
     that you may need special (administrator) privileges to create the database
@@ -364,8 +364,7 @@ chmod o-rw config.inc.php          # remove world read and write permissions
         algorithm, in a temporary cookie.</li>
 
     <li>Note: starting with phpMyAdmin 2.6.1, this section is only applicable if
-        your MySQL server is previous to 4.1.2, or is running with
-        <tt>--skip-show-database</tt>.<br /><br />
+        your MySQL server is running with <tt>--skip-show-database</tt>.<br /><br />
 
         For '<abbr title="HyperText Transfer Protocol">HTTP</abbr>' and 'cookie'
         modes, phpMyAdmin needs a controluser that has <b>only</b> the
@@ -401,26 +400,14 @@ GRANT SELECT ON mysql.host TO 'pma'@'localhost';
 GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
     ON mysql.tables_priv TO 'pma'@'localhost';</pre>
 
-        If you are using an old MySQL version (below 4.0.2), please replace
-        the first GRANT SELECT query by this one:
-
-        <pre>
-GRANT SELECT (
-    Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-    Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv
-    ) ON mysql.user TO 'pma'@'localhost';</pre>
-
-        ... and if you want to use the many new relation and bookmark features:
+        If you want to use the many new relation and bookmark features:
 
         <pre>
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </pre>
 
         (this of course requires that your <a href="#linked-tables">linked-tables
-        infrastructure</a> be set up).<br />
-        Of course, the above queries only work if your MySQL version supports
-        the GRANT command. This is the case since 3.22.11.</li>
+        infrastructure</a> be set up).<br /></li>
 
     <li>Then each of the <i>true</i> users should be granted a set of privileges
         on a set of particular databases. Normally you shouldn't give global
@@ -648,7 +635,7 @@ GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real
         <tt><i>mysqli</i></tt> :
         The improved MySQL extension. This extension became available
         with php 5.0.0 and is the recommended way to connect to a server
-        running MySQL 4.1.x.</dd>
+        running MySQL 4.1.x or newer.</dd>
 
     <dt id="cfg_Servers_compress">$cfg['Servers'][$i]['compress'] boolean</dt>
     <dd>Whether to use a compressed protocol for the MySQL server connection
