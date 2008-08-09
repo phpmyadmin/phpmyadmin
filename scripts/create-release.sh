@@ -68,7 +68,7 @@
 # - added release todo list
 #
 
-KITS="all-languages-utf-8-only all-languages english"
+KITS="all-languages english"
 COMPRESSIONS="zip-7z tbz tgz 7z"
 
 if [ $# = 0 ]
