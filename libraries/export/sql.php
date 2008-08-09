@@ -346,7 +346,7 @@ function PMA_exportDBFooter($db)
 
             foreach($procedure_names as $procedure_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
-		    $procs_funcs .= 'DROP PROCEDURE ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
+		    $procs_funcs .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
                 }	
                 $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
@@ -360,7 +360,7 @@ function PMA_exportDBFooter($db)
 
             foreach($function_names as $function_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
-		    $procs_funcs .= 'DROP FUNCTION ' . PMA_backquote($function_name) . $delimiter . $crlf;
+		    $procs_funcs .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
                 }	
                 $procs_funcs .= PMA_DBI_get_procedure_or_function_def($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
