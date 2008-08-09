@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.1.0.0 (not yet released)
+
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
 danbarry
@@ -69,6 +71,7 @@ danbarry
 + [import] Speed optimization to be able to import the sakila database
 + [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
 + [display] headwords for sorted column 
+- bug #2033962 [import] Cannot import zip file 
 
 2.11.9.0 (not yet released)
 - bug #2031221 [auth] Links to version number on login screen 
