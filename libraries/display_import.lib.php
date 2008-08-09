@@ -114,7 +114,7 @@ if ($cfg['GZipDump'] && @function_exists('gzopen')) {
 if ($cfg['BZipDump'] && @function_exists('bzopen')) {
     $compressions .= ', bzip2';
 }
-if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
+if ($cfg['ZipDump'] && @function_exists('zip_open')) {
     $compressions .= ', zip';
 }
 

@@ -250,7 +250,10 @@ if ($import_file != 'none' && !$error) {
         }
     }
 
-    // Handle file compression
+    /**
+     *  Handle file compression
+     *  @todo duplicate code exists in File.class.php
+     */
     $compression = PMA_detectCompression($import_file);
     if ($compression === FALSE) {
         $message = PMA_Message::error('strFileCouldNotBeRead');
@@ -276,21 +279,15 @@ if ($import_file != 'none' && !$error) {
                 }
                 break;
             case 'application/zip':
-                if ($cfg['GZipDump'] && @function_exists('gzinflate')) {
-                    include_once './libraries/unzip.lib.php';
-                    $import_handle = new SimpleUnzip();
-                    $import_handle->ReadFile($import_file);
-                    if ($import_handle->Count() == 0) {
-                        $message = PMA_Message::error('strNoFilesFoundInZip');
-                        $error = TRUE;
-                    } elseif ($import_handle->GetError(0) != 0) {
-                        $message = PMA_Message::rawError($strErrorInZipFile . ' ' . $import_handle->GetErrorMsg(0));
+                if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+                    include_once './libraries/zip_extension.lib.php';
+                    $result = PMA_getZipContents($import_file);
+                    if (! empty($result['error'])) {
+                        $message = PMA_Message::rawError($result['error']);
                         $error = TRUE;
                     } else {
-                        $import_text = $import_handle->GetData(0);
+                        $import_text = $result['data'];
                     }
-                    // We don't need to store it further
-                    $import_handle = '';
                 } else {
                     $message = PMA_Message::error('strUnsupportedCompressionDetected');
                     $message->addParam($compression);

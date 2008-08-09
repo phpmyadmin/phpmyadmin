@@ -69,6 +69,7 @@ danbarry
 + [import] Speed optimization to be able to import the sakila database
 + [doc] Documentation for distributing phpMyAdmin in README.VENDOR.
 + [display] headwords for sorted column 
+- bug #2033962 [import] Cannot import zip file
 
 2.11.9.0 (not yet released)
 - bug #2031221 [auth] Links to version number on login screen 
