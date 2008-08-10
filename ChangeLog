@@ -56,7 +56,7 @@ danbarry
 + prevent search indexes from indexing phpMyAdmin installations
 + [engines] PBXT: table options, foreign key (relation view, designer)
 + [lang] New Bangla, thanks to Raquibul Islam and Joy Kumar Nag
-+ [interface] Display options (work in progress); thanks to Dave Grijalva
++ [interface] Display options; thanks to Dave Grijalva
   for the idea about showing the display field while browsing
 - bug #1910621 [display] part 2: do not display a BINARY content as text
 + [auth] support SweKey hardware authentication 
