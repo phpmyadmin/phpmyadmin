@@ -162,6 +162,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     } // end if
 
+    $fields_meta = PMA_DBI_get_fields_meta($result);
+
     // Format the data
     while ($row = PMA_DBI_fetch_row($result)) {
         $schema_insert = '<tr>';
@@ -173,7 +175,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             } else {
                 $value = '';
             }
-            $schema_insert .= '<td class=xl2216681 nowrap>' . htmlspecialchars($value) . '</td>';
+            $schema_insert .= '<td class=xl2216681 nowrap';
+            if ('1' == $fields_meta[$j]->numeric) {
+                $schema_insert .= ' x:num ';
+            }
+            $schema_insert .= '>' . htmlspecialchars($value) . '</td>';
         } // end for
         $schema_insert .= '</tr>';
         if (!PMA_exportOutputHandler($schema_insert)) {
