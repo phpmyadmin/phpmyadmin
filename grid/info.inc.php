@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* info.inc.php 2007-11-22 windkiel */
+/* info.inc.php 08080815 windkiel */
 
 /**
- * 2007-11-22: #div_referential_integrity new in pma 3.0 
+ * 2008-08-08: (pma3.0.0alpha) main page changed
+ * 2008-01-17: (pma3) html font-size moved from phpmyadmin.css.php
  * 2007-10-12: minor changes th{}, a:hover{'underline'}, 'none' else
  * 2007-10-10: pma 3.0 main frame: new success.png
  * bugfixes, non Gecko tab appearance, mult_submit hover=pointer and BGC=white

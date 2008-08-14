@@ -11,7 +11,7 @@
  * take the 'originalColors' section as an example.
  * to use "Grid" on startup use this in your config.inc.php:
  *  if (is_dir($GLOBALS['cfg']['ThemePath'] . '/grid-x.yy')) {
- *        $GLOBALS['cfg']['ThemeDefault'] = 'grid';
+ *       $GLOBALS['cfg']['ThemeDefault'] = 'grid';
  *    }
  * some bugfixes like textarea height (thx Mario Rohkrämer) ...
  *
@@ -33,6 +33,9 @@
  * @subpackage Grid
  */
 
+if(!defined('PMA_VERSION')) {
+    die('unplanned execution path');
+}
 
 // ~~~~~~~~~~~~~ NAVIGATION frame (called "Left frame" in older versions) ~~~~~~~~~~
 
@@ -88,14 +91,17 @@ $GLOBALS['cfg']['NaviDbNameBGC']   = $GLOBALS['cfg']['NaviLightMarkedBGC'];
 //$GLOBALS['cfg']['NaviDatabaseNameColor'] = '' ; // not used
 
 // ~~~~~~~~~~~~~~~~~           MAIN frame           ~~~~~~~~~~~~~~~~~~~~~~~~
+$GLOBALS['cfg']['MainGroup'] = '#f6f6f6'; // new for pma 3
+$GLOBALS['cfg']['MainGroupHeader'] = '#e6e6e6';
+
 // foreground (text) color for the main frame
 $GLOBALS['cfg']['MainColor'] = '#000';
 
 // BackgroundColor for the main frame, different solution than in ´original´!
-$GLOBALS['cfg']['MainBGC']   = '#d6d6d6'; //e7e7e7 same as scrollbar color;
+$GLOBALS['cfg']['MainBGC']   = '#dadada'; //e7e7e7 same as scrollbar color;
 
 //at least 1 bit difference from $GLOBALS['cfg']['MainBGC'] to show the grid!(?)
-$GLOBALS['cfg']['MainGridColor']      = '#d6d6d5';
+$GLOBALS['cfg']['MainGridColor']      = '#dadadb';
 
 // link color
 $GLOBALS['cfg']['MainLinkColor']      = '#00d';
@@ -119,7 +125,7 @@ $GLOBALS['cfg']['BrowseMarkerColor']  = '#000';
 $GLOBALS['cfg']['BrowseMarkerBGC']    = '#ffb'; // '#fc9';
 
 // tab decorations
-$GLOBALS['cfg']['TabBGC']             = '#f3f3f3';//??
+$GLOBALS['cfg']['TabBGC']             = '#f0f0ff';//??
 
 $GLOBALS['cfg']['TabHoverColor']      = '#55f';
 $GLOBALS['cfg']['TabHoverBGC']        = '#fff'; //dfd
@@ -130,25 +136,29 @@ $GLOBALS['cfg']['TabActiveBGC']       = '#ffb'; //afa
 $GLOBALS['cfg']['TabBorderColor']     = '#bbb';
 $GLOBALS['cfg']['TabUnderlineColor']  = '#888';
 
+$GLOBALS['cfg']['SuccessBorderColor'] = '#0d0';
 
 // top (former legend)
 // both IE 6&7 expand the BGC too high
 if ('IE' == PMA_USR_BROWSER_AGENT) {
     $GLOBALS['cfg']['BorderColor']  = '#000';
-    $GLOBALS['cfg']['FieldsetBGC']  = $GLOBALS['cfg']['MainBGC'];
-    $GLOBALS['cfg']['LegendBorder'] = false;
+    $GLOBALS['cfg']['FieldsetBGC']  =  $GLOBALS['cfg']['MainBGC'];
+    $GLOBALS['cfg']['LegendBorder'] =  false;
     $GLOBALS['cfg']['LegendColor']  = '#000';
     $GLOBALS['cfg']['LegendBGC']    = '#f3f3f3';
 } else {
     $GLOBALS['cfg']['BorderColor']  = '#bbb';
     $GLOBALS['cfg']['FieldsetBGC']  = '#f3f3f3';
-    $GLOBALS['cfg']['LegendBorder'] = true;
+    $GLOBALS['cfg']['LegendBorder'] =  true;
     $GLOBALS['cfg']['LegendColor']  = '#000';
     $GLOBALS['cfg']['LegendBGC']    = '#f6f6f6';
 }
 $GLOBALS['cfg']['FieldsetFooterBGC'] = '#e7e7e7';
 
 $GLOBALS['cfg']['BacktickBGC']  = '#eea';
+
+// better readability in popup -> SQL history
+$GLOBALS['cfg']['queryWindowContainerBGC'] = '#e7e7e7';
 
 // NOTE: notice and warning colors are defined in theme_right.css.php
 
