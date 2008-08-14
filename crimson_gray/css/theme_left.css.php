@@ -29,6 +29,15 @@ a img {
     border: 0;
 }
 
+/*
+a:link,
+a:visited,
+a:active {
+    text-decoration:    none;
+    color:              #0000FF;
+}
+*/
+
 ul {
 	margin:0;
 }	
@@ -70,20 +79,19 @@ button {
 /* specific elements */
 
 div#pmalogo {
-    background-color: #D0DCE0<?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     padding:.3em;
 }
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
 
 ul#databaseList {
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
     padding-<?php echo $left; ?>:     1.5em;
@@ -138,11 +146,6 @@ div#leftframelinks a:hover {
     margin: 0;
     padding: 0;
     font-size:          80%;
-}
-
-/* leftdatabaselist */
-div#left_tableList {
-    border-bottom:      0.05em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
 div#left_tableList ul {
@@ -203,9 +206,8 @@ div#left_tableList ul ul {
     padding-<?php echo $left; ?>:       0.1em;
     border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding-bottom:     0.1em;
-    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>; 
 }
-
 /* for the servers list in navi panel */
 #serverinfo .item {
     white-space:        nowrap;

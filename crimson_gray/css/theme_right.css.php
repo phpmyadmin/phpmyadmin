@@ -105,9 +105,9 @@ fieldset fieldset {
 }
 
 fieldset legend {
-    background-color:   transparent;
     font-weight:        bold;
     color:              #444444;
+    background-color:   <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']. '; border: 1px solid #000; border-bottom: none;' ; ?>
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -953,8 +953,7 @@ li#li_select_theme{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
 }
 
-li#li_server_info,
-li#li_server_version{
+li#li_server_info{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
 }
 
@@ -1006,8 +1005,7 @@ li#li_log_out {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
 }
 
-li#li_pma_docs,
-li#li_pma_wiki {
+li#li_pma_docs {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_docs.png);
 }
 
