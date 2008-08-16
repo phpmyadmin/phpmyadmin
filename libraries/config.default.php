@@ -856,28 +856,28 @@ $cfg['ForeignKeyMaxLimit'] = 100;
  */
 
 /**
- * Allow the use of zip/gzip/bzip
+ * Allow for the use of zip compression (requires zip support to be enabled)
  *
  * @global boolean $cfg['ZipDump']
  */
 $cfg['ZipDump'] = true;
 
 /**
- * compression for
+ * Allow for the use of gzip compression (requires zlib)
  *
  * @global boolean $cfg['GZipDump']
  */
 $cfg['GZipDump'] = true;
 
 /**
- * dump files
+ * Allow for the use of bzip2 compression (requires bz2 extension)
  *
  * @global boolean $cfg['BZipDump']
  */
 $cfg['BZipDump'] = true;
 
 /**
- * Will compress gzip/bzip2 exports on fly without need for much memory.
+ * Will compress gzip/bzip2 exports on the fly without the need for much memory.
  * If you encounter problems with created gzip/bzip2 files disable this feature.
  *
  * @global boolean $cfg['CompressOnFly']
@@ -955,7 +955,7 @@ $cfg['DefaultTabTable'] = 'sql.php';
 $cfg['Export'] = array();
 
 /**
- * sql/latex/excel/csv/xml/xls/htmlexcel/htmlword/ods/odt
+ * codegen/csv/excel/htmlexcel/htmlword/latex/ods/odt/pdf/sql/texytext/xls/xml/yaml
  *
  * @global string $cfg['Export']['format']
  */
