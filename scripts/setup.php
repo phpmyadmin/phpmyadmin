@@ -13,7 +13,7 @@
  * @version    $Id$
  */
 
-// Grab phpMyAdmin version and PMA_dl function
+// Grab phpMyAdmin version
 define('PMA_MINIMUM_COMMON', TRUE);
 define('PMA_SETUP', TRUE);
 chdir('..');
@@ -1448,12 +1448,6 @@ switch ($action) {
         }
 
         // Guess MySQL extension to use, prefer mysqli
-        if (!function_exists('mysql_get_client_info')) {
-            PMA_dl('mysql');
-        }
-        if (!function_exists('mysqli_get_client_info')) {
-            PMA_dl('mysqli');
-        }
         if (function_exists('mysqli_get_client_info')) {
             $defaults['extension'] = 'mysqli';
         } elseif (function_exists('mysql_get_client_info')) {
@@ -1606,17 +1600,7 @@ switch ($action) {
             } elseif (@extension_loaded('recode')) {
                 $d['RecodingEngine']         = 'recode';
             } else {
-                PMA_dl('iconv');
-                if (!@extension_loaded('iconv')) {
-                    PMA_dl('recode');
-                    if (!@extension_loaded('recode')) {
-                        message('warning', 'Neither recode nor iconv could be loaded so charset conversion will most likely not work.');
-                    } else {
-                        $d['RecodingEngine'] = 'recode';
-                    }
-                } else {
-                    $d['RecodingEngine']     = 'iconv';
-                }
+                message('warning', 'Neither recode nor iconv could be loaded so charset conversion will most likely not work.');
             }
             if (isset($d['RecodingEngine'])) {
                 message('notice', 'Autodetected recoding engine: ' . $d['RecodingEngine']);
@@ -1644,10 +1628,7 @@ switch ($action) {
     case 'feat_extensions':
         $d = $configuration;
         if (!@extension_loaded('mbstring')) {
-            PMA_dl('mbstring');
-        }
-        if (!@extension_loaded('mbstring')) {
-            message('warning', 'Could not load <code>mbstring</code> extension, which is required for work with multibyte strings like UTF-8 ones. Please consider installing it.');
+            message('warning', 'Could not find <code>mbstring</code> extension, which is required for work with multibyte strings like UTF-8 ones. Please consider installing it.');
         }
         if (!isset($d['GD2Available'])) {
             if (PMA_IS_GD2 == 1) {
@@ -1871,7 +1852,6 @@ switch ($action) {
         break;
 */
     case 'versioncheck': // Check for latest available version
-        PMA_dl('curl');
         $url = 'http://phpmyadmin.net/home_page/version.php';
         $data = '';
         $f = @fopen($url, 'r');

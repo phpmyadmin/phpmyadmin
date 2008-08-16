@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 
 require './libraries/auth/swekey/swekey.auth.lib.php';
 
-if (function_exists('mcrypt_encrypt') || PMA_dl('mcrypt')) {
+if (function_exists('mcrypt_encrypt')) {
     /**
      * Uses faster mcrypt library if available
      * (as this is not called from anywhere else, put the code in-line

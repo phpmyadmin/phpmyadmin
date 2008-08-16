@@ -200,9 +200,6 @@ class PMA_Config
         } elseif ($this->get('GD2Available') == 'no') {
             $this->set('PMA_IS_GD2', 0);
         } else {
-            if (!@extension_loaded('gd')) {
-                PMA_dl('gd');
-            }
             if (!@function_exists('imagecreatetruecolor')) {
                 $this->set('PMA_IS_GD2', 0);
             } else {
@@ -214,7 +211,7 @@ class PMA_Config
                         $this->set('PMA_IS_GD2', 0);
                     }
                 } else {
-                    /* We must do hard way... */
+                    /* We must do hard way... but almost no chance to execute this */
                     ob_start();
                     phpinfo(INFO_MODULES); /* Only modules */
                     $a = strip_tags(ob_get_contents());

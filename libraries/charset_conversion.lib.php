@@ -18,20 +18,14 @@ if (isset($cfg['AllowAnywhereRecoding'])
 
     if ($cfg['RecodingEngine'] == 'recode') {
         if (!@extension_loaded('recode')) {
-            PMA_dl('recode');
-            if (!@extension_loaded('recode')) {
-                echo $strCantLoadRecodeIconv;
-                exit;
-            }
+            echo $strCantLoadRecodeIconv;
+            exit;
         }
         $PMA_recoding_engine             = 'recode';
     } elseif ($cfg['RecodingEngine'] == 'iconv') {
         if (!@extension_loaded('iconv')) {
-            PMA_dl('iconv');
-            if (!@extension_loaded('iconv')) {
-                echo $strCantLoadRecodeIconv;
-                exit;
-            }
+            echo $strCantLoadRecodeIconv;
+            exit;
         }
         $PMA_recoding_engine             = 'iconv';
     } else {
@@ -40,18 +34,8 @@ if (isset($cfg['AllowAnywhereRecoding'])
         } elseif (@extension_loaded('recode')) {
             $PMA_recoding_engine         = 'recode';
         } else {
-            PMA_dl('iconv');
-            if (!@extension_loaded('iconv')) {
-                PMA_dl('recode');
-                if (!@extension_loaded('recode')) {
-                    echo $strCantLoadRecodeIconv;
-                    exit;
-                } else {
-                    $PMA_recoding_engine = 'recode';
-                }
-            } else {
-                $PMA_recoding_engine     = 'iconv';
-            }
+            echo $strCantLoadRecodeIconv;
+            exit;
         }
     }
 } // end load recode/iconv extension

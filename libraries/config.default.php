@@ -1729,7 +1729,7 @@ $cfg['DefaultCharset'] = 'utf-8';
  * Allow character set recoding of MySQL queries, must be also enabled in language
  * file to make harder using other language files than Unicode.
  * Default value is false to avoid problems on servers without the iconv
- * extension and where dl() is not supported
+ * extension
  *
  * @global boolean $cfg['AllowAnywhereRecoding']
  */
@@ -2247,8 +2247,7 @@ $cfg['TempDir'] = '';
 
 /**
  * Is GD >= 2 available? Set to yes/no/auto. 'auto' does auto-detection,
- * which is a bit expensive for PHP < 4.3.0, but it is the only safe way how to
- * determine GD version.
+ * which is the only safe way to determine GD version.
  *
  * @global string $cfg['GD2Available']
  */

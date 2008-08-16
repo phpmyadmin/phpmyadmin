@@ -13,7 +13,6 @@
  * The SQL Parser code relies heavily on these functions.
  *
  * @version $Id$
- * @uses    PMA_dl()
  * @uses    extension_loaded()
  * @uses    substr()
  * @uses    function_exists()
@@ -24,11 +23,6 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/* Try to load mbstring */
-    if (!@extension_loaded('mbstring')) {
-        PMA_dl('mbstring');
-    }
 
 $GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
 
@@ -51,10 +45,6 @@ if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
     $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
     $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_native.lib.php';
-}
-
-if (!@extension_loaded('ctype')) {
-    PMA_dl('ctype');
 }
 
 if (@extension_loaded('ctype')) {

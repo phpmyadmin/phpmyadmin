@@ -20,17 +20,13 @@ define('PMA_DBI_GETVAR_SESSION', 1);
 define('PMA_DBI_GETVAR_GLOBAL', 2);
 
 /**
- * Loads the mysql extensions if it is not loaded yet
+ * Checks one of the mysql extensions 
  *
- * @param   string  $extension  mysql extension to load
+ * @param   string  $extension  mysql extension to check
  */
-function PMA_DBI_checkAndLoadMysqlExtension($extension = 'mysql') {
+function PMA_DBI_checkMysqlExtension($extension = 'mysql') {
     if (! function_exists($extension . '_connect')) {
-        PMA_dl($extension);
-        // check whether mysql is available
-        if (! function_exists($extension . '_connect')) {
-            return false;
-        }
+        return false;
     }
 
     return true;
@@ -40,14 +36,14 @@ function PMA_DBI_checkAndLoadMysqlExtension($extension = 'mysql') {
 /**
  * check for requested extension
  */
-if (! PMA_DBI_checkAndLoadMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
+if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
 
     // if it fails try alternative extension ...
     // and display an error ...
 
     /**
-     * @todo 2.7.1: add different messages for alternativ extension
-     * and complete fail (no alternativ extension too)
+     * @todo add different messages for alternative extension
+     * and complete fail (no alternative extension too)
      */
     $error =
         sprintf(PMA_sanitize($GLOBALS['strCantLoad']),
@@ -62,8 +58,8 @@ if (! PMA_DBI_checkAndLoadMysqlExtension($GLOBALS['cfg']['Server']['extension'])
         $alternativ_extension = 'mysql';
     }
 
-    if (! PMA_DBI_checkAndLoadMysqlExtension($alternativ_extension)) {
-        // if alternativ fails too ...
+    if (! PMA_DBI_checkMysqlExtension($alternativ_extension)) {
+        // if alternative fails too ...
         PMA_fatalError(
             sprintf($GLOBALS['strCantLoad'],
                 $GLOBALS['cfg']['Server']['extension'])
