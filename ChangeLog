@@ -70,6 +70,7 @@ danbarry
 + [display] headwords for sorted column 
 - bug #2033962 [import] Cannot import zip file
 + [lang] Swedish update, thanks to Björn T. Hallberg
+- bug #2050068 [gui] "Check tables having overhead" selects wrong tables
 
 2.11.9.0 (not yet released)
 - bug #2031221 [auth] Links to version number on login screen 

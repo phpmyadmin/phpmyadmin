@@ -273,7 +273,7 @@ foreach ($tables as $keyname => $each_table) {
                 . ' ' . $overhead_unit . '</a>' . "\n";
             unset($formatted_overhead);
             $overhead_check .=
-                "document.getElementById('checkbox_tbl_$i').checked = true;";
+                "document.getElementById('checkbox_tbl_" . ($i + 1) . "').checked = true;";
         } else {
             $overhead = '-';
         }
