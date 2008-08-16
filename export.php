@@ -211,8 +211,8 @@ $output_charset_conversion = $asfile &&
     && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
-// Use on fly compression?
-$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && ($compression == 'gzip' | $compression == 'bzip');
+// Use on the fly compression?
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && ($compression == 'gzip' || $compression == 'bzip');
 if ($onfly_compression) {
     $memory_limit = trim(@ini_get('memory_limit'));
     // 2 MB as default
