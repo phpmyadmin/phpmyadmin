@@ -124,11 +124,11 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
 
-    $hint = '<p>' .
+    $hint = '<br />' .
         sprintf($strMIME_transformation_note,
             '<a href="transformation_overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
-            '</a>') . '</p>';
+            '</a>');
 
 
     $header_cells[] = $strMIME_MIMEtype;
