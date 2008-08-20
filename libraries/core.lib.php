@@ -297,6 +297,33 @@ function PMA_getTableCount($db)
         null, PMA_DBI_QUERY_STORE);
     if ($tables) {
         $num_tables = PMA_DBI_num_rows($tables);
+
+        // for blobstreaming - get blobstreaming tables
+        // for use in determining if a table here is a blobstreaming table - rajk
+
+        // load PMA configuration
+        $PMA_Config = $_SESSION['PMA_Config'];
+
+        // if PMA configuration exists
+        if (!empty($PMA_Config))
+        {
+            // load BS tables
+            $session_bs_tables = $_SESSION['PMA_Config']->get('BLOBSTREAMING_TABLES');
+
+            // if BS tables exist 
+            if (isset ($session_bs_tables))
+                while ($data = PMA_DBI_fetch_assoc($tables))
+                    foreach ($session_bs_tables as $table_key=>$table_val)
+                        // if the table is a blobstreaming table, reduce the table count
+                        if ($data['Tables_in_' . $db] == $table_key)
+                        {
+                            if ($num_tables > 0)
+                                $num_tables--;
+
+                            break;
+                        }
+        } // end if PMA configuration exists
+
         PMA_DBI_free_result($tables);
     } else {
         $num_tables = 0;
@@ -472,9 +499,9 @@ function PMA_checkPageValidity(&$page, $whitelist)
 }
 
 /**
- * tries to find the value for the given environment variable name
+ * trys to find the value for the given environment vriable name
  *
- * searches in $_SERVER, $_ENV then tries getenv() and apache_getenv()
+ * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
  * in this order
  *
  * @uses    $_SERVER
@@ -517,7 +544,7 @@ function PMA_removeCookie($cookie)
 }
 
 /**
- * sets cookie if value is different from current cookie value,
+ * sets cookie if value is different from current cokkie value,
  * or removes if value is equal to default
  *
  * @uses    PMA_Config::isHttps()

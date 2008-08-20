@@ -75,9 +75,17 @@ if (in_array('functions.js', $GLOBALS['js_include'])) {
     if ($GLOBALS['cfg']['Confirm']) {
         $GLOBALS['js_messages']['strDoYouReally'] = $GLOBALS['strDoYouReally'];
         $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = $GLOBALS['strDropDatabaseStrongWarning'];
+
+        // rajk - for blobstreaming
+        $GLOBALS['js_messages']['strBLOBRepositoryDisableStrongWarning'] = $GLOBALS['strBLOBRepositoryDisableStrongWarning'];
+        $GLOBALS['js_messages']['strBLOBRepositoryDisableAreYouSure'] = sprintf($GLOBALS['strBLOBRepositoryDisableAreYouSure'], $GLOBALS['db']);
     } else {
         $GLOBALS['js_messages']['strDoYouReally'] = '';
         $GLOBALS['js_messages']['strDropDatabaseStrongWarning'] = '';
+
+        // rajk - for blobstreaming
+        $GLOBALS['js_messages']['strBLOBRepositoryDisableStrongWarning'] = '';
+        $GLOBALS['js_messages']['strBLOBRepositoryDisableAreYouSure'] = '';
     }
 } elseif (in_array('indexes.js', $GLOBALS['js_include'])) {
     $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];

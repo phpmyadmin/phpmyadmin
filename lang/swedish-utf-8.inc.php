@@ -1075,4 +1075,16 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
+$strBLOBRepository = 'BLOB Repository';  //to translate
+$strBLOBRepositoryDamaged = 'Damaged';  //to translate
+$strBLOBRepositoryDisableAreYouSure = 'Are you sure you want to disable all BLOB references fot database %s?';  //to translate
+$strBLOBRepositoryDisabled = 'Disabled';  //to translate
+$strBLOBRepositoryDisable = 'Disable';  //to translate
+$strBLOBRepositoryDisableStrongWarning = 'You are about to DISABLE a BLOB Repository!';  //to translate
+$strBLOBRepositoryEnabled = 'Enabled';  //to translate
+$strBLOBRepositoryEnable = 'Enable';  //to translate
+$strBLOBRepositoryRemove = 'Remove BLOB Repository Reference';  //to translate
+$strBLOBRepositoryRepair = 'Repair';  //to translate
+$strBLOBRepositoryStatus = 'Status';  //to translate
+$strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
 ?>

@@ -191,6 +191,28 @@ function confirmQuery(theForm1, sqlQuery1)
 
 
 /**
+ * Displays a confirmation box before disabling the BLOB repository for a given database.
+ * This function is called while clicking links
+ *
+ * @param   object   the database 
+ *
+ * @return  boolean  whether to disable the repository or not
+ */
+function confirmDisableRepository(theDB)
+{
+    // Confirmation is not required in the configuration file
+    // or browser is Opera (crappy js implementation)
+    if (PMA_messages['strDoYouReally'] == '' || typeof(window.opera) != 'undefined') {
+        return true;
+    }
+
+    var is_confirmed = confirm(PMA_messages['strBLOBRepositoryDisableStrongWarning'] + '\n' + PMA_messages['strBLOBRepositoryDisableAreYouSure']);
+
+    return is_confirmed;
+} // end of the 'confirmDisableBLOBRepository()' function
+
+
+/**
  * Displays an error message if the user submitted the sql query form with no
  * sql query, else checks for "DROP/DELETE/ALTER" statements
  *
@@ -1216,4 +1238,68 @@ function pdfPaperSize(format, axis) {
     } // end switch
 
     return 0;
+}
+
+/**
+ * rajk - for playing media from the BLOB repository
+ *
+ * @param   var     
+ * @param   var     bs_ref      BLOB repository reference
+ * @param   var     m_type      type of BLOB repository media
+ * @param   var     w_width     width of popup window
+ * @param   var     w_height    height of popup window
+ */
+function popupBSMedia(bs_ref, m_type, w_width, w_height)
+{
+    // if width not specified, use default
+    if (w_width == undefined)
+        w_width = 640;
+
+    // if height not specified, use default
+    if (w_height == undefined)
+        w_height = 480;
+
+    // open popup window (for displaying video/playing audio)
+    var mediaWin = window.open('bs_play_media.php?bs_reference=' + bs_ref + '&media_type=' + m_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
+}
+
+/**
+ * rajk - popups a request for changing MIME types for files in the BLOB repository
+ *
+ * @param   var     db                      database name
+ * @param   var     table                   table name
+ * @param   var     reference               BLOB repository reference
+ * @param   var     current_mime_type       current MIME type associated with BLOB repository reference
+ */
+function requestMIMETypeChange(db, table, reference, current_mime_type)
+{
+    // no mime type specified, set to default (nothing)
+    if (undefined == current_mime_type)
+        current_mime_type == "";
+
+    // prompt user for new mime type
+    var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
+
+    // if new mime_type is specified and is not the same as the previous type, request for mime type change
+    if (new_mime_type && new_mime_type != current_mime_type)
+        changeMIMEType(db, table, reference, new_mime_type);
+}
+
+/**
+ * rajk - changes MIME types for files in the BLOB repository
+ *
+ * @param   var     db              database name
+ * @param   var     table           table name
+ * @param   var     reference       BLOB repository reference
+ * @param   var     mime_type       new MIME type to be associated with BLOB repository reference
+ */
+function changeMIMEType(db, table, reference, mime_type)
+{
+    // specify url and parameters for mootools AJAx request
+    var url = 'bs_change_mime_type.php';
+    var params = { bs_db: db, bs_table: table, bs_reference: reference, bs_new_mime_type: mime_type };
+
+    // create AJAX object with above options and execute request
+    var chgRequest = new Ajax('bs_change_mime_type.php', { method: 'post', data: params, evalScripts: true });
+    chgRequest.request();
 }

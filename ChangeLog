@@ -7,6 +7,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.1.0.0 (not yet released)
 - bug #2046883 [core] Notices about deprecated dl() (so stop using it)
++ BLOBstreaming support, thanks to Raj Kissu Rajandran (work in progress)
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -

@@ -748,7 +748,23 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
     $table_groups = array();
 
+    // for blobstreaming - list of blobstreaming tables - rajk
+
+    // load PMA configuration
+    $PMA_Config = $_SESSION['PMA_Config'];
+
+    // if PMA configuration exists
+    if (!empty($PMA_Config))
+        $session_bs_tables = $_SESSION['PMA_Config']->get('BLOBSTREAMING_TABLES');
+
     foreach ($tables as $table_name => $table) {
+        // if BS tables exist
+        if (isset($session_bs_tables))
+            // compare table name to tables in list of blobstreaming tables
+            foreach ($session_bs_tables as $table_key=>$table_val)
+                // if table is in list, skip outer foreach loop
+                if ($table_name == $table_key)
+                    continue 2;
 
         // check for correct row count
         if (null === $table['Rows']) {
@@ -764,7 +780,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
             if ($tbl_is_view) {
                 $table['Rows'] = PMA_Table::countRecords($db, $table['Name'],
-                    $return = true);
+                        $return = true);
             }
         }
 
@@ -1091,7 +1107,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
             $explain_params = $url_params;
             // Detect if we are validating as well
-            // To preserve the validate URL data
+            // To preserve the validate uRL data
             if (! empty($GLOBALS['validatequery'])) {
                 $explain_params['validatequery'] = 1;
             }
@@ -1490,7 +1506,7 @@ function PMA_getTab($tab)
 
     $tab = array_merge($defaults, $tab);
 
-    // determine additional style-class
+    // determine additionnal style-class
     if (empty($tab['class'])) {
         if ($tab['text'] == $GLOBALS['strEmpty']
             || $tab['text'] == $GLOBALS['strDrop']) {

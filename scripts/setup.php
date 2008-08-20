@@ -999,6 +999,12 @@ function show_server_form($defaults = array(), $number = FALSE) {
             array('Server socket', 'socket', 'Socket on which MySQL server is listening, leave empty for default'),
             array('Connection type', 'connect_type', 'How to connect to server, keep tcp if unsure', array('tcp', 'socket')),
             array('PHP extension to use', 'extension', 'What PHP extension to use, use mysqli if supported', array('mysql', 'mysqli')),
+            /* added by rajk - for blobstreaming */
+            array('PBMS Garbage Threshold', 'bs_garbage_threshold', 'The size in percentage of the garbage level of a BLOB repository file that must be reached for compaction'),
+            array('PBMS Repository Threshold', 'bs_repository_threshold', 'The size in bytes of a repository file before it is unlocked'),
+            array('PBMS Temporary BLOB Timeout', 'bs_temp_blob_timeout', 'The time in seconds before a temporary BLOB reference is scheduled for deletion'),
+            array('PBMS Temporary Log Threshold', 'bs_temp_log_threshold', 'The maximum size in bytes of a PBMS temporary log file'),
+            /* end of blobstreaming additions */
             array('Compress connection', 'compress', 'Whether to compress connection to MySQL server', FALSE),
             array('Authentication type', 'auth_type', 'Authentication method to use', array('cookie', 'http', 'config', 'signon')),
             array('User for config auth', 'user', 'Leave empty if not using config auth'),

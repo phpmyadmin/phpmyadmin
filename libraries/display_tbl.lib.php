@@ -1223,7 +1223,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $nowrap = ' nowrap';
                     $where_comparison = ' = ' . $row[$i];
 
-                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $transform_options, $default_function, $nowrap, $where_comparison);
+                    $vertical_display['data'][$row_no][$i]     = '<td align="right"' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison);
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ' nowrap' . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                 }
@@ -1235,7 +1235,56 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
-                    $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                    // rajk - for blobstreaming
+
+                    $bs_reference_exists = $allBSTablesExist = FALSE;
+
+                    // load PMA configuration
+                    $PMA_Config = $_SESSION['PMA_Config'];
+
+                    // if PMA configuration exists
+                    if ($PMA_Config)
+                    {
+                        // load BS variables
+                        $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
+
+                        // if BS plugins exist
+                        if ($pluginsExist)
+                        {
+                            // load BS databases
+                            $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
+
+                            // if BS db array and specified db string not empty and valid
+                            if (!empty($bs_tables) && strlen($db) > 0)
+                            {
+                                $bs_tables = $bs_tables[$db];
+
+                                if (isset($bs_tables))
+                                {
+                                    $allBSTablesExist = TRUE;
+
+                                    // check if BS tables exist for given database
+                                    foreach ($bs_tables as $table_key=>$bs_tbl)
+                                        if (!$bs_tables[$table_key]['Exists'])
+                                        {
+                                            $allBSTablesExist = FALSE;
+                                            break;
+                                        }
+                                }
+                            }
+                        }
+                    }
+
+                    // if necessary BS tables exist
+                    if ($allBSTablesExist)
+                        $bs_reference_exists = PMA_BS_ReferenceExists($row[$i], $db);
+
+                    // if valid BS reference exists
+                    if ($bs_reference_exists)
+                        $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
+                    else
+                        $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+
                     $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
                     unset($blobtext);
                 } else {
@@ -1290,7 +1339,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     // loic1: do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
                     $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
-                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $transform_options, $default_function, $nowrap, $where_comparison);
+                    $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison);
 
                 } else {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
@@ -2159,13 +2208,12 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * @param   string  $map
  * @param   string  $data
  * @param   string  $transform_function
- * @param   string  $transform_options
  * @param   string  $default_function
  * @param   string  $nowrap
  * @param   string  $where_comparison
  * @return  string  formatted data
  */
-function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $transform_options, $default_function, $nowrap, $where_comparison) {
+function PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison) {
 
     // continue the <td> tag started before calling this function:
     $result = $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . $nowrap . '">';

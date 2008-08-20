@@ -33,6 +33,13 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
 $cfg['Servers'][$i]['extension'] = 'mysql';
+
+/* rajk - for blobstreaming */
+$cfg['Servers'][$i]['bs_garbage_threshold'] = '';
+$cfg['Servers'][$i]['bs_repository_threshold'] = '';
+$cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';
+$cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
+
 /* User for advanced features */
 // $cfg['Servers'][$i]['controluser'] = 'pma';
 // $cfg['Servers'][$i]['controlpass'] = 'pmapass';

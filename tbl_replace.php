@@ -35,6 +35,7 @@
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['goto']
  * @uses    $GLOBALS['sql_query']
+ * @uses    PMA_File::getRecentBLOBReference()
  */
 
 /**
@@ -199,10 +200,41 @@ foreach ($loop_array as $rowcount => $primary_key) {
         ? $_REQUEST['auto_increment']['multi_edit'][$rowcount]
         : null;
 
+	$primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
+
     foreach ($me_fields as $key => $val) {
 
         require './libraries/tbl_replace_fields.inc.php';
 
+        // rajk - for blobstreaming
+	if (NULL != $primary_field || strlen($primary_field) > 0)
+	{
+		$remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
+		$upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
+
+		// checks if an existing blob repository reference should be removed
+		if (isset($remove_blob_repo) && !isset($upload_blob_repo))
+		{
+			$remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
+
+			if (isset($remove_blob_reference))
+				$val = "''";
+		}
+
+		// checks if this field requires a bs reference attached to it
+		$requires_bs_reference = isset($upload_blob_repo);
+
+		if ($requires_bs_reference)
+		{
+			// get the most recent BLOB reference
+			$bs_reference = PMA_File::getRecentBLOBReference();
+
+			// if the most recent BLOB reference exists, set it as a field value
+			if (!is_null($bs_reference))
+				$val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+		}
+	}
+        
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
         } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
