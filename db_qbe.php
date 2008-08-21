@@ -815,7 +815,8 @@ if (isset($Field) && count($Field) > 0) {
             }
         } // end if (exactly one where clause)
 
-        unset($tab_all[$master]);
+        $tab_left = $tab_all;
+        unset($tab_left[$master]);
         $tab_know[$master] = $master;
 
         $run   = 0;
