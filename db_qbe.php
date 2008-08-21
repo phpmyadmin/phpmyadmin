@@ -638,7 +638,7 @@ foreach ($tbl_names as $key => $val) {
         <fieldset>
             <legend><?php echo sprintf($strQueryOnDb, PMA_getDbLink($db)); ?>
                 </legend>
-            <textarea cols="30" name="sql_query" id="textSqlquery"
+            <textarea cols="80" name="sql_query" id="textSqlquery"
                 rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
                 dir="<?php echo $text_dir; ?>">
 <?php
