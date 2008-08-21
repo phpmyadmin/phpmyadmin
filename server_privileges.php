@@ -1959,9 +1959,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         . '`Show_view_priv`, '
         . '`Create_routine_priv`, '
         . '`Alter_routine_priv`, '
-        . '`Execute_priv`, '
-        . '`Event_priv`, '
-        . '`Trigger_priv`';
+        . '`Execute_priv`';
 
     $list_of_compared_privileges =
         '`Select_priv` = \'N\''
@@ -1978,9 +1976,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         . ' AND `Show_view_priv` = \'N\''
         . ' AND `Create_routine_priv` = \'N\''
         . ' AND `Alter_routine_priv` = \'N\''
-        . ' AND `Execute_priv` = \'N\''
-        . ' AND `Event_priv` = \'N\''
-        . ' AND `Trigger_priv` = \'N\'';
+        . ' AND `Execute_priv` = \'N\'';
+
+    if (PMA_MYSQL_INT_VERSION >= 50106) {
+        $list_of_privileges .=
+            ', `Event_priv`, '
+            . '`Trigger_priv`';
+        $list_of_compared_privileges .=
+            ' AND `Event_priv` = \'N\''
+            . ' AND `Trigger_priv` = \'N\'';
+    }
 
     $sql_query =
         '(SELECT ' . $list_of_privileges . ', `Db`'
