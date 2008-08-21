@@ -268,7 +268,7 @@ function PMA_fatalError($error_message, $message_args = null)
         'type'  => $GLOBALS['strError'],
         'error' => $error_message,
     );
-    header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php'
+    header('Location: ' . (defined('PMA_SETUP') ? '../' : '') . 'error.php?'
             . http_build_query($query_params, null, '&'));
 
     // on fatal errors it cannot hurt to always delete the current session
