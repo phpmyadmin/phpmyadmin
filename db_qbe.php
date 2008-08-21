@@ -50,8 +50,8 @@ $add_col = PMA_ifSetOr($_REQUEST['add_col'], 0, 'numeric');
 $add_row = PMA_ifSetOr($_REQUEST['add_row'], 0, 'numeric');
 
 $rows    = PMA_ifSetOr($_REQUEST['rows'],    0, 'numeric');
-$ins_col = PMA_ifSetOr($_REQUEST['add_col'], null, 'array');
-$del_col = PMA_ifSetOr($_REQUEST['add_row'], null, 'array');
+$ins_col = PMA_ifSetOr($_REQUEST['ins_col'], null, 'array');
+$del_col = PMA_ifSetOr($_REQUEST['del_col'], null, 'array');
 
 $prev_criteria = isset($_REQUEST['prev_criteria'])
     ? $_REQUEST['prev_criteria']
