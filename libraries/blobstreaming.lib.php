@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @author	    Raj Kissu Rajandran
  * @version     1.0
@@ -27,12 +28,12 @@ function checkBLOBStreamingPlugins()
     if (empty($PMA_Config))
         return FALSE;
 
-    // retrieve default server configuration
+    // retrieve current server configuration
     $serverCfg = $PMA_Config->get('Servers');
-    $serverCfg = $serverCfg[$PMA_Config->settings['ServerDefault']];
+    $serverCfg = $serverCfg[$GLOBALS['server']];
 
-    // return if unable to retrieve default server configuration
-    if (!$serverCfg)
+    // return if unable to retrieve current server configuration
+    if (! $serverCfg)
         return FALSE;
 
     // if PHP extension in use is 'mysql', specify element 'PersistentConnections'
@@ -694,12 +695,12 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
                 break;
             // audio content
             case 'audio/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 120)">Play Audio</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 120)">Play Audio</a>)';
                 break;
             // video content
             case 'application/x-flash-video':
             case 'video/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">View Video</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">View Video</a>)';
                 break;
             // unsupported content. specify download
             default:

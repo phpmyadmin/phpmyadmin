@@ -1244,12 +1244,13 @@ function pdfPaperSize(format, axis) {
  * rajk - for playing media from the BLOB repository
  *
  * @param   var     
+ * @param   var     url_params  main purpose is to pass the token 
  * @param   var     bs_ref      BLOB repository reference
  * @param   var     m_type      type of BLOB repository media
  * @param   var     w_width     width of popup window
  * @param   var     w_height    height of popup window
  */
-function popupBSMedia(bs_ref, m_type, w_width, w_height)
+function popupBSMedia(url_params, bs_ref, m_type, w_width, w_height)
 {
     // if width not specified, use default
     if (w_width == undefined)
@@ -1260,7 +1261,7 @@ function popupBSMedia(bs_ref, m_type, w_width, w_height)
         w_height = 480;
 
     // open popup window (for displaying video/playing audio)
-    var mediaWin = window.open('bs_play_media.php?bs_reference=' + bs_ref + '&media_type=' + m_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
+    var mediaWin = window.open('bs_play_media.php?' + url_params + '&bs_reference=' + bs_ref + '&media_type=' + m_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
 }
 
 /**
