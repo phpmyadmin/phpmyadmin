@@ -691,20 +691,20 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
             // image content
             case 'image/jpeg':
             case 'image/png':
-                $output .= ' (<a href="' . $bs_ref_link . '" target="new">View Image</a>)';
+                $output .= ' (<a href="' . $bs_ref_link . '" target="new">' . $GLOBALS['strViewImage'] . '</a>)';
                 break;
             // audio content
             case 'audio/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 120)">Play Audio</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 120)">' . $GLOBALS['strPlayAudio']. '</a>)';
                 break;
             // video content
             case 'application/x-flash-video':
             case 'video/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">View Video</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">' . $GLOBALS['strViewVideo'] . '/a>)';
                 break;
             // unsupported content. specify download
             default:
-                $output .= ' (<a href="' . $bs_ref_link . '" target="new">Download File</a>)';
+                $output .= ' (<a href="' . $bs_ref_link . '" target="new">' . $GLOBALS['strDownloadFile']. '</a>)';
         }
 
         // return HTML

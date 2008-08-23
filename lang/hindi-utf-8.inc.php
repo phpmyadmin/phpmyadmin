@@ -1115,4 +1115,8 @@ $strBLOBRepositoryRemove = 'Remove BLOB Repository Reference';  //to translate
 $strBLOBRepositoryRepair = 'Repair';  //to translate
 $strBLOBRepositoryStatus = 'Status';  //to translate
 $strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
+$strViewImage = 'View image';  //to translate
+$strPlayAudio = 'Play audio';  //to translate
+$strViewVideo = 'View video';  //to translate
+$strDownloadFile = 'Download file';  //to translate
 ?>
