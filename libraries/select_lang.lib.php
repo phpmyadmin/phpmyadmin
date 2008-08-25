@@ -195,7 +195,7 @@ function PMA_langList()
         'az-utf-8'    => array('az|azerbaijani', 'azerbaijani-utf-8', 'az', 'Az&#601;rbaycanca'),
         'bn-utf-8'    => array('bn|bangla', 'bangla-utf-8', 'bn', ''),
         'becyr-utf-8' => array('be|belarusian', 'belarusian_cyrillic-utf-8', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;'),
-        'belat-utf-8' => array('be[-_]lat|belarusian latin', 'belarusian_latin-utf-8', 'be-lat', 'Byelorussian'),
+        'belat-utf-8' => array('be[-_]lat|belarusian latin', 'belarusian_latin-utf-8', 'be-lat', 'Bie&#0322;aruskaja'),
         'bg-utf-8'    => array('bg|bulgarian', 'bulgarian-utf-8', 'bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;'),
         'bs-utf-8'    => array('bs|bosnian', 'bosnian-utf-8', 'bs', 'Bosanski'),
         'ca-utf-8'    => array('ca|catalan', 'catalan-utf-8', 'ca', 'Catal&agrave;'),
