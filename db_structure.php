@@ -96,7 +96,7 @@ function PMA_TableHeader($db_is_information_schema = false)
         .'        ' . $GLOBALS['strAction'] . "\n"
         .'    </th>'
         .'    <th>' . $GLOBALS['strRecords']
-        .PMA_showHint($GLOBALS['strApproximateCount']) . "\n"
+        .PMA_showHint(PMA_sanitize($GLOBALS['strApproximateCount'])) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         echo '    <th>' . $GLOBALS['strType'] . '</th>' . "\n";

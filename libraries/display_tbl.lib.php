@@ -1759,7 +1759,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
       || $analyzed_sql[0]['where_clause'] == '1 ')) {
         // "j u s t   b r o w s i n g"
         $pre_count = '~';
-        $after_count = PMA_showHint($GLOBALS['strApproximateCount'], true);
+        $after_count = PMA_showHint(PMA_sanitize($GLOBALS['strApproximateCount']), true);
     } else {
         $pre_count = '';
         $after_count = '';
