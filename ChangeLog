@@ -72,6 +72,7 @@ danbarry
 + [lang] Swedish update, thanks to Björn T. Hallberg
 - bug #2050068 [gui] "Check tables having overhead" selects wrong tables
 + [lang] Belarusian update, thanks to Jaska Zedlik
++ [lang] Norwegian update, thanks to Sven-Erik Andersen
 
 2.11.9.0 (not yet released)
 - bug #2031221 [auth] Links to version number on login screen 
