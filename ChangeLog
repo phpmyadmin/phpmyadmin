@@ -81,7 +81,7 @@ danbarry
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
 + [lang] Italian update, thanks to Luca Rebellato
 
-2.11.9.0 (not yet released)
+2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
 - bug #2032707 [core] PMA does not start if ini_set() is disabled 
 - bug #2004915 [bookmarks] Saved queries greater than 1000 chars not
