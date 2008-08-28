@@ -83,6 +83,7 @@ danbarry
 - bug #2037381 [export] Export type "replace" does not work
 - bug #2037375 [export] DROP PROCEDURE needs IF EXISTS 
 - bug #2045512 [export] Numbers in Excel export
+- bug #2074250 [parser] Undefined variable seen_from 
 
 2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 
