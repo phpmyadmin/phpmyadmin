@@ -14,6 +14,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2037375 [export] DROP PROCEDURE needs IF EXISTS 
 - bug #2045512 [export] Numbers in Excel export
 + [lang] Norwegian UTF-8 original file remerged, thanks to Sven-Erik Andersen 
+- bug #2074250 [parser] Undefined variable seen_from 
 
 2.11.8.0 (2008-07-28)
 - patch #1987593 [interface] Table list pagination in navi, 

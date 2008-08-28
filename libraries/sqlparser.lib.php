@@ -833,6 +833,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $number_of_brackets = 0;
         $in_subquery = false;
         $seen_subquery = false;
+        $seen_from = false;
 
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
