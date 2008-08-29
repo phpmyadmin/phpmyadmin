@@ -86,6 +86,18 @@ $strBinLogName = 'Jméno logu';
 $strBinLogOriginalPosition = 'Původní pozice';
 $strBinLogPosition = 'Pozice';
 $strBinLogServerId = 'ID serveru';
+$strBLOBRepositoryDamaged = 'Poškozené';
+$strBLOBRepositoryDisableAreYouSure = 'Chcete vypnout všechny odkazy do skladiště BLOBů v databázi %s?';
+$strBLOBRepositoryDisabled = 'Vypnuté';
+$strBLOBRepositoryDisableStrongWarning = 'Chystáte se vypnout skladiště BLOBů!';
+$strBLOBRepositoryDisable = 'Vypnout';
+$strBLOBRepositoryEnabled = 'Zapnuté';
+$strBLOBRepositoryEnable = 'Zapnout';
+$strBLOBRepositoryRemove = 'Odstranit odkaz do skladiště BLOBů';
+$strBLOBRepositoryRepair = 'Opravit';
+$strBLOBRepository = 'Skladiště BLOBů';
+$strBLOBRepositoryStatus = 'Stav';
+$strBLOBRepositoryUpload = 'Nahrát do skladiště BLOBů';
 $strBookmarkAllUsers = 'Umožnit všem uživatelům používat tuto položku';
 $strBookmarkCreated = 'Vytvořen oblíbený dotaz %s';
 $strBookmarkDeleted = 'Položka byla smazána z oblíbených.';
@@ -242,6 +254,7 @@ $strDisplayPDF = 'Zobrazit jako schéma v PDF';
 $strDoAQuery = 'Provést „dotaz podle příkladu“ (zástupný znak: „%“)';
 $strDocSQL = 'DocSQL';
 $strDocu = 'Dokumentace';
+$strDownloadFile = 'Stáhnout soubor';
 $strDoYouReally = 'Opravdu si přejete vykonat příkaz';
 $strDropDatabaseStrongWarning = 'Chystáte se ZRUŠIT celou databázi!';
 $strDrop = 'Odstranit';
@@ -577,6 +590,7 @@ $strPhoneBook = 'adresář';
 $strPHPExtension = 'Rozšíření PHP';
 $strPHPVersion = 'Verze PHP';
 $strPhp = 'Vytvořit PHP kód';
+$strPlayAudio = 'Přehrát zvuk';
 $strPleaseSelectPrimaryOrUniqueKey = 'Zvolte, prosím, primární nebo unikátní klíč';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
 $strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaven v konfiguračním souboru!';
@@ -1035,8 +1049,10 @@ $strViewDumpDB = 'Export databáze';
 $strViewDump = 'Export tabulky';
 $strViewHasAtLeast = 'Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s.';
 $strViewHasBeenDropped = 'Pohled %s byl odstraněn';
+$strViewImage = 'Zobrazit obrázek';
 $strViewName = 'Jméno pohledu';
 $strView = 'Pohled';
+$strViewVideo = 'Přehrát video';
 
 $strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemohl být otevřen';
 $strWebServerUploadDirectory = 'soubor z adresáře pro upload';
@@ -1059,21 +1075,6 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
-$strBLOBRepository = 'BLOB Repository';  //to translate
-$strBLOBRepositoryDamaged = 'Damaged';  //to translate
-$strBLOBRepositoryDisableAreYouSure = 'Are you sure you want to disable all BLOB references fot database %s?';  //to translate
-$strBLOBRepositoryDisabled = 'Disabled';  //to translate
-$strBLOBRepositoryDisable = 'Disable';  //to translate
-$strBLOBRepositoryDisableStrongWarning = 'You are about to DISABLE a BLOB Repository!';  //to translate
-$strBLOBRepositoryEnabled = 'Enabled';  //to translate
-$strBLOBRepositoryEnable = 'Enable';  //to translate
-$strBLOBRepositoryRemove = 'Remove BLOB Repository Reference';  //to translate
-$strBLOBRepositoryRepair = 'Repair';  //to translate
-$strBLOBRepositoryStatus = 'Status';  //to translate
-$strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
-
-$strDownloadFile = 'Download file';  //to translate
-
 $strPBXTDataFileGrowSize = 'Data file grow size';  //to translate
 $strPBXTDataFileGrowSizeDesc = 'The grow size of the handle data (.xtd) files.';  //to translate
 $strPBXTDataLogThreshold = 'Data log threshold';  //to translate
@@ -1094,9 +1095,5 @@ $strPBXTRowFileGrowSizeDesc = 'The grow size of the row pointer (.xtr) files.'; 
 $strPBXTRowFileGrowSize = 'Row file grow size';  //to translate
 $strPBXTTransactionBufferSizeDesc = 'The size of the global transaction log buffer (the engine allocates 2 buffers of this size). The default is 1MB.';  //to translate
 $strPBXTTransactionBufferSize = 'Transaction buffer size';  //to translate
-$strPlayAudio = 'Play audio';  //to translate
-
-$strViewImage = 'View image';  //to translate
-$strViewVideo = 'View video';  //to translate
 
 ?>
