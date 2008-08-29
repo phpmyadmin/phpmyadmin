@@ -560,7 +560,7 @@ class PMA_File
             return false;
         }
 
-        $new_file_to_upload = $GLOBALS['cfg']['TempDir'] . '/' . basename($this->getName());
+        $new_file_to_upload = tempnam(realpath($GLOBALS['cfg']['TempDir']), basename($this->getName()));
 
         // surpress warnings from beeing displayed, but not from beeing logged
         // any file access outside of open_basedir will issue a warning

@@ -6,6 +6,7 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 2.11.10.0 (not yet released)
+- [core] safer handling of temporary files with open_basedir (thanks to Thijs Kinkhorst)
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
