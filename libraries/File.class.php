@@ -471,7 +471,7 @@ class PMA_File
      */
     function isReadable()
     {
-        // surpress warnings from beeing displayed, but not from beeing logged
+        // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
         $is_readable = is_readable($this->getName());
@@ -521,7 +521,7 @@ class PMA_File
             $GLOBALS['cfg']['TempDir'] = 'tmp/';
         }
 
-        // surpress warnings from beeing displayed, but not from beeing logged
+        // suppress warnings from being displayed, but not from being logged
         ob_start();
         // check tmp dir
         if (! is_dir($GLOBALS['cfg']['TempDir'])) {
@@ -545,7 +545,7 @@ class PMA_File
 
         $new_file_to_upload = tempnam(realpath($GLOBALS['cfg']['TempDir']), basename($this->getName()));
 
-        // surpress warnings from beeing displayed, but not from beeing logged
+        // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
         $move_uploaded_file_result = move_uploaded_file($this->getName(), $new_file_to_upload);
@@ -585,7 +585,7 @@ class PMA_File
      */
     function _detectCompression()
     {
-        // surpress warnings from beeing displayed, but not from beeing logged
+        // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
         ob_start();
         $file = fopen($this->getName(), 'rb');
