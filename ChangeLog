@@ -74,6 +74,7 @@ danbarry
 + [lang] Belarusian update, thanks to Jaska Zedlik
 + [lang] Norwegian update, thanks to Sven-Erik Andersen
 + [lang] Italian update, thanks to Luca Rebellato
+- [core] safer handling of temporary files with open_basedir (thanks to Thijs Kinkhorst)
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
