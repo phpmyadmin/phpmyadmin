@@ -681,7 +681,7 @@ class PMA_File
                         $tmp_filename = $GLOBALS['cfg']['UploadDir'] . '/' . $_REQUEST['fields_uploadlocal_' . $key]['multi_edit'][$primary];
                         $tmp_file = fopen($tmp_filename, 'r');
                         $tmp_file_size = filesize($tmp_filename);
-                                                
+
                         // check if fileinfo library exists
                         if ($PMA_Config->get('FILEINFO_EXISTS'))
                         {
@@ -936,7 +936,7 @@ class PMA_File
             return false;
         }
 
-        $new_file_to_upload = $GLOBALS['cfg']['TempDir'] . '/' . basename($this->getName());
+        $new_file_to_upload = tempnam(realpath($GLOBALS['cfg']['TempDir']), basename($this->getName()));
 
         // surpress warnings from beeing displayed, but not from beeing logged
         // any file access outside of open_basedir will issue a warning
