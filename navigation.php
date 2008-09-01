@@ -645,7 +645,7 @@ function PMA_displayTableList($tables, $visible = false,
             // link for the table name itself
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
                 .$GLOBALS['common_url_query'] . '&amp;table='
-                .urlencode($table['Name']);
+                .urlencode($table['Name']) . '&amp;pos=0';
             echo '<a href="' . $href
             . '" title="' . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']) . ': ' . $table['Comment']
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows']) . ')"'

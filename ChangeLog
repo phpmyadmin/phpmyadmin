@@ -83,6 +83,7 @@ danbarry
 + [lang] Italian update, thanks to Luca Rebellato
 - [core] safer handling of temporary files with open_basedir (thanks to Thijs Kinkhorst)
 + [lang] Czech update
+- bug #2066923 [display] Navi browse icon does not go to page 1 
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
