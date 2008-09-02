@@ -1767,11 +1767,48 @@ $cfg['TrustedProxies'] =
 
     <dt id="cfg_TempDir">$cfg['TempDir'] string</dt>
     <dd>
-        The name of the directory where temporary files can be stored.
+        The name of the directory where temporary files can be stored. 
         <br /><br />
+
         This is needed for native MS Excel export, see
         <a href="#faq6_23"><abbr title="Frequently Asked Questions">FAQ</abbr>
-        6.23</a>
+        6.23</a> and for workaround limitations of open_basedir for uploaded
+        files, see <a href="#faq1_11"><abbr title="Frequently Asked Questions">FAQ</abbr>
+        1.11</a>.
+        <br /><br />
+
+        If you have server configured with open_basedir, you need to create
+        temporary directory in some directory, where it can be acessed by web
+        server. However for security reasons, best is also to have it outside
+        tree published by webserver. If you can not avoid having this
+        directory published by webserver, place at least empty
+        <code>index.html</code> file there, so that directory listing is not
+        possible.
+        <br /><br />
+
+        This directory should have as strict permissions as possible as only
+        user required to access to this directory is the one who runs
+        webserver. If you have root privileges, simple make this user owner of
+        this folder and make it accessible only by him:
+        <br /><br />
+
+<pre>
+chown www-data:www-data tmp
+chmod 700 tmp
+</pre>
+
+        If you can not change owner of the directory, you can achieve similar
+        setup using <abbr title="Access Control List">ACL</abbr>:
+
+<pre>
+chmod 700 tmp
+setfacl -m "g:www-data:rwx" tmp
+setfacl -d -m "g:www-data:rwx" tmp
+</pre>
+
+        If neither of above works for you, you can still make the directory
+        <code>chmod 777</code>, but it might impose risk of other users on
+        system reading and writing data in this directory.
     </dd>
 
     <dt id="cfg_Export">$cfg['Export'] array</dt>
@@ -2480,11 +2517,9 @@ $cfg['TrustedProxies'] =
     uploading a file from the query box.</a></h4>
 
 <p> Since version 2.2.4, phpMyAdmin supports servers with open_basedir
-    restrictions. Assuming that the restriction allows you to open files in the
-    current directory ('.'), all you have to do is create a 'tmp' directory
-    under the phpMyAdmin install directory, with permissions 777 and the same
-    owner as the owner of your phpMyAdmin directory. The  uploaded files will
-    be moved there, and after execution of your
+    restrictions. However you need to create temporary directory and 
+    configure it as <a href="#cfg_TempDir" class="configrule">$cfg['TempDir']</a>.
+    The uploaded files will be moved there, and after execution of your
     <abbr title="structured query language">SQL</abbr> commands, removed.</p>
 
 <h4 id="faq1_12">

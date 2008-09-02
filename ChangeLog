@@ -89,6 +89,7 @@ danbarry
 - bug #2066923 [display] Navi browse icon does not go to page 1 
 - patch #2075263 [auth] Single sign-on and cookie clearing,
   thanks to Charles Suh - cws125
+- [doc] better documentation of $cfg['TempDir']
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
