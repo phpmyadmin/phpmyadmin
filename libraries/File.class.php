@@ -527,34 +527,7 @@ class PMA_File
             return true;
         }
 
-        /**
-         * it is not important if open_basedir is set - we just cannot read the file
-         * so we try to move it
-        if ('' != ini_get('open_basedir')) {
-         */
-
-        // check tmp dir config
-        if (empty($GLOBALS['cfg']['TempDir'])) {
-            $GLOBALS['cfg']['TempDir'] = 'tmp/';
-        }
-
-        // suppress warnings from being displayed, but not from being logged
-        ob_start();
-        // check tmp dir
-        if (! is_dir($GLOBALS['cfg']['TempDir'])) {
-            // try to create the tmp directory
-            if (@mkdir($GLOBALS['cfg']['TempDir'], 0777)) {
-                chmod($GLOBALS['cfg']['TempDir'], 0777);
-            } else {
-                // create tmp dir failed
-                $this->_error_message = $GLOBALS['strFieldInsertFromFileTempDirNotExists'];
-                ob_end_clean();
-                return false;
-            }
-        }
-        ob_end_clean();
-
-        if (! is_writable($GLOBALS['cfg']['TempDir'])) {
+        if (empty($GLOBALS['cfg']['TempDir']) || ! is_writable($GLOBALS['cfg']['TempDir'])) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = $GLOBALS['strFieldInsertFromFileTempDirNotExists'];
             return false;
