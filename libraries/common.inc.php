@@ -239,13 +239,13 @@ if (function_exists('get_magic_quotes_gpc') && -1 == version_compare(PHP_VERSION
 }
 
 /**
- * clean cookies on new install or upgrade
- * when changing something with increment the cookie version
+ * clean cookies on upgrade
+ * when changing something related to PMA cookies, increment the cookie version
  */
 $pma_cookie_version = 4;
 if (isset($_COOKIE)
- && (! isset($_COOKIE['pmaCookieVer'])
-  || $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
+ && (isset($_COOKIE['pmaCookieVer'])
+  && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
     // delete all cookies
     foreach($_COOKIE as $cookie_name => $tmp) {
         PMA_removeCookie($cookie_name);
