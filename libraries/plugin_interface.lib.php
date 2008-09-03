@@ -272,7 +272,11 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= 'UNKNOWN OPTION ' . $opt['type'] . ' IN IMPORT PLUGIN ' . $plugin_name . '!';
     }
     if (isset($opt['doc'])) {
-        $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
+        if (count($opt['doc'] == 3)) {
+            $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1], false, $opt['doc'][2]);
+        } else {
+            $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
+        }
     }
     $ret .= "\n";
     return $ret;

@@ -103,9 +103,9 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] =
             array('type' => 'bgroup', 'name' => 'data', 'text' => 'strData', 'force' => 'structure');
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'columns', 'text' => 'strCompleteInserts');
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strCompleteInserts', 'doc' => array('programs', 'mysqldump', 'option_mysqldump_complete-insert-option'));
         $plugin_list['sql']['options'][] =
-            array('type' => 'bool', 'name' => 'extended', 'text' => 'strExtendedInserts');
+            array('type' => 'bool', 'name' => 'extended', 'text' => 'strExtendedInserts', 'doc' => array('programs', 'mysqldump', 'option_mysqldump_extended-insert-option'));
         $plugin_list['sql']['options'][] =
             array('type' => 'text', 'name' => 'max_query_size', 'text' => 'strMaximalQueryLength');
         $plugin_list['sql']['options'][] =

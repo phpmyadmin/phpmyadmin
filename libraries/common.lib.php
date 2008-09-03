@@ -355,12 +355,13 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @param string  chapter of "HTML, one page per chapter" documentation
  * @param string  contains name of page/anchor that is being linked
  * @param bool    whether to use big icon (like in left frame)
+ * @param string  anchor to page part
  *
  * @return  string  the html link
  *
  * @access  public
  */
-function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
+function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '')
 {
     global $cfg;
 
@@ -377,16 +378,25 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
             if (empty($chapter)) {
                 $chapter = 'index';
             }
-            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $link;
+            if (empty($anchor)) {
+                $anchor = $link;
+            }
+            $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $anchor;
             break;
         case 'big':
-            $url = $cfg['MySQLManualBase'] . '#' . $link;
+            if (empty($anchor)) {
+                $anchor = $link;
+            }
+            $url = $cfg['MySQLManualBase'] . '#' . $anchor;
             break;
         case 'searchable':
             if (empty($link)) {
                 $link = 'index';
             }
             $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
+            if (!empty($anchor)) {
+                $url .= '#' . $anchor;
+            }
             break;
         case 'viewable':
         default:
@@ -409,6 +419,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false)
                 }
             }
             $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
+            if (!empty($anchor)) {
+                $url .= '#' . $anchor;
+            }
             break;
     }
 

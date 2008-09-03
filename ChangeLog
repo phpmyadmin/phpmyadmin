@@ -11,6 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + patch #2067462 [lang] link FAQ references in messages,
   thanks to Thijs Kinkhorst - kink
 + new setup script, thanks to Piotr Przybylski (work in progress)
+- rfe #1892243 [export] more links to documentation
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
