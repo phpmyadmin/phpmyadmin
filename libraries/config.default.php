@@ -165,7 +165,7 @@ $cfg['Servers'][$i]['controlpass'] = '';
  *
  * @global string $cfg['Servers'][$i]['auth_type']
  */
-$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
 
 /**
  * File containing Swekey ids and login names (see /contrib);
