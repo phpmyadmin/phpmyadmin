@@ -564,6 +564,7 @@ function PMA_auth_set_user()
                 $cfg['Server']['port'] = $tmp_port;
             }
         }
+        unset($tmp_host, $tmp_port, $parts);
     }
     $cfg['Server']['user']     = $GLOBALS['PHP_AUTH_USER'];
     $cfg['Server']['password'] = $GLOBALS['PHP_AUTH_PW'];
