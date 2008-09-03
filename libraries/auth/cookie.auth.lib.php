@@ -547,12 +547,10 @@ function PMA_auth_set_user()
         } // end foreach
     } // end if
 
-    $pma_server_changed = false;
     if ($GLOBALS['cfg']['AllowArbitraryServer']
      && ! empty($GLOBALS['pma_auth_server'])
      && $cfg['Server']['host'] != $GLOBALS['pma_auth_server']) {
         $cfg['Server']['host'] = $GLOBALS['pma_auth_server'];
-        $pma_server_changed = true;
     }
     $cfg['Server']['user']     = $GLOBALS['PHP_AUTH_USER'];
     $cfg['Server']['password'] = $GLOBALS['PHP_AUTH_PW'];
