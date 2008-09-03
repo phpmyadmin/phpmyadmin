@@ -12,6 +12,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Thijs Kinkhorst - kink
 + new setup script, thanks to Piotr Przybylski (work in progress)
 - rfe #1892243 [export] more links to documentation
++ [auth] cookie auth now autogenerates blowfish_secret, but it has some
+  limitations and you still should set it in config file
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -

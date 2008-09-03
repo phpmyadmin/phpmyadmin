@@ -284,6 +284,14 @@ if (! @extension_loaded('mbstring')) {
 }
 
 /**
+ * Check if user does not have defined blowfish secret and it is being used.
+ */
+if (!empty($_SESSION['auto_blowfish_secret']) &&
+        empty($GLOBALS['cfg']['blowfish_secret'])) {
+    trigger_error($strSecretRequired, E_USER_WARNING);
+}
+
+/**
  * Warning about different MySQL library and server version
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd, we can use it instead

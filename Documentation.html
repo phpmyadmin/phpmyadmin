@@ -597,7 +597,12 @@ since this link provides funding for phpMyAdmin.
         If you are using the &quot;cookie&quot; auth_type, enter here a random
         passphrase of your choice. It will be used internally by the blowfish
         algorithm: you won&#8217;t be prompted for this passphrase. The maximum
-        number of characters for this parameter seems to be 46.</dd>
+        number of characters for this parameter seems to be 46.<br /><br />
+        
+        Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
+        makes a bit weaker security as this generated secret is stored in
+        session and furthermore it makes impossible to recall user name from 
+        cookie.</dd>
 
     <dt id="cfg_Servers">$cfg['Servers'] array</dt>
     <dd>Since version 1.4.2, phpMyAdmin supports the administration of multiple
@@ -1180,7 +1185,11 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_LoginCookieRecall">$cfg['LoginCookieRecall'] boolean</dt>
     <dd>Define whether the previous login should be recalled or not in cookie
-        authentication mode.</dd>
+        authentication mode.<br /><br />
+
+        This is automatically diabled if you do not have configured 
+        <tt><a href="#cfg_blowfish_secret">$cfg['blowfish_secret']</a></tt>.
+        </dd>
 
     <dt id="cfg_LoginCookieValidity">$cfg['LoginCookieValidity'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie valid.</dd>
