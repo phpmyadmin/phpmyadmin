@@ -1091,4 +1091,5 @@ $strViewImage = 'View image';  //to translate
 $strPlayAudio = 'Play audio';  //to translate
 $strViewVideo = 'View video';  //to translate
 $strDownloadFile = 'Download file';  //to translate
+$strLogServerHelp = 'You can ether hostname/IP address and port separated by space.';  //to translate
 ?>

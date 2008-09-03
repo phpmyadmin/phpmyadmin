@@ -458,6 +458,7 @@ $strLoginInformation = 'Přihlašování';
 $strLogin = 'Přihlášení';
 $strLogout = 'Odhlásit se';
 $strLogPassword = 'Heslo:';
+$strLogServerHelp = 'Můžete zadat jméno počítače/IP adresu a port oddělené mezerou.';
 $strLogServer = 'Server:';
 $strLogUsername = 'Jméno:';
 $strLongOperation = 'Tato operace může trvat velmi dlouho. Chcete je přesto provést?';

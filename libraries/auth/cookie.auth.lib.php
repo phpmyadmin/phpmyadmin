@@ -262,8 +262,8 @@ if (top != self) {
 
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
         <div class="item">
-            <label for="input_servername"><?php echo $GLOBALS['strLogServer']; ?></label>
-            <input type="text" name="pma_servername" id="input_servername" value="<?php echo htmlspecialchars($default_server); ?>" size="24" class="textfield" />
+            <label for="input_servername" title="<?php echo $GLOBALS['strLogServerHelp']; ?>"><?php echo $GLOBALS['strLogServer']; ?></label>
+            <input type="text" name="pma_servername" id="input_servername" value="<?php echo htmlspecialchars($default_server); ?>" size="24" class="textfield" title="<?php echo $GLOBALS['strLogServerHelp']; ?>" />
         </div>
 <?php } ?>
         <div class="item">
@@ -548,9 +548,22 @@ function PMA_auth_set_user()
     } // end if
 
     if ($GLOBALS['cfg']['AllowArbitraryServer']
-     && ! empty($GLOBALS['pma_auth_server'])
-     && $cfg['Server']['host'] != $GLOBALS['pma_auth_server']) {
-        $cfg['Server']['host'] = $GLOBALS['pma_auth_server'];
+     && ! empty($GLOBALS['pma_auth_server'])) {
+        /* Allow to specify 'host port' */
+        $parts = explode(' ', $GLOBALS['pma_auth_server']);
+        if (count($parts) == 2) {
+            $tmp_host = $parts[0];
+            $tmp_port = $parts[1];
+        } else {
+            $tmp_host = $GLOBALS['pma_auth_server'];
+            $tmp_port = '';
+        }
+        if ($cfg['Server']['host'] != $GLOBALS['pma_auth_server']) {
+            $cfg['Server']['host'] = $tmp_host;
+            if (!empty($tmp_port)) {
+                $cfg['Server']['port'] = $tmp_port;
+            }
+        }
     }
     $cfg['Server']['user']     = $GLOBALS['PHP_AUTH_USER'];
     $cfg['Server']['password'] = $GLOBALS['PHP_AUTH_PW'];
