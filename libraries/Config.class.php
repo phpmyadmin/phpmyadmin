@@ -477,7 +477,7 @@ class PMA_Config
         }
 
         // Check for permissions (on platforms that support it):
-	if ($this->get('CheckConfigurationPermissions')) {
+        if ($this->get('CheckConfigurationPermissions')) {
             $perms = @fileperms($this->getSource());
             if (!($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
@@ -486,8 +486,8 @@ class PMA_Config
                     $this->source_mtime = 0;
                     die('Wrong permissions on configuration file, should not be world writable!');
                 }
-	    }
-	}
+            }
+        }
 
         return true;
     }
