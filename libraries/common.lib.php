@@ -486,7 +486,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    $GLOBALS['strEdit']
  * @uses    $GLOBALS['strMySQLSaid']
- * @uses    $GLOBALS['cfg']['PropertiesIconic'] 
+ * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
  * @uses    PMA_backquote()
  * @uses    PMA_DBI_getError()
@@ -971,7 +971,7 @@ if (typeof(window.parent) != 'undefined'
  *
  * @param   string  $message    the message to display
  * @param   string  $sql_query  the query to display
- * @param   string  $type       the type (level) of the message 
+ * @param   string  $type       the type (level) of the message
  * @global  array   the configuration array
  * @uses    $cfg
  * @access  public
@@ -2310,7 +2310,7 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  *
  * @param   string  $html_field_name the checkbox HTML field
  * @param   string  $label
- * @param   boolean $checked is it initially checked? 
+ * @param   boolean $checked is it initially checked?
  * @param   boolean $onclick should it submit the form on click?
  */
 function PMA_generate_html_checkbox($html_field_name, $label, $checked, $onclick) {
@@ -2326,7 +2326,7 @@ function PMA_generate_html_checkbox($html_field_name, $label, $checked, $onclick
  * @param   array   $choices the choices values and labels
  * @param   string  $checked_choice the choice to check by default
  * @param   boolean $line_break whether to add an HTML line break after a choice
- * @param   boolean $escape_label whether to use htmlspecialchars() on label 
+ * @param   boolean $escape_label whether to use htmlspecialchars() on label
  * @param   string  $class enclose each choice with a div of this class
  */
 function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
@@ -2352,7 +2352,7 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
 }
 
 /**
- * Generates and echoes an HTML dropdown 
+ * Generates and echoes an HTML dropdown
  *
  * @uses    htmlspecialchars()
  * @param   string  $select_name
@@ -2500,8 +2500,8 @@ function PMA_cacheSet($var, $val = null, $server = 0)
  * @uses    substr()
  * @uses    sprintf()
  * @param   numeric $value coming from a BIT field
- * @param   integer $length 
- * @return  string  the printable value 
+ * @param   integer $length
+ * @return  string  the printable value
  */
 function PMA_printable_bit_value($value, $length) {
     $printable = '';
@@ -2518,8 +2518,8 @@ function PMA_printable_bit_value($value, $length) {
  * @uses    strpos()
  * @uses    chop()
  * @uses    substr()
- * @param   string $fieldspec 
- * @return  array associative array containing type, spec_in_brackets 
+ * @param   string $fieldspec
+ * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  * @author  Marc Delisle
  * @author  Joshua Hogendorn
@@ -2542,11 +2542,11 @@ function PMA_extractFieldSpec($fieldspec) {
         $in_string = false;
         $index = 0;
 
-        // While there is another character to process	
+        // While there is another character to process
         while (isset($fieldspec[$index])) {
             // Grab the char to look at
             $char = $fieldspec[$index];
-		
+
             // If it is a single quote, needs to be handled specially
             if ($char == "'") {
                 // If we are not currently in a string, begin one
@@ -2558,12 +2558,12 @@ function PMA_extractFieldSpec($fieldspec) {
                 // Check out the next character (if possible)
                     $has_next = isset($fieldspec[$index + 1]);
                     $next = $has_next ? $fieldspec[$index + 1] : null;
-				
+
                 // If we have reached the end of our 'working' string (because there are no more chars, or the next char is not another quote)
                     if (! $has_next || $next != "'") {
                         $enum_set_values[] = $working;
                         $in_string = false;
-				
+
                     // Otherwise, this is a 'double quote', and can be added to the working string
                     } elseif ($next == "'") {
                         $working .= "'";
@@ -2594,11 +2594,11 @@ function PMA_extractFieldSpec($fieldspec) {
 }
 
 /**
- * Verifies if this table's engine supports foreign keys 
+ * Verifies if this table's engine supports foreign keys
  *
  * @uses    strtoupper()
  * @param   string $engine
- * @return  boolean 
+ * @return  boolean
  */
 function PMA_foreignkey_supported($engine) {
     $engine = strtoupper($engine);
@@ -2607,14 +2607,14 @@ function PMA_foreignkey_supported($engine) {
     } else {
         return false;
     }
-} 
+}
 
 /**
- * Replaces some characters by a displayable equivalent 
+ * Replaces some characters by a displayable equivalent
  *
  * @uses    str_replace()
  * @param   string $content
- * @return  string the content with characters replaced 
+ * @return  string the content with characters replaced
  */
 function PMA_replace_binary_contents($content) {
     $result = str_replace("\x00", '\0', $content);
