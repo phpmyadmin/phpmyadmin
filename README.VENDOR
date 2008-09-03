@@ -9,4 +9,13 @@ distribution or some all in one package including web server and MySQL
 server.
 
 
+Setup script
+------------
+
+If you want to integrate setup script to your packaging, you might want
+to change $cfg_db['_config_file_path'] in setup/lib/config_info.inc.php
+to point to place where you want to generated config file to be saved.
+Please note that directory and the file has to be writable for web
+server user.
+
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
