@@ -109,8 +109,8 @@ function PMA_auth_check()
         }
         session_start();
 
-	/* Set the single signon host */
-	$GLOBALS['cfg']['Server']['host']=$single_signon_host;
+        /* Set the single signon host */
+        $GLOBALS['cfg']['Server']['host']=$single_signon_host;
 
         /* Restore our token */
         if (!empty($pma_token)) {
