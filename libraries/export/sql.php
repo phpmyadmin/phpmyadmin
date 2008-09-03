@@ -26,6 +26,7 @@ if (isset($plugin_list)) {
             'mime_type' => 'text/x-sql',
             'options' => array(
                 array('type' => 'text', 'name' => 'header_comment', 'text' => 'strAddHeaderComment'),
+                array('type' => 'bool', 'name' => 'include_comments', 'text' => 'strComments'),
                 array('type' => 'bool', 'name' => 'use_transaction', 'text' => 'strEncloseInTransaction'),
                 array('type' => 'bool', 'name' => 'disable_fk', 'text' => 'strDisableForeignChecks'),
                 ),
@@ -137,8 +138,12 @@ if (! isset($sql_backquotes)) {
  */
 function PMA_exportComment($text = '')
 {
-    // see http://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
-    return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
+    if ($GLOBALS['sql_include_comments']) {
+        // see http://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
+        return '--' . (empty($text) ? '' : ' ') . $text . $GLOBALS['crlf'];
+    } else {
+        return '';
+    }
 }
 
 /**
