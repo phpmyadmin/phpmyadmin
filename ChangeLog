@@ -16,7 +16,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   limitations and you still should set it in config file
 + [auth] cookie authentication is now default
 + [auth] do not allow root user without password unless explicitly enabled by
-  AllowEmptyRoot
+  AllowNoPasswordRoot
 + rfe #1778908 [auth] arbitrary server auth can now also accept port
 - patch #2089240 [export] handle correctly switching SQL modes
 + rfe #1612724 [export] add option to export without comments

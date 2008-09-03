@@ -1030,12 +1030,13 @@ ALTER TABLE `pma_column_comments`
         up to date.</dd>
     <dt><span id="cfg_Servers_AllowRoot">$cfg['Servers'][$i]['AllowRoot']</span>
         boolean</dt>
-    <dd>Whether to allow root access. This is just simplification of rules below.
+    <dd>Whether to allow root access. This is just a shortcut for the AllowDeny rules below.
     </dd>
-    <dt><span id="cfg_Servers_AllowNoPasswordRoot">$cfg['Servers'][$i]['AllowNoPassowdRoot']</span>
+    <dt><span id="cfg_Servers_AllowNoPasswordRoot">$cfg['Servers'][$i]['AllowNoPasswordRoot']</span>
         boolean</dt>
-    <dd>Whether to allow acces to root user without password. This is to 
-        protect against access to not configured MySQL server.
+	<dd>Whether to allow access to root user without password. The default
+	value of <tt>false</tt> for this parameter prevents unintended access 
+	to a MySQL server with was left with an empty password for root.
     </dd>
     <dt id="servers_allowdeny_order">
         <span id="cfg_Servers_AllowDeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</span> string
