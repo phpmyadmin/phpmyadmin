@@ -18,6 +18,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [auth] do not allow root user without password unless explicitly enabled by
   AllowEmptyRoot
 + rfe #1778908 [auth] arbitrary server auth can now also accept port
+- patch #2089240 [export] handle correctly switching SQL modes
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -

@@ -189,8 +189,13 @@ function PMA_exportHeader()
     global $cfg;
     global $mysql_charset_map;
 
-    if (isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] != 'NONE') {
-        PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compatibility'] . '"');
+    if (isset($GLOBALS['sql_compatibility'])) {
+        $tmp_compat = $GLOBALS['sql_compatibility'];
+        if ($tmp_compat == 'NONE') {
+            $tmp_compat = '';
+        }
+        PMA_DBI_try_query('SET SQL_MODE="' . $tmp_compat . '"');
+        unset($tmp_compat);
     }
     $head  =  PMA_exportComment('phpMyAdmin SQL Dump')
            .  PMA_exportComment('version ' . PMA_VERSION)
