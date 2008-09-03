@@ -458,7 +458,7 @@ $strLoginInformation = 'Přihlašování';
 $strLogin = 'Přihlášení';
 $strLogout = 'Odhlásit se';
 $strLogPassword = 'Heslo:';
-$strLogServer = 'Server';
+$strLogServer = 'Server:';
 $strLogUsername = 'Jméno:';
 $strLongOperation = 'Tato operace může trvat velmi dlouho. Chcete je přesto provést?';
 

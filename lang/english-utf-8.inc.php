@@ -9,7 +9,7 @@ $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB');
 
-// MySQL manual language definition, this is optional, en will be used 
+// MySQL manual language definition, this is optional, en will be used
 // if not defined
 $mysql_4_1_doc_lang = 'en';
 $mysql_5_0_doc_lang = 'en';
@@ -458,7 +458,7 @@ $strLoginInformation = 'Login Information';
 $strLogin = 'Log in';
 $strLogout = 'Log out';
 $strLogPassword = 'Password:';
-$strLogServer = 'Server';
+$strLogServer = 'Server:';
 $strLogUsername = 'Username:';
 $strLongOperation = 'This operation could take a long time. Proceed anyway?';
 
