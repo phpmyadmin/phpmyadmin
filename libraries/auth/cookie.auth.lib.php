@@ -218,8 +218,8 @@ if (top != self) {
         echo '</body></html>';
         exit;
     }
-   
-    // BEGIN Swekey Integration   
+
+    // BEGIN Swekey Integration
     $swekeyErr = Swekey_auth_error();
     if ($swekeyErr != null) {
          PMA_Message::error($swekeyErr)->display();
@@ -239,11 +239,11 @@ if (top != self) {
     if (isset($_SESSION['PHP_AUTH_FORCE_USER'])) {
         $default_user = $_SESSION['PHP_AUTH_FORCE_USER'];
         $user_input_disabled = 'readonly="readonly"';
-    }
-    else
+    } else {
          $user_input_disabled = '';
-     // END Swekey Integration   
-   
+    }
+     // END Swekey Integration
+
     ?>
 <br />
 <!-- Login form -->
@@ -411,10 +411,10 @@ function PMA_auth_check()
         return false;
     }
 
-    // BEGIN Swekey Integration   
+    // BEGIN Swekey Integration
     if (! Swekey_auth_check())
         return false;
-    // END Swekey Integration   
+    // END Swekey Integration
 
     if (defined('PMA_CLEAR_COOKIES')) {
         foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
