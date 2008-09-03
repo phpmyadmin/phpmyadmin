@@ -222,7 +222,7 @@ if (top != self) {
     // BEGIN Swekey Integration
     $swekeyErr = Swekey_auth_error();
     if ($swekeyErr != null) {
-         PMA_Message::error($swekeyErr)->display();
+        PMA_Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();
@@ -242,7 +242,7 @@ if (top != self) {
     } else {
          $user_input_disabled = '';
     }
-     // END Swekey Integration
+    // END Swekey Integration
 
     ?>
 <br />
@@ -412,8 +412,9 @@ function PMA_auth_check()
     }
 
     // BEGIN Swekey Integration
-    if (! Swekey_auth_check())
+    if (! Swekey_auth_check()) {
         return false;
+    }
     // END Swekey Integration
 
     if (defined('PMA_CLEAR_COOKIES')) {
