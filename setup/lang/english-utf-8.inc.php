@@ -174,6 +174,7 @@ $str['Servers/1/only_db_desc'] = 'You can use MySQL wildcard characters (% and _
 $str['Servers/1/hide_db_name'] = 'Hide databases';
 $str['Servers/1/hide_db_desc'] = 'Hide databases matching regular expression (PCRE)';
 $str['Servers/1/AllowRoot_name'] = 'Allow root login';
+$str['Servers/1/AllowNoPasswordRoot_name'] = 'Allow root without password';
 $str['Servers/1/DisableIS_name'] = 'Disable use of INFORMATION_SCHEMA';
 $str['Servers/1/DisableIS_desc'] = 'More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';
 $str['Servers/1/AllowDeny/order_name'] = 'Host authentication order';

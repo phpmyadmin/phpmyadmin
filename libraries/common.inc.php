@@ -870,6 +870,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($allowDeny_forbidden); //Clean up after you!
         }
 
+        // is root without password allowed?
+        if (!$cfg['Server']['AllowNoPasswordRoot'] && $cfg['Server']['user'] == 'root' && $cfg['Server']['password'] == '') {
+            $allowDeny_forbidden = true;
+            PMA_auth_fails();
+            unset($allowDeny_forbidden); //Clean up after you!
+        }
+
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the

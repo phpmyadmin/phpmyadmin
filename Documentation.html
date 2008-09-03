@@ -1032,6 +1032,11 @@ ALTER TABLE `pma_column_comments`
         boolean</dt>
     <dd>Whether to allow root access. This is just simplification of rules below.
     </dd>
+    <dt><span id="cfg_Servers_AllowNoPasswordRoot">$cfg['Servers'][$i]['AllowNoPassowdRoot']</span>
+        boolean</dt>
+    <dd>Whether to allow acces to root user without password. This is to 
+        protect against access to not configured MySQL server.
+    </dd>
     <dt id="servers_allowdeny_order">
         <span id="cfg_Servers_AllowDeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</span> string
     </dt>

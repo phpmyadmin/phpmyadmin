@@ -338,6 +338,13 @@ $cfg['Servers'][$i]['verbose_check'] = true;
 $cfg['Servers'][$i]['AllowRoot'] = true;
 
 /**
+ * whether to allow login of root user with no password (MySQL default)
+ *
+ * @global boolean $cfg['Servers'][$i]['AllowNoPasswordRoot']
+ */
+$cfg['Servers'][$i]['AllowNoPasswordRoot'] = false;
+
+/**
  * Host authentication order, leave blank to not use
  *
  * @global string $cfg['Servers'][$i]['AllowDeny']['order']
