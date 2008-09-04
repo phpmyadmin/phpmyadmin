@@ -278,7 +278,22 @@ function perform_config_checks()
             && $cf->getValue("Servers/$i/user") != ''
             && $cf->getValue("Servers/$i/password") != '') {
             $title = PMA_lang_name('Servers/1/auth_type') . " ($server_name)";
-            messages_set('warning', "Servers/$i/auth_type", $title, PMA_lang('Server_auth_config_msg', $i));
+            messages_set('warning', "Servers/$i/auth_type", $title,
+            	PMA_lang('Server_auth_config_msg', $i) . ' ' .
+            	PMA_lang('Server_security_info_msg', $i));
+        }
+
+        //
+        // $cfg['Servers'][$i]['AllowRoot']
+        // $cfg['Servers'][$i]['AllowNoPasswordRoot']
+        // serious security flaw
+        //
+        if ($cf->getValue("Servers/$i/AllowRoot")
+            && $cf->getValue("Servers/$i/AllowNoPasswordRoot")) {
+			$title = PMA_lang_name('Servers/1/AllowNoPasswordRoot') . " ($server_name)";
+			messages_set('warning', "Servers/$i/AllowNoPasswordRoot", $title,
+				PMA_lang('Server_no_password_root_msg') . ' ' .
+            	PMA_lang('Server_security_info_msg', $i));
         }
     }
 
@@ -292,7 +307,7 @@ function perform_config_checks()
             messages_set('notice', 'blowfish_secret_created', 'blowfish_secret_name',
                  PMA_lang('blowfish_secret_msg'));
         } else {
-        	$blowfish_warnings = array();
+            $blowfish_warnings = array();
             // check length
             if (strlen($blowfish_secret) < 8) {
                 // too short key
@@ -303,11 +318,11 @@ function perform_config_checks()
             $has_chars = (bool) preg_match('/\S/', $blowfish_secret);
             $has_nonword = (bool) preg_match('/\W/', $blowfish_secret);
             if (!$has_digits || !$has_chars || !$has_nonword) {
-            	$blowfish_warnings[] = PMA_lang('blowfish_secret_chars_msg');
+                $blowfish_warnings[] = PMA_lang('blowfish_secret_chars_msg');
             }
             if (!empty($blowfish_warnings)) {
-            	messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
-            		'blowfish_secret_name', implode("<br />", $blowfish_warnings));
+                messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
+                    'blowfish_secret_name', implode("<br />", $blowfish_warnings));
             }
         }
     }
@@ -326,7 +341,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('AllowArbitraryServer')) {
         messages_set('warning', 'AllowArbitraryServer', 'AllowArbitraryServer_name',
-        	PMA_lang('AllowArbitraryServer_msg'));
+            PMA_lang('AllowArbitraryServer_msg'));
     }
 
     //
@@ -335,7 +350,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
         messages_set('warning', 'LoginCookieValidity', 'LoginCookieValidity_name',
-        	PMA_lang('LoginCookieValidity_msg'));
+            PMA_lang('LoginCookieValidity_msg'));
     }
 
     //
@@ -344,7 +359,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('SaveDir') != '') {
         messages_set('notice', 'SaveDir', 'SaveDir_name',
-        	PMA_lang('Directory_notice'));
+            PMA_lang('Directory_notice'));
     }
 
     //
