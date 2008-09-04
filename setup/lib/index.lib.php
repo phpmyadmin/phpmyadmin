@@ -257,7 +257,7 @@ function perform_config_checks()
         // should be enabled if possible
         //
         if (!$cf->getValue("Servers/$i/ssl")) {
-            $title = PMA_lang('Servers/1/ssl_name') . " ($server_name)";
+            $title = PMA_lang_name('Servers/1/ssl') . " ($server_name)";
             messages_set('notice', "Servers/$i/ssl", $title, PMA_lang('Server_ssl_msg'));
         }
 
@@ -266,7 +266,7 @@ function perform_config_checks()
         // warn about using 'mysql'
         //
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
-            $title = PMA_lang('Servers/1/extension_name') . " ($server_name)";
+            $title = PMA_lang_name('Servers/1/extension') . " ($server_name)";
             messages_set('notice', "Servers/$i/extension", $title, PMA_lang('Server_extension_msg'));
         }
 
@@ -277,7 +277,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/auth_type") == 'config'
             && $cf->getValue("Servers/$i/user") != ''
             && $cf->getValue("Servers/$i/password") != '') {
-            $title = PMA_lang('Servers/1/auth_type_name') . " ($server_name)";
+            $title = PMA_lang_name('Servers/1/auth_type') . " ($server_name)";
             messages_set('warning', "Servers/$i/auth_type", $title, PMA_lang('Server_auth_config_msg', $i));
         }
     }

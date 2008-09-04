@@ -190,6 +190,34 @@ function PMA_lang($lang_key)
 }
 
 /**
+ * Returns translated field name
+ *
+ * @param string $canonical_path
+ * @return string
+ */
+function PMA_lang_name($canonical_path)
+{
+	$lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_name';
+    return isset($GLOBALS['str'][$lang_key])
+    	? $GLOBALS['str'][$lang_key]
+    	: $lang_key;
+}
+
+/**
+ * Returns translated field description
+ *
+ * @param string $canonical_path
+ * @return string
+ */
+function PMA_lang_desc($canonical_path)
+{
+	$lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_desc';
+    return isset($GLOBALS['str'][$lang_key])
+    	? $GLOBALS['str'][$lang_key]
+    	: '';
+}
+
+/**
  * Wraps link in <a> tags and replaces argument separator in internal links
  * to the one returned by PMA_get_arg_separator()
  *

@@ -155,7 +155,6 @@ class FormDisplay
     {
         static $js_lang_sent = false;
 
-        $cf = ConfigFile::getInstance();
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->forms) > 1);
@@ -236,25 +235,21 @@ class FormDisplay
      *
      * @param Form   $form
      * @param string $field                 field name as it appears in $form
-     * @param string $path                  field path, eg. Servers/4/verbose
-     * @param string $work_path             work path, eg. Servers/1/verbose
-     * @param string $translated_path       field path
+     * @param string $system_path           field path, eg. Servers/1/verbose
+     * @param string $work_path             work path, eg. Servers/4/verbose
+     * @param string $translated_path       work path changed so that it can be used as XHTML id
      * @param bool   $show_restore_default  whether show "restore default" button besides the input field
      * @param array  &$js_default           array which stores JavaScript code to be displayed
      */
-    private function _displayFieldInput(Form $form, $field, $path, $work_path,
+    private function _displayFieldInput(Form $form, $field, $system_path, $work_path,
         $translated_path, $show_restore_default, array &$js_default)
     {
-        $name = isset($GLOBALS['str']["{$path}_name"])
-            ? $GLOBALS['str']["{$path}_name"]
-            : $field;
-        $description = isset($GLOBALS['str']["{$path}_desc"])
-            ? PMA_lang("{$path}_desc")
-            : '';
+        $name = PMA_lang_name($system_path);
+        $description = PMA_lang_desc($system_path);
 
         $cf = ConfigFile::getInstance();
         $value = $cf->get($work_path);
-        $value_default = $cf->getDefault($path);
+        $value_default = $cf->getDefault($system_path);
         $value_is_default = false;
         if ($value === null || $value === $value_default) {
             $value = $value_default;
@@ -262,11 +257,11 @@ class FormDisplay
         }
 
         $opts = array(
-            'doc' => $this->getDocLink($path),
-            'wiki' =>  $this->getWikiLink($path),
+            'doc' => $this->getDocLink($system_path),
+            'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default);
-        if (isset($form->default[$path])) {
-            $opts['setvalue'] = $form->default[$path];
+        if (isset($form->default[$system_path])) {
+            $opts['setvalue'] = $form->default[$system_path];
         }
 
         if (isset($this->errors[$work_path])) {
@@ -335,10 +330,10 @@ class FormDisplay
             return;
         }
 
-        foreach ($this->errors as $path => $error_list) {
-            if (isset($this->system_paths[$path])) {
-                $path = $this->system_paths[$path];
-                $name = $GLOBALS['str']["{$path}_name"];
+        foreach ($this->errors as $system_path => $error_list) {
+            if (isset($this->system_paths[$system_path])) {
+                $path = $this->system_paths[$system_path];
+                $name = PMA_lang_name($system_path);
             } else {
                 $name = $GLOBALS['str']["Form_$path"];
             }
@@ -412,8 +407,8 @@ class FormDisplay
                 ? $cf->getServerCount() + 1
                 : false;
             // grab POST values
-            foreach ($form->fields as $field => $path) {
-                $work_path = array_search($path, $this->system_paths);
+            foreach ($form->fields as $field => $system_path) {
+                $work_path = array_search($system_path, $this->system_paths);
                 $key = $this->translated_paths[$work_path];
 
                 // ensure the value is set
@@ -422,11 +417,9 @@ class FormDisplay
                     if ($form->getOptionType($field) == 'boolean') {
                         $_POST[$key] = false;
                     } else {
-                        $lang_field = isset($GLOBALS['str']["{$path}_name"])
-                            ? $GLOBALS['str']["{$path}_name"] : $path;
                         $this->errors[$form->name][] = PMA_lang(
                             'error_missing_field_data',
-                            '<i>' . $lang_field . '</i>');
+                            '<i>' . PMA_lang_name($system_path) . '</i>');
                         $result = false;
                         continue;
                     }
@@ -445,7 +438,7 @@ class FormDisplay
                         }
                         break;
                     case 'select':
-                        if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($path))) {
+                        if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
                             $this->errors[$work_path][] = $GLOBALS['str']['error_incorrect_value'];
                             $result = false;
                             continue;
@@ -468,12 +461,12 @@ class FormDisplay
                 }
 
                 // now we have value with proper type
-                $values[$path] = $_POST[$key];
+                $values[$system_path] = $_POST[$key];
                 if ($change_index !== false) {
                     $work_path = str_replace("Servers/$form->index/",
                       "Servers/$change_index/", $work_path);
                 }
-                $to_save[$work_path] = $path;
+                $to_save[$work_path] = $system_path;
             }
         }
 
