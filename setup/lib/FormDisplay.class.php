@@ -295,6 +295,15 @@ class FormDisplay
                 break;
         }
 
+        // TrustedProxies requires changes before displaying
+        if ($system_path == 'TrustedProxies') {
+            foreach ($value as $ip => &$v) {
+                if (!preg_match('/^-\d+$/', $ip)) {
+                    $v = $ip . ': ' . $v;
+                }
+            }
+        }
+
         // send default value to form's JS
         $js_line = '\'' . $translated_path . '\': ';
         switch ($type) {
@@ -473,6 +482,24 @@ class FormDisplay
         // save forms
         if ($allow_partial_save || empty($this->errors)) {
             foreach ($to_save as $work_path => $path) {
+                // TrustedProxies requires changes before saving
+                if ($path == 'TrustedProxies') {
+                    $proxies = array();
+                    $i = 0;
+                    foreach ($values[$path] as $value) {
+                        $matches = array();
+                        if (preg_match("/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches)) {
+                            // correct 'IP: HTTP header' pair
+                            $ip = trim($matches[1]);
+                            $proxies[$ip] = trim($matches[2]);
+                        } else {
+                            // save also incorrect values
+                            $proxies["-$i"] = $value;
+                            $i++;
+                        }
+                    }
+                    $values[$path] = $proxies;
+                }
                 $cf->set($work_path, $values[$path], $path);
             }
         }

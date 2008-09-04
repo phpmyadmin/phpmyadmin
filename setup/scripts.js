@@ -241,7 +241,20 @@ var validators = {
                 ajaxValidate(this, 'Servers/1/hide_db', data);
             }
             return true;
-        }
+        },
+		/**
+         * TrustedProxies field
+         *
+         * @param boolean isKeyUp
+         */
+        TrustedProxies: function(isKeyUp) {
+            if (!isKeyUp && this.value != '') {
+                var data = {};
+                data[this.id] = this.value;
+                ajaxValidate(this, 'TrustedProxies', data);
+            }
+            return true;
+        },
     },
     // fieldset validators
     _fieldset: {

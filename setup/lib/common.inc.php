@@ -197,10 +197,10 @@ function PMA_lang($lang_key)
  */
 function PMA_lang_name($canonical_path)
 {
-	$lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_name';
+    $lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_name';
     return isset($GLOBALS['str'][$lang_key])
-    	? $GLOBALS['str'][$lang_key]
-    	: $lang_key;
+        ? $GLOBALS['str'][$lang_key]
+        : $lang_key;
 }
 
 /**
@@ -211,10 +211,10 @@ function PMA_lang_name($canonical_path)
  */
 function PMA_lang_desc($canonical_path)
 {
-	$lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_desc';
+    $lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_desc';
     return isset($GLOBALS['str'][$lang_key])
-    	? $GLOBALS['str'][$lang_key]
-    	: '';
+        ? PMA_lang($lang_key)
+        : '';
 }
 
 /**

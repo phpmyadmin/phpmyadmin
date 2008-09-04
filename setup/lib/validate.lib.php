@@ -8,8 +8,8 @@
  * The function must always return an array with an error (or error array)
  * assigned to a form element (formset name or field path). Even if there are
  * no errors, key must be set with an empty value.
- * 
- * Valdiation functions are assigned in $cfg_db['_validators'] (config_info.inc.php). 
+ *
+ * Valdiation functions are assigned in $cfg_db['_validators'] (config_info.inc.php).
  *
  * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
@@ -19,7 +19,7 @@
 
 /**
  * Runs validation $validator_id on values $values and returns error list.
- * 
+ *
  * Return values:
  * o array, keys - field path or formset id, values - array of errors
  *   when $isPostSource is true values is an empty array to allow for error list
@@ -251,6 +251,54 @@ function validate_regex($path, $values)
 
     return $result;
 }
+
+/**
+ * Validates TrustedProxies field
+ *
+ * @param string $path
+ * @param array  $values
+ * @return array
+ */
+function validate_trusted_proxies($path, $values)
+{
+    $result = array($path => array());
+
+    if (empty($values[$path])) {
+        return $result;
+    }
+
+    if (is_array($values[$path])) {
+        // value already processed by FormDisplay::save
+        $lines = array();
+        foreach ($values[$path] as $ip => $v) {
+            $lines[] = preg_match('/^-\d+$/', $ip)
+            	? $v
+            	: $ip . ': ' . $v;
+        }
+    } else {
+        // AJAX validation
+        $lines = explode("\n", $values[$path]);
+    }
+    foreach ($lines as $line) {
+        $line = trim($line);
+        $matches = array();
+        // we catch anything that may (or may not) be an IP
+        if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
+            $result[$path][] = PMA_lang('error_incorrect_value') . ': ' . $line;
+            continue;
+        }
+        // now let's check whether we really have an IP address
+        if (filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
+            && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+            $ip = htmlspecialchars(trim($matches[1]));
+            $result[$path][] = PMA_lang('error_incorrect_ip_address', $ip);
+            continue;
+        }
+    }
+
+    return $result;
+}
+
 
 /**
  * Tests integer value

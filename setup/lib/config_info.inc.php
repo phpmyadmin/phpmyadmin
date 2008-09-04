@@ -110,7 +110,7 @@ $persist_keys = array(
  */
 $cfg_db['_overrides'] = array();
 $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
-	? 'mysqli' : 'mysql';
+    ? 'mysqli' : 'mysql';
 
 /**
  * Validator assignments (functions from validate.lib.php and 'validators'
@@ -122,9 +122,10 @@ $cfg_db['_validators'] = array(
     'Server_pmadb' => 'validate_pmadb',
     'Servers/1/port' => 'validate_port_number',
     'Servers/1/hide_db' => 'validate_regex',
+    'TrustedProxies' => 'validate_trusted_proxies',
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
-	'QueryHistoryMax' => 'validate_positive_number',
+    'QueryHistoryMax' => 'validate_positive_number',
     'LeftFrameTableLevel' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
     'CharTextareaCols' => 'validate_positive_number',
