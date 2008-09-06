@@ -54,7 +54,7 @@ $cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
 // $cfg['Servers'][$i]['history'] = 'pma_history';
 // $cfg['Servers'][$i]['designer_coords'] = 'pma_designer_coords';
 /* Contrib / Swekey authentication */
-// $cfg['Servers'][$i]['auth_swekey_config'] = './swekey.conf';
+// $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey-pma.conf';
 
 /*
  * End of servers configuration

@@ -221,32 +221,7 @@ if (top != self) {
         // use fieldset, don't show doc link
         PMA_select_language(true, false);
     }
-
-    // BEGIN Swekey Integration
-    $swekeyErr = Swekey_auth_error();
-    if ($swekeyErr != null) {
-        PMA_Message::error($swekeyErr)->display();
-        if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            echo '<div>';
-            $GLOBALS['error_handler']->dispErrors();
-            echo '</div>';
-        }
-        echo '</div>' . "\n";
-        if (file_exists('./config.footer.inc.php')) {
-            require './config.footer.inc.php';
-        }
-        echo '</body></html>';
-        exit;
-    }
-
-    if (isset($_SESSION['PHP_AUTH_FORCE_USER'])) {
-        $default_user = $_SESSION['PHP_AUTH_FORCE_USER'];
-        $user_input_disabled = 'readonly="readonly"';
-    } else {
-         $user_input_disabled = '';
-    }
-    // END Swekey Integration
-
+    
     ?>
 <br />
 <!-- Login form -->
@@ -268,7 +243,7 @@ if (top != self) {
 <?php } ?>
         <div class="item">
             <label for="input_username"><?php echo $GLOBALS['strLogUsername']; ?></label>
-            <input type="text" name="pma_username" id="input_username" value="<?php echo htmlspecialchars($default_user); ?>" size="24" class="textfield" <?php echo $user_input_disabled; ?>/>
+            <input type="text" name="pma_username" id="input_username" value="" size="24" class="textfield"/>
         </div>
         <div class="item">
             <label for="input_password"><?php echo $GLOBALS['strLogPassword']; ?></label>
@@ -296,7 +271,7 @@ if (top != self) {
     ?>
     </fieldset>
     <fieldset class="tblFooters">
-        <input value="<?php echo $GLOBALS['strGo']; ?>" type="submit" />
+        <input value="<?php echo $GLOBALS['strGo']; ?>" type="submit" id="input_go" />
     <?php
     $_form_params = array();
     if (! empty($GLOBALS['target'])) {
@@ -314,7 +289,13 @@ if (top != self) {
     ?>
     </fieldset>
 </form>
+
     <?php
+
+    // BEGIN Swekey Integration
+    Swekey_login('input_username', 'input_go');
+    // END Swekey Integration
+
     // show the "Cookies required" message only if cookies are disabled
     // (we previously tried to set some cookies)
     if (empty($_COOKIE)) {

@@ -4,6 +4,9 @@
  * Version 1.0
  * 
  * History:
+ * 1.2 Use curl (widely installed) to query the server
+ *     Fixed a possible tempfile race attack
+ *     Random token cache can now be disabled 
  * 1.1 Added Swekey_HttpGet function that support faulty servers 
  *     Support for custom servers 
  * 1.0 First release  
@@ -54,6 +57,12 @@ global $gSwekeyStatusServer;
 if (! isset($gSwekeyStatusServer))
     $gSwekeyStatusServer = 'http://auth-status.musbe.net';
 
+global $gSwekeyCA;
+
+global $gSwekeyTokenCacheEnabled;
+if (! isset($gSwekeyTokenCacheEnabled))
+    $gSwekeyTokenCacheEnabled = false;
+
 /**
  *  Change the address of the Check server.
  *  If $server is empty the default value 'http://auth-check.musbe.net' will be used 
@@ -103,6 +112,33 @@ function Swekey_SetStatusServer($server)
 }
 
 /**
+ *  Change the certificat file in case of the the severs use https instead of http
+ *
+ *  @param  cafile              The path of the crt file to use
+ *  @access public
+ */
+function Swekey_SetCAFile($cafile)
+{    
+    global $gSwekeyCA;
+   	$gSwekeyCA = $cafile;
+}
+
+/**
+ *  Enable or disable the random token caching
+ *  Because everybody has full access to the cache file, it can be a DOS vulnerability   
+ *  So disable it if you are running in a non secure enviromnement
+ *
+ *  @param  $enable            
+ *  @access public
+ */
+function Swekey_EnableTokenCache($enable)
+{    
+    global $gSwekeyTokenCacheEnabled;
+	$gSwekeyTokenCacheEnabled = ! empty($enable);
+}
+
+
+/**
  *  Return the last error.
  *   
  *  @return                     The Last Error
@@ -142,7 +178,73 @@ function Swekey_HttpGet($url, &$response_code)
     global $gSwekeyLastResult;
     $gSwekeyLastResult = "<not set>";
  
-    // you should install the pecl_http to be able to handle timeouts
+ 	// use curl if available
+	if (function_exists('curl_init'))
+	{
+		$sess = curl_init($url);
+		if (substr($url, 0, 8) == "https://")
+		{
+			global $gSwekeyCA;
+			$caFileOk = false;
+			if (! empty($gSwekeyCA))
+			{
+				if (file_exists($gSwekeyCA))
+				{
+					if (! curl_setopt($sess, CURLOPT_CAINFO, $gSwekeyCA))
+						error_log("SWEKEY_ERROR:Could not set CA file : ".curl_error($sess));
+					else
+						$caFileOk = true;
+				}
+				else
+					error_log("SWEKEY_ERROR:Could not find CA file $gSwekeyCA getting $url");
+			}
+			
+			if ($caFileOk)
+			{
+				curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '1');
+				curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '1');
+			}
+			else
+			{
+				curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '0');
+				curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '0');
+			}
+
+			curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '20');
+			curl_setopt($sess, CURLOPT_TIMEOUT, '20');
+		}
+		else
+		{
+			curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '3');
+			curl_setopt($sess, CURLOPT_TIMEOUT, '5');
+		}	
+		
+		curl_setopt($sess, CURLOPT_RETURNTRANSFER, '1');	
+		$res=curl_exec($sess);
+		$response_code = curl_getinfo($sess, CURLINFO_HTTP_CODE);
+		$curlerr = curl_error($sess);		
+		curl_close($sess);
+
+		if ($response_code == 200)
+		{
+	        $gSwekeyLastResult = $res;
+	        return $res;
+		}
+
+		if (! empty($response_code))	
+        {
+            $gSwekeyLastError = $response_code;
+            error_log("SWEKEY_ERROR:Error $gSwekeyLastError ($curlerr) getting $url");
+            return "";
+       }
+
+        $response_code = 408; // Request Timeout
+        $gSwekeyLastError = $response_code;  
+        error_log("SWEKEY_ERROR:Error $curlerr getting $url");
+        return "";
+	}
+	
+	// use pecl_http if available
     if (class_exists('HttpRequest'))
     {
         // retry if one of the server is down 
@@ -155,6 +257,7 @@ function Swekey_HttpGet($url, &$response_code)
             {
                 $sslOptions = array(); 
                 $sslOptions['verifypeer'] = true;
+                $sslOptions['verifyhost'] = true;
 
                 $capath = __FILE__;
                 $name = strrchr($capath, '/');
@@ -162,8 +265,8 @@ function Swekey_HttpGet($url, &$response_code)
                     $name = strrchr($capath, '\\');                    
                 $capath = substr($capath, 0, strlen($capath) - strlen($name) + 1).'musbe-ca.crt'; 
                 
-                if (file_exists($capath))
-                    $sslOptions['capath'] = $capath;
+                if (! empty($gSwekeyCA))
+                    $sslOptions['cainfo'] = $gSwekeyCA;
                 
                 $options['ssl'] = $sslOptions; 
             }
@@ -255,7 +358,7 @@ function Swekey_GetFastHalfRndToken()
 	   	  $res = $_SESSION['rnd-token'];
     
     // If not we try to get it from a temp file (PHP >= 5.2.1 only)
-   if (strlen($res) != 32)
+   if (strlen($res) != 32 && $gSwekeyTokenCacheEnabled)
    {
         if (function_exists('sys_get_temp_dir') )
         {
@@ -284,9 +387,15 @@ function Swekey_GetFastHalfRndToken()
         $_SESSION['rnd-token-date'] = time();
         if (isset($tempdir))
         {
-	   	   $file = fopen  ($tempdir."/swekey-rnd-token" , "w");
-   	       @fwrite($file, $res); 
-           @fclose($file);
+        	// we unlink the file so no possible tempfile race attack (thanks Thijs)
+        	unlink($tempdir."/swekey-rnd-token");
+	   		$file = fopen  ($tempdir."/swekey-rnd-token" , "x");
+	   		if ($file != FALSE)
+	   		{
+	   	    	@fwrite($file, $res); 
+    			@fclose($file);
+    			chmod($tempdir."/swekey-rnd-token", 0666); // it is a shared file everybody can read and write it
+    		}
         }
    }
    
@@ -335,8 +444,8 @@ define ("SWEKEY_STATUS_OK",0);
 define ("SWEKEY_STATUS_NOT_FOUND",1);  // The key does not exist in the db
 define ("SWEKEY_STATUS_INACTIVE",2);   // The key has never been activated
 define ("SWEKEY_STATUS_LOST",3);	   // The user has lost his key
-define ("SWEKEY_STATUS_STOLLEN",4);	   // The key was stolen (typo kept for backward comp)
-define ("SWEKEY_STATUS_STOLEN",4);	   // The key was stolen
+define ("SWEKEY_STATUS_STOLLEN",4);	   // The key was stollen
+define ("SWEKEY_STATUS_STOLEN",4);	   // The key was stollen
 define ("SWEKEY_STATUS_FEE_DUE",5);	   // The annual fee was not paid
 define ("SWEKEY_STATUS_OBSOLETE",6);   // The hardware is no longer supported
 define ("SWEKEY_STATUS_UNKOWN",201);   // We could not connect to the authentication server
