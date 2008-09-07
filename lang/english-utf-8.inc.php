@@ -939,10 +939,6 @@ $strSuccess = 'Your SQL query has been executed successfully';
 $strSuhosin = 'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.';
 $strSum = 'Sum';
 $strSwedish = 'Swedish';
-$strSwekeyAuthenticating = 'Authenticating...';
-$strSwekeyAuthFailed = 'Hardware authentication failed';
-$strSwekeyNoKeyId = 'File %s does not contain any key id';
-$strSwekeyNoKey = 'No valid authentication key plugged';
 $strSwitchToDatabase = 'Switch to copied database';
 $strSwitchToTable = 'Switch to copied table';
 

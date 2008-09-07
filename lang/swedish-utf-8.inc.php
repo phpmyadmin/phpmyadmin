@@ -937,10 +937,6 @@ $strSuccess = 'Din SQL-fråga utfördes korrekt';
 $strSuhosin = 'Server körs med Suhosin. Se %sdokumentation%s för möjliga frågor.';
 $strSum = 'Summa';
 $strSwedish = 'Svensk';
-$strSwekeyAuthenticating = 'Autenticiering pågår...';
-$strSwekeyAuthFailed = 'Hårdvaruautenticiering misslyckades';
-$strSwekeyNoKeyId = 'Filen %s innehåller inget nyckelid';
-$strSwekeyNoKey = 'Giltig autenticieringsnyckel saknas';
 $strSwitchToDatabase = 'Byt till kopierad databas';
 $strSwitchToTable = 'Byt till kopierad tabell';
 

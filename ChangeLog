@@ -57,8 +57,6 @@ danbarry
 + [interface] Display options; thanks to Dave Grijalva
   for the idea about showing the display field while browsing
 - bug #1910621 [display] part 2: do not display a BINARY content as text
-+ [auth] support SweKey hardware authentication 
-  see http://phpmyadmin.net/auth_key
 + rfe #1962383 [designer] Option to create a PDF page 
 - patch #2007196, Typos in comments, thanks to knittl - knittl
 - bug #1982315 [GUI] Comma and quote in ENUM, thanks to Joshua Hogendorn

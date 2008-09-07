@@ -919,10 +919,6 @@ $strSuccess = 'Váš SQL-dotaz byl úspěšně vykonán';
 $strSuhosin = 'Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis problémů, které tím mohou být způsobeny.';
 $strSum = 'Celkem';
 $strSwedish = 'Švédština';
-$strSwekeyAuthenticating = 'Authentizuji...';
-$strSwekeyAuthFailed = 'Hardwarová autentizace selhala';
-$strSwekeyNoKeyId = 'Soubor %s neobsahuje ID klíče';
-$strSwekeyNoKey = 'Nebyl připojen autentizační klíč';
 $strSwitchToDatabase = 'Přepnout na zkopírovanou databázi';
 $strSwitchToTable = 'Přepnout na zkopírovanou tabulku';
 

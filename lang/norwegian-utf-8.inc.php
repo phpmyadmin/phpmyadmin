@@ -937,10 +937,6 @@ $strSuccess = 'Kommandoen/spørringen er utført';
 $strSuhosin = 'Tjeneren kjører med Suhosin. Sjekk %sdokumentasjonen%s for potensielle problemer.';
 $strSum = 'Sum';
 $strSwedish = 'svensk';
-$strSwekeyAuthenticating = 'Autentiserer...';
-$strSwekeyAuthFailed = 'Maskinvaregodkjenning mislyktes';
-$strSwekeyNoKey = 'Ingen gyldig autentiseringsnøkkel plugget';
-$strSwekeyNoKeyId = 'Fila %s inneholder ingen nøkkel id';
 $strSwitchToDatabase = 'Bytt til kopiert database';
 $strSwitchToTable = 'Bytt til kopiert tabell';
 

@@ -1043,10 +1043,6 @@ $strZip = 'comprimido no formato "zip"';
 
 $strRelationalKey = 'Relational key';  //to translate
 $strRelationalDisplayField = 'Relational display field';  //to translate
-$strSwekeyNoKey = 'No valid authentication key plugged';  //to translate
-$strSwekeyNoKeyId = 'File %s does not contain any key id';  //to translate
-$strSwekeyAuthFailed = 'Hardware authentication failed';  //to translate
-$strSwekeyAuthenticating = 'Authenticating...';  //to translate
 $strPBXTIndexCacheSize = 'Index cache size';  //to translate
 $strPBXTRecordCacheSize = 'Record cache size';  //to translate
 $strPBXTLogCacheSize = 'Log cache size';  //to translate

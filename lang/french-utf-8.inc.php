@@ -936,10 +936,6 @@ $strSuccess = 'Votre requête SQL a été exécutée avec succès';
 $strSuhosin = 'Ce serveur utilise Suhosin. Veuillez vous référer à la %sdocumentation%s pour en connaître les conséquences possibles.';
 $strSum = 'Somme';
 $strSwedish = 'suédois';
-$strSwekeyAuthenticating = 'Authentification en cours...';
-$strSwekeyAuthFailed = 'L\'authentification matérielle a échoué';
-$strSwekeyNoKeyId = 'Le fichier %s ne contient pas d\'identifiant de clé';
-$strSwekeyNoKey = 'La clé d\'authentification n\'est pas branchée';
 $strSwitchToDatabase = 'Aller à la base de données copiée';
 $strSwitchToTable = 'Aller à la table copiée';
 

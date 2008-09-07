@@ -939,10 +939,6 @@ $strSuccess = 'La query &egrave; stata eseguita con successo';
 $strSuhosin = 'Sul server &egrave; in esecuzione Suhosin. Controlla la documentazione: %sdocumentation%s per possibili problemi.';
 $strSum = 'Totali';
 $strSwedish = 'Svedese';
-$strSwekeyAuthenticating = 'Autenticazione in corso...';
-$strSwekeyAuthFailed = 'Autenticazione hardware fallita';
-$strSwekeyNoKeyId = 'Il file %s non contiene nessuna chiave ID';
-$strSwekeyNoKey = 'Nessuna chiave di autenticazione valida inserita';
 $strSwitchToDatabase = 'Passare al Database copiato';
 $strSwitchToTable = 'Passa alla tabella copiata';
 
