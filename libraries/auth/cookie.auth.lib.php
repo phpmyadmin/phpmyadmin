@@ -243,7 +243,7 @@ if (top != self) {
 <?php } ?>
         <div class="item">
             <label for="input_username"><?php echo $GLOBALS['strLogUsername']; ?></label>
-            <input type="text" name="pma_username" id="input_username" value="" size="24" class="textfield"/>
+            <input type="text" name="pma_username" id="input_username" value="<?php echo htmlspecialchars($default_user); ?>" size="24" class="textfield"/>
         </div>
         <div class="item">
             <label for="input_password"><?php echo $GLOBALS['strLogPassword']; ?></label>
