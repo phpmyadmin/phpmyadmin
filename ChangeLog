@@ -92,7 +92,7 @@ danbarry
 + [lang] Italian update, thanks to Luca Rebellato
 - [core] safer handling of temporary files with open_basedir (thanks to Thijs
   Kinkhorst)
-- [core] do not automatically set and create TempDir, it might lead to secrity
+- [core] do not automatically set and create TempDir, it might lead to security
   issue (thanks to Thijs Kinkhorst)
 + [lang] Czech update
 - bug #2066923 [display] Navi browse icon does not go to page 1 
