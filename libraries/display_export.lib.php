@@ -207,17 +207,17 @@ echo PMA_pluginGetJavascript($export_list);
         echo '        <label for="select_charset_of_file">'
             . $strCharsetOfFile . '</label>' . "\n";
 
-        $temp_charset = reset($cfg['AvailableCharsets']);
-        echo '        <select id="select_charset_of_file" name="charset_of_file" size="1">' . "\n";
-        foreach ($cfg['AvailableCharsets'] as $key => $temp_charset) {
-            echo '            <option value="' . $temp_charset . '"';
+        reset($cfg['AvailableCharsets']);
+        echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
+        foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+            echo '<option value="' . $temp_charset . '"';
             if ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
               || $temp_charset == $cfg['Export']['charset']) {
                 echo ' selected="selected"';
             }
-            echo '>' . $temp_charset . '</option>' . "\n";
+            echo '>' . $temp_charset . '</option>';
         } // end foreach
-        echo '        </select>';
+        echo '</select>';
     } // end if
     ?>
     </div>

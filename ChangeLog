@@ -99,6 +99,8 @@ danbarry
 - patch #2075263 [auth] Single sign-on and cookie clearing,
   thanks to Charles Suh - cws125
 - [doc] better documentation of $cfg['TempDir']
+- bug #2080963 [charset] Clarify doc and improved code, thanks to
+  Victor Volkov - hanut
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
