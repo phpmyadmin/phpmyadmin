@@ -1850,8 +1850,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         if (PMA_Table::isView($db, $table)
          && $total == $GLOBALS['cfg']['MaxExactCountViews']) {
-            $message = PMA_Message::notice('strViewMaxExactCount');
-            $message->addParam($GLOBALS['cfg']['MaxExactCountViews']);
+            $message = PMA_Message::notice('strViewHasAtLeast');
             $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
             $message->addParam('[/a]');
             $message_view_warning = PMA_showHint($message);
