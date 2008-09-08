@@ -466,7 +466,7 @@ class PMA_Table
         echo PMA_formatNumber($row_count, 0);
         if ($is_view) {
             echo '&nbsp;'
-                . sprintf($GLOBALS['strViewMaxExactCount'],
+                . sprintf($GLOBALS['strViewHasAtLeast'],
                     $GLOBALS['cfg']['MaxExactCount'],
                     '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
         }
