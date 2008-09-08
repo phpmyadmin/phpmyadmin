@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1778908 [auth] arbitrary server auth can now also accept port
 - patch #2089240 [export] handle correctly switching SQL modes
 + rfe #1612724 [export] add option to export without comments
+- bug #2090002 [display] Cannot edit row in VIEW 
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
