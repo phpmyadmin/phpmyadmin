@@ -340,6 +340,9 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo $row['Default']; 
         }
+    }
+    else {
+        echo '<i>' . $strNone . '</i>';
     } ?></td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
     <td align="center">

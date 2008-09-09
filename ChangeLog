@@ -22,6 +22,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1612724 [export] add option to export without comments
 - bug #2090002 [display] Cannot edit row in VIEW 
 - patch #2099962 [js] fix js error without frameset, thanks to Xuefer 
+- patch #2099972 [structure] Display None when there is no default value,
+  thanks to Xuefer - xuefer
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
