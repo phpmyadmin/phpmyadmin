@@ -21,6 +21,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2089240 [export] handle correctly switching SQL modes
 + rfe #1612724 [export] add option to export without comments
 - bug #2090002 [display] Cannot edit row in VIEW 
+- patch #2099962 [js] fix js error without frameset, thanks to Xuefer 
 
 3.0.0.0 (not yet released)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -

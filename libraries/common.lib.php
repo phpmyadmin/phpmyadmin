@@ -955,7 +955,8 @@ function PMA_reloadNavigation()
 <script type="text/javascript">
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
-    && typeof(window.parent.frame_navigation) != 'undefined') {
+    && typeof(window.parent.frame_navigation) != 'undefined'
+    && window.parent.goTo) {
     window.parent.goTo('<?php echo $reload_url; ?>');
 }
 //]]>
@@ -1000,7 +1001,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
         echo "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo "window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
+        echo "if (window.parent.updateTableTitle) window.parent.updateTableTitle('" . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
         echo '//]]>' . "\n";
         echo '</script>' . "\n";
     } // end if ... elseif
