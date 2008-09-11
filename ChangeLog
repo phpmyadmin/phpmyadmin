@@ -105,6 +105,8 @@ danbarry
 - [doc] better documentation of $cfg['TempDir']
 - bug #2080963 [charset] Clarify doc and improved code, thanks to
   Victor Volkov - hanut
+- bug [charset] Cannot sort twice on a column when the table name
+  contains accents
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
