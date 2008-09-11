@@ -1589,9 +1589,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                     if ($seen_order) {
                         $seen_order_by = TRUE;
-                        // here we assume that the ORDER BY keywords took
-                        // exactly 8 characters
-                        $unsorted_query = substr($arr['raw'], 0, $arr[$i]['pos'] - 8);
+                        // Here we assume that the ORDER BY keywords took
+                        // exactly 8 characters.
+                        // We use PMA_substr() to be charset-safe; otherwise
+                        // if the table name contains accents, the unsorted
+                        // query would be missing some characters.
+                        $unsorted_query = PMA_substr($arr['raw'], 0, $arr[$i]['pos'] - 8);
                         $in_order_by = TRUE;
                         $order_by_clause = '';
                     }

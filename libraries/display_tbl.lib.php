@@ -765,9 +765,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       If it contains one, it's probably a function column
             //       like 'COUNT(`field`)'
             if (strpos($name_to_use_in_sort, '(') !== false) {
-                $sort_order = ' ORDER BY ' . $name_to_use_in_sort . ' ';
+                $sort_order = 'ORDER BY ' . $name_to_use_in_sort . ' ';
             } else {
-                $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
+                $sort_order = 'ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
             }
             unset($name_to_use_in_sort);
 
