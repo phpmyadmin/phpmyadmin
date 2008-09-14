@@ -107,6 +107,7 @@ danbarry
   Victor Volkov - hanut
 - bug [charset] Cannot sort twice on a column when the table name
   contains accents
++ [lang] Spanish update, thanks to Daniel Hinostroza
 
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
