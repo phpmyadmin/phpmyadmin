@@ -86,6 +86,9 @@ danbarry
   contains accents
 + [lang] Spanish update, thanks to Daniel Hinostroza
 
+2.11.9.1 (2008-09-15)
+- [security] Code execution vulnerability, thanks to Norman Hippert
+
 2.11.9.0 (2008-08-28)
 - bug #2031221 [auth] Links to version number on login screen 
 - bug #2032707 [core] PMA does not start if ini_set() is disabled 
