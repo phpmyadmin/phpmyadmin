@@ -85,6 +85,7 @@ danbarry
 - bug [charset] Cannot sort twice on a column when the table name
   contains accents
 + [lang] Spanish update, thanks to Daniel Hinostroza
++ [lang] Hungarian update, thanks to Jozsef Tamas Herczeg - dodika 
 
 2.11.9.1 (2008-09-15)
 - [security] Code execution vulnerability, thanks to Norman Hippert
