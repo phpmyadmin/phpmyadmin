@@ -1093,7 +1093,6 @@ $strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
 
 $strDownloadFile = 'Download file';  //to translate
 
-$strLogServerHelp = 'You can ether hostname/IP address and port separated by space.';  //to translate
 
 $strPlayAudio = 'Play audio';  //to translate
 
@@ -1105,4 +1104,5 @@ $strSwekeyNoKey = 'No valid authentication key plugged'; //to translate
 $strViewImage = 'View image';  //to translate
 $strViewVideo = 'View video';  //to translate
 
+$strLogServerHelp = 'You can enter hostname/IP address and port separated by space.';  //to translate
 ?>
