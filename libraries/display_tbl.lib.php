@@ -1322,8 +1322,11 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
                     } elseif (stristr($field_flags, 'BINARY') && $meta->type == 'string') {
-                        if ($_SESSION['userconf']['display_binary']) {
-                            // user asked to see the real contents of BINARY fields
+                        if ($_SESSION['userconf']['display_binary'] || (isset($GLOBALS['is_analyse']) && $GLOBALS['is_analyse'])) {
+                            // user asked to see the real contents of BINARY 
+                            // fields, or we detected a PROCEDURE ANALYSE in 
+                            // the query (results are reported as being 
+                            // binary strings)
                             $row[$i] = PMA_replace_binary_contents($row[$i]);
                         } else {
                             // we show the BINARY message and field's size
