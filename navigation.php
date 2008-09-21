@@ -110,23 +110,6 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once './libraries/header_http.inc.php';
 
-if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
-    $_SESSION['userconf']['navi_limit_offset'] = 0;
-}
-if (! isset($_SESSION['userconf']['table_limit_offset'])) {
-	$_SESSION['userconf']['table_limit_offset'] = 0;
-}
-if (isset($_REQUEST['pos'])) {
-	if (isset($_REQUEST['tpos'])) {
-		$_SESSION['userconf']['table_limit_offset'] = (int) $_REQUEST['pos'];
-	}
-	else {
-		$_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
-	}
-}
-$pos = $_SESSION['userconf']['navi_limit_offset'];
-$tpos = $_SESSION['userconf']['table_limit_offset'];
-
 /*
  * Displays the frame
  */
