@@ -63,8 +63,9 @@ function PMA_exitNavigationFrame()
 if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
     $_SESSION['userconf']['navi_limit_offset'] = 0;
 }
-if (! isset($_SESSION['userconf']['table_limit_offset'])) {
-	$_SESSION['userconf']['table_limit_offset'] = 0;
+if (! isset($_SESSION['userconf']['table_limit_offset']) || $_SESSION['userconf']['table_limit_offset_db'] != $db) {
+    $_SESSION['userconf']['table_limit_offset'] = 0;
+    $_SESSION['userconf']['table_limit_offset_db'] = $db;
 }
 if (isset($_REQUEST['pos'])) {
 	if (isset($_REQUEST['tpos'])) {
