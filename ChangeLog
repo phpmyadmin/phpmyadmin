@@ -11,6 +11,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [core] do not automatically set and create TempDir, it might lead to security
   issue (thanks to Thijs Kinkhorst)
 
+2.11.9.2 (2008-09-22)
+- [security] XSS in MSIE using NUL byte, thanks to JPCERT.
+
 2.11.9.1 (2008-09-15)
 - [security] Code execution vulnerability, thanks to Norman Hippert
 
