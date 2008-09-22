@@ -46,6 +46,10 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
  * enclosed by <![CDATA[ ... ]]>
  * this requires only to escape ' with \' and end of script block
  *
+ * We also remove NUL byte as some browsers (namely MSIE) ignore it and
+ * it and inserting it anywhere inside </script would allow to pass this
+ * check.
+ *
  * @uses    strtr()
  * @uses    preg_replace()
  * @param   string  $string the string to be escaped
@@ -55,6 +59,7 @@ function PMA_escapeJsString($string)
 {
     return preg_replace('@</script@i', '</\' + \'script',
                         strtr($string, array(
+                                "\000" => '',
                                 '\\' => '\\\\',
                                 '\'' => '\\\'',
                                 "\n" => '\n',
