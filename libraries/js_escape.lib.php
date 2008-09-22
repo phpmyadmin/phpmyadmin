@@ -47,8 +47,7 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
  * this requires only to escape ' with \' and end of script block
  *
  * We also remove NUL byte as some browsers (namely MSIE) ignore it and
- * it and inserting it anywhere inside </script would allow to pass this
- * check.
+ * inserting it anywhere inside </script would allow to bypass this check.
  *
  * @uses    strtr()
  * @uses    preg_replace()
