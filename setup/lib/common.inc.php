@@ -25,28 +25,12 @@ if ($error_handler->countErrors() > 0) {
     $error_handler->dispAllErrors();
 }
 
-// check selected language
-$lang_file = './setup/lang/' . $GLOBALS['available_languages'][$GLOBALS['lang']][1] . '.inc.php';
-if (!file_exists($lang_file)) {
-    // select_lang.lib.php did detection for us, so if language failed assume
-    // English is the only matching choice
-    $GLOBALS['lang'] = 'en-utf-8';
-    require_once $GLOBALS['lang_path'] . 'english-utf-8.inc.php';
-}
-
 // Load setup script translation
 $lang_file = './setup/lang/' . $GLOBALS['available_languages'][$GLOBALS['lang']][1] . '.inc.php';
 if (!file_exists($lang_file)) {
     $lang_file = './setup/lang/english-utf-8.inc.php';
 }
 require_once $lang_file;
-if (file_exists('./setup/lang/added_messages.php')) {
-    include './setup/lang/added_messages.php';
-}
-
-if (PMA_ifSetOr($_COOKIE['pma_lang'], '') != $GLOBALS['lang']) {
-    PMA_setCookie('pma_lang', $GLOBALS['lang']);
-}
 
 if (!isset($_SESSION['ConfigFile'])) {
     $_SESSION['ConfigFile'] = array();

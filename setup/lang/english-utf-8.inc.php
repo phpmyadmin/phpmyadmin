@@ -49,7 +49,7 @@ $str['Version_check_link'] = 'Check for latest version';
 
 // main page messages
 $str['Cannot_load_config'] = 'Cannot load or save configuration';
-$str['Cannot_load_config_desc'] = 'Please create web server writeable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.';
+$str['Cannot_load_config_desc'] = 'Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.';
 $str['Insecure_connection'] = 'Insecure connection';
 $str['Insecure_connection_desc1'] = 'You are not using a secure connection, all data (including sensitive, like passwords) is transferred unencrypted!';
 $str['Insecure_connection_desc2'] = 'If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.';
@@ -72,7 +72,7 @@ $str['blowfish_secret_chars_msg'] = 'Key should contain alphanumerics, letters [
 $str['ForceSSL_msg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it';
 $str['AllowArbitraryServer_msg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
 $str['LoginCookieValidity_msg'] = '[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.';
-$str['Directory_notice'] = 'This value should be double checked to ensure that this directory is neither world accessible nor readable or writeable by other users on your server.';
+$str['Directory_notice'] = 'This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.';
 
 // form errors
 $str['error_form'] = 'Submitted form contains errors';

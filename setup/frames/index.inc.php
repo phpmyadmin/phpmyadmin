@@ -27,7 +27,7 @@ $separator = PMA_get_arg_separator('html');
 messages_begin();
 
 //
-// Check phpMyAdmin version 
+// Check phpMyAdmin version
 //
 if (isset($_GET['version_check'])) {
     PMA_version_check();
@@ -63,7 +63,7 @@ if (!$is_https) {
 ?>
 
 <form id="select_lang" method="post" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
-	<?php echo PMA_generate_common_hidden_inputs() ?>
+    <?php echo PMA_generate_common_hidden_inputs() ?>
     <bdo xml:lang="en" dir="ltr"><label for="lang">
     <?php echo $GLOBALS['strLanguage'] . ($GLOBALS['strLanguage'] != 'Language' ? ' - Language' : '') ?>
     </label></bdo><br />
@@ -72,7 +72,7 @@ if (!$is_https) {
     // create language list
     $lang_list = array();
     foreach ($all_languages as $each_lang_key => $each_lang) {
-        if (!file_exists('./setup/lang/' . $each_lang[1] . '.inc.php')) {
+        if (!file_exists($GLOBALS['lang_path'] . $each_lang[1] . '.inc.php')) {
             continue;
         }
 
