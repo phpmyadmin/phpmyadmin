@@ -458,6 +458,7 @@ $strLoginInformation = 'Přihlašování';
 $strLogin = 'Přihlášení';
 $strLogout = 'Odhlásit se';
 $strLogPassword = 'Heslo:';
+$strLogServerHelp = 'Můžete zadat jméno počítače (nebo IP adresu) a port oddělené mezerou.';
 $strLogServer = 'Server:';
 $strLogUsername = 'Jméno:';
 $strLongOperation = 'Tato operace může trvat velmi dlouho. Chcete je přesto provést?';
@@ -1096,5 +1097,4 @@ $strPBXTRowFileGrowSize = 'Row file grow size';  //to translate
 $strPBXTTransactionBufferSizeDesc = 'The size of the global transaction log buffer (the engine allocates 2 buffers of this size). The default is 1MB.';  //to translate
 $strPBXTTransactionBufferSize = 'Transaction buffer size';  //to translate
 
-$strLogServerHelp = 'You can enter hostname/IP address and port separated by space.';  //to translate
 ?>
