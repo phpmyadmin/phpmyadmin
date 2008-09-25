@@ -196,7 +196,7 @@ $foreigners  = PMA_getForeigners($db, $table);
  */
 // loic1: autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7)
                  ? 'onpropertychange'
                  : 'onchange';
 // Had to put the URI because when hosted on an https server,
