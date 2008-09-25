@@ -110,6 +110,7 @@ danbarry
 + [lang] Spanish update, thanks to Daniel Hinostroza
 + [lang] Hungarian update, thanks to Jozsef Tamas Herczeg - dodika 
 - bug #2113848 [navi] Page number after database switching 
+- patch #2115966 [GUI] Checkboxes and IE 7, thanks to Martin - maschg 
 
 2.11.9.2 (2008-09-22)
 - [security] XSS in MSIE using NUL byte, thanks to JPCERT.
