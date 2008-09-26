@@ -539,7 +539,7 @@ if ($_SESSION['PMA_Config']->get('ForceSSL')
     PMA_sendHeaderLocation(
         preg_replace('/^http/', 'https',
             $_SESSION['PMA_Config']->get('PmaAbsoluteUri'))
-        . PMA_generate_common_url($_GET));
+        . PMA_generate_common_url($_GET, '', '&'));
     exit;
 }
 
