@@ -629,14 +629,14 @@ class PMA_RT_Table {
         }
         // load fields
         //check to see if it will load all fields or only the foreign keys
-		if($show_keys){
+		if ($show_keys) {
 			$indexes = PMA_Index::getFromTable($this->table_name, $db);
 			$all_columns = array();
-			foreach($indexes as $index) {
+			foreach ($indexes as $index) {
 			   $all_columns = array_merge($all_columns, array_flip(array_keys($index->getColumns())));
 			}
 			$this->fields = array_keys($all_columns);
-		}else{
+		} else {
 	        while ($row = PMA_DBI_fetch_row($result)) {
 	            $this->fields[] = $row[0];
 	        }
