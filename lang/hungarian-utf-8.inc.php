@@ -1103,4 +1103,5 @@ $strViewImage = 'View image';  //to translate
 $strViewVideo = 'View video';  //to translate
 
 $strLogServerHelp = 'You can enter hostname/IP address and port separated by space.';  //to translate
+$strShowKeys = 'Only show keys';  //to translate
 ?>

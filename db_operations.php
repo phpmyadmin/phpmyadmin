@@ -630,6 +630,8 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
             </label><br />
         <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
         <label for="with_doc"><?php echo $strDataDict; ?></label><br />
+		<input type="checkbox" name="show_keys" id="show_keys" />
+        <label for="show_keys"><?php echo $strShowKeys; ?></label><br />
 
         <label for="orientation_opt"><?php echo $strShowDatadictAs; ?></label>
         <select name="orientation" id="orientation_opt">

@@ -792,6 +792,7 @@ $strShowingBookmark = 'Showing bookmark';
 $strShowingPhp = 'Showing as PHP code';
 $strShowingRecords = 'Showing rows';
 $strShowingSQL = 'Showing SQL query';
+$strShowKeys = 'Only show keys';
 $strShowOpenTables = 'Show open tables';
 $strShowPHPInfo = 'Show PHP information';
 $strShow = 'Show';

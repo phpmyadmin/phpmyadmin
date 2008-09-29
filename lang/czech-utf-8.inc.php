@@ -1097,4 +1097,5 @@ $strPBXTRowFileGrowSize = 'Row file grow size';  //to translate
 $strPBXTTransactionBufferSizeDesc = 'The size of the global transaction log buffer (the engine allocates 2 buffers of this size). The default is 1MB.';  //to translate
 $strPBXTTransactionBufferSize = 'Transaction buffer size';  //to translate
 
+$strShowKeys = 'Only show keys';  //to translate
 ?>

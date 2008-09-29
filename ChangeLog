@@ -24,6 +24,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2099962 [js] fix js error without frameset, thanks to Xuefer 
 - patch #2099972 [structure] Display None when there is no default value,
   thanks to Xuefer - xuefer
+- patch #2122883 [PDF schema] Option to display just the keys,
+  thanks to Samuel Sol Villar dos Santos - yohanleafheart
 
 3.0.1.0 (not yet released)
 

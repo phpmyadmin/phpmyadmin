@@ -16,6 +16,7 @@ require_once './libraries/common.inc.php';
  */
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
+require_once './libraries/Index.class.php';
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -616,7 +617,7 @@ class PMA_RT_Table {
      * @see PMA_PDF, PMA_RT_Table::PMA_RT_Table_setWidth,
           PMA_RT_Table::PMA_RT_Table_setHeight
      */
-    function __construct($table_name, $ff, &$same_wide_width)
+    function __construct($table_name, $ff, &$same_wide_width, $show_keys)
     {
         global $pdf, $pdf_page_number, $cfgRelation, $db;
 
@@ -627,9 +628,19 @@ class PMA_RT_Table {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
         }
         // load fields
-        while ($row = PMA_DBI_fetch_row($result)) {
-            $this->fields[] = $row[0];
-        }
+        //check to see if it will load all fields or only the foreign keys
+		if($show_keys){
+			$indexes = PMA_Index::getFromTable($this->table_name, $db);
+			$all_columns = array();
+			foreach($indexes as $index) {
+			   $all_columns = array_merge($all_columns, array_flip(array_keys($index->getColumns())));
+			}
+			$this->fields = array_keys($all_columns);
+		}else{
+	        while ($row = PMA_DBI_fetch_row($result)) {
+	            $this->fields[] = $row[0];
+	        }
+		}
         // height and width
         $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
@@ -952,13 +963,14 @@ class PMA_RT {
      *                    everywhere, due to some problems printing with color
      * @param boolean $ Whether to draw grids or not
      * @param boolean $ Whether all tables should have the same width or not
+     * @param boolean $ Wheter to show all field or only the keys
      * @global object   The current PDF document
      * @global string   The current db name
      * @global array    The relations settings
      * @access private
      * @see PMA_PDF
      */
-    function __construct($which_rel, $show_info = 0, $change_color = 0, $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L', $paper = 'A4')
+    function __construct($which_rel, $show_info = 0, $change_color = 0, $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L', $paper = 'A4', $show_keys = 0)
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 
@@ -1012,7 +1024,7 @@ class PMA_RT {
 
         foreach ($alltables AS $table) {
             if (!isset($this->tables[$table])) {
-                $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
+                $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth, $show_keys);
             }
 
             if ($this->same_wide) {
@@ -1376,8 +1388,9 @@ $all_tab_same_wide      = (isset($all_tab_same_wide) && $all_tab_same_wide == 'o
 $with_doc               = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
 $orientation            = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
 $paper                  = isset($paper) ? $paper : 'A4';
+$show_keys              = (isset($show_keys) && $show_keys == 'on') ? 1 : 0;
 PMA_DBI_select_db($db);
 
-$rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation, $paper);
+$rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation, $paper, $show_keys);
 
 ?>
