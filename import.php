@@ -316,8 +316,7 @@ if ($import_file != 'none' && !$error) {
 }
 
 // Convert the file's charset if necessary
-if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
-    && isset($charset_of_file)) {
+if ($cfg['AllowAnywhereRecoding'] && isset($charset_of_file)) {
     if ($charset_of_file != $charset) {
         $charset_conversion = TRUE;
     }

@@ -13,8 +13,7 @@ if (! defined('PHPMYADMIN')) {
  * Loads the recode or iconv extensions if any of it is not loaded yet
  */
 if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']
-    && $allow_recoding) {
+    && $cfg['AllowAnywhereRecoding']) {
 
     if ($cfg['RecodingEngine'] == 'recode') {
         if (!@extension_loaded('recode')) {
@@ -52,8 +51,7 @@ if (!isset($cfg['IconvExtraParams'])) {
 
 // Finally detect which function we will use:
 if (isset($cfg['AllowAnywhereRecoding'])
-    && $cfg['AllowAnywhereRecoding']
-    && $allow_recoding) {
+    && $cfg['AllowAnywhereRecoding']) {
 
     if (!isset($PMA_recoding_engine)) {
         $PMA_recoding_engine = $cfg['RecodingEngine'];
@@ -134,9 +132,9 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  * @author  nijel
  */
 function PMA_convert_charset($what) {
-    global $cfg, $allow_recoding, $charset, $convcharset;
+    global $cfg, $charset, $convcharset;
 
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
+    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )
         || $convcharset == $charset) { // rabus: if input and output charset are the same, we don't have to do anything...
         return $what;
     } else {

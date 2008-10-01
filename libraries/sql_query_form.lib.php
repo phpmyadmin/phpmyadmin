@@ -483,7 +483,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['strLocationTextfile']
  * @uses    $GLOBALS['strWebServerUploadDirectory']
  * @uses    $GLOBALS['strWebServerUploadDirectoryError']
- * @uses    $GLOBALS['allow_recoding']
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['max_upload_size']
  * @uses    PMA_supportedDecompressions()

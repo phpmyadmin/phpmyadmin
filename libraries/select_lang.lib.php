@@ -348,10 +348,6 @@ $GLOBALS['mysql_charset_map'] = array(
  * Do the work!
  */
 
-/**
- * @global boolean whether charset recoding should be allowed or not
- */
-$GLOBALS['allow_recoding'] = false;
 if (empty($GLOBALS['convcharset'])) {
     if (isset($_COOKIE['pma_charset'])) {
         $GLOBALS['convcharset'] = $_COOKIE['pma_charset'];

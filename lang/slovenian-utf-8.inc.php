@@ -4,7 +4,6 @@
 /* By: urska.colner, agenda d.o.o. <urska.colner@agenda.si>, uros kositer, agenda d.o.o. <urosh@agenda.si> */
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';

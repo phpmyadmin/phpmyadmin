@@ -2,7 +2,6 @@
 /* $Id$ */
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' d'esquerra a dreta, 'rtl' de dreta a esquerra)
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';

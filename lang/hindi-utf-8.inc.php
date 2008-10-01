@@ -9,7 +9,6 @@
 // 5th updates   :   by Girish Nair <girishn2003_@_yahoo_._co_._in(latest), www.girishn.com> : 25-Nov-2003
 
 $charset = 'utf-8';
-$allow_recoding = FALSE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';

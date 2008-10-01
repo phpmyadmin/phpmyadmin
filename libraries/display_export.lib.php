@@ -203,7 +203,7 @@ echo PMA_pluginGetJavascript($export_list);
     <div class="formelementrow">
     <?php
     // charset of file
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+    if ($cfg['AllowAnywhereRecoding']) {
         echo '        <label for="select_charset_of_file">'
             . $strCharsetOfFile . '</label>' . "\n";
 

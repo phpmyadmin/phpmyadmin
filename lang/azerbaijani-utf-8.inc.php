@@ -5,7 +5,6 @@
 // Şehriyar İmanov 30 Avqust 2003... Shehi
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';

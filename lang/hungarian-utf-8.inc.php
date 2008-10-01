@@ -5,7 +5,6 @@
 // József Tamás Herczeg <localicer @NOSPAM@ gmail.com>
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr': balról jobbra, 'rtl': jobbról balra)
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';

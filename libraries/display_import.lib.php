@@ -82,7 +82,7 @@ if (!empty($cfg['UploadDir'])) {
 
 // charset of file
 echo '<div class="formelementrow">' . "\n";
-if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+if ($cfg['AllowAnywhereRecoding']) {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>';
     reset($cfg['AvailableCharsets']);
     echo '<select id="charset_of_file" name="charset_of_file" size="1">';

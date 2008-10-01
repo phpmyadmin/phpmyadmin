@@ -2,7 +2,6 @@
 /* $Id$ */ /* danish - Dansk v 2.20 (based on english rev. 10226) 2007/04/03 01:23:45 - oversætter AlleyKat kan kontaktes på < phpmyadmin (at) phpbb2.dk > */
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';

@@ -5,7 +5,6 @@
 // last modified 2004/08/22 Arthit Suriyawongkul
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';

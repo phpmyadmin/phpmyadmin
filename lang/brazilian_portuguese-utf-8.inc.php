@@ -3,7 +3,6 @@
 /* translated by: Airon Luis Pereira <airon(dot)pereira(at)gmail(dot)com> */ 
 
 $charset = 'utf-8'; 
-$allow_recoding = TRUE;
 $text_dir = 'ltr';  // ('ltr' da esquerda para direita, 'rtl' da direita para esquerda)
 $number_thousands_separator = ','; 
 $number_decimal_separator = '.'; 
