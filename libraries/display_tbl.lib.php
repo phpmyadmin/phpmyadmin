@@ -466,6 +466,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if (isset($analyzed_sql[0]['unsorted_query'])) {
             $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
         }
+        // Handles the case of multiple clicks on a column's header
+        // which would add many spaces before "ORDER BY" in the 
+        // generated query.
+        $unsorted_sql_query = trim($unsorted_sql_query);
 
         // sorting by indexes, only if it makes sense (only one table ref)
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
@@ -765,9 +769,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       If it contains one, it's probably a function column
             //       like 'COUNT(`field`)'
             if (strpos($name_to_use_in_sort, '(') !== false) {
-                $sort_order = 'ORDER BY ' . $name_to_use_in_sort . ' ';
+                $sort_order = ' ORDER BY ' . $name_to_use_in_sort . ' ';
             } else {
-                $sort_order = 'ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
+                $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
             }
             unset($name_to_use_in_sort);
 
