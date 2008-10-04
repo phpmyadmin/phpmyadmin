@@ -2762,6 +2762,8 @@ $cfg['TextOperators'] = array(
    '!=',
    'REGEXP',
    'NOT REGEXP',
+   "= ''",
+   "!= ''"
 );
 
 /**
@@ -2802,6 +2804,8 @@ $cfg['NullOperators'] = array(
 $cfg['UnaryOperators'] = array(
    'IS NULL' => 1,
    'IS NOT NULL' => 1,
+   "= ''" => 1,
+   "!= ''" => 1
 );
 
 ?>
