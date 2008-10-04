@@ -36,6 +36,12 @@ if (is_int($cfg['DefaultPropDisplay'])) {
     $display_type = $cfg['DefaultPropDisplay'];
 }
 
+if ('horizontal' == $display_type) {
+    $length_values_input_size = 8;
+} else {
+    $length_values_input_size = 30;
+}
+
 $_form_params = array(
     'db' => $db,
     'table' => $table,
@@ -350,7 +356,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
-        . ' type="text" name="field_length[' . $i . ']" size="8"'
+        . ' type="text" name="field_length[' . $i . ']" size="' . $length_values_input_size . '"'
         . ' value="' . htmlspecialchars($length_to_display) . '"'
         . ' class="textfield" />';
     $ci++;

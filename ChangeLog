@@ -27,6 +27,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2122883 [PDF schema] Option to display just the keys,
   thanks to Samuel Sol Villar dos Santos - yohanleafheart
 + rfe #1276463 [search] Search empty/not empty values 
++ rfe #823652 [structure] ENUM values: field size too small 
 
 3.0.1.0 (not yet released)
 - bug #2134126 [GUI] SQL error after sorting a subset 
