@@ -353,6 +353,7 @@ if (!$error) {
 
 // Cleanup temporary file
 if ($file_to_unlink != '') {
+    fclose($file_to_unlink);
     unlink($file_to_unlink);
 }
 

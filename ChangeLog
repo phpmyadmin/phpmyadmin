@@ -9,6 +9,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2134126 [GUI] SQL error after sorting a subset
 + [lang] Catalan update, thanks to Xavier Navarro
 + [lang] Russian update, thanks to Victor Volkov
+- patch #2143882 [import] Temporary uploaded file not deleted,
+  thanks to David Misc - dmisc
 
 3.0.0.0 (2008-09-27)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
