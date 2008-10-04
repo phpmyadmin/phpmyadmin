@@ -147,6 +147,7 @@ function PMA_analyseShowGrant()
 
     PMA_DBI_free_result($rs_usr);
 
+    // must also PMA_cacheUnset() them in libraries/auth/cookie.auth.lib.php
     PMA_cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv'], true);
     PMA_cacheSet('is_process_priv', $GLOBALS['is_process_priv'], true);
     PMA_cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], true);

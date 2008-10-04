@@ -2409,7 +2409,7 @@ window.addEvent('domready', function(){
 }
 
 /**
- * Cache information in the session
+ * Verifies if something is cached in the session 
  *
  * @param unknown_type $var
  * @param unknown_type $val
@@ -2425,7 +2425,7 @@ function PMA_cacheExists($var, $server = 0)
 }
 
 /**
- * Cache information in the session
+ * Gets cached information from the session 
  *
  * @param unknown_type $var
  * @param unknown_type $val
@@ -2445,7 +2445,7 @@ function PMA_cacheGet($var, $server = 0)
 }
 
 /**
- * Cache information in the session
+ * Caches information in the session
  *
  * @param unknown_type $var
  * @param unknown_type $val
@@ -2458,6 +2458,21 @@ function PMA_cacheSet($var, $val = null, $server = 0)
         $server = $GLOBALS['server'];
     }
     $_SESSION['cache']['server_' . $server][$var] = $val;
+}
+
+/**
+ * Removes cached information from the session
+ *
+ * @param unknown_type $var
+ * @param unknown_type $server
+ * @return mixed
+ */
+function PMA_cacheUnset($var, $server = 0)
+{
+    if (true === $server) {
+        $server = $GLOBALS['server'];
+    }
+    unset($_SESSION['cache']['server_' . $server][$var]);
 }
 
 /**

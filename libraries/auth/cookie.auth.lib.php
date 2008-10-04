@@ -395,6 +395,10 @@ function PMA_auth_check()
     if (! empty($_REQUEST['old_usr'])) {
         // The user wants to be logged out
         // -> delete his choices that were stored in session
+
+        // according to the PHP manual we should do this before the destroy:
+        $_SESSION = array();
+
         session_destroy();
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
@@ -447,6 +451,11 @@ function PMA_auth_check()
 
     // User inactive too long
     if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
+        PMA_cacheUnset('is_create_db_priv', true);
+        PMA_cacheUnset('is_process_priv', true);
+        PMA_cacheUnset('is_reload_priv', true);
+        PMA_cacheUnset('db_to_create', true);
+        PMA_cacheUnset('dbs_where_create_table_allowed', true);
         $GLOBALS['no_activity'] = true;
         PMA_auth_fails();
         exit;
