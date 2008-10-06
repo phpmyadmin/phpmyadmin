@@ -12,6 +12,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2143882 [import] Temporary uploaded file not deleted,
   thanks to David Misc - dmisc
 - bug #2136986 [auth] Cannot create database after session timeout
+- bug #1914066 [core] ForceSSL generates incorrectly escaped redirections
+  (this time with the correct fix)
 
 3.0.0.0 (2008-09-27)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
@@ -96,7 +98,7 @@ danbarry
 + [lang] Hungarian update, thanks to Jozsef Tamas Herczeg - dodika 
 - bug #2113848 [navi] Page number after database switching 
 - patch #2115966 [GUI] Checkboxes and IE 7, thanks to Martin - maschg 
-- bug #114066 [core] ForceSSL generates incorrectly escaped redirections
+- bug #1914066 [core] ForceSSL generates incorrectly escaped redirections
 
 2.11.9.2 (2008-09-22)
 - [security] XSS in MSIE using NUL byte, thanks to JPCERT.
