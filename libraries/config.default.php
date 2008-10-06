@@ -1369,7 +1369,7 @@ $cfg['Export']['sql_compatibility'] = 'NONE';
 /**
  * Whether to include comments in SQL export.
  *
- * @global string $cfg['Export']['sql_compatibility']
+ * @global string $cfg['Export']['sql_include_comments']
  */
 $cfg['Export']['sql_include_comments'] = true;
 
