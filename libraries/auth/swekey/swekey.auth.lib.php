@@ -30,7 +30,7 @@ function Swekey_auth_check()
         }
         
         // Set default values for settings
-    	if (isset($_SESSION['SWEKEY']['CONF_SERVER_CHECK']))
+    	if (! isset($_SESSION['SWEKEY']['CONF_SERVER_CHECK']))
         	$_SESSION['SWEKEY']['CONF_SERVER_CHECK'] = "";        
     	if (! isset($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']))
         	$_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN'] = "";
@@ -39,7 +39,7 @@ function Swekey_auth_check()
     	if (! isset($_SESSION['SWEKEY']['CONF_CA_FILE']))
         	$_SESSION['SWEKEY']['CONF_CA_FILE'] = "";
     	if (! isset($_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE']))
-        	$_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE'] = false;
+        	$_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE'] = true;
     	if (! isset($_SESSION['SWEKEY']['CONF_DEBUG']))
        	    $_SESSION['SWEKEY']['CONF_DEBUG'] = false; 
      }
@@ -92,7 +92,7 @@ function Swekey_auth_error()
     {
         if (key != Swekey_GetValidKey())
         {
-            window.location.search = "";  
+            window.location.search = "?swekey_reset";  
         }
 		else
 	        setTimeout("timedCheck()",1000);
@@ -127,9 +127,12 @@ function Swekey_auth_error()
 //        if (file_exists($caFile))
 //            echo "<!-- exists -->\n";
     }
+
     if (file_exists($caFile))
         Swekey_SetCAFile($caFile);
-
+    else if (! empty($caFile) && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://"))
+        return "Internal Error: CA File $caFile not found";  
+                
     $result = null;
     parse_str($_SERVER['QUERY_STRING']); 
     if (isset($swekey_id)) {
@@ -181,9 +184,7 @@ function Swekey_auth_error()
 	        var url = "" + window.location;
 	        if (url.indexOf("?") > 0)
 	            url = url.substr(0, url.indexOf("?"));
-	        if (url.lastIndexOf("/") > 0)
-	            url = url.substr(0, url.lastIndexOf("/"));
-	        Swekey_SetUnplugUrl(key, "pma_login", url + "/libraries/auth/swekey/unplugged.php?session_to_unset=<?php echo session_id();?>");
+	        Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>");
 	     	var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);     
 	        window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp;
 	    }
@@ -218,7 +219,7 @@ function Swekey_login($input_name, $input_go)
         ?>
             function open_swekey_site()
             {
-                window.open("http://www.swekey.com?promo=pma");
+                window.open("http://phpmyadmin.net/auth_key");
             }
         
             var input_username = document.getElementById("<?php echo $input_name; ?>");
@@ -249,4 +250,22 @@ function Swekey_login($input_name, $input_go)
         echo '</script>';
 	}
 }
+
+if (strstr($_SERVER['QUERY_STRING'],'session_to_unset') != false)
+{
+    parse_str($_SERVER['QUERY_STRING']);
+	session_write_close();
+	session_id($session_to_unset);
+	session_start();
+	$_SESSION = array();
+	session_write_close();
+	session_destroy();
+	exit;
+}
+
+if (isset($_GET['swekey_reset']))
+{
+	unset($_SESSION['SWEKEY']);
+}
+    
 ?>

@@ -61,7 +61,7 @@ global $gSwekeyCA;
 
 global $gSwekeyTokenCacheEnabled;
 if (! isset($gSwekeyTokenCacheEnabled))
-    $gSwekeyTokenCacheEnabled = false;
+    $gSwekeyTokenCacheEnabled = true;
 
 /**
  *  Change the address of the Check server.
@@ -185,7 +185,7 @@ function Swekey_HttpGet($url, &$response_code)
 		if (substr($url, 0, 8) == "https://")
 		{
 			global $gSwekeyCA;
-			$caFileOk = false;
+
 			if (! empty($gSwekeyCA))
 			{
 				if (file_exists($gSwekeyCA))
@@ -199,17 +199,8 @@ function Swekey_HttpGet($url, &$response_code)
 					error_log("SWEKEY_ERROR:Could not find CA file $gSwekeyCA getting $url");
 			}
 			
-			if ($caFileOk)
-			{
-				curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '1');
-				curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '1');
-			}
-			else
-			{
-				curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '0');
-				curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '0');
-			}
-
+			curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '2');
+			curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '2');
 			curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '20');
 			curl_setopt($sess, CURLOPT_TIMEOUT, '20');
 		}
@@ -350,7 +341,10 @@ function Swekey_GetHalfRndToken()
  */
 function Swekey_GetFastHalfRndToken()
 {
+    global $gSwekeyTokenCacheEnabled;
+
     $res = "";
+    $cachefile = "";
 
     // We check if we have a valid RT is the session
     if (isset($_SESSION['rnd-token-date']))
@@ -360,14 +354,15 @@ function Swekey_GetFastHalfRndToken()
     // If not we try to get it from a temp file (PHP >= 5.2.1 only)
    if (strlen($res) != 32 && $gSwekeyTokenCacheEnabled)
    {
-        if (function_exists('sys_get_temp_dir') )
+        if (function_exists('sys_get_temp_dir'))
         {
             $tempdir = sys_get_temp_dir();
-            $modif = filemtime($tempdir."/swekey-rnd-token");
+            $cachefile = $tempdir."/swekey-rnd-token-".get_current_user();
+            $modif = filemtime($cachefile);
 			if ($modif != false)
-		   	  if (time() - $modif < 30)
+                if (time() - $modif < 30)
 	            {
-	                $res = @file_get_contents($tempdir."/swekey-rnd-token"); 
+	                $res = @file_get_contents($cachefile); 
 	                if (strlen($res) != 32)
 	                    $res = "";
                		else
@@ -378,23 +373,22 @@ function Swekey_GetFastHalfRndToken()
 	            }
         }   
    }
-   
+      
    // If we don't have a valid RT here we have to get it from the server
    if (strlen($res) != 32)
    {
         $res = substr(Swekey_GetHalfRndToken(), 0, 32);
         $_SESSION['rnd-token'] = $res;
         $_SESSION['rnd-token-date'] = time();
-        if (isset($tempdir))
+        if (! empty($cachefile))
         {
         	// we unlink the file so no possible tempfile race attack (thanks Thijs)
-        	unlink($tempdir."/swekey-rnd-token");
-	   		$file = fopen  ($tempdir."/swekey-rnd-token" , "x");
+        	unlink($cachefile);
+	   		$file = fopen($cachefile , "x");
 	   		if ($file != FALSE)
 	   		{
 	   	    	@fwrite($file, $res); 
     			@fclose($file);
-    			chmod($tempdir."/swekey-rnd-token", 0666); // it is a shared file everybody can read and write it
     		}
         }
    }
@@ -444,8 +438,7 @@ define ("SWEKEY_STATUS_OK",0);
 define ("SWEKEY_STATUS_NOT_FOUND",1);  // The key does not exist in the db
 define ("SWEKEY_STATUS_INACTIVE",2);   // The key has never been activated
 define ("SWEKEY_STATUS_LOST",3);	   // The user has lost his key
-define ("SWEKEY_STATUS_STOLLEN",4);	   // The key was stollen
-define ("SWEKEY_STATUS_STOLEN",4);	   // The key was stollen
+define ("SWEKEY_STATUS_STOLEN",4);	   // The key was stolen
 define ("SWEKEY_STATUS_FEE_DUE",5);	   // The annual fee was not paid
 define ("SWEKEY_STATUS_OBSOLETE",6);   // The hardware is no longer supported
 define ("SWEKEY_STATUS_UNKOWN",201);   // We could not connect to the authentication server
@@ -474,7 +467,7 @@ function Swekey_GetStatusStr($status)
        case SWEKEY_STATUS_NOT_FOUND	    : return 'Key does not exist in the db';
        case SWEKEY_STATUS_INACTIVE		: return 'Key not activated';
        case SWEKEY_STATUS_LOST			: return 'Key was lost';
-       case SWEKEY_STATUS_STOLLEN		: return 'Key was stollen';
+       case SWEKEY_STATUS_STOLEN		: return 'Key was stolen';
        case SWEKEY_STATUS_FEE_DUE		: return 'The annual fee was not paid';
        case SWEKEY_STATUS_OBSOLETE		: return 'Key no longer supported';
        case SWEKEY_STATUS_REPLACED	    : return 'This key has been replaced by a backup key';

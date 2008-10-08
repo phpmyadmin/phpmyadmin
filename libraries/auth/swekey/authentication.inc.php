@@ -8,45 +8,64 @@
 	function Swekey_Plugin()
 	{
 		try 
-		{				
+		{		
 			if (g_SwekeyPlugin != null)
 				return g_SwekeyPlugin;
-		
+						
 			if (window.ActiveXObject)
 			{
-				g_SwekeyPlugin = new ActiveXObject("FbAuthAx.FbAuthCtl")
+    			g_SwekeyPlugin = document.getElementById("swekey_activex");
+    			if (g_SwekeyPlugin == null)
+    			{	
+                    // we must create the activex that way instead of new ActiveXObject("FbAuthAx.FbAuthCtl");
+                    // ortherwise SetClientSite is not called and we can not get the url			
+  			  		var div = document.createElement('div');
+	   				div.innerHTML='<object id="swekey_activex" style="display:none" CLASSID="CLSID:8E02E3F9-57AA-4EE1-AA68-A42DD7B0FADE"></object>';
+
+    				// Never append to the body because it may still loading and it breaks IE
+	   				document.body.insertBefore(div, document.body.firstChild);
+    				g_SwekeyPlugin = document.getElementById("swekey_activex"); 
+                }				
 				return g_SwekeyPlugin;
 			}
-	
-			g_SwekeyPlugin = document.embeds["script_generated_swekey_plugin"];
+
+			g_SwekeyPlugin = document.getElementById("swekey_plugin");
 			if (g_SwekeyPlugin != null)
 				return g_SwekeyPlugin;
 				
-			for (x = 0; x < navigator.plugins.length; x ++)
+			for (i = 0; i < navigator.plugins.length; i ++)
 			{
 				try
 				{
-					if (navigator.plugins[x][0].type == "application/fbauth-plugin")
+				    if (navigator.plugins[i] == null)
+				    {
+				        navigator.plugins.refresh();
+                    }
+                    else if (navigator.plugins[i][0] != null && navigator.plugins[i][0].type == "application/fbauth-plugin")
 					{
 						var x = document.createElement('embed');
 						x.setAttribute('type', 'application/fbauth-plugin');
-						x.setAttribute('id', 'script_generated_swekey_plugin');
+						x.setAttribute('id', 'swekey_plugin');
 						x.setAttribute('width', '0');
 						x.setAttribute('height', '0');
-						x.setAttribute('hidden', 'true');
-						document.body.appendChild(x);
-						g_SwekeyPlugin = document.embeds["script_generated_swekey_plugin"];
+						x.style.dislay='none';
+
+						//document.body.appendChild(x);
+						document.body.insertBefore(x, document.body.firstChild);
+						g_SwekeyPlugin = document.getElementById("swekey_plugin");
 						return g_SwekeyPlugin;
 					}
 				}
 				catch (e)
 				{
+				    navigator.plugins.refresh();
+					//alert ('Failed to create plugin: ' + e);
 				}
 			}
 		}
 		catch (e) 
 		{
-//			alert("Swekey_Plugin " + e);
+			//alert("Swekey_Plugin " + e);
 			g_SwekeyPlugin = null;
 		}
 		return null;
@@ -95,6 +114,40 @@
 	}
 
 	// -------------------------------------------------------------------
+	// Ask the Connected Swekey to generate a OTP linked to the current https host
+	// id: The id of the connected Swekey (returne by Swekey_ListKeyIds())
+	// rt: A random token 	
+	// return: The calculated OTP encoded in a 64 chars hexadecimal value.
+	// or "" if the current url does not start with https
+	function Swekey_GetLinkedOtp(id, rt)
+	{
+		try
+		{
+			return Swekey_Plugin().getlinkedotp(id, rt);
+		}
+		catch (e)
+		{
+//			alert("Swekey_GetSOtp " + e);
+		}
+		return "";
+	}
+
+	// -------------------------------------------------------------------
+    // Calls Swekey_GetOtp or Swekey_GetLinkedOtp depending if we are in
+    // an https page or not.
+	// id: The id of the connected Swekey (returne by Swekey_ListKeyIds())
+	// rt: A random token 	
+	// return: The calculated OTP encoded in a 64 chars hexadecimal value.
+	function Swekey_GetSmartOtp(id, rt)
+	{
+        var res = Swekey_GetLinkedOtp(id, rt);
+        if (res == "")
+            res = Swekey_GetOtp(id, rt); 
+
+		return res;
+	}
+
+	// -------------------------------------------------------------------
 	// Set a unplug handler (url) to the specified connected feebee
 	// id: The id of the connected Swekey (returne by Swekey_ListKeyIds())
 	// key: The key that index that url, (aplhanumeric values only) 	
@@ -110,4 +163,5 @@
 //			alert("Swekey_SetUnplugUrl " + e);
 		}
 	}
+
 </script>	
