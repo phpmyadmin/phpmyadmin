@@ -2,10 +2,9 @@
 /* $Id$ */
 // Peter Bakondy <bakondyp@freemail.hu>
 // Mihály Mészáros <poizon at sth dot sze dot hu>
-// József Tamás Herczeg <localicer @NOSPAM@ gmail.com>
+// József Tamás Herczeg <localicer @NOSPAM@ gmail DOT com>
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr': balról jobbra, 'rtl': jobbról balra)
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
