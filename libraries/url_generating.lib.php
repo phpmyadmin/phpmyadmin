@@ -183,13 +183,17 @@ function PMA_getHiddenFields($values, $pre = '')
  * @uses    implode()
  * @param   mixed    assoc. array with url params or optional string with database name
  *                   if first param is an array there is also an ? prefixed to the url
- * @param   string   if first param is array: optional character to use
- *                   instead of '&amp;' for dividing URL parameters
- *                   else, optional table name 
- * @param   string   if first param is array: optional character to
+ *
+ * @param   string   - if first param is array: 'html' to use htmlspecialchars()
+ *                   on the resulting URL (for a normal URL displayed in HTML)
+ *                   or something else to avoid using htmlspecialchars() (for
+ *                   a URL sent via a header); if not set,'html' is assumed
+ *                   - if first param is not array:  optional table name 
+ *
+ * @param   string   - if first param is array: optional character to
  *                   use instead of '?'
- *                   else, optional character to use instead of '&amp;'
- *                   for dividing URL parameters
+ *                   - if first param is not array: optional character to use 
+ *                    instead of '&amp;' for dividing URL parameters
  * @return  string   string with URL parameters
  * @access  public
  * @author  nijel
