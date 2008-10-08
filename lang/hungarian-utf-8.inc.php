@@ -2,7 +2,7 @@
 /* $Id$ */
 // Peter Bakondy <bakondyp@freemail.hu>
 // Mihály Mészáros <poizon at sth dot sze dot hu>
-// József Tamás Herczeg <localicer @NOSPAM@ gmail.com>
+// József Tamás Herczeg <localicer @NOSPAM@ gmail DOT com>
 
 $charset = 'utf-8';
 $text_dir = 'ltr'; // ('ltr': balról jobbra, 'rtl': jobbról balra)
@@ -88,6 +88,18 @@ $strBinLogName = 'Napló neve';
 $strBinLogOriginalPosition = 'Eredeti pozíció';
 $strBinLogPosition = 'Pozíció';
 $strBinLogServerId = 'Szerver AZ';
+$strBLOBRepository = 'BLOB-tár';
+$strBLOBRepositoryDamaged = 'Sérült';
+$strBLOBRepositoryDisableAreYouSure = 'Biztosan le akarja tiltani a(z) %s adatbázis összes BLOB hivatkozását?';
+$strBLOBRepositoryDisabled = 'Letiltott';
+$strBLOBRepositoryDisable = 'Letiltás';
+$strBLOBRepositoryDisableStrongWarning = 'Ön egy BLOB-tár LETILTÁSÁRA készül!';
+$strBLOBRepositoryEnabled = 'Engedélyezett';
+$strBLOBRepositoryEnable = 'Engedélyezés';
+$strBLOBRepositoryRemove = 'BLOB-tár hivatkozás eltávolítása';
+$strBLOBRepositoryRepair = 'Javítás';
+$strBLOBRepositoryStatus = 'Állapot';
+$strBLOBRepositoryUpload = 'Feltöltés a BLOB-tárba';
 $strBookmarkAllUsers = 'A hozzáférés ehhez a könyvjelzőhöz az összes felhasználó számára engedélyezett';
 $strBookmarkCreated = 'A(z) %s könyvjelző elkészült';
 $strBookmarkDeleted = 'A könyvjelző törlése megtörtént.';
@@ -244,6 +256,7 @@ $strDisplayPDF = 'PDF séma megjelenítése';
 $strDoAQuery = 'Egy "példa szerinti lekérdezés" végrehajtása (karakterhelyettesítő: "%")';
 $strDocSQL = 'DocSQL';
 $strDocu = 'Dokumentáció';
+$strDownloadFile = 'Fájl letöltése';
 $strDoYouReally = 'Valóban a következőt akarja ';
 $strDropDatabaseStrongWarning = 'Ön a teljes adatbázis MEGSEMMISÍTÉSÉRE készül!';
 $strDrop = 'Eldobás';
@@ -447,6 +460,7 @@ $strLoginInformation = 'Bejelentkezési adatok';
 $strLogin = 'Belépés';
 $strLogout = 'Kilépés';
 $strLogPassword = 'Jelszó:';
+$strLogServerHelp = 'A hosztnevet/IP-címét és a portot szóközzel elválasztva írhatja be.';
 $strLogServer = 'Szerver';
 $strLogUsername = 'Felhasználónév:';
 $strLongOperation = 'Ez a művelet sokáig eltarthat. Mindenképp folytatja?';
@@ -599,6 +613,7 @@ $strPhoneBook = 'telefonkönyv';
 $strPhp = 'PHP kód készítése';
 $strPHPExtension = 'PHP-kiterjesztés';
 $strPHPVersion = 'PHP verzió';
+$strPlayAudio = 'Hang lejátszása';
 $strPleaseSelectPrimaryOrUniqueKey = 'Válassza ki az elsődleges kulcsot, vagy egy egyedi kulcsot';
 $strPmaDocumentation = 'phpMyAdmin dokumentáció';
 $strPmaUriError = 'A <tt>$cfg[\'PmaAbsoluteUri\']</tt> utasítás értékét a konfigurációs fájlban KELL megadni!';
@@ -779,6 +794,7 @@ $strShowingBookmark = 'Könyvjelző megjelenítése';
 $strShowingPhp = 'Megjelenítés PHP kódként';
 $strShowingRecords = 'Megjelenített sorok:';
 $strShowingSQL = 'Megjelenítés SQL lekérdezésként';
+$strShowKeys = 'Csak a kulcsok megjelenítése';
 $strShowOpenTables = 'Nyitott táblák megjelenítése';
 $strShowPHPInfo = 'PHP információ megjelenítése';
 $strShow = 'Megjelenítés';
@@ -941,6 +957,10 @@ $strSuccess = 'Az SQL-lekérdezés végrehajtása sikerült';
 $strSuhosin = 'A szerver Suhosinnal fut. Kérjük, hogy a lehetséges problémáknak nézzen utána a %sdokumentációban%s.';
 $strSum = 'Összeg';
 $strSwedish = 'Svéd';
+$strSwekeyAuthenticating = 'Hitelesítés...';
+$strSwekeyAuthFailed = 'A hardveres hitelesítés nem sikerült';
+$strSwekeyNoKeyId = 'A(z) %s fájl nem tartalmaz semmilyen kulcsazonosítót';
+$strSwekeyNoKey = 'Érvényes hitelesítési kulcs csatlakoztatása nem történt meg';
 $strSwitchToDatabase = 'A másolt adatbázisra váltás';
 $strSwitchToTable = 'A másolt táblára váltás';
 
@@ -1053,7 +1073,9 @@ $strViewDumpDB = 'Adatbázis kiírás (vázlat) megtekintése';
 $strViewDump = 'Tábla kiírás (vázlat) megtekintése';
 $strViewHasAtLeast = 'Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %sdokumentációban%s.';
 $strViewHasBeenDropped = 'A(z) %s nézet eldobása kész';
+$strViewImage = 'Kép megtekintése';
 $strViewName = 'NÉZET neve';
+$strViewVideo = 'Videó megtekintése';
 $strView = 'Nézet';
 
 $strWebServerUploadDirectoryError = 'Nem elérhető a feltöltésekhez megadott könyvtár';
@@ -1075,32 +1097,4 @@ $strYes = 'Igen';
 $strZeroRemovesTheLimit = 'Megjegyzés: Ezen beállítások 0-ra (nulla) állítása eltávolítja a korlátozást.';
 $strZip = '"zip tömörítés"';
 
-$strBLOBRepository = 'BLOB Repository';  //to translate
-$strBLOBRepositoryDamaged = 'Damaged';  //to translate
-$strBLOBRepositoryDisableAreYouSure = 'Are you sure you want to disable all BLOB references for database %s?';  //to translate
-$strBLOBRepositoryDisabled = 'Disabled';  //to translate
-$strBLOBRepositoryDisable = 'Disable';  //to translate
-$strBLOBRepositoryDisableStrongWarning = 'You are about to DISABLE a BLOB Repository!';  //to translate
-$strBLOBRepositoryEnabled = 'Enabled';  //to translate
-$strBLOBRepositoryEnable = 'Enable';  //to translate
-$strBLOBRepositoryRemove = 'Remove BLOB Repository Reference';  //to translate
-$strBLOBRepositoryRepair = 'Repair';  //to translate
-$strBLOBRepositoryStatus = 'Status';  //to translate
-$strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
-
-$strDownloadFile = 'Download file';  //to translate
-
-
-$strPlayAudio = 'Play audio';  //to translate
-
-$strSwekeyAuthenticating = 'Authenticating...'; //to translate
-$strSwekeyAuthFailed = 'Hardware authentication failed'; //to translate
-$strSwekeyNoKeyId = 'File %s does not contain any key id'; //to translate
-$strSwekeyNoKey = 'No valid authentication key plugged'; //to translate
-
-$strViewImage = 'View image';  //to translate
-$strViewVideo = 'View video';  //to translate
-
-$strLogServerHelp = 'You can enter hostname/IP address and port separated by space.';  //to translate
-$strShowKeys = 'Only show keys';  //to translate
 ?>
