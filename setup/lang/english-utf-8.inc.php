@@ -60,7 +60,7 @@ $str['VersionCheckDataError'] = 'Reading of version failed. Maybe you\'re offlin
 $str['VersionCheckInvalid'] = 'Got invalid version string from server';
 $str['VersionCheckUnparsable'] = 'Unparsable version string';
 $str['VersionCheckNewAvailable'] = 'New version of phpMyAdmin is available, you should consider upgrade. New version is %s, released on %s.';
-$str['VersionCheckNewAvailableSvn'] = 'You are using subversion version, run [kbd]svn update[/kbd] :-).[br]The latest stable version is %s, released on %s.';
+$str['VersionCheckNewAvailableSvn'] = 'You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The latest stable version is %s, released on %s.';
 $str['VersionCheckNone'] = 'No newer stable version is available';
 $str['ServerSecurityInfoMsg'] = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
 $str['ServerSslMsg'] = 'You should use SSL connections if your web server supports it';
@@ -74,10 +74,10 @@ $str['ForceSSLMsg'] = 'This [a@?page=form&amp;formset=features#tab_Security]opti
 $str['AllowArbitraryServerMsg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
 $str['LoginCookieValidityMsg'] = '[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.';
 $str['DirectoryNotice'] = 'This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.';
-$str['GZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and decompression[/a] requires functions (%s) which are unavaible on this system.';
-$str['BZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and decompression[/a] requires functions (%s) which are unavaible on this system.';
-$str['ZipDumpImportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavaible on this system.';
-$str['ZipDumpExportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavaible on this system.';
+$str['GZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and decompression[/a] requires functions (%s) which are unavailable on this system.';
+$str['BZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and decompression[/a] requires functions (%s) which are unavailable on this system.';
+$str['ZipDumpImportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';
+$str['ZipDumpExportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';
 
 // form errors
 $str['error_form'] = 'Submitted form contains errors';

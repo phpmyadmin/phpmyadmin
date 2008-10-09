@@ -76,7 +76,7 @@ function messages_show_html()
     foreach ($_SESSION['messages'] as $type => $messages) {
         foreach ($messages as $id => $msg) {
             echo '<div class="' . $type . '" id="' . $id . '">' . '<h4>' . $msg['title'] . '</h4>' . $msg['message'] . '</div>';
-            if (!$msg['fresh']) {
+            if (!$msg['fresh'] && $type != 'error') {
                 $old_ids[] = $id;
             }
         }
