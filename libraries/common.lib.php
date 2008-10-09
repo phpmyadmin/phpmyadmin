@@ -1022,7 +1022,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
             // when the query is large (for example an INSERT of binary
             // data), the parser chokes; so avoid parsing the query
             $query_too_big = true;
-            $query_base = nl2br(htmlspecialchars($sql_query));
+            $shortened_query_base = nl2br(htmlspecialchars(substr($sql_query, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]'));
         } elseif (! empty($GLOBALS['parsed_sql'])
          && $query_base == $GLOBALS['parsed_sql']['raw']) {
             // (here, use "! empty" because when deleting a bookmark,
@@ -1177,7 +1177,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
         echo '<code class="sql">';
         if ($query_too_big) {
-            echo substr($query_base, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
+            echo $shortened_query_base;
         } else {
             echo $query_base;
         }
