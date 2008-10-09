@@ -42,7 +42,11 @@ function messages_set($type, $id, $title, $message)
 {
     $fresh = !isset($_SESSION['messages'][$type][$id]);
     $title = PMA_lang($title);
-    $_SESSION['messages'][$type][$id] = array('fresh' => $fresh, 'active' => true, 'title' => $title, 'message' => $message);
+    $_SESSION['messages'][$type][$id] = array(
+        'fresh' => $fresh,
+        'active' => true,
+        'title' => $title,
+        'message' => $message);
 }
 
 /**
@@ -111,15 +115,15 @@ function PMA_version_check()
             $data = curl_exec($ch);
             curl_close($ch);
         } else {
-            messages_set('error', $message_id, 'Version_check',
-                PMA_lang('Version_check_wrapper_error'));
+            messages_set('error', $message_id, 'VersionCheck',
+                PMA_lang('VersionCheckWrapperError'));
             return;
         }
     }
 
     if (empty($data)) {
-        messages_set('error', $message_id, 'Version_check',
-            PMA_lang('Version_check_data_error'));
+        messages_set('error', $message_id, 'VersionCheck',
+            PMA_lang('VersionCheckDataError'));
         return;
     }
 
@@ -135,30 +139,30 @@ function PMA_version_check()
 
     $version_upstream = version_to_int($version);
     if ($version_upstream === false) {
-        messages_set('error', $message_id, 'Version_check',
-            PMA_lang('Version_check_invalid'));
+        messages_set('error', $message_id, 'VersionCheck',
+            PMA_lang('VersionCheckInvalid'));
         return;
     }
 
     $version_local = version_to_int($_SESSION['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
-        messages_set('error', $message_id, 'Version_check',
-            PMA_lang('Version_check_unparsable'));
+        messages_set('error', $message_id, 'VersionCheck',
+            PMA_lang('VersionCheckUnparsable'));
         return;
     }
 
     if ($version_upstream > $version_local) {
         $version = htmlspecialchars($version);
         $date = htmlspecialchars($date);
-        messages_set('notice', $message_id, 'Version_check',
-            PMA_lang('Version_check_new_available', $version, $date));
+        messages_set('notice', $message_id, 'VersionCheck',
+            PMA_lang('VersionCheckNewAvailable', $version, $date));
     } else {
         if ($version_local % 100 == 0) {
-            messages_set('notice', $message_id, 'Version_check',
-                PMA_lang('Version_check_new_available_svn', $version, $date));
+            messages_set('notice', $message_id, 'VersionCheck',
+                PMA_lang('VersionCheckNewAvailableSvn', $version, $date));
         } else {
-            messages_set('notice', $message_id, 'Version_check',
-                PMA_lang('Version_check_none'));
+            messages_set('notice', $message_id, 'VersionCheck',
+                PMA_lang('VersionCheckNone'));
         }
     }
 }
@@ -193,7 +197,8 @@ function version_to_int($version)
                 $added = 0;
                 break;
             default:
-                messages_set('notice', 'version_match', 'Version_check', 'Unknown version part: ' . htmlspecialchars($matches[6]));
+                messages_set('notice', 'version_match', 'VersionCheck',
+                    'Unknown version part: ' . htmlspecialchars($matches[6]));
                 $added = 0;
                 break;
         }
@@ -258,7 +263,8 @@ function perform_config_checks()
         //
         if (!$cf->getValue("Servers/$i/ssl")) {
             $title = PMA_lang_name('Servers/1/ssl') . " ($server_name)";
-            messages_set('notice', "Servers/$i/ssl", $title, PMA_lang('Server_ssl_msg'));
+            messages_set('notice', "Servers/$i/ssl", $title,
+                PMA_lang('ServerSslMsg'));
         }
 
         //
@@ -267,7 +273,8 @@ function perform_config_checks()
         //
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
             $title = PMA_lang_name('Servers/1/extension') . " ($server_name)";
-            messages_set('notice', "Servers/$i/extension", $title, PMA_lang('Server_extension_msg'));
+            messages_set('notice', "Servers/$i/extension", $title,
+                PMA_lang('ServerExtensionMsg'));
         }
 
         //
@@ -279,8 +286,8 @@ function perform_config_checks()
             && $cf->getValue("Servers/$i/password") != '') {
             $title = PMA_lang_name('Servers/1/auth_type') . " ($server_name)";
             messages_set('warning', "Servers/$i/auth_type", $title,
-            	PMA_lang('Server_auth_config_msg', $i) . ' ' .
-            	PMA_lang('Server_security_info_msg', $i));
+                PMA_lang('ServerAuthConfigMsg', $i) . ' ' .
+                PMA_lang('ServerSecurityInfoMsg', $i));
         }
 
         //
@@ -290,10 +297,10 @@ function perform_config_checks()
         //
         if ($cf->getValue("Servers/$i/AllowRoot")
             && $cf->getValue("Servers/$i/AllowNoPasswordRoot")) {
-			$title = PMA_lang_name('Servers/1/AllowNoPasswordRoot') . " ($server_name)";
-			messages_set('warning', "Servers/$i/AllowNoPasswordRoot", $title,
-				PMA_lang('Server_no_password_root_msg') . ' ' .
-            	PMA_lang('Server_security_info_msg', $i));
+            $title = PMA_lang_name('Servers/1/AllowNoPasswordRoot') . " ($server_name)";
+            messages_set('warning', "Servers/$i/AllowNoPasswordRoot", $title,
+                PMA_lang('ServerNoPasswordRootMsg') . ' ' .
+                PMA_lang('ServerSecurityInfoMsg', $i));
         }
     }
 
@@ -305,20 +312,20 @@ function perform_config_checks()
         if ($blowfish_secret_set) {
             // 'cookie' auth used, blowfish_secret was generated
             messages_set('notice', 'blowfish_secret_created', 'blowfish_secret_name',
-                 PMA_lang('blowfish_secret_msg'));
+                 PMA_lang('BlowfishSecretMsg'));
         } else {
             $blowfish_warnings = array();
             // check length
             if (strlen($blowfish_secret) < 8) {
                 // too short key
-                $blowfish_warnings[] = PMA_lang('blowfish_secret_length_msg');
+                $blowfish_warnings[] = PMA_lang('BlowfishSecretLengthMsg');
             }
             // check used characters
             $has_digits = (bool) preg_match('/\d/', $blowfish_secret);
             $has_chars = (bool) preg_match('/\S/', $blowfish_secret);
             $has_nonword = (bool) preg_match('/\W/', $blowfish_secret);
             if (!$has_digits || !$has_chars || !$has_nonword) {
-                $blowfish_warnings[] = PMA_lang('blowfish_secret_chars_msg');
+                $blowfish_warnings[] = PMA_lang('BlowfishSecretCharsMsg');
             }
             if (!empty($blowfish_warnings)) {
                 messages_set('warning', 'blowfish_warnings' . count($blowfish_warnings),
@@ -332,7 +339,8 @@ function perform_config_checks()
     // should be enabled if possible
     //
     if (!$cf->getValue('ForceSSL')) {
-        messages_set('notice', 'ForceSSL', 'ForceSSL_name', PMA_lang('ForceSSL_msg'));
+        messages_set('notice', 'ForceSSL', 'ForceSSL_name',
+            PMA_lang('ForceSSLMsg'));
     }
 
     //
@@ -341,7 +349,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('AllowArbitraryServer')) {
         messages_set('warning', 'AllowArbitraryServer', 'AllowArbitraryServer_name',
-            PMA_lang('AllowArbitraryServer_msg'));
+            PMA_lang('AllowArbitraryServerMsg'));
     }
 
     //
@@ -350,7 +358,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('LoginCookieValidity') > 1800) {
         messages_set('warning', 'LoginCookieValidity', 'LoginCookieValidity_name',
-            PMA_lang('LoginCookieValidity_msg'));
+            PMA_lang('LoginCookieValidityMsg'));
     }
 
     //
@@ -359,7 +367,7 @@ function perform_config_checks()
     //
     if ($cf->getValue('SaveDir') != '') {
         messages_set('notice', 'SaveDir', 'SaveDir_name',
-            PMA_lang('Directory_notice'));
+            PMA_lang('DirectoryNotice'));
     }
 
     //
@@ -368,27 +376,51 @@ function perform_config_checks()
     //
     if ($cf->getValue('TempDir') != '') {
         messages_set('notice', 'TempDir', 'TempDir_name',
-            PMA_lang('Directory_notice'));
+            PMA_lang('DirectoryNotice'));
+    }
+
+    //
+    // $cfg['GZipDump']
+    // requires zlib functions
+    //
+    if ($cf->getValue('GZipDump')
+        && (@!function_exists('gzopen') || @!function_exists('gzencode'))) {
+        messages_set('warning', 'GZipDump', 'GZipDump_name',
+            PMA_lang('GZipDumpWarning', 'gzencode'));
+    }
+
+    //
+    // $cfg['BZipDump']
+    // requires bzip2 functions
+    //
+    if ($cf->getValue('BZipDump')
+        && (!@function_exists('bzopen') || !@function_exists('bzcompress'))) {
+        $functions = @function_exists('bzopen')
+            ? '' :
+            'bzopen';
+        $functions .= @function_exists('bzcompress')
+            ? ''
+            : ($functions ? ', ' : '') . 'bzcompress';
+        messages_set('warning', 'BZipDump', 'BZipDump_name',
+            PMA_lang('BZipDumpWarning', $functions));
+    }
+
+    //
+    // $cfg['ZipDump']
+    // requires zip_open in import
+    //
+    if ($cf->getValue('ZipDump') && !@function_exists('zip_open')) {
+        messages_set('warning', 'ZipDump_import', 'ZipDump_name',
+            PMA_lang('ZipDumpImportWarning', 'zip_open'));
+    }
+
+    //
+    // $cfg['ZipDump']
+    // requires gzcompress in export
+    //
+    if ($cf->getValue('ZipDump') && !@function_exists('gzcompress')) {
+        messages_set('warning', 'ZipDump_export', 'ZipDump_name',
+            PMA_lang('ZipDumpExportWarning', 'gzcompress'));
     }
 }
-
-/*
- * add checks for compression options:
- *
- * import:
-if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-    $compressions .= ', gzip';
-}
-if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-    $compressions .= ', bzip2';
-}
-if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-    $compressions .= ', zip';
-}
-
-export:
-$is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
-$is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-$is_bzip = ($cfg['BZipDump'] && @function_exists('bzcompress'));
- */
 ?>

@@ -293,6 +293,9 @@ class FormDisplay
                 $value = (array) $value;
                 $value_default = (array) $value_default;
                 break;
+            case 'NULL':
+            	trigger_error("Field $system_path has no type", E_USER_WARNING);
+            	return;
         }
 
         // TrustedProxies requires changes before displaying

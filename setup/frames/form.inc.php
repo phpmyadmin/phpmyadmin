@@ -24,7 +24,7 @@ $formsets = array(
     'main_frame' => array(
         'forms' => array('Startup', 'Browse', 'Edit', 'Tabs', 'Sql_box')),
     'import' => array(
-        'forms' => array('Import', 'Import_sql', 'Import_csv', 'Import_ldi')),
+        'forms' => array('Import_defaults')),
     'export' => array(
         'forms' => array('Export_defaults'))
 );
@@ -32,7 +32,7 @@ $formsets = array(
 $formset_id = filter_input(INPUT_GET, 'formset');
 $mode = filter_input(INPUT_GET, 'mode');
 if (!isset($formsets[$formset_id])) {
-    die('Incorrect formset');
+    die('Incorrect formset, check $formsets array in setup/frames/form.inc.php');
 }
 
 $formset = $formsets[$formset_id];

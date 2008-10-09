@@ -46,19 +46,19 @@ $config_writable = false;
 $config_exists = false;
 check_config_rw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
-    messages_set('warning', 'config_rw', 'Cannot_load_config', PMA_lang('Cannot_load_config_desc'));
+    messages_set('error', 'config_rw', 'CannotLoadConfig', PMA_lang('CannotLoadConfigMsg'));
 }
 //
 // Check https connection
 //
 $is_https = !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on';
 if (!$is_https) {
-    $text = $GLOBALS['str']['Insecure_connection_desc1'];
+    $text = $GLOBALS['str']['InsecureConnectionMsg1'];
     if (!empty($_SERVER['REQUEST_URI']) && !empty($_SERVER['HTTP_HOST'])) {
-        $text .= ' ' . PMA_lang('Insecure_connection_desc2',
+        $text .= ' ' . PMA_lang('InsecureConnectionMsg2',
             'https://' . htmlspecialchars($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']));
     }
-    messages_set('warning', 'no_https', 'Insecure_connection', $text);
+    messages_set('warning', 'no_https', 'InsecureConnection', $text);
 }
 ?>
 
@@ -99,7 +99,7 @@ messages_end();
 messages_show_html();
 ?>
 
-<a href="#" id="show_hidden_messages" style="display:none"><?php echo $str['Show_hidden_messages'] ?></a>
+<a href="#" id="show_hidden_messages" style="display:none"><?php echo $str['ShowHiddenMessages'] ?></a>
 
 <h3><?php echo $GLOBALS['strServers'] ?></h3>
 <?php
@@ -139,7 +139,7 @@ display_form_top('index.php', 'get', array(
 <table width="100%">
 <tr>
     <td>
-        <i><?php echo $GLOBALS['str']['No_servers'] ?></i>
+        <i><?php echo $GLOBALS['str']['NoServers'] ?></i>
     </td>
 </tr>
 </table>
@@ -147,7 +147,7 @@ display_form_top('index.php', 'get', array(
 <table width="100%">
 <tr>
     <td class="lastrow" style="text-align: left">
-        <input type="submit" name="submit" value="<?php echo $GLOBALS['str']['New_server'] ?>" />
+        <input type="submit" name="submit" value="<?php echo $GLOBALS['str']['NewServer'] ?>" />
     </td>
 </tr>
 </table>
@@ -156,7 +156,7 @@ display_form_top('index.php', 'get', array(
 display_form_bottom();
 ?>
 
-<h3><?php echo $GLOBALS['str']['Configuration_file'] ?></h3>
+<h3><?php echo $GLOBALS['str']['ConfigurationFile'] ?></h3>
 <?php
 //
 // Display config file settings and load/save form
@@ -183,7 +183,7 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     }
     $opts['values'][$each_lang_key] = $lang_name;
 }
-display_input('DefaultLang', $GLOBALS['str']['Default_language'], '', 'select',
+display_input('DefaultLang', $GLOBALS['str']['DefaultLanguage'], '', 'select',
     $cf->getValue('DefaultLang'), true, $opts);
 
 // Display server list
@@ -193,7 +193,7 @@ $opts = array(
     'values' => array(),
     'values_disabled' => array());
 if ($cf->getServerCount() > 0) {
-    $opts['values']['0'] = $GLOBALS['str']['let_the_user_choose'];
+    $opts['values']['0'] = $GLOBALS['str']['LetUserChoose'];
     $opts['values']['-'] = '------------------------------';
     if ($cf->getServerCount() == 1) {
         $opts['values_disabled'][] = '0';
@@ -207,7 +207,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = $GLOBALS['str']['-none-'];
     $opts['values_escaped'] = true;
 }
-display_input('ServerDefault', $GLOBALS['str']['Default_server'], '', 'select',
+display_input('ServerDefault', $GLOBALS['str']['DefaultServer'], '', 'select',
     $cf->getValue('ServerDefault'), true, $opts);
 
 // Display EOL list
@@ -217,7 +217,7 @@ $opts = array(
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
 $eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-display_input('eol', $GLOBALS['str']['End_of_lne'], '', 'select',
+display_input('eol', $GLOBALS['str']['EndOfLine'], '', 'select',
     $eol, true, $opts);
 ?>
 <tr>
@@ -237,7 +237,7 @@ display_fieldset_bottom_simple();
 display_form_bottom();
 ?>
 <div id="footer">
-    <a href="http://phpmyadmin.net"><?php echo $GLOBALS['str']['Homepage_link'] ?></a>
-    <a href="http://sourceforge.net/donate/index.php?group_id=23067"><?php echo $GLOBALS['str']['Donate_link'] ?></a>
-    <a href="?version_check=1<?php echo "{$separator}token=" . $_SESSION[' PMA_token '] ?>"><?php echo $GLOBALS['str']['Version_check_link'] ?></a>
+    <a href="http://phpmyadmin.net"><?php echo $GLOBALS['str']['HomepageLink'] ?></a>
+    <a href="http://sourceforge.net/donate/index.php?group_id=23067"><?php echo $GLOBALS['str']['DonateLink'] ?></a>
+    <a href="?version_check=1<?php echo "{$separator}token=" . $_SESSION[' PMA_token '] ?>"><?php echo $GLOBALS['str']['VersionCheckLink'] ?></a>
 </div>

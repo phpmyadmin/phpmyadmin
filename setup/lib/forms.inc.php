@@ -150,34 +150,18 @@ $forms['Tabs'] = array(
     'PropertiesIconic',
     'DefaultTabServer',
     'DefaultTabDatabase',
-    'DefaultTabTable');
+    'DefaultTabTable',
+	'QueryWindowDefTab');
 $forms['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
     'ShowAsPHP',
     'Validate',
     'Refresh'));
-$forms['Import'] = array('Import' => array(
+$forms['Import_defaults'] = array('Import' => array(
     'format',
     'allow_interrupt',
     'skip_queries'));
-$forms['Import_sql'] = array('Import' => array(
-    'sql_compatibility'));
-$forms['Import_csv'] = array('Import' => array(
-    'csv_replace',
-    'csv_terminated',
-    'csv_enclosed',
-    'csv_escaped',
-    'csv_new_line',
-    'csv_columns'));
-$forms['Import_ldi'] = array('Import' => array(
-    'ldi_replace',
-    'ldi_terminated',
-    'ldi_enclosed',
-    'ldi_escaped',
-    'ldi_new_line',
-    'ldi_columns',
-    'ldi_local_option'));
 $forms['Export_defaults'] = array('Export' => array(
     'format',
     'compression',

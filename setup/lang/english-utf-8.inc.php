@@ -10,13 +10,14 @@
  */
 
 // page titles
-$str['page_servers_add'] = 'Add a new server';
-$str['page_servers_edit'] = 'Edit server';
+$str['ServersAdd'] = 'Add a new server';
+$str['ServersEdit'] = 'Edit server';
 $str['Formset_features'] = 'Features';
 $str['Formset_left_frame'] = 'Customize navigation frame';
 $str['Formset_main_frame'] = 'Customize main frame';
 $str['Formset_import'] = 'Customize import defaults';
 $str['Formset_export'] = 'Customize export options';
+$str['Formset_customization'] = 'Customization';
 
 // forms
 $str['true'] = 'yes';
@@ -25,54 +26,58 @@ $str['Display'] = 'Display';
 $str['Download'] = 'Download';
 $str['Clear'] = 'Clear';
 $str['Load'] = 'Load';
-$str['Restore_default'] = 'Restore default value';
-$str['Set_value'] = 'Set value: %s';
+$str['RestoreDefaultValue'] = 'Restore default value';
+$str['SetValue'] = 'Set value: %s';
 $str['Warning'] = 'Warning';
-$str['Ignore_errors'] = 'Ignore errors';
-$str['Revert_erroneous_fields'] = 'Try to revert erroneous fields to their default values';
-$str['Show_form'] = 'Show form';
+$str['IgnoreErrors'] = 'Ignore errors';
+$str['RevertErroneousFields'] = 'Try to revert erroneous fields to their default values';
+$str['ShowForm'] = 'Show form';
 
 // main page
 $str['Overview'] = 'Overview';
-$str['Show_hidden_messages'] = 'Show hidden messages (#MSG_COUNT)';
-$str['No_servers'] = 'There are no configured servers';
-$str['New_server'] = 'New server';
-$str['Default_language'] = 'Default language';
-$str['Default_server'] = 'Default server';
-$str['let_the_user_choose'] = 'let the user choose';
+$str['ShowHiddenMessages'] = 'Show hidden messages (#MSG_COUNT)';
+$str['NoServers'] = 'There are no configured servers';
+$str['NewServer'] = 'New server';
+$str['DefaultLanguage'] = 'Default language';
+$str['DefaultServer'] = 'Default server';
+$str['LetUserChoose'] = 'let the user choose';
 $str['-none-'] = '- none -';
-$str['End_of_lne'] = 'End of line';
-$str['Configuration_file'] = 'Configuration file';
-$str['Homepage_link'] = 'phpMyAdmin homepage';
-$str['Donate_link'] = 'Donate';
-$str['Version_check_link'] = 'Check for latest version';
+$str['EndOfLine'] = 'End of line';
+$str['ConfigurationFile'] = 'Configuration file';
+$str['HomepageLink'] = 'phpMyAdmin homepage';
+$str['DonateLink'] = 'Donate';
+$str['VersionCheckLink'] = 'Check for latest version';
 
 // main page messages
-$str['Cannot_load_config'] = 'Cannot load or save configuration';
-$str['Cannot_load_config_desc'] = 'Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.';
-$str['Insecure_connection'] = 'Insecure connection';
-$str['Insecure_connection_desc1'] = 'You are not using a secure connection, all data (including sensitive, like passwords) is transferred unencrypted!';
-$str['Insecure_connection_desc2'] = 'If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.';
-$str['Version_check'] = 'Version check';
-$str['Version_check_wrapper_error'] = 'Neither URL wrapper nor CURL is available. Version check is not possible.';
-$str['Version_check_data_error'] = 'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.';
-$str['Version_check_invalid'] = 'Got invalid version string from server';
-$str['Version_check_unparsable'] = 'Unparsable version string';
-$str['Version_check_new_available'] = 'New version of phpMyAdmin is available, you should consider upgrade. New version is %s, released on %s.';
-$str['Version_check_new_available_svn'] = 'You are using subversion version, run [kbd]svn update[/kbd] :-).[br]The latest stable version is %s, released on %s.';
-$str['Version_check_none'] = 'No newer stable version is available';
-$str['Server_security_info_msg'] = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
-$str['Server_ssl_msg'] = 'You should use SSL connections if your web server supports it';
-$str['Server_extension_msg'] = 'You should use mysqli for performance reasons';
-$str['Server_auth_config_msg'] = 'You set [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';
-$str['Server_no_password_root_msg'] = 'You allow for connecting to the server as root without a passowrd.';
-$str['blowfish_secret_msg'] = 'You didn\'t have blowfish secret set and enabled cookie authentication so the key was generated for you. It is used to encrypt cookies.';
-$str['blowfish_secret_length_msg'] = 'Key is too short, it should have at least 8 characters';
-$str['blowfish_secret_chars_msg'] = 'Key should contain alphanumerics, letters [em]and[/em] special characters';
-$str['ForceSSL_msg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it';
-$str['AllowArbitraryServer_msg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
-$str['LoginCookieValidity_msg'] = '[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.';
-$str['Directory_notice'] = 'This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.';
+$str['CannotLoadConfig'] = 'Cannot load or save configuration';
+$str['CannotLoadConfigMsg'] = 'Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.';
+$str['InsecureConnection'] = 'Insecure connection';
+$str['InsecureConnectionMsg1'] = 'You are not using a secure connection, all data (including sensitive, like passwords) is transferred unencrypted!';
+$str['InsecureConnectionMsg2'] = 'If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.';
+$str['VersionCheck'] = 'Version check';
+$str['VersionCheckWrapperError'] = 'Neither URL wrapper nor CURL is available. Version check is not possible.';
+$str['VersionCheckDataError'] = 'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.';
+$str['VersionCheckInvalid'] = 'Got invalid version string from server';
+$str['VersionCheckUnparsable'] = 'Unparsable version string';
+$str['VersionCheckNewAvailable'] = 'New version of phpMyAdmin is available, you should consider upgrade. New version is %s, released on %s.';
+$str['VersionCheckNewAvailableSvn'] = 'You are using subversion version, run [kbd]svn update[/kbd] :-).[br]The latest stable version is %s, released on %s.';
+$str['VersionCheckNone'] = 'No newer stable version is available';
+$str['ServerSecurityInfoMsg'] = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
+$str['ServerSslMsg'] = 'You should use SSL connections if your web server supports it';
+$str['ServerExtensionMsg'] = 'You should use mysqli for performance reasons';
+$str['ServerAuthConfigMsg'] = 'You set [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';
+$str['ServerNoPasswordRootMsg'] = 'You allow for connecting to the server as root without a passowrd.';
+$str['BlowfishSecretMsg'] = 'You didn\'t have blowfish secret set and enabled cookie authentication so the key was generated for you. It is used to encrypt cookies.';
+$str['BlowfishSecretLengthMsg'] = 'Key is too short, it should have at least 8 characters';
+$str['BlowfishSecretCharsMsg'] = 'Key should contain alphanumerics, letters [em]and[/em] special characters';
+$str['ForceSSLMsg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it';
+$str['AllowArbitraryServerMsg'] = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';
+$str['LoginCookieValidityMsg'] = '[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.';
+$str['DirectoryNotice'] = 'This value should be double checked to ensure that this directory is neither world accessible nor readable or writable by other users on your server.';
+$str['GZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and decompression[/a] requires functions (%s) which are unavaible on this system.';
+$str['BZipDumpWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and decompression[/a] requires functions (%s) which are unavaible on this system.';
+$str['ZipDumpImportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavaible on this system.';
+$str['ZipDumpExportWarning'] = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavaible on this system.';
 
 // form errors
 $str['error_form'] = 'Submitted form contains errors';
@@ -121,21 +126,16 @@ $str['Form_Browse'] = 'Browse mode';
 $str['Form_Browse_desc'] = 'Customize browse mode';
 $str['Form_Edit'] = 'Edit mode';
 $str['Form_Edit_desc'] = 'Customize edit mode';
-$str['Form_Tabs'] = 'Tabs display';
+$str['Form_Tabs'] = 'Tabs';
 $str['Form_Tabs_desc'] = 'Choose how you want tabs to work';
 $str['Form_Sql_box'] = 'SQL Query box';
 $str['Form_Sql_box_desc'] = 'Customize links shown in SQL Query boxes';
-$str['Form_Import'] = $GLOBALS['strImport'];
-$str['Form_Import_desc'] = 'Customize default common import options';
-$str['Form_Import_sql'] = $GLOBALS['strSQL'];
-$str['Form_Import_sql_desc'] = 'Customize default SQL import options';
-$str['Form_Import_csv'] = $GLOBALS['strCSV'];
-$str['Form_Import_csv_desc'] = 'Customize default CSV import options';
-$str['Form_Import_ldi'] = $GLOBALS['strLDI'];
-$str['Form_Import_ldi_desc'] = 'Customize default CSV using LOAD DATA import options';
-$str['Form_Export'] = $GLOBALS['strExport'];
-$str['Form_Export_defaults'] = 'Defaults';
+$str['Form_Import_defaults'] = 'Import defaults';
+$str['Form_Import_defaults_desc'] = 'Customize default common import options';
+$str['Form_Export_defaults'] = 'Export defaults';
 $str['Form_Export_defaults_desc'] = 'Customize default export options';
+$str['Form_Query_window'] = 'Query window';
+$str['Form_Query_window_desc'] = 'Customize query window options';
 
 // Form: Server
 $str['Servers/verbose_name'] = 'Verbose name of this server';
@@ -358,9 +358,9 @@ $str['ShowFunctionFields_desc'] = 'Display the function fields in edit/insert mo
 $str['CharEditing_name'] = 'CHAR fields editing';
 $str['CharEditing_desc'] = 'Defines which type of editing controls should be used for CHAR and VARCHAR fields; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/kbd] - allows newlines in fields';
 $str['CharTextareaCols_name'] = 'CHAR textarea columns';
-$str['CharTextareaCols_desc'] = 'Number of columns for textareas, this value will be emphasized (*2) for SQL query textareas and (*1.25) for SQL textareas inside the query window';
+$str['CharTextareaCols_desc'] = 'Number of columns for CHAR/VARCHAR textareas';
 $str['CharTextareaRows_name'] = 'CHAR textarea rows';
-$str['CharTextareaRows_desc'] = 'Number of rows for textareas, this value will be emphasized (*2) for SQL query textareas and (*1.25) for SQL textareas inside the query window';
+$str['CharTextareaRows_desc'] = 'Number of rows for CHAR/VARCHAR textareas';
 $str['InsertRows_name'] = 'Number of inserted rows';
 $str['InsertRows_desc'] = 'How many rows can be inserted at one time';
 $str['ForeignKeyDropdownOrder_name'] = 'Foreign key dropdown order';
@@ -379,49 +379,31 @@ $str['DefaultTabDatabase_name'] = 'Default database tab';
 $str['DefaultTabDatabase_desc'] = 'Tab that is displayed when entering a database';
 $str['DefaultTabTable_name'] = 'Default table tab';
 $str['DefaultTabTable_desc'] = 'Tab that is displayed when entering a table';
+$str['QueryWindowDefTab_name'] = 'Default query window tab';
+$str['QueryWindowDefTab_desc'] = 'Tab displayed when opening a new query window';
 
 // Form: Sql_Box
-$str['SQLQuery/Edit_name'] = $GLOBALS['strEdit'];
-$str['SQLQuery/Explain_name'] = $GLOBALS['strExplain'];
-$str['SQLQuery/ShowAsPHP_name'] = $GLOBALS['strPhp'];
-$str['SQLQuery/Validate_name'] = $GLOBALS['strValidateSQL'];
-$str['SQLQuery/Refresh_name'] = $GLOBALS['strRefresh'];
+$str['SQLQuery/Edit_name'] = 'Edit';
+$str['SQLQuery/Explain_name'] = 'Explain SQL';
+$str['SQLQuery/ShowAsPHP_name'] = 'Create PHP Code';
+$str['SQLQuery/Validate_name'] = 'Validate SQL';
+$str['SQLQuery/Refresh_name'] = 'Refresh';
 
-// Form: Import
-$str['Import/format_name'] = $GLOBALS['strImportFormat'];
+// Form: Import_defaults
+$str['Import/format_name'] = 'Format of imported file';
 $str['Import/format_desc'] = 'Default format, mind that this list depends on location (database, table) and only SQL is always avaiable';
 $str['Import/allow_interrupt_name'] = 'Partial import: allow interrupt';
-$str['Import/allow_interrupt_desc'] = $GLOBALS['strAllowInterrupt'];
+$str['Import/allow_interrupt_desc'] = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';
 $str['Import/skip_queries_name'] = 'Partial import: skip queries';
-$str['Import/skip_queries_desc'] = $GLOBALS['strSkipQueries'];
-
-// Form: Import_sql
-$str['Import/sql_compatibility_name'] = $GLOBALS['strSQLCompatibility'];
-$str['Import/sql_compatibility_desc'] = 'You can find more information on SQL compatibility modes in [a@http://dev.mysql.com/doc/refman/5.0/en/server-sql-mode.html]MySQL Reference Manual[/a]';
-// Form: Import_csv
-$str['Import/csv_replace_name'] = $GLOBALS['strReplaceTable'];
-$str['Import/csv_terminated_name'] = $GLOBALS['strFieldsTerminatedBy'];
-$str['Import/csv_enclosed_name'] = $GLOBALS['strFieldsEnclosedBy'];
-$str['Import/csv_escaped_name'] = $GLOBALS['strFieldsEscapedBy'];
-$str['Import/csv_new_line_name'] = $GLOBALS['strLinesTerminatedBy'];
-$str['Import/csv_columns_name'] = $GLOBALS['strColumnNames'];
-
-// Form: Import_ldi
-$str['Import/ldi_replace_name'] = $GLOBALS['strReplaceTable'];
-$str['Import/ldi_terminated_name'] = $GLOBALS['strFieldsTerminatedBy'];
-$str['Import/ldi_enclosed_name'] = $GLOBALS['strFieldsEnclosedBy'];
-$str['Import/ldi_escaped_name'] = $GLOBALS['strFieldsEscapedBy'];
-$str['Import/ldi_new_line_name'] = $GLOBALS['strLinesTerminatedBy'];
-$str['Import/ldi_columns_name'] = $GLOBALS['strColumnNames'];
-$str['Import/ldi_local_option_name'] = $GLOBALS['strLDILocal'];
+$str['Import/skip_queries_desc'] = 'Number of records (queries) to skip from start';
 
 // Form: Export_defaults
 $str['Export/format_name'] = 'Format';
-$str['Export/compression_name'] = $GLOBALS['strCompression'];
-$str['Export/asfile_name'] = $GLOBALS['strSend'];
-$str['Export/charset_name'] = $GLOBALS['strCharsetOfFile'];
+$str['Export/compression_name'] = 'Compression';
+$str['Export/asfile_name'] = 'Save as file';
+$str['Export/charset_name'] = 'Character set of the file';
 $str['Export/onserver_name'] = 'Save on server';
-$str['Export/onserver_overwrite_name'] = $GLOBALS['strOverwriteExisting'];
+$str['Export/onserver_overwrite_name'] = 'Overwrite existing file(s)';
 $str['Export/remember_file_template_name'] = 'Remember file name template';
 $str['Export/file_template_table_name'] = 'Table name template';
 $str['Export/file_template_database_name'] = 'Database name template';

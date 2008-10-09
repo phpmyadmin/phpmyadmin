@@ -1,7 +1,7 @@
 <?php
 /**
  * Config file view and save screen
- * 
+ *
  * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
@@ -20,7 +20,7 @@ $config_writable = false;
 $config_exists = false;
 check_config_rw($config_readable, $config_writable, $config_exists);
 ?>
-<h2><?php echo $GLOBALS['str']['Configuration_file'] ?></h2>
+<h2><?php echo $GLOBALS['str']['ConfigurationFile'] ?></h2>
 <?php display_form_top('config.php?type=post'); ?>
 <input type="hidden" name="eol" value="<?php echo htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) ?>" />
 <?php display_fieldset_top('', '', null, array('class' => 'simple')); ?>

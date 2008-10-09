@@ -1,7 +1,7 @@
 <?php
 /**
  * Server create and edit view
- * 
+ *
  * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
@@ -23,7 +23,7 @@ $cf = ConfigFile::getInstance();
 $server_exists = !empty($id) && $cf->get("Servers/$id") !== null;
 
 if ($mode == 'edit' && $server_exists) {
-    $page_title = $GLOBALS['str']['page_servers_edit']
+    $page_title = $GLOBALS['str']['ServersEdit']
         . ' ' . $id . ' <small>(' . $cf->getServerDSN($id) . ')</small>';
 } elseif ($mode == 'remove' && $server_exists) {
     $cf->removeServer($id);
@@ -32,7 +32,7 @@ if ($mode == 'edit' && $server_exists) {
 } elseif ($mode == 'revert' && $server_exists) {
     // handled by process_formset()
 } else {
-    $page_title = $GLOBALS['str']['page_servers_add'];
+    $page_title = $GLOBALS['str']['ServersAdd'];
     $id = 0;
 }
 ?>

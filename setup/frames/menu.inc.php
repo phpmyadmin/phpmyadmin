@@ -1,7 +1,7 @@
 <?php
 /**
- * Menu items 
- * 
+ * Menu items
+ *
  * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
@@ -19,6 +19,6 @@ $separator = PMA_get_arg_separator('html');
 	<li><a href="?page=form<?php echo $separator ?>formset=features"><?php echo $GLOBALS['str']['Formset_features'] ?></a></li>
 	<li><a href="?page=form<?php echo $separator ?>formset=left_frame"><?php echo $GLOBALS['str']['Form_Left_frame'] ?></a></li>
 	<li><a href="?page=form<?php echo $separator ?>formset=main_frame"><?php echo $GLOBALS['str']['Form_Main_frame'] ?></a></li>
-	<li><a href="?page=form<?php echo $separator ?>formset=import"><?php echo $GLOBALS['str']['Form_Import'] ?></a></li>
-	<li><a href="?page=form<?php echo $separator ?>formset=export"><?php echo $GLOBALS['str']['Form_Export'] ?></a></li>
+	<li><a href="?page=form<?php echo $separator ?>formset=import"><?php echo $GLOBALS['strImport'] ?></a></li>
+	<li><a href="?page=form<?php echo $separator ?>formset=export"><?php echo $GLOBALS['strExport'] ?></a></li>
 </ul>

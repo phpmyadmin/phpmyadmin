@@ -67,6 +67,11 @@ $cfg_db['DefaultTabTable'] = array(
     'tbl_select.php',    // search page
     'tbl_change.php',    // insert row page
     'sql.php');          // browse page
+$cfg_db['QueryWindowDefTab'] = array(
+	'sql',     // SQL
+	'files',   // Import files
+	'history', // SQL history
+	'full');   // All (SQL and SQL history)
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL

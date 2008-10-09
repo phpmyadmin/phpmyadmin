@@ -125,7 +125,7 @@ div.warning h4 {
 div.error {
     border-color: #D00;
     background-color: #FFC;
-    background-image: url(../themes/original/img/s_errro.png);
+    background-image: url(../themes/original/img/s_error.png);
 }
 
 div.error h4 {
