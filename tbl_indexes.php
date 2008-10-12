@@ -170,7 +170,7 @@ echo (isset($_REQUEST['create_index'])
 <div class="formelement">
 <label for="select_index_type"><?php echo $strIndexType; ?></label>
 <select name="index[Index_type]" id="select_index_type" onchange="return checkIndexName()">
-    <?php echo $index->getTypeSelector(); ?>
+    <?php echo $index->generateIndexSelector(); ?>
 </select>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
 </div>
