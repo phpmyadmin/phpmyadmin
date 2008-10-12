@@ -47,6 +47,13 @@ class PMA_Index
      * @var string
      */
     protected $_type = '';
+
+    /**
+     * The index choice (PRIMARY, UNIQUE, INDEX, FULLTEXT)
+     *
+     * @var string
+     */
+    protected $_choice = '';
     
     /**
      * Various remarks.
@@ -257,6 +264,15 @@ class PMA_Index
         if (isset($params['Packed'])) {
             $this->_packed = $params['Packed'];
         }
+        if ('PRIMARY' == $this->_name) {
+            $this->_choice = 'PRIMARY';
+        } elseif ('FULLTEXT' == $this->_type) {
+            $this->_choice = 'FULLTEXT';
+        } elseif ('0' == $this->_non_unique) {
+            $this->_choice = 'UNIQUE';
+        } else {
+            $this->_choice = 'INDEX';
+        }
     }
     
     public function getColumnCount()
@@ -291,11 +307,11 @@ class PMA_Index
     }
     
     /**
-     * Return a list of all index types
+     * Return a list of all index choices 
      *
-     * @return  array index types
+     * @return  array index choices 
      */
-    static public function getTypes()
+    static public function getIndexChoices()
     {
         return array(
             'PRIMARY',
@@ -305,20 +321,20 @@ class PMA_Index
         );        
     }
 
-    public function getTypeSelector()
+    public function generateIndexSelector()
     {
         $html_options = '';
         
-        foreach (PMA_Index::getTypes() as $each_index_type) {
-            if ($each_index_type === 'PRIMARY'
-             && $this->_name !== 'PRIMARY'
+        foreach (PMA_Index::getIndexChoices() as $each_index_choice) {
+            if ($each_index_choice === 'PRIMARY'
+             && $this->_choice !== 'PRIMARY'
              && PMA_Index::getPrimary($this->_table, $this->_schema)) {
                 // skip PRIMARY if there is already one in the table
                 continue;
             }
-            $html_options .= '<option value="' . $each_index_type . '"'
-                 . (($this->_type == $each_index_type) ? ' selected="selected"' : '')
-                 . '>'. $each_index_type . '</option>' . "\n";
+            $html_options .= '<option value="' . $each_index_choice . '"'
+                 . (($this->_choice == $each_index_choice) ? ' selected="selected"' : '')
+                 . '>'. $each_index_choice . '</option>' . "\n";
         }
         
         return $html_options;
