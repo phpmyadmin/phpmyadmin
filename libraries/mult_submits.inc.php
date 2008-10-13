@@ -425,5 +425,7 @@ elseif ($mult_btn == $strYes) {
         // when dropping a db from server_databases
         $GLOBALS['pma']->databases->build();
     }
+} else {
+    $message = PMA_Message::success('strNoModification'); 
 }
 ?>
