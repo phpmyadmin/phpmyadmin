@@ -43,6 +43,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Romanian update, thanks to Sergiu Bivol - sbivol
 - bug #2161443 [structure] Incorrect index choice shown when modifying an
 index
+- bug #2127094 [interface] Misleading message after cancelling an action
 
 3.0.0.0 (2008-09-27)
 + [export] properly handle line breaks for YAML, thanks to Dan Barry -
