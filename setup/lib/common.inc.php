@@ -129,7 +129,7 @@ function array_remove($path, &$array)
  * for formatting. Takes variable number of arguments.
  * Based on PMA_sanitize from sanitize.lib.php.
  *
- * @param  string  $lang_key
+ * @param  string  $lang_key key in $GLOBALS WITHOUT 'strSetup' prefix
  * @param  mixed   $args     arguments for sprintf
  * @return string
  */
@@ -156,10 +156,10 @@ function PMA_lang($lang_key)
         $search = array_keys($replace_pairs);
         $replace = array_values($replace_pairs);
     }
-    if (!isset($GLOBALS['str'][$lang_key])) {
+    if (!isset($GLOBALS["strSetup$lang_key"])) {
         return $lang_key;
     }
-    $message = str_replace($search, $replace, $GLOBALS['str'][$lang_key]);
+    $message = str_replace($search, $replace, $GLOBALS["strSetup$lang_key"]);
     // replace [a@"$1"]$2[/a] with <a href="$1">$2</a>
     $message = preg_replace('#\[a@("?)([^\]]+)\1\]([^\[]+)\[/a\]#e',
         "PMA_lang_link_replace('$2', '$3')", $message);
@@ -181,9 +181,12 @@ function PMA_lang($lang_key)
  */
 function PMA_lang_name($canonical_path)
 {
-    $lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_name';
-    return isset($GLOBALS['str'][$lang_key])
-        ? $GLOBALS['str'][$lang_key]
+    $lang_key = str_replace(
+    	array('Servers/1/', '/'),
+    	array('Servers/', '_'),
+    	$canonical_path) . '_name';
+    return isset($GLOBALS["strSetup$lang_key"])
+        ? $GLOBALS["strSetup$lang_key"]
         : $lang_key;
 }
 
@@ -195,8 +198,11 @@ function PMA_lang_name($canonical_path)
  */
 function PMA_lang_desc($canonical_path)
 {
-    $lang_key = str_replace('Servers/1/', 'Servers/', $canonical_path) . '_desc';
-    return isset($GLOBALS['str'][$lang_key])
+    $lang_key = str_replace(
+    	array('Servers/1/', '/'),
+    	array('Servers/', '_'),
+    	$canonical_path) . '_desc';
+    return isset($GLOBALS["strSetup$lang_key"])
         ? PMA_lang($lang_key)
         : '';
 }

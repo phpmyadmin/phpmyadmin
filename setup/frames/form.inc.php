@@ -36,8 +36,8 @@ if (!isset($formsets[$formset_id])) {
 }
 
 $formset = $formsets[$formset_id];
-if (isset($GLOBALS['str']['Formset_' . $formset_id])) {
-    echo '<h2>' . $GLOBALS['str']['Formset_' . $formset_id] . '</h2>';
+if (isset($GLOBALS['strSetupFormset_' . $formset_id])) {
+    echo '<h2>' . $GLOBALS['strSetupFormset_' . $formset_id] . '</h2>';
 }
 $form_display = new FormDisplay();
 foreach ($formset['forms'] as $form_name) {

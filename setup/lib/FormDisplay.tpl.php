@@ -28,15 +28,15 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
 ?>
 <form method="<?php echo $method ?>" action="<?php echo htmlspecialchars($action) ?>">
 <?php
-	// we do validation on page refresh when browser remembers field values,
-	// add a field with known value which will be used for checks
-	if (!$has_check_page_refresh) {
+    // we do validation on page refresh when browser remembers field values,
+    // add a field with known value which will be used for checks
+    if (!$has_check_page_refresh) {
         $has_check_page_refresh = true;
         echo '<input type="hidden" name="check_page_refresh" id="check_page_refresh"'
-        	. ' value="" />' . "\n";
+            . ' value="" />' . "\n";
     }
-	echo PMA_generate_common_hidden_inputs() . "\n";
-	echo PMA_getHiddenFields((array)$hidden_fields);
+    echo PMA_generate_common_hidden_inputs() . "\n";
+    echo PMA_getHiddenFields((array)$hidden_fields);
 }
 
 /**
@@ -149,7 +149,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
             foreach ($opts['values'] as $opt_value => $opt_name) {
                 // set names for boolean values
                 if (is_bool($opt_name)) {
-                    $opt_name = $GLOBALS['str'][$opt_value ? 'true' : 'false'];
+                    $opt_name = $GLOBALS['strSetup' . ($opt_value ? 'True' : 'False')];
                 }
                 // cast boolean values to integers
                 $display_value = is_bool($opt_value) ? (int) $opt_value : $opt_value;
@@ -180,12 +180,12 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
         ?>
-        <a class="set-value" href="#<?php echo "$path={$opts['setvalue']}" ?>" title="<?php echo sprintf($GLOBALS['str']['SetVsalue'], htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_edit.png" width="16" height="16" /></a>
+        <a class="set-value" href="#<?php echo "$path={$opts['setvalue']}" ?>" title="<?php echo sprintf($GLOBALS['strSetupSetValue'], htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_edit.png" width="16" height="16" /></a>
         <?php
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
         ?>
-        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo $GLOBALS['str']['RestoreDefaultValue'] ?>" style="display:none"><img alt="restore-default" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/s_reload.png" width="16" height="16" /></a>
+        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo $GLOBALS['strSetupRestoreDefaultValue'] ?>" style="display:none"><img alt="restore-default" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/s_reload.png" width="16" height="16" /></a>
         <?php
     }
     // this must match with displayErrors() in scripts.js

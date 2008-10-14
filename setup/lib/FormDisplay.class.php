@@ -52,6 +52,7 @@ class FormDisplay
 
     /**
      * Language strings which will be sent to PMA_messages JS variable
+     * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
     private $js_lang_strings = array('error_nan_p', 'error_nan_nneg',
@@ -186,7 +187,7 @@ class FormDisplay
         // display forms
         foreach ($this->forms as $form) {
             /* @var $form Form */
-            $form_desc = isset($GLOBALS['str']["Form_{$form->name}_desc"])
+            $form_desc = isset($GLOBALS["strSetupForm_{$form->name}_desc"])
                 ? PMA_lang("Form_{$form->name}_desc")
                 : '';
             $form_errors = isset($this->errors[$form->name])
@@ -218,9 +219,9 @@ class FormDisplay
             $js_lang_sent = true;
             $js_lang = array();
             foreach ($this->js_lang_strings as $str) {
-                $lang = isset($GLOBALS['str'][$str])
-                    ? $GLOBALS['str'][$str]
-                    : filter_input($GLOBALS["str$str"]);
+                $lang = isset($GLOBALS["strSetup$str"])
+                    ? $GLOBALS["strSetup$str"]
+                    : filter_input($GLOBALS["str$str"]); // null if not set
                 $js_lang[] = "'$str': '" . PMA_jsFormat($lang, false) . '\'';
             }
             $js[] = '$extend(PMA_messages, {' . implode(",\n\t", $js_lang) . '})';
@@ -347,7 +348,7 @@ class FormDisplay
                 $path = $this->system_paths[$system_path];
                 $name = PMA_lang_name($system_path);
             } else {
-                $name = $GLOBALS['str']["Form_$path"];
+                $name = $GLOBALS["strstrSetupForm_$path"];
             }
             display_errors($name, $error_list);
         }
@@ -451,7 +452,7 @@ class FormDisplay
                         break;
                     case 'select':
                         if (!$this->_validateSelect($_POST[$key], $form->getOptionValueList($system_path))) {
-                            $this->errors[$work_path][] = $GLOBALS['str']['error_incorrect_value'];
+                            $this->errors[$work_path][] = $GLOBALS["strstrSetuperror_incorrect_value"];
                             $result = false;
                             continue;
                         }

@@ -308,7 +308,7 @@ function validate_trusted_proxies($path, $values)
  * @param bool   $allow_neg       allow negative values
  * @param bool   $allow_zero      allow zero
  * @param int    $max_value       max allowed value
- * @param string $error_lang_key  error message key in $str
+ * @param string $error_lang_key  error message key: $GLOBALS["strSetup$error_lang_key"]
  * @return string  empty string if test is successful
  */
 function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error_lang_key)
