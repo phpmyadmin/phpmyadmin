@@ -443,7 +443,7 @@ $strLoginInformation = 'Information pour la connexion';
 $strLogout = 'Quitter';
 $strLogPassword = 'Mot de passe&nbsp;:';
 $strLogServer = 'Serveur';
-$strLogUsername = 'Nom d\'utilisateur&nbsp;:';
+$strLogUsername = 'Utilisateur&nbsp;:';
 $strLongOperation = 'Cette opération pourrait être longue. Procéder quand même? ';
 
 $strMaxConnects = 'max. de connexions simultanées';
