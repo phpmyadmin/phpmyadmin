@@ -42,8 +42,9 @@ function PMA_query_as_cu($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_cu()" function
 
 /**
- * @uses    $_SESSION['relation'] for caching
+ * @uses    $_SESSION['relation' . $GLOBALS['server']] for caching
  * @uses    $GLOBALS['cfgRelation'] to set it
+ * @uses    $GLOBALS['server'] to ensure we are using server-specific pmadb 
  * @uses    PMA__getRelationsParam()
  * @uses    PMA_printRelationsParamDiagnostic()
  * @param   bool    $verbose    whether to print diagnostic info
@@ -51,18 +52,18 @@ function PMA_query_as_cu($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam($verbose = false)
 {
-    if (empty($_SESSION['relation'])) {
-        $_SESSION['relation'] = PMA__getRelationsParam();
+    if (empty($_SESSION['relation' . $GLOBALS['server']])) {
+        $_SESSION['relation' . $GLOBALS['server']] = PMA__getRelationsParam();
     }
 
     if ($verbose) {
-        PMA_printRelationsParamDiagnostic($_SESSION['relation']);
+        PMA_printRelationsParamDiagnostic($_SESSION['relation' . $GLOBALS['server']]);
     }
 
     // just for BC
-    $GLOBALS['cfgRelation'] = $_SESSION['relation'];
+    $GLOBALS['cfgRelation'] = $_SESSION['relation' . $GLOBALS['server']];
 
-    return $_SESSION['relation'];
+    return $_SESSION['relation' . $GLOBALS['server']];
 }
 
 /**
