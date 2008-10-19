@@ -48,12 +48,12 @@ function checkBLOBStreamingPlugins()
     $allPluginsExist = TRUE;
 
     $PMA_Config->set('PBXT_NAME', 'pbxt');
-    $PMA_Config->set('PBMS_NAME', 'mybs');
+    $PMA_Config->set('PBMS_NAME', 'pbms');
 
     $plugins[$PMA_Config->get('PBXT_NAME')]['Library'] = 'libpbxt.so';
     $plugins[$PMA_Config->get('PBXT_NAME')]['Exists'] = FALSE;
 
-    $plugins[$PMA_Config->get('PBMS_NAME')]['Library'] = 'libmybs.so';
+    $plugins[$PMA_Config->get('PBMS_NAME')]['Library'] = 'libpbms.so';
     $plugins[$PMA_Config->get('PBMS_NAME')]['Exists'] = FALSE;
 
     // retrieve state of BS plugins
@@ -163,7 +163,7 @@ function checkBLOBStreamingPlugins()
          Remove_in         INT COMMENT 'The number of seconds before the reference/BLOB is removed perminently',
          Temp_log_id       INT COMMENT 'Temporary log number of the referencing deletion entry',
          Temp_log_offset   BIGINT COMMENT 'Temporary log offset of the referencing deletion entry'
-        ) ENGINE=MyBS;
+        ) ENGINE=PBMS;
 EOD;
 
     // specify table structure for BS repository table
@@ -182,7 +182,7 @@ EOD;
          Content_type      CHAR(128) COMMENT 'The content type of the BLOB - returned by HTTP GET calls',
          Blob_data         LONGBLOB COMMENT 'The data of this BLOB'
     // load PMA configuration
-        ) ENGINE=MyBS;
+        ) ENGINE=PBMS;
 EOD;
 
     // specify table structure for BS custom content type table

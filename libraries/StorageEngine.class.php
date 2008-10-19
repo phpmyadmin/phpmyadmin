@@ -92,9 +92,9 @@ class PMA_StorageEngine
                 continue;
             }
             // currently (MySQL 5.1.26) there is no way we can be informed
-            // that MyBS does not support normal table creation so
+            // that PBMS does not support normal table creation so
             // we use an exception here
-            if ('MyBS' == $details['Engine']) {
+            if ('PBMS' == $details['Engine']) {
                 continue;
             }
             $output .= '    <option value="' . htmlspecialchars($key). '"'
