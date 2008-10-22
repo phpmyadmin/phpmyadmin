@@ -736,7 +736,7 @@ $cfg['ShowServerInfo'] = true;
  *
  * @global boolean $cfg['ShowChgPassword']
  */
-$cfg['ShowChgPassword'] = false;
+$cfg['ShowChgPassword'] = true;
 
 /**
  * show create database form
