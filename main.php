@@ -86,8 +86,10 @@ if ($server > 0
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
-            PMA_printListItem($strChangePassword, 'li_change_password',
-                './user_password.php?' . $common_url_query);
+            if ($cfg['ShowChgPassword']) {
+                PMA_printListItem($strChangePassword, 'li_change_password',
+                    './user_password.php?' . $common_url_query);
+            }
 
             $http_logout = ($cfg['Server']['auth_type'] == 'http')
                          ? '<a href="./Documentation.html#login_bug" target="documentation">'
