@@ -346,9 +346,9 @@ class FormDisplay
         foreach ($this->errors as $system_path => $error_list) {
             if (isset($this->system_paths[$system_path])) {
                 $path = $this->system_paths[$system_path];
-                $name = PMA_lang_name($system_path);
+                $name = PMA_lang_name($path);
             } else {
-                $name = $GLOBALS["strstrSetupForm_$path"];
+                $name = $GLOBALS["strSetupForm_$system_path"];
             }
             display_errors($name, $error_list);
         }
