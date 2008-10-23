@@ -25,6 +25,9 @@ if ($error_handler->countErrors() > 0) {
     $error_handler->dispAllErrors();
 }
 
+// Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
+PMA_setCookie('pma_lang', $GLOBALS['lang']);
+
 // Load setup script translation
 $lang_file = './setup/lang/' . $GLOBALS['available_languages'][$GLOBALS['lang']][1] . '.inc.php';
 if (!file_exists($lang_file)) {
