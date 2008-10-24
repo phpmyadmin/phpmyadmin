@@ -15,13 +15,20 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 ?>
 /******************************************************************************/
 /* general tags */
+html {
+    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
+}
+
+input, select, textarea {
+    font-size: 1em;
+}
 
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
 	font-size:			0.8em;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0.2em 0.2em 0.2em 0.2em;
@@ -34,8 +41,14 @@ a img {
     border: 0;
 }
 
+a:link,
+a:visited,
+a:active {
+    text-decoration:    none;
+}
+
 ul {
-	margin:0;
+    margin:0;
 }
 
 form {
@@ -61,11 +74,11 @@ select#lightm_db {
 	padding-bottom: 	3px;
 }
 
-
 select {
     background-color:   #ffffff;
     color:              #000000;
     width:              100%;
+    border:             1px solid #3674CF;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
@@ -93,6 +106,11 @@ button {
 /******************************************************************************/
 /* specific elements */
 
+div#pmalogo {
+    <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    padding:.3em;
+}
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
@@ -234,6 +252,7 @@ div#left_tableList ul ul {
     padding-bottom:     0.1em;
     border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
+
 /* for the servers list in navi panel */
 #serverinfo .item {
     white-space:        nowrap;
