@@ -1,160 +1,226 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * navigation css file from theme
+ * navigation css file
  *
  * @version $Id$
  * @package phpMyAdmin-theme
- * @subpackage Hillside
+ * @subpackage hillside 
  */
 
 // unplanned execution path
 if (!defined('PMA_MINIMUM_COMMON')) {
     exit();
 }
-?> 
+?>
+/******************************************************************************/
+/* general tags */
 html {
-    height:100%;
-    border-right:1px solid #AAA;
-}
-html,body{padding-top:0;margin:0;}
-body, input, select {
-    font-family:    Tahoma, Arial, Helvetica, Verdana, sans-serif;
-    font-size:         11px;
-    color: #333333;
+    font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
 }
 
-body#body_leftFrame {
-    color: #000000;
-    height:100%;
-    overflow:auto;
+input, select, textarea {
+    font-size: 1em;
 }
+
 body {
-    background: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?> url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>island_light.png) top left repeat-x;
-	background-color: #65a603;
-	background-attachment: fixed;
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+<?php } ?>
+    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    margin:             0;
+    padding:            0.2em 0.2em 0.2em 0.2em;
 }
 
-select {
-    background-color: #ffffff;
-    color: #000000;
+a img {
+    border: 0;
+}
+
+a:link,
+a:visited,
+a:active {
+    text-decoration:    none;
+    color:              #0000FF;
+}
+
+ul {
+    margin:0;
+}
+
+form {
+    margin:             0;
+    padding:            0;
+    display:            inline;
+}
+
+select#select_server,
+select#lightm_db {
+    width:              100%;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements,
+   this breaks design */
+button {
+    display:            inline;
 }
 
 
+/******************************************************************************/
+/* classes */
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align:     middle;
+    margin-right:       0.3em;
+    margin-left:        0.3em;
+}
+
+.navi_dbName {
+    font-weight:    bold;
+    color:          <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
+}
+
+/******************************************************************************/
+/* specific elements */
+
+#body_leftFrame {
+	background-image:	url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/island_light.png);
+}
+
+div#pmalogo {
+    <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
+    padding:.3em;
+}
+div#pmalogo,
 div#leftframelinks,
 div#databaseList {
-    text-align: center;
-    border-bottom: 0.05em solid #FFF;
-    margin-bottom: 0.5em;
-    padding-bottom: 0.5em;
-    color: #000000;
-
-}
-div#pmalogo{
-	background:#FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_background.png) top left repeat-x;
-	padding:0;
-	margin:0;
-	border-bottom:0px;
-}
-div#leftframelinks img {
-    vertical-align: middle;
+    text-align:         center;
+    margin-bottom:      0.5em;
+    padding-bottom:     0.5em;
 }
 
-div#leftframelinks a {
-    margin: 0.5em;
-    padding: 0.2em;
-    border: 0.05em solid #FFF;
-    color: #000000;
+ul#databaseList {
+    margin-bottom:      0.5em;
+    padding-bottom:     0.5em;
+    padding-<?php echo $left; ?>:     1.5em;
+}
+
+ul#databaseList a {
+    display: block;
+}
+
+div#navidbpageselector a,
+ul#databaseList a {
+    background-image:url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/transparent.png);
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+
+ul#databaseList a:hover {
+    background-image:url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/transparent60.png);
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+}
+
+ul#databaseList li.selected a {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+div#leftframelinks .icon {
+    padding:            0;
+    margin:             0;
+}
+
+div#leftframelinks a img.icon {
+    margin:             0;
+    padding:            0.2em;
+    border:             0.05em solid <?php echo $GLOBALS['cfg']['NaviBorderColor']; ?>;
 }
 
 div#leftframelinks a:hover {
-    background-color: transparent;
-    color:#FFF;
+    background-image:url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/transparent.png);
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
-div#databaseList form {
-    display: inline;
-}
-
-/* leftdatabaselist */
-div#left_tableList {
+/* serverlist */
+#body_leftFrame #list_server {
+    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
+    list-style-position: inside;
     list-style-type: none;
-    list-style-position: outside;
     margin: 0;
     padding: 0;
-    font-size: <?php echo $font_smaller; ?>;
-    color:#FFF;
 }
-div#left_tableList p a.item, form#left label{
-	font-weight:bold;
-	color:#000;
-	font-size:110%;
-	text-align:left;
+
+#body_leftFrame #list_server li {
+    margin: 0;
+    padding: 0;
+    font-size:          80%;
 }
+
+div#left_tableList ul {
+    list-style-type:    none;
+    list-style-position: outside;
+    margin:             0;
+    padding:            0;
+    font-size:          80%;
+    background-image:url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/transparent.png);
+}
+
+div#left_tableList ul ul {
+    font-size:          100%;
+}
+
 div#left_tableList a {
-    color: #FFF;
-    text-decoration: none;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    text-decoration:    none;
 }
 
 div#left_tableList a:hover {
-    color: #FFF;
-    background-color: transparent;
-    text-decoration:none;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    text-decoration:    underline;
 }
 
 div#left_tableList li {
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    line-height:1.5;
+    margin:             0;
+    padding:            0;
+    white-space:        nowrap;
 }
 
-<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
-div#left_tableList li:hover {
-	background:#FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>transparent.png) top left repeat-x;
-    background-color: transparent;
-	color:#FFF;
+<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
+/* marked items */
+div#left_tableList > ul li.marked > a,
+div#left_tableList > ul li.marked {
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+<?php } ?>
+
+<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
+div#left_tableList > ul li:hover {
+    background-image:url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/hillside/img/transparent60.png);
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
 
 div#left_tableList img {
-    vertical-align: middle;
+    padding:            0;
+    vertical-align:     middle;
 }
-div#left_tableList p {color:#333;padding:10px;}
+
 div#left_tableList ul ul {
-    margin-left: 0em;
-    padding-left: 0.1em;
-    border-left: 0.1em solid #669999;
-    padding-bottom: 0.1em;
-    border-bottom: 0.1em solid #669999;
-    background-color:#FEFEFE;
+    margin-<?php echo $left; ?>:        0;
+    padding-<?php echo $left; ?>:       0.1em;
+    border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    padding-bottom:     0.1em;
+    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
-/** Thanks Vince ;) - vincekruger@gmail.com**/
-ul#databaseList{
-list-style:none;
-
+/* for the servers list in navi panel */
+#serverinfo .item {
+    white-space:        nowrap;
+    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-ul#databaseList li{
-	line-height:1.5em;
-	font-weight:bold;
-
-}
-ul#databaseList li a{
-	font-weight:normal;
-	text-decoration:none;
-	color:#333;
-}
-ul#databaseList li a:hover, ul#databaseList li a:active, ul#databaseList li a:focus{
-font-weight:bold;
-}
-ul#databaseList li ul{
-padding-left:10px;
-margin-left:0px;
-
-	list-style:none;
-	padding-bottom:1em;
-}
-ul#databaseList li ul li a{
-	border-left:1px solid #333;
+#serverinfo a:hover {
+    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
