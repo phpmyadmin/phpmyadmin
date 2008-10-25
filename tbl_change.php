@@ -429,10 +429,6 @@ foreach ($rows as $row_id => $vrow) {
                     $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]); 
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
-		
-		//We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
-	        $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
-
                 $data            = $vrow[$field['Field']];
             } // end if... else...
             // loic1: if a timestamp field value is not included in an update
@@ -661,7 +657,7 @@ foreach ($rows as $row_id => $vrow) {
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars; ?></textarea>
           <?php
         } elseif (strstr($field['pma_type'], 'text')) {
             echo $backup_field . "\n";
@@ -673,7 +669,7 @@ foreach ($rows as $row_id => $vrow) {
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars; ?></textarea>
             <?php
             echo "\n";
             if (strlen($special_chars) > 32000) {
@@ -871,7 +867,7 @@ foreach ($rows as $row_id => $vrow) {
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars; ?></textarea>
                 <?php
 
             } else {
@@ -1008,7 +1004,7 @@ foreach ($rows as $row_id => $vrow) {
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars; ?></textarea>
                 <?php
             } else {
                 ?>
