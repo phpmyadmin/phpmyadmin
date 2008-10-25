@@ -761,7 +761,7 @@ $strServerStatusDelayedInserts = 'Inserimento ritardato';
 $strServerStatus = 'Informazioni di Runtime';
 $strServerStatusUptime = 'Questo server MySQL sta girando da %s. E\' stato avviato il %s.';
 $strServerTabVariables = 'Variabili';
-$strServerTrafficNotes = '<b>Traffico del server</b>: Queste tabelle mostrano le statistiche del traffico di retedi questo server MySQL dal momento del suo avvio.';
+$strServerTrafficNotes = '<b>Traffico del server</b>: Queste tabelle mostrano le statistiche del traffico di rete di questo server MySQL dal momento del suo avvio.';
 $strServerVars = 'Variabili e parametri del Server';
 $strServerVersion = 'Versione MySQL';
 $strSessionStartupErrorGeneral = 'Non posso far partire la sessione senza errori, controlla gli errori nel log di PHP e/o del tuo server web e configura correttamente la tua installazione di PHP.';
@@ -1072,5 +1072,6 @@ $strYes = 'Sì';
 
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
+
 
 ?>
