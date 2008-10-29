@@ -1,5 +1,5 @@
 <?php
-/* vim: expandtab sw=4 ts=4 sts=4: */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PMA_generate_common_url()
  *
@@ -11,6 +11,7 @@
  *
  */
 require_once 'PHPUnit/Framework.php';
+require_once './libraries/core.lib.php';
 require_once './libraries/url_generating.lib.php';
 
 class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
