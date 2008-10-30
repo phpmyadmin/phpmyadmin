@@ -60,7 +60,8 @@ if (isset($scale)) {
 <body>
 <br>
 <div style="text-align:center; font-weight:bold;">
-  <form name="form1" method="post" action="pmd_pdf.php?server=<?php echo $server; ?>&db=<?php echo $db; ?>&token=<?php echo $token; ?>">
+  <form name="form1" method="post" action="pmd_pdf.php">
+<?php echo PMA_generate_common_hidden_inputs($db); ?>
     <p><?php echo $strExportImportToScale; ?>:
       <select name="scale">
         <option value="1">1:1</option>
