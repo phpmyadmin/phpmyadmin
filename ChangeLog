@@ -33,6 +33,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [lang] Italian update, thanks to Luca and fantu
 - bug #2107583 [GUI] Leading newline truncated, thanks to Isart Montane
 
+3.0.1.1 (2008-10-30)
+- [security] XSS in a Designer component 
+
 3.0.1.0 (2008-10-22)
 - bug #2134126 [GUI] SQL error after sorting a subset 
 + [lang] Catalan update, thanks to Xavier Navarro
@@ -146,6 +149,9 @@ danbarry
 - bug #2113848 [navi] Page number after database switching 
 - patch #2115966 [GUI] Checkboxes and IE 7, thanks to Martin - maschg 
 - bug #1914066 [core] ForceSSL generates incorrectly escaped redirections 
+
+2.11.9.3 (2008-10-30)
+- [security] XSS in a Designer component 
 
 2.11.9.2 (2008-09-22)
 - [security] XSS in MSIE using NUL byte, thanks to JPCERT.
