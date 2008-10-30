@@ -1,5 +1,5 @@
 <?php
-/* vim: expandtab sw=4 ts=4 sts=4: */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * runs all defined tests
  *
@@ -14,6 +14,9 @@ if (! defined('PMA_MAIN_METHOD')) {
     define('PMA_MAIN_METHOD', 'AllTests::main');
     chdir('..');
 }
+
+// required to not die() in some libraries
+define('PHPMYADMIN', true);
 
 /**
  *
