@@ -61,7 +61,8 @@ require_once './libraries/header_meta_style.inc.php';
 <body>
 <br>
 <div>
-  <form name="form1" method="post" action="pmd_pdf.php?server=<?php echo $server; ?>&db=<?php echo $db; ?>&token=<?php echo $token; ?>">
+  <form name="form1" method="post" action="pmd_pdf.php">
+<?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div>
     <fieldset><legend><?php echo $GLOBALS['strExport'] . '/' . $GLOBALS['strImport']; ?></legend>
     <p><?php echo $strExportImportToScale; ?>:
