@@ -15,6 +15,9 @@ if (! defined('PMA_MAIN_METHOD')) {
     chdir('..');
 }
 
+// required to not die() in some libraries
+define('PHPMYADMIN', true);
+
 /**
  *
  */
