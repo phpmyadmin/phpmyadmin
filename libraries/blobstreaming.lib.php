@@ -181,7 +181,6 @@ EOD;
          Last_access_time  TIMESTAMP COMMENT 'The last time the BLOB was accessed (read)',
          Content_type      CHAR(128) COMMENT 'The content type of the BLOB - returned by HTTP GET calls',
          Blob_data         LONGBLOB COMMENT 'The data of this BLOB'
-    // load PMA configuration
         ) ENGINE=PBMS;
 EOD;
 
@@ -700,7 +699,7 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
             // video content
             case 'application/x-flash-video':
             case 'video/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">' . $GLOBALS['strViewVideo'] . '/a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">' . $GLOBALS['strViewVideo'] . '</a>)';
                 break;
             // unsupported content. specify download
             default:
