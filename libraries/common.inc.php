@@ -411,7 +411,7 @@ if (! PMA_isValid($_REQUEST['token']) || $_SESSION[' PMA_token '] != $_REQUEST['
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
         /* rajk - for playing blobstreamable media */
-        'media_type', 'bs_reference',
+        'media_type', 'custom_type', 'bs_reference',
         /* rajk - for changing BLOB repository file MIME type */
         'bs_db', 'bs_table', 'bs_ref', 'bs_new_mime_type'
     );

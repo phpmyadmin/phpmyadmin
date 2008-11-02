@@ -673,7 +673,15 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     if ($data = @PMA_DBI_fetch_assoc($result))
     {
         // determine content-type for BS repository file (original or custom)
-        $content_type = isset($data['Custom_type']) ? $data['Custom_type'] : $data['Content_type'];
+	$is_custom_type = false;
+
+	if (isset($data['Custom_type']))
+	{
+	        $content_type = $data['Custom_type'];
+		$is_custom_type = true;
+	}
+	else
+		$content_type = $data['Content_type'];
 
         if (!$content_type)
             $content_type = NULL;
@@ -694,12 +702,12 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
                 break;
             // audio content
             case 'audio/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 120)">' . $GLOBALS['strPlayAudio']. '</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 120)">' . $GLOBALS['strPlayAudio']. '</a>)';
                 break;
             // video content
             case 'application/x-flash-video':
             case 'video/mpeg':
-                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . $content_type . '\', 640, 480)">' . $GLOBALS['strViewVideo'] . '</a>)';
+                $output .= ' (<a href="#" onclick="popupBSMedia(\'' . PMA_generate_common_url() . '\',\'' . urlencode($bs_reference) . '\', \'' . urlencode($content_type) . '\',' . ($is_custom_type ? 1 : 0) . ', 640, 480)">' . $GLOBALS['strViewVideo'] . '</a>)';
                 break;
             // unsupported content. specify download
             default:

@@ -13,6 +13,11 @@
     $mediaType = isset($_REQUEST['media_type']) ? $_REQUEST['media_type'] : NULL;
 
     /*
+     * @var     string	indicates whether media type is of custom type 
+     */
+    $customType = isset($_REQUEST['custom_type']) ? $_REQUEST['custom_type'] : false;
+
+    /*
      * @var     string  contains BLOB reference
      */
     $bsReference = isset($_REQUEST['bs_reference']) ? $_REQUEST['bs_reference'] : NULL;
@@ -29,6 +34,10 @@
             // retrieve BS server variables from PMA configuration
             $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
             $bs_file_path = "http://" . $bs_server . '/' . $bsReference;
+
+	    if (isset($customType) && $customType)
+		    $bs_file_path = "bs_disp_as_mime_type.php?file_path=" . urlencode($bs_file_path) . "&c_type=" . urlencode($mediaType);
+
             ?>
 <html>
     <head>

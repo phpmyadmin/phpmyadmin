@@ -54,6 +54,8 @@
                     if ($data = PMA_DBI_fetch_assoc($result))
                     {
                         $query = "SELECT count(*) FROM " . PMA_backquote($mybs_cust_content_type_tbl);
+			$query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
+
                         $result = PMA_DBI_query($query);
 
                         // if record exists

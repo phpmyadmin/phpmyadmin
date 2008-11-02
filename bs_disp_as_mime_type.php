@@ -8,8 +8,8 @@
 
 set_time_limit(0);
 
-$filename = isset($_REQUEST['bs_ref']) : $_REQUEST['bs_ref'] : NULL;
-$c_type = isset($_REQUEST['c_type']) : $_REQUEST['c_type'] : NULL;
+$filename = isset($_REQUEST['file_path']) ? $_REQUEST['file_path'] : NULL;
+$c_type = isset($_REQUEST['c_type']) ? $_REQUEST['c_type'] : NULL;
 
 if (isset($filename) && isset($c_type))
 {
@@ -29,21 +29,24 @@ if (isset($filename) && isset($c_type))
 
 	$fHnd = fopen($filename, "rb");
 
-	$pos = 0;
-	$content = "";
-
-	while (!feof($fHnd))
+	if ($fHnd)
 	{
-		$content .= fread($fHnd, $f_size);
-		$pos = strlen($content);
+		$pos = 0;
+		$content = "";
 
-		if ($pos >= $f_size)
-			break;
+		while (!feof($fHnd))
+		{
+			$content .= fread($fHnd, $f_size);
+			$pos = strlen($content);
+
+			if ($pos >= $f_size)
+				break;
+		}
+
+		echo $content;
+		flush();
+
+		fclose($fHnd);
 	}
-
-	echo $content;
-	flush();
-
-	fclose($fHnd);
 }
 ?>

@@ -1250,7 +1250,7 @@ function pdfPaperSize(format, axis) {
  * @param   var     w_width     width of popup window
  * @param   var     w_height    height of popup window
  */
-function popupBSMedia(url_params, bs_ref, m_type, w_width, w_height)
+function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_height)
 {
     // if width not specified, use default
     if (w_width == undefined)
@@ -1261,7 +1261,7 @@ function popupBSMedia(url_params, bs_ref, m_type, w_width, w_height)
         w_height = 480;
 
     // open popup window (for displaying video/playing audio)
-    var mediaWin = window.open('bs_play_media.php?' + url_params + '&bs_reference=' + bs_ref + '&media_type=' + m_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
+    var mediaWin = window.open('bs_play_media.php?' + url_params + '&bs_reference=' + bs_ref + '&media_type=' + m_type + '&custom_type=' + is_cust_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
 }
 
 /**
