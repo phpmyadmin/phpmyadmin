@@ -518,11 +518,12 @@ disabled by default.<br /><br />
 To enable it, add the following line to <tt>config.inc.php</tt>:
 </p>
 <pre>
-$cfg['Servers'][$i]['auth_swekey_config'] = './swekey.conf';
+$cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
 </pre>
 <p>
 You then have to create the <tt>swekey.conf</tt> file that will associate
-each user with their Swekey Id. A self documented sample file is provided 
+each user with their Swekey Id. It is important to place this file outside
+of your web server's document root (in the example, it is located in <tt>/etc</tt>). A self documented sample file is provided 
 in the <tt>contrib</tt> directory. Feel free to use it with your own 
 users' information.<br /><br />
 If you want to purchase a Swekey please visit
