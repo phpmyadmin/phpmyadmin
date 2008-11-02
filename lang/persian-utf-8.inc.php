@@ -5,6 +5,8 @@
 Persian(Farsi) translation by : Bornis Group
 www.BornisGroup.com
 info@BornisGroup.com
+//
+update by : Artin H.
 */
 $charset = 'utf-8';
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
@@ -336,6 +338,48 @@ $strWrongUser = 'نام كاربر/اسم رمز اشتباه است. دسترس
 $strYes = 'بلي';
 
 $strZip = '"zipped"';
+$strArmenian = 'ارمنی'; 
+$strArabic = 'عربی';
+$strAndThen = 'و سپس';  
+$strBinLogInfo = 'اطلاعات';  
+$strBulgarian = 'بلغاری'; 
+$strAfterInsertSame = 'برگرد به این صفحه';  
+$strCalendar = 'تقویم';
+$strCommand = 'دستور';
+$strCopy = 'نسخه برداری'; 
+$strDanish = 'دانمارکی'; 
+$strEnglish = 'انگلیسی'; 
+$strGreek = 'یونانی'; 
+$strGeorgian = 'گرجی';
+$strGerman = 'آلمانی';
+$strXML = 'XML'; 
+$strAfterInsertNext = 'ویرایش کردن ردیف بعدی'; 
+$strAdministration = 'مدیریت'; 
+$strSpanish = 'اسپانیایی'; 
+$strDeleting = 'در حال پاک کردن %s';
+$strDictionary = 'لغت نامه'; 
+$strJapanese = 'ژاپنی'; 
+$strKorean = 'کره‌ای'; 
+$strDescription = 'توضیحات'; 
+$strEngines = 'موتور';
+$strId = 'شناسه'; 
+$strLanguageUnknown = 'زبانِ ناشناس : %1$s.';
+$strTurkish = 'ترکی'; 
+$strUkrainian = 'اوکراینی';
+$strUnknown = 'ناشناس';
+$strVar = 'متغییر'; 
+$strView = 'نمایش';  
+$strWestEuropean = 'اروپای غربی'; 
+$strAddClause = 'افزودن %s'; 
+$strLocalhost = 'محلی'; 
+$strLoginInformation = 'اطلاعات ورود';
+$strPerHour = 'در ساعت'; 
+$strPerMinute = 'در دقیقه'; 
+$strPerSecond = 'در ثانیه';
+$strPolish = 'لهستانی';  
+
+
+
 
 // To translate:
 $strAbortedClients = 'Aborted'; //to translate
@@ -349,21 +393,16 @@ $strAddIntoComments = 'Add into comments'; //to translate
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
 $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)'; //to translate
-$strAdministration = 'Administration'; //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
-$strAndThen = 'and then';  //to translate
-$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
-$strArabic = 'Arabic'; //to translate
-$strArmenian = 'Armenian'; //to translate
-$strAutomaticLayout = 'Automatic layout'; //to translate
 
+
+
+$strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
+$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
+$strAutomaticLayout = 'Automatic layout'; //to translate
 $strBaltic = 'Baltic'; //to translate
 $strBinaryDoNotEdit = 'Binary - do not edit'; //to translate
 $strBinaryLog = 'Binary log';  //to translate
 $strBinLogEventType = 'Event type';  //to translate
-$strBinLogInfo = 'Information';  //to translate
 $strBinLogName = 'Log name';  //to translate
 $strBinLogOriginalPosition = 'Original position';  //to translate
 $strBinLogPosition = 'Position';  //to translate
@@ -385,10 +424,10 @@ $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
 $strBufferReadMisses = 'Read misses';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
-$strBulgarian = 'Bulgarian'; //to translate
+
 $strBusyPages = 'Busy pages';  //to translate
 
-$strCalendar = 'Calendar';  //to translate
+
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate
 $strCannotLogin = 'Cannot login to MySQL server'; //to translate
 $strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration'; //to translate
@@ -411,7 +450,7 @@ $strCheckPrivs = 'Check Privileges'; //to translate
 $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.'; //to translate
 $strCollation = 'Collation'; //to translate
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
-$strCommand = 'Command'; //to translate
+
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
@@ -420,7 +459,7 @@ $strConnections = 'Connections'; //to translate
 $strConstraintsForDumped = 'Constraints for dumped tables'; //to translate
 $strConstraintsForTable = 'Constraints for table'; //to translate
 $strCookiesRequired = 'Cookies must be enabled past this point.'; //to translate
-$strCopy = 'Copy';  //to translate
+
 $strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 $strCopyTableSameNames = 'Can\'t copy table to same one!'; //to translate
 $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
@@ -432,7 +471,7 @@ $strCyrillic = 'Cyrillic'; //to translate
 $strCzech = 'Czech'; //to translate
 $strCzechSlovak = 'Czech-Slovak';  //to translate
 
-$strDanish = 'Danish'; //to translate
+
 $strDatabaseEmpty = 'The database name is empty!';  //to translate
 $strDatabaseExportOptions = 'Database export options'; //to translate
 $strDatabasesDropped = '%s databases have been dropped successfully.'; //to translate
@@ -452,10 +491,9 @@ $strDelayedInserts = 'Use delayed inserts';  //to translate
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
 $strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
 $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
-$strDeleting = 'Deleting %s'; //to translate
+
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?'; //to translate
-$strDescription = 'Description'; //to translate
-$strDictionary = 'dictionary'; //to translate
+
 $strDirtyPages = 'Dirty pages';  //to translate
 $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
@@ -465,9 +503,9 @@ $strDumpSaved = 'Dump has been saved to file %s.'; //to translate
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 $strEngineAvailable = '%s is available on this MySQL server.';  //to translate
 $strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
-$strEngines = 'Engines';  //to translate
+
 $strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
-$strEnglish = 'English'; //to translate
+
 $strErrorInZipFile = 'Error in ZIP archive:';  //to translate
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 $strEsperanto = 'Esperanto';  //to translate
@@ -493,13 +531,11 @@ $strFreePages = 'Free pages';  //to translate
 $strGeneralRelationFeat = 'General relation features'; //to translate
 $strGenerate = 'Generate';  //to translate
 $strGeneratePassword = 'Generate Password';  //to translate
-$strGeorgian = 'Georgian';  //to translate
-$strGerman = 'German'; //to translate
 $strGlobal = 'global'; //to translate
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGlobalValue = 'Global value'; //to translate
 $strGrantOption = 'Grant'; //to translate
-$strGreek = 'Greek'; //to translate
+
 
 $strHandler = 'Handler';  //to translate
 $strHebrew = 'Hebrew'; //to translate
@@ -508,7 +544,7 @@ $strHTMLWord = 'Microsoft Word 2000';  //to translate
 $strHungarian = 'Hungarian'; //to translate
 
 $strIcelandic = 'Icelandic';  //to translate
-$strId = 'ID'; //to translate
+
 $strIgnoreDuplicates = 'Ignore duplicate rows';  //to translate
 $strIgnoreInserts = 'Use ignore inserts';  //to translate
 $strImportFiles = 'Import files'; //to translate
@@ -539,17 +575,17 @@ $strInvalidRowNumber = '%d is not valid row number.';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 
-$strJapanese = 'Japanese'; //to translate
+
 $strJoins = 'Joins';  //to translate
 $strJumpToDB = 'Jump to database &quot;%s&quot;.'; //to translate
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 $strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
 
 $strKeyCache = 'Key cache';  //to translate
-$strKorean = 'Korean'; //to translate
+
 
 $strLandscape = 'Landscape'; //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
+
 $strLatchedPages = 'Latched pages';  //to translate
 $strLatexCaption = 'Table caption'; //to translate
 $strLatexContent = 'Content of table __TABLE__'; //to translate
@@ -563,8 +599,6 @@ $strLatvian = 'Latvian';  //to translate
 $strLDI = 'CSV using LOAD DATA';  //to translate
 $strLDILocal = 'Use LOCAL keyword';  //to translate
 $strLithuanian = 'Lithuanian'; //to translate
-$strLocalhost = 'Local'; //to translate
-$strLoginInformation = 'Login Information'; //to translate
 $strLogServer = 'Server'; //to translate
 $strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
 
@@ -635,12 +669,9 @@ $strPasswordHashing = 'Password Hashing';  //to translate
 $strPdfDbSchema = 'Schema of the "%s" database - Page %s'; //to translate
 $strPDF = 'PDF';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
-$strPerHour = 'per hour'; //to translate
-$strPerMinute = 'per minute'; //to translate
-$strPerSecond = 'per second'; //to translate
 $strPhoneBook = 'phone book'; //to translate
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!'; //to translate
-$strPolish = 'Polish';  //to translate
+
 $strPortrait = 'Portrait'; //to translate
 $strPrintViewFull = 'Print view (with full texts)'; //to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
@@ -847,7 +878,7 @@ $strSlovenian = 'Slovenian';  //to translate
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
 $strSortByKey = 'Sort by key'; //to translate
 $strSorting = 'Sorting';  //to translate
-$strSpanish = 'Spanish';  //to translate
+
 $strSQLCompatibility = 'SQL compatibility mode';  //to translate
 $strSQLExportType = 'Export type';  //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:'; //to translate
@@ -907,11 +938,10 @@ $strTransformation_text_plain__link = 'Displays a link, the field contains the f
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .'; //to translate
 $strTruncateQueries = 'Truncate Shown Queries'; //to translate
-$strTurkish = 'Turkish'; //to translate
 
-$strUkrainian = 'Ukrainian'; //to translate
+
 $strUnicode = 'Unicode'; //to translate
-$strUnknown = 'unknown'; //to translate
+
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 $strUpgrade = 'You should upgrade to %s %s or later.'; //to translate
@@ -927,24 +957,23 @@ $strUseTextField = 'Use text field'; //to translate
 $strUseThisValue = 'Use this value'; //to translate
 
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
-$strVar = 'Variable'; //to translate
+
 $strVersionInformation = 'Version information';  //to translate
 $strViewDumpDatabases = 'View dump (schema) of databases'; //to translate
 $strViewHasBeenDropped = 'View %s has been dropped';  //to translate
-$strView = 'View';  //to translate
+
 
 $strWebServerUploadDirectory = 'web-server upload directory'; //to translate
-$strWestEuropean = 'West European'; //to translate
+
 $strWildcard = 'wildcard'; //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings'; //to translate
 $strWriteRequests = 'Write requests';  //to translate
 
-$strXML = 'XML'; //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 
 $strQueryResultsOperations = 'Query results operations';  //to translate
-$strAddClause = 'Add %s';  //to translate
+
 $strUploadsNotAllowed = 'File uploads are not allowed on this server.';  //to translate
 $strOpenDocumentSpreadsheet = 'Open Document Spreadsheet';  //to translate
 $strExportMustBeFile = 'Selected export type has to be saved in file!';  //to translate
