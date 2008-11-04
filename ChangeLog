@@ -35,6 +35,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.0.2.0 (not yet released)
 - [lang] Italian update, thanks to Luca and fantu
 - bug #2107583 [GUI] Leading newline truncated, thanks to Isart Montane
+- bug #2222230 [import] Assigning a value in import.php, thanks to
+  Glen Arason
 
 3.0.1.1 (2008-10-30)
 - [security] XSS in a Designer component 
