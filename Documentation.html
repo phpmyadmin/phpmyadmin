@@ -3939,15 +3939,16 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <p> You have to setup appropriate links between the tables, and also
     setup the &quot;display field&quot; in the foreign table. See
     <a href="#faq6_6"><abbr title="Frequently Asked Questions">FAQ</abbr>
-    6.6</a> for an example. Then, if there are 200 values or less in the
+    6.6</a> for an example. Then, if there are 100 values or less in the
     foreign table, a drop-down list of values will be available.
     You will see two lists of values, the first list containing the key
     and the display field, the second list containing the display field
     and the key. The reason for this is to be able to type the first
     letter of either the key or the display field.<br /><br />
 
-    For 200 values or more, a distinct window will appear, to browse foreign
-    key values and choose one.</p>
+    For 100 values or more, a distinct window will appear, to browse foreign
+    key values and choose one. To change the default limit of 100, see
+    <tt><a href="#cfg_ForeignKeyMaxLimit" class="configrule">$cfg['ForeignKeyMaxLimit']</a></tt>.</p>
 
 <h4 id="faq6_22">
     <a href="#faq6_22">6.22 Bookmarks: Can I execute a default bookmark
