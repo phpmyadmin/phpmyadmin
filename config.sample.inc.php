@@ -35,10 +35,10 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysql';
 
 /* rajk - for blobstreaming */
-$cfg['Servers'][$i]['bs_garbage_threshold'] = '';
-$cfg['Servers'][$i]['bs_repository_threshold'] = '';
-$cfg['Servers'][$i]['bs_temp_blob_timeout'] = '';
-$cfg['Servers'][$i]['bs_temp_log_threshold'] = '';
+$cfg['Servers'][$i]['bs_garbage_threshold'] = 50;
+$cfg['Servers'][$i]['bs_repository_threshold'] = '32M';
+$cfg['Servers'][$i]['bs_temp_blob_timeout'] = 600;
+$cfg['Servers'][$i]['bs_temp_log_threshold'] = '32M';
 
 /* User for advanced features */
 // $cfg['Servers'][$i]['controluser'] = 'pma';
