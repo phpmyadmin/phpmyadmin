@@ -3,7 +3,7 @@
 /**
  * tests for PMA_pow()
  *
- * @version $Id: PMA_pow_test.php 10140 2007-03-20 08:32:55Z cybot_tm $
+ * @version $Id$
  * @package phpMyAdmin-test
  */
 

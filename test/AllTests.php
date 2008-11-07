@@ -34,8 +34,8 @@ require_once './test/PMA_isValid_test.php';
 require_once './test/PMA_transformation_getOptions_test.php';
 require_once './test/PMA_STR_sub_test.php';
 require_once './test/PMA_generateCommonUrl_test.php';
-//require_once './test/PMA_arrayWalkRecursive_test.php';
 require_once './test/PMA_blowfish_test.php';
+require_once './test/PMA_escapeMySqlWildcards_test.php';
 
 class AllTests
 {
