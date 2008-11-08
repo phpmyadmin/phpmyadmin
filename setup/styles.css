@@ -1,0 +1,379 @@
+/* global styles */
+
+body {
+    padding-bottom: 1em;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    color: #004C96;
+}
+
+a:hover, a:active {
+    color: #000;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* language selection box */
+
+#select_lang {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+/* menu */
+
+#menu {
+    float: left;
+    width: 200px;
+}
+
+#menu ul {
+    margin: 1em 1em 1em 0.5em;
+    padding: 0 0.5em;
+    list-style: none;
+}
+
+#menu li a {
+    padding: 3px;
+    font-weight: bold;
+    display: block;
+    color: #669;
+    text-decoration: none;
+    zoom: 1; /* IE fix */
+}
+
+#menu li a:hover, #menu li a:active {
+    color: #C00;
+}
+
+/* page contents and footer layout */
+
+#page {
+    margin-left: 200px;
+}
+
+#footer {
+    margin-top: 1em;
+}
+
+#footer a {
+    margin-right: 0.5em;
+    text-decoration: none;
+    font-size: small;
+}
+
+/* phpMyAdmin logo colors */
+
+.blue {
+    color: #7584B3;
+}
+
+.orange {
+    color: #FFAD17;
+}
+
+.red {
+    color: #C00;
+}
+
+/* main page messages */
+
+div.notice, div.warning, div.error {
+    margin: 0.5em 0;
+    padding: 10px 10px 10px 36px;
+    border: 1px solid #000;
+    background: #FFD url(../themes/original/img/b_tipp.png) no-repeat 10px 0.8em;
+}
+
+div.notice h4, div.warning h4, div.error h4 {
+    font-weight: bold;
+    font-size: large;
+    margin: 0 0 0.2em 0;
+    border-bottom: 1px solid #000;
+}
+
+div.notice {
+    border-color: #FFD700;
+    background-color: #FFD;
+    background-image: url(../themes/original/img/s_notice.png);
+}
+
+div.notice h4 {
+    border-color: #FFD700;
+}
+
+div.warning {
+    border-color: #C00;
+    background-color: #FFC;
+    background-image: url(../themes/original/img/s_warn.png);
+}
+
+div.warning h4 {
+    color: #C00;
+    border-color: #C00;
+}
+
+div.error {
+    border-color: #D00;
+    background-color: #FFC;
+    background-image: url(../themes/original/img/s_error.png);
+}
+
+div.error h4 {
+    color: #D00;
+    border-color: #D00;
+}
+
+/* form tabs */
+
+ul.tabs {
+    margin: 0;
+    padding: 0 0 7px 0;
+    list-style: none;
+    font-weight: bold;
+}
+
+ul.tabs li {
+    float: left;
+}
+
+ul.tabs li a {
+    display: block;
+    margin: 2px 2px 0;
+    padding: 2px 8px;
+    background: #DEE1FF;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 1px #9AA4FF solid;
+    border-bottom: none;
+}
+
+ul.tabs li a:hover, ul.tabs li a:active, ul.tabs li a.active {
+    margin: 0;
+    padding: 2px 10px 4px;
+    background: #F7FBFF;
+}
+
+ul.tabs li a:hover, ul.tabs li a:active {
+    color: #C00;
+}
+
+.tabs_contents {
+    border-top: 2px #66B solid;
+}
+
+.tabs_contents fieldset {
+    margin-top: 0;
+    border-top: none;
+}
+
+.tabs_contents legend {
+    display: none;
+}
+
+/* "restore default value" and "set value: foo" buttons */
+
+.restore-default img, .set-value img {
+    margin-bottom: -3px;
+}
+
+/* forms */
+
+fieldset {
+    padding: 0;
+    margin-top: 1em;
+    border: 2px #DEE1FF solid;
+    background: #DEE1FF;
+}
+
+.form {
+    border: 2px #DEE1FF solid;
+}
+
+fieldset legend {
+    margin-left: 1em;
+    padding: 2px 8px;
+    font-weight: bold;
+    background: #F7FBFF;
+    border: 1px #9AA4FF solid;
+}
+
+fieldset p {
+    margin: 0;
+    padding: 0.5em;
+    background: #DEE1FF;
+}
+
+fieldset .errors { /* form error list */
+    margin: 0 -2px 1em -2px;
+    padding: 0.5em 1.5em;
+    background: #FBEAD9;
+    border: 1px #C83838 solid;
+    border-width: 1px 0;
+    list-style: none;
+    font-family: sans-serif;
+    font-size: small;
+}
+
+fieldset .inline_errors { /* field error list */
+    margin: 0.3em 0.3em 0.3em 0;
+    padding: 0;
+    list-style: none;
+    color: #9A0000;
+}
+
+fieldset table {
+    background: #FFF;
+}
+
+fieldset th {
+    width: 40%;
+    min-width: 350px;
+    padding: 0.3em 0.3em 0.3em 0.5em;
+    text-align: left;
+    vertical-align: top;
+}
+
+fieldset th small {
+    display: block;
+}
+
+fieldset .doc {
+    margin-left: 1em;
+}
+
+fieldset td {
+    padding-top: 0.3em;
+    vertical-align: top;
+}
+
+fieldset th small {
+    font-weight: normal;
+    font-family: sans-serif;
+    font-size: x-small;
+    color: #666;
+}
+
+fieldset th, fieldset td {
+    border-top: 1px #555 dotted;
+}
+
+fieldset .lastrow, .form .lastrow {
+    background: #F7FBFF;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.form .lastrow {
+    border-top: 1px #555 dotted;
+}
+
+fieldset .lastrow input, .form .lastrow input {
+    font-weight: bold;
+}
+
+/* simple form, without header and legend */
+
+fieldset.simple {
+    border-top-color: #DEE1FF;
+}
+
+fieldset.simple legend {
+    display: none;
+}
+
+fieldset.simple th, fieldset.simple td {
+    border-top: none;
+    border-bottom: 1px #555 dotted;
+}
+
+fieldset.simple .lastrow {
+    border: 0;
+}
+
+/* form elements */
+
+span.checkbox {
+    padding: 2px;
+}
+
+.custom { /* customized field */
+    background: #FFC;
+}
+
+span.checkbox.custom {
+    padding: 1px;
+    border: 1px #EDEC90 solid;
+    background: #FFC;
+}
+
+input[type="text"], select, textarea {
+    border: 1px #A7A6AA solid;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border: 1px #6676FF solid;
+    background: #F7FBFF;
+}
+
+.green { /* default form button */
+    color: #080;
+}
+
+table.datatable {
+    margin: 0.5em 0 1em;
+}
+
+table.datatable th {
+    padding: 0 1em 0 0.5em;
+    border-bottom: 2px #66F solid;
+    text-align: left;
+}
+
+table.datatable td {
+    padding: 1px 0.5em;
+    border-bottom: 1px #DEE1FF solid;
+}
+
+/* textarea with config file's contents */
+
+#textconfig {
+    width: 100%;
+    border: 0;
+}
+
+/* error list */
+
+dd {
+    margin-left: 0.5em;
+}
+
+dd:before {
+    content: "\25B8  ";
+}
+
+/* links on failed validation page, when saving a form */
+
+a.btn {
+    padding: 1px 5px;
+    text-decoration: none;
+    background: #E2E8FF;
+    border: 1px #A6C8FF solid;
+    border-top-color: #AFD0FF;
+    border-left-color: #AFD0FF;
+    font-weight: bold;
+}
+
+a.btn:hover, a.btn:active {
+    background: #E6F5FF;
+    color: #004C96;
+}

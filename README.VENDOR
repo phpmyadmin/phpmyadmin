@@ -1,0 +1,21 @@
+$Id: README 10967 2007-12-08 12:46:36Z lem9 $
+
+phpMyAdmin - hints for distributing phpMyAdmin
+==============================================
+
+This document is intended to give advices to people who want to
+redistribute phpMyAdmin inside other software package such as Linux
+distribution or some all in one package including web server and MySQL
+server.
+
+
+Setup script
+------------
+
+If you want to integrate setup script to your packaging, you might want
+to change $cfg_db['_config_file_path'] in setup/lib/config_info.inc.php
+to point to place where you want to generated config file to be saved.
+Please note that directory and the file has to be writable for web
+server user.
+
+# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us

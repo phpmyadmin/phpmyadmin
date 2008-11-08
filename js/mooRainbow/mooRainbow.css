@@ -1,0 +1,114 @@
+/***
+ *  - mooRainbow: defaultCSS
+ * author: w00fz <w00fzIT@gmail.com>
+ */
+
+#mooRainbow { font-size: 11px; color: #000; }
+
+.moor-box {
+	width: 390px; 
+	height: 310px; 
+	border: 1px solid #636163; 
+	background-color: #f9f9f9;
+}
+.moor-overlayBox {
+	width: 256px; /* Width and Height of the overlay must be setted here: default 256x256 */
+	height: 256px; 
+	margin-top: 9px; 
+	margin-left: 9px;
+	border: 1px solid #000;
+}
+.moor-slider {
+	border: 1px solid #000;
+	margin-top: 9px; 
+	margin-left: 280px;
+	width: 19px; /* if you want a bigger or smaller slider... */
+	height: 256px;
+}
+.moor-colorBox {
+	border: 1px solid #000; 
+	width: 59px; 
+	height: 68px; 
+	margin-top: 20px; 
+	margin-left: 315px;
+}
+.moor-currentColor { /* Bottom Box Color, the backup one */
+	margin-top: 55px; 
+	margin-left: 316px; 
+	width: 59px; 
+	height: 34px;
+}
+.moor-okButton {
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	margin-top: 278px;
+	margin-left: 8px;
+	background: #e6e6e6;
+	height: 23px;
+	border: 1px solid #d6d6d6;
+	border-left-color: #f5f5f5;
+	border-top-color: #f5f5f5;
+}
+#mooRainbow label {
+	font-family: mono;
+}
+/* Following are just <label> */
+.moor-rLabel {
+	margin-top: 100px;
+	margin-left: 315px;
+}
+.moor-gLabel {
+	margin-top: 125px;
+	margin-left: 315px;
+}
+.moor-bLabel {
+	margin-top: 150px;
+	margin-left: 315px;
+}
+.moor-HueLabel {
+	margin-top: 190px;
+	margin-left: 315px;
+}
+span.moor-ballino { /* Style hue ° (degree) !! */
+	margin-top: 190px;
+	margin-left: 370px;
+}
+.moor-SatuLabel {
+	margin-top: 215px;
+	margin-left: 315px;
+}
+.moor-BrighLabel {
+	margin-top: 240px;
+	margin-left: 315px;
+}
+.moor-hexLabel {
+	margin-top: 275px;
+	margin-left: 280px;
+}
+
+/* <input> */
+.moor-rInput, .moor-gInput, .moor-bInput, .moor-HueInput, .moor-SatuInput, .moor-BrighInput { 
+	width: 30px;
+}
+.moor-hexInput {
+	width: 55px;
+}
+.moor-cursor {
+	background-image: url(images/moor_cursor.gif); 
+	width: 12px;
+	height: 12px;
+}
+.moor-arrows {
+	background-image: url(images/moor_arrows.gif);
+	top: 9px; 
+	left: 270px;
+	width: 41px;
+	height: 9px;
+}
+.moor-chooseColor { /* Top Box Color, the choosen one */
+	margin-top: 21px; 
+	margin-left: 316px; 
+	width: 59px; 
+	height: 34px;
+}
