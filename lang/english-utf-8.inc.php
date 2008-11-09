@@ -1003,7 +1003,7 @@ $strSetupSaveDir_desc = 'Directory where exports can be saved on server';
 $strSetupSaveDir_name = 'Save directory';
 $strSetupServerAuthConfigMsg = 'You set [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'You should use mysqli for performance reasons';
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a passowrd.';
+$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';
 $strSetupServersAdd = 'Add a new server';
 $strSetupServers_AllowDeny_order_desc = 'Leave blank if not used';
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';
