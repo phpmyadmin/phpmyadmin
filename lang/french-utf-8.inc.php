@@ -1141,7 +1141,7 @@ $strSetupServerSecurityInfoMsg = 'Si vous l\'estimez nécessaire, utilisez des r
 $strSetupServerSslMsg = 'Vous devriez utiliser des connexions SSL si votre serveur le permet.';
 $strSetupServerExtensionMsg = 'Il est recommandé d\'utiliser mysqli';
 $strSetupServerAuthConfigMsg = 'Vous demandez l\'authentification [kbd]config[/kbd] et avez inclus un code d\'utilisateur et mot de passe pour une connexion automatique. phpMyAdmin serait accessible à toute personne qui en connaît l\'URL. Il est recommandé d\'utiliser les modes [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]d\'authentification[/a] [kbd]cookie[/kbd] ou [kbd]http[/kbd].';  //to translate
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a passowrd.';  //to translate
+$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';  //to translate
 $strSetupBlowfishSecretMsg = 'You didn\'t have blowfish secret set and enabled cookie authentication so the key was generated for you. It is used to encrypt cookies.';  //to translate
 $strSetupBlowfishSecretLengthMsg = 'Key is too short, it should have at least 8 characters';  //to translate
 $strSetupBlowfishSecretCharsMsg = 'Key should contain alphanumerics, letters [em]and[/em] special characters';  //to translate
