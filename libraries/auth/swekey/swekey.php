@@ -31,6 +31,13 @@ define ("SWEKEY_ERR_INVALID_RND_TOKEN",921);
 define ("SWEKEY_ERR_DEV_NOT_FOUND",922);	
 
 /**
+ * Default values for configuration.
+ */
+define ('SWEKEY_DEFAULT_CHECK_SERVER', 'https://auth-check.musbe.net');
+define ('SWEKEY_DEFAULT_RND_SERVER', 'https://auth-rnd-gen.musbe.net');
+define ('SWEKEY_DEFAULT_STATUS_SERVER', 'https://auth-status.musbe.net');
+
+/**
  * The last error of an operation is alway put in this global var
  */
  
@@ -47,15 +54,15 @@ $gSwekeyLastResult = "<not set>";
 
 global $gSwekeyCheckServer;
 if (! isset($gSwekeyCheckServer))
-    $gSwekeyCheckServer = 'http://auth-check.musbe.net';
+    $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
 
 global $gSwekeyRndTokenServer;
 if (! isset($gSwekeyRndTokenServer))
-    $gSwekeyRndTokenServer = 'http://auth-rnd-gen.musbe.net';
+    $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
 
 global $gSwekeyStatusServer;
 if (! isset($gSwekeyStatusServer))
-    $gSwekeyStatusServer = 'http://auth-status.musbe.net';
+    $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
 
 global $gSwekeyCA;
 
@@ -74,7 +81,7 @@ function Swekey_SetCheckServer($server)
 {    
     global $gSwekeyCheckServer;
     if (empty($server))
-        $gSwekeyCheckServer = 'http://auth-check.musbe.net';
+        $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
     else
         $gSwekeyCheckServer = $server;
 }
@@ -90,7 +97,7 @@ function Swekey_SetRndTokenServer($server)
 {    
     global $gSwekeyRndTokenServer;
     if (empty($server))
-        $gSwekeyRndTokenServer = 'http://auth-rnd-gen.musbe.net';
+        $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
     else
         $gSwekeyRndTokenServer = $server;
 }
@@ -106,7 +113,7 @@ function Swekey_SetStatusServer($server)
 {    
     global $gSwekeyStatusServer;
     if (empty($server))
-        $gSwekeyStatusServer = 'http://auth-status.musbe.net';
+        $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
     else
         $gSwekeyStatusServer = $server;
 }
