@@ -1135,24 +1135,19 @@ $strSetupVersionCheckLink = 'Check for latest version';  //to translate
 $strSetupCannotLoadConfig = 'Cannot load or save configuration';  //to translate
 $strSetupCannotLoadConfigMsg = 'Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.';  //to translate
 $strSetupInsecureConnection = 'Insecure connection';  //to translate
-$strSetupInsecureConnectionMsg1 = 'You are not using a secure connection, all data (including sensitive, like passwords) is transferred unencrypted!';  //to translate
 $strSetupInsecureConnectionMsg2 = 'If your server is also configured to accept HTTPS requests follow [a@%s]this link[/a] to use a secure connection.';  //to translate
 $strSetupVersionCheck = 'Version check';  //to translate
 $strSetupVersionCheckWrapperError = 'Neither URL wrapper nor CURL is available. Version check is not possible.';  //to translate
 $strSetupVersionCheckDataError = 'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.';  //to translate
 $strSetupVersionCheckInvalid = 'Got invalid version string from server';  //to translate
 $strSetupVersionCheckUnparsable = 'Unparsable version string';  //to translate
-$strSetupVersionCheckNewAvailable = 'New version of phpMyAdmin is available, you should consider upgrade. New version is %s, released on %s.';  //to translate
 $strSetupVersionCheckNewAvailableSvn = 'You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The latest stable version is %s, released on %s.';  //to translate
 $strSetupVersionCheckNone = 'No newer stable version is available';  //to translate
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
 $strSetupServerSslMsg = 'You should use SSL connections if your web server supports it';  //to translate
 $strSetupServerExtensionMsg = 'You should use mysqli for performance reasons';  //to translate
-$strSetupServerAuthConfigMsg = 'You set [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
 $strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';  //to translate
-$strSetupBlowfishSecretMsg = 'You didn\'t have blowfish secret set and enabled cookie authentication so the key was generated for you. It is used to encrypt cookies.';  //to translate
 $strSetupBlowfishSecretLengthMsg = 'Key is too short, it should have at least 8 characters';  //to translate
-$strSetupBlowfishSecretCharsMsg = 'Key should contain alphanumerics, letters [em]and[/em] special characters';  //to translate
 $strSetupForceSSLMsg = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it';  //to translate
 $strSetupAllowArbitraryServerMsg = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
 $strSetupLoginCookieValidityMsg = '[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should be should be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may pose a security risk such as impersonation.';  //to translate
@@ -1228,7 +1223,6 @@ $strSetupServers_ssl_desc = '';  //to translate
 $strSetupServers_connect_type_name = 'Connection type';  //to translate
 $strSetupServers_connect_type_desc = 'How to connect to server, keep tcp if unsure';  //to translate
 $strSetupServers_extension_name = 'PHP extension to use';  //to translate
-$strSetupServers_extension_desc = 'What PHP extension to use, use mysqli if supported';  //to translate
 $strSetupServers_compress_name = 'Compress connection';  //to translate
 $strSetupServers_compress_desc = 'Compress connection to MySQL server';  //to translate
 $strSetupServers_auth_type_name = 'Authentication type';  //to translate
@@ -1317,9 +1311,7 @@ $strSetupLoginCookieRecall_desc = 'Define whether the previous login should be r
 $strSetupLoginCookieValidity_name = 'Login cookie validity';  //to translate
 $strSetupLoginCookieValidity_desc = 'Define how long (in seconds) a login cookie is valid';  //to translate
 $strSetupLoginCookieStore_name = 'Login cookie store';  //to translate
-$strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie should be stored in browser. Default 0 means that it will be kept for existing session only, that is it will be deleted as soon as you close the browser window. This is recommended for non-trusted environments.';  //to translate
 $strSetupLoginCookieDeleteAll_name = 'Delete all cookies on logout';  //to translate
-$strSetupLoginCookieDeleteAll_desc = 'If enabled logout deletes cookies for all servers, otherwise only for current one. Setting this to FALSE makes it easy to forget to log out from other server, when you are using more of them.';  //to translate
 $strSetupShowSQL_name = 'Show SQL queries';  //to translate
 $strSetupShowSQL_desc = 'Defines whether SQL queries generated by phpMyAdmin should be displayed';  //to translate
 $strSetupConfirm_name = 'Confirm DROP queries';  //to translate
@@ -1329,7 +1321,6 @@ $strSetupQueryHistoryDB_desc = 'Enable if you want DB-based query history (requi
 $strSetupQueryHistoryMax_name = 'Query history length';  //to translate
 $strSetupQueryHistoryMax_desc = 'How many queries are kept in history';  //to translate
 $strSetupIgnoreMultiSubmitErrors_name = 'Ignore multiple statement errors';  //to translate
-$strSetupIgnoreMultiSubmitErrors_desc = 'If enabled PMA continues computing multiple-statement queries even if one of the queries failed';  //to translate
 $strSetupVerboseMultiSubmit_name = 'Verbose multiple statements';  //to translate
 $strSetupVerboseMultiSubmit_desc = 'Show affected rows of each statement on multiple-statement queries. See libraries/import.lib.php for defaults on how many queries a statement may contain.';  //to translate
 $strSetupMaxDbList_name = 'Maximum databases';  //to translate
@@ -1434,7 +1425,6 @@ $strSetupSQLQuery_ShowAsPHP_name = 'Create PHP Code';  //to translate
 $strSetupSQLQuery_Validate_name = 'Validate SQL';  //to translate
 $strSetupSQLQuery_Refresh_name = 'Refresh';  //to translate
 $strSetupImport_format_name = 'Format of imported file';  //to translate
-$strSetupImport_format_desc = 'Default format, mind that this list depends on location (database, table) and only SQL is always avaiable';  //to translate
 $strSetupImport_allow_interrupt_name = 'Partial import: allow interrupt';  //to translate
 $strSetupImport_allow_interrupt_desc = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
 $strSetupImport_skip_queries_name = 'Partial import: skip queries';  //to translate
@@ -1449,4 +1439,14 @@ $strSetupExport_remember_file_template_name = 'Remember file name template';  //
 $strSetupExport_file_template_table_name = 'Table name template';  //to translate
 $strSetupExport_file_template_database_name = 'Database name template';  //to translate
 $strSetupExport_file_template_server_name = 'Server name template';  //to translate
+$strSetupBlowfishSecretCharsMsg = 'Key should contain letters, numbers [em]and[/em] special characters';  //to translate
+$strSetupBlowfishSecretMsg = 'You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.';  //to translate
+$strSetupIgnoreMultiSubmitErrors_desc = 'If enabled, phpMyAdmin continues computing multiple-statement queries even if one of the queries failed';  //to translate
+$strSetupImport_format_desc = 'Default format; be aware that this list depends on location (database, table) and only SQL is always available';  //to translate
+$strSetupInsecureConnectionMsg1 = 'You are not using a secure connection; all data (including potentially sensitive information, like passwords) is transferred unencrypted!';  //to translate
+$strSetupLoginCookieDeleteAll_desc = 'If TRUE, logout deletes cookies for all servers; when set to FALSE, logout only occurs for the current server. Setting this to FALSE makes it easy to forget to log out from other servers when connected to multiple servers.';  //to translate
+$strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie should be stored in browser. The default of 0 means that it will be kept for the existing session only, and will be deleted as soon as you close the browser window. This is recommended for non-trusted environments.';  //to translate
+$strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
+$strSetupServers_extension_desc = 'What PHP extension to use; you should use mysqli if supported';  //to translate
+$strSetupVersionCheckNewAvailable = 'A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.';  //to translate
 ?>
