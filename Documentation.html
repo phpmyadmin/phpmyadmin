@@ -292,6 +292,14 @@ chmod o-rw config.inc.php          # remove world read and write permissions
         in that folder, for other webservers, you should configure this yourself.
         Such configuration prevents from possible path exposure and cross side
         scripting vulnerabilities that might happen to be found in that code.</li>
+    <li>
+        It is generally good idea to protect public phpMyAdmin installation
+        against access by robots as they usually can not do anything good
+        there. You can do this using <code>robots.txt</code> file in root of
+        your webserver or limit access by web server configuration. You can
+        find example <code>.htaccess</code> file which can help you achieve
+        this in <code>contrib</code> directory in phpMyAdmin.
+    </li>
 </ol>
 
 <h3 id="linked-tables">Linked-tables infrastructure</h3>
