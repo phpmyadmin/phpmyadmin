@@ -122,8 +122,8 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])): ?>
         <span class="doc">
-            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $opts['doc']  ?>"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_help.png" width="11" height="11" alt="Doc" title="<?php echo $GLOBALS['strDocu'] ?>" /></a><?php } ?>
-            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
+            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $opts['doc']  ?>" target="documentation"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_help.png" width="11" height="11" alt="Doc" title="<?php echo $GLOBALS['strDocu'] ?>" /></a><?php } ?>
+            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath'] ?>/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
         <?php endif; ?>
         <?php if (!empty($description)) { ?><small><?php echo $description ?></small><?php } ?>
