@@ -1327,7 +1327,6 @@ $strSetupServers_AllowDeny_rules_desc = 'Leave blank for defaults';  //to transl
 $strSetupServers_AllowDeny_rules_name = 'Host authentication rules';  //to translate
 $strSetupServers_AllowNoPasswordRoot_name = 'Allow root without password';  //to translate
 $strSetupServers_AllowRoot_name = 'Allow root login';  //to translate
-$strSetupServers_auth_swekey_config_desc = 'Config file for [a@http://swekey.com]SweKey hardware authentication[/a], relative to phpMyAdmin root directory, eg. ./swekey.conf';  //to translate
 $strSetupServers_auth_swekey_config_name = 'SweKey config file';  //to translate
 $strSetupServers_auth_type_desc = 'Authentication method to use';  //to translate
 $strSetupServers_auth_type_name = 'Authentication type';  //to translate
@@ -1448,4 +1447,5 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDump_name = 'ZIP';  //to translate
 $strShowKeys = 'Only show keys';  //to translate
 
+$strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';  //to translate
 ?>

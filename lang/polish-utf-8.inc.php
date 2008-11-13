@@ -1227,7 +1227,6 @@ $strSetupServers_SignonSession_desc = 'See [a@http://wiki.cihar.com/pma/auth_typ
 $strSetupServers_SignonURL_name = 'Signon URL';  //to translate
 $strSetupServers_LogoutURL_name = 'Logout URL';  //to translate
 $strSetupServers_auth_swekey_config_name = 'SweKey config file';  //to translate
-$strSetupServers_auth_swekey_config_desc = 'Config file for [a@http://swekey.com]SweKey hardware authentication[/a], relative to phpMyAdmin root directory, eg. ./swekey.conf';  //to translate
 $strSetupServers_only_db_name = 'Show only listed databases';  //to translate
 $strSetupServers_only_db_desc = 'You can use MySQL wildcard characters (% and _), escape them if you want to use their literal instances, i.e. use \'my\_db\' and not \'my_db\'';  //to translate
 $strSetupServers_hide_db_name = 'Hide databases';  //to translate
@@ -1438,4 +1437,5 @@ $strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie sh
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
 $strSetupServers_extension_desc = 'What PHP extension to use; you should use mysqli if supported';  //to translate
 $strSetupVersionCheckNewAvailable = 'A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.';  //to translate
+$strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';  //to translate
 ?>
