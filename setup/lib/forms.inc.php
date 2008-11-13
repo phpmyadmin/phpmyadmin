@@ -34,12 +34,12 @@ $forms['Server'] = array('Servers' => array(1 => array(
     'auth_type',
     'user',
     'password',
-    'nopassword')));
+    'nopassword',
+    'auth_swekey_config' => './swekey.conf')));
 $forms['Server_login_options'] = array('Servers' => array(1 => array(
     'SignonSession',
     'SignonURL',
-    'LogoutURL',
-    'auth_swekey_config' => './swekey.conf')));
+    'LogoutURL')));
 $forms['Server_config'] = array('Servers' => array(1 => array(
     'only_db',
     'hide_db',
