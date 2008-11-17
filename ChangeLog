@@ -39,6 +39,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
 + [lang] Hungarian update, thanks to Jozsef Tamas Herczeg - dodika 
 + [lang] French update by Marc Delisle - lem9
+- bug #2222344 [display] Query involving a function shown as binary
 
 3.0.2.0 (not yet released)
 - [lang] Italian update, thanks to Luca and fantu
