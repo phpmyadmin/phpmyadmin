@@ -1659,6 +1659,11 @@ function PMA_displayTable_checkConfigParams()
     } elseif (isset($_REQUEST['display_options_form'])) {
         // we know that the checkbox was unchecked
         unset($_SESSION['userconf']['query'][$sql_key]['display_binary']);
+    } else {
+        // selected by default because some operations like OPTIMIZE TABLE
+        // and all queries involving functions return "binary" contents,
+        // according to low-level field flags
+        $_SESSION['userconf']['query'][$sql_key]['display_binary'] = true;
     }
 
     if (isset($_REQUEST['display_blob'])) {
