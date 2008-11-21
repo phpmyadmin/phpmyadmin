@@ -133,7 +133,7 @@ if [ "$mode" = "snapshot" -a "$2" = "sf" ] ; then
 fi
 
 # Do SVNcheckout
-mkdir -p ./svn 
+mkdir -p ./svn
 cd svn
 
 echo "Exporting repository from subversion"
@@ -222,16 +222,10 @@ echo
 echo "MD5 sums:"
 echo "--------"
 
-md5sum *.{gz,zip,bz2,7z} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
+md5sum *.{gz,zip,bz2,7z} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/md5sum['\2'] = '\1'/"
 
 echo
-echo "Sizes:"
-echo "------"
-
-ls -l --block-size=k *.{gz,zip,bz2,7z} | sed -r "s/[a-z-]+[[:space:]]+[0-9]+[[:space:]]+[^[:space:]]+[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]*)K.*[[:space:]]([^[:space:]]+)\$/\$size['\2'] = \1;/"
-
-echo
-echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/files.inc.php on sf"
+echo "Add these to website/data/md5.py in SVN"
 
 cat <<END
 
@@ -247,8 +241,7 @@ Todo now:
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
  5. update web page:
-        - add MD5s and file sizes to /home/groups/p/ph/phpmyadmin/htdocs/home_page/includes/list_files.inc.php
-        - add release to /home/groups/p/ph/phpmyadmin/htdocs/home_page/includes/list_release.inc.php
+        - add MD5s to website/data/md5.py in SVN
  6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
  7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
