@@ -8,11 +8,64 @@ body {
     font-family: sans-serif;
     color: #000000;
     margin: 0;
-    padding: 2em 0 2em 0;
+    padding: 0;
+    background: url('themes/original/img/logo_right.png') no-repeat fixed bottom right;
 }
 
 img {
     border: 0;
+}
+
+#header {
+    margin: 0px;
+    padding: 1em 0.5em 0.5em 1em;
+	background: #036;
+	border: 0px;
+    border-bottom: 1px solid black;
+}
+
+#header h1 {
+    padding: 0;
+    margin: 0;
+    margin-right: 1em;
+    color: white;
+}
+
+#header h1 a {
+	color: #7584b3;
+}
+
+#header h1 a .myadmin {
+	color: #ffad17;
+}
+
+#body {
+	margin: 2em 1em 1em 1em;
+	padding: 0px;
+}
+
+ul#footer {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid black;
+    max-width: 100%;
+}
+
+#footer li {
+    font-size: smaller;
+    list-style: none;
+    float: left;
+	padding: 1em;
+    color: gray;
+    border: none;
+}
+
+#footer li.logo {
+    padding: 0.5em;
+}
+
+#footer a {
+	color: #c19e66;
 }
 
 abbr, acronym {
@@ -25,17 +78,12 @@ abbr, acronym {
 
 a {
     text-decoration: none;
-    color: #000099;
-    background-color: #ffffff;
-/*    font-weight: normal;*/
+	color: #c17d11;
 }
 
 a:hover {
-/*    background-color: #99CCFF;*/
-    color: #000099;
-    background-color: #ffffff;
-    text-decoration: underline;
-/*    font-weight: bolder */
+	text-decoration: underline;
+	color: #8f5902;
 }
 
 sup {
@@ -52,125 +100,65 @@ sup:after {
 
 
 ul.header {
-    width: 100%;
-    background-color: #ddeeff;
-    color: #000000;
-    text-align: center;
-    padding: 0 0 2px 0;
-    border-bottom: 1px solid #000000;
-    font-weight: bold;
-    left: 0;
-    top: 0;
+    background: url(themes/original/img/docs_menu_bg.png) transparent fixed;
     position: fixed;
-    margin: 0;
-    /* following MSIE hack was originally written by Riki Fridrich
-     * <http://www.fczbkk.com> */
-/*    position: expression("absolute");*/
-/*    width: expression(document.body.clientWidth);*/
-/*    top: expression(document.body.scrollTop + this.offsetHeight - this.offsetHeight);*/
+    top: 3em;
+    left: auto;
+    width: 8.5em;
+    right: 2em;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid black;
 }
 
 ul.header li {
     margin: 0;
     padding: 0;
-    display: inline;
-}
-
-ul.header li:before {
-    content: ' - ';
-}
-ul.header li:first-child:before {
-    content: '';
+    display: block;
 }
 
 ul.header a {
     text-decoration: none;
     font-size: medium;
-    color: #000099;
-    background-color: #ddeeff;
-    font-weight: normal;
+    color: #036;
+    background-color: transparent;
+    font-weight: bolder;
+    display: block;
 }
+
 ul.header a:hover {
     color: #000099;
     background-color: #99CCFF;
-/*    font-weight: bolder;*/
-}
-
-h1 {
-    text-align: center;
-    padding-left: 8%;
-    margin-top: 1em;
-    color: #000000;
-    background-color: #ddeeff;
-    font-size: x-large;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    clear: both;
 }
 
 h2 {
-    padding-left: 8%;
-    padding-top: 2em;
-    margin-top: 1em;
-    color: #000000;
-    background-color: #ddeeff;
-    font-size: large;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    clear: both;
-    /* counter-reset: heading3;
-    counter-increment: heading2; */
+	color: #727e0a;
+    max-width: 70em;
 }
-
-/*h2:before {
-    content: counter(heading2) '. ';
-} */
 
 h3 {
-    padding-left: 10%;
-    padding-top: 3em;
-    margin-top: 1em;
-    color: #000000;
-    background-color: #ddeeff;
-    font-size: medium;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    clear: both;
-/*    counter-reset: heading4;
-    counter-increment: heading3; */
+	color: #727e0a;
+    max-width: 70em;
 }
-
-/*h3:before {
-    content: counter(heading2) '.' counter(heading3) '. ';
-} */
 
 h4, h5 {
-    padding: 3em 0 0 0;
-    margin: 10px 5% 2px 5%;
-    font-weight: bold;
-    color: #000099;
-    background-color: #ffffff;
-/*    counter-increment: heading4; */
+	padding-left: 2em;
+	color: #727e0a;
+    max-width: 70em;
 }
 
-/* h4:before {
-    content: counter(heading2) '.' counter(heading3) '.' counter(heading4) '. ';
-} 
-
-h5 {
-    counter-increment: heading5;
+h4 a {
+	color: #727e0a;
 }
-
-h5:before {
-    content: counter(heading2) '.' counter(heading3) '.' counter(heading4) counter(heading5,lower-alpha);
-} */
 
 p {
-    margin: 2px 5% 1em 5%;
+    max-width: 70em;
+    margin: 1em;
 }
 
 table {
-    margin: 2px 5% 2px 5%;
+    margin: 1em;
     border: none;
 }
 
@@ -194,16 +182,26 @@ table.translators td, table.translators th {
     padding: 5px;
 }
 
-ul {
-    margin: 2px 5% 2px 5%;
+ul, dl, ol {
+    margin: 1em;
+    max-width: 70em;
+}
+
+ul ul, ol ul {
+    margin-bottom: 0;
+}
+
+li {
+    margin-top: 0.5em;
 }
 
 pre {
-    margin: 1em 5% 1em 5%;
+    margin: 1em;
     border: 1px solid silver;
     color: #000000;
     background-color: #eeeeee;
     padding: 0.5em;
+    max-width: 70em;
 }
 
 /* no more intend inside li */
@@ -215,24 +213,13 @@ pre.wrap {
     white-space: normal;
 }
 
-dl {
-    margin: 1em 6% 1em 6%;
-}
 dt {
     font-weight: bold;
     margin-left: 2em;
-    padding-top: 3em;
 }
+
 dd {
     margin-left: 4em;
-    margin-bottom: 1em;
-}
-
-ol {
-    margin: 1em 6% 1em 6%;
-}
-
-li {
     margin-bottom: 1em;
 }
 
@@ -266,12 +253,4 @@ p.footnote {
 
 p.footnote:first-line {
     margin-left: -2%;
-}
-
-p#bottom {
-    text-align: right;
-}
-
-p#bottom img {
-    margin: 1em;
 }
