@@ -242,10 +242,6 @@ p.important {
     padding: 0.5em;
 }
 
-.important:first-word {
-    font-weight: bold;
-}
-
 p.footnote {
     margin: 0 5% 2px 7%;
     padding-top: 3em;
