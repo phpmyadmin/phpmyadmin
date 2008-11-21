@@ -10,7 +10,7 @@
 <head>
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>phpMyAdmin 3.2.0-dev - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
@@ -4025,7 +4025,8 @@ chmod o+rwx tmp
 <h4 id="faq6_25">
 	<a href="#faq6_25">6.25 How does BLOB streaming work in phpMyAdmin?</a></h4>
 
-<p> First, for general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. We currently support streaming if you are running MySQL 5.1 with the PBXT and PBMS storage engines.<br /><br />
+<p> First, for general information about BLOB streaming on MySQL, visit <a href="http://blobstreaming.org">blobstreaming.org</a>. We currently support streaming if you are running MySQL 5.1 with the PBXT and PBMS storage engines.</p>
+
 <ol>
 	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of something like &quot;localhost&quot;.</li>
 	<li>A current limitation is that your first login via phpMyAdmin to a freshly-started server must be done with an account that has the SUPER privilege.</li>
@@ -4034,7 +4035,6 @@ chmod o+rwx tmp
 	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your column instead of the repository.</li>
 	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
 </ol>	
-</p>
 
 <h3 id="faqproject">phpMyAdmin project</h3>
 
