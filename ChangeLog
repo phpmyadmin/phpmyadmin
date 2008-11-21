@@ -6,6 +6,8 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.1.1.0 (not yet released)
+- patch #2242765 [core] Navi panel server links wrong,
+  thanks to Martin Stricker - martinstricker
 
 3.1.0.0 (not yet released)
 + [auth] Support for Swekey hardware authentication
