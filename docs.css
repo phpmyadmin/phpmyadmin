@@ -47,7 +47,6 @@ img {
 ul#footer {
     padding: 0;
     margin: 0;
-    border-top: 1px solid black;
     max-width: 100%;
 }
 
@@ -143,7 +142,6 @@ h3 {
 }
 
 h4, h5 {
-	padding-left: 2em;
 	color: #727e0a;
     max-width: 70em;
 }
