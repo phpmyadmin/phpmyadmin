@@ -12,7 +12,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Martin Stricker - martinstricker
 
 3.1.0.0 (not yet released)
-+ [auth] Support for Swekey hardware authentication
++ [auth] Support for Swekey hardware authentication,
+  see http://phpmyadmin.net/auth_key
 - bug #2046883 [core] Notices about deprecated dl() (so stop using it)
 + BLOBstreaming support, thanks to Raj Kissu Rajandran and
   Google Summer of Code 2008
@@ -135,8 +136,6 @@ danbarry
 + [interface] Display options; thanks to Dave Grijalva
   for the idea about showing the display field while browsing
 - bug #1910621 [display] part 2: do not display a BINARY content as text
-+ [auth] support SweKey hardware authentication 
-  see http://phpmyadmin.net/auth_key
 + rfe #1962383 [designer] Option to create a PDF page 
 - patch #2007196, Typos in comments, thanks to knittl - knittl
 - bug #1982315 [GUI] Comma and quote in ENUM, thanks to Joshua Hogendorn
