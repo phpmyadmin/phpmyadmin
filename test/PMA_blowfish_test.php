@@ -43,14 +43,14 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
     {
         $secret = '$%ÄüfuDFRR';
         $decrypted = '12345678';
-        $encrypted = 'p0nz15awFT4=';
+        $encrypted = 'kO/kc4j/nyk=';
         $this->assertEquals($encrypted, PMA_blowfish_encrypt($decrypted, $secret));
     }
 
     public function testDecrypt()
     {
         $secret = '$%ÄüfuDFRR';
-        $encrypted = 'p0nz15awFT4=';
+        $encrypted = 'kO/kc4j/nyk=';
         $decrypted = '12345678';
         $this->assertEquals($decrypted, PMA_blowfish_decrypt($encrypted, $secret));
     }
