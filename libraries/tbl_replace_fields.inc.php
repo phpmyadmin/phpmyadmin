@@ -28,6 +28,7 @@
  * @uses implode()
  * @uses PMA_NO_VARIABLES_IMPORT
  * @uses PMA_sqlAddslashes()
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
