@@ -5,6 +5,7 @@
  * Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and
  * Dan Wilson who built this patch for the Debian package.
  *
+ * @package phpMyAdmin-Auth-Cookie
  * @version $Id$
  */
 
@@ -221,7 +222,7 @@ if (top != self) {
         // use fieldset, don't show doc link
         PMA_select_language(true, false);
     }
-    
+
     ?>
 <br />
 <!-- Login form -->

@@ -4,6 +4,7 @@
  * Set of functions used to build YAML dumps of tables
  *
  * @version $Id$
+ * @package phpMyAdmin-Export-YAML
  */
 if (! defined('PHPMYADMIN')) {
     exit;

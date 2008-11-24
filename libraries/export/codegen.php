@@ -3,6 +3,7 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  *
+ * @package phpMyAdmin-Export-Codegen
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
@@ -269,7 +270,7 @@ class TableProperty
 		}
 		return implode("\n", $lines);
 	}
-	
+
 	function handleNHibernateXMLBody($db, $table, $crlf)
 	{
 		$lines=array();
@@ -295,7 +296,7 @@ class TableProperty
 		$lines[]="</hibernate-mapping>";
 		return implode("\n", $lines);
 	}
-	
+
 	function cgGetOption($optionName)
 	{
 		global $what;

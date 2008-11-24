@@ -1,5 +1,8 @@
 <?php
- 
+/**
+ * @package Swekey
+ */
+
 function Swekey_auth_check()
 {
     global $cfg;
@@ -8,7 +11,7 @@ function Swekey_auth_check()
 	if (! isset($_SESSION['SWEKEY'])) {
         $_SESSION['SWEKEY'] = array();
     }
-    
+
     $_SESSION['SWEKEY']['ENABLED'] = (! empty($confFile) && file_exists($confFile));
 
     // Load the swekey.conf file the first time
@@ -17,21 +20,21 @@ function Swekey_auth_check()
         $_SESSION['SWEKEY']['VALID_SWEKEYS'] = array();
         $valid_swekeys = split("\n",@file_get_contents($confFile));
         foreach ($valid_swekeys as $line) {
-            if (ereg("^[0-9A-F]{32}:.+$", $line) != false)    
-			{  
+            if (ereg("^[0-9A-F]{32}:.+$", $line) != false)
+			{
 				$items = explode(":", $line);
 				if (count($items) == 2)
-                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]); 
-			}  
+                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]);
+			}
             else if (ereg("^[A-Z_]+=.*$", $line) != false) {
                 $items = explode("=", $line);
                 $_SESSION['SWEKEY']['CONF_'.trim($items[0])] = trim($items[1]);
-            }      
+            }
         }
-        
+
         // Set default values for settings
     	if (! isset($_SESSION['SWEKEY']['CONF_SERVER_CHECK']))
-        	$_SESSION['SWEKEY']['CONF_SERVER_CHECK'] = "";        
+        	$_SESSION['SWEKEY']['CONF_SERVER_CHECK'] = "";
     	if (! isset($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']))
         	$_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN'] = "";
     	if (! isset($_SESSION['SWEKEY']['CONF_SERVER_STATUS']))
@@ -41,25 +44,25 @@ function Swekey_auth_check()
     	if (! isset($_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE']))
         	$_SESSION['SWEKEY']['CONF_ENABLE_TOKEN_CACHE'] = true;
     	if (! isset($_SESSION['SWEKEY']['CONF_DEBUG']))
-       	    $_SESSION['SWEKEY']['CONF_DEBUG'] = false; 
+       	    $_SESSION['SWEKEY']['CONF_DEBUG'] = false;
      }
 
     // check if a web key has been authenticated
-    if ($_SESSION['SWEKEY']['ENABLED']) {	
+    if ($_SESSION['SWEKEY']['ENABLED']) {
         if (empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']))
-           return false; 	
+           return false;
 	}
-	
+
 	return true;
 }
 
 
 function Swekey_auth_error()
 {
-    if (! isset($_SESSION['SWEKEY'])) 
+    if (! isset($_SESSION['SWEKEY']))
         return null;
 
-	if (! $_SESSION['SWEKEY']['ENABLED']) 
+	if (! $_SESSION['SWEKEY']['ENABLED'])
         return null;
 
 	require_once './libraries/auth/swekey/authentication.inc.php';
@@ -68,31 +71,31 @@ function Swekey_auth_error()
     <script>
     function Swekey_GetValidKey()
 	{
-	    var valids = "<?php 
-	    	foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) 
+	    var valids = "<?php
+	    	foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value)
 	    		echo $key.',';
 		?>";
     	var connected_keys = Swekey_ListKeyIds().split(",");
-     	for (i in connected_keys) 
+     	for (i in connected_keys)
        	    if (connected_keys[i] != null && connected_keys[i].length == 32)
         	    if (valids.indexOf(connected_keys[i]) >= 0)
         	       return connected_keys[i];
 
-        
+
         if (connected_keys.length > 0)
        		if (connected_keys[0].length == 32)
        		   return "unknown_key_" + connected_keys[0];
-   		
+
 		return "none";
 	}
 
     var key = Swekey_GetValidKey();
-    
+
     function timedCheck()
     {
         if (key != Swekey_GetValidKey())
         {
-            window.location.search = "?swekey_reset";  
+            window.location.search = "?swekey_reset";
         }
 		else
 	        setTimeout("timedCheck()",1000);
@@ -102,14 +105,14 @@ function Swekey_auth_error()
     </script>
  	<?php
 
-	if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'])) 
+	if (! empty($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']))
 		return null;
 
-    if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) 
-        return sprintf($GLOBALS['strSwekeyNoKeyId'], $GLOBALS['cfg']['Server']['auth_swekey_config']); 
+    if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0)
+        return sprintf($GLOBALS['strSwekeyNoKeyId'], $GLOBALS['cfg']['Server']['auth_swekey_config']);
 
     require_once "./libraries/auth/swekey/swekey.php";
-    
+
     Swekey_SetCheckServer($_SESSION['SWEKEY']['CONF_SERVER_CHECK']);
     Swekey_SetRndTokenServer($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']);
     Swekey_SetStatusServer($_SESSION['SWEKEY']['CONF_SERVER_STATUS']);
@@ -121,7 +124,7 @@ function Swekey_auth_error()
         $caFile = __FILE__;
         $pos = strrpos($caFile, '/');
         if ($pos === false)
-            $pos = strrpos($caFile, '\\'); // windows  
+            $pos = strrpos($caFile, '\\'); // windows
         $caFile = substr($caFile, 0, $pos + 1).'musbe-ca.crt';
 //        echo "\n<!-- $caFile -->\n";
 //        if (file_exists($caFile))
@@ -131,10 +134,10 @@ function Swekey_auth_error()
     if (file_exists($caFile))
         Swekey_SetCAFile($caFile);
     else if (! empty($caFile) && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://"))
-        return "Internal Error: CA File $caFile not found";  
-                
+        return "Internal Error: CA File $caFile not found";
+
     $result = null;
-    parse_str($_SERVER['QUERY_STRING']); 
+    parse_str($_SERVER['QUERY_STRING']);
     if (isset($swekey_id)) {
         unset($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']);
         if (! isset($_SESSION['SWEKEY']['RND_TOKEN'])) {
@@ -147,24 +150,24 @@ function Swekey_auth_error()
                 if (! $res) {
                     $result = $GLOBALS['strSwekeyAuthFailed'] . ' (' . Swekey_GetLastError() . ')';
                 }
-                else {            
+                else {
                     $_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'] = $swekey_id;
             		$_SESSION['SWEKEY']['FORCE_USER'] = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
                     return null;
-                }           
+                }
             }
             else {
-                $result = $GLOBALS['strSwekeyNoKey']; 
+                $result = $GLOBALS['strSwekeyNoKey'];
                 if ($_SESSION['SWEKEY']['CONF_DEBUG'])
                 {
-                    $result .= "<br>".$swekey_id;  
+                    $result .= "<br>".$swekey_id;
                 }
-                unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file 
+                unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file
              }
-        }                
+        }
     }
-    else 
-        unset($_SESSION['SWEKEY']);        
+    else
+        unset($_SESSION['SWEKEY']);
 
     $_SESSION['SWEKEY']['RND_TOKEN'] = Swekey_GetFastRndToken();
     if (strlen($_SESSION['SWEKEY']['RND_TOKEN']) != 64) {
@@ -185,14 +188,14 @@ function Swekey_auth_error()
 	        if (url.indexOf("?") > 0)
 	            url = url.substr(0, url.indexOf("?"));
 	        Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>");
-	     	var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);     
+	     	var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
 	        window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp;
 	    }
         </script>
         <?php
-        return $GLOBALS['strSwekeyAuthenticating']; 
+        return $GLOBALS['strSwekeyAuthenticating'];
     }
- 
+
     return $result;
 }
 
@@ -211,7 +214,7 @@ function Swekey_login($input_name, $input_go)
 
     if (isset($_SESSION['SWEKEY']) && $_SESSION['SWEKEY']['ENABLED']) {
         echo '<script type="text/javascript">';
-        if (empty($_SESSION['SWEKEY']['FORCE_USER'])) 
+        if (empty($_SESSION['SWEKEY']['FORCE_USER']))
             echo 'var user = null;';
     	else
            echo 'var user = "'.$_SESSION['SWEKEY']['FORCE_USER'].'";';
@@ -221,7 +224,7 @@ function Swekey_login($input_name, $input_go)
             {
                 window.open("http://phpmyadmin.net/auth_key");
             }
-        
+
             var input_username = document.getElementById("<?php echo $input_name; ?>");
             var input_go = document.getElementById("<?php echo $input_go; ?>");
         	var swekey_status = document.createElement('img');
@@ -240,7 +243,7 @@ function Swekey_login($input_name, $input_go)
 				input_username.value = user;
 			}
  			input_username.readOnly = true;
-       
+
         	if (input_username.nextSibling == null)
         		input_username.parentNode.appendChild(swekey_status);
         	else
@@ -267,5 +270,5 @@ if (isset($_GET['swekey_reset']))
 {
 	unset($_SESSION['SWEKEY']);
 }
-    
+
 ?>

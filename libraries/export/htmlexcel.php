@@ -3,6 +3,7 @@
 /**
  * Set of functions used to build CSV dumps of tables
  *
+ * @package phpMyAdmin-Export-HTMLExcel
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {

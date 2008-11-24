@@ -3,6 +3,7 @@
 /**
  * Set of functions used to run config authentication (ie no authentication).
  *
+ * @package phpMyAdmin-Auth-Config
  * @version $Id$
  */
 

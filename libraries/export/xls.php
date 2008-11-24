@@ -4,6 +4,7 @@
  * Set of functions used to build XLS dumps of tables
  *
  * @version $Id$
+ * @package phpMyAdmin-Export-XLS
  */
 if (! defined('PHPMYADMIN')) {
     exit;

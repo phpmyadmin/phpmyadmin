@@ -3,6 +3,7 @@
 /**
  * Set of functions used to build SQL dumps of tables
  *
+ * @package phpMyAdmin-Export-SQL
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
@@ -244,13 +245,13 @@ function PMA_exportHeader()
         // so that a utility like the mysql client can interpret
         // the file correctly
         if (isset($GLOBALS['charset_of_file']) && isset($mysql_charset_map[$GLOBALS['charset_of_file']])) {
-            // $cfg['AllowAnywhereRecoding'] was true so we got a charset from 
+            // $cfg['AllowAnywhereRecoding'] was true so we got a charset from
             // the export dialog
             $set_names = $mysql_charset_map[$GLOBALS['charset_of_file']];
         } else {
             // by default we use the connection charset
-            $set_names = $mysql_charset_map[$GLOBALS['charset']]; 
-        } 
+            $set_names = $mysql_charset_map[$GLOBALS['charset']];
+        }
         $head .=  $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;' . $crlf
@@ -350,7 +351,7 @@ function PMA_exportDBFooter($db)
         }
 
         if ($procedure_names) {
-            $text .= 
+            $text .=
                 PMA_exportComment()
               . PMA_exportComment($GLOBALS['strProcedures'])
               . PMA_exportComment();
@@ -358,13 +359,13 @@ function PMA_exportDBFooter($db)
             foreach($procedure_names as $procedure_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
 		    $text .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
-                }	
+                }
                 $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
             }
         }
 
         if ($function_names) {
-            $text .= 
+            $text .=
                 PMA_exportComment()
               . PMA_exportComment($GLOBALS['strFunctions'])
               . PMA_exportComment();
@@ -372,13 +373,13 @@ function PMA_exportDBFooter($db)
             foreach($function_names as $function_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
 		    $text .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
-                }	
+                }
                 $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
             }
         }
 
         if ($event_names) {
-            $text .= 
+            $text .=
                 PMA_exportComment()
               . PMA_exportComment($GLOBALS['strEvents'])
               . PMA_exportComment();
@@ -386,7 +387,7 @@ function PMA_exportDBFooter($db)
             foreach($event_names as $event_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
 		    $text .= 'DROP EVENT ' . PMA_backquote($event_name) . $delimiter . $crlf;
-                }	
+                }
                 $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name) . $delimiter . $crlf . $crlf;
             }
         }
@@ -442,7 +443,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
  * @param   string   the end of line sequence
  * @param   string   the url to go back in case of error
  * @param   boolean  whether to include creation/update/check dates
- * @param   boolean  whether to add semicolon and end-of-line at the end 
+ * @param   boolean  whether to add semicolon and end-of-line at the end
  *
  * @return  string   resulting schema
  *
@@ -844,7 +845,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     // a possible error: the table has crashed
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
-        return PMA_exportOutputHandler(PMA_exportComment($GLOBALS['strInUse'] . ' (' . $tmp_error . ')')); 
+        return PMA_exportOutputHandler(PMA_exportComment($GLOBALS['strInUse'] . ' (' . $tmp_error . ')'));
     }
 
     if ($result != FALSE) {

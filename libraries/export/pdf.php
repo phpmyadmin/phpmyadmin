@@ -3,6 +3,7 @@
 /**
  * Produce a PDF report (export) from a query
  *
+ * @package phpMyAdmin-Export-PDF
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
@@ -292,7 +293,7 @@ class PMA_PDF extends TCPDF
                 }
             }
 
-            // loop through the data; any column whose contents 
+            // loop through the data; any column whose contents
             // is greater than the column size is resized
             /**
               * @todo force here a LIMIT to avoid reading all rows

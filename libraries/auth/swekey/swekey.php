@@ -1,16 +1,17 @@
 <?php
 /**
- * Library that provides common functions that are used to help integrating Swekey Authentication in a PHP web site 
+ * Library that provides common functions that are used to help integrating Swekey Authentication in a PHP web site
  * Version 1.0
- * 
+ *
  * History:
  * 1.2 Use curl (widely installed) to query the server
  *     Fixed a possible tempfile race attack
- *     Random token cache can now be disabled 
- * 1.1 Added Swekey_HttpGet function that support faulty servers 
- *     Support for custom servers 
- * 1.0 First release  
- *  
+ *     Random token cache can now be disabled
+ * 1.1 Added Swekey_HttpGet function that support faulty servers
+ *     Support for custom servers
+ * 1.0 First release
+ *
+ * @package Swekey
  */
 
 
@@ -24,11 +25,11 @@ define ("SWEKEY_ERR_INVALID_OTP",911);          // The otp was not correct
 
 /**
  * Those errors are considered as an attack and your site will be blacklisted during one minute
- * if you receive one of those errors     
+ * if you receive one of those errors
  */
-define ("SWEKEY_ERR_BADLY_ENCODED_REQUEST",920);	
-define ("SWEKEY_ERR_INVALID_RND_TOKEN",921);	
-define ("SWEKEY_ERR_DEV_NOT_FOUND",922);	
+define ("SWEKEY_ERR_BADLY_ENCODED_REQUEST",920);
+define ("SWEKEY_ERR_INVALID_RND_TOKEN",921);
+define ("SWEKEY_ERR_DEV_NOT_FOUND",922);
 
 /**
  * Default values for configuration.
@@ -40,7 +41,7 @@ define ('SWEKEY_DEFAULT_STATUS_SERVER', 'https://auth-status.musbe.net');
 /**
  * The last error of an operation is alway put in this global var
  */
- 
+
 global $gSwekeyLastError;
 $gSwekeyLastError = 0;
 
@@ -72,13 +73,13 @@ if (! isset($gSwekeyTokenCacheEnabled))
 
 /**
  *  Change the address of the Check server.
- *  If $server is empty the default value 'http://auth-check.musbe.net' will be used 
+ *  If $server is empty the default value 'http://auth-check.musbe.net' will be used
  *
  *  @param  server              The protocol and hostname to use
  *  @access public
  */
 function Swekey_SetCheckServer($server)
-{    
+{
     global $gSwekeyCheckServer;
     if (empty($server))
         $gSwekeyCheckServer = SWEKEY_DEFAULT_CHECK_SERVER;
@@ -88,13 +89,13 @@ function Swekey_SetCheckServer($server)
 
 /**
  *  Change the address of the Random Token Generator server.
- *  If $server is empty the default value 'http://auth-rnd-gen.musbe.net' will be used 
+ *  If $server is empty the default value 'http://auth-rnd-gen.musbe.net' will be used
  *
  *  @param  server              The protocol and hostname to use
  *  @access public
  */
 function Swekey_SetRndTokenServer($server)
-{    
+{
     global $gSwekeyRndTokenServer;
     if (empty($server))
         $gSwekeyRndTokenServer = SWEKEY_DEFAULT_RND_SERVER;
@@ -104,13 +105,13 @@ function Swekey_SetRndTokenServer($server)
 
 /**
  *  Change the address of the Satus server.
- *  If $server is empty the default value 'http://auth-status.musbe.net' will be used 
+ *  If $server is empty the default value 'http://auth-status.musbe.net' will be used
  *
  *  @param  server              The protocol and hostname to use
  *  @access public
  */
 function Swekey_SetStatusServer($server)
-{    
+{
     global $gSwekeyStatusServer;
     if (empty($server))
         $gSwekeyStatusServer = SWEKEY_DEFAULT_STATUS_SERVER;
@@ -125,21 +126,21 @@ function Swekey_SetStatusServer($server)
  *  @access public
  */
 function Swekey_SetCAFile($cafile)
-{    
+{
     global $gSwekeyCA;
    	$gSwekeyCA = $cafile;
 }
 
 /**
  *  Enable or disable the random token caching
- *  Because everybody has full access to the cache file, it can be a DOS vulnerability   
+ *  Because everybody has full access to the cache file, it can be a DOS vulnerability
  *  So disable it if you are running in a non secure enviromnement
  *
- *  @param  $enable            
+ *  @param  $enable
  *  @access public
  */
 function Swekey_EnableTokenCache($enable)
-{    
+{
     global $gSwekeyTokenCacheEnabled;
 	$gSwekeyTokenCacheEnabled = ! empty($enable);
 }
@@ -147,31 +148,31 @@ function Swekey_EnableTokenCache($enable)
 
 /**
  *  Return the last error.
- *   
+ *
  *  @return                     The Last Error
  *  @access public
  */
 function Swekey_GetLastError()
-{    
+{
     global $gSwekeyLastError;
     return $gSwekeyLastError;
 }
 
 /**
  *  Return the last result.
- *   
+ *
  *  @return                     The Last Error
  *  @access public
  */
 function Swekey_GetLastResult()
-{    
+{
     global $gSwekeyLastResult;
     return $gSwekeyLastResult;
 }
 
 /**
  *  Send a synchronous request to the  server.
- *  This function manages timeout then will not block if one of the server is down     
+ *  This function manages timeout then will not block if one of the server is down
  *
  *  @param  url                 The url to get
  *  @param  response_code       The response code
@@ -179,12 +180,12 @@ function Swekey_GetLastResult()
  *  @access private
  */
 function Swekey_HttpGet($url, &$response_code)
-{    
+{
     global $gSwekeyLastError;
     $gSwekeyLastError = 0;
     global $gSwekeyLastResult;
     $gSwekeyLastResult = "<not set>";
- 
+
  	// use curl if available
 	if (function_exists('curl_init'))
 	{
@@ -205,7 +206,7 @@ function Swekey_HttpGet($url, &$response_code)
 				else
 					error_log("SWEKEY_ERROR:Could not find CA file $gSwekeyCA getting $url");
 			}
-			
+
 			curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, '2');
 			curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, '2');
 			curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '20');
@@ -215,12 +216,12 @@ function Swekey_HttpGet($url, &$response_code)
 		{
 			curl_setopt($sess, CURLOPT_CONNECTTIMEOUT, '3');
 			curl_setopt($sess, CURLOPT_TIMEOUT, '5');
-		}	
-		
-		curl_setopt($sess, CURLOPT_RETURNTRANSFER, '1');	
+		}
+
+		curl_setopt($sess, CURLOPT_RETURNTRANSFER, '1');
 		$res=curl_exec($sess);
 		$response_code = curl_getinfo($sess, CURLINFO_HTTP_CODE);
-		$curlerr = curl_error($sess);		
+		$curlerr = curl_error($sess);
 		curl_close($sess);
 
 		if ($response_code == 200)
@@ -229,7 +230,7 @@ function Swekey_HttpGet($url, &$response_code)
 	        return $res;
 		}
 
-		if (! empty($response_code))	
+		if (! empty($response_code))
         {
             $gSwekeyLastError = $response_code;
             error_log("SWEKEY_ERROR:Error $gSwekeyLastError ($curlerr) getting $url");
@@ -237,41 +238,41 @@ function Swekey_HttpGet($url, &$response_code)
        }
 
         $response_code = 408; // Request Timeout
-        $gSwekeyLastError = $response_code;  
+        $gSwekeyLastError = $response_code;
         error_log("SWEKEY_ERROR:Error $curlerr getting $url");
         return "";
 	}
-	
+
 	// use pecl_http if available
     if (class_exists('HttpRequest'))
     {
-        // retry if one of the server is down 
+        // retry if one of the server is down
         for ($num=1; $num <= 3; $num++ )
         {
             $r = new HttpRequest($url);
             $options = array('timeout' => '3');
-            
+
             if (substr($url,0, 6) == "https:")
             {
-                $sslOptions = array(); 
+                $sslOptions = array();
                 $sslOptions['verifypeer'] = true;
                 $sslOptions['verifyhost'] = true;
 
                 $capath = __FILE__;
                 $name = strrchr($capath, '/');
                 if (empty($name)) // windows
-                    $name = strrchr($capath, '\\');                    
-                $capath = substr($capath, 0, strlen($capath) - strlen($name) + 1).'musbe-ca.crt'; 
-                
+                    $name = strrchr($capath, '\\');
+                $capath = substr($capath, 0, strlen($capath) - strlen($name) + 1).'musbe-ca.crt';
+
                 if (! empty($gSwekeyCA))
                     $sslOptions['cainfo'] = $gSwekeyCA;
-                
-                $options['ssl'] = $sslOptions; 
+
+                $options['ssl'] = $sslOptions;
             }
 
             $r->setOptions($options);
-            
- //           try 
+
+ //           try
             {
                $reply = $r->send();
                $res = $reply->getBody();
@@ -287,19 +288,19 @@ function Swekey_HttpGet($url, &$response_code)
 
 	           $gSwekeyLastResult = $res;
 	           return $res;
-            } 
- //           catch (HttpException $e) 
+            }
+ //           catch (HttpException $e)
  //           {
  //               error_log("SWEKEY_WARNING:HttpException ".$e." getting ".$url);
- //           }        
-        } 
-        
+ //           }
+        }
+
         $response_code = 408; // Request Timeout
-        $gSwekeyLastError = $response_code;  
+        $gSwekeyLastError = $response_code;
         error_log("SWEKEY_ERROR:Error ".$gSwekeyLastError." getting ".$url);
         return "";
     }
-    
+
    	global $http_response_header;
 	$res = @file_get_contents($url);
 	$response_code = substr($http_response_header[0], 9, 3); //HTTP/1.0
@@ -308,15 +309,15 @@ function Swekey_HttpGet($url, &$response_code)
 	   $gSwekeyLastResult = $res;
 	   return $res;
 	}
-      
+
     $gSwekeyLastError = $response_code;
     error_log("SWEKEY_ERROR:Error ".$response_code." getting ".$url);
     return "";
-} 
+}
 
 /**
  *  Get a Random Token from a Token Server
- *  The RT is a 64 vhars hexadecimal value     
+ *  The RT is a 64 vhars hexadecimal value
  *  You should better use Swekey_GetFastRndToken() for performance
  *  @access public
  */
@@ -324,26 +325,26 @@ function Swekey_GetRndToken()
 {
     global $gSwekeyRndTokenServer;
     return Swekey_HttpGet($gSwekeyRndTokenServer.'/FULL-RND-TOKEN', $response_code);
-} 
+}
 
 /**
  *  Get a Half Random Token from a Token Server
- *  The RT is a 64 vhars hexadecimal value     
- *  Use this value if you want to make your own Swekey_GetFastRndToken() 
+ *  The RT is a 64 vhars hexadecimal value
+ *  Use this value if you want to make your own Swekey_GetFastRndToken()
  *  @access public
  */
 function Swekey_GetHalfRndToken()
 {
     global $gSwekeyRndTokenServer;
 	return Swekey_HttpGet($gSwekeyRndTokenServer.'/HALF-RND-TOKEN', $response_code);
-} 
+}
 
 /**
- *  Get a Half Random Token     
- *  The RT is a 64 vhars hexadecimal value   
- *  This function get a new random token and reuse it.       
+ *  Get a Half Random Token
+ *  The RT is a 64 vhars hexadecimal value
+ *  This function get a new random token and reuse it.
  *  Token are refetched from the server only once every 30 seconds.
- *  You should always use this function to get half random token.      
+ *  You should always use this function to get half random token.
  *  @access public
  */
 function Swekey_GetFastHalfRndToken()
@@ -357,7 +358,7 @@ function Swekey_GetFastHalfRndToken()
     if (isset($_SESSION['rnd-token-date']))
        if (time() - $_SESSION['rnd-token-date'] < 30)
 	   	  $res = $_SESSION['rnd-token'];
-    
+
     // If not we try to get it from a temp file (PHP >= 5.2.1 only)
    if (strlen($res) != 32 && $gSwekeyTokenCacheEnabled)
    {
@@ -369,7 +370,7 @@ function Swekey_GetFastHalfRndToken()
 			if ($modif != false)
                 if (time() - $modif < 30)
 	            {
-	                $res = @file_get_contents($cachefile); 
+	                $res = @file_get_contents($cachefile);
 	                if (strlen($res) != 32)
 	                    $res = "";
                		else
@@ -378,9 +379,9 @@ function Swekey_GetFastHalfRndToken()
                		 	$_SESSION['rnd-token-date'] = $modif;
 		 			}
 	            }
-        }   
+        }
    }
-      
+
    // If we don't have a valid RT here we have to get it from the server
    if (strlen($res) != 32)
    {
@@ -394,29 +395,29 @@ function Swekey_GetFastHalfRndToken()
 	   		$file = fopen($cachefile , "x");
 	   		if ($file != FALSE)
 	   		{
-	   	    	@fwrite($file, $res); 
+	   	    	@fwrite($file, $res);
     			@fclose($file);
     		}
         }
    }
-   
+
    return $res."00000000000000000000000000000000";
 }
 
 /**
- *  Get a Random Token     
- *  The RT is a 64 vhars hexadecimal value   
- *  This function generates a unique random token for each call but call the       
+ *  Get a Random Token
+ *  The RT is a 64 vhars hexadecimal value
+ *  This function generates a unique random token for each call but call the
  *  server only once every 30 seconds.
- *  You should always use this function to get random token.      
+ *  You should always use this function to get random token.
  *  @access public
  */
 function Swekey_GetFastRndToken()
 {
     $res = Swekey_GetFastHalfRndToken();
     if (strlen($res) == 64)
-        return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM))); 
-    
+        return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM)));
+
     return "";
 }
 
@@ -435,11 +436,11 @@ function Swekey_CheckOtp($id, $rt, $otp)
     global $gSwekeyCheckServer;
 	$res = Swekey_HttpGet($gSwekeyCheckServer.'/CHECK-OTP/'.$id.'/'.$rt.'/'.$otp, $response_code);
 	return $response_code == 200 && $res == "OK";
-} 
+}
 
 /**
  * Values that are associated with a key.
- * The following values can be returned by the Swekey_GetStatus() function      
+ * The following values can be returned by the Swekey_GetStatus() function
  */
 define ("SWEKEY_STATUS_OK",0);
 define ("SWEKEY_STATUS_NOT_FOUND",1);  // The key does not exist in the db
@@ -452,7 +453,7 @@ define ("SWEKEY_STATUS_UNKOWN",201);   // We could not connect to the authentica
 
 /**
  * Values that are associated with a key.
- * The Javascript Api can also return the following values      
+ * The Javascript Api can also return the following values
  */
 define ("SWEKEY_STATUS_REPLACED",100);	 // This key has been replaced by a backup key
 define ("SWEKEY_STATUS_BACKUP_KEY",101); // This key is a backup key that is not activated yet
@@ -460,7 +461,7 @@ define ("SWEKEY_STATUS_NOTPLUGGED",200); // This key is not plugged in the compu
 
 
 /**
- *  Return the text corresponding to the integer status of a key     
+ *  Return the text corresponding to the integer status of a key
  *
  *  @param  status              The status
  *  @return                     The text corresponding to the status
@@ -483,10 +484,10 @@ function Swekey_GetStatusStr($status)
        case SWEKEY_STATUS_UNKOWN    	: return 'Unknow Status, could not connect to the authentication server';
 	}
 	return 'unknown status '.$status;
-} 
+}
 
 /**
- *  If your web site requires a key to login you should check that the key 
+ *  If your web site requires a key to login you should check that the key
  *  is still valid (has not been lost or stolen) before requiring it.
  *  A key can be authenticated only if its status is SWEKEY_STATUS_OK
  *  @param  id                  The id of the swekey
@@ -499,8 +500,8 @@ function Swekey_GetStatus($id)
 	$res = Swekey_HttpGet($gSwekeyStatusServer.'/GET-STATUS/'.$id, $response_code);
     if ($response_code == 200)
         return intval($res);
- 
+
     return SWEKEY_STATUS_UNKOWN;
-} 
+}
 
 ?>
