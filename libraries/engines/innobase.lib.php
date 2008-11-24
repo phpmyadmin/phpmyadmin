@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin-Engines
  */
 
 /**
@@ -12,6 +13,7 @@ include_once './libraries/engines/innodb.lib.php';
 
 /**
  *
+ * @package phpMyAdmin-Engines
  */
 class PMA_StorageEngine_innobase extends PMA_StorageEngine_innodb {}
 

@@ -2,6 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @version $Id$
+ * @package phpMyAdmin-Engines
  */
 
 /**
@@ -11,6 +12,7 @@ include_once './libraries/engines/merge.lib.php';
 
 /**
  *
+ * @package phpMyAdmin-Engines
  */
 class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
 {

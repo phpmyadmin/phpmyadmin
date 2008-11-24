@@ -2,10 +2,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @version $Id$
+ * @package phpMyAdmin-Engines
  */
 
 /**
  * the MyISAM storage engine
+ * @package phpMyAdmin-Engines
  */
 class PMA_StorageEngine_pbxt extends PMA_StorageEngine
 {
