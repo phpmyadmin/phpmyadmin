@@ -35,7 +35,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
     }
 } else {
     // internal relations
-    PMA_query_as_cu('DELETE FROM ' 
+    PMA_query_as_cu('DELETE FROM '
               . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
               . $cfg['Server']['relation'].' WHERE '
               . 'master_db = \'' . PMA_sqlAddslashes($DB2) . '\''
@@ -46,9 +46,9 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
               . ' AND foreign_field = \'' . PMA_sqlAddslashes($F1) . '\''
               , FALSE, PMA_DBI_QUERY_STORE);
 }
-PMD_return(1, 'strRelationDeleted');
+PMD_return_upd(1, 'strRelationDeleted');
 
-function PMD_return($b,$ret)
+function PMD_return_upd($b,$ret)
 {
   global $K;
   header("Content-Type: text/xml; charset=utf-8");

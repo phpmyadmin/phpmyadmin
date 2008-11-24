@@ -28,7 +28,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
     $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
     if (isset($existrel_foreign[$F2])
      && isset($existrel_foreign[$F2]['constraint'])) {
-         PMD_return(0,'strErrorRelationExists');
+         PMD_return_new(0,'strErrorRelationExists');
     }
 // note: in InnoDB, the index does not requires to be on a PRIMARY
 // or UNIQUE key
@@ -60,14 +60,14 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
         if ($on_update != 'nix') {
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
-        PMA_DBI_try_query($upd_query) or PMD_return(0,'strErrorRelationAdded');
-    PMD_return(1,'strForeignKeyRelationAdded');
+        PMA_DBI_try_query($upd_query) or PMD_return_new(0,'strErrorRelationAdded');
+    PMD_return_new(1,'strForeignKeyRelationAdded');
     }
 
-// internal (pmadb) relation 
+// internal (pmadb) relation
 } else {
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
-        PMD_return(0, 'strGeneralRelationFeat:strDisabled');
+        PMD_return_new(0, 'strGeneralRelationFeat:strDisabled');
     } else {
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
@@ -83,14 +83,14 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
                             . '\'' . PMA_sqlAddslashes($F1) . '\')';
 
         if (PMA_query_as_cu($q , false, PMA_DBI_QUERY_STORE)) {
-            PMD_return(1, 'strInternalRelationAdded');
+            PMD_return_new(1, 'strInternalRelationAdded');
         } else {
-            PMD_return(0, 'strErrorRelationAdded');
+            PMD_return_new(0, 'strErrorRelationAdded');
         }
    }
 }
 
-function PMD_return($b,$ret)
+function PMD_return_new($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;
     header("Content-Type: text/xml; charset=utf-8");//utf-8 .$_GLOBALS['charset']
