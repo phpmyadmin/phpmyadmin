@@ -3,6 +3,7 @@
 /**
  * Interface to the improved MySQL extension (MySQLi)
  *
+ * @package phpMyAdmin-DBI-MySQLi
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
@@ -178,7 +179,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
 
         $trace = array();
         foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#' 
+            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
                 . $trace_step['line'] . ': '
                 . (isset($trace_step['class']) ? $trace_step['class'] : '')
                 //. (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
@@ -575,9 +576,9 @@ function PMA_DBI_field_name($result, $i)
  * @uses    MYSQLI_PRI_KEY_FLAG
  * @uses    MYSQLI_NOT_NULL_FLAG
  * @uses    MYSQLI_TYPE_BLOB
- * @uses    MYSQLI_TYPE_MEDIUM_BLOB  
- * @uses    MYSQLI_TYPE_LONG_BLOB 
- * @uses    MYSQLI_TYPE_VAR_STRING  
+ * @uses    MYSQLI_TYPE_MEDIUM_BLOB
+ * @uses    MYSQLI_TYPE_LONG_BLOB
+ * @uses    MYSQLI_TYPE_VAR_STRING
  * @uses    MYSQLI_TYPE_STRING
  * @uses    mysqli_fetch_field_direct()
  * @param   object mysqli result    $result

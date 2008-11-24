@@ -13,6 +13,7 @@
  * The SQL Parser code relies heavily on these functions.
  *
  * @version $Id$
+ * @package phpMyAdmin-String-MB
  */
 
 /**

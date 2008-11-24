@@ -13,6 +13,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Swekey authentication functions.
+ */
 require './libraries/auth/swekey/swekey.auth.lib.php';
 
 if (function_exists('mcrypt_encrypt')) {

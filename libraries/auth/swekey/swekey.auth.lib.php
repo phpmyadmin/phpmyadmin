@@ -3,6 +3,9 @@
  * @package Swekey
  */
 
+/**
+ * Checks Swekey authentication.
+ */
 function Swekey_auth_check()
 {
     global $cfg;
@@ -57,6 +60,9 @@ function Swekey_auth_check()
 }
 
 
+/**
+ * Handle Swekey authentication error.
+ */
 function Swekey_auth_error()
 {
     if (! isset($_SESSION['SWEKEY']))
@@ -200,6 +206,9 @@ function Swekey_auth_error()
 }
 
 
+/**
+ * Perform login using Swekey.
+ */
 function Swekey_login($input_name, $input_go)
 {
     $swekeyErr = Swekey_auth_error();

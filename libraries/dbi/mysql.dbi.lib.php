@@ -3,6 +3,7 @@
 /**
  * Interface to the classic MySQL extension
  *
+ * @package phpMyAdmin-DBI-MySQL
  * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
@@ -153,10 +154,10 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
             $_SESSION['debug']['queries'][$hash]['query'] = $query;
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
-        
+
         $trace = array();
         foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#' 
+            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
                 . $trace_step['line'] . ': '
                 . (isset($trace_step['class']) ? $trace_step['class'] : '')
                 //. (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
