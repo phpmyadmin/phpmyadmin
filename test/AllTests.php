@@ -15,7 +15,9 @@ if (! defined('PMA_MAIN_METHOD')) {
     chdir('..');
 }
 
-// required to not die() in some libraries
+/**
+ * required to not die() in some libraries
+ */
 define('PHPMYADMIN', true);
 
 /**
@@ -37,6 +39,10 @@ require_once './test/PMA_generateCommonUrl_test.php';
 require_once './test/PMA_blowfish_test.php';
 require_once './test/PMA_escapeMySqlWildcards_test.php';
 
+/**
+ * Class to run all tests.
+ * @package phpMyAdmin-test
+ */
 class AllTests
 {
     public static function main()
