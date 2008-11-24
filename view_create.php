@@ -10,6 +10,7 @@
 
 /**
  * do not import request variable into global scope
+ * @ignore
  */
 if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
