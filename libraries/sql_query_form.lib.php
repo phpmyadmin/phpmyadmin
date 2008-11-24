@@ -9,6 +9,7 @@
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
  * @usedby  querywindow.php
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
