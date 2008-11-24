@@ -1,11 +1,17 @@
 <?php
 /**
- * Config file management and generation class
+ * Config file management and generation
  *
- * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  * @version    $Id$
+ * @package    phpMyAdmin-setup
+ */
+
+/**
+ * Config file management and generation class
+ *
+ * @package    phpMyAdmin-setup
  */
 class ConfigFile
 {

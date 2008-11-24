@@ -1,12 +1,18 @@
 <?php
 /**
- * Base class for forms, loads default configuration options, checks allowed
- * values etc.
+ * Form handling code.
  *
  * @package    phpMyAdmin-setup
  * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  * @version    $Id$
+ */
+
+/**
+ * Base class for forms, loads default configuration options, checks allowed
+ * values etc.
+ *
+ * @package    phpMyAdmin-setup
  */
 class Form
 {
