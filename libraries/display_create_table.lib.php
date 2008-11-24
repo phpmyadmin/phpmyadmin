@@ -23,6 +23,7 @@
  * on MySQL 5.0.18.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

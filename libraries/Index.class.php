@@ -10,6 +10,7 @@
 /**
  * @since phpMyAdmin 3.0.0
  *
+ * @package phpMyAdmin
  */
 class PMA_Index
 {
@@ -582,6 +583,9 @@ class PMA_Index
     }
 }
 
+/**
+ * @package phpMyAdmin
+ */
 class PMA_Index_Column
 {
     /**

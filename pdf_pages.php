@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -74,7 +75,7 @@ if ($cfgRelation['pdfwork']) {
                 }
                 break;
             case 'createpage':
-                $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option); 
+                $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
 
                 // A u t o m a t i c    l a y o u t
                 // ================================
@@ -85,10 +86,10 @@ if ($cfgRelation['pdfwork']) {
                 if (isset($auto_layout_foreign)) {
                     // get the tables list
                     $tables = PMA_DBI_get_tables_full($db);
-                    // find the ones who support FOREIGN KEY; it's not 
+                    // find the ones who support FOREIGN KEY; it's not
                     // important that we group together InnoDB tables
                     // and PBXT tables, as this logic is just to put
-                    // the tables on the layout, not to determine relations 
+                    // the tables on the layout, not to determine relations
                     $foreignkey_tables = array();
                     foreach($tables as $table_name => $table_properties) {
                         if (PMA_foreignkey_supported($table_properties['ENGINE'])) {

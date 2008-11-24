@@ -4,13 +4,14 @@
  * Simple interface for creating OASIS OpenDocument files.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
 /**
- *
+ * Load ZIP handler.
  */
 require_once './libraries/zip.lib.php';
 

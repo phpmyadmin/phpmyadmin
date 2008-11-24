@@ -12,6 +12,9 @@
  */
 require_once 'PHPUnit/Framework.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class Environment_test extends PHPUnit_Framework_TestCase
 {
     public function testPhpVersion()

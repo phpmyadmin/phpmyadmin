@@ -26,6 +26,7 @@
  * @uses    time()
  * @uses    PMA_getenv()
  * @uses    header()                to send charset
+ * @package phpMyAdmin
  */
 
 /**

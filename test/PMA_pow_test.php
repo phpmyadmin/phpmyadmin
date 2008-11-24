@@ -13,6 +13,9 @@
 require_once 'PHPUnit/Framework.php';
 require_once './libraries/common.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_pow_test extends PHPUnit_Framework_TestCase
 {
     public function testIntOverflow()

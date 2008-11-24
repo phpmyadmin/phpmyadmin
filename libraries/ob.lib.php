@@ -10,6 +10,7 @@
  * Make some wrappers for the top and bottoms of our files.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

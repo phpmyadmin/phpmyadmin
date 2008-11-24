@@ -12,8 +12,8 @@
  * @todo replace error messages with localized string
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
+ * @package phpMyAdmin
  */
-
 class PMA_File
 {
     /**

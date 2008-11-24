@@ -13,6 +13,9 @@
 require_once 'PHPUnit/Framework.php';
 require_once './libraries/sanitizing.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
     public function testXssInHref()

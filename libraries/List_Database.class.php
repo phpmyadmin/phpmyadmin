@@ -4,6 +4,7 @@
  * holds the PMA_List_Database class
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -23,6 +24,7 @@ require_once './libraries/List.class.php';
  * @todo ? support --skip-showdatabases and user has only global rights
  * @access public
  * @since phpMyAdmin 2.9.10
+ * @package phpMyAdmin
  */
 /*public*/ class PMA_List_Database extends PMA_List
 {
@@ -46,7 +48,7 @@ require_once './libraries/List.class.php';
      * @access protected
      */
     protected $_show_databases_disabled = false;
-    
+
     /**
      * @var string command to retrieve databases from server
      */
@@ -111,11 +113,11 @@ require_once './libraries/List.class.php';
         if ($this->_show_databases_disabled) {
             return array();
         }
-        
+
         if (null !== $like_db_name) {
             $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
         } elseif (null === $this->_command) {
-            $command = str_replace('#user#', $GLOBALS['cfg']['Server']['user'], 
+            $command = str_replace('#user#', $GLOBALS['cfg']['Server']['user'],
                 $GLOBALS['cfg']['Server']['ShowDatabasesCommand']);
             $this->_command = $command;
         } else {
@@ -165,7 +167,7 @@ require_once './libraries/List.class.php';
             }
             $this->exchangeArray($items);
         }
-        
+
         $this->_checkHideDatabase();
     }
 
@@ -197,7 +199,7 @@ require_once './libraries/List.class.php';
         if (! is_array($GLOBALS['cfg']['Server']['only_db'])) {
             return false;
         }
-        
+
         $items = array();
 
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
@@ -224,7 +226,7 @@ require_once './libraries/List.class.php';
 
             // @todo induce error, about not using wildcards with SHOW DATABASE disabled?
         }
-        
+
         $this->exchangeArray($items);
 
         return true;
@@ -313,7 +315,7 @@ require_once './libraries/List.class.php';
                 'disp_name'     => $disp_name,
                 'comment'       => $db_tooltip,
             );
-            
+
             if ($GLOBALS['cfg']['Server']['CountTables']) {
                 $dbgroups[$group][$db]['num_tables'] = PMA_getTableCount($db);
             }
@@ -371,7 +373,7 @@ require_once './libraries/List.class.php';
                 } else {
                     $return .= htmlspecialchars($db['disp_name']);
                 }
-                
+
                 if (! empty($db['num_tables'])) {
                     $return .= ' (' . $db['num_tables'] . ')';
                 }

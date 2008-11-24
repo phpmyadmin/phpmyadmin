@@ -8,6 +8,7 @@
  * - also changes made in js/functions.js
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

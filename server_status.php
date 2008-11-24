@@ -5,6 +5,7 @@
  *  + reset status variables
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

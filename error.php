@@ -4,9 +4,12 @@
  * phpMyAdmin fatal error display page
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
-/* Input sanitizing */
+/**
+ * Input sanitizing.
+ */
 require_once './libraries/sanitizing.lib.php';
 
 /* Get variables */

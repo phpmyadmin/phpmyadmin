@@ -7,6 +7,7 @@
  * that would read any file using a GET parameter, it would open a hole
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

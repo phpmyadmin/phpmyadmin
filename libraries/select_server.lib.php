@@ -4,6 +4,7 @@
  * Code for displaying server selection written by nijel
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

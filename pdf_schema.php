@@ -48,6 +48,7 @@ require_once './libraries/tcpdf/tcpdf.php';
  *
  * @access public
  * @see FPDF
+ * @package phpMyAdmin
  */
 class PMA_PDF extends TCPDF {
     /**
@@ -496,6 +497,7 @@ class PMA_PDF extends TCPDF {
  *
  * @access private
  * @see PMA_RT
+ * @package phpMyAdmin
  */
 class PMA_RT_Table {
     /**
@@ -680,6 +682,7 @@ class PMA_RT_Table {
  *
  * @access private
  * @see PMA_RT
+ * @package phpMyAdmin
  */
 class PMA_RT_Relation {
     /**
@@ -806,6 +809,7 @@ class PMA_RT_Relation {
  *
  * @access public
  * @see PMA_PDF
+ * @package phpMyAdmin
  */
 class PMA_RT {
     /**

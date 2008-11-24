@@ -13,6 +13,9 @@
 require_once 'PHPUnit/Framework.php';
 require_once './libraries/transformations.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_transformation_getOptions_test extends PHPUnit_Framework_TestCase
 {
     public function testDefault()

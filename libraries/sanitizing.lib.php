@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * This is in a separate script because it's called from a number of scripts
  *
  * @version $Id$
- * This is in a separate script because it's called from a number of scripts
+ * @package phpMyAdmin
  */
 
 /**

@@ -14,6 +14,9 @@ require_once 'PHPUnit/Framework.php';
 require_once './libraries/core.lib.php';
 require_once './libraries/url_generating.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()

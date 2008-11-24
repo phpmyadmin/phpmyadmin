@@ -28,6 +28,7 @@
  * href="syntax.css.php" />' at the moment.)
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -1150,7 +1151,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         break;
                 } // end switch
 
-                if ($subresult['querytype'] == 'SELECT' 
+                if ($subresult['querytype'] == 'SELECT'
                  && ! $in_group_concat
                  && ! ($seen_subquery && $arr[$i - 1]['type'] == 'punct_bracket_close_round')) {
                     if (!$seen_from) {
@@ -1705,7 +1706,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $limit_clause .= $sep;
                 }
             }
-            if ($after_limit && $seen_limit) { 
+            if ($after_limit && $seen_limit) {
                 $section_after_limit .= $arr[$i]['data'] . $sep;
             }
 

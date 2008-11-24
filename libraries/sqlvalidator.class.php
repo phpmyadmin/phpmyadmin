@@ -1,32 +1,33 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
-* PHP interface to MimerSQL Validator
-*
-* Copyright 2002, 2003 Robin Johnson <robbat2@users.sourceforge.net>
-* http://www.orbis-terrarum.net/?l=people.robbat2
-*
-* All data is transported over HTTP-SOAP
-* And uses the PEAR SOAP Module
-*
-* Install instructions for PEAR SOAP
-* Make sure you have a really recent PHP with PEAR support
-* run this: "pear install Mail_Mime Net_DIME SOAP"
-*
-* If you got this file from somewhere other than phpMyAdmin
-* please be aware that the latest copy will always be in the
-* phpMyAdmin subversion tree as
-* $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/libraries/sqlvalidator.class.php $
-*
-* This code that also used to depend on the PHP overload module, but that has been
-* removed now.
-*
-* @access   public
-*
-* @author   Robin Johnson <robbat2@users.sourceforge.net>
-*
-* @version  $Id$
-*/
+ * PHP interface to MimerSQL Validator
+ *
+ * Copyright 2002, 2003 Robin Johnson <robbat2@users.sourceforge.net>
+ * http://www.orbis-terrarum.net/?l=people.robbat2
+ *
+ * All data is transported over HTTP-SOAP
+ * And uses the PEAR SOAP Module
+ *
+ * Install instructions for PEAR SOAP
+ * Make sure you have a really recent PHP with PEAR support
+ * run this: "pear install Mail_Mime Net_DIME SOAP"
+ *
+ * If you got this file from somewhere other than phpMyAdmin
+ * please be aware that the latest copy will always be in the
+ * phpMyAdmin subversion tree as
+ * $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/libraries/sqlvalidator.class.php $
+ *
+ * This code that also used to depend on the PHP overload module, but that has been
+ * removed now.
+ *
+ * @access   public
+ *
+ * @author   Robin Johnson <robbat2@users.sourceforge.net>
+ *
+ * @version  $Id$
+ * @package phpMyAdmin
+ */
 if (! defined('PHPMYADMIN')) {
     exit;
 }

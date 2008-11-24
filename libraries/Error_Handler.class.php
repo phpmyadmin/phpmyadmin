@@ -4,6 +4,7 @@
  * Holds class PMA_Error_Handler
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -14,6 +15,7 @@ require_once './libraries/Error.class.php';
 /**
  * handling errors
  *
+ * @package phpMyAdmin
  */
 class PMA_Error_Handler
 {

@@ -3,16 +3,18 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
  * @todo make use of PMA_Message and PMA_Error
+ * @package phpMyAdmin
  */
 class PMA_Table
 {
 
     static $cache = array();
-    
+
     /**
      * @var string  table name
      */
@@ -248,10 +250,10 @@ class PMA_Table
         $comment = strtoupper(PMA_Table::sGetStatusInfo($db, $table, 'Comment'));
         return substr($comment, 0, 4) == 'VIEW';
     }
-    
+
     static public function sGetToolTip($db, $table)
     {
-        return PMA_Table::sGetStatusInfo($db, $table, 'Comment') 
+        return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
             . ' (' . PMA_Table::countRecords($db, $table, true) . ')';
     }
 
@@ -260,11 +262,11 @@ class PMA_Table
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
             PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
         }
-        
+
         if (null === $info) {
             return PMA_Table::$cache[$db][$table];
         }
-        
+
         if (! isset(PMA_Table::$cache[$db][$table][$info]) || $force_read) {
             PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
         }
@@ -327,7 +329,7 @@ class PMA_Table
                 $query .= ' NOT NULL';
             }
         }
-        
+
         switch ($default_type) {
             case 'USER_DEFINED' :
                 if ($is_timestamp && $default_value === '0') {
@@ -352,7 +354,7 @@ class PMA_Table
         if (!empty($extra)) {
             $query .= ' ' . $extra;
             // Force an auto_increment field to be part of the primary key
-            // even if user did not tick the PK box; 
+            // even if user did not tick the PK box;
             if ($extra == 'AUTO_INCREMENT') {
                 $primary_cnt = count($field_primary);
                 if (1 == $primary_cnt) {
@@ -401,25 +403,25 @@ class PMA_Table
      *
      * @access  public
      */
-    static public function countRecords($db, $table, $ret = false, 
+    static public function countRecords($db, $table, $ret = false,
         $force_exact = false, $is_view = null)
     {
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
             $row_count = false;
-            
+
             if (null === $is_view) {
                 $is_view = PMA_Table::isView($db, $table);
             }
-            
+
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
                     PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\'');
                 }
                 $row_count = PMA_Table::$cache[$db][$table]['Rows'];
             }
-    
+
             // for a VIEW, $row_count is always false at this point
             if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
                 if (! $is_view) {
@@ -431,7 +433,7 @@ class PMA_Table
                     // count could bring down a server, so we offer an
                     // alternative: setting MaxExactCountViews to 0 will bypass
                     // completely the record counting for views
-    
+
                     if ($GLOBALS['cfg']['MaxExactCountViews'] == 0) {
                         $row_count = 0;
                     } else {

@@ -3,6 +3,7 @@
 /**
  * @todo    too much die here, or?
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -362,7 +363,7 @@ if (!$save_on_server) {
         } else {
             header('Pragma: no-cache');
             // test case: exporting a database into a .gz file with Safari
-            // would produce files not having the current time 
+            // would produce files not having the current time
             // (added this header for Safari but should not harm other browsers)
             header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         }

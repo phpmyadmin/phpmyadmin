@@ -10,6 +10,7 @@
  * @uses    session_name()
  * @uses    session_start()
  * @uses    ini_set()
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -20,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
 if (!@function_exists('session_name')) {
     PMA_fatalError('strCantLoad', 'session');
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
-    // Do not delete the existing session, it might be used by other 
+    // Do not delete the existing session, it might be used by other
     // applications; instead just close it.
     session_write_close();
 }

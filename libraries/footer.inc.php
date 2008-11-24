@@ -42,6 +42,7 @@
  * @uses    basename()
  * @uses    file_exists()
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

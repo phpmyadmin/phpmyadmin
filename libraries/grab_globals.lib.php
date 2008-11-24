@@ -2,11 +2,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This library grabs the names and values of the variables sent or posted to a
- * script in $_GET, $_POST and $_FILES superglobals and sets simple globals 
- * variables from them. It does the same work for $HTTP_ACCEPT_LANGUAGE and 
+ * script in $_GET, $_POST and $_FILES superglobals and sets simple globals
+ * variables from them. It does the same work for $HTTP_ACCEPT_LANGUAGE and
  * $HTTP_AUTHORIZATION.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

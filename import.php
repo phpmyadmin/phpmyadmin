@@ -5,6 +5,7 @@
  *
  * @uses    PMA_Bookmark_getList()
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

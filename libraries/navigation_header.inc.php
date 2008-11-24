@@ -4,6 +4,7 @@
  * displays the pma logo, links and db and server selection in left frame
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

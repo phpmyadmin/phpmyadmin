@@ -4,12 +4,14 @@
  * hold the PMA_List base class
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
  * @todo add caching
  * @since phpMyAdmin 2.9.10
  * @abstract
+ * @package phpMyAdmin
  */
 abstract class PMA_List extends ArrayObject
 {

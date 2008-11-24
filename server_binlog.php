@@ -36,6 +36,7 @@
  * @uses    implode()
  * @uses    htmlspecialchars()
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

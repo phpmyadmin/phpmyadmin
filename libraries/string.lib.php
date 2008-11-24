@@ -19,6 +19,7 @@
  * @uses    mb_internal_encoding()
  * @uses    defined()
  * @todo a .lib filename should not have code in main(), split or rename file
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -4,6 +4,7 @@
  * Set of functions used to build XML dumps of tables
  *
  * @version $Id$
+ * @package phpMyAdmin-Export-XML
  */
 if (! defined('PHPMYADMIN')) {
     exit;

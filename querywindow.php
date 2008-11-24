@@ -39,6 +39,7 @@
  * @uses    preg_replace()
  * @uses    htmlspecialchars()
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

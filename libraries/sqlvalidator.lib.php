@@ -28,6 +28,7 @@
  * Also set a username and password if you have a private one
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

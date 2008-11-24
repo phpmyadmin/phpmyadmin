@@ -4,13 +4,16 @@
  * Displays form for password change
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// loic1: autocomplete feature of IE kills the "onchange" event handler and it
-//        must be replaced by the "onpropertychange" one in this case
+/**
+ * loic1: autocomplete feature of IE kills the "onchange" event handler and it
+ *        must be replaced by the "onpropertychange" one in this case
+ */
 $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
                  ? 'onpropertychange'
                  : 'onchange';

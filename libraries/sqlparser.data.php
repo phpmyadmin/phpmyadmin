@@ -19,7 +19,8 @@
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the DEBUG code after this function's definition.
  *
- * @version$Id$
+ * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -695,7 +696,7 @@ $PMA_SQPdata_reserved_word = array (
  */
 $PMA_SQPdata_reserved_word_cnt = 288;
 /**
- * The previous array must be sorted so that the binary search work. 
+ * The previous array must be sorted so that the binary search work.
  * Sometimes a word is not added in the correct order, so
  * this debugging code shows the problem. The same should be
  * done for all arrays.

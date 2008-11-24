@@ -21,12 +21,13 @@ require_once './libraries/common.lib.php';
 /**
  * Test MySQL escaping.
  *
+ * @package phpMyAdmin-test
  */
 class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
 {
 
-    /** 
-     * PMA_escape_mysql_wildcards tests 
+    /**
+     * PMA_escape_mysql_wildcards tests
      */
 
     public function testEscape_1()
@@ -54,8 +55,8 @@ class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
         $this->assertEquals('\\\_\\\%', PMA_escape_mysql_wildcards('\_\%'));
     }
 
-	/** 
-	 * PMA_unescape_mysql_wildcards tests 
+	/**
+	 * PMA_unescape_mysql_wildcards tests
 	 */
 
 	public function testUnEscape_1()
@@ -77,7 +78,7 @@ class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('%_', PMA_unescape_mysql_wildcards('%\_'));
     }
-	
+
 	public function testUnEscape_5()
     {
         $this->assertEquals('\%\_', PMA_unescape_mysql_wildcards('\\\%\\\_'));

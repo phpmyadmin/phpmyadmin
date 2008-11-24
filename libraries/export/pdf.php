@@ -36,8 +36,10 @@ if (isset($plugin_list)) {
 define('PMA_PDF_FONT', 'DejaVuSans');
 require_once './libraries/tcpdf/tcpdf.php';
 
-// Adapted from a LGPL script by Philip Clarke
-
+/**
+ * Adapted from a LGPL script by Philip Clarke
+ * @package phpMyAdmin-Export-PDF
+ */
 class PMA_PDF extends TCPDF
 {
     var $tablewidths;

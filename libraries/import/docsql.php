@@ -10,6 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Load relations.
+ */
 require_once './libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 

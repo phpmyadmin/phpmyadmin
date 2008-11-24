@@ -32,6 +32,9 @@ $GLOBALS['charset'] = 'UTF-8';
 
 require_once './libraries/string.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_STR_sub_test extends PHPUnit_Framework_TestCase
 {
     public function testMultiByte()

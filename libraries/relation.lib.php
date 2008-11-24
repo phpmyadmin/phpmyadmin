@@ -4,6 +4,7 @@
  * Set of functions used with the relation and pdf feature
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -44,7 +45,7 @@ function PMA_query_as_cu($sql, $show_error = true, $options = 0)
 /**
  * @uses    $_SESSION['relation' . $GLOBALS['server']] for caching
  * @uses    $GLOBALS['cfgRelation'] to set it
- * @uses    $GLOBALS['server'] to ensure we are using server-specific pmadb 
+ * @uses    $GLOBALS['server'] to ensure we are using server-specific pmadb
  * @uses    PMA__getRelationsParam()
  * @uses    PMA_printRelationsParamDiagnostic()
  * @param   bool    $verbose    whether to print diagnostic info
@@ -391,7 +392,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             if (count($one_key['index_list']) == 1) {
                 foreach ($one_key['index_list'] as $i => $field) {
                     // If a foreign key is defined in the 'internal' source (pmadb)
-                    // and as a native foreign key, we won't get it twice 
+                    // and as a native foreign key, we won't get it twice
                     // if $source='both' because we use $field as key
 
                     // The parser looks for a CONSTRAINT clause just before
@@ -1096,7 +1097,7 @@ function PMA_getRelatives($from)
 
 /**
  * Rename a field in relation tables
- * 
+ *
  * usually called after a field in a table was renamed in tbl_alter.php
  *
  * @uses    PMA_getRelationsParam()
@@ -1111,7 +1112,7 @@ function PMA_getRelatives($from)
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {
     $cfgRelation = PMA_getRelationsParam();
-    
+
     if ($cfgRelation['displaywork']) {
         $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                       . '   SET display_field = \'' . PMA_sqlAddslashes($new_name) . '\''
@@ -1140,7 +1141,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 
 /**
  * Create a PDF page
- * 
+ *
  * @uses    $GLOBALS['strNoDescription']
  * @uses    PMA_backquote()
  * @uses    $GLOBALS['cfgRelation']['db']
@@ -1152,7 +1153,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  * @param array     $cfgRelation
  * @param string    $db
  * @param string    $query_default_option
- * @return string   $pdf_page_number 
+ * @return string   $pdf_page_number
  */
 function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option) {
     if (! isset($newpage) || $newpage == '') {

@@ -13,6 +13,9 @@
 require_once 'PHPUnit/Framework.php';
 require_once './libraries/core.lib.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class PMA_get_real_size_test extends PHPUnit_Framework_TestCase
 {
     public function testNull()

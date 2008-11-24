@@ -4,6 +4,7 @@
  * Holds class PMA_Message
  *
  * @version $Id: Error.class.php 10738 2007-10-08 16:02:58Z cybot_tm $
+ * @package phpMyAdmin
  */
 
 /**
@@ -47,6 +48,7 @@
  * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
  * // strSomeEvenMoreLocale - some final words
  * </code>
+ * @package phpMyAdmin
  */
 class PMA_Message
 {

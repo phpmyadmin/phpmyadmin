@@ -4,16 +4,18 @@
  * Library for extracting information about the partitions
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 
 /**
  * base Partition Class
+ * @package phpMyAdmin
  */
 class PMA_Partition
 {
     /**
-     * returns array of partition names for a specific db/table 
+     * returns array of partition names for a specific db/table
      *
      * @access  public
      * @uses    PMA_DBI_fetch_result()
@@ -29,14 +31,14 @@ class PMA_Partition
     }
 
     /**
-     * checks if MySQL server supports partitioning 
+     * checks if MySQL server supports partitioning
      *
      * @static
      * @staticvar boolean $have_partitioning
      * @staticvar boolean $already_checked
      * @access  public
      * @uses    PMA_DBI_fetch_result()
-     * @return  boolean 
+     * @return  boolean
      */
     static public function havePartitioning()
     {

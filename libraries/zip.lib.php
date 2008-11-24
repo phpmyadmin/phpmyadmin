@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -23,6 +24,7 @@
  * Official ZIP file format: http://www.pkware.com/appnote.txt
  *
  * @access  public
+ * @package phpMyAdmin
  */
 class zipfile
 {

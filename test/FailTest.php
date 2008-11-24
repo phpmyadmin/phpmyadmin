@@ -12,6 +12,9 @@
  */
 require_once 'PHPUnit/Framework.php';
 
+/**
+ * @package phpMyAdmin-test
+ */
 class FailTest extends PHPUnit_Framework_TestCase
 {
     public function testFail()

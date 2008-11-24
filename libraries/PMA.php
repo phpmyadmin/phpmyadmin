@@ -1,15 +1,21 @@
 <?php
 /**
  * Enter description here...
+ * @package phpMyAdmin
  *
+ */
+
+/**
+ * Database listing.
  */
 require_once './libraries/List_Database.class.php';
 
 /**
  * phpMyAdmin main Controller
- * 
- * 
  *
+ *
+ *
+ * @package phpMyAdmin
  */
 class PMA
 {
@@ -19,21 +25,21 @@ class PMA
      * @var PMA_List_Database
      */
     protected $databases = null;
-    
+
     /**
      * DBMS user link
      *
      * @var resource
      */
     protected $userlink = null;
-    
+
     /**
      * DBMS control link
      *
      * @var resource
      */
     protected $controllink = null;
-    
+
     /**
      * magic access to protected/inaccessible members/properties
      *
@@ -52,10 +58,10 @@ class PMA
                 return $this->controllink;
                 break;
         }
-        
+
         return null;
     }
-    
+
     /**
      * magic access to protected/inaccessible members/properties
      *
@@ -72,7 +78,7 @@ class PMA
                 break;
         }
     }
-    
+
     /**
      * Accessor to PMA::$databases
      *
@@ -87,7 +93,7 @@ class PMA
         if (null === $this->databases) {
             $this->databases = new PMA_List_Database($this->userlink, $this->controllink);
         }
-        
+
         return $this->databases;
     }
 }
