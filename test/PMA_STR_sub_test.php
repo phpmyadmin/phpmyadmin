@@ -22,9 +22,15 @@ if (isset($match) && ! empty($match[1])) {
     if (! isset($match[3])) {
         $match[3] = 0;
     }
+    /**
+     * @ignore
+     */
     define('PMA_PHP_INT_VERSION',
         (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
 } else {
+    /**
+     * @ignore
+     */
     define('PMA_PHP_INT_VERSION', 0);
 }
 
