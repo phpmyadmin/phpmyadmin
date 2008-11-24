@@ -7,6 +7,7 @@
 
 /**
  * Don't display the page heading
+ * @ignore
  */
 define('PMA_DISPLAY_HEADING', 0);
 
