@@ -142,7 +142,7 @@ class PMA_StorageEngine
      * @static
      * @uses    PMA_StorageEngine::getStorageEngines()
      * @param   string  $engine name of engine
-     * @reutrn  boolean whether $engine is valid or not
+     * @return  boolean whether $engine is valid or not
      */
     static public function isValid($engine)
     {
