@@ -19,7 +19,7 @@ class PMA_Theme_Manager
 {
     /**
      * @var string path to theme folder
-     * @protected
+     * @access protected
      */
     var $_themes_path;
 
