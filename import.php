@@ -280,6 +280,9 @@ if ($import_file != 'none' && !$error) {
                 break;
             case 'application/zip':
                 if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+                    /**
+                     * Load interface for zip extension.
+                     */
                     include_once './libraries/zip_extension.lib.php';
                     $result = PMA_getZipContents($import_file);
                     if (! empty($result['error'])) {

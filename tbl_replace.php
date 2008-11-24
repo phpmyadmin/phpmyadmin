@@ -234,7 +234,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
 				$val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
 		}
 	}
-        
+
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
         } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
@@ -397,7 +397,13 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools.js';
 
 $active_page = $goto_include;
+/**
+ * Load header.
+ */
 require_once './libraries/header.inc.php';
+/**
+ * Load target page.
+ */
 require './' . PMA_securePath($goto_include);
 exit;
 ?>

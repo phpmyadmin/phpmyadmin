@@ -30,7 +30,9 @@ if ($GLOBALS['PMA_allow_mbstr']) {
     mb_internal_encoding($GLOBALS['charset']);
 }
 
-// This is for handling input better
+/**
+ * Load proper code for handling input.
+ */
 if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
     $GLOBALS['PMA_strpos']      = 'mb_strpos';
     $GLOBALS['PMA_substr']      = 'mb_substr';
@@ -47,6 +49,9 @@ if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
     require './libraries/string_native.lib.php';
 }
 
+/**
+ * Load ctype handler.
+ */
 if (@extension_loaded('ctype')) {
     require './libraries/string_type_ctype.lib.php';
 } else {

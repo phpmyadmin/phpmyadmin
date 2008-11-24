@@ -71,7 +71,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // will handle them after the tables
             /**
              * @todo support a view of a view
-             * @todo support triggers 
+             * @todo support triggers
              */
             if (PMA_Table::isView($db, $each_table)) {
                 $views[] = $each_table;
@@ -184,7 +184,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         }
 
         if (! $_error && $move) {
-            // cleanup pmadb stuff for this db
+            /**
+             * cleanup pmadb stuff for this db
+             */
             require_once './libraries/relation_cleanup.lib.php';
             PMA_relationsCleanupDatabase($db);
 
@@ -416,7 +418,7 @@ if (!$is_information_schema) {
 <?php
         $choices = array(
             'structure' => $strStrucOnly,
-            'data'      => $strStrucData, 
+            'data'      => $strStrucData,
             'dataonly'  => $strDataOnly);
         PMA_generate_html_radio('what', $choices, 'data', true);
         unset($choices);
