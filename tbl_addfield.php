@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -67,7 +68,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         } // end if
     } // end for
-    
+
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
@@ -76,23 +77,23 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $definition = ' ADD ' . PMA_Table::generateFieldSpec(
-            $_REQUEST['field_name'][$i], 
+            $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
-            $_REQUEST['field_length'][$i], 
+            $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i]) 
-                ? $_REQUEST['field_collation'][$i] 
+            isset($_REQUEST['field_collation'][$i])
+                ? $_REQUEST['field_collation'][$i]
                 : '',
-            isset($_REQUEST['field_null'][$i]) 
-                ? $_REQUEST['field_null'][$i] 
+            isset($_REQUEST['field_null'][$i])
+                ? $_REQUEST['field_null'][$i]
                 : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i], 
+            $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
                 ? $_REQUEST['field_extra'][$i]
                 : false,
-            isset($_REQUEST['field_comments'][$i]) 
-                ? $_REQUEST['field_comments'][$i] 
+            isset($_REQUEST['field_comments'][$i])
+                ? $_REQUEST['field_comments'][$i]
                 : '',
             $field_primary,
             $i
@@ -121,7 +122,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
         $definitions[] = ' ADD PRIMARY KEY (' . implode(', ', $fields) . ') ';
     }
-    
+
     // Builds the indexes statements and updates the table
     if (count($field_index)) {
         $fields = array();
@@ -130,7 +131,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
         $definitions[] = ' ADD INDEX (' . implode(', ', $fields) . ') ';
     }
-    
+
     // Builds the uniques statements and updates the table
     if (count($field_unique)) {
         $fields = array();
@@ -167,10 +168,10 @@ if (isset($_REQUEST['do_save_data'])) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                  && strlen($_REQUEST['field_name'][$fieldindex])) {
-                    PMA_setMIME($db, $table, 
-                        $_REQUEST['field_name'][$fieldindex], 
-                        $mimetype, 
-                        $_REQUEST['field_transformation'][$fieldindex], 
+                    PMA_setMIME($db, $table,
+                        $_REQUEST['field_name'][$fieldindex],
+                        $mimetype,
+                        $_REQUEST['field_transformation'][$fieldindex],
                         $_REQUEST['field_transformation_options'][$fieldindex]);
                 }
             }

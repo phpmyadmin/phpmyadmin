@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -28,8 +29,8 @@ PMA_DBI_select_db($db);
 
 $goto = $cfg['DefaultTabTable'];
 
-/** 
- * $_REQUEST['target_db'] could be empty in case we came from an input field 
+/**
+ * $_REQUEST['target_db'] could be empty in case we came from an input field
  * (when there are many databases, no drop-down)
  */
 if (empty($_REQUEST['target_db'])) {

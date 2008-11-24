@@ -7,6 +7,7 @@
  * @todo this should be recoded as functions, to avoid messing with global variables
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

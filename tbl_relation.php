@@ -11,6 +11,7 @@
  * @todo add an link to create an index required for constraints, or an option to do automatically
  * @todo if above todos are fullfilled we can add all fields meet requirements in the select dropdown
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -304,7 +305,7 @@ echo PMA_generate_common_hidden_inputs($db, $table);
 
 if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
     // To choose relations we first need all tables names in current db
-    // and if the main table supports foreign keys 
+    // and if the main table supports foreign keys
     // we use SHOW TABLE STATUS because we need to find other tables of the
     // same engine.
 

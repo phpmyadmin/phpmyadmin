@@ -32,6 +32,7 @@
  * @uses    sprintf()
  * @uses    htmlspecialchars()
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -99,7 +100,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         } // end if
     } // end for
-    
+
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
         // '0' is also empty for php :-(
@@ -108,25 +109,25 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $query = PMA_Table::generateFieldSpec(
-            $_REQUEST['field_name'][$i], 
+            $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
-            $_REQUEST['field_length'][$i], 
+            $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i]) 
-                ? $_REQUEST['field_collation'][$i] 
+            isset($_REQUEST['field_collation'][$i])
+                ? $_REQUEST['field_collation'][$i]
                 : '',
-            isset($_REQUEST['field_null'][$i]) 
-                ? $_REQUEST['field_null'][$i] 
+            isset($_REQUEST['field_null'][$i])
+                ? $_REQUEST['field_null'][$i]
                 : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i], 
+            $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
                 ? $_REQUEST['field_extra'][$i]
                 : false,
-            isset($_REQUEST['field_comments'][$i]) 
-                ? $_REQUEST['field_comments'][$i] 
+            isset($_REQUEST['field_comments'][$i])
+                ? $_REQUEST['field_comments'][$i]
                 : '',
-            $field_primary, 
+            $field_primary,
             $i);
 
         $query .= ', ';

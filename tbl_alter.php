@@ -7,6 +7,7 @@
  * form and handles this form data
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

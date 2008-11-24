@@ -4,6 +4,7 @@
  * URL/hidden inputs generating.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -124,7 +125,7 @@ function PMA_getHiddenFields($values, $pre = '')
         if (is_array($value)) {
             $fields .= PMA_getHiddenFields($value, $name);
         } else {
-            // do not generate an ending "\n" because 
+            // do not generate an ending "\n" because
             // PMA_generate_common_hidden_inputs() is sometimes called
             // from a JS document.write()
             $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
@@ -188,11 +189,11 @@ function PMA_getHiddenFields($values, $pre = '')
  *                   on the resulting URL (for a normal URL displayed in HTML)
  *                   or something else to avoid using htmlspecialchars() (for
  *                   a URL sent via a header); if not set,'html' is assumed
- *                   - if first param is not array:  optional table name 
+ *                   - if first param is not array:  optional table name
  *
  * @param   string   - if first param is array: optional character to
  *                   use instead of '?'
- *                   - if first param is not array: optional character to use 
+ *                   - if first param is not array: optional character to use
  *                    instead of '&amp;' for dividing URL parameters
  * @return  string   string with URL parameters
  * @access  public

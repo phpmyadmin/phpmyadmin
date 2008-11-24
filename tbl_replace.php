@@ -36,6 +36,7 @@
  * @uses    $GLOBALS['goto']
  * @uses    $GLOBALS['sql_query']
  * @uses    PMA_File::getRecentBLOBReference()
+ * @package phpMyAdmin
  */
 
 /**

@@ -6,6 +6,7 @@
  * register_globals_save (mark this file save for disabling register globals)
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -426,10 +427,10 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // loic1: special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
-                    $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]); 
+                    $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
-		
+
 		//We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column
 	        $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
@@ -452,7 +453,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($field['Default'], $extracted_fieldspec['spec_in_brackets']); 
+                $special_chars = PMA_printable_bit_value($field['Default'], $extracted_fieldspec['spec_in_brackets']);
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }
@@ -925,7 +926,7 @@ foreach ($rows as $row_id => $vrow) {
                                         if (!empty($bs_tables) && strlen($db) > 0)
                                         {
                                             $bs_tables = $bs_tables[$db];
-                                
+
                                             // check if reference to BLOBStreaming tables exists
                                             if (isset($bs_tables))
                                             {

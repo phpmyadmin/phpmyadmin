@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -190,7 +191,7 @@ unset($reread_info);
 require_once './libraries/tbl_links.inc.php';
 
 if (isset($result)) {
-    // set to success by default, because result set could be empty 
+    // set to success by default, because result set could be empty
     // (for example, a table rename)
     $_type = 'success';
     if (empty($_message)) {
@@ -701,13 +702,13 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 require_once './libraries/footer.inc.php';
 
 
-function PMA_set_global_variables_for_engine($tbl_type) 
+function PMA_set_global_variables_for_engine($tbl_type)
 {
     global $is_myisam_or_maria, $is_innodb, $is_isam, $is_berkeleydb, $is_maria, $is_pbxt;
 
     $is_myisam_or_maria = $is_isam = $is_innodb = $is_berkeleydb = $is_maria = $is_pbxt = false;
     $upper_tbl_type = strtoupper($tbl_type);
-    
+
     //Options that apply to MYISAM usually apply to MARIA
     $is_myisam_or_maria = ($upper_tbl_type == 'MYISAM' || $upper_tbl_type == 'MARIA');
     $is_maria = ($upper_tbl_type == 'MARIA');

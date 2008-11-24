@@ -4,6 +4,7 @@
  * Set of functions used with the relation and pdf feature
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

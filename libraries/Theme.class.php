@@ -4,6 +4,7 @@
  * hold PMA_Theme class
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -14,6 +15,7 @@
  * @todo make css optionally replacing 'parent' css or extending it (by appending at the end)
  * @todo add an optional global css file - which will be used for both frames
  *
+ * @package phpMyAdmin
  */
 class PMA_Theme {
     /**

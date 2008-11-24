@@ -26,6 +26,7 @@
  * @uses    PMA_showMessage()
  * @uses    define()
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

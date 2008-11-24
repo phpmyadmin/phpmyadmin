@@ -4,6 +4,7 @@
  * Displays index edit/creation form and handles it
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -44,7 +45,7 @@ if (isset($_REQUEST['index'])) {
  */
 if (isset($_REQUEST['do_save_data'])) {
     $error = false;
-    
+
     // $sql_query is the one displayed in the query box
     $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table);
 
@@ -77,7 +78,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 . ($index->getName() ? PMA_backquote($index->getName()) : '');
             break;
     } // end switch
-    
+
     $index_fields = array();
     foreach ($index->getColumns() as $key => $column) {
         $index_fields[$key] = PMA_backquote($column->getName());
@@ -85,18 +86,18 @@ if (isset($_REQUEST['do_save_data'])) {
             $index_fields[$key] .= '(' . $column->getSubPart() . ')';
         }
     } // end while
-    
+
     if (empty($index_fields)){
         $error = PMA_Message::error('strNoIndexPartsDefined');
     } else {
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
-    
+
     if (! $error) {
         PMA_DBI_query($sql_query);
         $message = PMA_Message::success('strTableAlteredSuccessfully');
         $message->addParam($table);
-        
+
         $active_page = 'tbl_structure.php';
         require './tbl_structure.php';
         exit;
@@ -119,7 +120,7 @@ require_once './libraries/tbl_links.inc.php';
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
     // coming already from form
-    $add_fields = 
+    $add_fields =
         count($_REQUEST['index']['columns']['names']) - $index->getColumnCount();
     if (isset($_REQUEST['add_fields'])) {
         $add_fields += $_REQUEST['added_fields'];
@@ -155,8 +156,8 @@ echo PMA_generate_common_hidden_inputs($form_params);
 <fieldset>
     <legend>
 <?php
-echo (isset($_REQUEST['create_index']) 
-    ? $strCreateIndexTopic 
+echo (isset($_REQUEST['create_index'])
+    ? $strCreateIndexTopic
     : $strModifyIndexTopic);
 ?>
     </legend>
@@ -201,7 +202,7 @@ foreach ($index->getColumns() as $column) {
          || preg_match('/(char|text)/i', $field_type)) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
                  . (($field_name == $column->getName()) ? ' selected="selected"' : '') . '>'
-                 . htmlspecialchars($field_name) . ' [' . $field_type . ']' 
+                 . htmlspecialchars($field_name) . ' [' . $field_type . ']'
                  . '</option>' . "\n";
         }
     } // end foreach $fields
@@ -223,7 +224,7 @@ for ($i = 0; $i < $add_fields; $i++) {
     <?php
     foreach ($fields as $field_name => $field_type) {
         echo '<option value="' . htmlspecialchars($field_name) . '">'
-             . htmlspecialchars($field_name) . ' [' . $field_type . ']' 
+             . htmlspecialchars($field_name) . ' [' . $field_type . ']'
              . '</option>' . "\n";
     } // end foreach $fields
     ?>
