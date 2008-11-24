@@ -1,7 +1,7 @@
 <?php
 /**
  * Font data for DejaVu Sans.
- * @package TCPDF
+ * @package com.tecnick.tcpdf
  */
 $type='TrueTypeUnicode';
 $name='DejaVuSans';
