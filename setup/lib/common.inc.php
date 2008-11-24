@@ -11,6 +11,10 @@
 // TODO: remove
 error_reporting(E_ALL | E_STRICT);
 
+/**
+ * Do not include full common.
+ * @ignore
+ */
 define('PMA_MINIMUM_COMMON', TRUE);
 define('PMA_SETUP', TRUE);
 chdir('..');
@@ -204,7 +208,7 @@ function PMA_lang_desc($canonical_path)
 }
 
 /**
- * Wraps link in <a> tags and replaces argument separator in internal links
+ * Wraps link in &lt;a&gt; tags and replaces argument separator in internal links
  * to the one returned by PMA_get_arg_separator()
  *
  * @param string $link

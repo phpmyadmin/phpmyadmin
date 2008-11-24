@@ -1404,9 +1404,9 @@ $cfg['Export']['sql_drop_table'] = false;
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_if_not_exists']
  * true by default for correct behavior when dealing with exporting
  * of VIEWs and the stand-in table
+ * @global boolean $cfg['Export']['sql_if_not_exists']
  */
 $cfg['Export']['sql_if_not_exists'] = true;
 
@@ -2361,7 +2361,7 @@ $cfg['DBG'] = array();
 /**
  * Output executed queries and their execution times
  *
- * @global boolean $cfg['DBG']['enable']
+ * @global boolean $cfg['DBG']['sql']
  */
 $cfg['DBG']['sql'] = false;
 
@@ -2369,7 +2369,7 @@ $cfg['DBG']['sql'] = false;
  * Make the DBG stuff available
  * To use the following, please install the DBG extension from http://dd.cron.ru/dbg/
  *
- * @global boolean $cfg['DBG']['enable']
+ * @global boolean $cfg['DBG']['php']
  */
 $cfg['DBG']['php'] = false;
 

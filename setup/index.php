@@ -9,6 +9,9 @@
  * @version    $Id$
  */
 
+/**
+ * Core libraries.
+ */
 require './lib/common.inc.php';
 
 $page = filter_input(INPUT_GET, 'page');

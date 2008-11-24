@@ -12,6 +12,9 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Core libraries.
+ */
 require_once './setup/lib/Form.class.php';
 require_once './setup/lib/FormDisplay.class.php';
 require_once './setup/lib/form_processing.lib.php';

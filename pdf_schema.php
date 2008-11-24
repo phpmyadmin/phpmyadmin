@@ -4,6 +4,7 @@
  * Contributed by Maxime Delorme and merged by lem9
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

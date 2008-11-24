@@ -29,6 +29,7 @@
  * - authentication work
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

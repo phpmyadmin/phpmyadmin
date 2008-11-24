@@ -5,6 +5,10 @@
      * @version     1.0
      * @package     BLOBStreaming
      */
+
+    /**
+     * Core library.
+     */
     require_once './libraries/common.inc.php';
 
     /**
@@ -49,7 +53,7 @@
                     $query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
 
                     $result = PMA_DBI_query($query);
-                    
+
                     // if record exists
                     if ($data = PMA_DBI_fetch_assoc($result))
                     {

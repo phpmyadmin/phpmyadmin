@@ -5,6 +5,10 @@
      * @version     1.0
      * @package     BLOBStreaming
      */
+
+    /**
+     * Core library.
+     */
     require_once './libraries/common.inc.php';
 
     /*
@@ -13,7 +17,7 @@
     $mediaType = isset($_REQUEST['media_type']) ? $_REQUEST['media_type'] : NULL;
 
     /*
-     * @var     string	indicates whether media type is of custom type 
+     * @var     string	indicates whether media type is of custom type
      */
     $customType = isset($_REQUEST['custom_type']) ? $_REQUEST['custom_type'] : false;
 

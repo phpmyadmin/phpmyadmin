@@ -8,6 +8,9 @@
  * @version    $Id$
  */
 
+/**
+ * Core libraries.
+ */
 require './lib/common.inc.php';
 require_once './setup/lib/Form.class.php';
 require_once './setup/lib/FormDisplay.class.php';
@@ -57,7 +60,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
 	//
-	// Output generated config file  
+	// Output generated config file
 	//
     header('Content-Type: text/plain');
     header('Content-Disposition: attachment; filename="config.inc.php"');

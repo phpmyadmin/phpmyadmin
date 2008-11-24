@@ -14,6 +14,9 @@
  * @version    $Id$
  */
 
+/**
+ * Core libraries.
+ */
 require_once './setup/lib/FormDisplay.tpl.php';
 require_once './setup/lib/validate.lib.php';
 require_once './libraries/js_escape.lib.php';

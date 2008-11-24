@@ -4,6 +4,7 @@
  * file upload functions
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -155,7 +156,6 @@ class PMA_File
      * @access  public
      * @uses    PMA_File::$_name
      * @param   string  $name   file name
-     * @access  public
      */
     function setName($name)
     {
@@ -1231,7 +1231,7 @@ class PMA_File
     /**
      * sets reference to most recent BLOB repository reference
      *
-     * @access  static public
+     * @access  public
      * @param   string - BLOB repository reference
     */
     static function setRecentBLOBReference($ref)
@@ -1242,7 +1242,7 @@ class PMA_File
     /**
      * retrieves reference to most recent BLOB repository reference
      *
-     * @access  static public
+     * @access  public
      * @return  string - most recent BLOB repository reference
     */
     static function getRecentBLOBReference()

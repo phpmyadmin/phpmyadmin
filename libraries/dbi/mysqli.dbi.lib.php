@@ -10,7 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// MySQL client API
+/**
+ * MySQL client API
+ */
 if (!defined('PMA_MYSQL_CLIENT_API')) {
     $client_api = explode('.', mysqli_get_client_info());
     define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));

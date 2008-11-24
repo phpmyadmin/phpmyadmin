@@ -10,7 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// this gets executed twice so avoid a notice
+/**
+ * This gets executed twice so avoid a notice
+ */
 if (! defined('CG_FORMAT_NHIBERNATE_CS')) {
     define("CG_FORMAT_NHIBERNATE_CS", "NHibernate C# DO");
     define("CG_FORMAT_NHIBERNATE_XML", "NHibernate XML");

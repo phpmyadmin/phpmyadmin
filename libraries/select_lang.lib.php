@@ -4,6 +4,7 @@
  * phpMyAdmin Language Loading File
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -124,7 +125,7 @@ function PMA_langSet(&$lang)
  *
  * @return  bool    true on success, otherwise false
  *
- * @global  $available_languages
+ * @global  array $available_languages
  *
  * @access  private
  */
