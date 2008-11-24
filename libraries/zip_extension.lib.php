@@ -1,11 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/* $Id: $ */
-
-// interface for the zip extension
 
 /**
-  * Gets zip file contents 
+ * Interface for the zip extension
+ * @package    phpMyAdmin
+ * @version    $Id$
+ */
+
+/**
+  * Gets zip file contents
   *
   * @param   string  $file
   * @return  array  ($error_message, $file_data); $error_message
@@ -13,7 +16,7 @@
   * @author lem9
   */
 
-function PMA_getZipContents($file) 
+function PMA_getZipContents($file)
 {
     $error_message = '';
     $file_data = '';
@@ -28,7 +31,7 @@ function PMA_getZipContents($file)
             zip_entry_close($first_zip_entry);
         }
     } else {
-        $error_message = $GLOBALS['strErrorInZipFile'] . ' ' . PMA_getZipError($zip_handle); 
+        $error_message = $GLOBALS['strErrorInZipFile'] . ' ' . PMA_getZipError($zip_handle);
     }
     zip_close($zip_handle);
     return (array('error' => $error_message, 'data' => $file_data));
@@ -36,10 +39,10 @@ function PMA_getZipContents($file)
 
 
 /**
-  * Gets zip error message 
+  * Gets zip error message
   *
   * @param   integer  error code
-  * @return  string  error message 
+  * @return  string  error message
   * @author lem9
  */
 function PMA_getZipError($code)
