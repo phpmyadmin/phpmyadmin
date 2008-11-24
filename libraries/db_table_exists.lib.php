@@ -5,6 +5,7 @@
  * and display headers
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -45,10 +46,10 @@ if (empty($is_db)) {
 
 if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
     // Not a valid table name -> back to the db_sql.php
-    
+
     if (strlen($table)) {
         $is_table = isset(PMA_Table::$cache[$db][$table]);
-        
+
         if (! $is_table) {
             $_result = PMA_DBI_try_query(
                 'SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, true) . '\';',

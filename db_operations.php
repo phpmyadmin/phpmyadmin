@@ -10,6 +10,7 @@
  *  - viewing PDF schemas
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

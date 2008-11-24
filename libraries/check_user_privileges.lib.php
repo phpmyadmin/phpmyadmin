@@ -4,6 +4,7 @@
  * Get user's global privileges and some db-specific privileges
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

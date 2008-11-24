@@ -48,6 +48,7 @@
  * @uses    in_array()
  * @version $Id$
  * @author  Thomas Chaumeny <chaume92 at aol.com>
+ * @package phpMyAdmin
  */
 
 /**
@@ -312,7 +313,7 @@ $choices = array(
     '2' => $GLOBALS['strSearchOption2'] . PMA_showHint($GLOBALS['strSplitWordsWithSpace']),
     '3' => $GLOBALS['strSearchOption3'],
     '4' => $GLOBALS['strSearchOption4'] . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
-); 
+);
 // 4th parameter set to false to add line breaks
 // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
 //  since we have some HTML in some labels

@@ -4,6 +4,7 @@
  * Misc functions used all over the scripts.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -1936,10 +1937,10 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         //
         // But orgtable is present only with mysqli extension so the
         // fix is only for mysqli.
-        // Also, do not use the original table name if we are dealing with 
+        // Also, do not use the original table name if we are dealing with
         // a view because this view might be updatable.
         // (The isView() verification should not be costly in most cases
-        // because there is some caching in the function). 
+        // because there is some caching in the function).
         if (isset($meta->orgtable) && $meta->table != $meta->orgtable && ! PMA_Table::isView($GLOBALS['db'], $meta->table)) {
             $meta->table = $meta->orgtable;
         }

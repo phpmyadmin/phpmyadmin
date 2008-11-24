@@ -32,6 +32,7 @@
  * @uses    count()
  * @uses    addslashes()
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

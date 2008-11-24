@@ -4,6 +4,7 @@
  * SQL import plugin for phpMyAdmin
  *
  * @version $Id$
+ * @package phpMyAdmin-Import
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -88,7 +89,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
     }
     // Current length of our buffer
     $len = strlen($buffer);
-    
+
     // Grab some SQL queries out of it
     while ($i < $len) {
         $found_delimiter = false;
@@ -97,7 +98,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         // this is about 7 times faster that looking for each sequence i
         // one by one with strpos()
         if (preg_match('/(\'|"|#|-- |\/\*|`|(?i)DELIMITER)/', $buffer, $matches, PREG_OFFSET_CAPTURE, $i)) {
-            // in $matches, index 0 contains the match for the complete 
+            // in $matches, index 0 contains the match for the complete
             // expression but we don't use it
             $first_position = $matches[1][1];
         } else {

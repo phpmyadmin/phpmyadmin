@@ -5,6 +5,7 @@
  *
  * @todo    add an option for handling NULL values
  * @version $Id$
+ * @package phpMyAdmin-Import
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -50,11 +51,11 @@ if (strlen($csv_terminated) != 1) {
     $message = PMA_Message::error('strInvalidCSVParameter');
     $message->addParam('strFieldsTerminatedBy', false);
     $error = TRUE;
-    // The default dialog of MS Excel when generating a CSV produces a 
-    // semi-colon-separated file with no chance of specifying the 
-    // enclosing character. Thus, users who want to import this file 
-    // tend to remove the enclosing character on the Import dialog. 
-    // I could not find a test case where having no enclosing characters 
+    // The default dialog of MS Excel when generating a CSV produces a
+    // semi-colon-separated file with no chance of specifying the
+    // enclosing character. Thus, users who want to import this file
+    // tend to remove the enclosing character on the Import dialog.
+    // I could not find a test case where having no enclosing characters
     // confuses this script.
     // But the parser won't work correctly with strings so we allow just
     // one character.

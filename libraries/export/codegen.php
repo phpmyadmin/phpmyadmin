@@ -145,6 +145,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 	return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
 }
 
+/**
+ *
+ * @package phpMyAdmin-Export-Codegen
+ */
 class TableProperty
 {
 	public $name;

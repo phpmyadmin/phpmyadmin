@@ -8,6 +8,7 @@
  * wiki <http://wiki.cihar.com>.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /*

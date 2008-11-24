@@ -3,11 +3,15 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Append goto to ulr_query.
+ */
 $url_query .= '&amp;goto=db_structure.php';
 
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
@@ -29,7 +33,7 @@ if ($events) {
     $delimiter = '//';
     foreach ($events as $event) {
 
-        // information_schema (at least in MySQL 5.1.22) does not return 
+        // information_schema (at least in MySQL 5.1.22) does not return
         // the full CREATE EVENT statement in a way that could be useful for us
         // so we rely on PMA_DBI_get_definition() which uses SHOW CREATE EVENT
 

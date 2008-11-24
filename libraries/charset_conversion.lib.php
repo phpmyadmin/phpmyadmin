@@ -4,6 +4,7 @@
  * Charset conversion functions.
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

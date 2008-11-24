@@ -4,6 +4,7 @@
  * Common Option Constants For DBI Functions
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -20,7 +21,7 @@ define('PMA_DBI_GETVAR_SESSION', 1);
 define('PMA_DBI_GETVAR_GLOBAL', 2);
 
 /**
- * Checks one of the mysql extensions 
+ * Checks one of the mysql extensions
  *
  * @param   string  $extension  mysql extension to check
  */
@@ -187,8 +188,8 @@ function PMA_DBI_get_tables($database, $link = null)
 /**
  * usort comparison callback
  *
- * @param   string  $a first argument to sort 
- * @param   string  $b second argument to sort 
+ * @param   string  $a first argument to sort
+ * @param   string  $b second argument to sort
  *
  * @return  integer  a value representing whether $a should be before $b in the
  *                   sorted array or not
@@ -246,7 +247,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false, $link = null, $limit_offset = 0, $limit_count = false)
 {
     require_once './libraries/Table.class.php';
-    
+
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }
@@ -400,7 +401,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
             uksort($tables[$key], 'strnatcasecmp');
         }
     }
-    
+
     // cache table data
     // so PMA_Table does not require to issue SHOW TABLE STATUS again
     PMA_Table::$cache = $tables;
@@ -1239,7 +1240,7 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 function PMA_DBI_get_definition($db, $which, $name, $link = null)
 {
     $returned_field = array(
-        'PROCEDURE' => 'Create Procedure', 
+        'PROCEDURE' => 'Create Procedure',
         'FUNCTION'  => 'Create Function',
         'EVENT'     => 'Create Event'
     );

@@ -4,6 +4,7 @@
  * query by example the whole database
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**

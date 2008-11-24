@@ -4,8 +4,12 @@
  * Simple script to set correct charset for changelog
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
+/**
+ * Whole changelog in variable.
+ */
 $changelog = htmlspecialchars(file_get_contents('ChangeLog'));
 
 $replaces = array(

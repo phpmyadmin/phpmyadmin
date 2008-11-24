@@ -4,6 +4,7 @@
  * CSV import plugin for phpMyAdmin
  *
  * @version $Id$
+ * @package phpMyAdmin-Import
  */
 if (! defined('PHPMYADMIN')) {
     exit;

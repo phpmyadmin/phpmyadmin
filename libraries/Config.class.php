@@ -4,11 +4,13 @@
  *
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
  * Configuration class
  *
+ * @package phpMyAdmin
  */
 class PMA_Config
 {

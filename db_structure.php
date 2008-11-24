@@ -3,6 +3,7 @@
 /**
  *
  * @version $Id$
+ * @package phpMyAdmin
  */
 
 /**
@@ -243,7 +244,7 @@ foreach ($tables as $keyname => $each_table) {
                     $is_view = false);
             } else {
                 $each_table['COUNTED'] = false;
-            } 
+            }
 
             if ($is_show_stats) {
                 $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
@@ -260,7 +261,7 @@ foreach ($tables as $keyname => $each_table) {
                 $unit          =  '';
             }
             break;
-        // for a view, the ENGINE is null 
+        // for a view, the ENGINE is null
         case null :
         case 'SYSTEM VIEW' :
             // countRecords() takes care of $cfg['MaxExactCountViews']
