@@ -9,7 +9,7 @@
  *
  * @version $Id$
  * @package phpMyAdmin
- * @subpacke Example
+ * @subpackage Example
  */
 
 /* Was data posted? */
