@@ -197,7 +197,7 @@ unset($key, $value, $variables_whitelist);
  * ... main form elments ...
  * <input type="submit" name="main_action" value="submit form" />
  * </form>
- * </code
+ * </code>
  *
  * so we now check if a subform is submitted
  */
