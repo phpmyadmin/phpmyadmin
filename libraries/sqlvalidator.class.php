@@ -32,6 +32,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Load SOAP client.
+ */
 @include_once 'SOAP/Client.php';
 
 if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
@@ -39,6 +42,9 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
 } else {
     // Ok, we have SOAP Support, so let's use it!
 
+/**
+ * @package phpMyAdmin
+ */
     class PMA_SQLValidator {
 
         var $url;
