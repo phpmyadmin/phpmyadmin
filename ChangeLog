@@ -9,6 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2242765 [core] Navi panel server links wrong,
   thanks to Martin Stricker - martinstricker
 - bug #2186823 [core] bad session.save_path not detected
+- bug #2202709 [core] Re-login causes PMA to forget current table name 
 
 3.1.0.0 (not yet released)
 + [auth] Support for Swekey hardware authentication,

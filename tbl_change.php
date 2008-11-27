@@ -59,7 +59,12 @@ require_once './libraries/file_listing.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    $GLOBALS['goto'] = 'db_sql.php';
+    if (strlen($table)) {
+        // avoid a problem (see bug #2202709)
+        $GLOBALS['goto'] = 'tbl_sql.php';
+    } else {
+        $GLOBALS['goto'] = 'db_sql.php';
+    }
 }
 /**
  * @todo check if we could replace by "db_|tbl_" - please clarify!?
