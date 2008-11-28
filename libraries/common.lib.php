@@ -2648,15 +2648,15 @@ function PMA_replace_binary_contents($content) {
 
 /**
  *
- * If the first character given is \n (CR) we will add an extra \n
+ * If the string starts with a \r\n pair (0x0d0a) add an extra \n
  *
  * @uses    strpos()
  * @return  string with the chars replaced
  */
 
 function PMA_duplicateFirstNewline($string){
-	$first_occurence = strpos($string, "\n");
-	if($first_occurence == 1){
+	$first_occurence = strpos($string, "\r\n");
+	if ($first_occurence == 0){
 		$string = "\n".$string;
 	}
 	return $string;
