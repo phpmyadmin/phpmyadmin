@@ -13,7 +13,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2280904 [export] do not include view name in export
 - rfe #1688975 [display] enable copying of auto increment by default
 
-3.1.0.0 (not yet released)
+3.1.0.0 (2008-11-28)
 + [auth] Support for Swekey hardware authentication,
   see http://phpmyadmin.net/auth_key
 - bug #2046883 [core] Notices about deprecated dl() (so stop using it)
@@ -52,7 +52,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2315549 [import] fclose() error with "Create PHP code"
 + [lang] Polish update, thanks to Jakub Wilk 
 
-3.0.2.0 (not yet released)
+3.0.2.0 (not released)
 - [lang] Italian update, thanks to Luca and fantu
 - bug #2107583 [GUI] Leading newline truncated, thanks to Isart Montane
 - bug #2222230 [import] Assigning a value in import.php, thanks to
