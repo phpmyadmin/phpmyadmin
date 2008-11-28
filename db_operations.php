@@ -432,7 +432,7 @@ if (!$is_information_schema) {
         <input type="checkbox" name="drop_if_exists" value="true"
             id="checkbox_drop" style="vertical-align: middle" />
         <label for="checkbox_drop"><?php echo sprintf($strAddClause, $drop_clause); ?></label><br />
-        <input type="checkbox" name="sql_auto_increment" value="1"
+        <input type="checkbox" name="sql_auto_increment" value="1" checked="checked"
             id="checkbox_auto_increment" style="vertical-align: middle" />
         <label for="checkbox_auto_increment">
             <?php echo $strAddAutoIncrement; ?></label><br />

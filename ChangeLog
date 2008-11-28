@@ -13,6 +13,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2186823 [core] bad session.save_path not detected 
 - bug #2202709 [core] Re-login causes PMA to forget current table name
 - bug #2280904 [export] do not include view name in export
+- rfe #1688975 [display] enable copying of auto increment by default
 
 3.1.0.0 (not yet released)
 + [auth] Support for Swekey hardware authentication,
