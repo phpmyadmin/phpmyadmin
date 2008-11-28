@@ -439,9 +439,13 @@ function updateTableTitle( table_link_id, new_title ) {
     //alert('updateTableTitle');
     if ( window.parent.frame_navigation.document.getElementById(table_link_id) ) {
         var left = window.parent.frame_navigation.document;
-        left.getElementById(table_link_id).title = new_title;
-        new_title = left.getElementById('icon_' + table_link_id).alt + ': ' + new_title;
-        left.getElementById('quick_' + table_link_id).title = new_title;
+
+        var link = left.getElementById(table_link_id);
+        link.title = window.parent.pma_text_default_tab + ': ' + new_title;
+
+        var link = left.getElementById('quick_' + table_link_id);
+        link.title = window.parent.pma_text_left_default_tab + ': ' + new_title;
+
         return true;
     }
 

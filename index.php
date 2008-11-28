@@ -127,6 +127,8 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var token = '<?php echo PMA_escapeJsString($_SESSION[' PMA_token ']); ?>';
     var text_dir = '<?php echo PMA_escapeJsString($GLOBALS['text_dir']); ?>';
     var pma_absolute_uri = '<?php echo PMA_escapeJsString($GLOBALS['cfg']['PmaAbsoluteUri']); ?>';
+    var pma_text_default_tab = '<?php echo PMA_escapeJsString(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable'])); ?>';
+    var pma_text_left_default_tab = '<?php echo PMA_escapeJsString(PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable'])); ?>';
 
     // for content and navigation frames
 

@@ -2661,4 +2661,35 @@ function PMA_duplicateFirstNewline($string){
 	return $string;
 }
 
+/**
+ * get the action word corresponding to a script name
+ * in order to display it as a title in navigation panel
+ *
+ * @uses    switch()
+ * @uses    $GLOBALS
+ * @param   string  a valid value for $cfg['LeftDefaultTabTable']
+ *                  or $cfg['DefaultTabTable']
+ */
+function PMA_getTitleForTarget($target) {
+    switch ($target) {
+        case 'tbl_structure.php':
+            $message = 'strStructure';
+            break;
+        case 'tbl_sql.php':
+            $message = 'strSQL';
+            break;
+        case 'tbl_select.php':
+            $message = 'strSearch';
+            break;
+        case 'tbl_change.php':
+            $message = 'strInsert';
+            break;
+        case 'sql.php':
+            $message = 'strBrowse';
+            break;
+        default:
+            $message = '';
+    }
+    return $GLOBALS[$message];
+}
 ?>
