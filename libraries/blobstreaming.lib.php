@@ -95,7 +95,8 @@ function checkBLOBStreamingPlugins()
 
         // switch on BS field references
         if (strtolower($bs_variables[$PMA_Config->get('PBMS_NAME') . '_field_references']) == "off")
-            PMA_BS_SetFieldReferences('ON');
+            if(!PMA_BS_SetFieldReferences('ON'))
+		    return FALSE;
 
         // get BS server port
         $BS_PORT = $bs_variables[$PMA_Config->get('PBMS_NAME') . '_port'];
@@ -437,10 +438,13 @@ function PMA_BS_SetFieldReferences($val)
 
     // set field references to value specified
     $query = "SET GLOBAL " . $PMA_Config->get('PBMS_NAME') . "_field_references=" . PMA_sqlAddslashes($val);
-    $result = PMA_DBI_query($query);
+    $result = PMA_DBI_try_query($query, null, 0);
+
+    // get last known error (if applicable)
+    PMA_DBI_getError();
 
     // return success of query execution
-    if ($result)
+    if ($result && 0 == $GLOBALS['errno'])
         return TRUE;
     else
         return FALSE;

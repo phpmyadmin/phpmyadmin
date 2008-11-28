@@ -190,7 +190,7 @@ $sum_row_count_pre = '';
 // added by rajk - for blobstreaming
 $PMA_Config = $_SESSION['PMA_Config'];
 
-if (!empty ($PMA_Config))
+if (!empty($PMA_Config))
     $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES'); // list of blobstreaming tables
 
 $tableReductionCount = 0;   // the amount to reduce the table count by
