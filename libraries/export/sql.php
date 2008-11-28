@@ -519,7 +519,12 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
     // produce a displayable result for the default value of a BIT
     // field, nor does the mysqldump command. See MySQL bug 35796
-    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    /*
+     * We have to select database and not use database name in SHOW CREATE,
+     * otherwise CREATE statement can include database name.
+     */
+    PMA_DBI_select_db($db);
+    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($table));
     // an error can happen, for example the table is crashed
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
