@@ -17,7 +17,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /* general tags */
 html {
     font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : (
-        isset($_COOKIE['pma_fontsize'])) ? $_COOKIE['pma_fontsize'] : '84%');?>;
+        isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '84%'));?>;
 }
 
 input, select, textarea {
