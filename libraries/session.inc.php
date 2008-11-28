@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
 if (!@function_exists('session_name')) {
     PMA_fatalError('strCantLoad', 'session');
 } elseif (ini_get('session.auto_start') == true && session_name() != 'phpMyAdmin') {
-    // Do not delete the existing session, it might be used by other 
+    // Do not delete the existing session, it might be used by other
     // applications; instead just close it.
     session_write_close();
 }
@@ -71,10 +71,12 @@ if (! isset($_COOKIE[$session_name])) {
     // on first start of session we check for errors
     // f.e. session dir cannot be accessed - session file not created
     $r = session_start();
-    if ($r !== true || $GLOBALS['error_handler']->hasErrors()) { 
+    $orig_error_count = $GLOBALS['error_handler']->countErrors();
+    if ($r !== true || $orig_error_count != $GLOBALS['error_handler']->countErrors()) {
         setcookie($session_name, '', 1);
         PMA_fatalError('strSessionStartupErrorGeneral');
     }
+    unset($orig_error_count);
 } else {
     @session_start();
 }
