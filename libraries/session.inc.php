@@ -71,11 +71,13 @@ $session_name = 'phpMyAdmin';
 if (! isset($_COOKIE[$session_name])) {
     // on first start of session we check for errors
     // f.e. session dir cannot be accessed - session file not created
+    $orig_error_count = $GLOBALS['error_handler']->countErrors();
     $r = session_start();
-    if ($r !== true || $GLOBALS['error_handler']->hasErrors()) {
+    if ($r !== true || $orig_error_count != $GLOBALS['error_handler']->countErrors()) {
         setcookie($session_name, '', 1);
         PMA_fatalError('strSessionStartupErrorGeneral');
     }
+    unset($orig_error_count);
 } else {
     @session_start();
 }
