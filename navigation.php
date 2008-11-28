@@ -606,10 +606,11 @@ function PMA_displayTableList($tables, $visible = false,
             }
             echo '</li>' . "\n";
         } elseif (is_array($table)) {
+            $link_title = PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable']);
             // quick access icon next to each table name
             echo '<li>' . "\n";
             echo '<a title="'
-                . htmlspecialchars(PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable']))
+                . htmlspecialchars($link_title)
                 . ': ' . htmlspecialchars($table['Comment'])
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
                 .' id="quick_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
@@ -625,7 +626,7 @@ function PMA_displayTableList($tables, $visible = false,
                 echo ' src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"';
             }
             echo ' id="icon_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-                .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n";
+                .' width="10" height="10" alt="' . htmlspecialchars($link_title) . '" /></a>' . "\n";
 
             // link for the table name itself
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
@@ -641,38 +642,6 @@ function PMA_displayTableList($tables, $visible = false,
         }
     }
     echo '</ul>';
-}
-
-/**
- * get the action word corresponding to a script name
- * in order to display it as a title in navigation panel
- *
- * @uses    switch()
- * @uses    $GLOBALS
- * @param   string  a valid value for $cfg['LeftDefaultTabTable']
- *                  or $cfg['DefaultTabTable']
- */
-function PMA_getTitleForTarget($target) {
-    switch ($target) {
-        case 'tbl_structure.php':
-            $message = 'strStructure';
-            break;
-        case 'tbl_sql.php':
-            $message = 'strSQL';
-            break;
-        case 'tbl_select.php':
-            $message = 'strSearch';
-            break;
-        case 'tbl_change.php':
-            $message = 'strInsert';
-            break;
-        case 'sql.php':
-            $message = 'strBrowse';
-            break;
-        default:
-            $message = '';
-    }
-    return $GLOBALS[$message];
 }
 
 echo '</div>' . "\n";
