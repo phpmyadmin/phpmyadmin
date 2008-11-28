@@ -26,6 +26,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 $GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
+$GLOBALS['PMA_allow_ctype'] = @extension_loaded('ctype');
 
 if ($GLOBALS['PMA_allow_mbstr']) {
     mb_internal_encoding($GLOBALS['charset']);
@@ -37,25 +38,25 @@ if ($GLOBALS['PMA_allow_mbstr']) {
 if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
     $GLOBALS['PMA_strpos']      = 'mb_strpos';
     $GLOBALS['PMA_substr']      = 'mb_substr';
-    $GLOBALS['PMA_STR_isAlnum'] = 'ctype_alnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'ctype_digit';
-    $GLOBALS['PMA_STR_isSpace'] = 'ctype_space';
     require './libraries/string_mb.lib.php';
 } else {
     $GLOBALS['PMA_strpos']      = 'strpos';
     $GLOBALS['PMA_substr']      = 'substr';
-    $GLOBALS['PMA_STR_isAlnum'] = 'PMA_STR_isAlnum';
-    $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
-    $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_native.lib.php';
 }
 
 /**
  * Load ctype handler.
  */
-if (@extension_loaded('ctype')) {
+if ($GLOBALS['PMA_allow_ctype']) {
+    $GLOBALS['PMA_STR_isAlnum'] = 'ctype_alnum';
+    $GLOBALS['PMA_STR_isDigit'] = 'ctype_digit';
+    $GLOBALS['PMA_STR_isSpace'] = 'ctype_space';
     require './libraries/string_type_ctype.lib.php';
 } else {
+    $GLOBALS['PMA_STR_isAlnum'] = 'PMA_STR_isAlnum';
+    $GLOBALS['PMA_STR_isDigit'] = 'PMA_STR_isDigit';
+    $GLOBALS['PMA_STR_isSpace'] = 'PMA_STR_isSpace';
     require './libraries/string_type_native.lib.php';
 }
 
