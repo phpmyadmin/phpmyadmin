@@ -47,7 +47,8 @@ function PMA_pow($base, $exp, $use_function = false)
 
     switch ($use_function) {
         case 'bcpow' :
-            //bcscale(10);
+            // bcscale() needed for testing PMA_pow() with base values < 1
+            bcscale(10);
             $pow = bcpow($base, $exp);
             break;
         case 'gmp_pow' :
