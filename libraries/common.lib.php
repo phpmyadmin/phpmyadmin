@@ -1796,19 +1796,19 @@ function PMA_flipstring($string, $Separator = "<br />\n")
         if ($char == '&') {
             $format_string .= $charbuff;
             $charbuff = $char;
-            $append = true;
-        } elseif (!empty($charbuff)) {
-            $charbuff .= $char;
         } elseif ($char == ';' && !empty($charbuff)) {
-            $format_string .= $charbuff;
+            $format_string .= $charbuff . $char;
             $charbuff = false;
             $append = true;
+        } elseif (! empty($charbuff)) {
+            $charbuff .= $char;
         } else {
             $format_string .= $char;
             $append = true;
         }
 
-        if ($append && ($i != strlen($string))) {
+        // do not add separator after the last character
+        if ($append && ($i != strlen($string)-1)) {
             $format_string .= $Separator;
         }
     }
