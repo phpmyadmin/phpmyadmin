@@ -563,8 +563,8 @@ $cfg['AllowArbitraryServer'] = false;
 /*******************************************************************************
  * Error handler configuration
  *
- * this configures phpMyAdmins own error handler, it is used to avoid information
- * dislcosure, gather errors for logging, reporting and displaying
+ * this configures phpMyAdmin's own error handler, it is used to avoid information
+ * disclosure, gather errors for logging, reporting and displaying
  *
  * @global array $cfg['Error_Handler']
  */
