@@ -215,6 +215,9 @@ foreach ($tables as $keyname => $each_table) {
     $table_encoded = urlencode($each_table['TABLE_NAME']);
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
+    // do not list the previous table's size info for a view
+    $formatted_size = '-';
+    $unit = '';
 
     switch ( $each_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
