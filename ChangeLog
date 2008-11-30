@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - rfe #2127987 warn when session.gc_maxlifetime is less than cookie validity
 - rfe #2100910 configurable default charset for import
 - rfe #1913541 link to InnoDB status when error 1005 occurs
+- rfe #1927189 strip ` from column names on import
 
 3.1.1.0 (not yet released)
 - patch #2242765 [core] Navi panel server links wrong,

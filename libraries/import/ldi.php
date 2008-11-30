@@ -96,7 +96,8 @@ if (strlen($ldi_columns) > 0) {
         if ($i > 0) {
             $sql .= ', ';
         }
-        $sql     .= PMA_backquote(trim($tmp[$i]));
+        /* Trim also `, if user already included backquoted fields */
+        $sql     .= PMA_backquote(trim($tmp[$i], " \t\r\n\0\x0B`"));
     } // end for
     $sql .= ')';
 }

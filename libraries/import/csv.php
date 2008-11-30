@@ -96,7 +96,8 @@ if (empty($csv_columns)) {
         if (count($fields) > 0) {
             $sql_template .= ', ';
         }
-        $val = trim($val);
+        /* Trim also `, if user already included backquoted fields */
+        $val = trim($val, " \t\r\n\0\x0B`");
         $found = FALSE;
         foreach ($tmp_fields as $id => $field) {
             if ($field['Field'] == $val) {
