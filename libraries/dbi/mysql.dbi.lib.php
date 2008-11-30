@@ -272,9 +272,11 @@ function PMA_DBI_get_client_info()
  * @uses    $GLOBALS['userlink']
  * @uses    $GLOBALS['strServerNotResponding']
  * @uses    $GLOBALS['strSocketProblem']
+ * @uses    $GLOBALS['strDetails']
  * @uses    mysql_errno()
  * @uses    mysql_error()
  * @uses    defined()
+ * @uses    PMA_generate_common_url()
  * @param   resource        $link   mysql link
  * @return  string|boolean  $error or false
  */
@@ -313,6 +315,13 @@ function PMA_DBI_getError($link = null)
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
     } elseif ($error_number == 2003) {
         $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'];
+    } elseif ($error_number == 1005) {
+        /* InnoDB contraints, see
+         * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
+         */
+        $error = '#' . ((string) $error_number) . ' - ' . $error_message .
+            ' (<a href="server_engines.php' . PMA_generate_common_url(array('engine' => 'InnoDB', 'page' => 'Status')).
+            '">' . $GLOBALS['strDetails'] . '</a>)';
     } else {
         $error = '#' . ((string) $error_number) . ' - ' . $error_message;
     }
