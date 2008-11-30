@@ -12,10 +12,19 @@
  * @version    $Id$
  */
 
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
+
+/**
+ * Load paths.
+ */
+require_once('./libraries/vendor_config.php');
+
 $cfg_db = array();
 
 // path to config file, relative to phpMyAdmin's root path
-$cfg_db['_config_file_path'] = './config/config.inc.php';
+$cfg_db['_config_file_path'] = SETUP_CONFIG_FILE;
 
 /**
  * Value meaning:

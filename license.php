@@ -11,8 +11,13 @@
  */
 
 /**
+ * Load paths.
+ */
+require('./libraries/vendor_config.php');
+
+/**
  *
  */
 header('Content-type: text/plain; charset=iso-8859-1');
-readfile('LICENSE');
+readfile(LICENSE_FILE);
 ?>

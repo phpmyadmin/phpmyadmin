@@ -8,9 +8,26 @@
  */
 
 /**
+ * Load paths.
+ */
+require('./libraries/vendor_config.php');
+
+/**
+ * Read changelog.
+ */
+if (substr(CHANGELOG_FILE, -3) == '.gz') {
+    ob_start();
+    readgzfile(CHANGELOG_FILE);
+    $changelog = ob_get_contents();
+    ob_end_clean();
+} else {
+    $changelog = file_get_contents(CHANGELOG_FILE);
+}
+
+/**
  * Whole changelog in variable.
  */
-$changelog = htmlspecialchars(file_get_contents('ChangeLog'));
+$changelog = htmlspecialchars($changelog);
 
 $replaces = array(
     '@(http://[./a-zA-Z0-9.-]*[/a-zA-Z0-9])@'

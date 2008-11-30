@@ -8,6 +8,11 @@
  */
 
 /**
+ * Load vendor configuration.
+ */
+require_once('./libraries/vendor_config.php');
+
+/**
  * Configuration class
  *
  * @package phpMyAdmin
@@ -300,7 +305,8 @@ class PMA_Config
      */
     function __wakeup()
     {
-        if (! $this->checkConfigSource()
+        if (SKIP_MTIME_CONFIG_CHECK
+          || ! $this->checkConfigSource()
           || $this->source_mtime !== filemtime($this->getSource())
           || $this->default_source_mtime !== filemtime($this->default_source)
           || $this->error_config_file

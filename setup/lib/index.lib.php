@@ -12,6 +12,15 @@
  * @version    $Id$
  */
 
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
+
+/**
+ * Load vendor config.
+ */
+require_once('./libraries/vendor_config.php');
+
 /**
  * Initializes message list
  */
@@ -223,7 +232,10 @@ function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
     $file_path = ConfigFile::getInstance()->getFilePath();
     $file_dir = dirname($file_path);
     $is_readable = true;
-    $is_writable = is_dir($file_dir) && is_writable($file_dir);
+    $is_writable = is_dir($file_dir);
+    if (SETUP_DIR_WRITABLE) {
+        $is_writable = $is_writable && is_writable($file_dir);
+    }
     $file_exists = file_exists($file_path);
     if ($file_exists) {
         $is_readable = is_readable($file_path);

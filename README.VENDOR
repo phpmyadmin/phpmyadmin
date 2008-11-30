@@ -8,14 +8,12 @@ redistribute phpMyAdmin inside other software package such as Linux
 distribution or some all in one package including web server and MySQL
 server.
 
+Generally you can customize some basic aspects (paths to some files and
+behavior) in libraries/vendor_config.php.
 
-Setup script
-------------
-
-If you want to integrate setup script to your packaging, you might want
-to change $cfg_db['_config_file_path'] in setup/lib/config_info.inc.php
-to point to place where you want to generated config file to be saved.
-Please note that directory and the file has to be writable for web
-server user.
+For example if you want setup script to generate config file in var,
+change SETUP_CONFIG_FILE to /var/lib/phpmyadmin/config.inc.php and you
+will also probably want to skip directory writable check, so set
+SETUP_DIR_WRITABLE to false.
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
