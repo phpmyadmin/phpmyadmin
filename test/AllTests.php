@@ -15,9 +15,7 @@ if (! defined('PMA_MAIN_METHOD')) {
     chdir('..');
 }
 
-/**
- * required to not die() in some libraries
- */
+// required to not die() in some libraries
 define('PHPMYADMIN', true);
 
 /**
@@ -38,11 +36,15 @@ require_once './test/PMA_STR_sub_test.php';
 require_once './test/PMA_generateCommonUrl_test.php';
 require_once './test/PMA_blowfish_test.php';
 require_once './test/PMA_escapeMySqlWildcards_test.php';
+require_once './test/PMA_showHint_test.php';
+require_once './test/PMA_formatNumberByteDown_test.php';
+require_once './test/PMA_localisedDateTimespan_test.php';
+require_once './test/PMA_cache_test.php';
+require_once './test/PMA_quoting_slashing_test.php';
+require_once './test/PMA_stringOperations_test.php';
+require_once './test/PMA_printableBitValue_test.php';
+require_once './test/PMA_foreignKeySupported_test.php';
 
-/**
- * Class to run all tests.
- * @package phpMyAdmin-test
- */
 class AllTests
 {
     public static function main()
@@ -68,15 +70,25 @@ class AllTests
         $suite->addTestSuite('PMA_transformation_getOptions_test');
         $suite->addTestSuite('PMA_STR_sub_test');
         $suite->addTestSuite('PMA_generate_common_url_test');
-        //$suite->addTestSuite('PMA_arrayWalkRecursive_test');
         $suite->addTestSuite('PMA_blowfish_test');
+        $suite->addTestSuite('PMA_escapeMySqlWildcards_test');
+        $suite->addTestSuite('PMA_showHint_test');
+        $suite->addTestSuite('PMA_formatNumberByteDown_test');
+        $suite->addTestSuite('PMA_localisedDateTimespan_test');
+        $suite->addTestSuite('PMA_cache_test');
+        $suite->addTestSuite('PMA_quoting_slashing_test');
+        $suite->addTestSuite('PMA_stringOperations_test');
+        $suite->addTestSuite('PMA_printableBitValue_test');
+        $suite->addTestSuite('PMA_foreignKeySupported_test');
         return $suite;
     }
 }
-
+// Please clarify the reason of this section; it has for effect
+// of running the tests a second time.
+/*
 if (PMA_MAIN_METHOD == 'AllTests::main') {
     echo '<pre>';
     AllTests::main();
     echo '</pre>';
-}
+}*/
 ?>

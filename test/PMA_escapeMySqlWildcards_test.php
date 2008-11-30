@@ -21,67 +21,41 @@ require_once './libraries/common.lib.php';
 /**
  * Test MySQL escaping.
  *
- * @package phpMyAdmin-test
  */
 class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
 {
 
-    /**
-     * PMA_escape_mysql_wildcards tests
+    public function escapeDataProvider() {
+        return array(
+            array('\_test', '_test'),
+            array('\_\\', '_\\'),
+            array('\\_\%', '_%'),
+            array('\\\_', '\_'),
+            array('\\\_\\\%', '\_\%'),
+            array('\_\\%\_\_\%', '_%__%'),
+            array('\%\_', '%_'),
+            array('\\\%\\\_', '\%\_')
+        );
+    }
+
+    /** 
+     * PMA_escape_mysql_wildcards tests 
+     * @dataProvider escapeDataProvider
      */
 
-    public function testEscape_1()
+    public function testEscape($a, $b)
     {
-        $this->assertEquals('\_test', PMA_escape_mysql_wildcards('_test'));
+        $this->assertEquals($a, PMA_escape_mysql_wildcards($b));
     }
 
-	public function testEscape_2()
-    {
-        $this->assertEquals('\_\\', PMA_escape_mysql_wildcards('_\\'));
-    }
+    /** 
+     * PMA_unescape_mysql_wildcards tests 
+     * @dataProvider escapeDataProvider
+     */
 
-	public function testEscape_3()
+    public function testUnEscape($a, $b)
     {
-        $this->assertEquals('\\_\%', PMA_escape_mysql_wildcards('_%'));
-    }
-
-	public function testEscape_4()
-    {
-        $this->assertEquals('\\\_', PMA_escape_mysql_wildcards('\_'));
-    }
-
-	public function testEscape_5()
-    {
-        $this->assertEquals('\\\_\\\%', PMA_escape_mysql_wildcards('\_\%'));
-    }
-
-	/**
-	 * PMA_unescape_mysql_wildcards tests
-	 */
-
-	public function testUnEscape_1()
-    {
-        $this->assertEquals('_test', PMA_unescape_mysql_wildcards('\_test'));
-    }
-
-	public function testUnEscape_2()
-    {
-        $this->assertEquals('_%__%', PMA_unescape_mysql_wildcards('\_\\%\_\_\%'));
-    }
-
-	public function testUnEscape_3()
-    {
-        $this->assertEquals('\_', PMA_unescape_mysql_wildcards('\\\_'));
-    }
-
-	public function testUnEscape_4()
-    {
-        $this->assertEquals('%_', PMA_unescape_mysql_wildcards('%\_'));
-    }
-
-	public function testUnEscape_5()
-    {
-        $this->assertEquals('\%\_', PMA_unescape_mysql_wildcards('\\\%\\\_'));
+        $this->assertEquals($b, PMA_unescape_mysql_wildcards($a));
     }
 }
 ?>
