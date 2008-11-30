@@ -7,7 +7,7 @@
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
  *
- * @version $Id: common.lib.php 12029 2008-11-28 19:13:55Z lem9 $
+ * @version $Id$
  * @package phpMyAdmin
  */
 
