@@ -298,11 +298,12 @@ chmod o-rw config.inc.php          # remove world read and write permissions
         and your databases, or a login dialog if using
         <abbr title="HyperText Transfer Protocol">HTTP</abbr> or cookie
         authentication mode.</li>
-    <li>You should deny access to the <tt>./libraries</tt> subfolder in your
-        webserver configuration. For Apache you can use supplied .htaccess file
-        in that folder, for other webservers, you should configure this yourself.
-        Such configuration prevents from possible path exposure and cross side
-        scripting vulnerabilities that might happen to be found in that code.</li>
+    <li>You should deny access to the <tt>./libraries</tt> and
+        <tt>./setup/lib</tt> subfolders in your webserver configuration. For
+        Apache you can use supplied .htaccess file in that folder, for other
+        webservers, you should configure this yourself.  Such configuration
+        prevents from possible path exposure and cross side scripting
+        vulnerabilities that might happen to be found in that code.</li>
     <li>
         It is generally good idea to protect public phpMyAdmin installation
         against access by robots as they usually can not do anything good
