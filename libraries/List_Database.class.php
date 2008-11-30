@@ -278,6 +278,16 @@ require_once './libraries/List.class.php';
             $db_tooltips = PMA_getDbComments();
         }
 
+        if (!$GLOBALS['cfg']['LeftFrameDBTree']) {
+            $separators = array();
+        } elseif (is_array($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
+            $separators = $GLOBALS['cfg']['LeftFrameDBSeparator'];
+        } elseif (!empty($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
+            $separators = array($GLOBALS['cfg']['LeftFrameDBSeparator']);
+        } else {
+            $separators = array();
+        }
+
         foreach ($this->getLimitedItems($offset, $count) as $key => $db) {
             // garvin: Get comments from PMA comments table
             $db_tooltip = '';
@@ -286,15 +296,21 @@ require_once './libraries/List.class.php';
                 $db_tooltip = $_db_tooltips[$db];
             }
 
-            if ($GLOBALS['cfg']['LeftFrameDBTree']
-                && $GLOBALS['cfg']['LeftFrameDBSeparator']
-                && strstr($db, $GLOBALS['cfg']['LeftFrameDBSeparator']))
-            {
+            $pos = false;
+
+            foreach($separators as $separator) {
                 // use strpos instead of strrpos; it seems more common to
                 // have the db name, the separator, then the rest which
                 // might contain a separator
                 // like dbname_the_rest
-                $pos            = strpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
+                $pos = strpos($db, $separator);
+
+                if ($pos !== false) {
+                    break;
+                }
+            }
+
+            if ($pos !== false) {
                 $group          = substr($db, 0, $pos);
                 $disp_name_cut  = substr($db, $pos);
             } else {

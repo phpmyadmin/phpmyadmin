@@ -1271,9 +1271,11 @@ ALTER TABLE `pma_column_comments`
         <a href="#cfg_LeftFrameDBSeparator" class="configrule">$cfg['LeftFrameDBSeparator']</a>.
     </dd>
 
-    <dt id="cfg_LeftFrameDBSeparator">$cfg['LeftFrameDBSeparator'] string</dt>
+    <dt id="cfg_LeftFrameDBSeparator">$cfg['LeftFrameDBSeparator']
+    string or array</dt>
     <dd>The string used to separate the parts of the database name when showing
-        them in a tree.</dd>
+        them in a tree. Alternatively you can specify more strings in an array
+        and all of them will be used as a separator.</dd>
 
     <dt id="cfg_LeftFrameTableSeparator">$cfg['LeftFrameTableSeparator'] string</dt>
     <dd>Defines a string to be used to nest table spaces. Defaults to '__'.
