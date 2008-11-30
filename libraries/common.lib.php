@@ -2657,7 +2657,7 @@ function PMA_replace_binary_contents($content) {
 
 function PMA_duplicateFirstNewline($string){
 	$first_occurence = strpos($string, "\r\n");
-	if ($first_occurence == 0){
+	if ($first_occurence === 0){
 		$string = "\n".$string;
 	}
 	return $string;
