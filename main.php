@@ -287,6 +287,14 @@ if (! @extension_loaded('mbstring')) {
 }
 
 /**
+ * Check whether session.gc_maxlifetime limits session validity.
+ */
+$gc_time = (int)@ini_get('session.gc_maxlifetime');
+if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
+    trigger_error(PMA_Message::decodeBB($strSessionGCWarning), E_USER_WARNING);
+}
+
+/**
  * Check if user does not have defined blowfish secret and it is being used.
  */
 if (!empty($_SESSION['auto_blowfish_secret']) &&

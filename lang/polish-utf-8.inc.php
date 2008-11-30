@@ -1438,4 +1438,5 @@ $strSetupExport_remember_file_template_name = 'Remember file name template';  //
 $strSetupExport_file_template_table_name = 'Table name template';  //to translate
 $strSetupExport_file_template_database_name = 'Database name template';  //to translate
 $strSetupExport_file_template_server_name = 'Server name template';  //to translate
+$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 ?>

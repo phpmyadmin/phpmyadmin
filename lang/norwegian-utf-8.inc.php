@@ -1442,4 +1442,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
+$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 ?>

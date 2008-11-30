@@ -907,7 +907,7 @@ $strSetupHomepageLink = 'Domovská stránka phpMyAdmina';
 $strSetupCharEditing_desc = 'Definuje, který typ ovládacích prvků má být použit při editaci polí typu CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, [kbd]textová oblast[/kbd] - umožní použít odřádkování.';
 $strSetupCharEditing_name = 'Editace polí typu CHAR';
 $strSetupCharTextareaCols_desc = 'Počet sloupců textových oblastí typu CHAR/VARCHAR.';
-$strSetupCharTextareaCols_name = 'Sloupce pro textové oblasti typu CHAR'; 
+$strSetupCharTextareaCols_name = 'Sloupce pro textové oblasti typu CHAR';
 $strSetupCharTextareaRows_desc = 'Počet řádků textových oblastí typu CHAR/VARCHAR.';
 $strSetupCharTextareaRows_name = 'Řádky pro textové oblasti CHAR';
 $strSetupCheckConfigurationPermissions_name = 'Zkontrolovat přístupová práva konfiguračního souboru';
@@ -1448,4 +1448,5 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDump_name = 'ZIP';  //to translate
 $strShowKeys = 'Only show keys';  //to translate
 
+$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 ?>

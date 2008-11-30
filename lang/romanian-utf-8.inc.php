@@ -1446,4 +1446,5 @@ $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication typ
 $strSetupServers_extension_desc = 'What PHP extension to use; you should use mysqli if supported';  //to translate
 $strSetupVersionCheckNewAvailable = 'A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.';  //to translate
 $strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';  //to translate
+$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 ?>
