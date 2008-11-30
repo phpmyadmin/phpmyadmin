@@ -1551,6 +1551,13 @@ $cfg['Import'] = array();
 $cfg['Import']['format'] = 'sql';
 
 /**
+ * Default charset for import.
+ *
+ * @global string $cfg['Import']['charset']
+ */
+$cfg['Import']['charset'] = '';
+
+/**
  *
  *
  * @global boolean $cfg['Import']['allow_interrupt']

@@ -89,7 +89,8 @@ if ($cfg['AllowAnywhereRecoding']) {
     echo '<select id="charset_of_file" name="charset_of_file" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         echo '<option value="' . htmlentities($temp_charset) .  '"';
-        if ($temp_charset == $charset) {
+        if ((empty($cfg['Import']['charset']) && $temp_charset == $charset)
+          || $temp_charset == $cfg['Import']['charset']) {
             echo ' selected="selected"';
         }
         echo '>' . htmlentities($temp_charset) . '</option>';
