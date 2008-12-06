@@ -28,6 +28,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2363919 [display] Incorrect size for view 
 - bug #2121287 [display] Drop-down menu blinking in FF 
 + [lang] Catalan update, thanks to Xavier Navarro
++ [lang] Finnish update, thanks to Jouni Kahkonen
 
 3.1.0.0 (2008-11-28)
 + [auth] Support for Swekey hardware authentication,
