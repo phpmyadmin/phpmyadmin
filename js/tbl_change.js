@@ -23,7 +23,7 @@ function nullify(theType, urlField, md5Field, multi_edit)
     }
 
     // "SET" field , "ENUM" field with more than 20 characters
-    // or foreign key field
+    // or foreign key field (drop-down)
     if (theType == 1 || theType == 3 || theType == 4) {
         rowForm.elements['field_' + md5Field + multi_edit + '[]'].selectedIndex = -1;
     }
@@ -40,6 +40,10 @@ function nullify(theType, urlField, md5Field, multi_edit)
             } // end for
 
         } // end if
+    }
+    // foreign key field (with browsing icon for foreign values)
+    else if (theType == 6) {
+        rowForm.elements['field_' + md5Field + multi_edit + '[]'].value = '';
     }
     // Other field types
     else /*if (theType == 5)*/ {
