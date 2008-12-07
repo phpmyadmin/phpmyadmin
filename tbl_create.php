@@ -217,6 +217,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (!empty($_REQUEST['partition_definition'])) {
         $sql_query .= ' ' . PMA_sqlAddslashes($_REQUEST['partition_definition']);
     }
+    $sql_query .= ';';
 
     // Executes the query
     $result = PMA_DBI_try_query($sql_query);
