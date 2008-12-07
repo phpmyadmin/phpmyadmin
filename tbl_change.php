@@ -565,6 +565,7 @@ foreach ($rows as $row_id => $vrow) {
 
         // The null column
         // ---------------
+        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
         echo '        <td>' . "\n";
         if ($field['Null'] == 'YES') {
             echo '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
@@ -590,8 +591,12 @@ foreach ($rows as $row_id => $vrow) {
                     }
                 } elseif (strstr($field['True_Type'], 'set')) {
                     $onclick     .= '3, ';
-                } elseif ($foreigners && isset($foreigners[$field['Field']])) {
+                } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
+                    // foreign key in a drop-down
                     $onclick     .= '4, ';
+                } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
+                    // foreign key with a browsing icon 
+                    $onclick     .= '6, ';
                 } else {
                     $onclick     .= '5, ';
                 }
@@ -612,7 +617,6 @@ foreach ($rows as $row_id => $vrow) {
         // See bug #1667887 for the reason why we don't use the maxlength
         // HTML attribute
 
-        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
         echo '        <td>' . "\n";
         if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";
