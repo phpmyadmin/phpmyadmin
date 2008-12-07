@@ -1121,7 +1121,8 @@ ALTER TABLE `pma_column_comments`
         <tt>xxx.xxx.xxx.xxx/nn</tt>     (CIDR, Classless Inter-Domain Routing type <abbr title="Internet Protocol">IP</abbr> addresses)<br />
         But the following does not work:<br />
         <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial
-        <abbr title="Internet Protocol">IP</abbr> address range)
+        <abbr title="Internet Protocol">IP</abbr> address range)<br />
+        Also IPv6 addresses are not supported.
     </dd>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
