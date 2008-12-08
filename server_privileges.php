@@ -1543,32 +1543,39 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
         echo '<h2>' . "\n"
            . PMA_getIcon('b_usredit.png')
-           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?'
-           . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username)
-           . '&amp;hostname=' . urlencode($hostname) . '">\''
-           . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname)
-           . '\'</a></i>' . "\n";
-        if (isset($dbname)) {
-            if ($dbname_is_wildcard) {
-                echo '    - ' . $GLOBALS['strDatabases'];
-            } else {
-                echo '    - ' . $GLOBALS['strDatabase'];
-            }
-            $url_dbname = urlencode(str_replace('\_', '_', $dbname));
-            echo ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-                . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
-                . htmlspecialchars($dbname) . '</a></i>' . "\n";
-            if (isset($tablename)) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="'
-                    . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
-                    . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename)
-                    . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>'
-                    . "\n";
-            }
-            unset($url_dbname);
-        }
-        echo ' : ' . $GLOBALS['strEditPrivileges'] . '</h2>' . "\n";
+           . $GLOBALS['strEditPrivileges'] . ': '
+           . $GLOBALS['strUser'] ;
 
+        if (isset($dbname)) {
+            echo ' <i><a href="server_privileges.php?'
+                . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username)
+                . '&amp;hostname=' . urlencode($hostname) . '">\''
+                . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname)
+                . '\'</a></i>' . "\n";
+			$url_dbname = urlencode(str_replace('\_', '_', $dbname));
+
+            if (isset($dbname)) {
+                if (isset($tablename)) {
+					echo ' - ' . ($dbname_is_wildcard ? $GLOBALS['strDatabases'] : $GLOBALS['strDatabase'] )
+						. ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] 
+						. '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) 
+						. '&amp;dbname=' . $url_dbname . '">' . htmlspecialchars($dbname) . '</a></i>';
+                    echo ' - ' . $GLOBALS['strTable'] . ' <i>' . htmlspecialchars($tablename) . '</i>';
+                } else {
+                    echo ' - ' . $GLOBALS['strDatabase'] . ' <i>' . htmlspecialchars($dbname) . '</i>';
+                }
+            }
+
+        } else {
+            echo ' <i>\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) 
+                . '\'</i>' . "\n";
+
+        }
+        if (isset($dbname)) {
+            echo  '</h2>' . "\n";
+        }
+
+ 
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . PMA_sqlAddslashes($username) . "'"
             . " AND `Host` = '" . PMA_sqlAddslashes($hostname) . "';";
@@ -1865,6 +1872,25 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                . '    <input type="submit" value="' . $GLOBALS['strGo'] . '" />'
                . '</fieldset>' . "\n"
                . '</form>' . "\n";
+
+		}
+
+		// Provide a line with links to the relevant database and table
+        if (isset($dbname)) {
+            echo '[ ' . $GLOBALS['strDatabase'] 
+                . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
+                . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
+                . htmlspecialchars($dbname) . ': ' . PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase']) . "</a> ]\n";
+
+            if (isset($tablename)) {
+                echo ' [ ' . $GLOBALS['strTable'] . ' <a href="'
+                    . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
+                    . '&amp;db=' . $url_dbname . '&amp;table=' . urlencode($tablename)
+                    . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
+                    . PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable'])
+                    . "</a> ]\n";
+            }
+            unset($url_dbname);
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {

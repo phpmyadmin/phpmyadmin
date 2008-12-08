@@ -962,6 +962,28 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  */
 $cfg['DefaultTabTable'] = 'sql.php';
 
+/**
+ * Mapping between script filenames and translation keys
+ *
+ * Lookup can be performed by PMA_getTitleForTarget()
+ *
+ * @global string $cfg['DefaultTabTranslationMapping']
+ */
+$cfg['DefaultTabTranslationMapping'] = array(
+
+	// Values for $cfg['DefaultTabTable']
+	'tbl_structure.php' =>  'strStructure',
+	'tbl_sql.php' => 'strSQL',
+	'tbl_select.php' => 'strSearch',
+	'tbl_change.php' => 'strInsert',
+	'sql.php' => 'strBrowse',
+
+	// Values for $cfg['DefaultTabDatabase']
+	'db_structure.php' => 'strStructure',
+	'db_sql.php' => 'strSQL',
+	'db_search.php' => 'strSearch',
+	'db_operations.php' => 'strOperations',
+);
 
 /*******************************************************************************
  * Export defaults
