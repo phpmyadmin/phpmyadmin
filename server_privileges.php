@@ -317,7 +317,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 
         // get collumns
-        $res = PMA_DBI_try_query('SHOW COLUMNS FROM `' . PMA_unescape_mysql_wildcards($db) . '`.`' . $table . '`;');
+        $res = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($db)) . '.' . PMA_backquote($table) . ';');
         $columns = array();
         if ($res) {
             while ($row1 = PMA_DBI_fetch_row($res)) {
@@ -966,7 +966,7 @@ if (isset($_REQUEST['change_copy'])) {
     while ($row = PMA_DBI_fetch_assoc($res)) {
         $queries[] =
             'GRANT ' . join(', ', PMA_extractPrivInfo($row))
-            .' ON `' . $row['Db'] . '`.*'
+            .' ON ' . PMA_backquote($row['Db']) . '.*'
             .' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
             . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
     }
@@ -1030,8 +1030,8 @@ if (isset($_REQUEST['change_copy'])) {
         unset($tmp_privs2);
         $queries[] =
             'GRANT ' . join(', ', $tmp_privs1)
-            . ' ON `' . $row['Db'] . '`.`' . $row['Table_name']
-            . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
+            . ' ON ' . PMA_backquote($row['Db']) . '.' . PMA_backquote($row['Table_name'])
+            . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
             . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
     }
 }
