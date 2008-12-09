@@ -5,6 +5,10 @@
      * @version     1.0
      * @package     BLOBStreaming
      */
+
+    /**
+     * Core library.
+     */
     require_once './libraries/common.inc.php';
 
     /**
@@ -39,21 +43,21 @@
             // if BS plugins exist
             if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST'))
             {
-                $mybs_ref_tbl = $PMA_Config->get('PBMS_NAME') . '_reference';
-                $mybs_cust_content_type_tbl = $PMA_Config->get('PBMS_NAME') . '_custom_content_type';
+                $pbms_ref_tbl = $PMA_Config->get('PBMS_NAME') . '_reference';
+                $pbms_cust_content_type_tbl = $PMA_Config->get('PBMS_NAME') . '_custom_content_type';
 
                 // if specified DB is selected
                 if (PMA_DBI_select_db($bsDB))
                 {
-                    $query = "SELECT * FROM " . PMA_backquote($mybs_ref_tbl);
+                    $query = "SELECT * FROM " . PMA_backquote($pbms_ref_tbl);
                     $query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
 
                     $result = PMA_DBI_query($query);
-                    
+
                     // if record exists
                     if ($data = PMA_DBI_fetch_assoc($result))
                     {
-                        $query = "SELECT count(*) FROM " . PMA_backquote($mybs_cust_content_type_tbl);
+                        $query = "SELECT count(*) FROM " . PMA_backquote($pbms_cust_content_type_tbl);
 			$query .= " WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
 
                         $result = PMA_DBI_query($query);
@@ -63,12 +67,12 @@
                         {
                             if (1 == $data['count(*)'])
                             {
-                                $query = "UPDATE " . PMA_backquote($mybs_cust_content_type_tbl) . " SET Content_type='";
+                                $query = "UPDATE " . PMA_backquote($pbms_cust_content_type_tbl) . " SET Content_type='";
                                 $query .= PMA_sqlAddslashes($bsNewMIMEType) . "' WHERE Blob_url='" . PMA_sqlAddslashes($bsReference) . "'";
                             }
                             else
                             {
-                                $query = "INSERT INTO " . PMA_backquote($mybs_cust_content_type_tbl) . " (Blob_url, Content_type)";
+                                $query = "INSERT INTO " . PMA_backquote($pbms_cust_content_type_tbl) . " (Blob_url, Content_type)";
                                 $query .= " VALUES('" . PMA_sqlAddslashes($bsReference) . "', '" . PMA_sqlAddslashes($bsNewMIMEType) . "')";
                             }
 
