@@ -9,7 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1253252 [display] Can't NULL a column with relation defined 
 - bug #2009500 [SQL] Small improvements in generated SQL (partial fix) 
 
-3.1.1.0 (not yet released)
+3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,
   thanks to Martin Stricker - martinstricker
 - bug #2186823 [core] bad session.save_path not detected
