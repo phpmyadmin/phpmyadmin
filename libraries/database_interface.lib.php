@@ -404,7 +404,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
 
     // cache table data
     // so PMA_Table does not require to issue SHOW TABLE STATUS again
-    PMA_Table::$cache = $tables;
+    PMA_Table::$cache = array_merge_recursive(PMA_Table::$cache, $tables);
 
     if (! is_array($database)) {
         if (isset($tables[$database])) {
