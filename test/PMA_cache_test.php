@@ -26,79 +26,66 @@ class PMA_cache_test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * temporary variable for globals array
+     * @var array temporary variable for globals array
      */
-
     protected $tmpGlobals;
 
     /**
-     * temporary variable for session array
+     * @var array temporary variable for session array
      */
-
     protected $tmpSession;
 
     /**
      * storing globals and session
      */
-    public function setUp() {
-
+    public function setUp()
+    {
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
-        
     }
 
     /**
      * cacheExists test
      */
-
-    public function testCacheExists() {
+    public function testCacheExists()
+    {
         $GLOBALS['server'] = 'server';
-        $_SESSION['cache']['server_server'] = array('test_data'=>1, 'test_data_2'=>2);
+        PMA_cacheSet('test_data', 5, true);
 
-        $this->assertTrue(PMA_cacheExists('test_data', true));
-        $this->assertTrue(PMA_cacheExists('test_data_2', 'server'));
+        $this->assertTrue(PMA_cacheExists('test_data', 'server'));
+    }
+
+    /**
+     * cacheNotExists test
+     */
+    public function testCacheNotExists()
+    {
+        $GLOBALS['server'] = 'server';
+        PMA_cacheSet('test_data', 5, true);
+
         $this->assertFalse(PMA_cacheExists('fake_data_2', true));
     }
 
     /**
      * cacheGet test
      */
-
-    public function testCacheGet() {
+    public function testCacheSetGet()
+    {
         $GLOBALS['server'] = 'server';
-        $_SESSION['cache']['server_server'] = array('test_data'=>1, 'test_data_2'=>2);
+        PMA_cacheSet('test_data', 25, true);
 
         $this->assertNotNull(PMA_cacheGet('test_data', true));
-        $this->assertNotNull(PMA_cacheGet('test_data_2', 'server'));
-        $this->assertNull(PMA_cacheGet('fake_data_2', true));
-    }
-
-    /**
-     * cacheSet test
-     */
-
-    public function testCacheSet() {
-        $GLOBALS['server'] = 'server';
-        $_SESSION['cache']['server_server'] = array('test_data'=>1, 'test_data_2'=>2);
-
-        PMA_cacheSet('test_data', 5, true);
-        $this->assertEquals(5, $_SESSION['cache']['server_server']['test_data']);
-        PMA_cacheSet('test_data_3', 3, true);
-        $this->assertEquals(3, $_SESSION['cache']['server_server']['test_data_3']);
     }
 
     /**
      * cacheUnset test
      */
-
-    public function testCacheUnSet() {
+    public function testCacheUnSet()
+    {
         $GLOBALS['server'] = 'server';
-        $_SESSION['cache']['server_server'] = array('test_data'=>1, 'test_data_2'=>2);
-
+        PMA_cacheSet('test_data', 25, true);
         PMA_cacheUnset('test_data', true);
-        $this->assertNull($_SESSION['cache']['server_server']['test_data']);
-        PMA_cacheUnset('test_data_2', true);
-        $this->assertNull($_SESSION['cache']['server_server']['test_data_2']);
+        $this->assertFalse(PMA_cacheExists('test_data', true));
     }
 }
 ?>
