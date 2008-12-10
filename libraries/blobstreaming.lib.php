@@ -37,11 +37,11 @@ function checkBLOBStreamingPlugins()
         return FALSE;
 
     // if PHP extension in use is 'mysql', specify element 'PersistentConnections'
-    if ($serverCfg['extension'] == "mysql")
+    if (isset($serverCfg['extension']) && "mysql" == $serverCfg['extension'])
         $serverCfg['PersistentConnections'] = $PMA_Config->settings['PersistentConnections'];
 
     // if connection type is TCP, unload socket variable
-    if (strtolower($serverCfg['connect_type']) == "tcp")
+    if (isset($serverCfg['connect_type']) && "tcp" == strtolower($serverCfg['connect_type']))
         $serverCfg['socket'] = "";
 
     // define BS Plugin variables
