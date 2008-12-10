@@ -76,11 +76,8 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
      * Gets table informations
      */
     // The 'show table' statement works correct since 3.23.03
-    $showtable    = PMA_DBI_get_tables_full($db, $table);
-    $num_rows     = (isset($showtable[$table]['TABLE_ROWS']) ? $showtable[$table]['TABLE_ROWS'] : 0);
-    $show_comment = (isset($showtable[$table]['TABLE_COMMENT']) ? $showtable[$table]['TABLE_COMMENT'] : '');
-    unset($showtable);
-
+    $num_rows     = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_ROWS');
+    $show_comment = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_COMMENT');
 
     /**
      * Gets table keys and retains them

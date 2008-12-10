@@ -632,18 +632,18 @@ class PMA_RT_Table {
         }
         // load fields
         //check to see if it will load all fields or only the foreign keys
-		if ($show_keys) {
-			$indexes = PMA_Index::getFromTable($this->table_name, $db);
-			$all_columns = array();
-			foreach ($indexes as $index) {
-			   $all_columns = array_merge($all_columns, array_flip(array_keys($index->getColumns())));
-			}
-			$this->fields = array_keys($all_columns);
-		} else {
-	        while ($row = PMA_DBI_fetch_row($result)) {
-	            $this->fields[] = $row[0];
-	        }
-		}
+        if ($show_keys) {
+            $indexes = PMA_Index::getFromTable($this->table_name, $db);
+            $all_columns = array();
+            foreach ($indexes as $index) {
+            $all_columns = array_merge($all_columns, array_flip(array_keys($index->getColumns())));
+            }
+            $this->fields = array_keys($all_columns);
+        } else {
+            while ($row = PMA_DBI_fetch_row($result)) {
+                $this->fields[] = $row[0];
+            }
+        }
         // height and width
         $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
@@ -1152,16 +1152,12 @@ function PMA_RT_DOC($alltables)
         /**
          * Gets table informations
          */
-        $result = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, true) . '\';', null, PMA_DBI_QUERY_STORE);
-        $showtable = PMA_DBI_fetch_assoc($result);
-        $num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+        $showtable    = PMA_Table::sGetStatusInfo($db, $table);
+        $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-        $create_time = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Create_time'])) : '');
-        $update_time = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Update_time'])) : '');
-        $check_time = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
-
-        PMA_DBI_free_result($result);
-        unset($result);
+        $create_time  = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Create_time'])) : '');
+        $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Update_time'])) : '');
+        $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
 
         /**
          * Gets table keys and retains them

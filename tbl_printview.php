@@ -92,12 +92,9 @@ foreach ($the_tables as $key => $table) {
     /**
      * Gets table informations
      */
-    $result       = PMA_DBI_query(
-        'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, true) . '\';');
-    $showtable    = PMA_DBI_fetch_assoc($result);
+    $showtable    = PMA_Table::sGetStatusInfo($db, $table);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-    PMA_DBI_free_result($result);
 
     $tbl_is_view = PMA_Table::isView($db, $table);
 
