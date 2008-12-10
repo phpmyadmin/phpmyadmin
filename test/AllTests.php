@@ -18,6 +18,11 @@ if (! defined('PMA_MAIN_METHOD')) {
 // required to not die() in some libraries
 define('PHPMYADMIN', true);
 
+// just add $_SESSION array once, so no need to test for existance evrywhere to get rid of NOtices about this
+if (empty($_SESSION)) {
+    $_SESSION = array();
+}
+
 /**
  *
  */
@@ -83,12 +88,4 @@ class AllTests
         return $suite;
     }
 }
-// Please clarify the reason of this section; it has for effect
-// of running the tests a second time.
-/*
-if (PMA_MAIN_METHOD == 'AllTests::main') {
-    echo '<pre>';
-    AllTests::main();
-    echo '</pre>';
-}*/
 ?>
