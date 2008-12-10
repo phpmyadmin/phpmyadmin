@@ -88,7 +88,7 @@ require_once './libraries/List.class.php';
             return;
         }
 
-        foreach ($this as $key => $db) {
+        foreach ($this->getArrayCopy() as $key => $db) {
             if (preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)) {
                 $this->offsetUnset($key);
             }
