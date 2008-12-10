@@ -454,6 +454,9 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
     }
 
     if (! isset($GLOBALS['footnotes'][$key])) {
+        if (empty($GLOBALS['footnotes']) || ! is_array($GLOBALS['footnotes'])) {
+            $GLOBALS['footnotes'] = array();
+        }
         $nr = count($GLOBALS['footnotes']) + 1;
         // this is the first instance of this message
         $instance = 1;
@@ -2656,11 +2659,11 @@ function PMA_replace_binary_contents($content) {
  */
 
 function PMA_duplicateFirstNewline($string){
-	$first_occurence = strpos($string, "\r\n");
-	if ($first_occurence === 0){
-		$string = "\n".$string;
-	}
-	return $string;
+    $first_occurence = strpos($string, "\r\n");
+    if ($first_occurence === 0){
+        $string = "\n".$string;
+    }
+    return $string;
 }
 
 /**
@@ -2670,7 +2673,7 @@ function PMA_duplicateFirstNewline($string){
  * @uses    $GLOBALS
  * @param   string  a valid value for $cfg['LeftDefaultTabTable']
  *                  or $cfg['DefaultTabTable']
- *                  or $cfg['DefaultTabDatabase'] 
+ *                  or $cfg['DefaultTabDatabase']
  */
 function PMA_getTitleForTarget($target) {
     return $GLOBALS[$GLOBALS['cfg']['DefaultTabTranslationMapping'][$target]];
