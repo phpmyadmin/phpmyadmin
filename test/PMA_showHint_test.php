@@ -26,160 +26,152 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * temporary variable for globals array
+     * @var array temporary variable for globals array
      */
-
     protected $tmpGlobals;
 
     /**
-     * temporary variable for session array
+     * @var array temporary variable for session array
      */
-
     protected $tmpSession;
 
     /**
      * storing globals and session
      */
-    public function setUp() {
-
+    public function setUp()
+    {
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
-        
     }
 
     /**
      * recovering globals and session
      */
-    public function tearDown() {
-
+    public function tearDown()
+    {
         $GLOBALS = $this->tmpGlobals;
         $_SESSION = $this->tmpSession;
-
     }
 
     /**
      * PMA_showHint with defined GLOBALS
      */
-
-    public function testShowHintWithGlobals() {
-
-        $key = md5('test');
-        $nr = 1234;
+    public function testShowHintReturnValue()
+    {
+        $key      = md5('test');
+        $nr       = 1234;
         $instance = 1;
 
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance+1, $nr), PMA_showHint('test'));
-
+        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+            $nr, $instance + 1, $nr), PMA_showHint('test'));
     }
 
     /**
      * PMA_showHint with defined GLOBALS formatted as BB
      */
-
-    public function testShowHintWithGlobalsBbFormat() {
-
-        $key = md5('test');
-        $nr = 1234;
+    public function testShowHintReturnValueBbFormat()
+    {
+        $key      = md5('test');
+        $nr       = 1234;
         $instance = 1;
 
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
-        $this->assertEquals(sprintf('[sup]%d[/sup]', $nr), PMA_showHint('test', true));
-
+        $this->assertEquals(sprintf('[sup]%d[/sup]', $nr),
+            PMA_showHint('test', true));
     }
 
     /**
      * PMA_showHint with not defined GLOBALS
      */
-
-    public function testShowHintWithoutGlobals() {
-
-        $key = md5('test');
-        $nr = 1;
+    public function testShowHintSetting()
+    {
+        $key      = md5('test');
+        $nr       = 1;
         $instance = 1;
 
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance, $nr), PMA_showHint('test', false, 'notice'));
+        PMA_showHint('test', false, 'notice');
 
         $expArray = array(
-                'note' => 'test',
-                'type' => 'notice',
-                'nr' => count($GLOBALS['footnotes']),
-                'instance' => 1
+            'note'      => 'test',
+            'type'      => 'notice',
+            'nr'        => count($GLOBALS['footnotes']),
+            'instance'  => 1,
         );
 
         $this->assertEquals($expArray, $GLOBALS['footnotes'][$key]);
-
     }
 
     /**
      * PMA_showHint with not defined GLOBALS formatted as BB
      */
+    public function testShowHintSettingBbFormat()
+    {
+        $key        = md5('test');
+        $nr         = 1;
+        $instance   = 1;
 
-    public function testShowHintWithoutGlobalsBbFormat() {
-
-        $key = md5('test');
-        $nr = 1;
-        $instance = 1;
-
-        $this->assertEquals(sprintf('[sup]%d[/sup]', $nr), PMA_showHint('test', true, 'notice'));
+        PMA_showHint('test', true, 'notice');
 
         $expArray = array(
-                'note' => 'test',
-                'type' => 'notice',
-                'nr' => count($GLOBALS['footnotes']),
-                'instance' => 1
+            'note'      => 'test',
+            'type'      => 'notice',
+            'nr'        => count($GLOBALS['footnotes']),
+            'instance'  => 1,
         );
 
         $this->assertEquals($expArray, $GLOBALS['footnotes'][$key]);
-
     }
 
     /**
      * PMA_showHint with defined GLOBALS using PMA_Message object
      */
+    public function testShowHintPmaMessageReturnValue()
+    {
+        $nr         = 1;
+        $instance   = 1;
 
-    public function testShowHintPmaMessageWithGlobals() {
-    
-        $nr = 1;
-        $instance = 1;
-
-        $oMock = $this->getMock('PMA_Message', array('setMessage', 'setNumber', 'getHash', 'getLevel'));
+        $oMock      = $this->getMock('PMA_Message',
+            array('setMessage', 'setNumber', 'getHash', 'getLevel'));
         $oMock->setMessage('test');
         $oMock->setNumber($nr);
+
+        $key = $oMock->getHash();
 
         $GLOBALS['footnotes'][$key]['nr'] = $nr;
         $GLOBALS['footnotes'][$key]['instance'] = $instance;
 
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance+1, $nr), PMA_showHint($oMock));
+        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>',
+            $nr, $instance + 1, $nr), PMA_showHint($oMock));
     }
 
     /**
      * PMA_showHint with not defined GLOBALS using PMA_Message object
      */
+    public function testShowHintPmaMessageSetting()
+    {
+        $nr         = 1;
+        $instance   = 1;
 
-    public function testShowHintPmaMessageWithoutGlobals() {
-    
-        $nr = 1;
-        $instance = 1;
-
-        $oMock = $this->getMock('PMA_Message', array('setMessage', 'setNumber', 'getHash', 'getLevel', 'getNumber'));
+        $oMock = $this->getMock('PMA_Message',
+            array('setMessage', 'setNumber', 'getHash', 'getLevel', 'getNumber'));
         $oMock->setMessage('test');
         $oMock->setNumber($nr);
 
-        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance, $nr), PMA_showHint($oMock, false));
+        PMA_showHint($oMock, false);
 
         $key = $oMock->getHash();
 
         $expArray = array(
-                'note' => $oMock,
-                'type' => $oMock->getLevel(),
-                'nr' => count($GLOBALS['footnotes']),
-                'instance' => 1
+            'note'      => $oMock,
+            'type'      => $oMock->getLevel(),
+            'nr'        => count($GLOBALS['footnotes']),
+            'instance'  => 1,
         );
 
         $this->assertEquals($expArray, $GLOBALS['footnotes'][$key]);
     }
-
 }
 ?>
