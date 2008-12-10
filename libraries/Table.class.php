@@ -257,19 +257,33 @@ class PMA_Table
             . ' (' . PMA_Table::countRecords($db, $table, true) . ')';
     }
 
+    /**
+     * Returns full table status info, or specific if $info provided
+     *
+     * this info is collected from information_schema
+     *
+     * @todo PMA_DBI_get_tables_full needs to be merged somehow into this class or at least better documented
+     * @param string $db
+     * @param string $table
+     * @param string $info
+     * @param boolean $force_read
+     * @return mixed
+     */
     static public function sGetStatusInfo($db, $table, $info = null, $force_read = false)
     {
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
-            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
+            PMA_DBI_get_tables_full($db, $table);
         }
 
         if (null === $info) {
             return PMA_Table::$cache[$db][$table];
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table][$info]) || $force_read) {
-            PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . $table . '\'');
+        if (! isset(PMA_Table::$cache[$db][$table][$info])) {
+            trigger_error('unkown table status: ' . $info, E_USER_WARNING);
+            return false;
         }
+
         return PMA_Table::$cache[$db][$table][$info];
     }
 
