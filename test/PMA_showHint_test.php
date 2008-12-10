@@ -92,7 +92,7 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $nr       = 1;
         $instance = 1;
 
-        PMA_showHint('test', false, 'notice');
+        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance, $nr), PMA_showHint('test', false, 'notice'));
 
         $expArray = array(
             'note'      => 'test',
@@ -113,7 +113,7 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $nr         = 1;
         $instance   = 1;
 
-        PMA_showHint('test', true, 'notice');
+        $this->assertEquals(sprintf('[sup]%d[/sup]', $nr), PMA_showHint('test', true, 'notice'));
 
         $expArray = array(
             'note'      => 'test',
@@ -160,7 +160,7 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
         $oMock->setMessage('test');
         $oMock->setNumber($nr);
 
-        PMA_showHint($oMock, false);
+        $this->assertEquals(sprintf('<sup class="footnotemarker" id="footnote_sup_%d_%d">%d</sup>', $nr, $instance, $nr), PMA_showHint($oMock, false));
 
         $key = $oMock->getHash();
 
