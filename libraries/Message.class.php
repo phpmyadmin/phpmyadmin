@@ -3,6 +3,7 @@
 /**
  * Holds class PMA_Message
  *
+ * @author Sebastian Mendel <info@sebastianmendel.de>
  * @version $Id: Error.class.php 10738 2007-10-08 16:02:58Z cybot_tm $
  * @package phpMyAdmin
  */
@@ -27,23 +28,33 @@
  *
  * more advanced usage example:
  * <code>
+ * // create a localized success message
  * $message = PMA_Message::success('strSomeLocaleMessage');
  *
+ * // create another message, a hint, whith a localized string which expects
+ * // two parameters: $strSomeFootnote = 'Read the %smanual%s'
  * $hint = PMA_Message::notice('strSomeFootnote');
+ * // replace %d with the following params
  * $hint->addParam('[a@./Documentation.html#cfg_Example@_blank]');
  * $hint->addParam('[/a]');
+ * // add this hint as a footnote
  * $hint = PMA_showHint($hint);
  *
+ * // add the retrieved footnote reference to the original message
  * $message->addMessage($hint);
  *
+ * // create another message ...
  * $more = PMA_Message::notice('strSomeMoreLocale');
  * $more->addString('strSomeEvenMoreLocale', '<br />');
  * $more->addParam('parameter for strSomeMoreLocale');
  * $more->addParam('more parameter for strSomeMoreLocale');
  *
+ * // and add it also to the orignal message
  * $message->addMessage($more);
+ * // finally add another raw message
  * $message->addMessage('some final words', ' - ');
  *
+ * // display() will now print all messages in the same order as they are added
  * $message->display();
  * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
  * // strSomeEvenMoreLocale - some final words
@@ -335,7 +346,7 @@ class PMA_Message
             $this->setNumber(PMA_Message::SUCCESS);
         }
 
-        return $this->getNumber() & PMA_Message::SUCCESS;
+        return $this->getNumber() === PMA_Message::SUCCESS;
     }
 
     /**
@@ -354,7 +365,7 @@ class PMA_Message
             $this->setNumber(PMA_Message::NOTICE);
         }
 
-        return $this->getNumber() & PMA_Message::NOTICE;
+        return $this->getNumber() === PMA_Message::NOTICE;
     }
 
     /**
@@ -373,7 +384,7 @@ class PMA_Message
             $this->setNumber(PMA_Message::WARNING);
         }
 
-        return $this->getNumber() & PMA_Message::WARNING;
+        return $this->getNumber() === PMA_Message::WARNING;
     }
 
     /**
@@ -392,7 +403,7 @@ class PMA_Message
             $this->setNumber(PMA_Message::ERROR);
         }
 
-        return $this->getNumber() & PMA_Message::ERROR;
+        return $this->getNumber() === PMA_Message::ERROR;
     }
 
     /**
@@ -794,8 +805,8 @@ class PMA_Message
      */
     public function isDisplayed($is_displayed = false)
     {
-        if ($is_displayed){
-            $this->_is_displayed = $is_displayed;
+        if ($is_displayed) {
+            $this->_is_displayed = true;
         }
 
         return $this->_is_displayed;
