@@ -49,6 +49,9 @@ require_once './test/PMA_quoting_slashing_test.php';
 require_once './test/PMA_stringOperations_test.php';
 require_once './test/PMA_printableBitValue_test.php';
 require_once './test/PMA_foreignKeySupported_test.php';
+require_once './test/PMA_headerLocation_test.php';
+require_once './test/PMA_Message_test.php';
+require_once './test/PMA_whichCrlf_test.php';
 
 class AllTests
 {
@@ -85,6 +88,9 @@ class AllTests
         $suite->addTestSuite('PMA_stringOperations_test');
         $suite->addTestSuite('PMA_printableBitValue_test');
         $suite->addTestSuite('PMA_foreignKeySupported_test');
+        $suite->addTestSuite('PMA_headerLocation_test');
+        $suite->addTestSuite('PMA_Message_test');
+        $suite->addTestSuite('PMA_whichCrlf_test');
         return $suite;
     }
 }
