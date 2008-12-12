@@ -18,6 +18,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.1.2.0 (not yet released)
 - bug #1253252 [display] Can't NULL a column with relation defined 
 - bug #2009500 [SQL] Small improvements in generated SQL (partial fix)
+- bug #1963184 [export] YAML export improvement,
+ thanks to Bryce Thornton - brycethornton
 
 3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,
