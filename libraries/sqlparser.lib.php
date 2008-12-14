@@ -2281,8 +2281,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         && ($typearr[1] != 'punct_level_plus')
                         && (!PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_no_newline, $keywords_no_newline_cnt))) {
                         // do not put a space before the first token, because
-                        // we use a lot of eregi() checking for the first
-                        // reserved word at beginning of query
+                        // we use a lot of pattern matching checking for the 
+                        // first reserved word at beginning of query
                         // so do not put a newline before
                         //
                         // also we must not be inside a privilege list

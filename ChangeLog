@@ -11,6 +11,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #1963184 [export] YAML export improvement,
  thanks to Bryce Thornton - brycethornton
 + [lang] Dutch update, thanks to Herman van Rink - helmo 
+- patch #2407785 [cleanup] ereg*() deprecated in PHP 5.3,
+  thanks to Alex Frase - atfrase
 
 3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,

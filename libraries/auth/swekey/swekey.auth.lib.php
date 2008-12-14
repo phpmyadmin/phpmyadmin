@@ -17,13 +17,13 @@ function Swekey_auth_check()
         $_SESSION['SWEKEY']['VALID_SWEKEYS'] = array();
         $valid_swekeys = split("\n",@file_get_contents($confFile));
         foreach ($valid_swekeys as $line) {
-            if (ereg("^[0-9A-F]{32}:.+$", $line) != false)    
+            if (preg_match("/^[0-9A-F]{32}:.+$/", $line) != false)    
 			{  
 				$items = explode(":", $line);
 				if (count($items) == 2)
                     $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]); 
 			}  
-            else if (ereg("^[A-Z_]+=.*$", $line) != false) {
+            else if (preg_match("/^[A-Z_]+=.*$/", $line) != false) {
                 $items = explode("=", $line);
                 $_SESSION['SWEKEY']['CONF_'.trim($items[0])] = trim($items[1]);
             }      

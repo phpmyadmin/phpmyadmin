@@ -15,7 +15,7 @@
  * @uses    opendir()
  * @uses    readdir()
  * @uses    is_file()
- * @uses    eregi()
+ * @uses    preg_match()
  * @param   string  $plugins_dir    directrory with plugins
  * @param   mixed   $plugin_param   parameter to plugin by which they can decide whether they can work
  * @return  array                   list of plugins
