@@ -84,7 +84,7 @@ if (!empty($bug_encoded)) {
         $bug_encoded = stripslashes($bug_encoded);
     }
 
-    $bug_encoded     = ereg_replace('[[:space:]]', '', $bug_encoded);
+    $bug_encoded     = preg_replace('/[[:space:]]/', '', $bug_encoded);
     $bug_decoded     = base64_decode($bug_encoded);
     if (substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {

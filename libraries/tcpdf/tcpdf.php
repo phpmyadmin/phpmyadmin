@@ -5493,7 +5493,8 @@ if(!class_exists('TCPDF', false)) {
 			if (isset($dash)) {
 				$dash_string = "";
 				if ($dash) {
-					if (ereg("^.+,", $dash)) {
+					// phpMyAdmin change
+					if (preg_match("/^.+,/", $dash)) {
 						$tab = explode(",", $dash);
 					} else {
 						$tab = array($dash);

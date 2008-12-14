@@ -179,7 +179,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 // loic1 : always enclose fields
                 if ($what == 'excel') {
-                    $row[$j]       = ereg_replace("\015(\012)?", "\012", $row[$j]);
+                    $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                 }
                 if ($csv_enclosed == '') {
                     $schema_insert .= $row[$j];
