@@ -275,6 +275,11 @@ class PMA_Table
             PMA_DBI_get_tables_full($db, $table);
         }
 
+        if (! isset(PMA_Table::$cache[$db][$table])) {
+            // happens when we enter the table creation dialog
+            return array();
+        }
+
         if (null === $info) {
             return PMA_Table::$cache[$db][$table];
         }
