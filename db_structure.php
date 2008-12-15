@@ -77,6 +77,7 @@ $db_collation = PMA_getDbCollation($db);
  * @uses    $GLOBALS['strSize']
  * @uses    $GLOBALS['strOverhead']
  * @uses    $GLOBALS['structure_tbl_col_cnt']
+ * @uses    PMA_SortableTableHeader()
  * @param   boolean $db_is_information_schema
  */
 function PMA_TableHeader($db_is_information_schema = false)
@@ -92,22 +93,22 @@ function PMA_TableHeader($db_is_information_schema = false)
     echo '<table class="data" style="float: left;">' . "\n"
         .'<thead>' . "\n"
         .'<tr><td></td>' . "\n"
-        .'    <th>' . $GLOBALS['strTable'] . '</th>' . "\n"
+        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strTable'], 'table') . '</th>' . "\n"
         .'    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . $GLOBALS['strAction'] . "\n"
         .'    </th>'
-        .'    <th>' . $GLOBALS['strRecords']
+        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strRecords'], 'records')
         .PMA_showHint(PMA_sanitize($GLOBALS['strApproximateCount'])) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        echo '    <th>' . $GLOBALS['strType'] . '</th>' . "\n";
+        echo '    <th>' . PMA_SortableTableHeader($GLOBALS['strType'], 'type') . '</th>' . "\n";
         $cnt++;
-        echo '    <th>' . $GLOBALS['strCollation'] . '</th>' . "\n";
+        echo '    <th>' . PMA_SortableTableHeader($GLOBALS['strCollation'], 'collation') . '</th>' . "\n";
         $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
-        echo '    <th>' . $GLOBALS['strSize'] . '</th>' . "\n"
-           . '    <th>' . $GLOBALS['strOverhead'] . '</th>' . "\n";
+        echo '    <th>' . PMA_SortableTableHeader($GLOBALS['strSize'], 'size') . '</th>' . "\n"
+           . '    <th>' . PMA_SortableTableHeader($GLOBALS['strOverhead'], 'overhead') . '</th>' . "\n";
         $cnt += 2;
     }
     echo '</tr>' . "\n";
@@ -115,6 +116,59 @@ function PMA_TableHeader($db_is_information_schema = false)
     echo '<tbody>' . "\n";
     $GLOBALS['structure_tbl_col_cnt'] = $cnt + $action_colspan + 3;
 } // end function PMA_TableHeader()
+
+
+/**
+ * Creates a clickable column header for table information
+ *
+ * @param   string  title to use for the link
+ * @param   string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
+ * @returns string  link to be displayed in the table header
+ */
+function PMA_SortableTableHeader($title, $sort)
+{
+    // Set some defaults
+    $requested_sort = 'table';
+    $requested_sort_order = 'ASC';
+    $sort_order = 'ASC';
+    
+    // If the user requested a sort
+    if (isset($_REQUEST['sort'])) {
+        $requested_sort = $_REQUEST['sort'];
+
+        if (isset($_REQUEST['sort_order'])) {
+            $requested_sort_order = $_REQUEST['sort_order'];
+        }
+    }
+
+    $order_img = '';
+    $order_link_params = array();
+    $order_link_params['title'] = $GLOBALS['strSort'];
+
+    // If this column was requested to be sorted.
+    if ($requested_sort == $sort) {
+        if ($requested_sort_order == 'ASC') {
+            $sort_order = 'DESC';
+            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
+            $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+            $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+        } else {
+            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
+            $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+            $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+        }
+    }
+
+    $_url_params = array(
+        'db' => $_REQUEST['db'],
+    );
+
+    $url = 'db_structure.php'.PMA_generate_common_url($_url_params);
+    // We set the position back to 0 every time they sort.
+    $url .= "&pos=0&sort=$sort&sort_order=$sort_order";
+
+    return PMA_linkOrButton($url, $title . $order_img, $order_link_params);
+}
 
 $titles = array();
 if (true == $cfg['PropertiesIconic']) {
@@ -160,10 +214,18 @@ if (true == $cfg['PropertiesIconic']) {
 /**
  * Displays the tables list
  */
-
 $_url_params = array(
     'pos' => $pos,
     'db'  => $db);
+
+// Add the sort options if they exists
+if ($_REQUEST['sort']) {
+    $_url_params['sort'] = $_REQUEST['sort'];
+}
+
+if ($_REQUEST['sort_order']) {
+    $_url_params['sort_order'] = $_REQUEST['sort_order'];
+}
 
 PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']);
 

@@ -14,6 +14,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1821619 LeftFrameDBSeparator can be an array
 + patch #1821619 [privileges] Extra back reference when editing table-specific
   privileges, thanks to Herman van Rink - helmo
++ patch #2356575 [display] Sortable database columns,
+  thanks to Bryce Thornton - brycethornton
 
 3.1.2.0 (not yet released)
 - bug #1253252 [display] Can't NULL a column with relation defined 

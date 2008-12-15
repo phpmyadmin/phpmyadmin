@@ -241,10 +241,12 @@ function PMA_usort_comparison_callback($a, $b)
  * @param   resource        $link           mysql link
  * @param   integer         $limit_offset   zero-based offset for the count
  * @param   boolean|integer $limit_count    number of tables to return
+ * @param   string          $sort_by        table attribute to sort by
+ * @param   string          $sort_order     direction to sort (ASC or DESC)
  * @return  array           list of tables in given db(s)
  */
-function PMA_DBI_get_tables_full($database, $table = false,
-    $tbl_is_group = false, $link = null, $limit_offset = 0, $limit_count = false)
+function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = false, $link = null,
+     $limit_offset = 0, $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC')
 {
     require_once './libraries/Table.class.php';
 
@@ -311,9 +313,37 @@ function PMA_DBI_get_tables_full($database, $table = false,
             WHERE ' . (PMA_IS_WINDOWS ? '' : 'BINARY') . ' `TABLE_SCHEMA` IN (\'' . implode("', '", $this_databases) . '\')
               ' . $sql_where_table;
 
+      // Sort the tables
+      if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+          // This crazy bit of SQL was inspired by a post here:
+          // http://forums.mysql.com/read.php?10,34908,35959#msg-35959
+
+          // Find the longest table name
+          $max_name_sql = "SELECT MAX(LENGTH(TABLE_NAME)) FROM `information_schema`.`TABLES`
+                           WHERE `TABLE_SCHEMA` IN ('" . implode("', '", $this_databases) . "')"; 
+          $max_name_array = PMA_DBI_fetch_result($max_name_sql);
+          $max_name_length = $max_name_array[0];
+
+          // Put the CASE statement SQL together.
+          $sql_case = '';
+          for ($i = 1; $i < $max_name_length; $i++) {
+              $sql_case .= " when substr(Name, $i) between '0' and '9' then $i";
+          }
+          $sql_case .= " ELSE $max_name_length end) ";
+
+          // Add the CASE statement to the main SQL
+          $sql .= " ORDER BY left(Name, (CASE ";
+          $sql .= $sql_case . "-1) $sort_order, 0+substr(Name, CASE";
+          $sql .= $sql_case . $sort_order;
+      } else {
+          // Just let MySQL sort as it normally does
+          $sql .= " ORDER BY $sort_by $sort_order";
+      }
+
       if ($limit_count) {
           $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
       }
+
       $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
           null, $link);
       unset($sql_where_table, $sql);
@@ -334,6 +364,31 @@ function PMA_DBI_get_tables_full($database, $table = false,
             }
 
             $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+
+            // Sort naturally if the config allows it and we're sorting
+            // the Name column.
+            if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                uksort($each_tables, 'strnatcasecmp');
+
+                if ($sort_order == 'DESC') {
+                    $each_tables = array_reverse($each_tables);
+                }
+            } else {
+                // Prepare to sort by creating array of the selected sort
+                // value to pass to array_multisort
+                foreach ($each_tables as $table_name => $table_data) {
+                    ${$sort_by}[$table_name] = strtolower($table_data[$sort_by]);
+                }
+
+                if ($sort_order == 'DESC') {
+                    array_multisort($$sort_by, SORT_DESC, $each_tables);
+                } else {
+                    array_multisort($$sort_by, SORT_ASC, $each_tables);
+                }
+
+                // cleanup the temporary sort array
+                unset($$sort_by);
+            }
 
             if ($limit_count) {
                 $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
@@ -393,12 +448,6 @@ function PMA_DBI_get_tables_full($database, $table = false,
             }
 
             $tables[$each_database] = $each_tables;
-        }
-    }
-
-    if ($GLOBALS['cfg']['NaturalOrder']) {
-        foreach ($tables as $key => $val) {
-            uksort($tables[$key], 'strnatcasecmp');
         }
     }
 
