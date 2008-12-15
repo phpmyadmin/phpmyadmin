@@ -775,6 +775,7 @@ $strServerTabVariables = 'Variables';
 $strServerTrafficNotes = '<b>Statistiques sur le trafic</b>: Ce tableau indique le trafic réseau observé sur ce serveur MySQL depuis son démarrage.';
 $strServerVars = 'Variables et réglages du serveur';
 $strServerVersion = 'Version du serveur';
+$strSessionGCWarning = 'La valeur du paramètre PHP [a@http://php.net/manual/fr/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] est plus petite que la durée du cookie configurée dans phpMyAdmin; donc, votre session de travail expirera plus tôt.';
 $strSessionStartupErrorGeneral = 'Erreur lors du démarrage de la session, veuillez vérifier les erreurs indiquées par PHP ou dans le fichier témoin du serveur web, et configurer PHP correctement.';
 $strSessionValue = 'Valeur pour la session';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites-le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
@@ -1441,5 +1442,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 ?>
