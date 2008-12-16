@@ -30,10 +30,14 @@ function checkBLOBStreamingPlugins()
 
     // retrieve current server configuration
     $serverCfg = $PMA_Config->get('Servers');
-    $serverCfg = $serverCfg[$GLOBALS['server']];
+
+    if (isset($serverCfg[$GLOBALS['server']]))
+        $serverCfg = $serverCfg[$GLOBALS['server']];
+    else
+	$serverCfg = null;
 
     // return if unable to retrieve current server configuration
-    if (! $serverCfg)
+    if (!isset($serverCfg))
         return FALSE;
 
     // if PHP extension in use is 'mysql', specify element 'PersistentConnections'
