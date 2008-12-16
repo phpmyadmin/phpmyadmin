@@ -199,10 +199,10 @@ if (true === $cfg['SkipLockedTables']) {
 if (! isset($sot_ready)) {
 
     // Set some sorting defaults
-    $sort = 'name';
+    $sort = 'Name';
     $sort_order = 'ASC';
 
-    if ($_REQUEST['sort']) {
+    if (isset($_REQUEST['sort'])) {
         $sortable_name_mappings = array(
             'table'     => 'Name',
             'records'   => 'Rows',
