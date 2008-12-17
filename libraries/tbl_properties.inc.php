@@ -530,7 +530,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] = '<input name="field_extra[' . $i . ']"'
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '"';
 
-    if (isset($row['Extra']) && $row['Extra'] == 'auto_increment') {
+    if (isset($row['Extra']) && strtolower($row['Extra']) == 'auto_increment') {
         $content_cells[$i][$ci] .= ' checked="checked"';
     }
 
