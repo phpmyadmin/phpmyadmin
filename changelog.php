@@ -9,7 +9,7 @@
 $changelog = htmlspecialchars(file_get_contents('ChangeLog'));
 
 $replaces = array(
-    '@(http://[./a-zA-Z0-9.-]*[/a-zA-Z0-9])@'
+    '@(http://[./a-zA-Z0-9.-_]*[/a-zA-Z0-9_])@'
     => '<a href="\\1">\\1</a>',
 
     // sourceforge users
