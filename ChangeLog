@@ -26,6 +26,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2407785 [cleanup] ereg*() deprecated in PHP 5.3,
   thanks to Alex Frase - atfrase
 - bug #2417058 [properties] Edit fields: losing auto-increment setting
+- patch #2444082 [changelog] changelog.php linkifies one link wrong,
+  thanks to Robert Xiao - nneonneo
 
 3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,
