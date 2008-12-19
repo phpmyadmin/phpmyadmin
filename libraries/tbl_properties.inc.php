@@ -174,7 +174,8 @@ for ($i = 0; $i < $num_fields; $i++) {
             $row['Key'] = '';
         }
 
-        $row['DefaultType']  = (isset($_REQUEST['field_default_type'][$i]) ? $_REQUEST['field_default_type'][$i] : 'USER_DEFINED');
+        // put None in the drop-down for Default, when someone adds a field 
+        $row['DefaultType']  = (isset($_REQUEST['field_default_type'][$i]) ? $_REQUEST['field_default_type'][$i] : 'NONE');
         $row['DefaultValue'] = (isset($_REQUEST['field_default_value'][$i]) ? $_REQUEST['field_default_value'][$i] : '');
 
         switch ($row['DefaultType']) {
