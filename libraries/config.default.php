@@ -581,6 +581,7 @@ $cfg['Error_Handler'] = array();
 $cfg['Error_Handler']['display'] = false;
 
 /**
+ * (NOT IMPLEMENTED YET)
  * where to log errors, false or empty to disable
  *
  * <code>
@@ -595,7 +596,7 @@ $cfg['Error_Handler']['display'] = false;
  * @see     http://php.net/error_log
  * @global  string $cfg['Error_Handler']['log']
  */
-$cfg['Error_Handler']['log'] = false;
+//$cfg['Error_Handler']['log'] = false;
 
 /**
  * gather all errors in session to be displayed on a error reporting page
