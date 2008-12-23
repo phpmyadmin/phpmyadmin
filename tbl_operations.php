@@ -142,7 +142,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (($is_myisam_or_maria || $is_innodb || $is_pbxt)
       &&  ! empty($_REQUEST['new_row_format'])
-      && (! isset($row_format) || $_REQUEST['new_row_format'] !== $row_format)) {
+      && (! isset($row_format) || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))) {
         $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddslashes($_REQUEST['new_row_format']);
     }
 
