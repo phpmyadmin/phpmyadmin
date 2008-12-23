@@ -30,6 +30,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Robert Xiao - nneonneo
 - bug #2363653 [properties] Various problems with table structure
 - bug [display] BIT field contents disappear when edited
++ [lang] Czech update, thanks to Ondřej Vadinský.
 
 3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,
