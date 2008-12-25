@@ -69,7 +69,7 @@ function PMA_exportHeader() {
     // Here we just prepare some values for export
     if ($what == 'excel') {
         $csv_terminated      = "\015\012";
-        $csv_separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
+        $csv_separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac_excel2003' ? ';' : ',';
         $csv_enclosed           = '"';
         $csv_escaped            = '"';
         if (isset($GLOBALS['excel_columns'])) {

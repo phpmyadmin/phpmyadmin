@@ -21,7 +21,14 @@ if (isset($plugin_list)) {
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
-            array('type' => 'select', 'name' => 'edition', 'values' => array('win' => 'Windows', 'mac' => 'Excel 2003 / Macintosh'), 'text' => 'strExcelEdition'),
+            array(
+                'type' => 'select', 
+                'name' => 'edition', 
+                'values' => array(
+                    'win' => 'Windows',
+                    'mac_excel2003' => 'Excel 2003 / Macintosh', 
+                    'mac_excel2008' => 'Excel 2008 / Macintosh'), 
+                'text' => 'strExcelEdition'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
         'options_text' => 'strOptions',
