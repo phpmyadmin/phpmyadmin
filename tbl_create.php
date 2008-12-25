@@ -248,6 +248,11 @@ if (isset($_REQUEST['do_save_data'])) {
         $display_query = $sql_query;
         $sql_query = '';
 
+        // read table info on this newly created table, in case
+        // the next page is Structure
+        $reread_info = true;
+        require './libraries/tbl_info.inc.php';
+
         // do not switch to sql.php - as there is no row to be displayed on a new table
         if ($cfg['DefaultTabTable'] === 'sql.php') {
             require './tbl_structure.php';
