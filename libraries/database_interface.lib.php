@@ -569,7 +569,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 
         // display only databases also in official database list
         // f.e. to apply hide_db and only_db
-        $drops = array_diff(array_keys($databases), $GLOBALS['pma']->databases);
+        $drops = array_diff(array_keys($databases), (array) $GLOBALS['pma']->databases);
         if (count($drops)) {
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
