@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [display] BIT field contents disappear when edited 
 + [lang] Czech update, thanks to Ondřej Vadinský.
 - bug #2461735 [operations] Table operations adds "row_format" 
+- bug #2445213 [export] Commas for CSV Excel 2008 for Mac 
 
 3.1.1.0 (2008-12-09)
 - patch #2242765 [core] Navi panel server links wrong,
