@@ -453,7 +453,10 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
 
     // cache table data
     // so PMA_Table does not require to issue SHOW TABLE STATUS again
-    PMA_Table::$cache = array_merge_recursive(PMA_Table::$cache, $tables);
+    // Note: I don't see why we would need array_merge_recursive() here,
+    // as it creates double entries for the same table (for example a double
+    // entry for Comment when changing the storage engine in Operations)
+    PMA_Table::$cache = array_merge(PMA_Table::$cache, $tables);
 
     if (! is_array($database)) {
         if (isset($tables[$database])) {

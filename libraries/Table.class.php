@@ -241,11 +241,11 @@ class PMA_Table
         } else {
             return true;
         } */
-        // A more complete verification would be to check if all columns
-        // from the result set are NULL except Name and Comment.
-        // MySQL from 5.0.0 to 5.0.12 returns 'view',
+        // A more complete way of finding a view would be to check if all 
+        // columns from the result set are NULL except Name and Comment.
+        // Use strtoupper() because  MySQL from 5.0.0 to 5.0.12 returns 'view',
         // from 5.0.13 returns 'VIEW'.
-        // use substr() because the comment might contain something like:
+        // Use substr() because the comment might contain something like:
         // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
         $comment = strtoupper(PMA_Table::sGetStatusInfo($db, $table, 'Comment'));
         return substr($comment, 0, 4) == 'VIEW';
@@ -277,7 +277,9 @@ class PMA_Table
 
         if (! isset(PMA_Table::$cache[$db][$table])) {
             // happens when we enter the table creation dialog
-            return array();
+            // or when we really did not get any status info, for example
+            // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
+            return '';
         }
 
         if (null === $info) {
