@@ -33,6 +33,14 @@
  */
 
 /**
+ * Minimum PHP version; can't call PMA_fatalError() which uses a
+ * PHP 5 function, so cannot easily localize this message.
+ */
+if (version_compare(PHP_VERSION, '5.2.0', 'lt')) {
+    die('PHP 5.2+ is required');
+}
+
+/**
  * the error handler
  */
 require_once './libraries/Error_Handler.class.php';
@@ -73,13 +81,7 @@ require_once './libraries/sanitizing.lib.php';
 
 /**
  * the PMA_Theme class
- * (this one is the first to produce a fatal error under PHP < 5)
- * and let's put here the same minimum requirement as in our doc.
  */
-if (version_compare(PHP_VERSION, '5.2.0') < 0 ) {
-    PMA_fatalError('strUpgrade', array('PHP', '5.2'));
-}
-
 require_once './libraries/Theme.class.php';
 
 /**
