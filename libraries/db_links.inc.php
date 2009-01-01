@@ -129,7 +129,9 @@ if (! $db_is_information_schema) {
     }
 }
 
-echo PMA_getTabs($tabs);
+$url_params['db'] = $db;
+
+echo PMA_getTabs($tabs, $url_params);
 unset($tabs);
 
 /**

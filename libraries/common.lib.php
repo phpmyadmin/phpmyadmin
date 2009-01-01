@@ -1505,10 +1505,11 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @uses    array_merge()
  * @uses    basename()
  * @param   array   $tab    array with all options
+ * @param   array   $url_params
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_getTab($tab)
+function PMA_getTab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1548,9 +1549,7 @@ function PMA_getTab($tab)
     // build the link
     if (!empty($tab['link'])) {
         $tab['link'] = htmlentities($tab['link']);
-        $tab['link'] = $tab['link'] . $tab['sep']
-            .(empty($GLOBALS['url_query']) ?
-                PMA_generate_common_url() : $GLOBALS['url_query']);
+        $tab['link'] = $tab['link'] . PMA_generate_common_url($url_params);
         if (! empty($tab['args'])) {
             foreach ($tab['args'] as $param => $value) {
                 $tab['link'] .= PMA_get_arg_separator('html') . urlencode($param) . '='
@@ -1601,17 +1600,18 @@ function PMA_getTab($tab)
  * @uses    PMA_getTab()
  * @uses    htmlentities()
  * @param   array   $tabs   one element per tab
- * @param   string  $tag_id id used for the html-tag
+ * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_getTabs($tabs, $tag_id = 'topmenu')
+function PMA_getTabs($tabs, $url_params)
 {
+    $tag_id = 'topmenu';
     $tab_navigation =
          '<div id="' . htmlentities($tag_id) . 'container">' . "\n"
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_getTab($tab) . "\n";
+        $tab_navigation .= PMA_getTab($tab, $url_params) . "\n";
     }
 
     $tab_navigation .=
