@@ -206,7 +206,7 @@ require_once './libraries/header_scripts.inc.php';
 <?php
 
 if ($tabs) {
-    echo PMA_getTabs($tabs);
+    echo PMA_getTabs($tabs, array());
     unset($tabs);
 }
 
