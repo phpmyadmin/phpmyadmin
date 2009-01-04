@@ -75,6 +75,37 @@ if (!$is_superuser) {
 }
 
 /**
+ * Escapes wildcard in a database+table specification
+ * before using it in a GRANT statement.
+ *
+ * Escaping a wildcard character in a GRANT is only accepted at the global
+ * or database level, not at table level; this is why I remove
+ * the escaping character. Internally, in mysql.tables_priv.Db there are
+ * no escaping (for example test_db) but in mysql.db you'll see test\_db
+ * for a db-specific privilege.
+ *
+ * @param   string   $db_and_table 
+ * @param   string   $dbname
+ * @param   string   $tablename
+ * @return  string   the escaped (if necessary) $db_and_table 
+ */
+function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
+
+    if (! strlen($dbname)) {
+        $db_and_table = '*.*';
+    } else {
+        if (strlen($tablename)) {
+            $db_and_table = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.';
+            $db_and_table .= PMA_backquote($tablename);
+        } else {
+            $db_and_table = PMA_backquote($dbname) . '.';
+            $db_and_table .= '*';
+        }
+    }
+    return $db_and_table;
+}
+
+/**
  * Generates a condition on the user name
  *
  * @param   string   the user's initial
@@ -1040,15 +1071,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    // escaping a wildcard character in a GRANT is only accepted at the global
-    // or database level, not at table level; this is why I remove
-    // the escaping character
-    // Note: in the phpMyAdmin list of Database-specific privileges,
-    //  we will have for example
-    //  test\_db  SELECT (this one is for privileges on a db level)
-    //  test_db   USAGE  (this one is for table-specific privileges)
-    //
-    // It looks curious but reflects the way MySQL works
+    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1060,54 +1083,59 @@ if (!empty($update_privs)) {
     } else {
         $sql_query1 = '';
     }
-    $sql_query2 =
-        'GRANT ' . join(', ', PMA_extractPrivInfo())
-        . ' ON ' . $db_and_table
-        . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
-    /**
-     * @todo similar code appears twice in this script
-     */
-    if ((isset($Grant_priv) && $Grant_priv == 'Y')
-     || (! isset($dbname)
-      && (isset($max_questions) || isset($max_connections)
-       || isset($max_updates) || isset($max_user_connections))))
-    {
-        $sql_query2 .= 'WITH';
-        if (isset($Grant_priv) && $Grant_priv == 'Y') {
-            $sql_query2 .= ' GRANT OPTION';
+    // Should not do a GRANT USAGE for a table-specific privilege, it
+    // causes problems later (cannot revoke it)
+    if (! (isset($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
+        $sql_query2 =
+            'GRANT ' . join(', ', PMA_extractPrivInfo())
+            . ' ON ' . $db_and_table
+            . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+
+        /**
+         * @todo similar code appears twice in this script
+         */
+        if ((isset($Grant_priv) && $Grant_priv == 'Y')
+         || (! isset($dbname)
+          && (isset($max_questions) || isset($max_connections)
+           || isset($max_updates) || isset($max_user_connections))))
+        {
+            $sql_query2 .= 'WITH';
+            if (isset($Grant_priv) && $Grant_priv == 'Y') {
+                $sql_query2 .= ' GRANT OPTION';
+            }
+            if (isset($max_questions)) {
+                $max_questions = max(0, (int)$max_questions);
+                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
+            }
+            if (isset($max_connections)) {
+                $max_connections = max(0, (int)$max_connections);
+                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+            }
+            if (isset($max_updates)) {
+                $max_updates = max(0, (int)$max_updates);
+                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+            }
+            if (isset($max_user_connections)) {
+                $max_user_connections = max(0, (int)$max_user_connections);
+                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
+            }
         }
-        if (isset($max_questions)) {
-            $max_questions = max(0, (int)$max_questions);
-            $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-        }
-        if (isset($max_connections)) {
-            $max_connections = max(0, (int)$max_connections);
-            $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-        }
-        if (isset($max_updates)) {
-            $max_updates = max(0, (int)$max_updates);
-            $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-        }
-        if (isset($max_user_connections)) {
-            $max_user_connections = max(0, (int)$max_user_connections);
-            $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-        }
+        $sql_query2 .= ';';
     }
-    $sql_query2 .= ';';
-    if (!PMA_DBI_try_query($sql_query0)) {
+    if (! PMA_DBI_try_query($sql_query0)) {
         // this query may fail, but this does not matter :o)
-        // a case when it can fail is when the admin does not have all
-        // privileges: he can't do a REVOKE ALL PRIVILEGES !
-        // so at least we display the error
-        echo PMA_DBI_getError();
         $sql_query0 = '';
     }
     if (isset($sql_query1) && !PMA_DBI_try_query($sql_query1)) {
         // this one may fail, too...
         $sql_query1 = '';
     }
-    PMA_DBI_query($sql_query2);
+    if (isset($sql_query2)) {
+        PMA_DBI_query($sql_query2);
+    } else {
+        $sql_query2 = '';
+    }
     $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
     $message = PMA_Message::success('strUpdatePrivMessage');
     $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
@@ -1118,6 +1146,7 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
+    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
