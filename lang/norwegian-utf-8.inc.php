@@ -896,9 +896,7 @@ $strSetupForm_Export_defaults_desc = 'Endre standard eksportinnstillinger';
 $strSetupForm_Query_window = 'Spørringsvindu';
 $strSetupForm_Query_window_desc = 'Endre spørringsvinduinnstillinger';
 $strSetupServers_verbose_name = 'Fult navn for denne tjeneren';
-$strSetupServers_verbose_desc = 'Vertsnavn hvor MySQL tjeneren kjører';
 $strSetupServers_host_name = 'Tjenervertsnavn';
-$strSetupServers_host_desc = '';
 $strSetupServers_port_name = 'Tjenerport';
 $strSetupServers_port_desc = 'Porten som MySQL tjeneren lytter på, la stå tom for standard verdi';
 $strSetupServers_socket_name = 'Tjenersokkel';
@@ -1443,4 +1441,6 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrens
 $strZip = 'Komprimert (zip)';
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

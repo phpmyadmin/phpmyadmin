@@ -1224,9 +1224,7 @@ $strSetupForm_Export_defaults_desc = 'Customize default export options';  //to t
 $strSetupForm_Query_window = 'Query window';  //to translate
 $strSetupForm_Query_window_desc = 'Customize query window options';  //to translate
 $strSetupServers_verbose_name = 'Verbose name of this server';  //to translate
-$strSetupServers_verbose_desc = 'Hostname where MySQL server is running';  //to translate
 $strSetupServers_host_name = 'Server hostname';  //to translate
-$strSetupServers_host_desc = '';  //to translate
 $strSetupServers_port_name = 'Server port';  //to translate
 $strSetupServers_port_desc = 'Port on which MySQL server is listening, leave empty for default';  //to translate
 $strSetupServers_socket_name = 'Server socket';  //to translate
@@ -1463,4 +1461,6 @@ $strSetupServers_extension_desc = 'What PHP extension to use; you should use mys
 $strSetupVersionCheckNewAvailable = 'A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.';  //to translate
 $strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';  //to translate
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

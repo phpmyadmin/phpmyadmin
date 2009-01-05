@@ -1043,7 +1043,6 @@ $strSetupServers_hide_db_desc = 'A (PCRE) reguláris kifejezéssel megegyező ad
 $strSetupServers_hide_db_name = 'Adatbázisok elrejtése';
 $strSetupServers_history_desc = 'Hagyja üresen, ha nincs szükség az SQL-lekérdezések előzményeinek támogatására, alapértelmezés: [kbd]pma_history[/kbd]';
 $strSetupServers_history_name = 'SQL-lekérdezések előzményeinek táblája';
-$strSetupServers_host_desc = '';
 $strSetupServers_host_name = 'A szerver állomásneve';
 $strSetupServers_LogoutURL_name = 'Kijelentkezési URL';
 $strSetupServers_nopassword_desc = 'A csatlakozás jelszó nélküli megkísérlése';
@@ -1078,7 +1077,6 @@ $strSetupServers_user_desc = 'Hagyja üresen, ha nem a konfigurációs hitelesí
 $strSetupServers_user_name = 'A konfigurációs hitelesítés felhasználóneve';
 $strSetupServers_verbose_check_desc = 'Tiltsa le, ha tudja, hogy a pma_* táblák naprakészek. Ez megelőzi a kompatibilitási ellenőrzéseket, s ezáltal növeli a teljesítményt';
 $strSetupServers_verbose_check_name = 'Részletes ellenőrzés';
-$strSetupServers_verbose_desc = 'Az állomás neve, ahol a MySQL szerver fut';
 $strSetupServers_verbose_name = 'A szerver részletes neve';
 $strSetupSetValue = 'Adja meg az értéket: %s';
 $strSetupShowAll_desc = 'Meg kell-e jeleníteni egy felhasználó számára az &quot;az összes (rekord) megjelenítése&quot; gombot';
@@ -1448,4 +1446,6 @@ $strZeroRemovesTheLimit = 'Megjegyzés: Ezen beállítások 0-ra (nulla) állít
 $strZip = '"zip tömörítés"';
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

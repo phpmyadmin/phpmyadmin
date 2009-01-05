@@ -1038,7 +1038,6 @@ $strSetupServers_hide_db_desc = 'Dölj databaser som matchar reguljärt uttryck 
 $strSetupServers_hide_db_name = 'Dölj databaser';
 $strSetupServers_history_desc = 'Lämna tomt för inget stöd för SQL-frågehistorik, standard: [kbd]pma_history[/kbd]';
 $strSetupServers_history_name = 'Tabell för SQL-frågehistorik';
-$strSetupServers_host_desc = 'Serverns värdnamn eller IP-adress, t.ex. localhost';
 $strSetupServers_host_name = 'Serverns värdnamn';
 $strSetupServers_LogoutURL_name = 'Utloggning URL';
 $strSetupServers_nopassword_desc = 'Försök ansluta utan lösenord';
@@ -1073,7 +1072,6 @@ $strSetupServers_user_desc = 'Lämna tomt om inte autentisering config används'
 $strSetupServers_user_name = 'Användare för autentisering config';
 $strSetupServers_verbose_check_desc = 'Inaktivera ifall du vet att dina tabeller pma_* är aktuella. Detta förhindrar kompabilitetskontroller och ökar därmed prestanda';
 $strSetupServers_verbose_check_name = 'Utförlig kontroll';
-$strSetupServers_verbose_desc = 'Värdnamn där MySQL-servern körs';
 $strSetupServers_verbose_name = 'Beskrivande namn för denna server';
 $strSetupSetValue = 'Ange värde: %s';
 $strSetupShowAll_desc = 'Ifall en användare ska få se en knapp &quot;visa alla (rader)&quot;';
@@ -1443,4 +1441,6 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

@@ -1042,7 +1042,6 @@ $strSetupServers_hide_db_desc = 'Piilota tietokannat, jotka vastaavat säännöl
 $strSetupServers_hide_db_name = 'Piilota tietokannat';
 $strSetupServers_history_desc = 'Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]pma_history[/kbd]';
 $strSetupServers_history_name = 'SQL-kyselyhistorian taulu';
-$strSetupServers_host_desc = '';
 $strSetupServers_host_name = 'Palvelimen verkkonimi';
 $strSetupServers_LogoutURL_name = 'Uloskirjautumisen verkko-osoite';
 $strSetupServers_nopassword_desc = 'Yritä yhdistää ilman salasanaa';
@@ -1077,7 +1076,6 @@ $strSetupServers_user_desc = 'Jätä tyhjäksi, jos et käytä config-todennusta
 $strSetupServers_user_name = 'Config-todennuksen käyttäjä';
 $strSetupServers_verbose_check_desc = 'Poista käytöstä, mikäli tiedät pma_*-taulujesi olevan ajan tasalla. Tämä estää yhteensopivuustarkistukset ja lisää siten suorituskykyä.';
 $strSetupServers_verbose_check_name = 'Yksityiskohtainen tarkistus';
-$strSetupServers_verbose_desc = 'MySQL-palvelimen verkkonimi';
 $strSetupServers_verbose_name = 'Tämän palvelimen yksityiskohtainen nimi';
 $strSetupSetValue = 'Aseta arvo: %s';
 $strSetupShowAll_desc = 'Pitääkö käyttäjälle näyttää "Näytä kaikki (tietueet)" -painike';
@@ -1446,4 +1444,6 @@ $strYes = 'Kyllä';
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa rajoituksen.';
 $strZip = '"zip-pakattu"';
 
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

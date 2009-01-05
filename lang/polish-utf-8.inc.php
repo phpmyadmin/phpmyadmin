@@ -1205,9 +1205,7 @@ $strSetupForm_Export_defaults_desc = 'Customize default export options';  //to t
 $strSetupForm_Query_window = 'Query window';  //to translate
 $strSetupForm_Query_window_desc = 'Customize query window options';  //to translate
 $strSetupServers_verbose_name = 'Verbose name of this server';  //to translate
-$strSetupServers_verbose_desc = 'Hostname where MySQL server is running';  //to translate
 $strSetupServers_host_name = 'Nazwa hosta serwera';
-$strSetupServers_host_desc = '';  //to translate
 $strSetupServers_port_name = 'Port serwera';
 $strSetupServers_port_desc = 'Port na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną';
 $strSetupServers_socket_name = 'Gniazdo serwer';
@@ -1439,4 +1437,6 @@ $strSetupExport_file_template_table_name = 'Table name template';  //to translat
 $strSetupExport_file_template_database_name = 'Database name template';  //to translate
 $strSetupExport_file_template_server_name = 'Server name template';  //to translate
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

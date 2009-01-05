@@ -1357,7 +1357,6 @@ $strSetupServers_hide_db_desc = 'Hide databases matching regular expression (PCR
 $strSetupServers_hide_db_name = 'Hide databases';  //to translate
 $strSetupServers_history_desc = 'Leave blank for no SQL query history support, default: [kbd]pma_history[/kbd]';  //to translate
 $strSetupServers_history_name = 'SQL query history table';  //to translate
-$strSetupServers_host_desc = '';  //to translate
 $strSetupServers_host_name = 'Server hostname';  //to translate
 $strSetupServers_LogoutURL_name = 'Logout URL';  //to translate
 $strSetupServers_nopassword_desc = 'Try to connect without password';  //to translate
@@ -1390,7 +1389,6 @@ $strSetupServers_table_info_desc = 'Table to describe the display fields, leave 
 $strSetupServers_table_info_name = 'Display fields table';  //to translate
 $strSetupServers_user_desc = 'Leave empty if not using config auth';  //to translate
 $strSetupServers_user_name = 'User for config auth';  //to translate
-$strSetupServers_verbose_desc = 'Hostname where MySQL server is running';  //to translate
 $strSetupServers_verbose_check_desc = 'Disable if you know that your pma_* tables are up to date. This prevents compatibility checks and thereby increases performance';  //to translate
 $strSetupServers_verbose_check_name = 'Verbose check';  //to translate
 $strSetupServers_verbose_name = 'Verbose name of this server';  //to translate
@@ -1449,4 +1447,6 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDump_name = 'ZIP';  //to translate
 $strShowKeys = 'Only show keys';  //to translate
 
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

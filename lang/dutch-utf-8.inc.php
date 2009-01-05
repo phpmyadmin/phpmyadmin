@@ -1046,7 +1046,6 @@ $strSetupServers_hide_db_desc = 'Verberg databases die aan de hier opgegeven reg
 $strSetupServers_hide_db_name = 'Verberg databases';
 $strSetupServers_history_desc = 'Laat dit veld leeg om geen SQL-historie te ondersteunen, standaard: [kbd]pma_history[/kbd]';
 $strSetupServers_history_name = 'SQL-query historie tabel';
-$strSetupServers_host_desc = '';
 $strSetupServers_host_name = 'Server machinenaam';
 $strSetupServers_LogoutURL_name = 'Uitlog URL';
 $strSetupServers_nopassword_desc = 'Probeer te verbinden zonder wachtwoord';
@@ -1081,7 +1080,6 @@ $strSetupServers_user_desc = 'Laat dit veld leeg indien u geen gebruik maakt van
 $strSetupServers_user_name = ' authenticatie';
 $strSetupServers_verbose_check_desc = 'Schakel dit uit wanneer u zeker weet dat uw pma_* tabellen up-to-date zijn. Dit voorkomt compatibiliteitscontroles en verbeterd daarmee de prestaties.';
 $strSetupServers_verbose_check_name = 'Uitgebreide controle';
-$strSetupServers_verbose_desc = 'Machinenaam waarop de MySQL server is geïnstalleerd';
 $strSetupServers_verbose_name = 'Uitgebreide naam voor deze server';
 $strSetupSetValue = 'Zet waarde op: %s';
 $strSetupShowAll_desc = 'Of er een &quot;Toon alle (rijen)&quot; knop moet worden getoond.';
@@ -1451,4 +1449,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet.';
 $strZip = '"Gezipt"';
 
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>

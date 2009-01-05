@@ -1035,7 +1035,6 @@ $strSetupServers_hide_db_desc = 'Amagar les bases de dades que compleixin una ex
 $strSetupServers_hide_db_name = 'Amagar bases de dades';
 $strSetupServers_history_desc = 'Deixa en blanc per desactivar el suport d\'historial de consultes SQL, predeterminat: [kbd]pma_history[/kbd]';
 $strSetupServers_history_name = 'Taula d\'historial de consultes SQL';
-$strSetupServers_host_desc = '';
 $strSetupServers_host_name = 'Nom del servidor';
 $strSetupServers_LogoutURL_name = 'URL de desconnexió';
 $strSetupServers_nopassword_desc = 'Intentar connectar sense contrasenya';
@@ -1070,7 +1069,6 @@ $strSetupServers_user_desc = 'Deixa en blanc si no utilitzes l\'autenticació co
 $strSetupServers_user_name = 'Usuari per autenticació config';
 $strSetupServers_verbose_check_desc = 'Desactiva si saps que les teves taules pma_* estàn actualitzades a la darrera versió. Aixó evita problemes de comprobacions de compatibilitat i així aumenta el rendiment';
 $strSetupServers_verbose_check_name = 'Comprobació explicativa';
-$strSetupServers_verbose_desc = 'Nom de l\'equip ón s\'executa el servidor MySQL';
 $strSetupServers_verbose_name = 'Nom explicatiu d\'aquest servidor';
 $strSetupSetValue = 'Establir valor: %s';
 $strSetupShowAll_desc = 'Si a un usuari se l\'hauria de mostrar el botó &quot;mostrar tots (els registres)&quot;';
@@ -1443,4 +1441,6 @@ $strZip = '"comprimit amb zip"';
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>
