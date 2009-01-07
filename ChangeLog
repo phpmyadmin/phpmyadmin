@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.1.3.0 (not yet released)
+
 3.1.2.0 (not yet released)
 - bug #1253252 [display] Can't NULL a column with relation defined 
 - bug #2009500 [SQL] Small improvements in generated SQL (partial fix) 
