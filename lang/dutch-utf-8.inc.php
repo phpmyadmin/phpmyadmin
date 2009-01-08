@@ -1449,6 +1449,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet.';
 $strZip = '"Gezipt"';
 
-$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
-$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
+$strSetupServers_host_desc = 'Machinenaam waar de MySQL server bereikbaar is';
+$strSetupServers_verbose_desc = 'Een gebruiksvriendelijke naam voor deze server. Laat dit veld leeg om de machinenaam te tonen.';
 ?>
