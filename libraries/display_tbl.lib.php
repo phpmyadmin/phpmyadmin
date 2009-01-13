@@ -1048,7 +1048,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       avoid to display the delete and edit links
          */
         $unique_condition      = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
-        $unique_condition_html = htmlspecialchars($unique_condition);
+        $unique_condition_html = htmlspecialchars(str_replace(']', '&#93;', $unique_condition));
 
         // 1.2 Defines the URLs for the modify/delete link(s)
 

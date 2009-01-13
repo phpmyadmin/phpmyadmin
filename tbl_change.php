@@ -166,7 +166,7 @@ if (isset($primary_key)) {
     $result             = array();
     $found_unique_key   = false;
     foreach ($primary_key_array as $key_id => $primary_key) {
-        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
+        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . str_replace('&#93;', ']', $primary_key) . ';';
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
         $primary_keys[$key_id] = str_replace('\\', '\\\\', $primary_key);

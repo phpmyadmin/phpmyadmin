@@ -285,7 +285,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
         } else {
             // build update query
             $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
-                    . ' SET ' . implode(', ', $query_values) . ' WHERE ' . $primary_key . ' LIMIT 1';
+                . ' SET ' . implode(', ', $query_values) . ' WHERE ' . str_replace('&#93;', ']', $primary_key) . ' LIMIT 1';
 
         }
     }
