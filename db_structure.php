@@ -165,7 +165,7 @@ function PMA_SortableTableHeader($title, $sort)
 
     $url = 'db_structure.php'.PMA_generate_common_url($_url_params);
     // We set the position back to 0 every time they sort.
-    $url .= "&pos=0&sort=$sort&sort_order=$sort_order";
+    $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$sort_order";
 
     return PMA_linkOrButton($url, $title . $order_img, $order_link_params);
 }

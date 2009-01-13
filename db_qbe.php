@@ -167,8 +167,8 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 }
 
 ?>
-<fieldset>
 <form action="db_qbe.php" method="post">
+<fieldset>
 <table class="data" style="width: 100%;">
 <tr class="odd noclick">
     <th><?php echo $strField; ?>:</th>

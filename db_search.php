@@ -350,7 +350,7 @@ $alter_select =
         </td>
     </tr>
     <tr><td align="right" valign="bottom">
-            <?php echo $alter_select; ?></td></tr>
+            <?php echo $alter_select; ?></td>
     </tr>
     <tr><td align="right">
             <?php echo $GLOBALS['strSearchInField']; ?></td>

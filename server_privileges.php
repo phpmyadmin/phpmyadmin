@@ -1549,7 +1549,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '    </fieldset>' . "\n"
                    . '    <fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n"
                    . '        <input type="submit" name="delete" value="' . $GLOBALS['strGo'] . '" id="buttonGo" />' . "\n"
-                   . '    </fieldset>' . "\n";
+                   . '    </fieldset>' . "\n"
+                   . '</form>' . "\n";
             } else {
 
                 unset ($row);
@@ -1559,7 +1560,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
-            echo '</form>' . "\n";
             $flushnote = new PMA_Message('strFlushPrivilegesNote', PMA_Message::NOTICE);
             $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', false);
             $flushnote->addParam('</a>', false);

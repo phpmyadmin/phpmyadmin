@@ -168,9 +168,9 @@ $url_params['reload'] = 1;
                 if (in_array($option, $view['with'])) {
                     echo ' checked="checked"';
                 }
-                echo ' id="view_with_' . htmlspecialchars($option) . '"';
+                echo ' id="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '"';
                 echo ' value="' . htmlspecialchars($option) . '" />';
-                echo '<label for="view_with_' . htmlspecialchars($option) . '">';
+                echo '<label for="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '">';
                 echo htmlspecialchars($option) . '</label>';
             }
             ?>
