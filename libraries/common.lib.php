@@ -2396,6 +2396,10 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice)
  */
 function PMA_generate_slider_effect($id, $message)
 {
+    if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
+        echo '<div id="' . $id . '">';
+        return;
+    }
     ?>
 <script type="text/javascript">
 // <![CDATA[
