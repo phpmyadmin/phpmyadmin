@@ -191,6 +191,7 @@ $strCreateTable  = 'Create table';
 $strCreateUserDatabase = 'Database for user';
 $strCreateUserDatabaseName = 'Create database with same name and grant all privileges';
 $strCreateUserDatabaseNone = 'None';
+$strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';
 $strCreateUserDatabaseWildcard = 'Grant all privileges on wildcard name (username\_%)';
 $strCreationDates = 'Creation/Update/Check dates';
 $strCriteria = 'Criteria';

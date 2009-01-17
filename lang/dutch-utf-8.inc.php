@@ -197,6 +197,7 @@ $strCreateUserDatabase = 'Database voor gebruiker';
 $strCreateUserDatabaseName = 'Maak een database met dezelfde naam en geef alle rechten hierop';
 $strCreateUserDatabaseNone = 'Geen';
 $strCreateUserDatabaseWildcard = 'Geef alle rechten op de wildcard naam (gebruikersnaam\_%)';
+$strCreateUserDatabasePrivileges = 'Geef alle rechten op de database &quot;%s&quot;';
 $strCreationDates = 'Creatie/Update/Controleer datum';
 $strCriteria = 'Criteria';
 $strCroatian = 'Kroatisch';

@@ -314,7 +314,7 @@ $choices = array(
     '3' => $GLOBALS['strSearchOption3'],
     '4' => $GLOBALS['strSearchOption4'] . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
 );
-// 4th parameter set to false to add line breaks
+// 4th parameter set to true to add line breaks
 // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
 //  since we have some HTML in some labels
 PMA_generate_html_radio('search_option', $choices, $search_option, true, false);

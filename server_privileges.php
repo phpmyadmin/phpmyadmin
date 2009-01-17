@@ -934,6 +934,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
 
             switch (PMA_ifSetOr($_REQUEST['createdb'], '0')) {
                 case '1' :
+                    // Create database with same name and grant all privileges
                     $q = 'CREATE DATABASE IF NOT EXISTS '
                         . PMA_backquote(PMA_sqlAddslashes($username)) . ';';
                     $sql_query .= $q;
@@ -953,12 +954,23 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     }
                     break;
                 case '2' :
+                    // Grant all privileges on wildcard name (username\_%)
                     $q = 'GRANT ALL PRIVILEGES ON '
                         . PMA_backquote(PMA_sqlAddslashes($username) . '\_%') . '.* TO \''
                         . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
                     $sql_query .= $q;
                     if (! PMA_DBI_try_query($q)) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
+                    }
+					break;
+                case '3' :
+                    // Grant all privileges on the specified database to the new user
+                    $q = 'GRANT ALL PRIVILEGES ON '
+                    . PMA_backquote(PMA_sqlAddslashes($dbname)) . '.* TO \''
+                    . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+                    $sql_query .= $q;
+                    if (! PMA_DBI_try_query($q)) {
+                    $message = PMA_Message::rawError(PMA_DBI_getError());
                     }
                     break;
                 case '0' :
@@ -1963,12 +1975,24 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     echo '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . $GLOBALS['strCreateUserDatabase'] . '</legend>' . "\n";
 
+    $default_choice = 0;
     $choices = array(
         '0' => $GLOBALS['strCreateUserDatabaseNone'],
         '1' => $GLOBALS['strCreateUserDatabaseName'],
         '2' => $GLOBALS['strCreateUserDatabaseWildcard']);
-    PMA_generate_html_radio('createdb', $choices, '0', true);
+
+    if ( !empty($dbname) ) {
+        $choices['3'] = sprintf($GLOBALS['strCreateUserDatabasePrivileges'], htmlspecialchars($dbname));
+        $default_choice = 3;
+        echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
+    }
+
+    // 4th parameter set to true to add line breaks
+    // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
+    //  since we have some HTML in some labels
+    PMA_generate_html_radio('createdb', $choices, $default_choice, true, false);
     unset($choices);
+    unset($default_choice);
 
     echo '</fieldset>' . "\n";
     PMA_displayPrivTable('*', '*', FALSE);
@@ -2118,6 +2142,15 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             }
             $odd_row = ! $odd_row;
         }
+
+        // Offer to create a new user for the current database
+        echo '<tr><td colspan="6">';	
+                echo '    <fieldset id="fieldset_add_user">' . "\n"
+                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . $checkprivs .'">' . "\n"
+                   . PMA_getIcon('b_usradd.png')
+                   . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
+                   . '    </fieldset>' . "\n";
+        echo '</td></tr>';	
     } else {
         echo '    <tr class="odd">' . "\n"
            . '        <td colspan="6">' . "\n"
