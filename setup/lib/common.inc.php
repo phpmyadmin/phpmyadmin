@@ -8,9 +8,6 @@
  * @version    $Id$
  */
 
-// TODO: remove
-error_reporting(E_ALL | E_STRICT);
-
 /**
  * Do not include full common.
  * @ignore
@@ -23,11 +20,8 @@ require_once './libraries/common.inc.php';
 require_once './libraries/url_generating.lib.php';
 require_once './setup/lib/ConfigFile.class.php';
 
-// TODO: remove
+// use default error handler
 restore_error_handler();
-if ($error_handler->countErrors() > 0) {
-    $error_handler->dispAllErrors();
-}
 
 // Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
 PMA_setCookie('pma_lang', $GLOBALS['lang']);
