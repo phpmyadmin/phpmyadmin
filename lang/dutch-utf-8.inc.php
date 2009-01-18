@@ -1452,4 +1452,6 @@ $strZip = '"Gezipt"';
 
 $strSetupServers_host_desc = 'Machinenaam waar de MySQL server bereikbaar is';
 $strSetupServers_verbose_desc = 'Een gebruiksvriendelijke naam voor deze server. Laat dit veld leeg om de machinenaam te tonen.';
+$strShowBinaryContents = 'Show binary contents';  //to translate
+$strShowBLOBContents = 'Show BLOB contents';  //to translate
 ?>

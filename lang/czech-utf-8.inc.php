@@ -1450,4 +1450,6 @@ $strShowKeys = 'Only show keys';  //to translate
 $strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
 $strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
+$strShowBinaryContents = 'Show binary contents';  //to translate
+$strShowBLOBContents = 'Show BLOB contents';  //to translate
 ?>

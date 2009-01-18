@@ -566,9 +566,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
 
         echo '<div class="formelement">';
-        PMA_generate_html_checkbox('display_binary', $GLOBALS['strShow'] . ' BINARY', ! empty($_SESSION['userconf']['display_binary']), false);
+        PMA_generate_html_checkbox('display_binary', $GLOBALS['strShowBinaryContents'], ! empty($_SESSION['userconf']['display_binary']), false);
         echo '<br />';
-        PMA_generate_html_checkbox('display_blob', $GLOBALS['strShow'] . ' BLOB', ! empty($_SESSION['userconf']['display_blob']), false);
+        PMA_generate_html_checkbox('display_blob', $GLOBALS['strShowBLOBContents'], ! empty($_SESSION['userconf']['display_blob']), false);
         echo '</div>';
 
         // I would have preferred to name this "display_transformation".
