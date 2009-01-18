@@ -28,6 +28,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Turkish update, thanks to Burak Yavuz
 - patch #2496403 [display] Multi-row change with "]",
   thanks to Virsacer - virsacer
+- bug #2027720 [parser] Missing space after BINARY used as cast 
 
 3.1.2.0 (not yet released)
 - bug #1253252 [display] Can't NULL a column with relation defined 

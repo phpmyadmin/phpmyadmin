@@ -695,11 +695,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $t_suffix = '_columnType';
 
                     /**
-                     * Temporary fix for BUG #621357
+                     * Temporary fix for BUG #621357 and #2027720
                      *
                      * @todo FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
                      */
-                    if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
+                    if (($d_cur_upper == 'SET' || $d_cur_upper == 'BINARY') && $t_next != 'punct_bracket_open_round') {
                         $t_suffix = '_reservedWord';
                     }
                     //END OF TEMPORARY FIX
