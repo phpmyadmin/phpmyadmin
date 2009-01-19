@@ -3,69 +3,6 @@
 # $Id$
 # vim: expandtab sw=4 ts=4 sts=4:
 #
-# 2005-09-13, lem9@users.sourceforge.net
-# - no longer create a config.default.php from config.inc.php
-#
-# 2005-06-12, lem9@users.sourceforge.net
-# - cvs server name changed to cvs, because cvs1 no longer works from
-#   shell.sourceforge.net
-#
-# 2003-08-23, nijel@users.sourceforge.net:
-# - support for creating snapshots outside sourceforge:
-#    * cvs server name can be read from environment variable cvsserver
-#    * do not change to directories as used on sourceforge if $2 is local
-#
-# 2003-08-13, nijel@users.sourceforge.net:
-# - config.default -> config.default.php
-#
-# 2004-08-09, lem9@users.sourceforge.net:
-# - remember to create a new bug tracking group
-#
-# 2004-06-07  rabus@users.sourceforge.net
-# - create backup config file
-#
-# 2004-04-29, lem9@users.sourceforge.net:
-# - keep only the previous cvs directory created
-#
-# 2004-04-16, lem9@users.sourceforge.net:
-# - daily snapshot when called with first parameter "snapshot"
-# - remove directory used for the checkout
-#
-# 2003-11-18, nijel@users.sourceforge.net:
-# - switch php3 -> php
-#
-# 2003-10-10, nijel@users.sourceforge.net:
-# - cvsserver set on just one place to ease testing
-# - echoes md5 sums to include on download page
-#
-# 2003-06-22, robbat2@users.sourceforge.net:
-# - Moved to using updatedocs.sh for updating documentation
-# - Make tarring faster by re-arranging ops
-#
-# 2003-01-17, rabus@users.sourceforge.net:
-# - Changed the CVS hostname to cvs1 because cvs1.sourceforge.net is now blocked
-#   for the SF shell servers, too. Note: The script now works on the SF shell
-#   servers ONLY!
-#
-# 2002-11-22, rabus@users.sourceforge.net:
-# - changed the CVS server dns to cvs1.sourceforge.net
-#   (cvs.phpmyadmin.sourceforge.net does not work at the SF shell anymore).
-#
-# 2002-10-03, rabus@users.sourceforge.net:
-# - more detailed instructions
-#
-# 2002-09-08, robbat2@users.sourceforge.net:
-# - Tweaked final instruction list
-#
-# 2002-06-17, lem9@users.sourceforge.net:
-# - I option to tar for bzip2 is deprecated, use j
-#
-# 2002-27-04, loic@phpmyadmin.net:
-# - added the cvs branch feature
-#
-# 2001-08-08, swix@users.sourceforge.net:
-# - created script
-# - added release todo list
 #
 
 KITS="all-languages english"
@@ -147,6 +84,10 @@ LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-${target}
 
 # Building Documentation.txt
 LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
+
+# Remove test directory from package to avoid Path disclosure messages
+# if someone runs /test/wui.php and there are test failures
+rm -rf phpMyAdmin/test
 
 # Renaming directory
 mv phpMyAdmin phpMyAdmin-$target
