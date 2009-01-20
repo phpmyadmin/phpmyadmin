@@ -124,6 +124,7 @@ class PMA_Error_Handler
             case E_USER_NOTICE:
             case E_USER_WARNING:
             case E_STRICT:
+            case E_DEPRECATED:
             case E_NOTICE:
             case E_WARNING:
             case E_CORE_WARNING:
