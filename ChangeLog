@@ -32,6 +32,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2520747 [core] E_DEPRECATED compatibility for PHP 5.3,
   thanks to Giovanni Giacobbi - themnemonic
 - bug [display] Message "Bookmark created" is not displaying
++ [display] Show AUTO_INCREMENT instead of A_I when in vertical mode
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
