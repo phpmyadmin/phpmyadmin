@@ -113,7 +113,7 @@ if (!$is_backup) {
     $header_cells[] = $strIndex;
 }
 
-$header_cells[] = '<abbr title="AUTO_INCREMENT">A_I</abbr>';
+$header_cells[] = '<abbr title="AUTO_INCREMENT">' . ($display_type == 'horizontal' ? 'A_I' : 'AUTO_INCREMENT') . '</abbr>';
 
 require_once './libraries/relation.lib.php';
 require_once './libraries/transformations.lib.php';
