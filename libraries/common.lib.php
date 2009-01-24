@@ -1025,6 +1025,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
     echo '<div align="' . $GLOBALS['cell_align_left'] . '">' . "\n";
 
     if ($message instanceof PMA_Message) {
+        if (isset($GLOBALS['special_message'])) {
+            $message->addMessage($GLOBALS['special_message']);
+            unset($GLOBALS['special_message']);
+        }
         $message->display();
         $type = $message->getLevel();
     } else {
