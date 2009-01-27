@@ -554,7 +554,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
         echo '</div>';
 
-        if ($GLOBALS['cfgRelation']['relwork']) {
+        if ($GLOBALS['cfgRelation']['relwork'] && $GLOBALS['cfgRelation']['displaywork']) {
             echo '<div class="formelement">';
             $choices = array(
                 'K'   => $GLOBALS['strRelationalKey'],
