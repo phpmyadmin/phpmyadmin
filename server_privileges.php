@@ -52,7 +52,7 @@ if (isset($dbname)) {
     $db_and_table = '*.*';
 }
 
-// check if given $dbanem is a wildcard or not
+// check if given $dbname is a wildcard or not
 if (isset($dbname)) {
     //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
     if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
@@ -1220,17 +1220,16 @@ if (isset($_REQUEST['change_pw'])) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
-$user_host_separator = chr(27);
 
 if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) {
     if (isset($_REQUEST['change_copy'])) {
-        $selected_usr = array($old_username . $user_host_separator . $old_hostname);
+        $selected_usr = array($old_username . chr(27) . $old_hostname);
     } else {
         $selected_usr = $_REQUEST['selected_usr'];
         $queries = array();
     }
     foreach ($selected_usr as $each_user) {
-        list($this_user, $this_host) = explode($user_host_separator, $each_user);
+        list($this_user, $this_host) = explode('&amp;#27;', $each_user);
         $queries[] = '# ' . sprintf($GLOBALS['strDeleting'], '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
         $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
 
@@ -1494,7 +1493,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                            . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_'
                             . $index_checkbox . '" value="'
-                            . str_replace(chr(27), '&#27;', htmlspecialchars($host['User'] . $user_host_separator . $host['Host']))
+                            . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                             . '"'
                             . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
                             . ' /></td>' . "\n"
@@ -1591,21 +1590,19 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if (isset($dbname)) {
             echo ' <i><a href="server_privileges.php?'
                 . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username)
-                . '&amp;hostname=' . urlencode($hostname) . '">\''
+                . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=&amp;tablename=">\''
                 . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</a></i>' . "\n";
-			$url_dbname = urlencode(str_replace('\_', '_', $dbname));
+            $url_dbname = urlencode(str_replace(array('\_', '\%'), array('_', '%'), $dbname));
 
-            if (isset($dbname)) {
-                if (isset($tablename)) {
-					echo ' - ' . ($dbname_is_wildcard ? $GLOBALS['strDatabases'] : $GLOBALS['strDatabase'] )
-						. ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] 
-						. '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) 
-						. '&amp;dbname=' . $url_dbname . '">' . htmlspecialchars($dbname) . '</a></i>';
-                    echo ' - ' . $GLOBALS['strTable'] . ' <i>' . htmlspecialchars($tablename) . '</i>';
-                } else {
-                    echo ' - ' . $GLOBALS['strDatabase'] . ' <i>' . htmlspecialchars($dbname) . '</i>';
-                }
+            echo ' - ' . ($dbname_is_wildcard ? $GLOBALS['strDatabases'] : $GLOBALS['strDatabase'] );
+            if (isset($tablename)) {
+                echo ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
+                    . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname)
+                    . '&amp;dbname=' . $url_dbname . '&amp;tablename=">' . htmlspecialchars($dbname) . '</a></i>';
+                echo ' - ' . $GLOBALS['strTable'] . ' <i>' . htmlspecialchars($tablename) . '</i>';
+            } else {
+                echo ' <i>' . htmlspecialchars($dbname) . '</i>';
             }
 
         } else {
@@ -1613,9 +1610,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 . '\'</i>' . "\n";
 
         }
-        if (isset($dbname)) {
-            echo  '</h2>' . "\n";
-        }
+        echo '</h2>' . "\n";
 
  
         $sql = "SELECT '1' FROM `mysql`.`user`"
@@ -1861,7 +1856,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             if (! isset($dbname)) {
 
-                // no database name was give, display select db
+                // no database name was given, display select db
 
                 if (! empty($found_rows)) {
                     $pred_db_array = array_diff(
@@ -1918,7 +1913,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 		}
 
 		// Provide a line with links to the relevant database and table
-        if (isset($dbname)) {
+        if (isset($dbname) && empty($dbname_is_wildcard)) {
             echo '[ ' . $GLOBALS['strDatabase'] 
                 . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
                 . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
