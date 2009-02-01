@@ -2137,15 +2137,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             }
             $odd_row = ! $odd_row;
         }
-
-        // Offer to create a new user for the current database
-        echo '<tr><td colspan="6">';	
-                echo '    <fieldset id="fieldset_add_user">' . "\n"
-                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . $checkprivs .'">' . "\n"
-                   . PMA_getIcon('b_usradd.png')
-                   . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
-                   . '    </fieldset>' . "\n";
-        echo '</td></tr>';	
     } else {
         echo '    <tr class="odd">' . "\n"
            . '        <td colspan="6">' . "\n"
@@ -2155,6 +2146,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }
     echo '</tbody>' . "\n"
        . '</table>' . "\n";
+
+    // Offer to create a new user for the current database
+    echo '<fieldset id="fieldset_add_user">' . "\n"
+       . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . $checkprivs .'">' . "\n"
+       . PMA_getIcon('b_usradd.png')
+       . '        ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
+       . '</fieldset>' . "\n";
+
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
 
 
