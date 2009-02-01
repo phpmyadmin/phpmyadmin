@@ -16,6 +16,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [display] Show AUTO_INCREMENT instead of A_I when in vertical mode 
 - patch #2538358 [display] Conditions for relational display field, 
   thanks to Virsacer - virsacer
++ [lang] Mongolian update, thanks to Bayarsaikhan Enkhtaivan - bayaraa 
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
