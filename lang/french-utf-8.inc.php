@@ -188,6 +188,7 @@ $strCreateTable  = 'Nouvelle table';
 $strCreateUserDatabase = 'Base de données pour cet utilisateur';
 $strCreateUserDatabaseName = 'Créer une base portant son nom et donner à cet utilisateur tous les privilèges sur cette base';
 $strCreateUserDatabaseNone = 'Aucune';
+$strCreateUserDatabasePrivileges = 'Donner tous les privilèges sur la base de données &quot;%s&quot;';
 $strCreateUserDatabaseWildcard = 'Donner les privilèges passepartout ("%")';
 $strCreationDates = 'Dates de création/modification/vérification';
 $strCriteria = 'Critère';
@@ -1131,6 +1132,8 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDump_name = 'ZIP';
 $strShow = 'Afficher';
 $strShowAll = 'Tout afficher';
+$strShowBinaryContents = 'Montrer le contenu binaire';
+$strShowBLOBContents = 'Montrer le contenu BLOB';
 $strShowColor = 'Couleurs';
 $strShowDatadictAs = 'Orientation du dictionnaire:';
 $strShowFullQueries = 'Afficher les requêtes complètes';
@@ -1442,7 +1445,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
-$strShowBinaryContents = 'Show binary contents';  //to translate
-$strShowBLOBContents = 'Show BLOB contents';  //to translate
 ?>
