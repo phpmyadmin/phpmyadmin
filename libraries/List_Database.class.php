@@ -281,7 +281,7 @@ require_once './libraries/List.class.php';
             $db_tooltip = '';
 
             if (isset($db_tooltips[$db])) {
-                $db_tooltip = $_db_tooltips[$db];
+                $db_tooltip = $db_tooltips[$db];
             }
 
             if ($GLOBALS['cfg']['LeftFrameDBTree']
