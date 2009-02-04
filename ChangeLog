@@ -39,6 +39,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Mongolian update, thanks to Bayarsaikhan Enkhtaivan - bayaraa
 - patch #2553372 [display] DB comment tooltips not shown on navi,
   thanks to Erdem - ahard
+- patch #2561433 [structure] Display true number of rows in a view
+  if it contains less than MaxExactCountViews,
+  thanks to Virsacer - virsacer
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
