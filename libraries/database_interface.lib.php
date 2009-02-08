@@ -456,7 +456,10 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // Note: I don't see why we would need array_merge_recursive() here,
     // as it creates double entries for the same table (for example a double
     // entry for Comment when changing the storage engine in Operations)
-    PMA_Table::$cache = array_merge(PMA_Table::$cache, $tables);
+    // Note 2: Instead of array_merge(), simply use the + operator because
+    //  array_merge() renumbers numeric keys starting with 0, therefore
+    //  we would lose a db name thats consists only of numbers
+    PMA_Table::$cache = PMA_Table::$cache + $tables;
 
     if (! is_array($database)) {
         if (isset($tables[$database])) {
