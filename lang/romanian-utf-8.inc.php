@@ -305,7 +305,6 @@ $strFileNameTemplate = 'Șablon nume fișier';
 $strFileNameTemplateRemember = 'ține minte șablonul';
 $strFiles = 'Fișiere';
 $strFileToImport = 'Fișier de importat';
-$strFixed = 'fixat';
 $strFlushPrivilegesNote = 'Notă: phpMyAdmin folosește privilegiile utilizatorilor direct din tabelul de privilegii din MySQL. Conținutul acestui tabel poate diferi de cel original. În acest caz, reîncărcați de aici înainte de a continua %sreîncărcarea drepturilor%s.';
 $strFlushQueryCache = 'Reinițializare cache interogare';
 $strFlushTable = 'Curățarea tabelului ("FLUSH")';
@@ -1450,4 +1449,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

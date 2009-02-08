@@ -308,7 +308,6 @@ $strFileNameTemplateRemember = 'テンプレートを記憶させる';
 $strFileNameTemplate = 'ファイル名のテンプレート';
 $strFiles = 'ファイル';
 $strFileToImport = 'インポートするファイル';
-$strFixed = '固定';
 $strFlushPrivilegesNote = '注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権リロード%s をしてください';
 $strFlushQueryCache = 'クエリキャッシュをフラッシュする';
 $strFlushTable = 'テーブルをフラッシュする("FLUSH")';
@@ -1454,4 +1453,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

@@ -308,7 +308,6 @@ $strFileNameTemplateRemember = 'запомнить шаблон';
 $strFileNameTemplate = 'Шаблон имени файла';
 $strFiles = 'Файлов';
 $strFileToImport = 'Импортируемый файл';
-$strFixed = 'фиксированный';
 $strFlushPrivilegesNote = 'Примечание: phpMyAdmin получает информацию о пользовательских привилегиях непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может отличаться от привилегий, используемых сервером, если они были изменены вручную. В таком случае необходимо %sперезагрузить привилегии%s.';
 $strFlushQueryCache = 'Дефрагментировать кеш запросов';
 $strFlushTables = 'Закрыть все таблицы';
@@ -1459,4 +1458,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

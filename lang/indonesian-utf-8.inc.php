@@ -246,7 +246,6 @@ $strFileAlreadyExists = 'File %s sudah ada pada server. Gantikan nama file atau 
 $strFileCouldNotBeRead = 'Gagal membaca File';
 $strFileNameTemplate = 'Konvensi nama file';
 $strFileNameTemplateRemember = 'ingat konvensi';
-$strFixed = 'telah diperbaiki';
 $strFlushPrivilegesNote = 'Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil pengguna yang digunakan oleh Server pada saat ini bila tabel tsb. pernah diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum melanjut.';
 $strFlushTable = 'Tutup tabel ("FLUSH")';
 $strFormat = 'Format';
@@ -1464,4 +1463,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

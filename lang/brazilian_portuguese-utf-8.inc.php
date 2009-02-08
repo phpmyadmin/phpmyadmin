@@ -294,7 +294,6 @@ $strFileNameTemplate = 'Nome do arquivo do modelo';
 $strFileNameTemplateRemember = 'lembrar modelo'; 
 $strFiles = 'Arquivos';
 $strFileToImport = 'Arquivo para importar';
-$strFixed = 'fixo'; 
 $strFlushPrivilegesNote = 'Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos privilégios que o servidor usa se alterações manuais forem feitas nele. Neste caso, você deve usar %sRELOAD PRIVILEGES%s antes de continuar..'; 
 $strFlushQueryCache = 'Nivelar cache da consulta';  //está correto isso?
 $strFlushTable = 'Limpar a tabela ("LIMPAR")'; 
@@ -1446,4 +1445,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

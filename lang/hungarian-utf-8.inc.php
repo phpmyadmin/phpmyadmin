@@ -321,7 +321,6 @@ $strFileNameTemplate = 'Fájlnévsablon';
 $strFileNameTemplateRemember = 'a sablon megjegyzése';
 $strFiles = 'Fájlok';
 $strFileToImport = 'Importálandó fájl';
-$strFixed = 'rögzített';
 $strFlushPrivilegesNote = 'Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %stöltse be újra a jogokat%s a folytatás előtt.';
 $strFlushQueryCache = 'Lekérdezési gyorsítótár kiírása';
 $strFlushTables = 'Összes tábla kiírása (bezárása)';
@@ -1451,4 +1450,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

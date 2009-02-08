@@ -195,7 +195,6 @@ $strFileAlreadyExists = 'Το αρχείο %s υπάρχει ήδη στον δ�
 $strFileCouldNotBeRead = 'Δεν ήταν δυνατή η ανάγνωση του αρχείου';  
 $strFileNameTemplateRemember = 'αποθήκευση μορφής';
 $strFileNameTemplate = 'Μορφή ονόματος αρχείου';
-$strFixed = 'προκαθορισμένου μήκους';
 $strFlushPrivilegesNote = 'Σημείωση: Το phpMyAdmin διαβάζει τα προνόμια των χρηστών απ\' ευθείεας από τους πίνακες προνομίων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί να διαφέρει από τα προνόμια που χρησιμοποιεί ο διακομιστής εάν έχουν γίνει αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε τα προνόμια%s πριν συνεχίσετε.'; 
 $strFlushTable = 'Εκκαθάριση ("FLUSH") πίνακα';
 $strFormat = 'Μορφοποίηση';
@@ -1471,4 +1470,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

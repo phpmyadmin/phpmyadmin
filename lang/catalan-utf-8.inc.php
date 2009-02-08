@@ -313,7 +313,6 @@ $strFileNameTemplate = 'Nom d\'arxiu de plantilla';
 $strFileNameTemplateRemember = 'Recordar plantilla';
 $strFiles = 'Arxius';
 $strFileToImport = 'Arxiu a importar';
-$strFixed = 'fixe';
 $strFlushPrivilegesNote = 'Nota: phpMyAdmin obté els permissos de l\'usuari directament de les taules de permissos de l\' MySQL. El contingut d\'aquestes taules pot diferir dels permissos que utilitza el servidor si s\'han fet canvis manualment. En aquest cas, es necessari %srecarregar els permissos%s abans de continuar.';
 $strFlushQueryCache = 'Buidar la memòria intermèdia de consultes';
 $strFlushTable = 'Buidar la memòria cau de la taula ("FLUSH")';
@@ -1446,4 +1445,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

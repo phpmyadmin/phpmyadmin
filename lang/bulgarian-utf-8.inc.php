@@ -253,7 +253,6 @@ $strFileNameTemplateDescriptionTable = 'име на таблицата';
 $strFileNameTemplateRemember = 'запомняне на шаблона';
 $strFileNameTemplate = 'Шаблон на файловото име';
 $strFileToImport = 'Файл за импортиране';
-$strFixed = 'Фиксиран';
 $strFlushPrivilegesNote = 'Забележка: phpMyAdmin взема потребителските привилегии директно от таблицата на привилегиите на MySQL. Съдържанието на тази таблица може да се различава от привилегиите които използва сървъра ако към него са направени промени на ръка. В този случай, трябва да %sпрезаредите привилегиите%s преди да продължите.';
 $strFlushTable = 'Изчистване на кеша на таблицата ("FLUSH")';
 $strFontSize = 'Размер на шрифта';
@@ -1469,4 +1468,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

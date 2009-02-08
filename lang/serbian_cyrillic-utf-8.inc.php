@@ -296,7 +296,6 @@ $strFileNameTemplateRemember = 'запамти шаблон';
 $strFileNameTemplate = 'Шаблон имена датотеке';
 $strFiles = 'Датотеке';
 $strFileToImport = 'Датотека за увоз';
-$strFixed = 'сређено';
 $strFlushPrivilegesNote = 'Напомена: phpMyAdmin узима привилегије корисника директно из MySQL табела привилегија. Садржај ове табеле може се разликовати од привилегија које сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте привилегије%s пре него што наставите.';
 $strFlushQueryCache = 'Очисти кеш упита';
 $strFlushTable = 'Освежи табелу ("FLUSH")';
@@ -1448,4 +1447,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

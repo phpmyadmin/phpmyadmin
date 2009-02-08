@@ -282,7 +282,6 @@ $strFileNameTemplateDescriptionTable = 'imia tablicy';
 $strFileNameTemplate = 'Šablon nazvy fajła';
 $strFileNameTemplateRemember = 'zapomnić šablon';
 $strFileToImport = 'Impartavać fajł';
-$strFixed = 'fiksavany';
 $strFlushPrivilegesNote = 'Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, jakija vykarystoŭvaje server, kali jany byli źmienienyja ŭručnuju. U hetym vypadku vam treba %spierazahruzić pryvilei%s da taho, jak vy praciahniecie.';
 $strFlushQueryCache = 'Skinuć keš zapytaŭ';
 $strFlushTable = 'Skinuć keš tablicy ("FLUSH")';
@@ -1456,4 +1455,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

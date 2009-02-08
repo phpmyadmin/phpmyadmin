@@ -285,7 +285,6 @@ $strFileNameTemplateRemember = 'загварыг санах';
 $strFileNameTemplate = 'Файлын нэрийн загвар';
 $strFiles = 'Файлууд';
 $strFileToImport = 'Оруулах файл';
-$strFixed = 'Засагдсан';
 $strFlushPrivilegesNote = 'Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин дуудаж үргэлжлүүлнэ үү.';
 $strFlushQueryCache = 'Асуудлын утгыг цэвэрлэх';
 $strFlushTable = 'Flush the table ("FLUSH")';
@@ -1469,4 +1468,5 @@ $strViewVideo = 'View video';  //to translate
 $strWebServer = 'Web server';  //to translate
 $strWiki = 'Wiki';  //to translate
 
+$strStatic = 'static';  //to translate
 ?>

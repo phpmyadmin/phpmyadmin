@@ -232,7 +232,6 @@ $strFileAlreadyExists = 'Fails %s jau eksistē uz servera. Lūdzu nomainiet fail
 $strFileCouldNotBeRead = 'Nevar nolasīt failu';
 $strFileNameTemplate = 'Faila nosaukuma šablons';
 $strFileNameTemplateRemember = 'atcerēties šablonu';
-$strFixed = 'fiksēts';
 $strFlushPrivilegesNote = 'Piezīme: phpMyAdmin saņem lietotāju privilēģijas pa taisno no MySQL privilēģiju tabilām. Šo tabulu saturs var atšķirties no privilēģijām, ko lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams %spārlādēt privilēģijas%s pirms Jūs turpināt.';
 $strFlushTable = 'Atsvaidzināt tabulu ("FLUSH")';
 $strFormat = 'Formats';
@@ -1471,4 +1470,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

@@ -128,7 +128,6 @@ $strFields = 'ستونها';
 $strFieldsEnclosedBy = 'ستونهاي درميان‌گرفته با';
 $strFieldsEscapedBy = 'ستونهاي جداشده با';
 $strFieldsTerminatedBy = 'ستونهاي منتهي به';
-$strFixed = 'fixed';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFormat = 'قالب';
 $strFormEmpty = 'مقداري در فرم وارد نشده !';
@@ -1500,4 +1499,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

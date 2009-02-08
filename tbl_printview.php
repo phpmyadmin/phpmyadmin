@@ -379,7 +379,7 @@ foreach ($the_tables as $key => $table) {
                 <td align="<?php echo $cell_align_left; ?>">
                     <?php
                     if ($showtable['Row_format'] == 'Fixed') {
-                        echo $strFixed;
+                        echo $strStatic;
                     } elseif ($showtable['Row_format'] == 'Dynamic') {
                         echo $strDynamic;
                     } else {

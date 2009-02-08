@@ -157,7 +157,6 @@ $strFieldsEnclosedBy = 'Medan disertai oleh';
 $strFieldsEscapedBy = 'Medan dilarikan oleh';
 $strFields = 'Medan';
 $strFieldsTerminatedBy = 'Medan dihapuskan oleh';
-$strFixed = 'tetap';
 $strFlushTable = 'Buang jadual ("FLUSH")';
 $strFormat = 'Format';
 $strFormEmpty = 'Kehilangan nilai pada borang! !';
@@ -1486,4 +1485,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

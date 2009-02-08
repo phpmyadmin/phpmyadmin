@@ -124,7 +124,6 @@ $strFields = 'ველები';
 $strFieldsEnclosedBy = 'ველები ჩაკეტილია by';
 $strFieldsEscapedBy = 'ველები გახსნილია by';
 $strFieldsTerminatedBy = 'ველები განცალკავებულია by';
-$strFixed = 'გამართულია';
 $strFlushTable = 'კეში გადატანა ("FLUSH") ცხრილში';
 $strFormat = 'ფორმატი';
 $strFormEmpty = 'საჭიროა ფორმის აღმნიშვნელები!';
@@ -1474,4 +1473,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

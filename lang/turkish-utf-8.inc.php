@@ -322,7 +322,6 @@ $strFileNameTemplate = 'Dosya adı şablonu';
 $strFileNameTemplateRemember = 'şablonu hatırla';
 $strFiles = 'Dosyalar';
 $strFileToImport = 'İçeri aktarmak için dosya';
-$strFixed = 'Sabit';
 $strFlushPrivilegesNote = 'Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL\'in yetki tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden önce %syetkileri yeniden yüklemeniz%s gerekir.';
 $strFlushQueryCache = 'Sorgu önbelleğini temizle';
 $strFlushTables = 'Tüm tabloları temizle (kapat)';
@@ -1452,4 +1451,5 @@ $strZip = '"zip olarak"';
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

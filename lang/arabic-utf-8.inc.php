@@ -211,7 +211,6 @@ $strFileAlreadyExists = 'المف %s موجود اصلاً على الخادم. 
 $strFileCouldNotBeRead = 'لم يمكن قراءة الملف';
 $strFileNameTemplateRemember = 'تذكر القالب';
 $strFileNameTemplate = 'قالب إسم الملف';
-$strFixed = 'مثبت';
 $strFlushPrivilegesNote = 'ملاحظة: يقرأ phpMyAdmin صلاحيات المستخدمين من جداول الصلاحيات من خادم MySQL مباشرةً. محتويات هذه الجداول قد تختلف عن الصلاحيات التي يستخدمها الخادم إذا ما تمّ التعديل عليها يدويّاً. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s قبل أن تكمل.';
 $strFlushTable = 'إعادة تحميل الجدول ("FLUSH")';
 $strFormat = 'صيغه';
@@ -1474,4 +1473,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

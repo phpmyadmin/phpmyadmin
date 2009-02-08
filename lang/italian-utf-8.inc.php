@@ -314,7 +314,6 @@ $strFileNameTemplate = 'Nome file template';
 $strFileNameTemplateRemember = 'ricorda il template';
 $strFiles = 'File';
 $strFileToImport = 'File importato';
-$strFixed = 'fisso';
 $strFlushPrivilegesNote = 'N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella dei privilegi di MySQL. Il contenuto di questa tabella può differire dai privilegi usati dal server se sono stati fatti cambiamenti manuali. In questo caso, Si dovrebbero %srinfrescare i privilegi%s prima di continuare.';
 $strFlushQueryCache = 'Rinfresca la cache delle query';
 $strFlushTable = 'Inizializza ("FLUSH") la tabella';
@@ -1453,4 +1452,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

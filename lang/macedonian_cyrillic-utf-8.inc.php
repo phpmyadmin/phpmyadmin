@@ -249,7 +249,6 @@ $strFileAlreadyExists = 'Податотека %s постои на сервер�
 $strFileCouldNotBeRead = 'Податотеката не е можно да се прочита';
 $strFileNameTemplate = 'Шаблон на име на податотека';
 $strFileNameTemplateRemember = 'запамти го шаблонот';
-$strFixed = 'средено';
 $strFlushPrivilegesNote = 'Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL табелата на привилегии. Содржината на оваа табела табела може да се разликува од привилегиите кои серверот ги користи ако се вршени мануелни измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да продолжите со работа.';
 $strFlushTable = 'Освежување на табелата ("FLUSH")';
 $strFormEmpty = 'Недостасува вредност во образецот!';
@@ -1449,4 +1448,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

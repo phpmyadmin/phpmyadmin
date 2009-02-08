@@ -324,7 +324,6 @@ $strFileNameTemplateDescriptionTable = 'tabelnaam';
 $strFileNameTemplateRemember = 'Onthoud template';
 $strFiles = 'bestanden';
 $strFileToImport = 'Te importeren bestand';
-$strFixed = 'vast';
 $strFlushPrivilegesNote = 'Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL privileges tabel. De content van deze tabel kan verschillen met de rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht dit het geval zijn dan moet men %sde privilege tabel vernieuwen%s voordat men verder gaat.';
 $strFlushQueryCache = 'Schoon query cache';
 $strFlushTables = 'Schoon (sluit) alle tabellen';
@@ -1454,4 +1453,5 @@ $strSetupServers_host_desc = 'Machinenaam waar de MySQL server bereikbaar is';
 $strSetupServers_verbose_desc = 'Een gebruiksvriendelijke naam voor deze server. Laat dit veld leeg om de machinenaam te tonen.';
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

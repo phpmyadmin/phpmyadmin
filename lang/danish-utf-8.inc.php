@@ -295,7 +295,6 @@ $strFileNameTemplateRemember = 'husk skabelonen';
 $strFileNameTemplate = 'Skabelon for filnavn';
 $strFiles = 'Filer';
 $strFileToImport = 'Fil til import';
-$strFixed = 'ordnet';
 $strFlushPrivilegesNote = 'Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%s før du fortsætter.';
 $strFlushQueryCache = 'Flush forespørgsel-mellemlager (query cache)';
 $strFlushTable = 'Flush tabellen ("FLUSH")';
@@ -1448,4 +1447,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

@@ -559,7 +559,6 @@ $strFileNameTemplateDescriptionServer = 'server name';  //to translate
 $strFileNameTemplateDescriptionTable = 'table name';  //to translate
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 $strFileToImport = 'File to import';  //to translate
-$strFixed = 'fixed'; // To translate
 $strFlushPrivilegesNote = '주의: phpMyAdmin은 사용자의 사용권한을 MySQL의 사용권한 테이블에서 곧바로 읽어옵니다. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
 $strFlushQueryCache = 'Flush query cache';  //to translate
 $strFlushTables = 'Flush (close) all tables';  //to translate
@@ -1469,4 +1468,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

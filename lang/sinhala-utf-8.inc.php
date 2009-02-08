@@ -280,7 +280,6 @@ $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%
 $strFileNameTemplate = 'ෆයිල් නම් ටෙම්ප්ලේටය';
 $strFileNameTemplateRemember = 'ටෙම්ප්ලේටය මතක තබා ගන්න';
 $strFileToImport = 'ආනයනය සඳහා වූ ගොනුව';
-$strFixed = 'ස්ථිර';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.';
 $strFlushQueryCache = 'Flush query cache';
 $strFlushTable = 'Flush the table ("FLUSH")';
@@ -1451,4 +1450,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

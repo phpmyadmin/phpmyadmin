@@ -289,7 +289,6 @@ $strFileNameTemplateDescriptionTable = 'tabeli nimi';
 $strFileNameTemplate = 'Faili nime template';
 $strFileNameTemplateRemember = 'jäta template meelde';
 $strFileToImport = 'Imporditav Fail';
-$strFixed = 'parandatud';
 $strFlushPrivilegesNote = 'Märkus: phpMyAdmin võtab kasutajate privileegid otse MySQL privileges tabelist. Tabeli sisu võib erineda sellest, mida server hetkel kasutab, seda juhul kui olete käsitsi muudatusi teinud. Sellisel juhul peaksite te privileegid %staaslaadima%s enne jätkamist.';
 $strFlushQueryCache = 'Tühjenda päringute vahemälu';
 $strFlushTables = 'Tühjenda (sulge) kõik tabelid';
@@ -1454,4 +1453,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

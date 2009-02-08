@@ -417,7 +417,6 @@ $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%
 $strFileNameTemplate = 'File name template';//to translate
 $strFileNameTemplateRemember = 'remember template';//to translate
 $strFileToImport = 'File to import';  //to translate
-$strFixed = 'fixed'; //to translate
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
 $strFlushQueryCache = 'Flush query cache';  //to translate
 $strFlushTables = 'Flush (close) all tables';  //to translate
@@ -1474,4 +1473,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

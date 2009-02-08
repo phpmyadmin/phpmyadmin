@@ -235,7 +235,6 @@ $strFileAlreadyExists = 'קובץ %s כבר קיים על השרת, שנה שם 
 $strFileCouldNotBeRead = 'נכשל בקריאת הקובץ';
 $strFileNameTemplateRemember = 'זכור תבנית';
 $strFileNameTemplate = 'תבנית שם קובץ';
-$strFixed = 'תוקן';
 $strFlushPrivilegesNote = 'הערה: phpMyAdmin מקבל הרשאות משתמש ישירות מטבלאות הרשאות של MySQL. התוכן של הטבלאות האלו יכול להיות שונה מההרשאות שהשרת משתמש בהן, אם הן שונו באופן ידני. במקרה זה, אתה צריך לבצע %sטעינה מחדש של הרשאות%s לפני שאתה ממשיך.';
 $strFlushTable = 'ריקון טבלה ("FLUSH")';
 $strFormat = 'תבנית';
@@ -1466,4 +1465,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

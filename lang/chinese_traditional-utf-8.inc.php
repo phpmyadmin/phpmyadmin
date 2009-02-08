@@ -269,7 +269,6 @@ $strFileNameTemplateDescriptionServer = '伺服器名稱';
 $strFileNameTemplateDescriptionTable = '資料表名稱';
 $strFileNameTemplateRemember = '保留樣式名稱';
 $strFileToImport = '載入檔案';
-$strFixed = '固定';
 $strFlushPrivilegesNote = '註: phpMyAdmin 直接由 MySQL 權限資料表取得使用者權限. 如果使用者自行更改資料表, 資料表內容將可能與實際使用者情況有異. 在這情況下, 您應在繼續前 %s重新載入%s 權限資料表.';
 $strFlushQueryCache = '強迫更新語法快取';
 $strFlushTable = '強迫更新資料表 ("FLUSH")';
@@ -1453,4 +1452,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

@@ -278,7 +278,6 @@ $strFileNameTemplateDescriptionTable = 'імя табліцы';
 $strFileNameTemplate = 'Шаблён назвы файла';
 $strFileNameTemplateRemember = 'запомніць шаблён';
 $strFileToImport = 'Імпартаваць файл';
-$strFixed = 'фіксаваны';
 $strFlushPrivilegesNote = 'Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, якія выкарыстоўвае сэрвэр, калі яны былі зьмененыя ўручную. У гэтым выпадку вам трэба %sперазагрузіць прывілеі%s да таго, як вы працягнеце.';
 $strFlushQueryCache = 'Скінуць кэш запытаў';
 $strFlushTable = 'Скінуць кэш табліцы ("FLUSH")';
@@ -1448,4 +1447,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

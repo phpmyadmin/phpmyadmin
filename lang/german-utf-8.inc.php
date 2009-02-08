@@ -311,7 +311,6 @@ $strFileNameTemplateDescriptionTable = 'Tabellen-Name';
 $strFileNameTemplateRemember = 'Konvention merken';
 $strFileToImport = 'Zu importierende Datei';
 $strFiles = 'Dateien';
-$strFixed = 'starr';
 $strFlushPrivilegesNote = 'phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzerprofilen, die MySQL z.Zt. verwendet, unterscheiden, wenn manuelle Änderungen vorgenommen wurden. In diesem Fall sollten Sie  %sdie Benutzerprofile neu laden%s bevor Sie fortfahren.';
 $strFlushQueryCache = 'Den Abfragencache leeren (FLUSH)';
 $strFlushTable = 'Leeren des Tabellencaches ("FLUSH")';
@@ -1454,4 +1453,5 @@ $strSetupInsecureConnectionMsg1 = 'You are not using a secure connection; all da
 $strSetupLoginCookieDeleteAll_desc = 'If TRUE, logout deletes cookies for all servers; when set to FALSE, logout only occurs for the current server. Setting this to FALSE makes it easy to forget to log out from other servers when connected to multiple servers.';  //to translate
 $strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie should be stored in browser. The default of 0 means that it will be kept for the existing session only, and will be deleted as soon as you close the browser window. This is recommended for non-trusted environments.';  //to translate
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
+$strStatic = 'static';  //to translate
 ?>

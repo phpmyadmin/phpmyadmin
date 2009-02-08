@@ -199,7 +199,6 @@ $strFileAlreadyExists = 'O ficheiro  %s já existe no servidor, mude o nome do f
 $strFileCouldNotBeRead = 'Não foi possível ler o ficheiro';
 $strFileNameTemplate = 'Nome do ficheiro modelo';
 $strFileNameTemplateRemember = 'Lembrar-se do modelo';
-$strFixed = 'fixo';
 $strFlushPrivilegesNote = 'Nota: O phpMyAdmin recebe os privilégios dos utilizadores directamente da tabela de privilégios do MySQL. O conteúdo destas tabelas pode diferir dos privilégios que o servidor usa se alterações manuais nele forem feitas. Neste caso, deve  %sreload the privileges%s antes de continuar.';
 $strFlushTable = 'Fecha a tabela ("FLUSH")';
 $strFormat = 'Formato';
@@ -1475,4 +1474,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

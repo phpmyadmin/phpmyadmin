@@ -316,7 +316,6 @@ $strFileNameTemplate = 'Mall för filnamn';
 $strFileNameTemplateRemember = 'kom ihåg mall';
 $strFiles = 'Filer';
 $strFileToImport = 'Fil att importera';
-$strFixed = 'fast';
 $strFlushPrivilegesNote = 'Anm: phpMyAdmin hämtar användarnas privilegier direkt från MySQL:s privilegiumtabeller. Innehållet i dessa tabeller kan skilja sig från privilegierna som servern använder ifall manuella ändringar har gjorts. I detta fall bör du %sladda om privilegierna%s innan du fortsätter.';
 $strFlushQueryCache = 'Rensa frågecache';
 $strFlushTable = 'Rensa tabell';
@@ -1446,4 +1445,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

@@ -319,7 +319,6 @@ $strFileNameTemplateRemember = 'muista pohja';
 $strFileNameTemplate = 'Tiedostonimen pohja';
 $strFiles = 'Tiedostot';
 $strFileToImport = 'Tuotava tiedosto';
-$strFixed = 'kiinteä';
 $strFlushPrivilegesNote = 'Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista.';
 $strFlushQueryCache = 'Tyhjennä kyselymuisti';
 $strFlushTables = 'Tyhjennä (sulje) kaikki taulut';
@@ -1449,4 +1448,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

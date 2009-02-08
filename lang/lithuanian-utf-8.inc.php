@@ -236,7 +236,6 @@ $strFileAlreadyExists = 'Byla pavadinimu %s jau yra darbinėje stotyje, pakeiski
 $strFileCouldNotBeRead = 'Negalima perskaityti bylos';
 $strFileNameTemplate = 'Failo pavadinimo šablonas';
 $strFileNameTemplateRemember = 'atsiminti šabloną';
-$strFixed = 'fiksuotas';
 $strFlushPrivilegesNote = 'Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo parinkčių bylose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti. ';
 $strFlushTable = 'Išvalyti lentelę ("FLUSH")';
 $strFormat = 'Formatas';
@@ -1464,4 +1463,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

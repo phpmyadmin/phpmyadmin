@@ -195,7 +195,6 @@ $strFileAlreadyExists = 'Файл %s існує на сервері, прошу 
 $strFileCouldNotBeRead = 'Неможливо прочитати файл';
 $strFileNameTemplateRemember = 'запам\'ятати шаблон';
 $strFileNameTemplate = 'Шаблон назви файлу';
-$strFixed = 'фіксований';
 $strFlushPrivilegesNote = 'Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються сервером, якщо в цю таблицю вносилися зміни вручну. У цьому випадку Вам необхідно %sперезавантажити права%s перед продовженням.';
 $strFlushTable = 'Очистити кеш таблиці ("FLUSH")';
 $strFormat = 'Формат';
@@ -1468,4 +1467,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

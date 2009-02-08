@@ -276,7 +276,6 @@ $strFileNameTemplateDescription = 'Táto hodnota je interpretovaná pomocou %1$s
 $strFileNameTemplateRemember = 'zapamätať si vzor';
 $strFileNameTemplate = 'Vzor pre názov súboru';
 $strFileToImport = 'Súbor na importovanie';
-$strFixed = 'pevný';
 $strFlushPrivilegesNote = 'Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %sznovunačítanie práv%s predtým ako budete pokračovať.';
 $strFlushQueryCache = 'Vyprázdniť vyrovnávaciu pamäť príkazov';
 $strFlushTables = 'Vyprázdniť (uzavrieť) všetky tabuľky';
@@ -1449,4 +1448,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

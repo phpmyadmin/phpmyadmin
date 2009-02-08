@@ -202,7 +202,6 @@ $strFileAlreadyExists = '%s fitxategia aurretik bazegoen zerbitzarian, izena ald
 $strFileCouldNotBeRead = 'Ezinezkoa fitxategia irakurtzea';
 $strFileNameTemplateRemember = 'txantiloia gogoratu';
 $strFileNameTemplate = 'Txantiloi-fitxategiaren izena';
-$strFixed = 'finkoa';
 $strFlushPrivilegesNote = 'Oharra: phpMyAdmin-ek erabiltzaileen pribilegioak\' zuzenean MySQL-ren pribilegioen taulatik\' eskuratzen ditu. Taula hauen edukiak, tartean eskuz aldaketarik egon bada, zerbitzariak erabiltzen dituenak ez bezelakoak izan daitezke. Kasu honetan, jarraitu aurretik %spribilegioak berkargatu%s beharko zenituzke.';
 $strFlushTable = 'Taularen cachea hustu ("FLUSH")';
 $strFormat = 'Formatoa';
@@ -1466,4 +1465,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

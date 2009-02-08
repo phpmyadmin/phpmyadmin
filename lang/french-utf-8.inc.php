@@ -316,7 +316,6 @@ $strFileNameTemplate = 'Modèle de nom de fichier';
 $strFileNameTemplateRemember = 'se souvenir du modèle';
 $strFiles = 'Fichiers';
 $strFileToImport = 'Fichier à importer';
-$strFixed = 'fixe';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges directement à partir des tables MySQL. Le contenu de ces tables peut être différent des privilèges effectifs, si des changements manuels ont été apportés. Dans ce cas, vous devriez %srecharger les privilèges%s avant de continuer.';
 $strFlushQueryCache = 'Vider la cache des requêtes';
 $strFlushTable = 'Recharger la table ("FLUSH")';
@@ -1445,4 +1444,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strStatic = 'static';  //to translate
 ?>

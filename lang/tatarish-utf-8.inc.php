@@ -262,7 +262,6 @@ $strFileNameTemplateDescriptionServer = 'server adı';
 $strFileNameTemplateDescriptionTable = 'tüşämä adı';
 $strFileNameTemplateRemember = 'tözeleşen yatla';
 $strFileToImport = 'Yöklise birem';
-$strFixed = 'berketelgän';
 $strFlushPrivilegesNote = 'Beläse: MySQL-serverneñ eçke tüşämä eçennän alınğan xoquqlar bu. Server qullana torğan xoquqlar qul aşa üzgärtelgän bulsa, bu tüşämä eçtälege alardan ayırıla ala. Andí çaqlarda, dawam itü aldınnan, %sxoquqlarnı qabat yökläp alası%s.';
 $strFlushQueryCache = 'Soraw alxäteren awdar';
 $strFlushTables = 'Tüşämälärne yabıp beteräse';
@@ -1459,4 +1458,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

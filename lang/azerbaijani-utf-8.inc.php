@@ -197,7 +197,6 @@ $strFileAlreadyExists = '%s faylı serverda onsuz da mövcuddur, ya faylın adı
 $strFileCouldNotBeRead = 'Fayl oxuna bilmir';
 $strFileNameTemplate = 'Fayl adı nomenklaturası';
 $strFileNameTemplateRemember = 'nomenklaturanı unutma';
-$strFixed = 'fixed';
 $strFlushPrivilegesNote = 'Qeyd: phpMyAdmin istifadeçi selahiyyetlerini birbaşa MySQL-in selahiyyetler cedvellerinden almaqdadır. Eger elle nizamlamalar edilmişse, bu cedvellerin içerisindekiler webserver-in istifade etdiklerinden ferqli ola biler. Bu halda, davam etmeden evvel, selahiyyetleri yeniden yüklemelisiniz.';
 $strFlushTable = 'Cedveli flush-la ("FLUSH")';
 $strFormat = 'Format';
@@ -1469,4 +1468,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

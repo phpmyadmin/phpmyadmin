@@ -706,7 +706,7 @@ if ($cfg['ShowStats']) {
         <th class="name"><?php echo $strFormat; ?></th>
         <td class="value"><?php
         if ($showtable['Row_format'] == 'Fixed') {
-            echo $strFixed;
+            echo $strStatic;
         } elseif ($showtable['Row_format'] == 'Dynamic') {
             echo $strDynamic;
         } else {

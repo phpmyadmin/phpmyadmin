@@ -214,7 +214,6 @@ $strFileAlreadyExists = 'Datoteka %s že obstaja na strežniku, spremenite ime n
 $strFileCouldNotBeRead = 'Ne morem prebrati datoteke';
 $strFileNameTemplate = 'Predloga datoteke';
 $strFileNameTemplateRemember = 'Shrani predlogo';
-$strFixed = 'fiksno';
 $strFlushPrivilegesNote = 'Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz MySQL tabel privilegijev. Vsebina teh tabel se lahko razlikuje od privilegijev, ki jih uporablja strežnik, če so bile tabele ročno spremenjene. V tem primeru morate, preden nadaljujete, osvežiti privilegije.';
 $strFlushTable = 'Počisti tabelo ("FLUSH")';
 $strFormat = 'Oblika';
@@ -1468,4 +1467,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

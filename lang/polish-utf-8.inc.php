@@ -272,7 +272,6 @@ $strFileNameTemplateDescriptionTable = 'nazwa tabeli';
 $strFileNameTemplateRemember = 'pamiętaj szablon';
 $strFileNameTemplate = 'Szablon nazwy';
 $strFileToImport = 'Plik do importu';
-$strFixed = 'stały';
 $strFlushPrivilegesNote = 'Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, może się różnić od uprawnień jakich faktycznie używa serwer. W takim przypadku powinieneś przed dalszą pracą %sprzeładować uprawnienia%s.';
 $strFlushQueryCache = 'Opróżnij bufor podręczny zapytań';
 $strFlushTable = 'Przeładuj tabelę ("FLUSH")';
@@ -1442,4 +1441,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

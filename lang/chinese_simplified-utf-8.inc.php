@@ -236,7 +236,6 @@ $strFileAlreadyExists = '文件 %s 已经存在于服务器上，请更改文件
 $strFileCouldNotBeRead = '文件无法读取';
 $strFileNameTemplate = '文件名模板';
 $strFileNameTemplateRemember = '记住模板';
-$strFixed = '固定';
 $strFlushPrivilegesNote = '注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%s。';
 $strFlushTable = '强制更新资料表("FLUSH")';
 $strFormat = '格式';
@@ -1474,4 +1473,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

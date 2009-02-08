@@ -220,7 +220,6 @@ $strFileAlreadyExists = 'File %s ekziston në server: të lutem, ndrysho emrin e
 $strFileCouldNotBeRead = 'File nuk mund të lexohet';
 $strFileNameTemplate = 'Emri i file template';
 $strFileNameTemplateRemember = 'kujto template';
-$strFixed = 'fiks';
 $strFlushPrivilegesNote = 'Shënim: phpMyAdmin lexon të drejtat e përdoruesve direkt nga tabela e privilegjeve të MySQL. Përmbajtja e kësaj tabele mund të ndryshojë prej të drejtave të përdorura nga serveri nëse janë kryer ndryshime manuale. Në këtë rast, duhet të %srifreskoni të drejtat%s para se të vazhdoni.';
 $strFlushTable = 'Rifillo ("FLUSH") tabelën';
 $strFormat = 'Formati';
@@ -1472,4 +1471,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>

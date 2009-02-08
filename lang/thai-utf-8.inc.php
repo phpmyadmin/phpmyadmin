@@ -194,7 +194,6 @@ $strFieldsTerminatedBy = 'จบฟิลด์ด้วย';
 $strFileCouldNotBeRead = 'อ่านไฟล์ไม่ได้';
 $strFileNameTemplate = 'รูปแบบของชื่อไฟล์';
 $strFileNameTemplateRemember = 'จำรูปแบบ';
-$strFixed = 'คงที่';
 $strFlushTable = 'ล้างตาราง (flush)';
 $strFormat = 'รูปแบบ';
 $strFormEmpty = 'ค่าในแบบฟอร์มหายไป !';
@@ -1470,4 +1469,5 @@ $strSetupServers_verbose_desc = 'A user-friendly description of this server. Lea
 $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strStatic = 'static';  //to translate
 ?>
