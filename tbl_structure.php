@@ -586,6 +586,10 @@ echo '<div id="tablestatistics">' . "\n";
 //                      Joshua Nye <josh at boxcarmedia.com> to get valid
 //                      statistics whatever is the table type
 if ($cfg['ShowStats']) {
+    if (empty($showtable)) {
+        $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);
+    }
+
     $nonisam     = false;
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
     if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
