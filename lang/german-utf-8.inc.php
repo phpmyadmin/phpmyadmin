@@ -758,6 +758,12 @@ $strServers = 'Server';
 $strSessionStartupErrorGeneral = 'Die Sitzung konnte nicht ohne Fehler gestartet werden, schauen Sie bitte in das Fehlerprokoll von PHP und/oder Ihres Webservers und konfigurieren Sie PHP entsprechend (session.save_path, Schreibrechte).';
 $strSessionValue = 'Wert für diese Sitzung';
 $strSetEnumVal = 'Wenn das Feld vom Typ \'ENUM\' oder \'SET\' ist, benutzen Sie bitte das Format: \'a\',\'b\',\'c\',... Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden, setzen Sie bitte ein Backslash vor das Zeichen. (z. B.: \'\\\\xyz\' oder \'a\\\'b\').';
+$strSetupServers_extension_desc = 'Die zu verwendente PHP Erweiterung; sie sollten mysqli verwenden wenn es verfügbar ist';
+$strSetupVersionCheckNewAvailable = 'Es ist eine neuere Version von phpMyAdmin verfügbar zu der sie aktualisieren sollten. Die neuste Version ist %s, erschienen %s.';
+$strSetupServers_auth_swekey_config_desc = 'Pfad zur Konfigurationsdatei der [a@http://swekey.com]SweKey Hardware Authentifizierung[/a] (liegt nicht im Webhauptverzeichnis (document root); empfohlen: /etc/swekey.conf)';
+$strSessionGCWarning = 'Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] ist niedriger als die in phpMyAdmin konfigurierte Cookiegültigkeit, deshlab wir ihre Anmeldung eher ablaufen als in phpMyAdmin konfiguriert.';
+$strSetupServers_host_desc = 'Rechnername auf dem der MySQL Server läuft';
+$strSetupServers_verbose_desc = 'Benutzerfreundlicher Name des Servers. Leer lassen um den tatsächlichen Rechnernamen anzuzeigen.';
 $strShow = 'Zeige';
 $strShowAll = 'Alles anzeigen';
 $strShowBinaryContents = 'Binäre Inhalte anzeigen';
@@ -1448,10 +1454,4 @@ $strSetupInsecureConnectionMsg1 = 'You are not using a secure connection; all da
 $strSetupLoginCookieDeleteAll_desc = 'If TRUE, logout deletes cookies for all servers; when set to FALSE, logout only occurs for the current server. Setting this to FALSE makes it easy to forget to log out from other servers when connected to multiple servers.';  //to translate
 $strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie should be stored in browser. The default of 0 means that it will be kept for the existing session only, and will be deleted as soon as you close the browser window. This is recommended for non-trusted environments.';  //to translate
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
-$strSetupServers_extension_desc = 'What PHP extension to use; you should use mysqli if supported';  //to translate
-$strSetupVersionCheckNewAvailable = 'A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.';  //to translate
-$strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';  //to translate
-$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
-$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
-$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 ?>
