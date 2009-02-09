@@ -1286,6 +1286,7 @@ $strStandInStructureForView = 'Doublure de structure pour la vue';
 $strStatCheckTime = 'Dernière vérification';
 $strStatCreateTime = 'Création';
 $strStatement = 'Information';
+$strStatic = 'statique';
 $strStatisticsOverrun = 'Sur un serveur surchargé, la capacité des compteurs d\'octets peut être dépassée, auquel cas les statistiques rapportées par MySQL peuvent être inexactes.';
 $strStatUpdateTime = 'Dernière modification';
 $strStatus = 'État';
@@ -1444,5 +1445,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strStatic = 'static';  //to translate
 ?>
