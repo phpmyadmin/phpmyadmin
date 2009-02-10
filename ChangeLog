@@ -23,6 +23,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   if it contains less than MaxExactCountViews,
   thanks to Virsacer - virsacer
 + [lang] Polish update, thanks to Fixer - fixeron
+- bug #2568722 [designer] Compound key not shown 
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 

@@ -218,11 +218,12 @@ function get_all_keys($unique_only = false)
             if ($unique_only && ! $index->isUnique()) {
                 continue;
             }
-            $column = key($index->getColumns());
-            $keys[$schema . '.' .$table . '.' . $column] = 1;
+            $columns = $index->getColumns();
+            foreach ($columns as $column_name => $dummy) {
+                $keys[$schema . '.' .$table . '.' . $column_name] = 1;
+            }
         }
     }
-    
     return $keys;
 }
 
