@@ -117,7 +117,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForFeature('strGeneralRelationFeat', 'relwork', $messages);
 
-    PMA_printDiagMessageForParameter('table_info', $cfgRelation['displaywork'], $messages, 'table_info');
+    PMA_printDiagMessageForParameter('table_info', isset($cfgRelation['table_info']), $messages, 'table_info');
 
     PMA_printDiagMessageForFeature('strDisplayFeat', 'displaywork', $messages);
 
