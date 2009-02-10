@@ -1473,4 +1473,5 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
+$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
 ?>

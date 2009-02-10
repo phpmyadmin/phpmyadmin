@@ -721,6 +721,7 @@ $strRevokeAndDelete = 'Revoke all active privileges from the users and delete th
 $strRevokeMessage = 'You have revoked the privileges for %s';
 $strRevoke = 'Revoke';
 $strRomanian = 'Romanian';
+$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';
 $strRoutineReturnType = 'Return type';
 $strRoutines = 'Routines';
 $strRowLength = 'Row length';

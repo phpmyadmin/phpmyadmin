@@ -654,7 +654,9 @@ function PMA_auth_fails()
     // Deletes password cookie and displays the login form
     PMA_removeCookie('pmaPass-' . $GLOBALS['server']);
 
-    if (! empty($GLOBALS['allowDeny_forbidden'])) {
+    if (! empty($GLOBALS['root_without_password_is_forbidden'])) {
+        $conn_error = $GLOBALS['strRootWithoutPassword'];
+    } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
         $conn_error = $GLOBALS['strAccessDenied'];
     } elseif (! empty($GLOBALS['no_activity'])) {
         $conn_error = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);

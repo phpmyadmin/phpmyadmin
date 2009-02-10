@@ -1454,4 +1454,5 @@ $strSetupLoginCookieDeleteAll_desc = 'If TRUE, logout deletes cookies for all se
 $strSetupLoginCookieStore_desc = 'Define how long (in seconds) a login cookie should be stored in browser. The default of 0 means that it will be kept for the existing session only, and will be deleted as soon as you close the browser window. This is recommended for non-trusted environments.';  //to translate
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
 $strStatic = 'static';  //to translate
+$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
 ?>

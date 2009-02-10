@@ -26,6 +26,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + patch #2505255 [privileges] Cleanup, thanks to Virsacer - virsacer
 + bug #2565948 [core] Changing the connection collation changed the client
   charset. 
+- bug #2414056 [auth] AllowNoPasswordRoot error message is too vague 
 
 3.1.3.0 (not yet released)
 + [lang] Turkish update, thanks to Burak Yavuz

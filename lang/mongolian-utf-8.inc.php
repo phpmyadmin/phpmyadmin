@@ -1469,4 +1469,5 @@ $strWebServer = 'Web server';  //to translate
 $strWiki = 'Wiki';  //to translate
 
 $strStatic = 'static';  //to translate
+$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
 ?>
