@@ -211,7 +211,7 @@ if ($databases_count > 0) {
         }
         echo '    <td class="name">' . "\n"
            . '        <a onclick="'
-           . 'if (window.parent.openDb && window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
+           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\'' . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
            . '" href="index.php?' . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf($strJumpToDB, htmlspecialchars($current['SCHEMA_NAME']))
