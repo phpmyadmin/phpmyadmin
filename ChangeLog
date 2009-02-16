@@ -25,6 +25,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Polish update, thanks to Fixer - fixeron
 - bug #2568722 [designer] Compound key not shown 
 - patch #2550323 [XHTML] in server_databases.php, thanks to Virsacer - virsacer
+- patch #2358861 [navi] Row count tooltip wrong for information_schema, 
+  thanks to Herman van Rink - helmo 
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
