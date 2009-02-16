@@ -288,6 +288,11 @@ foreach ($tables as $keyname => $each_table) {
         case 'ISAM' :
         case 'HEAP' :
         case 'MEMORY' :
+            if ($db_is_information_schema) {
+                $each_table['Rows'] = PMA_Table::countRecords($db,
+                    $each_table['Name'], $return = true);
+            }
+                
             if ($is_show_stats) {
                 $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
                 $sum_size                   += $tblsize;

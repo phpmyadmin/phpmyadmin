@@ -789,14 +789,15 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             // Do not check exact row count here,
             // if row count is invalid possibly the table is defect
             // and this would break left frame;
-            // but we can check row count if this is a view,
+            // but we can check row count if this is a view or the
+            // information_schema database
             // since PMA_Table::countRecords() returns a limited row count
             // in this case.
 
             // set this because PMA_Table::countRecords() can use it
             $tbl_is_view = PMA_Table::isView($db, $table['Name']);
 
-            if ($tbl_is_view) {
+            if ($tbl_is_view || 'information_schema' == $db) {
                 $table['Rows'] = PMA_Table::countRecords($db, $table['Name'],
                         $return = true);
             }
