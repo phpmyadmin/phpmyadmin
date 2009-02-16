@@ -250,10 +250,9 @@ if ($databases_count > 0) {
 
         if ($is_superuser) {
             echo '    <td class="tool">' . "\n"
-               . '        <a onclick="
-                    // <![CDATA[
-                    if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');
-                    // ]]>" href="./server_privileges.php?' . $url_query
+               . '        <a onclick="'
+               . 'if (window.parent.setDb) window.parent.setDb(\'' . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
+               . '" href="./server_privileges.php?' . $url_query
                . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])
                . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['SCHEMA_NAME']))
                . '">'. "\n"

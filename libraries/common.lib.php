@@ -2208,7 +2208,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
         echo "\n", '<form action="./', basename($script), '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
-            $script . PMA_generate_common_url($_url_params) . '&',
+            $script . PMA_generate_common_url($_url_params) . '&amp;',
                 $max_count,
                 floor(($pos + 1) / $max_count) + 1,
                 ceil($count / $max_count));
