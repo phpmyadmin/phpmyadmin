@@ -850,9 +850,9 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     }
 
     if (! empty($GLOBALS['collation_connection'])) {
+    	PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
         $mysql_charset = explode('_', $GLOBALS['collation_connection']);
-        PMA_DBI_query("SET NAMES '" . $mysql_charset[0] . "' COLLATE '" . $GLOBALS['collation_connection'] . "';",
-            $link, PMA_DBI_QUERY_STORE);
+        PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
     } else {
         PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
     }

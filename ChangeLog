@@ -26,7 +26,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2568722 [designer] Compound key not shown 
 - patch #2550323 [XHTML] in server_databases.php, thanks to Virsacer - virsacer
 - patch #2358861 [navi] Row count tooltip wrong for information_schema, 
-  thanks to Herman van Rink - helmo 
+  thanks to Herman van Rink - helmo
+- bug #2565948 [core] Changing the connection collation changed the client
+  charset.
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
