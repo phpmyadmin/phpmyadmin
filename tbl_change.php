@@ -395,7 +395,9 @@ foreach ($rows as $row_id => $vrow) {
         $unnullify_trigger = $chg_evt_handler . "=\"return unNullify('"
             . PMA_escapeJsString($field['Field_html']) . "', '"
             . PMA_escapeJsString($jsvkey) . "')\"";
-        $field_name_appendix =  $vkey . '[' . $field['Field_html'] . ']';
+
+        // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
+        $field_name_appendix =  $vkey . '[' . $field['Field_md5'] . ']';
         $field_name_appendix_md5 = $field['Field_md5'] . $vkey . '[]';
 
 
@@ -409,7 +411,10 @@ foreach ($rows as $row_id => $vrow) {
         }
         ?>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center"><?php echo $field['Field_title']; ?></td>
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center">
+                <?php echo $field['Field_title']; ?>
+                <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
+            </td>
             <td align="center"<?php echo $field['wrap']; ?>>
                 <?php echo $field['pma_type']; ?>
             </td>

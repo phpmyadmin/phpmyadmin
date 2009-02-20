@@ -138,10 +138,19 @@ if (isset($destination) && $cfgRelation['relwork']) {
 // I use $sql_query to be able to display directly the query via
 // PMA_showMessage()
 
+$me_fields_name =
+    isset($_REQUEST['fields_name'])
+    ? $_REQUEST['fields_name']
+    : null;
+
 if (isset($_REQUEST['destination_foreign'])) {
     $display_query = '';
     $seen_error = false;
-    foreach ($_REQUEST['destination_foreign'] as $master_field => $foreign_string) {
+    foreach ($_REQUEST['destination_foreign'] as $master_field_md5 => $foreign_string) {
+
+        // Map the fieldname's md5 back to it's real name
+        $master_field = $me_fields_name[$master_field_md5];
+
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) =
@@ -163,19 +172,19 @@ if (isset($_REQUEST['destination_foreign'])) {
                             . PMA_backquote($foreign_table) . '('
                             . PMA_backquote($foreign_field) . ')';
 
-                if (! empty($_REQUEST['on_delete'][$master_field])) {
-                    $sql_query .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field]];
+                if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
+                    $sql_query .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
                 }
                 if (! empty($_REQUEST['on_update'][$master_field])) {
-                    $sql_query .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field]];
+                    $sql_query .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field_md5]];
                 }
                 $sql_query .= ';';
                 $display_query .= $sql_query . "\n";
                 // end repeated code
 
             } elseif (($existrel_foreign[$master_field]['foreign_db'] . '.' .$existrel_foreign[$master_field]['foreign_table'] . '.' . $existrel_foreign[$master_field]['foreign_field'] != $foreign_string)
-              || ($_REQUEST['on_delete'][$master_field] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : ''))
-              || ($_REQUEST['on_update'][$master_field] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : ''))
+              || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : ''))
+              || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : ''))
                    ) {
                 // another foreign key is already defined for this field
                 // or
@@ -199,13 +208,13 @@ if (isset($_REQUEST['destination_foreign'])) {
                             . PMA_backquote($foreign_table) . '('
                             . PMA_backquote($foreign_field) . ')';
 
-                if (! empty($_REQUEST['on_delete'][$master_field])) {
+                if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
                     $sql_query   .= ' ON DELETE '
-                        . $options_array[$_REQUEST['on_delete'][$master_field]];
+                        . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
                 }
-                if (! empty($_REQUEST['on_update'][$master_field])) {
+                if (! empty($_REQUEST['on_update'][$master_field_md5])) {
                     $sql_query   .= ' ON UPDATE '
-                        . $options_array[$_REQUEST['on_update'][$master_field]];
+                        . $options_array[$_REQUEST['on_update'][$master_field_md5]];
                 }
                 $sql_query .= ';';
                 $display_query .= $sql_query . "\n";
@@ -373,14 +382,19 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
         $myfield = $save_row[$i]['Field'];
+        // Use an md5 as array index to avoid having special characters in the name atttibure (see bug #1746964 )
+        $myfield_md5 = md5($myfield);
+        $myfield_html = htmlspecialchars($myfield);
         ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td align="center">
-            <strong><?php echo $save_row[$i]['Field']; ?></strong></td>
+            <strong><?php echo $myfield_html; ?></strong>
+            <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]" value="<?php echo $myfield_html; ?>"/>
+        </td>
         <?php
         if ($cfgRelation['relwork']) {
             ?>
-        <td><select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
+        <td><select name="destination[<?php echo $myfield_md5; ?>]">
             <?php
             // PMA internal relations
             if (isset($existrel[$myfield])) {
@@ -421,7 +435,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             if (!empty($save_row[$i]['Key'])) {
                 ?>
             <span class="formelement">
-            <select name="destination_foreign[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
+            <select name="destination_foreign[<?php echo $myfield_md5; ?>]">
                 <?php
                 if (isset($existrel_foreign[$myfield])) {
                     $foreign_field    = $existrel_foreign[$myfield]['foreign_db'] . '.'
@@ -457,7 +471,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             <span class="formelement">
                 <?php
                 PMA_generate_dropdown('ON DELETE',
-                    'on_delete[' . $save_row[$i]['Field'] . ']',
+                    'on_delete[' . $myfield_md5 . ']',
                     $options_array,
                     isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: '');
 
@@ -465,7 +479,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                     .'<span class="formelement">' . "\n";
 
                 PMA_generate_dropdown('ON UPDATE',
-                    'on_update[' . $save_row[$i]['Field'] . ']',
+                    'on_update[' . $myfield_md5 . ']',
                     $options_array,
                     isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: '');
                 echo '</span>' . "\n";
@@ -478,6 +492,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     </tr>
         <?php
     } // end for
+
+    unset( $myfield, $myfield_md5, $myfield_html);
 
     echo '    </table>' . "\n";
     echo '</fieldset>' . "\n";

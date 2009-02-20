@@ -68,7 +68,8 @@ if (false !== $possibly_uploaded_val) {
         $type = '';
     }
 
-    $f = 'field_' . md5($key);
+    // $key is and md5() of the fieldname
+    $f = 'field_' . $key;
 
     if (0 === strlen($val)) {
         // default
@@ -96,7 +97,7 @@ if (false !== $possibly_uploaded_val) {
                 // mode, insert empty field because no values were submitted. If protected
                 // blobs where set, insert original fields content.
                 if (! empty($prot_row[$key])) {
-                    $val = '0x' . bin2hex($prot_row[$key]);
+                    $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
                 } else {
                     $val = '';
                 }

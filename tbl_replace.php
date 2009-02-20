@@ -176,6 +176,10 @@ foreach ($loop_array as $rowcount => $primary_key) {
         isset($_REQUEST['fields']['multi_edit'][$rowcount])
         ? $_REQUEST['fields']['multi_edit'][$rowcount]
         : array();
+    $me_fields_name =
+        isset($_REQUEST['fields_name']['multi_edit'][$rowcount])
+        ? $_REQUEST['fields_name']['multi_edit'][$rowcount]
+        : null;
     $me_fields_prev =
         isset($_REQUEST['fields_prev']['multi_edit'][$rowcount])
         ? $_REQUEST['fields_prev']['multi_edit'][$rowcount]
@@ -204,6 +208,8 @@ foreach ($loop_array as $rowcount => $primary_key) {
 	$primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
 
     foreach ($me_fields as $key => $val) {
+
+        // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
 
         require './libraries/tbl_replace_fields.inc.php';
 
@@ -253,7 +259,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
                 $query_values[] = $cur_value;
                 // first inserted row so prepare the list of fields
                 if (empty($value_sets)) {
-                    $query_fields[] = PMA_backquote($key);
+                    $query_fields[] = PMA_backquote($me_fields_name[$key]);
                 }
             }
 
@@ -262,7 +268,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
          && !isset($me_fields_null[$key])) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $query_values[] = PMA_backquote($key) . ' = ' . $cur_value;
+            $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
         } elseif (empty($me_funcs[$key])
          && isset($me_fields_prev[$key])
          && ("'" . PMA_sqlAddslashes($me_fields_prev[$key]) . "'" == $val)) {
@@ -274,7 +280,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
             //  field still has the null checkbox)
             if (!(! empty($me_fields_null_prev[$key])
              && isset($me_fields_null[$key]))) {
-                $query_values[] = PMA_backquote($key) . ' = ' . $cur_value;
+                 $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
             }
         }
     } // end foreach ($me_fields as $key => $val)
@@ -290,7 +296,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
         }
     }
 } // end foreach ($loop_array as $primary_key)
-unset($me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_null_prev,
+unset($me_fields_name, $me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_null_prev,
     $me_auto_increment, $cur_value, $key, $val, $loop_array, $primary_key, $using_key,
     $func_no_param);
 
