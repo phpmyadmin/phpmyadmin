@@ -92,7 +92,7 @@ function PMA_TableHeader($db_is_information_schema = false)
 
     echo '<table class="data" style="float: left;">' . "\n"
         .'<thead>' . "\n"
-        .'<tr><td></td>' . "\n"
+        .'<tr><th></th>' . "\n"
         .'    <th>' . PMA_SortableTableHeader($GLOBALS['strTable'], 'table') . '</th>' . "\n"
         .'    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . $GLOBALS['strAction'] . "\n"
@@ -513,7 +513,7 @@ if ($is_show_stats) {
 ?>
 </tbody>
 <tbody>
-<tr><td></td>
+<tr><th></th>
     <th align="center" nowrap="nowrap">
         <?php
             // for blobstreaming - if the number of tables is 0, set tableReductionCount to 0

@@ -1459,7 +1459,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '<th>&nbsp;</th>' . "\n";
+                echo '<th></th>' . "\n";
             }
 
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '', $val);
@@ -1477,7 +1477,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '    <th>&nbsp;</th>' . "\n";
+                echo '    <th></th>' . "\n";
             }
 
             echo $val;
@@ -1495,7 +1495,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '<th>&nbsp;</th>' . "\n";
+                echo '<th></th>' . "\n";
             }
 
             echo $val;
@@ -1530,7 +1530,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '<th>&nbsp;</th>' . "\n";
+                echo '<th></th>' . "\n";
             }
 
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', 'r', $val);
@@ -1548,7 +1548,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '<th>&nbsp;</th>' . "\n";
+                echo '<th></th>' . "\n";
             }
 
             echo $val;
@@ -1566,7 +1566,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['userconf']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['userconf']['repeat_cells'])) {
-                echo '<th>&nbsp;</th>' . "\n";
+                echo '<th></th>' . "\n";
             }
 
             echo $val;

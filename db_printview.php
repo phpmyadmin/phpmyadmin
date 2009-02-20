@@ -237,7 +237,7 @@ else {
         <?php
     }
     ?>
-    <th>&nbsp;</th>
+    <th></th>
 </tr>
 </tbody>
 </table>

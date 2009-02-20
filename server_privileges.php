@@ -1472,14 +1472,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . PMA_generate_common_hidden_inputs('', '')
                    . '    <table id="tableuserrights" class="data">' . "\n"
                    . '    <thead>' . "\n"
-                   . '        <tr><td></td>' . "\n"
+                   . '        <tr><th></th>' . "\n"
                    . '            <th>' . $GLOBALS['strUser'] . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strHost'] . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strPassword'] . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strGlobalPrivileges'] . ' '
                    . PMA_showHint($GLOBALS['strEnglishPrivileges']) . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
-                   . '            ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<td></td>' : '<th>' . $GLOBALS['strAction'] . '</th>') . "\n";
+                   . '            <th>' . ($GLOBALS['cfg']['PropertiesIconic'] ? '' : $GLOBALS['strAction']) . '</th>' . "\n";
                 echo '        </tr>' . "\n";
                 echo '    </thead>' . "\n";
                 echo '    <tbody>' . "\n";
