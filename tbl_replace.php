@@ -207,6 +207,16 @@ foreach ($loop_array as $rowcount => $primary_key) {
 
 	$primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
 
+    // Fetch the current values of a row to use in case we have a protected field
+    // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
+    if ($is_insert && $using_key && isset($me_fields_type) &&
+        is_array($me_fields_type) && isset($primary_key)) {
+        $prot_result = PMA_DBI_query('SELECT * FROM ' .
+                PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+        $prot_row = PMA_DBI_fetch_assoc($prot_result);
+        PMA_DBI_free_result($prot_result);
+        unset($prot_result);
+    }
     foreach ($me_fields as $key => $val) {
 
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
