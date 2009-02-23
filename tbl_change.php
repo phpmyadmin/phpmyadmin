@@ -857,8 +857,8 @@ foreach ($rows as $row_id => $vrow) {
 
                     if ($bs_reference_exists)
                     {
-                        echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_html'] . $vkey . '" value="' . $data . '" />';
-                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_html'] . $vkey . '" /> ' . $strBLOBRepositoryRemove . "<br />";
+                        echo '<input type="hidden" name="remove_blob_ref_' . $field['Field_md5'] . $vkey . '" value="' . $data . '" />';
+                        echo '<input type="checkbox" name="remove_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . $strBLOBRepositoryRemove . "<br />";
                         echo PMA_BS_CreateReferenceLink($data, $db);
                         echo "<br />";
                     }
@@ -958,7 +958,7 @@ foreach ($rows as $row_id => $vrow) {
                                                 if ($allBSTablesExist)
                                                 {
                                                     echo '<br />';
-                                                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_html'] . $vkey . '" /> ' . $strBLOBRepositoryUpload;
+                                                    echo '<input type="checkbox" name="upload_blob_repo_' . $field['Field_md5'] . $vkey . '" /> ' . $strBLOBRepositoryUpload;
                                                 }   // end if ($allBSTablesExist)
                                             }   // end if (isset($bs_tables)
                                         }   // end if (!empty($bs_tables) && strlen ($db) > 0)
@@ -970,7 +970,7 @@ foreach ($rows as $row_id => $vrow) {
                 }
 
                 echo '<br />';
-                echo '<input type="file" name="fields_upload_' . $field['Field_html'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" />&nbsp;';
+                echo '<input type="file" name="fields_upload_' . $field['Field_md5'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" />&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
@@ -1003,7 +1003,7 @@ foreach ($rows as $row_id => $vrow) {
                 } elseif (!empty($files)) {
                     echo "<br />\n";
                     echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
-                    echo '        <select size="1" name="fields_uploadlocal_' . $field['Field_html'] . $vkey . '">' . "\n";
+                    echo '        <select size="1" name="fields_uploadlocal_' . $field['Field_md5'] . $vkey . '">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                     echo $files;
                     echo '        </select>' . "\n";
