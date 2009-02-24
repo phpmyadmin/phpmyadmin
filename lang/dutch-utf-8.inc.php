@@ -218,7 +218,7 @@ $strDatabasesDropped = '%s databases zijn succesvol verwijderd.';
 $strDatabasesStats = 'Database statistieken';
 $strDatabasesStatsDisable = 'Statistieken uitzetten';
 $strDatabasesStatsEnable = 'Statistieken aanzetten';
-$strDatabasesStatsHeavyTraffic = 'Attentie: Indien u hier Database statistieken aanzet kan dit zorgen voor veel data verkeer tussen de webserver en de MySQL server.';
+$strDatabasesStatsHeavyTraffic = 'Attentie: Indien u hier Database statistieken aanzet kan dit zorgen voor veel dataverkeer tussen de webserver en de MySQL server.';
 $strData = 'Data';
 $strDataDict = 'Data Woordenboek';
 $strDataOnly = 'Alleen data';
@@ -1153,8 +1153,8 @@ $strShowSlaveStatus = 'Toon slave status';
 $strShowStatusBinlog_cache_disk_useDescr = 'Het aantal transacties dat gebruik heeft gemaakt van het tijdelijke binaire log cache, maar die groter waren dan binlog_cache_size en daarom gebruik hebben gemaakt van een tijdelijkbestand om opdrachten uit de transactie op te slaan.';
 $strShowStatusBinlog_cache_useDescr = 'Het aantal transactie dat gebruik maakte van het tijdelijke binaire log cache.';
 $strShowStatusCreated_tmp_disk_tablesDescr = 'Het aantal tijdelijke tabellen op schijf dat automatisch werd aangemaakt bij het uitvoeren van opdrachten. Indien Created_tmp_disk_tables groot is, kan het de moeite waard zijn om de waarde van tmp_table_size te verhogen, waardoor meer tijdelijke tabellen in het geheugen blijven in plaats van op schijf.';
-$strShowStatusCreated_tmp_filesDescr = 'Het aantal door tijdelijke bestanden dat werd aangemaakt.';
-$strShowStatusCreated_tmp_tablesDescr = 'Het aantal in geheugen geplaatste tijdelijke tabellen dat automatisch door de server werd aangemaakt tijdens het uitvoeren van opdrachten.';
+$strShowStatusCreated_tmp_filesDescr = 'Het aantal tijdelijke bestanden dat door MySQL werd aangemaakt.';
+$strShowStatusCreated_tmp_tablesDescr = 'Het aantal in het geheugen geplaatste tijdelijke tabellen dat automatisch door de server werd aangemaakt tijdens het uitvoeren van opdrachten.';
 $strShowStatusDelayed_errorsDescr = 'Het aantal met INSERT DELAYED opgeslagen rijen waarbij er een fout optrad (mogelijk een reeds bestaande sleutel).';
 $strShowStatusDelayed_insert_threadsDescr = 'Het aantal INSERT DELAYED afhandelings-threads in gebruik. Elke afzonderlijke tabel waarop INSERT DELAYED wordt toegepast krijgt een eigen thread.';
 $strShowStatusDelayed_writesDescr = 'Het aantal met INSERT DELAYED opgeslagen rijen.';
@@ -1451,8 +1451,9 @@ $strZip = '"Gezipt"';
 
 $strSetupServers_host_desc = 'Machinenaam waar de MySQL server bereikbaar is';
 $strSetupServers_verbose_desc = 'Een gebruiksvriendelijke naam voor deze server. Laat dit veld leeg om de machinenaam te tonen.';
-$strShowBinaryContents = 'Show binary contents';  //to translate
-$strShowBLOBContents = 'Show BLOB contents';  //to translate
-$strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strShowBinaryContents = 'Toon binaire inhoud';
+$strShowBLOBContents = 'Toon BLOB inhoud';
+$strStatic = 'statisch';
+$strRootWithoutPassword = 'Het inloggen met de gebruiker root is niet toegestaan vanuit de instellingen (see AllowNoPasswordRoot)';
+
 ?>
