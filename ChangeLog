@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.1.4.0 (not yet released)
+
 3.1.3.0 (not yet released)
 + [lang] Turkish update, thanks to Burak Yavuz
 - patch #2496403 [display] Multi-row change with "]",
