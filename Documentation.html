@@ -2931,6 +2931,15 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 	    <tt>SuhosinDisableWarning</tt> directive</a>.
     </p>
 
+<h4 id="faq1_39">
+    <a href="#faq1_39">1.39 When I try to connect via https, I can log in, 
+    but then my connection is redirected back to http. What can cause this 
+    behavior?</a></h4>
+
+<p> Be sure that you have enabled <tt>SSLOptions</tt> and <tt>StdEnvVars</tt>
+in your Apache configuration. See <a href="http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions">http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions</a>.</p>
+
+
 <h3 id="faqconfig">Configuration</h3>
 
 <h4 id="faq2_1">
