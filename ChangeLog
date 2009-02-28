@@ -61,6 +61,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Romanian update, thanks to Sergiu Bivol - sbivol
 - patch #1760205 [data] Insert as new row: BLOB is lost, 
   thanks to Herman van Rink - helmo
++ [lang] Georgian update, thanks to George Machitidze
 
 3.1.2.0 (2009-01-19)
 - bug #1253252 [display] Can't NULL a column with relation defined 
