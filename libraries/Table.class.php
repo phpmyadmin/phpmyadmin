@@ -660,7 +660,9 @@ class PMA_Table
             }
             unset($analyzed_sql);
             $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
-            if ('ANSI_QUOTES' == $server_sql_mode) {
+            // ANSI_QUOTES might be a subset of sql_mode, for example 
+            // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
+            if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
                 $table_delimiter = 'quote_double';
             } else {
                 $table_delimiter = 'quote_backtick';
