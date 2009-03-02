@@ -1137,7 +1137,6 @@ $strSetupServerSecurityInfoMsg = 'Jeżeli wydaje się to konieczne, można uży�
 $strSetupServerSslMsg = 'Jeżeli połączenia SSL są obsługiwane przez serwer WWW, powinny być używane.';
 $strSetupServerExtensionMsg = 'Z powodów wydajnościowych powinien być uzywany mysqli.';
 $strSetupServerAuthConfigMsg = 'You set [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
-$strSetupServerNoPasswordRootMsg = 'Dozwolone jest połączenie się z serwerem jako root bez hasła.';
 $strSetupBlowfishSecretMsg = 'Klucz blowfish ne był ustawiony, natomiast włączone było uwierzytelnianie przez ciasteczka, więc klucz został wygenerowany. Jest on używany do szyfrowania ciasteczek.';
 $strSetupBlowfishSecretLengthMsg = 'Klucz jest za krótki, powinien mieć co najmniej 8 znaków.';
 $strSetupBlowfishSecretCharsMsg = 'Klucz powinien zawierać znaki alfanumeryczne [em]i[/em] i specjalne.';
@@ -1236,7 +1235,6 @@ $strSetupServers_only_db_desc = 'Można użyć znaków wieloznacznych MySQL-a (%
 $strSetupServers_hide_db_name = 'Ukryj bazy danych';
 $strSetupServers_hide_db_desc = 'Ukryj bazy danych pasujące do wyrażenia regularnego (PCRE)';
 $strSetupServers_AllowRoot_name = 'Pozwól na logowanie się roota';
-$strSetupServers_AllowNoPasswordRoot_name = 'Pozwól na logowanie się roota bez hasła';
 $strSetupServers_DisableIS_name = 'Disable use of INFORMATION_SCHEMA';  //to translate
 $strSetupServers_DisableIS_desc = 'More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';  //to translate
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';  //to translate
@@ -1442,5 +1440,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

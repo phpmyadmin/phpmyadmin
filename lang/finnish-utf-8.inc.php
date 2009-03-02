@@ -1004,13 +1004,11 @@ $strSetupSaveDir_desc = 'Hakemisto, jonne viennit voi tallentaa palvelimella';
 $strSetupSaveDir_name = 'Tallennushakemisto';
 $strSetupServerAuthConfigMsg = 'Asetit [kbd]config[/kbd]-todennustyypin ja sisällytit käyttäjänimen ja salasanan automaattista kirjautumista varten. Tämä ei ole suotava vaihtoehto oikeille palvelimille. Joka tietää tai arvaa phpMyAdmin-osoitteesi pystyy suoraan käyttämään phpMyAdmin-paneeliasi.  [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]Todennustyypiksi[/a] kannattaa asettaa [kbd]cookie[/kbd] tai [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'Suorituskykysyistä tulisi käyttää mysqli-laajennusta.';
-$strSetupServerNoPasswordRootMsg = 'Sallit yhteyden palvelimeen pääkäyttäjänä ilman salasanaa.';
 $strSetupServersAdd = 'Lisää uusi palvelin';
 $strSetupServers_AllowDeny_order_desc = 'Jätä tyhjäksi, jos tätä ei käytetä';
 $strSetupServers_AllowDeny_order_name = 'Palvelintodennuksen järjestys';
 $strSetupServers_AllowDeny_rules_desc = 'Käytä oletusarvoja jättämällä tyhjäksi';
 $strSetupServers_AllowDeny_rules_name = 'Palvelintodennuksen säännöt';
-$strSetupServers_AllowNoPasswordRoot_name = 'Salli pääkäyttäjä ilman salasanaa';
 $strSetupServers_AllowRoot_name = 'Salli pääkäyttäjän kirjautuminen';
 $strSetupServers_auth_swekey_config_desc = '[a@http://swekey.com]SweKey-laitteistotodennuksen[/a] asetustiedoston polku (ei dokumenttijuuressa; suositeltu: /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'SweKey-asetustiedosto';
@@ -1449,5 +1447,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

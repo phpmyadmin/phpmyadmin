@@ -809,7 +809,6 @@ $strSetupForm_Tabs_desc = 'Alegeți cum doriți să funcționeze filele';
 $strSetupForm_Tabs = 'File';
 $strSetupGZipDump_name = 'GZip';
 $strSetupServersAdd = 'Adaugă un server nou';
-$strSetupServers_AllowNoPasswordRoot_name = 'Permite „root” fără parolă';
 $strSetupServers_AllowRoot_name = 'Permite autentificarea ca „root”';
 $strSetupServers_auth_type_desc = 'Metoda de autentificare de utilizat';
 $strSetupServers_auth_type_name = 'Tipul autentificării';
@@ -1157,7 +1156,6 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 
 $strLogServerHelp = 'You can enter hostname/IP address and port separated by space.';  //to translate
 
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 $strSetupAllowAnywhereRecoding_name = 'Allow character set conversion';  //to translate
@@ -1354,7 +1352,6 @@ $strSetupSaveDir_desc = 'Directory where exports can be saved on server';  //to 
 $strSetupSaveDir_name = 'Save directory';  //to translate
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
 $strSetupServerExtensionMsg = 'Ar trebui să utilizați mysqli din motive de performanță';  //to translate
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';  //to translate
 $strSetupServers_AllowDeny_order_desc = 'Leave blank if not used';  //to translate
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';  //to translate
 $strSetupServers_AllowDeny_rules_desc = 'Leave blank for defaults';  //to translate
@@ -1456,4 +1453,7 @@ $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strShowKeys = 'Only show keys';  //to translate
 $strStatic = 'static';  //to translate
 
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

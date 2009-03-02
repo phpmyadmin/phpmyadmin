@@ -44,7 +44,7 @@ $forms['Server_config'] = array('Servers' => array(1 => array(
     'only_db',
     'hide_db',
     'AllowRoot',
-    'AllowNoPasswordRoot',
+    'AllowNoPassword',
     'DisableIS',
     'AllowDeny/order',
     'AllowDeny/rules',

@@ -882,11 +882,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($allowDeny_forbidden); //Clean up after you!
         }
 
-        // is root without password allowed?
-        if (!$cfg['Server']['AllowNoPasswordRoot'] && $cfg['Server']['user'] == 'root' && $cfg['Server']['password'] == '') {
-            $root_without_password_is_forbidden = true;
+        // is a login without password allowed?
+        if (!$cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
+            $login_without_password_is_forbidden = true;
             PMA_auth_fails();
-            unset($root_without_password_is_forbidden); //Clean up after you!
+            unset($login_without_password_is_forbidden); //Clean up after you!
         }
 
         // Try to connect MySQL with the control user profile (will be used to

@@ -726,7 +726,6 @@ $strRevokeAndDelete = 'Revoke all active privileges from the users and delete th
 $strRevokeMessage = 'You have revoked the privileges for %s';
 $strRevoke = 'Revoke';
 $strRomanian = 'რუმინული';
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';
 $strRoutineReturnType = 'Return type';
 $strRoutines = 'Routines';
 $strRowLength = 'სტრიქონის სიგრძე';
@@ -1010,13 +1009,11 @@ $strSetupSaveDir_desc = 'Directory where exports can be saved on server';
 $strSetupSaveDir_name = 'დირექტორიის შენახვა';
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'You should use mysqli for performance reasons';
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';
 $strSetupServersAdd = 'ახალი სერვერის დამატება';
 $strSetupServers_AllowDeny_order_desc = 'Leave blank if not used';
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';
 $strSetupServers_AllowDeny_rules_desc = 'Leave blank for defaults';
 $strSetupServers_AllowDeny_rules_name = 'Host authentication rules';
-$strSetupServers_AllowNoPasswordRoot_name = 'Allow root without password';
 $strSetupServers_AllowRoot_name = 'root-ით შესვლის ნებართვა';
 $strSetupServers_auth_swekey_config_desc = 'The path for the config file for [a@http://swekey.com]SweKey hardware authentication[/a] (not located in your document root; suggested: /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'SweKey config file';
@@ -1454,4 +1451,7 @@ $strYes = 'დიახ';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zip-ით შეკუმშული"';
 
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

@@ -304,14 +304,14 @@ function perform_config_checks()
 
         //
         // $cfg['Servers'][$i]['AllowRoot']
-        // $cfg['Servers'][$i]['AllowNoPasswordRoot']
+        // $cfg['Servers'][$i]['AllowNoPassword']
         // serious security flaw
         //
         if ($cf->getValue("Servers/$i/AllowRoot")
-            && $cf->getValue("Servers/$i/AllowNoPasswordRoot")) {
-            $title = PMA_lang_name('Servers/1/AllowNoPasswordRoot') . " ($server_name)";
-            messages_set('warning', "Servers/$i/AllowNoPasswordRoot", $title,
-                PMA_lang('ServerNoPasswordRootMsg') . ' ' .
+            && $cf->getValue("Servers/$i/AllowNoPassword")) {
+            $title = PMA_lang_name('Servers/1/AllowNoPassword') . " ($server_name)";
+            messages_set('warning', "Servers/$i/AllowNoPassword", $title,
+                PMA_lang('ServerNoPasswordMsg') . ' ' .
                 PMA_lang('ServerSecurityInfoMsg', $i));
         }
     }

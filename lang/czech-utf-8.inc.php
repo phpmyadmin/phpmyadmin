@@ -998,13 +998,11 @@ $strSetupSaveDir_desc = 'Adresář na serveru pro ukládání exportů';
 $strSetupSaveDir_name = 'Adresář pro ukládání';
 $strSetupServerAuthConfigMsg = 'Nastavil jste typ autentizace [kbd]config[/kbd] a zadal jste uživatelské jméno a heslo pro automatické přihlášení, což není doporučená volba pro produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k Vašemu  phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'Měl byste použít mysqli z výkonostních důvodů.';
-$strSetupServerNoPasswordRootMsg = 'Připustil jste přihlášení uživatele root k serveru bez hesla.';
 $strSetupServersAdd = 'Přidat nový server';
 $strSetupServers_AllowDeny_order_desc = 'Pokud tuto volbu nepoužíváte, nechte ji prázdnou.';
 $strSetupServers_AllowDeny_order_name = 'Příkaz pro autentizaci serverů';
 $strSetupServers_AllowDeny_rules_desc = 'Nechte volbu prázdnou pro výchozí nastavení.';
 $strSetupServers_AllowDeny_rules_name = 'Pravidla autentizace serverů';
-$strSetupServers_AllowNoPasswordRoot_name = 'Povolit uživatele root bez hesla';
 $strSetupServers_AllowRoot_name = 'Povolit přihlašování uživatele root';
 $strSetupServers_auth_swekey_config_desc = 'Cesta ke konfiguračnímu souboru pro [a@http://swekey.com]hardwarovou autentizaci SweKey[/a] (Není umístěna ve Vašem kořenovém adresáři dokumentů; Doporučení: /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'Konfigurační soubor SweKey';
@@ -1452,5 +1450,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

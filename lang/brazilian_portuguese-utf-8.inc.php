@@ -1138,7 +1138,6 @@ $strSetupVersionCheckNone = 'No newer stable version is available';  //to transl
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
 $strSetupServerSslMsg = 'You should use SSL connections if your web server supports it';  //to translate
 $strSetupServerExtensionMsg = 'You should use mysqli for performance reasons';  //to translate
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';  //to translate
 $strSetupBlowfishSecretLengthMsg = 'Key is too short, it should have at least 8 characters';  //to translate
 $strSetupForceSSLMsg = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be enabled if your web server supports it';  //to translate
 $strSetupAllowArbitraryServerMsg = 'This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
@@ -1233,7 +1232,6 @@ $strSetupServers_only_db_desc = 'You can use MySQL wildcard characters (% and _)
 $strSetupServers_hide_db_name = 'Hide databases';  //to translate
 $strSetupServers_hide_db_desc = 'Hide databases matching regular expression (PCRE)';  //to translate
 $strSetupServers_AllowRoot_name = 'Allow root login';  //to translate
-$strSetupServers_AllowNoPasswordRoot_name = 'Allow root without password';  //to translate
 $strSetupServers_DisableIS_name = 'Disable use of INFORMATION_SCHEMA';  //to translate
 $strSetupServers_DisableIS_desc = 'More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';  //to translate
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';  //to translate
@@ -1446,5 +1444,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

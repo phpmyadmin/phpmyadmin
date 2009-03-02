@@ -606,7 +606,6 @@ $strSetupForm_Left_tables = 'Lentelės';
 $strSetupForm_Query_window = 'Užklausų langas';
 $strSetupForm_Tabs = 'Kortelės';
 $strSetupServers_AllowDeny_order_desc = 'Palikite tuščią, jei nenaudojamas';
-$strSetupServers_AllowNoPasswordRoot_name = 'Leisti root be slaptažodžio';
 $strSetupServers_AllowRoot_name = 'Leisti prisijungti kaip root';
 $strSetupServers_connect_type_name = 'Susijungimo tipas';
 $strSetupServers_DisableIS_name = 'Neleisti matyti INFORMATION_SCHEMA';
@@ -952,7 +951,6 @@ $strReload = 'Reload';  //to translate
 $strRemovePartitioning = 'Remove partitioning';  //to translate
 $strRepair = 'Repair';  //to translate
 $strRestartInsertion = 'Restart insertion with %s rows';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
 $strRoutineReturnType = 'Return type';  //to translate
 $strRoutines = 'Routines';  //to translate
 $strRowsAffected = '%1$d row(s) affected.';  //to translate
@@ -1179,7 +1177,6 @@ $strSetupSaveDir_desc = 'Directory where exports can be saved on server';  //to 
 $strSetupSaveDir_name = 'Save directory';  //to translate
 $strSetupServerAuthConfigMsg = 'You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/kbd].';  //to translate
 $strSetupServerExtensionMsg = 'You should use mysqli for performance reasons';  //to translate
-$strSetupServerNoPasswordRootMsg = 'You allow for connecting to the server as root without a password.';  //to translate
 $strSetupServersAdd = 'Add a new server';  //to translate
 $strSetupServers_AllowDeny_order_name = 'Host authentication order';  //to translate
 $strSetupServers_AllowDeny_rules_desc = 'Leave blank for defaults';  //to translate
@@ -1464,4 +1461,7 @@ $strViewImage = 'View image';  //to translate
 $strViewName = 'VIEW name';  //to translate
 $strViewVideo = 'View video';  //to translate
 
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

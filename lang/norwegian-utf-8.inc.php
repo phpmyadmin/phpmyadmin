@@ -828,7 +828,6 @@ $strSetupServerSecurityInfoMsg = 'Hvis du føler at dette er nødvending, så br
 $strSetupServerSslMsg = 'Du bør bruke SSL tilkobling dersom din webtjener har støtte for det';
 $strSetupServerExtensionMsg = 'Du bør bruke mysqli for bedre ytelse';
 $strSetupServerAuthConfigMsg = 'Du valgte [kbd]config[/kbd] autentisering og inkluderte brukernavn og passord for autmatisk innlogging, noe som ikke anbefales for aktive tjenere. Hvem som helst som kjenner phpMyAdmin URL kan direkte få adgang til ditt phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/kbd].';
-$strSetupServerNoPasswordRootMsg = 'Du tillater å koble til tjeneren som root uten et passord.';
 $strSetupBlowfishSecretMsg = 'Du hadde ikke satt blowfist hemmelig nøkkel eller slått på cookie autentisering så nøkkelen ble generert for deg. Den brukes til å krypterer cookies.';
 $strSetupBlowfishSecretLengthMsg = 'Nøkkelen er for kort, den bør ha minst 8 tegn';
 $strSetupBlowfishSecretCharsMsg = 'Nøkkelen bør inneholde tall, bokstaver [em]og[/em] spesielle tegn';
@@ -927,7 +926,6 @@ $strSetupServers_only_db_desc = 'Du kan bruke MySQL jokertegn (% and _), escape 
 $strSetupServers_hide_db_name = 'Skul databaser';
 $strSetupServers_hide_db_desc = 'Skjul databaser som matcher regular expression (PCRE)';
 $strSetupServers_AllowRoot_name = 'Tillat innlogging som root';
-$strSetupServers_AllowNoPasswordRoot_name = 'Tillat root uten passord';
 $strSetupServers_DisableIS_name = 'Slå av bruk av INFORMATION_SCHEMA';
 $strSetupServers_DisableIS_desc = 'Mer informasjon på [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';
 $strSetupServers_AllowDeny_order_name = 'Rekkefølge for vertsautentisering';
@@ -1446,5 +1444,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>

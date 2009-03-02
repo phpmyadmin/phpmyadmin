@@ -1000,13 +1000,11 @@ $strSetupSaveDir_desc = 'Katalog på servern där exporter kan sparas';
 $strSetupSaveDir_name = 'Spara-katalog';
 $strSetupServerAuthConfigMsg = 'Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och lösenord för autoinloggning, vilket inte är en önskvärd inställning för skarpa värdar. Vem som helst som vet eller gissar din phpMyAdmin-URL kan direkt komma åt ditt phpMyAdmin-verktyg. Sätt [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]autentiseringstyp[/a] till [kbd]cookie[/kbd] eller [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'Du bör använda mysqli av prestandaanledningar';
-$strSetupServerNoPasswordRootMsg = 'Du tillåter anslutning till servern som root utan ett lösenord.';
 $strSetupServersAdd = 'Lägg till en ny server';
 $strSetupServers_AllowDeny_order_desc = 'Lämna tomt om inte används';
 $strSetupServers_AllowDeny_order_name = 'Ordning för värdautentisering';
 $strSetupServers_AllowDeny_rules_desc = 'Lämna tomt för standard';
 $strSetupServers_AllowDeny_rules_name = 'Regler för värdautentisering';
-$strSetupServers_AllowNoPasswordRoot_name = 'Tillåt root utan lösenord';
 $strSetupServers_AllowRoot_name = 'Tillåt root-inloggning';
 $strSetupServers_auth_swekey_config_desc = 'Sökväg till konfigurationsfilen för [a@http://swekey.com]SweKey hårdvaruautentisering[/a] (inte placerad i din dokumentrotkatalog; förslag: /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'SweKey konfigurationsfil';
@@ -1446,5 +1444,7 @@ $strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&qu
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
 $strStatic = 'static';  //to translate
-$strRootWithoutPassword = 'Login to root without a password is forbidden by configuration (see AllowNoPasswordRoot)';  //to translate
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>
