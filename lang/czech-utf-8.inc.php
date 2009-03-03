@@ -523,6 +523,7 @@ $strNoIndex = 'Není definován žádný index!';
 $strNoIndexPartsDefined = 'Nebyla zadána žádná část indexu!';
 $strNoModification = 'Žádná změna';
 $strNo = 'Ne';
+$strNoneDefault = 'Žádná';
 $strNone = 'Žádná';
 $strNoOptions = 'Tento formát nemá žádná nastavení';
 $strNoPassword = 'Žádné heslo';

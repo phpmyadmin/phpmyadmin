@@ -175,7 +175,7 @@ for ($i = 0; $i < $num_fields; $i++) {
             $row['Key'] = '';
         }
 
-        // put None in the drop-down for Default, when someone adds a field 
+        // put None in the drop-down for Default, when someone adds a field
         $row['DefaultType']  = (isset($_REQUEST['field_default_type'][$i]) ? $_REQUEST['field_default_type'][$i] : 'NONE');
         $row['DefaultValue'] = (isset($_REQUEST['field_default_value'][$i]) ? $_REQUEST['field_default_value'][$i] : '');
 
@@ -383,7 +383,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     // users would have problems if they forget to enter the default
     // value (example, for an INT)
     $default_options = array(
-        'NONE'              =>  $strNone,
+        'NONE'              =>  $strNoneDefault,
         'USER_DEFINED'      =>  $strAsDefined,
         'NULL'              => 'NULL',
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',

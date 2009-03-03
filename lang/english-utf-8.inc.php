@@ -523,6 +523,7 @@ $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser
 $strNoIndex = 'No index defined!';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoModification = 'No change';
+$strNoneDefault = 'None';
 $strNone = 'None';
 $strNo = 'No';
 $strNoOptions = 'This format has no options';

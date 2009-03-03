@@ -1448,4 +1448,5 @@ $strZip = '"zippé"';
 
 $strHostTableExplanation = 'When Host table is used, this field is ignored and values stored in Host table are used instead.';  //to translate
 $strGetMoreThemes = 'Get more themes!';  //to translate
+$strNoneDefault = 'None';  //to translate
 ?>

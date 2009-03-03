@@ -1459,4 +1459,5 @@ $strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a
 $strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 $strHostTableExplanation = 'When Host table is used, this field is ignored and values stored in Host table are used instead.';  //to translate
 $strGetMoreThemes = 'Get more themes!';  //to translate
+$strNoneDefault = 'None';  //to translate
 ?>
