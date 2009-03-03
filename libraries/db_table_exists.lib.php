@@ -79,16 +79,6 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
             }
 
             if (! $is_table) {
-                $url_params = array('reload' => 1, 'db' => $db);
-                if (isset($message)) {
-                    $url_params['message'] = $message;
-                }
-                if (! empty($sql_query)) {
-                    $url_params['sql_query'] = $sql_query;
-                }
-                if (isset($display_query)) {
-                    $url_params['display_query'] = $display_query;
-                }
                 require 'db_sql.php';
                 exit;
             }
