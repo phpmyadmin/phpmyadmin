@@ -452,6 +452,7 @@ $strLocalhost = 'Local';
 $strLocationTextfile = 'Emplacement du fichier texte';
 $strLogin = 'Connexion';
 $strLoginInformation = 'Information pour la connexion';
+$strLoginWithoutPassword = 'La configuration interdit une connexion sans mot de passe (voir AllowNoPassword)';
 $strLogout = 'Quitter';
 $strLogPassword = 'Mot de passe&nbsp;:';
 $strLogServerHelp = 'Vous pouvez entrer le nom du serveur ou son adresse IP, ainsi que le port séparé par un espace.';
@@ -1001,11 +1002,13 @@ $strSetupSaveDir_desc = 'Répertoire où les exportations peuvent être sauvegar
 $strSetupSaveDir_name = 'Répertoire de sauvegarde';
 $strSetupServerAuthConfigMsg = 'La méthode d\'authentification [kbd]config[/kbd] permet une connexion automatique, ce qui n\'est pas souhaitable dans un environnement réel. Toute personne qui connaît l\'URL d\'accès peut entrer dans votre phpMyAdmin.  Il est suggérer de régler votre [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]type d\'authentification[/a] à [kbd]cookie[/kbd] ou [kbd]http[/kbd].';
 $strSetupServerExtensionMsg = 'Il est recommandé d\'utiliser mysqli';
+$strSetupServerNoPasswordMsg = 'Vous permettez les connexions au serveur sans mot de passe.';
 $strSetupServersAdd = 'Ajouter un serveur';
 $strSetupServers_AllowDeny_order_desc = 'Laisser vide si non utilisé';
 $strSetupServers_AllowDeny_order_name = 'Ordre d\'authentification des serveurs';
 $strSetupServers_AllowDeny_rules_desc = 'Laisser vide pour la valeur par défaut';
 $strSetupServers_AllowDeny_rules_name = 'Règles d\'authentification des serveurs';
+$strSetupServers_AllowNoPassword_name = 'Permettre les connexions sans fournir de mot de passe';
 $strSetupServers_AllowRoot_name = 'Permettre une connexion à root';
 $strSetupServers_auth_swekey_config_desc = 'Le chemin du fichier de configuration pour [a@http://swekey.com]l\'authentification matérielle Swekey[/a] (ne pas placer sous la racine des documents; suggestion : /etc/swekey.conf)';
 $strSetupServers_auth_swekey_config_name = 'Fichier de configuration SweKey';
@@ -1443,7 +1446,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
-$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
-$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 ?>
