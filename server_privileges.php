@@ -85,10 +85,10 @@ if (!$is_superuser) {
  * no escaping (for example test_db) but in mysql.db you'll see test\_db
  * for a db-specific privilege.
  *
- * @param   string   $db_and_table 
+ * @param   string   $db_and_table
  * @param   string   $dbname
  * @param   string   $tablename
- * @return  string   the escaped (if necessary) $db_and_table 
+ * @return  string   the escaped (if necessary) $db_and_table
  */
 function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
 
@@ -750,6 +750,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
         . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . $GLOBALS['strHost']
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . PMA_showHint($GLOBALS['strHostTableExplanation'])
        . '</div>' . "\n"
        . '<div class="item">' . "\n"
        . '<label for="select_pred_password">' . "\n"
@@ -1135,7 +1136,7 @@ if (!empty($update_privs)) {
             }
         }
         $sql_query2 .= ';';
-    }  
+    }
     if (! PMA_DBI_try_query($sql_query0)) {
         // this query may fail, but this does not matter :o)
         $sql_query0 = '';
@@ -1606,13 +1607,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             }
 
         } else {
-            echo ' <i>\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) 
+            echo ' <i>\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</i>' . "\n";
 
         }
         echo '</h2>' . "\n";
 
- 
+
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . PMA_sqlAddslashes($username) . "'"
             . " AND `Host` = '" . PMA_sqlAddslashes($hostname) . "';";
@@ -1914,7 +1915,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
 		// Provide a line with links to the relevant database and table
         if (isset($dbname) && empty($dbname_is_wildcard)) {
-            echo '[ ' . $GLOBALS['strDatabase'] 
+            echo '[ ' . $GLOBALS['strDatabase']
                 . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
                 . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
                 . htmlspecialchars($dbname) . ': ' . PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase']) . "</a> ]\n";

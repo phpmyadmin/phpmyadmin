@@ -1288,7 +1288,7 @@ $strUploadLimit = 'Pravděpodobně jste se pokusili nahrát příliš velký sou
 $strUploadsNotAllowed = 'Upload souborů není na tomto serveru povolen.';
 $strUsage = 'Používá';
 $strUseBackquotes = 'Použít zpětné uvozovky u jmen tabulek a sloupců';
-$strUseHostTable = 'Použít tabulku s počítači';
+$strUseHostTable = 'Použít tabulku Host';
 $strUserAlreadyExists = 'Uživatel %s již existuje!';
 $strUserEmpty = 'Jméno uživatele je prázdné!';
 $strUserName = 'Jméno uživatele';
@@ -1453,4 +1453,5 @@ $strStatic = 'static';  //to translate
 $strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
 $strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
 $strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
+$strHostTableExplanation = 'Pokud je použita tabulka Host, toto pole je ignorováno a jsou použity hodnoty uložené v tabulce Host.';
 ?>

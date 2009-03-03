@@ -37,6 +37,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2123386 Added option to disable mcrypt warning.
 - bug #2648502 Request-URI Too Large error from Location header
 + rfe #1731967 Check for relations support on main page.
++ rfe #2186820 Explanation for using Host table.
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,
