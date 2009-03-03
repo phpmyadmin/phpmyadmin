@@ -303,6 +303,24 @@ if (!empty($_SESSION['auto_blowfish_secret']) &&
 }
 
 /**
+ * Check whether relations are supported.
+ */
+if ($server > 0) {
+    require_once './libraries/relation.lib.php';
+    $cfgRelation = PMA_getRelationsParam();
+    if(!$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+        $message = PMA_Message::notice('strRelationNotWorking');
+        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
+        $message->addParam('</a>', false);
+        /* Show error if user has configured something, notice elsewhere */
+        if (!empty($cfg['Servers'][$server]['pmadb'])) {
+            $message->isError(true);
+        }
+        $message->display();
+    } // end if
+}
+
+/**
  * Warning about different MySQL library and server version
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd, we can use it instead
