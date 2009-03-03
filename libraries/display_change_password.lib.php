@@ -31,20 +31,20 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
         <table class="data">
         <tr class="odd noclick">
             <td colspan="2">
-                <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
-        <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
+                <input type="radio" name="nopass" value="1" id="nopass_1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
+        <label for="nopass_1"><?php echo $GLOBALS['strNoPassword'] . "\n"; ?></label>
             </td>
         </tr>
         <tr class="even noclick">
             <td>
-                <input type="radio" name="nopass" value="0" onclick="document.getElementById('pw_pma_pw').focus();" checked="checked " />
-        <?php echo $GLOBALS['strPassword']; ?>:&nbsp;
+                <input type="radio" name="nopass" value="0" id="nopass_0" onclick="document.getElementById('text_pma_pw').focus();" checked="checked " />
+        <label for="nopass_0"><?php echo $GLOBALS['strPassword']; ?>:&nbsp;</label>
             </td>
             <td>
-                <input type="password" name="pma_pw" id="pw_pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
+                <input type="password" name="pma_pw" id="text_pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         &nbsp;&nbsp;
         <?php echo $GLOBALS['strReType']; ?>:&nbsp;
-                <input type="password" name="pma_pw2" id="pw_pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
+                <input type="password" name="pma_pw2" id="text_pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             </td>
         </tr>
         <tr>
@@ -65,6 +65,16 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
             <label for="radio_pw_hash_old">
                 <?php echo $strCompatibleHashing; ?>
             </label>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <?php echo $strGeneratePassword; ?>
+        </td>
+        <td>
+            <input type="button" id="button_generate_password" value="<?php echo $strGenerate; ?>" onclick="suggestPassword()" />
+            <input type="button" id="button_copy_password" value="<?php echo $strCopy; ?>" onclick="suggestPasswordCopy(this.form)" />
+            <input type="text" name="generated_pw" id="generated_pw" />
         </td>
         </tr>
         </table>
