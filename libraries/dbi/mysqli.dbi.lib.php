@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/logging.lib.php';
+
 /**
  * MySQL client API
  */
@@ -97,6 +99,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
             trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
             return false;
         }
+        PMA_log_user($user, 'mysql-denied');
         PMA_auth_fails();
     } // end if
 

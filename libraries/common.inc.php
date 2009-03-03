@@ -810,6 +810,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         require_once './libraries/database_interface.lib.php';
 
+        require_once './libraries/logging.lib.php';
+
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
@@ -870,7 +872,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
-               PMA_auth_fails();
+                PMA_log_user($cfg['Server']['user'], 'allow-denied');
+                PMA_auth_fails();
             }
             unset($allowDeny_forbidden); //Clean up after you!
         } // end if
@@ -878,6 +881,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // is root allowed?
         if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
+            PMA_log_user($cfg['Server']['user'], 'root-denied');
             PMA_auth_fails();
             unset($allowDeny_forbidden); //Clean up after you!
         }
@@ -885,6 +889,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // is a login without password allowed?
         if (!$cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
             $login_without_password_is_forbidden = true;
+            PMA_log_user($cfg['Server']['user'], 'empty-denied');
             PMA_auth_fails();
             unset($login_without_password_is_forbidden); //Clean up after you!
         }
@@ -906,6 +911,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (! $controllink) {
             $controllink = $userlink;
         }
+
+        /* Log success */
+        PMA_log_user($cfg['Server']['user']);
 
         /**
          * with phpMyAdmin 3 we support MySQL >=5

@@ -40,6 +40,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2186820 Explanation for using Host table.
 + rfe #1369509 Link to download more themes.
 + rfe #1666487 Add option to generate password on change password page.
++ rfe #1694104 Allow logging of user status with Apache.
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,

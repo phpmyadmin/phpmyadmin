@@ -4127,6 +4127,36 @@ chmod o+rwx tmp
     <a href="http://www.phpmyadmin.net/home_page/security.php">http://www.phpmyadmin.net/home_page/security.php</a>
 </p>
 
+<h4 id="faq8_2">
+    <a href="#faq8_2">8.2 How can I protect phpMyAdmin against brute force attacks?</a></h4>
+
+<p> If you use Apache web server, phpMyAdmin exports information about 
+    authentication to Apache environment and it can be used in Apache logs.
+    Currently there are two variables available:
+</p>
+<dl>
+    <dt><code>userID</code></dt>
+    <dd>User name of currently active user (he does not have to be logged
+    in).</dd>
+    <dt><code>userStatus</code></dt>
+    <dd>Status of currently active user, one of <code>ok</code> (user is 
+    logged in), <code>mysql-denied</code> (MySQL denied user login),
+    <code>allow-denied</code> (user denied by allow/deny rules),
+    <code>root-denied</code> (root is denied in configuration),
+    <code>empty-denied</code> (empty password is denied).
+</dl>
+<p>
+    <code>LogFormat</code> directive for Apache can look like following:
+</p>
+<pre>
+LogFormat "%h %l %u %t \"%r\" %>s %b \
+\"%{Referer}i\" \"%{User-Agent}i\" %{userID}n %{userStatus}n"   pma_combined
+</pre>
+<p>
+    You can then use any log analyzing tools to detect possible break in
+    attempts.
+</p>
+
 <!-- DEVELOPERS -->
 <h2 id="developers">Developers Information</h2>
 
