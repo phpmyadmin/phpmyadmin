@@ -236,8 +236,14 @@ if (top != self) {
     <legend>
 <?php
     echo $GLOBALS['strLogin'];
-    // no real need to put a link to doc here, and it would reveal the
-    // version number
+    echo '<a href="./Documentation.html" target="documentation" ' .
+        'title="' . $GLOBALS['strPmaDocumentation'] . '">';
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strPmaDocumentation'] . '" />';
+    } else {
+        echo '(*)';
+    }
+    echo '</a>';
 ?>
 </legend>
 
