@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2652972 [relation] Missing code with hashing for relationship
   editing, thanks to knittl - knittl
 + rfe #2123386 Added option to disable mcrypt warning.
+- bug #2648502 Request-URI Too Large error from Location header
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,

@@ -89,9 +89,8 @@ if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
                 if (isset($display_query)) {
                     $url_params['display_query'] = $display_query;
                 }
-                PMA_sendHeaderLocation(
-                    $cfg['PmaAbsoluteUri'] . 'db_sql.php'
-                        . PMA_generate_common_url($url_params, '&'));
+                require 'db_sql.php';
+                exit;
             }
         }
 
