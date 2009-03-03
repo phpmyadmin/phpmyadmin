@@ -92,11 +92,21 @@ if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
 }
 
+// will be used in the logic for internal relations and foreign keys: 
+$me_fields_name 
+    isset($_REQUEST['fields_name'])
+    ? $_REQUEST['fields_name']
+    : null;
+
 // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 if (isset($destination) && $cfgRelation['relwork']) {
 
-    foreach ($destination as $master_field => $foreign_string) {
+    foreach ($destination as $master_field_md5 => $foreign_string) {
         $upd_query = false;
+        
+        // Map the fieldname's md5 back to its real name
+        $master_field = $me_fields_name[$master_field_md5];
+
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) =
@@ -137,11 +147,6 @@ if (isset($destination) && $cfgRelation['relwork']) {
 // foreign db is not the same)
 // I use $sql_query to be able to display directly the query via
 // PMA_showMessage()
-
-$me_fields_name =
-    isset($_REQUEST['fields_name'])
-    ? $_REQUEST['fields_name']
-    : null;
 
 if (isset($_REQUEST['destination_foreign'])) {
     $display_query = '';

@@ -32,6 +32,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Lithuanian update, thanks to Rytis Slatkevicius - rytis_s 
 + [auth] New setting AllowNoPassword (supercedes AllowNoPasswordRoot) that
   applies to all accounts (even the anonymous user)
+- patch #2652972 [relation] Missing code with hashing for relationship
+  editing, thanks to knittl - knittl
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,
