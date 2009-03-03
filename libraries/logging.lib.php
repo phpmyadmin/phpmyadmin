@@ -5,7 +5,7 @@
  *
  * This includes web server specific code to log some information.
  *
- * @version $Id: common.inc.php 12268 2009-03-02 16:19:36Z lem9 $
+ * @version $Id$
  * @package phpMyAdmin
  */
 
