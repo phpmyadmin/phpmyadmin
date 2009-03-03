@@ -39,6 +39,7 @@ function takeThis(what){
 
 <body id="bodythemes">
 <h1>phpMyAdmin - <?php echo $strTheme; ?></h1>
+<p><a href="http://www.phpmyadmin.net/home_page/themes.php#pma_<?php echo preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION); ?>"><?php echo $strGetMoreThemes; ?></a></p>
 <?php
 $_SESSION['PMA_Theme_Manager']->printPreviews();
 ?>

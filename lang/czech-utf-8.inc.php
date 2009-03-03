@@ -340,6 +340,7 @@ $strGenerate = 'Vytvořit';
 $strGenTime = 'Vygenerováno';
 $strGeorgian = 'Gruzínština';
 $strGerman = 'Německy';
+$strGetMoreThemes = 'Získejte další témata vzhledu!';
 $strGlobal = 'globální';
 $strGlobalPrivileges = 'Globální oprávnění';
 $strGlobalValue = 'Globální hodnota';
@@ -361,6 +362,7 @@ $strHome = 'Hlavní strana';
 $strHomepageOfficial = 'Oficiální stránka phpMyAdmina';
 $strHostEmpty = 'Jméno počítače je prázdné!';
 $strHost = 'Počítač';
+$strHostTableExplanation = 'Pokud je použita tabulka Host, toto pole je ignorováno a jsou použity hodnoty uložené v tabulce Host.';
 $strHTMLExcel = 'Microsoft Excel 2000';
 $strHTMLWord = 'Microsoft Word 2000';
 $strHungarian = 'Maďarština';
@@ -1338,12 +1340,18 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
+$strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
+
+$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
+
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 $strSetuperror_empty_pmadb_password = 'Empty phpMyAdmin control user password while using pmadb';  //to translate
 $strSetuperror_empty_pmadb_user = 'Empty phpMyAdmin control user while using pmadb';  //to translate
 $strSetuperror_empty_signon_session = 'Empty signon session name while using signon authentication method';  //to translate
 $strSetuperror_empty_signon_url = 'Empty signon URL while using signon authentication method';  //to translate
 $strSetupForm_Server_login_options_desc = 'Enter login options for signon authentication';  //to translate
+$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
+$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
 $strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, default: [kbd]designer_coords[/kbd]';  //to translate
 $strSetupServers_designer_coords_name = 'Designer table';  //to translate
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
@@ -1354,6 +1362,7 @@ $strSetupServers_hide_db_desc = 'Hide databases matching regular expression (PCR
 $strSetupServers_hide_db_name = 'Hide databases';  //to translate
 $strSetupServers_history_desc = 'Leave blank for no SQL query history support, default: [kbd]pma_history[/kbd]';  //to translate
 $strSetupServers_history_name = 'SQL query history table';  //to translate
+$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
 $strSetupServers_host_name = 'Server hostname';  //to translate
 $strSetupServers_LogoutURL_name = 'Logout URL';  //to translate
 $strSetupServers_nopassword_desc = 'Try to connect without password';  //to translate
@@ -1386,6 +1395,7 @@ $strSetupServers_table_info_desc = 'Table to describe the display fields, leave 
 $strSetupServers_table_info_name = 'Display fields table';  //to translate
 $strSetupServers_user_desc = 'Leave empty if not using config auth';  //to translate
 $strSetupServers_user_name = 'User for config auth';  //to translate
+$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
 $strSetupServers_verbose_check_desc = 'Disable if you know that your pma_* tables are up to date. This prevents compatibility checks and thereby increases performance';  //to translate
 $strSetupServers_verbose_check_name = 'Verbose check';  //to translate
 $strSetupServers_verbose_name = 'Verbose name of this server';  //to translate
@@ -1442,16 +1452,9 @@ $strSetupZipDump_desc = 'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDump_name = 'ZIP';  //to translate
-$strShowKeys = 'Only show keys';  //to translate
-
-$strSetupServers_host_desc = 'Hostname where MySQL server is running';  //to translate
-$strSetupServers_verbose_desc = 'A user-friendly description of this server. Leave blank to display the hostname instead.';  //to translate
-$strCreateUserDatabasePrivileges = 'Grant all privileges on database &quot;%s&quot;';  //to translate
 $strShowBinaryContents = 'Show binary contents';  //to translate
 $strShowBLOBContents = 'Show BLOB contents';  //to translate
+$strShowKeys = 'Only show keys';  //to translate
 $strStatic = 'static';  //to translate
-$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
-$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
-$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
-$strHostTableExplanation = 'Pokud je použita tabulka Host, toto pole je ignorováno a jsou použity hodnoty uložené v tabulce Host.';
+
 ?>

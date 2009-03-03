@@ -340,6 +340,7 @@ $strGeneratePassword = 'Generate Password';
 $strGenTime = 'Generation Time';
 $strGeorgian = 'Georgian';
 $strGerman = 'German';
+$strGetMoreThemes = 'Get more themes!';
 $strGlobal = 'global';
 $strGlobalPrivileges = 'Global privileges';
 $strGlobalValue = 'Global value';
