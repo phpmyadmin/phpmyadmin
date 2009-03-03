@@ -443,6 +443,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
  * @param   string   the url to go back in case of error
  * @param   boolean  whether to include creation/update/check dates
  * @param   boolean  whether to add semicolon and end-of-line at the end
+ * @param   boolean  whether we're handling view
  *
  * @return  string   resulting schema
  *
@@ -452,7 +453,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
  *
  * @access  public
  */
-function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $add_semicolon = true)
+function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $add_semicolon = true, $view = false)
 {
     global $sql_drop_table;
     global $sql_backquotes;
@@ -518,12 +519,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
     // produce a displayable result for the default value of a BIT
     // field, nor does the mysqldump command. See MySQL bug 35796
-    /*
-     * We have to select database and not use database name in SHOW CREATE,
-     * otherwise CREATE statement can include database name.
-     */
-    PMA_DBI_select_db($db);
-    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($table));
+    $result = PMA_DBI_try_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
     // an error can happen, for example the table is crashed
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
@@ -541,6 +537,17 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
             $create_query = str_replace("\n", $crlf, $create_query);
         } elseif (strpos($create_query, "(\r ")) {
             $create_query = str_replace("\r", $crlf, $create_query);
+        }
+
+        /*
+         * Drop database name from VIEW creation.
+         *
+         * This is a bit tricky, but we need to issue SHOW CREATE TABLE with
+         * database name, but we don't want name to show up in CREATE VIEW
+         * statement.
+         */
+        if ($view) {
+            $create_query = preg_replace('/' . PMA_backquote($db) . '\./', '', $create_query);
         }
 
         // Should we use IF NOT EXISTS?
@@ -761,7 +768,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             if ($export_type != 'table') {
                 $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
             }
-            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
+            $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates, true, true);
             break;
         case 'stand_in':
             $dump .=  PMA_exportComment($GLOBALS['strStandInStructureForView'] . ' ' . $formatted_table_name)
