@@ -55,6 +55,14 @@ $cfg['PmaNoRelation_DisableWarning'] = false;
 $cfg['SuhosinDisableWarning'] = false;
 
 /**
+ * Disable the default warning that is displayed if mcrypt is missing for
+ * cookie authentication.
+ *
+ * @global boolean $cfg['McryptDisableWarning']
+ */
+$cfg['McryptDisableWarning'] = false;
+
+/**
  * Allows phpMyAdmin to be included from a document located on
  * another domain; setting this to true is a potential security hole
  *

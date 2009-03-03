@@ -76,7 +76,9 @@ if (function_exists('mcrypt_encrypt')) {
 
 } else {
     require_once './libraries/blowfish.php';
-    trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
+    if (!$GLOBALS['cfg']['McryptDisableWarning']) {
+        trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
+    }
 }
 
 /**
