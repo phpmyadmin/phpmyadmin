@@ -1374,7 +1374,8 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 // a automatic repair feature soon.
                 $raw = 'Your privilege table structure seems to be older than'
                     . ' this MySQL version!<br />'
-                    . 'Please run the script <tt>mysql_fix_privilege_tables</tt>'
+                    . 'Please run the <tt>mysql_upgrade</tt> command'
+                    . '(<tt>mysql_fix_privilege_tables</tt> on older systems)'
                     . ' that should be included in your MySQL server distribution'
                     . ' to solve this problem!';
                 PMA_Message::rawError($raw)->display();
