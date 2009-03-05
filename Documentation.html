@@ -2914,6 +2914,33 @@ RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 <p> Be sure that you have enabled <tt>SSLOptions</tt> and <tt>StdEnvVars</tt>
 in your Apache configuration. See <a href="http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions">http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions</a>.</p>
 
+<h4 id="faq1_40">
+    <a href="#faq1_40">1.40 When accessing phpMyAdmin via an Apache reverse proxy, cookie login does not work,</a></h4>
+
+<p>To be able to use cookie auth Apache must know that it has to rewrite the set-cookie headers.<br />
+	Example from the Apache 2.2 documentation:</p>
+<pre>
+ProxyPass /mirror/foo/ http://backend.example.com/
+ProxyPassReverse /mirror/foo/ http://backend.example.com/
+ProxyPassReverseCookieDomain backend.example.com public.example.com 
+ProxyPassReverseCookiePath / /mirror/foo/ 
+</pre>
+
+<p>Note: if the backend url looks like http://host/~user/phpmyadmin,
+	the tilde (~) must be url encoded as %7E in the ProxyPassReverse* lines.
+	This is not specific to phpmyadmin, it's just the behavior of Apache.
+	</p>
+
+<pre>
+ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
+ProxyPassReverse /mirror/foo/
+http://backend.example.com/%7Euser/phpmyadmin
+ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
+</pre>
+
+	<p>See <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a>
+	for more details.</p>
+
 <h3 id="faqconfig">Configuration</h3>
 
 <h4 id="faq2_1">
