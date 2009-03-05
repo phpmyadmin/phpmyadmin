@@ -1453,10 +1453,10 @@ $strShowBinaryContents = 'Toon binaire inhoud';
 $strShowBLOBContents = 'Toon BLOB inhoud';
 $strStatic = 'statisch';
 
-$strLoginWithoutPassword = 'Login without a password is forbidden by configuration (see AllowNoPassword)';  //to translate
-$strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
-$strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
-$strHostTableExplanation = 'When Host table is used, this field is ignored and values stored in Host table are used instead.';  //to translate
-$strGetMoreThemes = 'Get more themes!';  //to translate
-$strNoneDefault = 'None';  //to translate
+$strLoginWithoutPassword = 'Inloggen zonder wachtwoord is niet toegestaan vanuit de instellingen (zie AllowNoPassword)';
+$strSetupServerNoPasswordMsg = 'U staat het toe dat een gebruiker die geen wachtwoord heeft ingesteld kan inloggen';
+$strSetupServers_AllowNoPassword_name = 'Inloggen zonder wachtwoord toestaan';
+$strHostTableExplanation = 'Indien er gebruik wordt gemaakt van de Host tabel is dit veld niet van toepassing.';
+$strGetMoreThemes = 'Bekijk meer thema\'s!';
+$strNoneDefault = 'Geen';
 ?>
