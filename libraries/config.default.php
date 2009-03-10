@@ -2313,7 +2313,7 @@ $cfg['TempDir'] = '';
 $cfg['GD2Available'] = 'auto';
 
 /**
- * List of trusted proxies for IP allow/deny
+ * Lists proxy IP and HTTP header combinations which are trusted for IP allow/deny
  *
  * @global array $cfg['TrustedProxies']
  */
