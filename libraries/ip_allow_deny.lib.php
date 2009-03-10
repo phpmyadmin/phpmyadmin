@@ -28,12 +28,13 @@ function PMA_getIp()
 
     /* Do we trust this IP as a proxy? If yes we will use it's header. */
     if (isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        $proxy_ip = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-        // the $ checks that the header contains only one IP address
-        $is_ip = preg_match('|^([0-9]{1,3}\.){3,3}[0-9]{1,3}$|', $proxy_ip, $regs);
-        if ($is_ip && (count($regs) > 0)) {
+        $trusted_header_value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+        $matches = array();
+        // the $ checks that the header contains only one IP address, ?: makes sure the () don't capture
+        $is_ip = preg_match('|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|', $trusted_header_value, $matches);
+        if ($is_ip && (count($matches) == 1)) {
             // True IP behind a proxy
-            return $regs[0];
+            return $matches[0];
         }
     }
 
