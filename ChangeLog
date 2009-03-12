@@ -50,6 +50,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2609346 [operations] Fix copying views.
 - rfe #2127983 Readd documentation link, it does not protect against anything.
 - bug #1675249 [doc] Apache reverse proxy and cookies FAQ
+- bug #2682140 UUID() and CURRENT_USER() should not accept arguments
 
 3.1.3.0 (2009-02-28)
 + [lang] Turkish update, thanks to Burak Yavuz
