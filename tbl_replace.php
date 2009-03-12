@@ -159,6 +159,8 @@ $func_no_param = array(
     'RAND',
     'USER',
     'LAST_INSERT_ID',
+    'UUID',
+    'CURRENT_USER',
 );
 
 foreach ($loop_array as $rowcount => $primary_key) {
