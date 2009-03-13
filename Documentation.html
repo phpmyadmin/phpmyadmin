@@ -1228,9 +1228,9 @@ ALTER TABLE `pma_column_comments`
 
     <dt id="cfg_LoginCookieValidity">$cfg['LoginCookieValidity'] integer [number of seconds]</dt>
     <dd>Define how long is login cookie valid. Please note that php
-        configuration option <a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc-maxlifetime</a> 
+        configuration option <a href="http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc_maxlifetime</a> 
         might limit session validity and if session is lost, login cookie is
-        also invalidated. So it is good idea to set <code>session.gc-maxlifetime</code> 
+        also invalidated. So it is good idea to set <code>session.gc_maxlifetime</code> 
         at least as high is $cfg['LoginCookieValidity'] is set.</dd>
 
     <dt id="cfg_LoginCookieStore">$cfg['LoginCookieStore'] integer [number of seconds]</dt>

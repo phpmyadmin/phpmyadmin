@@ -1012,7 +1012,7 @@ $strRowsDeleted = '%1$d row(s) deleted.';  //to translate
 $strRowsInserted = '%1$d row(s) inserted.';  //to translate
 
 $strSearchInField = 'Inside field:';  //to translate
-$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc-maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
+$strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.';  //to translate
 $strSessionStartupErrorGeneral = 'Cannot start session without errors, please check errors given in your PHP and/or webserver log file and configure your PHP installation properly.';  //to translate
 $strSetupAllowAnywhereRecoding_name = 'Allow character set conversion';  //to translate
 $strSetupAllowArbitraryServer_desc = 'If enabled user can enter any MySQL server in login form for cookie auth';  //to translate
