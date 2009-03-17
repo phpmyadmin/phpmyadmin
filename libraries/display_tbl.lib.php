@@ -747,7 +747,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // the orgname member does not exist for all MySQL versions
             // but if found, it's the one on which to sort
             $name_to_use_in_sort = $fields_meta[$i]->name;
-            if (isset($fields_meta[$i]->orgname)) {
+            if (isset($fields_meta[$i]->orgname) && strlen($fields_meta[$i]->orgname)) {
                 $name_to_use_in_sort = $fields_meta[$i]->orgname;
             }
             // $name_to_use_in_sort might contain a space due to
@@ -764,6 +764,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 // for the sort expression (avoids problems with queries
                 // like "SELECT id, count(id)..." and clicking to sort
                 // on id or on count(id))
+                if (strpos($sort_expression_nodirection, $sort_tbl) === false) {
+                    $sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
+                }
                 $is_in_sort = (str_replace('`', '', $sort_tbl) . $name_to_use_in_sort == str_replace('`', '', $sort_expression_nodirection) ? true : false);
             }
             // 2.1.3 Check the field name for a bracket.
