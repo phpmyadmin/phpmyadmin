@@ -180,6 +180,9 @@ if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operati
 } // end if
 
 if ($reread_info) {
+    // to avoid showing the old value (for example the AUTO_INCREMENT) after
+    // a change, clear the cache
+    PMA_Table::$cache = array(); 
     $page_checksum = $checksum = $delay_key_write = 0;
     require './libraries/tbl_info.inc.php';
 }
