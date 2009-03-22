@@ -59,7 +59,7 @@ class PMA_Error_Handler
             } else {
                 // remember only not displayed errors
                 foreach ($this->_errors as $key => $error) {
-                    if (! $error->isDisplayed()) {
+                    if (($error instanceof PMA_Error) && ! $error->isDisplayed()) {
                         $_SESSION['errors'][$key] = $error;
                     }
                 }
