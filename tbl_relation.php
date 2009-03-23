@@ -92,8 +92,8 @@ if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
 }
 
-// will be used in the logic for internal relations and foreign keys: 
-$me_fields_name 
+// will be used in the logic for internal relations and foreign keys:
+$me_fields_name =
     isset($_REQUEST['fields_name'])
     ? $_REQUEST['fields_name']
     : null;
@@ -103,7 +103,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
 
     foreach ($destination as $master_field_md5 => $foreign_string) {
         $upd_query = false;
-        
+
         // Map the fieldname's md5 back to its real name
         $master_field = $me_fields_name[$master_field_md5];
 
