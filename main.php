@@ -301,7 +301,7 @@ echo '<li id="li_select_fontsize">';
 echo PMA_Config::getFontsizeForm();
 echo '</li>';
 PMA_printListItem($strPmaDocumentation, 'li_pma_docs', 'Documentation.html', null, '_blank');
-PMA_printListItem($strPmaWiki, 'li_pma_docs2', 'http://wiki.cihar.com', null, '_blank');
+PMA_printListItem($strPmaWiki, 'li_pma_docs2', 'http://wiki.phpmyadmin.net', null, '_blank');
 
 if ($cfg['ShowPhpInfo']) {
     PMA_printListItem($strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query);
