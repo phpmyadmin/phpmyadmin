@@ -5,6 +5,11 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.1.3.1 (2009-03-24)
+- [security] HTTP Response Splitting and file inclusion vulnerabilities 
+- [security] XSS vulnerability on export page
+- [security] Insufficient output sanitizing when generating configuration file
+
 3.1.3.0 (2009-02-28)
 + [lang] Turkish update, thanks to Burak Yavuz
 - patch #2496403 [display] Multi-row change with "]",
