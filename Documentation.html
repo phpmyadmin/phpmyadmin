@@ -4051,7 +4051,7 @@ chmod o+rwx tmp
 	<li>In <tt>config.inc.php</tt> your host should be defined with a FQDN (fully qualified domain name) instead of something like &quot;localhost&quot;.</li>
 	<li>A current limitation is that your first login via phpMyAdmin to a freshly-started server must be done with an account that has the SUPER privilege.</li>
 	<li>On your target database, go to Operations and in the &quot;BLOB Repository&quot; section, click &quot;Enable&quot;. This creates the PBMS system tables inside your database.</li>
-	<li>Ensure that your target table has a LONGBLOB column.</li>
+	<li>Ensure that your target table is under the PBXT storage engine and has a LONGBLOB column.</li>
 	<li>When you insert or update a row in this table, put a checkmark on the &quot;Upload to BLOB repository&quot; optional choice; otherwise, the upload will be done directly in your column instead of the repository.</li>
 	<li>Finally when you browse your table, you'll see in your column a link to stream your data, for example &quot;View image&quot;. A header containing the correct MIME-type will be sent to your browser; this MIME-type was stored at upload time but in case it's incorrect, it's possible to edit it by clicking on the displayed MIME-type.</li> 
 </ol>	
