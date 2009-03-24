@@ -573,6 +573,7 @@ function get_cfg_string($cfg) {
         foreach ($c['Servers'] as $cnt => $srv) {
             $ret .= $crlf . '/* Server ' . strtr(get_server_name($srv, $cnt, false), '*', '-') . " */$crlf\$i++;" . $crlf;
             foreach ($srv as $key => $val) {
+                $key = preg_replace('/[^A-Za-z0-9_]/', '_', $key);
                 $ret .= get_cfg_val("\$cfg['Servers'][\$i]['$key']", $val);
             }
         }
@@ -581,6 +582,7 @@ function get_cfg_string($cfg) {
     unset($c['Servers']);
 
     foreach ($c as $key => $val) {
+        $key = preg_replace('/[^A-Za-z0-9_]/', '_', $key);
         $ret .= get_cfg_val("\$cfg['$key']", $val);
     }
 
