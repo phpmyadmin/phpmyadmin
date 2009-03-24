@@ -280,6 +280,7 @@ class ConfigFile
         if ($this->getServerCount() > 0) {
             $ret .= "/* Servers configuration */$crlf\$i = 0;" . $crlf . $crlf;
             foreach ($c['Servers'] as $id => $server) {
+                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
                 $ret .= '/* Server: ' . $this->getServerName($id) . " [$id] */" . $crlf
                     . '$i++;' . $crlf;
                 foreach ($server as $k => $v) {
@@ -295,6 +296,7 @@ class ConfigFile
         // other settings
         $persistKeys = $this->persistKeys;
         foreach ($c as $k => $v) {
+            $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
             $ret .= "\$cfg['$k'] = " . var_export($v, true) . ';' . $crlf;
             if (isset($persistKeys[$k])) {
                 unset($persistKeys[$k]);
@@ -303,6 +305,7 @@ class ConfigFile
         // keep 1d array keys which are present in $persist_keys (config_info.inc.php)
         foreach (array_keys($persistKeys) as $k) {
             if (strpos($k, '/') === false) {
+                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
                 $ret .= "\$cfg['$k'] = " . var_export($this->getDefault($k), true) . ';' . $crlf;
             }
         }
