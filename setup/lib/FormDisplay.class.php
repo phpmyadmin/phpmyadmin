@@ -565,7 +565,7 @@ class FormDisplay
         if ($test == 'Export') {
             $opt_name = substr($opt_name, 7);
         }
-        return 'http://wiki.cihar.com/pma/Config#' . $opt_name;
+        return 'http://wiki.phpmyadmin.net/pma/Config#' . $opt_name;
     }
 
     /**
