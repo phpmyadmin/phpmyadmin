@@ -152,19 +152,19 @@ echo PMA_pluginGetJavascript($export_list);
         echo ' value="';
         if ($export_type == 'database') {
             if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
-                echo $_COOKIE['pma_db_filename_template'];
+                echo htmlspecialchars($_COOKIE['pma_db_filename_template']);
             } else {
                 echo $GLOBALS['cfg']['Export']['file_template_database'];
             }
         } elseif ($export_type == 'table') {
             if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
-                echo $_COOKIE['pma_table_filename_template'];
+                echo htmlspecialchars($_COOKIE['pma_table_filename_template']);
             } else {
                 echo $GLOBALS['cfg']['Export']['file_template_table'];
             }
         } else {
             if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
-                echo $_COOKIE['pma_server_filename_template'];
+                echo htmlspecialchars($_COOKIE['pma_server_filename_template']);
             } else {
                 echo $GLOBALS['cfg']['Export']['file_template_server'];
             }
