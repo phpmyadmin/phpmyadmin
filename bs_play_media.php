@@ -33,6 +33,8 @@
         {
             // retrieve BS server variables from PMA configuration
             $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');
+            if (empty($bs_server)) die('No blob streaming server configured!');
+
             $bs_file_path = "http://" . $bs_server . '/' . $bsReference;
 
 	    if (isset($customType) && $customType)
