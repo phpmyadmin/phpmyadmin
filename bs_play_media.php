@@ -36,7 +36,8 @@
             $bs_file_path = "http://" . $bs_server . '/' . $bsReference;
 
 	    if (isset($customType) && $customType)
-		    $bs_file_path = "bs_disp_as_mime_type.php?file_path=" . urlencode($bs_file_path) . "&c_type=" . urlencode($mediaType);
+
+		    $bs_file_path = 'bs_disp_as_mime_type.php' . PMA_generate_common_url(array('reference' => $bsReference, 'c_type' => $mediaType));
 
             ?>
 <html>
