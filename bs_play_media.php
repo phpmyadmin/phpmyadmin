@@ -51,12 +51,12 @@
             {
                 // audio content
                 case 'audio/mpeg':
-                    ?><embed width=620 height=100 src="<?php echo $bs_file_path; ?>" autostart=true></embed><?php
+                    ?><embed width=620 height=100 src="<?php echo htmlspecialchars($bs_file_path); ?>" autostart=true></embed><?php
                     break;
                 // video content
                 case 'application/x-flash-video':
                 case 'video/mpeg':
-                    ?><embed width=620 height=460 src="<?php echo $bs_file_path; ?>" autostart=true></embed><?php
+                    ?><embed width=620 height=460 src="<?php echo htmlspecialchars($bs_file_path); ?>" autostart=true></embed><?php
                     break;
                 default:
                     // do nothing
