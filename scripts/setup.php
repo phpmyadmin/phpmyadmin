@@ -313,7 +313,7 @@ function get_cfg_doc($anchor) {
         '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc">' .
         '<img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" />' .
         '</a>' .
-        '<a href="http://wiki.cihar.com/pma/Config#' . $wiki . '" target="pma_doc" class="doc">' .
+        '<a href="http://wiki.phpmyadmin.net/pma/Config#' . $wiki . '" target="pma_doc" class="doc">' .
         '<img class="icon" src="../' . $GLOBALS['cfg']['ThemePath'] . '/original/img/b_info.png" width="11" height="11" alt="Wiki" title="Wiki" />' .
         '</a>' .
         '</span>'
