@@ -5,6 +5,10 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+2.11.9.5 (2009-03-24)
+- [security] XSS vulnerability on export page
+- [security] Insufficient output sanitizing when generating configuration file
+
 2.11.9.4 (2008-12-09)
 - [security] possible XSRF on several pages
 
