@@ -303,6 +303,14 @@ if (!empty($_SESSION['auto_blowfish_secret']) &&
 }
 
 /**
+ * Check for existence of config directory which should not exist in
+ * production environment.
+ */
+if (file_exists('./config')) {
+    trigger_error($strConfigDirectoryWarning, E_USER_WARNING);
+}
+
+/**
  * Check whether relations are supported.
  */
 if ($server > 0) {

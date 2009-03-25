@@ -1453,4 +1453,5 @@ $strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to
 $strHostTableExplanation = 'When Host table is used, this field is ignored and values stored in Host table are used instead.';  //to translate
 $strGetMoreThemes = 'Get more themes!';  //to translate
 $strNoneDefault = 'None';  //to translate
+$strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
 ?>
