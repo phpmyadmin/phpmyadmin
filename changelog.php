@@ -30,7 +30,7 @@ if (substr(CHANGELOG_FILE, -3) == '.gz') {
 $changelog = htmlspecialchars($changelog);
 
 $replaces = array(
-    '@(http://[./a-zA-Z0-9.-_]*[/a-zA-Z0-9_])@'
+    '@(http://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
     => '<a href="\\1">\\1</a>',
 
     // sourceforge users
