@@ -1460,4 +1460,5 @@ $strZeroRemovesTheLimit = '注意：若将这些选项设为 0(零) 即不限制
 $strZip = 'zip 压缩';
 
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
+$strEscapeCRLF = 'Remove CRLF characters within fields';  //to translate
 ?>

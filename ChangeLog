@@ -47,6 +47,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [security] warn about existence of config directory on main page
 + patch #2706761 [lang] Polish update,
   thanks to Pawel Smolinski - zipoking
++ patch #2715142 [export] (rfe 2416960, escape new line in CSV export)
+  thanks to Derek Schaefer - drummingds1
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,

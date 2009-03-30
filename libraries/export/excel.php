@@ -20,6 +20,7 @@ if (isset($plugin_list)) {
         'mime_type' => 'text/comma-separated-values',
         'options' => array(
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'escapeCRLF', 'text' => 'strEscapeCRLF'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array(
                 'type' => 'select', 

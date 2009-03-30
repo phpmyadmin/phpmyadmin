@@ -1460,4 +1460,5 @@ $strHostTableExplanation = 'Indien er gebruik wordt gemaakt van de Host tabel is
 $strGetMoreThemes = 'Bekijk meer thema\'s!';
 $strNoneDefault = 'Geen';
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
+$strEscapeCRLF = 'Remove CRLF characters within fields';  //to translate
 ?>
