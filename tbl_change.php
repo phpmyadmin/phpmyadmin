@@ -393,7 +393,7 @@ foreach ($rows as $row_id => $vrow) {
         }
 
         $unnullify_trigger = $chg_evt_handler . "=\"return unNullify('"
-            . PMA_escapeJsString($field['Field_html']) . "', '"
+            . PMA_escapeJsString($field['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
