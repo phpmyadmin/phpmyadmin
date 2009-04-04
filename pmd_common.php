@@ -94,7 +94,7 @@ function get_tab_info()
 {
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
-    for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
+    for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
         $fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM '.PMA_backquote($GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]), NULL, PMA_DBI_QUERY_STORE);
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
@@ -163,7 +163,7 @@ function get_script_contr()
         '<script type="text/javascript">' . "\n" .
         '// <![CDATA[' . "\n" .
         'var contr = new Array();' . "\n";
-    for ($i = 0; $i < count($con["C_NAME"]); $i++) {
+    for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
         $js_var = ' contr[' . $ti . ']';
         $script_contr .= $js_var . " = new Array();\n";
         $js_var .= "['" . $con['C_NAME'][$i] . "']";
@@ -241,7 +241,7 @@ function get_script_tabs()
         '<script type="text/javascript">' . "\n" .
         '// <![CDATA[' . "\n" .
         'var j_tabs = new Array();' . "\n";
-    for ($i = 0; $i < count($GLOBALS['PMD']['TABLE_NAME']); $i++) {
+    for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
             . (PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i]) ? '1' : '0') . "';\n";
     }

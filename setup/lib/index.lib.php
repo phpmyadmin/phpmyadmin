@@ -255,7 +255,7 @@ function perform_config_checks()
     $blowfish_secret = $cf->get('blowfish_secret');
     $blowfish_secret_set = false;
     $cookie_auth_used = false;
-    for ($i = 1; $i <= $cf->getServerCount(); $i++) {
+    for ($i = 1, $server_cnt = $cf->getServerCount(); $i <= $server_cnt; $i++) {
         $cookie_auth_server = ($cf->getValue("Servers/$i/auth_type") == 'cookie');
         $cookie_auth_used |= $cookie_auth_server;
         $server_name = $cf->getServerName($i);

@@ -137,7 +137,8 @@ echo $script_tabs . $script_contr . $script_display_field;
 <div id="id_scroll_tab" class="scroll_tab">
     <table width="100%" style="padding-left: 3px;">
 <?php
-for ($i = 0; $i < count($GLOBALS['PMD']['TABLE_NAME']); $i++) {
+$name_cnt = count($GLOBALS['PMD']['TABLE_NAME']);
+for ($i = 0; $i < $name_cnt; $i++) {
     ?>
     <tr><td title="<?php echo $strStructure; ?>" width="1px"
             onmouseover="this.className='L_butt2_2'"
@@ -169,7 +170,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']['TABLE_NAME']); $i++) {
 </div>
 
 <div align="center">
-    <?php echo $strNumberOfTables ?>: <?php echo count($GLOBALS['PMD']['TABLE_NAME']) ?>
+    <?php echo $strNumberOfTables . ': ' . $name_cnt; ?>
 </div>
 <div align="right">
     <div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">
@@ -227,7 +228,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <?php if (! isset($tab_pos[$t_n])) echo 'style="display: none;"'; ?>>
     <?php
     $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
-    for ($j = 0; $j < count($tab_column[$t_n]["COLUMN_ID"]); $j++) {
+    for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
         ?>
 <tr id="id_tr_<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '.'

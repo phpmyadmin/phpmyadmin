@@ -813,7 +813,8 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             $group =& $table_groups;
             $i = 0;
             $group_name_full = '';
-            while ($i < count($parts) - 1
+            $parts_cnt = count($parts) - 1;
+            while ($i < $parts_cnt
               && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
@@ -1798,7 +1799,7 @@ function PMA_flipstring($string, $Separator = "<br />\n")
     $format_string = '';
     $charbuff = false;
 
-    for ($i = 0; $i < strlen($string); $i++) {
+    for ($i = 0, $str_len = strlen($string); $i < $str_len; $i++) {
         $char = $string{$i};
         $append = false;
 
@@ -1817,7 +1818,7 @@ function PMA_flipstring($string, $Separator = "<br />\n")
         }
 
         // do not add separator after the last character
-        if ($append && ($i != strlen($string)-1)) {
+        if ($append && ($i != $str_len - 1)) {
             $format_string .= $Separator;
         }
     }
@@ -2536,7 +2537,7 @@ function PMA_cacheUnset($var, $server = 0)
  */
 function PMA_printable_bit_value($value, $length) {
     $printable = '';
-    for ($i = 0; $i < ceil($length / 8); $i++) {
+    for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {
         $printable .= sprintf('%08d', decbin(ord(substr($value, $i, 1))));
     }
     $printable = substr($printable, -$length);
