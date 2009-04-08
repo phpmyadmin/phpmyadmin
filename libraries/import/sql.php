@@ -36,6 +36,17 @@ if (isset($plugin_list)) {
                     'Server_SQL_mode',
                 ),
             ),
+            array(
+                'type' => 'bool', 
+                'name' => 'no_auto_value_on_zero', 
+                'text' => 'strDoNotAutoIncrementZeroValues',
+                'doc'       => array(
+                    'manual_MySQL_Database_Administration',
+                    'Server_SQL_mode',
+                    'sqlmode_no_auto_value_on_zero'
+                ),
+
+            ),
         );
     }
 
@@ -57,10 +68,18 @@ if (isset($_POST['sql_delimiter'])) {
     $sql_delimiter = ';';
 }
 
-// Handle compatibility option
-if (isset($_REQUEST['sql_compatibility'])) {
-    PMA_DBI_try_query('SET SQL_MODE="' . $_REQUEST['sql_compatibility'] . '"');
+// Handle compatibility options
+$sql_modes = array();
+if (isset($_REQUEST['sql_compatibility']) && 'NONE' != $_REQUEST['sql_compatibility']) {
+    $sql_modes[] = $_REQUEST['sql_compatibility'];
 }
+if (isset($_REQUEST['sql_no_auto_value_on_zero'])) {
+    $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
+}
+if (count($sql_modes) > 0) {
+    PMA_DBI_try_query('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
+}
+unset($sql_modes);
 
 /**
  * will be set in PMA_importGetNextChunk()

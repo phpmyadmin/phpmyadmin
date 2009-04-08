@@ -1452,4 +1452,5 @@ $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by th
 $strEscapeCRLF = 'Remove CRLF characters within fields';  //to translate
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'; //to translate
+$strDoNotAutoIncrementZeroValues = 'Do not use AUTO_INCREMENT for zero values';  //to translate
 ?>

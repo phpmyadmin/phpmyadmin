@@ -255,6 +255,7 @@ $strDisplayPDF = 'Display PDF schema';
 $strDoAQuery = 'Do a "query by example" (wildcard: "%")';
 $strDocSQL = 'DocSQL';
 $strDocu = 'Documentation';
+$strDoNotAutoIncrementZeroValues = 'Do not use AUTO_INCREMENT for zero values';
 $strDownloadFile = 'Download file';
 $strDoYouReally = 'Do you really want to ';
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
