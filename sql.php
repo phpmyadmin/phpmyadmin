@@ -514,7 +514,7 @@ if (0 == $num_rows || $is_affected) {
         // the form should not have priority over
         // errors like $strEmptyResultSet
     } elseif (!empty($zero_rows) && !$is_select) {
-        $message = PMA_Message::rawSuccess($zero_rows);
+        $message = PMA_Message::rawSuccess(htmlspecialchars($zero_rows));
     } elseif (!empty($GLOBALS['show_as_php'])) {
         $message = PMA_Message::success('strShowingPhp');
     } elseif (isset($GLOBALS['show_as_php'])) {
