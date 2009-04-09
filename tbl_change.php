@@ -463,6 +463,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars = htmlspecialchars($field['Default']);
             }
             $backup_field  = '';
+            $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
         }
 
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
