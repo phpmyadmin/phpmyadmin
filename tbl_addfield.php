@@ -54,6 +54,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $field_primary  = array();
     $field_index    = array();
     $field_unique   = array();
+    $field_fulltext = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
         if (isset($_REQUEST['field_key'][$i])
          && strlen($_REQUEST['field_name'][$i])) {
@@ -65,6 +66,9 @@ if (isset($_REQUEST['do_save_data'])) {
             }
             if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
                 $field_unique[]  = $i;
+            }
+            if ($_REQUEST['field_key'][$i] == 'fulltext_' . $i) {
+                $field_fulltext[]  = $i;
             }
         } // end if
     } // end for
@@ -118,36 +122,40 @@ if (isset($_REQUEST['do_save_data'])) {
     if (count($field_primary)) {
         $fields = array();
         foreach ($field_primary as $field_nr) {
-            $fields[] = $_REQUEST['field_name'][$field_nr];
+            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD PRIMARY KEY (' . implode(', ', $fields) . ') ';
+        unset($fields);
     }
 
     // Builds the indexes statements and updates the table
     if (count($field_index)) {
         $fields = array();
         foreach ($field_index as $field_nr) {
-            $fields[] = $_REQUEST['field_name'][$field_nr];
+            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD INDEX (' . implode(', ', $fields) . ') ';
+        unset($fields);
     }
 
     // Builds the uniques statements and updates the table
     if (count($field_unique)) {
         $fields = array();
         foreach ($field_unique as $field_nr) {
-            $fields[] = $_REQUEST['field_name'][$field_nr];
+            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD UNIQUE (' . implode(', ', $fields) . ') ';
+        unset($fields);
     }
 
     // Builds the fulltext statements and updates the table
-    if (isset($field_fulltext) && count($field_fulltext)) {
+    if (count($field_fulltext)) {
         $fields = array();
         foreach ($field_fulltext as $field_nr) {
-            $fields[] = $_REQUEST['field_name'][$field_nr];
+            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD FULLTEXT (' . implode(', ', $fields) . ') ';
+        unset($fields);
     }
 
     // To allow replication, we first select the db to use and then run queries
