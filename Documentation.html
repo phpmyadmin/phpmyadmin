@@ -2974,6 +2974,13 @@ ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 	<p>See <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a>
 	for more details.</p>
 
+<h4 id="faq1_41">
+	<a href="#faq1_41">1.41 When I view a database and ask to see its
+	       privileges, I get an error about an unknown column.</a></h4>
+
+<p> The MySQL server's privilege tables are not up to date, you need to run
+the <tt>mysql_upgrade</tt> command on the server.</p>
+
 
 <h3 id="faqconfig">Configuration</h3>
 
