@@ -281,7 +281,7 @@ class ConfigFile
             $ret .= "/* Servers configuration */$crlf\$i = 0;" . $crlf . $crlf;
             foreach ($c['Servers'] as $id => $server) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= '/* Server: ' . $this->getServerName($id) . " [$id] */" . $crlf
+                $ret .= '/* Server: ' . strtr($this->getServerName($id), '*/', '-') . " [$id] */" . $crlf
                     . '$i++;' . $crlf;
                 foreach ($server as $k => $v) {
                     $ret .= "\$cfg['Servers'][\$i]['$k'] = "
