@@ -52,6 +52,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2727250 Optimizations for PHP loops
   thanks to Haeber 
 - bug #2650776 [import] SQL_MODE not saved during Partial Import 
+- patch #1863739 [auth] cache control missing (PHP-CGI), thanks to stmfd
 
 3.1.4.0 (not yet released)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,

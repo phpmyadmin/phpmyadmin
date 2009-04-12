@@ -684,6 +684,10 @@ function PMA_auth_fails()
         $conn_error = $GLOBALS['strCannotLogin'];
     }
 
+    // needed for PHP-CGI (not need for FastCGI or mod-php)
+    header('Cache-Control: no-store, no-cache, must-revalidate');
+    header('Pragma: no-cache');
+
     PMA_auth();
 } // end of the 'PMA_auth_fails()' function
 
