@@ -74,6 +74,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Luke Armstrong
 - bug #2740550 [interface] Using textarea CharEditing drops default values
 - bug #2634827 [import] Using DELIMITER ends with infinite cycle 
+- bug #2729191 [config] CheckConfigurationPermissions = false is worthless 
 
 3.1.3.1 (2009-03-24)
 - [security] HTTP Response Splitting and file inclusion vulnerabilities 
