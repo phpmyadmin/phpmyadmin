@@ -299,7 +299,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $strAttribute = 'UNSIGNED ZEROFILL';
         }
         if (!isset($row['Default'])) {
-            if ($row['Null'] != '') {
+            if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             }
         } else {
@@ -318,7 +318,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         }
         $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($row['Field']) . $fmt_post . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-        $schema_insert .= '<td class="print">' . htmlspecialchars($row['Null'] == '' ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</td>';
+        $schema_insert .= '<td class="print">' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '') . '</td>';
 
         $field_name = $row['Field'];
