@@ -356,7 +356,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             . '<text:p>' . htmlspecialchars($type) . '</text:p>'
             . '</table:table-cell>';
         if (!isset($row['Default'])) {
-            if ($row['Null'] != '') {
+            if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             } else {
                 $row['Default'] = '';
@@ -365,7 +365,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $row['Default'] = $row['Default'];
         }
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($row['Default']) . '</text:p>'
