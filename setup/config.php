@@ -12,31 +12,6 @@ require './lib/common.inc.php';
 require_once './setup/lib/Form.class.php';
 require_once './setup/lib/FormDisplay.class.php';
 
-/**
- * Returns config file contents depending on GET type value:
- * o session - uses ConfigFile::getConfigFile()
- * o post - uses POST textconfig value
- *
- * @return string
- */
-function get_config() {
-    $type = PMA_ifSetOr($_GET['type'], 'session');
-
-    if ($type == 'session') {
-        $config = ConfigFile::getInstance()->getConfigFile();
-    } else {
-        $config = PMA_ifSetOr($_POST['textconfig'], '');
-        // make sure our eol is \n
-        $config = str_replace("\r\n", "\n", $config);
-        if ($_SESSION['eol'] == 'win') {
-            $config = str_replace("\n", "\r\n", $config);
-        }
-    }
-
-    return $config;
-}
-
-
 $form_display = new FormDisplay();
 $form_display->registerForm('_config.php');
 $form_display->save('_config.php');
@@ -61,13 +36,13 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
 	//
     header('Content-Type: text/plain');
     header('Content-Disposition: attachment; filename="config.inc.php"');
-    echo get_config();
+    echo ConfigFile::getInstance()->getConfigFile();
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_save'], '')) {
 	//
 	// Save generated config file on the server
 	//
-    file_put_contents($config_file_path, get_config());
+    file_put_contents($config_file_path, ConfigFile::getInstance()->getConfigFile());
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');
     exit;
