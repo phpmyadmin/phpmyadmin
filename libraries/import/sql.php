@@ -89,11 +89,6 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
     // Current length of our buffer
     $len = strlen($buffer);
     
-    // Avoid endless loop in case of missing last newline
-    if ($GLOBALS['finished'] && $buffer[$len - 1] != "\n") {
-        $buffer .= "\n";
-    }
-    
     // Grab some SQL queries out of it
     while ($i < $len) {
         $found_delimiter = false;
