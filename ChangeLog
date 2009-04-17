@@ -25,7 +25,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2724844 Add Fields: Add index is missing quotes
   thanks to Luke Armstrong
 - bug #2740550 [interface] Using textarea CharEditing drops default values
-- bug #2634827 [import] Using DELIMITER ends with infinite cycle 
 - bug #2729191 [config] CheckConfigurationPermissions = false is worthless 
 - bug #2687046 [export] Structure export: Null always YES
 - [doc] typos, thanks to Cédric Corazza
