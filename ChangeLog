@@ -53,6 +53,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Haeber 
 - bug #2650776 [import] SQL_MODE not saved during Partial Import 
 - patch #1863739 [auth] cache control missing (PHP-CGI), thanks to stmfd
+- patch #2750541 [parser] Incorrect parsing of constraints in ALTER TABLE,
+  thanks to Yannick Betemps - arkhee 
 
 3.1.5.0 (not yet released)
 
