@@ -180,7 +180,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
                     $sql_query .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
                 }
-                if (! empty($_REQUEST['on_update'][$master_field])) {
+                if (! empty($_REQUEST['on_update'][$master_field_md5])) {
                     $sql_query .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field_md5]];
                 }
                 $sql_query .= ';';
