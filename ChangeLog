@@ -8,6 +8,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.1.5.0 (not yet released)
 - patch #2739001 [export] XML does not allow spaces in element names, 
   thanks to Derek Schaefer - drummingds1
+- bug #2780722 [import] Incorrect maximum file size 
 
 3.1.4.0 (2009-04-25)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,
