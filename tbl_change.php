@@ -1051,11 +1051,13 @@ foreach ($rows as $row_id => $vrow) {
                     <?php
                 }
                 if ($field['pma_type'] == 'date' || $field['pma_type'] == 'datetime' || substr($field['pma_type'], 0, 9) == 'timestamp') {
+                    // the _3 suffix points to the date field
+                    // the _2 suffix points to the corresponding NULL checkbox
                     ?>
                     <script type="text/javascript">
                     //<![CDATA[
                     document.write('<a title="<?php echo $strCalendar;?>"');
-                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($field['pma_type'], 0, 9) == 'timestamp') ? 'datetime' : substr($field['pma_type'], 0, 9); ?>\')">');
+                    document.write(' href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo (substr($field['pma_type'], 0, 9) == 'timestamp') ? 'datetime' : substr($field['pma_type'], 0, 9); ?>\', \'field_<?php echo ($idindex); ?>_2\')">');
                     document.write('<img class="calendar"');
                     document.write(' src="<?php echo $pmaThemeImage; ?>b_calendar.png"');
                     document.write(' alt="<?php echo $strCalendar; ?>"/></a>');
