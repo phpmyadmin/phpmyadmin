@@ -90,13 +90,17 @@ var clock_set = 0;
  *
  * @param   string      calendar.php parameters
  * @param   string      form name
- * @param   string      field name
+ * @param   string      id of field name
  * @param   string      edit type - date/timestamp
+ * @param   string      id of the corresponding checkbox for NULL 
  */
-function openCalendar(params, form, field, type) {
+function openCalendar(params, form, field, type, fieldNull) {
     window.open("./calendar.php?" + params, "calendar", "width=400,height=200,status=yes");
     dateField = eval("document." + form + "." + field);
     dateType = type;
+    if (fieldNull != '') {
+        dateFieldNull = eval("document." + form + "." + fieldNull);
+    }
 }
 
 /**
@@ -345,5 +349,8 @@ function returnDate(d) {
     }
 
     window.opener.dateField.value = txt;
+    if (typeof(window.opener.dateFieldNull) != 'undefined') {
+        window.opener.dateFieldNull.checked = false;
+    }
     window.close();
 }
