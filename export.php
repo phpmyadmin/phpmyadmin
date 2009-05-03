@@ -272,27 +272,14 @@ if ($asfile) {
     $filename  .= '.' . $export_list[$type]['extension'];
     $mime_type  = $export_list[$type]['mime_type'];
 
-    // If dump is going to be compressed, set correct encoding or mime_type and add
+    // If dump is going to be compressed, set correct mime_type and add
     // compression to extension
-    $content_encoding = '';
     if ($compression == 'bzip') {
         $filename  .= '.bz2';
-        // browsers don't like this:
-        //$content_encoding = 'x-bzip2';
         $mime_type = 'application/x-bzip2';
     } elseif ($compression == 'gzip') {
         $filename  .= '.gz';
-        // Needed to avoid recompression by server modules like mod_gzip.
-        // It seems necessary to check about zlib.output_compression
-        // to avoid compressing twice
-        if (!@ini_get('zlib.output_compression')) {
-            // On Firefox 3, sending this content encoding corrupts the .gz
-            // (as tested on Windows and Linux) but detect GECKO 1.9
-            if (! (PMA_USR_BROWSER_AGENT == 'GECKO' && PMA_USR_BROWSER_VER == '1.9')) {
-                $content_encoding = 'x-gzip';
-            }
-            $mime_type = 'application/x-gzip';
-        }
+        $mime_type = 'application/x-gzip';
     } elseif ($compression == 'zip') {
         $filename  .= '.zip';
         $mime_type = 'application/zip';
@@ -345,9 +332,6 @@ if (!$save_on_server) {
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags','');
 
-        if (!empty($content_encoding)) {
-            header('Content-Encoding: ' . $content_encoding);
-        }
         header('Content-Type: ' . $mime_type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         // lem9: Tested behavior of
@@ -605,7 +589,7 @@ if (!empty($asfile)) {
     }
     // 3. as a gzipped file
     elseif ($compression == 'gzip') {
-        if (@function_exists('gzencode')) {
+        if (@function_exists('gzencode') && !@ini_get('zlib.output_compression')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
         }
