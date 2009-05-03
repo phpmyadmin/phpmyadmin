@@ -11,6 +11,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2780722 [import] Incorrect maximum file size 
 - bug #2780356 [calendar] Null checkbox not unchecked when date is chosen 
 - bug [calendar] js error "window.parent.addEvent is not a function" 
+- patch #2773818 [export] Invalid "Content-Encoding" header,
+  thanks to abignale - abignale
 
 3.1.4.0 (2009-04-25)
 + patch #1808339 [doc] Apache SSLOptions and StdEnvVars FAQ,
