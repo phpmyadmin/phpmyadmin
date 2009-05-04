@@ -1051,7 +1051,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       avoid to display the delete and edit links
          */
         $unique_condition      = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
-        $unique_condition_html = htmlspecialchars(str_replace(']', '&#93;', $unique_condition));
+        $unique_condition_html = urlencode($unique_condition);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -1109,7 +1109,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
                 $del_query = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
-                    . ' WHERE' . $unique_condition . ' LIMIT 1';
+                    . ' WHERE ' . $unique_condition . ' LIMIT 1';
 
                 $_url_params = array(
                     'db'        => $db,
@@ -1121,7 +1121,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
-                          . ' WHERE ' . trim(PMA_jsFormat($unique_condition, false))
+                          . ' WHERE ' . PMA_jsFormat($unique_condition, false)
                           . ' LIMIT 1';
                 $del_str = PMA_getIcon('b_drop.png', $GLOBALS['strDelete'], true);
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case

@@ -2014,7 +2014,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
         $preferred_condition = $nonprimary_condition;
     }
 
-    return preg_replace('|\s?AND$|', '', $preferred_condition);
+    return trim(preg_replace('|\s?AND$|', '', $preferred_condition));
 } // end function
 
 /**

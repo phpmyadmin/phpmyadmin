@@ -57,6 +57,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Yannick Betemps - arkhee 
 + patch #2735162 [status] Server status - replication,
   thanks to Tomas Srnka - tomassrnka
++ patch #2745215 [edit] Multi-row change with "]" improved, 
+  thanks to Virsacer - virsacer 
 
 3.1.5.0 (not yet released)
 - patch #2739001 [export] XML does not allow spaces in element names, 
