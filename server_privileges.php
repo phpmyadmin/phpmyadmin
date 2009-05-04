@@ -784,7 +784,6 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '</label>' . "\n"
        . '<span class="options">' . "\n"
        . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword()" />' . "\n"
-       . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onclick="suggestPasswordCopy(this.form)" />' . "\n"
        . '</span>' . "\n"
        . '<input type="text" name="generated_pw" id="generated_pw" />' . "\n"
        . '</div>' . "\n"
