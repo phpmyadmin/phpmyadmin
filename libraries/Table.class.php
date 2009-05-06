@@ -245,8 +245,10 @@ class PMA_Table
         // from 5.0.13 returns 'VIEW'.
         // use substr() because the comment might contain something like:
         // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
+        // use 'Engine' == NULL to exclude regular tables where the comment starts with the word 'view'
         $comment = strtoupper(PMA_Table::sGetStatusInfo($db, $table, 'Comment'));
-        return substr($comment, 0, 4) == 'VIEW';
+        $engine = PMA_Table::sGetStatusInfo($db, $table, 'Engine');
+        return ( substr($comment, 0, 4) == 'VIEW' && $engine == NULL);
     }
     
     static public function sGetToolTip($db, $table)
