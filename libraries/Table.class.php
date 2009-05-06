@@ -233,22 +233,9 @@ class PMA_Table
             return true;
         }
 
-        // This would be the correct way of doing the check but at least in
-        // MySQL 5.0.33 it's too slow when there are hundreds of databases
-        // and/or tables (more than 3 minutes for 400 tables)
-        /*if (false === PMA_DBI_fetch_value('SELECT TABLE_NAME FROM `information_schema`.`VIEWS` WHERE `TABLE_SCHEMA` = \'' . $db . '\' AND `TABLE_NAME` = \'' . $table . '\';')) {
-            return false;
-        } else {
-            return true;
-        } */
-        // A more complete way of finding a view would be to check if all 
-        // columns from the result set are NULL except Name and Comment.
-        // Use strtoupper() because  MySQL from 5.0.0 to 5.0.12 returns 'view',
-        // from 5.0.13 returns 'VIEW'.
-        // Use substr() because the comment might contain something like:
-        // (VIEW 'BASE2.VTEST' REFERENCES INVALID TABLE(S) OR COLUMN(S) OR FUNCTION)
-        $comment = strtoupper(PMA_Table::sGetStatusInfo($db, $table, 'Comment'));
-        return substr($comment, 0, 4) == 'VIEW';
+        // Since phpMyAdmin 3.2 the field TABLE_TYPE is properly filled by PMA_DBI_get_tables_full()
+        $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
+        return $type == 'VIEW';
     }
 
     static public function sGetToolTip($db, $table)
