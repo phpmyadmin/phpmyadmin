@@ -34,7 +34,11 @@ if (function_exists('mcrypt_encrypt')) {
     if (empty($_COOKIE['pma_mcrypt_iv'])
      || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
         srand((double) microtime() * 1000000);
-        $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_CBC), MCRYPT_RAND);
+         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');   
+         if ($td === false) {
+            trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
+         }
+        $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         PMA_setCookie('pma_mcrypt_iv', base64_encode($iv));
     }
 

@@ -61,6 +61,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Virsacer - virsacer 
 + rfe #2657696 Automatically copy generated password
 - bug #2787162 [interface] Table with name 'log_views' is incorrectly displayed as a view
++ patch #2665440 Detect mcrypt initialization failure
 
 3.1.5.0 (not yet released)
 - patch #2739001 [export] XML does not allow spaces in element names, 
