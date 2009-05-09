@@ -332,8 +332,10 @@ rm -rf config                      # remove not needed directory
 <h3 id="upgrading">Upgrading from an older version</h3>
 
 <p> Simply copy <i>./config.inc.php</i> from your previous installation into the newly
-    unpacked one. Configuration files from very old versions (2.3.0 or before) may
-    require some tweaking as some options have been changed or removed.
+    unpacked one. Configuration files from old versions may
+    require some tweaking as some options have been changed or removed; in
+    particular, the definition of <tt>$cfg['AttributeTypes']</tt> has changed
+    so you better remove it from your file and just use the default one.
     For compatibility with PHP 6, remove a <tt>set_magic_quotes_runtime(0);</tt>
     statement that you might find near the end of your configuration file.</p>
 
