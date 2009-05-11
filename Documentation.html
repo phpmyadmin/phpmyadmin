@@ -3185,10 +3185,10 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
     Zip files for larger dump, you have to use another way.</p>
 
 <h4 id="faq3_3">
-    <a href="#faq3_3">3.3 With InnoDB tables, I lose foreign key relationships when I rename
-    or alter a table.</a></h4>
+    <a href="#faq3_3">3.3 With InnoDB tables, I lose foreign key relationships 
+    when I rename a table or a column.</a></h4>
 
-<p> This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).</p>
+<p> This is an InnoDB bug, see <a href="http://bugs.mysql.com/bug.php?id=21704">http://bugs.mysql.com/bug.php?id=21704</a>.</p>
 
 <h4 id="faq3_4">
     <a href="#faq3_4">3.4 I am unable to import dumps I created with the mysqldump tool
