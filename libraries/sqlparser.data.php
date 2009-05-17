@@ -1262,7 +1262,7 @@ $PMA_SQPdata_column_type = array (
     'POINT',                // spatial
     'POLYGON',              // spatial
     'REAL',
-    'SERIAL',               // alsias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+    'SERIAL',               // alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
     'SET',
     'SMALLINT',
     'TEXT',
