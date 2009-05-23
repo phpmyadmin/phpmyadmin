@@ -1,12 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
-    version="-//W3C//DTD XHTML 1.1//EN" dir="ltr">
-<!-- $Id$ -->
 <!--
     vim: expandtab ts=4 sw=4 sts=4 tw=78
 -->
-
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+    version="-//W3C//DTD XHTML 1.1//EN" dir="ltr">
+<!-- $Id$ -->
 <head>
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
@@ -3609,12 +3608,12 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
     installed in their Firefox is causing the problem.</p>
 
 <h4 id="faq5_18">
-	<a href="#faq5_18">5.18 With Konqueror 4.2.x an invalid <tt>LIMIT</tt>
-    clause is generated when I browse a table. This happens only when using
-    the <tt>http</tt> authentication mode.</a></h4>
-<p> Seems to be a browser-specific problem; meanwhile use the <tt>cookie</tt> 
-authentication mode.</p>
-
+<a href="#faq5_18">5.18 With Konqueror 4.2.x an invalid <tt>LIMIT</tt>
+    clause is generated when I browse a table.</a></h4>
+<p> This happens only when both of these conditions are met: using the 
+    <tt>http</tt> authentication mode and <tt>register_globals</tt> being set 
+    to <tt>On</tt> on the server. It seems to be a browser-specific problem; 
+    meanwhile use the <tt>cookie</tt> authentication mode.</p>
 <h3 id="faqusing">Using phpMyAdmin</h3>
 
 <h4 id="faq6_1">
