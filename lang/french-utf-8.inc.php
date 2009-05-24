@@ -1457,4 +1457,6 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strNavTableFilter = 'Filter';  //to translate
+$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

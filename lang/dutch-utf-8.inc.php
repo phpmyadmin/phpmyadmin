@@ -1465,4 +1465,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet.';
 $strZip = '"Gezipt"';
 
+$strNavTableFilter = 'Filter';  //to translate
+$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

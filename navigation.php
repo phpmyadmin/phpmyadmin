@@ -14,6 +14,8 @@
  * @uses $GLOBALS['text_dir']
  * @uses $GLOBALS['charset']
  * @uses $GLOBALS['pmaThemeImage']
+ * @uses $GLOBALS['strNavTableFilter']
+ * @uses $GLOBALS['strNavTableFilterReset']
  * @uses $GLOBALS['strNoDatabases']
  * @uses $GLOBALS['strDatabase']
  * @uses $GLOBALS['strGo']
@@ -296,6 +298,9 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         echo ' <bdo dir="ltr">(' . $table_count . ')</bdo> ';
     }
     echo '</a></p>';
+    if ($table_count) {
+        echo '<span id=\'NavFilter\' style="display:none"><input type="text" name="fast_filter" id="fast_filter" title="' . $strNavTableFilter . '" onkeyup="setTimeout(function(word){ return function(){ fast_filter(word);}}(this.value),1000);"/><span onclick="document.getElementById(\'fast_filter\').value=\'\'; fast_filter(\'\');document.getElementById(\'fast_filter\').focus();" style="background:white;color:black;cursor:pointer;padding:2px;" title="' . $strNavTableFilterReset . '">X</span></span><script type="text/javascript">document.getElementById(\'NavFilter\').style.display=\'\';</script>';
+    }
 
     /**
      * This helps reducing the navi panel size; in the right panel,

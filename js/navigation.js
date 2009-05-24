@@ -137,3 +137,38 @@ function PMA_setCookie(name, value, expires, path, domain, secure) {
         ( (domain)  ? ";domain=" + domain : "") +
         ( (secure)  ? ";secure" : "");
 }
+
+/**
+ * hide all LI elements with second A tag which doesn`t contain requested value
+ *
+ *	@param   string  value    requested value
+ *
+ */
+function fast_filter(value){
+	var oTarget = document.getElementById("subel0");
+	if(!oTarget || !document.getElementById('fast_filter')) return false;
+	if(value!=document.getElementById('fast_filter').value) return false;
+	document.getElementById('fast_filter').disabled=true;
+	for(var iCh in oTarget.childNodes){
+		var oCh = oTarget.childNodes.item(iCh);
+		if(!oCh) continue;
+		if(oCh.nodeName=="LI"){
+			if(value=="") oCh.style.display="";
+			else{
+				var i=0;
+				for(var iA in oCh.childNodes){
+					var oA = oCh.childNodes.item(iA);
+					if(!oA) continue;
+					if(oA.nodeName=="A"){
+						if(i==0) i = 1;
+						else{
+							if(oA.innerHTML.indexOf(value)==-1) oCh.style.display="none";
+							else oCh.style.display="";
+						}
+					}
+				}
+			}
+		}
+	}
+	document.getElementById('fast_filter').disabled=false;
+}

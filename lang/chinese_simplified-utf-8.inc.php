@@ -1468,4 +1468,6 @@ $strYes = '是';
 $strZeroRemovesTheLimit = '注意：若将这些选项设为 0(零) 即不限制。';
 $strZip = 'zip 压缩';
 
+$strNavTableFilter = 'Filter';  //to translate
+$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

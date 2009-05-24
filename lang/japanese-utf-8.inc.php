@@ -1466,4 +1466,6 @@ $strReplicationStatus = 'Replication status';  //to translate
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
+$strNavTableFilter = 'Filter';  //to translate
+$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

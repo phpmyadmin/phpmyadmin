@@ -1459,4 +1459,6 @@ $strReplicationStatus = 'Estado da replicación';
 $strReplicationStatusInfo = 'Este servidor de MySQL server funciona como %s en proceso de <b>replicación</b>. Para máis información acerca do estado de replicación do servidor visite a <a href="#replication">sección sobre replicación</a>.';
 $strReplicationStatus_master = 'Estado do mestre';
 $strReplicationStatus_slave = 'Estado do escravo';
+$strNavTableFilter = 'Filter';  //to translate
+$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>
