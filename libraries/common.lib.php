@@ -2454,7 +2454,7 @@ window.addEvent('domready', function(){
     //]]>
     </script>
     <noscript>
-    <div id="<?php echo $id; ?>">
+    <div id="<?php echo $id; ?>" />
     </noscript>
     <?php
 }
