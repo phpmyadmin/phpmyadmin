@@ -460,6 +460,7 @@ div.error h1 {
     color:              #000000;
     background-color:   #FFFFDD;
 }
+
 h1.notice,
 div.success,
 div.notice,
@@ -493,6 +494,9 @@ div.success {
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
     <?php } ?>
 }
+div.success h1 {
+	border-bottom:       1px solid #C5E1C8;
+}
 .success h1 {
     border-color:       #C5E1C8;
 }
@@ -508,8 +512,13 @@ div.notice {
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_info.png);
     <?php } ?>
 }
+
+div.notice h1 {
+	border-bottom:       1px solid #CFDFE5;
+}
+
 .notice h1 {
-    border-bottom:      1px solid #FFD700;
+    border-bottom:      1px solid #CFDFE5;
     font-weight:        bold;
     text-align:         <?php echo $left; ?>;
     margin:             0 0 0.2em 0;
@@ -544,6 +553,9 @@ div.warning {
     text-align:         <?php echo $left; ?>;
     margin:             0 0 0.2em 0;
 }
+div.warning h1 {
+	border-bottom:       1px solid #EEEB5B;
+}
 
 .error {
     background-color:   #FFEBEB;
@@ -568,8 +580,9 @@ div.error {
     padding:            0.5em;
     <?php } ?>
 }
+
 div.error h1 {
-    border-bottom:      1px solid #ff0000;
+    border-bottom:      1px solid #F5C1C2;
     font-weight:        bold;
     text-align:         <?php echo $left; ?>;
     margin:             0 0 0.2em 0;
@@ -1215,6 +1228,7 @@ li#li_server_info,
 li#li_server_info2,
 li#li_mysql_proto,
 li#li_user_info,
+li#li_select_mysql_charset,
 li#li_used_php_extension,
 li#li_web_server_software,
 li#li_mysql_client_version,
@@ -1253,8 +1267,7 @@ li#li_select_lang {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
 }
 
-li#li_select_mysql_collation,
-li#li_select_mysql_charset {
+li#li_select_mysql_collation {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
     color:			  #1F457E;
 }
@@ -1281,7 +1294,11 @@ li#li_server_version {
 li#li_user_info{
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
 	font-size:			80%;
-	margin-bottom: 2em;
+}
+
+li#li_select_mysql_charset {
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>item_ltr.png);
+	font-size:			80%;
 }
 
 li#li_mysql_proto{
