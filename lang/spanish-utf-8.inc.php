@@ -1449,7 +1449,7 @@ $strHostTableExplanation = 'When Host table is used, this field is ignored and v
 $strGetMoreThemes = 'Get more themes!';  //to translate
 $strNoneDefault = 'None';  //to translate
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
-$strEscapeCRLF = 'Remove CRLF characters within fields';  //to translate
+$strRemoveCRLF = 'Remove CRLF characters within fields';  //to translate
 
 $strSessionGCWarning = 'Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'; //to translate
 $strDoNotAutoIncrementZeroValues = 'Do not use AUTO_INCREMENT for zero values';  //to translate

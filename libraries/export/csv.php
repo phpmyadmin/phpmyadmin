@@ -23,7 +23,7 @@ if (isset($plugin_list)) {
             array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy'),
             array('type' => 'text', 'name' => 'terminated', 'text' => 'strLinesTerminatedBy'),
             array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-            array('type' => 'bool', 'name' => 'escapeCRLF', 'text' => 'strEscapeCRLF'),
+            array('type' => 'bool', 'name' => 'removeCRLF', 'text' => 'strRemoveCRLF'),
             array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
             array('type' => 'hidden', 'name' => 'data'),
             ),
@@ -182,8 +182,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 if ($what == 'excel') {
                     $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                 }
-                // escape CRLF characters within field
-                if ($GLOBALS[$what . '_escapeCRLF']) {
+                // remove CRLF characters within field
+                if ($GLOBALS[$what . '_removeCRLF']) {
                     $row[$j] = str_replace("\n", "", str_replace("\r", "", $row[$j]));
                 }
                 if ($csv_enclosed == '') {

@@ -1459,7 +1459,7 @@ $strShowKeys = 'Only show keys';  //to translate
 $strStatic = 'static';  //to translate
 
 $strConfigDirectoryWarning = 'Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.';  //to translate
-$strEscapeCRLF = 'Remove CRLF characters within fields';  //to translate
+$strRemoveCRLF = 'Remove CRLF characters within fields';  //to translate
 $strDoNotAutoIncrementZeroValues = 'Do not use AUTO_INCREMENT for zero values';  //to translate
 $strAndSmall = 'and';  //to translate
 $strReplicationStatus = 'Replication status';  //to translate
