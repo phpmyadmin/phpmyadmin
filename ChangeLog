@@ -67,6 +67,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Galician update, thanks to Xosé Calvo - xosecalvo
 + [lang] Swedish update, thanks to Björn T. Hallberg
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
++ [lang] Catalan update, thanks to Xavier Navarro
 
 3.1.6.0 (not yet released)
 - bug #2785912 [doc] no ON UPDATE CURRENT_TIMESTAMP in list of attributes
