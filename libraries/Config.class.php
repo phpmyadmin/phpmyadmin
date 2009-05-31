@@ -603,9 +603,10 @@ class PMA_Config
 
                 // Host and port
                 if (PMA_getenv('HTTP_HOST')) {
-                    if (strpos(PMA_getenv('HTTP_HOST'), ':') !== false) {
-                        list($url['host'], $url['port']) =
-                            explode(':', PMA_getenv('HTTP_HOST'));
+                    // Prepend the scheme before using parse_url() since this is not part of the RFC2616 Host request-header
+                    $parsed_url = parse_url($url['scheme'] . '://' . PMA_getenv('HTTP_HOST'));
+                    if (!empty($parsed_url['host'])) {
+                        $url = $parsed_url;
                     } else {
                         $url['host'] = PMA_getenv('HTTP_HOST');
                     }
