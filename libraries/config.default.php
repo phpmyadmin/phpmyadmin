@@ -2335,6 +2335,13 @@ $cfg['TrustedProxies'] = array();
  */
 $cfg['CheckConfigurationPermissions'] = true;
 
+/**
+ * Limit for length of URL in links. When length would be above this limit, it
+ * is replaced by form with button.
+ * This is required as some web servers (IIS) have problems with long URLs.
+ */
+$cfg['LinkLengthLimit'] = 1000;
+
 /*******************************************************************************
  * SQL Parser Settings
  *

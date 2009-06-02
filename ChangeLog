@@ -9,6 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + patch #2794819 [navi] Filter for displayed table names,
   thanks to Michael Valushko - dylfin
 - bug #2794840 [core] Cannot redeclare pma_tableheader() 
+- rfe #2726479 [core] configurable maximal length of URL
 
 3.2.1.0 (not yet released)
 - bug #2799009 Login with ipv6 IP address breaks redirect

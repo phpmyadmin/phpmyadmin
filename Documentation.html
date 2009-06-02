@@ -1616,6 +1616,14 @@ $cfg['TrustedProxies'] =
     a sysadmin would set this parameter to <tt>FALSE</tt>. Default is <tt>TRUE</tt>.
     </dd>
 
+    <dt id="cfg_LinkLengthLimit">$cfg['LinkLengthLimit'] integer</dt>
+    <dd>
+    Limit for length of URL in links. When length would be above this limit, it
+    is replaced by form with button.
+    This is required as some web servers (IIS) have problems with long URLs.
+    Default is <code>1000</code>.
+    </dd>
+
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
     <dd>Navi frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
