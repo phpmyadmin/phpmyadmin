@@ -1859,13 +1859,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                 // no database name was given, display select db
 
-                if (! empty($found_rows)) {
-                    $pred_db_array = array_diff(
-                        PMA_DBI_fetch_result('SHOW DATABASES;'),
-                        $found_rows);
-                } else {
-                    $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
-                }
+                $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
 
                 echo '    <label for="text_dbname">' . $GLOBALS['strAddPrivilegesOnDb'] . ':</label>' . "\n";
                 if (!empty($pred_db_array)) {
@@ -1873,8 +1867,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                        . '        <option value="" selected="selected">' . $GLOBALS['strUseTextField'] . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
                         $current_db = PMA_escape_mysql_wildcards($current_db);
-                        echo '        <option value="' . htmlspecialchars($current_db) . '">'
-                            . htmlspecialchars($current_db) . '</option>' . "\n";
+                        // cannot use array_diff() once, outside of the loop,
+                        // because the list of databases has special characters
+                        // already escaped in $found_rows, 
+                        // contrary to the output of SHOW DATABASES
+                        if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
+                            echo '        <option value="' . htmlspecialchars($current_db) . '">'
+                                . htmlspecialchars($current_db) . '</option>' . "\n";
+                        }
                     }
                     echo '    </select>' . "\n";
                 }
