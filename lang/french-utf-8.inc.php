@@ -287,7 +287,6 @@ $strErrorRelationAdded = 'Erreur: relation non ajoutée.';
 $strErrorRelationExists = 'Erreur: relation déjà existante.';
 $strErrorRenamingTable = 'Erreur lors du renommage de %1$s en %2$s';
 $strErrorSaveTable = 'Erreur lors de la sauvegarde des coordonnées Concepteur.';
-$strRemoveCRLF = 'Enlève les caractères de fin de ligne (CRLF) à l\'intérieur des colonnes';
 $strEscapeWildcards = 'Préfixer avec \ les passepartouts _ et % pour un usage littéral';
 $strEsperanto = 'Espéranto';
 $strEstonian = 'estonien';
@@ -510,6 +509,7 @@ $strMySQLSaid = 'MySQL a répondu:';
 $strMySQLShowProcess = 'Afficher les processus';
 
 $strName = 'Nom';
+$strNavTableFilter = 'Filtre';
 $strNext = 'Suivant';
 $strNoActivity = 'Aucune activité depuis %s secondes ou plus, veuillez vous reconnecter';
 $strNoDatabases = 'Aucune base de données';
@@ -707,6 +707,7 @@ $strRelationView = 'Gestion des relations';
 $strReloadingThePrivileges = 'Chargement des privilèges en cours.';
 $strReloadPrivileges = 'Recharger les privilèges';
 $strReload = 'Recharger';
+$strRemoveCRLF = 'Enlève les caractères de fin de ligne (CRLF) à l\'intérieur des colonnes';
 $strRemovePartitioning = 'Supprimer le partitionnement';
 $strRemoveSelectedUsers = 'Effacer les utilisateurs sélectionnés.';
 $strRenameDatabaseOK = 'La base de données %s a été renommée en %s';
@@ -1457,5 +1458,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strNavTableFilter = 'Filter';  //to translate
 ?>
