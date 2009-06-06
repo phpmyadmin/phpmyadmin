@@ -1459,5 +1459,4 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrens
 $strZip = 'Komprimert (zip)';
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

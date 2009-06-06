@@ -1459,5 +1459,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

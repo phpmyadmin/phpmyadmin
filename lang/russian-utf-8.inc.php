@@ -494,7 +494,6 @@ $strMySQLSaid = 'Ответ MySQL: ';
 $strMySQLShowProcess = 'Список процессов';
 
 $strNavTableFilter = 'Фильтр';
-$strNavTableFilterReset = 'Сбросить фильтр';
 $strName = 'Имя';
 $strNext = 'Следующий';
 $strNoActivity = 'Отсутствие активности более %s секунд, пожалуйста, авторизуйтесь заново';

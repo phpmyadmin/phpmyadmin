@@ -1456,5 +1456,4 @@ $strZeroRemovesTheLimit = 'Nota: Es treu el limit establint aquestes opcions a 0
 $strZip = '"comprimit amb zip"';
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>

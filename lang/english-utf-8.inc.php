@@ -514,7 +514,6 @@ $strMySQLShowProcess = 'Show processes';
 
 $strName = 'Name';
 $strNavTableFilter = 'Filter';
-$strNavTableFilterReset = 'Reset filter';
 $strNext = 'Next';
 $strNoActivity = 'No activity within %s seconds; please log in again';
 $strNoDatabases = 'No databases';

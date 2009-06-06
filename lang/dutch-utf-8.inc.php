@@ -1466,5 +1466,4 @@ $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) 
 $strZip = '"Gezipt"';
 
 $strNavTableFilter = 'Filter';
-$strNavTableFilterReset = 'Filter verwijderen';
 ?>

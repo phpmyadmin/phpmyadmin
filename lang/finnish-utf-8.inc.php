@@ -1462,5 +1462,4 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poi
 $strZip = '"zip-pakattu"';
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNavTableFilterReset = 'Reset filter';  //to translate
 ?>
