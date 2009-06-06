@@ -794,7 +794,7 @@ $cfg['SuggestDBName'] = true;
  *
  * @global string $cfg['NavigationBarIconic']
  */
-$cfg['NavigationBarIconic'] = 'both';
+$cfg['NavigationBarIconic'] = true;
 
 /**
  * allows to display all the rows

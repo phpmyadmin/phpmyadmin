@@ -12,6 +12,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - rfe #2726479 [core] configurable maximal length of URL
 + patch #2724755 [display] Full/partial text links (big T) are back,
   thanks to nullbarriere - nullbarriere 
+- bug [display] handle NavigationBarIconic as documented for navi buttons
 
 3.2.1.0 (not yet released)
 - bug #2799009 Login with ipv6 IP address breaks redirect

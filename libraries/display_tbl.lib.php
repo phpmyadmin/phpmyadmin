@@ -187,6 +187,56 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
+ * Displays a navigation button 
+ *
+ * @uses    $GLOBALS['cfg']['NavigationBarIconic']
+ * @uses    PMA_generate_common_hidden_inputs() 
+ *
+ * @param   string   iconic caption for button
+ * @param   string   text for button 
+ * @param   integer  position for next query 
+ * @param   string   query ready for display 
+ * @param   string   optional onsubmit clause 
+ * @param   string   optional hidden field for special treatment
+ * @param   string   optional onclick clause
+ *
+ * @global  string   $db             the database name
+ * @global  string   $table          the table name
+ * @global  string   $goto           the URL to go back in case of errors
+ *
+ * @access  private
+ *
+ * @see     PMA_displayTableNavigation()
+ */
+function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = '') {
+
+    global $db, $table, $goto;
+
+    $caption_output = '';
+    // for true or 'both'
+    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        $caption_output .= $caption;
+    }
+    // for false or 'both'
+    if (false === $GLOBALS['cfg']['NavigationBarIconic'] || 'both' === $GLOBALS['cfg']['NavigationBarIconic']) {
+        $caption_output .= '&nbsp;' . $title;
+    }
+    $title_output = ' title="' . $title . '"';
+        ?>
+<td>
+    <form action="sql.php" method="post" <?php echo $onsubmit; ?>>
+        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+        <input type="hidden" name="pos" value="<?php echo $pos; ?>" />
+        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+        <?php echo $input_for_real_end; ?>
+        <input type="submit" name="navig" value="<?php echo $caption_output; ?>"<?php echo $title_output . $onclick; ?> />
+    </form>
+</td>
+<?php
+} // end function PMA_displayTableNavigationOneButton()
+
+/**
  * Displays a navigation bar to browse among the results of a SQL query
  *
  * @uses    $_SESSION['userconf']['disp_direction']
@@ -236,38 +286,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
     <?php
     // Move to the beginning or to the previous page
     if ($_SESSION['userconf']['pos'] && $_SESSION['userconf']['max_rows'] != 'all') {
-        // loic1: patch #474210 from Gosha Sakovich - part 1
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $caption1 = '&lt;&lt;';
-            $caption2 = ' &lt; ';
-            $title1   = ' title="' . $GLOBALS['strPos1'] . '"';
-            $title2   = ' title="' . $GLOBALS['strPrevious'] . '"';
-        } else {
-            $caption1 = $GLOBALS['strPos1'] . ' &lt;&lt;';
-            $caption2 = $GLOBALS['strPrevious'] . ' &lt;';
-            $title1   = '';
-            $title2   = '';
-        } // end if... else...
-        ?>
-<td>
-    <form action="sql.php" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="0" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo $caption1; ?>"<?php echo $title1; ?> />
-    </form>
-</td>
-<td>
-    <form action="sql.php" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo $caption2; ?>"<?php echo $title2; ?> />
-    </form>
-</td>
-        <?php
+        PMA_displayTableNavigationOneButton('&lt;&lt;', $GLOBALS['strPos1'], 0, $html_sql_query);
+        PMA_displayTableNavigationOneButton('&lt;', $GLOBALS['strPrevious'], $pos_prev, $html_sql_query);
+
     } // end move back
     ?>
 <td>
@@ -309,47 +330,31 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
     // Move to the next page or to the last one
     if (($_SESSION['userconf']['pos'] + $_SESSION['userconf']['max_rows'] < $unlim_num_rows) && $num_rows >= $_SESSION['userconf']['max_rows']
         && $_SESSION['userconf']['max_rows'] != 'all') {
-        // loic1: patch #474210 from Gosha Sakovich - part 2
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $caption3 = ' &gt; ';
-            $caption4 = '&gt;&gt;';
-            $title3   = ' title="' . $GLOBALS['strNext'] . '"';
-            $title4   = ' title="' . $GLOBALS['strEnd'] . '"';
-        } else {
-            $caption3 = '&gt; ' . $GLOBALS['strNext'];
-            $caption4 = '&gt;&gt; ' . $GLOBALS['strEnd'];
-            $title3   = '';
-            $title4   = '';
-        } // end if... else...
-        echo "\n";
-        ?>
-<td>
-    <form action="sql.php" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo $caption3; ?>"<?php echo $title3; ?> />
-    </form>
-</td>
-<td>
-    <form action="sql.php" method="post"
-        onsubmit="return <?php echo (($_SESSION['userconf']['pos'] + $_SESSION['userconf']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['userconf']['max_rows']) ? 'true' : 'false'); ?>">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="<?php echo @((ceil($unlim_num_rows / $_SESSION['userconf']['max_rows'])- 1) * $_SESSION['userconf']['max_rows']); ?>" />
-        <?php
+
+        // display the Next button
+        PMA_displayTableNavigationOneButton('&gt;', 
+            $GLOBALS['strNext'], 
+            $pos_next, 
+            $html_sql_query);
+
+        // prepare some options for the End button
         if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
-            echo '<input type="hidden" name="find_real_end" value="1" />' . "\n";
+            $input_for_real_end = '<input type="hidden" name="find_real_end" value="1" />';
             // no backquote around this message
             $onclick = ' onclick="return confirmAction(\'' . PMA_jsFormat($GLOBALS['strLongOperation'], false) . '\')"';
+        } else {
+            $input_for_real_end = $onclick = '';
         }
-        ?>
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo $caption4; ?>"<?php echo $title4; ?> <?php echo (empty($onclick) ? '' : $onclick); ?>/>
-    </form>
-</td>
-        <?php
+
+        // display the End button
+        PMA_displayTableNavigationOneButton('&gt;&gt;', 
+            $GLOBALS['strEnd'], 
+            @((ceil($unlim_num_rows / $_SESSION['userconf']['max_rows'])- 1) * $_SESSION['userconf']['max_rows']), 
+            $html_sql_query,
+            'onsubmit="return ' . (($_SESSION['userconf']['pos'] + $_SESSION['userconf']['max_rows'] < $unlim_num_rows && $num_rows >= $_SESSION['userconf']['max_rows']) ? 'true' : 'false') . '"',
+            $input_for_real_end,
+            $onclick
+            );
     } // end move toward
 
 
