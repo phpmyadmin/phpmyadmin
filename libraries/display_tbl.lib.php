@@ -555,6 +555,24 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
         echo '</div>';
 
+        // prepare full/partial text button or link
+        if ($_SESSION['userconf']['display_text']=='F') { 
+            // currently in fulltext mode so show the opposite link
+            $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
+            $tmp_txt = $GLOBALS['strPartialText'];
+            $url_params['display_text'] = 'P';
+        } else {
+            $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_fulltext.png';
+            $tmp_txt = $GLOBALS['strFullText'];
+            $url_params['display_text'] = 'F';
+        }
+
+        $tmp_image = '<img class="fulltext" width="50" height="20"  src="' . $tmp_image_file . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '" />';
+        $tmp_url = 'sql.php' . PMA_generate_common_url($url_params);
+        $full_or_partial_text_link = PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
+        unset($tmp_image_file, $tmp_txt, $tmp_url, $tmp_image);
+
+
         if ($GLOBALS['cfgRelation']['relwork'] && $GLOBALS['cfgRelation']['displaywork']) {
             echo '<div class="formelement">';
             $choices = array(
@@ -643,7 +661,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($_SESSION['userconf']['disp_direction'] == 'horizontal'
          || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') {
             ?>
-    <th <?php echo $colspan; ?>></th>
+                <th <?php echo $colspan; ?>><?php echo $full_or_partial_text_link;?></th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
@@ -887,7 +905,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
          || $_SESSION['userconf']['disp_direction'] == 'horizontalflipped') {
             echo "\n";
             ?>
-<th <?php echo $colspan; ?>>
+        <th <?php echo $colspan; ?>><?php echo $full_or_partial_text_link;?>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
