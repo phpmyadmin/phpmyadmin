@@ -2369,26 +2369,28 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
 }
 
 /**
- * Generates and echoes an HTML dropdown
+ * Generates and returns an HTML dropdown
  *
  * @uses    htmlspecialchars()
  * @param   string  $select_name
  * @param   array   $choices the choices values
  * @param   string  $active_choice the choice to select by default
+ * @param   string  $id the id of the select element; can be different in case
+ *                  the dropdown is present more than once on the page
  * @todo    support titles
  */
-function PMA_display_html_dropdown($select_name, $choices, $active_choice)
+function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
 {
-    $result = '<select name="' . htmlspecialchars($select_name) . '" id="' . htmlspecialchars($select_name) . '">"' . "\n";
-    foreach ($choices as $one_choice) {
-        $result .= '<option value="' . htmlspecialchars($one_choice) . '"';
-        if ($one_choice == $active_choice) {
+    $result = '<select name="' . htmlspecialchars($select_name) . '" id="' . htmlspecialchars($id) . '">';
+    foreach ($choices as $one_choice_value => $one_choice_label) {
+        $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+        if ($one_choice_value == $active_choice) {
             $result .= ' selected="selected"';
         }
-        $result .= '>' . htmlspecialchars($one_choice) . '</option>' . "\n";
+        $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
     }
-    $result .= '</select>' . "\n";
-    echo $result;
+    $result .= '</select>';
+    return $result;
 }
 
 /**

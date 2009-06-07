@@ -246,6 +246,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @param   integer  the offset for the "next" page
  * @param   integer  the offset for the "previous" page
  * @param   string   the URL-encoded query
+ * @param   string   the id for the direction dropdown 
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -261,7 +262,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  *
  * @see     PMA_displayTable()
  */
-function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query)
+function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_direction_dropdown)
 {
     global $db, $table, $goto;
     global $num_rows, $unlim_num_rows;
@@ -311,12 +312,13 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
         <br />
     <?php
     // Display mode (horizontal/vertical and repeat headers)
-    $param1 = '            <select name="disp_direction">' . "\n"
-            . '                <option value="horizontal"' . (($_SESSION['userconf']['disp_direction'] == 'horizontal') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeHorizontal'] . '</option>' . "\n"
-            . '                <option value="horizontalflipped"' . (($_SESSION['userconf']['disp_direction'] == 'horizontalflipped') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeFlippedHorizontal'] . '</option>' . "\n"
-            . '                <option value="vertical"' . (($_SESSION['userconf']['disp_direction'] == 'vertical') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeVertical'] . '</option>' . "\n"
-            . '            </select>' . "\n"
-            . '           ';
+    $choices = array(
+        'horizontal'        => $GLOBALS['strRowsModeHorizontal'],
+        'horizontalflipped' => $GLOBALS['strRowsModeFlippedHorizontal'],
+        'vertical'          => $GLOBALS['strRowsModeVertical']);
+    $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['userconf']['disp_direction'], $id_for_direction_dropdown);
+    unset($choices);
+
     $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['userconf']['repeat_cells'] . '" class="textfield" />' . "\n"
             . '           ';
     echo '    ' . sprintf($GLOBALS['strRowsModeOptions'], "\n" . $param1, "\n" . $param2) . "\n";
@@ -1939,7 +1941,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
 
     if ($is_display['nav_bar'] == '1') {
-        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
+        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'top_direction_dropdown');
         echo "\n";
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
@@ -2052,7 +2054,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     if ($is_display['nav_bar'] == '1') {
         echo '<br />' . "\n";
-        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query);
+        PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, 'bottom_direction_dropdown');
     } elseif (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         echo "\n" . '<br /><br />' . "\n";
     }

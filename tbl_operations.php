@@ -428,11 +428,25 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
     <?php
 } // end if (MYISAM|INNODB)
 
+// the outer array is for engines, the inner array contains the dropdown
+// option values as keys then the dropdown option labels
 $possible_row_formats = array(
-    'MARIA'  => array('FIXED','DYNAMIC','PAGE'),
-    'MYISAM' => array('FIXED','DYNAMIC'),
-    'PBXT'   => array('FIXED','DYNAMIC'),
-    'INNODB' => array('COMPACT','REDUNDANT')
+     'MARIA'  => array(
+        'FIXED'     => 'FIXED',
+        'DYNAMIC'   => 'DYNAMIC',
+        'PAGE'      => 'PAGE'
+            ),
+     'MYISAM' => array(
+         'FIXED'    => 'FIXED',
+         'DYNAMIC'  => 'DYNAMIC'
+     ),
+     'PBXT'   => array(
+         'FIXED'    => 'FIXED',
+         'DYNAMIC'  => 'DYNAMIC'
+     ),
+     'INNODB' => array(
+         'COMPACT'  => 'COMPACT',
+         'REDUNDANT' => 'REDUNDANT')
 );
 // for MYISAM there is also COMPRESSED but it can be set only by the
 // myisampack utility, so don't offer here the choice because if we
@@ -444,7 +458,7 @@ if (isset($possible_row_formats[$tbl_type])) {
     $current_row_format = strtoupper($showtable['Row_format']);
     echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
     echo '<td>';
-    PMA_display_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
+    echo PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format, 'new_row_format');
     unset($possible_row_formats, $current_row_format);
     echo '</td>';
     echo '</tr>';
