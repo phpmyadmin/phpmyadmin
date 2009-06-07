@@ -304,7 +304,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
         'ASC'  => $strAscending,
         'DESC' => $strDescending
     );
-    PMA_generate_html_radio('order', $choices, 'ASC', false, true, "formelement");
+    PMA_display_html_radio('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);
 ?>
 </fieldset>

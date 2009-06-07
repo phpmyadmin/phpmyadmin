@@ -279,7 +279,7 @@ if ($cfgRelation['pdfwork']) {
     $choices = array(
         '0' => $strEdit,
         '1' => $strDelete);
-        PMA_generate_html_radio('action_choose', $choices, '0', false);
+        PMA_display_html_radio('action_choose', $choices, '0', false);
     unset($choices);
 ?>
        <input type="submit" value="<?php echo $strGo; ?>" /><br />

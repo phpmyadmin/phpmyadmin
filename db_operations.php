@@ -421,7 +421,7 @@ if (!$is_information_schema) {
             'structure' => $strStrucOnly,
             'data'      => $strStrucData,
             'dataonly'  => $strDataOnly);
-        PMA_generate_html_radio('what', $choices, 'data', true);
+        PMA_display_html_radio('what', $choices, 'data', true);
         unset($choices);
 ?>
         <input type="checkbox" name="create_database_before_copying" value="1"

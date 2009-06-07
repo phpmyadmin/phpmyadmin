@@ -526,7 +526,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'first' => $strAtBeginningOfTable,
         'after' => sprintf($strAfter, '')
     );
-    PMA_generate_html_radio('field_where', $choices, 'last', false);
+    PMA_display_html_radio('field_where', $choices, 'last', false);
     echo $fieldOptions;
     unset($fieldOptions, $choices);
     ?>

@@ -31,7 +31,7 @@
  * @uses    PMA_generate_common_url()
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    PMA_escapeJsString()
- * @uses    PMA_getTabs()
+ * @uses    PMA_generate_html_tabs()
  * @uses    PMA_sqlQueryForm()
  * @uses    PMA_jsFormat()
  * @uses    in_array()
@@ -206,7 +206,7 @@ require_once './libraries/header_scripts.inc.php';
 <?php
 
 if ($tabs) {
-    echo PMA_getTabs($tabs, array());
+    echo PMA_generate_html_tabs($tabs, array());
     unset($tabs);
 }
 

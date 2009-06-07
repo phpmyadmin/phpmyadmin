@@ -131,7 +131,7 @@ if (! $db_is_information_schema) {
 
 $url_params['db'] = $db;
 
-echo PMA_getTabs($tabs, $url_params);
+echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
 /**

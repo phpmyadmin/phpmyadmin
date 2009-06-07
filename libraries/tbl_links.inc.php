@@ -124,7 +124,7 @@ if ($table_info_num_rows == 0 && !$tbl_is_view) {
     $tabs['search']['warning'] = $strTableIsEmpty;
 }
 
-echo PMA_getTabs($tabs, $url_params);
+echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
 /**

@@ -557,7 +557,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             'P'   => $GLOBALS['strPartialText'],
             'F'   => $GLOBALS['strFullText']
         );
-        PMA_generate_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
+        PMA_display_html_radio('display_text', $choices, $_SESSION['userconf']['display_text']);
         echo '</div>';
 
         // prepare full/partial text button or link
@@ -584,14 +584,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 'K'   => $GLOBALS['strRelationalKey'],
                 'D'   => $GLOBALS['strRelationalDisplayField']
             );
-            PMA_generate_html_radio('relational_display', $choices, $_SESSION['userconf']['relational_display']);
+            PMA_display_html_radio('relational_display', $choices, $_SESSION['userconf']['relational_display']);
             echo '</div>';
         }
 
         echo '<div class="formelement">';
-        PMA_generate_html_checkbox('display_binary', $GLOBALS['strShowBinaryContents'], ! empty($_SESSION['userconf']['display_binary']), false);
+        PMA_display_html_checkbox('display_binary', $GLOBALS['strShowBinaryContents'], ! empty($_SESSION['userconf']['display_binary']), false);
         echo '<br />';
-        PMA_generate_html_checkbox('display_blob', $GLOBALS['strShowBLOBContents'], ! empty($_SESSION['userconf']['display_blob']), false);
+        PMA_display_html_checkbox('display_blob', $GLOBALS['strShowBLOBContents'], ! empty($_SESSION['userconf']['display_blob']), false);
         echo '</div>';
 
         // I would have preferred to name this "display_transformation".
@@ -599,7 +599,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         echo '<div class="formelement">';
-        PMA_generate_html_checkbox('hide_transformation', $GLOBALS['strHide'] . ' ' . $GLOBALS['strMIME_transformation'], ! empty($_SESSION['userconf']['hide_transformation']), false);
+        PMA_display_html_checkbox('hide_transformation', $GLOBALS['strHide'] . ' ' . $GLOBALS['strMIME_transformation'], ! empty($_SESSION['userconf']['hide_transformation']), false);
         echo '</div>';
 
         echo '<div class="clearfloat"></div>';

@@ -444,7 +444,7 @@ if (isset($possible_row_formats[$tbl_type])) {
     $current_row_format = strtoupper($showtable['Row_format']);
     echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
     echo '<td>';
-    PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
+    PMA_display_html_dropdown('new_row_format', $possible_row_formats[$tbl_type], $current_row_format);
     unset($possible_row_formats, $current_row_format);
     echo '</td>';
     echo '</tr>';
@@ -485,7 +485,7 @@ if (isset($possible_row_formats[$tbl_type])) {
             'structure' => $strStrucOnly,
             'data'      => $strStrucData,
             'dataonly'  => $strDataOnly);
-        PMA_generate_html_radio('what', $choices, 'data', true);
+        PMA_display_html_radio('what', $choices, 'data', true);
         unset($choices);
 ?>
 
@@ -621,7 +621,7 @@ $this_url_params = array_merge($url_params,
             'OPTIMIZE' => $strOptimize,
             'REBUILD' => $strRebuild,
             'REPAIR' => $strRepair);
-        PMA_generate_html_radio('partition_operation', $choices, '', false);
+        PMA_display_html_radio('partition_operation', $choices, '', false);
         unset($choices);
         echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
         // I'm not sure of the best way to display that; this link does

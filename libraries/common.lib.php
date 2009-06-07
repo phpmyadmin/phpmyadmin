@@ -1289,7 +1289,7 @@ function PMA_profilingCheckbox($sql_query)
         echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        PMA_generate_html_checkbox('profiling', $GLOBALS['strProfiling'], isset($_SESSION['profiling']), true);
+        PMA_display_html_checkbox('profiling', $GLOBALS['strProfiling'], isset($_SESSION['profiling']), true);
         echo '<noscript><input type="submit" value="' . $GLOBALS['strGo'] . '" /></noscript>' . "\n";
         echo '</form>' . "\n";
     }
@@ -1517,7 +1517,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_getTab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1600,18 +1600,18 @@ function PMA_getTab($tab, $url_params = array())
 
     $out .= '</li>';
     return $out;
-} // end of the 'PMA_getTab()' function
+} // end of the 'PMA_generate_html_tab()' function
 
 /**
  * returns html-code for a tab navigation
  *
- * @uses    PMA_getTab()
+ * @uses    PMA_generate_html_tab()
  * @uses    htmlentities()
  * @param   array   $tabs   one element per tab
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_getTabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params)
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1619,7 +1619,7 @@ function PMA_getTabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_getTab($tab, $url_params) . "\n";
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params) . "\n";
     }
 
     $tab_navigation .=
@@ -2330,7 +2330,7 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * @param   boolean $checked is it initially checked?
  * @param   boolean $onclick should it submit the form on click?
  */
-function PMA_generate_html_checkbox($html_field_name, $label, $checked, $onclick) {
+function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick) {
 
     echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' onclick="this.form.submit();"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
 }
@@ -2346,7 +2346,7 @@ function PMA_generate_html_checkbox($html_field_name, $label, $checked, $onclick
  * @param   boolean $escape_label whether to use htmlspecialchars() on label
  * @param   string  $class enclose each choice with a div of this class
  */
-function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
+function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
             echo '<div class="' . $class . '">';
@@ -2377,7 +2377,7 @@ function PMA_generate_html_radio($html_field_name, $choices, $checked_choice = '
  * @param   string  $active_choice the choice to select by default
  * @todo    support titles
  */
-function PMA_generate_html_dropdown($select_name, $choices, $active_choice)
+function PMA_display_html_dropdown($select_name, $choices, $active_choice)
 {
     $result = '<select name="' . htmlspecialchars($select_name) . '" id="' . htmlspecialchars($select_name) . '">"' . "\n";
     foreach ($choices as $one_choice) {
