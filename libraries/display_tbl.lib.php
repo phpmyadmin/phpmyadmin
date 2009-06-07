@@ -1276,30 +1276,25 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $PMA_Config = $_SESSION['PMA_Config'];
 
                     // if PMA configuration exists
-                    if ($PMA_Config)
-                    {
+                    if ($PMA_Config) {
                         // load BS variables
                         $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
 
                         // if BS plugins exist
-                        if ($pluginsExist)
-                        {
+                        if ($pluginsExist) {
                             // load BS databases
                             $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
 
                             // if BS db array and specified db string not empty and valid
-                            if (!empty($bs_tables) && strlen($db) > 0)
-                            {
+                            if (!empty($bs_tables) && strlen($db) > 0) {
                                 $bs_tables = $bs_tables[$db];
 
-                                if (isset($bs_tables))
-                                {
+                                if (isset($bs_tables)) {
                                     $allBSTablesExist = TRUE;
 
                                     // check if BS tables exist for given database
                                     foreach ($bs_tables as $table_key=>$bs_tbl)
-                                        if (!$bs_tables[$table_key]['Exists'])
-                                        {
+                                        if (!$bs_tables[$table_key]['Exists']) {
                                             $allBSTablesExist = FALSE;
                                             break;
                                         }
@@ -1309,17 +1304,20 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     }
 
                     // if necessary BS tables exist
-                    if ($allBSTablesExist)
+                    if ($allBSTablesExist) {
                         $bs_reference_exists = PMA_BS_ReferenceExists($row[$i], $db);
+                    }
 
                     // if valid BS reference exists
-                    if ($bs_reference_exists)
+                    if ($bs_reference_exists) {
                         $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
-                    else
+                    } else {
                         $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                    }
 
                     $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
                     unset($blobtext);
+                // not binary:
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
@@ -1337,6 +1335,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         $vertical_display['data'][$row_no][$i] = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">&nbsp;</td>' . "\n";
                     }
                 }
+            // n o t   n u m e r i c   a n d   n o t   B L O B 
             } else {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
