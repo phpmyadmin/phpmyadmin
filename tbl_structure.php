@@ -608,7 +608,8 @@ if ($cfg['ShowStats']) {
     if ($mergetable == false) {
         list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length'], $max_digits, $decimals);
     }
-    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+    // InnoDB returns a huge value in Data_free, do not use it
+    if (! $is_innodb && isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free'], $max_digits, $decimals);
         list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'], $max_digits, $decimals);
     } else {

@@ -17,6 +17,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 3.2.1.0 (not yet released)
 - bug #2799009 Login with ipv6 IP address breaks redirect
 - bug #2796066 [priv] Inconsistent display of databases list
+- bug #2802870 [display] Incorrect overhead value for InnoDB 
 
 3.2.0.0 (not yet released)
 - [core] better support for vendor customisation (based on what Debian needs)
