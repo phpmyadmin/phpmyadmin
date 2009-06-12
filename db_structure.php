@@ -493,6 +493,8 @@ echo '    <option value="' . $strRepairTable . '" >'
      . $strRepairTable . '</option>' . "\n";
 echo '    <option value="' . $strAnalyzeTable . '" >'
      . $strAnalyzeTable . '</option>' . "\n";
+echo '    <option value="' . $strExport . '" >'
+     . $strExport . '</option>' . "\n";
 ?>
 </select>
 <script type="text/javascript">

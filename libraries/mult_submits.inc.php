@@ -59,6 +59,11 @@ if (! empty($submit_mult)
                    $query_type = 'analyze_tbl';
                    $mult_btn   = $strYes;
                    break;
+               case $strExport:
+                   unset($submit_mult);
+                   require('db_export.php');
+                   exit;
+                   break;
            } // end switch
         }
     } elseif (isset($selected_fld) && !empty($selected_fld)) {

@@ -172,7 +172,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
             . PMA_pluginIsActive($section, $cfgname, $plugin_name) . '/>' . "\n";
         $ret .= '<label for="radio_plugin_' . $plugin_name . '">'
             . PMA_getString($val['text']) . '</label>' . "\n";
-        $ret .= '<br /><br />' . "\n";
+        $ret .= '<br />' . "\n";
     }
     return $ret;
 }

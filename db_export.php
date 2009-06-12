@@ -44,8 +44,12 @@ $multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'du
         /
         <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a><br />';
 
-$multi_values .= '<select name="table_select[]" size="6" multiple="multiple">';
+$multi_values .= '<select name="table_select[]" size="10" multiple="multiple">';
 $multi_values .= "\n";
+
+if (!empty($selected_tbl) && empty($table_select)) {
+    $table_select = $selected_tbl;
+}
 
 foreach ($tables as $each_table) {
     // ok we show also views
@@ -53,9 +57,8 @@ foreach ($tables as $each_table) {
         // Don't offer to export views yet.
     //    continue;
     //}
-    if (! empty($unselectall)
-      || (isset($tmp_select)
-           && false !== strpos($tmp_select, '|' . $each_table['Name'] . '|'))) {
+    if (! empty($unselectall) 
+            || !in_array($each_table['Name'], $table_select)) {
         $is_selected = '';
     } else {
         $is_selected = ' selected="selected"';
