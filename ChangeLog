@@ -5,7 +5,7 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
-3.2.0.0 (not yet released)
+3.2.0.0 (2009-06-15)
 - [core] better support for vendor customisation (based on what Debian needs)
 + rfe #2127987 warn when session.gc_maxlifetime is less than cookie validity
 + rfe #2100910 configurable default charset for import
@@ -69,7 +69,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Finnish update, thanks to Jouni Kahkonen
 + [lang] Hungarian update, thanks to Jozsef Tamas Herczeg - dodika 
 
-3.1.6.0 (not yet released)
+3.1.6.0 (not released)
 - bug #2785912 [doc] no ON UPDATE CURRENT_TIMESTAMP in list of attributes
 
 3.1.5.0 (2009-05-15)
