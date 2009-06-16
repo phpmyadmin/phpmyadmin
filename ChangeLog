@@ -9,7 +9,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [core] better support for vendor customisation (based on what Debian needs)
 + rfe #2127987 warn when session.gc_maxlifetime is less than cookie validity
 + rfe #2100910 configurable default charset for import
-+ rfe #1913541 link to InnoDB status when error 1005 occurs
++ rfe #1913541 link to InnoDB status when error 150 occurs
 + rfe #1927189 strip ` from column names on import
 + rfe #1821619 LeftFrameDBSeparator can be an array
 + patch #1821619 [privileges] Extra back reference when editing table-specific
