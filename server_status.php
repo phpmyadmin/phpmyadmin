@@ -423,19 +423,17 @@ echo sprintf($strServerStatusUptime,
 </p>
 
 <?php
-if ($server_master_status_run || $server_slave_status_run)
-{
-  $replicationOut = "";
-  foreach ($replication_types as $type)
-  {
-    if ($replicationOut != "")
-      $replicationOut .= $strAndSmall . ' ';
-    if (${"server_{$type}_status_run"})
-    {
-      $replicationOut .= '<b>' . $type . '</b> ';
+if ($server_master_status_run || $server_slave_status_run) {
+    $replicationOut = "";
+    foreach ($replication_types as $type) {
+        if (${"server_{$type}_status_run"}) {
+            if ($replicationOut != "") {
+                $replicationOut .= $strAndSmall . ' ';
+            }
+        $replicationOut .= '<b>' . $type . '</b> ';
+        }
     }
-  }
-  echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
+    echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
 }
 ?>
 
