@@ -653,11 +653,11 @@ unset($default_server);
 /* setup themes                                          LABEL_theme_setup    */
 
 if (isset($_REQUEST['custom_color_reset'])) {
-    unset($_SESSION['userconf']['custom_color']);
-    unset($_SESSION['userconf']['custom_color_rgb']);
+    unset($_SESSION['tmp_user_values']['custom_color']);
+    unset($_SESSION['tmp_user_values']['custom_color_rgb']);
 } elseif (isset($_REQUEST['custom_color'])) {
-    $_SESSION['userconf']['custom_color'] = $_REQUEST['custom_color'];
-    $_SESSION['userconf']['custom_color_rgb'] = $_REQUEST['custom_color_rgb'];
+    $_SESSION['tmp_user_values']['custom_color'] = $_REQUEST['custom_color'];
+    $_SESSION['tmp_user_values']['custom_color_rgb'] = $_REQUEST['custom_color_rgb'];
 }
 /**
  * @global PMA_Theme_Manager $_SESSION['PMA_Theme_Manager']
@@ -943,10 +943,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['userconf']['previous_server']) && $_SESSION['userconf']['previous_server'] != $GLOBALS['server']) {
-            unset($_SESSION['userconf']['navi_limit_offset']);
+        if (isset($_SESSION['tmp_user_values']['previous_server']) && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']) {
+            unset($_SESSION['tmp_user_values']['navi_limit_offset']);
         }
-        $_SESSION['userconf']['previous_server'] = $GLOBALS['server'];
+        $_SESSION['tmp_user_values']['previous_server'] = $GLOBALS['server'];
 
     } // end server connecting
 

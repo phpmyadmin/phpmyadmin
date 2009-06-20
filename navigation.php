@@ -63,23 +63,23 @@ function PMA_exitNavigationFrame()
 }
 
 // keep the offset of the db list in session before closing it
-if (! isset($_SESSION['userconf']['navi_limit_offset'])) {
-    $_SESSION['userconf']['navi_limit_offset'] = 0;
+if (! isset($_SESSION['tmp_user_values']['navi_limit_offset'])) {
+    $_SESSION['tmp_user_values']['navi_limit_offset'] = 0;
 }
-if (! isset($_SESSION['userconf']['table_limit_offset']) || $_SESSION['userconf']['table_limit_offset_db'] != $db) {
-    $_SESSION['userconf']['table_limit_offset'] = 0;
-    $_SESSION['userconf']['table_limit_offset_db'] = $db;
+if (! isset($_SESSION['tmp_user_values']['table_limit_offset']) || $_SESSION['tmp_user_values']['table_limit_offset_db'] != $db) {
+    $_SESSION['tmp_user_values']['table_limit_offset'] = 0;
+    $_SESSION['tmp_user_values']['table_limit_offset_db'] = $db;
 }
 if (isset($_REQUEST['pos'])) {
 	if (isset($_REQUEST['tpos'])) {
-		$_SESSION['userconf']['table_limit_offset'] = (int) $_REQUEST['pos'];
+		$_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
 	}
 	else {
-		$_SESSION['userconf']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+		$_SESSION['tmp_user_values']['navi_limit_offset'] = (int) $_REQUEST['pos'];
 	}
 }
-$pos = $_SESSION['userconf']['navi_limit_offset'];
-$tpos = $_SESSION['userconf']['table_limit_offset'];
+$pos = $_SESSION['tmp_user_values']['navi_limit_offset'];
+$tpos = $_SESSION['tmp_user_values']['table_limit_offset'];
 // free the session file, for the other frames to be loaded
 // but only if debugging is not enabled
 if (empty($_SESSION['debug'])) {
@@ -219,7 +219,7 @@ if (! $GLOBALS['server']) {
     <label for="lightm_db"><?php echo $GLOBALS['strDatabase']; ?></label>
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
-        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
         echo '<noscript>' . "\n"
             .'<input type="submit" name="Go" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             .'</noscript>' . "\n"
@@ -228,7 +228,7 @@ if (! $GLOBALS['server']) {
         if (! empty($db)) {
             echo '<div id="databaseList">' . "\n";
         }
-        echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['userconf']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
+        echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
     $_url_params = array('pos' => $pos);
     PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
@@ -336,7 +336,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     echo '</div>' . "\n";
 
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList($GLOBALS['pma']->databases->getGroupedDetails($_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['userconf']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
+    PMA_displayDbList($GLOBALS['pma']->databases->getGroupedDetails($_SESSION['tmp_user_values']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']), $_SESSION['tmp_user_values']['navi_limit_offset'],$GLOBALS['cfg']['MaxDbList']);
 }
 
 /**

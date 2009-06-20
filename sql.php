@@ -97,7 +97,7 @@ PMA_displayTable_checkConfigParams();
  */
 if (isset($find_real_end) && $find_real_end) {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true, true);
-    $_SESSION['userconf']['pos'] = @((ceil($unlim_num_rows / $_SESSION['userconf']['max_rows']) - 1) * $_SESSION['userconf']['max_rows']);
+    $_SESSION['tmp_user_values']['pos'] = @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']) - 1) * $_SESSION['tmp_user_values']['max_rows']);
 }
 
 
@@ -252,13 +252,13 @@ if ($is_select) { // see line 141
 }
 
 // Do append a "LIMIT" clause?
-if ((! $cfg['ShowAll'] || $_SESSION['userconf']['max_rows'] != 'all')
+if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
  && ! ($is_count || $is_export || $is_func || $is_analyse)
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && ! isset($analyzed_sql[0]['queryflags']['offset'])
  && empty($analyzed_sql[0]['limit_clause'])
  ) {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['userconf']['pos'] . ', ' . $_SESSION['userconf']['max_rows'] . " ";
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos'] . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
 
     $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
     /**
@@ -373,7 +373,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         $unlim_num_rows         = $num_rows;
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        //$_SESSION['userconf']['max_rows'] = 'all';
+        //$_SESSION['tmp_user_values']['max_rows'] = 'all';
     } elseif ($is_select) {
 
         //    c o u n t    q u e r y
