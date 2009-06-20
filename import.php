@@ -308,7 +308,8 @@ if ($import_file != 'none' && !$error) {
                 break;
         }
     }
-    if (!$error && $import_handle === FALSE) {
+    // use isset() because zip compression type does not use a handle
+    if (!$error && isset($import_handle) && $import_handle === FALSE) {
         $message = PMA_Message::error('strFileCouldNotBeRead');
         $error = TRUE;
     }
