@@ -28,7 +28,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
 	font-size:			0.8em;
-    background:         <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    background:         <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0.2em 0.2em 0.2em 0.2em;
@@ -108,7 +108,7 @@ button {
 
 div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
-    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
+    background-color: <?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>;
     padding:.3em;
 }
 div#pmalogo,

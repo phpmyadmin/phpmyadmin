@@ -18,7 +18,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 ********************************************************************** */
 html{font-size: <?php echo (null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>}
 body,
-body#bodyquerywindow{padding:10px;margin:0;background:<?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;color:<?php echo $GLOBALS['cfg']['MainColor'] ?>;font-family:<?php echo $GLOBALS['cfg']['FontFamily'] ?>;font-size:95%;line-height:130%}
+body#bodyquerywindow{padding:10px;margin:0;background:<?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;color:<?php echo $GLOBALS['cfg']['MainColor'] ?>;font-family:<?php echo $GLOBALS['cfg']['FontFamily'] ?>;font-size:95%;line-height:130%}
 a img{border:none}
 a:link,
 a:visited{text-decoration:none;color:#483D8B}
