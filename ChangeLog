@@ -21,6 +21,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2802870 [display] Incorrect overhead value for InnoDB 
 - bug [display] Incorrect display in replication status, 
   thanks to Tomas Srnka - tomassrnka
+- bug #1601625 [display] The Ignore checkbox is not unchecked for ENUM
 
 3.2.0.0 (2009-06-15)
 - [core] better support for vendor customisation (based on what Debian needs)
