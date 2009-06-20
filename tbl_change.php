@@ -750,11 +750,7 @@ foreach ($rows as $row_id => $vrow) {
                     echo '<input type="radio" name="field_' . $field_name_appendix_md5 . '"';
                     echo ' value="' . $enum_value['html'] . '"';
                     echo ' id="field_' . ($idindex) . '_3_'  . $j . '"';
-                    echo ' onclick="';
-                    echo "if (typeof(document.forms['insertForm'].elements['fields_null"
-                        . $field_name_appendix . "']) != 'undefined') {document.forms['insertForm'].elements['fields_null"
-                        . $field_name_appendix . "'].checked = false}";
-                    echo '"';
+                    echo $unnullify_trigger;
                     if ($data == $enum_value['plain']
                      || ($data == ''
                       && (! isset($primary_key) || $field['Null'] != 'YES')
