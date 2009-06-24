@@ -23,6 +23,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Tomas Srnka - tomassrnka
 - bug #1601625 [display] The Ignore checkbox is not unchecked for ENUM
 - bug #2809930 [setup] Notice: Undefined variable: k in setup/index.php
+- bug [features] Incorrect report of missing relational features
 
 3.2.0.0 (2009-06-15)
 - [core] better support for vendor customisation (based on what Debian needs)
