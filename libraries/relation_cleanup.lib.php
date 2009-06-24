@@ -21,7 +21,7 @@ require_once './libraries/relation.lib.php';
  * @uses PMA_getRelationsParam()
  * @uses PMA_backquote()
  * @uses PMA_sqlAddslashes()
- * @uses PMA_query_as_cu()
+ * @uses PMA_query_as_controluser()
  * @param string $db
  * @param string $table
  * @param string $column
@@ -35,7 +35,7 @@ function PMA_relationsCleanupColumn($db, $table, $column)
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                     . ' AND column_name = \'' . PMA_sqlAddslashes($column) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['displaywork']) {
@@ -43,7 +43,7 @@ function PMA_relationsCleanupColumn($db, $table, $column)
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                     . ' AND display_field = \'' . PMA_sqlAddslashes($column) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['relwork']) {
@@ -51,13 +51,13 @@ function PMA_relationsCleanupColumn($db, $table, $column)
                     . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
                     . ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
 
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
                     . ' AND foreign_field = \'' . PMA_sqlAddslashes($column) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 }
 
@@ -67,7 +67,7 @@ function PMA_relationsCleanupColumn($db, $table, $column)
  * @uses PMA_getRelationsParam()
  * @uses PMA_backquote()
  * @uses PMA_sqlAddslashes()
- * @uses PMA_query_as_cu()
+ * @uses PMA_query_as_controluser()
  * @param string $db
  * @param string $table
  */
@@ -79,40 +79,40 @@ function PMA_relationsCleanupTable($db, $table)
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['displaywork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['pdfwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['designerwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['designer_coords'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
 
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 }
 
@@ -122,7 +122,7 @@ function PMA_relationsCleanupTable($db, $table)
  * @uses PMA_getRelationsParam()
  * @uses PMA_backquote()
  * @uses PMA_sqlAddslashes()
- * @uses PMA_query_as_cu()
+ * @uses PMA_query_as_controluser()
  * @param string $db
  */
 function PMA_relationsCleanupDatabase($db)
@@ -132,45 +132,45 @@ function PMA_relationsCleanupDatabase($db)
     if ($cfgRelation['commwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['bookmarkwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['bookmark'])
                     . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['displaywork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['pdfwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
 
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 
     if ($cfgRelation['designerwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['designer_coords'])
                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
      }
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
 
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                     . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\'';
-        PMA_query_as_cu($remove_query);
+        PMA_query_as_controluser($remove_query);
     }
 }
 

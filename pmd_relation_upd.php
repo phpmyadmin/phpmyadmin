@@ -35,7 +35,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
     }
 } else {
     // internal relations
-    PMA_query_as_cu('DELETE FROM '
+    PMA_query_as_controluser('DELETE FROM '
               . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
               . $cfg['Server']['relation'].' WHERE '
               . 'master_db = \'' . PMA_sqlAddslashes($DB2) . '\''

@@ -176,7 +176,7 @@ function PMA_getMIME($db, $table, $strict = false)
  * @uses    PMA_getRelationsParam()
  * @uses    PMA_backquote()
  * @uses    PMA_sqlAddslashes()
- * @uses    PMA_query_as_cu()
+ * @uses    PMA_query_as_controluser()
  * @uses    PMA_DBI_num_rows()
  * @uses    PMA_DBI_fetch_assoc()
  * @uses    PMA_DBI_free_result()
@@ -207,7 +207,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
           WHERE `db_name`     = \'' . PMA_sqlAddslashes($db) . '\'
             AND `table_name`  = \'' . PMA_sqlAddslashes($table) . '\'
             AND `column_name` = \'' . PMA_sqlAddslashes($key) . '\'';
-    $test_rs   = PMA_query_as_cu($test_qry, true, PMA_DBI_QUERY_STORE);
+    $test_rs   = PMA_query_as_controluser($test_qry, true, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_DBI_fetch_assoc($test_rs);
@@ -242,7 +242,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     }
 
     if (isset($upd_query)){
-        return PMA_query_as_cu($upd_query);
+        return PMA_query_as_controluser($upd_query);
     } else {
         return false;
     }

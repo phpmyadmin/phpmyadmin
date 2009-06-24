@@ -82,7 +82,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
                             . '\'' . PMA_sqlAddslashes($T1) . '\','
                             . '\'' . PMA_sqlAddslashes($F1) . '\')';
 
-        if (PMA_query_as_cu($q , false, PMA_DBI_QUERY_STORE)) {
+        if (PMA_query_as_controluser($q , false, PMA_DBI_QUERY_STORE)) {
             PMD_return_new(1, 'strInternalRelationAdded');
         } else {
             PMD_return_new(0, 'strErrorRelationAdded');

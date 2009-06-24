@@ -28,11 +28,11 @@ if (isset($scale) && ! isset($createpage)) {
 
         $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number . ", ROUND(x/" . $scale . ") , ROUND(y/" . $scale . ") y FROM " . $pmd_table . " WHERE db_name = '" . $db . "'";
 
-        PMA_query_as_cu($sql,TRUE,PMA_DBI_QUERY_STORE);
+        PMA_query_as_controluser($sql,TRUE,PMA_DBI_QUERY_STORE);
     }
 
     if (isset($imp)) {
-        PMA_query_as_cu(
+        PMA_query_as_controluser(
         'UPDATE ' . $pma_table . ',' . $pmd_table .
         ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale . ',
         ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '.$scale.'
@@ -78,7 +78,7 @@ require_once './libraries/header_meta_style.inc.php';
 
       <select name="pdf_page_number">
       <?php
-      $table_info_result = PMA_query_as_cu('SELECT * FROM '.PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']).'
+      $table_info_result = PMA_query_as_controluser('SELECT * FROM '.PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']).'
                                              WHERE db_name = \''.$db.'\'');
       while($page = PMA_DBI_fetch_assoc($table_info_result))
       {

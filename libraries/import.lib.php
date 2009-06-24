@@ -119,7 +119,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         $sql_query = $import_run_buffer['sql'];
                     } elseif ($run_query) {
                         if ($controluser) {
-                            $result = PMA_query_as_cu($import_run_buffer['sql']);
+                            $result = PMA_query_as_controluser($import_run_buffer['sql']);
                         } else {
                             $result = PMA_DBI_try_query($import_run_buffer['sql']);
                         }
