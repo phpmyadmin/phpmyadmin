@@ -57,12 +57,13 @@ function PMA_getRelationsParam($verbose = false)
         $_SESSION['relation' . $GLOBALS['server']] = PMA__getRelationsParam();
     }
 
+    // just for BC but needs to be before PMA_printRelationsParamDiagnostic()
+    // which uses it
+    $GLOBALS['cfgRelation'] = $_SESSION['relation' . $GLOBALS['server']];
+
     if ($verbose) {
         PMA_printRelationsParamDiagnostic($_SESSION['relation' . $GLOBALS['server']]);
     }
-
-    // just for BC
-    $GLOBALS['cfgRelation'] = $_SESSION['relation' . $GLOBALS['server']];
 
     return $_SESSION['relation' . $GLOBALS['server']];
 }
