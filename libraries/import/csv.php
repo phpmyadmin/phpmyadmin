@@ -318,7 +318,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
 PMA_importRunQuery();
 
 if (count($values) != 0 && !$error) {
-    $message = PMA_Message::error('$strInvalidCSVFormat');
+    $message = PMA_Message::error('strInvalidCSVFormat');
     $message->addParam($line);
     $error = TRUE;
 }
