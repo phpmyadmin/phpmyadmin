@@ -183,7 +183,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                     $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                 }
                 // remove CRLF characters within field
-                if ($GLOBALS[$what . '_removeCRLF']) {
+                if (isset($GLOBALS[$what . '_removeCRLF']) && $GLOBALS[$what . '_removeCRLF']) {
                     $row[$j] = str_replace("\n", "", str_replace("\r", "", $row[$j]));
                 }
                 if ($csv_enclosed == '') {
