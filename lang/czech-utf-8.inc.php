@@ -1465,4 +1465,5 @@ $strSetupZipDump_desc = 'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 
+$strPhpArray = 'PHP array';  //to translate
 ?>

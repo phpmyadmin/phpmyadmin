@@ -14,6 +14,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to nullbarriere - nullbarriere 
 - bug [display] handle NavigationBarIconic as documented for navi buttons
 + rfe #2726479 [export] Export tables preselect
++ patch #2805828 [export] PHP array export plugin, 
+  thanks to Geoffray Warnants - amnsk
 
 3.2.1.0 (not yet released)
 - bug #2799009 Login with ipv6 IP address breaks redirect

@@ -1460,4 +1460,5 @@ $strReplicationStatusInfo = 'Este servidor de MySQL server funciona como %s en p
 $strReplicationStatus_master = 'Estado do mestre';
 $strReplicationStatus_slave = 'Estado do escravo';
 $strNavTableFilter = 'Filter';  //to translate
+$strPhpArray = 'PHP array';  //to translate
 ?>

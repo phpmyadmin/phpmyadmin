@@ -612,6 +612,7 @@ $strPerMinute = 'par minute';
 $strPerSecond = 'par seconde';
 $strPersian = 'perse';
 $strPhoneBook = 'annuaire téléphonique';
+$strPhpArray = 'Tableau PHP';
 $strPhp = 'Créer source PHP';
 $strPHPExtension = 'Extension PHP';
 $strPHPVersion = 'Version de PHP';

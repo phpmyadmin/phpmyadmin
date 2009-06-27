@@ -1459,4 +1459,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strNavTableFilter = 'Filter';  //to translate
+$strPhpArray = 'PHP array';  //to translate
 ?>

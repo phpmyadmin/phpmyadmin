@@ -1462,4 +1462,5 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poi
 $strZip = '"zip-pakattu"';
 
 $strNavTableFilter = 'Filter';  //to translate
+$strPhpArray = 'PHP array';  //to translate
 ?>

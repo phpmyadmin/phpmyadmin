@@ -1463,4 +1463,5 @@ $strYes = 'Igen';
 $strZeroRemovesTheLimit = 'Megjegyzés: Ezen beállítások 0-ra (nulla) állítása eltávolítja a korlátozást.';
 $strZip = '"zip tömörítés"';
 $strNavTableFilter = 'Filter';  //to translate
+$strPhpArray = 'PHP array';  //to translate
 ?>

@@ -1487,4 +1487,5 @@ $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b>
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
 $strNavTableFilter = 'Filter';  //to translate
+$strPhpArray = 'PHP array';  //to translate
 ?>
