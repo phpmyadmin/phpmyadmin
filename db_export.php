@@ -58,7 +58,7 @@ foreach ($tables as $each_table) {
     //    continue;
     //}
     if (! empty($unselectall) 
-            || !in_array($each_table['Name'], $table_select)) {
+            || (! empty($table_select) && !in_array($each_table['Name'], $table_select))) {
         $is_selected = '';
     } else {
         $is_selected = ' selected="selected"';
