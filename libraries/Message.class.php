@@ -183,7 +183,7 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::SUCCESS
-     * @param   string $string
+     * @param   string $string a localized string e.g. 'strSuccess'
      * @return  PMA_Message
      */
     static public function success($string = '')
@@ -203,7 +203,7 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::ERROR
-     * @param   string $string
+     * @param   string $string a localized string e.g. 'strError'
      * @return  PMA_Message
      */
     static public function error($string = '')
@@ -223,7 +223,7 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::WARNING
-     * @param   string $string
+     * @param   string $string a localized string e.g. 'strSetupWarning'
      * @return  PMA_Message
      */
     static public function warning($string)
@@ -239,7 +239,7 @@ class PMA_Message
      * @static
      * @uses    PMA_Message as returned object
      * @uses    PMA_Message::NOTICE
-     * @param   string  $string
+     * @param   string  $string a localized string e.g. 'strRelationNotWorking'
      * @return  PMA_Message
      */
     static public function notice($string)
