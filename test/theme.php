@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <link rel="stylesheet" type="text/css"
-        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $_SESSION['PMA_Config']->getMtime(); ?>" />
+        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $_SESSION['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
     <script src="../js/functions.js" type="text/javascript"></script>
@@ -270,7 +270,7 @@ echo sprintf($strWelcome,
         <tr class="odd">
             <td><input type="checkbox" id="checkbox_1" name="checkbox_1"
                     value="1" /></td>
-            <th><label for="checkbox_1">th label</label</th>
+            <th><label for="checkbox_1">th label</label></th>
             <td class="value">td.value</td>
             <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
@@ -283,7 +283,7 @@ echo sprintf($strWelcome,
         <tr class="even">
             <td><input type="checkbox" id="checkbox_2" name="checkbox_2"
                     value="1" /></td>
-            <th><label for="checkbox_2">th label</label</th>
+            <th><label for="checkbox_2">th label</label></th>
             <td class="value">td.value</td>
             <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
@@ -296,7 +296,7 @@ echo sprintf($strWelcome,
         <tr class="odd">
             <td><input type="checkbox" id="checkbox_3" name="checkbox_3"
                     value="1" /></td>
-            <th><label for="checkbox_3">th label</label</th>
+            <th><label for="checkbox_3">th label</label></th>
             <td class="value">td.value</td>
             <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
@@ -309,7 +309,7 @@ echo sprintf($strWelcome,
         <tr class="even">
             <td><input type="checkbox" id="checkbox_4" name="checkbox_4"
                     value="1" /></td>
-            <th><label for="checkbox_4">th label</label</th>
+            <th><label for="checkbox_4">th label</label></th>
             <td class="value">td.value</td>
             <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
                     width="16" height="16" alt="drop" /></td>
