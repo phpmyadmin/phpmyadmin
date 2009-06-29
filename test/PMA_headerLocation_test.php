@@ -285,15 +285,16 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
         $GLOBALS['db'] = 'test_db';
 
         $url = './navigation.php?db='.$GLOBALS['db'];
-        $write = "\n" . '<script type="text/javascript">' . "\r\n" .
-                    '//<![CDATA[' . "\r\n" .
-                    'if (typeof(window.parent) != \'undefined\'' . "\r\n" .
-                    '    && typeof(window.parent.frame_navigation) != \'undefined\'' . "\r\n" .
-                    '    && window.parent.goTo) {' . "\r\n" .
-                    '    window.parent.goTo(\'' . $url . '\');' . "\r\n" .
-                    '}' . "\r\n" .
-                    '//]]>' . "\r\n" .
-                    '</script>' . "\r\n        ";
+        $write = PHP_EOL . '<script type="text/javascript">' . PHP_EOL .
+                    '//<![CDATA[' . PHP_EOL .
+                    'if (typeof(window.parent) != \'undefined\'' . PHP_EOL .
+                    '    && typeof(window.parent.frame_navigation) != \'undefined\'' . PHP_EOL .
+                    '    && window.parent.goTo) {' . PHP_EOL .
+                    '    window.parent.goTo(\'' . $url . '\');' . PHP_EOL .
+                    '}' . PHP_EOL .
+                    '//]]>' . PHP_EOL .
+                    '</script>' . PHP_EOL . 
+                    "        ";
 
         $this->expectOutputString($write);
         PMA_reloadNavigation();
