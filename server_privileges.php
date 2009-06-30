@@ -682,7 +682,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
         . $username_length . '" title="' . $GLOBALS['strUserName'] . '"'
         . (empty($GLOBALS['username'])
             ? ''
-            : ' value="' . (isset($GLOBALS['new_username'])
+            : ' value="' . htmlspecialchars(isset($GLOBALS['new_username'])
                 ? $GLOBALS['new_username']
                 : $GLOBALS['username']) . '"')
         . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
@@ -747,7 +747,7 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '</span>' . "\n"
        . '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
-        . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
+        . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . $GLOBALS['strHost']
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . PMA_showHint($GLOBALS['strHostTableExplanation'])
