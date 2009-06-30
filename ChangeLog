@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.2.0.1 (2009-06-30)
+- [security] XSS: Insufficient output sanitizing in bookmarks 
+
 3.2.0.0 (2009-06-15)
 - [core] better support for vendor customisation (based on what Debian needs)
 + rfe #2127987 warn when session.gc_maxlifetime is less than cookie validity
