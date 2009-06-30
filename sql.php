@@ -311,7 +311,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
                 $table = '';
             }
             $active_page = $goto;
-            $message = PMA_Message::rawError($error);
+            $message = htmlspecialchars(PMA_Message::rawError($error));
             /**
              * Go to target path.
              */
