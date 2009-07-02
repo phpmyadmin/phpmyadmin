@@ -12,6 +12,12 @@
 require_once './libraries/common.inc.php';
 
 /**
+  * Load mootools for upload progress bar
+  */
+$GLOBALS['js_include'][] = 'mootools.js'; 
+
+
+/**
  * Does the common work
  */
 require './libraries/server_common.inc.php';

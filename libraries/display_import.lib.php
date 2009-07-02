@@ -14,6 +14,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
+require_once './libraries/display_import_ajax.lib.php';
 
 /* Scan for plugins */
 $import_list = PMA_getPlugins('./libraries/import/', $import_type);
@@ -25,7 +26,124 @@ if (empty($import_list)) {
 }
 ?>
 
-<form action="import.php" method="post" enctype="multipart/form-data" name="import">
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none" src="import.php"></iframe>
+<div id="import_form_status" style="display: none;"></div>
+<div id="importmain">
+<script type="text/javascript">
+<!--
+// Mootools code for handling Ajax requests
+  window.addEvent('load', function() {
+	  // webkit fix from 3rd source, but it does not work sometimes (??) --
+	  // toms
+  ////////////////////////////// {{{{{
+ Request.HTML.implement({
+  
+     processHTML: function(text) {
+         var match = text.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+         text = (match) ? match[1] : text;
+            
+         var container = new Element('div');
+            
+         return $try(function(){
+         var root = '<root>' + text + '</root>', doc;
+             doc = new DOMParser().parseFromString(root, 'text/html');
+             root = doc.getElementsByTagName('root')[0];
+             for (var i = 0, k = root.childNodes.length; i < k; i++){
+                 var child = Element.clone(root.childNodes[i], true, true);
+                 if (child) container.grab(child);
+             }
+             return container;
+         }) || container.set('html', text);
+     }
+    
+ });
+  ////////////////////////// }}}}}
+  // add event when user click on "Go" button
+  $('buttonGo').addEvent('click', function() {
+<?php
+    if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+?>
+      $('upload_form_status').set('html', '<div class="upload_progress_bar_outer"><div id="status" class="upload_progress_bar_inner"></div></div>'); // add the progress bar
+<?php
+    }  
+?>	
+    $('upload_form_form').setStyle("display", "none"); // hide form
+    $('upload_form_status').setStyle("display", "inline"); // show progress bar
+    $('upload_form_status_info').setStyle("display", "inline"); // - || -
+    
+    var finished = false;
+    var percent  = 0.0;
+    var total    = 0;
+    var complete = 0;
+    
+    var perform_upload;
+    var periodical_upload;
+
+    var request_upload = new Request({
+      url: 'import_status.php?id=<?php echo $upload_id ; ?>&<?php echo PMA_generate_common_url(); ?>', // the "&" is causing problems for webkit browsers
+      method: 'get',
+      update: 'upload_form_status',
+      onComplete: function(response) {
+	objectsReturned = JSON.decode(response);
+	
+	$each(objectsReturned, function(item, index) {
+					    
+	  if (index=="finished") {
+	    finished = item;
+	    if (finished==true) {
+	      $clear(periodical_upload);
+	      $('importmain').setStyle('display', 'none');
+	      $('import_form_status').setStyle('display', 'inline');
+	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
+	      $('import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
+	      <?php  
+		// reload the left sidebar when the import is finished
+		$GLOBALS['reload']=true; 
+		PMA_reloadNavigation(true); 
+	      ?>
+	    } // if [finished==item]
+	  } // if [index==finished]    
+	  if (index=="percent")
+	    percent = item;
+
+	  if (index=="total")
+	    total = item;
+	  if (index=="complete")
+	    complete = item;			    
+	}); // [$each]
+	<?php
+	if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+	?>
+	 if (total==0 && complete==0 && percent==0) {
+	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportLargeFileUploading; ?>');
+	  $('upload_form_status').setStyle("display", "none");
+	 } else {
+	  $('upload_form_status_info').set('html', ' '+Math.round(percent)+'%, '+complete+'/'+total);
+	  $('status').tween('width', Math.round(percent)*2+'px');
+	 } //[else]
+	<?php
+	} else {
+	?>
+	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable; ?>');
+	  $('upload_form_status').setStyle("display", "none");
+	<?php
+	} //[else]
+	?> 
+      } //[onComplete]
+    }); // [request]
+    perform_upload = function () { 
+      request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...) 
+    }
+    periodical_upload = perform_upload.periodical(1000);
+  }); // if [buttonGo]
+}); // if [load]
+  document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import" <?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo 'target="import_upload_iframe"'; ?>>');
+-->
+</script>
+<noscript>
+  <form action="import.php" method="post" enctype="multipart/form-data" name="import">
+</noscript>
+<input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" /> 
 <?php
 if ($import_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
@@ -34,16 +152,21 @@ if ($import_type == 'server') {
 } else {
     echo PMA_generate_common_hidden_inputs($db, $table, 1);
 }
-echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />';
+echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />'."\n";
 echo PMA_pluginGetJavascript($import_list);
 ?>
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
 
 <?php
+
 if ($GLOBALS['is_upload']) {
+    $uid = uniqid("");
     ?>
-        <div class="formelementrow">
+        <div class="formelementrow" id="upload_form">
+	<div id="upload_form_status" style="display: none;"></div>
+	<div id="upload_form_status_info" style="display: none;"></div>
+	<div id="upload_form_form">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
     <?php
@@ -52,6 +175,7 @@ if ($GLOBALS['is_upload']) {
     echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
     ?>
         </div>
+	</div>
     <?php
 } else {
     PMA_Message::warning('strUploadsNotAllowed')->display();
@@ -185,6 +309,7 @@ echo "\n";
         <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
     </fieldset>
 </form>
+</div>
 <script type="text/javascript">
 //<![CDATA[
     init_options();

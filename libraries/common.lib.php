@@ -540,6 +540,8 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
      */
     require_once './libraries/header.inc.php';
 
+    $error_msg_output = '';
+
     if (!$error_message) {
         $error_message = PMA_DBI_getError();
     }
@@ -562,8 +564,8 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         }
     }
     // ---
-    echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-    echo '    <div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+    $error_msg_output .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
+    $error_msg_output .= '    <div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
     // if the config password is wrong, or the MySQL server does not
     // respond, do not show the query that would reveal the
     // username/password
@@ -572,14 +574,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         // Robbat2 - 12 January 2003, 9:46PM
         // Revised, Robbat2 - 13 January 2003, 2:59PM
         if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
-            echo PMA_SQP_getErrorString() . "\n";
-            echo '<br />' . "\n";
+            $error_msg_output .= PMA_SQP_getErrorString() . "\n";
+            $error_msg_output .= '<br />' . "\n";
         }
         // ---
         // modified to show me the help on sql errors (Michael Keck)
-        echo '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
+        $error_msg_output .= '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
         if (strstr(strtolower($formatted_sql), 'select')) { // please show me help to the error on select
-            echo PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
+            $error_msg_output .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
         }
         if ($is_modify_link) {
             $_url_params = array(
@@ -597,11 +599,11 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
                 $doedit_goto = '<a href="server_sql.php?' . PMA_generate_common_url($_url_params) . '">';
             }
 
-            echo $doedit_goto
+            $error_msg_output .= $doedit_goto
                . PMA_getIcon('b_edit.png', $GLOBALS['strEdit'])
                . '</a>';
         } // end if
-        echo '    </p>' . "\n"
+        $error_msg_output .= '    </p>' . "\n"
             .'    <p>' . "\n"
             .'        ' . $formatted_sql . "\n"
             .'    </p>' . "\n";
@@ -615,7 +617,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     }
     // modified to show me the help on error-returns (Michael Keck)
     // (now error-messages-server)
-    echo '<p>' . "\n"
+    $error_msg_output .= '<p>' . "\n"
             . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
             . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
             . "\n"
@@ -631,10 +633,12 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     // Replace linebreaks
     $error_message = nl2br($error_message);
 
-    echo '<code>' . "\n"
+    $error_msg_output .= '<code>' . "\n"
         . $error_message . "\n"
         . '</code><br />' . "\n";
-    echo '</div>';
+    $error_msg_output .= '</div>';
+
+    $_SESSION['Import_message']['message'] = $error_msg_output;
 
     if ($exit) {
         if (! empty($back_url)) {
@@ -643,13 +647,19 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             } else {
                 $back_url .= '?no_history=true';
             }
-            echo '<fieldset class="tblFooters">';
-            echo '[ <a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a> ]';
-            echo '</fieldset>' . "\n\n";
+	    
+	     $_SESSION['Import_message']['go_back_url'] = $back_url;
+	    
+            $error_msg_output .= '<fieldset class="tblFooters">';
+            $error_msg_output .= '[ <a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a> ]';
+            $error_msg_output .= '</fieldset>' . "\n\n";
         }
+    
+    echo $error_msg_output;
         /**
          * display footer and exit
          */
+	
         require_once './libraries/footer.inc.php';
     }
 } // end of the 'PMA_mysqlDie()' function
@@ -940,6 +950,7 @@ function PMA_whichCrlf()
 /**
  * Reloads navigation if needed.
  *
+ * @param   $jsonly prints out pure JavaScript
  * @uses    $GLOBALS['reload']
  * @uses    $GLOBALS['db']
  * @uses    PMA_generate_common_url()
@@ -947,7 +958,7 @@ function PMA_whichCrlf()
  *
  * @access  public
  */
-function PMA_reloadNavigation()
+function PMA_reloadNavigation($jsonly=false)
 {
     global $cfg;
 
@@ -960,8 +971,9 @@ function PMA_reloadNavigation()
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
-        ?>
-<script type="text/javascript">
+	if (!$jsonly)
+	  echo '<script type="text/javascript">'."\n";
+	?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frame_navigation) != 'undefined'
@@ -969,8 +981,10 @@ if (typeof(window.parent) != 'undefined'
     window.parent.goTo('<?php echo $reload_url; ?>');
 }
 //]]>
-</script>
-        <?php
+<?php
+if (!$jsonly)
+  echo '</script>'."\n";
+        
         unset($GLOBALS['reload']);
     }
 }

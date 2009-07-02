@@ -12,8 +12,12 @@
  * Get the variables sent or posted to this script and a core script
  */
 require_once './libraries/common.inc.php';
+//require_once './libraries/display_import_functions.lib.php';
 $GLOBALS['js_include'][] = 'functions.js';
 
+// reset import messages for ajax request
+$_SESSION['Import_message']['message'] = null;
+$_SESSION['Import_message']['go_back_url'] = null;
 // default values
 $GLOBALS['reload'] = false;
 
@@ -50,11 +54,17 @@ if (!empty($sql_query)) {
 
 // If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
+;
 if ($_POST == array() && $_GET == array()) {
     require_once './libraries/header.inc.php';
     $message = PMA_Message::error('strUploadLimit');
     $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
     $message->addParam('[/a]');
+
+    // so we can obtain the message
+    $_SESSION['Import_message']['message'] = $message->getDisplay();
+    $_SESSION['Import_message']['go_back_url'] = $goto;
+
     $message->display();
     require './libraries/footer.inc.php';
 }
@@ -71,12 +81,15 @@ require_once './libraries/import.lib.php';
 // Create error and goto url
 if ($import_type == 'table') {
     $err_url = 'tbl_import.php?' . PMA_generate_common_url($db, $table);
+    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
     $err_url = 'db_import.php?' . PMA_generate_common_url($db);
+    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
     $err_url = 'server_import.php?' . PMA_generate_common_url();
+    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
@@ -98,6 +111,7 @@ if ($import_type == 'table') {
     $err_url  = $goto
               . '?' . $common
               . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
+    $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
 
 
@@ -230,6 +244,7 @@ if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
 }
 
 // Do we have file to import?
+
 if ($import_file != 'none' && !$error) {
     // work around open_basedir and other limitations
     $open_basedir = @ini_get('open_basedir');
@@ -243,11 +258,15 @@ if ($import_file != 'none' && !$error) {
         $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
 
         if (is_writable($tmp_subdir)) {
+	    
+ 
             $import_file_new = $tmp_subdir . basename($import_file);
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
             }
+	    
+	    $size = filesize($import_file);
         }
     }
 
@@ -319,6 +338,9 @@ if ($import_file != 'none' && !$error) {
         $error = TRUE;
     }
 }
+
+// so we can obtain the message
+//$_SESSION['Import_message'] = $message->getDisplay();
 
 // Convert the file's charset if necessary
 if ($cfg['AllowAnywhereRecoding'] && isset($charset_of_file)) {
@@ -396,6 +418,11 @@ if ($timeout_passed) {
     }
 }
 
+// if there is any message, copy it into $_SESSION as well, so we can obtain it by AJAX call
+if (isset($message)) {
+  $_SESSION['Import_message']['message'] = $message->getDisplay();
+//  $_SESSION['Import_message']['go_back_url'] = $goto.'?'.  PMA_generate_common_url();
+}
 // Parse and analyze the query, for correct db and table name
 // in case of a query typed in the query window
 require_once './libraries/parse_analyze.lib.php';

@@ -1178,3 +1178,20 @@ code.sql {
     border-bottom:      0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     margin-bottom:      0.3em;
 }
+
+/**
+  *  Progress bar styles
+  */
+div.upload_progress_bar_outer
+{
+    border: 1px solid black; 
+    width: 202px;
+}
+
+div.upload_progress_bar_inner
+{
+    background-color: <?php echo (isset($_SESSION['userconf']['custom_color']) ? $_SESSION['userconf']['custom_color'] : $GLOBALS['cfg']['NaviBackground']); ?>; 
+    width: 0px; 
+    height: 12px; 
+    margin: 1px;
+}

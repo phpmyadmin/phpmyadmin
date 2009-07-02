@@ -1466,4 +1466,7 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 
 $strPhpArray = 'PHP array';  //to translate
+$strImportLargeFileUploading = 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.';  //to translate
+$strImportProceedingFile = 'The file is being processed, please be patient.';  //to translate
+$strImportUploadInfoNotAvailable = 'Please be patient, the file is being uploaded. Details about the upload are not available.';  //to translate
 ?>

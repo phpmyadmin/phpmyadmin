@@ -1460,4 +1460,7 @@ $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
 $strNavTableFilter = 'Filter';  //to translate
 $strPhpArray = 'PHP array';  //to translate
+$strImportLargeFileUploading = 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.';  //to translate
+$strImportProceedingFile = 'The file is being processed, please be patient.';  //to translate
+$strImportUploadInfoNotAvailable = 'Please be patient, the file is being uploaded. Details about the upload are not available.';  //to translate
 ?>
