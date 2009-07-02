@@ -14,7 +14,7 @@ header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Sat, 11 Jan 1991 06:30:00 GMT"); // Date in the past
 
 // $GLOBALS["message"] is used for asking for an import message
-if ($GLOBALS["message"]) {
+if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
 
   header('Content-type: text/html');
 
