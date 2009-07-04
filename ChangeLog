@@ -16,6 +16,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [features] Incorrect report of missing relational features 
 - [security] XSS: Insufficient output sanitizing (not exploitable without a valid token)
   thanks to Sven Vetsch/Disenchant for informing us in a responsible manner
+- bug #2634827 [import] Using DELIMITER produces infinite cycle
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 

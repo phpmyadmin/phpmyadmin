@@ -61,6 +61,8 @@ $start_pos = 0;
 $i = 0;
 $len= 0;
 $big_value = 2147483647;
+$delimiter_keyword = 'DELIMITER '; // include the space because it's mandatory
+$length_of_delimiter_keyword = strlen($delimiter_keyword);
 
 if (isset($_POST['sql_delimiter'])) {
     $sql_delimiter = $_POST['sql_delimiter'];
@@ -116,7 +118,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
         $old_i = $i;
         // this is about 7 times faster that looking for each sequence i
         // one by one with strpos()
-        if (preg_match('/(\'|"|#|-- |\/\*|`|(?i)DELIMITER)/', $buffer, $matches, PREG_OFFSET_CAPTURE, $i)) {
+        if (preg_match('/(\'|"|#|-- |\/\*|`|(?i)' . $delimiter_keyword . ')/', $buffer, $matches, PREG_OFFSET_CAPTURE, $i)) {
             // in $matches, index 0 contains the match for the complete
             // expression but we don't use it
             $first_position = $matches[1][1];
@@ -219,6 +221,8 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             }
             // Skip the rest
             $j = $i;
+            // do not use PHP_EOL here instead of "\n", because the export 
+            // file might have been produced on a different system
             $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
             // didn't we hit end of string?
             if ($i === FALSE) {
@@ -255,12 +259,16 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             }
         }
         // Change delimiter, if redefined, and skip it (don't send to server!)
-        if (strtoupper(substr($buffer, $i, 9)) == "DELIMITER"
-         && ($buffer[$i + 9] <= ' ')
-         && ($i < $len - 11)
-         && strpos($buffer, "\n", $i + 11) !== FALSE) {
-           $new_line_pos = strpos($buffer, "\n", $i + 10);
-           $sql_delimiter = substr($buffer, $i + 10, $new_line_pos - $i - 10);
+        if (strtoupper(substr($buffer, $i, $length_of_delimiter_keyword)) == $delimiter_keyword
+         && ($i + $length_of_delimiter_keyword < $len)) {
+             // look for EOL on the character immediately after 'DELIMITER '
+             // (see previous comment about PHP_EOL)
+           $new_line_pos = strpos($buffer, "\n", $i + $length_of_delimiter_keyword);
+           // it might happen that there is no EOL
+           if (FALSE === $new_line_pos) {
+               $new_line_pos = $len;
+           }
+           $sql_delimiter = substr($buffer, $i + $length_of_delimiter_keyword, $new_line_pos - $i - $length_of_delimiter_keyword);
            $i = $new_line_pos + 1;
            // Next query part will start here
            $start_pos = $i;
