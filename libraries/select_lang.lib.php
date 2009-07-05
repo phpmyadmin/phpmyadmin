@@ -244,6 +244,8 @@ function PMA_langList()
         'tr-utf-8'    => array('tr|turkish', 'turkish-utf-8', 'tr', 'T&uuml;rk&ccedil;e'),
         'tt-utf-8'    => array('tt|tatarish', 'tatarish-utf-8', 'tt', 'Tatar&ccedil;a'),
         'uk-utf-8'    => array('uk|ukrainian', 'ukrainian-utf-8', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;'),
+        'uzlat-utf-8' => array('uz[-_]lat|uzbek-latin', 'uzbek_latin-utf-8', 'uz-lat', 'O&lsquo;zbekcha'),
+        'uzcyr-utf-8' => array('uz[-_]cyr|uzbek-cyrillic', 'uzbek_cyrillic-utf-8', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;'),
         'zhtw-utf-8'  => array('zh[-_](tw|hk)|chinese traditional', 'chinese_traditional-utf-8', 'zh-TW', '&#20013;&#25991;'),
         'zh-utf-8'    => array('zh|chinese simplified', 'chinese_simplified-utf-8', 'zh', '&#20013;&#25991;'),
     );
