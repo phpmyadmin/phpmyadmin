@@ -1223,7 +1223,7 @@ if (isset($_REQUEST['change_pw'])) {
 
 if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) {
     if (isset($_REQUEST['change_copy'])) {
-        $selected_usr = array($old_username . chr(27) . $old_hostname);
+        $selected_usr = array($old_username . '&amp;#27;' . $old_hostname);
     } else {
         $selected_usr = $_REQUEST['selected_usr'];
         $queries = array();
