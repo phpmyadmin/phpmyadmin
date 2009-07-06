@@ -338,8 +338,11 @@ else {
     } else {
         $param = PMA_backquote($param);
         $sql_query .= implode(', ', $param);
-        unset($param);
     } // end if
+
+    // avoid a loop, for example when $cfg['DefaultTabTable'] is set 
+    // to 'tbl_select.php'
+    unset($param);
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
 
