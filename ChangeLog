@@ -32,6 +32,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Sven Vetsch/Disenchant for informing us in a responsible manner 
 - bug #2634827 [import] Using DELIMITER produces infinite cycle
 + new language files: uzbek_cyrillic and urbek_latin
+- bug #2814109 [search] Right frame is blank 
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 
