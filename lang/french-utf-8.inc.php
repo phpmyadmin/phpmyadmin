@@ -378,7 +378,10 @@ $strImportExportCoords = 'Importer/Exporter les coordonnées pour le schéma PDF
 $strImportFiles = 'Importe les fichiers';
 $strImportFormat = 'Format du fichier d\'importation';
 $strImport = 'Importer';
+$strImportLargeFileUploading = 'Le fichier téléchargé est probablement plus grand que le maximum alloué, ou bien il s\'agit d\'une anomalie connue dans les navigateurs basés sur webkit (Safari, Google Chrome, Arora, etc)';
+$strImportProceedingFile = 'Le fichier est en traitement, veuillez patienter.';
 $strImportSuccessfullyFinished = 'L\'importation s\'est terminée avec succès, %d requêtes exécutées.';
+$strImportUploadInfoNotAvailable = 'Veuillez patienter, le fichier est téléchargé; les détails sur le chargement ne sont pas disponibles.';
 $strIndexes = 'Index';
 $strIndexesSeemEqual = 'Les index %1$s et %2$s semblent identiques et l\'un d\'eux pourrait être supprimé.'; 
 $strIndexHasBeenDropped = 'L\'index %s a été effacé';
@@ -1459,7 +1462,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strImportLargeFileUploading = 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.';  //to translate
-$strImportProceedingFile = 'The file is being processed, please be patient.';  //to translate
-$strImportUploadInfoNotAvailable = 'Please be patient, the file is being uploaded. Details about the upload are not available.';  //to translate
 ?>
