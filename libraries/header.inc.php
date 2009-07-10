@@ -19,7 +19,6 @@ if (empty($GLOBALS['is_header_sent'])) {
     /**
      * Gets a core script and starts output buffering work
      */
-    require_once './libraries/common.inc.php';
     require_once './libraries/ob.lib.php';
     PMA_outBufferPre();
 
