@@ -343,6 +343,10 @@ if (! empty($GLOBALS['sql_query'])) {
     $return_to_sql_query = $GLOBALS['sql_query'];
 }
 $GLOBALS['sql_query'] = implode('; ', $query) . ';';
+// to ensure that the query is displayed in case of 
+// "insert as new row" and then "insert another new row"
+$GLOBALS['display_query'] = $GLOBALS['sql_query'];
+
 $total_affected_rows = 0;
 $last_messages = array();
 $warning_messages = array();
