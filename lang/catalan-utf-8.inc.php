@@ -1036,7 +1036,7 @@ $strSetupServers_controluser_desc = 'Usuari MySQL especial configurat amb permis
 $strSetupServers_controluser_name = 'Usuari de control';
 $strSetupServers_CountTables_desc = 'Comptar les taules al mostrar la llista de bases de dades';
 $strSetupServers_CountTables_name = 'Comptar les taules';
-$strSetupServers_designer_coords_desc = 'Deixa en blanc per desactivar el suport del Dissenyador, predeterminat: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Deixa en blanc per desactivar el suport del Dissenyador, predeterminat: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Taula del Dissenyador';
 $strSetupServers_DisableIS_desc = 'Més informació a [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] i [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';
 $strSetupServers_DisableIS_name = 'Desactiva l\'ús d\'INFORMATION_SCHEMA';

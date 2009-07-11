@@ -1046,7 +1046,7 @@ $strSetupServers_controluser_desc = 'Чекланган ҳуқуқларга э�
 $strSetupServers_controluser_name = 'Назорат фойдаланувчиси';
 $strSetupServers_CountTables_desc = 'Маълумотлар базалари рўйхати кўрсатилганда жадвалларни санаш';
 $strSetupServers_CountTables_name = 'Жадвалларни санаш';
-$strSetupServers_designer_coords_desc = 'Дизайнер ишлатмаслик учун бўш қолдиринг, асл қиймати: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Дизайнер ишлатмаслик учун бўш қолдиринг, асл қиймати: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Дизайнер жадвали';
 $strSetupServers_DisableIS_desc = 'Кўпроқ маълумот учун [a@http://sf.net/support/tracker.php?aid=1849494]"PMA bug tracker"[/a] ва [a@http://bugs.mysql.com/19588]"MySQL Bugs"[/a]ларга қаранг';
 $strSetupServers_DisableIS_name = 'INFORMATION_SCHEMA ишлатишни ўчириш';

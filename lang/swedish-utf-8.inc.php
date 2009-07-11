@@ -1039,7 +1039,7 @@ $strSetupServers_controluser_desc = 'En speciell MySQL-användare konfigurerad m
 $strSetupServers_controluser_name = 'Kontrollanvändare';
 $strSetupServers_CountTables_desc = 'Räkna tabeller vid visning av databaslista';
 $strSetupServers_CountTables_name = 'Räkna tabeller';
-$strSetupServers_designer_coords_desc = 'Lämna tomt för inget stöd för Designer, standard: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Lämna tomt för inget stöd för Designer, standard: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Tabell för Designer';
 $strSetupServers_DisableIS_desc = 'Mer information på [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] och [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';
 $strSetupServers_DisableIS_name = 'Inaktivera användning av INFORMATION_SCHEMA';

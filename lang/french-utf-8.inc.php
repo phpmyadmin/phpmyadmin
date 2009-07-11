@@ -1043,7 +1043,7 @@ $strSetupServers_controluser_desc = 'Un compte MySQL spécial avec des permissio
 $strSetupServers_controluser_name = 'Utilisateur de contrôle';
 $strSetupServers_CountTables_desc = 'Comptage du nombre de tables en montrant la liste des bases de données';
 $strSetupServers_CountTables_name = 'Comptage des tables';
-$strSetupServers_designer_coords_desc = 'Laisser vider pour désactiver, par défaut : [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Laisser vider pour désactiver, par défaut : [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Table pour "concepteur"';
 $strSetupServers_DisableIS_desc = 'Voir [a@http://sf.net/support/tracker.php?aid=1849494]ce bogue phpMyAdmin[/a] et [a@http://bugs.mysql.com/19588]ce bogue MySQL[/a]';
 $strSetupServers_DisableIS_name = 'Empêcher l\'accès à INFORMATION_SCHEMA';

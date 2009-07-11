@@ -1042,7 +1042,7 @@ $strSetupServers_controluser_desc = 'Erityinen MySQL-käyttäjä, jolle on mää
 $strSetupServers_controluser_name = 'Hallintakäyttäjä';
 $strSetupServers_CountTables_desc = 'Laske taulujen määrä, kun tietokantaluettelo näytetään';
 $strSetupServers_CountTables_name = 'Laske taulujen määrä';
-$strSetupServers_designer_coords_desc = 'Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Jätä tyhjäksi, jos et halua Suunnittelija-taulua; oletusarvo: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Suunnittelija-taulu';
 $strSetupServers_DisableIS_desc = 'Lisätietoja [a@http://sf.net/support/tracker.php?aid=1849494]PMA:n virheenjäljittimestä[/a] ja [a@http://bugs.mysql.com/19588]MySQL:n ohjelmavirheistä[/a]';
 $strSetupServers_DisableIS_name = 'Poista INFORMATION_SCHEMA käytöstä';
