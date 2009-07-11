@@ -1046,7 +1046,7 @@ $strSetupServers_controluser_desc = 'Een speciale MySQL gebruiker met beperkte r
 $strSetupServers_controluser_name = 'Controle gebruiker';
 $strSetupServers_CountTables_desc = 'Tel het aantal tabellen bij het weergeven van een database lijst';
 $strSetupServers_CountTables_name = 'Tel tabellen';
-$strSetupServers_designer_coords_desc = 'Laat dit veld leeg om de Designer niet te gebruiken, standaard: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Laat dit veld leeg om de Designer niet te gebruiken, standaard: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Designer tabel';
 $strSetupServers_DisableIS_desc = 'Zie voor meer informatie: [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';
 $strSetupServers_DisableIS_name = 'Maak geen gebruik van INFORMATION_SCHEMA';

@@ -1353,7 +1353,7 @@ $strSetuperror_empty_signon_url = 'Empty signon URL while using signon authentic
 $strSetupForm_Server_login_options_desc = 'Enter login options for signon authentication';  //to translate
 $strSetupServerNoPasswordMsg = 'You allow for connecting to the server without a password.';  //to translate
 $strSetupServers_AllowNoPassword_name = 'Allow logins without a password';  //to translate
-$strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, default: [kbd]designer_coords[/kbd]';  //to translate
+$strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, default: [kbd]pma_designer_coords[/kbd]';  //to translate
 $strSetupServers_designer_coords_name = 'Designer table';  //to translate
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
 $strSetupServersEdit = 'Edit server';  //to translate

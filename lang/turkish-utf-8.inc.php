@@ -1030,7 +1030,7 @@ $strSetupServers_controluser_desc = 'Sınırlı yetkilerle yapılandırılmış 
 $strSetupServers_controluser_name = 'Denetim kullanıcısı';
 $strSetupServers_CountTables_desc = 'Veritabanı listesini gösterirken tabloları sayar';
 $strSetupServers_CountTables_name = 'Tabloları say';
-$strSetupServers_designer_coords_desc = 'Tasarımcı desteği istenmiyorsa boş bırakın, varsayılan: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Tasarımcı desteği istenmiyorsa boş bırakın, varsayılan: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Tasarımcı tablosu';
 $strSetupServers_DisableIS_desc = '[a@http://sf.net/support/tracker.php?aid=1849494]PMA hata izleyici[/a] ve [a@http://bugs.mysql.com/19588]MySQL Hataları[/a] üzerine daha fazla bilgi';
 $strSetupServers_DisableIS_name = 'INFORMATION_SCHEMA kullanımı etkisiz';

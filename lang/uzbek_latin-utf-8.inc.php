@@ -1041,7 +1041,7 @@ $strSetupServers_controluser_desc = 'Cheklangan huquqlarga ega bo‘lgan maxsus 
 $strSetupServers_controluser_name = 'Nazorat foydalanuvchisi';
 $strSetupServers_CountTables_desc = 'Ma`lumotlar bazalari ro‘yxati ko‘rsatilganda jadvallarni sanash';
 $strSetupServers_CountTables_name = 'Jadvallarni sanash';
-$strSetupServers_designer_coords_desc = 'Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = 'Dizayner ishlatmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = 'Dizayner jadvali';
 $strSetupServers_DisableIS_desc = 'Ko‘proq ma`lumot uchun [a@http://sf.net/support/tracker.php?aid=1849494]"PMA bug tracker"[/a] va [a@http://bugs.mysql.com/19588]"MySQL Bugs"[/a]larga qarang';
 $strSetupServers_DisableIS_name = 'INFORMATION_SCHEMA ishlatishni o‘chirish';

@@ -1049,7 +1049,7 @@ $strSetupServers_controluser_desc = '一个特殊的被限制权限的 MySQL 用
 $strSetupServers_controluser_name = '控制用户';
 $strSetupServers_CountTables_desc = '显示数据库列表时计算数据表的数量';
 $strSetupServers_CountTables_name = '统计数据表';
-$strSetupServers_designer_coords_desc = '不使用设计功能请留空，默认：[kbd]designer_coords[/kbd]';
+$strSetupServers_designer_coords_desc = '不使用设计功能请留空，默认：[kbd]pma_designer_coords[/kbd]';
 $strSetupServers_designer_coords_name = '设计表';
 $strSetupServers_DisableIS_desc = '参见 [a@http://sf.net/support/tracker.php?aid=1849494]PMA 缺陷 (bug) 跟踪系统 (外链，英文)[/a] 和 [a@http://bugs.mysql.com/19588]MySQL 缺陷 (Bugs) (外链，英文)[/a]';
 $strSetupServers_DisableIS_name = '禁止使用 INFORMATION_SCHEMA';

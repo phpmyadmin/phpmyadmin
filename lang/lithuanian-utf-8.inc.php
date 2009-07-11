@@ -1197,7 +1197,7 @@ $strSetupServers_controluser_desc = 'A special MySQL user configured with limite
 $strSetupServers_controluser_name = 'Control user';  //to translate
 $strSetupServers_CountTables_desc = 'Count tables when showing database list';  //to translate
 $strSetupServers_CountTables_name = 'Count tables';  //to translate
-$strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, default: [kbd]designer_coords[/kbd]';  //to translate
+$strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, default: [kbd]pma_designer_coords[/kbd]';  //to translate
 $strSetupServers_designer_coords_name = 'Designer table';  //to translate
 $strSetupServers_DisableIS_desc = 'More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]';  //to translate
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
