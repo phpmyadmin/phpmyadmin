@@ -18,6 +18,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Geoffray Warnants - amnsk
 + patch #2798592 [import] Progress bar, 
   thanks to Tomas Srnka - tomassrnka
+- bug [gui] Generate Password not working for 'Change Login Information', only for 'Change password'
 
 3.2.1.0 (not yet released)
 - bug #2799009 Login with ipv6 IP address breaks redirect
