@@ -241,9 +241,7 @@ foreach ($loop_array as $rowcount => $primary_key) {
 		}
 
 		// checks if this field requires a bs reference attached to it
-		$requires_bs_reference = isset($upload_blob_repo);
-
-		if ($requires_bs_reference)
+		if (isset($upload_blob_repo))
 		{
 			// get the most recent BLOB reference
 			$bs_reference = PMA_File::getRecentBLOBReference();
@@ -362,9 +360,10 @@ foreach ($query as $single_query) {
     if (! $result) {
         $error_messages[] = PMA_DBI_getError();
     } else {
-        if (@PMA_DBI_affected_rows()) {
-            $total_affected_rows += @PMA_DBI_affected_rows();
+        if ($tmp = @PMA_DBI_affected_rows()) {
+            $total_affected_rows += $tmp;
         }
+        unset($tmp);
 
         $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {
