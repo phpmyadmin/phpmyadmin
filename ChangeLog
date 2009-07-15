@@ -39,6 +39,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2816165 [display] Executed query not always displayed
 - bug #2819944 [setup] Incorrect mention of designer_coords
 - bug #2821757 [insert] "Insert another new row" no longer worked 
++ [lang] Norwegian update, thanks to Sven-Erik Andersen 
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 
