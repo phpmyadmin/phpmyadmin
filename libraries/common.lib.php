@@ -972,7 +972,7 @@ function PMA_reloadNavigation($jsonly=false)
         echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
 	if (!$jsonly)
-	  echo '<script type="text/javascript">'."\n";
+	  echo '<script type="text/javascript">' . PHP_EOL;
 	?>
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
@@ -983,7 +983,7 @@ if (typeof(window.parent) != 'undefined'
 //]]>
 <?php
 if (!$jsonly)
-  echo '</script>'."\n";
+  echo '</script>' . PHP_EOL;
         
         unset($GLOBALS['reload']);
     }
