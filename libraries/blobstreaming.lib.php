@@ -218,6 +218,8 @@ EOD;
 function checkBLOBStreamableDatabases()
 {
     // load PMA configuration
+    // (remember that $PMA_Config points to the object in $_SESSION,
+    //  therefore changes done with ->set are really done in the session)
     $PMA_Config = $_SESSION['PMA_Config'];
 
     // return if unable to load PMA configuration
