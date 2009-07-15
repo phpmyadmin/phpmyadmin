@@ -420,6 +420,16 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools.js';
 
 $active_page = $goto_include;
+
+/**
+ * If user asked for "and then Insert another new row" we have to remove
+ * primary key information so that tbl_change.php does not go back
+ * to the current record
+ */
+if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
+        unset($_REQUEST['primary_key']);
+}
+
 /**
  * Load header.
  */
