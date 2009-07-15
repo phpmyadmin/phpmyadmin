@@ -293,8 +293,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
                     '    window.parent.goTo(\'' . $url . '\');' . PHP_EOL .
                     '}' . PHP_EOL .
                     '//]]>' . PHP_EOL .
-                    '</script>' . PHP_EOL . 
-                    "        ";
+                    '</script>' . PHP_EOL;
 
         $this->expectOutputString($write);
         PMA_reloadNavigation();
