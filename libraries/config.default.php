@@ -2473,7 +2473,7 @@ $cfg['ColumnTypes'] = array(
         'REAL',
         '-',
         'BIT',
-        'BOOL',
+        'BOOLEAN',
         'SERIAL',
     ),
 
@@ -2629,7 +2629,7 @@ if ($cfg['ShowFunctionFields']) {
         'DOUBLE'    => 'FUNC_NUMBER',
         'REAL'      => 'FUNC_NUMBER',
         'BIT'       => 'FUNC_NUMBER',
-        'BOOL'      => 'FUNC_NUMBER',
+        'BOOLEAN'   => 'FUNC_NUMBER',
         'SERIAL'    => 'FUNC_NUMBER',
 
         'DATE'      => 'FUNC_DATE',
