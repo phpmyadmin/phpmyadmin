@@ -1,8 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @author	    Raj Kissu Rajandran
- * @version     1.0
+ * @author	Raj Kissu Rajandran and the team
  * @package     BLOBStreaming
  */
 
@@ -13,7 +12,6 @@
  * @uses    PMA_Config::get()
  * @uses    PMA_Config::settings()
  * @uses    PMA_Config::set()
- * @uses    PMA_PluginsExist()
  * @uses    PMA_BS_SetVariables()
  * @uses    PMA_BS_GetVariables()
  * @uses    PMA_BS_SetFieldReferences()
@@ -28,49 +26,59 @@ function checkBLOBStreamingPlugins()
     if (empty($PMA_Config))
         return FALSE;
 
-    // retrieve current server configuration
-    $serverCfg = $PMA_Config->get('Servers');
-
-    if (isset($serverCfg[$GLOBALS['server']]))
-        $serverCfg = $serverCfg[$GLOBALS['server']];
-    else
-	$serverCfg = null;
+    /** Retrieve current server configuration;
+     *  at this point, $PMA_Config->get('Servers') contains the server parameters
+     *  as explicitely defined in config.inc.php, so it cannot be used; it's
+     *  better to use $GLOBALS['cfg']['Server'] which contains the explicit
+     *  parameters merged with the default ones
+     *
+     */
+    $serverCfg = $GLOBALS['cfg']['Server'];
 
     // return if unable to retrieve current server configuration
-    if (!isset($serverCfg))
+    if (! $serverCfg) {
         return FALSE;
+    }
 
     // if PHP extension in use is 'mysql', specify element 'PersistentConnections'
-    if (isset($serverCfg['extension']) && "mysql" == $serverCfg['extension'])
+    if ($serverCfg['extension'] == "mysql") {
         $serverCfg['PersistentConnections'] = $PMA_Config->settings['PersistentConnections'];
+    }
 
     // if connection type is TCP, unload socket variable
-    if (isset($serverCfg['connect_type']) && "tcp" == strtolower($serverCfg['connect_type']))
+    if (strtolower($serverCfg['connect_type']) == "tcp") {
         $serverCfg['socket'] = "";
+    }
 
-    // define BS Plugin variables
-    $allPluginsExist = TRUE;
+    $allPluginsExist = false;
+    if (PMA_MYSQL_INT_VERSION >= 50109) {
+        $PMA_Config->set('PBXT_NAME', 'pbxt');
+        $PMA_Config->set('PBMS_NAME', 'pbms');
 
-    $PMA_Config->set('PBXT_NAME', 'pbxt');
-    $PMA_Config->set('PBMS_NAME', 'pbms');
+        $required_plugins[$PMA_Config->get('PBXT_NAME')]['Library'] = 'libpbxt.so';
+        $required_plugins[$PMA_Config->get('PBMS_NAME')]['Library'] = 'libpbms.so';
+        $number_of_required_plugins_found = 0;
 
-    $plugins[$PMA_Config->get('PBXT_NAME')]['Library'] = 'libpbxt.so';
-    $plugins[$PMA_Config->get('PBXT_NAME')]['Exists'] = FALSE;
+        // Retrieve MySQL plugins
+        $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
 
-    $plugins[$PMA_Config->get('PBMS_NAME')]['Library'] = 'libpbms.so';
-    $plugins[$PMA_Config->get('PBMS_NAME')]['Exists'] = FALSE;
-
-    // retrieve state of BS plugins
-    PMA_PluginsExist($plugins);
-
-    foreach ($plugins as $plugin_key=>$plugin)
-        if (!$plugin['Exists'])
-        {
-            $allPluginsExist = FALSE;
-            break;
-        } // end if (!$plugin['Exists'])
-
-    // set variable indicating BS plugin existance
+        foreach ($existing_plugins as $one_existing_plugin)	{
+            // check if required plugins exist
+            foreach ($required_plugins as $one_required_plugin) {
+                if ( strtolower($one_existing_plugin['Library']) == strtolower($one_required_plugin['Library'])
+                        && $one_existing_plugin['Status'] == "ACTIVE") {
+                    $number_of_required_plugins_found++;
+                }
+            }
+            if (2 == $number_of_required_plugins_found) {
+                $allPluginsExist = true;
+                break;
+            }
+        }
+       unset($required_plugins, $existing_plugins, $one_required_plugin, $one_existing_plugin, $number_of_required_plugins_found);
+    }
+    
+    // set variable indicating BS plugin existence
     $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $allPluginsExist);
 
     // do the plugins exist?
@@ -90,7 +98,7 @@ function checkBLOBStreamingPlugins()
         // retrieve updated BS variables (configurable and unconfigurable)
         $bs_variables = PMA_BS_GetVariables();
 
-        // if no BS variables exist, set plugin existance to false and return
+        // if no BS variables exist, set plugin existence to false and return
         if (count($bs_variables) <= 0)
         {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
@@ -218,8 +226,6 @@ EOD;
 function checkBLOBStreamableDatabases()
 {
     // load PMA configuration
-    // (remember that $PMA_Config points to the object in $_SESSION,
-    //  therefore changes done with ->set are really done in the session)
     $PMA_Config = $_SESSION['PMA_Config'];
 
     // return if unable to load PMA configuration
@@ -257,46 +263,7 @@ function checkBLOBStreamableDatabases()
     $PMA_Config->set('BLOBSTREAMABLE_DATABASES', $bs_databases);
 }
 
-/**
- * checks whether a set of plugins exist
- *
- * @access  public
- * @param   array - a list of plugin names and accompanying library filenames to check for
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
-*/
-function PMA_PluginsExist(&$plugins)
-{   
-    if (PMA_MYSQL_INT_VERSION < 50109) {
-        return;
-    }
-    // run query to retrieve MySQL plugins
-    $query = "SHOW PLUGINS";
-    $result = PMA_DBI_query($query);
 
-    // while there are records to parse
-	while ($data = @PMA_DBI_fetch_assoc($result))
-	{
-        // reset plugin state
-        $state = TRUE;
-
-        // check if required plugins exist
-		foreach ($plugins as $plugin_key=>$plugin)
-			if (!$plugin['Exists'])
-				if (
-					strtolower($data['Library']) == strtolower($plugin['Library']) &&
-					$data['Status'] == "ACTIVE"
-				   )
-					$plugins[$plugin_key]['Exists'] = TRUE;
-                else
-                    if ($state)
-                        $state = FALSE;
-
-        // break if all necessary plugins are found before all records are parsed
-        if ($state)
-            break;
-    } // end while ($data = @PMA_DBI_fetch_assoc($result))
-}
 
 /**
  * checks whether a given set of tables exist in a given database
