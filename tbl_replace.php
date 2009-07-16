@@ -54,6 +54,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
+$blob_streaming_active = $_SESSION['PMA_Config']->get('BLOBSTREAMING_PLUGINS_EXIST');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table', 'goto'));
@@ -94,6 +95,7 @@ if (isset($_REQUEST['after_insert'])
                 $meta           = PMA_DBI_get_fields_meta($res);
                 // must find a unique condition based on unique key,
                 // not a combination of all fields
+                // (the following is a real assignment)
                 if ($tmp = PMA_getUniqueCondition($res, count($meta), $meta, $row, true)) {
                     $_SESSION['edit_next'] = $tmp;
                 }
@@ -207,7 +209,9 @@ foreach ($loop_array as $rowcount => $primary_key) {
         ? $_REQUEST['auto_increment']['multi_edit'][$rowcount]
         : null;
 
-	$primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
+    if ($blob_streaming_active) {
+        $primary_field = PMA_BS_GetPrimaryField($GLOBALS['db'], $GLOBALS['table']);
+    }
 
     // Fetch the current values of a row to use in case we have a protected field
     // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
@@ -226,30 +230,28 @@ foreach ($loop_array as $rowcount => $primary_key) {
         require './libraries/tbl_replace_fields.inc.php';
 
         // rajk - for blobstreaming
-	if (NULL != $primary_field || strlen($primary_field) > 0)
-	{
-		$remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
-		$upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
+	if ($blob_streaming_active && (NULL != $primary_field || strlen($primary_field) > 0)) {
+            $remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
+            $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
 
-		// checks if an existing blob repository reference should be removed
-		if (isset($remove_blob_repo) && !isset($upload_blob_repo))
-		{
-			$remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
-
-			if (isset($remove_blob_reference))
-				$val = "''";
+            // checks if an existing blob repository reference should be removed
+            if (isset($remove_blob_repo) && !isset($upload_blob_repo)) {
+		$remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
+		if (isset($remove_blob_reference)) {
+                    $val = "''";
 		}
 
 		// checks if this field requires a bs reference attached to it
-		if (isset($upload_blob_repo))
-		{
+		if (isset($upload_blob_repo)) {
 			// get the most recent BLOB reference
-			$bs_reference = PMA_File::getRecentBLOBReference();
+                    $bs_reference = PMA_File::getRecentBLOBReference();
 
-			// if the most recent BLOB reference exists, set it as a field value
-			if (!is_null($bs_reference))
-				$val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                    // if the most recent BLOB reference exists, set it as a field value
+                    if (!is_null($bs_reference)) {
+			$val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                    }
 		}
+            }
 	}
 
         if (empty($me_funcs[$key])) {
@@ -360,6 +362,7 @@ foreach ($query as $single_query) {
     if (! $result) {
         $error_messages[] = PMA_DBI_getError();
     } else {
+        // the following is a real assignment:
         if ($tmp = @PMA_DBI_affected_rows()) {
             $total_affected_rows += $tmp;
         }
