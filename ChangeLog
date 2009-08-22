@@ -21,8 +21,26 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [gui] Generate Password not working for 'Change Login Information', only for 'Change password'
 + [lang] Arabic update, thanks to Meno25 - meno25 
 + rfe #2822190 [structure] BOOLEAN is standard SQL 
+- bug #2823599 [edit] UUID Primary Key wrongly updated
++ [lang] German update, thanks to knittl
++ [lang] German update, thanks to virsacer
++ rfe #2813867 [structure] Default sorting order in list of tables
++ [import] Added MySQL type-detection functionality to import library,
+  thanks to Derek Schaefer
++ [import] Added ODS, Excel XLS, Excel XLSX, and XML import modules,
+  thanks to Derek Schaefer
++ [export] Added Excel XLSX export module,
+  thanks to Derek Schaefer
++ [core] Addded ability for tracking changes made through phpMyAdmin
 
-3.2.1.0 (not yet released)
+3.2.2.0 (not yet released)
+- bug #2825293 [structure] Default value for a BIT column
+- bug [display] Red arrows were reversed in the list of tables 
+- bug #2813879 [export] Duplicate empty lines when exporting without comments 
+- bug #2825919 [export] Trigger export with database name 
+- bug #2823996 [data] Cannot edit row with no PK and a BIT field 
+
+3.2.1.0 (2009-08-09)
 - bug #2799009 Login with ipv6 IP address breaks redirect
 - bug #2796066 [priv] Inconsistent display of databases list
 - bug #2802870 [display] Incorrect overhead value for InnoDB 
@@ -41,6 +59,15 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2819944 [setup] Incorrect mention of designer_coords
 - bug #2821757 [insert] "Insert another new row" no longer worked 
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
+- bug [core] PMA_pow() can support negative exponents in the pow() case
++ [lang] Brazilian Portuguese update, thanks to Fabio Bucior - fabiobucior
+- patch #2822384 [docs] Missing auth_type in docs-example, 
+  thanks to Jürgen Wind - windkiel
+- patch #2819728 [display] Slider effect jumping to top of page,
+  thanks to Jan Radem - summsel
+- bug [display] Incorrect computation of overhead stats in server view
+  for tables under the InnoDB engine
++ [lang] Swedish update, thanks to Björn T. Hallberg
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 

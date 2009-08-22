@@ -3,7 +3,7 @@
 /**
  * runs all defined tests
  *
- * @version $Id: AllTests.php 12036 2008-11-30 11:49:44Z lem9 $
+ * @version $Id$
  * @package phpMyAdmin-test
  */
 

@@ -76,6 +76,13 @@ $tab_search['text']     = $GLOBALS['strSearch'];
 $tab_search['icon']     = 'b_search.png';
 $tab_search['link']     = 'db_search.php';
 
+if(PMA_Tracker::isActive())
+{
+    $tab_tracking['text'] = "Tracking";
+    $tab_tracking['icon'] = 'eye.png';
+    $tab_tracking['link'] = 'db_tracking.php';
+}
+
 $tab_qbe['text']        = $GLOBALS['strQBE'];
 $tab_qbe['icon']        = 's_db.png';
 $tab_qbe['link']        = 'db_qbe.php';
@@ -113,6 +120,9 @@ $tabs = array();
 $tabs[] =& $tab_structure;
 $tabs[] =& $tab_sql;
 $tabs[] =& $tab_search;
+if (PMA_Tracker::isActive()) {
+    $tabs[] =& $tab_tracking;
+}
 $tabs[] =& $tab_qbe;
 $tabs[] =& $tab_export;
 if (! $db_is_information_schema) {

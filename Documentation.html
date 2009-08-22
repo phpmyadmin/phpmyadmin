@@ -53,7 +53,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
             <li>License: <a href="license.php">LICENSE</a></li>
         </ul>
     </li>
-    <li>Documentation version:
+    <li><div class="l10n">Documentation version:</div>
         <i>$Id$</i>
     </li>
 </ul>
@@ -111,15 +111,16 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     <li>create<a href="#footnote_1"><sup>1</sup></a> and read dumps of tables
         </li>
     <li>export<a href="#footnote_1"><sup>1</sup></a> data to various formats:
-        <abbr title="comma separated values">CSV</abbr>,
+        <abbr title="Comma Separated Values">CSV</abbr>,
     <abbr title="Extensible Markup Language">XML</abbr>,
     <abbr title="Portable Document Format">PDF</abbr>,
     <abbr title="International Standards Organisation">ISO</abbr>/<abbr
     title="International Electrotechnical Commission">IEC</abbr> 26300 -
     OpenDocument Text and Spreadsheet,
     <abbr title="Microsoft Word 2000">Word</abbr>,
-    <abbr title="Microsoft Excel 2000">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
+    <abbr title="Microsoft Excel 97-2003 and Excel 2007">Excel</abbr> and L<sup>A</sup>T<sub><big>E</big></sub>X formats
         </li>
+    <li>import data and MySQL structures from <abbr title="Microsoft Excel 97-2003 and Excel 2007">Microsoft Excel</abbr> and OpenDocument spreadsheets, as well as <abbr title="Extensible Markup Language">XML</abbr>, <abbr title="Comma Separated Values">CSV</abbr>, and <abbr title="Server Query Language">SQL</abbr> files</li>
     <li>administer multiple servers</li>
     <li>manage MySQL users and privileges</li>
     <li>check referential integrity in MyISAM tables</li>
@@ -131,6 +132,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     <li>transform stored data into any format using a set of predefined
         functions, like displaying BLOB-data as image or download-link
         </li>
+    <li>track changes on databases, tables and views</li>
     <li>support InnoDB tables and foreign keys <a href="#faq3_6">(see
         <abbr title="Frequently Asked Questions">FAQ</abbr> 3.6)</a></li>
     <li>support mysqli, the improved MySQL extension <a href="#faq1_17">
@@ -235,6 +237,7 @@ $i=0;
 $i++;
 $cfg['Servers'][$i]['user']          = 'root';
 $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
+$cfg['Servers'][$i]['auth_type']     = 'config';
 ?&gt;
 </pre>
                 For a full explanation of possible configuration values, see the
@@ -318,6 +321,7 @@ rm -rf config                      # remove not needed directory
 
 <p> For a whole set of new features (bookmarks, comments,
     <abbr title="structured query language">SQL</abbr>-history,
+    tracking mechanism,
     <abbr title="Portable Document Format">PDF</abbr>-generation, field contents
     transformation, etc.) you need to create a set of special tables. Those
     tables can be located in your own database, or in a central database for a
@@ -1027,6 +1031,93 @@ ALTER TABLE `pma_column_comments`
                 </li>
         </ul>
     </dd>
+
+    <dt id="tracking">
+        <span id="cfg_Servers_tracking">$cfg['Servers'][$i]['tracking']</span> string
+    </dt>
+    <dd>
+        Since release 3.3.x a tracking mechanism is available.
+        It helps you to track every <abbr title="structured query language">SQL</abbr> command which 
+        is executed by phpMyAdmin. The mechanism supports logging of data manipulation
+        and data definition statements. After enabling it you can create versions of tables.
+        <br/><br/>
+        The creation of a version has two effects:
+
+        <ul>
+            <li>phpMyAdmin saves a snapshot of the table, including structure and indexes.</li>
+            <li>phpMyAdmin loggs all commands which change the structure and/or data of the table and links these commands with the version number.</li>
+        </ul>
+
+        Of course you can view the tracked changes. On the "Tracking" page a complete report is available for every version.
+        For the report you can use filters, for example you can get a list of statements within a date range.
+        When you want to filter usernames you can enter * for all names or you enter a list of names separated by ','.
+        In addition you can export the (filtered) report to a file or to a temporary database.
+        <br/><br/>
+        
+        To allow the usage of this functionality:
+
+        <ul>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
+            <li>put the table name in <tt>$cfg['Servers'][$i]['tracking']</tt></li>
+        </ul>
+    </dd>
+
+    <dt id="tracking2">
+        <span id="cfg_Servers_tracking_auto_create">$cfg['Servers'][$i]['tracking_version_auto_create']</span> boolean
+    </dt>
+    <dd>
+        Whether the tracking mechanism creates versions for tables and views automatically. Default value is true.
+        <br/><br/>
+        If this is set to true and you create a table or view with
+
+        <ul>
+            <li>CREATE TABLE ...</li>
+            <li>CREATE VIEW ...</li>
+        </ul>
+
+        and no version exists for it, the mechanism will
+        create a version for you automatically.        
+    </dd>
+
+    <dt id="tracking3">
+        <span id="cfg_Servers_tracking_default_statements">$cfg['Servers'][$i]['tracking_default_statements']</span> string
+    </dt>
+    <dd>
+        Defines the list of statements the auto-creation uses for new versions. Default value is
+        <br/>
+
+<pre>CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,
+CREATE INDEX,DROP INDEX,
+INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,
+CREATE VIEW,ALTER VIEW,DROP VIEW,
+CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
+    </dd>
+
+    <dt id="tracking4">
+        <span id="cfg_Servers_tracking_drop_view">$cfg['Servers'][$i]['tracking_version_drop_view']</span> boolean
+    </dt>
+    <dd>
+        Whether a DROP VIEW IF EXISTS statement will added as first line to the log when creating a view. Default value is true.
+        <br/><br/>       
+    </dd>
+
+
+    <dt id="tracking5">
+        <span id="cfg_Servers_tracking_drop_table">$cfg['Servers'][$i]['tracking_version_drop_table']</span> boolean
+    </dt>
+    <dd>
+        Whether a DROP TABLE IF EXISTS statement will added as first line to the log when creating a table. Default value is true.
+        <br/><br/>
+    </dd>
+
+    <dt id="tracking6">
+        <span id="cfg_Servers_tracking_drop_database">$cfg['Servers'][$i]['tracking_version_drop_database']</span> boolean
+    </dt>
+    <dd>
+        Whether a DROP DATABASE IF EXISTS statement will added as first line to the log when creating a database. Default value is true.
+        <br/><br/>
+    </dd>
+
 
     <dt id="designer_coords">
         <span id="cfg_Servers_designer_coords">$cfg['Servers'][$i]['designer_coords']</span> string
@@ -3330,6 +3421,55 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
     it's not likely to be solved in the future.
 </p>
 
+<!-- Begin: Excel import limitations -->
+
+<h4 id="faq3_15">
+    <a href="#faq3_15">3.15 When I import an Excel spreadsheet, some cells with calculations do not display correctly.</a></h4>
+<p>
+    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/" target=_blank>PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
+    Therefore, any limitations that are listed on their page regarding Excel calculations will also apply here.
+    <br /><br />
+    PHPExcel will be kept up to date so as to make all improvements available to phpMyAdmin users.
+</p>
+
+<h4 id="faq3_16">
+    <a href="#faq3_16">3.16 When I compress (gzip, bzip2, zip) an Excel workbook and attempt to import it, nothing happens.</a></h4>
+<p>
+    Since Excel XLSX workbooks are already compressed, there is often times only a small benefit from compressing them yet again. 
+    Support for compressed Excel XLSX and XLS workbooks may be added in the future.
+</p>
+
+<h4 id="faq3_17">
+    <a href="#faq3_17">3.17 When I import an Excel spreadsheet, my custom cell types are not represented as they are in Excel.</a></h4>
+<p>
+    Excel's internal representation of custom cell types is rather muddled (especially in Excel 97-2003 binary XLS files). If possible,
+    consider using a built-in type. These are almost always guarenteed to import correctly.
+</p>
+
+<!-- End: Excel import limitations -->
+<!-- Begin: CSV import limitations -->
+
+<h4 id="faq3_18">
+    <a href="#faq3_18">3.18 When I import a CSV file that contains multiple tables, they are lumped together into a single table.</a></h4>
+<p>
+    There is no reliable way to differetiate tables in CSV format. For the time being, you will have to break apart CSV files containing multiple tables.
+</p>
+
+<!-- End: CSV import limitations -->
+<!-- Begin: Import type-detection limitations -->
+
+<h4 id="faq3_19">
+    <a href="#faq3_19">3.19 When I import a file and have phpMyAdmin determine the appropriate data structure it only uses int, decimal, and varchar types.</a></h4>
+<p>
+    Currently, the import type-detection system can only assign these MySQL types to columns. In future, more will likely be added but for the time being 
+    you will have to edit the structure to your liking post-import.
+    <br /><br />
+    Also, you should note the fact that phpMyAdmin will use the size of the largest item in any given column as the column size for the appropriate type. If you 
+    know you will be adding larger items to that column then you should manually adjust the column sizes accordingly. This is done for the sake of efficiency.
+</p>
+
+<!-- End: Import type-detection limitations -->
+
 <h3 id="faqmultiuser"><abbr title="Internet service provider">ISP</abbr>s, multi-user installations</h3>
 
 <h4 id="faq4_1">
@@ -4495,6 +4635,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <li>Piotr Przybylski (Google Summer of Code 2008)
 <ul>
   <li>improved setup script</li>
+</ul></li>
+
+<li>Derek Schaefer (Google Summer of Code 2009)
+<ul>
+  <li>Improved the import system</li>
+</ul></li>
+
+<li>Alexander Rutkowski (Google Summer of Code 2009)
+<ul>
+  <li>Tracking mechanism</li>
 </ul></li>
 
 </ul>

@@ -63,6 +63,13 @@ $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = $strSearch;
 $tabs['search']['link'] = 'tbl_select.php';
 
+if(PMA_Tracker::isActive())
+{
+    $tabs['tracking']['icon'] = 'eye.png';
+    $tabs['tracking']['text'] = "Tracking";
+    $tabs['tracking']['link'] = 'tbl_tracking.php';
+}
+
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $tabs['insert']['icon'] = 'b_insrow.png';
     $tabs['insert']['link'] = 'tbl_change.php';
@@ -126,6 +133,12 @@ if ($table_info_num_rows == 0 && !$tbl_is_view) {
 
 echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
+
+if(PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
+{
+    $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf($strTrackingActivated, $GLOBALS["db"], $GLOBALS["table"]).'</a>');
+    $msg->display();
+}
 
 /**
  * Displays a message

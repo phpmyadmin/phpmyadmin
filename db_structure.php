@@ -312,6 +312,15 @@ foreach ($tables as $keyname => $each_table) {
             str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME'])));
     }
 
+    $tracking_icon = '';
+    if (PMA_Tracker::isActive()) {
+        if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
+            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye.png" alt="' . $strTrackingIsActive . '" title="' . $strTrackingIsActive . '" /></a>';
+        } else if (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
+            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye_grey.png" alt="' . $strTrackingIsDeactive . '" title="' . $strTrackingIsDeactive . '" /></a>';
+        }
+    }
+
     if ($num_columns > 0 && $num_tables > $num_columns
       && (($row_count % $num_columns) == 0)) {
         $row_count = 1;
@@ -331,6 +340,7 @@ foreach ($tables as $keyname => $each_table) {
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><label for="checkbox_tbl_<?php echo $i; ?>"
             title="<?php echo $alias; ?>"><?php echo $truename; ?></label>
+            <label><?php echo $tracking_icon; ?> </label>
     </th>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">

@@ -102,6 +102,16 @@ require_once './libraries/Theme_Manager.class.php';
 require_once './libraries/Config.class.php';
 
 /**
+ * the relation lib, tracker needs it
+ */
+require_once './libraries/relation.lib.php';
+
+/**
+ * the PMA_Tracker class
+ */
+require_once './libraries/Tracker.class.php';
+
+/**
  * the PMA_Table class
  */
 require_once './libraries/Table.class.php';

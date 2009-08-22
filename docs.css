@@ -249,3 +249,8 @@ p.footnote {
 p.footnote:first-line {
     margin-left: -2%;
 }
+
+/* Block to mark separate translation string */
+div.l10n {
+    display: inline;
+}

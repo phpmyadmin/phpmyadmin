@@ -149,6 +149,10 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForFeature('strDesigner', 'designerwork', $messages);
 
+    PMA_printDiagMessageForParameter('tracking', isset($cfgRelation['tracking']), $messages, 'tracking');
+
+    PMA_printDiagMessageForFeature('strTracking', 'trackingwork', $messages);
+
     echo '</table>' . "\n";
 }
 
@@ -216,6 +220,7 @@ function PMA__getRelationsParam()
     $cfgRelation['commwork']    = false;
     $cfgRelation['mimework']    = false;
     $cfgRelation['historywork'] = false;
+    $cfgRelation['trackingwork'] = false;
     $cfgRelation['designerwork'] = false;
     $cfgRelation['allworks']    = false;
     $cfgRelation['user']        = null;
@@ -265,6 +270,8 @@ function PMA__getRelationsParam()
             $cfgRelation['pdf_pages']       = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['history']) {
             $cfgRelation['history'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['tracking']) {
+            $cfgRelation['tracking'] = $curr_table[0];
         }
     } // end while
     PMA_DBI_free_result($tab_rs);
@@ -315,6 +322,10 @@ function PMA__getRelationsParam()
         $cfgRelation['historywork']     = true;
     }
 
+    if (isset($cfgRelation['tracking'])) {
+        $cfgRelation['trackingwork']     = true;
+    }
+
     // we do not absolutely need that the internal relations or the PDF
     // schema feature be activated
     if (isset($cfgRelation['designer_coords'])) {
@@ -328,6 +339,7 @@ function PMA__getRelationsParam()
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
      && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
      && $cfgRelation['mimework'] && $cfgRelation['historywork']
+     && $cfgRelation['trackingwork']
      && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']) {
         $cfgRelation['allworks'] = true;
     }

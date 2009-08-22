@@ -4,7 +4,7 @@
  * Holds class PMA_Message
  *
  * @author Sebastian Mendel <info@sebastianmendel.de>
- * @version $Id: Error.class.php 10738 2007-10-08 16:02:58Z cybot_tm $
+ * @version $Id$
  * @package phpMyAdmin
  */
 

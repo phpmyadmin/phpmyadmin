@@ -337,7 +337,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td nowrap="nowrap"><?php
     if (isset($row['Default'])) {
         if ($extracted_fieldspec['type'] == 'bit') {
-            echo PMA_printable_bit_value($row['Default'], $extracted_fieldspec['spec_in_brackets']);
+            // here, $row['Default'] contains something like b'010'
+            echo PMA_convert_bit_default_value($row['Default']);
         } else {
             echo $row['Default'];
         }
@@ -502,7 +503,21 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     echo $strStructPropose;
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
-    ?><br />
+    
+    
+    if(PMA_Tracker::isActive())
+    {
+        echo '<a href="tbl_tracking.php?' . $url_query . '">';
+        
+        if ($cfg['PropertiesIconic']) 
+        {
+            echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
+        }
+        echo $strTrackingTrackTable . '</a>';
+    }
+    ?>
+    
+    <br />
 <form method="post" action="tbl_addfield.php"
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)">
     <?php

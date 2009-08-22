@@ -174,6 +174,9 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
 
+    if($r != FALSE and PMA_Tracker::isActive() == TRUE )
+        PMA_Tracker::handleQuery($query); 
+
     return $r;
 }
 

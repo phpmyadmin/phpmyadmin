@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used to build XLS dumps of tables
  *
- * @version $Id$
+ *
  * @package phpMyAdmin-Export-XLS
+ * @version $Id$
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -13,38 +13,26 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-// Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
-if (!empty($GLOBALS['cfg']['TempDir'])) {
-    @include_once 'Spreadsheet/Excel/Writer.php';
-    if (class_exists('Spreadsheet_Excel_Writer')) {
-        $xls = TRUE;
-    } else {
-        $xls = FALSE;
-    }
+if (isset($plugin_list)) {
+    $plugin_list['xls'] = array(
+        'text' => 'strImportXLS',
+        'extension' => 'xls',
+        'mime_type' => 'application/vnd.ms-excel',
+        'force_file' => true,
+        'options' => array(
+            array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
+            array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
+            array('type' => 'hidden', 'name' => 'data'),
+            ),
+        'options_text' => 'strOptions',
+        );
 } else {
-    $xls = FALSE;
-}
 
-if ($xls) {
+/* Append the PHPExcel directory to the include path variable */
+set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/PHPExcel/');
 
-    if (isset($plugin_list)) {
-        $plugin_list['xls'] = array(
-            'text' => 'strStrucNativeExcel',
-            'extension' => 'xls',
-            'mime_type' => 'application/vnd.ms-excel',
-            'force_file' => true,
-            'options' => array(
-                array('type' => 'text', 'name' => 'null', 'text' => 'strReplaceNULLBy'),
-                array('type' => 'bool', 'name' => 'columns', 'text' => 'strPutColNames'),
-                array('type' => 'hidden', 'name' => 'data'),
-                ),
-            'options_text' => 'strOptions',
-            );
-    } else {
-
-/**
- * Set of functions used to build MS Excel dumps of tables
- */
+require_once './libraries/PHPExcel/PHPExcel.php';
+require_once './libraries/PHPExcel/PHPExcel/Writer/Excel5.php';
 
 /**
  * Outputs comment
@@ -53,8 +41,7 @@ if ($xls) {
  *
  * @return  bool        Whether it suceeded
  */
-function PMA_exportComment($text)
-{
+function PMA_exportComment($text) {
     return TRUE;
 }
 
@@ -65,20 +52,23 @@ function PMA_exportComment($text)
  *
  * @access  public
  */
-function PMA_exportFooter()
-{
+function PMA_exportFooter() {
     global $workbook;
     global $tmp_filename;
-
-    $res = $workbook->close();
-    if (PEAR::isError($res)) {
-        echo $res->getMessage();
-        return FALSE;
-    }
+    
+    $tmp_filename = tempnam(realpath($GLOBALS['cfg']['TempDir']), 'pma_xls_');
+    
+    $workbookWriter = new PHPExcel_Writer_Excel5($workbook);
+    $workbookWriter->save($tmp_filename);
+    
     if (!PMA_exportOutputHandler(file_get_contents($tmp_filename))) {
         return FALSE;
     }
+    
     unlink($tmp_filename);
+    
+    unset($GLOBALS['workbook']);
+    unset($GLOBALS['sheet_index']);
 
     return TRUE;
 }
@@ -90,17 +80,19 @@ function PMA_exportFooter()
  *
  * @access  public
  */
-function PMA_exportHeader()
-{
+function PMA_exportHeader() {
+    global $db;
+    
+    /* Initialize the workbook */
+    $GLOBALS['workbook'] = new PHPExcel();
+    $GLOBALS['sheet_index'] = 0;
     global $workbook;
-    global $tmp_filename;
-
-    if (empty($GLOBALS['cfg']['TempDir'])) {
-        return FALSE;
-    }
-    $tmp_filename = tempnam(realpath($GLOBALS['cfg']['TempDir']), 'pma_xls_');
-    $workbook = new Spreadsheet_Excel_Writer($tmp_filename);
-
+    
+    $workbook->getProperties()->setCreator('phpMyAdmin ' . PMA_VERSION);
+    $workbook->getProperties()->setLastModifiedBy('phpMyAdmin ' . PMA_VERSION);
+    $workbook->getProperties()->setTitle($db);
+    $workbook->getProperties()->setSubject('phpMyAdmin ' . PMA_VERSION . ' XLS Dump');
+    
     return TRUE;
 }
 
@@ -113,8 +105,9 @@ function PMA_exportHeader()
  *
  * @access  public
  */
-function PMA_exportDBHeader($db)
-{
+function PMA_exportDBHeader($db) {
+    
+    
     return TRUE;
 }
 
@@ -127,8 +120,7 @@ function PMA_exportDBHeader($db)
  *
  * @access  public
  */
-function PMA_exportDBFooter($db)
-{
+function PMA_exportDBFooter($db) {
     return TRUE;
 }
 
@@ -141,13 +133,12 @@ function PMA_exportDBFooter($db)
  *
  * @access  public
  */
-function PMA_exportDBCreate($db)
-{
+function PMA_exportDBCreate($db) {
     return TRUE;
 }
 
 /**
- * Outputs the content of a table in CSV format
+ * Outputs the content of a table in XLS format
  *
  * @param   string      the database name
  * @param   string      the table name
@@ -159,61 +150,56 @@ function PMA_exportDBCreate($db)
  *
  * @access  public
  */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
-{
-    global $what;
+function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $workbook;
-
-    $workbook->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
-
-    // Gets the data from the database
-    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-    $fields_cnt  = PMA_DBI_num_fields($result);
-
-    $row = PMA_DBI_fetch_row($result);
-    for ($sheetIndex = 0; ; $sheetIndex++) {
-        // Maximum sheet name length is 31 chars - leave 2 for numeric index
-        $sheetName = substr($table, 0, 29) . ($sheetIndex > 0 ? $sheetIndex : '');
-        $worksheet =& $workbook->addWorksheet($sheetName);
-        $rowIndex = 0;
-
-        // If required, get fields name at the first line
+    global $sheet_index;
+    
+    /**
+     * Get the data from the database using the original query
+     */
+    $result      = PMA_DBI_fetch_result($sql_query);
+    $row_cnt     = count($result);
+    
+    if ($row_cnt > 0) {
+        $col_names = array_keys($result[0]);
+        $fields_cnt = count($result[0]);
+        $row_offset = 1;
+        
+        /* Only one sheet is created on workbook initialization */
+        if ($sheet_index > 0) {
+            $workbook->createSheet();
+        }
+        
+        $workbook->setActiveSheetIndex($sheet_index);
+        $workbook->getActiveSheet()->setTitle(substr($table, 0, 31));
+        
         if (isset($GLOBALS['xls_columns']) && $GLOBALS['xls_columns']) {
-            for ($i = 0; $i < $fields_cnt; $i++) {
-                $worksheet->write(0, $i, stripslashes(PMA_DBI_field_name($result, $i)));
-            } // end for
-            $worksheet->repeatRows($rowIndex);
-            $worksheet->freezePanes(array($rowIndex + 1, 0, $rowIndex + 1, 0));
-            $rowIndex++;
-        } // end if
-
-        // Format the data (max 65536 rows per worksheet)
-        while ($rowIndex < 65536 && $row) {
-            set_time_limit(0);
-            for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
-                    $worksheet->write($rowIndex, $j, $GLOBALS['xls_null']);
-                } elseif ($row[$j] == '0' || $row[$j] != '') {
+            for ($i = 0; $i < $fields_cnt; ++$i) {
+                $workbook->getActiveSheet()->setCellValueByColumnAndRow($i, $row_offset, $col_names[$i]);
+            }
+            $row_offset++;
+        }
+        
+        for ($r = 0; ($r < 65536) && ($r < $row_cnt); ++$r) {
+            for ($c = 0; $c < $fields_cnt; ++$c) {
+                if (!isset($result[$r][$col_names[$c]]) || is_null($result[$r][$col_names[$c]])) {
+                    $workbook->getActiveSheet()->setCellValueByColumnAndRow($c, ($r + $row_offset), $GLOBALS['xls_null']);
+                } elseif ($result[$r][$col_names[$c]] == '0' || $result[$r][$col_names[$c]] != '') {
                     /**
                      * @todo we should somehow handle character set here!
                      */
-                    $worksheet->write($rowIndex, $j, $row[$j]);
+                    $workbook->getActiveSheet()->setCellValueByColumnAndRow($c, ($r + $row_offset), $result[$r][$col_names[$c]]);
                 } else {
-                    $worksheet->write($rowIndex, $j, '');
+                    $workbook->getActiveSheet()->setCellValueByColumnAndRow($c, ($r + $row_offset), '');
                 }
-            } // end for
-            $rowIndex++;
-            $row = PMA_DBI_fetch_row($result);
-        } // end while
-        if (!$row) {
-            break;
+            }
         }
-    } // end for
-    PMA_DBI_free_result($result);
-
+        
+        $sheet_index++;
+    }
+    
     return TRUE;
 }
 
-    }
 }
 ?>

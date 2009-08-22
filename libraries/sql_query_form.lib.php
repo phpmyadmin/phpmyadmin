@@ -8,6 +8,7 @@
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
+ * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
  * @package phpMyAdmin
  */
@@ -28,6 +29,7 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
+ * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']

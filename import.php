@@ -405,8 +405,15 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
     if ($import_type == 'query') {
         $message = PMA_Message::success();
     } else {
-        $message = PMA_Message::success('strImportSuccessfullyFinished');
-        $message->addParam($executed_queries);
+        if ($import_notice) {
+            $message = PMA_Message::success('<em>'.$GLOBALS['strImportSuccessfullyFinished'].'</em>');
+            $message->addParam($executed_queries);
+            
+            $message->addString($import_notice);
+        } else {
+            $message = PMA_Message::success('strImportSuccessfullyFinished');
+            $message->addParam($executed_queries);
+        }
     }
 }
 
@@ -420,7 +427,7 @@ if ($timeout_passed) {
 
 // if there is any message, copy it into $_SESSION as well, so we can obtain it by AJAX call
 if (isset($message)) {
-  $_SESSION['Import_message']['message'] = $message->getDisplay();
+    $_SESSION['Import_message']['message'] = $message->getDisplay();
 //  $_SESSION['Import_message']['go_back_url'] = $goto.'?'.  PMA_generate_common_url();
 }
 // Parse and analyze the query, for correct db and table name

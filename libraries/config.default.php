@@ -332,6 +332,15 @@ $cfg['Servers'][$i]['history'] = '';
 $cfg['Servers'][$i]['designer_coords'] = '';
 
 /**
+ * table to store SQL tracking
+ *   - leave blank for no SQL tracking
+ *     SUGGESTED: 'pma_tracking'
+ *
+ * @global string $cfg['Servers'][$i]['tracking']
+ */
+$cfg['Servers'][$i]['tracking'] = '';
+
+/**
  * set to false if you know that your pma_* tables are up to date.
  * This prevents compatibility checks and thereby increases performance.
  *
@@ -408,6 +417,50 @@ $cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
  * @global array $cfg['Servers'][$i]['CountTables']
  */
 $cfg['Servers'][$i]['CountTables'] = true;
+
+/**
+ * Whether the tracking mechanism creates versions for tables and views automatically.
+ *
+ * @global bool $cfg['Servers'][$i]['tracking_version_auto_create']
+ */
+
+$cfg['Servers'][$i]['tracking_version_auto_create'] = true;
+
+/**
+ * Defines the list of statements the auto-creation uses for new versions.
+ *
+ * @global string $cfg['Servers'][$i]['tracking_default_statements']
+ */
+
+$cfg['Servers'][$i]['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,' .
+                                          'CREATE INDEX,DROP INDEX,' .
+                                          'INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,' .
+                                          'CREATE VIEW,ALTER VIEW,DROP VIEW,' .
+                                          'CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
+
+/**
+ * Whether a DROP VIEW IF EXISTS statement will added as first line to the log when creating a view.
+ *
+ * @global bool $cfg['Servers'][$i]['tracking_version_drop_view']
+ */
+
+$cfg['Servers'][$i]['tracking_version_drop_view'] = true;
+
+/**
+ * Whether a DROP TABLE IF EXISTS statement will added as first line to the log when creating a table.
+ *
+ * @global bool $cfg['Servers'][$i]['tracking_version_drop_table']
+ */
+
+$cfg['Servers'][$i]['tracking_version_drop_table'] = true;
+
+/**
+ * Whether a DROP DATABASE IF EXISTS statement will added as first line to the log when creating a database.
+ *
+ * @global bool $cfg['Servers'][$i]['tracking_version_drop_database']
+ */
+
+$cfg['Servers'][$i]['tracking_version_drop_database'] = true;
 
 /**
  * Default server (0 = no default server)
@@ -1135,20 +1188,6 @@ $cfg['Export']['odt_null'] = 'NULL';
 /**
  *
  *
- * @global boolean $cfg['Export']['htmlexcel_columns']
- */
-$cfg['Export']['htmlexcel_columns'] = false;
-
-/**
- *
- *
- * @global string $cfg['Export']['htmlexcel_null']
- */
-$cfg['Export']['htmlexcel_null'] = 'NULL';
-
-/**
- *
- *
  * @global boolean $cfg['Export']['htmlword_structure']
  */
 $cfg['Export']['htmlword_structure'] = true;
@@ -1215,6 +1254,20 @@ $cfg['Export']['xls_columns'] = false;
  * @global string $cfg['Export']['xls_null']
  */
 $cfg['Export']['xls_null'] = 'NULL';
+
+/**
+ *
+ *
+ * @global boolean $cfg['Export']['xlsx_columns']
+ */
+$cfg['Export']['xlsx_columns'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Export']['xlsx_null']
+ */
+$cfg['Export']['xlsx_null'] = 'NULL';
 
 /**
  *
@@ -1568,6 +1621,55 @@ $cfg['Export']['pdf_data'] = true;
  */
 $cfg['Export']['pdf_report_title'] = '';
 
+/**
+ * Export schema for each structure
+ *
+ * @global string $cfg['Export']['xml_export_struc']
+ */
+$cfg['Export']['xml_export_struc'] = true;
+
+/**
+ * Export functions
+ *
+ * @global string $cfg['Export']['xml_export_functions']
+ */
+$cfg['Export']['xml_export_functions'] = true;
+
+/**
+ * Export procedures
+ *
+ * @global string $cfg['Export']['xml_export_procedures']
+ */
+$cfg['Export']['xml_export_procedures'] = true;
+
+/**
+ * Export schema for each table
+ *
+ * @global string $cfg['Export']['xml_export_tables']
+ */
+$cfg['Export']['xml_export_tables'] = true;
+
+/**
+ * Export triggers
+ *
+ * @global string $cfg['Export']['xml_export_triggers']
+ */
+$cfg['Export']['xml_export_triggers'] = true;
+
+/**
+ * Export views
+ *
+ * @global string $cfg['Export']['xml_export_views']
+ */
+$cfg['Export']['xml_export_views'] = true;
+
+/**
+ * Export contents data
+ *
+ * @global string $cfg['Export']['xml_export_contents']
+ */
+$cfg['Export']['xml_export_contents'] = true;
+
 
 /*******************************************************************************
  * Import defaults
@@ -1661,6 +1763,13 @@ $cfg['Import']['csv_columns'] = '';
 /**
  *
  *
+ * @global string $cfg['Import']['csv_col_names']
+ */
+$cfg['Import']['csv_col_names'] = false;
+
+/**
+ *
+ *
  * @global boolean $cfg['Import']['ldi_replace']
  */
 $cfg['Import']['ldi_replace'] = false;
@@ -1706,6 +1815,48 @@ $cfg['Import']['ldi_columns'] = '';
  * @global string $cfg['Import']['ldi_local_option']
  */
 $cfg['Import']['ldi_local_option'] = 'auto';
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['ods_col_names']
+ */
+$cfg['Import']['ods_col_names'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['ods_empty_rows']
+ */
+$cfg['Import']['ods_empty_rows'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['ods_recognize_percentages']
+ */
+$cfg['Import']['ods_recognize_percentages'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['ods_recognize_currency']
+ */
+$cfg['Import']['ods_recognize_currency'] = true;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['xml_col_names']
+ */
+$cfg['Import']['xls_col_names'] = false;
+
+/**
+ *
+ *
+ * @global string $cfg['Import']['xml_empty_rows']
+ */
+$cfg['Import']['xls_empty_rows'] = true;
 
 /**
  * Link to the official MySQL documentation.

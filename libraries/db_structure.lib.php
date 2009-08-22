@@ -46,7 +46,8 @@ function PMA_TableHeader($db_is_information_schema = false)
         .'    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . $GLOBALS['strAction'] . "\n"
         .'    </th>'
-        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strRecords'], 'records')
+        // larger values are more interesting so default sort order is DESC
+        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strRecords'], 'records', 'DESC')
         .PMA_showHint(PMA_sanitize($GLOBALS['strApproximateCount'])) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -56,8 +57,10 @@ function PMA_TableHeader($db_is_information_schema = false)
         $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
-        echo '    <th>' . PMA_SortableTableHeader($GLOBALS['strSize'], 'size') . '</th>' . "\n"
-           . '    <th>' . PMA_SortableTableHeader($GLOBALS['strOverhead'], 'overhead') . '</th>' . "\n";
+        // larger values are more interesting so default sort order is DESC
+        echo '    <th>' . PMA_SortableTableHeader($GLOBALS['strSize'], 'size', 'DESC') . '</th>' . "\n"
+        // larger values are more interesting so default sort order is DESC
+           . '    <th>' . PMA_SortableTableHeader($GLOBALS['strOverhead'], 'overhead', 'DESC') . '</th>' . "\n";
         $cnt += 2;
     }
     echo '</tr>' . "\n";
@@ -72,14 +75,14 @@ function PMA_TableHeader($db_is_information_schema = false)
  *
  * @param   string  title to use for the link
  * @param   string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
+ * @param   string  initial sort order
  * @returns string  link to be displayed in the table header
  */
-function PMA_SortableTableHeader($title, $sort)
+function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
     // Set some defaults
     $requested_sort = 'table';
-    $requested_sort_order = 'ASC';
-    $sort_order = 'ASC';
+    $requested_sort_order = $future_sort_order = $initial_sort_order;
     
     // If the user requested a sort
     if (isset($_REQUEST['sort'])) {
@@ -97,14 +100,21 @@ function PMA_SortableTableHeader($title, $sort)
     // If this column was requested to be sorted.
     if ($requested_sort == $sort) {
         if ($requested_sort_order == 'ASC') {
-            $sort_order = 'DESC';
-            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="sort_arrow" />';
-            $order_link_params['onmouseover'] = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
-            $order_link_params['onmouseout']  = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
-        } else {
+            $future_sort_order = 'DESC';
+            // current sort order is ASC
             $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="sort_arrow" />';
+            // but on mouse over, show the reverse order (DESC)
             $order_link_params['onmouseover'] = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+            // on mouse out, show current sort order (ASC)
             $order_link_params['onmouseout']  = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+        } else {
+            $future_sort_order = 'ASC';
+            // current sort order is DESC
+            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="sort_arrow" />';
+            // but on mouse over, show the reverse order (ASC)
+            $order_link_params['onmouseover'] = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+            // on mouse out, show current sort order (DESC)
+            $order_link_params['onmouseout']  = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
         }
     }
 
@@ -114,7 +124,7 @@ function PMA_SortableTableHeader($title, $sort)
 
     $url = 'db_structure.php'.PMA_generate_common_url($_url_params);
     // We set the position back to 0 every time they sort.
-    $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$sort_order";
+    $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
     return PMA_linkOrButton($url, $title . $order_img, $order_link_params);
 } // end function PMA_SortableTableHeader()

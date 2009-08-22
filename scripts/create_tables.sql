@@ -172,3 +172,21 @@ CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
 )
   ENGINE=MyISAM COMMENT='Table coordinates for Designer'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+--
+-- Table structure for table `pma_tracking`
+--
+
+CREATE TABLE IF NOT EXISTS `pma_tracking` (
+  `db_name` varchar(64) collate utf8_bin NOT NULL,
+  `table_name` varchar(64) collate utf8_bin NOT NULL,
+  `version` int(10) unsigned NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text collate utf8_bin NOT NULL,
+  `schema_sql` text collate utf8_bin,
+  `data_sql` text collate utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') collate utf8_bin default NULL,
+  `tracking_active` int(1) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`db_name`,`table_name`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
