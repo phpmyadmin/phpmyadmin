@@ -430,6 +430,7 @@ if (isset($auto_increment) && strlen($auto_increment) > 0
 
 // the outer array is for engines, the inner array contains the dropdown
 // option values as keys then the dropdown option labels
+
 $possible_row_formats = array(
      'MARIA'  => array(
         'FIXED'     => 'FIXED',
@@ -448,6 +449,20 @@ $possible_row_formats = array(
          'COMPACT'  => 'COMPACT',
          'REDUNDANT' => 'REDUNDANT')
 );
+
+$innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
+$innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
+if (!empty($innodb_plugin_version)) {
+    $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
+}  else {
+    $innodb_file_format = '';
+}
+if ('Barracuda' == $innodb_file_format && $innodb_engine_plugin->supportsFilePerTable()) {
+    $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
+    $possible_row_formats['INNODB']['COMPRESSED'] = 'COMPRESSED';
+}
+unset($innodb_engine_plugin, $innodb_plugin_version, $innodb_file_format);
+
 // for MYISAM there is also COMPRESSED but it can be set only by the
 // myisampack utility, so don't offer here the choice because if we
 // try it inside an ALTER TABLE, MySQL (at least in 5.1.23-maria)

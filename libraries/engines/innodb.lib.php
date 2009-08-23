@@ -333,6 +333,53 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     {
         return 'innodb';
     }
+
+    /**
+     *  
+     * Gets the InnoDB plugin version number 
+     * http://www.innodb.com/products/innodb_plugin 
+     * (do not confuse this with phpMyAdmin's storage engine plugins!)
+     *
+     * @return string the version number, or empty if not running as a plugin 
+     */
+    function getInnodbPluginVersion()
+    {
+        return PMA_DBI_fetch_value('SELECT @@innodb_version;');
+    }
+
+    /**
+     *  
+     * Gets the InnoDB file format 
+     * (works only for the InnoDB plugin)
+     * http://www.innodb.com/products/innodb_plugin 
+     * (do not confuse this with phpMyAdmin's storage engine plugins!)
+     *
+     * @return string the InnoDB file format 
+     */
+    function getInnodbFileFormat()
+    {
+        return PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 0, 1);
+    }
+
+    /**
+     *  
+     * Verifies if this server supports the innodb_file_per_table feature 
+     * (works only for the InnoDB plugin)
+     * http://www.innodb.com/products/innodb_plugin 
+     * (do not confuse this with phpMyAdmin's storage engine plugins!)
+     *
+     * @return boolean whether this feature is supported or not 
+     */
+    function supportsFilePerTable()
+    {
+        $innodb_file_per_table = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1);
+        if ($innodb_file_per_table == 'ON') {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
 
 ?>
