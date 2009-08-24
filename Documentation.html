@@ -139,6 +139,10 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
         (see <abbr title="Frequently Asked Questions">FAQ</abbr> 1.17)</a></li>
     <li>communicate in <a href="./translators.html">57 different languages</a>
         </li>
+    <li>synchronize two databases residing on the same as well as remote servers
+        <a href="#faq9_1">(see <abbr title="Frequently Asked Questions">FAQ</abbr> 9.1)</a>
+    </li>
+
 </ul>
 
 <h4>A word about users:</h4>
@@ -2529,6 +2533,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <li><a href="#faqusing">Using phpMyAdmin</a></li>
     <li><a href="#faqproject">phpMyAdmin project</a></li>
     <li><a href="#faqsecurity">Security</a></li>
+    <li><a href="#faqsynchronization">Synchronization</a></li>
 </ol>
 
 <p> Please have a look at our
@@ -4347,6 +4352,19 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \
 <p>
     You can then use any log analyzing tools to detect possible break in
     attempts.
+</p>
+
+<h3 id="faqsynchronization">Synchronization</h3>
+<h4 id="faq9_1">
+    <a href="#faq9_1">9.1 How can I synchronize two databases/tables in phpMyAdmin?</a></h4>
+
+<p> You can now synchronize databases/tables in phpMyAdmin using the Synchronize feature.
+It allows you to connect to local as well as remote servers.This requires you to enter 
+server host name, username, password, port and the name of the database. Therefore you can 
+now synchronize your databases placed on the same server or some remote server.
+</p>
+
+<p>For more details see <a href="./documentation-gsoc/Synchronization_User Manual.htm">How to synchronize</a>
 </p>
 
 <!-- DEVELOPERS -->
