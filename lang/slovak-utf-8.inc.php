@@ -1561,4 +1561,9 @@ $strTableApplyIndex = 'Apply Index(s)';  //to translate
 $strTableUpdateRow = 'Update Row(s)';  //to translate
 $strTableInsertRow = 'Insert Row(s)';  //to translate
 $strTableDeleteRows = 'Would you like to delete all the previous rows from target tables?';  //to translate
+$strPort = 'Port';  //to translate
+$strSocket = 'Socket';  //to translate
+$strCouldNotConnectSource = 'Could not connect to the source';  //to translate
+$strCouldNotConnectTarget = 'Could not connect to the target';  //to translate
+$strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
 ?>
