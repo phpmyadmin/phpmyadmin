@@ -1546,4 +1546,22 @@ $strSetupZipDump_desc = 'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 
+$strSynchronize = 'Synchronize';  //to translate
+$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
+$strSynchronizeDb= 'Synchronize Databases';  //to translate
+$strApplyChanges='Apply Selected Changes';  //to translate
+$strStructureSyn = 'Structure Synchronization';  //to translate
+$strDataSyn = 'Data Synchronization';  //to translate
+$strStructureDiff = 'Structure Difference' ;  //to translate
+$strDataDiff = 'Data Difference';  //to translate
+$strTableCreate = 'Create Table';  //to translate
+$strTableAddColumn = 'Add Column(s)';  //to translate
+$strTableRemoveColumn = 'Remove Column(s)';  //to translate
+$strTableAlterColumn = 'Alter Column(s)';  //to translate
+$strTableRemoveIndex = 'Remove Index(s)';  //to translate
+$strTableAlterIndex = 'Alter Index(s)';  //to translate
+$strTableApplyIndex = 'Apply Index(s)';  //to translate
+$strTableUpdateRow = 'Update Row(s)';  //to translate
+$strTableInsertRow = 'Insert Row(s)';  //to translate
+$strTableDeleteRows = 'Would you like to delete all the previous rows from target tables?';  //to translate
 ?>
