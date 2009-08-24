@@ -16,6 +16,7 @@ require_once './libraries/common.inc.php';
  * Does the common work
  */   
 $GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'mootools.js';
 require_once './libraries/server_common.inc.php';
 
 /**
@@ -41,13 +42,14 @@ if (isset($_REQUEST['token'])) {
     $_SESSION['token'] = $_REQUEST['token'];
 }                         
 
+// variable for code saving
+$cons = array ("src", "trg");
 
 /**
  * Displays the page when 'Go' is pressed
  */
 
 if ((isset($_REQUEST['submit_connect']))) {
-    $cons = array ("src", "trg");
     foreach ($cons as $con) {
       ${"{$con}_host"}     = $_REQUEST[$con.'_host'];
       ${"{$con}_username"} = $_REQUEST[$con.'_username'];
@@ -55,7 +57,14 @@ if ((isset($_REQUEST['submit_connect']))) {
       ${"{$con}_port"}     = $_REQUEST[$con.'_port'];
       ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
       ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
+      ${"{$con}_type"}	   = $_REQUEST[$con.'_type'];
       ${"{$con}_url"}	   = '';
+      
+      if (${"{$con}_type"}=='cur') {
+	${"{$con}_connection"} = null;
+	${"{$con}_db"}       = $_REQUEST[$con.'_db_sel'];
+	continue;
+      }
       
       if (isset(${"{$con}_socket"}) && !empty(${"{$con}_socket"})) {
 	${"{$con}_url"}              = ':'.${"{$con}_socket"};
@@ -71,9 +80,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             
       ${"{$con}_connection"} = @mysql_connect(${"{$con}_url"}, ${"{$con}_username"}, ${"{$con}_password"});
     }
-    unset ($con, $cons);
     
-    if (!($src_connection) || !($trg_connection)) {
+    if ((!$src_connection && $src_type=='rmt') || (!$trg_connection && $trg_type=='rmt')) {
         /**
         * Displays the connection error string if
         * connections are not established
@@ -89,17 +97,19 @@ if ((isset($_REQUEST['submit_connect']))) {
         echo '</div>';
         unset($_REQUEST['submit_connect']);
     
-    } else if (($src_connection) && ($trg_connection)) {
+    } else {
         /**
         * Creating the link object for both source and target databases and
         * selecting the source and target databases using these links
         */
-        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $src_server);
-        $src_connection = PMA_DBI_select_db($src_db, $src_link);
-
-        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $trg_server);
-        $trg_connection = PMA_DBI_select_db($trg_db, $trg_link);
-        
+	foreach ($cons as $con) {
+	  if (${"{$con}_connection"}!=null)
+	    ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+	  else
+	    ${"{$con}_link"} = null;
+	  ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
+	}
+	
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
             /**
             * Displays error string if the database(s) did not exist
@@ -218,6 +228,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             $_SESSION['trg_password'] = $trg_password;
 	    $_SESSION['src_server']   = $src_server; 
 	    $_SESSION['trg_server']   = $trg_server; 
+	    $_SESSION['src_type']     = $src_type;
+	    $_SESSION['trg_type']     = $trg_type;
             $_SESSION['matching_tables_keys'] = $matching_tables_keys;
             $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
             $_SESSION['uncommon_tables_row_count'] = $row_count; 
@@ -510,6 +522,8 @@ if (isset($_REQUEST['Table_ids'])) {
     $trg_password = $_SESSION['trg_password'];
     $src_server   = $_SESSION['src_server'];
     $trg_server   = $_SESSION['trg_server'];
+    $src_type     = $_SESSION['src_type'];
+    $trg_type     = $_SESSION['trg_type'];
     $uncommon_tables = $_SESSION['uncommon_tables']; 
     $matching_tables = $_SESSION['matching_tables']; 
     $matching_tables_keys = $_SESSION['matching_tables_keys'];
@@ -537,8 +551,12 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Creating link object for source and target databases
     */
-    $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $src_server);
-    $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $trg_server);                                              
+    foreach ($cons as $con) {
+      if (${"{$con}_type"}=="rmt")
+	  ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+      else
+	  ${"{$con}_link"} = null;                                      
+    }
    
     /**
     * Initializing arrays to save the table ids whose data and structure difference is to be applied 
@@ -1197,72 +1215,86 @@ if (isset($_REQUEST['synchronize_db'])) {
    >' // TODO: add check if all var. are filled in
     . PMA_generate_common_hidden_inputs('', ''); 
     echo '<fieldset>'."\n";
-    echo '<legend>Synchronization</legend>'."\n";
+    echo '<legend>'. $GLOBALS['strSynchronize']. '</legend>'."\n";
  /**
- * Displays the form for source server
+ * Displays the forms
  */
-    echo '<table id="serverstatustraffic" class="data" >
-    <tr>
-        <th colspan="2">Source Database</th>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strHost']. '</td>
-	<td><input type="text" name="src_host" /></td> 
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strPort']. '</td>
-	<td><input type="text" name="src_port" value="3306" maxlength="5" size="5" /></td>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strSocket']. '</td>
-	<td><input type="text" name="src_socket" /></td>
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strUserName']. '</td>
-        <td><input type="text" name="src_username" /></td>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strPassword']. '</td>
-	<td><input type="password" name="src_pass" /> </td>   
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strDatabase']. '</td>
-	<td><input type="text" name="src_db" /></td>
-    </tr>
-    </table>';
+    
+    $databases = PMA_DBI_get_databases_full(null, false, null, $sort_by,
+        'SCHEMA_NAME', 0, true);
+	
+    foreach ($cons as $type) {
+      echo '<table id="serverconnection_'.$type.'_remote" class="data">
+      <tr>
+	  <th colspan="2">'. $GLOBALS['strDatabase_'.$type] .'</th>
+      </tr>
+      <tr class="odd">
+	  <td colspan="2" style="text-align: center">
+	     <select name="'.$type.'_type" id="'.$type.'_type">
+	      <option value="rmt">'.$GLOBALS['strRemoteServer'].'</option>
+	      <option value="cur">'.$GLOBALS['strCurrentServer'].'</option>
+	     </select>
+	  </td>
+      </tr>
+	<tr class="even" id="'.$type.'tr1">
+	    <td>'. $GLOBALS['strHost']. '</td>
+	    <td><input type="text" name="'.$type.'_host" /></td> 
+	</tr>
+	<tr class="odd" id="'.$type.'tr2">
+	    <td>'. $GLOBALS['strPort']. '</td>
+	    <td><input type="text" name="'.$type.'_port" value="3306" maxlength="5" size="5" /></td>
+	</tr>
+	<tr class="even" id="'.$type.'tr3">
+	    <td>'. $GLOBALS['strSocket']. '</td>
+	    <td><input type="text" name="'.$type.'_socket" /></td>
+	</tr>
+	<tr class="odd" id="'.$type.'tr4">
+	    <td>'. $GLOBALS['strUserName']. '</td>
+	    <td><input type="text" name="'.$type.'_username" /></td>
+	</tr>
+	<tr class="even" id="'.$type.'tr5">
+	    <td>'. $GLOBALS['strPassword']. '</td>
+	    <td><input type="password" name="'.$type.'_pass" /> </td>   
+	</tr>
+	<tr class="odd" id="'.$type.'tr6">
+	    <td>'. $GLOBALS['strDatabase']. '</td>
+	    <td><input type="text" name="'.$type.'_db" /></td>
+	</tr>
+	<tr class="even" id="'.$type.'tr7" style="display: none;">
+	    <td>'. $GLOBALS['strDatabase']. '</td>
+	    <td>
+	      <select name="'.$type.'_db_sel">
+	';
+	foreach ($databases as $db) {
+	  if ($db['SCHEMA_NAME'] != 'mysql'
+             && $db['SCHEMA_NAME'] != 'information_schema') 
+	  echo '		<option>'.$db['SCHEMA_NAME'].'</option>'."\n";
+	}  
+	echo '
+	      </select>
+	    </td>
+	</tr>
+      </table>';
+
+      
+      PMA_js(''.
+	'$(\''.$type.'_type\').addEvent(\'change\',function() {'."\n".
+	'    if ($(\''.$type.'tr1\').getStyle(\'display\')=="none") {'."\n".
+	'	for (var i=1; i<7; i++)'."\n".
+	'		$(\''.$type.'tr\'+i).tween(\'display\', \'table-row\');'."\n".
+	'	$(\''.$type.'tr7\').tween(\'display\', \'none\');'."\n".
+	'    }'."\n".
+	'   else {'."\n".
+	'	for (var i=1; i<7; i++)'."\n".
+	'		$(\''.$type.'tr\'+i).tween(\'display\', \'none\');'."\n".
+	'	$(\''.$type.'tr7\').tween(\'display\', \'table-row\');'."\n".
+	'    }'."\n".
+	'});'."\n"
+	);
+   }
+   unset ($types, $type);
    
-   /**
-   * Displays the form for target server
-   */
-   echo '<table id="serverstatusconnection" class="data">
-    <tr>
-        <th colspan="2">Target Database</th>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strHost']. '</td>
-	<td><input type="text" name="trg_host" /></td>
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strPort']. '</td>
-	<td><input type="text" name="trg_port" value="3306" maxlength="5" size="5" /></td>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strSocket']. '</td>
-	<td><input type="text" name="trg_socket" /></td>
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strUserName']. '</td>
-        <td><input type="text" name="trg_username" /></td>
-    </tr>
-    <tr class="odd">
-        <td>'. $GLOBALS['strPassword']. '</td>
-	<td><input type="password" name="trg_pass" /></td>
-    </tr>
-    <tr class="even">
-        <td>'. $GLOBALS['strDatabase']. '</td>
-	<td><input type="text" name="trg_db" /></td>
-    </tr>
-    </table>
+    echo '
     </fieldset>
     <fieldset class="tblFooters">
         <input type="submit" name="submit_connect" value="' .$GLOBALS['strGo'] .'" id="buttonGo" />

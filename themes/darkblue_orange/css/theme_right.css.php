@@ -894,7 +894,8 @@ div#serverstatus table caption a.top {
 }
 
 div#serverstatus div#serverstatusqueriesdetails table,
-div#serverstatus table#serverstatustraffic,
+div#serverstatus table#serverstatustraffic_src,
+div#serverstatus table#serverstatustraffic_trg,
 div#serverstatus table#serverstatusconnections {
     float: <?php echo $left; ?>;
 }
@@ -1242,4 +1243,11 @@ div.upload_progress_bar_inner
     width: 0px; 
     height: 12px; 
     margin: 1px;
+}
+
+table#serverconnection_src_remote, 
+table#serverconnection_trg_remote,
+table#serverconnection_src_local, 
+table#serverconnection_trg_local  {
+  float:left;
 }

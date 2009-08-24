@@ -1565,4 +1565,8 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strDatabase_src = 'Source Database';
+$strDatabase_trg = 'Target Database';
+$strRemoteServer = 'Remote Server';
+$strCurrentServer = 'Current Server';
 ?>

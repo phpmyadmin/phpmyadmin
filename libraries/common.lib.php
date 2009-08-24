@@ -2717,4 +2717,40 @@ function PMA_duplicateFirstNewline($string){
 function PMA_getTitleForTarget($target) {
     return $GLOBALS[$GLOBALS['cfg']['DefaultTabTranslationMapping'][$target]];
 }
+
+/** 
+  * The function creates javascript and html code, which run given mootools/JS code when DOM is ready
+  *
+  * @param String $code - Mootools/JS code, which will be run
+  * @param boolena $print - If true, then the code is printed, otherwise is returned
+  *
+  * @return String - the code
+  */
+function PMA_js_mootools_domready($code, $print=true)
+{
+  $out  = '';
+  $out .= '<script language="JavaScript">'."\n";
+  $out .= 'window.addEvent(\'domready\',function() {'."\n";
+  $out .= $code;
+  $out .= '});'."\n";
+  $out .= '</script>'."\n";
+
+  if ($print)
+    echo $out;
+
+  return $out;
+}
+
+function PMA_js($code, $print=true)
+{
+  $out  = '';
+  $out .= '<script language="JavaScript">'."\n";
+  $out .= $code;
+  $out .= '</script>'."\n";
+
+  if ($print)
+    echo $out;
+
+  return $out;
+}
 ?>

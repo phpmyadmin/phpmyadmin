@@ -1195,3 +1195,10 @@ div.upload_progress_bar_inner
     height: 12px; 
     margin: 1px;
 }
+
+table#serverconnection_src_remote, 
+table#serverconnection_trg_remote,
+table#serverconnection_src_local, 
+table#serverconnection_trg_local  {
+  float:left;
+}
