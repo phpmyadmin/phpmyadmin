@@ -1560,4 +1560,10 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+// TOMS - sync
+$strPort = 'Port';
+$strSocket = 'Socket';
+$strCouldNotConnectSource = 'Could not connect to the source';
+$strCouldNotConnectTarget = 'Could not connect to the target';
+$strDatabaseNotExisting = '\'%s\' database does not exist.'; 
 ?>

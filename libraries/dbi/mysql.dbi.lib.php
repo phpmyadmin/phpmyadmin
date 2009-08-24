@@ -21,18 +21,18 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
     unset($client_api);
 }
 
-function PMA_DBI_real_connect($server, $user, $password, $client_flags)
+function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistant=false)
 {
     global $cfg;
 
     if (empty($client_flags)) {
-        if ($cfg['PersistentConnections']) {
+        if ($cfg['PersistentConnections'] || $persistant) {
             $link = @mysql_pconnect($server, $user, $password);
         } else {
             $link = @mysql_connect($server, $user, $password);
         }
     } else {
-        if ($cfg['PersistentConnections']) {
+        if ($cfg['PersistentConnections'] || $persistant) {
             $link = @mysql_pconnect($server, $user, $password, $client_flags);
         } else {
             $link = @mysql_connect($server, $user, $password, false, $client_flags);
@@ -41,22 +41,39 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags)
 
     return $link;
 }
-
-function PMA_DBI_connect($user, $password, $is_controluser = false)
+/**
+ * @param   string  $user           mysql user name
+ * @param   string  $password       mysql user password
+ * @param   boolean $is_controluser
+ * @param   array   $server host/port/socket/persistant
+ * @return  mixed   false on error or a mysqli object on success
+ */
+function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null)
 {
     global $cfg, $php_errormsg;
-
-    $server_port   = (empty($cfg['Server']['port']))
+  
+    if ($server) {
+          $server_port   = (empty($server['port']))
                    ? ''
-                   : ':' . $cfg['Server']['port'];
+                   : ':' . (int)$server['port'];
+	  $server_socket = (empty($server['socket']))
+                   ? ''
+                   : ':' . $server['socket'];
+	  $server_persistant = (empty($server['persistant']))
+		   ? false
+		   : true;
+    } else {
+	  $server_port   = (empty($cfg['Server']['port']))
+                   ? ''
+                   : ':' . (int)$cfg['Server']['port'];
+	  $server_socket = (empty($cfg['Server']['socket']))
+                   ? ''
+                   : ':' . $cfg['Server']['socket'];
+    }
 
     if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
         $cfg['Server']['socket'] = '';
     }
-
-    $server_socket = (empty($cfg['Server']['socket']))
-                   ? ''
-                   : ':' . $cfg['Server']['socket'];
 
     $client_flags = 0;
 
@@ -74,14 +91,20 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
     if (defined('MYSQL_CLIENT_SSL') && $cfg['Server']['ssl']) {
         $client_flags |= MYSQL_CLIENT_SSL;
     }
+    
+    if (!$server) {
+      $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
 
-    $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
-
-    // Retry with empty password if we're allowed to
-    if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
-        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
+      // Retry with empty password if we're allowed to
+      if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
+	  $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
+      }
+    } else {
+      if (!isset($server['host']))
+	$link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant); 
+      else
+	$link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
     }
-
     if (empty($link)) {
         if ($is_controluser) {
             trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
@@ -90,8 +113,8 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
         PMA_log_user($user, 'mysql-denied');
         PMA_auth_fails();
     } // end if
-
-    PMA_DBI_postConnect($link, $is_controluser);
+    if (!$server)
+      PMA_DBI_postConnect($link, $is_controluser);
 
     return $link;
 }
@@ -173,7 +196,6 @@ function PMA_DBI_try_query($query, $link = null, $options = 0)
         }
         $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
-
     if($r != FALSE and PMA_Tracker::isActive() == TRUE )
         PMA_Tracker::handleQuery($query); 
 

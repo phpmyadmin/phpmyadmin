@@ -47,31 +47,44 @@ if (isset($_REQUEST['token'])) {
  */
 
 if ((isset($_REQUEST['submit_connect']))) {
-    $src_host     = $_REQUEST['src_host'];
-    $src_username = $_REQUEST['src_username'];
-    $src_password = $_REQUEST['src_pass'];
-    $src_port     = $_REQUEST['src_port'];
-    $src_db       = $_REQUEST['src_db'];
-    $src_connection = @mysql_connect($src_host, $src_username, $src_password);
-    
-    $trg_host     = $_REQUEST['trg_host'];
-    $trg_username = $_REQUEST['trg_username'];
-    $trg_password = $_REQUEST['trg_pass'];
-    $trg_port     = $_REQUEST['trg_port'];
-    $trg_db       = $_REQUEST['trg_db'];
-    $trg_connection = @mysql_connect($trg_host, $trg_username, $trg_password);
+    $cons = array ("src", "trg");
+    foreach ($cons as $con) {
+      ${"{$con}_host"}     = $_REQUEST[$con.'_host'];
+      ${"{$con}_username"} = $_REQUEST[$con.'_username'];
+      ${"{$con}_password"} = $_REQUEST[$con.'_pass'];
+      ${"{$con}_port"}     = $_REQUEST[$con.'_port'];
+      ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
+      ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
+      ${"{$con}_url"}	   = '';
+      
+      if (isset(${"{$con}_socket"}) && !empty(${"{$con}_socket"})) {
+	${"{$con}_url"}              = ':'.${"{$con}_socket"};
+	${"{$con}_server"}['socket'] = ${"{$con}_socket"};
+      } else {
+	${"{$con}_url"} = ${"{$con}_host"};
+	${"{$con}_server"}['host'] = ${"{$con}_host"};
+	if (isset(${"{$con}_port"}) && !empty(${"{$con}_port"}) && ((int)${"{$con}_port"}*1)>0) {
+	  ${"{$con}_url"}           .= ':' . ${"{$con}_port"};
+	  ${"{$con}_server"}['port'] = ${"{$con}_port"};
+	}
+      }
+            
+      ${"{$con}_connection"} = @mysql_connect(${"{$con}_url"}, ${"{$con}_username"}, ${"{$con}_password"});
+    }
+    unset ($con, $cons);
     
     if (!($src_connection) || !($trg_connection)) {
         /**
         * Displays the connection error string if
         * connections are not established
         */
+
         echo '<div class="error">' . "\n" ;  
         if(!$src_connection) {
-            echo "Could not connect to the source<br/>";
+            echo $GLOBALS['strCouldNotConnectSource'].'<br />';
         }
         if(!$trg_connection){
-            echo "Could not connect to the target"; 
+            echo $GLOBALS['strCouldNotConnectTarget'];
         }
         echo '</div>';
         unset($_REQUEST['submit_connect']);
@@ -81,22 +94,22 @@ if ((isset($_REQUEST['submit_connect']))) {
         * Creating the link object for both source and target databases and
         * selecting the source and target databases using these links
         */
-        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false);
-        $src_db_selected = PMA_DBI_select_db($src_db, $src_link);
-        
-        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false);
-        $trg_db_selected = PMA_DBI_select_db($trg_db, $trg_link);
+        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $src_server);
+        $src_connection = PMA_DBI_select_db($src_db, $src_link);
+
+        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $trg_server);
+        $trg_connection = PMA_DBI_select_db($trg_db, $trg_link);
         
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
             /**
             * Displays error string if the database(s) did not exist
             */
-            echo '<div class="error">' . "\n" ;      
+            echo '<div class="error">' . "\n" ;     
             if ($src_db_selected != 1) {
-                echo "'".$src_db."' database does not exists<br/>";
+                echo sprintf($GLOBALS['strDatabaseNotExisting'], $src_db);
             }
             if ($trg_db_selected != 1) {
-                echo "'".$trg_db."' database does not exists<br/>";
+                echo sprintf($GLOBALS['strDatabaseNotExisting'], $trg_db);
             }
             echo '</div>';    
             unset($_REQUEST['submit_connect']);
@@ -203,6 +216,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             $_SESSION['src_password'] = $src_password; 
             $_SESSION['trg_password'] = $trg_password; 
             $_SESSION['trg_password'] = $trg_password;
+	    $_SESSION['src_server']   = $src_server; 
+	    $_SESSION['trg_server']   = $trg_server; 
             $_SESSION['matching_tables_keys'] = $matching_tables_keys;
             $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
             $_SESSION['uncommon_tables_row_count'] = $row_count; 
@@ -493,6 +508,8 @@ if (isset($_REQUEST['Table_ids'])) {
     $trg_username = $_SESSION['trg_username']; 
     $src_password = $_SESSION['src_password']; 
     $trg_password = $_SESSION['trg_password'];
+    $src_server   = $_SESSION['src_server'];
+    $trg_server   = $_SESSION['trg_server'];
     $uncommon_tables = $_SESSION['uncommon_tables']; 
     $matching_tables = $_SESSION['matching_tables']; 
     $matching_tables_keys = $_SESSION['matching_tables_keys'];
@@ -520,8 +537,8 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Creating link object for source and target databases
     */
-    $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false);
-    $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false);                                              
+    $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $src_server);
+    $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $trg_server);                                              
    
     /**
     * Initializing arrays to save the table ids whose data and structure difference is to be applied 
@@ -1177,8 +1194,10 @@ if (isset($_REQUEST['synchronize_db'])) {
     
     echo  '<div id="serverstatus">                 
     <form name="connection_form" id="connection_form" method="POST" action="server_synchronize.php"
-    onsubmit="return validateConnection(connection_form,this)">'
+   >' // TODO: add check if all var. are filled in
     . PMA_generate_common_hidden_inputs('', ''); 
+    echo '<fieldset>'."\n";
+    echo '<legend>Synchronization</legend>'."\n";
  /**
  * Displays the form for source server
  */
@@ -1187,56 +1206,64 @@ if (isset($_REQUEST['synchronize_db'])) {
         <th colspan="2">Source Database</th>
     </tr>
     <tr class="odd">
-        <td>Host: </td>
-        <td><input type="text" name="src_host"></td> 
+        <td>'. $GLOBALS['strHost']. '</td>
+	<td><input type="text" name="src_host" /></td> 
     </tr>
     <tr class="even">
-        <td>Username: </td>
-        <td><input type="text" name="src_username"/></td>
+        <td>'. $GLOBALS['strPort']. '</td>
+	<td><input type="text" name="src_port" value="3306" maxlength="5" size="5" /></td>
     </tr>
     <tr class="odd">
-        <td>Password: </td>
-        <td><input type="password" name="src_pass" /> </td>   
+        <td>'. $GLOBALS['strSocket']. '</td>
+	<td><input type="text" name="src_socket" /></td>
     </tr>
     <tr class="even">
-        <td>Port: </td>
-        <td><input type="text" name="src_port" value="3306"></td>
+        <td>'. $GLOBALS['strUserName']. '</td>
+        <td><input type="text" name="src_username" /></td>
     </tr>
     <tr class="odd">
-        <td>Database: </td>
-        <td><input type="text" name="src_db"></td>
+        <td>'. $GLOBALS['strPassword']. '</td>
+	<td><input type="password" name="src_pass" /> </td>   
+    </tr>
+    <tr class="even">
+        <td>'. $GLOBALS['strDatabase']. '</td>
+	<td><input type="text" name="src_db" /></td>
     </tr>
     </table>';
    
    /**
    * Displays the form for target server
    */
-   echo '<table  id="serverstatusconnection" class="data">
+   echo '<table id="serverstatusconnection" class="data">
     <tr>
         <th colspan="2">Target Database</th>
     </tr>
     <tr class="odd">
-        <td>Host: </td>
-        <td><input type="text" name="trg_host"></td>
+        <td>'. $GLOBALS['strHost']. '</td>
+	<td><input type="text" name="trg_host" /></td>
     </tr>
     <tr class="even">
-        <td>Username: </td>
-        <td><input type="text" name="trg_username"></td>
+        <td>'. $GLOBALS['strPort']. '</td>
+	<td><input type="text" name="trg_port" value="3306" maxlength="5" size="5" /></td>
     </tr>
     <tr class="odd">
-        <td>Password: </td>
-        <td><input type="password" name="trg_pass"></td>
+        <td>'. $GLOBALS['strSocket']. '</td>
+	<td><input type="text" name="trg_socket" /></td>
     </tr>
     <tr class="even">
-        <td>Port: </td>
-        <td><input type="text" name="trg_port" value="3306"></td>
+        <td>'. $GLOBALS['strUserName']. '</td>
+        <td><input type="text" name="trg_username" /></td>
     </tr>
     <tr class="odd">
-        <td>Database: </td>
-        <td><input type="text" name="trg_db"></td>
+        <td>'. $GLOBALS['strPassword']. '</td>
+	<td><input type="password" name="trg_pass" /></td>
+    </tr>
+    <tr class="even">
+        <td>'. $GLOBALS['strDatabase']. '</td>
+	<td><input type="text" name="trg_db" /></td>
     </tr>
     </table>
- 
+    </fieldset>
     <fieldset class="tblFooters">
         <input type="submit" name="submit_connect" value="' .$GLOBALS['strGo'] .'" id="buttonGo" />
     </fieldset>

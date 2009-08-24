@@ -568,18 +568,42 @@ function ApplySelectedChanges(token)
 */
 function validateConnection(form_name, form_obj)
 {   
+    var check = true;
+    var src_hostfilled = true;
+    var trg_hostfilled = true;
+
     for (var i=1; i<form_name.elements.length; i++)
     {
         // All the text fields are checked excluding the port field because the default port can be used.
         if ((form_name.elements[i].type == 'text') && (form_name.elements[i].name != 'src_port') && (form_name.elements[i].name != 'trg_port')) {
-            var check = emptyFormElements(form_obj, form_name.elements[i].name);
-        }
-        if (check === false) {
-   //         alert('Password field can be empty.');
-            return false;
-        }
+	    check = true;
+            check = emptyFormElements(form_obj, form_name.elements[i].name);
+
+	    if (check==false) {
+	      element = form_name.elements[i].name;
+	      if (form_name.elements[i].name == 'src_host') {
+		src_hostfilled = false;
+		continue;
+	      }
+	      if (form_name.elements[i].name == 'trg_host') {
+		trg_hostfilled = false;
+		continue;
+	      }
+	      if ((form_name.elements[i].name == 'src_socket' && src_hostfilled==false) || (form_name.elements[i].name == 'trg_socket' && trg_hostfilled==false))
+		break;
+	      else
+		continue;
+	      break;
+	    }
+	} 
     }
-    return true;
+    if (!check) {
+        form_obj.reset();
+        element.select();
+        alert(PMA_messages['strFormEmpty']);
+        element.focus();
+    }
+    return check;
 }
     
 /**
@@ -610,8 +634,6 @@ function emptyCheckTheField(theForm, theFieldName)
 
 
 /**
- * Displays an error message if an element of a form hasn't been completed and
- * should be
  *
  * @param   object   the form
  * @param   string   the name of the form field to put the focus on
@@ -623,15 +645,8 @@ function emptyFormElements(theForm, theFieldName)
     var theField = theForm.elements[theFieldName];
     var isEmpty = emptyCheckTheField(theForm, theFieldName);
 
-    if (isEmpty) {
-        theForm.reset();
-        theField.select();
-        alert(PMA_messages['strFormEmpty']);
-        theField.focus();
-        return false;
-    }
 
-    return true;
+    return isEmpty;
 } // end of the 'emptyFormElements()' function
 
 

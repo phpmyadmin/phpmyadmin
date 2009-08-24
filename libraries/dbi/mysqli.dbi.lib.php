@@ -54,22 +54,37 @@ if (! defined('MYSQLI_TYPE_BIT')) {
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
+ * @param   array   $server host/port/socket 
  * @return  mixed   false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false)
+function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null)
 {
-    $server_port   = (empty($GLOBALS['cfg']['Server']['port']))
-                   ? false
-                   : (int) $GLOBALS['cfg']['Server']['port'];
+    if ($server) {
+          $server_port   = (empty($server['port']))
+                   ? ''
+                   : (int)$server['port'];
+	  $server_socket = (empty($server['socket']))
+                   ? ''
+                   : $server['socket'];
+	  $server['host'] = (empty($server['host']))
+		   ? 'localhost'
+		   : $server['host'];
+    } else {
+	  $server_port   = (empty($GLOBALS['cfg']['Server']['port']))
+			 ? false
+			 : (int) $GLOBALS['cfg']['Server']['port'];
+	  $server_socket = (empty($GLOBALS['cfg']['Server']['socket']))
+			 ? null
+			 : $GLOBALS['cfg']['Server']['socket'];
+    }
+
 
     if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
         $GLOBALS['cfg']['Server']['socket'] = '';
     }
 
     // NULL enables connection to the default socket
-    $server_socket = (empty($GLOBALS['cfg']['Server']['socket']))
-                   ? null
-                   : $GLOBALS['cfg']['Server']['socket'];
+
 
     $link = mysqli_init();
 
@@ -86,21 +101,25 @@ function PMA_DBI_connect($user, $password, $is_controluser = false)
     if ($GLOBALS['cfg']['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
         $client_flags |= MYSQLI_CLIENT_SSL;
     }
+    
+    if (!$server) {
+      $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
 
-    $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
-
-    // Retry with empty password if we're allowed to
-    if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
-        $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+      // Retry with empty password if we're allowed to
+      if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+	  $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+      }
+    } else {
+      $return_value = @mysqli_real_connect($link, $server['host'], $user, $password, false, $server_port, $server_socket);
     }
 
     if ($return_value == false) {
-        if ($is_controluser) {
-            trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
-            return false;
-        }
-        PMA_log_user($user, 'mysql-denied');
-        PMA_auth_fails();
+	if ($is_controluser) {
+	    trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
+	    return false;
+	}
+	PMA_log_user($user, 'mysql-denied');
+	PMA_auth_fails();
     } // end if
 
     PMA_DBI_postConnect($link, $is_controluser);
