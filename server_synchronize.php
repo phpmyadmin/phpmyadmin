@@ -68,7 +68,7 @@ if ((isset($_REQUEST['submit_connect']))) {
         */
         echo '<div class="error">' . "\n" ;  
         if(!$src_connection) {
-            echo "Could not connect to the source</br>";
+            echo "Could not connect to the source<br/>";
         }
         if(!$trg_connection){
             echo "Could not connect to the target"; 
@@ -93,10 +93,10 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<div class="error">' . "\n" ;      
             if ($src_db_selected != 1) {
-                echo "'".$src_db."' database does not exists</br>";
+                echo "'".$src_db."' database does not exists<br/>";
             }
             if ($trg_db_selected != 1) {
-                echo "'".$trg_db."' database does not exists</br>";
+                echo "'".$trg_db."' database does not exists<br/>";
             }
             echo '</div>';    
             unset($_REQUEST['submit_connect']);
@@ -1184,22 +1184,27 @@ if (isset($_REQUEST['synchronize_db'])) {
  */
     echo '<table id="serverstatustraffic" class="data" >
     <tr>
-        <th>Source Database</th>
+        <th colspan="2">Source Database</th>
     </tr>
     <tr class="odd">
-        <td>Host: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="src_host"></td> 
+        <td>Host: </td>
+        <td><input type="text" name="src_host"></td> 
     </tr>
     <tr class="even">
-        <td>Username: <input type="text" name="src_username"/></td>
+        <td>Username: </td>
+        <td><input type="text" name="src_username"/></td>
     </tr>
     <tr class="odd">
-        <td>Password: <input type="password" name="src_pass" /> </td>   
+        <td>Password: </td>
+        <td><input type="password" name="src_pass" /> </td>   
     </tr>
     <tr class="even">
-        <td>Port: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="src_port" value="3306"></td>
+        <td>Port: </td>
+        <td><input type="text" name="src_port" value="3306"></td>
     </tr>
     <tr class="odd">
-        <td>Database: <input type="text" name="src_db"></td>
+        <td>Database: </td>
+        <td><input type="text" name="src_db"></td>
     </tr>
     </table>';
    
@@ -1208,22 +1213,27 @@ if (isset($_REQUEST['synchronize_db'])) {
    */
    echo '<table  id="serverstatusconnection" class="data">
     <tr>
-        <th>Target Database</th>
+        <th colspan="2">Target Database</th>
     </tr>
     <tr class="odd">
-        <td>Host: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="trg_host"></td>
+        <td>Host: </td>
+        <td><input type="text" name="trg_host"></td>
     </tr>
     <tr class="even">
-        <td>Username: <input type="text" name="trg_username"></td>
+        <td>Username: </td>
+        <td><input type="text" name="trg_username"></td>
     </tr>
     <tr class="odd">
-        <td>Password: <input type="password" name="trg_pass"></td>
+        <td>Password: </td>
+        <td><input type="password" name="trg_pass"></td>
     </tr>
     <tr class="even">
-        <td>Port: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="trg_port" value="3306"></td>
+        <td>Port: </td>
+        <td><input type="text" name="trg_port" value="3306"></td>
     </tr>
     <tr class="odd">
-        <td>Database: <input type="text" name="trg_db"></td>
+        <td>Database: </td>
+        <td><input type="text" name="trg_db"></td>
     </tr>
     </table>
  
