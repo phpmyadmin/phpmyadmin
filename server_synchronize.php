@@ -226,10 +226,10 @@ if ((isset($_REQUEST['submit_connect']))) {
             $_SESSION['src_password'] = $src_password; 
             $_SESSION['trg_password'] = $trg_password; 
             $_SESSION['trg_password'] = $trg_password;
-	    $_SESSION['src_server']   = $src_server; 
-	    $_SESSION['trg_server']   = $trg_server; 
-	    $_SESSION['src_type']     = $src_type;
-	    $_SESSION['trg_type']     = $trg_type;
+    	    $_SESSION['src_server']   = $src_server; 
+	        $_SESSION['trg_server']   = $trg_server; 
+	        $_SESSION['src_type']     = $src_type;
+    	    $_SESSION['trg_type']     = $trg_type;
             $_SESSION['matching_tables_keys'] = $matching_tables_keys;
             $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
             $_SESSION['uncommon_tables_row_count'] = $row_count; 
@@ -1220,7 +1220,7 @@ if (isset($_REQUEST['synchronize_db'])) {
  * Displays the forms
  */
     
-    $databases = PMA_DBI_get_databases_full(null, false, null, $sort_by,
+    $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
         'SCHEMA_NAME', 0, true);
 	
     foreach ($cons as $type) {
