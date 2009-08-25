@@ -11,7 +11,6 @@
  * Gets relation settings
  */
 require_once './libraries/relation.lib.php';
-$cfgRelation = PMA_getRelationsParam();
 
 /**
  * This class tracks changes on databases, tables and views.
@@ -103,7 +102,7 @@ class PMA_Tracker
      */
     static public function isActive()
     {
-        global $cfgRelation;
+        $cfgRelation = PMA_getRelationsParam();
         if (!$cfgRelation['trackingwork']) return false;
 
         self::init();
@@ -190,6 +189,7 @@ class PMA_Tracker
      */
     static public function isTracked($dbname, $tablename)
     {
+        $cfgRelation = PMA_getRelationsParam();
         if (!$cfgRelation['trackingwork']) return false;
 
         $sql_query =
