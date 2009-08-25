@@ -441,18 +441,26 @@ $cfg['Servers'][$i]['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,D
 /**
  * Whether a DROP VIEW IF EXISTS statement will added as first line to the log when creating a view.
  *
- * @global bool $cfg['Servers'][$i]['tracking_version_drop_view']
+ * @global bool $cfg['Servers'][$i]['tracking_add_drop_view']
  */
 
-$cfg['Servers'][$i]['tracking_version_drop_view'] = true;
+$cfg['Servers'][$i]['tracking_add_drop_view'] = true;
 
 /**
  * Whether a DROP TABLE IF EXISTS statement will added as first line to the log when creating a table.
  *
- * @global bool $cfg['Servers'][$i]['tracking_version_drop_table']
+ * @global bool $cfg['Servers'][$i]['tracking_add_drop_table']
  */
 
-$cfg['Servers'][$i]['tracking_version_drop_table'] = true;
+$cfg['Servers'][$i]['tracking_add_drop_table'] = true;
+
+/**
+ * Whether a DROP DATABASE IF EXISTS statement will added as first line to the log when creating a database.
+ *
+ * @global bool $cfg['Servers'][$i]['tracking_add_drop_database']
+ */
+
+$cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
  * Whether a DROP DATABASE IF EXISTS statement will added as first line to the log when creating a database.
