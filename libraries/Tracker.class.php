@@ -102,6 +102,7 @@ class PMA_Tracker
      */
     static public function isActive()
     {
+        if (!defined('PHPMYADMIN_INIT_DONE')) return false;
         $cfgRelation = PMA_getRelationsParam();
         if (!$cfgRelation['trackingwork']) return false;
 
@@ -189,6 +190,7 @@ class PMA_Tracker
      */
     static public function isTracked($dbname, $tablename)
     {
+        if (!defined('PHPMYADMIN_INIT_DONE')) return false;
         $cfgRelation = PMA_getRelationsParam();
         if (!$cfgRelation['trackingwork']) return false;
 
