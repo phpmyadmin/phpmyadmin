@@ -24,6 +24,11 @@ require_once './libraries/relation.lib.php';
 class PMA_Tracker
 {
     /**
+     * Whether tracking is ready.
+     */
+    static protected $enabled = false;
+
+    /**
      * Defines the internal PMA table which contains tracking data.
      *
      * @access  protected
@@ -92,6 +97,17 @@ class PMA_Tracker
 
     }
 
+    /**
+     * Actually enables tracking. This needs to be done after all 
+     * underlaying code is initialized.
+     *
+     * @static
+     *
+     */
+    static public function enable()
+    {
+        self::$enabled = true;
+    }
 
     /**
      * Gets the on/off value of the Tracker module, starts initialization.
@@ -102,8 +118,12 @@ class PMA_Tracker
      */
     static public function isActive()
     {
-        if (!defined('PHPMYADMIN_INIT_DONE')) return false;
+        if (!self::$enabled) return false;
+        /* We need to avoid attempt to track any queries from PMA_getRelationsParam */
+        self::$enabled = false;
         $cfgRelation = PMA_getRelationsParam();
+        /* Restore original state */
+        self::$enabled = true;
         if (!$cfgRelation['trackingwork']) return false;
 
         self::init();
@@ -190,8 +210,12 @@ class PMA_Tracker
      */
     static public function isTracked($dbname, $tablename)
     {
-        if (!defined('PHPMYADMIN_INIT_DONE')) return false;
+        if (!self::$enabled) return false;
+        /* We need to avoid attempt to track any queries from PMA_getRelationsParam */
+        self::$enabled = false;
         $cfgRelation = PMA_getRelationsParam();
+        /* Restore original state */
+        self::$enabled = true;
         if (!$cfgRelation['trackingwork']) return false;
 
         $sql_query =

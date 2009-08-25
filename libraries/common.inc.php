@@ -985,8 +985,8 @@ $_SESSION['PMA_Config']->set('blowfish_secret', '');
 $_SESSION['PMA_Config']->set('Servers', '');
 $_SESSION['PMA_Config']->set('default_server', '');
 
-/* Flag that we have loaded all core libraries and set up the connections */
-define('PHPMYADMIN_INIT_DONE', '42');
+/* Tell tracker that it can actually work */
+PMA_Tracker::enable();
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
