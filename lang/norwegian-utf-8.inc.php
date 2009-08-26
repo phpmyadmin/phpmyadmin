@@ -1563,4 +1563,8 @@ $strSocket = 'Socket';  //to translate
 $strCouldNotConnectSource = 'Could not connect to the source';  //to translate
 $strCouldNotConnectTarget = 'Could not connect to the target';  //to translate
 $strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
+$strDatabase_src = 'Source Database';  //to translate
+$strDatabase_trg = 'Target Database';  //to translate
+$strRemoteServer = 'Remote Server';  //to translate
+$strCurrentServer = 'Current Server';  //to translate
 ?>
