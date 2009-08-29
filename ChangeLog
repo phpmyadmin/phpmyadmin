@@ -41,6 +41,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2813879 [export] Duplicate empty lines when exporting without comments 
 - bug #2825919 [export] Trigger export with database name 
 - bug #2823996 [data] Cannot edit row with no PK and a BIT field 
+- bug [export] Exporting results of a query which contains a LIMIT clause
+  inside a subquery
 
 3.2.1.0 (2009-08-09)
 - bug #2799009 Login with ipv6 IP address breaks redirect
