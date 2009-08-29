@@ -806,14 +806,18 @@ if ($server_master_status_run || $server_slave_status_run)
       </td>
       <td class="value">
 	<?php 
-	  if (${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_status"}[0][$variable])
-	    echo '<span class="attention">';
-	  if (${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_status"}[0][$variable])
+	if (isset(${"{$type}_variables_alerts"}[$variable])
+	    && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_status"}[0][$variable]) {
+        echo '<span class="attention">';
+
+	} elseif (isset(${"{$type}_variables_oks"}[$variable])
+	    && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_status"}[0][$variable]) {
 	    echo '<span class="allfine">';
-	  else
+	} else {
 	    echo '<span>';
-	  echo ${"server_{$type}_status"}[0][$variable]; 
-	  echo '</span>';
+	}
+	echo ${"server_{$type}_status"}[0][$variable]; 
+	echo '</span>';
 	?>
       </td>
     </tr>

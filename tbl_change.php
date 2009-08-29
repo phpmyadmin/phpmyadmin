@@ -464,7 +464,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value($field['Default'], $extracted_fieldspec['spec_in_brackets']);
+                $special_chars = PMA_convert_bit_default_value($field['Default']);
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }

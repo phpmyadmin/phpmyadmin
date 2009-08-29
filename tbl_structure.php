@@ -337,7 +337,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td nowrap="nowrap"><?php
     if (isset($row['Default'])) {
         if ($extracted_fieldspec['type'] == 'bit') {
-            echo PMA_printable_bit_value($row['Default'], $extracted_fieldspec['spec_in_brackets']);
+            // here, $row['Default'] contains something like b'010'
+            echo PMA_convert_bit_default_value($row['Default']);
         } else {
             echo $row['Default'];
         }
