@@ -444,6 +444,13 @@ if ($export_type == 'server') {
                         break 3;
                     }
                 }
+                // now export the triggers (needs to be done after the data because
+                // triggers can modify already imported tables)
+                if (isset($GLOBALS[$what . '_structure'])) {
+                    if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
+                        break 2;
+                    }
+                }
             }
             foreach($views as $view) {
                 // no data export for a view
@@ -482,6 +489,13 @@ if ($export_type == 'server') {
         if (isset($GLOBALS[$what . '_data']) && ! $is_view) {
             $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
             if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+                break 2;
+            }
+        }
+        // now export the triggers (needs to be done after the data because
+        // triggers can modify already imported tables)
+        if (isset($GLOBALS[$what . '_structure'])) {
+            if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
                 break 2;
             }
         }
@@ -534,6 +548,13 @@ if ($export_type == 'server') {
         }
         if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
             break;
+        }
+    }
+    // now export the triggers (needs to be done after the data because
+    // triggers can modify already imported tables)
+    if (isset($GLOBALS[$what . '_structure'])) {
+        if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'triggers', $export_type)) {
+            break 2;
         }
     }
     if (!PMA_exportDBFooter($db)) {
