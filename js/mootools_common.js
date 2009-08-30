@@ -2,7 +2,7 @@
 /**
  *  Used for replication support
  *
- * @version $Id: $
+ * @version $Id$
  */
 
 function divShowHideFunc(ahref, id) {
