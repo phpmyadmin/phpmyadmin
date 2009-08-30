@@ -2125,6 +2125,19 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             $header_shown = TRUE;
         }
         $_url_params['unlim_num_rows'] = $unlim_num_rows;
+
+        /**
+         * At this point we don't know the table name; this can happen
+         * for example with a query like
+         * SELECT bike_code FROM (SELECT bike_code FROM bikes) tmp
+         * As a workaround we set in the table parameter the name of the
+         * first table of this database, so that tbl_export.php and
+         * the script it calls do not fail
+         */
+        if (empty($_url_params['table'])) {
+            $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
+        }
+
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_tblexport.png', $GLOBALS['strExport'], false, true),
