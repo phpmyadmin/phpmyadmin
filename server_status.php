@@ -28,6 +28,11 @@ require './libraries/server_common.inc.php';
  */
 require './libraries/server_links.inc.php';
 
+/**
+ * Replication library
+ */
+require './libraries/replication.inc.php';
+require_once './libraries/replication_gui.lib.php';
 
 /**
  * Displays the sub-page heading
@@ -63,17 +68,6 @@ if (isset($_REQUEST['flush'])) {
  * get status from server
  */
 $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
-
-/**
- * get master status from server
- */
-$server_master_status = PMA_DBI_fetch_result('SHOW MASTER STATUS'); 
-
-/**
- * get slave status from server
- */
-$server_slave_status = PMA_DBI_fetch_result('SHOW SLAVE STATUS'); 
-
 
 /**
  * for some calculations we require also some server settings
@@ -263,70 +257,6 @@ $sections = array(
     'tc'            => array('title' => $strTransactionCoordinator),
 );
 
-/** 
-  * replication types
-  */
-$replication_types = array('master', 'slave');
-
-/**
-  * define variables for master status
-  */
-$master_variables = array(
-		      'File',
-		      'Position',
-		      'Binlog_Do_DB',
-		      'Binlog_Ignore_DB'
-);
-
-/**
-  * Define variables for slave status
-  */
-$slave_variables  = array(
-		      'Slave_IO_State',
-		      'Master_Host',
-		      'Master_User',
-		      'Master_Port',
-		      'Connect_Retry',
-		      'Master_Log_File',
-		      'Read_Master_Log_Pos',
-		      'Relay_Log_File',
-		      'Relay_Log_Pos',
-		      'Relay_Master_Log_File',
-		      'Slave_IO_Running',
-		      'Slave_SQL_Running',
-		      'Replicate_Do_DB',
-		      'Replicate_Ignore_DB',
-		      'Replicate_Do_Table',
-		      'Replicate_Ignore_Table',
-		      'Replicate_Wild_Do_Table',
-		      'Replicate_Wild_Ignore_Table',
-		      'Last_Errno',
-		      'Last_Error',
-		      'Skip_Counter',
-		      'Exec_Master_Log_Pos',
-		      'Relay_Log_Space',
-		      'Until_Condition',
-		      'Until_Log_File',
-		      'Until_Log_Pos',
-		      'Master_SSL_Allowed',
-		      'Master_SSL_CA_File',
-		      'Master_SSL_CA_Path',
-		      'Master_SSL_Cert',
-		      'Master_SSL_Cipher',
-		      'Master_SSL_Key',
-		      'Seconds_Behind_Master'
-);
-/**
-  * define important variables, which need to be watched for correct running of replication in slave mode
-  */
-$slave_variables_alerts = array(
-			    'Slave_IO_Running' => 'No',
-			    'Slave_SQL_Running' => 'No'
-			 );
-$slave_variables_oks = array(
-			    'Slave_IO_Running' => 'Yes',
-			    'Slave_SQL_Running' => 'Yes'
-			 );
 /**
  * define some needfull links/commands
  */
@@ -339,12 +269,16 @@ $links['table'][$strShowOpenTables]
     = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 
-$links['repl'][$strShowSlaveHosts]
+if ($server_master_status) {
+  $links['repl'][$strShowSlaveHosts]
     = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-$links['repl'][$strShowSlaveStatus]
-    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE STATUS') .
-      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+  $links['repl'][$strShowMasterStatus] = '#replication_master';
+}
+if ($server_slave_status) {
+  $links['repl'][$strShowSlaveStatus] = '#replication_slave';
+}
+      
 $links['repl']['doc'] = 'replication';
 
 $links['qcache'][$strFlushQueryCache]
@@ -387,14 +321,6 @@ foreach ($server_status as $name => $value) {
 }
 unset($name, $value, $filter, $section, $allocations);
 
-// check which replication is available
-foreach ($replication_types as $type)
-{
-  if (count(${"server_{$type}_status"}) > 0)
-    ${"server_{$type}_status_run"} = true;
-  else 
-    ${"server_{$type}_status_run"} = false;
-}
 // rest
 $sections['all']['vars'] =& $server_status;
 
@@ -423,17 +349,19 @@ echo sprintf($strServerStatusUptime,
 </p>
 
 <?php
-if ($server_master_status_run || $server_slave_status_run) {
-    $replicationOut = "";
-    foreach ($replication_types as $type) {
-        if (${"server_{$type}_status_run"}) {
-            if ($replicationOut != "") {
-                $replicationOut .= $strAndSmall . ' ';
-            }
-        $replicationOut .= '<b>' . $type . '</b> ';
-        }
+if ($server_master_status || $server_slave_status)
+{
+  $replicationOut = "";
+  foreach ($replication_types as $type)
+  {
+    if (${"server_{$type}_status"})
+    {
+      if ($replicationOut != "")
+	$replicationOut .= $strAndSmall . ' ';
+      $replicationOut .= '<b>' . $type . '</b> ';
     }
-    echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
+  }
+  echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
 }
 ?>
 
@@ -770,7 +698,7 @@ unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 </div> 
 <?php
 /* if the server works as master or slave in replication process, display useful information */
-if ($server_master_status_run || $server_slave_status_run)
+if ($server_master_status || $server_slave_status)
 {
   ?>
   <hr class="clearfloat" />
@@ -780,56 +708,9 @@ if ($server_master_status_run || $server_slave_status_run)
   
   foreach ($replication_types as $type)
   {
-    if (${"server_{$type}_status_run"})
-    {
-    ?>
-    <h4><?php echo ${"strReplicationStatus_{$type}"}; ?></h4>
-    <?php 
-    ?>
-    <table id="server<?php echo $type; ?>replicationsummary" class="data"> 
+    if (${"server_{$type}_status"})
+      PMA_replication_print_status_table($type);
     
-    <thead>
-    <tr>
-	<th><?php echo $strVar; ?></th>
-	<th><?php echo $strValue; ?></th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    $odd_row = true;
-    foreach(${"{$type}_variables"} as $variable)
-    {
-    ?>
-    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-      <td class="name">
-	<?php echo $variable; ?>
-      </td>
-      <td class="value">
-	<?php 
-	if (isset(${"{$type}_variables_alerts"}[$variable])
-	    && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_status"}[0][$variable]) {
-        echo '<span class="attention">';
-
-	} elseif (isset(${"{$type}_variables_oks"}[$variable])
-	    && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_status"}[0][$variable]) {
-	    echo '<span class="allfine">';
-	} else {
-	    echo '<span>';
-	}
-	echo ${"server_{$type}_status"}[0][$variable]; 
-	echo '</span>';
-	?>
-      </td>
-    </tr>
-    <?php
-    $odd_row = ! $odd_row;
-    }
-    unset(${"server_{$type}_status"});
-    ?>
-    </tbody>
-    </table>
-    <?php
-    }
   }
   unset($types);
 }

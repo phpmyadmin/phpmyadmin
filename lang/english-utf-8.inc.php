@@ -1569,4 +1569,50 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+
+
+///////// NEW STRINGS
+$strReplcationSelectDatabases = 'Please select databases:';
+$strReplcationSynchronize = 'Synchronize databases with master';
+$strReplicationAddLines = 'Now, add following lines at the end of your my.cnf and please restart the mysql server afterwards.';
+$strReplicationAddSlaveUser = 'Add slave replication user?';
+$strReplicationChangedSuccesfully = 'Master server changed succesfully to %s';
+$strReplicationConfiguredMaster = 'This server is configured as master in replication process.';
+$strReplicationControlSlave = 'Control slave:';
+$strReplicationMaster = 'Master Replication';
+$strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';
+$strReplicationMasterChooseIgn = 'Ignore all databases; Replicate:';
+$strReplicationMasterChooseMode = 'This server is not configured as master server in replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';
+$strReplicationMasterConfiguration = 'Master Configuration';
+$strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informating you, that this server <b>is</b> configured as master';
+$strReplicationServernConfiguredMaster = 'This server is not configured as master in replication process. Would you like to <a href="%s">configure</a> it?';
+$strReplicationShowMasterStatus = 'Show master status';
+$strReplicationSkippingErrorWarn = 'Skiping error(s) might lead into unsynchronized master and slave!';
+$strReplicationSlave = 'Slave Replication';
+$strReplicationSlaveChangeMaster = 'Change or reconfigure master server';
+$strReplicationSlaveConfigured = 'Server is configured as slave in replication process. Would you like to:';
+$strReplicationSlaveNotConfigured = 'This server is not configured as slave in replication process. Would you like to <a href="%s">configure</a> it?';
+$strReplicationSlaveErrorManagement = 'Error management:';
+$strReplicationSlaveIOThread = 'IO Thread %s only';
+$strReplicationSlaveReset = 'Reset Slave';
+$strReplicationSlaveSQLThread = 'SQL Thread %s only';
+$strReplicationSlaveSeeStatus = 'See slave status table';
+$strReplicationSlaveSkipCurrentError = 'Skip current error';
+$strReplicationSlaveSkipNext = 'Skip next';
+$strReplicationSlaveSkipNextErrors = 'errors.';
+$strReplicationStatus = 'Replication status';
+$strPort = 'Port';
+$strFull = 'Full';
+$strStop = 'Stop';
+$strStart ='Start';
+$strShowMasterStatus = 'Show master status';
+$strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';
+
+$strDataSyn = 'Data Synchronization';
+$strStructureSyn = 'Structure Synchronization';
+$strSynchronizationNote='Target database will completely synchronize with source database.Source database will remain unchanged.';
+$strSynchronize = 'Synchronize';
+$strSynchronizeDb= 'Synchronize Databases';
+$strReplicationUnknownError = 'Unknown error';
+$strReplicationUnableToChange = 'Unable to change master';
 ?>

@@ -64,6 +64,10 @@ if ($is_superuser) {
     $tabs['rights']['icon'] = 's_rights.png';
     $tabs['rights']['link'] = 'server_privileges.php';
     $tabs['rights']['text'] = $strPrivileges;
+
+    $tabs['replication']['icon'] = 's_replication.png';
+    $tabs['replication']['link'] = 'server_replication.php';
+    $tabs['replication']['text'] = "Replication";
 }
 
 if (! empty($binary_logs)) {

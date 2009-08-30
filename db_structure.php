@@ -42,6 +42,8 @@ if (empty($is_info)) {
     // Gets the database structure
     $sub_part = '_structure';
     require './libraries/db_info.inc.php';
+
+    require_once './libraries/replication.inc.php';
 }
 
 // 1. No tables
@@ -134,7 +136,7 @@ PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'fr
 <?php
 echo PMA_generate_common_hidden_inputs($db);
 
-PMA_TableHeader($db_is_information_schema);
+PMA_TableHeader($db_is_information_schema, $server_slave_status);
 
 $i = $sum_entries = 0;
 $sum_size       = (double) 0;
@@ -330,8 +332,36 @@ foreach ($tables as $keyname => $each_table) {
 </tbody>
 </table>
         <?php
-        PMA_TableHeader();
+        PMA_TableHeader(false, $server_slave_status);
     }
+    
+    $ignored = false;
+    $do = false;
+    
+    if ($server_slave_status) {
+      ////////////////////////////////////////////////////////////////
+      
+     if ((strlen(array_search($truename, $server_slave_Do_Table))>0) || (strlen(array_search($db, $server_slave_Do_DB))>0) || (count($server_slave_Do_DB)==1 && count($server_slave_Ignore_DB)==1)) {
+      $do = true;
+     }
+     foreach ($server_slave_Wild_Do_Table as $table) {
+       if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+	$do = true;
+     }
+     ////////////////////////////////////////////////////////////////////
+     if ((strlen(array_search($truename, $server_slave_Ignore_Table))>0)  || (strlen(array_search($db, $server_slave_Ignore_DB))>0)) {
+      $ignored = true;
+     }
+     foreach ($server_slave_Wild_Ignore_Table as $table) {
+       if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+	$ignored = true;
+     }
+    }/* elseif ($server_master_status) {
+      if ((strlen(array_search($db, $server_master_Do_DB))>0) || count($server_master_Do_DB)==1)
+	$do = true;
+      elseif ((strlen(array_search($db, $server_master_Ignore_DB))>0) || count($server_master_Ignore_DB)==1)
+	$ignored = true;
+    }*/
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
     <td align="center">
@@ -339,9 +369,9 @@ foreach ($tables as $keyname => $each_table) {
             value="<?php echo $each_table['TABLE_NAME']; ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><label for="checkbox_tbl_<?php echo $i; ?>"
-            title="<?php echo $alias; ?>"><?php echo $truename; ?></label>
-            <label><?php echo $tracking_icon; ?> </label>
+            title="<?php echo $alias; ?>" style="<?php echo $ignored ? ' ignored' : ''; ?>"><?php echo $truename; ?></label>
     </th>
+   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">

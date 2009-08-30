@@ -28,8 +28,9 @@ if (! defined('PHPMYADMIN')) {
  * @uses    $GLOBALS['structure_tbl_col_cnt']
  * @uses    PMA_SortableTableHeader()
  * @param   boolean $db_is_information_schema
+ * @param   boolean $replication
  */
-function PMA_TableHeader($db_is_information_schema = false)
+function PMA_TableHeader($db_is_information_schema = false, $replication = false)
 {
     $cnt = 0; // Let's count the columns...
 
@@ -42,8 +43,13 @@ function PMA_TableHeader($db_is_information_schema = false)
     echo '<table class="data" style="float: left;">' . "\n"
         .'<thead>' . "\n"
         .'<tr><th></th>' . "\n"
-        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strTable'], 'table') . '</th>' . "\n"
-        .'    <th colspan="' . $action_colspan . '">' . "\n"
+        .'    <th>' . PMA_SortableTableHeader($GLOBALS['strTable'], 'table') . '</th>' . "\n";
+    if ($replication) {
+     echo '    <th>' . "\n"
+         .'        ' . "Replication" . "\n"
+         .'    </th>';
+    }
+    echo '    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . $GLOBALS['strAction'] . "\n"
         .'    </th>'
         // larger values are more interesting so default sort order is DESC
