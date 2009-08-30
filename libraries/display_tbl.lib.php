@@ -1861,11 +1861,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         if ($sorted_column_index !== false) {
             // fetch first row of the result set
             $row = PMA_DBI_fetch_row($dt_result);
-            $column_for_first_row = $row[$sorted_column_index];
+            $column_for_first_row = substr($row[$sorted_column_index], 0, $GLOBALS['cfg']['LimitChars']);
             // fetch last row of the result set
             PMA_DBI_data_seek($dt_result, $num_rows - 1);
             $row = PMA_DBI_fetch_row($dt_result);
-            $column_for_last_row = $row[$sorted_column_index];
+            $column_for_last_row = substr($row[$sorted_column_index], 0, $GLOBALS['cfg']['LimitChars']);
             // reset to first row for the loop in PMA_displayTableBody()
             PMA_DBI_data_seek($dt_result, 0);
             // we could also use here $sort_expression_nodirection
