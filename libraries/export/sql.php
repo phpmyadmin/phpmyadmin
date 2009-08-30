@@ -763,6 +763,10 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             $dump .=  PMA_exportComment($GLOBALS['strTableStructure'] . ' ' . $formatted_table_name)
                   . PMA_exportComment();
             $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
+            $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
+            break;
+        case 'triggers':
+            $dump = ''; 
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
                 $dump .=  PMA_possibleCRLF() 
@@ -794,7 +798,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
             $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
     } // end switch
 
-    $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
     // this one is built by PMA_getTableDef() to use in table copy/move
     // but not in the case of export
     unset($GLOBALS['sql_constraints_query']);
