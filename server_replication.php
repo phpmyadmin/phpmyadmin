@@ -358,7 +358,7 @@ if (isset($GLOBALS['mr_configure'])) {
   echo '<option value="ign">'. $GLOBALS['strReplicationMasterChooseIgn'] .'</option>'."\n";
   echo '</select>'."\n";
   echo '<br /><br />'."\n";
-  echo $GLOBALS['strReplcationSelectDatabases'].'<br />'."\n";
+  echo $GLOBALS['strReplicationSelectDatabases'].'<br />'."\n";
   echo PMA_replication_db_multibox();
   echo '<br /><br />'."\n";
   echo $GLOBALS['strReplicationAddLines'].'<br />'."\n";
@@ -435,7 +435,7 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
     echo PMA_replication_print_status_table('slave', true, false);
     if (isset($_SESSION['replication']['m_correct']) && $_SESSION['replication']['m_correct']==true) {
       echo PMA_js_mootools_domready($jscode['slave_control_sync']);
-      echo ' <li><a href="#" id="slave_synchronization_href">'.$GLOBALS['strReplcationSynchronize'].'</a></li>'."\n";
+      echo ' <li><a href="#" id="slave_synchronization_href">'.$GLOBALS['strReplicationSynchronize'].'</a></li>'."\n";
       echo ' <div id="slave_synchronization_gui" style="display: none">'."\n";
       echo '  <form method="post">'."\n";
       echo PMA_generate_common_hidden_inputs('', '');
