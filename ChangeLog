@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2839504 [engines] Support InnoDB plugin's new row formats 
 + [core] Added ability for synchronizing databases among servers.
 + [lang] #2843101 Dutch update, thanks to scavenger2008
++ [lang] Galician update, thanks to Xosé Calvo - xosecalvo
 
 3.2.2.0 (not yet released)
 - bug #2825293 [structure] Default value for a BIT column
