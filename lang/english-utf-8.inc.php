@@ -1608,11 +1608,6 @@ $strStart ='Start';
 $strShowMasterStatus = 'Show master status';
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';
 
-$strDataSyn = 'Data Synchronization';
-$strStructureSyn = 'Structure Synchronization';
-$strSynchronizationNote='Target database will completely synchronize with source database.Source database will remain unchanged.';
-$strSynchronize = 'Synchronize';
-$strSynchronizeDb= 'Synchronize Databases';
 $strReplicationUnknownError = 'Unknown error';
 $strReplicationUnableToChange = 'Unable to change master';
 ?>
