@@ -74,7 +74,7 @@ $strBzip = 'συμπίεση «bzip»';
 
 $strCannotLogin = 'Δεν ήταν δυνατή η σύνδεση με τον διακομιστή MySQL';
 $strCantLoadRecodeIconv = 'Δεν είναι δυνατή η φόρτωση της επέκτασης iconv ή recode που χρειάζεται για την μετατροπή του σετ χαρακτήρων. Ρυθμίστε την php να επιτρέπει την χρήση αυτών των επεκτάσεων ή απανεργοποιήστε την μετατροπή χαρακτήρων στο phpMyAdmin.';
-$strCantLoad = 'δεν ήταν δυνατή η φόρτωση της επέκτασης %s ,<br />παρακαλώ ελέγξτε τις ρυθμίσεις της PHP';
+$strCantLoad = 'δεν ήταν δυνατή η φόρτωση της επέκτασης [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a], παρακαλώ ελέγξτε τις ρυθμίσεις της PHP';
 $strCantRenameIdxToPrimary = 'Η μετονομασία του ευρετηρίου σε PRIMARY σε είναι εφικτή!';
 $strCantUseRecodeIconv = 'Δεν είναι δυνατή η χρήση της επέκτασης iconv ούτε της libiconv ούτε της ρουτίνας recode_string, ενώ η επέκταση έχει φορτωθεί. Ελέξτε τις ρυθμίσεις της php.';
 $strCardinality = 'Μοναδικότητα';
@@ -1587,7 +1587,7 @@ $strPort = 'Port';  //to translate
 $strSocket = 'Socket';  //to translate
 $strCouldNotConnectSource = 'Could not connect to the source';  //to translate
 $strCouldNotConnectTarget = 'Could not connect to the target';  //to translate
-$strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate 
+$strDatabaseNotExisting = '\'%s\' database does not exist.';  //to translate
 $strDatabase_src = 'Source Database';  //to translate
 $strDatabase_trg = 'Target Database';  //to translate
 $strRemoteServer = 'Remote Server';  //to translate
