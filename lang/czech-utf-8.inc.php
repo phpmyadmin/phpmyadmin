@@ -756,6 +756,7 @@ $strReplicationStatusInfo = 'Tento MySQL server pracuje jako %s v <b>replikačn�
 $strReplicationStatus_master = 'Stav nadřízeného';
 $strReplicationStatus_slave = 'Stav podřízeného';
 $strReplicationStatus = 'Stav replikace';
+$strReplicationUnknownError = 'Neznámá chyba';
 $strReset = 'Původní';
 $strResourceLimits = 'Omezení zdrojů';
 $strRestartInsertion = 'Začít znovu vkládání s %s řádky';
@@ -1103,6 +1104,7 @@ $strSetupServers_SignonURL_name = 'URL pro přihlášení';
 $strSetupServerSslMsg = 'Měli byste použít SSL připojení pokud to váš webserver podporuje';
 $strSetupServers_socket_desc = 'Socket na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu';
 $strSetupServers_socket_name = 'Socket serveru';
+$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Použít SSL';
 $strSetupServers_user_desc = 'Nechte prázdné, pokud nepoužíváte autentizaci config';
 $strSetupServers_user_name = 'Uživatel pro autentizaci config';
@@ -1164,6 +1166,7 @@ $strShowingPhp = 'Zobrazuji jako PHP kód';
 $strShowingRecords = 'Zobrazeny záznamy';
 $strShowingSQL = 'Zobrazuji SQL dotaz';
 $strShowKeys = 'Jen zobrazit klíče';
+$strShowMasterStatus = 'Zobrazit stav nadřízeného';
 $strShowOpenTables = 'Zobrazit otevřené tabulky';
 $strShowPHPInfo = 'Zobrazit informace o PHP';
 $strShowSlaveHosts = 'Zobrazit podřízené servery';
@@ -1339,6 +1342,7 @@ $strSwekeyNoKeyId = 'Soubor %s neobsahuje ID klíče';
 $strSwekeyNoKey = 'Nebyl připojen autentizační klíč';
 $strSwitchToDatabase = 'Přepnout na zkopírovanou databázi';
 $strSwitchToTable = 'Přepnout na zkopírovanou tabulku';
+$strSynchronizationNote='Cílová databáze bude kompletně synchronizována se zdrojovou. Zdrojová nebude nijak změněna.';
 $strSynchronizeDb= 'Synchronovat databáze';
 $strSynchronize = 'Synchronizovat';
 
@@ -1577,7 +1581,6 @@ $strReplicationSlave = 'Slave Replication';  //to translate
 $strReplicationSlaveSQLThread = 'SQL Thread %s only';  //to translate
 $strReplicationSynchronize = 'Synchronize databases with master';  //to translate
 $strReplicationUnableToChange = 'Unable to change master';  //to translate
-$strReplicationUnknownError = 'Unknown error';  //to translate
 
 $strSetupServers_designer_coords_desc = 'Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/kbd]';  //to translate
 $strSetupServerSecurityInfoMsg = 'If you feel this is necessary, use additional protection settings - [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication[/a] settings and [a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.';  //to translate
@@ -1587,7 +1590,6 @@ $strSetupServers_pdf_pages_name = 'PDF schema: pages table';  //to translate
 $strSetupServers_pmadb_desc = 'Database used for relations, bookmarks, and PDF features. See [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]';  //to translate
 $strSetupServers_relation_desc = 'Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a] support, suggested: [kbd]pma_relation[/kbd]';  //to translate
 $strSetupServers_SignonSession_desc = 'See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/a] for an example';  //to translate
-$strSetupServers_ssl_desc = '';  //to translate
 $strSetupServers_table_coords_desc = 'Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]';  //to translate
 $strSetupServers_table_coords_name = 'PDF schema: table coordinates';  //to translate
 $strSetupServers_table_info_desc = 'Table to describe the display fields, leave blank for no support; suggested: [kbd]pma_table_info[/kbd]';  //to translate
@@ -1605,8 +1607,6 @@ $strSetupVersionCheckDataError = 'Reading of version failed. Maybe you\'re offli
 $strSetupZipDump_desc = 'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations';  //to translate
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
-$strShowMasterStatus = 'Show master status';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';  //to translate
-$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
 
 ?>
