@@ -262,13 +262,14 @@ for ($i = 0; $i < $len; ++$i) {
 /* Set database name to the currently selected one, if applicable */
 if (strlen($db)) {
     $db_name = $db;
+    $options = array('create_db' => false);
 } else {
     $db_name = 'ODS_DB';
+    $options = NULL;
 }
 
 /* Non-applicable parameters */
 $create = NULL;
-$options = NULL;
 
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);

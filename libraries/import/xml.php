@@ -278,11 +278,22 @@ if ($data_present) {
  * array $options = an associative array of options
  */
 
-/* Set database collation/charset */
-$options = array(
+/* Set database name to the currently selected one, if applicable */
+if (strlen($db)) {
+    /* Override the database name in the XML file, if one is selected */
+    $db_name = $db;
+    $options = array('create_db' => false);
+} else {
+    if ($db_name === NULL) {
+        $db_name = 'XML_DB';
+    }
+    
+    /* Set database collation/charset */
+    $options = array(
         'db_collation' => $collation,
         'db_charset'   => $charset,
-);
+    );
+}
 
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
