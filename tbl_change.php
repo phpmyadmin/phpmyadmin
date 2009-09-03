@@ -266,7 +266,7 @@ if (! empty($sql_query)) {
 
 if (! $cfg['ShowFunctionFields']) {
     $this_url_params = array_merge($url_params,
-        array('ShowFunctionFields' => 1));
+        array('ShowFunctionFields' => 1, 'goto' => 'sql.php'));
     echo $strShow . ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . $strFunction . '</a>' . "\n";
 }
 
@@ -293,7 +293,7 @@ foreach ($rows as $row_id => $vrow) {
 <?php
     if ($cfg['ShowFunctionFields']) {
         $this_url_params = array_merge($url_params,
-            array('ShowFunctionFields' => 0));
+            array('ShowFunctionFields' => 0, 'goto' => 'sql.php'));
         echo '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . $strHide . '">' . $strFunction . '</a></th>' . "\n";
     }
 ?>

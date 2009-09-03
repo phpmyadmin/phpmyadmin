@@ -16,6 +16,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2837722 [export] Run complex SQL then export does not work
 - bug #2839548 [export] Triggers order on export
 - bug #2826986 [display] Order by BLOB and range display
+- bug [display] After clicking on Show Function or Function, the UPDATE query
+  is not shown after execution
 
 3.2.1.0 (2009-08-09)
 - bug #2799009 Login with ipv6 IP address breaks redirect
