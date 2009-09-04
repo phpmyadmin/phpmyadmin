@@ -390,7 +390,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     {
         id = "field_" + i + "_2";
         elm = getElement(id);
-        if (elm.value == 'VARCHAR' || elm.value == 'CHAR' || elm.value == 'BIT') {
+        if (elm.value == 'VARCHAR' || elm.value == 'CHAR' || elm.value == 'BIT' || elm.value == 'VARBINARY' || elm.value == 'BINARY') {
             elm2 = getElement("field_" + i + "_3");
             val = parseInt(elm2.value);
             elm3 = getElement("field_" + i + "_1");
