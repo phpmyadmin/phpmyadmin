@@ -1619,4 +1619,5 @@ $strShowMasterStatus = 'Show master status';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';  //to translate
 $strReplicationUnknownError = 'Unknown error';  //to translate
 $strReplicationUnableToChange = 'Unable to change master';  //to translate
+$strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
 ?>

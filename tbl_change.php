@@ -438,7 +438,12 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 // loic1: special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
-                    $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
+                		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
+                		$field['display_binary_as_hex'] = true;
+					} else {
+                    	$vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+					}
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
 
@@ -533,7 +538,11 @@ foreach ($rows as $row_id => $vrow) {
                 ) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
-
+				
+				if ($field['display_binary_as_hex']) {
+                	$default_function = 'UNHEX';
+				}
+				
                 // garvin: loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
                     echo '<option';

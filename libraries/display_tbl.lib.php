@@ -436,6 +436,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  * @uses    $_SESSION['tmp_user_values']['max_rows']
  * @uses    $_SESSION['tmp_user_values']['display_text']
  * @uses    $_SESSION['tmp_user_values']['display_binary']
+ * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
  * @param   array    which elements to display
  * @param   array    the list of fields properties
  * @param   integer  the total number of fields returned by the SQL query
@@ -594,6 +595,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_display_html_checkbox('display_binary', $GLOBALS['strShowBinaryContents'], ! empty($_SESSION['tmp_user_values']['display_binary']), false);
         echo '<br />';
         PMA_display_html_checkbox('display_blob', $GLOBALS['strShowBLOBContents'], ! empty($_SESSION['tmp_user_values']['display_blob']), false);
+        echo '<br />';
+        PMA_display_html_checkbox('display_binary_as_hex', $GLOBALS['strShowBinaryContentsAsHex'], ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false);
         echo '</div>';
 
         // I would have preferred to name this "display_transformation".
@@ -962,6 +965,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  * @uses    $_SESSION['tmp_user_values']['max_rows']
  * @uses    $_SESSION['tmp_user_values']['display_text']
  * @uses    $_SESSION['tmp_user_values']['display_binary']
+ * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
  * @uses    $_SESSION['tmp_user_values']['display_blob']
  * @param   integer  the link id associated to the query which results have
  *                   to be displayed
@@ -1359,7 +1363,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             // fields, or we detected a PROCEDURE ANALYSE in
                             // the query (results are reported as being
                             // binary strings)
-                            $row[$i] = PMA_replace_binary_contents($row[$i]);
+                            if ($_SESSION['tmp_user_values']['display_binary_as_hex']) {
+                            	$row[$i] = bin2hex($row[$i]);
+							}
+							else {
+                            	$row[$i] = PMA_replace_binary_contents($row[$i]);
+							}
                         } else {
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
@@ -1624,6 +1633,8 @@ function PMA_displayVerticalTable()
  * @uses    $_REQUEST['relational_display']
  * @uses    $_SESSION['tmp_user_values']['display_binary']
  * @uses    $_REQUEST['display_binary']
+ * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
+ * @uses    $_REQUEST['display_binary_as_hex']
  * @uses    $_SESSION['tmp_user_values']['display_blob']
  * @uses    $_REQUEST['display_blob']
  * @uses    PMA_isValid()
@@ -1693,6 +1704,19 @@ function PMA_displayTable_checkConfigParams()
         // according to low-level field flags
         $_SESSION['tmp_user_values']['query'][$sql_key]['display_binary'] = true;
     }
+    
+    if (isset($_REQUEST['display_binary_as_hex'])) {
+        $_SESSION['tmp_user_values']['query'][$sql_key]['display_binary_as_hex'] = true;
+        unset($_REQUEST['display_binary_as_hex']);
+    } elseif (isset($_REQUEST['display_options_form'])) {
+        // we know that the checkbox was unchecked
+        unset($_SESSION['tmp_user_values']['query'][$sql_key]['display_binary_as_hex']);
+    } else {
+        // display_binary_as_hex config option
+        if (isset($GLOBALS['cfg']['DisplayBinaryAsHex']) && true === $GLOBALS['cfg']['DisplayBinaryAsHex']) {
+        	$_SESSION['tmp_user_values']['query'][$sql_key]['display_binary_as_hex'] = true;
+		}
+    }
 
     if (isset($_REQUEST['display_blob'])) {
         $_SESSION['tmp_user_values']['query'][$sql_key]['display_blob'] = true;
@@ -1727,6 +1751,7 @@ function PMA_displayTable_checkConfigParams()
     $_SESSION['tmp_user_values']['display_text'] = $_SESSION['tmp_user_values']['query'][$sql_key]['display_text'];
     $_SESSION['tmp_user_values']['relational_display'] = $_SESSION['tmp_user_values']['query'][$sql_key]['relational_display'];
     $_SESSION['tmp_user_values']['display_binary'] = isset($_SESSION['tmp_user_values']['query'][$sql_key]['display_binary']) ? true : false;
+    $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset($_SESSION['tmp_user_values']['query'][$sql_key]['display_binary_as_hex']) ? true : false;
     $_SESSION['tmp_user_values']['display_blob'] = isset($_SESSION['tmp_user_values']['query'][$sql_key]['display_blob']) ? true : false;
     $_SESSION['tmp_user_values']['hide_transformation'] = isset($_SESSION['tmp_user_values']['query'][$sql_key]['hide_transformation']) ? true : false;
     $_SESSION['tmp_user_values']['pos'] = $_SESSION['tmp_user_values']['query'][$sql_key]['pos'];

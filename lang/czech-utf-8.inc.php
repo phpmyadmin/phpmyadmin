@@ -1609,4 +1609,5 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';  //to translate
 
+$strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
 ?>

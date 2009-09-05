@@ -1207,6 +1207,7 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';
 $strSetupZipDump_name = 'ZIP';
 $strShowAll = 'Show all';
+$strShowBinaryContentsAsHex = 'Show binary contents as HEX';
 $strShowBinaryContents = 'Show binary contents';
 $strShowBLOBContents = 'Show BLOB contents';
 $strShowColor = 'Show color';

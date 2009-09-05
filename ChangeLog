@@ -6,6 +6,8 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.3.0.0 (not yet released)
++ rfe #2308632 [edit] Use hex for (var)binary fields,
+  thanks to Maarten Dieleman - maartendieleman
 + patch #2794819 [navi] Filter for displayed table names,
   thanks to Michael Valushko - dylfin
 - bug #2794840 [core] Cannot redeclare pma_tableheader() 
