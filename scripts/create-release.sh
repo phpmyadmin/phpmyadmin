@@ -155,6 +155,15 @@ echo "------"
 
 ls -la *.gz *.zip *.bz2 *.7z
 
+echo
+echo "MD5 sums:"
+echo "--------"
+
+md5sum *.{gz,zip,bz2,7z} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/md5sum['\2'] = '\1'/"
+
+echo
+echo "Add these to website/data/md5sums.py in SVN"
+
 cat <<END
 
 
@@ -168,8 +177,10 @@ Todo now:
  2. upload the files to SF (procedure explained on the sf.net Admin/File Releases page)
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
- 5. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
- 6. send a short mail (with list of major changes) to
+ 5. update web page:
+        - add MD5s to website/data/md5sums.py in SVN
+ 6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
+ 7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
@@ -177,7 +188,7 @@ Todo now:
     Don't forget to update the Description section in the announcement,
     based on Documentation.html.
 
- 7. increment rc count or version in subversion :
+ 8. increment rc count or version in subversion :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html the 2 lines
@@ -185,10 +196,10 @@ Todo now:
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
         - in translators.html
 
- 8. add a group for bug tracking this new version, at
+ 9. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
 
- 9. the end :-)
+10. the end :-)
 
 END
 
