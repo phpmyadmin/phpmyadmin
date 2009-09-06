@@ -78,7 +78,7 @@ $tab_search['link']     = 'db_search.php';
 
 if(PMA_Tracker::isActive())
 {
-    $tab_tracking['text'] = "Tracking";
+    $tab_tracking['text'] = $GLOBALS['strTracking'];
     $tab_tracking['icon'] = 'eye.png';
     $tab_tracking['link'] = 'db_tracking.php';
 }
