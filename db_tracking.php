@@ -24,12 +24,10 @@ require_once './libraries/relation.lib.php';
 $data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
 
 // No tables present and no log exist
-if ($num_tables == 0 and count($data['ddlog']) == 0)
-{
+if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' . $strNoTablesFound . '</p>' . "\n";
 
-    if (empty($db_is_information_schema))
-    {
+    if (empty($db_is_information_schema)) {
         require './libraries/display_create_table.lib.php';
     }
 
@@ -72,8 +70,7 @@ $maxversion = PMA_DBI_fetch_array($sql_result);
 $last_version = $maxversion['version'];
 
 // If a HEAD version exists
-if($last_version > 0)
-{
+if ($last_version > 0) {
 ?>
     <h3><?php echo $strTrackingTrackedTables;?></h3>
 
@@ -96,17 +93,19 @@ if($last_version > 0)
 
     $style = 'odd';
     PMA_DBI_data_seek($sql_result, 0);
-    while($version = PMA_DBI_fetch_array($sql_result))
-    {
-        if($version['tracking_active'] == 1)
+    while ($version = PMA_DBI_fetch_array($sql_result)) {
+        if ($version['tracking_active'] == 1) {
             $version_status = $strTrackingStatusActive;
-        else
+        } else {
             $version_status = $strTrackingStatusDeactive;
+        }
 
-        if(($version['version'] == $last_version) and ($version_status == $strTrackingStatusDeactive))
+        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusDeactive)) {
             $tracking_active = false;
-        if(($version['version'] == $last_version) and ($version_status == $strTrackingStatusActive))
+        }
+        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusActive)) {
             $tracking_active = true;
+        }
         ?>
         <tr class="<?php echo $style;?>">
             <td><?php echo $version['db_name'];?></td>
@@ -120,7 +119,11 @@ if($last_version > 0)
                | <a href="tbl_tracking.php?<?php echo $url_query;?>&table=<?php echo $version['table_name'];?>&snapshot=true&version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
         </tr>
         <?php
-        if($style == 'even') $style = 'odd'; else $style = 'even';
+        if ($style == 'even') {
+            $style = 'odd'; 
+        } else {
+            $style = 'even';
+        }
     }
     ?>
     </tbody>
@@ -132,15 +135,14 @@ if($last_version > 0)
 $table_list = PMA_getTableList($GLOBALS['db']);
 
 // For each table try to get the tracking version
-foreach($table_list as $key => $value)
-{
-    if(PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1)
+foreach ($table_list as $key => $value) {
+    if (PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1) {
         $my_tables[] = $value['Name'];
+    }
 }
 
 // If untracked tables exist
-if(isset($my_tables))
-{
+if (isset($my_tables)) {
 ?>
     <h3><?php echo $strTrackingUntrackedTables;?></h3>
 
@@ -157,14 +159,11 @@ if(isset($my_tables))
 
     $style = 'odd';
 
-    foreach($my_tables as $key => $tablename)
-    {
-        if(PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1)
-        {
+    foreach ($my_tables as $key => $tablename) {
+        if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query . '&table=' . $tablename .'">';
 
-            if ($cfg['PropertiesIconic'])
-            {
+            if ($cfg['PropertiesIconic']) {
                 $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
             }
             $my_link .= $strTrackingTrackTable . '</a>';
@@ -174,7 +173,11 @@ if(isset($my_tables))
             <td><?php echo $my_link;?></td>
             </tr>
         <?php
-            if($style == 'even') $style = 'odd'; else $style = 'even';
+            if ($style == 'even') {
+                $style = 'odd'; 
+            } else {
+                $style = 'even';
+            }
         }
     }
     ?>
@@ -188,16 +191,13 @@ if(isset($my_tables))
 <?php
 
 // If available print out database log
-if(count($data['ddlog']) > 0)
-{
+if (count($data['ddlog']) > 0) {
     $log = '';
-    foreach ($data['ddlog'] as $entry)
-    {
+    foreach ($data['ddlog'] as $entry) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n" . $entry['statement'] . "\n";
     }
     PMA_showMessage($strTrackingDatabaseLog, $log);
 }
-
 
 /**
  * Display the footer
