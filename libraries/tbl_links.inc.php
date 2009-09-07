@@ -66,7 +66,7 @@ $tabs['search']['link'] = 'tbl_select.php';
 if(PMA_Tracker::isActive())
 {
     $tabs['tracking']['icon'] = 'eye.png';
-    $tabs['tracking']['text'] = "Tracking";
+    $tabs['tracking']['text'] = $strTracking;
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
 
