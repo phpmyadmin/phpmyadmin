@@ -394,9 +394,9 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
     <?php
 
     $str1 = '<select name="logtype">' .
-            '<option value="schema"' . $selection_schema . '>' . $strTrackingSelectStructureOnly . '</option>' .
-            '<option value="data"' . $selection_data . '>' . $strTrackingSelectDataOnly . '</option>' .
-            '<option value="schema_and_data"' . $selection_both . '>' . $strTrackingSelectStructureAndData . '</option>' .
+            '<option value="schema"' . $selection_schema . '>' . $strStrucOnly . '</option>' .
+            '<option value="data"' . $selection_data . '>' . $strDataOnly . '</option>' .
+            '<option value="schema_and_data"' . $selection_both . '>' . $strStrucData . '</option>' .
             '</select>';
     $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19">';
     $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19">';
@@ -595,13 +595,13 @@ if($last_version > 0)
     <table id="versions" class="data">
     <thead>
     <tr>
-        <th><?php echo $strTrackingThDatabase;?></th>
-        <th><?php echo $strTrackingThTable;?></th>
+        <th><?php echo $strDatabase;?></th>
+        <th><?php echo $strTable;?></th>
         <th><?php echo $strTrackingThVersion;?></th>
         <th><?php echo $strTrackingThCreated;?></th>
         <th><?php echo $strTrackingThUpdated;?></th>
-        <th><?php echo $strTrackingThStatus;?></th>
-        <th><?php echo $strTrackingThShow;?></th>
+        <th><?php echo $strStatus;?></th>
+        <th><?php echo $strShow;?></th>
     </tr>
     </thead>
     <tbody>

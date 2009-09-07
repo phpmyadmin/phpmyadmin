@@ -496,7 +496,7 @@ if (!$is_information_schema) {
                     <?php echo PMA_getIcon('b_edit.png', $strBLOBRepository, false, true); ?>
                     </legend>
 
-                    <?php echo $strBLOBRepositoryStatus; ?>:
+                    <?php echo $strStatus; ?>:
 
                     <?php
 
