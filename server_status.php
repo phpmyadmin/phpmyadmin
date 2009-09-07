@@ -351,17 +351,17 @@ echo sprintf($strServerStatusUptime,
 <?php
 if ($server_master_status || $server_slave_status)
 {
-  $replicationOut = "";
-  foreach ($replication_types as $type)
-  {
-    if (${"server_{$type}_status"})
+    $replicationOut = "";
+    foreach ($replication_types as $type)
     {
-      if ($replicationOut != "")
-	$replicationOut .= $strAndSmall . ' ';
-      $replicationOut .= '<b>' . $type . '</b> ';
+        if (${"server_{$type}_status"})
+        {
+            if ($replicationOut != "")
+                $replicationOut .= $strAndSmall . ' ';
+            $replicationOut .= '<b>' . $type . '</b> ';
+        }
     }
-  }
-  echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
+    echo sprintf('<p>' . $strReplicationStatusInfo . '</p>', $replicationOut);
 }
 ?>
 
@@ -700,19 +700,19 @@ unset($section_name, $section, $sections, $server_status, $odd_row, $alerts);
 /* if the server works as master or slave in replication process, display useful information */
 if ($server_master_status || $server_slave_status)
 {
-  ?>
+?>
   <hr class="clearfloat" />
 
   <h3><a name="replication"></a><?php echo $strReplicationStatus; ?></h3>
-  <?php 
-  
-  foreach ($replication_types as $type)
-  {
-    if (${"server_{$type}_status"})
-      PMA_replication_print_status_table($type);
-    
-  }
-  unset($types);
+<?php 
+
+    foreach ($replication_types as $type)
+    {
+        if (${"server_{$type}_status"}) {
+            PMA_replication_print_status_table($type);
+        }
+    }
+    unset($types);
 }
 ?>
 

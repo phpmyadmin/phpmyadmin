@@ -339,28 +339,31 @@ foreach ($tables as $keyname => $each_table) {
     $do = false;
     
     if ($server_slave_status) {
-      ////////////////////////////////////////////////////////////////
-      
-     if ((strlen(array_search($truename, $server_slave_Do_Table))>0) || (strlen(array_search($db, $server_slave_Do_DB))>0) || (count($server_slave_Do_DB)==1 && count($server_slave_Ignore_DB)==1)) {
-      $do = true;
-     }
-     foreach ($server_slave_Wild_Do_Table as $table) {
-       if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
-	$do = true;
-     }
-     ////////////////////////////////////////////////////////////////////
-     if ((strlen(array_search($truename, $server_slave_Ignore_Table))>0)  || (strlen(array_search($db, $server_slave_Ignore_DB))>0)) {
-      $ignored = true;
-     }
-     foreach ($server_slave_Wild_Ignore_Table as $table) {
-       if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
-	$ignored = true;
-     }
+        ////////////////////////////////////////////////////////////////
+
+        if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0) 
+            || (strlen(array_search($db, $server_slave_Do_DB))>0) 
+            || (count($server_slave_Do_DB)==1 && count($server_slave_Ignore_DB)==1)
+        ) {
+            $do = true;
+        }
+        foreach ($server_slave_Wild_Do_Table as $table) {
+            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+                $do = true;
+        }
+        ////////////////////////////////////////////////////////////////////
+        if ((strlen(array_search($truename, $server_slave_Ignore_Table))>0)  || (strlen(array_search($db, $server_slave_Ignore_DB))>0)) {
+            $ignored = true;
+        }
+        foreach ($server_slave_Wild_Ignore_Table as $table) {
+            if (($db == PMA_replication_strout($table)) && (ereg("^".substr(PMA_replication_strout($table, true), 0, strlen(PMA_replication_strout($table, true))-1), $truename)))
+                $ignored = true;
+        }
     }/* elseif ($server_master_status) {
-      if ((strlen(array_search($db, $server_master_Do_DB))>0) || count($server_master_Do_DB)==1)
-	$do = true;
-      elseif ((strlen(array_search($db, $server_master_Ignore_DB))>0) || count($server_master_Ignore_DB)==1)
-	$ignored = true;
+        if ((strlen(array_search($db, $server_master_Do_DB))>0) || count($server_master_Do_DB)==1)
+            $do = true;
+        elseif ((strlen(array_search($db, $server_master_Ignore_DB))>0) || count($server_master_Ignore_DB)==1)
+            $ignored = true;
     }*/
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">

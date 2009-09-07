@@ -260,24 +260,26 @@ if ($databases_count > 0) {
             }
         }
         foreach ($replication_types as $type) {
-          if (${"server_{$type}_status"}) {
-            echo '<td class="tool" style="text-align: center;">' . "\n";
-            
-            if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
-            } else {
-                $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
-    
-                if (strlen($key)>0 || (${"server_{$type}_Do_DB"}[0]=="" && count(${"server_{$type}_Do_DB"})==1)) // if ($key != null) did not work for index "0"
-                  echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
-                else
-                  echo '';
+            if (${"server_{$type}_status"}) {
+                echo '<td class="tool" style="text-align: center;">' . "\n";
+
+                if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
+                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
+                } else {
+                    $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
+
+                    if (strlen($key) > 0 || (${"server_{$type}_Do_DB"}[0] == "" && count(${"server_{$type}_Do_DB"}) == 1)) {
+                        // if ($key != null) did not work for index "0"
+                        echo '<img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
+                    } else {
+                        echo '';
+                    }
+                }
+
+                echo '</td>';
             }
-            
-            echo '</td>';
-          }
         }
-        
+
         if ($is_superuser) {
             echo '    <td class="tool">' . "\n"
                . '        <a onclick="'
