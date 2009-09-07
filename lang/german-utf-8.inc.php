@@ -1265,7 +1265,6 @@ $strTrackingDataManipulationStatement = 'DML Befehl';
 $strTrackingDate = 'Datum';
 $strTrackingDeactivateNow = 'Jetzt deaktivieren';
 $strTrackingDeactivateTrackingFor = 'Deaktiviere Tracking Mechanismus für %s.%s';
-$strTrackingDoIt = 'Los';
 $strTrackingExportAs = 'Export als %s';
 $strTrackingIsActive = 'Tracking ist aktiviert.';
 $strTrackingIsDeactive = 'Tracking is deactive.';

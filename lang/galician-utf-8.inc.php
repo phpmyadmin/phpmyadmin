@@ -1498,7 +1498,6 @@ $strTrackingDataManipulationStatement = 'Declaración de manipulación de datos'
 $strTrackingDate = 'Data';
 $strTrackingDeactivateNow = 'Desactivar agora';
 $strTrackingDeactivateTrackingFor = 'Desactivar o seguimento de %s.%s';
-$strTrackingDoIt = 'Facelo';
 $strTrackingExportAs = 'Exportar como %s';
 $strTrackingIsActive = 'O seguimento está activado.';
 $strTrackingIsDeactive = 'O seguimento está desactivado.';

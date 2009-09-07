@@ -1504,7 +1504,6 @@ $strTrackingDataManipulationStatement = 'Manipulatie-statement';
 $strTrackingDate = 'Datum';  
 $strTrackingDeactivateNow = 'Nu uitschakelen';  
 $strTrackingDeactivateTrackingFor = 'Tracking uitschakelen voor %s.%s';  
-$strTrackingDoIt = 'Aan de slag';  
 $strTrackingExportAs = 'Exporteren als %s';  
 $strTrackingIsActive = 'Tracking is ingeschakeld.';  
 $strTrackingIsDeactive = 'Tracking is uitgeschakeld.';  

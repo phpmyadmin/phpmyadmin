@@ -401,7 +401,7 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
     $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19">';
     $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19">';
     $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '">';
-    $str5 = '<input type="submit" name="list_report" value="' . $strTrackingDoIt . '">';
+    $str5 = '<input type="submit" name="list_report" value="' . $strGo . '">';
 
     printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
 
@@ -512,7 +512,7 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
                     '<option value="execution" onclick="alert(\''.$strTrackingSQLExecutionAlert .'\')">' . $strTrackingSQLExecution . '</option>' .
                     '</select>';
 
-    $str_export2 = '<input type="submit" name="report_export" value="'. $strTrackingDoIt .'">';
+    $str_export2 = '<input type="submit" name="report_export" value="'. $strGo .'">';
     ?>
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">

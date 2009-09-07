@@ -1520,7 +1520,6 @@ $strTrackingDataManipulationStatement = 'Data manipulation statement';  //to tra
 $strTrackingDate = 'Date';  //to translate
 $strTrackingDeactivateNow = 'Deactivate now';  //to translate
 $strTrackingDeactivateTrackingFor = 'Deactivate tracking for %s.%s';  //to translate
-$strTrackingDoIt = 'Do it';  //to translate
 $strTrackingExportAs = 'Export as %s';  //to translate
 $strTrackingIsActive = 'Tracking is active.';  //to translate
 $strTrackingIsDeactive = 'Tracking is deactive.';  //to translate

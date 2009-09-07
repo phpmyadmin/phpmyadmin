@@ -1407,7 +1407,6 @@ $strTrackingDataManipulationStatement = 'Příkaz pro úpravu dat';
 $strTrackingDate = 'Datum';
 $strTrackingDeactivateNow = 'Vypnout teď';
 $strTrackingDeactivateTrackingFor = 'Vypnout sledování pro %s.%s';
-$strTrackingDoIt = 'Udělej to';
 $strTrackingExportAs = 'Exportovat jako %s';
 $strTrackingIsActive = 'Sledování je zapnuté.';
 $strTrackingIsDeactive = 'Sledování je vypnuté.';
