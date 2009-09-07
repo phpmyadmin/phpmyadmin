@@ -1409,7 +1409,6 @@ $strTrackingDeactivateNow = 'Vypnout teď';
 $strTrackingDeactivateTrackingFor = 'Vypnout sledování pro %s.%s';
 $strTrackingExportAs = 'Exportovat jako %s';
 $strTrackingIsActive = 'Sledování je zapnuté.';
-$strTrackingIsDeactive = 'Sledování je vypnuté.';
 $strTrackingMechanism = 'Sledovací mechanismus';
 $strTrackingReportClose = 'Ukončit';
 $strTrackingReport = 'Informace o sledování';
@@ -1424,7 +1423,6 @@ $strTrackingSQLExecution = 'Provedení SQL';
 $strTrackingSQLExported = 'SQL příkazy byly exportovány. Prosím zkopírujte si je, nebo je spusťte.';
 $strTrackingStatements = 'Sledování příkazů';
 $strTrackingStatusActive = 'zapnuté';
-$strTrackingStatusDeactive = 'vypnuté';
 $strTrackingStructureSnapshot = 'Snímek struktury';
 $strTrackingThCreated = 'Vytvořeno';
 $strTrackingThLastVersion = 'Poslední verze';
@@ -1601,4 +1599,6 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';  //to translate
 
 $strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
+$strTrackingStatusNotActive = 'not active';  //to translate
+$strTrackingIsNotActive = 'Tracking is not active.';  //to translate
 ?>

@@ -97,10 +97,10 @@ if ($last_version > 0) {
         if ($version['tracking_active'] == 1) {
             $version_status = $strTrackingStatusActive;
         } else {
-            $version_status = $strTrackingStatusDeactive;
+            $version_status = $strTrackingStatusNotActive;
         }
 
-        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusDeactive)) {
+        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusNotActive)) {
             $tracking_active = false;
         }
         if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusActive)) {

@@ -319,7 +319,7 @@ foreach ($tables as $keyname => $each_table) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
             $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye.png" alt="' . $strTrackingIsActive . '" title="' . $strTrackingIsActive . '" /></a>';
         } else if (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
-            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye_grey.png" alt="' . $strTrackingIsDeactive . '" title="' . $strTrackingIsDeactive . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye_grey.png" alt="' . $strTrackingIsNotActive . '" title="' . $strTrackingIsNotActive . '" /></a>';
         }
     }
 
