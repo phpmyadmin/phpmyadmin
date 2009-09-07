@@ -181,7 +181,7 @@ if(isset($my_tables))
     </tbody>
     </table>
 
-<?
+<?php
 }
 ?>
 <p/>
