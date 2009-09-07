@@ -1352,7 +1352,6 @@ $strTableAlteredSuccessfully = 'Tabulka %1$s byla úspěšně změněna';
 $strTableAlterIndex = 'Změnit indexy';
 $strTableApplyIndex = 'Applikovat indexy';
 $strTableComments = 'Komentář k tabulce';
-$strTableCreate = 'Vytvořit tabulky';
 $strTableDeleteRows = 'Chcete odstranit všechny stávající řídky z cílových tabulek?';
 $strTableEmpty = 'Jméno tabulky je prázdné!';
 $strTableHasBeenCreated = 'Byla vytvořena tabulka %1$s.';

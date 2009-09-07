@@ -474,7 +474,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 </tr>
                 <tr style="width: 100%;">
                     <th style="width: 10%; background-color:#CCCCCC">'. $strTableName .'</th>   
-                    <th style="width: 10%; background-color:#CCCCCC">'. $strTableCreate .'</th>
+                    <th style="width: 10%; background-color:#CCCCCC">'. $strCreateTable .'</th>
                     <th style="width: 11%; background-color:#CCCCCC">'. $strTableAddColumn .'</th>
                     <th style="width: 13%; background-color:#CCCCCC">'. $strTableRemoveColumn .'</th>
                     <th style="width: 11%; background-color:#CCCCCC">'. $strTableAlterColumn .'</th>
@@ -956,7 +956,7 @@ if (isset($_REQUEST['Table_ids'])) {
             </tr>
             <tr style="width: 100%;">
                 <th style="width: 10%; background-color:#CCCCCC">'. $strTableName .'</th>   
-                <th style="width: 10%; background-color:#CCCCCC">'. $strTableCreate .'</th>
+                <th style="width: 10%; background-color:#CCCCCC">'. $strCreateTable .'</th>
                 <th style="width: 11%; background-color:#CCCCCC">'. $strTableAddColumn .'</th>
                 <th style="width: 13%; background-color:#CCCCCC">'. $strTableRemoveColumn .'</th>
                 <th style="width: 11%; background-color:#CCCCCC">'. $strTableAlterColumn .'</th>

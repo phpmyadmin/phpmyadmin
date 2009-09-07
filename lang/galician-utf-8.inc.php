@@ -1538,7 +1538,6 @@ $strStructureSyn = 'Sincronización da estrutura';
 $strDataSyn = 'Sincronización dos datos';
 $strStructureDiff = 'Diferenza da estrutura' ;
 $strDataDiff = 'Diferenza dos datos';
-$strTableCreate = 'Crear táboa';
 $strTableAddColumn = 'Engadir columna(s)';
 $strTableRemoveColumn = 'Eliminar columna(s)';
 $strTableAlterColumn = 'Alterar column(s)';

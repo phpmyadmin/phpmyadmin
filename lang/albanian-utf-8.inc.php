@@ -1563,7 +1563,6 @@ $strStructureSyn = 'Structure Synchronization';  //to translate
 $strDataSyn = 'Data Synchronization';  //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strDataDiff = 'Data Difference';  //to translate
-$strTableCreate = 'Create Table';  //to translate
 $strTableAddColumn = 'Add Column(s)';  //to translate
 $strTableRemoveColumn = 'Remove Column(s)';  //to translate
 $strTableAlterColumn = 'Alter Column(s)';  //to translate

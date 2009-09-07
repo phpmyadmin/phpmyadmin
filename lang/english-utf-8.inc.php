@@ -1407,7 +1407,6 @@ $strTableAlteredSuccessfully = 'Table %1$s has been altered successfully';
 $strTableAlterIndex = 'Alter Index(s)';
 $strTableApplyIndex = 'Apply Index(s)';
 $strTableComments = 'Table comments';
-$strTableCreate = 'Create Table';
 $strTableDeleteRows = 'Would you like to delete all the previous rows from target tables?';
 $strTableEmpty = 'The table name is empty!';
 $strTableHasBeenCreated = 'Table %1$s has been created.';
