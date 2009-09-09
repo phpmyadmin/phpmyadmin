@@ -1600,4 +1600,7 @@ $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration
 $strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
 $strTrackingStatusNotActive = 'not active';  //to translate
 $strTrackingIsNotActive = 'Tracking is not active.';  //to translate
+$strReplicationErrorGetPosition = 'Unable to read master log position. Possible privilege problem on master.';  //to translate
+$strReplicationErrorMasterConnect = 'Unable to connect to master %s.';  //to translate
+$strReplicationSlaveConfiguration = 'Slave Configuration';  //to translate
 ?>

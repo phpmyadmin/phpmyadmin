@@ -53,15 +53,15 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     global $cfg, $php_errormsg;
   
     if ($server) {
-          $server_port   = (empty($server['port']))
-                   ? ''
-                   : ':' . (int)$server['port'];
-	  $server_socket = (empty($server['socket']))
-                   ? ''
-                   : ':' . $server['socket'];
-	  $server_persistant = (empty($server['persistant']))
-		   ? false
-		   : true;
+        $server_port = (empty($server['port']))
+            ? ''
+            : ':' . (int)$server['port'];
+        $server_socket = (empty($server['socket']))
+            ? ''
+            : ':' . $server['socket'];
+        $server_persistant = (empty($server['persistant']))
+            ? false
+            : true;
     } else {
 	  $server_port   = (empty($cfg['Server']['port']))
                    ? ''

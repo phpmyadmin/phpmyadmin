@@ -33,7 +33,7 @@ $master_variables = array(
     'File',
     'Position',
     'Binlog_Do_DB',
-    'Binlog_Ignore_DB'
+    'Binlog_Ignore_DB',
 );
 
 /**
@@ -72,18 +72,22 @@ $slave_variables  = array(
     'Master_SSL_Cert',
     'Master_SSL_Cipher',
     'Master_SSL_Key',
-    'Seconds_Behind_Master'
+    'Seconds_Behind_Master',
 );
 /**
  * define important variables, which need to be watched for correct running of replication in slave mode
+ *
+ * @usedby PMA_replication_print_status_table()
  */
+// TODO change to regexp or something, to allow for negative match. To e.g. highlight 'Last_Error'
+//
 $slave_variables_alerts = array(
     'Slave_IO_Running' => 'No',
-    'Slave_SQL_Running' => 'No'
+    'Slave_SQL_Running' => 'No',
 );
 $slave_variables_oks = array(
     'Slave_IO_Running' => 'Yes',
-    'Slave_SQL_Running' => 'Yes'
+    'Slave_SQL_Running' => 'Yes',
 );
 
 $serverid = time();
@@ -171,8 +175,9 @@ function PMA_replication_slave_change_master($user, $password, $host, $port, $po
         'MASTER_LOG_FILE=\''.$pos["File"].'\','.
         'MASTER_LOG_POS='.$pos["Position"].';', $link);
 
-    if ($start)
+    if ($start) {
         PMA_replication_slave_control("START", null, $link);
+    }
 
     return $out;
 }
@@ -205,11 +210,12 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
 function PMA_replication_slave_bin_log_master($link = null) 
 {
     $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
-
     $output = array();
-    $output["File"] = $data[0]["File"];
-    $output["Position"] = $data[0]["Position"];
 
+    if (!empty($data)) {
+        $output["File"] = $data[0]["File"];
+        $output["Position"] = $data[0]["Position"];
+    }
     return $output;
 }
 
@@ -264,12 +270,12 @@ function PMA_replication_master_replicated_dbs($link = null)
  * @param boolean $data - if true, then data will be copied as well
  */
 
-function PMA_replication_synchronize_DB($db, $src_link, $trg_link, $data = true)
+function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
 {
-    $src_db = $db;
-    $trg_db = $db;
-    $src_connection = PMA_DBI_select_db($db, $src_link);
-    $trg_connection = PMA_DBI_select_db($db, $trg_link);
+    $src_db = $trg_db = $db;
+
+    $src_connection = PMA_DBI_select_db($src_db, $src_link);
+    $trg_connection = PMA_DBI_select_db($trg_db, $trg_link);
 
     $src_tables = PMA_DBI_get_tables($src_db, $src_link);
     $source_tables_num = sizeof($src_tables);

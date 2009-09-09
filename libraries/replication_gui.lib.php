@@ -58,6 +58,7 @@ $jscode['slave_control'] =
 
 $jscode['slave_control_sync']  = 
     'divShowHideFunc(\'slave_synchronization_href\', \'slave_synchronization_gui\');'."\n";
+
 /**
  * returns code for selecting databases
  *
@@ -78,9 +79,10 @@ function PMA_replication_db_multibox()
         $current_db = htmlspecialchars($current_db);
         $multi_values .= '                <option value="' . $current_db . '" ' . $is_selected . '>' . $current_db . '</option>' . "\n";
     } // end while
+
     $multi_values .= "\n";
     $multi_values .= '</select>';
-    $multi_values .= '<br /><a href="#" id="db_reset_href">Uncheck all</a>';
+    $multi_values .= '<br /><a href="#" id="db_reset_href">' . $GLOBALS['strUncheckAll'] . '</a>';
 
     return $multi_values;
 }
@@ -98,7 +100,7 @@ function PMA_replication_gui_changemaster($submitname) {
     echo '<form method="post" action="server_replication.php">'."\n";
     echo PMA_generate_common_hidden_inputs('', ''); 
     echo ' <fieldset id="fieldset_add_user_login">'."\n";
-    echo '  <legend>Slave configuration - change master server</legend>'."\n";
+    echo '  <legend>' . $GLOBALS['strReplicationSlaveConfiguration']. ' - ' . $GLOBALS['strReplicationSlaveChangeMaster'] . '</legend>'."\n";
     echo $GLOBALS['strSlaveConfigure'].'<br />'."\n";
     echo '<pre>server-id='.time().'</pre>'."\n";
     echo '  <div class="item">'."\n";
@@ -139,6 +141,13 @@ function PMA_replication_print_status_table ($type, $hidden = false, $title = tr
     global ${"server_{$type}_replication"};
     global ${"strReplicationStatus_{$type}"};
 
+    // TODO check the Masters server id?
+    // seems to default to '1' when queried via SHOW VARIABLES , but resulted in error on the master when slave connects
+    // [ERROR] Error reading packet from server: Misconfigured master - server id was not set ( server_errno=1236)
+    // [ERROR] Got fatal error 1236: 'Misconfigured master - server id was not set' from master when reading data from binary log
+    //
+    //$server_id = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'server_id'", 0, 1);
+
     echo '<div id="replication_'. $type .'_section" style="'. ($hidden ? 'display: none' : '') .'"> '."\n";
 
     if ($title) {
@@ -164,6 +173,8 @@ function PMA_replication_print_status_table ($type, $hidden = false, $title = tr
         echo '     </td>'."\n";
         echo '     <td class="value">'."\n";
 
+
+        // TODO change to regexp or something, to allow for negative match
         if (isset(${"{$type}_variables_alerts"}[$variable]) 
             && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {

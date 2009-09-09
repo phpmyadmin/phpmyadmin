@@ -43,7 +43,7 @@ if (!$is_superuser) {
 
 if (isset($GLOBALS['sr_take_action'])) {
     $refresh = false;
-    if (isset($GLOBALS['slave_chagemaster'])) {
+    if (isset($GLOBALS['slave_changemaster'])) {
         $_SESSION['replication']['m_username'] = $sr['username'] = PMA_sqlAddslashes($GLOBALS['username']);
         $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_sqlAddslashes($GLOBALS['pma_pw']);
         $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_sqlAddslashes($GLOBALS['hostname']);
@@ -57,27 +57,35 @@ if (isset($GLOBALS['sr_take_action'])) {
             $url .= ':' . $sr['port'];
         }
 
+        // Attempt to connect to the new master server
         $check_master = null;
-        error_reporting(0);
+        $old_error_reporting = error_reporting(0);
         $check_master = @mysql_connect($url, $sr['username'], $sr['pma_pw']);
-        error_reporting(15);
+        error_reporting($old_error_reporting);
         unset($url);
 
         if (!$check_master) {
             $_SESSION['replication']['sr_action_status'] = 'error';
-            $_SESSION['replication']['sr_action_info'] = 'Unable to connect to master '. $sr['hostname'] .'. ';
+            $_SESSION['replication']['sr_action_info'] = sprintf($GLOBALS['strReplicationErrorMasterConnect'], $sr['hostname']);
         } else {
             $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);
+
+            // Read the current master position
             $position = PMA_replication_slave_bin_log_master($link_to_master);
 
-            $_SESSION['replication']['m_correct']  = true;
-
-            if (PMA_replication_slave_change_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
+            if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
-                $_SESSION['replication']['sr_action_info'] = $GLOBALS['strReplicationUnableToChange'];
+                $_SESSION['replication']['sr_action_info'] = $GLOBALS['strReplicationErrorGetPosition'];
             } else {
-                $_SESSION['replication']['sr_action_status'] = 'success';
-                $_SESSION['replication']['sr_action_info'] = sprintf($GLOBALS['strReplicationChangedSuccesfully'], $sr['hostname']);
+                $_SESSION['replication']['m_correct']  = true;
+
+                if (!PMA_replication_slave_change_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port'], $position, true, false)) {
+                    $_SESSION['replication']['sr_action_status'] = 'error';
+                    $_SESSION['replication']['sr_action_info'] = $GLOBALS['strReplicationUnableToChange'];
+                } else {
+                    $_SESSION['replication']['sr_action_status'] = 'success';
+                    $_SESSION['replication']['sr_action_info'] = sprintf($GLOBALS['strReplicationChangedSuccesfully'], $sr['hostname']);
+                }
             }
         }
     } elseif (isset($GLOBALS['sr_slave_server_control'])) {
@@ -89,6 +97,7 @@ if (isset($GLOBALS['sr_take_action'])) {
             PMA_replication_slave_control($GLOBALS['sr_slave_action'], $GLOBALS['sr_slave_control_parm']);
         }
         $refresh = true;
+
     } elseif (isset($GLOBALS['sr_slave_skip_error'])) {
         $count = 1;
         if (isset($GLOBALS['sr_skip_errors_count'])) {
@@ -97,24 +106,28 @@ if (isset($GLOBALS['sr_take_action'])) {
         PMA_replication_slave_control("STOP");
         PMA_DBI_try_query("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
         PMA_replication_slave_control("START");
+
     } elseif (isset($GLOBALS['sl_sync'])) {
         $src_link = PMA_replication_connect_to_master($_SESSION['replication']['m_username'], $_SESSION['replication']['m_password'], $_SESSION['replication']['m_hostname'], $_SESSION['replication']['m_port']);
-        $trg_link = null;
+        $trg_link = null; // using null to indicate the current PMA server
 
         $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $src_link); // let's find out, which databases are replicated
 
         $do_db     = array();
         $ignore_db = array();
 
-        if (!empty($data[0]['Binlog_Do_DB']))
+        if (!empty($data[0]['Binlog_Do_DB'])) {
             $do_db     = explode($data[0]['Binlog_Do_DB'], ',');
-        if (!empty($data[0]['Binlog_Ignore_DB']))
+        }
+        if (!empty($data[0]['Binlog_Ignore_DB'])) {
             $ignore_db = explode($data[0]['Binlog_Ignore_DB'], ',');
+        }
 
         $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $src_link);
         while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
-            if ($tmp_row[0] == 'information_schema')
+            if ($tmp_row[0] == 'information_schema') {
                 continue;
+            }
             if (count($do_db) == 0) {
                 if (array_search($tmp_row[0], $ignore_db) !== false) {
                     continue;
@@ -129,6 +142,7 @@ if (isset($GLOBALS['sr_take_action'])) {
                 }
             }	  
         } // end while
+
         if (isset($GLOBALS['repl_data'])) {
             $data = true;
         } else {
@@ -137,10 +151,12 @@ if (isset($GLOBALS['sr_take_action'])) {
         foreach ($dblist as $db) {
             PMA_replication_synchronize_db($db, $src_link, $trg_link, $data);
         }
+        // TODO some form of user feedback error/success would be nice
     }
 
-    if ($refresh)
+    if ($refresh) {
         Header("Location: ". PMA_generate_common_url($GLOBALS['url_params']));
+    }
     unset($refresh);
 }
 /**
@@ -209,6 +225,7 @@ if ($server_master_status) {
         echo '<fieldset id="fieldset_add_user_login">' . "\n"
             . '<legend>'.$GLOBALS['strReplicationAddSlaveUser'].'</legend>' . "\n"
             . '<input id="checkbox_Repl_slave_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_slave_priv"/>'. "\n"
+            . '<input id="checkbox_Repl_client_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_client_priv"/>'. "\n"
             . '<input type="hidden" name="sr_take_action" value="true" />'. "\n"
             . '<div class="item">' . "\n"
             . '<label for="select_pred_username">' . "\n"
@@ -492,7 +509,7 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
     echo '</fieldset>'."\n";
 }
 if (isset($GLOBALS['sl_configure'])) {
-    PMA_replication_gui_changemaster("slave_chagemaster");
+    PMA_replication_gui_changemaster("slave_changemaster");
 }
 echo '</div>'."\n";
 require_once './libraries/footer.inc.php';
