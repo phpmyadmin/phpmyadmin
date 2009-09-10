@@ -1540,32 +1540,32 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
-$strReplicationAddLines = 'Now, add following lines at the end of your my.cnf and please restart the mysql server afterwards.';  //to translate
+$strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the mysql server afterwards.';  //to translate
 $strReplicationAddSlaveUser = 'Add slave replication user?';  //to translate
 $strReplicationConfiguredMaster = 'This server is configured as master in replication process.';  //to translate
 $strReplicationControlSlave = 'Control slave:';  //to translate
 $strReplicationChangedSuccesfully = 'Master server changed succesfully to %s';  //to translate
-$strReplicationMasterConfiguration = 'Master Configuration';  //to translate
+$strReplicationMasterConfiguration = 'Master configuration';  //to translate
 $strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';  //to translate
 $strReplicationMasterChooseIgn = 'Ignore all databases; Replicate:';  //to translate
 $strReplicationMasterChooseMode = 'This server is not configured as master server in replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';  //to translate
-$strReplicationMaster = 'Master Replication';  //to translate
+$strReplicationMaster = 'Master replication';  //to translate
 $strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informating you, that this server <b>is</b> configured as master';  //to translate
 $strReplicationSelectDatabases = 'Please select databases:';  //to translate
 $strReplicationServernConfiguredMaster = 'This server is not configured as master in replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
 $strReplicationShowMasterStatus = 'Show master status';  //to translate
-$strReplicationSkippingErrorWarn = 'Skiping error(s) might lead into unsynchronized master and slave!';  //to translate
+$strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
 $strReplicationSlaveConfigured = 'Server is configured as slave in replication process. Would you like to:';  //to translate
 $strReplicationSlaveErrorManagement = 'Error management:';  //to translate
 $strReplicationSlaveChangeMaster = 'Change or reconfigure master server';  //to translate
 $strReplicationSlaveIOThread = 'IO Thread %s only';  //to translate
 $strReplicationSlaveNotConfigured = 'This server is not configured as slave in replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
-$strReplicationSlaveReset = 'Reset Slave';  //to translate
+$strReplicationSlaveReset = 'Reset slave';  //to translate
 $strReplicationSlaveSeeStatus = 'See slave status table';  //to translate
 $strReplicationSlaveSkipCurrentError = 'Skip current error';  //to translate
 $strReplicationSlaveSkipNextErrors = 'errors.';  //to translate
 $strReplicationSlaveSkipNext = 'Skip next';  //to translate
-$strReplicationSlave = 'Slave Replication';  //to translate
+$strReplicationSlave = 'Slave replication';  //to translate
 $strReplicationSlaveSQLThread = 'SQL Thread %s only';  //to translate
 $strReplicationSynchronize = 'Synchronize databases with master';  //to translate
 $strReplicationUnableToChange = 'Unable to change master';  //to translate
@@ -1595,12 +1595,12 @@ $strSetupVersionCheckDataError = 'Reading of version failed. Maybe you\'re offli
 $strSetupZipDump_desc = 'Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression for import and export operations';  //to translate
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
-$strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add following line into [mysqld] section:';  //to translate
+$strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
 $strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
 $strTrackingStatusNotActive = 'not active';  //to translate
 $strTrackingIsNotActive = 'Tracking is not active.';  //to translate
 $strReplicationErrorGetPosition = 'Unable to read master log position. Possible privilege problem on master.';  //to translate
 $strReplicationErrorMasterConnect = 'Unable to connect to master %s.';  //to translate
-$strReplicationSlaveConfiguration = 'Slave Configuration';  //to translate
+$strReplicationSlaveConfiguration = 'Slave configuration';  //to translate
 ?>
