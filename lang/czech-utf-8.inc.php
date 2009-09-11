@@ -1540,7 +1540,7 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
-$strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the mysql server afterwards.';  //to translate
+$strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the MySQL server afterwards.';  //to translate
 $strReplicationAddSlaveUser = 'Add slave replication user?';  //to translate
 $strReplicationConfiguredMaster = 'This server is configured as master in replication process.';  //to translate
 $strReplicationControlSlave = 'Control slave:';  //to translate
