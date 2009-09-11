@@ -1276,7 +1276,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 	</tr>
       </table>';
 
-      
+    // Add JS to show/hide rows based on the selection      
       PMA_js(''.
 	'$(\''.$type.'_type\').addEvent(\'change\',function() {'."\n".
 	'    if ($(\''.$type.'tr1\').getStyle(\'display\')=="none") {'."\n".
