@@ -1595,7 +1595,7 @@ $strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';  //to trans
 $strReplicationMasterChooseIgn = 'Ignore all databases; Replicate:';  //to translate
 $strReplicationMasterChooseMode = 'This server is not configured as master server in a replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';  //to translate
 $strReplicationMasterConfiguration = 'Master configuration';  //to translate
-$strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informating you, that this server <b>is</b> configured as master';  //to translate
+$strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master';  //to translate
 $strReplicationServernConfiguredMaster = 'This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
 $strReplicationShowMasterStatus = 'Show master status';  //to translate
 $strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
