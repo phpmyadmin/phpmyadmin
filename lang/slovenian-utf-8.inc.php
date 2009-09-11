@@ -1580,23 +1580,23 @@ $strCurrentServer = 'Current server';  //to translate
 $strReplicationSelectDatabases = 'Please select databases:';  //to translate
 $strReplicationSynchronize = 'Synchronize databases with master';  //to translate
 $strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the MySQL server afterwards.';  //to translate
-$strReplicationAddSlaveUser = 'Add slave replication user?';  //to translate
+$strReplicationAddSlaveUser = 'Add slave replication user';  //to translate
 $strReplicationChangedSuccesfully = 'Master server changed succesfully to %s';  //to translate
-$strReplicationConfiguredMaster = 'This server is configured as master in replication process.';  //to translate
+$strReplicationConfiguredMaster = 'This server is configured as master in a replication process.';  //to translate
 $strReplicationControlSlave = 'Control slave:';  //to translate
 $strReplicationMaster = 'Master replication';  //to translate
 $strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';  //to translate
 $strReplicationMasterChooseIgn = 'Ignore all databases; Replicate:';  //to translate
-$strReplicationMasterChooseMode = 'This server is not configured as master server in replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';  //to translate
+$strReplicationMasterChooseMode = 'This server is not configured as master server in a replication process. You can choose from either replicating all databases and ignoring certain (useful if you want to replicate majority of databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:';  //to translate
 $strReplicationMasterConfiguration = 'Master configuration';  //to translate
 $strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informating you, that this server <b>is</b> configured as master';  //to translate
-$strReplicationServernConfiguredMaster = 'This server is not configured as master in replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
+$strReplicationServernConfiguredMaster = 'This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
 $strReplicationShowMasterStatus = 'Show master status';  //to translate
 $strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
 $strReplicationSlave = 'Slave replication';  //to translate
 $strReplicationSlaveChangeMaster = 'Change or reconfigure master server';  //to translate
-$strReplicationSlaveConfigured = 'Server is configured as slave in replication process. Would you like to:';  //to translate
-$strReplicationSlaveNotConfigured = 'This server is not configured as slave in replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
+$strReplicationSlaveConfigured = 'Server is configured as slave in a replication process. Would you like to:';  //to translate
+$strReplicationSlaveNotConfigured = 'This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
 $strReplicationSlaveErrorManagement = 'Error management:';  //to translate
 $strReplicationSlaveIOThread = 'IO Thread %s only';  //to translate
 $strReplicationSlaveReset = 'Reset slave';  //to translate
