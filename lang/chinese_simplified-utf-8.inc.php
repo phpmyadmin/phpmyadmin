@@ -1605,4 +1605,6 @@ $strReplicationErrorMasterConnect = 'Unable to connect to master %s.';  //to tra
 $strReplicationSlaveConfiguration = 'Slave configuration';  //to translate
 $strFullStart = 'Full start';  //to translate
 $strFullStop = 'Full stop';  //to translate
+$strStart = 'Start';  //to translate
+$strStop = 'Stop';  //to translate
 ?>

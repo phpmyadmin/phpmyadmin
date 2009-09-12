@@ -1594,4 +1594,6 @@ $strZip = '"zippé"';
 
 $strFullStart = 'Full start';  //to translate
 $strFullStop = 'Full stop';  //to translate
+$strStart = 'Start';  //to translate
+$strStop = 'Stop';  //to translate
 ?>
