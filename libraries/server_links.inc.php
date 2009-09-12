@@ -67,7 +67,7 @@ if ($is_superuser) {
 
     $tabs['replication']['icon'] = 's_replication.png';
     $tabs['replication']['link'] = 'server_replication.php';
-    $tabs['replication']['text'] = "Replication";
+    $tabs['replication']['text'] = $strReplication;
 }
 
 if (! empty($binary_logs)) {

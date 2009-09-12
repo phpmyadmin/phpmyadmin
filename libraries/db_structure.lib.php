@@ -46,7 +46,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'    <th>' . PMA_SortableTableHeader($GLOBALS['strTable'], 'table') . '</th>' . "\n";
     if ($replication) {
      echo '    <th>' . "\n"
-         .'        ' . "Replication" . "\n"
+         .'        ' . $GLOBALS['strReplication'] . "\n"
          .'    </th>';
     }
     echo '    <th colspan="' . $action_colspan . '">' . "\n"
