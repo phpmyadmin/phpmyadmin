@@ -1221,7 +1221,7 @@ if (isset($_REQUEST['synchronize_db'])) {
  */
     
     $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
-        'SCHEMA_NAME', 0, true);
+        'ASC', 0, true);
 	
     foreach ($cons as $type) {
       echo '<table id="serverconnection_'.$type.'_remote" class="data">
