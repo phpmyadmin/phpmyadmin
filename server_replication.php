@@ -476,7 +476,7 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
         echo ' <li><a href="#" id="slave_control_href">'. $GLOBALS['strReplicationControlSlave'] .'</li>'."\n";
         echo ' <div id="slave_control_gui" style="display: none">'."\n";
         echo '  <ul>'."\n";
-        echo '   <li><a href="'. $slave_control_full_link .'">'. $GLOBALS['strFull'] . '&nbsp;' . (($server_slave_replication[0]['Slave_IO_Running'] == 'No' || $server_slave_replication[0]['Slave_SQL_Running'] == 'No') ? $GLOBALS['strStart'] : $GLOBALS['strStop']). ' </a></li>'."\n";
+        echo '   <li><a href="'. $slave_control_full_link .'">'. (($server_slave_replication[0]['Slave_IO_Running'] == 'No' || $server_slave_replication[0]['Slave_SQL_Running'] == 'No') ? $GLOBALS['strFullStart'] : $GLOBALS['strFullStop']). ' </a></li>'."\n";
         echo '   <li><a href="'. $slave_control_reset_link .'">'. $GLOBALS['strReplicationSlaveReset'] .'</li>'."\n";
         echo '   <li><a href="'. $slave_control_sql_link .'">'. sprintf($GLOBALS['strReplicationSlaveSQLThread'], ($server_slave_replication[0]['Slave_SQL_Running'] == 'No' ? $GLOBALS['strStart'] : $GLOBALS['strStop'])) .'</a></li>'."\n";
         echo '   <li><a href="'. $slave_control_io_link .'">'. sprintf($GLOBALS['strReplicationSlaveIOThread'], ($server_slave_replication[0]['Slave_IO_Running'] == 'No' ? $GLOBALS['strStart'] : $GLOBALS['strStop'])) .'</a></li>'."\n";

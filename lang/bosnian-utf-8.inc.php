@@ -1609,9 +1609,6 @@ $strReplicationSlaveSeeStatus = 'See slave status table';  //to translate
 $strReplicationSlaveSkipCurrentError = 'Skip current error';  //to translate
 $strReplicationSlaveSkipNext = 'Skip next';  //to translate
 $strReplicationSlaveSkipNextErrors = 'errors.';  //to translate
-$strFull = 'Full';  //to translate
-$strStop = 'Stop';  //to translate
-$strStart ='Start';  //to translate
 $strShowMasterStatus = 'Show master status';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 $strReplicationUnknownError = 'Unknown error';  //to translate
@@ -1622,4 +1619,6 @@ $strTrackingIsNotActive = 'Tracking is not active.';  //to translate
 $strReplicationErrorGetPosition = 'Unable to read master log position. Possible privilege problem on master.';  //to translate
 $strReplicationErrorMasterConnect = 'Unable to connect to master %s.';  //to translate
 $strReplicationSlaveConfiguration = 'Slave configuration';  //to translate
+$strFullStart = 'Full start';  //to translate
+$strFullStop = 'Full stop';  //to translate
 ?>
