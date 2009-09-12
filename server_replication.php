@@ -399,7 +399,7 @@ echo '</div>';
 
 if (!isset($GLOBALS['repl_clear_scr'])) {
     echo '<fieldset>'."\n";
-    echo '<legend>Server Replication</legend>'."\n";
+    echo '<legend>' . $GLOBALS['strReplicationSlave'] . '</legend>'."\n";
     if ($server_slave_status) { 
         echo PMA_js_mootools_domready($jscode['slave_control']);
         echo '<div id="slave_configuration_gui">'."\n";
