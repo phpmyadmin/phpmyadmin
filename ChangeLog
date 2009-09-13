@@ -7,7 +7,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.2.3.0 (not yet released)
 
-3.2.2.0 (not yet released)
+3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column 
 - bug [display] Red arrows were reversed in the list of tables
 - bug #2813879 [export] Duplicate empty lines when exporting without comments 
