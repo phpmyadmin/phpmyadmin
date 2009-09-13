@@ -29,6 +29,7 @@ if (empty($import_list)) {
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none" src="import.php"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
+<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" /> 
 <script type="text/javascript">
 <!--
 // Mootools code for handling Ajax requests
@@ -57,20 +58,18 @@ if (empty($import_list)) {
      }
     
  });
+
   ////////////////////////// }}}}}
   // add event when user click on "Go" button
   $('buttonGo').addEvent('click', function() {
-<?php
-    if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
-?>
-      $('upload_form_status').set('html', '<div class="upload_progress_bar_outer"><div id="status" class="upload_progress_bar_inner"></div></div>'); // add the progress bar
-<?php
-    }  
-?>	
     $('upload_form_form').setStyle("display", "none"); // hide form
     $('upload_form_status').setStyle("display", "inline"); // show progress bar
     $('upload_form_status_info').setStyle("display", "inline"); // - || -
-    
+<?php
+    if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+?>
+    $('upload_form_status').set('html', '<div class="upload_progress_bar_outer"><div id="status" class="upload_progress_bar_inner"></div></div>'); // add the progress bar
+  
     var finished = false;
     var percent  = 0.0;
     var total    = 0;
@@ -111,9 +110,6 @@ if (empty($import_list)) {
 	  if (index=="complete")
 	    complete = item;			    
 	}); // [$each]
-	<?php
-	if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
-	?>
 	 if (total==0 && complete==0 && percent==0) {
 	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportLargeFileUploading; ?>');
 	  $('upload_form_status').setStyle("display", "none");
@@ -121,6 +117,12 @@ if (empty($import_list)) {
 	  $('upload_form_status_info').set('html', ' '+Math.round(percent)+'%, '+complete+'/'+total);
 	  $('status').tween('width', Math.round(percent)*2+'px');
 	 } //[else]
+    } //[onComplete]
+   }); // [request]
+   perform_upload = function () { 
+     request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...) 
+   }
+   periodical_upload = perform_upload.periodical(1000);
 	<?php
 	} else {
 	?>
@@ -129,13 +131,7 @@ if (empty($import_list)) {
 	<?php
 	} //[else]
 	?> 
-      } //[onComplete]
-    }); // [request]
-    perform_upload = function () { 
-      request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...) 
-    }
-    periodical_upload = perform_upload.periodical(1000);
-  }); // if [buttonGo]
+  }); //if [click]
 }); // if [load]
   document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import" <?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo 'target="import_upload_iframe"'; ?>>');
 -->
