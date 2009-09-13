@@ -235,10 +235,10 @@ function PMA_replication_master_replicated_dbs($link = null)
     $ignore_db = array();
 
     if (!empty($data[0]['Binlog_Do_DB'])) {
-        $do_db     = explode($data[0]['Binlog_Do_DB'], ',');
+        $do_db     = explode(',', $data[0]['Binlog_Do_DB']);
     }
     if (!empty($data[0]['Binlog_Ignore_DB'])) {
-        $ignore_db = explode($data[0]['Binlog_Ignore_DB'], ',');
+        $ignore_db = explode(',', $data[0]['Binlog_Ignore_DB']);
     }
 
     $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $link);
@@ -330,6 +330,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
     {
         PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $j, $row_count);
     }  
+
     /**
      * INTEGRATION OF STRUCTURE DIFFERENCE CODE
      *

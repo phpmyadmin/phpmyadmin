@@ -108,6 +108,8 @@ if (isset($GLOBALS['sr_take_action'])) {
         PMA_replication_slave_control("START");
 
     } elseif (isset($GLOBALS['sl_sync'])) {
+        // TODO username, host and port could be read from 'show slave status', 
+        // when asked for a password this might work in more situations the just after changing master (where the master password is stored in session)
         $src_link = PMA_replication_connect_to_master($_SESSION['replication']['m_username'], $_SESSION['replication']['m_password'], $_SESSION['replication']['m_hostname'], $_SESSION['replication']['m_port']);
         $trg_link = null; // using null to indicate the current PMA server
 
@@ -115,12 +117,13 @@ if (isset($GLOBALS['sr_take_action'])) {
 
         $do_db     = array();
         $ignore_db = array();
+        $dblist    = array();
 
         if (!empty($data[0]['Binlog_Do_DB'])) {
-            $do_db     = explode($data[0]['Binlog_Do_DB'], ',');
+            $do_db     = explode(',', $data[0]['Binlog_Do_DB']);
         }
         if (!empty($data[0]['Binlog_Ignore_DB'])) {
-            $ignore_db = explode($data[0]['Binlog_Ignore_DB'], ',');
+            $ignore_db = explode(',', $data[0]['Binlog_Ignore_DB']);
         }
 
         $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $src_link);
@@ -143,15 +146,19 @@ if (isset($GLOBALS['sr_take_action'])) {
             }	  
         } // end while
 
+        unset($do_db, $ignore_db, $data);
+
         if (isset($GLOBALS['repl_data'])) {
-            $data = true;
+            $include_data = true;
         } else {
-            $data = false;
+            $include_data = false;
         }
         foreach ($dblist as $db) {
-            PMA_replication_synchronize_db($db, $src_link, $trg_link, $data);
+            PMA_replication_synchronize_db($db, $src_link, $trg_link, $include_data);
         }
         // TODO some form of user feedback error/success would be nice
+        //  What happens if $dblist is empty?
+        //  or sync failed?
     }
 
     if ($refresh) {
@@ -367,6 +374,7 @@ if ($server_master_status) {
 }
 
 if (isset($GLOBALS['mr_configure'])) {
+    // Render the 'Master configuration' section 
     echo PMA_js_mootools_domready($jscode['configure_master']);
     echo '<fieldset>'."\n";
     echo '<legend>'. $GLOBALS['strReplicationMasterConfiguration'] .'</legend>'."\n";
@@ -398,6 +406,7 @@ if (isset($GLOBALS['mr_configure'])) {
 echo '</div>';
 
 if (!isset($GLOBALS['repl_clear_scr'])) {
+    // Render the 'Slave configuration' section 
     echo '<fieldset>'."\n";
     echo '<legend>' . $GLOBALS['strReplicationSlave'] . '</legend>'."\n";
     if ($server_slave_status) { 

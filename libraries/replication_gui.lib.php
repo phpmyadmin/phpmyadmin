@@ -25,9 +25,9 @@ $jscode['configure_master'] =
     '});'."\n".
     '$(\'db_type\').addEvent(\'change\',function() {'."\n".
     '	if ($(\'db_type\').getSelected().get(\'value\')=="all")'."\n".
-    '	  $(\'rep\').set(\'html\', c_text+c_ignore+c_output+\';\');'."\n".
+    '	  $(\'rep\').set(\'html\', c_text+c_ignore+c_output);'."\n".
     '	else'."\n". 
-    '	  $(\'rep\').set(\'html\', c_text+c_do+c_output+\';\');'."\n".
+    '	  $(\'rep\').set(\'html\', c_text+c_do+c_output);'."\n".
     '});'."\n".
 
     '$(\'db_select\').addEvent(\'change\',function() {'."\n".
@@ -104,20 +104,20 @@ function PMA_replication_gui_changemaster($submitname) {
     echo $GLOBALS['strSlaveConfigure'].'<br />'."\n";
     echo '<pre>server-id='.time().'</pre>'."\n";
     echo '  <div class="item">'."\n";
-    echo '    <label for="select_pred_username">'. $GLOBALS['strUserName'].':</label>'."\n";
-    echo '    <input type="text" name="username" maxlength="'. $username_length .'" title="'. $GLOBALS['strUserName'] .'" onchange="pred_username.value = \'userdefined\';" />'."\n";
+    echo '    <label for="text_username">'. $GLOBALS['strUserName'].':</label>'."\n";
+    echo '    <input type="text" name="username" id="text_username" maxlength="'. $username_length .'" title="'. $GLOBALS['strUserName'] .'" />'."\n";
     echo '  </div>'."\n";
     echo '  <div class="item">'."\n";
-    echo '    <label for="select_pred_password">'. $GLOBALS['strPassword'] .' :</label>'."\n";
-    echo '    <input type="password" id="text_pma_pw" name="pma_pw" title="'. $GLOBALS['strPassword'] .'" onchange="pred_password.value = \'userdefined\';" />'."\n";
+    echo '    <label for="text_pma_pw">'. $GLOBALS['strPassword'] .' :</label>'."\n";
+    echo '    <input type="password" id="text_pma_pw" name="pma_pw" title="'. $GLOBALS['strPassword'] .'" />'."\n";
     echo '  </div>'."\n";
     echo '  <div class="item">'."\n";
-    echo '    <label for="select_pred_hostname">'.$GLOBALS['strHost'].' :</label>'."\n";
-    echo '    <input type="text" name="hostname" maxlength="'. $hostname_length .'" value="" />'."\n";
+    echo '    <label for="text_hostname">'.$GLOBALS['strHost'].' :</label>'."\n";
+    echo '    <input type="text" id="text_hostname" name="hostname" maxlength="'. $hostname_length .'" value="" />'."\n";
     echo '  </div>'."\n";
     echo '  <div class="item">'."\n";
-    echo '     <label for="select_pred_hostname">'.$GLOBALS['strPort'].':</label>'."\n";
-    echo '     <input type="text" name="port" maxlength="6" value="3306"  />'."\n";
+    echo '     <label for="text_port">'.$GLOBALS['strPort'].':</label>'."\n";
+    echo '     <input type="text" id="text_port" name="port" maxlength="6" value="3306"  />'."\n";
     echo '  </div>'."\n";
     echo ' </fieldset>'."\n";
     echo ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">'."\n";
