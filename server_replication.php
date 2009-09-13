@@ -194,7 +194,7 @@ if ($server_master_status) {
         echo '<legend>'. $GLOBALS['strReplicationMaster'] .'</legend>'."\n";
         echo $GLOBALS['strReplicationConfiguredMaster']."\n";
         echo '<ul>'."\n";
-        echo '  <li><a href="#" id="master_status_href">'. $GLOBALS['strReplicationShowMasterStatus'] .'</a> </li>';
+        echo '  <li><a href="#" id="master_status_href">'. $GLOBALS['strReplicationShowMasterStatus'] .'</a></li>';
         PMA_replication_print_status_table('master', true, false);
         $_url_params = $GLOBALS['url_params'];
         $_url_params['mr_adduser'] = true;
@@ -473,7 +473,7 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
             echo PMA_js_mootools_domready($jscode['slave_control_sync']);
             echo ' <li><a href="#" id="slave_synchronization_href">'.$GLOBALS['strReplicationSynchronize'].'</a></li>'."\n";
             echo ' <div id="slave_synchronization_gui" style="display: none">'."\n";
-            echo '  <form method="post">'."\n";
+            echo '  <form method="post" action="server_replication.php">'."\n";
             echo PMA_generate_common_hidden_inputs('', '');
             echo '   <input type="checkbox" name="repl_struc" value="1" checked disabled /> '. $GLOBALS['strStructure']. '<br />'."\n"; // this is just for vizualization, it has no other purpose
             echo '   <input type="checkbox" name="repl_data"  value="1" checked /> '. $GLOBALS['strData'] .' <br />'."\n";
@@ -482,22 +482,23 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
             echo '  </form>'."\n";
             echo ' </div>'."\n";
         }
-        echo ' <li><a href="#" id="slave_control_href">'. $GLOBALS['strReplicationControlSlave'] .'</li>'."\n";
+        echo ' <li><a href="#" id="slave_control_href">'. $GLOBALS['strReplicationControlSlave'] .'</a>'."\n";
         echo ' <div id="slave_control_gui" style="display: none">'."\n";
         echo '  <ul>'."\n";
         echo '   <li><a href="'. $slave_control_full_link .'">'. (($server_slave_replication[0]['Slave_IO_Running'] == 'No' || $server_slave_replication[0]['Slave_SQL_Running'] == 'No') ? $GLOBALS['strFullStart'] : $GLOBALS['strFullStop']). ' </a></li>'."\n";
-        echo '   <li><a href="'. $slave_control_reset_link .'">'. $GLOBALS['strReplicationSlaveReset'] .'</li>'."\n";
+        echo '   <li><a href="'. $slave_control_reset_link .'">'. $GLOBALS['strReplicationSlaveReset'] .'</a></li>'."\n";
         echo '   <li><a href="'. $slave_control_sql_link .'">'. sprintf($GLOBALS['strReplicationSlaveSQLThread'], ($server_slave_replication[0]['Slave_SQL_Running'] == 'No' ? $GLOBALS['strStart'] : $GLOBALS['strStop'])) .'</a></li>'."\n";
         echo '   <li><a href="'. $slave_control_io_link .'">'. sprintf($GLOBALS['strReplicationSlaveIOThread'], ($server_slave_replication[0]['Slave_IO_Running'] == 'No' ? $GLOBALS['strStart'] : $GLOBALS['strStop'])) .'</a></li>'."\n";
         echo '  </ul>'."\n";
         echo ' </div>'."\n";
-        echo ' <li><a href="#" id="slave_errormanagement_href">'. $GLOBALS['strReplicationSlaveErrorManagement'] .'</a></li>'."\n";
+        echo ' </li>'."\n";
+        echo ' <li><a href="#" id="slave_errormanagement_href">'. $GLOBALS['strReplicationSlaveErrorManagement'] .'</a>'."\n";
         echo ' <div id="slave_errormanagement_gui" style="display: none">'."\n";
         PMA_Message::warning($GLOBALS['strReplicationSkippingErrorWarn'])->display();
         echo '  <ul>'."\n";
         echo '   <li><a href="'. $slave_skip_error_link .'">'. $GLOBALS['strReplicationSlaveSkipCurrentError'] .'</a></li>'."\n";
         echo '   <li>'.$GLOBALS['strReplicationSlaveSkipNext']."\n";
-        echo '    <form method="post">'."\n";
+        echo '    <form method="post" action="server_replication.php">'."\n";
         echo PMA_generate_common_hidden_inputs('', '');
         echo '      <input type="text" name="sr_skip_errors_count" value="1" style="width: 30px" />'.$GLOBALS['strReplicationSlaveSkipNextErrors']."\n";
         echo '              <input type="submit" name="sr_slave_skip_error" value="'. $GLOBALS['strGo'] .'" />'."\n";
@@ -505,6 +506,7 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
         echo '    </form></li>'."\n";
         echo '  </ul>'."\n";
         echo ' </div>'."\n";
+        echo ' </li>'."\n";
         echo ' <li><a href="'. $reconfiguremaster_link .'">'.$GLOBALS['strReplicationSlaveChangeMaster'].'</a></li>'."\n";
         echo '</ul>'."\n";
 
@@ -515,11 +517,11 @@ if (!isset($GLOBALS['repl_clear_scr'])) {
 
         echo sprintf($GLOBALS['strReplicationSlaveNotConfigured'], PMA_generate_common_url($_url_params))."\n"; 
     }
+    echo '</div>'."\n";
     echo '</fieldset>'."\n";
 }
 if (isset($GLOBALS['sl_configure'])) {
     PMA_replication_gui_changemaster("slave_changemaster");
 }
-echo '</div>'."\n";
 require_once './libraries/footer.inc.php';
 ?>

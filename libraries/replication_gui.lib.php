@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
 
 $jscode['master_replication'] = 'divShowHideFunc(\'master_status_href\', \'replication_master_section\');'."\n";
 
+// Add JS events to generate example my.cnf config lines
 $jscode['configure_master'] = 
     'var c_output = "";'."\n".
     'var c_text = "server-id='.$serverid.'<br />log-bin=mysql-bin<br />log-error=mysql-bin.err<br />";'."\n".
@@ -179,9 +180,8 @@ function PMA_replication_print_status_table ($type, $hidden = false, $title = tr
             && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {
             echo '<span class="attention">'."\n";
-        }
 
-        if (isset(${"{$type}_variables_oks"}[$variable]) 
+        } elseif (isset(${"{$type}_variables_oks"}[$variable]) 
             && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
         ) {
             echo '<span class="allfine">'."\n";

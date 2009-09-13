@@ -2729,7 +2729,7 @@ function PMA_getTitleForTarget($target) {
 function PMA_js_mootools_domready($code, $print=true)
 {
   $out  = '';
-  $out .= '<script language="JavaScript">'."\n";
+  $out .= '<script type="text/javascript">'."\n";
   $out .= 'window.addEvent(\'domready\',function() {'."\n";
   $out .= $code;
   $out .= '});'."\n";
@@ -2744,7 +2744,7 @@ function PMA_js_mootools_domready($code, $print=true)
 function PMA_js($code, $print=true)
 {
   $out  = '';
-  $out .= '<script language="JavaScript">'."\n";
+  $out .= '<script type="text/javascript">'."\n";
   $out .= $code;
   $out .= '</script>'."\n";
 
