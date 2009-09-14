@@ -5,41 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
-3.3.0.0 (not yet released)
-+ rfe #2308632 [edit] Use hex for (var)binary fields,
-  thanks to Maarten Dieleman - maartendieleman
-+ patch #2794819 [navi] Filter for displayed table names,
-  thanks to Michael Valushko - dylfin
-- bug #2794840 [core] Cannot redeclare pma_tableheader() 
-- rfe #2726479 [core] configurable maximal length of URL
-+ patch #2724755 [display] Full/partial text links (big T) are back,
-  thanks to nullbarriere - nullbarriere 
-- bug [display] handle NavigationBarIconic as documented for navi buttons
-+ rfe #2726479 [export] Export tables preselect
-+ patch #2805828 [export] PHP array export plugin, 
-  thanks to Geoffray Warnants - amnsk
-+ patch #2798592 [import] Progress bar, 
-  thanks to Tomas Srnka - tomassrnka
-- bug [gui] Generate Password not working for 'Change Login Information', only for 'Change password'
-+ [lang] Arabic update, thanks to Meno25 - meno25 
-+ rfe #2822190 [structure] BOOLEAN is standard SQL 
-- bug #2823599 [edit] UUID Primary Key wrongly updated
-+ [lang] German update, thanks to knittl
-+ [lang] German update, thanks to virsacer
-+ rfe #2813867 [structure] Default sorting order in list of tables
-+ [import] Added MySQL type-detection functionality to import library,
-  thanks to Derek Schaefer
-+ [import] Added ODS, Excel XLS, Excel XLSX, and XML import modules,
-  thanks to Derek Schaefer
-+ [export] Added Excel XLSX export module,
-  thanks to Derek Schaefer
-+ [core] Addded ability for tracking changes made through phpMyAdmin
-+ rfe #2839504 [engines] Support InnoDB plugin's new row formats 
-+ [core] Added ability for synchronizing databases among servers.
-+ [lang] #2843101 Dutch update, thanks to scavenger2008
-+ [lang] Galician update, thanks to Xosé Calvo - xosecalvo
-
 3.2.3.0 (not yet released)
+- patch #2856664 [export] Date, time, and datetime column types now export correctly to
+  OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
@@ -84,8 +52,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [display] Incorrect computation of overhead stats in server view
   for tables under the InnoDB engine
 + [lang] Swedish update, thanks to Björn T. Hallberg
-- patch #2856664 [export] Date, time, and datetime column types now export correctly to
-  OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 
