@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (isset($plugin_list)) {
     $plugin_list['mediawiki'] = array(
-        'text' => 'MediaWiki',
+        'text' => 'strMediaWiki',
         'extension' => 'txt',
         'mime_type' => 'text/plain',
         'options' => array(
