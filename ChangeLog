@@ -40,6 +40,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Galician update, thanks to Xosé Calvo - xosecalvo
 
 3.2.3.0 (not yet released)
+- patch #2856664 [export] Date, time, and datetime column types now export correctly to
+  OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
@@ -84,8 +86,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [display] Incorrect computation of overhead stats in server view
   for tables under the InnoDB engine
 + [lang] Swedish update, thanks to Björn T. Hallberg
-- patch #2856664 [export] Date, time, and datetime column types now export correctly to
-  OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 
 3.2.0.1 (2009-06-30)
 - [security] XSS: Insufficient output sanitizing in bookmarks 
