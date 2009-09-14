@@ -1619,4 +1619,5 @@ $strXMLExportTables = 'Export tables';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
+$strMediaWiki = 'MediaWiki Table';  //to translate
 ?>
