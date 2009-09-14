@@ -749,7 +749,9 @@ $strRepair = 'Opravit';
 $strRepairTable = 'Opravit tabulku';
 $strReplaceNULLBy = 'Nahradit NULL hodnoty';
 $strReplaceTable = 'Přepsat data tabulky souborem';
+$strReplicationErrorMasterConnect = 'Nepodařilo se připojit k nadřízenému %s.';
 $strReplication = 'Replikace';
+$strReplicationSlaveConfiguration = 'Nastavení podřízeného';
 $strReplicationStatusInfo = 'Tento MySQL server pracuje jako %s v <b>replikačním</b> procesu. Pro více informací o stavu replikace se podívejte do <a href="#replication">sekce replikace</a>.';
 $strReplicationStatus_master = 'Stav nadřízeného';
 $strReplicationStatus_slave = 'Stav podřízeného';
@@ -1152,6 +1154,7 @@ $strSetupVersionCheckWrapperError = 'Není dostupný přístup na URL ani CURL, 
 $strSetupWarning = 'Varování';
 $strSetupZipDump_name = 'ZIP';
 $strShowAll = 'Zobrazit vše';
+$strShowBinaryContentsAsHex = 'Zobrazit binární obsah šestnáctkově (HEX)';
 $strShowBinaryContents = 'Zobrazit binární obsah';
 $strShowBLOBContents = 'Zobrazit obsah BLOBu';
 $strShowColor = 'Barevné šipky';
@@ -1307,6 +1310,7 @@ $strSQPBugInvalidIdentifer = 'Chybný identifikátor';
 $strSQPBugUnclosedQuote = 'Neuzavřené uvozovky';
 $strSQPBugUnknownPunctuation = 'Neznámé interpunkční znaménko';
 $strStandInStructureForView = 'Zástupná struktura pro pohled';
+$strStart = 'Spustit';
 $strStatCreateTime = 'Vytvoření';
 $strStatement = 'Údaj';
 $strStatCheckTime = 'Poslední kontrola';
@@ -1314,6 +1318,7 @@ $strStatic = 'statický';
 $strStatisticsOverrun = 'Na hodně zatíženém serveru mohou čítače přetéct, takže statistiky MySQL serveru mohou být nepřesné.';
 $strStatUpdateTime = 'Poslední změna';
 $strStatus = 'Stav';
+$strStop = 'Zastavit';
 $strStorageEngines = 'Úložiště';
 $strStorageEngine = 'Úložiště';
 $strStrucCSV = 'CSV';
@@ -1405,6 +1410,7 @@ $strTrackingDeactivateNow = 'Vypnout teď';
 $strTrackingDeactivateTrackingFor = 'Vypnout sledování pro %s.%s';
 $strTrackingExportAs = 'Exportovat jako %s';
 $strTrackingIsActive = 'Sledování je zapnuté.';
+$strTrackingIsNotActive = 'Sledování není zapnuté.';
 $strTrackingMechanism = 'Sledovací mechanismus';
 $strTrackingReportClose = 'Ukončit';
 $strTrackingReport = 'Informace o sledování';
@@ -1419,6 +1425,7 @@ $strTrackingSQLExecution = 'Provedení SQL';
 $strTrackingSQLExported = 'SQL příkazy byly exportovány. Prosím zkopírujte si je, nebo je spusťte.';
 $strTrackingStatements = 'Sledování příkazů';
 $strTrackingStatusActive = 'zapnuté';
+$strTrackingStatusNotActive = 'není zapnuté';
 $strTrackingStructureSnapshot = 'Snímek struktury';
 $strTrackingThCreated = 'Vytvořeno';
 $strTrackingThLastVersion = 'Poslední verze';
@@ -1537,10 +1544,14 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
+$strFullStart = 'Full start';  //to translate
+$strFullStop = 'Full stop';  //to translate
+
 $strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the MySQL server afterwards.';  //to translate
 $strReplicationAddSlaveUser = 'Add slave replication user';  //to translate
 $strReplicationConfiguredMaster = 'This server is configured as master in a replication process.';  //to translate
 $strReplicationControlSlave = 'Control slave:';  //to translate
+$strReplicationErrorGetPosition = 'Unable to read master log position. Possible privilege problem on master.';  //to translate
 $strReplicationChangedSuccesfully = 'Master server changed succesfully to %s';  //to translate
 $strReplicationMasterConfiguration = 'Master configuration';  //to translate
 $strReplicationMasterChooseAll = 'Replicate all databases; Ignore:';  //to translate
@@ -1594,14 +1605,4 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
-$strShowBinaryContentsAsHex = 'Show binary contents as HEX';  //to translate
-$strTrackingStatusNotActive = 'not active';  //to translate
-$strTrackingIsNotActive = 'Tracking is not active.';  //to translate
-$strReplicationErrorGetPosition = 'Unable to read master log position. Possible privilege problem on master.';  //to translate
-$strReplicationErrorMasterConnect = 'Unable to connect to master %s.';  //to translate
-$strReplicationSlaveConfiguration = 'Slave configuration';  //to translate
-$strFullStart = 'Full start';  //to translate
-$strFullStop = 'Full stop';  //to translate
-$strStart = 'Start';  //to translate
-$strStop = 'Stop';  //to translate
 ?>
