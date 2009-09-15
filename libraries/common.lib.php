@@ -654,12 +654,14 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
             $error_msg_output .= '</fieldset>' . "\n\n";
         }
     
-    echo $error_msg_output;
+        echo $error_msg_output;
         /**
          * display footer and exit
          */
 	
         require_once './libraries/footer.inc.php';
+    } else {
+        echo $error_msg_output;
     }
 } // end of the 'PMA_mysqlDie()' function
 
