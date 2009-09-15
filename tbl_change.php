@@ -539,7 +539,7 @@ foreach ($rows as $row_id => $vrow) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
 				
-				if ($field['display_binary_as_hex']) {
+				if (isset($field['display_binary_as_hex'])) {
                 	$default_function = 'UNHEX';
 				}
 				
