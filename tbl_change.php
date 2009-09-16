@@ -539,6 +539,7 @@ foreach ($rows as $row_id => $vrow) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
 				
+                // this is set only when appropriate and is always true
 				if (isset($field['display_binary_as_hex'])) {
                 	$default_function = 'UNHEX';
 				}
