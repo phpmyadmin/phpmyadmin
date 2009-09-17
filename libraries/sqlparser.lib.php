@@ -585,7 +585,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             break;
                     }
                     PMA_SQP_arrayAdd($sql_array, 'punct' . $t_suffix, $punct_data, $arraysize);
-                } elseif (PMA_STR_binarySearchInArr($punct_data, $allpunct_list_pair, $allpunct_list_pair_size)) {
+                } elseif ($punct_data == $GLOBALS['sql_delimiter'] || PMA_STR_binarySearchInArr($punct_data, $allpunct_list_pair, $allpunct_list_pair_size)) {
                     // Ok, we have one of the valid combined punct expressions
                     PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
                 } else {
