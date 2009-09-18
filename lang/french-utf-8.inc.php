@@ -1597,4 +1597,6 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strMediaWiki = 'MediaWiki Table';  //to translate
+$strReplicationShowConnectedSlaves = 'Show connected slaves';  //to translate
+$strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-host=host_name option are visible in this list.';  //to translate
 ?>

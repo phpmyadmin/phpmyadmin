@@ -1606,4 +1606,6 @@ $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
 $strMediaWiki = 'MediaWiki Table';  //to translate
+$strReplicationShowConnectedSlaves = 'Show connected slaves';  //to translate
+$strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-host=host_name option are visible in this list.';  //to translate
 ?>

@@ -767,6 +767,8 @@ $strReplication = 'Replication';
 $strReplicationRestartServer = 'Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <b>is</b> configured as master';
 $strReplicationSelectDatabases = 'Please select databases:';
 $strReplicationServernConfiguredMaster = 'This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?';
+$strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-host=host_name option are visible in this list.';
+$strReplicationShowConnectedSlaves = 'Show connected slaves';
 $strReplicationShowMasterStatus = 'Show master status';
 $strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';
 $strReplicationSlaveChangeMaster = 'Change or reconfigure master server';

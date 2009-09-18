@@ -1619,4 +1619,6 @@ $strXMLExportTables = 'Export tables';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
+$strReplicationShowConnectedSlaves = 'Show connected slaves';  //to translate
+$strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-host=host_name option are visible in this list.';  //to translate
 ?>
