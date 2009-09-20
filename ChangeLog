@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 - patch #2859788 [parser] Double-character delimiters (bug #2846239), 
   thanks to Thomas Pulickal - jemajoign
+- bug #2832600 [export] Slow export when having lots of databases 
 
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
