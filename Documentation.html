@@ -1228,6 +1228,18 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         <abbr title="Internet Protocol">IP</abbr> address range)<br />
         Also IPv6 addresses are not supported.
     </dd>
+    <dt><span id="cfg_Servers_DisableIS">$cfg['Servers'][$i]['DisableIS']</span> boolean</dt>
+    <dd>Disable using <tt>INFORMATION_SCHEMA</tt> to retrieve information (use <tt>SHOW</tt> commands instead), because of speed issues when many databases are present. Currently used in some parts of the code, more to come.
+    </dd>
+    <dt><span id="cfg_Servers_ShowDatabasesCommand">$cfg['Servers'][$i]['ShowDatabasesCommand']</span> string</dt>
+    <dd>On a server with a huge number of databases, the default <tt>SHOW
+        DATABASES</tt> command used to fetch the name of available databases will
+    probably be too slow, so it can be replaced by faster commands (see
+    <tt>libraries/config.default.php</tt> for examples).
+    </dd>
+    <dt><span id="cfg_Servers_CountTables">$cfg['Servers'][$i]['CountTables']</span> boolean</dt>
+    <dd>Whether to count the number of tables for each database when preparing the list of databases for the navigation frame.
+    </dd>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
     </dd>
