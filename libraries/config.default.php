@@ -370,6 +370,13 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 
 /**
+ * Host authentication rules, leave blank for defaults
+ *
+ * @global array $cfg['Servers'][$i]['AllowDeny']['rules']
+ */
+$cfg['Servers'][$i]['AllowDeny']['rules'] = array();
+
+/**
  * Disable use of INFORMATION_SCHEMA
  *
  * @see http://sf.net/support/tracker.php?aid=1849494
@@ -377,13 +384,6 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
  * @global boolean $cfg['Servers'][$i]['DisableIS']
  */
 $cfg['Servers'][$i]['DisableIS'] = true;
-
-/**
- * Host authentication rules, leave blank for defaults
- *
- * @global array $cfg['Servers'][$i]['AllowDeny']['rules']
- */
-$cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
  * SQL command to fetch available databases
