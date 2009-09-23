@@ -200,7 +200,7 @@ $strCharsetOfFile = 'Znaková sada souboru:';
 $strCharsetsAndCollations = 'Znakové sady a porovnávání';
 $strCharsets = 'Znakové sady';
 $strCharset = 'Znaková sada';
-$strCheckAll = 'Zaškrtnout vše';
+
 $strCheckOverhead = 'Zaškrtnout neoptimální';
 $strCheckPrivsLong = 'Zkontrolovat oprávnění pro databázi „%s“.';
 $strCheckPrivs = 'Zkontrolovat oprávnění';
@@ -396,7 +396,7 @@ $strImportFiles = 'Importovat soubory';
 $strImportFormat = 'Formát importovaného souboru';
 $strImport = 'Import';
 $strImportLargeFileUploading = 'Nahrávaný soubor je pravděpodobně větší než je povolená velikost, nebo se jedná o známou chybu prohlížečů založených na webkitu (Safari, Google Chrome, Arora apod.).';
-$strImportNoticePt1 = 'Následující tabulkybyly vytvořeny nebo změněny. Teď můžete:';
+$strImportNoticePt1 = 'Následující tabulky byly vytvořeny nebo změněny. Teď můžete:';
 $strImportNoticePt2 = 'Zobrazit obsah tabulky kliknutím na její jméno';
 $strImportNoticePt3 = 'Změnit jakákoliv její nastavení kliknutím na odkaz "Nastavení"';
 $strImportNoticePt4 = 'Upravit strukturu kliknutím na odkaz "Struktura"';
