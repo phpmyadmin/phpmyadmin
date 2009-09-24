@@ -374,7 +374,7 @@ foreach ($tables as $keyname => $each_table) {
     <th><label for="checkbox_tbl_<?php echo $i; ?>"
             title="<?php echo $alias; ?>" style="<?php echo $ignored ? ' ignored' : ''; ?>"><?php echo $truename; ?></label>
     </th>
-   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
+   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
@@ -467,7 +467,7 @@ if ($is_show_stats) {
             echo sprintf($strTables, PMA_formatNumber($num_tables - $tableReductionCount, 0));
         ?>
     </th>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
+    <th colspan="<?php echo ($db_is_information_schema ? 3 : 7) ?>" align="center">
         <?php echo $strSum; ?></th>
     <th class="value"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php

@@ -264,7 +264,7 @@ if ($databases_count > 0) {
                 echo '<td class="tool" style="text-align: center;">' . "\n";
 
                 if (strlen(array_search($current["SCHEMA_NAME"], ${"server_{$type}_Ignore_DB"}))>0) {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="REPLICATED" />' . "\n";
+                    echo '<img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' . "\n";
                 } else {
                     $key = array_search($current["SCHEMA_NAME"], ${"server_{$type}_Do_DB"});
 
