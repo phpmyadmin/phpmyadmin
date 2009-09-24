@@ -636,7 +636,7 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
 {
     if (isset($uncommon_tables[$table_index])) {
        
-        $fields_result = PMA_DBI_get_fields($src_db, $uncommon_tables[$table_index]);
+        $fields_result = PMA_DBI_get_fields($src_db, $uncommon_tables[$table_index], $src_link);
         $fields = array();
         foreach ($fields_result as $each_field)
         {
