@@ -1,4 +1,5 @@
 <?php 
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
 * PMA_getMatchingTables places matching tables in source 
@@ -648,9 +649,14 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
         $Show_create_query = "SHOW CREATE TABLE ".PMA_backquote($src_db). '.' .PMA_backquote($uncommon_tables[$table_index]);
         $Show_create_result = PMA_DBI_fetch_result($Show_create_query, null, null, $src_link);    
         $Create_Query = $Show_create_result[0]['Create Table'];
-        $split_result = split(PMA_backquote($uncommon_tables[$table_index]), $Create_Query);
-        $Create_Table_Query = $split_result[0]. PMA_backquote($trg_db). '.' .PMA_backquote($uncommon_tables[$table_index]). $split_result[1];
-        
+
+        // Replace the src table name with a `dbname`.`tablename`
+        $Create_Table_Query = preg_replace('/' . PMA_backquote($uncommon_tables[$table_index]) . '/', 
+                                            PMA_backquote($trg_db). '.' .PMA_backquote($uncommon_tables[$table_index]),
+                                            $Create_Query,
+                                            $limit = 1
+        );
+
         $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $src_db ."' 
                         AND TABLE_NAME = '" .$uncommon_tables[$table_index]. "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;" ;
                     
@@ -686,6 +692,8 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
 * @param  $table_index            index of table in matching_table_array 
 * @param  $uncommon_tables_fields field names of the uncommon table
 * @param  $display                true/false value
+*
+* FIXME: This turns NULL values into '' (empty string)
 */
 function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $table_index, $uncommon_tables_fields, $display) 
 {                                                                            
