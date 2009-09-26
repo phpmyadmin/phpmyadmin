@@ -220,7 +220,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
                 $sql .= substr($buffer, $start_pos, $i - $start_pos);
             }
             // Skip the rest
-            $j = $i;
+            $start_of_comment = $i;
             // do not use PHP_EOL here instead of "\n", because the export 
             // file might have been produced on a different system
             $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
@@ -234,21 +234,13 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             }
             // Skip *
             if ($ch == '/') {
-                // Check for MySQL conditional comments and include them as-is
-                if ($buffer[$j + 2] == '!') {
-                    $comment = substr($buffer, $j + 3, $i - $j - 3);
-                    if (preg_match('/^[0-9]{5}/', $comment, $version)) {
-                        if ($version[0] <= PMA_MYSQL_INT_VERSION) {
-                            $sql .= substr($comment, 5);
-                        }
-                    } else {
-                        $sql .= $comment;
-                    }
-                }
                 $i++;
             }
             // Skip last char
             $i++;
+            // We need to send the comment part in case we are defining
+            // a procedure or function and comments in it are valuable
+            $sql .= substr($buffer, $start_of_comment, $i - $start_of_comment);
             // Next query part will start here
             $start_pos = $i;
             // Aren't we at the end?
