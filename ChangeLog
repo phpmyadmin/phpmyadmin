@@ -11,6 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2859788 [parser] Double-character delimiters (bug #2846239), 
   thanks to Thomas Pulickal - jemajoign
 - bug #2832600 [export] Slow export when having lots of databases 
+- bug #2537766 [import] Comments are stripped when editing store procedures 
 
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
