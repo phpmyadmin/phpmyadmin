@@ -497,6 +497,7 @@ $strMaximalQueryLength = 'Taille maximum de la requête générée';
 $strMaximumSize = 'Taille maximum: %s%s';
 $strMbExtensionMissing = 'L\'extension PHP mbstring n\'a pu être localisée et il semble que vous utilisiez un jeu de caractères multi-octets. Sans cette extension, phpMyAdmin est incapable de gérer correctement les caractères et il peut en résulter des problèmes.';
 $strMbOverloadWarning = 'Vous avez activé mbstring.func_overload dans votre configuration PHP. Cette option est incompatible avec phpMyAdmin et peut nuire au traitement des données!';
+$strMediaWiki = 'Tableau MediaWiki';
 $strMIME_available_mime = 'Types MIME disponibles';
 $strMIME_available_transform = 'Transformations disponibles';
 $strMIME_description = 'Description';
@@ -763,6 +764,8 @@ $strReplication = 'Réplication';
 $strReplicationRestartServer = 'Quand le serveur MySQL est redémarré, veuillez cliquer sur Exécuter. Par la suite vous devriez voir un message vous informant que ce serveur est configuré comme maître.';
 $strReplicationSelectDatabases = 'Sélectionnez les bases de données';
 $strReplicationServernConfiguredMaster = 'Ce serveur n\'est pas configuré comme maître dans un processus de réplication. Désirez-vous le <a href="%s">configurer</a>?';
+$strReplicationShowConnectedSlaves = 'Montrer les esclaves connectés';
+$strReplicationShowConnectedSlavesNote = 'Seuls les esclaves démarrés avec l\'option --report-host=host_name option sont visibles sur cette liste.';
 $strReplicationShowMasterStatus = 'Montrer l\'état du maître';
 $strReplicationSkippingErrorWarn = 'Ignorer les erreurs peut mener à des serveurs maître et esclave désynchronisés!';
 $strReplicationSlaveChangeMaster = 'Changer ou reconfigurer le serveur maître';
@@ -1596,7 +1599,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strMediaWiki = 'MediaWiki Table';  //to translate
-$strReplicationShowConnectedSlaves = 'Show connected slaves';  //to translate
-$strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-host=host_name option are visible in this list.';  //to translate
 ?>
