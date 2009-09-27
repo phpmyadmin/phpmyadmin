@@ -1315,10 +1315,11 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  * @uses    PMA_DBI_fetch_result()
  * @param   string              $db     db name
  * @param   string              $table  table name
+ * @param   string              $delimiter  the delimiter to use (may be empty)
  *
  * @return  array               information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table)
+function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
 {
     $result = array();
 
@@ -1332,7 +1333,6 @@ function PMA_DBI_get_triggers($db, $table)
     }
 
     if ($triggers) {
-        $delimiter = '//';
         foreach ($triggers as $trigger) {
             if ($GLOBALS['cfg']['Server']['DisableIS']) {
                 $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
