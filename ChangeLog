@@ -33,13 +33,14 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Derek Schaefer
 + [export] Added Excel XLSX export module,
   thanks to Derek Schaefer
-+ [core] Addded ability for tracking changes made through phpMyAdmin
++ [core] Added ability for tracking changes made through phpMyAdmin
 + rfe #2839504 [engines] Support InnoDB plugin's new row formats 
 + [core] Added ability for synchronizing databases among servers.
 + [lang] #2843101 Dutch update, thanks to scavenger2008
 + [lang] Galician update, thanks to Xosé Calvo - xosecalvo
 + [export] Added MediaWiki export module,
   thanks to Derek Schaefer - drummingds1
++ [lang] Turkish update, thanks to Burak Yavuz
 
 3.2.3.0 (not yet released)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
