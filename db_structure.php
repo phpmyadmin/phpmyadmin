@@ -467,7 +467,12 @@ if ($is_show_stats) {
             echo sprintf($strTables, PMA_formatNumber($num_tables - $tableReductionCount, 0));
         ?>
     </th>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 7) ?>" align="center">
+    <?php
+        if ($server_slave_status) {
+            echo '    <th>' . $GLOBALS['strReplication'] . '</th>' . "\n";
+        }
+    ?>
+    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>" align="center">
         <?php echo $strSum; ?></th>
     <th class="value"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
 <?php
