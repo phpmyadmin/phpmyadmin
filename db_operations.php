@@ -72,7 +72,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // will handle them after the tables
             /**
              * @todo support a view of a view
-             * @todo support triggers
              */
             if (PMA_Table::isView($db, $each_table)) {
                 $views[] = $each_table;
