@@ -58,7 +58,6 @@ if ((isset($_REQUEST['submit_connect']))) {
       ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
       ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
       ${"{$con}_type"}	   = $_REQUEST[$con.'_type'];
-      ${"{$con}_url"}	   = '';
       
       if (${"{$con}_type"}=='cur') {
 	${"{$con}_connection"} = null;
@@ -67,18 +66,15 @@ if ((isset($_REQUEST['submit_connect']))) {
       }
       
       if (isset(${"{$con}_socket"}) && !empty(${"{$con}_socket"})) {
-	${"{$con}_url"}              = ':'.${"{$con}_socket"};
 	${"{$con}_server"}['socket'] = ${"{$con}_socket"};
       } else {
-	${"{$con}_url"} = ${"{$con}_host"};
 	${"{$con}_server"}['host'] = ${"{$con}_host"};
 	if (isset(${"{$con}_port"}) && !empty(${"{$con}_port"}) && ((int)${"{$con}_port"}*1)>0) {
-	  ${"{$con}_url"}           .= ':' . ${"{$con}_port"};
 	  ${"{$con}_server"}['port'] = ${"{$con}_port"};
 	}
       }
             
-      ${"{$con}_connection"} = @mysql_connect(${"{$con}_url"}, ${"{$con}_username"}, ${"{$con}_password"});
+      ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
     }
     
     if ((!$src_connection && $src_type=='rmt') || (!$trg_connection && $trg_type=='rmt')) {
