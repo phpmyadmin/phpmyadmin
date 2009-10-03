@@ -1090,7 +1090,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Displaying the queries.
     */
-    echo '<h5>Following queries have been executed: </h5>';                                                                          
+    echo '<h5>' . $GLOBALS['strQueriesExecuted'] . '</h5>';                                                                          
     echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 180px; 
          border-left: 1px gray solid; border-bottom: 1px gray solid; padding: 0px; margin: 0px"> ';            
     /**

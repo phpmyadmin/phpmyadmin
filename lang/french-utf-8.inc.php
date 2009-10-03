@@ -1599,4 +1599,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strQueriesExecuted = 'The following queries have been executed:';  //to translate
 ?>

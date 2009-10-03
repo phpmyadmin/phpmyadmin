@@ -712,6 +712,7 @@ $strPutColNames = 'Put fields names in the first row';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
 $strQBE = 'Query';
+$strQueriesExecuted = 'The following queries have been executed:';
 $strQueryCache = 'Query cache';
 $strQueryFrame = 'Query window';
 $strQueryOnDb = 'SQL query on database <b>%s</b>:';
