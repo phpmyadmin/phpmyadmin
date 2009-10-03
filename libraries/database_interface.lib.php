@@ -591,7 +591,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
             if ($force_stats) {
-                require_once 'mysql_charsets.lib.php';
+                require_once './libraries/mysql_charsets.lib.php';
 
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = PMA_getDbCollation($database_name);
