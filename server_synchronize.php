@@ -61,6 +61,7 @@ if ((isset($_REQUEST['submit_connect']))) {
       
         if (${"{$con}_type"} == 'cur') {
 	        ${"{$con}_connection"} = null;
+	        ${"{$con}_server"} = null;
 	        ${"{$con}_db"}       = $_REQUEST[$con.'_db_sel'];
 	        continue;
         }
@@ -76,7 +77,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             
         ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
     } // end foreach ($cons as $con)
-    
+
     if ((! $src_connection && $src_type=='rmt') || (! $trg_connection && $trg_type=='rmt')) {
         /**
         * Displays the connection error string if
