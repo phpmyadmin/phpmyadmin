@@ -51,43 +51,43 @@ $cons = array ("src", "trg");
 
 if ((isset($_REQUEST['submit_connect']))) {
     foreach ($cons as $con) {
-      ${"{$con}_host"}     = $_REQUEST[$con.'_host'];
-      ${"{$con}_username"} = $_REQUEST[$con.'_username'];
-      ${"{$con}_password"} = $_REQUEST[$con.'_pass'];
-      ${"{$con}_port"}     = $_REQUEST[$con.'_port'];
-      ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
-      ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
-      ${"{$con}_type"}	   = $_REQUEST[$con.'_type'];
+        ${"{$con}_host"}     = $_REQUEST[$con.'_host'];
+        ${"{$con}_username"} = $_REQUEST[$con.'_username'];
+        ${"{$con}_password"} = $_REQUEST[$con.'_pass'];
+        ${"{$con}_port"}     = $_REQUEST[$con.'_port'];
+        ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
+        ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
+        ${"{$con}_type"}	 = $_REQUEST[$con.'_type'];
       
-      if (${"{$con}_type"}=='cur') {
-	${"{$con}_connection"} = null;
-	${"{$con}_db"}       = $_REQUEST[$con.'_db_sel'];
-	continue;
-      }
+        if (${"{$con}_type"} == 'cur') {
+	        ${"{$con}_connection"} = null;
+	        ${"{$con}_db"}       = $_REQUEST[$con.'_db_sel'];
+	        continue;
+        }
       
-      if (isset(${"{$con}_socket"}) && !empty(${"{$con}_socket"})) {
-	${"{$con}_server"}['socket'] = ${"{$con}_socket"};
-      } else {
-	${"{$con}_server"}['host'] = ${"{$con}_host"};
-	if (isset(${"{$con}_port"}) && !empty(${"{$con}_port"}) && ((int)${"{$con}_port"}*1)>0) {
-	  ${"{$con}_server"}['port'] = ${"{$con}_port"};
-	}
-      }
+        if (isset(${"{$con}_socket"}) && ! empty(${"{$con}_socket"})) {
+	        ${"{$con}_server"}['socket'] = ${"{$con}_socket"};
+        } else {
+	        ${"{$con}_server"}['host'] = ${"{$con}_host"};
+	        if (isset(${"{$con}_port"}) && ! empty(${"{$con}_port"}) && ((int)${"{$con}_port"} * 1) > 0) {
+	            ${"{$con}_server"}['port'] = ${"{$con}_port"};
+	        }
+        }
             
-      ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
-    }
+        ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+    } // end foreach ($cons as $con)
     
-    if ((!$src_connection && $src_type=='rmt') || (!$trg_connection && $trg_type=='rmt')) {
+    if ((! $src_connection && $src_type=='rmt') || (! $trg_connection && $trg_type=='rmt')) {
         /**
         * Displays the connection error string if
         * connections are not established
         */
 
         echo '<div class="error">' . "\n" ;  
-        if(!$src_connection) {
+        if(! $src_connection) {
             echo $GLOBALS['strCouldNotConnectSource'].'<br />';
         }
-        if(!$trg_connection){
+        if(! $trg_connection){
             echo $GLOBALS['strCouldNotConnectTarget'];
         }
         echo '</div>';
@@ -98,13 +98,14 @@ if ((isset($_REQUEST['submit_connect']))) {
         * Creating the link object for both source and target databases and
         * selecting the source and target databases using these links
         */
-	foreach ($cons as $con) {
-	  if (${"{$con}_connection"}!=null)
-	    ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
-	  else
-	    ${"{$con}_link"} = null;
-	  ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
-	}
+	    foreach ($cons as $con) {
+	        if (${"{$con}_connection"} != null) {
+	            ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+	        } else {
+                ${"{$con}_link"} = null;
+            }
+	        ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
+	    } // end foreach ($cons as $con)
 	
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
             /**
@@ -185,8 +186,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             $criteria = array('Field', 'Type', 'Null', 'Collation', 'Key', 'Default', 'Comment');
                 
-            for($i=0; $i< sizeof($matching_tables); $i++)
-            {
+            for($i = 0; $i < sizeof($matching_tables); $i++) {
                 /**
                 * Finding out all the differences structure, data and index diff for all the matching tables only 
                 */
@@ -200,8 +200,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 $add_indexes_array, $alter_indexes_array,$remove_indexes_array, $i);      
             }
             
-            for($j=0; $j< sizeof($source_tables_uncommon); $j++)
-            {
+            for($j = 0; $j < sizeof($source_tables_uncommon); $j++) {
                 /**
                 * Finding out the number of rows to be added in tables that need to be added in target database
                 */
@@ -285,8 +284,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             /**
             * Display the matching tables' names and difference, first
             */
-            for($i = 0; $i < count($matching_tables); $i++)
-            {
+            for($i = 0; $i < count($matching_tables); $i++) {
                 $num_of_updates = 0;
                 $num_of_insertions = 0;
                 /**
@@ -320,7 +318,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Displays the name of the matching table 
                 */
-                $odd_row = !$odd_row; 
+                $odd_row = ! $odd_row; 
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
@@ -381,8 +379,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             /**
             * Displays the tables' names present in source but missing from target
             */
-            for ($j = 0; $j < count($source_tables_uncommon); $j++) 
-            {
+            for ($j = 0; $j < count($source_tables_uncommon); $j++) {
                 $odd_row = !$odd_row;
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
@@ -394,7 +391,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 onClick="showDetails('."'US".$j."'".','."'".null."'".','."'".null."'".','."'".null."'".','."'".null."'".','."'".null."'".', this ,'
                 ."'". $source_tables_uncommon[$j] ."'".')"/>'. "\n" ;
                 
-                if($row_count[$j]>0)
+                if ($row_count[$j] > 0)
                 {
                     echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29"'.' height="29" 
                     alt="Click to Select" onmouseover="change_Image(this);" onmouseout="change_Image(this);" 
@@ -404,9 +401,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 echo '</td>
                 </tr>';
             }
-            foreach ($target_tables_uncommon as $tbl_nc_name) 
-            {
-                $odd_row = !$odd_row;
+            foreach ($target_tables_uncommon as $tbl_nc_name) {
+                $odd_row = ! $odd_row;
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
@@ -422,27 +418,24 @@ if ((isset($_REQUEST['submit_connect']))) {
             <th>Target Database:  ' . $trg_db . '</th>
             </tr>';
             $odd_row = false;
-            foreach ($matching_tables as $tbl_name) 
-            {
-                $odd_row = !$odd_row;
+            foreach ($matching_tables as $tbl_name) {
+                $odd_row = ! $odd_row;
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
                 <td>  ' .$tbl_name . '</td>';
                 echo '</tr>';
             }
-            foreach ($source_tables_uncommon as $tbl_nc_name) 
-            {
-                $odd_row = !$odd_row;
+            foreach ($source_tables_uncommon as $tbl_nc_name) {
+                $odd_row = ! $odd_row;
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
                 <td>' .$tbl_nc_name . "\n" . ' (Not present)</td>
                 </tr>';
             }
-            foreach ($target_tables_uncommon as $tbl_nc_name) 
-            {
-                $odd_row = !$odd_row;
+            foreach ($target_tables_uncommon as $tbl_nc_name) {
+                $odd_row = ! $odd_row;
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
@@ -497,7 +490,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             echo '</form>';      
         }    
     }
-}   
+} // end if ((isset($_REQUEST['submit_connect'])))
  
  /**
  * Display the page when 'Apply Selected Changes' is pressed                                        
@@ -548,11 +541,12 @@ if (isset($_REQUEST['Table_ids'])) {
     * Creating link object for source and target databases
     */
     foreach ($cons as $con) {
-      if (${"{$con}_type"}=="rmt")
-	  ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
-      else
-	  ${"{$con}_link"} = null;                                      
-    }
+        if (${"{$con}_type"}=="rmt") {
+            ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+        } else {
+            ${"{$con}_link"} = null;
+        }
+    } // end foreach ($cons as $con)
    
     /**
     * Initializing arrays to save the table ids whose data and structure difference is to be applied 
@@ -562,8 +556,7 @@ if (isset($_REQUEST['Table_ids'])) {
     $uncommon_table_structure_diff = array(); //stores id of uncommon tables having structure difference
     $uncommon_table_data_diff = array();     //stores id of uncommon tables having data difference
       
-    for ($i=0; isset($_REQUEST[$i]); $i++ )
-    {
+    for ($i = 0; isset($_REQUEST[$i]); $i++ ) {
         if (isset($_REQUEST[$i])) { 
             $table_id = split("US", $_REQUEST[$i]);
             if (isset($table_id[1])) {
@@ -583,11 +576,11 @@ if (isset($_REQUEST['Table_ids'])) {
                  $matching_table_data_diff[] = $table_id[1];
             }
         }
-    } 
+    } // end for
     /**
     * Applying the structure difference on selected matching tables
     */
-    for($q=0 ; $q < sizeof($matching_table_structure_diff); $q++)
+    for($q = 0 ; $q < sizeof($matching_table_structure_diff); $q++)
     {
         if (isset($alter_str_array[$matching_table_structure_diff[$q]])) {
            
@@ -633,7 +626,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Applying the data difference. First checks if structure diff is applied or not. 
     * If not, then apply structure difference first then apply data difference.
     */
-    for($p=0; $p < sizeof($matching_table_data_diff); $p++)
+    for($p = 0; $p < sizeof($matching_table_data_diff); $p++)
     {   
         if ($_REQUEST['checked'] == 'true') {
             
@@ -711,9 +704,9 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Applying structure difference to selected non-matching tables (present in Source but absent from Target).  
     */                                                              
-    for($s=0; $s < sizeof($uncommon_table_structure_diff); $s++)
+    for($s = 0; $s < sizeof($uncommon_table_structure_diff); $s++)
     {   
-        PMA_createTargetTables  ($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_structure_diff[$s], $uncommon_tables_fields, false);
+        PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_structure_diff[$s], $uncommon_tables_fields, false);
         $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
         
         unset($uncommon_tables[$uncommon_table_structure_diff[$s]]);
@@ -722,7 +715,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Applying data difference to selected non-matching tables (present in Source but absent from Target). 
     * Before data synchronization, structure synchronization is confirmed. 
     */
-    for($r=0; $r < sizeof($uncommon_table_data_diff); $r++)
+    for($r = 0; $r < sizeof($uncommon_table_data_diff); $r++)
     {   
         if (!(in_array($uncommon_table_data_diff[$r], $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$uncommon_table_data_diff[$r]])) {
@@ -755,8 +748,7 @@ if (isset($_REQUEST['Table_ids'])) {
     <th> Difference </th>
     </tr>';
     $odd_row = false;
-    for($i = 0; $i < count($matching_tables); $i++)
-    {   
+    for($i = 0; $i < count($matching_tables); $i++) {   
         $odd_row = !$odd_row;
         echo '<tr  height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
@@ -834,9 +826,8 @@ if (isset($_REQUEST['Table_ids'])) {
     $_SESSION['update_array'] = $update_array; 
     $_SESSION['insert_array'] = $insert_array; 
     
-    for ($j = 0; $j < count($source_tables_uncommon); $j++) 
-    {
-        $odd_row = !$odd_row;
+    for ($j = 0; $j < count($source_tables_uncommon); $j++) {
+        $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
         echo '">
@@ -859,8 +850,7 @@ if (isset($_REQUEST['Table_ids'])) {
         * Display the difference only when it has not been applied        
         */
         if (!(in_array($j, $uncommon_table_data_diff))) {
-            if (isset($row_count[$j]) && ($row_count > 0))
-            {
+            if (isset($row_count[$j]) && ($row_count > 0)) {
                 echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29"'.' height="29" 
                 alt="Click to Select" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onClick="showDetails('."'UD".$j."'".','."'".null."'".','."'".$row_count[$j]."'".','."'"
@@ -882,11 +872,10 @@ if (isset($_REQUEST['Table_ids'])) {
     
     
     /**
-    * Dispalying the target database tables
+    * Displaying the target database tables
     */
-    foreach ($target_tables_uncommon as $tbl_nc_name) 
-    {
-        $odd_row = !$odd_row;
+    foreach ($target_tables_uncommon as $tbl_nc_name) {
+        $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
         echo '">
@@ -899,18 +888,16 @@ if (isset($_REQUEST['Table_ids'])) {
     <th>Target Database:  ' . $trg_db . '</th>
     </tr>';
     $odd_row = false;
-    foreach ($matching_tables as $tbl_name) 
-    {
-        $odd_row = !$odd_row;
+    foreach ($matching_tables as $tbl_name) {
+        $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
         echo '">
         <td>  ' .$tbl_name . '</td>';
         echo '</tr>';
     }
-    foreach ($source_tables_uncommon as $tbl_nc_name) 
-    {
-        $odd_row = !$odd_row;
+    foreach ($source_tables_uncommon as $tbl_nc_name) {
+        $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
         echo '">';
@@ -922,9 +909,8 @@ if (isset($_REQUEST['Table_ids'])) {
         echo '
         </tr>';
     }
-    foreach ($target_tables_uncommon as $tbl_nc_name) 
-    {
-        $odd_row = !$odd_row;
+    foreach ($target_tables_uncommon as $tbl_nc_name) {
+        $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
         echo $odd_row ? 'odd' : 'even'; 
         echo '">
@@ -982,7 +968,7 @@ if (isset($_REQUEST['Table_ids'])) {
 }
 
 /**
-* Dispalys the page when 'Synchronize Databases' is pressed.
+* Displays the page when 'Synchronize Databases' is pressed.
 */
 
 if (isset($_REQUEST['synchronize_db'])) {
@@ -1024,7 +1010,7 @@ if (isset($_REQUEST['synchronize_db'])) {
    */
     echo '<div class="success">Target database has been synchronized with source database. </div>';
     /**
-    * Dispalying all the tables of source and target database and now no difference is there.
+    * Displaying all the tables of source and target database and now no difference is there.
     */
     echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 250px; 
             border-left: 1px gray solid; border-bottom: 1px gray solid; 
@@ -1046,9 +1032,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             <td></td>
             </tr>';
         }
-        for ($j = 0; $j < count($source_tables_uncommon); $j++) 
-        {
-            $odd_row = !$odd_row;
+        for ($j = 0; $j < count($source_tables_uncommon); $j++) {
+            $odd_row = ! $odd_row;
             echo '<tr height="32" class=" ';
             echo $odd_row ? 'odd' : 'even'; 
             echo '">
@@ -1056,9 +1041,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             echo '<td></td>
             </tr>';
         }
-        foreach ($target_tables_uncommon as $tbl_nc_name) 
-        {
-            $odd_row = !$odd_row;
+        foreach ($target_tables_uncommon as $tbl_nc_name) {
+            $odd_row = ! $odd_row;
             echo '<tr height="32" class=" ';
             echo $odd_row ? 'odd' : 'even'; 
             echo '">
@@ -1071,17 +1055,15 @@ if (isset($_REQUEST['synchronize_db'])) {
         <th>Target Database:  ' . $trg_db . '</th>
         </tr>';
         $odd_row = false;
-        foreach ($matching_tables as $tbl_name) 
-        {
-            $odd_row = !$odd_row;
+        foreach ($matching_tables as $tbl_name) {
+            $odd_row = ! $odd_row;
             echo '<tr height="32" class=" ';
             echo $odd_row ? 'odd' : 'even'; 
             echo '">
             <td>  ' .$tbl_name . '</td>';
             echo '</tr>';
         }
-        foreach ($source_tables_uncommon as $tbl_nc_name) 
-        {
+        foreach ($source_tables_uncommon as $tbl_nc_name) {
             $odd_row = !$odd_row;
             echo '<tr height="32" class=" ';
             echo $odd_row ? 'odd' : 'even'; 
@@ -1089,9 +1071,8 @@ if (isset($_REQUEST['synchronize_db'])) {
             <td>' .$tbl_nc_name . "\n" . ' </td>
             </tr>';
         }
-        foreach ($target_tables_uncommon as $tbl_nc_name) 
-        {
-            $odd_row = !$odd_row;
+        foreach ($target_tables_uncommon as $tbl_nc_name) {
+            $odd_row = ! $odd_row;
             echo '<tr height="32" class=" ';
             echo $odd_row ? 'odd' : 'even'; 
             echo '">
@@ -1115,19 +1096,16 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Applying all sorts of differences for each matching table       
     */
-    for($p=0; $p <sizeof($matching_tables);$p++)
-    {   
+    for($p = 0; $p <sizeof($matching_tables); $p++) {   
         /**
         *  If the check box is checked for deleting previous rows from the target database tables then 
         *  first find out rows to be deleted and then delete the rows.
         */
         if (isset($_REQUEST['delete_rows'])) {
-            
             PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
             $trg_db, $trg_link, $src_db, $src_link);
              
             if (isset($delete_array[$p])) {
-            
                 PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p, $target_tables_keys, $delete_array, true);          
                 unset($delete_array[$p]); 
             }        
@@ -1177,8 +1155,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     *  Creating and populating tables present in source but absent from target database.  
     */   
-    for($q=0; $q < sizeof($source_tables_uncommon) ;$q++)
-    { 
+    for($q = 0; $q < sizeof($source_tables_uncommon) ;$q++) { 
         if (isset($uncommon_tables[$q])) {
             PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
@@ -1262,9 +1239,10 @@ if (isset($_REQUEST['synchronize_db'])) {
 	      <select name="'.$type.'_db_sel">
 	';
 	foreach ($databases as $db) {
-	  if ($db['SCHEMA_NAME'] != 'mysql'
-             && $db['SCHEMA_NAME'] != 'information_schema') 
-	  echo '		<option>'.$db['SCHEMA_NAME'].'</option>'."\n";
+	    if ($db['SCHEMA_NAME'] != 'mysql'
+             && $db['SCHEMA_NAME'] != 'information_schema') { 
+                 echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
+        }
 	}  
 	echo '
 	      </select>
