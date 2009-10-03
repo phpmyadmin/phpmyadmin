@@ -609,7 +609,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                     } 
                     $insert_query .= ");";
                     if ($display == true) {
-                        echo "<p>".$insert_query."</p>";
+                        PMA_displayQuery($insert_query);
                     }
                     PMA_DBI_try_query($insert_query, $trg_link, 0);
                 }   
@@ -711,7 +711,7 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
             }
             $insert_query .= ');';
             if ($display == true) {
-                echo '<p>'.$insert_query.'</p>';
+                PMA_displayQuery($insert_query);
             }
             PMA_DBI_try_query($insert_query, $trg_link, 0);
         }
@@ -1346,5 +1346,19 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
         }
         PMA_DBI_try_query($drop_index_query, $trg_link, 0); 
     }
+}
+
+/**
+ * PMA_displayQuery() displays a query, taking the maximum display size
+ * into account 
+ * @uses   $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] 
+ * 
+ * @param   $query                 the query to display 
+*/
+function PMA_displayQuery($query) {
+    if (strlen($query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        $query = substr($query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+    }
+    echo '<p>' . htmlspecialchars($query) . '</p>';
 }
 ?>
