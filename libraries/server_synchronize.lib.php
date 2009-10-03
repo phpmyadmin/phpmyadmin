@@ -98,7 +98,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 {   
     if (isset($matching_table[$matching_table_index])) {                                                                                                                                                        
         $fld = array();
-        $fld_results = PMA_DBI_get_fields($src_db, $matching_table[$matching_table_index]);
+        $fld_results = PMA_DBI_get_fields($src_db, $matching_table[$matching_table_index], $src_link);
         $is_key = array();
         if (isset($fld_results)) {
             foreach ($fld_results as $each_field)
@@ -117,7 +117,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         $source_result_set = PMA_DBI_get_column_values($src_db, $matching_table[$matching_table_index], $is_key, $src_link);      
         $source_size = sizeof($source_result_set);
         
-        $trg_fld_results = PMA_DBI_get_fields($trg_db, $matching_table[$matching_table_index]);
+        $trg_fld_results = PMA_DBI_get_fields($trg_db, $matching_table[$matching_table_index], $trg_link);
         $all_keys_match = true;
         $trg_keys = array();
         
