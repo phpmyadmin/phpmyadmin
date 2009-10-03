@@ -646,9 +646,7 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
         }
         $uncommon_tables_fields[$table_index] = $fields; 
        
-        $Show_create_query = "SHOW CREATE TABLE ".PMA_backquote($src_db). '.' .PMA_backquote($uncommon_tables[$table_index]);
-        $Show_create_result = PMA_DBI_fetch_result($Show_create_query, null, null, $src_link);    
-        $Create_Query = $Show_create_result[0]['Create Table'];
+        $Create_Query = PMA_DBI_fetch_value("SHOW CREATE TABLE " . PMA_backquote($src_db) . '.' . PMA_backquote($uncommon_tables[$table_index]), 0, 1, $src_link);
 
         // Replace the src table name with a `dbname`.`tablename`
         $Create_Table_Query = preg_replace('/' . PMA_backquote($uncommon_tables[$table_index]) . '/', 
