@@ -695,18 +695,17 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
 */
 function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $table_index, $uncommon_tables_fields, $display) 
 {                                                                            
-    $table_data = PMA_DBI_fetch_result('SELECT * FROM ' . PMA_backquote($src_db) . '.' . PMA_backquote($uncommon_tables[$table_index]), null, null, $src_link); 
- 
-    if (sizeof($table_data) != 0 )
-    {
-        for ($row = 0; $row < sizeof($table_data); $row++)
-        {
+    $display = false; // todo: maybe display some of the queries if they are not too numerous
+
+    $unbuffered_result = PMA_DBI_try_query('SELECT * FROM ' . PMA_backquote($src_db) . '.' . PMA_backquote($uncommon_tables[$table_index]), $src_link, PMA_DBI_QUERY_UNBUFFERED);
+    if (false !== $unbuffered_result) {
+        while ($one_row = PMA_DBI_fetch_row($unbuffered_result)) {
             $insert_query = 'INSERT INTO '. PMA_backquote($trg_db) . '.' .PMA_backquote($uncommon_tables[$table_index]) . ' VALUES(';         
-            for ($y = 0; $y < sizeof($uncommon_tables_fields[$table_index]); $y++)
-            {
-                $insert_query .= "'" . $table_data[$row][$uncommon_tables_fields[$table_index][$y]] . "'"; 
-                if ($y < (sizeof($uncommon_tables_fields[$table_index]) - 1)) {
-                    $insert_query .= ',';
+            $key_of_last_value = count($one_row) - 1;
+            foreach($one_row as $key => $value) {
+                $insert_query .= "'" . PMA_sqlAddslashes($value) . "'";
+                if ($key < $key_of_last_value) {
+                    $insert_query .= ",";
                 }
             }
             $insert_query .= ');';

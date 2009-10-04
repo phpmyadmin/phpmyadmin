@@ -23,6 +23,11 @@ require_once './libraries/server_common.inc.php';
 * Contains all the functions specific to synchronization 
 */
 require './libraries/server_synchronize.lib.php';
+
+/**
+ * Increases the time limit up to the configured maximum 
+ */
+@set_time_limit($cfg['ExecTimeLimit']);
   
 /**
  * Displays the links
