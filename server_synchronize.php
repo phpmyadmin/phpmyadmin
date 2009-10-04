@@ -1085,8 +1085,16 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * connecting the source and target servers
     */
-    $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false);
-    $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false);                                              
+    if ('rmt' == $_SESSION['src_type']) {
+        $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
+    } else {
+        $src_link = $GLOBALS['userlink'];
+    }
+    if ('rmt' == $_SESSION['trg_type']) {
+        $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
+    } else {
+        $trg_link = $GLOBALS['userlink'];
+    }
     
     /**
     * Displaying the queries.
