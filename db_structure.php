@@ -337,14 +337,18 @@ foreach ($tables as $keyname => $each_table) {
                 $unit          =  '';
             }
             break;
-        // for a view, the ENGINE is null
+            // for a view, the ENGINE is sometimes reported as null,
+            // or on some servers it's reported as "SYSTEM VIEW" 
         case null :
         case 'SYSTEM VIEW' :
-            // countRecords() takes care of $cfg['MaxExactCountViews']
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
+            // if table is broken, Engine is reported as null, so one more test 
+            if ($each_table['TABLE_TYPE'] == 'VIEW') {
+                // countRecords() takes care of $cfg['MaxExactCountViews']
+                $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
                     $each_table['TABLE_NAME'], $return = true, $force_exact = true,
                     $is_view = true);
-            $table_is_view = true;
+                $table_is_view = true;
+            }
             break;
         default :
             // Unknown table type.

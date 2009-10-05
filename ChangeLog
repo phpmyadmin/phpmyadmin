@@ -14,7 +14,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2537766 [import] Comments are stripped when editing store procedures 
 - bug #2852370 [operations] Renaming database deletes triggers 
 - bug #2872247 [interface] Failed opening required 'mysql_charsets.lib.php', thanks to CyberLeo Kitsana - cyberleo
-
+- bug [structure] "In use" table incorrectly reported as "view" 
 
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
