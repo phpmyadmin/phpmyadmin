@@ -55,6 +55,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2872247 [interface] Failed opening required 'mysql_charsets.lib.php', thanks to CyberLeo Kitsana - cyberleo
 - bug [structure] "In use" table incorrectly reported as "view" 
 
+3.2.2.1 (2009-10-12)
+- [security] XSS and SQL injection, thanks to Herman van Rink
+
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column
 - bug [display] Red arrows were reversed in the list of tables 
