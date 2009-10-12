@@ -463,7 +463,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         <?php
         while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
             echo '                <option value="' . $pages['page_nr'] . '">'
-                . $pages['page_nr'] . ': ' . $pages['page_descr'] . '</option>' . "\n";
+                . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
         } // end while
         PMA_DBI_free_result($test_rs);
         unset($test_rs);
