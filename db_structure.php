@@ -387,7 +387,7 @@ foreach ($tables as $keyname => $each_table) {
 
     $row_count++;
     if ($table_is_view) {
-        $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  $each_table['TABLE_NAME'] . '" />';
+        $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
     }
 
     if ($each_table['TABLE_ROWS'] > 0) {
@@ -433,7 +433,7 @@ foreach ($tables as $keyname => $each_table) {
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
     <td align="center">
         <input type="checkbox" name="selected_tbl[]"
-            value="<?php echo $each_table['TABLE_NAME']; ?>"
+            value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><label for="checkbox_tbl_<?php echo $i; ?>"
             title="<?php echo $alias; ?>"><?php echo $truename; ?></label>

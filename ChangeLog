@@ -5,6 +5,9 @@ phpMyAdmin - ChangeLog
 $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
+3.2.2.1 (2009-10-12)
+- [security] XSS and SQL injection, thanks to Herman van Rink
+
 3.2.2.0 (2009-09-13)
 - bug #2825293 [structure] Default value for a BIT column 
 - bug [display] Red arrows were reversed in the list of tables
@@ -392,6 +395,9 @@ danbarry
 - bug #2113848 [navi] Page number after database switching 
 - patch #2115966 [GUI] Checkboxes and IE 7, thanks to Martin - maschg 
 - bug #1914066 [core] ForceSSL generates incorrectly escaped redirections 
+
+2.11.9.6 (2009-10-12)
+- [security] XSS and SQL injection, thanks to Herman van Rink
 
 2.11.9.5 (2009-03-24)
 - [security] XSS vulnerability on export page
