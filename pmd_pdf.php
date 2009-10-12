@@ -23,10 +23,12 @@ if (isset($scale)) {
 
     $pmd_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']);
+    $scale_q = PMA_sqlAddslashes($scale);
+    $pdf_page_number_q = PMA_sqlAddslashes($pdf_page_number);
 
     if (isset($exp)) {
 
-        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number . ", ROUND(x/" . $scale . ") , ROUND(y/" . $scale . ") y FROM " . $pmd_table . " WHERE db_name = '" . $db . "'";
+        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddslashes($db) . "'";
 
         PMA_query_as_cu($sql,TRUE,PMA_DBI_QUERY_STORE);
     }
@@ -34,15 +36,16 @@ if (isset($scale)) {
     if (isset($imp)) {
         PMA_query_as_cu(
         'UPDATE ' . $pma_table . ',' . $pmd_table .
-        ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale . ',
-        ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '.$scale.'
+        ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
+        ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
         WHERE
         ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
         AND
         ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
         AND
-        ' . $pmd_table . '.`db_name`=\''.$db.'\'
-        AND pdf_page_number = '.$pdf_page_number.';',TRUE,PMA_DBI_QUERY_STORE);     }
+        ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddslashes($db) .'\'
+        AND pdf_page_number = ' . $pdf_page_number_q . ';', TRUE, PMA_DBI_QUERY_STORE);     
+    }
 
     die("<script>alert('$strModifications');history.go(-2);</script>");
 }
@@ -76,11 +79,11 @@ if (isset($scale)) {
       <select name="pdf_page_number">
       <?php
       $table_info_result = PMA_query_as_cu('SELECT * FROM '.PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']).'
-                                             WHERE db_name = \''.$db.'\'');
+                                              WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'');
       while($page = PMA_DBI_fetch_assoc($table_info_result))
       {
       ?>
-      <option value="<?php echo $page['page_nr'] ?>"><?php echo $page['page_descr'] ?></option>
+      <option value="<?php echo $page['page_nr'] ?>"><?php echo htmlspecialchars($page['page_descr']) ?></option>
       <?php
       }
       ?>
