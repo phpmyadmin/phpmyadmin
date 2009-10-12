@@ -51,25 +51,13 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = $strReplicationUnknownError;
-        $url = $sr['hostname'];
-
-        if ($sr['port'] != '') {
-            $url .= ':' . $sr['port'];
-        }
-
         // Attempt to connect to the new master server
-        $check_master = null;
-        $old_error_reporting = error_reporting(0);
-        $check_master = @mysql_connect($url, $sr['username'], $sr['pma_pw']);
-        error_reporting($old_error_reporting);
-        unset($url);
+        $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);
 
-        if (!$check_master) {
+        if (! $link_to_master) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf($GLOBALS['strReplicationErrorMasterConnect'], $sr['hostname']);
         } else {
-            $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);
-
             // Read the current master position
             $position = PMA_replication_slave_bin_log_master($link_to_master);
 
