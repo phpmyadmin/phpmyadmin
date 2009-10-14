@@ -1022,6 +1022,9 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
  &$matching_tables_keys, &$target_tables_keys, $matching_table_index, $display) 
 {
     $check = true;
+    $sql_query = '';
+    $found = false;
+
     //Checks if the criteria to be altered is primary key
     for($v=0; $v < sizeof($matching_tables_fields[$matching_table_index]); $v++)
     {

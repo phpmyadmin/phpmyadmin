@@ -1148,15 +1148,17 @@ if (isset($_REQUEST['synchronize_db'])) {
             PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, $uncommon_columns, $p, true);
             unset($uncommon_columns[$p]); 
         }           
-        if (isset($add_indexes_array[$matching_table_structure_diff[$q]]) || isset($remove_indexes_array[$matching_table_structure_diff[$q]]) 
-            || isset($alter_indexes_array[$matching_table_structure_diff[$q]])) {
+        if (isset($matching_table_structure_diff) && 
+            (isset($add_indexes_array[$matching_table_structure_diff[$p]]) 
+            || isset($remove_indexes_array[$matching_table_structure_diff[$p]]) 
+            || isset($alter_indexes_array[$matching_table_structure_diff[$p]]))) {
            
             PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, 
-            $remove_indexes_array, $matching_table_structure_diff[$q], true); 
+            $remove_indexes_array, $matching_table_structure_diff[$p], true); 
            
-            unset($add_indexes_array[$matching_table_structure_diff[$q]]);
-            unset($alter_indexes_array[$matching_table_structure_diff[$q]]);
-            unset($remove_indexes_array[$matching_table_structure_diff[$q]]);
+            unset($add_indexes_array[$matching_table_structure_diff[$p]]);
+            unset($alter_indexes_array[$matching_table_structure_diff[$p]]);
+            unset($remove_indexes_array[$matching_table_structure_diff[$p]]);
         }     
         
         PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db, $trg_link, $p, $matching_tables_keys, true);
