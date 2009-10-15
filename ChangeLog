@@ -43,6 +43,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Turkish update, thanks to Burak Yavuz
 + [auth] Add custom port configuration in signon, thanks to Gary Smith
 - [core] Removed context from the error handler 
+- [interface] #2879909 Removed double htmlspecialchars when editing enum column
 
 3.2.3.0 (not yet released)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
