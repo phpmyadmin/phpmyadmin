@@ -46,9 +46,10 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
  * @param   array   $server host/port/socket/persistant
+ * @param   boolean $auxiliary_connection (if fails, don't go back to login)
  * @return  mixed   false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null)
+function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
     global $cfg, $php_errormsg;
   
@@ -93,29 +94,37 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
     
     if (!$server) {
-      $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
+        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? NULL : $client_flags);
 
       // Retry with empty password if we're allowed to
-      if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
-	  $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
-      }
+        if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
+	        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? NULL : $client_flags);
+        }
     } else {
-      if (!isset($server['host']))
-	$link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant); 
-      else
-	$link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
+        if (!isset($server['host'])) {
+	        $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant); 
+        } else {
+            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
+        }
     }
     if (empty($link)) {
         if ($is_controluser) {
             trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
             return false;
         }
-        PMA_log_user($user, 'mysql-denied');
-        PMA_auth_fails();
+        // we could be calling PMA_DBI_connect() to connect to another
+        // server, for example in the Synchronize feature, so do not
+        // go back to main login if it fails
+        if (! $auxiliary_connection) {
+            PMA_log_user($user, 'mysql-denied');
+            PMA_auth_fails();
+        } else {
+            return false;
+        }
     } // end if
-    if (!$server)
-      PMA_DBI_postConnect($link, $is_controluser);
-
+    if (! $server) {
+        PMA_DBI_postConnect($link, $is_controluser);
+    }
     return $link;
 }
 

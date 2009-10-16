@@ -55,9 +55,10 @@ if (! defined('MYSQLI_TYPE_BIT')) {
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
  * @param   array   $server host/port/socket 
+ * @param   boolean $auxiliary_connection (if fails, don't go back to login)
  * @return  mixed   false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null)
+function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
     if ($server) {
           $server_port   = (empty($server['port']))
@@ -84,7 +85,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     // NULL enables connection to the default socket
-
 
     $link = mysqli_init();
 
@@ -114,15 +114,22 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if ($return_value == false) {
-	if ($is_controluser) {
-	    trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
-	    return false;
-	}
-	PMA_log_user($user, 'mysql-denied');
-	PMA_auth_fails();
-    } // end if
-
-    PMA_DBI_postConnect($link, $is_controluser);
+	    if ($is_controluser) {
+	        trigger_error($GLOBALS['strControluserFailed'], E_USER_WARNING);
+	        return false;
+	    }
+        // we could be calling PMA_DBI_connect() to connect to another
+        // server, for example in the Synchronize feature, so do not
+        // go back to main login if it fails 
+        if (! $auxiliary_connection) {
+	        PMA_log_user($user, 'mysql-denied');
+            PMA_auth_fails();
+        } else {
+            return false;
+        }
+    } else {
+        PMA_DBI_postConnect($link, $is_controluser);
+    }
 
     return $link;
 }

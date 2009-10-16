@@ -80,20 +80,20 @@ if ((isset($_REQUEST['submit_connect']))) {
 	        }
         }
             
-        ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+        ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"}, $auxiliary_connection = true);
     } // end foreach ($cons as $con)
 
-    if ((! $src_connection && $src_type=='rmt') || (! $trg_connection && $trg_type=='rmt')) {
+    if ((! $src_connection && $src_type == 'rmt') || (! $trg_connection && $trg_type == 'rmt')) {
         /**
         * Displays the connection error string if
         * connections are not established
         */
 
         echo '<div class="error">' . "\n" ;  
-        if(! $src_connection) {
+        if(! $src_connection && $src_type == 'rmt') {
             echo $GLOBALS['strCouldNotConnectSource'].'<br />';
         }
-        if(! $trg_connection){
+        if(! $trg_connection && $trg_type == 'rmt'){
             echo $GLOBALS['strCouldNotConnectTarget'];
         }
         echo '</div>';
