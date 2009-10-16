@@ -30,7 +30,6 @@
  * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
  * </code>
  *
- * @todo create some testsuites
  * @uses    PMA_isValid()
  * @see     PMA_isValid()
  * @param   mixed   $var        param to check
