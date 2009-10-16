@@ -2764,14 +2764,13 @@ setfacl -d -m "g:www-data:rwx" tmp
     <a id="faqmysqlversions" href="#faq1_17">1.17 Which MySQL versions does phpMyAdmin
     support?</a></h4>
 
-<p> In phpMyAdmin 3.0.x, versions starting with MySQL 5.0.1 are
-fully supported. phpMyAdmin may connect to your MySQL server
-using PHP's classic
+<p> Since phpMyAdmin 3.0.x, only MySQL 5.0.1 and newer are supported. For 
+    older MySQL versions, you need to use 2.8.x branch. phpMyAdmin can 
+    connect to your MySQL server using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
-    is available in php 5.0.<br />
-    Either way, the developers of both extensions recommend to use the classic
-    extension for MySQL 4.0 and below and MySQLi for MySQL 4.1 and newer.<br />
+    is available in php 5.0. The latter one should be used unless you have 
+    good reason not to do so.<br />
     When compiling php, we strongly recommend that you manually link the MySQL
     extension of your choice to a MySQL client library of at least the same
     minor version since the one that is bundled with some PHP distributions is
