@@ -709,6 +709,7 @@ $strPutColNames = 'Afficher les noms de champ en première ligne';
 $strQBEDel = 'Effacer';
 $strQBEIns = 'Ajouter';
 $strQBE = 'Requête';
+$strQueriesExecuted = 'Ces requêtes ont été exécutées :';
 $strQueryCache = 'Cache des requêtes';
 $strQueryFrame = 'Fenêtre SQL';
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
@@ -1599,5 +1600,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strQueriesExecuted = 'The following queries have been executed:';  //to translate
 ?>
