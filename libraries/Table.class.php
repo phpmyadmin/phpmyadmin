@@ -98,9 +98,9 @@ class PMA_Table
      * @param   boolean whether to quote name with backticks ``
      * @return  string  table name
      */
-    function getName($quoted = false)
+    function getName($backquoted = false)
     {
-        if ($quoted) {
+        if ($backquoted) {
             return PMA_backquote($this->name);
         }
         return $this->name;
@@ -124,9 +124,9 @@ class PMA_Table
      * @param   boolean whether to quote name with backticks ``
      * @return  string  database name for this table
      */
-    function getDbName($quoted = false)
+    function getDbName($backquoted = false)
     {
-        if ($quoted) {
+        if ($backquoted) {
             return PMA_backquote($this->db_name);
         }
         return $this->db_name;
@@ -137,9 +137,9 @@ class PMA_Table
      *
      * @param   boolean whether to quote name with backticks ``
      */
-    function getFullName($quoted = false)
+    function getFullName($backquoted = false)
     {
-        return $this->getDbName($quoted) . '.' . $this->getName($quoted);
+        return $this->getDbName($backquoted) . '.' . $this->getName($backquoted);
     }
 
     static public function isView($db = null, $table = null)
@@ -1122,7 +1122,7 @@ class PMA_Table
      * @param   boolean whether to quote name with backticks ``
      * @return array
      */
-    public function getUniqueColumns($quoted = true)
+    public function getUniqueColumns($backquoted = true)
     {
         $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Non_unique = 0';
         $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
@@ -1132,7 +1132,7 @@ class PMA_Table
             if (count($index) > 1) {
                 continue;
             }
-            $return[] = $this->getFullName($quoted) . '.' . ($quoted ? PMA_backquote($index[0]) : $index[0]);
+            $return[] = $this->getFullName($backquoted) . '.' . ($backquoted ? PMA_backquote($index[0]) : $index[0]);
         }
 
         return $return;
@@ -1148,14 +1148,14 @@ class PMA_Table
      * @param   boolean whether to quote name with backticks ``
      * @return array
      */
-    public function getIndexedColumns($quoted = true)
+    public function getIndexedColumns($backquoted = true)
     {
         $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
-            $return[] = $this->getFullName($quoted) . '.' . ($quoted ? PMA_backquote($column) : $column);
+            $return[] = $this->getFullName($backquoted) . '.' . ($backquoted ? PMA_backquote($column) : $column);
         }
 
         return $return;
