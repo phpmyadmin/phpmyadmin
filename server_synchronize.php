@@ -551,6 +551,9 @@ if (isset($_REQUEST['Table_ids'])) {
             ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
         } else {
             ${"{$con}_link"} = null;
+            // working on current server, so initialize this for tracking
+            // (does not work if user defined current server as a remote one)
+            $GLOBALS['db'] = ${"{$con}_db"};
         }
     } // end foreach ($cons as $con)
    
@@ -1094,11 +1097,16 @@ if (isset($_REQUEST['synchronize_db'])) {
         $src_link = PMA_DBI_connect($src_username, $src_password, $is_controluser = false, $_SESSION['src_server']);
     } else {
         $src_link = $GLOBALS['userlink'];
+        // working on current server, so initialize this for tracking
+        // (does not work if user defined current server as a remote one)
+        $GLOBALS['db'] = $_SESSION['src_db'];
     }
     if ('rmt' == $_SESSION['trg_type']) {
         $trg_link = PMA_DBI_connect($trg_username, $trg_password, $is_controluser = false, $_SESSION['trg_server']);
     } else {
         $trg_link = $GLOBALS['userlink'];
+        // working on current server, so initialize this for tracking
+        $GLOBALS['db'] = $_SESSION['trg_db'];
     }
     
     /**

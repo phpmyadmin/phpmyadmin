@@ -858,6 +858,11 @@ class PMA_Tracker
 
         // Get database name
         $dbname = trim($GLOBALS['db'], '`');
+        // $dbname can be empty, for example when coming from Synchronize
+        // and this is a query for the remote server
+        if (empty($dbname)) {
+            return false;
+        }
 
         // If we found a valid statement
         if(isset($result['identifier']))
