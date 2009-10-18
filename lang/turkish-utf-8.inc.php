@@ -1607,4 +1607,5 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sıfır)\'a ayarlanması sı
 $strZip = '"zip olarak"';
 
 $strQueriesExecuted = 'The following queries have been executed:';  //to translate
+$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
 ?>

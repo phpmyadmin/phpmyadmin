@@ -367,6 +367,7 @@ $strGzip = '"gzipped"';
 
 $strHandler = 'Handler';
 $strHasBeenAltered = 'has been altered.';
+$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';
 $strHaveToShow = 'You have to choose at least one column to display';
 $strHebrew = 'Hebrew';
 $strHelp = 'Help';

@@ -505,7 +505,7 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Displays success message
     */
-    echo '<div class="success">Selected target tables have been synchronized with source tables. </div>';
+    echo '<div class="success">' . $GLOBALS['strHaveBeenSynchronized'] . '</div>';
     
     $src_db = $_SESSION['src_db']; 
     $trg_db = $_SESSION['trg_db'];

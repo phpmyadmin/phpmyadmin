@@ -364,6 +364,7 @@ $strGzip = '"gzippé"';
 
 $strHandler = 'Gestionnaire';
 $strHasBeenAltered = 'a été modifié(e).';
+$strHaveBeenSynchronized = 'Les tables sélectionnées ont été synchronisées.';
 $strHaveToShow = 'Vous devez choisir au moins une colonne à afficher';
 $strHebrew = 'hébreu';
 $strHelp = 'Aide';

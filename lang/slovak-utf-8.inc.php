@@ -1618,4 +1618,5 @@ $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
 $strQueriesExecuted = 'The following queries have been executed:';  //to translate
+$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
 ?>
