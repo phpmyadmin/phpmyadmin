@@ -668,7 +668,7 @@ if (isset($_REQUEST['Table_ids'])) {
                 unset($delete_array[$matching_table_data_diff[$p]]); 
             }                                                                                                               
             PMA_addColumnsInTargetTable($src_db, $trg_db,$src_link, $trg_link, $matching_tables, $source_columns, $add_column_array, $matching_tables_fields,
-            criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables, $uncommon_tables_fields, $matching_table_data_diff[$p], $uncommon_cols, false);
+            $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables, $uncommon_tables_fields, $matching_table_data_diff[$p], $uncommon_cols, false);
              
             unset($add_column_array[$matching_table_data_diff[$p]]);
         }
@@ -678,8 +678,9 @@ if (isset($_REQUEST['Table_ids'])) {
             
             unset($uncommon_columns[$matching_table_data_diff[$p]]); 
         }          
-        if (isset($add_indexes_array[$matching_table_structure_diff[$q]]) || isset($remove_indexes_array[$matching_table_structure_diff[$q]]) 
-            || isset($alter_indexes_array[$matching_table_structure_diff[$q]])) {
+        if ((isset($matching_table_structure_diff[$q]) && isset($add_indexes_array[$matching_table_structure_diff[$q]])) 
+            || (isset($matching_table_structure_diff[$q]) && isset($remove_indexes_array[$matching_table_structure_diff[$q]])) 
+            || (isset($matching_table_structure_diff[$q]) && isset($alter_indexes_array[$matching_table_structure_diff[$q]]))) {
            
             PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, 
             $remove_indexes_array, $matching_table_structure_diff[$q], false); 
@@ -796,7 +797,7 @@ if (isset($_REQUEST['Table_ids'])) {
         }  
         if (!(in_array($i, $matching_table_data_diff))) {
             
-            if (isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
+            if (isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
                 if (isset($update_array[$i])) {
                     $num_of_updates = sizeof($update_array[$i]);
                 } else {
@@ -805,7 +806,7 @@ if (isset($_REQUEST['Table_ids'])) {
             } else {
                 $num_of_updates = 0;
             } 
-            if (isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+            if (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
                 if (isset($insert_array[$i])) {
                     $num_of_insertions = sizeof($insert_array[$i]);
                 } else {
@@ -815,7 +816,8 @@ if (isset($_REQUEST['Table_ids'])) {
                 $num_of_insertions = 0;
             }
             
-            if (isset($update_array[$i][0][$matching_tables_keys[$i][0]]) || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+            if ((isset($matching_tables_keys[$i][0]) && isset($update_array[$i][0][$matching_tables_keys[$i][0]]))
+                || (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))) {
                 echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29" 
                 alt="Click to Select" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
                 onClick="showDetails('."'MD".$i."'".','."'".$num_of_updates."'".','."'".$num_of_insertions.
