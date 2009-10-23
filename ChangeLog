@@ -56,6 +56,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [structure] "In use" table incorrectly reported as "view" 
 - bug #2879909 [interface] Removed double htmlspecialchars when editing enum column
 - bug #2868328 [relations] Adding foreign key when table name contains a dot
+- bug #2883381 [doc] Side effects of MemoryLimit setting
 
 3.2.2.1 (2009-10-12)
 - [security] XSS and SQL injection, thanks to Herman van Rink
