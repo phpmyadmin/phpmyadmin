@@ -107,12 +107,17 @@ echo PMA_pluginGetJavascript($export_list);
 <?php if (strlen($table) && ! isset($num_tables)) { ?>
     <div class="formelementrow">
         <?php
+        echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
+
         echo sprintf($strDumpXRows,
             '<input type="text" name="limit_to" size="5" value="'
             . (isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))
             . '" onfocus="this.select()" />',
             '<input type="text" name="limit_from" value="0" size="5"'
             .' onfocus="this.select()" /> ');
+
+        echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
+        echo '<label for="radio_allrows_1">' . $strDumpAllRows . '</label>';
         ?>
     </div>
 <?php } ?>

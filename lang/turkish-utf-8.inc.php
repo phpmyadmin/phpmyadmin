@@ -1608,4 +1608,5 @@ $strZip = '"zip olarak"';
 
 $strQueriesExecuted = 'The following queries have been executed:';  //to translate
 $strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
+$strDumpAllRows = 'Dump all rows';  //to translate
 ?>

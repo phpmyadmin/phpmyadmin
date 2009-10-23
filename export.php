@@ -517,8 +517,8 @@ if ($export_type == 'server') {
         break;
     }
     // We export just one table
-
-    if ($limit_to > 0 && $limit_from >= 0) {
+    // $allrows comes from the form when "Dump all rows" has been selected
+    if ($allrows == '0' && $limit_to > 0 && $limit_from >= 0) {
         $add_query  = ' LIMIT '
                     . (($limit_from > 0) ? $limit_from . ', ' : '')
                     . $limit_to;

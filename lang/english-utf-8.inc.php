@@ -270,6 +270,7 @@ $strDoYouReally = 'Do you really want to ';
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
 $strDrop = 'Drop';
 $strDropUsersDb = 'Drop the databases that have the same names as the users.';
+$strDumpAllRows = 'Dump all rows';
 $strDumpingData = 'Dumping data for table';
 $strDumpSaved = 'Dump has been saved to file %s.';
 $strDumpXRows = 'Dump %s row(s) starting at record # %s.';
