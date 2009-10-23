@@ -273,7 +273,7 @@ $strDropUsersDb = 'Drop the databases that have the same names as the users.';
 $strDumpAllRows = 'Dump all rows';
 $strDumpingData = 'Dumping data for table';
 $strDumpSaved = 'Dump has been saved to file %s.';
-$strDumpXRows = 'Dump %s row(s) starting at record # %s.';
+$strDumpXRows = 'Dump %s row(s) starting at record # %s';
 $strDynamic = 'dynamic';
 
 $strEdit = 'Edit';

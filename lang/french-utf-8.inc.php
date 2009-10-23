@@ -267,9 +267,10 @@ $strDoYouReally = 'Voulez-vous vraiment effectuer ';
 $strDropDatabaseStrongWarning = 'Vous êtes sur le point de DÉTRUIRE une base de données!';
 $strDrop = 'Supprimer';
 $strDropUsersDb = 'Supprimer les bases de données portant le même nom que les utilisateurs';
+$strDumpAllRows = 'Exporter tous les enregistrements';
 $strDumpingData = 'Contenu de la table';
 $strDumpSaved = 'Le fichier d\'exportation a été sauvegardé sous %s.';
-$strDumpXRows = 'Exporte %s enregistrement(s) à partir du rang n° %s.';
+$strDumpXRows = 'Exporter %s enregistrement(s) à partir du rang n° %s';
 $strDynamic = 'dynamique';
 
 $strEdit = 'Modifier';
@@ -1601,5 +1602,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strDumpAllRows = 'Dump all rows';  //to translate
 ?>
