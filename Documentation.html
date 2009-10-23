@@ -1202,11 +1202,13 @@ ALTER TABLE `pma_column_comments`
         effect when PHP is running in safe mode.</dd>
 
     <dt id="cfg_MemoryLimit">$cfg['MemoryLimit'] integer [number of bytes]</dt>
-    <dd>Set the number of bytes a script is allowed to allocate. If number set
+    <dd>Set the number of bytes a script is allowed to allocate. If set
         to zero, no limit is imposed.<br />
-        This setting is used while importing/exporting dump files but has no
-        effect when PHP is running in safe mode.<br />
-        You can also use any string as in php.ini, eg. '16M'.</dd>
+        This setting is used while importing/exporting dump files and at some
+        other places in phpMyAdmin so you definitely don't want to put here
+        a too low value. It has no effect when PHP is running in safe mode.<br />
+        You can also use any string as in php.ini, eg. '16M'. Ensure
+        you don't omit the suffix (16 means 16 bytes!)</dd>
 
     <dt id="cfg_SkipLockedTables">$cfg['SkipLockedTables'] boolean</dt>
     <dd>Mark used tables and make it possible to show databases with locked
