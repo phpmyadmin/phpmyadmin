@@ -96,7 +96,7 @@ PMA_displayTable_checkConfigParams();
  * Need to find the real end of rows?
  */
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_Table::countRecords($db, $table, true, true);
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
     $_SESSION['tmp_user_values']['pos'] = @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']) - 1) * $_SESSION['tmp_user_values']['max_rows']);
 }
 
@@ -396,7 +396,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         ) {
 
             // "j u s t   b r o w s i n g"
-            $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+            $unlim_num_rows = PMA_Table::countRecords($db, $table);
 
         } else { // n o t   " j u s t   b r o w s i n g "
 

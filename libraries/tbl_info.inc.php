@@ -86,7 +86,7 @@ if ($showtable) {
 
     if (null === $showtable['Rows']) {
         $showtable['Rows']   = PMA_Table::countRecords($GLOBALS['db'],
-            $showtable['Name'], true, true);
+            $showtable['Name'], true);
     }
     $table_info_num_rows = isset($showtable['Rows']) ? $showtable['Rows'] : 0;
     $row_format = isset($showtable['Row_format']) ? $showtable['Row_format'] : '';

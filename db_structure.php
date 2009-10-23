@@ -192,7 +192,7 @@ foreach ($tables as $keyname => $each_table) {
         case 'MEMORY' :
             if ($db_is_information_schema) {
                 $each_table['Rows'] = PMA_Table::countRecords($db,
-                    $each_table['Name'], $return = true);
+                    $each_table['Name']);
             }
                 
             if ($is_show_stats) {
@@ -212,7 +212,7 @@ foreach ($tables as $keyname => $each_table) {
             if ($each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
                 $each_table['COUNTED'] = true;
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $return = true, $force_exact = true,
+                    $each_table['TABLE_NAME'], $force_exact = true,
                     $is_view = false);
             } else {
                 $each_table['COUNTED'] = false;
@@ -241,7 +241,7 @@ foreach ($tables as $keyname => $each_table) {
             if ($each_table['TABLE_TYPE'] == 'VIEW') {
                 // countRecords() takes care of $cfg['MaxExactCountViews']
                 $each_table['TABLE_ROWS'] = PMA_Table::countRecords($db,
-                    $each_table['TABLE_NAME'], $return = true, $force_exact = true,
+                    $each_table['TABLE_NAME'], $force_exact = true,
                     $is_view = true);
                 $table_is_view = true;
             }

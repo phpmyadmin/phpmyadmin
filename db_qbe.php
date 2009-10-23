@@ -802,7 +802,7 @@ if (isset($Field) && count($Field) > 0) {
                 $checked_tables = $col_cand;
                 foreach ($col_cand as $tab) {
                     if ($checked_tables[$tab] != 1) {
-                        $tsize[$tab] = PMA_Table::countRecords($db, $tab, true, false);
+                        $tsize[$tab] = PMA_Table::countRecords($db, $tab, false);
                         $checked_tables[$tab] = 1;
                     }
                     $csize[$tab] = $tsize[$tab];

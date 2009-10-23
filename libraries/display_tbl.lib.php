@@ -160,7 +160,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         $the_total = $unlim_num_rows;
     } elseif (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
              && (strlen($db) && !empty($table))) {
-        $the_total   = PMA_Table::countRecords($db, $table, true);
+        $the_total   = PMA_Table::countRecords($db, $table);
     }
 
     // 4. If navigation bar or sorting fields names URLs should be

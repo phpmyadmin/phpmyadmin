@@ -199,7 +199,7 @@ class PMA_Table
 
         if ($this->get('TABLE_ROWS') === null) {
             $this->set('TABLE_ROWS', PMA_Table::countRecords($this->getDbName(),
-                $this->getName(), true, true));
+                $this->getName(), true));
         }
 
         $create_options = explode(' ', $this->get('TABLE_ROWS'));
@@ -241,7 +241,7 @@ class PMA_Table
     static public function sGetToolTip($db, $table)
     {
         return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
-            . ' (' . PMA_Table::countRecords($db, $table, true) . ')';
+            . ' (' . PMA_Table::countRecords($db, $table) . ')';
     }
 
     /**
@@ -403,7 +403,6 @@ class PMA_Table
      *
      * @param   string   the current database name
      * @param   string   the current table name
-     * @param   boolean  whether to retain or to displays the result
      * @param   boolean  whether to force an exact count
      *
      * @return  mixed    the number of records if "retain" param is true,
@@ -411,8 +410,7 @@ class PMA_Table
      *
      * @access  public
      */
-    static public function countRecords($db, $table, $ret = false,
-        $force_exact = false, $is_view = null)
+    static public function countRecords($db, $table, $force_exact = false, $is_view = null)
     {
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
@@ -464,22 +462,7 @@ class PMA_Table
             }
         }
 
-        if ($ret) {
-            return $row_count;
-        }
-
-        /**
-         * @deprecated at the moment nowhere is $return = false used
-         */
-        // Note: as of PMA 2.8.0, we no longer seem to be using
-        // PMA_Table::countRecords() in display mode.
-        echo PMA_formatNumber($row_count, 0);
-        if ($is_view) {
-            echo '&nbsp;'
-                . sprintf($GLOBALS['strViewHasAtLeast'],
-                    $GLOBALS['cfg']['MaxExactCount'],
-                    '[a@./Documentation.html#cfg_MaxExactCount@_blank]', '[/a]');
-        }
+        return $row_count;
     } // end of the 'PMA_Table::countRecords()' function
 
     /**

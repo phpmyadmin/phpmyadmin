@@ -811,8 +811,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             $tbl_is_view = PMA_Table::isView($db, $table['Name']);
 
             if ($tbl_is_view || 'information_schema' == $db) {
-                $table['Rows'] = PMA_Table::countRecords($db, $table['Name'],
-                        $return = true);
+                $table['Rows'] = PMA_Table::countRecords($db, $table['Name']);
             }
         }
 
