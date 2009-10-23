@@ -379,12 +379,11 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         //    c o u n t    q u e r y
 
         // If we are "just browsing", there is only one table,
-        // and no where clause (or just 'WHERE 1 '),
-        // so we do a quick count (which uses MaxExactCount)
-        // because SQL_CALC_FOUND_ROWS
-        // is not quick on large InnoDB tables
+        // and no WHERE clause (or just 'WHERE 1 '),
+        // we do a quick count (which uses MaxExactCount) because 
+        // SQL_CALC_FOUND_ROWS is not quick on large InnoDB tables
 
-        // but do not count again if we did it previously
+        // However, do not count again if we did it previously
         // due to $find_real_end == true
 
         if (!$is_group
