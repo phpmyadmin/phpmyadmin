@@ -445,8 +445,8 @@ class PMA_Table
                     } else {
                         // Counting all rows of a VIEW could be too long, so use
                         // a LIMIT clause.
-                        // Use try_query because it can fail (a VIEW is based on
-                        // a table that no longer exists)
+                        // Use try_query because it can fail (when a VIEW is 
+                        // based on a table that no longer exists)
                         $result = PMA_DBI_try_query(
                             'SELECT 1 FROM ' . PMA_backquote($db) . '.'
                                 . PMA_backquote($table) . ' LIMIT '
