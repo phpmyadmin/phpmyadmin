@@ -26,6 +26,10 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+if (! isset($GLOBALS['sql_delimiter'])) {
+    $GLOBALS['sql_delimiter'] = ';';
+}
+
 /**
  * @global array MySQL function names
  */
