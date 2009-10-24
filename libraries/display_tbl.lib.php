@@ -786,13 +786,16 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if (empty($sort_expression)) {
                 $is_in_sort = false;
             } else {
-                // field name may be preceded by a space, or any number
+                // Field name may be preceded by a space, or any number
                 // of characters followed by a dot (tablename.fieldname)
-                // so do a direct comparison
-                // for the sort expression (avoids problems with queries
-                // like "SELECT id, count(id)..." and clicking to sort
-                // on id or on count(id))
-                if (strpos($sort_expression_nodirection, $sort_tbl) === false) {
+                // so do a direct comparison for the sort expression;
+                // this avoids problems with queries like 
+                // "SELECT id, count(id)..." and clicking to sort
+                // on id or on count(id).
+                // Another query to test this:
+                // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
+                // (and try clicking on each column's header twice)
+                if (strpos($sort_expression_nodirection, $sort_tbl) === false && strpos($sort_expression_nodirection, '(') === false) {
                     $sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
                 }
                 $is_in_sort = (str_replace('`', '', $sort_tbl) . $name_to_use_in_sort == str_replace('`', '', $sort_expression_nodirection) ? true : false);
