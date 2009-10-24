@@ -1607,4 +1607,6 @@ $strZip = 'comprimido no formato "zip"';
 
 $strDumpAllRows = 'Dump all rows';  //to translate
 
+$strDifference = 'Difference';  //to translate
+$strNotPresent = 'not present';  //to translate
 ?>

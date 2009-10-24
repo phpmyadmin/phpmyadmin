@@ -1611,4 +1611,6 @@ $strReplicationShowConnectedSlavesNote = 'Only slaves started with the --report-
 $strQueriesExecuted = 'The following queries have been executed:';  //to translate
 $strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
 $strDumpAllRows = 'Dump all rows';  //to translate
+$strDifference = 'Difference';  //to translate
+$strNotPresent = 'not present';  //to translate
 ?>

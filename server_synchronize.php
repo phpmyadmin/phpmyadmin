@@ -283,8 +283,8 @@ if ((isset($_REQUEST['submit_connect']))) {
 
             echo '<table id="serverstatustraffic" class="data" width = "55%" >
             <tr>
-            <th> Source Database:  '. $src_db .'</th>
-            <th> Difference </th>
+            <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
+            <th>' . $GLOBALS['strDifference'] . '</th>
             </tr>';
             $odd_row = false;
             /**
@@ -421,7 +421,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             echo '</table>';
             echo '<table id="serverstatusconnections" class="data" width="43%" >
             <tr>
-            <th>Target Database:  ' . $trg_db . '</th>
+            <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
             </tr>';
             $odd_row = false;
             foreach ($matching_tables as $tbl_name) {
@@ -437,7 +437,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 echo '<tr height="32" class=" ';
                 echo $odd_row ? 'odd' : 'even'; 
                 echo '">
-                <td>' .$tbl_nc_name . "\n" . ' (Not present)</td>
+                <td>' .$tbl_nc_name . "\n" . ' (' . $GLOBALS['strNotPresent'] . ')</td>
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
@@ -754,8 +754,8 @@ if (isset($_REQUEST['Table_ids'])) {
             
     echo '<table id="serverstatustraffic" class="data" width= "55%">
     <tr>
-    <th> Source Database:  '. $src_db .'</th>
-    <th> Difference </th>
+    <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
+    <th>' . $GLOBALS['strDifference'] . '</th>
     </tr>';
     $odd_row = false;
     for($i = 0; $i < count($matching_tables); $i++) {   
@@ -896,7 +896,7 @@ if (isset($_REQUEST['Table_ids'])) {
     echo '</table>';
     echo '<table id="serverstatusconnections" class="data" width="42%" >
     <tr>
-    <th>Target Database:  ' . $trg_db . '</th>
+    <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
     </tr>';
     $odd_row = false;
     foreach ($matching_tables as $tbl_name) {
@@ -913,7 +913,7 @@ if (isset($_REQUEST['Table_ids'])) {
         echo $odd_row ? 'odd' : 'even'; 
         echo '">';
         if (in_array($tbl_nc_name, $uncommon_tables)) {
-            echo '<td>' .$tbl_nc_name . "\n" . '(Not present) </td>';
+            echo '<td>' .$tbl_nc_name . "\n" . ' (' .  $GLOBALS['strNotPresent'] . ')</td>';
         } else {
             echo '<td>' .$tbl_nc_name . "\n" . '</td>';    
         }
@@ -1029,8 +1029,8 @@ if (isset($_REQUEST['synchronize_db'])) {
 
     echo '<table id="serverstatustraffic" class="data" width ="55%">
         <tr>
-        <th> Source Database:  '. $src_db .'</th>
-        <th> Difference </th>
+        <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
+        <th>' . $GLOBALS['strDifference'] . '</th>
         </tr>';
         $odd_row = false;
         for($i = 0; $i < count($matching_tables); $i++)
@@ -1063,7 +1063,7 @@ if (isset($_REQUEST['synchronize_db'])) {
         echo '</table>';
         echo '<table id="serverstatusconnections" class="data" width="42%" >
         <tr>
-        <th>Target Database:  ' . $trg_db . '</th>
+        <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
         </tr>';
         $odd_row = false;
         foreach ($matching_tables as $tbl_name) {
