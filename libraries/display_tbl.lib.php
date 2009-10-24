@@ -795,7 +795,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 // Another query to test this:
                 // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
                 // (and try clicking on each column's header twice)
-                if (strpos($sort_expression_nodirection, $sort_tbl) === false && strpos($sort_expression_nodirection, '(') === false) {
+                if (! empty($sort_tbl) && strpos($sort_expression_nodirection, $sort_tbl) === false && strpos($sort_expression_nodirection, '(') === false) {
                     $sort_expression_nodirection = $sort_tbl . $sort_expression_nodirection;
                 }
                 $is_in_sort = (str_replace('`', '', $sort_tbl) . $name_to_use_in_sort == str_replace('`', '', $sort_expression_nodirection) ? true : false);
