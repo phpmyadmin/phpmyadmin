@@ -277,15 +277,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             /**
             * Displays the tables containing the source tables names, their difference with the target tables and target tables names 
             */
-            echo '<div id="serverstatus" style = "overflow: auto; width: 1020px; height: 220px; 
-                border-left: 1px gray solid; border-bottom: 1px gray solid; 
-                padding:0px; margin-bottom: 1em "> ';
-
-            echo '<table id="serverstatustraffic" class="data" width = "55%" >
-            <tr>
-            <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
-            <th>' . $GLOBALS['strDifference'] . '</th>
-            </tr>';
+            PMA_syncDisplayHeaderSource($src_db);
             $odd_row = false;
             /**
             * Display the matching tables' names and difference, first
@@ -419,19 +411,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             * Displays the target tables names 
             */
             echo '</table>';
-            echo '<table id="serverstatusconnections" class="data" width="43%" >
-            <tr>
-            <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
-            </tr>';
-            $odd_row = false;
-            foreach ($matching_tables as $tbl_name) {
-                $odd_row = ! $odd_row;
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td>  ' .$tbl_name . '</td>';
-                echo '</tr>';
-            }
+
+            $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
             foreach ($source_tables_uncommon as $tbl_nc_name) {
                 $odd_row = ! $odd_row;
                 echo '<tr height="32" class=" ';
@@ -748,15 +729,7 @@ if (isset($_REQUEST['Table_ids'])) {
     echo '<form name="applied_difference" id="synchronize_form" method="POST" action="server_synchronize.php">'
     . PMA_generate_common_hidden_inputs('', '');
     
-    echo '<div id="serverstatus" style = "overflow: auto; width: 1020px; height: 220px; 
-            border-left: 1px gray solid; border-bottom: 1px gray solid; 
-            padding:0px; margin-bottom: 1em"> ';            
-            
-    echo '<table id="serverstatustraffic" class="data" width= "55%">
-    <tr>
-    <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
-    <th>' . $GLOBALS['strDifference'] . '</th>
-    </tr>';
+    PMA_syncDisplayHeaderSource($src_db);
     $odd_row = false;
     for($i = 0; $i < count($matching_tables); $i++) {   
         $odd_row = !$odd_row;
@@ -894,19 +867,7 @@ if (isset($_REQUEST['Table_ids'])) {
         echo '</tr>';
     }
     echo '</table>';
-    echo '<table id="serverstatusconnections" class="data" width="42%" >
-    <tr>
-    <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
-    </tr>';
-    $odd_row = false;
-    foreach ($matching_tables as $tbl_name) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td>  ' .$tbl_name . '</td>';
-        echo '</tr>';
-    }
+    $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
     foreach ($source_tables_uncommon as $tbl_nc_name) {
         $odd_row = ! $odd_row;
         echo '<tr height="32" class=" ';
@@ -1023,15 +984,8 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Displaying all the tables of source and target database and now no difference is there.
     */
-    echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 250px; 
-            border-left: 1px gray solid; border-bottom: 1px gray solid; 
-            padding:0px; margin: 0px"> ';            
+    PMA_syncDisplayHeaderSource($src_db);
 
-    echo '<table id="serverstatustraffic" class="data" width ="55%">
-        <tr>
-        <th>' . $GLOBALS['strDatabase_src'] . ':  '. $src_db .'</th>
-        <th>' . $GLOBALS['strDifference'] . '</th>
-        </tr>';
         $odd_row = false;
         for($i = 0; $i < count($matching_tables); $i++)
         {
@@ -1061,19 +1015,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             echo '</tr>';
         }
         echo '</table>';
-        echo '<table id="serverstatusconnections" class="data" width="42%" >
-        <tr>
-        <th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db .'</th>
-        </tr>';
-        $odd_row = false;
-        foreach ($matching_tables as $tbl_name) {
-            $odd_row = ! $odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td>  ' .$tbl_name . '</td>';
-            echo '</tr>';
-        }
+        $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
         foreach ($source_tables_uncommon as $tbl_nc_name) {
             $odd_row = !$odd_row;
             echo '<tr height="32" class=" ';

@@ -12,7 +12,7 @@
 * @param    $src_tables   array of source database table names, 
 * 
 * @param    &$matching_tables           empty array passed by reference to save names of matching tables, 
-* @param    &$uncommon_source_tables    empty array passed by reference to save names of tables presnet in 
+* @param    &$uncommon_source_tables    empty array passed by reference to save names of tables present in 
 *                                       source database but absent from target database
 */
         
@@ -1362,5 +1362,67 @@ function PMA_displayQuery($query) {
         $query = substr($query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
     }
     echo '<p>' . htmlspecialchars($query) . '</p>';
+}
+
+/**
+ * PMA_syncDisplayHeaderSource() shows the header for source database 
+ * @uses   $GLOBALS['strDatabase_src'] 
+ * @uses   $GLOBALS['strDifference'] 
+ * @uses   $GLOBALS['strCurrentServer'] 
+ * @uses   $GLOBALS['strRemoteServer'] 
+ * @uses   $_SESSION['src_type'] 
+ * @uses   $_SESSION['src_server']['host'] 
+ *
+ * @param  string $src_db          source db name 
+*/
+function PMA_syncDisplayHeaderSource($src_db) {
+    echo '<div id="serverstatus" style = "overflow: auto; width: 1020px; height: 220px; border-left: 1px gray solid; border-bottom: 1px gray solid; padding:0px; margin-bottom: 1em "> ';
+
+    echo '<table id="serverstatustraffic" class="data" width="55%">';
+    echo '<tr>';
+    echo '<th>' . $GLOBALS['strDatabase_src'] . ':  ' . $src_db . '<br />(';
+    if ('cur' == $_SESSION['src_type']) {
+        echo $GLOBALS['strCurrentServer'];
+    } else {
+        echo $GLOBALS['strRemoteServer'] . ' ' . $_SESSION['src_server']['host'];
+    }
+    echo ')</th>';
+    echo '<th>' . $GLOBALS['strDifference'] . '</th>';
+    echo '</tr>';
+}
+
+/**
+ * PMA_syncDisplayHeaderTargetAndMatchingTables() shows the header for target database and the matching tables
+ * @uses   $GLOBALS['strDatabase_trg'] 
+ * @uses   $GLOBALS['strCurrentServer'] 
+ * @uses   $GLOBALS['strRemoteServer'] 
+ * @uses   $_SESSION['trg_type'] 
+ * @uses   $_SESSION['trg_server']['host'] 
+ * 
+ * @param   string  $trg_db          target db name 
+ * @param   array   $matching_tables
+ * @return  boolean $odd_row         current value of this toggle 
+*/
+function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables) {
+    echo '<table id="serverstatusconnections" class="data" width="43%">';
+    echo '<tr>';
+    echo '<th>' . $GLOBALS['strDatabase_trg'] . ':  '. $trg_db . '<br />(';
+    if ('cur' == $_SESSION['trg_type']) {
+        echo $GLOBALS['strCurrentServer'];
+    } else {
+        echo $GLOBALS['strRemoteServer'] . ' ' . $_SESSION['trg_server']['host'];
+    }
+    echo ')</th>';
+    echo '</tr>';
+    $odd_row = false;
+    foreach ($matching_tables as $tbl_name) {
+        $odd_row = ! $odd_row;
+        echo '<tr height="32" class=" ';
+        echo $odd_row ? 'odd' : 'even'; 
+        echo '">
+        <td>  ' .$tbl_name . '</td>';
+        echo '</tr>';
+    }
+    return $odd_row;
 }
 ?>
