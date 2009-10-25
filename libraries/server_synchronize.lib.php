@@ -1416,13 +1416,24 @@ function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables)
     echo '</tr>';
     $odd_row = false;
     foreach ($matching_tables as $tbl_name) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td>  ' .$tbl_name . '</td>';
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+        echo '<td>  ' .$tbl_name . '</td>';
         echo '</tr>';
     }
+    return $odd_row;
+}
+
+/**
+ * PMA_syncDisplayBeginTableRow() displays the TR tag for alternating colors 
+ * 
+ * @param   boolean $odd_row        current status of the toggle 
+ * @return  boolean $odd_row        final status of the toggle 
+*/
+function PMA_syncDisplayBeginTableRow($odd_row) {
+    $odd_row = ! $odd_row;
+    echo '<tr height="32" class=" ';
+    echo $odd_row ? 'odd' : 'even';
+    echo '">';
     return $odd_row;
 }
 ?>

@@ -316,11 +316,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Displays the name of the matching table 
                 */
-                $odd_row = ! $odd_row; 
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td>' . $matching_tables[$i]. "\n" . '</td>
+                $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+                echo '<td>' . $matching_tables[$i]. "\n" . '</td>
                 <td align="center">';
                 /**
                 * Calculating the number of alter columns, number of columns to be added, number of columns to be removed,
@@ -378,11 +375,8 @@ if ((isset($_REQUEST['submit_connect']))) {
             * Displays the tables' names present in source but missing from target
             */
             for ($j = 0; $j < count($source_tables_uncommon); $j++) {
-                $odd_row = !$odd_row;
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
+                $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+                echo '<td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
                 
                 echo '<td align="center"><img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
                 alt="Click to Select" onmouseover="change_Image(this);" onmouseout="change_Image(this);" 
@@ -400,11 +394,8 @@ if ((isset($_REQUEST['submit_connect']))) {
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
-                $odd_row = ! $odd_row;
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
+                $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+                echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
                 echo '</tr>';
             }
             /**
@@ -414,19 +405,13 @@ if ((isset($_REQUEST['submit_connect']))) {
 
             $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
             foreach ($source_tables_uncommon as $tbl_nc_name) {
-                $odd_row = ! $odd_row;
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td>' .$tbl_nc_name . "\n" . ' (' . $GLOBALS['strNotPresent'] . ')</td>
+                $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+                echo '<td>' .$tbl_nc_name . "\n" . ' (' . $GLOBALS['strNotPresent'] . ')</td>
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
-                $odd_row = ! $odd_row;
-                echo '<tr height="32" class=" ';
-                echo $odd_row ? 'odd' : 'even'; 
-                echo '">
-                <td> - ' .$tbl_nc_name . '</td>';
+                $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+                echo '<td> - ' .$tbl_nc_name . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
@@ -732,11 +717,8 @@ if (isset($_REQUEST['Table_ids'])) {
     PMA_syncDisplayHeaderSource($src_db);
     $odd_row = false;
     for($i = 0; $i < count($matching_tables); $i++) {   
-        $odd_row = !$odd_row;
-        echo '<tr  height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td align="center">' . $matching_tables[$i]. "\n" . '</td>
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+        echo '<td align="center">' . $matching_tables[$i]. "\n" . '</td>
         <td align="center">';
             
         $num_alter_cols  = 0;
@@ -811,11 +793,8 @@ if (isset($_REQUEST['Table_ids'])) {
     $_SESSION['insert_array'] = $insert_array; 
     
     for ($j = 0; $j < count($source_tables_uncommon); $j++) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td align="center"> + ' .$source_tables_uncommon[$j]. "\n" . '</td>
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+        echo '<td align="center"> + ' .$source_tables_uncommon[$j]. "\n" . '</td>
         <td align="center">';
         /**
         * Display the difference only when it has not been applied        
@@ -859,20 +838,14 @@ if (isset($_REQUEST['Table_ids'])) {
     * Displaying the target database tables
     */
     foreach ($target_tables_uncommon as $tbl_nc_name) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+        echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
         echo '</tr>';
     }
     echo '</table>';
     $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
     foreach ($source_tables_uncommon as $tbl_nc_name) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">';
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
         if (in_array($tbl_nc_name, $uncommon_tables)) {
             echo '<td>' .$tbl_nc_name . "\n" . ' (' .  $GLOBALS['strNotPresent'] . ')</td>';
         } else {
@@ -882,11 +855,8 @@ if (isset($_REQUEST['Table_ids'])) {
         </tr>';
     }
     foreach ($target_tables_uncommon as $tbl_nc_name) {
-        $odd_row = ! $odd_row;
-        echo '<tr height="32" class=" ';
-        echo $odd_row ? 'odd' : 'even'; 
-        echo '">
-        <td> - ' .$tbl_nc_name . '</td>';
+        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+        echo '<td> - ' .$tbl_nc_name . '</td>';
         echo '</tr>';
     }
     echo '</table>
@@ -989,47 +959,32 @@ if (isset($_REQUEST['synchronize_db'])) {
         $odd_row = false;
         for($i = 0; $i < count($matching_tables); $i++)
         {
-            $odd_row = !$odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td>' . $matching_tables[$i]. "\n" . '</td>
+            $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+            echo '<td>' . $matching_tables[$i]. "\n" . '</td>
             <td></td>
             </tr>';
         }
         for ($j = 0; $j < count($source_tables_uncommon); $j++) {
-            $odd_row = ! $odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
+            $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+            echo '<td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
             echo '<td></td>
             </tr>';
         }
         foreach ($target_tables_uncommon as $tbl_nc_name) {
-            $odd_row = ! $odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
+            $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+            echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
             echo '</tr>';
         }
         echo '</table>';
         $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
         foreach ($source_tables_uncommon as $tbl_nc_name) {
-            $odd_row = !$odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td>' .$tbl_nc_name . "\n" . ' </td>
+            $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+            echo '<td>' .$tbl_nc_name . "\n" . ' </td>
             </tr>';
         }
         foreach ($target_tables_uncommon as $tbl_nc_name) {
-            $odd_row = ! $odd_row;
-            echo '<tr height="32" class=" ';
-            echo $odd_row ? 'odd' : 'even'; 
-            echo '">
-            <td>  ' .$tbl_nc_name . '</td>';
+            $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
+            echo '<td>  ' .$tbl_nc_name . '</td>';
             echo '</tr>';
         }
     echo '</table> </div>';
