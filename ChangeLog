@@ -45,7 +45,9 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [core] Removed context from the error handler 
 - bug #2883633 [export] Export of InnoDB table is incomplete 
 
-3.2.3.0 (not yet released)
+3.2.4.0 (not yet released)
+
+3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
   OpenOffice Spreadsheet, thanks to Thomas Pulickal - jemajoign
 - patch #2859788 [parser] Double-character delimiters (bug #2846239), 
