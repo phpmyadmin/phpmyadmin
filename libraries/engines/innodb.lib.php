@@ -231,14 +231,19 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '            <td class="value">'
                 . PMA_formatNumber($status['Innodb_buffer_pool_pages_misc'], 0) . "\n"
                 . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . $GLOBALS['strLatchedPages'] . '</th>' . "\n"
+                . '        </tr>';
+
+            // not present at least since MySQL 5.1.40
+            if (isset($status['Innodb_buffer_pool_pages_latched'])) {
+                $output .= '        <tr class="even">'
+                . '            <th>' . $GLOBALS['strLatchedPages'] . '</th>'
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_latched'], 0) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '    </tbody>' . "\n"
+                . PMA_formatNumber($status['Innodb_buffer_pool_pages_latched'], 0)
+                . '</td>'
+                . '        </tr>';
+            }
+
+            $output .= '    </tbody>' . "\n"
                 . '</table>' . "\n\n"
                 . '<table class="data" id="table_innodb_bufferpool_activity">' . "\n"
                 . '    <caption class="tblHeaders">' . "\n"
