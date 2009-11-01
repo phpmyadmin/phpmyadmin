@@ -2072,7 +2072,7 @@ $cfg['TextareaCols'] = 40;
  *
  * @global integer $cfg['TextareaRows']
  */
-$cfg['TextareaRows'] = 7;
+$cfg['TextareaRows'] = 15;
 
 /**
  * double size of textarea size for LONGTEXT fields
