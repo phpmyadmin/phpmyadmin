@@ -562,7 +562,6 @@ if ($fields_cnt > 20) {
 /**
  * Displays indexes
  */
-PMA_generate_slider_effect('tablestatistics_indexes', $strDetails);
 
 if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
     /**
@@ -591,7 +590,8 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
 <br />
     <?php
 }
-echo '<div id="tablestatistics">' . "\n";
+
+PMA_generate_slider_effect('tablestatistics', $strDetails);
 
 /**
  * Displays Space usage and row statistics
@@ -826,8 +826,6 @@ if ($cfg['ShowStats']) {
 require './libraries/tbl_triggers.lib.php';
 
 echo '<div class="clearfloat"></div>' . "\n";
-echo '</div>' . "\n";
-echo '</div>' . "\n";
 
 /**
  * Displays the footer
