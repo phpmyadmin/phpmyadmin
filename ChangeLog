@@ -44,6 +44,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [auth] Add custom port configuration in signon, thanks to Gary Smith
 - [core] Removed context from the error handler 
 - bug #2883633 [export] Export of InnoDB table is incomplete 
++ rfe #2862575 [status] Order query statistics by % desc, skip rows with 0 
 
 3.2.4.0 (not yet released)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status

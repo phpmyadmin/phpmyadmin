@@ -517,20 +517,31 @@ foreach ($sections as $section_name => $section) {
 
 <div id="serverstatusqueriesdetails">
 <?php
+
+$used_queries = $sections['com']['vars'];
+// reverse sort by value to show most used statements first
+arsort($used_queries);
+// remove all zero values from the end
+while (end($used_queries) == 0) {
+    array_pop($used_queries);
+}
+
 // number of tables to split values into
-$tables         = 2;
-$rows_per_table = (int) ceil(count($sections['com']['vars']) / $tables);
+$tables         = 3;
+$max_rows_per_table = (int) ceil(count($used_queries) / $tables);
 $current_table  = 0;
 $odd_row        = true;
-$countRows      = 0;
+$count_displayed_rows      = 0;
 $perc_factor    = 100 / ($server_status['Questions'] - $server_status['Connections']);
-foreach ($sections['com']['vars'] as $name => $value) {
+
+foreach ($used_queries as $name => $value) {
     $current_table++;
-    if ($countRows === 0 || $countRows === $rows_per_table) {
+    if ($count_displayed_rows === 0 || $count_displayed_rows === $max_rows_per_table) {
         $odd_row = true;
-        if ($countRows === $rows_per_table) {
+        if ($count_displayed_rows === $max_rows_per_table) {
             echo '    </tbody>' . "\n";
             echo '    </table>' . "\n";
+            $count_displayed_rows = 0;
         }
 ?>
     <table id="serverstatusqueriesdetails<?php echo $current_table; ?>" class="data">
@@ -547,7 +558,7 @@ foreach ($sections['com']['vars'] as $name => $value) {
     } else {
         $odd_row = !$odd_row;
     }
-    $countRows++;
+    $count_displayed_rows++;
 
 // For the percentage column, use Questions - Connections, because
 // the number of connections is not an item of the Query types
@@ -574,12 +585,13 @@ foreach ($sections['com']['vars'] as $name => $value) {
 <?php
 //Unset used variables
 unset(
-    $tables, $rows_per_table, $current_table, $countRows, $perc_factor,
+    $tables, $max_rows_per_table, $current_table, $count_displayed_rows, $perc_factor,
     $hour_factor, $sections['com'],
     $server_status['Aborted_clients'], $server_status['Aborted_connects'],
     $server_status['Max_used_connections'], $server_status['Bytes_received'],
     $server_status['Bytes_sent'], $server_status['Connections'],
-    $server_status['Questions'], $server_status['Uptime']
+    $server_status['Questions'], $server_status['Uptime'],
+    $used_queries
 );
 
 foreach ($sections as $section_name => $section) {
