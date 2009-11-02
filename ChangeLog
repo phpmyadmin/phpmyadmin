@@ -50,6 +50,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.2.4.0 (not yet released)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status
+- bug #2890451 [setup] Inconsistent generated "designer_coords"
 
 3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
