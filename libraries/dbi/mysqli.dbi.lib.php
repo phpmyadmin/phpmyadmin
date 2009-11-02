@@ -22,7 +22,13 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
 }
 
 /**
- * some older mysql client libs are missing this constants ...
+ * some PHP versions are reporting extra messages like "No index used in query"
+ */
+
+mysqli_report(MYSQLI_REPORT_OFF);
+
+/**
+ * some older mysql client libs are missing these constants ...
  */
 if (! defined('MYSQLI_BINARY_FLAG')) {
    define('MYSQLI_BINARY_FLAG', 128);
