@@ -1018,7 +1018,7 @@ $cfg['Export']['compression'] = 'none';
  *
  * @global boolean $cfg['Export']['asfile']
  */
-$cfg['Export']['asfile'] = false;
+$cfg['Export']['asfile'] = true;
 
 /**
  *
