@@ -62,7 +62,7 @@ $strAny = 'Calquera';
 $strAnyHost = 'Calquera servidor';
 $strAnyUser = 'Calquera usuario';
 $strApplyChanges='Aplicar as alteracións seleccionadas';
-$strApproximateCount = 'Pode ser aproximado. Consulte a FAQ 3.11';
+$strApproximateCount = 'Pode non ser exacto. Consulte a FAQ 3.11';
 $strAPrimaryKey = 'Engadiuse unha chave primaria a %s';
 $strArabic = 'Árabe';
 $strArmenian = 'Armenio';
@@ -253,6 +253,7 @@ $strDesigner = 'Deseñador';
 $strDesignerHelpDisplayField = 'O campo que se mostra aparece en rosa. Para indicar que un campo se seleccione ou non como o campo a mostrar, prema a icona "Escoller o campo a mostrar" e a seguir o nome do campo apropiado.';
 $strDetails = 'Detalles...';
 $strDictionary = 'dicionario';
+$strDifference = 'Diferenza';
 $strDirectLinks = 'Ligazóns directas';
 $strDirtyPages = 'Páxinas suxas';
 $strDisabled = 'Desactivado';
@@ -269,6 +270,7 @@ $strDoYouReally = 'Seguro? ';
 $strDropDatabaseStrongWarning = 'Está a piques de DESTRUÍR unha base de datos enteira!';
 $strDrop = 'Eliminar';
 $strDropUsersDb = 'Eliminar as bases de datos que teñan os mesmos nomes que os usuarios.';
+$strDumpAllRows = 'Envorcar todas as fileiras';
 $strDumpingData = 'A extraer datos da táboa';
 $strDumpSaved = 'Gardouse o volcado no ficheiro %s.';
 $strDumpXRows = 'Pór %s fileiras a partir da fileira %s.';
@@ -570,6 +572,7 @@ $strNoTablesFound = 'Non se achou ningunha táboa na base de datos';
 $strNoThemeSupport = 'Non ten a funcionalidade dos temas. Comprobe a configuración e/ou os seus temas no directorio %s.';
 $strNotNumber = 'Non é un número!';
 $strNotOK = 'non conforme';
+$strNotPresent = 'non está presente';
 $strNotSet = 'Non se atopou a táboa <b>%s</b>ou non se indicou en %s';
 $strNoUsersFound = 'Non se achou ningún usuario.';
 $strNoValidateSQL = 'Omitir a validacion de';
@@ -719,7 +722,7 @@ $strQueryOnDb = 'Procura tipo SQL na base de datos <b>%s</b>:';
 $strQueryResultsOperations = 'Operacións de resultados da procura';
 $strQuerySQLHistory = 'Historial de SQL';
 $strQueryStatistics = '<b>Estatística das procuras</b>: Desde que se iniciou, enviáronselle ao servidor %s procuras.';
-$strQueryTime = 'A pesquisa levou %01.4f segundos';
+$strQueryTime = 'a pesquisa levou %01.4f segundos';
 $strQueryType = 'Tipo de procura';
 $strQueryWindowLock = 'Non escribir sobre esta procura desde fóra da xanela';
 
@@ -1603,10 +1606,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimínase o límite.';
 $strZip = 'comprimido no formato "zip"';
 
-// To translate:
-
-$strDumpAllRows = 'Dump all rows';  //to translate
-
-$strDifference = 'Difference';  //to translate
-$strNotPresent = 'not present';  //to translate
 ?>
