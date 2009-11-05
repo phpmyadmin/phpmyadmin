@@ -100,9 +100,12 @@ function PMA_outBufferPost()
 {
     if (ob_get_status() && PMA_outBufferModeGet()) {
         ob_flush();
-    } else {
-        flush();
     }
+    /**
+     * previously we had here an "else flush()" but some PHP versions
+     * (at least PHP 5.2.11) have a bug (49816) that produces garbled
+     * data
+     */
 } // end of the 'PMA_outBufferPost()' function
 
 ?>
