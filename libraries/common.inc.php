@@ -976,8 +976,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     // rajk - checks for blobstreaming plugins and databases that support
     // blobstreaming (by having the necessary tables for blobstreaming)
-    if (checkBLOBStreamingPlugins())
+    if (checkBLOBStreamingPlugins()) {
         checkBLOBStreamableDatabases();
+    }
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // remove sensitive values from session

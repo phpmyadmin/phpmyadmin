@@ -15,6 +15,8 @@
  * @uses    PMA_BS_SetVariables()
  * @uses    PMA_BS_GetVariables()
  * @uses    PMA_BS_SetFieldReferences()
+ * @uses    PMA_cacheSet()
+ * @uses    PMA_cacheGet()
  * @return  boolean
 */
 function checkBLOBStreamingPlugins()
@@ -23,8 +25,20 @@ function checkBLOBStreamingPlugins()
     $PMA_Config = $_SESSION['PMA_Config'];
 
     // return if unable to load PMA configuration
-    if (empty($PMA_Config))
+    if (empty($PMA_Config)) {
         return FALSE;
+    }
+
+    // At this point we might already know that plugins do not exist
+    // because this was recorded in the session (cache).
+    if (PMA_cacheGet('skip_blobstreaming', true)) {
+        return false;
+    }
+
+    // If we don't know that we can skip blobstreaming, we continue
+    // verifications; anyway, in case we won't skip blobstreaming,
+    // we still need to set some variables in non-persistent settings,
+    // which is done via $PMA_Config->set().
 
     /** Retrieve current server configuration;
      *  at this point, $PMA_Config->get('Servers') contains the server parameters
@@ -81,9 +95,7 @@ function checkBLOBStreamingPlugins()
     // set variable indicating BS plugin existence
     $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $allPluginsExist);
 
-    // do the plugins exist?
-    if ($allPluginsExist)
-    {
+    if ($allPluginsExist) {
         // retrieve BS variables from PMA configuration
         $bs_set_variables = array();
 
@@ -99,24 +111,27 @@ function checkBLOBStreamingPlugins()
         $bs_variables = PMA_BS_GetVariables();
 
         // if no BS variables exist, set plugin existence to false and return
-        if (count($bs_variables) <= 0)
-        {
+        if (count($bs_variables) <= 0) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
             return FALSE;
         } // end if (count($bs_variables) <= 0)
 
         // switch on BS field references
-        if (strtolower($bs_variables[$PMA_Config->get('PBMS_NAME') . '_field_references']) == "off")
-            if(!PMA_BS_SetFieldReferences('ON'))
-		    return FALSE;
+        if (strtolower($bs_variables[$PMA_Config->get('PBMS_NAME') . '_field_references']) == "off") {
+            if (! PMA_BS_SetFieldReferences('ON')) {
+                PMA_cacheSet('skip_blobstreaming', true, true);
+                return FALSE;
+            }
+        }
 
         // get BS server port
         $BS_PORT = $bs_variables[$PMA_Config->get('PBMS_NAME') . '_port'];
 
         // if no BS server port exists, set plugin existance to false and return
-        if (!$BS_PORT)
-        {
+        if (! $BS_PORT) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', FALSE);
+            PMA_cacheSet('skip_blobstreaming', true, true);
             return FALSE;
         } // end if (!$BS_PORT)
 
@@ -128,14 +143,12 @@ function checkBLOBStreamingPlugins()
         $PMA_Config->set('FILEINFO_EXISTS', FALSE);
 
         // check if CURL exists
-        if (function_exists("curl_init"))
-        {
+        if (function_exists("curl_init")) {
             // initialize curl handler
             $curlHnd = curl_init();
 
             // CURL exists, set necessary variable and close resource
-            if (!empty($curlHnd))
-            {
+            if (! empty($curlHnd)) {
                 $PMA_Config->set('CURL_EXISTS', TRUE);
                 curl_close($curlHnd);                
             } // end if (!empty($curlHnd))
@@ -144,18 +157,19 @@ function checkBLOBStreamingPlugins()
         // check if PECL's fileinfo library exist
         $finfo = NULL;
 
-        if (function_exists("finfo_open"))
+        if (function_exists("finfo_open")) {
             $finfo = finfo_open(FILEINFO_MIME);
+        }
 
         // fileinfo library exists, set necessary variable and close resource
-        if (!empty($finfo))
-        {
+        if (! empty($finfo)) {
             $PMA_Config->set('FILEINFO_EXISTS', TRUE);
             finfo_close($finfo);
         } // end if (!empty($finfo))
-    } // end if ($allPluginsExist)
-    else
+    } else {
+        PMA_cacheSet('skip_blobstreaming', true, true);
         return FALSE;
+    } // end if ($allPluginsExist)
 
     $bs_tables = array();
 
@@ -228,9 +242,7 @@ function checkBLOBStreamableDatabases()
     // load PMA configuration
     $PMA_Config = $_SESSION['PMA_Config'];
 
-    // return if unable to load PMA configuration
-    if (empty($PMA_Config))
-        return;
+    $serverCfg = $GLOBALS['cfg']['Server'];
 
     // retrieve BS tables from PMA configuration
     $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES');
