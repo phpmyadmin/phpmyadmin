@@ -1209,7 +1209,6 @@ $strSetupServers_port_desc = 'Porto polo que está a escoitar o servidor de MySQ
 $strSetupServers_socket_name = 'Socket do servidor';
 $strSetupServers_socket_desc = 'Socket polo que está a escoitar o servidor de MySQL; déixeo en branco para deixar o predefinido';
 $strSetupServers_ssl_name = 'Empregar SSL';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_connect_type_name = 'Tipo de conexión';
 $strSetupServers_connect_type_desc = 'Como ligar co servidor; déixeo como tc se non está segura/a';
 $strSetupServers_extension_name = 'Extensión PHP que empregar';
@@ -1459,4 +1458,5 @@ $strReplicationStatus = 'Estado da replicación';
 $strReplicationStatusInfo = 'Este servidor de MySQL server funciona como %s en proceso de <b>replicación</b>. Para máis información acerca do estado de replicación do servidor visite a <a href="#replication">sección sobre replicación</a>.';
 $strReplicationStatus_master = 'Estado do mestre';
 $strReplicationStatus_slave = 'Estado do escravo';
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

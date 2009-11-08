@@ -827,7 +827,6 @@ $strSetupServers_password_name = 'Parola pentru „config auth”';
 $strSetupServers_port_desc = 'Portul la care ascultă serverul MySQL, lăsați gol pentru implicit';
 $strSetupServers_port_name = 'Portul serverului';
 $strSetupServers_socket_name = 'Soclul serverului';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Utilizează SSL';
 $strSetupServers_user_desc = 'Lăsați gol dacă nu utilizați „config auth”';
 $strSetupServers_user_name = 'Utilizator pentru „config auth”';
@@ -1467,4 +1466,5 @@ $strReplicationStatus = 'Replication status';  //to translate
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

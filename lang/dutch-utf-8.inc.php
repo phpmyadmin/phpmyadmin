@@ -1039,7 +1039,7 @@ $strSetupServers_column_info_desc = 'Laat dit veld leeg om geen kolom commentare
 $strSetupServers_column_info_name = 'Kolom informatie tabel';
 $strSetupServers_compress_desc = 'Comprimeer verbinding naar de MySQL-server';
 $strSetupServers_compress_name = 'Comprimeer verbinding';
-$strSetupServers_connect_type_desc = 'Hoe te verbinden met de server, gebruik bij twijfel [kdb]tcp[/kbd]';
+$strSetupServers_connect_type_desc = 'Hoe te verbinden met de server, gebruik bij twijfel [kbd]tcp[/kbd]';
 $strSetupServers_connect_type_name = 'Verbindingstype';
 $strSetupServers_controlpass_name = 'Controle gebruiker wachtwoord';
 $strSetupServers_controluser_desc = 'Een speciale MySQL gebruiker met beperkte rechten, zie de [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a] voor meer informatie';
@@ -1083,7 +1083,6 @@ $strSetupServers_SignonURL_name = 'Signon URL';
 $strSetupServerSslMsg = 'U kunt het beste een HTTPS verbinding gebruiken wanneer uw webserver dit ondersteund';
 $strSetupServers_socket_desc = 'Het socket waarop de MySQL-server luistert, laat dit leeg voor de standaard waarde';
 $strSetupServers_socket_name = 'Server socket';
-$strSetupServers_ssl_desc = ' ';
 $strSetupServers_ssl_name = 'Gebruik SSL';
 $strSetupServers_table_coords_desc = 'Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'PDF-schema: tabel coördinaten';
@@ -1465,4 +1464,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijdert de limiet.';
 $strZip = '"Gezipt"';
 
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

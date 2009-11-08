@@ -1067,7 +1067,6 @@ $strSetupServers_SignonURL_name = 'Oturum açma URL\'si';
 $strSetupServerSslMsg = 'Eğer web sunucunuz destekliyorsa SSL bağlantı kullanmalısınız';
 $strSetupServers_socket_desc = 'MySQL sunucusunun dinlemede olduğu soket, varsayılan ayar için boş bırakın';
 $strSetupServers_socket_name = 'Sunucu soketi';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'SSL kullan';
 $strSetupServers_table_info_desc = 'Görüntü alanlarını tanımlayan tablodur, destek istenmiyorsa boş bırakın; varsayılan: [kbd]pma_table_info[/kbd]';
 $strSetupServers_table_info_name = 'Görüntü alanları tablosu';
@@ -1464,4 +1463,5 @@ $strReplicationStatus = 'Replication status';  //to translate
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

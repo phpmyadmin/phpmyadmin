@@ -1209,7 +1209,6 @@ $strSetupServers_port_desc = 'Port na którym nasłuchuje serwer MySQL, pole pus
 $strSetupServers_socket_name = 'Gniazdo serwera';
 $strSetupServers_socket_desc = 'Gniazdko, na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną';
 $strSetupServers_ssl_name = 'Używaj SSL';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_connect_type_name = 'Typ połączenia';
 $strSetupServers_connect_type_desc = 'Sposób połączenia z serwerem; w razie niepewności, należy pozostawić tcp';
 $strSetupServers_extension_name = 'Rozszerzenie PHP';
@@ -1454,4 +1453,5 @@ $strReplicationStatus = 'Replication status';  //to translate
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

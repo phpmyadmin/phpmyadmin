@@ -1025,7 +1025,7 @@ $strSetupServers_column_info_desc = 'Leave blank for no column comments/mime typ
 $strSetupServers_column_info_name = 'Column information table';
 $strSetupServers_compress_desc = 'MySQL სერვერთან კავშირის შეკუმშვა';
 $strSetupServers_compress_name = 'კავშირის შეკუმშვა';
-$strSetupServers_connect_type_desc = 'How to connect to server, keep [kdb]tcp[/kdb] if unsure';
+$strSetupServers_connect_type_desc = 'How to connect to server, keep [kbd]tcp[/kbd] if unsure';
 $strSetupServers_connect_type_name = 'კავშირის ტიპი';
 $strSetupServers_controlpass_name = 'Control user password';
 $strSetupServers_controluser_desc = 'A special MySQL user configured with limited permissions, more information available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]';
@@ -1069,7 +1069,6 @@ $strSetupServers_SignonURL_name = 'Signon URL';
 $strSetupServerSslMsg = 'You should use SSL connections if your web server supports it';
 $strSetupServers_socket_desc = 'Socket on which MySQL server is listening, leave empty for default';
 $strSetupServers_socket_name = 'Server socket';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'SSL-ის გამოყენება';
 $strSetupServers_table_coords_desc = 'Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'PDF schema: table coordinates';
@@ -1465,4 +1464,5 @@ $strReplicationStatus = 'Replication status';  //to translate
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';  //to translate
 $strReplicationStatus_master = 'Master status';  //to translate
 $strReplicationStatus_slave = 'Slave status';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

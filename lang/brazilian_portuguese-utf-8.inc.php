@@ -1395,7 +1395,6 @@ $strSetupServers_SignonURL_name = 'Signon URL';  //to translate
 $strSetupServerSslMsg = 'You should use SSL connections if your web server supports it';  //to translate
 $strSetupServers_socket_desc = 'Socket on which MySQL server is listening, leave empty for default';  //to translate
 $strSetupServers_socket_name = 'Server socket';  //to translate
-$strSetupServers_ssl_desc = '';  //to translate
 $strSetupServers_ssl_name = 'Use SSL';  //to translate
 $strSetupServers_table_coords_desc = 'Leave blank for no PDF schema support, default: [kbd]pma_table_coords[/kbd]';  //to translate
 $strSetupServers_table_coords_name = 'PDF schema: table coordinates';  //to translate
@@ -1475,4 +1474,5 @@ $strViewVideo = 'View video';  //to translate
 $strWebServer = 'Web server';  //to translate
 $strWiki = 'Wiki';  //to translate
 
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>
