@@ -1150,7 +1150,6 @@ $strSetupServers_SignonURL_name = 'Oturum açma URL\'si';
 $strSetupServerSslMsg = 'Eğer web sunucunuz destekliyorsa SSL bağlantı kullanmalısınız';
 $strSetupServers_socket_desc = 'MySQL sunucusunun dinlemede olduğu soket, varsayılan ayar için boş bırakın';
 $strSetupServers_socket_name = 'Sunucu soketi';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'SSL kullan';
 $strSetupServers_table_info_desc = 'Görüntü alanlarını tanımlayan tablodur, destek istenmiyorsa boş bırakın; varsayılan: [kbd]pma_table_info[/kbd]';
 $strSetupServers_table_info_name = 'Görüntü alanları tablosu';
@@ -1611,4 +1610,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

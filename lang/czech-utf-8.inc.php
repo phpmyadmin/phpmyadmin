@@ -1104,7 +1104,6 @@ $strSetupServers_SignonURL_name = 'URL pro přihlášení';
 $strSetupServerSslMsg = 'Měli byste použít SSL připojení pokud to váš webserver podporuje';
 $strSetupServers_socket_desc = 'Socket na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu';
 $strSetupServers_socket_name = 'Socket serveru';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Použít SSL';
 $strSetupServers_user_desc = 'Nechte prázdné, pokud nepoužíváte autentizaci config';
 $strSetupServers_user_name = 'Uživatel pro autentizaci config';
@@ -1613,4 +1612,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

@@ -1078,7 +1078,6 @@ $strSetupServers_SignonURL_name = 'Signon-kirjautumisen verkko-osoite';
 $strSetupServerSslMsg = 'SSL-yhteyttä tulisi käyttää, jos verkkopalvelin tukee sitä.';
 $strSetupServers_socket_desc = 'Palvelinpistoke, jota MySQL-palvelin kuuntelee; käytä oletusarvoa jättämällä tyhjäksi';
 $strSetupServers_socket_name = 'Palvelinpistoke';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Käytä SSL-yhteyttä';
 $strSetupServers_table_coords_desc = 'Jätä tyhjäksi, jos et halua PDF-kaavioiden tukea; oletusarvo: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'PDF-kaavio: taulun koordinaatit';
@@ -1608,4 +1607,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

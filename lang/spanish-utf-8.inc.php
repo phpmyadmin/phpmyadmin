@@ -1207,7 +1207,6 @@ $strSetupServers_port_desc = 'El puerto al cual ha sido asociado el servidor MyS
 $strSetupServers_socket_name = 'Puerto del servidor';
 $strSetupServers_socket_desc = 'El puerto escuchado por el servidor MySQL, deje vacío para usar los valores predeterminados';
 $strSetupServers_ssl_name = 'Use SSL';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_connect_type_name = 'Tipo de conexión';
 $strSetupServers_connect_type_desc = 'Cómo conectar con el servidor, mantenga el tcp en caso de no estar seguro';
 $strSetupServers_extension_name = 'extensión PHP para usar';
@@ -1605,4 +1604,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

@@ -914,7 +914,6 @@ $strSetupServers_port_desc = 'Porten som MySQL tjeneren lytter på, la stå tom 
 $strSetupServers_socket_name = 'Tjenersokkel';
 $strSetupServers_socket_desc = 'Sokkel som MySQL tjeneren lytter på, la stå tom for standard verdi';
 $strSetupServers_ssl_name = 'Bruk SSL';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_connect_type_name = 'Tilkoblingstype';
 $strSetupServers_connect_type_desc = 'Hvordan koble til tjener, behold tcp hvis usikker';
 $strSetupServers_extension_name = 'Bruk PHP modul';
@@ -1605,4 +1604,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

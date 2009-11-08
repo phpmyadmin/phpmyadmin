@@ -1000,7 +1000,6 @@ $strSetupServers_SignonSession_name = 'Signon Session-Name';
 $strSetupServers_SignonURL_name = 'Signon URL';
 $strSetupServerSslMsg = 'Sie sollten SSL Verbindungen benutzen, wenn Ihr Webserver es unterstützt';
 $strSetupServers_socket_name = 'Sockel';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Benutze SSL';
 $strSetupServers_table_coords_name = 'Table Coords Table';
 $strSetupServers_table_info_name = 'Table Info Table';
@@ -1622,4 +1621,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

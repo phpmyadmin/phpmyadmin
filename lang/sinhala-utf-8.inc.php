@@ -1212,7 +1212,6 @@ $strSetupServers_port_desc = 'Port on which MySQL server is listening, leave emp
 $strSetupServers_socket_name = 'Server socket';  //to translate
 $strSetupServers_socket_desc = 'Socket on which MySQL server is listening, leave empty for default';  //to translate
 $strSetupServers_ssl_name = 'Use SSL';  //to translate
-$strSetupServers_ssl_desc = '';  //to translate
 $strSetupServers_connect_type_name = 'Connection type';  //to translate
 $strSetupServers_connect_type_desc = 'How to connect to server, keep tcp if unsure';  //to translate
 $strSetupServers_extension_name = 'PHP extension to use';  //to translate
@@ -1610,4 +1609,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

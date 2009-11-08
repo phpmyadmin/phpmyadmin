@@ -1208,7 +1208,6 @@ $strSetupServers_port_desc = 'Port na którym nasłuchuje serwer MySQL, pole pus
 $strSetupServers_socket_name = 'Gniazdo serwera';
 $strSetupServers_socket_desc = 'Gniazdko, na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną';
 $strSetupServers_ssl_name = 'Używaj SSL';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_connect_type_name = 'Typ połączenia';
 $strSetupServers_connect_type_desc = 'Sposób połączenia z serwerem; w razie niepewności, należy pozostawić tcp';
 $strSetupServers_extension_name = 'Rozszerzenie PHP';
@@ -1601,4 +1600,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

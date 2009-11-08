@@ -1072,7 +1072,6 @@ $strSetupServers_SignonURL_name = 'URL signon';
 $strSetupServerSslMsg = 'Hauries de fer servir connexions SSL si el teu servidor web ho permet';
 $strSetupServers_socket_desc = 'Sócol ón el servidor MySQL està escoltant, deixa en blanc per al predeterminat';
 $strSetupServers_socket_name = 'Sócol del servidor';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Usa SSL';
 $strSetupServers_table_coords_desc = 'Deixa en blanc per desactivar el suport d\'esquemes PDF, predeterminat: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'Esquema PDF: taula de coordinades';
@@ -1602,4 +1601,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

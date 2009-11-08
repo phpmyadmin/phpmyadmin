@@ -1150,7 +1150,6 @@ $strSetupServers_SignonURL_name = 'URL de rexistro de entrada';
 $strSetupServerSslMsg = 'Debería empregar conexións SSL se o admite o servidor web';
 $strSetupServers_socket_desc = 'Socket polo que está a escoitar o servidor de MySQL; déixeo en branco para deixar o predefinido';
 $strSetupServers_socket_name = 'Socket do servidor';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Empregar SSL';
 $strSetupServers_table_coords_desc = 'Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'PDF schema: coordenadas de táboa';
@@ -1606,4 +1605,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimínase o límite.';
 $strZip = 'comprimido no formato "zip"';
 
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>

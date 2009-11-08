@@ -1080,7 +1080,6 @@ $strSetupServers_SignonURL_name = 'Signon URL';
 $strSetupServerSslMsg = 'Du bör använda SSL-anslutningar om din webbserver har stöd för det';
 $strSetupServers_socket_desc = 'Sockel som MySQL-servern lyssnar på, lämna tomt för standard';
 $strSetupServers_socket_name = 'Serversockel';
-$strSetupServers_ssl_desc = '';
 $strSetupServers_ssl_name = 'Använd SSL';
 $strSetupServers_table_coords_desc = 'Lämna tomt för inget stöd för PDF-schema, förslag: [kbd]pma_table_coords[/kbd]';
 $strSetupServers_table_coords_name = 'PDF-schema: tabellkoordinater';
@@ -1604,4 +1603,5 @@ $strHaveBeenSynchronized = 'Selected target tables have been synchronized with s
 $strDumpAllRows = 'Dump all rows';  //to translate
 $strDifference = 'Difference';  //to translate
 $strNotPresent = 'not present';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 ?>
