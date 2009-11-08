@@ -12,6 +12,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2891250 [ob] Garbled data in navi frame (PHP 5.2.11 bug) 
 - bug #2887357 [core] Slow loading times with large databases (partial fix) 
 - bug #2893931 [lang] Typo and empty message 
++ [lang] Russian update, thanks to Victor Volkov 
 
 3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
