@@ -354,7 +354,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
     if (empty($tables)) {
         foreach ($databases as $each_database) {
-            if (true === $tbl_is_group) {
+            if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database)
                     .' LIKE \'' . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
