@@ -274,7 +274,7 @@ class PMA_Table
         }
 
         if (! isset(PMA_Table::$cache[$db][$table][$info])) {
-            trigger_error('unkown table status: ' . $info, E_USER_WARNING);
+            trigger_error('unknown table status: ' . $info, E_USER_WARNING);
             return false;
         }
 
