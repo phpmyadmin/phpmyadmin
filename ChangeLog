@@ -23,7 +23,6 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [gui] Generate Password not working for 'Change Login Information', only for 'Change password'
 + [lang] Arabic update, thanks to Meno25 - meno25 
 + rfe #2822190 [structure] BOOLEAN is standard SQL 
-- bug #2823599 [edit] UUID Primary Key wrongly updated
 + [lang] German update, thanks to knittl
 + [lang] German update, thanks to virsacer
 + rfe #2813867 [structure] Default sorting order in list of tables
@@ -56,6 +55,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2887357 [core] Slow loading times with large databases (partial fix)
 - bug #2893931 [lang] Typo and empty message
 + [lang] Russian update, thanks to Victor Volkov
+- bug #2823599 [edit] UUID Primary Key wrongly updated
 
 3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
