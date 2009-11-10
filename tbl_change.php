@@ -525,8 +525,12 @@ foreach ($rows as $row_id => $vrow) {
                     $default_function = $cfg['DefaultFunctions']['first_timestamp'];
                 }
 
-                if ($field['Key'] == 'PRI'
-                 && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')) {
+                // For primary keys of type char(36) or varchar(36) UUID if the default function
+                // Only applies to insert mode, as it would silently trash data on updates.
+                if ($insert_mode
+                    && $field['Key'] == 'PRI'
+                    && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
+                ) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
 
