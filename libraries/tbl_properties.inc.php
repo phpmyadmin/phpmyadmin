@@ -222,10 +222,16 @@ for ($i = 0; $i < $num_fields; $i++) {
             case null:
                 if ($row['Null'] == 'YES') {
                     $row['DefaultType']  = 'NULL';
+                    $row['DefaultValue'] = '';
+    // SHOW FULL FIELDS does not report the case when there is a DEFAULT value
+    // which is empty so we need to use the results of SHOW CREATE TABLE
+                } elseif (isset($row) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_value'])) {
+                    $row['DefaultType']  = 'USER_DEFINED';
+                    $row['DefaultValue'] = $row['Default'];
                 } else {
                     $row['DefaultType']  = 'NONE';
+                    $row['DefaultValue'] = '';
                 }
-                $row['DefaultValue'] = '';
                 break;
             case 'CURRENT_TIMESTAMP':
                 $row['DefaultType']  = 'CURRENT_TIMESTAMP';
@@ -388,9 +394,9 @@ for ($i = 0; $i < $num_fields; $i++) {
         'CURRENT_TIMESTAMP' => 'CURRENT_TIMESTAMP',
     );
 
-    // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
+    // for a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
     if ($type_upper == 'TIMESTAMP'
-     && $default_current_timestamp
+     && ! empty($default_current_timestamp)
      && isset($row['Default'])) {
         $row['Default'] = '';
     }
