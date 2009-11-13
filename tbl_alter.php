@@ -176,27 +176,23 @@ if ($abort == false) {
     $num_fields  = count($fields_meta);
     $action      = 'tbl_alter.php';
 
-    // Get more complete field information
-    // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
-    // but later, if the analyser returns more information, it
-    // could be executed for any MySQL version and replace
-    // the info given by SHOW FULL FIELDS FROM.
+    // Get more complete field information.
+    // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
+    // and to know when there is an empty DEFAULT value.
+    // Later, if the analyser returns more information, it
+    // could be executed to replace the info given by SHOW FULL FIELDS FROM.
     /**
      * @todo put this code into a require()
      * or maybe make it part of PMA_DBI_get_fields();
      */
 
-    if (PMA_MYSQL_INT_VERSION < 50025) {
-        // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-        // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
-        // in MySQL 4.0.25).
+    // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
+    // in MySQL 4.0.25).
 
-        $show_create_table = PMA_DBI_fetch_value(
-            'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
-            0, 1);
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-    }
-
+    $show_create_table = PMA_DBI_fetch_value('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), 0, 1);
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    unset($show_create_table);
     /**
      * Form for changing properties.
      */

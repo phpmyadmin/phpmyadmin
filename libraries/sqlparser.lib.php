@@ -922,8 +922,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
  * create_table_fields
  * -------------------
  *
- * For now, mostly used to detect the DEFAULT CURRENT_TIMESTAMP and
+ * Used to detect the DEFAULT CURRENT_TIMESTAMP and
  * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
+ * Also used to store the default value of the field.
  * An array, each element is the identifier name.
  * Note that for now, the timestamp_not_null element is created
  * even for non-TIMESTAMP fields.
@@ -1898,6 +1899,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($seen_create_table && $in_create_table_fields) {
                     if ($upper_data == 'DEFAULT') {
                         $seen_default = TRUE;
+                        $create_table_fields[$current_identifier]['default_value'] = $arr[$i + 1]['data'];
                     }
                 }
             }

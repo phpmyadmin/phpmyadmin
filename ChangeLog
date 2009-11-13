@@ -56,6 +56,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2893931 [lang] Typo and empty message
 + [lang] Russian update, thanks to Victor Volkov
 - bug #2823599 [edit] UUID Primary Key wrongly updated
+- bug #2895894 [structure] Empty default value not set properly
 
 3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
