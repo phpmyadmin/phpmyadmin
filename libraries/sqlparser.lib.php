@@ -676,7 +676,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
-                if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
+                // for example: `thebit` bit(8) NOT NULL DEFAULT b'0' 
+                if ($t_prev == 'alpha' && $d_prev == 'DEFAULT' && $d_cur == 'b' && $t_next == 'quote_single') {
+                    $t_suffix = '_bitfield_constant_introducer';
+                } elseif (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
                     $t_suffix = '_identifier';
                 } elseif (($t_next == 'punct_bracket_open_round')
                   && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
@@ -2183,6 +2186,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             }
 
             switch ($typearr[2]) {
+                case 'alpha_bitfield_constant_introducer':
+                    $before     = ' ';
+                    $after      = '';
+                    break;
                 case 'white_newline':
                     $before     = '';
                     break;
@@ -2417,7 +2424,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // the @ is incorrectly marked as alpha_variable
                     // in the parser, and here, the '%' gets a blank before,
                     // which is a syntax error
-                    if ($typearr[1] != 'punct_user') {
+                    if ($typearr[1] != 'punct_user' && $typearr[1] != 'alpha_bitfield_constant_introducer') {
                         $before        .= ' ';
                     }
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
