@@ -1911,7 +1911,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  *
  * @access  public
  * @author  Michal Cihar (michal@cihar.com) and others...
- * @return  string      calculated condition
+ * @return  array      the calculated condition and whether condition is unique
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
 {
@@ -2009,15 +2009,19 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
     // Correction University of Virginia 19991216:
     // prefer primary or unique keys for condition,
     // but use conjunction of all values if no primary key
+    $clause_is_unique = true;
     if ($primary_key) {
         $preferred_condition = $primary_key;
     } elseif ($unique_key) {
         $preferred_condition = $unique_key;
     } elseif (! $force_unique) {
         $preferred_condition = $nonprimary_condition;
+        $clause_is_unique = false;
     }
 
-    return trim(preg_replace('|\s?AND$|', '', $preferred_condition));
+    $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
+    return(array($where_clause, $clause_is_unique));
+
 } // end function
 
 /**

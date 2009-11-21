@@ -19,7 +19,6 @@ require_once './libraries/common.inc.php';
  */
 require_once './libraries/db_table_exists.lib.php';
 
-
 /**
  * Sets global variables.
  * Here it's better to use a if, instead of the '?' operator
@@ -31,6 +30,10 @@ require_once './libraries/db_table_exists.lib.php';
  */
 if (isset($_REQUEST['primary_key'])) {
     $primary_key = $_REQUEST['primary_key'];
+}
+
+if (isset($_REQUEST['clause_is_unique'])) {
+    $clause_is_unique = $_REQUEST['clause_is_unique'];
 }
 if (isset($_SESSION['edit_next'])) {
     $primary_key = $_SESSION['edit_next'];
@@ -177,16 +180,17 @@ if (isset($primary_key)) {
             PMA_showMessage($strEmptyResultSet, $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
-        } else { // end if (no record returned)
+        } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
-            if ($tmp = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true)) {
+            list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
+            if (! empty($unique_condition)) {
                 $found_unique_key = true;
             }
-            unset($tmp);
+            unset($unique_condition, $tmp_clause_is_unique);
         }
     }
 } else {
-    // no primary key given, just load first row - but what happens if tbale is empty?
+    // no primary key given, just load first row - but what happens if table is empty?
     $insert_mode = true;
     $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;', null, PMA_DBI_QUERY_STORE);
     $rows = array_fill(0, $cfg['InsertRows'], false);
@@ -232,6 +236,9 @@ if (isset($primary_keys)) {
     foreach ($primary_key_array as $key_id => $primary_key) {
         $_form_params['primary_key[' . $key_id . ']'] = trim($primary_key);
     }
+}
+if (isset($clause_is_unique)) {
+    $_form_params['clause_is_unique'] = $clause_is_unique;
 }
 
 ?>
