@@ -442,7 +442,7 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
  * @param   integer  the total number of fields returned by the SQL query
  * @param   array    the analyzed query
  *
- * @return  boolean  always true
+ * @return  boolean  $clause_is_unique 
  *
  * @global  string   $db               the database name
  * @global  string   $table            the table name
@@ -1076,14 +1076,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 1. Prepares the row (gets primary keys to use)
         // 1.1 Results from a "SELECT" statement -> builds the
-        //     "primary" key to use in links
+        //     WHERE clause to use in links (a unique key if possible)
         /**
-         * @todo $unique_condition could be empty, for example a table
+         * @todo $where_clause could be empty, for example a table
          *       with only one field and it's a BLOB; in this case,
          *       avoid to display the delete and edit links
          */
-        $unique_condition      = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
-        $unique_condition_html = urlencode($unique_condition);
+        list($where_clause, $clause_is_unique) = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+        $where_clause_html = urlencode($where_clause);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -1099,11 +1099,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // 1.2.1 Modify link(s)
             if ($is_display['edit_lnk'] == 'ur') { // update row case
                 $_url_params = array(
-                    'db'            => $db,
-                    'table'         => $table,
-                    'primary_key'   => $unique_condition,
-                    'sql_query'     => $url_sql_query,
-                    'goto'          => 'sql.php',
+                    'db'               => $db,
+                    'table'            => $table,
+                    'primary_key'      => $where_clause,
+                    'clause_is_unique' => $clause_is_unique,
+                    'sql_query'        => $url_sql_query,
+                    'goto'             => 'sql.php',
                 );
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params);
 
@@ -1141,7 +1142,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
                 $del_query = 'DELETE FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
-                    . ' WHERE ' . $unique_condition . ' LIMIT 1';
+                    . ' WHERE ' . $where_clause . ($clause_is_unique ? '' : ' LIMIT 1'); 
 
                 $_url_params = array(
                     'db'        => $db,
@@ -1153,8 +1154,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
-                          . ' WHERE ' . PMA_jsFormat($unique_condition, false)
-                          . ' LIMIT 1';
+                          . ' WHERE ' . PMA_jsFormat($where_clause, false)
+                          . ($clause_is_unique ? '' : ' LIMIT 1'); 
                 $del_str = PMA_getIcon('b_drop.png', $GLOBALS['strDelete'], true);
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
@@ -1238,7 +1239,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $_url_params = array(
                 'db'            => $db,
                 'table'         => $table,
-                'primary_key'   => $unique_condition,
+                'primary_key'   => $where_clause,
                 'transform_key' => $meta->name,
             );
 
@@ -1441,7 +1442,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td align="center" class="' . $class . '" ' . $column_style_vertical . '>' . "\n"
-                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $unique_condition_html . ']"'
+                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $where_clause_html . ']"'
                                                      .  ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
                                                      .  ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
                                                      .  '    </td>' . "\n";
@@ -1470,7 +1471,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         $row_no++;
     } // end while
 
-    return true;
+    // this is needed by PMA_displayTable() to generate the proper param
+    // in the multi-edit and multi-delete form
+    return $clause_is_unique;
 } // end of the 'PMA_displayTableBody()' function
 
 
@@ -2012,7 +2015,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql, $sort_expression, $sort_expression_nodirection, $sort_direction);
     $url_query = '';
     echo '<tbody>' . "\n";
-    PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
+    $clause_is_unique = PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
     // vertical output case
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
         PMA_displayVerticalTable();
@@ -2023,7 +2026,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 </table>
 
     <?php
-    // 4. ----- Displays the link for multi-fields delete
+    // 4. ----- Displays the link for multi-fields edit and delete
 
     if ($is_display['del_lnk'] == 'dr' && $is_display['del_lnk'] != 'kp') {
 
@@ -2074,6 +2077,10 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="url_query"'
             .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
+
+        echo '<input type="hidden" name="clause_is_unique"'
+            .' value="' . $clause_is_unique . '" />' . "\n";
+
         echo '</form>' . "\n";
     }
 

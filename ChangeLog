@@ -58,6 +58,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2823599 [edit] UUID Primary Key wrongly updated
 - bug #2895894 [structure] Empty default value not set properly
 - bug #2897536 [parser] Copying table with bit field with default
+- bug #2893221 [core] Statement may not be safe to log in statement format
 
 3.2.3.0 (2009-10-30)
 - patch #2856664 [export] Date, time, and datetime column types now export correctly to
