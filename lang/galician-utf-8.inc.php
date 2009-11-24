@@ -1606,4 +1606,7 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
+$strClickToSelect = 'Click to select';  //to translate
+$strClickToUnselect = 'Click to unselect';  //to translate
+$strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
 ?>

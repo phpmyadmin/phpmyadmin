@@ -306,16 +306,16 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
     // The image source is changed when the showDetails function is called.
     if (relative_path[1] == 'original/img/new_data_hovered.jpg') {    
         img_obj.src = "./themes/original/img/new_data_selected_hovered.jpg";
-        img_obj.alt = "Click to Unselect";  //only for IE browser
+        img_obj.alt = PMA_messages['strClickToUnselect'];  //only for IE browser
     } else if (relative_path[1] == 'original/img/new_struct_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_struct_selected_hovered.jpg";
-        img_obj.alt = "Click to Unselect";
+        img_obj.alt = PMA_messages['strClickToUnselect'];
     } else if (relative_path[1] == 'original/img/new_struct_selected_hovered.jpg') {
         img_obj.src = "./themes/original/img/new_struct_hovered.jpg";
-        img_obj.alt = "Click to Select";
+        img_obj.alt = PMA_messages['strClickToSelect'];
     } else if (relative_path[1] == 'original/img/new_data_selected_hovered.jpg') {    
         img_obj.src = "./themes/original/img/new_data_hovered.jpg";
-        img_obj.alt = "Click to Select";  
+        img_obj.alt = PMA_messages['strClickToSelect'];
     } 
     
     var div = document.getElementById("list");    

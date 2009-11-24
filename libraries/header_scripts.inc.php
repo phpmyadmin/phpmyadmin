@@ -66,6 +66,8 @@ $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 if (in_array('functions.js', $GLOBALS['js_include'])) {
     $GLOBALS['js_messages']['strFormEmpty'] = $GLOBALS['strFormEmpty'];
     $GLOBALS['js_messages']['strNotNumber'] = $GLOBALS['strNotNumber'];
+    $GLOBALS['js_messages']['strClickToSelect'] = $GLOBALS['strClickToSelect'];
+    $GLOBALS['js_messages']['strClickToUnselect'] = $GLOBALS['strClickToUnselect'];
 
     if (!$is_superuser && !$GLOBALS['cfg']['AllowUserDropDatabase']) {
         $GLOBALS['js_messages']['strNoDropDatabases'] = $GLOBALS['strNoDropDatabases'];

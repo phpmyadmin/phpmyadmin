@@ -1626,4 +1626,7 @@ $strXMLExportTables = 'Export tables';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
+$strClickToSelect = 'Click to select';  //to translate
+$strClickToUnselect = 'Click to unselect';  //to translate
+$strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
 ?>
