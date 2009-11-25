@@ -133,13 +133,15 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 
     PMA_printDiagMessageForFeature('strColComFeat', 'commwork', $messages, false);
 
-    PMA_printDiagMessageForFeature('strBookmarkQuery', 'bookmarkwork', $messages, false);
-
     PMA_printDiagMessageForFeature('strMIME_transformation', 'mimework', $messages);
 
     if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
         echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
     }
+
+    PMA_printDiagMessageForParameter('bookmarktable', isset($cfgRelation['bookmark']), $messages, 'bookmark');
+
+    PMA_printDiagMessageForFeature('strBookmarkQuery', 'bookmarkwork', $messages);
 
     PMA_printDiagMessageForParameter('history', isset($cfgRelation['history']), $messages, 'history');
 
