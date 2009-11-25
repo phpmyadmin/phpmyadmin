@@ -279,6 +279,8 @@ function PMA_replication_gui_master_addslaveuser() {
     echo PMA_generate_common_hidden_inputs('', '');
     echo '<fieldset id="fieldset_add_user_login">' . "\n"
         . '<legend>'.$GLOBALS['strReplicationAddSlaveUser'].'</legend>' . "\n"
+	. '<input type="hidden" name="grant_count" value="25" />' . "\n"
+	. '<input type="hidden" name="createdb" id="createdb_0" value="0" />' . "\n"
         . '<input id="checkbox_Repl_slave_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_slave_priv"/>'. "\n"
         . '<input id="checkbox_Repl_client_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_client_priv"/>'. "\n"
         . '<input type="hidden" name="sr_take_action" value="true" />'. "\n"
