@@ -48,6 +48,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2129902 [structure] Don't hide indexes 
 
 3.2.5.0 (not yet released)
+- patch #2903400 [bookmarks] Status of bookmark table, 
+  thanks to Virsacer - virsacer 
 
 3.2.4.0 (not yet released)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status
