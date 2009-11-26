@@ -1,4 +1,3 @@
-<?php
 #!/bin/bash
 # $Id$
 #
@@ -29,4 +28,3 @@ done
 echo " "
 echo "Messages added to add message files (including english)"
 
-?>

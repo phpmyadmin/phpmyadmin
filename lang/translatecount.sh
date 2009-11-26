@@ -1,4 +1,3 @@
-<?php
 #!/bin/sh
 # $Id$
 ##
@@ -30,4 +29,3 @@ if [ ! -z "${destfilelist}" ]; then
   grep -c -- "${translationmatch}" ${destfilelist} | sort -t':' -n +1  | sed -e "s/${suffixtoremove}//g" | xargs -n1 | egrep -v ':0$' 
 fi;
 
-?>

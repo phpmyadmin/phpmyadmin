@@ -1,4 +1,3 @@
-<?php
 #!/bin/bash
 # $Id$
 #
@@ -23,4 +22,3 @@ do
 done
 echo " "
 
-?>

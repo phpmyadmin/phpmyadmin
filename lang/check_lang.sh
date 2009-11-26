@@ -1,4 +1,3 @@
-<?php
 #!/bin/sh
 # $Id$
 ##
@@ -61,4 +60,3 @@ echo "Miss = Missing Variables"
 echo "For exact problem listings, look in the $TMPDIR/ directory"
 echo "Please remember to remove '$TMPDIR/' once you are done"
 
-?>
