@@ -1158,15 +1158,19 @@ if (isset($_REQUEST['synchronize_db'])) {
 	</tr>
 	<tr class="even" id="'.$type.'tr7" style="display: none;">
 	    <td>'. $GLOBALS['strDatabase']. '</td>
-	    <td>
-	      <select name="'.$type.'_db_sel">
-	';
-	foreach ($databases as $db) {
-	    if ($db['SCHEMA_NAME'] != 'mysql'
-             && $db['SCHEMA_NAME'] != 'information_schema') { 
-                 echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
-        }
-	}  
+	    <td>';
+	if (count($databases)==2) {
+		echo $GLOBALS["strNoDatabaseAvailable"]; // TODO: move to LANG file
+	} else {
+		echo '
+	      	<select name="'.$type.'_db_sel">
+		';
+		foreach ($databases as $db) {
+	    		if ($db['SCHEMA_NAME'] != 'mysql'
+             	       	  && $db['SCHEMA_NAME'] != 'information_schema')  
+                 		echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
+		}  
+	}
 	echo '
 	      </select>
 	    </td>

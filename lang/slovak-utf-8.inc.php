@@ -1058,12 +1058,17 @@ $strBLOBRepositoryRemove = 'Remove BLOB Repository Reference';  //to translate
 $strBLOBRepositoryRepair = 'Repair';  //to translate
 $strBLOBRepositoryUpload = 'Upload to BLOB repository';  //to translate
 
+$strClickToSelect = 'Click to select';  //to translate
+$strClickToUnselect = 'Click to unselect';  //to translate
+
 $strDataDiff = 'Data Difference';  //to translate
 $strDataSyn = 'Data Synchronization';  //to translate
 $strDeleteRelation = 'Delete relation';  //to translate
 $strDesignerHelpDisplayField = 'The display field is shown in pink. To set/unset a field as the display field, click the "Choose field to display" icon, then click on the appropriate field name.';  //to translate
 $strDetails = 'Details...';  //to translate
+$strDifference = 'Difference';  //to translate
 $strDocSQL = 'DocSQL';  //to translate
+$strDumpAllRows = 'Dump all rows';  //to translate
 
 $strErrorRelationAdded = 'Error: Relation not added.';  //to translate
 $strErrorRelationExists = 'Error: relation already exists.';  //to translate
@@ -1075,6 +1080,7 @@ $strForeignKeyRelationAdded = 'FOREIGN KEY relation added';  //to translate
 $strFullStart = 'Full start';  //to translate
 $strFullStop = 'Full stop';  //to translate
 
+$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
 $strHexForBLOB = 'Use hexadecimal for BLOB';  //to translate
 $strHideShowAll = 'Hide/Show all';  //to translate
 $strHideShowNoRelation = 'Hide/Show Tables with no relation';  //to translate
@@ -1093,6 +1099,9 @@ $strInternalAndForeign = 'An internal relation is not necessary when a correspon
 $strInternalRelationAdded = 'Internal relation added';  //to translate
 
 $strMediaWiki = 'MediaWiki Table';  //to translate
+
+$strNoDatabaseAvailable = 'No database available';  //to translate
+$strNotPresent = 'not present';  //to translate
 
 $strPBXTCheckpointFrequency = 'Checkpoint frequency';  //to translate
 $strPBXTCheckpointFrequencyDesc = 'The amount of data written to the transaction log before a checkpoint is performed. The default value is 24MB.';  //to translate
@@ -1129,6 +1138,8 @@ $strPrivDescEvent = 'Allows to set up events for the event scheduler';  //to tra
 $strPrivDescProcess = 'Allows viewing processes of all users';  //to translate
 $strPrivDescTrigger = 'Allows creating and dropping triggers';  //to translate
 $strProfiling = 'Profiling';  //to translate
+
+$strQueriesExecuted = 'The following queries have been executed:';  //to translate
 
 $strRebuild = 'Rebuild';  //to translate
 $strRecommended = 'recommended';  //to translate
@@ -1442,6 +1453,7 @@ $strSetupServers_relation_desc = 'Leave blank for no [a@http://wiki.phpmyadmin.n
 $strSetupServers_relation_name = 'Relation table';  //to translate
 $strSetupServers_socket_desc = 'Socket on which MySQL server is listening, leave empty for default';  //to translate
 $strSetupServers_socket_name = 'Server socket';  //to translate
+$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 $strSetupServers_ssl_name = 'Use SSL';  //to translate
 $strSetupServers_table_coords_desc = 'Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]';  //to translate
 $strSetupServers_table_coords_name = 'PDF schema: table coordinates';  //to translate
@@ -1542,6 +1554,7 @@ $strSynchronizationNote='Target database will be completely synchronized with so
 $strTableAlterIndex = 'Alter index(s)';  //to translate
 $strTableApplyIndex = 'Apply index(s)';  //to translate
 $strTableDeleteRows = 'Would you like to delete all the previous rows from target tables?';  //to translate
+$strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
 $strTexyText = 'Texy! text';  //to translate
 $strToFromPage = 'to/from page';  //to translate
 $strToSelectRelation = 'To select relation, click :';  //to translate
@@ -1616,13 +1629,4 @@ $strXMLExportTables = 'Export tables';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
-$strQueriesExecuted = 'The following queries have been executed:';  //to translate
-$strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
-$strDumpAllRows = 'Dump all rows';  //to translate
-$strDifference = 'Difference';  //to translate
-$strNotPresent = 'not present';  //to translate
-$strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
-$strClickToSelect = 'Click to select';  //to translate
-$strClickToUnselect = 'Click to unselect';  //to translate
-$strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
 ?>

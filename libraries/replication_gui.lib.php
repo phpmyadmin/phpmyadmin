@@ -283,6 +283,7 @@ function PMA_replication_gui_master_addslaveuser() {
 	. '<input type="hidden" name="createdb" id="createdb_0" value="0" />' . "\n"
         . '<input id="checkbox_Repl_slave_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_slave_priv"/>'. "\n"
         . '<input id="checkbox_Repl_client_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_client_priv"/>'. "\n"
+	. '' . "\n"
         . '<input type="hidden" name="sr_take_action" value="true" />'. "\n"
         . '<div class="item">' . "\n"
         . '<label for="select_pred_username">' . "\n"

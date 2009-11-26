@@ -1,3 +1,4 @@
+<?php
 #!/bin/sh
 # $Id$
 ##
@@ -27,7 +28,6 @@ sortlang()
     targetdir=tmp-$f
     mkdir -p $targetdir
 
-    TRANSLATIONSTRING='//.*translate.*$'
     STRINGSTRING='^\$str[[:alnum:]_]+'
     WHITESPACE='^[[:blank:]]*$'
     CVSID='/\* \$Id$ \*/'
@@ -35,7 +35,6 @@ sortlang()
     echo -n "Extracting:"
     echo -n " head"
     egrep -i -v $TRANSLATIONSTRING $f | \
-    egrep -v "$STRINGSTRING|$CVSID|\?>|<\?php" >> $targetdir/head
 
     echo -n " cvs"
     egrep "$CVSID" $f >>$targetdir/cvs
@@ -54,7 +53,6 @@ sortlang()
 
     echo -n " pending_translations"
     if [ -s $targetdir/tmp-translate ] ; then
-        echo '// To translate:' > $targetdir/translate
         specialsort $targetdir/tmp-translate $targetdir/translate
     else
         echo -n > $targetdir/translate
@@ -62,10 +60,8 @@ sortlang()
     echo
 
     echo "Assembling final"
-    echo "<?php" > $f
     cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate \
     | uniq >> $f
-    echo "?>" >> $f
 
     rm -rf $targetdir
 }
@@ -81,3 +77,5 @@ do
     fi
     echo "-------------------------------------------------------------------"
 done;
+
+?>
