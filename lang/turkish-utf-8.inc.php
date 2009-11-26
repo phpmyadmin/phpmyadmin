@@ -1615,7 +1615,6 @@ $strDumpAllRows = 'Dump all rows';  //to translate
 
 $strHaveBeenSynchronized = 'Selected target tables have been synchronized with source tables.';  //to translate
 
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNotPresent = 'not present';  //to translate
 
 $strQueriesExecuted = 'The following queries have been executed:';  //to translate

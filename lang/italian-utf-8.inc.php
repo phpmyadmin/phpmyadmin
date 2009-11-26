@@ -1198,7 +1198,6 @@ $strLoginWithoutPassword = 'Login without a password is forbidden by configurati
 $strMediaWiki = 'MediaWiki Table';  //to translate
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNoneDefault = 'None';  //to translate
 $strNotPresent = 'not present';  //to translate
 

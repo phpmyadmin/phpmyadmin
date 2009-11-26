@@ -1109,7 +1109,6 @@ $strLogServerHelp = 'You can enter hostname/IP address and port separated by spa
 $strMediaWiki = 'MediaWiki Table';  //to translate
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNoneDefault = 'None';  //to translate
 $strNotPresent = 'not present';  //to translate
 

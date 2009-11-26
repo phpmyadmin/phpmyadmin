@@ -253,7 +253,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             /**
             * Displays the sub-heading and icons showing Structure Synchronization and Data Synchronization
             */
-            echo '<form name="synchronize_form" id="synchronize_form" method="POST" action="server_synchronize.php">'
+            echo '<form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">'
             . PMA_generate_common_hidden_inputs('', '');
             echo '<table id="serverstatustraffic" class="data" width = "50%">
             <tr>
@@ -711,7 +711,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Again all the tables from source and target database are displayed with their differences. 
     * The differences have been removed from tables that have been synchronized
     */
-    echo '<form name="applied_difference" id="synchronize_form" method="POST" action="server_synchronize.php">'
+    echo '<form name="applied_difference" id="synchronize_form" method="post" action="server_synchronize.php">'
     . PMA_generate_common_hidden_inputs('', '');
     
     PMA_syncDisplayHeaderSource($src_db);
@@ -1107,7 +1107,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     .'</h2>' . "\n";
     
     echo  '<div id="serverstatus">                 
-    <form name="connection_form" id="connection_form" method="POST" action="server_synchronize.php"
+    <form name="connection_form" id="connection_form" method="post" action="server_synchronize.php"
    >' // TODO: add check if all var. are filled in
     . PMA_generate_common_hidden_inputs('', ''); 
     echo '<fieldset>'."\n";
@@ -1159,22 +1159,21 @@ if (isset($_REQUEST['synchronize_db'])) {
 	<tr class="even" id="'.$type.'tr7" style="display: none;">
 	    <td>'. $GLOBALS['strDatabase']. '</td>
 	    <td>';
-	if (count($databases)==2) {
-		echo $GLOBALS["strNoDatabaseAvailable"]; // TODO: move to LANG file
+      // these unset() do not complain if the elements do not exist
+    unset($databases['mysql']);
+    unset($databases['information_schema']);
+	if (count($databases) == 0) {
+		echo $GLOBALS['strNoDatabases'];
 	} else {
 		echo '
-	      	<select name="'.$type.'_db_sel">
+	      	<select name="' . $type . '_db_sel">
 		';
 		foreach ($databases as $db) {
-	    		if ($db['SCHEMA_NAME'] != 'mysql'
-             	       	  && $db['SCHEMA_NAME'] != 'information_schema')  
-                 		echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
+            echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
 		}  
+        echo '</select>';
 	}
-	echo '
-	      </select>
-	    </td>
-	</tr>
+	echo '</td> </tr>
       </table>';
 
     // Add JS to show/hide rows based on the selection      

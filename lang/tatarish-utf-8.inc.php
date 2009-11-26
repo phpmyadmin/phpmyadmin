@@ -933,7 +933,6 @@ $strMoveMenu = 'Move Menu';  //to translate
 $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';  //to translate
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 $strNoneDefault = 'None';  //to translate
 $strNotPresent = 'not present';  //to translate

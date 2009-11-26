@@ -1610,7 +1610,6 @@ $strZip = 'comprimido no formato "zip"';
 $strClickToSelect = 'Click to select';  //to translate
 $strClickToUnselect = 'Click to unselect';  //to translate
 
-$strNoDatabaseAvailable = 'No database available';  //to translate
 
 $strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to translate
 

@@ -1100,7 +1100,6 @@ $strInternalRelationAdded = 'Internal relation added';  //to translate
 
 $strMediaWiki = 'MediaWiki Table';  //to translate
 
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNotPresent = 'not present';  //to translate
 
 $strPacked = 'Packed';  //to translate

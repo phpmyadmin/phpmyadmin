@@ -548,7 +548,6 @@ $strName = 'Name';
 $strNavTableFilter = 'Filter';
 $strNext = 'Next';
 $strNoActivity = 'No activity within %s seconds; please log in again';
-$strNoDatabaseAvailable = 'No database available';
 $strNoDatabases = 'No databases';
 $strNoDatabasesSelected = 'No databases selected.';
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].';

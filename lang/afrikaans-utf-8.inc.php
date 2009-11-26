@@ -740,7 +740,6 @@ $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs fr
 
 $strNavTableFilter = 'Filter';  //to translate
 $strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
 $strNoDataReceived = 'No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See FAQ 1.16.';  //to translate
 $strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate

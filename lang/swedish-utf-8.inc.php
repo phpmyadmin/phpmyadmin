@@ -1501,7 +1501,6 @@ $strImportXLSX = 'Excel 2007 XLSX Workbook';  //to translate
 
 $strMediaWiki = 'MediaWiki Table';  //to translate
 
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNotPresent = 'not present';  //to translate
 
 $strPort = 'Port';  //to translate

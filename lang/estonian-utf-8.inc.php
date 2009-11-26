@@ -1072,7 +1072,6 @@ $strMediaWiki = 'MediaWiki Table';  //to translate
 $strMysqlLibDiffersServerVersion = 'Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.';  //to translate
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNoneDefault = 'None';  //to translate
 $strNotPresent = 'not present';  //to translate
 

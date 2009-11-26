@@ -1435,7 +1435,6 @@ $strImportXLSX = 'Excel 2007 XLSX Workbook';  //to translate
 $strMediaWiki = 'MediaWiki Table';  //to translate
 
 $strNavTableFilter = 'Filter';  //to translate
-$strNoDatabaseAvailable = 'No database available';  //to translate
 $strNotPresent = 'not present';  //to translate
 
 $strPBXTRecordCacheSize = 'Record cache size';  //to translate

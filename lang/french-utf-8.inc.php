@@ -1609,6 +1609,5 @@ $strZip = '"zippé"';
 
 // To translate:
 
-$strNoDatabaseAvailable = 'No database available';  //to translate
 
 ?>
