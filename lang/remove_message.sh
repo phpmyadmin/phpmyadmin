@@ -21,4 +21,3 @@ do
     echo " lines after:" `wc -l $file`
 done
 echo " "
-

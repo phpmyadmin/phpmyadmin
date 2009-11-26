@@ -29,6 +29,7 @@ do
     awk "/$STRINGMATCH/ && ! /$IGNOREMATCH/ { print \$1 }" $f | sort > $TMPDIR/$f
 done
 
+
 # Build the diff files used for checking
 # And if there are no differences, delete the empty files
 echo "Comparing data"
@@ -59,4 +60,3 @@ echo "Dupe = Duplicate Variables"
 echo "Miss = Missing Variables"
 echo "For exact problem listings, look in the $TMPDIR/ directory"
 echo "Please remember to remove '$TMPDIR/' once you are done"
-
