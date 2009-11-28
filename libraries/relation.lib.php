@@ -682,6 +682,7 @@ function PMA_setDbComment($db, $comment = '')
  * Set a SQL history entry
  *
  * @uses    $_SESSION['sql_history']
+ * @uses    $cfg['QueryHistoryDB']
  * @uses    $cfg['QueryHistoryMax']
  * @uses    PMA_getRelationsParam()
  * @uses    PMA_query_as_controluser()
@@ -725,7 +726,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         array_shift($_SESSION['sql_history']);
     }
 
-    if (! $cfgRelation['historywork']) {
+    if (! $cfgRelation['historywork'] || ! $GLOBALS['cfg']['QueryHistoryDB']) {
         return;
     }
 
