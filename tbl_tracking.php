@@ -20,83 +20,77 @@ $url_params['back'] = 'tbl_tracking.php';
 require_once './libraries/relation.lib.php';
 
 // Init vars for tracking report
-if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
-{
+if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
     $selection_schema = '';
     $selection_data   = '';
     $selection_both  = '';
 
-    if(!isset($_REQUEST['logtype']))
+    if (!isset($_REQUEST['logtype'])) {
         $_REQUEST['logtype'] = 'schema_and_data';
-
-    if($_REQUEST['logtype'] == 'schema')
+    }
+    if ($_REQUEST['logtype'] == 'schema') {
         $selection_schema = 'selected';
-    else if($_REQUEST['logtype'] == 'data')
+    } elseif($_REQUEST['logtype'] == 'data') {
         $selection_data   = 'selected';
-    else
+    } else {
         $selection_both   = 'selected';
-
-    if(!isset($_REQUEST['date_from']))
+    }
+    if (! isset($_REQUEST['date_from'])) {
         $_REQUEST['date_from'] = $data['date_from'];
-    if(!isset($_REQUEST['date_to']))
+    }
+    if (! isset($_REQUEST['date_to'])) {
         $_REQUEST['date_to'] = $data['date_to'];
-
-    if(!isset($_REQUEST['users']))
+    }
+    if (! isset($_REQUEST['users'])) {
         $_REQUEST['users'] = '*';
-
+    }
     $filter_ts_from = strtotime($_REQUEST['date_from']);
     $filter_ts_to   = strtotime($_REQUEST['date_to']);
     $filter_users   = array_map('trim', explode(',', $_REQUEST['users']));
 }
 
 // Prepare export
-if(isset($_REQUEST['report_export']))
-{
+if (isset($_REQUEST['report_export'])) {
     // Filtering data definition statements
-    if($_REQUEST['logtype'] == 'schema' or $_REQUEST['logtype'] == 'schema_and_data')
-    {
+    if ($_REQUEST['logtype'] == 'schema' || $_REQUEST['logtype'] == 'schema_and_data') {
         $id = 0;
-        foreach( $data['ddlog'] as $entry )
-        {
+        foreach( $data['ddlog'] as $entry ) {
             $timestamp = strtotime($entry['date']);
 
-            if( $timestamp >= $filter_ts_from and $timestamp <= $filter_ts_to and
-              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) )
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
                 $entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
                                     'username'  => $entry['username'],
                                     'statement' => $entry['statement']
                              );
-
+            }
             $id++;
         }
     }
 
     // Filtering data manipulation statments
-    if($_REQUEST['logtype'] == 'data' or $_REQUEST['logtype'] == 'schema_and_data')
-    {
+    if ($_REQUEST['logtype'] == 'data' || $_REQUEST['logtype'] == 'schema_and_data') {
         $id = 0;
-        foreach( $data['dmlog'] as $entry )
-        {
+        foreach( $data['dmlog'] as $entry ) {
             $timestamp = strtotime($entry['date']);
 
-            if( $timestamp >= $filter_ts_from and $timestamp <= $filter_ts_to and
-              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) )
+            if( $timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) ) {
                 $entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
                                     'username'  => $entry['username'],
                                     'statement' => $entry['statement']
                              );
-
+            }
             $id++;
         }
     }
 
     // Sort it
-    foreach ($entries as $key => $row)
-    {
+    foreach ($entries as $key => $row) {
         $ids[$key]        = $row['id'];
         $timestamps[$key] = $row['timestamp'];
         $usernames[$key]  = $row['username'];
@@ -105,31 +99,25 @@ if(isset($_REQUEST['report_export']))
 
     array_multisort($timestamps, SORT_ASC, $ids, SORT_ASC, $usernames, SORT_ASC, $statements, SORT_ASC, $entries);
 
-
 }
 
 // Export as file download
-if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'sqldumpfile')
-{
-
+if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
     @ini_set('url_rewriter.tags','');
 
-    $dump = "# Tracking report for table `" . $_REQUEST['table'] . "`\n" .
+    $dump = "# Tracking report for table `" . htmlspecialchars($_REQUEST['table']) . "`\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
-    foreach($entries as $entry)
+    foreach($entries as $entry) {
         $dump .= $entry['statement'];
-
-    $filename = 'log_' . $_REQUEST['table'] . '.sql';
+    }
+    $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
     header('Content-Type: text/x-sql');
     header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
-    if (PMA_USR_BROWSER_AGENT == 'IE')
-    {
+    if (PMA_USR_BROWSER_AGENT == 'IE') {
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
-    }
-    else
-    {
+    } else {
         header('Pragma: no-cache');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
     }
@@ -143,88 +131,85 @@ if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'sqldumpfil
  * Gets tables informations
  */
 
-//require './libraries/tbl_info.inc.php';
-
 /**
  * Displays top menu links
  */
 require_once './libraries/tbl_links.inc.php';
-
-?>
-<p/>
-<?php
+echo '<br />';
 
 /**
  * Actions
  */
 
 // Create tracking version
-if(isset($_REQUEST['submit_create_version']))
-{
+if (isset($_REQUEST['submit_create_version'])) {
     $tracking_set = '';
 
-    if($_REQUEST['alter_table'] == true)
+    if ($_REQUEST['alter_table'] == true) {
         $tracking_set .= 'ALTER TABLE,';
-    if($_REQUEST['rename_table'] == true)
+    }
+    if ($_REQUEST['rename_table'] == true) {
         $tracking_set .= 'RENAME TABLE,';
-    if($_REQUEST['create_table'] == true)
+    }
+    if ($_REQUEST['create_table'] == true) {
         $tracking_set .= 'CREATE TABLE,';
-    if($_REQUEST['drop_table'] == true)
+    }
+    if ($_REQUEST['drop_table'] == true) {
         $tracking_set .= 'DROP TABLE,';
-    if($_REQUEST['create_index'] == true)
+    }
+    if ($_REQUEST['create_index'] == true) {
         $tracking_set .= 'CREATE INDEX,';
-    if($_REQUEST['drop_index'] == true)
+    }
+    if ($_REQUEST['drop_index'] == true) {
         $tracking_set .= 'DROP INDEX,';
-    if($_REQUEST['insert'] == true)
+    }
+    if ($_REQUEST['insert'] == true) {
         $tracking_set .= 'INSERT,';
-    if($_REQUEST['update'] == true)
+    }
+    if ($_REQUEST['update'] == true) {
         $tracking_set .= 'UPDATE,';
-    if($_REQUEST['delete'] == true)
+    }
+    if ($_REQUEST['delete'] == true) {
         $tracking_set .= 'DELETE,';
-    if($_REQUEST['truncate'] == true)
+    }
+    if ($_REQUEST['truncate'] == true) {
         $tracking_set .= 'TRUNCATE,';
-
+    }
     $tracking_set = rtrim($tracking_set, ',');
 
-    if(PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set ))
-    {
+    if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
         $msg = PMA_Message::success(sprintf($strTrackingVersionCreated, $_REQUEST['version'], $GLOBALS['db'], $GLOBALS['table']));
         $msg->display();
     }
 }
 
 // Deactivate tracking
-if(isset($_REQUEST['submit_deactivate_now']))
-{
-    if(PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']))
-    {
+if (isset($_REQUEST['submit_deactivate_now'])) {
+    if (PMA_Tracker::deactivateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
         $msg = PMA_Message::success(sprintf($strTrackingVersionDeactivated, $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
         $msg->display();
     }
 }
 
 // Activate tracking
-if(isset($_REQUEST['submit_activate_now']))
-{
-    if(PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']))
-    {
+if (isset($_REQUEST['submit_activate_now'])) {
+    if (PMA_Tracker::activateTracking($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'])) {
         $msg = PMA_Message::success(sprintf($strTrackingVersionActivated, $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version']));
         $msg->display();
     }
 }
 
 // Export as SQL execution
-if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'execution')
-{
-    foreach($entries as $entry)
-          $sql_result = PMA_DBI_query( "/*NOTRACK*/\n" . $entry['statement'] );
-
+if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
+    foreach($entries as $entry) {
+        $sql_result = PMA_DBI_query( "/*NOTRACK*/\n" . $entry['statement'] );
+    }
     $msg = PMA_Message::success($strTrackingSQLExecuted);
     $msg->display();
 }
 
 // Export as SQL dump
-if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'sqldump')
+if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
 {
     $new_query =    "# You can execute the dump by creating and using a temporary table. Please ensure that you have the privileges to do that. \n" .
                     "# Comment out or remove these two lines if you don't need them.  \n" .
@@ -234,9 +219,9 @@ if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'sqldump')
                     "\n" .
                     "/* BEGIN OF SQL DUMP */ \n";
 
-    foreach($entries as $entry)
-          $new_query .= $entry['statement'];
-
+    foreach($entries as $entry) {
+        $new_query .= $entry['statement'];
+    }
     $msg = PMA_Message::success($strTrackingSQLExported);
     $msg->display();
 
@@ -253,25 +238,21 @@ if(isset($_REQUEST['report_export']) and $_REQUEST['export_type'] == 'sqldump')
     $table = $table_temp;
 }
 
-
-
 /*
  * Schema snapshot
  */
-if(isset($_REQUEST['snapshot']))
-{
+if (isset($_REQUEST['snapshot'])) {
 ?>
     <h3><?php echo $strTrackingStructureSnapshot;?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo $strTrackingReportClose;?></a>]</h3>
 <?php
-
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
     // Get first DROP TABLE and CREATE TABLE statements
     $drop_create_statements = $data['ddlog'][0]['statement'];
 
-    if(strstr($data['ddlog'][0]['statement'], 'DROP TABLE'))
+    if (strstr($data['ddlog'][0]['statement'], 'DROP TABLE')) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
-
+    }
     // Print SQL code
     PMA_showMessage(sprintf($strTrackingVersionSnapshotSQL, $_REQUEST['version']), $drop_create_statements);
 
@@ -295,17 +276,16 @@ if(isset($_REQUEST['snapshot']))
     </thead>
     <tbody>
 <?php
-
     $style = 'odd';
-    foreach($columns as $field_index => $field)
-    {
+    foreach($columns as $field_index => $field) {
 ?>
         <tr class="<?php echo $style; ?>">
             <?php
-            if($field['Key'] == 'PRI')
-                echo '<td><b><u>' . $field['Field'] . '</u></b></td>'."\n";
-            else
-                echo '<td><b>' . $field['Field'] . '</b></td>'."\n";
+            if ($field['Key'] == 'PRI') {
+                echo '<td><b><u>' . $field['Field'] . '</u></b></td>' . "\n";
+            } else {
+                echo '<td><b>' . $field['Field'] . '</b></td>' . "\n";
+            }
             ?>
             <td><?php echo $field['Type'];?></td>
             <td><?php echo $field['Collation'];?></td>
@@ -315,15 +295,18 @@ if(isset($_REQUEST['snapshot']))
             <td><?php echo $field['Comment'];?></td>
         </tr>
 <?php
-        if($style == 'even') $style = 'odd'; else $style = 'even';
+            if ($style == 'even') {
+                $style = 'odd'; 
+            } else { 
+                $style = 'even';
+            }
     }
 ?>
     </tbody>
     </table>
 
 <?php
-    if(count($indexes) > 0)
-    {
+    if (count($indexes) > 0) {
 ?>
         <h3><?php echo $strIndexes;?></h3>
         <table id="tablestructure_indexes" class="data">
@@ -342,17 +325,17 @@ if(isset($_REQUEST['snapshot']))
         <tbody>
 <?php
         $style = 'odd';
-        foreach($indexes as $indexes_index => $index)
-        {
-            if($index['Non_unique'] == 0)
+        foreach ($indexes as $indexes_index => $index) {
+            if ($index['Non_unique'] == 0) {
                 $str_unique = $strYes;
-            else
+            } else {
                 $str_unique = $strNo;
-
-            if($index['Packed'] != '')
+            }
+            if ($index['Packed'] != '') {
                 $str_packed = $strYes;
-            else
+            } else {
                 $str_packed = $strNo;
+            }
 ?>
             <tr class="<?php echo $style; ?>">
                 <td><b><?php echo $index['Key_name'];?></b></td>
@@ -366,7 +349,11 @@ if(isset($_REQUEST['snapshot']))
                 <td><?php echo $index['Comment'];?></td>
             </tr>
 <?php
-            if($style == 'even') $style = 'odd'; else $style = 'even';
+            if ($style == 'even') {
+                $style = 'odd'; 
+            } else {
+                $style = 'even';
+            }
         }
 ?>
     </tbody>
@@ -374,7 +361,7 @@ if(isset($_REQUEST['snapshot']))
 <?php
     } // endif
 ?>
-    <br/><hr/><br/>
+    <br /><hr /><br />
 <?php
 }
 // end of snapshot report
@@ -382,12 +369,11 @@ if(isset($_REQUEST['snapshot']))
 /*
  *  Tracking report
  */
-if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
-{
+if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo $strTrackingReport;?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo $strTrackingReportClose;?></a>]</h3>
 
-    <small><?php echo  $strTrackingStatements . ' ' . $data['tracking']; ?></small><br/>
+    <small><?php echo $strTrackingStatements . ' ' . $data['tracking']; ?></small><br/>
     <br/>
 
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
@@ -410,8 +396,7 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
      *  First, list tracked data defintion statements
      */
     $i = 1;
-    if($selection_schema == 'selected' or $selection_both == 'selected')
-    {
+    if ($selection_schema == 'selected' || $selection_both == 'selected') {
     ?>
         <table id="versions" class="data" width="100%">
         <thead>
@@ -425,15 +410,13 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
         <tbody>
         <?php
         $style = 'odd';
-        foreach ($data['ddlog'] as $entry)
-        {
+        foreach ($data['ddlog'] as $entry) {
             $parsed_sql = PMA_SQP_parse($entry['statement']);
             $statement  = PMA_formatSql($parsed_sql);
             $timestamp = strtotime($entry['date']);
 
-            if( $timestamp >= $filter_ts_from and $timestamp <= $filter_ts_to and
-              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) )
-            {
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
                 <tr class="<?php echo $style; ?>">
                     <td><small><?php echo $i;?></small></td>
@@ -442,7 +425,11 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
-                if($style == 'even') $style = 'odd'; else $style = 'even';
+                if ($style == 'even') {
+                    $style = 'odd'; 
+                } else {
+                    $style = 'even';
+                }
                 $i++;
             }
         }
@@ -457,8 +444,7 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
      *  Secondly, list tracked data manipulation statements
      */
 
-    if(($selection_data == 'selected' or $selection_both == 'selected') and count($data['dmlog']) > 0)
-    {
+    if (($selection_data == 'selected' || $selection_both == 'selected') && count($data['dmlog']) > 0) {
     ?>
         <table id="versions" class="data" width="100%">
         <thead>
@@ -472,15 +458,13 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
         <tbody>
         <?php
         $style = 'odd';
-        foreach ($data['dmlog'] as $entry)
-        {
+        foreach ($data['dmlog'] as $entry) {
             $parsed_sql = PMA_SQP_parse($entry['statement']);
             $statement  = PMA_formatSql($parsed_sql);
             $timestamp = strtotime($entry['date']);
 
-            if( $timestamp >= $filter_ts_from and $timestamp <= $filter_ts_to and
-              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) )
-            {
+            if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
+              ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
         ?>
                 <tr class="<?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>
@@ -489,7 +473,11 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
-                if($style == 'even') $style = 'odd'; else $style = 'even';
+                if ($style == 'even') {
+                    $style = 'odd'; 
+                } else { 
+                    $style = 'even';
+                }
                 $i++;
             }
         }
@@ -502,24 +490,22 @@ if(isset($_REQUEST['report']) or isset($_REQUEST['report_export']))
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
     <?php
-
-
     printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
 
     $str_export1 =  '<select name="export_type">' .
                     '<option value="sqldumpfile">' . $strTrackingSQLDumpFile . '</option>' .
                     '<option value="sqldump">' . $strTrackingSQLDump . '</option>' .
-                    '<option value="execution" onclick="alert(\''.$strTrackingSQLExecutionAlert .'\')">' . $strTrackingSQLExecution . '</option>' .
+                    '<option value="execution" onclick="alert(\'' . $strTrackingSQLExecutionAlert .'\')">' . $strTrackingSQLExecution . '</option>' .
                     '</select>';
 
-    $str_export2 = '<input type="submit" name="report_export" value="'. $strGo .'">';
+    $str_export2 = '<input type="submit" name="report_export" value="' . $strGo .'">';
     ?>
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
-    <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>">
-    <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>">
-    <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>">
-    <input type="hidden" name="users" value="<?php echo $_REQUEST['users'];?>">
+    <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>" />
+    <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>" />
+    <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
+    <input type="hidden" name="users" value="<?php echo $_REQUEST['users'];?>" />
     <?php
     echo "<br/>" . sprintf($strTrackingExportAs, $str_export1) . $str_export2 . "<br/>";
     ?>
@@ -541,34 +527,32 @@ $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
 
 $sql_result = PMA_query_as_controluser($sql_query);
 
-if(PMA_DBI_num_rows($sql_result) > 0)
-{
+if (PMA_DBI_num_rows($sql_result) > 0) {
 ?>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query;?>">
     <select name="table">
     <?php
-    while($entries = PMA_DBI_fetch_array($sql_result))
-    {
-        if(PMA_Tracker::isTracked($entries['db_name'], $entries['table_name']))
+    while ($entries = PMA_DBI_fetch_array($sql_result)) {
+        if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
             $status = ' (ON)';
-        else
+        } else {
             $status = ' (OFF)';
-
-        if($entries['table_name'] == $_REQUEST['table'])
-            $s = ' selected';
-        else
+        }
+        if ($entries['table_name'] == $_REQUEST['table']) {
+            $s = ' selected="selected"';
+        } else {
             $s = '';
-
-        echo '<option value="'.$entries['table_name'].'"'.$s.'>'.$entries['db_name'].' . '.$entries['table_name'] .$status.'</option>'."\n";
+        }
+        echo '<option value="' . $entries['table_name'] . '"' . $s . '>' . $entries['db_name'] . ' . ' . $entries['table_name'] . $status . '</option>' . "\n";
     }
     ?>
     </select>
-    <input type="submit" name="show_versions_submit" value="<?php echo $strTrackingShowVersions;?>">
+    <input type="submit" name="show_versions_submit" value="<?php echo $strTrackingShowVersions;?>" />
     </form>
 <?php
 }
 ?>
-<p/>
+<br />
 <?php
 
 /*
@@ -588,10 +572,8 @@ $last_version = 0;
 $maxversion = PMA_DBI_fetch_array($sql_result);
 $last_version = $maxversion['version'];
 
-if($last_version > 0)
-{
+if ($last_version > 0) {
 ?>
-
     <table id="versions" class="data">
     <thead>
     <tr>
@@ -608,18 +590,18 @@ if($last_version > 0)
     <?php
     $style = 'odd';
     PMA_DBI_data_seek($sql_result, 0);
-    while($version = PMA_DBI_fetch_array($sql_result))
-    {
-
-        if($version['tracking_active'] == 1)
+    while($version = PMA_DBI_fetch_array($sql_result)) {
+        if ($version['tracking_active'] == 1) {
             $version_status = $strTrackingStatusActive;
-        else
+        } else {
             $version_status = $strTrackingStatusNotActive;
-
-        if(($version['version'] == $last_version) and ($version_status == $strTrackingStatusNotActive))
+        }
+        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusNotActive)) {
             $tracking_active = false;
-        if(($version['version'] == $last_version) and ($version_status == $strTrackingStatusActive))
+        }
+        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusActive)) {
             $tracking_active = true;
+        }
     ?>
         <tr class="<?php echo $style;?>">
             <td><?php echo $version['db_name'];?></td>
@@ -628,20 +610,24 @@ if($last_version > 0)
             <td><?php echo $version['date_created'];?></td>
             <td><?php echo $version['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&report=true&version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&snapshot=true&version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
+            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
         </tr>
     <?php
-        if($style == 'even') $style = 'odd'; else $style = 'even';
+        if ($style == 'even') {
+            $style = 'odd'; 
+        } else {
+            $style = 'even';
+        }
     }
     ?>
     </tbody>
     </table>
-    <?php if($tracking_active == true) {?>
+    <?php if ($tracking_active == true) {?>
         <div id="div_deactivate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
             <legend><?php printf($strTrackingDeactivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
-            <input type="hidden" name="version" value="<?php echo $last_version; ?>">
+            <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_deactivate_now" value="<?php echo $strTrackingDeactivateNow; ?>" />
         </fieldset>
         </form>
@@ -649,21 +635,18 @@ if($last_version > 0)
     <?php
     }
     ?>
-    <?php if($tracking_active == false) {?>
+    <?php if ($tracking_active == false) {?>
         <div id="div_activate_tracking">
         <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>">
         <fieldset>
             <legend><?php printf($strTrackingActivateTrackingFor, $GLOBALS['db'], $GLOBALS['table']); ?></legend>
-            <input type="hidden" name="version" value="<?php echo $last_version; ?>">
+            <input type="hidden" name="version" value="<?php echo $last_version; ?>" />
             <input type="submit" name="submit_activate_now" value="<?php echo $strTrackingActivateNow; ?>" />
         </fieldset>
         </form>
         </div>
     <?php
     }
-    ?>
-
-<?php
 }
 ?>
 
@@ -673,25 +656,24 @@ if($last_version > 0)
 <fieldset>
     <legend><?php printf($strTrackingCreateVersionOf, ($last_version + 1), $GLOBALS['db'], $GLOBALS['table']); ?></legend>
 
-    <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>">
+    <input type="hidden" name="version" value="<?php echo ($last_version + 1); ?>" />
 
     <p><?php echo $strTrackingTrackDDStatements;?></p>
-    <input type="checkbox" name="alter_table" value="true" checked/> ALTER TABLE<br/>
-    <input type="checkbox" name="rename_table" value="true" checked/> RENAME TABLE<br/>
-    <input type="checkbox" name="create_table" value="true" checked/> CREATE TABLE<br/>
-    <input type="checkbox" name="drop_table" value="true" checked/> DROP TABLE<br/>
+    <input type="checkbox" name="alter_table" value="true" checked="checked" /> ALTER TABLE<br/>
+    <input type="checkbox" name="rename_table" value="true" checked="checked" /> RENAME TABLE<br/>
+    <input type="checkbox" name="create_table" value="true" checked="checked" /> CREATE TABLE<br/>
+    <input type="checkbox" name="drop_table" value="true" checked="checked" /> DROP TABLE<br/>
     <br/>
-    <input type="checkbox" name="create_index" value="true" checked/> CREATE INDEX<br/>
-    <input type="checkbox" name="drop_index" value="true" checked/> DROP INDEX<br/>
+    <input type="checkbox" name="create_index" value="true" checked="checked" /> CREATE INDEX<br/>
+    <input type="checkbox" name="drop_index" value="true" checked="checked" /> DROP INDEX<br/>
     <p><?php echo $strTrackingTrackDMStatements;?></p>
-    <input type="checkbox" name="insert" value="true" checked/> INSERT<br/>
-    <input type="checkbox" name="update" value="true" checked/> UPDATE<br/>
-    <input type="checkbox" name="delete" value="true" checked/> DELETE<br/>
-    <input type="checkbox" name="truncate" value="true" checked/> TRUNCATE<br/>
+    <input type="checkbox" name="insert" value="true" checked="checked" /> INSERT<br/>
+    <input type="checkbox" name="update" value="true" checked="checked" /> UPDATE<br/>
+    <input type="checkbox" name="delete" value="true" checked="checked" /> DELETE<br/>
+    <input type="checkbox" name="truncate" value="true" checked="checked" /> TRUNCATE<br/>
 
 </fieldset>
 <fieldset class="tblFooters">
-    <legend></legend>
     <input type="submit" name="submit_create_version" value="<?php echo $strTrackingCreateVersion; ?>" />
 </fieldset>
 </form>
