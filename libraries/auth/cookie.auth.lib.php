@@ -95,11 +95,13 @@ if (function_exists('mcrypt_encrypt')) {
 function PMA_get_blowfish_secret() {
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
         if (empty($_SESSION['auto_blowfish_secret'])) {
+            // this returns 23 characters 
             $_SESSION['auto_blowfish_secret'] = uniqid('', true);
         }
         return $_SESSION['auto_blowfish_secret'];
     } else {
-        return $GLOBALS['cfg']['blowfish_secret'];
+        // apply md5() to work around too long secrets (returns 32 characters)
+        return md5($GLOBALS['cfg']['blowfish_secret']);
     }
 }
 
