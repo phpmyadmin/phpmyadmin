@@ -42,10 +42,6 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
  * Display top menu links
  */
 require_once './libraries/db_links.inc.php';
-?>
-<p/>
-<p/>
-<?php
 
 /*
  * List versions of current table
@@ -99,24 +95,18 @@ if ($last_version > 0) {
         } else {
             $version_status = $strTrackingStatusNotActive;
         }
-
-        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusNotActive)) {
-            $tracking_active = false;
-        }
-        if (($version['version'] == $last_version) && ($version_status == $strTrackingStatusActive)) {
-            $tracking_active = true;
-        }
+        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version['table_name']);
         ?>
         <tr class="<?php echo $style;?>">
-            <td><?php echo $version['db_name'];?></td>
-            <td><?php echo $version['table_name'];?></td>
+            <td><?php echo htmlspecialchars($version['db_name']);?></td>
+            <td><?php echo htmlspecialchars($version['table_name']);?></td>
             <td><?php echo $version['version'];?></td>
             <td><?php echo $version['date_created'];?></td>
             <td><?php echo $version['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&table=<?php echo $version['table_name'];?>"><?php echo $strTrackingVersions;?></a>
-               | <a href="tbl_tracking.php?<?php echo $url_query;?>&table=<?php echo $version['table_name'];?>&report=true&version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a>
-               | <a href="tbl_tracking.php?<?php echo $url_query;?>&table=<?php echo $version['table_name'];?>&snapshot=true&version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
+            <td> <a href="<?php echo $tmp_link; ?>"><?php echo $strTrackingVersions;?></a>
+               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a>
+               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
         </tr>
         <?php
         if ($style == 'even') {
@@ -125,6 +115,7 @@ if ($last_version > 0) {
             $style = 'even';
         }
     }
+    unset($tmp_link);
     ?>
     </tbody>
     </table>
@@ -161,7 +152,7 @@ if (isset($my_tables)) {
 
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php?' . $url_query . '&table=' . $tablename .'">';
+            $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
 
             if ($cfg['PropertiesIconic']) {
                 $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . $strTrackingTrackTable . '" /> ';
@@ -169,7 +160,7 @@ if (isset($my_tables)) {
             $my_link .= $strTrackingTrackTable . '</a>';
         ?>
             <tr class="<?php echo $style;?>">
-            <td><?php echo $tablename;?></td>
+            <td><?php echo htmlspecialchars($tablename);?></td>
             <td><?php echo $my_link;?></td>
             </tr>
         <?php
@@ -186,10 +177,6 @@ if (isset($my_tables)) {
 
 <?php
 }
-?>
-<p/>
-<?php
-
 // If available print out database log
 if (count($data['ddlog']) > 0) {
     $log = '';
