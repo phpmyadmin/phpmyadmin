@@ -11,7 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [history] QueryHistoryDB is not respected
 - bug #2905629 [auth] Blowfish secret is not hashed 
 
-3.2.4.0 (not yet released)
+3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status 
 - bug #2890451 [setup] Inconsistent generated "designer_coords" 
 - bug #2890443 [mysqli] "No index used in query" exception is reported 
