@@ -56,18 +56,18 @@ $cons = array ("src", "trg");
 
 if ((isset($_REQUEST['submit_connect']))) {
     foreach ($cons as $con) {
-        ${"{$con}_host"}     = $_REQUEST[$con.'_host'];
-        ${"{$con}_username"} = $_REQUEST[$con.'_username'];
-        ${"{$con}_password"} = $_REQUEST[$con.'_pass'];
-        ${"{$con}_port"}     = $_REQUEST[$con.'_port'];
-        ${"{$con}_socket"}   = $_REQUEST[$con.'_socket'];
-        ${"{$con}_db"}       = $_REQUEST[$con.'_db'];
-        ${"{$con}_type"}	 = $_REQUEST[$con.'_type'];
+        ${"{$con}_host"}     = $_REQUEST[$con . '_host'];
+        ${"{$con}_username"} = $_REQUEST[$con . '_username'];
+        ${"{$con}_password"} = $_REQUEST[$con . '_pass'];
+        ${"{$con}_port"}     = $_REQUEST[$con . '_port'];
+        ${"{$con}_socket"}   = $_REQUEST[$con . '_socket'];
+        ${"{$con}_db"}       = $_REQUEST[$con . '_db'];
+        ${"{$con}_type"}	 = $_REQUEST[$con . '_type'];
       
         if (${"{$con}_type"} == 'cur') {
 	        ${"{$con}_connection"} = null;
 	        ${"{$con}_server"} = null;
-	        ${"{$con}_db"}       = $_REQUEST[$con.'_db_sel'];
+	        ${"{$con}_db"}       = $_REQUEST[$con . '_db_sel'];
 	        continue;
         }
       
@@ -89,9 +89,9 @@ if ((isset($_REQUEST['submit_connect']))) {
         * connections are not established
         */
 
-        echo '<div class="error">' . "\n" ;  
+        echo '<div class="error">';  
         if(! $src_connection && $src_type == 'rmt') {
-            echo $GLOBALS['strCouldNotConnectSource'].'<br />';
+            echo $GLOBALS['strCouldNotConnectSource'] . '<br />';
         }
         if(! $trg_connection && $trg_type == 'rmt'){
             echo $GLOBALS['strCouldNotConnectTarget'];
@@ -117,12 +117,12 @@ if ((isset($_REQUEST['submit_connect']))) {
             /**
             * Displays error string if the database(s) did not exist
             */
-            echo '<div class="error">' . "\n" ;     
+            echo '<div class="error">';     
             if ($src_db_selected != 1) {
-                echo sprintf($GLOBALS['strDatabaseNotExisting'], $src_db);
+                echo sprintf($GLOBALS['strDatabaseNotExisting'], htmlspecialchars($src_db));
             }
             if ($trg_db_selected != 1) {
-                echo sprintf($GLOBALS['strDatabaseNotExisting'], $trg_db);
+                echo sprintf($GLOBALS['strDatabaseNotExisting'], htmlspecialchars($trg_db));
             }
             echo '</div>';    
             unset($_REQUEST['submit_connect']);
@@ -255,22 +255,22 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">'
             . PMA_generate_common_hidden_inputs('', '');
-            echo '<table id="serverstatustraffic" class="data" width = "50%">
+            echo '<table class="data" width = "50%">
             <tr>
-            <td> <h2>' . "\n"
+            <td> <h2>' 
             . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="32"'
-            . ' height="32" alt="" />' . "\n"
+            . ' height="32" alt="" />'
             : '')
-            . $strStructureSyn . "\n"
-            .'</h2>' . "\n" .'</td>';
-            echo '<td> <h2>' . "\n"
+            . $strStructureSyn
+            .'</h2>' .'</td>';
+            echo '<td> <h2>'
             . ($GLOBALS['cfg']['MainPageIconic']
             ? '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="32"'
-            . ' height="32" alt="" />' . "\n"
+            . ' height="32" alt="" />'
             : '')
-            . $strDataSyn . "\n"
-            . '</h2>' . "\n" .'</td>';
+            . $strDataSyn
+            . '</h2>' .'</td>';
             echo '</tr>
             </table>';
        
@@ -317,7 +317,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 * Displays the name of the matching table 
                 */
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td>' . $matching_tables[$i]. "\n" . '</td>
+                echo '<td>' . htmlspecialchars($matching_tables[$i]) . '</td>
                 <td align="center">';
                 /**
                 * Calculating the number of alter columns, number of columns to be added, number of columns to be removed,
@@ -347,14 +347,13 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Display the red button of structure synchronization if there exists any structure difference or index difference.                   
                 */
-                if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) ||($num_remove_index > 0)) {
+                if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
                     
                    echo '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="29"  height="29" 
                    alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                   onClick="showDetails('."'MS".$i."'".','."'".$num_alter_cols."'".','."'".$num_insert_cols.
-                   "'".','."'".$num_remove_cols."'".','."'".$num_add_index."'".','."'".$num_remove_index."'"
-                   .', this ,'."'". $matching_tables[$i] ."'".')"/>'. "\n" ;
-                   
+                   onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" .$num_insert_cols .
+                   "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'"
+                   . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
                 }
                 /**
                 * Display the green button of data synchronization if there exists any data difference.                   
@@ -364,8 +363,8 @@ if ((isset($_REQUEST['submit_connect']))) {
 
                         echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29" 
                         alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                         onClick="showDetails('."'MD".$i."'".','."'".$num_of_updates."'".','."'".$num_of_insertions.
-                         "'".','."'".null."'".','."'".null."'".','."'".null."'".', this ,'."'". $matching_tables[$i] ."'".')" />'. "\n";    
+                         onclick="showDetails('. "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
+                         "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';    
                     }    
                 }
                 echo '</td>
@@ -376,26 +375,26 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             for ($j = 0; $j < count($source_tables_uncommon); $j++) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
+                echo '<td> + ' . htmlspecialchars($source_tables_uncommon[$j]) . '</td> ';
                 
                 echo '<td align="center"><img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
                 alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                onClick="showDetails('."'US".$j."'".','."'".null."'".','."'".null."'".','."'".null."'".','."'".null."'".','."'".null."'".', this ,'
-                ."'". $source_tables_uncommon[$j] ."'".')"/>'. "\n" ;
+                onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,'
+                . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>';
                 
                 if ($row_count[$j] > 0)
                 {
-                    echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29"'.' height="29" 
+                    echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29" 
                     alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                    onClick="showDetails('."'UD".$j."'".','."'".null."'".','."'".$row_count[$j]."'".','."'".null.
-                    "'".','."'".null."'".','."'".null."'".', this ,'."'". $source_tables_uncommon[$j] ."'".')" />'. "\n";
+                    onclick="showDetails(' . "'UD" . $j . "','" . null . "','" . $row_count[$j] . "','" . null .
+                    "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
                 } 
                 echo '</td>
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
+                echo '<td height="32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td></td>';
                 echo '</tr>';
             }
             /**
@@ -406,12 +405,12 @@ if ((isset($_REQUEST['submit_connect']))) {
             $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
             foreach ($source_tables_uncommon as $tbl_nc_name) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td>' .$tbl_nc_name . "\n" . ' (' . $GLOBALS['strNotPresent'] . ')</td>
+                echo '<td height="32">' . htmlspecialchars($tbl_nc_name) . ' (' . $GLOBALS['strNotPresent'] . ')</td>
                 </tr>';
             }
             foreach ($target_tables_uncommon as $tbl_nc_name) {
                 $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-                echo '<td> - ' .$tbl_nc_name . '</td>';
+                echo '<td> - ' . htmlspecialchars($tbl_nc_name) . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
@@ -429,20 +428,20 @@ if ((isset($_REQUEST['submit_connect']))) {
             <table>
                 <thead>
                 <tr style="width: 100%;">
-                    <th id="table_name" style="width: 10%;" colspan="1">'. $strTable .' </th>
-                    <th id="str_diff"   style="width: 65%;" colspan="6">'. $strStructureDiff .' </th>
-                    <th id="data_diff"  style="width: 20%;" colspan="2">'. $strDataDiff .'</th>
+                    <th id="table_name" style="width: 10%;" colspan="1">' . $strTable . ' </th>
+                    <th id="str_diff"   style="width: 65%;" colspan="6">' . $strStructureDiff . ' </th>
+                    <th id="data_diff"  style="width: 20%;" colspan="2">' . $strDataDiff . '</th>
                 </tr>
                 <tr style="width: 100%;">
-                    <th style="width: 10%; background-color:#CCCCCC">'. $strTableName .'</th>   
-                    <th style="width: 10%; background-color:#CCCCCC">'. $strCreateTable .'</th>
-                    <th style="width: 11%; background-color:#CCCCCC">'. $strTableAddColumn .'</th>
-                    <th style="width: 13%; background-color:#CCCCCC">'. $strTableRemoveColumn .'</th>
-                    <th style="width: 11%; background-color:#CCCCCC">'. $strTableAlterColumn .'</th>
-                    <th style="width: 12%; background-color:#CCCCCC">'. $strTableRemoveIndex .'</th>
-                    <th style="width: 11%; background-color:#CCCCCC">'. $strTableApplyIndex .'</th>
-                    <th style="width: 10%; background-color:#CCCCCC">'. $strTableUpdateRow .'</th>
-                    <th style="width: 10%; background-color:#CCCCCC">'. $strTableInsertRow .'</th>
+                    <th style="width: 10%;">' . $strTableName . '</th>   
+                    <th style="width: 10%;">' . $strCreateTable . '</th>
+                    <th style="width: 11%;">' . $strTableAddColumn . '</th>
+                    <th style="width: 13%;">' . $strTableRemoveColumn . '</th>
+                    <th style="width: 11%;">' . $strTableAlterColumn . '</th>
+                    <th style="width: 12%;">' . $strTableRemoveIndex . '</th>
+                    <th style="width: 11%;">' . $strTableApplyIndex . '</th>
+                    <th style="width: 10%;">'.  $strTableUpdateRow . '</th>
+                    <th style="width: 10%;">' . $strTableInsertRow . '</th>
                 </tr> 
                 </thead>
                 <tbody></tbody>
@@ -454,11 +453,10 @@ if ((isset($_REQUEST['submit_connect']))) {
             echo '<fieldset>
             <p><input type= "checkbox" name="delete_rows" id ="delete_rows" />' . $strTableDeleteRows . ' </p>
             </fieldset> 
-            <fieldset class="tblFooters">' . "\n";
+            <fieldset class="tblFooters">';
             echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
-             .'" onClick ="ApplySelectedChanges('."'". $_SESSION['token'] ."'".')" />';
-            echo '<input type="submit" name="synchronize_db" value="'. $GLOBALS['strSynchronizeDb'] .'" />'
-            . "\n" . '</fieldset>' . "\n";
+             . '" onclick ="ApplySelectedChanges(' . "'" . $_SESSION['token'] . "'" . ')" />';
+            echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />' . '</fieldset>';
             echo '</form>';      
         }    
     }
@@ -513,7 +511,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Creating link object for source and target databases
     */
     foreach ($cons as $con) {
-        if (${"{$con}_type"}=="rmt") {
+        if (${"{$con}_type"} == "rmt") {
             ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
         } else {
             ${"{$con}_link"} = null;
@@ -718,7 +716,7 @@ if (isset($_REQUEST['Table_ids'])) {
     $odd_row = false;
     for($i = 0; $i < count($matching_tables); $i++) {   
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td align="center">' . $matching_tables[$i]. "\n" . '</td>
+        echo '<td align="center">' . $matching_tables[$i] . '</td>
         <td align="center">';
             
         $num_alter_cols  = 0;
@@ -743,12 +741,11 @@ if (isset($_REQUEST['Table_ids'])) {
             $num_remove_index = sizeof($remove_indexes_array[$i]);  
         }                    
             
-        if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) ||($num_remove_index > 0)) {
+        if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
             echo '<img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29" 
             alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-            onClick="showDetails('."'MS".$i."'".','."'".$num_alter_cols."'".','."'".$num_insert_cols."'"
-            .','."'".$num_remove_cols."'".','."'".$num_add_index."'".','."'".$num_remove_index."'".',
-            this ,'."'". $matching_tables[$i] ."'".')"/>'. "\n" ;
+            onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" . $num_insert_cols . "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'" .',
+            this ,' . "'" . $matching_tables[$i] . "'" . ')"/>';
         }  
         if (!(in_array($i, $matching_table_data_diff))) {
             
@@ -775,8 +772,8 @@ if (isset($_REQUEST['Table_ids'])) {
                 || (isset($matching_tables_keys[$i][0]) && isset($insert_array[$i][0][$matching_tables_keys[$i][0]]))) {
                 echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29" 
                 alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                onClick="showDetails('."'MD".$i."'".','."'".$num_of_updates."'".','."'".$num_of_insertions.
-                "'".','."'".null."'".','."'".null."'".','."'".null."'".', this ,'."'". $matching_tables[$i] ."'".')" />';    
+                onclick="showDetails(' . "'MD" . $i . "','" . $num_of_updates . "','" . $num_of_insertions .
+                "','" . null . "','" . null . "','" . null . "'" .', this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')" />';    
             }
         } else {
             unset($update_array[$i]);
@@ -794,17 +791,16 @@ if (isset($_REQUEST['Table_ids'])) {
     
     for ($j = 0; $j < count($source_tables_uncommon); $j++) {
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td align="center"> + ' .$source_tables_uncommon[$j]. "\n" . '</td>
+        echo '<td align="center"> + ' . htmlspecialchars($source_tables_uncommon[$j]) . '</td>
         <td align="center">';
         /**
         * Display the difference only when it has not been applied        
         */
         if (!(in_array($j, $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$j])) {
-                echo '<img class="icon" src="' . $pmaThemeImage  .'new_struct.jpg" width="29"  height="29" 
+                echo '<img class="icon" src="' . $pmaThemeImage  . 'new_struct.jpg" width="29"  height="29" 
                 alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                onClick="showDetails('."'US".$j."'".','."'".null."'".','."'".null."'".','."'".null."'"
-                .','."'".null."'".','."'".null."'".', this ,'."'". $source_tables_uncommon[$j] ."'".')"/>' . "\n" .' ';    
+                onclick="showDetails(' . "'US" . $j . "','" . null . "','" . null . "','" . null . "','" . null . "','" . null . "'" . ', this ,' . "'" . htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')"/>' .' ';    
             }            
         } else {
             unset($uncommon_tables[$j]);
@@ -814,10 +810,10 @@ if (isset($_REQUEST['Table_ids'])) {
         */
         if (!(in_array($j, $uncommon_table_data_diff))) {
             if (isset($row_count[$j]) && ($row_count > 0)) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29"'.' height="29" 
+                echo '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29" 
                 alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
-                onClick="showDetails('."'UD".$j."'".','."'".null."'".','."'".$row_count[$j]."'".','."'"
-                .null."'".','."'".null."'".','."'".null."'".', this ,'."'". $source_tables_uncommon[$j] ."'".')" />'. "\n";
+                onclick="showDetails(' . "'UD" . $j . "','" . null ."','" . $row_count[$j] ."','"
+                . null . "','" . null . "','" . null . "'" . ', this ,' . "'". htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
             }    
         } else {
             unset($row_count[$j]);
@@ -847,16 +843,16 @@ if (isset($_REQUEST['Table_ids'])) {
     foreach ($source_tables_uncommon as $tbl_nc_name) {
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
         if (in_array($tbl_nc_name, $uncommon_tables)) {
-            echo '<td>' .$tbl_nc_name . "\n" . ' (' .  $GLOBALS['strNotPresent'] . ')</td>';
+            echo '<td>' . htmlspecialchars($tbl_nc_name) . ' (' .  $GLOBALS['strNotPresent'] . ')</td>';
         } else {
-            echo '<td>' .$tbl_nc_name . "\n" . '</td>';    
+            echo '<td>' . htmlspecialchars($tbl_nc_name) . '</td>';    
         }
         echo '
         </tr>';
     }
     foreach ($target_tables_uncommon as $tbl_nc_name) {
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td> - ' .$tbl_nc_name . '</td>';
+        echo '<td> - ' . htmlspecialchars($tbl_nc_name) . '</td>';
         echo '</tr>';
     }
     echo '</table>
@@ -874,20 +870,20 @@ if (isset($_REQUEST['Table_ids'])) {
     echo '<table>
           <thead>
             <tr style="width: 100%;">
-                <th id="table_name" style="width: 10%;" colspan="1">'. $strTable .' </th>
-                <th id="str_diff"   style="width: 65%;" colspan="6">'. $strStructureDiff .' </th>
-                <th id="data_diff"  style="width: 20%;" colspan="2">'. $strDataDiff .'</th>
+                <th id="table_name" style="width: 10%;" colspan="1">' . $strTable . ' </th>
+                <th id="str_diff"   style="width: 65%;" colspan="6">' . $strStructureDiff . ' </th>
+                <th id="data_diff"  style="width: 20%;" colspan="2">' . $strDataDiff . '</th>
             </tr>
             <tr style="width: 100%;">
-                <th style="width: 10%; background-color:#CCCCCC">'. $strTableName .'</th>   
-                <th style="width: 10%; background-color:#CCCCCC">'. $strCreateTable .'</th>
-                <th style="width: 11%; background-color:#CCCCCC">'. $strTableAddColumn .'</th>
-                <th style="width: 13%; background-color:#CCCCCC">'. $strTableRemoveColumn .'</th>
-                <th style="width: 11%; background-color:#CCCCCC">'. $strTableAlterColumn .'</th>
-                <th style="width: 12%; background-color:#CCCCCC">'. $strTableRemoveIndex .'</th>
-                <th style="width: 11%; background-color:#CCCCCC">'. $strTableApplyIndex .'</th>
-                <th style="width: 10%; background-color:#CCCCCC">'. $strTableUpdateRow .'</th>
-                <th style="width: 10%; background-color:#CCCCCC">'. $strTableInsertRow .'</th>
+                <th style="width: 10%;">' . $strTableName . '</th>   
+                <th style="width: 10%;">' . $strCreateTable . '</th>
+                <th style="width: 11%;">' . $strTableAddColumn . '</th>
+                <th style="width: 13%;">' . $strTableRemoveColumn . '</th>
+                <th style="width: 11%;">' . $strTableAlterColumn . '</th>
+                <th style="width: 12%;">' . $strTableRemoveIndex . '</th>
+                <th style="width: 11%;">' . $strTableApplyIndex . '</th>
+                <th style="width: 10%;">' . $strTableUpdateRow . '</th>
+                <th style="width: 10%;">' . $strTableInsertRow . '</th>
             </tr> 
             </thead>
             <tbody></tbody>
@@ -901,11 +897,11 @@ if (isset($_REQUEST['Table_ids'])) {
     <p><input type= "checkbox" name="delete_rows" id ="delete_rows" />' . $strTableDeleteRows . ' </p>
     </fieldset>'; 
     
-    echo '<fieldset class="tblFooters">' . "\n";
-    echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'].'" 
-          onClick ="ApplySelectedChanges('."'". $_SESSION['token'] ."'".')" />';
-    echo '<input type="submit" name="synchronize_db" value="'. $GLOBALS['strSynchronizeDb'] .'" />'
-          . "\n" . '</fieldset>' . "\n";
+    echo '<fieldset class="tblFooters">';
+    echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'] . '" 
+          onclick ="ApplySelectedChanges(' . "'" . $_SESSION['token'] . "'" .')" />';
+    echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />'
+          . '</fieldset>';
     echo '</form>';                 
 }
 
@@ -960,13 +956,13 @@ if (isset($_REQUEST['synchronize_db'])) {
         for($i = 0; $i < count($matching_tables); $i++)
         {
             $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-            echo '<td>' . $matching_tables[$i]. "\n" . '</td>
+            echo '<td>' . htmlspecialchars($matching_tables[$i]) . '</td>
             <td></td>
             </tr>';
         }
         for ($j = 0; $j < count($source_tables_uncommon); $j++) {
             $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-            echo '<td> + ' .$source_tables_uncommon[$j]. "\n" . '</td> ';
+            echo '<td> + ' . htmlspecialchars($source_tables_uncommon[$j]) . '</td> ';
             echo '<td></td>
             </tr>';
         }
@@ -979,12 +975,12 @@ if (isset($_REQUEST['synchronize_db'])) {
         $odd_row = PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables);
         foreach ($source_tables_uncommon as $tbl_nc_name) {
             $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-            echo '<td>' .$tbl_nc_name . "\n" . ' </td>
+            echo '<td>' . htmlspecialchars($tbl_nc_name) . ' </td>
             </tr>';
         }
         foreach ($target_tables_uncommon as $tbl_nc_name) {
             $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-            echo '<td>  ' .$tbl_nc_name . '</td>';
+            echo '<td>  ' . htmlspecialchars($tbl_nc_name) . '</td>';
             echo '</tr>';
         }
     echo '</table> </div>';
@@ -1032,13 +1028,11 @@ if (isset($_REQUEST['synchronize_db'])) {
             }        
         }
         if (isset($alter_str_array[$p])) {
-            
             PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, $source_columns, $alter_str_array, $matching_tables_fields,
             $criteria, $matching_tables_keys, $target_tables_keys, $p, true);
             unset($alter_str_array[$p]);        
         }                                                           
         if (isset($add_column_array[$p])) {
-            
             PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
             $trg_db, $trg_link, $src_db, $src_link);
              
@@ -1051,7 +1045,6 @@ if (isset($_REQUEST['synchronize_db'])) {
             unset($add_column_array[$p]);
         }
         if (isset($uncommon_columns[$p])) {
-            
             PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, $uncommon_columns, $p, true);
             unset($uncommon_columns[$p]); 
         }           
@@ -1059,7 +1052,6 @@ if (isset($_REQUEST['synchronize_db'])) {
             (isset($add_indexes_array[$matching_table_structure_diff[$p]]) 
             || isset($remove_indexes_array[$matching_table_structure_diff[$p]]) 
             || isset($alter_indexes_array[$matching_table_structure_diff[$p]]))) {
-           
             PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, 
             $remove_indexes_array, $matching_table_structure_diff[$p], true); 
            
@@ -1093,71 +1085,70 @@ if (isset($_REQUEST['synchronize_db'])) {
  * Displays the main page when none of the following buttons is pressed
  */
 
- if (!isset($_REQUEST['submit_connect']) && !isset($_REQUEST['synchronize_db']) && !isset($_REQUEST['Table_ids']) )
+ if (! isset($_REQUEST['submit_connect']) && ! isset($_REQUEST['synchronize_db']) && ! isset($_REQUEST['Table_ids']) )
 { 
 /**                      
 * Displays the sub-page heading
 */
-    echo '<h2>' . "\n"
-    . ($GLOBALS['cfg']['MainPageIconic']
+    echo '<h2>' . ($GLOBALS['cfg']['MainPageIconic']
     ? '<img class="icon" src="' . $pmaThemeImage . 's_sync.png" width="18"'
-        .' height="18" alt="" />'
+        . ' height="18" alt="" />'
     : '')
-    . $strSynchronize . "\n"
-    .'</h2>' . "\n";
+    . $strSynchronize
+    .'</h2>';
     
     echo  '<div id="serverstatus">                 
     <form name="connection_form" id="connection_form" method="post" action="server_synchronize.php"
    >' // TODO: add check if all var. are filled in
     . PMA_generate_common_hidden_inputs('', ''); 
-    echo '<fieldset>'."\n";
-    echo '<legend>'. $GLOBALS['strSynchronize']. '</legend>'."\n";
+    echo '<fieldset>';
+    echo '<legend>' . $GLOBALS['strSynchronize'] . '</legend>';
  /**
- * Displays the forms
- */
+  * Displays the forms
+  */
     
     $databases = PMA_DBI_get_databases_full(null, false, null, 'SCHEMA_NAME',
         'ASC', 0, true);
 	
     foreach ($cons as $type) {
-      echo '<table id="serverconnection_'.$type.'_remote" class="data">
+      echo '<table id="serverconnection_' . $type . '_remote" class="data">
       <tr>
-	  <th colspan="2">'. $GLOBALS['strDatabase_'.$type] .'</th>
+	  <th colspan="2">' . $GLOBALS['strDatabase_'.$type] . '</th>
       </tr>
       <tr class="odd">
 	  <td colspan="2" style="text-align: center">
-	     <select name="'.$type.'_type" id="'.$type.'_type">
-	      <option value="rmt">'.$GLOBALS['strRemoteServer'].'</option>
-	      <option value="cur">'.$GLOBALS['strCurrentServer'].'</option>
+	     <select name="' . $type . '_type" id="' . $type . '_type">
+	      <option value="rmt">' . $GLOBALS['strRemoteServer'] . '</option>
+	      <option value="cur">' . $GLOBALS['strCurrentServer'] . '</option>
 	     </select>
 	  </td>
       </tr>
-	<tr class="even" id="'.$type.'tr1">
-	    <td>'. $GLOBALS['strHost']. '</td>
-	    <td><input type="text" name="'.$type.'_host" /></td> 
+	<tr class="even" id="' . $type . 'tr1">
+	    <td>' . $GLOBALS['strHost'] . '</td>
+	    <td><input type="text" name="' . $type . '_host" /></td> 
 	</tr>
-	<tr class="odd" id="'.$type.'tr2">
-	    <td>'. $GLOBALS['strPort']. '</td>
-	    <td><input type="text" name="'.$type.'_port" value="3306" maxlength="5" size="5" /></td>
+	<tr class="odd" id="' . $type . 'tr2">
+	    <td>' . $GLOBALS['strPort'] . '</td>
+	    <td><input type="text" name="' . $type . '_port" value="3306" maxlength="5" size="5" /></td>
 	</tr>
-	<tr class="even" id="'.$type.'tr3">
-	    <td>'. $GLOBALS['strSocket']. '</td>
-	    <td><input type="text" name="'.$type.'_socket" /></td>
+	<tr class="even" id="' . $type . 'tr3">
+	    <td>' . $GLOBALS['strSocket'] . '</td>
+	    <td><input type="text" name="' . $type . '_socket" /></td>
 	</tr>
 	<tr class="odd" id="'.$type.'tr4">
-	    <td>'. $GLOBALS['strUserName']. '</td>
-	    <td><input type="text" name="'.$type.'_username" /></td>
+	    <td>' . $GLOBALS['strUserName']. '</td>
+	    <td><input type="text" name="'. $type . '_username" /></td>
 	</tr>
-	<tr class="even" id="'.$type.'tr5">
-	    <td>'. $GLOBALS['strPassword']. '</td>
-	    <td><input type="password" name="'.$type.'_pass" /> </td>   
+	<tr class="even" id="' . $type . 'tr5">
+	    <td>' . $GLOBALS['strPassword'] . '</td>
+	    <td><input type="password" name="' . $type . '_pass" /> </td>   
 	</tr>
-	<tr class="odd" id="'.$type.'tr6">
-	    <td>'. $GLOBALS['strDatabase']. '</td>
-	    <td><input type="text" name="'.$type.'_db" /></td>
+	<tr class="odd" id="' . $type . 'tr6">
+	    <td>' . $GLOBALS['strDatabase'] . '</td>
+	    <td><input type="text" name="' . $type . '_db" /></td>
 	</tr>
-	<tr class="even" id="'.$type.'tr7" style="display: none;">
-	    <td>'. $GLOBALS['strDatabase']. '</td>
+	<tr class="even" id="' . $type . 'tr7" style="display: none;">
+	    <td>' . $GLOBALS['strDatabase'] . '</td>
 	    <td>';
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
@@ -1169,7 +1160,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 	      	<select name="' . $type . '_db_sel">
 		';
 		foreach ($databases as $db) {
-            echo '		<option>' . $db['SCHEMA_NAME'] . '</option>'."\n";
+            echo '		<option>' . $db['SCHEMA_NAME'] . '</option>';
 		}  
         echo '</select>';
 	}
@@ -1178,18 +1169,18 @@ if (isset($_REQUEST['synchronize_db'])) {
 
     // Add JS to show/hide rows based on the selection      
       PMA_js(''.
-	'$(\''.$type.'_type\').addEvent(\'change\',function() {'."\n".
-	'    if ($(\''.$type.'tr1\').getStyle(\'display\')=="none") {'."\n".
-	'	for (var i=1; i<7; i++)'."\n".
-	'		$(\''.$type.'tr\'+i).tween(\'display\', \'table-row\');'."\n".
-	'	$(\''.$type.'tr7\').tween(\'display\', \'none\');'."\n".
-	'    }'."\n".
-	'   else {'."\n".
-	'	for (var i=1; i<7; i++)'."\n".
-	'		$(\''.$type.'tr\'+i).tween(\'display\', \'none\');'."\n".
-	'	$(\''.$type.'tr7\').tween(\'display\', \'table-row\');'."\n".
-	'    }'."\n".
-	'});'."\n"
+	'$(\'' . $type . '_type\').addEvent(\'change\',function() {' . 
+	'    if ($(\'' . $type . 'tr1\').getStyle(\'display\')=="none") {' .
+	'	for (var i=1; i<7; i++)' .
+	'		$(\'' . $type . 'tr\'+i).tween(\'display\', \'table-row\');' .
+	'	$(\'' . $type . 'tr7\').tween(\'display\', \'none\');' .
+	'    }' .
+	'   else {' .
+	'	for (var i=1; i<7; i++)'.
+	'		$(\'' . $type . 'tr\'+i).tween(\'display\', \'none\');' .
+	'	$(\'' . $type . 'tr7\').tween(\'display\', \'table-row\');'.
+	'    }' .
+	'});'
 	);
    }
    unset ($types, $type);
@@ -1197,7 +1188,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     echo '
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" name="submit_connect" value="' .$GLOBALS['strGo'] .'" id="buttonGo" />
+        <input type="submit" name="submit_connect" value="' . $GLOBALS['strGo'] .'" id="buttonGo" />
     </fieldset>
     </form>
     </div>

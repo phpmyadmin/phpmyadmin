@@ -1417,7 +1417,7 @@ function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables)
     $odd_row = false;
     foreach ($matching_tables as $tbl_name) {
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td>  ' .$tbl_name . '</td>';
+        echo '<td>  ' . htmlspecialchars($tbl_name) . '</td>';
         echo '</tr>';
     }
     return $odd_row;
