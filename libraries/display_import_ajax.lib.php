@@ -7,7 +7,7 @@
 */
 
 if (!defined('PHPMYADMIN')) {
-  exit;
+    exit;
 }
 /**
   * constant for differenciating array in $_SESSION variable
@@ -35,11 +35,11 @@ $plugins = array(
 
 // select available plugin
 foreach ($plugins as $plugin) {
-  $check = "PMA_import_".$plugin."Check";
+    $check = "PMA_import_" . $plugin . "Check";
     
-  if ($check()) {
-    $_SESSION[$SESSION_KEY]["handler"] = $plugin;
-    include_once("import/upload/".$plugin.".php");
+    if ($check()) {
+        $_SESSION[$SESSION_KEY]["handler"] = $plugin;
+        include_once("import/upload/" . $plugin . ".php");
     break;
   } 
 }
@@ -50,9 +50,10 @@ foreach ($plugins as $plugin) {
   * @return true if APC extension is available and if rfc1867 is enabled, false if it is not
   */
 function PMA_import_apcCheck() {
-  if (!extension_loaded('apc') || !function_exists('apc_fetch') || !function_exists('getallheaders'))
-    return false;
-  return (ini_get('apc.enabled') && ini_get('apc.rfc1867'));
+    if (! extension_loaded('apc') || ! function_exists('apc_fetch') || ! function_exists('getallheaders')) {
+        return false;
+    }
+    return (ini_get('apc.enabled') && ini_get('apc.rfc1867'));
 }
 
 /**
@@ -61,9 +62,10 @@ function PMA_import_apcCheck() {
   * @return true if UploadProgress extension is available, false if it is not
   */
 function PMA_import_uploadprogressCheck() {
-  if (!function_exists("uploadprogress_get_info") || !function_exists('getallheaders'))
-    return false;
-  return true;
+    if (! function_exists("uploadprogress_get_info") || ! function_exists('getallheaders')) {
+        return false;
+    }
+    return true;
 }
 /**
   * Default plugin for handling import. If no other plugin is available, noplugin is used.
@@ -71,7 +73,7 @@ function PMA_import_uploadprogressCheck() {
   * @return true 
   */
 function PMA_import_nopluginCheck() {
-  return true;
+    return true;
 }
 
 /**

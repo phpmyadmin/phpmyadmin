@@ -81,7 +81,9 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
                 is strongly suggested for most users and is <b>required</b> for
                 64&#8211;bit machines. Not using mcrypt will cause phpMyAdmin to
                 load pages significantly slower.
-            </li>
+                </li>
+                <li>To support upload progress bars, see <a href="#faq2_9">
+                    <abbr title="Frequently Asked Questions">FAQ</abbr> 2.9</a>.</li>
         </ul>
     </li>
     <li><b>MySQL</b> 5.0 or newer (<a href="#faq1_17">details</a>);</li>
@@ -3277,6 +3279,15 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
     </li>
 </ul>
 
+<h4 id="faq2_9">
+    <a href="#faq2_9">2.9 Seeing an upload progress bar</a></h4>
+
+<p> To be able to see a progress bar during your uploads, your server must
+have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
+    or the <a href="http://pecl.php.net/package/uploadprogress">uploadprogress</a>
+    one. Moreover, the JSON extension has to be enabled in your PHP.</p>
+    <p> If using APC, you must set <tt>apc.rfc1867</tt> to <tt>on</tt> in your php.ini.</p>
+
 <h3 id="faqlimitations">Known limitations</h3>
 
 <h4 id="login_bug">
@@ -3444,7 +3455,7 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
 <h4 id="faq3_15">
     <a href="#faq3_15">3.15 When I import an Excel spreadsheet, some cells with calculations do not display correctly.</a></h4>
 <p>
-    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/" target=_blank>PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
+    phpMyAdmin uses the <a href="http://www.codeplex.com/PHPExcel/" target="_blank">PHPExcel</a> library to parse Excel XLS and XLSX spreadsheets. 
     Therefore, any limitations that are listed on their page regarding Excel calculations will also apply here.
     <br /><br />
     PHPExcel will be kept up to date so as to make all improvements available to phpMyAdmin users.
@@ -4377,7 +4388,7 @@ server host name, username, password, port and the name of the database. Therefo
 now synchronize your databases placed on the same server or some remote server.
 </p>
 
-<p>For more details see <a href="./documentation-gsoc/Synchronization_User Manual.htm">How to synchronize</a>
+<p>For more details see <a href="./documentation-gsoc/Synchronization_User%20Manual.htm">How to synchronize</a>
 </p>
 
 <!-- DEVELOPERS -->
