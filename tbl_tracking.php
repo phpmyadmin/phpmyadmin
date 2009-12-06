@@ -23,19 +23,19 @@ require_once './libraries/relation.lib.php';
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
-    $selection_schema = '';
-    $selection_data   = '';
-    $selection_both  = '';
+    $selection_schema = false;
+    $selection_data   = false;
+    $selection_both  = false;
 
-    if (!isset($_REQUEST['logtype'])) {
+    if (! isset($_REQUEST['logtype'])) {
         $_REQUEST['logtype'] = 'schema_and_data';
     }
     if ($_REQUEST['logtype'] == 'schema') {
-        $selection_schema = 'selected';
+        $selection_schema = true;
     } elseif($_REQUEST['logtype'] == 'data') {
-        $selection_data   = 'selected';
+        $selection_data   = true;
     } else {
-        $selection_both   = 'selected';
+        $selection_both   = true;
     }
     if (! isset($_REQUEST['date_from'])) {
         $_REQUEST['date_from'] = $data['date_from'];
@@ -53,15 +53,27 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
 // Prepare export
 if (isset($_REQUEST['report_export'])) {
-    // Filtering data definition statements
-    if ($_REQUEST['logtype'] == 'schema' || $_REQUEST['logtype'] == 'schema_and_data') {
+
+/**
+ * Filters tracking entries 
+ *
+ * @param   array   the entries to filter 
+ * @param   string  "from" date
+ * @param   string  "to" date
+ * @param   string  users 
+ *
+ * @return  array   filtered entries 
+ *
+ */
+    function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users) {
+        $tmp_entries = array();
         $id = 0;
-        foreach( $data['ddlog'] as $entry ) {
+        foreach( $data as $entry ) {
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
               ( in_array('*', $filter_users) || in_array($entry['username'], $filter_users) ) ) {
-                $entries[] = array( 'id' => $id,
+                $tmp_entries[] = array( 'id' => $id,
                                     'timestamp' => $timestamp,
                                     'username'  => $entry['username'],
                                     'statement' => $entry['statement']
@@ -69,24 +81,18 @@ if (isset($_REQUEST['report_export'])) {
             }
             $id++;
         }
+        return($tmp_entries);
     }
 
-    // Filtering data manipulation statments
-    if ($_REQUEST['logtype'] == 'data' || $_REQUEST['logtype'] == 'schema_and_data') {
-        $id = 0;
-        foreach( $data['dmlog'] as $entry ) {
-            $timestamp = strtotime($entry['date']);
+    $entries = array();
+    // Filtering data definition statements
+    if ($_REQUEST['logtype'] == 'schema' || $_REQUEST['logtype'] == 'schema_and_data') {
+        $entries = array_merge($entries, PMA_filter_tracking($data['ddlog'], $filter_ts_from, $filter_ts_to, $filter_users));
+    }
 
-            if( $timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to && 
-              ( in_array('*', $filter_users) or in_array($entry['username'], $filter_users) ) ) {
-                $entries[] = array( 'id' => $id,
-                                    'timestamp' => $timestamp,
-                                    'username'  => $entry['username'],
-                                    'statement' => $entry['statement']
-                             );
-            }
-            $id++;
-        }
+    // Filtering data manipulation statements
+    if ($_REQUEST['logtype'] == 'data' || $_REQUEST['logtype'] == 'schema_and_data') {
+        $entries = array_merge($entries, PMA_filter_tracking($data['dmlog'], $filter_ts_from, $filter_ts_to, $filter_users));
     }
 
     // Sort it
@@ -105,7 +111,7 @@ if (isset($_REQUEST['report_export'])) {
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
     @ini_set('url_rewriter.tags','');
 
-    $dump = "# Tracking report for table `" . htmlspecialchars($_REQUEST['table']) . "`\n" .
+    $dump = "# " . sprintf($strTrackingReportForTable, htmlspecialchars($_REQUEST['table'])) . "\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
     foreach($entries as $entry) {
         $dump .= $entry['statement'];
@@ -211,13 +217,12 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution'
 // Export as SQL dump
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump')
 {
-    $new_query =    "# You can execute the dump by creating and using a temporary table. Please ensure that you have the privileges to do that. \n" .
-                    "# Comment out or remove these two lines if you don't need them.  \n" .
+    $new_query =    "# " . $strTrackingYouCanExecute . "\n" .
+                    "# " . $strTrackingCommentOut . "\n" .
                     "\n" .
                     "CREATE database IF NOT EXISTS pma_temp_db; \n" .
                     "USE pma_temp_db; \n" .
-                    "\n" .
-                    "/* BEGIN OF SQL DUMP */ \n";
+                    "\n";
 
     foreach($entries as $entry) {
         $new_query .= $entry['statement'];
@@ -376,29 +381,29 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     <small><?php echo $strTrackingStatements . ' ' . $data['tracking']; ?></small><br/>
     <br/>
 
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
     <?php
 
     $str1 = '<select name="logtype">' .
-            '<option value="schema"' . $selection_schema . '>' . $strStrucOnly . '</option>' .
-            '<option value="data"' . $selection_data . '>' . $strDataOnly . '</option>' .
-            '<option value="schema_and_data"' . $selection_both . '>' . $strStrucData . '</option>' .
+            '<option value="schema"' . ($selection_schema ? ' selected="selected"' : '') . '>' . $strStrucOnly . '</option>' .
+            '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . $strDataOnly . '</option>' .
+            '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . $strStrucData . '</option>' .
             '</select>';
-    $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19">';
-    $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19">';
-    $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '">';
-    $str5 = '<input type="submit" name="list_report" value="' . $strGo . '">';
+    $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '" />';
+    $str5 = '<input type="submit" name="list_report" value="' . $strGo . '" />';
 
     printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
 
 
     /*
-     *  First, list tracked data defintion statements
+     *  First, list tracked data definition statements
      */
     $i = 1;
-    if ($selection_schema == 'selected' || $selection_both == 'selected') {
+    if ($selection_schema || $selection_both ) {
     ?>
-        <table id="versions" class="data" width="100%">
+        <table id="ddl_versions" class="data" width="100%">
         <thead>
         <tr>
             <th width="18">#</th>
@@ -444,9 +449,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
      *  Secondly, list tracked data manipulation statements
      */
 
-    if (($selection_data == 'selected' || $selection_both == 'selected') && count($data['dmlog']) > 0) {
+    if (($selection_data || $selection_both) && count($data['dmlog']) > 0) {
     ?>
-        <table id="versions" class="data" width="100%">
+        <table id="dml_versions" class="data" width="100%">
         <thead>
         <tr>
             <th width="18">#</th>
@@ -488,7 +493,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
     <?php
     printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
 
@@ -498,10 +503,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
                     '<option value="execution" onclick="alert(\'' . $strTrackingSQLExecutionAlert .'\')">' . $strTrackingSQLExecution . '</option>' .
                     '</select>';
 
-    $str_export2 = '<input type="submit" name="report_export" value="' . $strGo .'">';
+    $str_export2 = '<input type="submit" name="report_export" value="' . $strGo .'" />';
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&report=true&version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
     <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>" />
     <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>" />
     <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
@@ -534,16 +539,16 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
     <?php
     while ($entries = PMA_DBI_fetch_array($sql_result)) {
         if (PMA_Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
-            $status = ' (ON)';
+            $status = ' (' . $strTrackingStatusActive . ')';
         } else {
-            $status = ' (OFF)';
+            $status = ' (' . $strTrackingStatusNotActive . ')';
         }
         if ($entries['table_name'] == $_REQUEST['table']) {
             $s = ' selected="selected"';
         } else {
             $s = '';
         }
-        echo '<option value="' . $entries['table_name'] . '"' . $s . '>' . $entries['db_name'] . ' . ' . $entries['table_name'] . $status . '</option>' . "\n";
+        echo '<option value="' . htmlspecialchars($entries['table_name']) . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . ' . htmlspecialchars($entries['table_name']) . $status . '</option>' . "\n";
     }
     ?>
     </select>
@@ -604,8 +609,8 @@ if ($last_version > 0) {
         }
     ?>
         <tr class="<?php echo $style;?>">
-            <td><?php echo $version['db_name'];?></td>
-            <td><?php echo $version['table_name'];?></td>
+            <td><?php echo htmlspecialchars($version['db_name']);?></td>
+            <td><?php echo htmlspecialchars($version['table_name']);?></td>
             <td><?php echo $version['version'];?></td>
             <td><?php echo $version['date_created'];?></td>
             <td><?php echo $version['date_updated'];?></td>

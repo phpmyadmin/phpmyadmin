@@ -1615,4 +1615,7 @@ $strSetupServers_ssl_desc = 'Enable SSL for connection to MySQL server';  //to t
 
 $strTargetDatabaseHasBeenSynchronized = 'Target database has been synchronized with source database';  //to translate
 
+$strTrackingYouCanExecute = 'You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.';  //to translate
+$strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
+$strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
 ?>

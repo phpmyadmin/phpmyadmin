@@ -1465,6 +1465,7 @@ $strTotalUC = 'Total';
 $strTrackingActivated = 'Le suivi de %s.%s est activé.';
 $strTrackingActivateNow = 'Activer maintenant';
 $strTrackingActivateTrackingFor = 'Activer le suivi de %s.%s';
+$strTrackingCommentOut = 'Enlevez les deux lignes suivantes si elles sont inutiles.';
 $strTrackingCreateVersion = 'Créer une version';
 $strTrackingCreateVersionOf = 'Créer la version %s de %s.%s';
 $strTrackingDatabaseLog = 'Journal de la base de données';
@@ -1478,6 +1479,7 @@ $strTrackingIsActive = 'Le suivi est actif.';
 $strTrackingIsNotActive = 'Le suivi n\'est pas activé.';
 $strTrackingMechanism = 'Mécanisme de suivi';
 $strTrackingReportClose = 'Fermer';
+$strTrackingReportForTable = 'Rapport de suivi pour la table `%s`';
 $strTrackingReport = 'Rapport de suivi';
 $strTrackingShowLogDateUsers = 'Montrer %s depuis le %s jusqu\'au %s par l\'utilisateur %s %s';
 $strTrackingShowVersions = 'Montrer les versions';
@@ -1507,6 +1509,7 @@ $strTrackingVersionCreated = 'Version %s créée, le suivi pour %s.%s est activ�
 $strTrackingVersionDeactivated = 'Le suivi pour %s.%s , version %s est désactivé.';
 $strTrackingVersionSnapshotSQL = 'Instantané de la version %s (code SQL)';
 $strTrackingVersions = 'Versions';
+$strTrackingYouCanExecute = 'Vous pouvez exécuter cette exportation en créant une base de données temporaire. Veuillez vous assurer que vous avez les privilèges appropriés à cette opération.';
 $strTraditionalChinese = 'chinois traditionnel';
 $strTraditionalSpanish = 'espagnol traditionnel';
 $strTraffic = 'Trafic';
@@ -1606,8 +1609,5 @@ $strYes = 'Oui';
 
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
-
-// To translate:
-
 
 ?>

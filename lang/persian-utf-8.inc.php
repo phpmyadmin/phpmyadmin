@@ -1637,4 +1637,7 @@ $strXMLExportViews = 'Export views';  //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 
+$strTrackingYouCanExecute = 'You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.';  //to translate
+$strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
+$strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
 ?>
