@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   Kinkhorst)
 - [core] do not automatically set and create TempDir, it might lead to security
   issue (thanks to Thijs Kinkhorst)
+- [setup] avoid usage of (un)serialize, what might be unsafe in some cases
 
 2.11.9.6 (2009-10-12)
 - [security] XSS and SQL injection, thanks to Herman van Rink

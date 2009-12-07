@@ -37,35 +37,32 @@ if (isset($_POST['action'])) {
 
 // Grab wanted CRLF type
 if (isset($_POST['eoltype'])) {
-    $eoltype = $_POST['eoltype'];
+    $_SESSION['eoltype'] = $_POST['eoltype'];
 } else {
     if (PMA_USR_OS == 'Win') {
-        $eoltype = 'dos';
+        $_SESSION['eoltype'] = 'dos';
     } else {
-        $eoltype = 'unix';
+        $_SESSION['eoltype'] = 'unix';
     }
 }
 
 // Detect which CRLF to use
-if ($eoltype == 'dos') {
+if ($_SESSION['eoltype'] == 'dos') {
     $crlf = "\r\n";
-} elseif ($eoltype == 'mac') {
+} elseif ($_SESSION['eoltype'] == 'mac') {
     $crlf = "\r";
 } else {
     $crlf = "\n";
 }
 
-if (isset($_POST['configuration']) && $action != 'clear') {
-    // Grab previous configuration, if it should not be cleared
-    $configuration = unserialize($_POST['configuration']);
-} else {
-    // Start with empty configuration
-    $configuration = array();
+if (!isset($_SESSION['configuration']) || $action == 'clear') {
+    // Create empty configuration
+    $_SESSION['configuration'] = array();
 }
 
 // We rely on Servers array to exist, so create it here
-if (!isset($configuration['Servers']) || !is_array($configuration['Servers'])) {
-    $configuration['Servers'] = array();
+if (!isset($_SESSION['configuration']['Servers']) || !is_array($_SESSION['configuration']['Servers'])) {
+    $_SESSION['configuration']['Servers'] = array();
 }
 
 // Used later
@@ -341,20 +338,6 @@ function message($type, $text, $title = '') {
 }
 
 /**
- * Creates hidden input required for keeping current configuraion
- *
- * @return string   HTML with hidden inputs
- */
-function get_hidden_cfg() {
-    global $configuration, $eoltype;
-
-    $ret = '<input type="hidden" name="configuration" value="' . htmlspecialchars(serialize($configuration)) . '" />' . "\n";
-    $ret .= '<input type="hidden" name="eoltype" value="' . htmlspecialchars($eoltype) . '" />' . "\n";
-
-    return $ret;
-}
-
-/**
  * Returns needed hidden input for forms.
  *
  * @return  string HTML with hidden inputs
@@ -383,7 +366,6 @@ function get_action($name, $title, $added = '', $enabled = TRUE) {
         $ret .= ' disabled="disabled"';
     }
     $ret .= ' />';
-    $ret .= get_hidden_cfg();
     $ret .= '</form>';
     $ret .= "\n";
     return $ret;
@@ -613,7 +595,7 @@ function compress_servers(&$cfg) {
  * @param   string   list of values to grab, values are separated by ";",
  *                   each can have defined type separated by ":", if no type
  *                   is defined, string is assumed. Possible types: bool -
- *                   boolean value, serialized - serialized value, int -
+ *                   boolean value, allow-deny - allow-deny rules, int -
  *                   integer, tristate - "TRUE"/"FALSE" converted to bool,
  *                   other strings are kept.
  *
@@ -632,9 +614,17 @@ function grab_values($list)
             case 'bool':
                 $res[$v[0]] = isset($_POST[$v[0]]);
                 break;
-            case 'serialized':
-                if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
-                    $res[$v[0]] = unserialize($_POST[$v[0]]);
+            case 'allow-deny':
+                $res[$v[0]] = array();
+                if (isset($_POST[$v[0] . '_order']) && strlen($_POST[$v[0] . '_order']) > 0) {
+                    $res[$v[0]]['order'] = $_POST[$v[0]];
+                } else {
+                    $res[$v[0]]['order'] = '';
+                }
+                if (isset($_POST[$v[0] . '_rules']) && strlen($_POST[$v[0] . '_rules']) > 0) {
+                    $res[$v[0]]['rules'] = split('|', $_POST[$v[0]]);
+                } else {
+                    $res[$v[0]]['rules'] = array();
                 }
                 break;
             case 'int':
@@ -819,7 +809,6 @@ function show_security_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_security_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Blowfish secret', 'blowfish_secret', 'Secret passphrase used for encrypting cookies'),
             array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connection while using phpMyAdmin', FALSE),
@@ -850,7 +839,6 @@ function show_manual_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_manual_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Type of MySQL documentation', 'MySQLManualType', 'These types are same as listed on MySQL download page', array('viewable', 'chapters', 'big', 'none')),
             array('Base URL of MySQL documentation', 'MySQLManualBase', 'Where is MySQL documentation placed, this is usually top level directory.'),
@@ -877,7 +865,6 @@ function show_charset_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_charset_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Allow charset conversion', 'AllowAnywhereRecoding', 'If you want to use such functions.', FALSE),
             array('Default charset', 'DefaultCharset', 'Default charset for conversion.', $PMA_Config_Setup->get('AvailableCharsets')),
@@ -905,7 +892,6 @@ function show_extensions_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_extensions_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('GD 2 is available', 'GD2Available', 'Whether you have GD 2 or newer installed', array('auto', 'yes', 'no')),
             ),
@@ -931,7 +917,6 @@ function show_relation_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_relation_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Permanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
             array('Maximal history size', 'QueryHistoryMax', 'How many queries are kept in history.'),
@@ -959,7 +944,6 @@ function show_upload_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="feat_upload_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Upload directory', 'UploadDir', 'Directory on server where you can upload files for import'),
             array('Save directory', 'SaveDir', 'Directory where exports can be saved on server'),
@@ -985,14 +969,21 @@ function show_server_form($defaults = array(), $number = FALSE) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="addserver_real" />
     <?php
-        echo get_hidden_cfg();
         if (!($number === FALSE)) {
             echo '<input type="hidden" name="server" value="' . $number . '" />';
         }
-        $hi = array ('bookmarktable', 'relation', 'table_info', 'table_coords', 'pdf_pages', 'column_info', 'designer_coords', 'history', 'AllowDeny');
+        $hi = array ('bookmarktable', 'relation', 'table_info', 'table_coords', 'pdf_pages', 'column_info', 'designer_coords', 'history');
         foreach ($hi as $k) {
-            if (isset($defaults[$k]) && (!is_string($defaults[$k]) || strlen($defaults[$k]) > 0)) {
-                echo '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars(serialize($defaults[$k])) . '" />';
+            if (isset($defaults[$k]) && is_string($defaults[$k]) && strlen($defaults[$k]) > 0) {
+                echo '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars($defaults[$k]) . '" />';
+            }
+        }
+        if (isset($defaults['AllowDeny'])) {
+            if (isset($defaults['AllowDeny']['order']) && is_string($defaults['AllowDeny']['order']) && strlen($defaults['AllowDeny']['order']) > 0) {
+                    echo '<input type="hidden" name="AllowDeny_rules" value="' . htmlspecialchars($defaults['AllowDeny']['order']) . '" />';
+            }
+            if (isset($defaults['AllowDeny']['rules']) && is_array($defaults['AllowDeny']['rules']) && count($defaults['AllowDeny']['rules']) > 0) {
+                    echo '<input type="hidden" name="AllowDeny_rules" value="' . htmlspecialchars(implode('|', $defaults['AllowDeny']['rules'])) . '" />';
             }
         }
         show_config_form(array(
@@ -1035,7 +1026,6 @@ function show_left_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_navigation_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Use light version', 'LeftFrameLight', 'Disable this if you want to see all databases at one time.', TRUE),
             array('Display databases in tree', 'LeftFrameDBTree', 'Whether to display databases in tree (determined by separator defined lower)', TRUE),
@@ -1069,7 +1059,6 @@ function show_tabs_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_tabs_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Default tab for server', 'DefaultTabServer', 'Tab that is displayed when entering server', array('main.php', 'server_databases.php', 'server_status.php', 'server_variables.php', 'server_privileges.php', 'server_processlist.php')),
             array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_structure.php', 'db_sql.php', 'db_search.php', 'db_operations.php')),
@@ -1097,7 +1086,6 @@ function show_icons_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_icons_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Icons on errors', 'ErrorIconic', 'Whether to use icons in error messages.', TRUE),
             array('Icons on main page', 'MainPageIconic', 'Whether to use icons on main page.', TRUE),
@@ -1126,7 +1114,6 @@ function show_browse_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_browse_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Display of values', 'DefaultDisplay', 'How to list values while browsing', array('horizontal', 'vertical', 'horizontalflipped')),
             array('Hightlight pointer', 'BrowsePointerEnable', 'Whether to highlight row under mouse.', TRUE),
@@ -1156,7 +1143,6 @@ function show_edit_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_edit_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Display of properties while editing', 'DefaultPropDisplay', 'How to list properties (table structure or values) while editing', array('horizontal', 'vertical')),
             array('Number of inserted rows', 'InsertRows', 'How many rows can be inserted at once'),
@@ -1190,7 +1176,6 @@ function show_window_form($defaults = array()) {
     <?php echo get_hidden_inputs();?>
     <input type="hidden" name="action" value="lay_window_real" />
     <?php
-        echo get_hidden_cfg();
         show_config_form(array(
             array('Edit SQL in window', 'EditInWindow', 'Whether edit links will edit in query window.', TRUE),
             array('Query window height', 'QueryWindowHeight', 'Height of query window'),
@@ -1284,12 +1269,12 @@ switch ($action) {
         header('Content-Type: text/plain');
         header('Content-Disposition: attachment; filename="config.inc.php"');
 
-        echo get_cfg_string($configuration);
+        echo get_cfg_string($_SESSION['configuration']);
         exit;
         break;
     case 'display':
         echo '<form method="none" action=""><textarea name="config" cols="50" rows="20" id="textconfig" wrap="off">' . "\n";
-        echo htmlspecialchars(get_cfg_string($configuration));
+        echo htmlspecialchars(get_cfg_string($_SESSION['configuration']));
         echo '</textarea></form>' . "\n";
         ?>
 <script type="text/javascript">
@@ -1320,7 +1305,7 @@ switch ($action) {
             message('error', 'Could not open config file for writing! Bad permissions?');
             break;
         }
-        $s = get_cfg_string($configuration);
+        $s = get_cfg_string($_SESSION['configuration']);
         $r = fwrite($config, $s);
         if (!$r || $r != strlen($s)) {
             message('error', 'Could not write to config file! Not enough space?');
@@ -1338,14 +1323,14 @@ switch ($action) {
         }
         $new_cfg = load_config('./config/config.inc.php');
         if (!($new_cfg === FALSE)) {
-            $configuration = $new_cfg;
+            $_SESSION['configuration'] = $new_cfg;
         }
         $show_info = TRUE;
         break;
 
     case 'addserver_real':
         if (isset($_POST['submit_save'])) {
-            $new_server = grab_values('host;extension;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;designer_coords:serialized;history:serialized;AllowDeny:serialized;SignonSession;SignonURL;LogoutURL');
+            $new_server = grab_values('host;extension;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable;relation;table_info;table_coords;pdf_pages;column_info;designer_coords;history;AllowDeny:allow-deny;SignonSession;SignonURL;LogoutURL');
             $err = FALSE;
             if (empty($new_server['host'])) {
                 message('error', 'Empty hostname!');
@@ -1423,16 +1408,16 @@ switch ($action) {
                 show_server_form($new_server, isset($_POST['server']) ? $_POST['server'] : FALSE);
             } else {
                 if (isset($_POST['server'])) {
-                    $configuration['Servers'][$_POST['server']] = $new_server;
+                    $_SESSION['configuration']['Servers'][$_POST['server']] = $new_server;
                     message('notice', 'Changed server ' . get_server_name($new_server, $_POST['server']));
                 } else {
-                    $configuration['Servers'][] = $new_server;
+                    $_SESSION['configuration']['Servers'][] = $new_server;
                     message('notice', 'New server added');
                 }
                 $show_info = TRUE;
-                if ($new_server['auth_type'] == 'cookie' && empty($configuration['blowfish_secret'])) {
+                if ($new_server['auth_type'] == 'cookie' && empty($_SESSION['configuration']['blowfish_secret'])) {
                     message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfish secret generated');
-                    $configuration['blowfish_secret'] = uniqid('', TRUE);
+                    $_SESSION['configuration']['blowfish_secret'] = uniqid('', TRUE);
                 }
             }
             unset($new_server);
@@ -1441,7 +1426,7 @@ switch ($action) {
         }
         break;
     case 'addserver':
-        if (count($configuration['Servers']) == 0) {
+        if (count($_SESSION['configuration']['Servers']) == 0) {
             // First server will use defaults as in config.default.php
             $defaults = $PMA_Config_Setup->default_server;
             unset($defaults['AllowDeny']); // Ignore this for now
@@ -1474,22 +1459,22 @@ switch ($action) {
         if (!isset($_POST['server'])) {
             footer();
         }
-        show_server_form($configuration['Servers'][$_POST['server']], $_POST['server']);
+        show_server_form($_SESSION['configuration']['Servers'][$_POST['server']], $_POST['server']);
         break;
     case 'deleteserver':
         if (!isset($_POST['server'])) {
             footer();
         }
-        message('notice', 'Deleted server ' . get_server_name($configuration['Servers'][$_POST['server']], $_POST['server']));
-        unset($configuration['Servers'][$_POST['server']]);
-        compress_servers($configuration);
+        message('notice', 'Deleted server ' . get_server_name($_SESSION['configuration']['Servers'][$_POST['server']], $_POST['server']));
+        unset($_SESSION['configuration']['Servers'][$_POST['server']]);
+        compress_servers($_SESSION['configuration']);
         $show_info = TRUE;
         break;
     case 'servers':
-        if (count($configuration['Servers']) == 0) {
+        if (count($_SESSION['configuration']['Servers']) == 0) {
             message('notice', 'No servers defined, so none can be shown');
         } else {
-            foreach ($configuration['Servers'] as $i => $srv) {
+            foreach ($_SESSION['configuration']['Servers'] as $i => $srv) {
                 $data = array();
                 if (!empty($srv['verbose'])) {
                     $data[] = array('Verbose name', $srv['verbose']);
@@ -1521,7 +1506,7 @@ switch ($action) {
             if ($err) {
                 show_upload_form($dirs);
             } else {
-                $configuration = array_merge($configuration, $dirs);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $dirs);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1530,7 +1515,7 @@ switch ($action) {
         }
         break;
     case 'feat_upload':
-        show_upload_form($configuration);
+        show_upload_form($_SESSION['configuration']);
         break;
 
     case 'feat_security_real':
@@ -1550,7 +1535,7 @@ switch ($action) {
             if ($err) {
                 show_security_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1559,7 +1544,7 @@ switch ($action) {
         }
         break;
     case 'feat_security':
-        show_security_form($configuration);
+        show_security_form($_SESSION['configuration']);
         break;
 
     case 'feat_manual_real':
@@ -1573,7 +1558,7 @@ switch ($action) {
             if ($err) {
                 show_manual_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1582,7 +1567,7 @@ switch ($action) {
         }
         break;
     case 'feat_manual':
-        show_manual_form($configuration);
+        show_manual_form($_SESSION['configuration']);
         break;
 
     case 'feat_charset_real':
@@ -1592,7 +1577,7 @@ switch ($action) {
             if ($err) {
                 show_charset_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1601,7 +1586,7 @@ switch ($action) {
         }
         break;
     case 'feat_charset':
-        $d = $configuration;
+        $d = $_SESSION['configuration'];
         if (!isset($d['RecodingEngine'])) {
             if (@extension_loaded('iconv')) {
                 $d['RecodingEngine']         = 'iconv';
@@ -1635,7 +1620,7 @@ switch ($action) {
             if ($err) {
                 show_extensions_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1644,7 +1629,7 @@ switch ($action) {
         }
         break;
     case 'feat_extensions':
-        $d = $configuration;
+        $d = $_SESSION['configuration'];
         if (!@extension_loaded('mbstring')) {
             PMA_dl('mbstring');
         }
@@ -1675,7 +1660,7 @@ switch ($action) {
             if ($err) {
                 show_relation_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1684,7 +1669,7 @@ switch ($action) {
         }
         break;
     case 'feat_relation':
-        show_relation_form($configuration);
+        show_relation_form($_SESSION['configuration']);
         break;
 
     case 'lay_navigation_real':
@@ -1705,7 +1690,7 @@ switch ($action) {
             if ($err) {
                 show_left_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1714,7 +1699,7 @@ switch ($action) {
         }
         break;
     case 'lay_navigation':
-        show_left_form($configuration);
+        show_left_form($_SESSION['configuration']);
         break;
 
     case 'lay_tabs_real':
@@ -1724,7 +1709,7 @@ switch ($action) {
             if ($err) {
                 show_tabs_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1733,7 +1718,7 @@ switch ($action) {
         }
         break;
     case 'lay_tabs':
-        show_tabs_form($configuration);
+        show_tabs_form($_SESSION['configuration']);
         break;
 
     case 'lay_icons_real':
@@ -1743,7 +1728,7 @@ switch ($action) {
             if ($err) {
                 show_icons_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1752,7 +1737,7 @@ switch ($action) {
         }
         break;
     case 'lay_icons':
-        show_icons_form($configuration);
+        show_icons_form($_SESSION['configuration']);
         break;
 
     case 'lay_browse_real':
@@ -1770,7 +1755,7 @@ switch ($action) {
             if ($err) {
                 show_browse_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1779,7 +1764,7 @@ switch ($action) {
         }
         break;
     case 'lay_browse':
-        show_browse_form($configuration);
+        show_browse_form($_SESSION['configuration']);
         break;
 
     case 'lay_edit_real':
@@ -1809,7 +1794,7 @@ switch ($action) {
             if ($err) {
                 show_edit_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1818,7 +1803,7 @@ switch ($action) {
         }
         break;
     case 'lay_edit':
-        show_edit_form($configuration);
+        show_edit_form($_SESSION['configuration']);
         break;
 
     case 'lay_window_real':
@@ -1836,7 +1821,7 @@ switch ($action) {
             if ($err) {
                 show_window_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1845,7 +1830,7 @@ switch ($action) {
         }
         break;
     case 'lay_window':
-        show_window_form($configuration);
+        show_window_form($_SESSION['configuration']);
         break;
 
 /* Template for new actions:
@@ -1860,7 +1845,7 @@ switch ($action) {
             if ($err) {
                 show_blah_form($vals);
             } else {
-                $configuration = array_merge($configuration, $vals);
+                $_SESSION['configuration'] = array_merge($_SESSION['configuration'], $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1869,7 +1854,7 @@ switch ($action) {
         }
         break;
     case 'blah':
-        show_blah_form($configuration);
+        show_blah_form($_SESSION['configuration']);
         break;
 */
     case 'versioncheck': // Check for latest available version
@@ -1931,7 +1916,7 @@ switch ($action) {
         break;
 
     case 'seteol':
-        $eoltype = $_POST['neweol'];
+        $_SESSION['eoltype'] = $_POST['neweol'];
         message('notice', 'End of line format changed.');
     case 'clear': // Actual clearing is done on beginning of this script
     case 'main':
@@ -1967,14 +1952,14 @@ switch ($action) {
 if ($show_info) {
     $servers = 'none';
     $servers_text = 'Servers';
-    if (count($configuration['Servers']) == 0) {
+    if (count($_SESSION['configuration']['Servers']) == 0) {
         message('warning', 'No servers defined, you probably want to add one.');
     } else {
         $servers = '';
-        $servers_text = 'Servers (' . count($configuration['Servers']) . ')';
+        $servers_text = 'Servers (' . count($_SESSION['configuration']['Servers']) . ')';
 
         $sep = '';
-        foreach ($configuration['Servers'] as $key => $val) {
+        foreach ($_SESSION['configuration']['Servers'] as $key => $val) {
             $servers .= $sep;
             $sep = ', ';
             $servers .= get_server_name($val, $key);
@@ -1984,9 +1969,9 @@ if ($show_info) {
     show_overview('Current configuration overview',
         array(
             array($servers_text, $servers),
-            array('SQL files upload', empty($configuration['UploadDir']) ? 'disabled' : 'enabled'),
-            array('Exported files on server', empty($configuration['SaveDir']) ? 'disabled' : 'enabled'),
-            array('Charset conversion', isset($configuration['AllowAnywhereRecoding']) && $configuration['AllowAnywhereRecoding'] ? 'enabled' : 'disabled'),
+            array('SQL files upload', empty($_SESSION['configuration']['UploadDir']) ? 'disabled' : 'enabled'),
+            array('Exported files on server', empty($_SESSION['configuration']['SaveDir']) ? 'disabled' : 'enabled'),
+            array('Charset conversion', isset($_SESSION['configuration']['AllowAnywhereRecoding']) && $_SESSION['configuration']['AllowAnywhereRecoding'] ? 'enabled' : 'disabled'),
         ));
     unset($servers_text, $servers);
 }
@@ -1996,7 +1981,7 @@ echo '<p>Available global actions (please note that these will delete any change
 
 echo '<fieldset class="toolbar"><legend>Servers</legend>' . "\n";
 echo get_action('addserver', 'Add');
-$servers = get_server_selection($configuration);
+$servers = get_server_selection($_SESSION['configuration']);
 if (!empty($servers)) {
     echo get_action('servers', 'List');
     echo get_action('deleteserver', 'Delete', $servers);
@@ -2031,9 +2016,9 @@ echo get_action('load', 'Load', '', !$fail_dir);
 echo get_action('clear', 'Clear');
 echo get_action('seteol', 'Change end of line',
         '<select name="neweol">' .
-        '<option value="unix" ' . ($eoltype == 'unix' ? ' selected="selected"' : '') . '>UNIX/Linux (\\n)</option>' .
-        '<option value="dos" ' . ($eoltype == 'dos' ? ' selected="selected"' : '') . '>DOS/Windows (\\r\\n)</option>' .
-        '<option value="mac" ' . ($eoltype == 'mac' ? ' selected="selected"' : '') . '>Macintosh (\\r)</option>' . '
+        '<option value="unix" ' . ($_SESSION['eoltype'] == 'unix' ? ' selected="selected"' : '') . '>UNIX/Linux (\\n)</option>' .
+        '<option value="dos" ' . ($_SESSION['eoltype'] == 'dos' ? ' selected="selected"' : '') . '>DOS/Windows (\\r\\n)</option>' .
+        '<option value="mac" ' . ($_SESSION['eoltype'] == 'mac' ? ' selected="selected"' : '') . '>Macintosh (\\r)</option>' . '
         </select>');
 echo '</fieldset>' . "\n\n";
 
