@@ -756,7 +756,7 @@ $cfg['ShowStats'] = true;
 $cfg['ShowPhpInfo'] = false;
 
 /**
- * show MySQL server information
+ * show MySQL server and web server information
  *
  * @global boolean $cfg['ShowServerInfo']
  */
