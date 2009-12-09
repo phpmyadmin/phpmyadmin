@@ -183,18 +183,16 @@ echo '</div>';
 echo '<div id="main_pane_right">';
 
 
-if ($server > 0) {
+if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
     echo '<h2>MySQL</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem($strServer . ': ' . $server_info, 'li_server_info');
     PMA_printListItem($strServerVersion . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
-    if ($GLOBALS['cfg']['ShowServerInfo']) {
-        PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
-            'li_mysql_proto');
-        PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
-            'li_user_info');
-    }
+    PMA_printListItem($strProtocolVersion . ': ' . PMA_DBI_get_proto_info(),
+        'li_mysql_proto');
+    PMA_printListItem($strUser . ': ' . htmlspecialchars($mysql_cur_user_and_host),
+        'li_user_info');
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . $strMySQLCharset . ': '
@@ -207,24 +205,27 @@ if ($server > 0) {
     echo ' </div>';
 }
 
+if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
+    echo '<div class="group">';
+    echo '<h2>' . $strWebServer . '</h2>';
+    echo '<ul>';
+    if ($GLOBALS['cfg']['ShowServerInfo']) {
+        PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
-echo '<div class="group">';
-echo '<h2>' . $strWebServer . '</h2>';
-echo '<ul>';
-PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
+        if ($server > 0) {
+            PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
+                'li_mysql_client_version');
+            PMA_printListItem($strPHPExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
+                'li_used_php_extension');
+        }
+    }
 
-if ($server > 0) {
-    PMA_printListItem($strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
-        'li_mysql_client_version');
-    PMA_printListItem($strPHPExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
-        'li_used_php_extension');
+    if ($cfg['ShowPhpInfo']) {
+        PMA_printListItem($strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query);
+    }
+    echo '  </ul>';
+    echo ' </div>';
 }
-
-if ($cfg['ShowPhpInfo']) {
-    PMA_printListItem($strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query);
-}
-echo '  </ul>';
-echo ' </div>';
 
 echo '<div class="group">';
 echo '<h2>phpMyAdmin</h2>';
