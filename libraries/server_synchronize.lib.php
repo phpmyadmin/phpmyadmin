@@ -564,7 +564,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                                     unset($add_column_array[$table_index[0]]);
                                 }
                                 if (isset($add_indexes_array[$table_index[0]]) || isset($remove_indexes_array[$table_index[0]]) 
-                                    ||isset($alter_indexes_array[$table_index[0]])) {
+                                    || isset($alter_indexes_array[$table_index[0]])) {
                            
                                     PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, 
                                     $remove_indexes_array, $table_index[0], $display); 
@@ -1213,7 +1213,7 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, 
 * @param  $source_indexes          array containing the indexes of the source table 
 * @param  $target_indexes          array containing the indexes of the target table
 * @param  $add_indexes_array       array containing the name of the column on which the index is to be added in the target table
-* @param  $alter_indexes_array     array containing the name of the column on which the index is to be altered
+* @param  $alter_indexes_array     array containing the key name which needs to be altered
 * @param  $remove_indexes_array    array containing the key name of the index which is to be removed from the target table
 * @param  $table_counter           number of the matching table 
 */
@@ -1223,45 +1223,47 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matchi
     //Gets indexes information for source and target table
     $source_indexes[$table_counter] = PMA_DBI_get_table_indexes($src_db, $matching_tables[$table_counter],$src_link);
     $target_indexes[$table_counter] = PMA_DBI_get_table_indexes($trg_db, $matching_tables[$table_counter],$trg_link); 
-    for ($a = 0; $a<sizeof($source_indexes[$table_counter]); $a++) 
+    for ($a = 0; $a < sizeof($source_indexes[$table_counter]); $a++) 
     {
         $found = false;
         $z = 0;
-           //Compares key name and non_unique characteristic of source indexes with target indexes
+        //Compares key name and non_unique characteristic of source indexes with target indexes
+        /*
+         * @todo compare the length of each sub part
+         */
         while (($z <= sizeof($target_indexes[$table_counter])) && ($found == false))
         {
-            if($source_indexes[$table_counter][$a]['Column_name'] == $target_indexes[$table_counter][$z]['Column_name']) {
+            if (isset($source_indexes[$table_counter][$a]) && isset($target_indexes[$table_counter][$z]) && $source_indexes[$table_counter][$a]['Key_name'] == $target_indexes[$table_counter][$z]['Key_name']) {
                 $found = true;
-                if(($source_indexes[$table_counter][$a]['Key_name'] != $target_indexes[$table_counter][$z]['Key_name']) || ($source_indexes[$table_counter][$a]['Non_unique'] != $target_indexes[$table_counter][$z]['Non_unique'])) {
-                    if(!(($source_indexes[$table_counter][$a]['Key_name']== "PRIMARY") || ($target_indexes[$table_counter][$z]['Key_name']== 'PRIMARY'))) {
-                        $alter_indexes_array[$table_counter][] = $source_indexes[$table_counter][$a]['Column_name'];
-                        $alter_indexes_array[$table_counter][] = $target_indexes[$table_counter][$z]['Key_name'];
+                if (($source_indexes[$table_counter][$a]['Column_name'] != $target_indexes[$table_counter][$z]['Column_name']) || ($source_indexes[$table_counter][$a]['Non_unique'] != $target_indexes[$table_counter][$z]['Non_unique'])) {
+                    if (! (($source_indexes[$table_counter][$a]['Key_name'] == "PRIMARY") || ($target_indexes[$table_counter][$z]['Key_name'] == 'PRIMARY'))) {
+                        $alter_indexes_array[$table_counter][] = $source_indexes[$table_counter][$a]['Key_name'];
                     }
                 }
             }
             $z++; 
         }
         if ($found === false) {
-            if(!($source_indexes[$table_counter][$a]['Key_name'] == 'PRIMARY')) {
+            if(! ($source_indexes[$table_counter][$a]['Key_name'] == 'PRIMARY')) {
                 $add_indexes_array [$table_counter][] = $source_indexes[$table_counter][$a]['Column_name']; 
             }
         }
     }
     
-    //Finds indexes that are made on target table but not on source table
-    for ($b = 0; $b<sizeof($target_indexes[$table_counter]); $b++) 
+    //Finds indexes that exist on target table but not on source table
+    for ($b = 0; $b < sizeof($target_indexes[$table_counter]); $b++) 
     {
         $found = false;
         $c = 0;
         while (($c <= sizeof($source_indexes[$table_counter])) && ($found == false))
         {
-            if($target_indexes[$table_counter][$b]['Column_name'] == $source_indexes[$table_counter][$c]['Column_name']) {
+            if ($target_indexes[$table_counter][$b]['Column_name'] == $source_indexes[$table_counter][$c]['Column_name']) {
                 $found = true;
             }
             $c++; 
         }
         if ($found === false) {
-            $remove_indexes_array [$table_counter][] = $target_indexes[$table_counter][$b]['Key_name']; 
+            $remove_indexes_array[$table_counter][] = $target_indexes[$table_counter][$b]['Key_name']; 
         }
     }
 }
@@ -1308,29 +1310,36 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
         }
     }
     //Alter indexes of target table
-    if(isset($alter_indexes_array[$table_counter])) {
-        $query = "ALTER TABLE " . PMA_backquote($trg_db) . "." . PMA_backquote($matching_tables[$table_counter]) . " DROP INDEX " ;
-        for ($a = 0; $a < sizeof($source_indexes[$table_counter]); $a++)
-        {
-            if(isset($alter_indexes_array[$table_counter][$a])) {
-                $query .= $alter_indexes_array[$table_counter][$a+1] . " , ADD ";       
-                for ($z = 0; $z < sizeof($source_indexes[$table_counter]); $z++)
-                {                                                               
-                    if($source_indexes[$table_counter][$z]['Column_name'] == $alter_indexes_array[$table_counter][$a]) {
-                        if ($source_indexes[$table_counter][$z]['Non_unique'] == '0') {
-                            $query .= " UNIQUE ";
+
+    if (isset($alter_indexes_array[$table_counter])) {
+        $query = "ALTER TABLE " . PMA_backquote($trg_db) . "." . PMA_backquote($matching_tables[$table_counter]);
+        for ($a = 0; $a < sizeof($alter_indexes_array[$table_counter]); $a++) {
+            if (isset($alter_indexes_array[$table_counter][$a])) {
+                $query .= ' DROP INDEX ' . PMA_backquote($alter_indexes_array[$table_counter][$a]) . " , ADD ";       
+                $got_first_index_column = false;
+                for ($z = 0; $z < sizeof($source_indexes[$table_counter]); $z++) {                                                               
+                    if ($source_indexes[$table_counter][$z]['Key_name'] == $alter_indexes_array[$table_counter][$a]) {
+                        if (! $got_first_index_column) {
+                            if ($source_indexes[$table_counter][$z]['Non_unique'] == '0') {
+                                $query .= " UNIQUE ";
+                            }
+                            $query .= " INDEX " . PMA_backquote($source_indexes[$table_counter][$z]['Key_name']) . " (" . PMA_backquote($source_indexes[$table_counter][$z]['Column_name']);
+                            $got_first_index_column = true;
+                        } else {
+                            // another column for this index
+                            $query .= ', ' . PMA_backquote($source_indexes[$table_counter][$z]['Column_name']);
                         }
-                        $query .= " INDEX " .$source_indexes[$table_counter][$z]['Key_name'] . " (" . $alter_indexes_array[$table_counter][$a] . " );";
-                        if ($display == true) {
-                            echo '<p>'.$query.'</p>';
-                        }
-                        PMA_DBI_try_query($query, $trg_link, 0);
                     }
                 }
+                $query .= " )";
             }
         }
+        if ($display == true) {
+            echo '<p>' . $query . '</p>';
+        }
+        PMA_DBI_try_query($query, $trg_link, 0);
     }
-    //Removes indexes from targe table
+    //Removes indexes from target table
     if(isset($remove_indexes_array[$table_counter])) {
         $drop_index_query = "ALTER TABLE " . PMA_backquote($trg_db) . "." . PMA_backquote($matching_tables[$table_counter]);
         for ($a = 0; $a < sizeof($target_indexes[$table_counter]); $a++)

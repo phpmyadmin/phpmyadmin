@@ -203,7 +203,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 $target_columns, $alter_str_array, $add_column_array, $uncommon_columns, $criteria, $target_tables_keys, $i);    
                 
                 PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_indexes, $target_indexes,
-                $add_indexes_array, $alter_indexes_array,$remove_indexes_array, $i);      
+                $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $i);      
             }
             
             for($j = 0; $j < sizeof($source_tables_uncommon); $j++) {
@@ -321,7 +321,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 <td align="center">';
                 /**
                 * Calculating the number of alter columns, number of columns to be added, number of columns to be removed,
-                * number of index to added and renmoved.
+                * number of index to be added and removed.
                 */
                 $num_alter_cols  = 0;
                 $num_insert_cols = 0;
@@ -336,13 +336,17 @@ if ((isset($_REQUEST['submit_connect']))) {
                     $num_insert_cols = sizeof($add_column_array[$i]);
                 }
                 if (isset($uncommon_columns[$i])) {
-                   $num_remove_cols = sizeof($uncommon_columns[$i]);  
+                    $num_remove_cols = sizeof($uncommon_columns[$i]);  
                 }
                 if (isset($add_indexes_array[$i])) {
                     $num_add_index = sizeof($add_indexes_array[$i]);
                 }
                 if (isset($remove_indexes_array[$i])) {
-                   $num_remove_index = sizeof($remove_indexes_array[$i]);  
+                    $num_remove_index = sizeof($remove_indexes_array[$i]);  
+                }  
+                if (isset($alter_indexes_array[$i])) {
+                    $num_add_index += sizeof($alter_indexes_array[$i]);
+                    $num_remove_index += sizeof($alter_indexes_array[$i]);  
                 }  
                 /**
                 * Display the red button of structure synchronization if there exists any structure difference or index difference.                   
