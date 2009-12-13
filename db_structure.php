@@ -289,11 +289,12 @@ foreach ($tables as $keyname => $each_table) {
 
     switch ( $each_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
-        // are accurate.
+        // are accurate; data size is accurate for ARCHIVE
         case 'MyISAM' :
         case 'ISAM' :
         case 'HEAP' :
         case 'MEMORY' :
+        case 'ARCHIVE' :
             if ($db_is_information_schema) {
                 $each_table['Rows'] = PMA_Table::countRecords($db,
                     $each_table['Name'], $return = true);

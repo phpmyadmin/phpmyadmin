@@ -11,6 +11,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug [history] QueryHistoryDB is not respected
 - bug #2905629 [auth] Blowfish secret is not hashed 
 - bug #2910000 [gui] ShowServerInfo should hide all server info from main page 
+- bug #2910568 [structure] Table size for ARCHIVE tables is not displayed 
 
 3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status 
