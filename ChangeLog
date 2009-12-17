@@ -14,6 +14,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2910568 [structure] Table size for ARCHIVE tables is not displayed 
 - patch #2899969 [core] Session lock blocks working from a second window,
   thanks to Greg Roach - fisharebest
+- patch #2915168 [import] Incorrect parsing of DELIMITER keyword,
+  thanks to Greg Roach - fisharebest
 
 3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status 
