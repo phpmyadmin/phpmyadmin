@@ -416,6 +416,6 @@ function PMA_replication_gui_master_addslaveuser() {
         . '    <input type="submit" name="adduser_submit" id="adduser_submit" value="' . $GLOBALS['strGo'] . '" />'
         . '</fieldset>';
     echo '</form>';
-    echo '</div>'";
+    echo '</div>';
 }
 ?>
