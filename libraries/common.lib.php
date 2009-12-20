@@ -2733,11 +2733,13 @@ function PMA_getTitleForTarget($target) {
 function PMA_js_mootools_domready($code, $print=true)
 {
   $out  = '';
-  $out .= '<script type="text/javascript">'."\n";
-  $out .= 'window.addEvent(\'domready\',function() {'."\n";
+  $out .= '<script type="text/javascript">';
+  $out .= '// <![CDATA[';
+  $out .= 'window.addEvent(\'domready\',function() {';
   $out .= $code;
-  $out .= '});'."\n";
-  $out .= '</script>'."\n";
+  $out .= '});';
+  $out .= '// ]]>';
+  $out .= '</script>';
 
   if ($print)
     echo $out;
