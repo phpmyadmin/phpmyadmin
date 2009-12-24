@@ -61,7 +61,7 @@ if (! defined('MYSQLI_TYPE_BIT')) {
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
  * @param   array   $server host/port/socket 
- * @param   boolean $auxiliary_connection (if fails, don't go back to login)
+ * @param   boolean $auxiliary_connection (when true, don't go back to login if connection fails)
  * @return  mixed   false on error or a mysqli object on success
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
