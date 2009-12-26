@@ -533,9 +533,11 @@ class PMA_Tracker
     static public function getTrackedData($dbname, $tablename, $version)
     {
         $sql_query = " SELECT * FROM " . self::$pma_table .
-                     " WHERE " . PMA_backquote('db_name')    . " = '" . PMA_sqlAddslashes($dbname) . "' ".
-                     " AND "   . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) ."' ".
-                     " AND "   . PMA_backquote('version')    . " = '" . PMA_sqlAddslashes($version) ."' ".
+            " WHERE " . PMA_backquote('db_name')    . " = '" . PMA_sqlAddslashes($dbname) . "' ";
+        if (! empty($tablename)) {
+            $sql_query .= " AND "   . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) ."' ";
+        }
+        $sql_query .= " AND "   . PMA_backquote('version')    . " = '" . PMA_sqlAddslashes($version) ."' ".
                      " ORDER BY ". PMA_backquote('version') . " DESC ";
 
         $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
