@@ -322,9 +322,9 @@ foreach ($tables as $keyname => $each_table) {
     $tracking_icon = '';
     if (PMA_Tracker::isActive()) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
-            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye.png" alt="' . $strTrackingIsActive . '" title="' . $strTrackingIsActive . '" /></a>';
-        } else if (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
-            $tracking_icon = '<a href="tbl_tracking.php?'.$url_query.'&table='.$truename.'"><img class="icon" width="14" height="14" src="' .$pmaThemeImage . 'eye_grey.png" alt="' . $strTrackingIsNotActive . '" title="' . $strTrackingIsNotActive . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query.'&amp;table=' . $truename . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye.png" alt="' . $strTrackingIsActive . '" title="' . $strTrackingIsActive . '" /></a>';
+        } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . $truename . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye_grey.png" alt="' . $strTrackingIsNotActive . '" title="' . $strTrackingIsNotActive . '" /></a>';
         }
     }
 
@@ -378,6 +378,7 @@ foreach ($tables as $keyname => $each_table) {
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><label for="checkbox_tbl_<?php echo $i; ?>"
             title="<?php echo $alias; ?>" style="<?php echo $ignored ? ' ignored' : ''; ?>"><?php echo $truename; ?></label>
+        <label><?php echo $tracking_icon; ?></label>
     </th>
    <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
