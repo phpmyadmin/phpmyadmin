@@ -182,8 +182,8 @@ class PMA_Tracker
      */
     static protected function getTableName($string)
     {
-        if(strstr($string,'.')) {
-            $temp = explode('.',$string);
+        if (strstr($string, '.')) {
+            $temp = explode('.', $string);
             $tablename = $temp[1];
         }
         else {
@@ -228,7 +228,7 @@ class PMA_Tracker
         $sql_query =
         " SELECT tracking_active FROM " . self::$pma_table .
         " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' ".
+        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
         " ORDER BY version DESC";
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
@@ -297,11 +297,11 @@ class PMA_Tracker
 
         $indexes = array();
 
-        while( $row = PMA_DBI_fetch_array($sql_result)) {
+        while($row = PMA_DBI_fetch_array($sql_result)) {
             $indexes[] = $row;
         }
 
-        $snapshot = array('COLUMNS' => $columns , 'INDEXES' => $indexes);
+        $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
@@ -328,16 +328,16 @@ class PMA_Tracker
         $sql_query =
         "/*NOTRACK*/\n" .
         "INSERT INTO" . self::$pma_table . " (" .
-        "db_name, ".
-        "table_name, ".
-        "version, ".
-        "date_created, ".
-        "date_updated, ".
-        "schema_snapshot, ".
-        "schema_sql, ".
-        "data_sql, ".
-        "tracking ".
-        ") ".
+        "db_name, " .
+        "table_name, " .
+        "version, " .
+        "date_created, " .
+        "date_updated, " .
+        "schema_snapshot, " .
+        "schema_sql, " .
+        "data_sql, " .
+        "tracking " .
+        ") " .
         "values (
         '" . PMA_sqlAddslashes($dbname) . "',
         '" . PMA_sqlAddslashes($tablename) . "',
@@ -398,16 +398,16 @@ class PMA_Tracker
         $sql_query =
         "/*NOTRACK*/\n" .
         "INSERT INTO" . self::$pma_table . " (" .
-        "db_name, ".
-        "table_name, ".
-        "version, ".
-        "date_created, ".
-        "date_updated, ".
-        "schema_snapshot, ".
-        "schema_sql, ".
-        "data_sql, ".
-        "tracking ".
-        ") ".
+        "db_name, " .
+        "table_name, " .
+        "version, " .
+        "date_created, " .
+        "date_updated, " .
+        "schema_snapshot, " .
+        "schema_sql, " .
+        "data_sql, " .
+        "tracking " .
+        ") " .
         "values (
         '" . PMA_sqlAddslashes($dbname) . "',
         '" . PMA_sqlAddslashes('') . "',
@@ -427,6 +427,32 @@ class PMA_Tracker
 
 
     /**
+     * Changes tracking of a table.
+     *
+     * @static
+     *
+     * @param  string $dbname       name of database
+     * @param  string $tablename    name of table
+     * @param  string $version      version
+     * @param  integer $new_state   the new state of tracking 
+     *
+     * @return int result of SQL query
+     */
+    static private function changeTracking($dbname, $tablename, $version, $new_state)
+    {
+        $sql_query =
+        " UPDATE " . self::$pma_table .
+        " SET " . PMA_backquote('tracking_active') . " = '" . $new_state . "' " .
+        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
+        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
+        " AND " . PMA_backquote('version') . " = '" . PMA_sqlAddslashes($version) . "' ";
+
+        $result = PMA_query_as_controluser($sql_query);
+
+        return $result;
+    }
+
+    /**
      * Activates tracking of a table.
      *
      * @static
@@ -439,21 +465,12 @@ class PMA_Tracker
      */
     static public function activateTracking($dbname, $tablename, $version)
     {
-        $sql_query =
-        " UPDATE " . self::$pma_table .
-        " SET " . PMA_backquote('tracking_active') ." = '1' " .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
-        " AND " . PMA_backquote('version') . " = '" . PMA_sqlAddslashes($version) . "' ";
-
-        $result = PMA_query_as_controluser($sql_query);
-
-        return $result;
+        return self::changeTracking($dbname, $tablename, $version, 1); 
     }
 
 
     /**
-     * Deativates tracking of a table.
+     * Deactivates tracking of a table.
      *
      * @static
      *
@@ -465,16 +482,7 @@ class PMA_Tracker
      */
     static public function deactivateTracking($dbname, $tablename, $version)
     {
-        $sql_query =
-        " UPDATE " . self::$pma_table .
-        " SET " . PMA_backquote('tracking_active') ." = '0' " .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
-        " AND " . PMA_backquote('version') . " = '" . PMA_sqlAddslashes($version) . "' ";
-
-        $result = PMA_query_as_controluser($sql_query);
-
-        return $result;
+        return self::changeTracking($dbname, $tablename, $version, 0); 
     }
 
 
@@ -488,7 +496,7 @@ class PMA_Tracker
      * @param  string $tablename   name of table
      * @param  string $statement   tracked statement
      *
-     * @return int (-1 if no version exist | >  0 if a version exist)
+     * @return int (-1 if no version exists | >  0 if a version exists)
      */
     static public function getVersion($dbname, $tablename, $statement = null)
     {
@@ -631,8 +639,8 @@ class PMA_Tracker
         // $parsed_sql = PMA_SQP_parse($query);
         // $sql_info = PMA_SQP_analyze($parsed_sql);
 
-        $query = str_replace("\n"," ", $query);
-        $query = str_replace("\r"," ", $query);
+        $query = str_replace("\n", " ", $query);
+        $query = str_replace("\r", " ", $query);
 
         $query = trim($query);
         $query = trim($query, ' -');
