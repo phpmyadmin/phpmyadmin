@@ -43,30 +43,18 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
  */
 require_once './libraries/db_links.inc.php';
 
-/*
- * List versions of current table
- */
-
 // Prepare statement to get HEAD version
-$sql_query = ' SELECT *, MAX(version) as version FROM ' .
+$all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
              ' WHERE ' . PMA_backquote('db_name')    . ' = \'' . PMA_sqlAddslashes($_REQUEST['db']) . '\' ' .
-             ' AND ' . PMA_backquote('table_name')    . ' <> \'' . PMA_sqlAddslashes('') . '\' ' .
              ' GROUP BY '. PMA_backquote('table_name') .
-             ' ORDER BY '. PMA_backquote('table_name') .'ASC , '. PMA_backquote('version') .' ASC ';
+             ' ORDER BY '. PMA_backquote('table_name') .' ASC';
 
-$sql_result = PMA_query_as_controluser($sql_query);
-
-// Init HEAD version
-$last_version = 0;
-
-// Get HEAD version
-$maxversion = PMA_DBI_fetch_array($sql_result);
-$last_version = $maxversion['version'];
+$all_tables_result = PMA_query_as_controluser($all_tables_query);
 
 // If a HEAD version exists
-if ($last_version > 0) {
+if (PMA_DBI_num_rows($all_tables_result) > 0) {
 ?>
     <h3><?php echo $strTrackingTrackedTables;?></h3>
 
@@ -88,25 +76,33 @@ if ($last_version > 0) {
     // Print out information about versions
 
     $style = 'odd';
-    PMA_DBI_data_seek($sql_result, 0);
-    while ($version = PMA_DBI_fetch_array($sql_result)) {
-        if ($version['tracking_active'] == 1) {
+    while ($one_result = PMA_DBI_fetch_array($all_tables_result)) {
+        list($table_name, $version_number) = $one_result;
+        $table_query = ' SELECT * FROM ' .
+             PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
+             PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
+             ' WHERE `db_name` = \'' . PMA_sqlAddslashes($_REQUEST['db']) . '\' AND `table_name`  = \'' . PMA_sqlAddslashes($table_name) . '\' AND `version` = \'' . $version_number . '\''; 
+
+        $table_result = PMA_query_as_controluser($table_query);
+        $version_data = PMA_DBI_fetch_array($table_result);
+
+        if ($version_data['tracking_active'] == 1) {
             $version_status = $strTrackingStatusActive;
         } else {
             $version_status = $strTrackingStatusNotActive;
         }
-        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version['table_name']);
+        $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']);
         ?>
         <tr class="<?php echo $style;?>">
-            <td><?php echo htmlspecialchars($version['db_name']);?></td>
-            <td><?php echo htmlspecialchars($version['table_name']);?></td>
-            <td><?php echo $version['version'];?></td>
-            <td><?php echo $version['date_created'];?></td>
-            <td><?php echo $version['date_updated'];?></td>
+            <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
+            <td><?php echo htmlspecialchars($version_data['table_name']);?></td>
+            <td><?php echo $version_data['version'];?></td>
+            <td><?php echo $version_data['date_created'];?></td>
+            <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
             <td> <a href="<?php echo $tmp_link; ?>"><?php echo $strTrackingVersions;?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingReport;?></a>
-               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
+               | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingReport;?></a>
+               | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>
         </tr>
         <?php
         if ($style == 'even') {
