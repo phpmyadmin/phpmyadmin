@@ -459,7 +459,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             </fieldset> 
             <fieldset class="tblFooters">';
             echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
-             . '" onclick ="ApplySelectedChanges(' . "'" . $_SESSION['token'] . "'" . ')" />';
+             . '" onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
             echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />' . '</fieldset>';
             echo '</form>';      
         }    
@@ -557,7 +557,7 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Applying the structure difference on selected matching tables
     */
-    for($q = 0 ; $q < sizeof($matching_table_structure_diff); $q++)
+    for($q = 0; $q < sizeof($matching_table_structure_diff); $q++)
     {
         if (isset($alter_str_array[$matching_table_structure_diff[$q]])) {
            
@@ -698,14 +698,15 @@ if (isset($_REQUEST['Table_ids'])) {
         if (!(in_array($uncommon_table_data_diff[$r], $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$uncommon_table_data_diff[$r]])) {
                
-                PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_data_diff[$r], $uncommon_tables_fields, false);
+                PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_data_diff[$r],
+                    $uncommon_tables_fields, false);
                 $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
                 
                 unset($uncommon_tables[$uncommon_table_data_diff[$r]]);  
             }
         }     
         PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $uncommon_table_data_diff[$r], 
-        $_SESSION['uncommon_tables_fields'], false);
+            $_SESSION['uncommon_tables_fields'], false);
         
         unset($row_count[$uncommon_table_data_diff[$r]]);              
     }
@@ -714,13 +715,13 @@ if (isset($_REQUEST['Table_ids'])) {
     * The differences have been removed from tables that have been synchronized
     */
     echo '<form name="applied_difference" id="synchronize_form" method="post" action="server_synchronize.php">'
-    . PMA_generate_common_hidden_inputs('', '');
+        . PMA_generate_common_hidden_inputs('', '');
     
     PMA_syncDisplayHeaderSource($src_db);
     $odd_row = false;
     for($i = 0; $i < count($matching_tables); $i++) {   
         $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td align="center">' . $matching_tables[$i] . '</td>
+        echo '<td align="center">' . htmlspecialchars($matching_tables[$i]) . '</td>
         <td align="center">';
             
         $num_alter_cols  = 0;
@@ -749,7 +750,7 @@ if (isset($_REQUEST['Table_ids'])) {
             echo '<img class="icon" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29" 
             alt="' . $GLOBALS['strClickToSelect'] . '" onmouseover="change_Image(this);" onmouseout="change_Image(this);"
             onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" . $num_insert_cols . "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'" .',
-            this ,' . "'" . $matching_tables[$i] . "'" . ')"/>';
+            this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
         }  
         if (!(in_array($i, $matching_table_data_diff))) {
             
@@ -903,7 +904,7 @@ if (isset($_REQUEST['Table_ids'])) {
     
     echo '<fieldset class="tblFooters">';
     echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'] . '" 
-          onclick ="ApplySelectedChanges(' . "'" . $_SESSION['token'] . "'" .')" />';
+          onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
     echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />'
           . '</fieldset>';
     echo '</form>';                 
@@ -1017,14 +1018,14 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Applying all sorts of differences for each matching table       
     */
-    for($p = 0; $p <sizeof($matching_tables); $p++) {   
+    for($p = 0; $p < sizeof($matching_tables); $p++) {   
         /**
         *  If the check box is checked for deleting previous rows from the target database tables then 
         *  first find out rows to be deleted and then delete the rows.
         */
         if (isset($_REQUEST['delete_rows'])) {
             PMA_findDeleteRowsFromTargetTables($delete_array, $matching_tables, $p, $target_tables_keys, $matching_tables_keys,
-            $trg_db, $trg_link, $src_db, $src_link);
+                $trg_db, $trg_link, $src_db, $src_link);
              
             if (isset($delete_array[$p])) {
                 PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p, $target_tables_keys, $delete_array, true);          
@@ -1044,8 +1045,9 @@ if (isset($_REQUEST['synchronize_db'])) {
                 PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $p, $target_tables_keys, $delete_array, true);
                 unset($delete_array[$p]); 
             }        
-            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns, $add_column_array, $matching_tables_fields,
-            $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables,$uncommon_tables_fields, $p, $uncommon_cols, true);
+            PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns, $add_column_array,
+                $matching_tables_fields, $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables, $uncommon_tables_fields, 
+                $p, $uncommon_cols, true);
             unset($add_column_array[$p]);
         }
         if (isset($uncommon_columns[$p])) {
@@ -1066,15 +1068,16 @@ if (isset($_REQUEST['synchronize_db'])) {
         
         PMA_updateTargetTables($matching_tables, $update_array, $src_db, $trg_db, $trg_link, $p, $matching_tables_keys, true);
         
-        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link, $trg_link , $matching_tables_fields, $insert_array,$p, $matching_tables_keys,
-        $matching_tables_keys,$source_columns, $add_column_array, $criteria, $target_tables_keys,$uncommon_tables, $uncommon_tables_fields,$uncommon_cols, 
-        $alter_str_array,$source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, $delete_array, $update_array, true);   
+        PMA_insertIntoTargetTable($matching_tables, $src_db, $trg_db, $src_link, $trg_link , $matching_tables_fields, $insert_array, $p, 
+            $matching_tables_keys, $matching_tables_keys, $source_columns, $add_column_array, $criteria, $target_tables_keys, $uncommon_tables, 
+            $uncommon_tables_fields,$uncommon_cols, $alter_str_array,$source_indexes, $target_indexes, $add_indexes_array, 
+            $alter_indexes_array, $delete_array, $update_array, true);   
     }              
                                                                                                                     
     /**
     *  Creating and populating tables present in source but absent from target database.  
     */   
-    for($q = 0; $q < sizeof($source_tables_uncommon) ;$q++) { 
+    for($q = 0; $q < sizeof($source_tables_uncommon); $q++) { 
         if (isset($uncommon_tables[$q])) {
             PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
@@ -1157,6 +1160,7 @@ if (isset($_REQUEST['synchronize_db'])) {
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
     unset($databases['information_schema']);
+
 	if (count($databases) == 0) {
 		echo $GLOBALS['strNoDatabases'];
 	} else {
@@ -1164,7 +1168,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 	      	<select name="' . $type . '_db_sel">
 		';
 		foreach ($databases as $db) {
-            echo '		<option>' . $db['SCHEMA_NAME'] . '</option>';
+            echo '		<option>' . htmlspecialchars($db['SCHEMA_NAME']) . '</option>';
 		}  
         echo '</select>';
 	}
