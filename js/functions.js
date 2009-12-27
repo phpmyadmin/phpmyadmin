@@ -836,10 +836,14 @@ function PMA_markRowsInit() {
             continue;
         }
         // ... and to mark the row on click ...
-        rows[i].onmousedown = function() {
+        rows[i].onmousedown = function(event) {
             var unique_id;
             var checkbox;
+            var table;
 
+            // Somehow IE8 has this not set
+            if (!event) var event = window.event
+			
             checkbox = this.getElementsByTagName( 'input' )[0];
             if ( checkbox && checkbox.type == 'checkbox' ) {
                 unique_id = checkbox.name + checkbox.value;
@@ -863,6 +867,36 @@ function PMA_markRowsInit() {
 
             if ( checkbox && checkbox.disabled == false ) {
                 checkbox.checked = marked_row[unique_id];
+                if (typeof(event) == 'object') {
+                    table = this.parentNode;
+                    i = 0;
+                    while (table.tagName.toLowerCase() != 'table' && i < 20) {
+                        i++;
+                        table = table.parentNode;
+                    }
+
+                    if (event.shiftKey == true && table.lastClicked != undefined) {
+                        if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
+                        i = table.lastClicked;
+
+                        if (i < this.rowIndex) {
+                            i++;
+                        } else {
+                            i--;
+                        }
+
+                        while (i != this.rowIndex) {
+                            table.rows[i].onmousedown();
+                            if (i < this.rowIndex) {
+                                i++;
+                            } else {
+                                i--;
+                            }
+                        }
+                    }
+
+                    table.lastClicked = this.rowIndex;
+                }
             }
         }
 
