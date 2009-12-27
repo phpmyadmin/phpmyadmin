@@ -4,11 +4,12 @@
  * OpenDocument Spreadsheet import plugin for phpMyAdmin
  *
  * @todo    Pretty much everything
+ * @todo    Importing of accented characters seems to fail 
  * @version 0.5-beta
  * @package phpMyAdmin-Import
  */
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -43,13 +44,13 @@ $buffer = "";
  * Read in the file via PMA_importGetNextChunk so that
  * it can process compressed files
  */
-while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
+while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
     $data = PMA_importGetNextChunk();
     if ($data === FALSE) {
         /* subtract data we didn't handle yet and stop processing */
         $offset -= strlen($buffer);
         break;
-    } else if ($data === TRUE) {
+    } elseif ($data === TRUE) {
         /* Handle rest of buffer */
     } else {
         /* Append new data to buffer */
@@ -92,17 +93,17 @@ foreach ($sheets as $sheet) {
     /* Iterate over rows */
     foreach ($sheet as $row) {
         $type = $row->getName();
-        if (!strcmp('table-row', $type)) {
+        if (! strcmp('table-row', $type)) {
             /* Iterate over columns */
             foreach ($row as $cell) {
                 $text = $cell->children('text', true);
                 $cell_attrs = $cell->attributes('office', true);
                 
                 if (count($text) != 0) {
-                    if (!$col_names_in_first_row) {
+                    if (! $col_names_in_first_row) {
                         if ($_REQUEST['ods_recognize_percentages'] && !strcmp('percentage', $cell_attrs['value-type'])) {
                             $tempRow[] = (double)$cell_attrs['value'];
-                        } else if ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
+                        } elseif ($_REQUEST['ods_recognize_currency'] && !strcmp('currency', $cell_attrs['value-type'])) {
                             $tempRow[] = (double)$cell_attrs['value'];
                         } else {
                             $tempRow[] = (string)$text;
@@ -125,7 +126,7 @@ foreach ($sheets as $sheet) {
                         $num_null = (int)$attr['number-columns-repeated'];
                         
                         if ($num_null) {
-                            if (!$col_names_in_first_row) {
+                            if (! $col_names_in_first_row) {
                                 for ($i = 0; $i < $num_null; ++$i) {
                                     $tempRow[] = 'NULL';
                                     ++$col_count;
@@ -137,7 +138,7 @@ foreach ($sheets as $sheet) {
                                 }
                             }
                         } else {
-                            if (!$col_names_in_first_row) {
+                            if (! $col_names_in_first_row) {
                                 $tempRow[] = 'NULL';
                             } else {
                                 $col_names[] = PMA_getColumnAlphaName($col_count + 1);
@@ -155,7 +156,7 @@ foreach ($sheets as $sheet) {
             }
             
             /* Don't include a row that is full of NULL values */
-            if (!$col_names_in_first_row) {
+            if (! $col_names_in_first_row) {
                 if ($_REQUEST['ods_empty_rows']) {
                     foreach ($tempRow as $cell) {
                         if (strcmp('NULL', $cell)) {
@@ -224,8 +225,8 @@ unset($xml);
 $num_tbls = count($tables);
 for ($i = 0; $i < $num_tbls; ++$i) {
     for ($j = 0; $j < count($rows); ++$j) {
-        if (!strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
-            if (!isset($tables[$i][COL_NAMES])) {
+        if (! strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
+            if (! isset($tables[$i][COL_NAMES])) {
                 $tables[$i][] = $rows[$j][COL_NAMES];
             }
             
