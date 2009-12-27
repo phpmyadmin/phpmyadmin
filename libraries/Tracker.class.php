@@ -442,10 +442,10 @@ class PMA_Tracker
     {
         $sql_query =
         " UPDATE " . self::$pma_table .
-        " SET " . PMA_backquote('tracking_active') . " = '" . $new_state . "' " .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
-        " AND " . PMA_backquote('version') . " = '" . PMA_sqlAddslashes($version) . "' ";
+        " SET `tracking_active` = '" . $new_state . "' " .
+        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' " .
+        " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -502,8 +502,8 @@ class PMA_Tracker
     {
         $sql_query =
         " SELECT MAX(version) FROM " . self::$pma_table .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' ";
+        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' ";
 
         if ($statement != "") {
             $sql_query .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
@@ -532,13 +532,16 @@ class PMA_Tracker
      */
     static public function getTrackedData($dbname, $tablename, $version)
     {
-        $sql_query = " SELECT * FROM " . self::$pma_table .
-            " WHERE " . PMA_backquote('db_name')    . " = '" . PMA_sqlAddslashes($dbname) . "' ";
-        if (! empty($tablename)) {
-            $sql_query .= " AND "   . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) ."' ";
+        if (! isset(self::$pma_table)) {
+            self::init();
         }
-        $sql_query .= " AND "   . PMA_backquote('version')    . " = '" . PMA_sqlAddslashes($version) ."' ".
-                     " ORDER BY ". PMA_backquote('version') . " DESC ";
+        $sql_query = " SELECT * FROM " . self::$pma_table .
+            " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' ";
+        if (! empty($tablename)) {
+            $sql_query .= " AND `table_name` = '" . PMA_sqlAddslashes($tablename) ."' ";
+        }
+        $sql_query .= " AND `version` = '" . PMA_sqlAddslashes($version) ."' ".
+                     " ORDER BY `version` DESC ";
 
         $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
 
@@ -900,11 +903,11 @@ class PMA_Tracker
                 " /*NOTRACK*/\n" .
                 " UPDATE " . self::$pma_table .
                 " SET " . PMA_backquote($save_to) ." = CONCAT( " . PMA_backquote($save_to) . ",'\n" . PMA_sqlAddslashes($query) . "') ," .
-                " " . PMA_backquote('date_updated') . " = '" . $date . "' ";
+                " `date_updated` = '" . $date . "' ";
 
                 // If table was renamed we have to change the tablename attribute in pma_tracking too
                 if ($result['identifier'] == 'RENAME TABLE') {
-                    $sql_query .= ', ' . PMA_backquote('table_name') . ' = \'' . PMA_sqlAddslashes($result['tablename_after_rename']) . '\' ';
+                    $sql_query .= ', `table_name` = \'' . PMA_sqlAddslashes($result['tablename_after_rename']) . '\' ';
                 }
 
                 // Save the tracking information only for
@@ -914,9 +917,9 @@ class PMA_Tracker
                 // we want to track
                 $sql_query .=
                 " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
-                " AND " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-                " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($result['tablename']) . "' " .
-                " AND " . PMA_backquote('version') . " = '" . PMA_sqlAddslashes($version) . "' ";
+                " AND `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
+                " AND `table_name` = '" . PMA_sqlAddslashes($result['tablename']) . "' " .
+                " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
 
                 $result = PMA_query_as_controluser($sql_query);
             }

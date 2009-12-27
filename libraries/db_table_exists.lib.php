@@ -44,7 +44,7 @@ if (empty($is_db)) {
     }
 } // end if (ensures db exists)
 
-if (empty($is_table) && !defined('PMA_SUBMIT_MULT')) {
+if (empty($is_table) && !defined('PMA_SUBMIT_MULT') && ! defined('TABLE_MAY_BE_ABSENT')) {
     // Not a valid table name -> back to the db_sql.php
 
     if (strlen($table)) {
