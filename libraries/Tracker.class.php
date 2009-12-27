@@ -361,6 +361,26 @@ class PMA_Tracker
 
 
     /**
+     * Removes all tracking data for a table 
+     *
+     * @static
+     *
+     * @param  string $dbname       name of database
+     * @param  string $tablename    name of table 
+     *
+     * @return int result of version insertion
+     */
+    static public function deleteTracking($dbname, $tablename)
+    {
+        $sql_query =
+        "/*NOTRACK*/\n" .
+        "DELETE FROM " . self::$pma_table . " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "'";
+        $result = PMA_query_as_controluser($sql_query);
+
+        return $result;
+    }
+
+    /**
      * Creates tracking version of a database
      * (in other words: create a job to track future changes on the database).
      *

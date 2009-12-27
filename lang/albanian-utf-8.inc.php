@@ -1636,4 +1636,5 @@ $strXMLExportViews = 'Export views';  //to translate
 $strTrackingYouCanExecute = 'You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.';  //to translate
 $strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
 $strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
+$strDeleteTrackingData = 'Delete tracking data for this table';  //to translate
 ?>

@@ -20,6 +20,12 @@ require './libraries/db_info.inc.php';
 // Get relation settings
 require_once './libraries/relation.lib.php';
 
+// Work to do?
+//  (here, do not use $_REQUEST['db] as it can be crafted)
+if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
+    PMA_Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
+}
+
 // Get tracked data about the database
 $data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
 
@@ -67,6 +73,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         <th><?php echo $strTrackingThCreated;?></th>
         <th><?php echo $strTrackingThUpdated;?></th>
         <th><?php echo $strStatus;?></th>
+        <th><?php echo $strAction;?></th>
         <th><?php echo $strShow;?></th>
     </tr>
     </thead>
@@ -74,6 +81,14 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
     <?php
 
     // Print out information about versions
+
+    $drop_image_or_text = '';
+    if (true == $GLOBALS['cfg']['PropertiesIconic']) {
+        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDeleteTrackingData . '" title="' . $strDeleteTrackingData . '" />';
+    }
+    if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
+        $drop_image_or_text .= $strDrop;
+    }
 
     $style = 'odd';
     while ($one_result = PMA_DBI_fetch_array($all_tables_result)) {
@@ -92,6 +107,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             $version_status = $strTrackingStatusNotActive;
         }
         $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']);
+        $delete_link = 'db_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
         ?>
         <tr class="<?php echo $style;?>">
             <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
@@ -100,6 +116,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
+            <td><a href="<?php echo $delete_link;?>" onclick="return confirmLink(this, '<?php echo PMA_jsFormat($strDeleteTrackingData, false); ?>')"><?php echo $drop_image_or_text; ?></a></td>
             <td> <a href="<?php echo $tmp_link; ?>"><?php echo $strTrackingVersions;?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingReport;?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo $strTrackingStructureSnapshot;?></a></td>

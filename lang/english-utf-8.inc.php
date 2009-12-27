@@ -247,6 +247,7 @@ $strDelete = 'Delete';
 $strDeleted = 'The row has been deleted';
 $strDeleteNoUsersSelected = 'No users selected for deleting!';
 $strDeleteRelation = 'Delete relation';
+$strDeleteTrackingData = 'Delete tracking data for this table';
 $strDeleting = 'Deleting %s';
 $strDelimiter = 'Delimiter';
 $strDelOld = 'The current page has references to tables that no longer exist. Would you like to delete those references?';
