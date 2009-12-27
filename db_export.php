@@ -52,11 +52,6 @@ if (!empty($selected_tbl) && empty($table_select)) {
 }
 
 foreach ($tables as $each_table) {
-    // ok we show also views
-    //if (is_null($each_table['Engine'])) {
-        // Don't offer to export views yet.
-    //    continue;
-    //}
     if (! empty($unselectall) 
             || (! empty($table_select) && !in_array($each_table['Name'], $table_select))) {
         $is_selected = '';
@@ -68,6 +63,7 @@ foreach ($tables as $each_table) {
         . $is_selected . '>'
         . str_replace(' ', '&nbsp;', $table_html) . '</option>' . "\n";
 } // end for
+
 $multi_values .= "\n";
 $multi_values .= '</select></div><br />';
 

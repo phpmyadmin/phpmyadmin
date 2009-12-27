@@ -932,6 +932,9 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
 }
 
 /**
+ *  Function called just after a connection to the MySQL database server has been established
+ *  It sets the connection collation, and determins the version of MySQL which is running.
+ *
  * @uses    ./libraries/charset_conversion.lib.php
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_MYSQL_INT_VERSION to set it

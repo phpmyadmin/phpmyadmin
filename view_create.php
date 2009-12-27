@@ -171,7 +171,7 @@ $url_params['reload'] = 1;
                 echo ' id="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '"';
                 echo ' value="' . htmlspecialchars($option) . '" />';
                 echo '<label for="view_with_' . str_replace(' ', '_', htmlspecialchars($option)) . '">';
-                echo htmlspecialchars($option) . '</label>';
+                echo htmlspecialchars($option) . '</label>&nbsp;';
             }
             ?>
         </td>

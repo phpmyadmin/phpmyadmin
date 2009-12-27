@@ -195,8 +195,9 @@ echo PMA_pluginGetJavascript($export_list);
                 echo $GLOBALS['cfg']['Export']['file_template_server'];
             }
         }
-        echo '" />';
+        echo '"';
     ?>
+    />
 
     (
     <input type="checkbox" name="remember_template"
