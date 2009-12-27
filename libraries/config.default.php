@@ -424,7 +424,7 @@ $cfg['Servers'][$i]['CountTables'] = true;
  * @global bool $cfg['Servers'][$i]['tracking_version_auto_create']
  */
 
-$cfg['Servers'][$i]['tracking_version_auto_create'] = true;
+$cfg['Servers'][$i]['tracking_version_auto_create'] = false;
 
 /**
  * Defines the list of statements the auto-creation uses for new versions.
