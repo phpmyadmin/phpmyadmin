@@ -8,7 +8,7 @@
  * @package phpMyAdmin-Import
  */
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -62,7 +62,7 @@ for ($s = 0; $s < $num_sheets; ++$s) {
             for ($c = 0; $c < $num_cols; ++$c) {
                 $cell = $current_sheet->getCellByColumnAndRow($c, $r)->getCalculatedValue();
                 
-                if (!strcmp($cell, '')) {
+                if (! strcmp($cell, '')) {
                     $cell = 'NULL';
                 }
                 
@@ -77,7 +77,7 @@ for ($s = 0; $s < $num_sheets; ++$s) {
             $col_names = array_splice($rows, 0, 1);
             $col_names = $col_names[0];
             for ($j = 0; $j < $num_cols; ++$j) {
-                if (!strcmp('NULL', $col_names[$j])) {
+                if (! strcmp('NULL', $col_names[$j])) {
                     $col_names[$j] = PMA_getColumnAlphaName($j + 1);
                 }
             }
