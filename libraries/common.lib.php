@@ -2736,13 +2736,14 @@ function PMA_getTitleForTarget($target) {
   */
 function PMA_js_mootools_domready($code, $print=true)
 {
+    // these generated newlines are needed
   $out  = '';
   $out .= '<script type="text/javascript">';
-  $out .= '// <![CDATA[';
+  $out .= "\n" . '// <![CDATA[' . "\n";
   $out .= 'window.addEvent(\'domready\',function() {';
   $out .= $code;
   $out .= '});';
-  $out .= '// ]]>';
+  $out .= "\n" . '// ]]>' . "\n";
   $out .= '</script>';
 
   if ($print)
@@ -2753,9 +2754,12 @@ function PMA_js_mootools_domready($code, $print=true)
 
 function PMA_js($code, $print=true)
 {
+    // these generated newlines are needed
   $out  = '';
   $out .= '<script type="text/javascript">'."\n";
+  $out .= "\n" . '// <![CDATA[' . "\n";
   $out .= $code;
+  $out .= "\n" . '// ]]>' . "\n";
   $out .= '</script>'."\n";
 
   if ($print)
