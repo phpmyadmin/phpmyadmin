@@ -8,7 +8,7 @@
  * @package phpMyAdmin-Import
  */
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -39,13 +39,13 @@ $buffer = "";
  * Read in the file via PMA_importGetNextChunk so that
  * it can process compressed files
  */
-while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
+while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
     $data = PMA_importGetNextChunk();
     if ($data === FALSE) {
         /* subtract data we didn't handle yet and stop processing */
         $offset -= strlen($buffer);
         break;
-    } else if ($data === TRUE) {
+    } elseif ($data === TRUE) {
         /* Handle rest of buffer */
     } else {
         /* Append new data to buffer */
@@ -144,9 +144,13 @@ if (isset($namespaces['pma'])) {
     
     $create = array();
     
-    foreach ($struct as $tier1=>$val1) {
-        foreach($val1 as $tier2=>$val2) {
+    foreach ($struct as $tier1 => $val1) {
+        foreach($val1 as $tier2 => $val2) {
             /* Need to select the correct database for the creation of tables, views, triggers, etc. */
+            /**
+             * @todo    Generating a USE here blocks importing of a table 
+             *          into another database. 
+             */
             $attrs = $val2->attributes();
             $create[] = "USE " . PMA_backquote($attrs["name"]);
             
@@ -179,12 +183,12 @@ if (@count($xml->children())) {
     /**
      * Process all database content
      */
-    foreach ($xml as $k1=>$v1) {
+    foreach ($xml as $k1 => $v1) {
         $tbl_attr = $v1->attributes();
         
         $isInTables = false;
         for ($i = 0; $i < count($tables); ++$i) {
-            if (!strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
+            if (! strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
                 $isInTables = true;
                 break;
             }
@@ -194,9 +198,9 @@ if (@count($xml->children())) {
             $tables[] = array((string)$tbl_attr['name']);
         }
         
-        foreach ($v1 as $k2=>$v2) {
+        foreach ($v1 as $k2 => $v2) {
             $row_attr = $v2->attributes();
-            if (!array_search((string)$row_attr['name'], $tempRow))
+            if (! array_search((string)$row_attr['name'], $tempRow))
             {
                 $tempRow[] = (string)$row_attr['name'];
             }
@@ -219,8 +223,8 @@ if (@count($xml->children())) {
     $num_tbls = count($tables);
     for ($i = 0; $i < $num_tbls; ++$i) {
         for ($j = 0; $j < count($rows); ++$j) {
-            if (!strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
-                if (!isset($tables[$i][COL_NAMES])) {
+            if (! strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
+                if (! isset($tables[$i][COL_NAMES])) {
                     $tables[$i][] = $rows[$j][COL_NAMES];
                 }
                 
@@ -231,7 +235,7 @@ if (@count($xml->children())) {
     
     unset($rows);
     
-    if (!$struct_present) {
+    if (! $struct_present) {
         $analyses = array();
         
         $len = count($tables);
@@ -254,11 +258,9 @@ if ($data_present) {
      * Set values to NULL if they were not present
      * to maintain PMA_buildSQL() call integrity
      */
-    if (!isset($analyses)) {
-        if ($struct_present) {
-            $analyses = NULL;
-        } else {
-            $analyses = NULL;
+    if (! isset($analyses)) {
+        $analyses = NULL;
+        if (! $struct_present) {
             $create = NULL;
         }
     }
