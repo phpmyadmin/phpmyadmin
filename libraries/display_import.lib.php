@@ -31,6 +31,7 @@ if (empty($import_list)) {
 <div id="importmain">
 <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" /> 
 <script type="text/javascript">
+//<![CDATA[
 <!--
 // Mootools code for handling Ajax requests
   window.addEvent('load', function() {
@@ -95,11 +96,13 @@ if (empty($import_list)) {
 	      $('import_form_status').setStyle('display', 'inline');
 	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
 	      $('import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
+//]]>
 	      <?php  
 		// reload the left sidebar when the import is finished
 		$GLOBALS['reload']=true; 
 		PMA_reloadNavigation(true); 
 	      ?>
+//<![CDATA[
 	    } // if [finished==item]
 	  } // if [index==finished]    
 	  if (index=="percent")
@@ -135,6 +138,7 @@ if (empty($import_list)) {
 }); // if [load]
   document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import" <?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo 'target="import_upload_iframe"'; ?>>');
 -->
+//]]>
 </script>
 <noscript>
   <form action="import.php" method="post" enctype="multipart/form-data" name="import">

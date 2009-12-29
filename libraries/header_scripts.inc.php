@@ -19,6 +19,7 @@ require_once './libraries/common.inc.php';
 if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
 ?>
 <script type="text/javascript">
+//<![CDATA[
 try {
     // can't access this if on a different domain
     var topdomain = top.document.domain;
@@ -32,6 +33,7 @@ catch(e) {
     alert("Redirecting... (error: " + e);
     top.location.replace(self.document.URL.substring(0, self.document.URL.lastIndexOf("/")+1));
 }
+//]]>
 </script>
 <?php
 }
