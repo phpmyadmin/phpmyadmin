@@ -229,7 +229,7 @@ if (isset($GLOBALS['mr_configure'])) {
     echo PMA_replication_db_multibox();
     echo '<br /><br />';
     echo $GLOBALS['strReplicationAddLines'] . '<br />';
-    echo '<pre>server-id='. $serverid . '<br />log-bin=mysql-bin<br />log-error=mysql-bin.err<br /></pre>';
+    echo '<pre id="rep">server-id='. $serverid . '<br />log-bin=mysql-bin<br />log-error=mysql-bin.err<br /></pre>';
     echo $GLOBALS['strReplicationRestartServer'];
     echo '</fieldset>';
     echo '<fieldset class="tblFooters">';
