@@ -322,14 +322,14 @@ function PMA_getColumnAlphaName($num)
     
     if ($num > 701) {                
         return $num;
-    } else if ($num <= 26) {
+    } elseif ($num <= 26) {
         if ($num == 0) {
             $sCol = chr(($A + 26) - 1);
         } else {
             $sCol = chr(($A + $num) - 1);
         }
     } else {
-        $iRemain = (($num / 26))-1;
+        $iRemain = (($num / 26)) - 1;
         if (($num % 26) == 0) {
             $sCol = PMA_getColumnAlphaName($iRemain) . PMA_getColumnAlphaName($num % 26);
         } else {
@@ -446,7 +446,7 @@ function PMA_getDecimalSize(&$cell) {
     $m = $curr_size - 1;
     $d = $decPrecision;
     
-    return array($m, $d, ($m.",".$d));
+    return array($m, $d, ($m . "," . $d));
 }
 
 /**
@@ -482,13 +482,13 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
     /**
      * If the cell is NULL, don't treat it as a varchar
      */
-    if (!strcmp('NULL', $cell)) {
+    if (! strcmp('NULL', $cell)) {
         return $last_cumulative_size;
     }
     /**
      * What to do if the current cell is of type VARCHAR
      */
-	else if ($curr_type == VARCHAR) {
+	elseif ($curr_type == VARCHAR) {
         /**
          * The last cumlative type was VARCHAR
          */
@@ -502,7 +502,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumlative type was DECIMAL
          */
-        else if ($last_cumulative_type == DECIMAL) {
+        elseif ($last_cumulative_type == DECIMAL) {
             $oldM = PMA_getM($last_cumulative_size);
             
             if ($curr_size >= $oldM) {
@@ -514,7 +514,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumlative type was INT
          */
-        else if ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == INT) {
             if ($curr_size >= $last_cumulative_size) {
                 return $curr_size;
             } else {
@@ -524,7 +524,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * This is the first row to be analyzed
          */
-        else if (!isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             return $curr_size;
         }
         /**
@@ -541,7 +541,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
     /**
      * What to do if the current cell is of type DECIMAL
      */
-    else if ($curr_type == DECIMAL) {
+    elseif ($curr_type == DECIMAL) {
         /**
          * The last cumlative type was VARCHAR
          */
@@ -558,7 +558,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumlative type was DECIMAL
          */
-        else if ($last_cumulative_type == DECIMAL) {
+        elseif ($last_cumulative_type == DECIMAL) {
 		    $size = PMA_getDecimalSize($cell);
             
 		    $oldM = PMA_getM($last_cumulative_size);
@@ -575,7 +575,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumlative type was INT
          */
-        else if ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == INT) {
 		    /* Convert $last_cumulative_size from int to decimal format */
 		    $size = PMA_getDecimalSize($cell);
 		    
@@ -588,7 +588,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * This is the first row to be analyzed
          */
-        else if (!isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             /* First row of the column */
 		    $size = PMA_getDecimalSize($cell);
 		    
@@ -608,7 +608,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
     /**
      * What to do if the current cell is of type INT
      */
-    else if ($curr_type == INT) {
+    elseif ($curr_type == INT) {
         /**
          * The last cumlative type was VARCHAR
          */
@@ -622,7 +622,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumlative type was DECIMAL
          */
-        else if ($last_cumulative_type == DECIMAL) {
+        elseif ($last_cumulative_type == DECIMAL) {
             $oldM = PMA_getM($last_cumulative_size);
 		    $oldD = PMA_getD($last_cumulative_size);
 		    $oldInt = $oldM - $oldD;
@@ -634,13 +634,13 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
 			    return $last_cumulative_size;
             } else {
 			    /* Use $newInt + $oldD as new M */
-			    return (($newInt + $oldD).",".$oldD);
+			    return (($newInt + $oldD) . "," . $oldD);
             }
 	    }
         /**
          * The last cumlative type was INT
          */
-        else if ($last_cumulative_type == INT) {
+        elseif ($last_cumulative_type == INT) {
 		    if ($curr_size >= $last_cumulative_size) {
 		        return $curr_size;
             } else {
@@ -650,7 +650,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * This is the first row to be analyzed
          */
-        else if (!isset($last_cumulative_type) || $last_cumulative_type == NONE) {
+        elseif (!isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             return $curr_size;
         }
         /**
@@ -701,13 +701,13 @@ function PMA_detectType($last_cumulative_type, &$cell) {
      * Else, we call it varchar for simplicity
      */
     
-    if (!strcmp('NULL', $cell)) {
+    if (! strcmp('NULL', $cell)) {
         if ($last_cumulative_type === NULL || $last_cumulative_type == NONE) {
             return NONE;
         } else {
             return $last_cumulative_type;
         }
-    } else if (is_numeric($cell)) {
+    } elseif (is_numeric($cell)) {
         if ($cell == (string)(float)$cell && strpos($cell, ".") !== false && substr_count($cell, ".") == 1) {
             return DECIMAL;
         } else {
@@ -767,7 +767,7 @@ function PMA_analyzeTable(&$table) {
 	$curr_size = 0;
 	
 	/* If the passed array is not of the correct form, do not process it */
-	if (is_array($table) && !is_array($table[TBL_NAME]) && is_array($table[COL_NAMES]) && is_array($table[ROWS])) {
+	if (is_array($table) && ! is_array($table[TBL_NAME]) && is_array($table[COL_NAMES]) && is_array($table[ROWS])) {
 		/* Analyze each column */
 		for ($i = 0; $i < $numCols; ++$i) {
 			/* Analyze the column in each row */
@@ -800,7 +800,7 @@ function PMA_analyzeTable(&$table) {
         /* Check to ensure that all types are valid */
         $len = count($types);
         for ($n = 0; $n < $len; ++$n) {
-            if (!strcmp(NONE, $types[$n])) {
+            if (! strcmp(NONE, $types[$n])) {
                 $types[$n] = VARCHAR;
                 $sizes[$n] = '10';
             }
@@ -893,7 +893,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     
     /* No longer needed */
     unset($sql);
-    
+
     /* Run the $additional_sql statements supplied by the caller plug-in */
     if ($additional_sql != NULL) {
         /* Clean the SQL first */
@@ -993,7 +993,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
                 }
                 
                 /* Don't put quotes around NULL fields */
-                if (!strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
+                if (! strcmp($tables[$i][ROWS][$j][$k], 'NULL')) {
                     $is_varchar = false;
                 }
                 
@@ -1084,16 +1084,16 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     $db_ops_url = 'db_operations.php' . PMA_generate_common_url($params);
     
     $message = '<br /><br />';
-    $message .= '<strong>'.$GLOBALS['strImportNoticePt1'].'</strong><br />';
-    $message .= '<ul><li>'.$GLOBALS['strImportNoticePt2'].'</li>';
-    $message .= '<li>'.$GLOBALS['strImportNoticePt3'].'</li>';
-    $message .= '<li>'.$GLOBALS['strImportNoticePt4'].'</li>';
-    $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'.$GLOBALS['strOptions'].'</a>)</li>',
+    $message .= '<strong>' . $GLOBALS['strImportNoticePt1'] . '</strong><br />';
+    $message .= '<ul><li>' . $GLOBALS['strImportNoticePt2'] . '</li>';
+    $message .= '<li>' . $GLOBALS['strImportNoticePt3'] . '</li>';
+    $message .= '<li>' . $GLOBALS['strImportNoticePt4'] . '</li>';
+    $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . $GLOBALS['strOptions'] . '</a>)</li>',
                         $db_url,
-                        $GLOBALS['strGoToDatabase'].': '.PMA_backquote($db_name),
+                        $GLOBALS['strGoToDatabase'] . ': ' . PMA_backquote($db_name),
                         $db_name,
                         $db_ops_url,
-                        $GLOBALS['strEdit'].' '.PMA_backquote($db_name).' '.$GLOBALS['strSettings']);
+                        $GLOBALS['strEdit'] . ' ' . PMA_backquote($db_name) . ' ' . $GLOBALS['strSettings']);
     
     $message .= '<ul>';
     
@@ -1109,19 +1109,19 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
         
         unset($params);
         
-        if (!PMA_isView($db_name, $tables[$i][TBL_NAME])) {
-            $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'.$GLOBALS['strStructure'].'</a>) (<a href="%s" title="%s">'.$GLOBALS['strOptions'].'</a>)</li>',
+        if (! PMA_isView($db_name, $tables[$i][TBL_NAME])) {
+            $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . $GLOBALS['strStructure'] . '</a>) (<a href="%s" title="%s">' . $GLOBALS['strOptions'] . '</a>)</li>',
                                 $tbl_url,
-                                $GLOBALS['strGoToTable'].': '.PMA_backquote($tables[$i][TBL_NAME]),
+                                $GLOBALS['strGoToTable'] . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
                                 $tables[$i][TBL_NAME],
                                 $tbl_struct_url,
-                                PMA_backquote($tables[$i][TBL_NAME]).' '.$GLOBALS['strStructureLC'],
+                                PMA_backquote($tables[$i][TBL_NAME]) . ' ' . $GLOBALS['strStructureLC'],
                                 $tbl_ops_url,
-                                $GLOBALS['strEdit'].' '.PMA_backquote($tables[$i][TBL_NAME]).' '.$GLOBALS['strSettings']);
+                                $GLOBALS['strEdit'] . ' ' . PMA_backquote($tables[$i][TBL_NAME]) . ' ' . $GLOBALS['strSettings']);
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
-                                $GLOBALS['strGoToView'].': '.PMA_backquote($tables[$i][TBL_NAME]),
+                                $GLOBALS['strGoToView'] . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
                                 $tables[$i][TBL_NAME]);
         }
     }
