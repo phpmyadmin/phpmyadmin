@@ -80,15 +80,15 @@ if (isset($_REQUEST['after_insert'])
     //$GLOBALS['goto'] = 'tbl_change.php';
     $goto_include = 'tbl_change.php';
 
-    if (isset($_REQUEST['primary_key'])) {
+    if (isset($_REQUEST['where_clause'])) {
         if ($_REQUEST['after_insert'] == 'same_insert') {
-            foreach ($_REQUEST['primary_key'] as $pk) {
-                $url_params['primary_key'][] = $pk;
+            foreach ($_REQUEST['where_clause'] as $one_where_clause) {
+                $url_params['where_clause'][] = $one_where_clause;
             }
         } elseif ($_REQUEST['after_insert'] == 'edit_next') {
-            foreach ($_REQUEST['primary_key'] as $pk) {
+            foreach ($_REQUEST['where_clause'] as $one_where_clause) {
                 $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
-                                . ' WHERE ' . str_replace('` =', '` >', $pk)
+                                . ' WHERE ' . str_replace('` =', '` >', $one_where_clause)
                                 . ' LIMIT 1;';
                 $res            = PMA_DBI_query($local_query);
                 $row            = PMA_DBI_fetch_row($res);
@@ -134,9 +134,9 @@ if (isset($_REQUEST['err_url'])) {
 /**
  * Prepares the update/insert of a row
  */
-if (isset($_REQUEST['primary_key'])) {
-    // we were editing something => use primary key
-    $loop_array = (is_array($_REQUEST['primary_key']) ? $_REQUEST['primary_key'] : array($_REQUEST['primary_key']));
+if (isset($_REQUEST['where_clause'])) {
+    // we were editing something => use the WHERE clause
+    $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
     $using_key  = true;
     $is_insert  = ($_REQUEST['submit_type'] == $GLOBALS['strInsertAsNewRow']);
 } else {
@@ -166,9 +166,9 @@ $func_no_param = array(
     'CURRENT_USER',
 );
 
-foreach ($loop_array as $rowcount => $primary_key) {
+foreach ($loop_array as $rowcount => $where_clause) {
     // skip fields to be ignored
-    if (! $using_key && isset($_REQUEST['insert_ignore_' . $primary_key])) {
+    if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
         continue;
     }
 
@@ -215,8 +215,8 @@ foreach ($loop_array as $rowcount => $primary_key) {
 
     // Fetch the current values of a row to use in case we have a protected field
     // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
-    if ($is_insert && $using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) {
-        $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+    if ($is_insert && $using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($where_clause)) {
+        $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
     }
     foreach ($me_fields as $key => $val) {
 
@@ -298,13 +298,13 @@ foreach ($loop_array as $rowcount => $primary_key) {
         } else {
             // build update query
             $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
-                . ' SET ' . implode(', ', $query_values) . ' WHERE ' . $primary_key . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
+                . ' SET ' . implode(', ', $query_values) . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
 
         }
     }
-} // end foreach ($loop_array as $primary_key)
+} // end foreach ($loop_array as $where_clause)
 unset($me_fields_name, $me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_null_prev,
-    $me_auto_increment, $cur_value, $key, $val, $loop_array, $primary_key, $using_key,
+    $me_auto_increment, $cur_value, $key, $val, $loop_array, $where_clause, $using_key,
     $func_no_param);
 
 
@@ -420,11 +420,11 @@ $active_page = $goto_include;
 
 /**
  * If user asked for "and then Insert another new row" we have to remove
- * primary key information so that tbl_change.php does not go back
+ * WHERE clause information so that tbl_change.php does not go back
  * to the current record
  */
 if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
-        unset($_REQUEST['primary_key']);
+        unset($_REQUEST['where_clause']);
 }
 
 /**

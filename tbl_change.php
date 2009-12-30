@@ -24,18 +24,14 @@ require_once './libraries/db_table_exists.lib.php';
  * Here it's better to use a if, instead of the '?' operator
  * to avoid setting a variable to '' when it's not present in $_REQUEST
  */
-/**
- * @todo this one is badly named, it's really a WHERE condition
- *       and exists even for tables not having a primary key or unique key
- */
-if (isset($_REQUEST['primary_key'])) {
-    $primary_key = $_REQUEST['primary_key'];
+if (isset($_REQUEST['where_clause'])) {
+    $where_clause = $_REQUEST['where_clause'];
 }
 if (isset($_REQUEST['clause_is_unique'])) {
     $clause_is_unique = $_REQUEST['clause_is_unique'];
 }
 if (isset($_SESSION['edit_next'])) {
-    $primary_key = $_SESSION['edit_next'];
+    $where_clause = $_SESSION['edit_next'];
     unset($_SESSION['edit_next']);
     $after_insert = 'edit_next';
 }
@@ -156,26 +152,28 @@ PMA_DBI_select_db($db);
 $table_fields = PMA_DBI_fetch_result('SHOW FIELDS FROM ' . PMA_backquote($table) . ';',
     null, null, null, PMA_DBI_QUERY_STORE);
 $rows               = array();
-if (isset($primary_key)) {
+if (isset($where_clause)) {
     // when in edit mode load all selected rows from table
     $insert_mode = false;
-    if (is_array($primary_key)) {
-        $primary_key_array = $primary_key;
+    if (is_array($where_clause)) {
+        $where_clause_array = $where_clause;
     } else {
-        $primary_key_array = array(0 => $primary_key);
+        $where_clause_array = array(0 => $where_clause);
     }
 
     $result             = array();
     $found_unique_key   = false;
-    foreach ($primary_key_array as $key_id => $primary_key) {
-        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
+    $where_clauses      = array();
+
+    foreach ($where_clause_array as $key_id => $where_clause) {
+        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';';
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
-        $primary_keys[$key_id] = str_replace('\\', '\\\\', $primary_key);
+        $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
 
         // No row returned
         if (! $rows[$key_id]) {
-            unset($rows[$key_id], $primary_key_array[$key_id]);
+            unset($rows[$key_id], $where_clause_array[$key_id]);
             PMA_showMessage($strEmptyResultSet, $local_query);
             echo "\n";
             require_once './libraries/footer.inc.php';
@@ -231,9 +229,9 @@ $_form_params = array(
     'err_url'   => $err_url,
     'sql_query' => $sql_query,
 );
-if (isset($primary_keys)) {
-    foreach ($primary_key_array as $key_id => $primary_key) {
-        $_form_params['primary_key[' . $key_id . ']'] = trim($primary_key);
+if (isset($where_clauses)) {
+    foreach ($where_clause_array as $key_id => $where_clause) {
+        $_form_params['where_clause[' . $key_id . ']'] = trim($where_clause);
     }
 }
 if (isset($clause_is_unique)) {
@@ -263,8 +261,8 @@ $biggest_max_file_size = 0;
 // (currently does not work for multi-edits)
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-if (isset($primary_key)) {
-    $url_params['primary_key'] = trim($primary_key);
+if (isset($where_clause)) {
+    $url_params['where_clause'] = trim($where_clause);
 }
 if (! empty($sql_query)) {
     $url_params['sql_query'] = $sql_query;
@@ -752,7 +750,7 @@ foreach ($rows as $row_id => $vrow) {
                     echo '<option value="' . $enum_value['html'] . '"';
                     if ($data == $enum_value['plain']
                      || ($data == ''
-                      && (! isset($primary_key) || $field['Null'] != 'YES')
+                      && (! isset($where_clause) || $field['Null'] != 'YES')
                       && isset($field['Default'])
                       && $enum_value['plain'] == $field['Default'])) {
                         echo ' selected="selected"';
@@ -773,7 +771,7 @@ foreach ($rows as $row_id => $vrow) {
                     echo $unnullify_trigger;
                     if ($data == $enum_value['plain']
                      || ($data == ''
-                      && (! isset($primary_key) || $field['Null'] != 'YES')
+                      && (! isset($where_clause) || $field['Null'] != 'YES')
                       && isset($field['Default'])
                       && $enum_value['plain'] == $field['Default'])) {
                         echo ' checked="checked"';
@@ -1101,7 +1099,7 @@ foreach ($rows as $row_id => $vrow) {
         <td valign="middle" nowrap="nowrap">
             <select name="submit_type" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
 <?php
-if (isset($primary_key)) {
+if (isset($where_clause)) {
     ?>
                 <option value="<?php echo $strSave; ?>"><?php echo $strSave; ?></option>
     <?php
@@ -1125,15 +1123,15 @@ if (!isset($after_insert)) {
                 <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertBack; ?></option>
                 <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNewInsert; ?></option>
 <?php
-if (isset($primary_key)) {
+if (isset($where_clause)) {
     ?>
                 <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertSame; ?></option>
     <?php
     // If we have just numeric primary key, we can also edit next
     // in 2.8.2, we were looking for `field_name` = numeric_value
-    //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
+    //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
     // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
-    if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $primary_key)) {
+    if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause)) {
         ?>
     <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>><?php echo $strAfterInsertNext; ?></option>
         <?php
@@ -1169,9 +1167,9 @@ if ($insert_mode) {
     <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 <?php
-    if (isset($primary_keys)) {
-        foreach ($primary_key_array as $key_id => $primary_key) {
-            echo '<input type="hidden" name="primary_key[' . $key_id . ']" value="' . htmlspecialchars(trim($primary_key)) . '" />'. "\n";
+    if (isset($where_clauses)) {
+        foreach ($where_clause_array as $key_id => $where_clause) {
+            echo '<input type="hidden" name="where_clause[' . $key_id . ']" value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows" onchange="this.form.submit();" >' . "\n";

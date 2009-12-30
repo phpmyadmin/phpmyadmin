@@ -1074,7 +1074,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
 
-        // 1. Prepares the row (gets primary keys to use)
+        // 1. Prepares the row
         // 1.1 Results from a "SELECT" statement -> builds the
         //     WHERE clause to use in links (a unique key if possible)
         /**
@@ -1101,7 +1101,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $_url_params = array(
                     'db'               => $db,
                     'table'            => $table,
-                    'primary_key'      => $where_clause,
+                    'where_clause'     => $where_clause,
                     'clause_is_unique' => $clause_is_unique,
                     'sql_query'        => $url_sql_query,
                     'goto'             => 'sql.php',
@@ -1239,7 +1239,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $_url_params = array(
                 'db'            => $db,
                 'table'         => $table,
-                'primary_key'   => $where_clause,
+                'where_clause'  => $where_clause,
                 'transform_key' => $meta->name,
             );
 
