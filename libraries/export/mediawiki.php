@@ -111,7 +111,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $mediawiki_export_struct;
     global $mediawiki_export_data;
     
-    $result  = PMA_DBI_fetch_result("SHOW COLUMNS FROM `".$db."`.`".$table."`");
+    $result  = PMA_DBI_fetch_result("SHOW COLUMNS FROM `" . $db . "`.`" . $table . "`");
     $row_cnt = count($result);
 
     $output = "{| cellpadding=\"10\" cellspacing=\"0\" border=\"1\" style=\"text-align:center;\"\n";

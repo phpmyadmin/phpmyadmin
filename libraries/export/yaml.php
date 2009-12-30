@@ -174,7 +174,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $buffer .= '  ' . $column . ': ' . $record[$i] . $crlf;
         }
 
-        if (!PMA_exportOutputHandler($buffer)) {
+        if (! PMA_exportOutputHandler($buffer)) {
             return FALSE;
         }
     }

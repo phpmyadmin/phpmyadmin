@@ -66,12 +66,12 @@ function PMA_exportFooter()
 function PMA_exportHeader()
 {
     PMA_exportOutputHandler(
-          '<?php'.$GLOBALS['crlf']
-        . '/**'.$GLOBALS['crlf']
-        . ' * Export to PHP Array plugin for PHPMyAdmin'.$GLOBALS['crlf']
-        . ' * @author Geoffray Warnants'.$GLOBALS['crlf']
-        . ' * @version 0.2b'.$GLOBALS['crlf']
-        . ' */'.$GLOBALS['crlf'].$GLOBALS['crlf']
+          '<?php' . $GLOBALS['crlf']
+        . '/**' . $GLOBALS['crlf']
+        . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
+        . ' * @author Geoffray Warnants' . $GLOBALS['crlf']
+        . ' * @version 0.2b' . $GLOBALS['crlf']
+        . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
     );
     return true;
 }
@@ -87,7 +87,7 @@ function PMA_exportHeader()
  */
 function PMA_exportDBHeader($db)
 {
-    PMA_exportOutputHandler('//'.$GLOBALS['crlf'].'// Database "'.$db.'"'.$GLOBALS['crlf'].'//'.$GLOBALS['crlf']);
+    PMA_exportOutputHandler('//' . $GLOBALS['crlf'] . '// Database "' . $db . '"' . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']);
     return true;
 }
 
@@ -150,34 +150,34 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         
         // Output table name as comment if this is the first record of the table
         if ($record_cnt == 1) {
-            $buffer .= $crlf.'// '.$db.'.'.$table.$crlf;
-            $buffer .= '$'.$table.' = array('.$crlf;
+            $buffer .= $crlf . '// ' . $db . '.' . $table . $crlf;
+            $buffer .= '$' . $table . ' = array(' . $crlf;
             $buffer .= '  array(';
         } else {
-            $buffer .= ','.$crlf.'  array(';
+            $buffer .= ',' . $crlf . '  array(';
         }
 
 
         for ($i = 0; $i < $columns_cnt; $i++) {
 
-            $isLastLine = ($i+1 >= $columns_cnt);
+            $isLastLine = ($i + 1 >= $columns_cnt);
 
             $column = $columns[$i];
 
             if (is_null($record[$i])) {
-                $buffer .= "'".$column."'=>null".(!$isLastLine?',':'');
+                $buffer .= "'" . $column . "'=>null" . (! $isLastLine ? ',' : '');
             } elseif (is_numeric($record[$i])) {
-                $buffer .= "'".$column."'=>".$record[$i] . (!$isLastLine?',':'');
+                $buffer .= "'" . $column . "'=>" . $record[$i] . (! $isLastLine ? ',' : '');
             } else {
-                $buffer .= "'".$column."'=>'".addslashes($record[$i]) . "'" . (!$isLastLine?',':'');
+                $buffer .= "'" . $column . "'=>'" . addslashes($record[$i]) . "'" . (! $isLastLine ? ',' : '');
             }
         }
 
         $buffer .= ')';
     }
     
-    $buffer .= $crlf.');'.$crlf;
-    if (!PMA_exportOutputHandler($buffer)) {
+    $buffer .= $crlf . ');' . $crlf;
+    if (! PMA_exportOutputHandler($buffer)) {
         return FALSE;
     }
         

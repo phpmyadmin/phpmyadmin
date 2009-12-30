@@ -68,7 +68,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-type" content="text/html;charset=' . (isset($charset_of_file) ? $charset_of_file : $charset) .'" />
+    <meta http-equiv="Content-type" content="text/html;charset=' . (isset($charset_of_file) ? $charset_of_file : $charset) . '" />
 </head>
 <body>');
 }
@@ -129,10 +129,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $what;
 
-    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strDumpingData'] . ' ' . $table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . $GLOBALS['strDumpingData'] . ' ' . $table . '</h2>')) {
         return FALSE;
     }
-    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
+    if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
         return FALSE;
     }
 
@@ -147,7 +147,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $schema_insert .= '<td class="print"><b>' . htmlspecialchars(stripslashes(PMA_DBI_field_name($result, $i))) . '</b></td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) {
+        if (! PMA_exportOutputHandler($schema_insert)) {
             return FALSE;
         }
     } // end if
@@ -156,7 +156,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     while ($row = PMA_DBI_fetch_row($result)) {
         $schema_insert = '<tr class="print-category">';
         for ($j = 0; $j < $fields_cnt; $j++) {
-            if (!isset($row[$j]) || is_null($row[$j])) {
+            if (! isset($row[$j]) || is_null($row[$j])) {
                 $value = $GLOBALS[$what . '_null'];
             } elseif ($row[$j] == '0' || $row[$j] != '') {
                 $value = $row[$j];
@@ -166,12 +166,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $schema_insert .= '<td class="print">' . htmlspecialchars($value) . '</td>';
         } // end for
         $schema_insert .= '</tr>';
-        if (!PMA_exportOutputHandler($schema_insert)) {
+        if (! PMA_exportOutputHandler($schema_insert)) {
             return FALSE;
         }
     } // end while
     PMA_DBI_free_result($result);
-    if (!PMA_exportOutputHandler('</table>')) {
+    if (! PMA_exportOutputHandler('</table>')) {
         return FALSE;
     }
 
@@ -182,7 +182,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 {
     global $cfgRelation;
 
-    if (!PMA_exportOutputHandler('<h2>' . $GLOBALS['strTableStructure'] . ' ' .$table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . $GLOBALS['strTableStructure'] . ' ' .$table . '</h2>')) {
         return FALSE;
     }
 
@@ -208,7 +208,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations (Mike Beck)
-    if ($do_relation && !empty($cfgRelation['relation'])) {
+    if ($do_relation && ! empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
         // an array
         $res_rel = PMA_getForeigners($db, $table);
@@ -225,7 +225,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /**
      * Displays the table structure
      */
-    if (!PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
+    if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
         return FALSE;
     }
 
@@ -258,14 +258,14 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
     $schema_insert .= '</tr>';
 
-    if (!PMA_exportOutputHandler($schema_insert)) {
+    if (! PMA_exportOutputHandler($schema_insert)) {
         return FALSE;
     }
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
 
         $schema_insert = '<tr class="print-category">';
-        $type             = $row['Type'];
+        $type          = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
         // loic1: set or enum types: slashes single quotes inside options
         if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
@@ -299,7 +299,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         if ($zerofill) {
             $strAttribute = 'UNSIGNED ZEROFILL';
         }
-        if (!isset($row['Default'])) {
+        if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             }
@@ -313,7 +313,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             $fmt_pre = '<b>' . $fmt_pre;
             $fmt_post = $fmt_post . '</b>';
         }
-        if ($row['Key']=='PRI') {
+        if ($row['Key'] == 'PRI') {
             $fmt_pre = '<i>' . $fmt_pre;
             $fmt_post = $fmt_post . '</i>';
         }
@@ -336,7 +336,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
         $schema_insert .= '</tr>';
 
-        if (!PMA_exportOutputHandler($schema_insert)) {
+        if (! PMA_exportOutputHandler($schema_insert)) {
             return FALSE;
         }
     } // end while
