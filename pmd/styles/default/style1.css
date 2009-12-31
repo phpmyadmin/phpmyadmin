@@ -1,0 +1,380 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @version $Id$
+ * @package phpMyAdmin-Designer
+ */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #EAEEF0;
+    color: #000000;
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+
+.input_tab {
+    background-color: #A6C7E1;
+    color: #000000;
+}
+
+table {
+    font-size: 12px;
+}
+
+#canvas {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+canvas {
+    display: inline-block;
+    overflow: hidden;
+    text-align: left;
+}
+
+canvas * {
+    behavior: url(#default#VML);
+}
+
+.tab {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-collapse: collapse;
+    border: 1px solid #AAAAAA;
+    font-family: Tahoma, sans-serif;
+    font-size: 10px;
+    z-index: 1;
+    -moz-user-select: none;
+}
+
+.tab_zag {
+    background-image: url(images/Header.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    cursor: move;
+    padding: 1px;
+    font-weight: bold;
+}
+
+.tab_zag_2 {
+    background-image: url(images/Header_Linked.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    cursor: move;
+    padding: 1px;
+    font-weight: bold;
+}
+
+.tab_field {
+    background: #FFFFFF;
+    color: #000000;
+    cursor: default;
+}
+
+.tab_field_2 {
+    background-color: #CCFFCC;
+    color: #000000;
+    background-repeat: repeat-x;
+    cursor: default;
+}
+
+.tab_field_3 {
+    background-color: #FFE6E6; /*#DDEEFF*/
+    color: #000000;
+    cursor: default;
+}
+
+#hint {
+    white-space: nowrap;
+    position: absolute;
+    background-color: #99FF99;
+    color: #000000;
+    left: 200px;
+    top: 50px;
+    z-index: 3;
+    border: #00CC66 solid 1px;
+    visibility: hidden;
+}
+
+form {
+    margin: 0;
+}
+
+.scroll_tab {
+    overflow: auto;
+    width: 100%;
+    height: 500px;
+}
+
+.Tabs {
+    cursor: default;
+    font-family: Tahoma, sans-serif;
+    font-size: 10px;
+    color: #0055bb;
+    white-space: nowrap;
+    text-decoration: none;
+    text-indent: 3px;
+    font-weight: bold;
+    margin-left: 2px;
+    text-align: left;
+    background-color: #FFFFFF;
+    background-image: url(images/left_panel_butt.png);
+    border: #CCCCCC solid 1px;
+}
+
+.Tabs2 {
+    cursor: default;
+    font-family: Tahoma, sans-serif;
+    font-size: 10px;
+    color: #0055bb;
+    background: #FFEE99;
+    text-indent: 3px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-decoration: none;
+    border: #9999FF solid 1px;
+    text-align: left;
+}
+
+.owner {
+    font-family: Tahoma, sans-serif;
+    font-size: 9px;
+    font-weight: normal;
+/*    background-color: #ffffff;*/
+    color: #888888;
+}
+
+.small_tab {
+    vertical-align: top;
+    background-color: #0064ea;
+    color: #FFFFFF;
+    background-image: url(images/small_tab.png);
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 1px;
+    text-decoration: none;
+}
+
+.small_tab2 {
+    vertical-align: top;
+    color: #FFFFFF;
+    background-color: #FF9966;
+    cursor: default;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    font-weight: bold;
+    width: 1px;
+    text-decoration: none;
+}
+
+.small_tab_pref {
+    background-image: url(images/Header.png);
+    background-repeat: repeat-x;
+    text-align: center;
+    width: 1px;
+}
+
+.small_tab_pref2 {
+    vertical-align: top;
+    color: #FFFFFF;
+    background-color: #FF9966;
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    width: 1px;
+    text-decoration: none;
+}
+
+input, select, textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: #6699CC solid 1px;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.butt {
+    border: #4477aa solid 1px;
+    font-size: 11px;
+    font-weight: bold;
+    height: 19px;
+    width: 70px;
+    background-color: #FFFFFF;
+    color: #000000;
+    vertical-align: baseline;
+}
+
+.L_butt2_1 {
+    font-size: 12px;
+    padding: 1px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    vertical-align: middle;
+    cursor: default;
+}
+
+.L_butt2_2 {
+    font-size: 12px;
+    padding: 0;
+    border: #0099CC solid 1px;
+    background: #FFEE99;
+    text-decoration: none;
+    color: #000000;
+    cursor: default;
+}
+
+/* ---------------------------------------------------------------------------*/
+.bor {
+    width: 10px;
+    height: 10px;
+}
+
+.frams1 {
+    background: url(images/1.png) no-repeat right bottom;
+}
+
+.frams2 {
+    background: url(images/2.png) no-repeat left bottom;
+}
+
+.frams3 {
+    background: url(images/3.png) no-repeat left top;
+}
+
+.frams4 {
+    background: url(images/4.png) no-repeat right top;
+}
+
+.frams5 {
+    background: url(images/5.png) repeat-x center bottom;
+}
+
+.frams6 {
+    background: url(images/6.png) repeat-y left;
+}
+
+.frams7 {
+    background: url(images/7.png) repeat-x top;
+}
+
+.frams8 {
+    background: url(images/8.png) repeat-y right;
+}
+
+#osn_tab {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: #A9A9A9 solid 1px;
+}
+
+.header {
+/*    width: 350px; */
+    background-color: #EAEEF0;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    left: 0;
+    top: 0;
+    position: fixed;
+    margin: 0;
+    z-index: 1001;
+    padding: 0;
+    background-image: url(images/top_panel.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    border-right: #999999 solid 1px;
+/*    border-bottom:#999999 solid 1px;*/
+    border-left: #999999 solid 1px;
+    height: 28px;
+}
+
+.header a {
+    display: block;
+    float: left;
+    margin: 3px 1px 4px 1px;
+    height: 20px;
+    border: 1px dotted #ffffff;
+}
+
+.header .M_bord {
+    display: block;
+    float: left;
+    margin: 4px;
+    height: 20px;
+    width: 2px;
+}
+
+.header a.first {
+    margin-right: 1em;
+}
+
+.header a.last {
+    margin-left: 1em;
+}
+
+a.M_butt_Selected_down_IE,
+a.M_butt_Selected_down {
+    border: 1px solid #C0C0BB;
+    background-color: #99FF99;
+    color: #000000;
+}
+
+a.M_butt_Selected_down_IE:hover,
+a.M_butt_Selected_down:hover,
+a.M_butt:hover {
+    border: 1px solid #0099CC;
+    background-color: #FFEE99;
+    color: #000000;
+}
+
+#layer_menu {
+    left: 0;
+    top: 28px;
+    width: 150px;
+    position: fixed;
+    z-index: 1000;
+    background-color: #EAEEF0;
+    border: #999999 solid 1px;
+}
+
+#layer_action {
+    position: absolute;
+    left: 638px;
+    top: 52px;
+    z-index: 1000;
+    background-color: #CCFF99;
+    padding: 3px;
+    border: #009933 solid 1px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#layer_upd_relation {
+    position: absolute;
+    left: 637px;
+    top: 224px;
+    z-index: 1000;
+}
+
+#layer_new_relation {
+    position: absolute;
+    left: 636px;
+    top: 85px;
+    z-index: 1000;
+    width: 153px;
+}
+
+#layer_menu_sizer {
+    background-image: url(../../images/resize.png);
+    cursor: nw-resize;
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,256 @@
+/* $Id$ */
+/* Stylesheet for phpMyAdmin documentation */
+/* vim: expandtab ts=4 sw=4 sts=4 tw=78
+*/
+
+body {
+    background-color: #ffffff;
+    font-family: sans-serif;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    background: url('themes/original/img/logo_right.png') no-repeat fixed bottom right;
+}
+
+img {
+    border: 0;
+}
+
+#header {
+    margin: 0px;
+    padding: 1em 0.5em 0.5em 1em;
+	background: #036;
+	border: 0px;
+    border-bottom: 1px solid black;
+}
+
+#header h1 {
+    padding: 0;
+    margin: 0;
+    margin-right: 1em;
+    color: white;
+}
+
+#header h1 a {
+	color: #7584b3;
+}
+
+#header h1 a .myadmin {
+	color: #ffad17;
+}
+
+#body {
+	margin: 2em 1em 1em 1em;
+	padding: 0px;
+    padding-right: 13em;
+}
+
+ul#footer {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
+
+#footer li {
+    font-size: smaller;
+    list-style: none;
+    float: left;
+	padding: 1em;
+    color: gray;
+    border: none;
+}
+
+#footer li.logo {
+    padding: 0.5em;
+}
+
+#footer a {
+	color: #c19e66;
+}
+
+abbr, acronym {
+    border-bottom: 1px dotted;
+}
+
+abbr, acronym {
+    cursor: help;
+}
+
+a {
+    text-decoration: none;
+	color: #c17d11;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #8f5902;
+}
+
+sup {
+    font-size: 0.7em;
+}
+
+sup:before {
+    content: ' [';
+}
+
+sup:after {
+    content: ']';
+}
+
+
+ul.header {
+    background: url(themes/original/img/docs_menu_bg.png) transparent fixed;
+    position: fixed;
+    top: 3em;
+    left: auto;
+    width: 8.5em;
+    right: 2em;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+ul.header li {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+ul.header a {
+    text-decoration: none;
+    font-size: medium;
+    color: #036;
+    background-color: transparent;
+    font-weight: bolder;
+    display: block;
+}
+
+ul.header a:hover {
+    color: #000099;
+    background-color: #99CCFF;
+}
+
+h2 {
+	color: #727e0a;
+    max-width: 70em;
+}
+
+h3 {
+	color: #727e0a;
+    max-width: 70em;
+}
+
+h4, h5 {
+	color: #727e0a;
+    max-width: 70em;
+}
+
+h4 a {
+	color: #727e0a;
+}
+
+p {
+    max-width: 70em;
+    margin: 1em;
+}
+
+table {
+    margin: 1em;
+    border: none;
+}
+
+table tr,table td,table th {
+    border: none;
+}
+
+table.translators {
+    text-align: center;
+    display: table; margin-left: auto; margin-right: auto;
+    border-collapse: collapse;
+}
+
+table.translators th {
+    color: #000000;
+    background-color: #d3dce3;
+}
+
+table.translators td, table.translators th {
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+ul, dl, ol {
+    margin: 1em;
+    max-width: 70em;
+}
+
+ul ul, ol ul {
+    margin-bottom: 0;
+}
+
+li {
+    margin-top: 0.5em;
+}
+
+pre {
+    margin: 1em;
+    border: 1px solid silver;
+    color: #000000;
+    background-color: #eeeeee;
+    padding: 0.5em;
+    max-width: 70em;
+}
+
+/* no more intend inside li */
+li pre {
+    margin: 1em 0 1em 0;
+}
+
+pre.wrap {
+    white-space: normal;
+}
+
+dt {
+    font-weight: bold;
+    margin-left: 2em;
+}
+
+dd {
+    margin-left: 4em;
+    margin-bottom: 1em;
+}
+
+.configrule {
+    font-family: monospace;
+}
+
+dt.configrule {
+    font-weight: bold;
+}
+
+.important {
+    color: #bb0000;
+    background-color: #ffeeee;
+    padding: 0 0.5em 0 0.5em;
+}
+
+p.important {
+    border: 1px dotted #ff0000;
+    padding: 0.5em;
+}
+
+p.footnote {
+    margin: 0 5% 2px 7%;
+    padding-top: 3em;
+}
+
+p.footnote:first-line {
+    margin-left: -2%;
+}
+
+/* Block to mark separate translation string */
+div.l10n {
+    display: inline;
+}

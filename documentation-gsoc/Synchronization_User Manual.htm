@@ -1,0 +1,357 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>  ‘Synchronize’ feature in  </title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:Calibri;}
+h1
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Cambria;
+	color:#365F91;}
+h2
+	{margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:Cambria;
+	color:#4F81BD;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-family:"Times New Roman";}
+strong
+	{font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.Heading3Char
+	{font-family:"Times New Roman";
+	font-weight:bold;}
+span.BalloonTextChar
+	{font-family:Tahoma;}
+span.Heading1Char
+	{font-family:Cambria;
+	color:#365F91;
+	font-weight:bold;}
+p.NoSpacing, li.NoSpacing, div.NoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Calibri;}
+span.IntenseEmphasis
+	{font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading2Char
+	{font-family:Cambria;
+	color:#4F81BD;
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal><b><span style='font-size:13.0pt;line-height:115%;
+font-family:Cambria;color:#4F81BD'><img width=22 height=21 id="Picture 45"
+src="Synchronization_User%20Manual_files/image001.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\s_sync.png"></span></b><span
+class=Heading2Char><span style='font-size:13.0pt;line-height:115%'> ‘Synchronize’</span></span>
+feature in <img width=134 height=23 id="Picture 44"
+src="Synchronization_User%20Manual_files/image002.gif"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\logo_left.png"></p>
+
+This feature is helpful for developers who need to replicate their databases’ structure as well as data.
+Moreover, this feature not only helps replication but also facilitates the user to keep his/her database in sync with another database. Other than the full database, certain tables of the databases can also be synchronized.
+
+<h3><span class=IntenseEmphasis><span style='font-size:12.0pt;font-weight:normal;
+font-style:normal'><strong>How to Synchronize:</strong></span></span></h3>
+The synchronize tab is visible upfront in the right pane, the last link on the top of the home page.
+
+<p class=MsoNormal><img width=682 height=421 id="Picture 1"
+src="Synchronization_User%20Manual_files/image003.gif"></p>
+
+<p class=MsoNormal>Press on the Synchronize tab and a form will be displayed.</p>
+
+<p class=MsoNormal><img width=666 height=398 id="Picture 46"
+src="Synchronization_User%20Manual_files/image004.jpg"></p>
+<p class=MsoNormal> <span
+class=Heading2Char><span style='font-size:13.0pt;line-height:115%'>Db Authentication Form?</span></span></p>
+<p class=MsoNormal> You need to fill in the host name of the server, the
+username and password of an user account already there in MySQL. Port is by default populated with 3306 (MySQL default port). Then the name of the
+database should be mentioned at the end.All the information other than the port needs to be filled  explicitly for the source as well as target servers.</p>
+
+<p class=MsoNormal>A filled form is displayed underneath:</p>
+
+<p class=MsoNormal><img width=653 height=394 id="Picture 7"
+src="Synchronization_User%20Manual_files/image005.jpg"><span
+class=Heading2Char><span style='font-size:13.0pt;line-height:115%'> </span></span></p>
+<p class=MsoNormal><span
+class=Heading2Char><span style='font-size:13.0pt;line-height:115%'>Invalid entries 
+  during DB Authentication:</span></span></p>
+<p class=MsoNormal>The user will not be allowed to by pass this page if any of
+the values like Host name, Username and Database name remain unfilled and the
+user presses ‘Go’ button. An alert  would occur as follows, not allowing the user to
+move to the next page. On the other hand, the password field can remain empty. 
+</p>
+
+<p class=MsoNormal><img width=640 height=384 id="Picture 10"
+src="Synchronization_User%20Manual_files/image006.jpg"></p>
+
+<p class=MsoNormal>If any wrong information is provided by the user like wrong
+password, username or hostname then the connection is not established with the
+corresponding database and an error message is seen as follows.</p>
+
+<p class=MsoNormal><img width=653 height=394 id="Picture 13"
+src="Synchronization_User%20Manual_files/image007.jpg"></p>
+
+<p class=MsoNormal>If the user enters a database name that does not exist, then
+even an error message occurs as follows and the user needs to re-enter all the
+information.</p>
+
+<p class=MsoNormal><img width=653 height=391 id="Picture 16"
+src="Synchronization_User%20Manual_files/image008.jpg"></p>
+
+<p class=MsoNormal></p>
+
+<h2>After  passing DB Authentication:</h2>
+
+<p class=MsoNormal>After successfully by passing authentication phase, the source and
+target database table names will be displayed. It will be a tabular
+representation like this.</p>
+
+<p class=MsoNormal><img width=614 height=368 id="Picture 19"
+src="Synchronization_User%20Manual_files/image009.jpg"></p>
+
+<h2>Left Column:”Source Database”</h2>
+
+<p class=MsoNormal>On the left, are listed the source database table names. 
+Some of the names have a ‘+’ plus sign preceding them. This shows that these
+tables are only present in source database and they need to be added to the
+target database in order to synchronize the target database.While those table name that are not preceded by a ‘+’ sign
+are also present in target database.</p>
+
+<h2> Middle Column:”Difference”</h2>
+The column in the middle shows the difference between the source and target corresponding tables.The difference is depicted by the red and green buttons.
+
+<p class=MsoNormal><img width=35 height=35 id="Picture 26"
+src="Synchronization_User%20Manual_files/image010.gif"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_struct.jpg">The
+presence of this button against any source table name shows that there is a
+structure difference between the corresponding source and the target tables. If
+at the same time, the source table name is preceded by a ‘+’plus, then the
+presence of this button shows that the table needs to be created in target
+database.  </p>
+
+<p class=MsoNormal><img width=35 height=35 id="Picture 24"
+src="Synchronization_User%20Manual_files/image011.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data.jpg"> The
+presence of this button against any source table name shows that there is a
+data difference between the corresponding source and target table. If at the
+same time, the source table name is preceded by a ‘+’plus, then the presence of
+this button shows that the table needs to be created and populated in target
+database.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=33 height=31 id="Picture 27"
+src="Synchronization_User%20Manual_files/image012.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_struct_selected.jpg"> After
+clicking the red button with S printed on, it turns to grey showing that the structure difference
+of that particular table has been selected by the user.</p>
+
+<p class=MsoNormal><img width=33 height=31 id="Picture 25"
+src="Synchronization_User%20Manual_files/image013.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data_selected.jpg"> After
+clicking the red button with a D printed on, it turns to grey showing that the data difference of
+that particular table has been selected by the user.</p>
+
+<h2>Right Column: “Target Database”</h2>
+
+<p class=MsoNormal>On the right, are listed the target database table names.
+There are few table names that have “(not present)” appended after their names.
+This means that these tables are to be created in target database in order to
+synchronize target database with source database. Some tables’ names have a ‘-’
+minus sign preceding them. This shows that these tables are only present in
+target database and they will remain unchanged in the target database. </p>
+
+<p class=MsoNormal>While those table names that are not preceded by any sign,
+or do not have “(not present)” appended after them are already synchronized.</p>
+
+<p class=MsoNormal><img width=678 height=408 id="Picture 28"
+src="Synchronization_User%20Manual_files/image014.jpg"></p>
+
+<h2>Detailed Difference Table:</h2>
+
+<p class=MsoNormal> The above view shows that for those tables whose structure
+or data differences have been selected (depicted by grey buttons <img width=18
+height=17 src="Synchronization_User%20Manual_files/image015.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_struct_selected.jpg"> or
+<img width=17 height=16 src="Synchronization_User%20Manual_files/image016.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data_selected.jpg">), 
+there exists a description in the second table underneath the table showing
+source and target database table names.  The description becomes visible only
+when a red or green button against any table is pressed.</p>
+
+<h2>Table:</h2>
+
+<p class=MsoNormal>Displays the <b>Table Name</b> column only to show the name
+of the table.</p>
+
+<h2>Structure Difference:</h2>
+
+<p class=MsoNormal> It elaborates the difference in structure like</p>
+
+<p class=MsoNormal><b>Create Table: </b>When the table needs to be created in
+the target database, then only a <img width=16 height=16 id="Picture 31"
+src="Synchronization_User%20Manual_files/image017.gif"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\s_success.png"> tick is
+seen in the create table column of the description table.  </p>
+
+<p class=MsoNormal><b>Add Column(s):</b>  Shows the number of columns to be
+added.</p>
+
+<p class=MsoNormal><b>Remove Column(s):</b> Shows the number of columns to be
+removed.</p>
+
+<p class=MsoNormal><b>Alter Column(s):  </b>Shows the number of columns to be
+altered.</p>
+
+<p class=MsoNormal><b>Apply Index(s): </b> Shows the number of indexes to be
+applied.</p>
+
+<p class=MsoNormal><b>Remove Index(s):</b>  Shows the number of indexes to be
+removed.</p>
+
+<h2>Data Difference:</h2>
+
+<p class=MsoNormal>It elaborates the difference in data like </p>
+
+<p class=MsoNormal><b>Update Row(s):</b> Shows the number of rows to be
+updated.</p>
+
+<p class=MsoNormal><b>Insert Row(s): </b>Shows the number of rows to be
+inserted. </p>
+
+<p class=MsoNormal>When the selected buttons (depicted by grey buttons <img
+width=18 height=17 src="Synchronization_User%20Manual_files/image015.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_struct_selected.jpg"> or<img
+width=17 height=16 src="Synchronization_User%20Manual_files/image016.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data_selected.jpg">)
+are pressed again, the buttons become deselected (depicted by colored buttons <img
+width=23 height=23 src="Synchronization_User%20Manual_files/image019.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_struct.jpg"> or<img
+width=23 height=23 src="Synchronization_User%20Manual_files/image020.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data.jpg">) and the
+description from the second table regarding those table has been removed.</p>
+
+<h2><span style='font-weight:normal'><img width=666 height=416 id="Picture 41"
+src="Synchronization_User%20Manual_files/image021.jpg"></span></h2>
+
+<h2>Check Box in Footer:</h2>
+
+<p class=MsoNormal>A checkbox is also visible in the above view. It has a “<b>Would
+you like to delete all the previous rows from the target tables?</b>”</p>
+
+<p class=MsoNormal>By checking this check box, the user assures the deletion of
+any previous rows residing in the target tables that are to be synchronized.
+This means that before any value gets inserted or updated in the target tables,
+any previously residing rows will be deleted.</p>
+
+<h2>Apply Selected Changes Button in Footer: </h2>
+
+<p class=MsoNormal>The “Apply Selected Changes” button, as it is clear from the
+name, applies only selected tables’ changes i.e. it allows user to synchronize
+selective tables between the source and the target databases.</p>
+
+<p class=MsoNormal>After pressing “Apply Selected Changes” button, the view
+becomes  </p>
+
+<p class=MsoNormal><img width=666 height=401 id="Picture 35"
+src="Synchronization_User%20Manual_files/image022.jpg"></p>
+
+<p class=MsoNormal>The ”course” table in the above view, now only shows data
+difference depicted by<img width=23 height=23
+src="Synchronization_User%20Manual_files/image020.jpg"
+alt="C:\xampp\htdocs\Branch\zahra\themes\original\img\new_data.jpg">. This
+shows that the previously selected structure difference in that table has been
+applied in target database table “course” because we pressed the “Apply
+Selected Changes” button after selection. </p>
+
+<p class=MsoNormal>“Apply Selected Changes” button allows the user to synchronize
+tables’ data and structure according to his/her requirement or desire.</p>
+
+<p class=MsoNormal>Whenever “Apply Selected Changes” button is pressed and the
+page is reloaded, the checkbox becomes unchecked. This means that the user gets
+a choice to delete the previous rows of a certain set of tables and not from
+all the tables. </p>
+
+<h2>Synchronize databases button in Footer:</h2>
+
+<p class=MsoNormal>“Synchronize databases” button in the footer completely
+synchronizes the target database with the source database irrespective of which
+tables are selected for which type of synchronization.</p>
+
+<p class=MsoNormal> “Synchronize databases” button if pressed after “Apply
+Selected Changes” button has been pressed once or twice or several times, will
+apply all the remaining changes that have not been selected earlier.</p>
+
+<p class=MsoNormal>The view after “Synchronize databases” button has been
+pressed look like this:</p>
+
+<p class=MsoNormal><img width=666 height=399 id="Picture 49"
+src="Synchronization_User%20Manual_files/image023.jpg"></p>
+
+<p class=MsoNormal>The lower half of the page displays the list of queries that
+have been executed in order to synchronize the databases while the upper half
+displays the source and target database table names.</p>
+
+</div>
+
+</body>
+
+</html>
