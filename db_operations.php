@@ -60,12 +60,30 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $GLOBALS['pma']->databases->build();
         }
 
-        if (isset($GLOBALS['add_constraints'])) {
-            $GLOBALS['sql_constraints_query_full_db'] = '';
+        if (isset($GLOBALS['add_constraints']) || $move) {
+            $GLOBALS['sql_constraints_query_full_db'] = array();
         }
 
         $tables_full = PMA_DBI_get_tables_full($db);
         $views = array();
+
+        // remove all foreign key constraints, otherwise we can get errors
+        require_once './libraries/export/sql.php';
+        foreach ($tables_full as $each_table => $tmp) {
+            $sql_constraints = '';
+            $sql_drop_foreign_keys = '';
+            $sql_structure = PMA_getTableDef($db, $each_table, "\n", '', false, false);
+            if (! empty($sql_drop_foreign_keys)) {
+                PMA_DBI_query($sql_drop_foreign_keys);
+            }
+            // keep the constraint we just dropped
+            if (! empty($sql_constraints)) {
+                $GLOBALS['sql_constraints_query_full_db'][] = $sql_constraints;
+            }
+        }
+        unset($sql_constraints, $sql_drop_foreign_keys, $sql_structure);
+
+
         foreach ($tables_full as $each_table => $tmp) {
             // to be able to rename a db containing views, we
             // first collect in $views all the views we find and we
@@ -119,8 +137,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 }
                 unset($triggers); 
 
+                // this does not apply to a rename operation
                 if (isset($GLOBALS['add_constraints'])) {
-                    $GLOBALS['sql_constraints_query_full_db'] .= $GLOBALS['sql_constraints_query'];
+                    $GLOBALS['sql_constraints_query_full_db'][] = $GLOBALS['sql_constraints_query'];
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
@@ -142,17 +161,15 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         unset($view, $views);
 
         // now that all tables exist, create all the accumulated constraints
-        if (! $_error && isset($GLOBALS['add_constraints'])) {
-            /**
-             * @todo this works with mysqli but not with mysql, because
-             * mysql extension does not accept more than one statement; maybe
-             * interface with the sql import plugin that handles statement delimiter
-             */
-            PMA_DBI_query($GLOBALS['sql_constraints_query_full_db']);
-
+        if (! $_error && count($GLOBALS['sql_constraints_query_full_db']) > 0) {
+            PMA_DBI_select_db($newname);
+            foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
+                PMA_DBI_query($one_query);
             // and prepare to display them
-            $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query_full_db'];
-            unset($GLOBALS['sql_constraints_query_full_db']);
+                $GLOBALS['sql_query'] .= "\n" . $one_query;
+            }
+
+            unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
         }
 
         if (PMA_MYSQL_INT_VERSION >= 50000) {

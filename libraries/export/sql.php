@@ -477,6 +477,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     global $cfgRelation;
     global $sql_constraints;
     global $sql_constraints_query; // just the text of the query
+    global $sql_drop_foreign_keys;
 
     $schema_create = '';
     $auto_increment = '';
@@ -615,6 +616,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                 // let's do the work
                 $sql_constraints_query .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
                 $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
+                $sql_drop_foreign_keys .= 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $crlf;
 
                 $first = TRUE;
                 for ($j = $i; $j < $sql_count; $j++) {
@@ -630,6 +632,11 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                             $str_tmp = preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
                             $sql_constraints_query .= $str_tmp;
                             $sql_constraints .= $str_tmp;
+                            preg_match('/(CONSTRAINT)([\s])([\S]*)([\s])/', $sql_lines[$j], $matches);
+                            if (! $first) {
+                                $sql_drop_foreign_keys .= ', ';
+                            }
+                            $sql_drop_foreign_keys .= 'DROP FOREIGN KEY ' . $matches[3];
                         }
                         $first = FALSE;
                     } else {
