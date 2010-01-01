@@ -64,6 +64,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - patch #2918831 [export] Missing backquotes on reserved words, 
   thanks to Virsacer - virsacer 
 - [core] Fix broken cleanup of $_GET
+- bug #2924357 [operations] Cannot rename a database that has foreign key
+constraints
 
 3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status
