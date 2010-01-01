@@ -53,7 +53,13 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             }
             $local_query .= ';';
             $sql_query = $local_query;
+            // save the original db name because Tracker.class.php which
+            // may be called under PMA_DBI_query() changes $GLOBALS['db']
+            // for some statements, one of which being CREATE DATABASE
+            $original_db = $db;
             PMA_DBI_query($local_query);
+            $db = $original_db;
+            unset($original_db);
 
             // rebuild the database list because PMA_Table::moveCopy
             // checks in this list if the target db exists
