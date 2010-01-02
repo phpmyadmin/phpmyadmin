@@ -109,6 +109,15 @@ if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_
 }
 
 /**
+ * Views support a limited number of operations 
+ */
+if ($tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    $tabs['operation']['icon'] = 'b_tblops.png';
+    $tabs['operation']['link'] = 'view_operations.php';
+    $tabs['operation']['text'] = $strOperations;
+}
+
+/**
  * no drop in information_schema
  */
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {

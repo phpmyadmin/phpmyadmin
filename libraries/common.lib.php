@@ -1000,11 +1000,12 @@ if (!$jsonly)
  * @param   string  $message    the message to display
  * @param   string  $sql_query  the query to display
  * @param   string  $type       the type (level) of the message
+ * @param   boolean $is_view    is this a message after a VIEW operation? 
  * @global  array   the configuration array
  * @uses    $cfg
  * @access  public
  */
-function PMA_showMessage($message, $sql_query = null, $type = 'notice')
+function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
 {
     global $cfg;
 
@@ -1022,7 +1023,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice')
 
     // Corrects the tooltip text via JS if required
     // @todo this is REALLY the wrong place to do this - very unexpected here
-    if (strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
+    if (! $is_view && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
         $tooltip = PMA_Table::sGetToolTip($GLOBALS['db'], $GLOBALS['table']);
         $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
         echo "\n";

@@ -1,0 +1,111 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ *
+ * @version $Id$
+ * @package phpMyAdmin
+ */
+
+/**
+ *
+ */
+require_once './libraries/common.inc.php';
+require_once './libraries/Table.class.php';
+
+$pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+
+/**
+ * Runs common work
+ */
+require './libraries/tbl_common.php';
+$url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
+$url_params['goto'] = $url_params['back'] = 'view_operations.php';
+
+/**
+ * Gets tables informations
+ */
+
+require './libraries/tbl_info.inc.php';
+$reread_info = false;
+
+/**
+ * Updates if required
+ */
+if (isset($_REQUEST['submitoptions'])) {
+    $_message = '';
+    $warning_messages = array();
+
+    if (isset($_REQUEST['new_name'])) {
+        if ($pma_table->rename($_REQUEST['new_name'], null, $is_view = true)) {
+            $_message .= $pma_table->getLastMessage();
+            $result = true;
+            $GLOBALS['table'] = $pma_table->getName();
+            $reread_info = true;
+            $reload = true;
+        } else {
+            $_message .= $pma_table->getLastError();
+            $result = false;
+        }
+    }
+}
+
+/**
+ * Displays top menu links
+ */
+require_once './libraries/tbl_links.inc.php';
+
+if (isset($result)) {
+    // set to success by default, because result set could be empty
+    // (for example, a table rename)
+    $_type = 'success';
+    if (empty($_message)) {
+        $_message = $result ? $strSuccess : $strError;
+        // $result should exist, regardless of $_message
+        $_type = $result ? 'success' : 'error';
+    }
+    if (! empty($warning_messages)) {
+        $_message = new PMA_Message;
+        $_message->addMessages($warning_messages);
+        $_message->isWarning(true);
+        unset($warning_messages);
+    }
+    PMA_showMessage($_message, $sql_query, $_type, $is_view = true);
+    unset($_message, $_type);
+}
+
+$url_params['goto'] = 'view_operations.php';
+$url_params['back'] = 'view_operations.php';
+
+/**
+ * Displays the page
+ */
+?>
+<!-- Table operations -->
+<div id="div_table_options">
+<form method="post" action="view_operations.php">
+<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<input type="hidden" name="reload" value="1" />
+<fieldset>
+    <legend><?php echo $strOperations; ?></legend>
+
+    <table>
+    <!-- Change view name -->
+    <tr><td><?php echo $strRenameView; ?></td>
+        <td><input type="text" size="20" name="new_name" onfocus="this.select()"
+                value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" />
+        </td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset class="tblFooters">
+        <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
+</fieldset>
+</form>
+</div>
+
+<?php
+/**
+ * Displays the footer
+ */
+require_once './libraries/footer.inc.php';
+?>

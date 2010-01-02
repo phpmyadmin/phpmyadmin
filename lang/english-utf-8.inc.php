@@ -755,6 +755,7 @@ $strRemoveSelectedUsers = 'Remove selected users';
 $strRenameDatabaseOK = 'Database %s has been renamed to %s';
 $strRenameTableOK = 'Table %s has been renamed to %s';
 $strRenameTable = 'Rename table to';
+$strRenameView = 'Rename view to';
 $strRepair = 'Repair';
 $strRepairTable = 'Repair table';
 $strReplaceNULLBy = 'Replace NULL by';

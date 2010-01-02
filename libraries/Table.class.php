@@ -971,9 +971,10 @@ class PMA_Table
      *
      * @param   string  new table name
      * @param   string  new database name
+     * @param   boolean is this for a VIEW rename? 
      * @return  boolean success
      */
-    function rename($new_name, $new_db = null)
+    function rename($new_name, $new_db = null, $is_view = false)
     {
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
@@ -996,9 +997,16 @@ class PMA_Table
             return false;
         }
 
-        $GLOBALS['sql_query'] = '
-            RENAME TABLE ' . $this->getFullName(true) . '
+        if (! $is_view) {
+            $GLOBALS['sql_query'] = '
+                RENAME TABLE ' . $this->getFullName(true) . '
                       TO ' . $new_table->getFullName(true) . ';';
+        } else {
+            $GLOBALS['sql_query'] = '
+                ALTER TABLE ' . $this->getFullName(true) . '
+                RENAME ' . $new_table->getFullName(true) . ';';
+        }
+        // I don't think a specific error message for views is necessary
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             $this->errors[] = sprintf($GLOBALS['strErrorRenamingTable'], $this->getFullName(), $new_table->getFullName());
             return false;
