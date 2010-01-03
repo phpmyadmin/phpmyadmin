@@ -226,7 +226,7 @@ foreach ($tables as $keyname => $each_table) {
             }
             //$display_rows                   =  ' - ';
             break;
-        case 'MRG_MyISAM' :
+        case 'MRG_MYISAM' :
         case 'BerkeleyDB' :
             // Merge or BerkleyDB table: Only row count is accurate.
             if ($is_show_stats) {
@@ -254,7 +254,10 @@ foreach ($tables as $keyname => $each_table) {
                 $unit          =  '';
             }
     } // end switch
-    $sum_entries += $each_table['TABLE_ROWS'];
+
+    if ('MRG_MYISAM' != $each_table['ENGINE']) {
+        $sum_entries += $each_table['TABLE_ROWS'];
+    }
 
     if (isset($each_table['Collation'])) {
         $collation = '<dfn title="'

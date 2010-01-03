@@ -67,7 +67,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
   thanks to Virsacer - virsacer 
 - [core] Fix broken cleanup of $_GET
 - bug #2924357 [operations] Cannot rename a database that has foreign key
-constraints
+  constraints
+- bug #869006 [structure] Ignore number of records for MRG_MyISAM tables
 
 3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status
