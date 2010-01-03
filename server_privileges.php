@@ -1480,7 +1480,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            <th>' . $GLOBALS['strGlobalPrivileges'] . ' '
                    . PMA_showHint($GLOBALS['strEnglishPrivileges']) . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
-                   . '            <th>' . ($GLOBALS['cfg']['PropertiesIconic'] ? '' : $GLOBALS['strAction']) . '</th>' . "\n";
+                   . '            <th>' . $GLOBALS['strAction'] . '</th>' . "\n";
                 echo '        </tr>' . "\n";
                 echo '    </thead>' . "\n";
                 echo '    <tbody>' . "\n";
