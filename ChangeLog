@@ -6,7 +6,8 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.4.0.0 (not yet released)
-+ rfe #2890226 [view] enable VIEW rename 
++ rfe #2890226 [view] Enable VIEW rename 
++ rfe #838637 [privileges] Export a user's privileges 
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

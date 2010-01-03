@@ -790,7 +790,6 @@ function PMA_displayLoginInformationFields($mode = 'new')
        . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
 
-
 /**
  * Changes / copies a user, part I
  */
@@ -1334,9 +1333,30 @@ $link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
     . PMA_getIcon('b_usrdrop.png', $GLOBALS['strRevoke'])
     . '</a>';
 
+$link_export = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+    . '&amp;username=%s'
+    . '&amp;hostname=%s'
+    . '&amp;initial=%s'
+    . '&amp;export=1">'
+    . PMA_getIcon('b_tblexport.png', $GLOBALS['strExport'])
+    . '</a>';
+
 /**
  * Displays the page
  */
+
+// export user definition
+if (isset($_REQUEST['export'])) {
+    echo '<h2>' . $GLOBALS['strUser'] . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
+    echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . $_REQUEST['username'] . "'@'" . $_REQUEST['hostname'] . "'");
+    foreach($grants as $one_grant) {
+        echo $one_grant . "\n\n";
+    }
+    echo '</textarea>';
+    unset($_REQUEST['username'], $_REQUEST['hostname'], $username, $hostname, $grants, $one_grant);
+}
+
 if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs))) {
     if (! isset($username)) {
         // No username is given --> display the overview
@@ -1480,7 +1500,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            <th>' . $GLOBALS['strGlobalPrivileges'] . ' '
                    . PMA_showHint($GLOBALS['strEnglishPrivileges']) . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
-                   . '            <th>' . $GLOBALS['strAction'] . '</th>' . "\n";
+                   . '            <th colspan="2">' . $GLOBALS['strAction'] . '</th>' . "\n";
                 echo '        </tr>' . "\n";
                 echo '    </thead>' . "\n";
                 echo '    <tbody>' . "\n";
@@ -1519,10 +1539,12 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                            . '                </tt></td>' . "\n"
                            . '            <td>' . ($host['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
                            . '            <td align="center">';
-                        printf($link_edit, urlencode($host['User']),
-                            urlencode($host['Host']), '', '');
-                        echo '</td>' . "\n"
-                           . '        </tr>' . "\n";
+                        printf($link_edit, urlencode($host['User']), urlencode($host['Host']), '', '');
+                        echo '</td>';
+                        echo '<td align="center">';
+                        printf($link_export, urlencode($host['User']), urlencode($host['Host']), (isset($initial) ? $initial : ''));
+                        echo '</td>';
+                        echo '</tr>';
                         $odd_row = ! $odd_row;
                     }
                 }
