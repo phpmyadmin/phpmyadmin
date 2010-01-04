@@ -52,6 +52,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2823686 [interface] Increase default height of query window 
 + rfe #2129902 [structure] Don't hide indexes 
 + patch #2812070 [interface] Allow selecting a range of rows by holding shift, thanks to Joolee
++ [lang] Russian update, thanks to Victor Volkov
 
 3.2.5.0 (not yet released)
 - patch #2903400 [bookmarks] Status of bookmark table, 
