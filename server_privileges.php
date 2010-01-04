@@ -1349,12 +1349,12 @@ $link_export = '<a href="server_privileges.php?' . $GLOBALS['url_query']
 if (isset($_REQUEST['export'])) {
     echo '<h2>' . $GLOBALS['strUser'] . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
     echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . $_REQUEST['username'] . "'@'" . $_REQUEST['hostname'] . "'");
+    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddslashes($username) . "'@'" . PMA_sqlAddslashes($hostname) . "'");
     foreach($grants as $one_grant) {
         echo $one_grant . "\n\n";
     }
     echo '</textarea>';
-    unset($_REQUEST['username'], $_REQUEST['hostname'], $username, $hostname, $grants, $one_grant);
+    unset($username, $hostname, $grants, $one_grant);
 }
 
 if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs))) {
