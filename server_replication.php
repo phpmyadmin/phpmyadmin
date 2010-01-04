@@ -17,6 +17,7 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'server_privileges.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-more.js';
 $GLOBALS['js_include'][] = 'mootools_common.js';
 
 require './libraries/server_common.inc.php';
@@ -96,7 +97,7 @@ if (isset($GLOBALS['sr_take_action'])) {
         PMA_replication_slave_control("START");
 
     } elseif (isset($GLOBALS['sl_sync'])) {
-        // TODO username, host and port could be read from 'show slave status', 
+        // TODO username, host and port could be read from 'show slave status',
         // when asked for a password this might work in more situations the just after changing master (where the master password is stored in session)
         $src_link = PMA_replication_connect_to_master($_SESSION['replication']['m_username'], $_SESSION['replication']['m_password'], $_SESSION['replication']['m_hostname'], $_SESSION['replication']['m_port']);
         $trg_link = null; // using null to indicate the current PMA server
@@ -131,7 +132,7 @@ if (isset($GLOBALS['sr_take_action'])) {
                     $dblist[] = $tmp_row[0];
                     PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.$tmp_row[0], $trg_link);
                 }
-            }	  
+            }
         } // end while
 
         unset($do_db, $ignore_db, $data);
@@ -214,7 +215,7 @@ if ($server_master_status) {
 }
 
 if (isset($GLOBALS['mr_configure'])) {
-    // Render the 'Master configuration' section 
+    // Render the 'Master configuration' section
     echo PMA_js_mootools_domready($jscode['configure_master']);
     echo '<fieldset>';
     echo '<legend>' . $GLOBALS['strReplicationMasterConfiguration'] . '</legend>';
@@ -246,10 +247,10 @@ if (isset($GLOBALS['mr_configure'])) {
 echo '</div>';
 
 if (! isset($GLOBALS['repl_clear_scr'])) {
-    // Render the 'Slave configuration' section 
+    // Render the 'Slave configuration' section
     echo '<fieldset>';
     echo '<legend>' . $GLOBALS['strReplicationSlave'] . '</legend>';
-    if ($server_slave_status) { 
+    if ($server_slave_status) {
         echo PMA_js_mootools_domready($jscode['slave_control']);
         echo '<div id="slave_configuration_gui">';
 
@@ -258,51 +259,51 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sr_slave_server_control'] = true;
 
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
-            $_url_params['sr_slave_action'] = 'start'; 
+            $_url_params['sr_slave_action'] = 'start';
         } else {
-            $_url_params['sr_slave_action'] = 'stop'; 
+            $_url_params['sr_slave_action'] = 'stop';
         }
 
-        $_url_params['sr_slave_control_parm'] = 'IO_THREAD'; 
-        $slave_control_io_link = PMA_generate_common_url($_url_params); 
+        $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
+        $slave_control_io_link = PMA_generate_common_url($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
-            $_url_params['sr_slave_action'] = 'start'; 
+            $_url_params['sr_slave_action'] = 'start';
         } else {
-            $_url_params['sr_slave_action'] = 'stop'; 
+            $_url_params['sr_slave_action'] = 'stop';
         }
 
-        $_url_params['sr_slave_control_parm'] = 'SQL_THREAD'; 
-        $slave_control_sql_link = PMA_generate_common_url($_url_params); 
+        $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
+        $slave_control_sql_link = PMA_generate_common_url($_url_params);
 
-        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No' 
+        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
             || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
         ) {
-            $_url_params['sr_slave_action'] = 'start'; 
+            $_url_params['sr_slave_action'] = 'start';
         } else {
-            $_url_params['sr_slave_action'] = 'stop'; 
+            $_url_params['sr_slave_action'] = 'stop';
         }
 
-        $_url_params['sr_slave_control_parm'] = null; 
-        $slave_control_full_link = PMA_generate_common_url($_url_params); 
+        $_url_params['sr_slave_control_parm'] = null;
+        $slave_control_full_link = PMA_generate_common_url($_url_params);
 
-        $_url_params['sr_slave_action'] = 'reset'; 
-        $slave_control_reset_link = PMA_generate_common_url($_url_params); 
+        $_url_params['sr_slave_action'] = 'reset';
+        $slave_control_reset_link = PMA_generate_common_url($_url_params);
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sr_slave_skip_error'] = true;
-        $slave_skip_error_link = PMA_generate_common_url($_url_params); 
+        $slave_skip_error_link = PMA_generate_common_url($_url_params);
 
-        if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') 
+        if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No')
             PMA_Message::warning('Slave SQL Thread not running!')->display();
-        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') 
+        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No')
             PMA_Message::warning('Slave IO Thread not running!')->display();
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        $reconfiguremaster_link = PMA_generate_common_url($_url_params); 
+        $reconfiguremaster_link = PMA_generate_common_url($_url_params);
 
         echo $GLOBALS['strReplicationSlaveConfigured'];
         echo '<br />';
@@ -355,7 +356,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        echo sprintf($GLOBALS['strReplicationSlaveNotConfigured'], PMA_generate_common_url($_url_params)); 
+        echo sprintf($GLOBALS['strReplicationSlaveNotConfigured'], PMA_generate_common_url($_url_params));
     }
     echo '</div>';
     echo '</fieldset>';

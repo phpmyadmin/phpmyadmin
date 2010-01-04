@@ -15,6 +15,7 @@ require_once './libraries/common.inc.php';
 //require_once './libraries/display_import_functions.lib.php';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-more.js';
 
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
@@ -259,14 +260,14 @@ if ($import_file != 'none' && !$error) {
         $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
 
         if (is_writable($tmp_subdir)) {
-	    
- 
+
+
             $import_file_new = $tmp_subdir . basename($import_file);
             if (move_uploaded_file($import_file, $import_file_new)) {
                 $import_file = $import_file_new;
                 $file_to_unlink = $import_file_new;
             }
-	    
+
 	    $size = filesize($import_file);
         }
     }
@@ -409,7 +410,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
         if ($import_notice) {
             $message = PMA_Message::success('<em>'.$GLOBALS['strImportSuccessfullyFinished'].'</em>');
             $message->addParam($executed_queries);
-            
+
             $message->addString($import_notice);
         } else {
             $message = PMA_Message::success('strImportSuccessfullyFinished');

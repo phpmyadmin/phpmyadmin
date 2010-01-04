@@ -415,6 +415,7 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'functions.js';
 // in case we call sql.php which needs those:
 $GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-more.js';
 
 $active_page = $goto_include;
 

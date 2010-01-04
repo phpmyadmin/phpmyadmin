@@ -36,6 +36,7 @@ require './libraries/header_http.inc.php';
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/mootools-more.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>

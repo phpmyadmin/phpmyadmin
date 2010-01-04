@@ -20,6 +20,7 @@ require_once './libraries/mysql_charsets.lib.php';
 
 $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-more.js';
 
 if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] =

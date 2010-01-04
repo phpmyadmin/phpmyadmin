@@ -14,7 +14,8 @@ require_once './libraries/common.inc.php';
 /**
   * Load mootools for upload progress bar
   */
-$GLOBALS['js_include'][] = 'mootools.js'; 
+$GLOBALS['js_include'][] = 'mootools.js';
+$GLOBALS['js_include'][] = 'mootools-more.js';
 
 /**
  * Gets tables informations and displays top links
