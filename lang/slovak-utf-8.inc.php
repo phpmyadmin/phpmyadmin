@@ -61,7 +61,7 @@ $strAnIndex = 'Bol pridaný index pre %s';
 $strAny = 'Akýkoľvek';
 $strAnyHost = 'Akýkoľvek hostiteľ';
 $strAnyUser = 'Akýkoľvek používateľ';
-$strApplyChanges='Aplikovať Vybrané Zmeny'; 
+$strApplyChanges = 'Aplikovať Vybrané Zmeny'; 
 $strApproximateCount = 'Môže byť nepresné. Pozri FAQ 3.11';
 $strAPrimaryKey = 'Bol pridaný primárny kľúč pre %s';
 $strArabic = 'Arabština';
@@ -920,7 +920,7 @@ $strSum = 'Celkom';
 $strSwedish = 'Švédsky';
 $strSwitchToDatabase = 'Prepnúť na skopírovanú databázu';
 $strSwitchToTable = 'Prepnúť na skopírovanú tabuľku';
-$strSynchronizeDb= 'Synchronizovať Databázy'; 
+$strSynchronizeDb =  'Synchronizovať Databázy'; 
 $strSynchronize = 'Synchronizovať'; 
 
 $strTableAddColumn = 'Pridať stĺpec/stĺpce'; 
@@ -1548,7 +1548,7 @@ $strSwekeyAuthenticating = 'Authenticating...';  //to translate
 $strSwekeyAuthFailed = 'Hardware authentication failed';  //to translate
 $strSwekeyNoKeyId = 'File %s does not contain any key id';  //to translate
 $strSwekeyNoKey = 'No valid authentication key plugged';  //to translate
-$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
+$strSynchronizationNote = 'Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
 
 $strTableAlterIndex = 'Alter index(s)';  //to translate
 $strTableApplyIndex = 'Apply index(s)';  //to translate

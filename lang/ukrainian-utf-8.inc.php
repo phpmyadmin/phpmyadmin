@@ -598,7 +598,7 @@ $strAnalyze = 'Analyze';  //to translate
 $strAndSmall = 'and';  //to translate
 $strAndThen = 'and then';  //to translate
 $strAngularLinks = 'Angular links';  //to translate
-$strApplyChanges='Apply Selected Changes';  //to translate
+$strApplyChanges = 'Apply Selected Changes';  //to translate
 $strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
 $strAsDefined = 'As defined:';  //to translate
 
@@ -1507,8 +1507,8 @@ $strSwekeyAuthFailed = 'Hardware authentication failed';  //to translate
 $strSwekeyNoKeyId = 'File %s does not contain any key id';  //to translate
 $strSwekeyNoKey = 'No valid authentication key plugged';  //to translate
 $strSwitchToDatabase = 'Switch to copied database';  //to translate
-$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
-$strSynchronizeDb= 'Synchronize Databases';  //to translate
+$strSynchronizationNote = 'Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
+$strSynchronizeDb =  'Synchronize Databases';  //to translate
 $strSynchronize = 'Synchronize';  //to translate
 
 $strTableAddColumn = 'Add column(s)';  //to translate

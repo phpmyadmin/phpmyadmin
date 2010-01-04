@@ -1078,7 +1078,7 @@ $strZip = '"zip 形式"';
 
 // To translate:
 $strAndSmall = 'and';  //to translate
-$strApplyChanges='Apply Selected Changes';  //to translate
+$strApplyChanges = 'Apply Selected Changes';  //to translate
 
 $strBLOBRepository = 'BLOB Repository';  //to translate
 $strBLOBRepositoryDamaged = 'Damaged';  //to translate
@@ -1562,8 +1562,8 @@ $strSwekeyAuthenticating = 'Authenticating...'; //to translate
 $strSwekeyAuthFailed = 'Hardware authentication failed'; //to translate
 $strSwekeyNoKeyId = 'File %s does not contain any key id'; //to translate
 $strSwekeyNoKey = 'No valid authentication key plugged'; //to translate
-$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
-$strSynchronizeDb= 'Synchronize Databases';  //to translate
+$strSynchronizationNote = 'Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
+$strSynchronizeDb =  'Synchronize Databases';  //to translate
 $strSynchronize = 'Synchronize';  //to translate
 
 $strTableAddColumn = 'Add column(s)';  //to translate

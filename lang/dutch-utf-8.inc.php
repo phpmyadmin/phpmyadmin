@@ -1536,7 +1536,7 @@ $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) 
 $strZip = '"Gezipt"';
 
 // To translate:
-$strApplyChanges='Apply Selected Changes';  //to translate
+$strApplyChanges = 'Apply Selected Changes';  //to translate
 
 $strClickToSelect = 'Click to select';  //to translate
 $strClickToUnselect = 'Click to unselect';  //to translate
@@ -1611,8 +1611,8 @@ $strStart = 'Start';  //to translate
 $strStop = 'Stop';  //to translate
 $strStructureDiff = 'Structure Difference' ;  //to translate
 $strStructureSyn = 'Structure Synchronization';  //to translate
-$strSynchronizationNote='Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
-$strSynchronizeDb= 'Synchronize Databases';  //to translate
+$strSynchronizationNote = 'Target database will be completely synchronized with source database. Source database will remain unchanged.';  //to translate
+$strSynchronizeDb =  'Synchronize Databases';  //to translate
 $strSynchronize = 'Synchronize';  //to translate
 
 $strTableAddColumn = 'Add column(s)';  //to translate
