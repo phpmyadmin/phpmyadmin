@@ -1339,7 +1339,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             // fields, or we detected a PROCEDURE ANALYSE in
                             // the query (results are reported as being
                             // binary strings)
-                            $row[$i] = PMA_replace_binary_contents($row[$i]);
+                            $row[$i] = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
                         } else {
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
@@ -2217,7 +2217,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             $result = $default_function($result, array(), $meta);
             if (stristr($meta->type, 'BLOB') && $_SESSION['userconf']['display_blob']) {
                 // in this case, restart from the original $content
-                $result = PMA_replace_binary_contents($content);
+                $result = htmlspecialchars(PMA_replace_binary_contents($content));
             }
         }
     }
