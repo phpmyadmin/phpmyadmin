@@ -1371,7 +1371,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                             	$row[$i] = bin2hex($row[$i]);
 							}
 							else {
-                            	$row[$i] = PMA_replace_binary_contents($row[$i]);
+                            	$row[$i] = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
 							}
                         } else {
                             // we show the BINARY message and field's size
@@ -2266,7 +2266,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             $result = $default_function($result, array(), $meta);
             if (stristr($meta->type, 'BLOB') && $_SESSION['tmp_user_values']['display_blob']) {
                 // in this case, restart from the original $content
-                $result = PMA_replace_binary_contents($content);
+                $result = htmlspecialchars(PMA_replace_binary_contents($content));
             }
         }
     }
