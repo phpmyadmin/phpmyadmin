@@ -72,6 +72,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #869006 [structure] Ignore number of records for MRG_MyISAM tables
 - bug [browse] "Show BLOB contents" should display HTML code that is present
   in a BLOB, thanks to Vincent van der Tuin
+- [privileges] Improve escaping of hostname
 
 3.2.4.0 (2009-12-02)
 - bug [engines] Innodb_buffer_pool_pages_latched no longer returned in status
