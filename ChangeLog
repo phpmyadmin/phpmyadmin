@@ -52,6 +52,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Russian update, thanks to Victor Volkov
 + [lang] Greek update, thanks to Panagiotis Papazoglou
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
+- bug #2929958 [import] Cannot import (French interface) 
 
 3.2.6.0 (not yet released)
 
