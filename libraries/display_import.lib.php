@@ -114,7 +114,7 @@ if (empty($import_list)) {
 	    complete = item;			    
 	}); // [$each]
 	 if (total==0 && complete==0 && percent==0) {
-	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportLargeFileUploading; ?>');
+	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportLargeFileUploading); ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	 } else {
 	  $('upload_form_status_info').set('html', ' '+Math.round(percent)+'%, '+complete+'/'+total);
