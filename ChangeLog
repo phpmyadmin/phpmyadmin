@@ -54,6 +54,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + patch #2812070 [interface] Allow selecting a range of rows by holding shift, thanks to Joolee
 + [lang] Russian update, thanks to Victor Volkov
 + [lang] Greek update, thanks to Panagiotis Papazoglou
++ [lang] Norwegian update, thanks to Sven-Erik Andersen 
 
 3.2.6.0 (not yet released)
 
