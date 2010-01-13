@@ -56,6 +56,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Greek update, thanks to Panagiotis Papazoglou
 + [lang] Norwegian update, thanks to Sven-Erik Andersen 
 - bug #2929958 [import] Cannot import (French interface) 
+- [security] Use X-Frame-Options header to protect against ClickJacking.
 
 3.2.6.0 (not yet released)
 
