@@ -1101,11 +1101,11 @@ foreach ($rows as $row_id => $vrow) {
 <?php
 if (isset($where_clause)) {
     ?>
-                <option value="<?php echo $strSave; ?>"><?php echo $strSave; ?></option>
+                <option value="save"><?php echo $strSave; ?></option>
     <?php
 }
     ?>
-                <option value="<?php echo $strInsertAsNewRow; ?>"><?php echo $strInsertAsNewRow; ?></option>
+                <option value="insert"><?php echo $strInsertAsNewRow; ?></option>
             </select>
     <?php
 echo "\n";

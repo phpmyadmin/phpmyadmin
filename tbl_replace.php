@@ -138,7 +138,7 @@ if (isset($_REQUEST['where_clause'])) {
     // we were editing something => use the WHERE clause
     $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
     $using_key  = true;
-    $is_insert  = ($_REQUEST['submit_type'] == $GLOBALS['strInsertAsNewRow']);
+    $is_insert  = ($_REQUEST['submit_type'] == 'insert');
 } else {
     // new row => use indexes
     $loop_array = array();
