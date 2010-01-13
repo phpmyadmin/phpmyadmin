@@ -1615,4 +1615,5 @@ $strZip = 'Komprimert (zip)';
 // To translate:
 
 $strRenameView = 'Rename view to'; //to translate
+$strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 ?>

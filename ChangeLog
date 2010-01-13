@@ -10,6 +10,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #838637 [privileges] Export a user's privileges 
 - [core] Updated mootools to fix some glitches with Safari.
 + rfe #2816943 [interface] Add REGEXP ^...$ to select dialog.
++ rfe #2924956 [interface] Add insert ignore option to editing row.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

@@ -1642,4 +1642,5 @@ $strTrackingCommentOut = 'Comment out these two lines if you do not need them.';
 $strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
 $strDeleteTrackingData = 'Delete tracking data for this table';  //to translate
 $strRenameView = 'Rename view to';  //to translate
+$strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 ?>

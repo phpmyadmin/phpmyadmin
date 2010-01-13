@@ -1643,4 +1643,5 @@ $strDeleteTrackingData = 'Διαγραφή δεδομένων παρακολού
 $strRenameView = 'Rename view to';  //to translate
 
 $strSynchronizeDb = 'Synchronize Databases'; //to translate
+$strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 ?>

@@ -138,7 +138,8 @@ if (isset($_REQUEST['where_clause'])) {
     // we were editing something => use the WHERE clause
     $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
     $using_key  = true;
-    $is_insert  = ($_REQUEST['submit_type'] == 'insert');
+    $is_insert  = ($_REQUEST['submit_type'] == 'insert') || ($_REQUEST['submit_type'] == 'insertignore');
+    $is_insertignore  = ($_REQUEST['submit_type'] == 'insertignore');
 } else {
     // new row => use indexes
     $loop_array = array();
@@ -147,6 +148,7 @@ if (isset($_REQUEST['where_clause'])) {
     }
     $using_key  = false;
     $is_insert  = true;
+    $is_insertignore = false;
 }
 
 $query = array();
@@ -310,8 +312,14 @@ unset($me_fields_name, $me_fields_prev, $me_funcs, $me_fields_type, $me_fields_n
 
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
-    $query[] = 'INSERT INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+    if ($is_insertignore) {
+        $insert_command = 'INSERT IGNORE ';
+    } else {
+        $insert_command = 'INSERT ';
+    }
+    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
+    unset($insert_command);
 
     unset($query_fields, $value_sets);
 
@@ -327,7 +335,7 @@ if ($is_insert && count($value_sets) > 0) {
     require './' . PMA_securePath($goto_include);
     exit;
 }
-unset($me_fields, $is_insert);
+unset($me_fields, $is_insert, $is_insertignore);
 
 /**
  * Executes the sql query and get the result, then move back to the calling

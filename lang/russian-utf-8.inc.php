@@ -1618,4 +1618,5 @@ $strZeroRemovesTheLimit = 'Замечание: Установка значени
 $strZip = 'zip';
 
 $strRenameView = 'Rename view to';  //to translate
+$strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 ?>
