@@ -2973,6 +2973,7 @@ $cfg['TextOperators'] = array(
    '=',
    '!=',
    'REGEXP',
+   'REGEXP ^...$',
    'NOT REGEXP',
    "= ''",
    "!= ''"

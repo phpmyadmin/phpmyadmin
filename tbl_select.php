@@ -403,6 +403,10 @@ else {
                     $func_type = 'LIKE';
                     $fields[$i] = '%' . $fields[$i] . '%';
                 }
+                if ($func_type == 'REGEXP ^...$') {
+                    $func_type = 'REGEXP';
+                    $fields[$i] = '^' . $fields[$i] . '$';
+                }
                 $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
 
             } // end if
