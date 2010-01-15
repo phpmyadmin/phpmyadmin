@@ -431,6 +431,7 @@ $strInnodbStat = 'État InnoDB';
 $strInsecureMySQL = 'Votre fichier de configuration fait référence à l\'utilisateur root sans mot de passe, ce qui correspond à la valeur par défaut de MySQL.  Votre serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce problème de sécurité.';
 $strInsertAsNewRow = 'Sauvegarder un nouvel enregistrement';
 $strInsertedRowId = 'Identifiant de l\'enregistrement inséré : %1$d';
+$strInsertIgnoreAsNewRow = 'Sauvegarder un nouvel enregistrement (ignorer les erreurs)';
 $strInsert = 'Insérer';
 $strInterface = 'Interface';
 $strInternalAndForeign = 'Une relation interne n\'est pas nécessaire lorsqu\'une clé correspondante de type FOREIGN KEY existe';
@@ -1612,5 +1613,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 ?>
