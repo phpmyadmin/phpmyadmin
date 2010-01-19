@@ -56,6 +56,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - [security] Use X-Frame-Options header to protect against ClickJacking.
 + [lang] Finnish update, thanks to Jouni Kahkonen
 + [lang] Lithuanian update, thanks to Rytis Slatkevicius - rytis_s 
+- bug #2931939 [status] Seeing "m" as unit is confusing 
 
 3.2.6.0 (not yet released)
 
