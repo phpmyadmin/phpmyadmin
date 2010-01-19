@@ -880,6 +880,13 @@ $cfg['MaxRows'] = 30;
  */
 $cfg['Order'] = 'ASC';
 
+/**
+ * default for 'Show binary contents as HEX' 
+ *
+ * @global string $cfg['DisplayBinaryAsHex']
+ */
+$cfg['DisplayBinaryAsHex'] = true;
+
 
 /*******************************************************************************
  * In edit mode...
