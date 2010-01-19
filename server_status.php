@@ -570,7 +570,7 @@ foreach ($used_queries as $name => $value) {
             <th class="name"><?php echo htmlspecialchars($name); ?></th>
             <td class="value"><?php echo PMA_formatNumber($value, 4, 0); ?></td>
             <td class="value"><?php echo
-                PMA_formatNumber($value * $hour_factor, 4, 2); ?></td>
+                PMA_formatNumber($value * $hour_factor, 3, 3); ?></td>
             <td class="value"><?php echo
                 PMA_formatNumber($value * $perc_factor, 0, 2); ?>%</td>
         </tr>
