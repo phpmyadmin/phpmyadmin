@@ -79,7 +79,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
             $sql_structure = PMA_getTableDef($db, $each_table, "\n", '', false, false);
-            if (! empty($sql_drop_foreign_keys)) {
+            if ($move && ! empty($sql_drop_foreign_keys)) {
                 PMA_DBI_query($sql_drop_foreign_keys);
             }
             // keep the constraint we just dropped
@@ -144,7 +144,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 unset($triggers); 
 
                 // this does not apply to a rename operation
-                if (isset($GLOBALS['add_constraints'])) {
+                if (isset($GLOBALS['add_constraints']) && !empty($GLOBALS['sql_constraints_query'])) {
                     $GLOBALS['sql_constraints_query_full_db'][] = $GLOBALS['sql_constraints_query'];
                     unset($GLOBALS['sql_constraints_query']);
                 }
