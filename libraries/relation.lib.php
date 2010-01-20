@@ -43,7 +43,7 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_controluser()" function
 
 /**
- * @uses    $_SESSION['relation' . $GLOBALS['server']] for caching
+ * @uses    $_SESSION['relation'][$GLOBALS['server']] for caching
  * @uses    $GLOBALS['cfgRelation'] to set it
  * @uses    $GLOBALS['server'] to ensure we are using server-specific pmadb
  * @uses    PMA__getRelationsParam()
@@ -53,19 +53,19 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam($verbose = false)
 {
-    if (empty($_SESSION['relation' . $GLOBALS['server']])) {
-        $_SESSION['relation' . $GLOBALS['server']] = PMA__getRelationsParam();
+    if (empty($_SESSION['relation'][$GLOBALS['server']])) {
+        $_SESSION['relation'][$GLOBALS['server']] = PMA__getRelationsParam();
     }
 
     // just for BC but needs to be before PMA_printRelationsParamDiagnostic()
     // which uses it
-    $GLOBALS['cfgRelation'] = $_SESSION['relation' . $GLOBALS['server']];
+    $GLOBALS['cfgRelation'] = $_SESSION['relation'][$GLOBALS['server']];
 
     if ($verbose) {
-        PMA_printRelationsParamDiagnostic($_SESSION['relation' . $GLOBALS['server']]);
+        PMA_printRelationsParamDiagnostic($_SESSION['relation'][$GLOBALS['server']]);
     }
 
-    return $_SESSION['relation' . $GLOBALS['server']];
+    return $_SESSION['relation'][$GLOBALS['server']];
 }
 
 /**
