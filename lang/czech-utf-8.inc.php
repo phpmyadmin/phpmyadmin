@@ -248,6 +248,7 @@ $strDeleted = 'Řádek byl smazán';
 $strDeleteNoUsersSelected = 'Musíte vybrat uživatele, které chcete odstranit!';
 $strDelete = 'Odstranit';
 $strDeleteRelation = 'Odstranit relaci';
+$strDeleteTrackingData = 'Odstranit všechny informace o sledování této tabulky';
 $strDeleting = 'Odstraňuji %s';
 $strDelimiter = 'Oddělovač';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete odstranit tyto odkazy?';
@@ -1414,6 +1415,7 @@ $strTotalUC = 'Celkem';
 $strTrackingActivated = 'Sledování pro %s.%s je zapnuté.';
 $strTrackingActivateNow = 'Zapnout teď';
 $strTrackingActivateTrackingFor = 'Zapnuté sledování pro %s.%s';
+$strTrackingCommentOut = 'Zakomentujte následující dva řádky pokud je nepotřebujete.';
 $strTrackingCreateVersionOf = 'Vytvořit verzi %s z %s.%s';
 $strTrackingCreateVersion = 'Vytvořit verzi';
 $strTrackingDatabaseLog = 'Historie databáze';
@@ -1427,6 +1429,7 @@ $strTrackingIsActive = 'Sledování je zapnuté.';
 $strTrackingIsNotActive = 'Sledování není zapnuté.';
 $strTrackingMechanism = 'Sledovací mechanismus';
 $strTrackingReportClose = 'Ukončit';
+$strTrackingReportForTable = 'Záznamy o sledování tabulky `%s`';
 $strTrackingReport = 'Informace o sledování';
 $strTrackingShowLogDateUsers = 'Zobrazit %s s datumy od %s do %s od uživatele %s %s';
 $strTrackingShowVersions = 'Zobrazit verze';
@@ -1456,6 +1459,7 @@ $strTrackingVersionCreated = 'Verze %s vytvořena, sledování pro %s.%s je zapn
 $strTrackingVersionDeactivated = 'Sledování pro %s.%s , verze %s je vypnuté.';
 $strTrackingVersionSnapshotSQL = 'Snímek verze %s (SQL kód)';
 $strTrackingVersions = 'Verze';
+$strTrackingYouCanExecute = 'Záznam můžete spustit vytvořením a použitím dočasné databáze. Prosím ověřte, že na tuto operací máte oprávnění.';
 $strTraditionalChinese = 'Tradiční čínština';
 $strTraditionalSpanish = 'Tradiční španělština';
 $strTraffic = 'Provoz';
@@ -1558,8 +1562,6 @@ $strZip = '„zazipováno“';
 
 // To translate:
 
-$strDeleteTrackingData = 'Delete tracking data for this table';  //to translate
-
 $strReplicationAddLines = 'Now, add the following lines at the end of your my.cnf and please restart the MySQL server afterwards.';  //to translate
 $strReplicationAddSlaveUser = 'Add slave replication user';  //to translate
 $strReplicationConfiguredMaster = 'This server is configured as master in a replication process.';  //to translate
@@ -1620,9 +1622,5 @@ $strSetupZipDump_desc = 'Enable [a@http://cs.wikipedia.org/wiki/ZIP_(souborový_
 $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
-
-$strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
-$strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
-$strTrackingYouCanExecute = 'You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.';  //to translate
 
 ?>
