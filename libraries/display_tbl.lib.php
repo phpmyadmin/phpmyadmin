@@ -1937,8 +1937,12 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $message->addMessage('(');
         } else {
             $message->addMessage($last_shown_rec, ' - ');
-            $message->addMessage($pre_count  . PMA_formatNumber($total, 0) . $after_count, ' (');
+            $message->addMessage(' (');
+            $message->addMessage($pre_count  . PMA_formatNumber($total, 0));
             $message->addString('strTotal');
+            if (!empty($after_count)) {
+                $message->addMessage($after_count);
+            }
             $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
         }

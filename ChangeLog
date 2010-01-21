@@ -25,6 +25,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1340812 [interface] Show numbers of columns in table structure.
 + rfe #1186511 [inrerface] Add link to reload navigation frame.
 + rfe #2936156 [auth] Signon authentication forwards error message through session data.
++ rfe #2835109 [interface] Move ^1 to the end of message.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
