@@ -311,7 +311,6 @@ class PMA_Config
           || $this->error_config_file
           || $this->error_config_default_file) {
             $this->settings = array();
-            unset($_SESSION['relation']);
             $this->load();
             $this->checkSystem();
         }

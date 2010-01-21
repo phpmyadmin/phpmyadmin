@@ -6,7 +6,6 @@ $Id$
 $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyAdmin/ChangeLog $
 
 3.2.6.0 (not yet released)
-- bug #2931216 [config] Relations settings not updated on config change 
 
 3.2.5.0 (2010-01-10)
 - patch #2903400 [bookmarks] Status of bookmark table, 
