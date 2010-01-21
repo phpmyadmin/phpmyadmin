@@ -173,14 +173,20 @@ function PMA_auth_set_user()
  */
 function PMA_auth_fails()
 {
-    $error = PMA_DBI_getError();
-    if ($error && $GLOBALS['errno'] != 1045) {
-        PMA_fatalError($error);
+    if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
+        $_SESSION['PMA_single_signon_error_message'] = $GLOBALS['strLoginWithoutPassword'];
+    } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
+        $_SESSION['PMA_single_signon_error_message'] = $GLOBALS['strAccessDenied'];
+    } elseif (! empty($GLOBALS['no_activity'])) {
+        $_SESSION['PMA_single_signon_error_message'] = sprintf($GLOBALS['strNoActivity'], $GLOBALS['cfg']['LoginCookieValidity']);
+    } elseif (PMA_DBI_getError()) {
+        $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(PMA_DBI_getError());
+    } elseif (isset($php_errormsg)) {
+        $_SESSION['PMA_single_signon_error_message'] = $php_errormsg;
     } else {
-        PMA_auth();
-        return true;
+        $_SESSION['PMA_single_signon_error_message'] = $GLOBALS['strCannotLogin'];
     }
-
+    PMA_auth();
 } // end of the 'PMA_auth_fails()' function
 
 ?>

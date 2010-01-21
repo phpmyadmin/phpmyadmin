@@ -44,6 +44,11 @@ if (isset($_POST['user'])) {
     <title>phpMyAdmin single signon example</title>
 </head>
 <body>
+<?php
+if (isset($_SESSION['PMA_single_signon_error_message'])) {
+    echo '<p class="error">' . $_SESSION['PMA_single_signon_port'] . '</p>';
+}
+?>
 <form action="signon.php" method="post">
 Username: <input type="text" name="user" /><br />
 Password: <input type="password" name="password" /><br />
