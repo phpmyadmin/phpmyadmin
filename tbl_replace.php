@@ -255,6 +255,10 @@ foreach ($loop_array as $rowcount => $where_clause) {
             $cur_value = $val;
         } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } elseif ('UUID' === $me_funcs[$key]) {
+            /* This way user will know what UUID new row has */
+            $uuid = PMA_DBI_fetch_value('SELECT UUID()');
+            $cur_value = "'" . $uuid . "'";
         } elseif (in_array($me_funcs[$key], $func_no_param)) {
             $cur_value = $me_funcs[$key] . '()';
         } else {
