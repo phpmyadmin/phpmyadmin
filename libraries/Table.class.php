@@ -565,18 +565,22 @@ class PMA_Table
 
     /**
      * Copies or renames table
-     * @todo use RENAME for move operations
-     *        - would work only if the databases are on the same filesystem,
-     *          how can we check that? try the operation and
-     *          catch an error?
-     *        - for views, only if MYSQL > 50013
-     *        - still have to handle pmadb synch.
      *
      * @author          Michal Cihar <michal@cihar.com>
      */
     static public function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
         global $err_url;
+
+        /* Try moving table directly */
+        if ($move && $what == 'data') {
+            $tbl = new PMA_Table($source_table, $source_db);
+            $result = $tbl->rename($target_table, $target_db, PMA_Table::isView($source_db, $source_table));
+            if ($result) {
+                $GLOBALS['message'] = $tbl->getLastMessage();
+                return true;
+            }
+        }
 
         // set export settings we need
         $GLOBALS['sql_backquotes'] = 1;
