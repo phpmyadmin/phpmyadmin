@@ -206,7 +206,6 @@ $allocations = array(
     'Com_'              => 'com',
     'Innodb_'           => 'innodb',
     'Ndb_'              => 'ndb',
-    'Ssl_'              => 'ssl',
     'Handler_'          => 'handler',
     'Qcache_'           => 'qcache',
     'Threads_'          => 'threads',
@@ -234,6 +233,8 @@ $allocations = array(
     'Slave_'            => 'repl',
 
     'Tc_'               => 'tc',
+
+    'Ssl_'              => 'ssl',
 );
 
 $sections = array(
@@ -242,7 +243,6 @@ $sections = array(
     'query'         => array('title' => $strSQLQuery),
     'innodb'        => array('title' => 'InnoDB'),
     'ndb'           => array('title' => 'NDB'),
-    'ssl'           => array('title' => 'SSL'),
     'handler'       => array('title' => $strHandler),
     'qcache'        => array('title' => $strQueryCache),
     'threads'       => array('title' => $strThreads),
@@ -255,6 +255,7 @@ $sections = array(
     'sort'          => array('title' => $strSorting),
     'table'         => array('title' => $strNumTables),
     'tc'            => array('title' => $strTransactionCoordinator),
+    'ssl'           => array('title' => 'SSL'),
 );
 
 /**
