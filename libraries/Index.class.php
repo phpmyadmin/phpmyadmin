@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * holds the datasbe index class
+ * holds the database index class
  *
  * @version $Id$
  * @package phpMyAdmin
@@ -306,6 +306,11 @@ class PMA_Index
     public function getType()
     {
         return $this->_type;
+    }
+
+    public function getChoice()
+    {
+        return $this->_choice;
     }
 
     /**

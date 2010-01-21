@@ -111,6 +111,16 @@ require_once './libraries/Index.class.php';
 // @todo should be: $server->db($db)->table($table)->primary()
 $primary = PMA_Index::getPrimary($table, $db);
 
+$columns_with_unique_index = array();
+foreach (PMA_Index::getFromTable($table, $db) as $index) {
+    if ($index->isUnique() && $index->getChoice() == 'UNIQUE') {
+        $columns = $index->getColumns();
+        foreach ($columns as $column_name => $dummy) {
+            $columns_with_unique_index[$column_name] = 1;
+        } 
+    }
+}
+unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
 $fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
@@ -314,16 +324,17 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 
     $field_encoded = urlencode($row['Field']);
     $field_name    = htmlspecialchars($row['Field']);
+    $displayed_field_name = $field_name;
 
     // garvin: underline commented fields and display a hover-title (CSS only)
 
     $comment_style = '';
     if (isset($comments_map[$row['Field']])) {
-        $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
+        $displayed_field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
     }
 
     if ($primary && $primary->hasColumn($field_name)) {
-        $field_name = '<u>' . $field_name . '</u>';
+        $displayed_field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
     ?>
@@ -334,7 +345,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td align="right">
         <?php echo $rownum; ?>
     </td>
-    <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $field_name; ?></label></th>
+    <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
     <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
     <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
@@ -368,7 +379,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || ($primary && $primary->hasColumn($field_name))) {
             echo $titles['NoPrimary'] . "\n";
         } else {
             echo "\n";
@@ -383,7 +394,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     </td>
     <td align="center">
         <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type) {
+        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_type || isset($columns_with_unique_index[$field_name])) {
             echo $titles['NoUnique'] . "\n";
         } else {
             echo "\n";
