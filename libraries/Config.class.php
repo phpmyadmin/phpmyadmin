@@ -564,6 +564,10 @@ class PMA_Config
      */
     function checkPmaAbsoluteUri()
     {
+        static $url_checked = false;
+
+        if ($url_checked) return;
+
         // Setup a default value to let the people and lazy sysadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
@@ -711,6 +715,7 @@ class PMA_Config
             }
         }
         $this->set('PmaAbsoluteUri', $pma_absolute_uri);
+        $url_checked = true;
     }
 
     /**
