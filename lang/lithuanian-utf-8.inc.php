@@ -1633,4 +1633,5 @@ $strXMLExportStructs = 'Export Structure Schemas (recommended)';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
+$strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate
 ?>

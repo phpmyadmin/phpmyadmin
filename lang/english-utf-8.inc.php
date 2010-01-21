@@ -457,6 +457,7 @@ $strInvalidServerIndex = 'Invalid server index: "%s"';
 $strInvalidTableName = 'Invalid table name';
 
 $strJapanese = 'Japanese';
+$strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';
 $strJoins = 'Joins';
 $strJumpToDB = 'Jump to database &quot;%s&quot;.';
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.';

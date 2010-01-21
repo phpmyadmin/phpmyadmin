@@ -331,6 +331,15 @@ if ($server > 0) {
 }
 
 /**
+ * Show warning when javascript support is missing.
+ */
+echo '<noscript>';
+$message = PMA_Message::notice('strJavascriptDisabled');
+$message->isError(true);
+$message->display();
+echo '</noscript>';
+
+/**
  * Warning about different MySQL library and server version
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd, we can use it instead

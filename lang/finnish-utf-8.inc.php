@@ -1617,4 +1617,5 @@ $strZip = '"zip-pakattu"';
 
 $strRenameView = 'Rename view to';  //to translate
 $strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
+$strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate
 ?>
