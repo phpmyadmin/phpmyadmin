@@ -299,32 +299,6 @@ class PMA_Config
     }
 
     /**
-     * re-init object after loading from session file
-     * checks config file for changes and relaods if neccessary
-     */
-    function __wakeup()
-    {
-        if (SKIP_MTIME_CONFIG_CHECK
-          || ! $this->checkConfigSource()
-          || $this->source_mtime !== filemtime($this->getSource())
-          || $this->default_source_mtime !== filemtime($this->default_source)
-          || $this->error_config_file
-          || $this->error_config_default_file) {
-            $this->settings = array();
-            $this->load();
-            $this->checkSystem();
-        }
-
-        // check for https needs to be done everytime,
-        // as https and http uses same session so this info can not be stored
-        // in session
-        $this->checkIsHttps();
-
-        $this->checkCollationConnection();
-        $this->checkFontsize();
-    }
-
-    /**
      * loads default values from default source
      *
      * @uses    file_exists()
@@ -356,8 +330,7 @@ class PMA_Config
 
     /**
      * loads configuration from $source, usally the config file
-     * should be called on object creation and from __wakeup if config file
-     * has changed
+     * should be called on object creation 
      *
      * @param   string $source  config file
      */

@@ -34,11 +34,4 @@ define('SETUP_CONFIG_FILE', './config/config.inc.php');
  */
 define('SETUP_DIR_WRITABLE', true);
 
-/**
- * Whether to skip mtime check on config file and load it on every request.
- * This has slight performance drawback, but it is the only way to handle
- * inclusions of other php scripts from config.
- */
-define('SKIP_MTIME_CONFIG_CHECK', false);
-
 ?>
