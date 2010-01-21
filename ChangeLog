@@ -22,6 +22,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1954161 [interface] Do not display long numbers in server status.
 + rfe #2033616 [edit] Add option to just display insert query.
 + rfe #1435032 [interface] Move SSL status to the end, it is usually empty.
++ rfe #1340812 [interface] Show numbers of columns in table structure.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
