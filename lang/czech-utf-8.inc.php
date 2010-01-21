@@ -749,6 +749,7 @@ $strRelationsForTable = 'RELACE PRO TABULKU';
 $strRelations = 'Relace';
 $strRelationView = 'Zobrazit relace';
 $strReloadingThePrivileges = 'Načítám oprávnění';
+$strReloadNavi = 'Znovu nahrát navigační rám';
 $strReloadPrivileges = 'Znovu načíst oprávnění';
 $strReload = 'Znovu načíst';
 $strRemoteServer = 'Vzdálený server';

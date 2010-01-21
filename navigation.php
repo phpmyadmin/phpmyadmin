@@ -58,6 +58,22 @@ require_once './libraries/common.inc.php';
  */
 function PMA_exitNavigationFrame()
 {
+    $params = array('uniqid' => uniqid());
+    if (!empty($GLOBALS['db'])) {
+        $params['db'] = $GLOBALS['db'];
+    }
+    echo '<div id="reloadlink">' . "\n";
+    echo '<a href="navigation.php' . PMA_generate_common_url($params) . '" target="frame_navigation">';
+    if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
+            . ' title="' . $GLOBALS['strReloadNavi'] . '"'
+            . ' alt="' . $GLOBALS['strReloadNavi'] . '" />';
+    }
+    if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
+        echo $GLOBALS['strReloadNavi'];
+    }
+    echo '</a>';
+    echo '</div>' . "\n";
     echo '</body></html>';
     exit;
 }

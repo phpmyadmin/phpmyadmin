@@ -748,6 +748,7 @@ $strRelationsForTable = 'RELATIONS FOR TABLE';
 $strRelations = 'Relations';
 $strRelationView = 'Relation view';
 $strReloadingThePrivileges = 'Reloading the privileges';
+$strReloadNavi = 'Reload navigation frame';
 $strReloadPrivileges = 'Reload privileges';
 $strReload = 'Reload';
 $strRemoteServer = 'Remote server';
