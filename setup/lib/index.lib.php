@@ -153,7 +153,7 @@ function PMA_version_check()
         return;
     }
 
-    $version_local = version_to_int($_SESSION['PMA_Config']->get('PMA_VERSION'));
+    $version_local = version_to_int($GLOBALS['PMA_Config']->get('PMA_VERSION'));
     if ($version_local === false) {
         messages_set('error', $message_id, 'VersionCheck',
             PMA_lang('VersionCheckUnparsable'));

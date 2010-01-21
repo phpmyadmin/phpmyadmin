@@ -246,17 +246,17 @@ if ($asfile) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if ($export_type == 'server') {
         if (isset($remember_template)) {
-            PMA_setCookie('pma_server_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setCookie('pma_server_filename_template', $filename_template);
         }
         $filename = str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template));
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
-            PMA_setCookie('pma_db_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setCookie('pma_db_filename_template', $filename_template);
         }
         $filename = str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template)));
     } else {
         if (isset($remember_template)) {
-            PMA_setCookie('pma_table_filename_template', $filename_template);
+            $GLOBALS['PMA_Config']->setCookie('pma_table_filename_template', $filename_template);
         }
         $filename = str_replace('__TABLE__', $table, str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template))));
     }

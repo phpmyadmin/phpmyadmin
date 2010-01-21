@@ -22,7 +22,7 @@
 function checkBLOBStreamingPlugins()
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config)) {
@@ -240,7 +240,7 @@ EOD;
 function checkBLOBStreamableDatabases()
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     $serverCfg = $GLOBALS['cfg']['Server'];
 
@@ -382,7 +382,7 @@ function PMA_BS_SetVariables($bs_variables)
 function PMA_BS_GetVariables()
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
@@ -415,7 +415,7 @@ function PMA_BS_GetVariables()
 function PMA_BS_SetFieldReferences($val)
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
@@ -446,7 +446,7 @@ function PMA_BS_SetFieldReferences($val)
 function PMA_BS_GetTableStruct($tbl_name)
 {
     // retrieve table structures for BS tables
-    $bs_tables = $_SESSION['PMA_Config']->get('BLOBSTREAMING_TABLES');
+    $bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
    
     // return if tables don't exist 
     if (!$bs_tables)
@@ -474,7 +474,7 @@ function PMA_BS_GetTableStruct($tbl_name)
 function PMA_BS_CreateTables($db_name)
 {
     // retrieve BS tables
-    $bs_tables = $_SESSION['PMA_Config']->get('BLOBSTREAMING_TABLES');
+    $bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
 
     // select specified database
     PMA_DBI_select_db($db_name);
@@ -507,7 +507,7 @@ function PMA_BS_CreateTables($db_name)
 function PMA_BS_DropTables($db_name)
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
@@ -549,7 +549,7 @@ function PMA_BS_DropTables($db_name)
 function PMA_BS_GetPrimaryField($db_name, $tbl_name)
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
@@ -593,7 +593,7 @@ function PMA_BS_ReferenceExists($bs_reference, $db_name)
         return $referenceExists;
 
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))
@@ -631,7 +631,7 @@ function PMA_BS_ReferenceExists($bs_reference, $db_name)
 function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
 {
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // return if unable to load PMA configuration
     if (empty($PMA_Config))

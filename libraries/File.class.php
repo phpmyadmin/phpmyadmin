@@ -294,7 +294,7 @@ class PMA_File
         if ($is_bs_upload)
         {
             // load PMA configuration
-            $PMA_Config = $_SESSION['PMA_Config'];
+            $PMA_Config = $GLOBALS['PMA_Config'];
 
             // if PMA configuration is loaded
             if (!empty($PMA_Config))
@@ -502,7 +502,7 @@ class PMA_File
                 if ($is_bs_upload)
                 {
                     // load PMA configuration
-                    $PMA_Config = $_SESSION['PMA_Config'];
+                    $PMA_Config = $GLOBALS['PMA_Config'];
 
                     // if the PMA configuration was loaded
                     if (!empty($PMA_Config))
@@ -642,7 +642,7 @@ class PMA_File
             if ($is_bs_upload)
             {
                 // load PMA configuration
-                $PMA_Config = $_SESSION['PMA_Config'];
+                $PMA_Config = $GLOBALS['PMA_Config'];
 
                 // if the PMA configuration was loaded
                 if (!empty($PMA_Config))

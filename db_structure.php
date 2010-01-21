@@ -153,7 +153,7 @@ $odd_row       = true;
 $sum_row_count_pre = '';
 
 // added by rajk - for blobstreaming
-$PMA_Config = $_SESSION['PMA_Config'];
+$PMA_Config = $GLOBALS['PMA_Config'];
 
 if (!empty($PMA_Config))
     $session_bs_tables = $PMA_Config->get('BLOBSTREAMING_TABLES'); // list of blobstreaming tables

@@ -248,10 +248,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $db = $newname;
         } elseif (! $_error) {
             if (isset($switch_to_new) && $switch_to_new == 'true') {
-                PMA_setCookie('pma_switch_to_new', 'true');
+                $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
                 $db = $newname;
             } else {
-                PMA_setCookie('pma_switch_to_new', '');
+                $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
             }
         }
 
@@ -267,7 +267,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 if (strlen($db) > 0 && !empty($db_blob_streaming_op))
 {
     // load PMA_Config
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     if (!empty($PMA_Config))
     {
@@ -502,7 +502,7 @@ if (!$is_information_schema) {
     */
 
     // load PMA_Config
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // if all blobstreaming plugins exist, begin checking for blobstreaming tables
     if (!empty($PMA_Config))

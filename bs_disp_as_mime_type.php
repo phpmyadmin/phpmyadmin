@@ -12,7 +12,7 @@
 require_once './libraries/common.inc.php';
 
 // load PMA configuration
-$PMA_Config = $_SESSION['PMA_Config'];
+$PMA_Config = $GLOBALS['PMA_Config'];
 
 // retrieve BS server variables from PMA configuration
 $bs_server = $PMA_Config->get('BLOBSTREAMING_SERVER');

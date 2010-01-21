@@ -782,11 +782,11 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
     // for blobstreaming - list of blobstreaming tables - rajk
 
     // load PMA configuration
-    $PMA_Config = $_SESSION['PMA_Config'];
+    $PMA_Config = $GLOBALS['PMA_Config'];
 
     // if PMA configuration exists
     if (!empty($PMA_Config))
-        $session_bs_tables = $_SESSION['PMA_Config']->get('BLOBSTREAMING_TABLES');
+        $session_bs_tables = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_TABLES');
 
     foreach ($tables as $table_name => $table) {
         // if BS tables exist

@@ -1281,7 +1281,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $bs_reference_exists = $allBSTablesExist = FALSE;
 
                     // load PMA configuration
-                    $PMA_Config = $_SESSION['PMA_Config'];
+                    $PMA_Config = $GLOBALS['PMA_Config'];
 
                     // if PMA configuration exists
                     if ($PMA_Config) {

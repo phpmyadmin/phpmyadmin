@@ -831,7 +831,7 @@ foreach ($rows as $row_id => $vrow) {
                     if (isset ($tbl_type) && strlen ($tbl_type) > 0)
                     {
                         // load PMA_Config
-                        $PMA_Config = $_SESSION['PMA_Config'];
+                        $PMA_Config = $GLOBALS['PMA_Config'];
 
                         if (!empty($PMA_Config))
                         {
@@ -931,7 +931,7 @@ foreach ($rows as $row_id => $vrow) {
                     if (isset ($tbl_type) && strlen ($tbl_type) > 0)
                     {
                         // load PMA Config
-                        $PMA_Config = $_SESSION['PMA_Config'];
+                        $PMA_Config = $GLOBALS['PMA_Config'];
 
                         // is PMA_Config's data loaded? continue only if it is
                         if (!empty($PMA_Config))

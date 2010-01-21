@@ -54,7 +54,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-$blob_streaming_active = $_SESSION['PMA_Config']->get('BLOBSTREAMING_PLUGINS_EXIST');
+$blob_streaming_active = $GLOBALS['PMA_Config']->get('BLOBSTREAMING_PLUGINS_EXIST');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table', 'goto'));

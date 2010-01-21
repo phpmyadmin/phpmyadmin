@@ -39,7 +39,7 @@ if (function_exists('mcrypt_encrypt')) {
             trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
          }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
-        PMA_setCookie('pma_mcrypt_iv', base64_encode($iv));
+        $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
     }
 
     /**
@@ -387,7 +387,7 @@ window.setTimeout('PMA_focusInput()', 500);
  * @uses    $_REQUEST['pma_servername'] from login form
  * @uses    $_COOKIE
  * @uses    $_SESSION['last_access_time']
- * @uses    PMA_removeCookie()
+ * @uses    $GLOBALS['PMA_Config']->removeCookie()
  * @uses    PMA_blowfish_decrypt()
  * @uses    PMA_auth_fails()
  * @uses    time()
@@ -415,9 +415,9 @@ function PMA_auth_check()
 
     if (defined('PMA_CLEAR_COOKIES')) {
         foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
-            PMA_removeCookie('pmaPass-' . $key);
-            PMA_removeCookie('pmaServer-' . $key);
-            PMA_removeCookie('pmaUser-' . $key);
+            $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
+            $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $key);
+            $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
         }
         return false;
     }
@@ -435,13 +435,13 @@ function PMA_auth_check()
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
-                PMA_removeCookie('pmaPass-' . $key);
+                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
                 if (isset($_COOKIE['pmaPass-' . $key])) {
                     unset($_COOKIE['pmaPass-' . $key]);
                 }
             }
         } else {
-            PMA_removeCookie('pmaPass-' . $GLOBALS['server']);
+            $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
             if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
                 unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
             }
@@ -526,9 +526,9 @@ function PMA_auth_check()
  * @uses    $cfg['PmaAbsoluteUri']
  * @uses    $_SESSION['last_access_time']
  * @uses    PMA_COMING_FROM_COOKIE_LOGIN
- * @uses    PMA_setCookie()
+ * @uses    $GLOBALS['PMA_Config']->setCookie()
  * @uses    PMA_blowfish_encrypt()
- * @uses    PMA_removeCookie()
+ * @uses    $GLOBALS['PMA_Config']->removeCookie()
  * @uses    PMA_sendHeaderLocation()
  * @uses    time()
  * @uses    define()
@@ -583,12 +583,12 @@ function PMA_auth_set_user()
 
     // Name and password cookies need to be refreshed each time
     // Duration = one month for username
-    PMA_setCookie('pmaUser-' . $GLOBALS['server'],
+    $GLOBALS['PMA_Config']->setCookie('pmaUser-' . $GLOBALS['server'],
         PMA_blowfish_encrypt($cfg['Server']['user'],
             PMA_get_blowfish_secret()));
 
     // Duration = as configured
-    PMA_setCookie('pmaPass-' . $GLOBALS['server'],
+    $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $GLOBALS['server'],
         PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
             PMA_get_blowfish_secret()),
         null,
@@ -600,10 +600,10 @@ function PMA_auth_set_user()
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             if (! empty($GLOBALS['pma_auth_server'])) {
                 // Duration = one month for servername
-                PMA_setCookie('pmaServer-' . $GLOBALS['server'], $cfg['Server']['host']);
+                $GLOBALS['PMA_Config']->setCookie('pmaServer-' . $GLOBALS['server'], $cfg['Server']['host']);
             } else {
                 // Delete servername cookie
-                PMA_removeCookie('pmaServer-' . $GLOBALS['server']);
+                $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $GLOBALS['server']);
             }
         }
 
@@ -652,7 +652,7 @@ function PMA_auth_set_user()
  * @uses    $GLOBALS['strCannotLogin']
  * @uses    $GLOBALS['no_activity']
  * @uses    $cfg['LoginCookieValidity']
- * @uses    PMA_removeCookie()
+ * @uses    $GLOBALS['PMA_Config']->removeCookie()
  * @uses    PMA_getenv()
  * @uses    PMA_DBI_getError()
  * @uses    PMA_sanitize()
@@ -666,7 +666,7 @@ function PMA_auth_fails()
     global $conn_error;
 
     // Deletes password cookie and displays the login form
-    PMA_removeCookie('pmaPass-' . $GLOBALS['server']);
+    $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
 
     if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
         $conn_error = $GLOBALS['strLoginWithoutPassword'];

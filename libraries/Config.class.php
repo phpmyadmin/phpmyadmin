@@ -554,7 +554,7 @@ class PMA_Config
      */
     function getThemeUniqueValue()
     {
-        return intval((null !== $_SESSION['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : (isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : 0))) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info + $_SESSION['PMA_Theme']->filesize_info) . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
+        return intval((null !== $GLOBALS['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : (isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : 0))) + ($this->source_mtime + $this->default_source_mtime + $_SESSION['PMA_Theme']->mtime_info + $_SESSION['PMA_Theme']->filesize_info) . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
     }
 
     /**
@@ -735,7 +735,7 @@ class PMA_Config
      * @uses    function_exists()
      * @uses    PMA_Config::set()
      * @uses    PMA_Config::get()
-     * @uses    PMA_setCookie()
+     * @uses    PMA_Config::setCookie()
      */
     function checkFontsize()
     {
@@ -757,9 +757,7 @@ class PMA_Config
             $this->set('fontsize', '82%');
         }
 
-        if (function_exists('PMA_setCookie')) {
-            PMA_setCookie('pma_fontsize', $this->get('fontsize'), '82%');
-        }
+        $this->setCookie('pma_fontsize', $this->get('fontsize'), '82%');
     }
 
     /**
@@ -806,15 +804,17 @@ class PMA_Config
      */
     function checkIsHttps()
     {
-        $this->set('is_https', PMA_Config::isHttps());
+        $this->set('is_https', $this->isHttps());
     }
 
     /**
      * @static
      */
-    static public function isHttps()
+    public function isHttps()
     {
         $is_https = false;
+
+#        print $this->get('PmaAbsoluteUri');
 
         $url = array();
 
@@ -855,13 +855,13 @@ class PMA_Config
      */
     function checkCookiePath()
     {
-        $this->set('cookie_path', PMA_Config::getCookiePath());
+        $this->set('cookie_path', $this->getCookiePath());
     }
 
     /**
      * @static
      */
-    static public function getCookiePath()
+    public function getCookiePath()
     {
         static $cookie_path = null;
 
@@ -1010,7 +1010,7 @@ class PMA_Config
     /**
      * returns html selectbox for font sizes
      *
-     * @uses    $_SESSION['PMA_Config']
+     * @uses    $GLOBALS['PMA_Config']
      * @uses    PMA_Config::get()
      * @uses    PMA_Config::_getFontsizeOptions()
      * @uses    $GLOBALS['strFontSize']
@@ -1020,7 +1020,7 @@ class PMA_Config
      */
     static protected function _getFontsizeSelection()
     {
-        $current_size = $_SESSION['PMA_Config']->get('fontsize');
+        $current_size = $GLOBALS['PMA_Config']->get('fontsize');
         // for the case when there is no config file (this is supported)
         if (empty($current_size)) {
             if (isset($_COOKIE['pma_fontsize'])) {
@@ -1065,6 +1065,71 @@ class PMA_Config
             . '<input type="submit" value="' . $GLOBALS['strGo'] . '" />' . "\n"
             . '</noscript>' . "\n"
             . '</form>';
+    }
+
+    /**
+     * removes cookie
+     *
+     * @uses    PMA_Config::isHttps()
+     * @uses    PMA_Config::getCookiePath()
+     * @uses    setcookie()
+     * @uses    time()
+     * @param   string  $cookie     name of cookie to remove
+     * @return  boolean result of setcookie()
+     */
+    function removeCookie($cookie)
+    {
+        return setcookie($cookie, '', time() - 3600,
+            $this->getCookiePath(), '', $this->isHttps());
+    }
+
+    /**
+     * sets cookie if value is different from current cokkie value,
+     * or removes if value is equal to default
+     *
+     * @uses    PMA_Config::isHttps()
+     * @uses    PMA_Config::getCookiePath()
+     * @uses    $_COOKIE
+     * @uses    PMA_Config::removeCookie()
+     * @uses    setcookie()
+     * @uses    time()
+     * @param   string  $cookie     name of cookie to remove
+     * @param   mixed   $value      new cookie value
+     * @param   string  $default    default value
+     * @param   int     $validity   validity of cookie in seconds (default is one month)
+     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
+     * @return  boolean result of setcookie()
+     */
+    function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
+    {
+        if ($validity == null) {
+            $validity = 2592000;
+        }
+        if (strlen($value) && null !== $default && $value === $default
+         && isset($_COOKIE[$cookie])) {
+            // remove cookie, default value is used
+            return $this->removeCookie($cookie);
+        }
+
+        if (! strlen($value) && isset($_COOKIE[$cookie])) {
+            // remove cookie, value is empty
+            return $this->removeCookie($cookie);
+        }
+
+        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+            // set cookie with new value
+            /* Calculate cookie validity */
+            if ($validity == 0) {
+                $v = 0;
+            } else {
+                $v = time() + $validity;
+            }
+            return setcookie($cookie, $value, $v,
+                $this->getCookiePath(), '', $this->isHttps(), $httponly);
+        }
+
+        // cookie has already $value as value
+        return true;
     }
 }
 ?>

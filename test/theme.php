@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
     <link rel="stylesheet" type="text/css"
-        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $_SESSION['PMA_Config']->getThemeUniqueValue(); ?>" />
+        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
     <script src="../js/functions.js" type="text/javascript"></script>

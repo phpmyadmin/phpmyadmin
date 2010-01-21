@@ -21,7 +21,7 @@
  * @uses    PMA_generate_common_url()
  * @uses    PMA_isValid()
  * @uses    PMA_mysqlDie()
- * @uses    PMA_setCookie()
+ * @uses    $GLOBALS['PMA_Config']->setCookie()
  * @uses    PMA_blowfish_encrypt()
  * @uses    PMA_showMessage()
  * @uses    define()
@@ -96,7 +96,7 @@ if (isset($_REQUEST['nopass'])) {
         // Changes password cookie if required
         // Duration = till the browser is closed for password (we don't want this to be saved)
         if ($cfg['Server']['auth_type'] == 'cookie') {
-            PMA_setCookie('pmaPass-' . $server,
+            $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $server,
                 PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
         } // end if
 

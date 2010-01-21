@@ -22,7 +22,7 @@ require_once './libraries/zip.lib.php';
 // ini file
 $parameters = array(
     'id'        => 'phpMyAdmin@' . $_SERVER['HTTP_HOST'],
-    'uri'       => $_SESSION['PMA_Config']->get('PmaAbsoluteUri'),
+    'uri'       => $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'),
     'status'    => 'yes',
     'location'  => 'no',
     'sidebar'   => 'no',

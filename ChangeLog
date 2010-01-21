@@ -14,6 +14,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2838080 [interface] Show warning when javascript is disabled.
 + rfe #2823707 [edit] Call UUID function separately to show it in insert.
 + rfe #2420684 [export] Allow export of timestamps in UTC.
++ [core] Remove config data from session as it brings chicken-egg problem.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

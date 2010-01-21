@@ -258,22 +258,6 @@ if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
 }
 
 /**
- * clean cookies on upgrade
- * when changing something related to PMA cookies, increment the cookie version
- */
-$pma_cookie_version = 4;
-if (isset($_COOKIE)
- && (isset($_COOKIE['pmaCookieVer'])
-  && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
-    // delete all cookies
-    foreach($_COOKIE as $cookie_name => $tmp) {
-        PMA_removeCookie($cookie_name);
-    }
-    $_COOKIE = array();
-    PMA_setCookie('pmaCookieVer', $pma_cookie_version);
-}
-
-/**
  * include deprecated grab_globals only if required
  */
 if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
@@ -288,6 +272,65 @@ if (empty($__redirect) && !defined('PMA_NO_VARIABLES_IMPORT')) {
  * @todo need to decide how we should handle this (without @)
  */
 date_default_timezone_set(@date_default_timezone_get());
+
+/******************************************************************************/
+/* parsing configuration file                         LABEL_parsing_config_file      */
+
+/**
+ * We really need this one!
+ */
+if (! function_exists('preg_replace')) {
+    PMA_fatalError('strCantLoad', 'pcre');
+}
+
+/**
+ * @global PMA_Config $GLOBALS['PMA_Config']
+ * force reading of config file, because we removed sensitive values
+ * in the previous iteration
+ */
+$GLOBALS['PMA_Config'] = new PMA_Config('./config.inc.php');
+
+if (!defined('PMA_MINIMUM_COMMON')) {
+    $GLOBALS['PMA_Config']->checkPmaAbsoluteUri();
+}
+
+/**
+ * BC - enable backward compatibility
+ * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
+ */
+$GLOBALS['PMA_Config']->enableBc();
+
+/**
+ * clean cookies on upgrade
+ * when changing something related to PMA cookies, increment the cookie version
+ */
+$pma_cookie_version = 4;
+if (isset($_COOKIE)
+ && (isset($_COOKIE['pmaCookieVer'])
+  && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
+    // delete all cookies
+    foreach($_COOKIE as $cookie_name => $tmp) {
+        $GLOBALS['PMA_Config']->removeCookie($cookie_name);
+    }
+    $_COOKIE = array();
+    $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
+}
+
+
+/**
+ * check HTTPS connection
+ */
+if ($GLOBALS['PMA_Config']->get('ForceSSL')
+  && !$GLOBALS['PMA_Config']->get('is_https')) {
+    PMA_sendHeaderLocation(
+        preg_replace('/^http/', 'https',
+            $GLOBALS['PMA_Config']->get('PmaAbsoluteUri'))
+        . PMA_generate_common_url($_GET, 'text'));
+    // delete the current session, otherwise we get problems (see bug #2397877)
+    $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
+    exit;
+}
+
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -522,49 +565,6 @@ $GLOBALS['js_events'] = array();
 $GLOBALS['footnotes'] = array();
 
 /******************************************************************************/
-/* parsing configuration file                         LABEL_parsing_config_file      */
-
-/**
- * We really need this one!
- */
-if (! function_exists('preg_replace')) {
-    PMA_fatalError('strCantLoad', 'pcre');
-}
-
-/**
- * @global PMA_Config $_SESSION['PMA_Config']
- * force reading of config file, because we removed sensitive values
- * in the previous iteration
- */
-$_SESSION['PMA_Config'] = new PMA_Config('./config.inc.php');
-
-if (!defined('PMA_MINIMUM_COMMON')) {
-    $_SESSION['PMA_Config']->checkPmaAbsoluteUri();
-}
-
-/**
- * BC - enable backward compatibility
- * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
- */
-$_SESSION['PMA_Config']->enableBc();
-
-
-/**
- * check HTTPS connection
- */
-if ($_SESSION['PMA_Config']->get('ForceSSL')
-  && !$_SESSION['PMA_Config']->get('is_https')) {
-    PMA_sendHeaderLocation(
-        preg_replace('/^http/', 'https',
-            $_SESSION['PMA_Config']->get('PmaAbsoluteUri'))
-        . PMA_generate_common_url($_GET, 'text'));
-    // delete the current session, otherwise we get problems (see bug #2397877)
-    PMA_removeCookie($GLOBALS['session_name']);
-    exit;
-}
-
-
-/******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
@@ -583,23 +583,23 @@ require_once './libraries/select_lang.lib.php';
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
  */
-if ($_SESSION['PMA_Config']->error_config_file) {
+if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = $strConfigFileError
         . '<br /><br />'
-        . ($_SESSION['PMA_Config']->getSource() == './config.inc.php' ?
+        . ($GLOBALS['PMA_Config']->getSource() == './config.inc.php' ?
         '<a href="show_config_errors.php"'
-        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>'
+        .' target="_blank">' . $GLOBALS['PMA_Config']->getSource() . '</a>'
         :
-        '<a href="' . $_SESSION['PMA_Config']->getSource() . '"'
-        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>');
+        '<a href="' . $GLOBALS['PMA_Config']->getSource() . '"'
+        .' target="_blank">' . $GLOBALS['PMA_Config']->getSource() . '</a>');
     trigger_error($error, E_USER_ERROR);
 }
-if ($_SESSION['PMA_Config']->error_config_default_file) {
+if ($GLOBALS['PMA_Config']->error_config_default_file) {
     $error = sprintf($strConfigDefaultFileError,
-        $_SESSION['PMA_Config']->default_source);
+        $GLOBALS['PMA_Config']->default_source);
     trigger_error($error, E_USER_ERROR);
 }
-if ($_SESSION['PMA_Config']->error_pma_uri) {
+if ($GLOBALS['PMA_Config']->error_pma_uri) {
     trigger_error($strPmaUriError, E_USER_ERROR);
 }
 
@@ -805,9 +805,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * save some settings in cookies
      * @todo should be done in PMA_Config
      */
-    PMA_setCookie('pma_lang', $GLOBALS['lang']);
-    PMA_setCookie('pma_charset', $GLOBALS['convcharset']);
-    PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
+    $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
+    $GLOBALS['PMA_Config']->setCookie('pma_charset', $GLOBALS['convcharset']);
+    $GLOBALS['PMA_Config']->setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
 
@@ -982,9 +982,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // remove sensitive values from session
-$_SESSION['PMA_Config']->set('blowfish_secret', '');
-$_SESSION['PMA_Config']->set('Servers', '');
-$_SESSION['PMA_Config']->set('default_server', '');
+$GLOBALS['PMA_Config']->set('blowfish_secret', '');
+$GLOBALS['PMA_Config']->set('Servers', '');
+$GLOBALS['PMA_Config']->set('default_server', '');
 
 /* Tell tracker that it can actually work */
 PMA_Tracker::enable();

@@ -35,7 +35,7 @@
     if ($bsDB && $bsTable && $bsReference && $bsNewMIMEType)
     {
         // load PMA configuration
-        $PMA_Config = $_SESSION['PMA_Config'];
+        $PMA_Config = $GLOBALS['PMA_Config'];
 
         // if PMA configuration exists
         if (!empty($PMA_Config))

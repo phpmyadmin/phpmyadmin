@@ -193,7 +193,7 @@ class PMA_Theme_Manager
     /**
      * save theme in cookie
      *
-     * @uses    PMA_setCookie();
+     * @uses    $GLOBALS['PMA_Config']->setCookie();
      * @uses    PMA_Theme_Manager::getThemeCookieName()
      * @uses    PMA_Theme_Manager::$theme
      * @uses    PMA_Theme_Manager::$theme_default
@@ -201,11 +201,11 @@ class PMA_Theme_Manager
      */
     function setThemeCookie()
     {
-        PMA_setCookie($this->getThemeCookieName(), $this->theme->id,
+        $GLOBALS['PMA_Config']->setCookie($this->getThemeCookieName(), $this->theme->id,
             $this->theme_default);
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $_SESSION['PMA_Config']->set('theme-update', $this->theme->id);
+        $GLOBALS['PMA_Config']->set('theme-update', $this->theme->id);
         return true;
     }
 

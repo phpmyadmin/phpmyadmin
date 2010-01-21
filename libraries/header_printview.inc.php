@@ -48,7 +48,7 @@ if ($text_dir == 'ltr') {
 <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 <title><?php echo $strSQLResult; ?> - phpMyAdmin <?php echo PMA_VERSION ?></title>
-<link rel="stylesheet" type="text/css" href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=print&amp;nocache=<?php echo $_SESSION['PMA_Config']->getThemeUniqueValue(); ?>" />
+<link rel="stylesheet" type="text/css" href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=print&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
 </head>
 
 <body bgcolor="#ffffff">
