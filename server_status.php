@@ -391,34 +391,34 @@ foreach ($sections as $section_name => $section) {
     <th class="name"><?php echo $strReceived; ?></th>
     <td class="value"><?php echo
         implode(' ',
-            PMA_formatByteDown($server_status['Bytes_received'], 4)); ?></td>
+            PMA_formatByteDown($server_status['Bytes_received'], 2, 1)); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_received'] * $hour_factor, 4)); ?></td>
+                $server_status['Bytes_received'] * $hour_factor, 2, 1)); ?></td>
 </tr>
 <tr class="even">
     <th class="name"><?php echo $strSent; ?></th>
     <td class="value"><?php echo
         implode(' ',
-            PMA_formatByteDown($server_status['Bytes_sent'], 4)); ?></td>
+            PMA_formatByteDown($server_status['Bytes_sent'], 2, 1)); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_sent'] * $hour_factor, 4)); ?></td>
+                $server_status['Bytes_sent'] * $hour_factor, 2, 1)); ?></td>
 </tr>
 <tr class="odd">
     <th class="name"><?php echo $strTotalUC; ?></th>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
-                $server_status['Bytes_received'] + $server_status['Bytes_sent'], 4)
+                $server_status['Bytes_received'] + $server_status['Bytes_sent'], 2, 1)
         ); ?></td>
     <td class="value"><?php echo
         implode(' ',
             PMA_formatByteDown(
                 ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
-                * $hour_factor, 4)
+                * $hour_factor, 2, 1)
         ); ?></td>
 </tr>
 </tbody>
@@ -666,9 +666,9 @@ if (! empty($section['title'])) {
             if ('%' === substr($name, -1, 1)) {
                 echo PMA_formatNumber($value, 0, 2) . ' %';
             } elseif (is_numeric($value) && $value == (int) $value) {
-                echo PMA_formatNumber($value, 4, 0);
+                echo PMA_formatNumber($value, 3, 1);
             } elseif (is_numeric($value)) {
-                echo PMA_formatNumber($value, 4, 2);
+                echo PMA_formatNumber($value, 3, 1);
             } else {
                 echo htmlspecialchars($value);
             }
