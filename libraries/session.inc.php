@@ -31,8 +31,8 @@ if (!@function_exists('session_name')) {
 //ini_set('session.auto_start', 0);
 
 // session cookie settings
-//session_set_cookie_params(0, PMA_Config::getCookiePath() . '; HttpOnly',
-//    '', PMA_Config::isHttps());
+session_set_cookie_params(0, $GLOBALS['PMA_Config']->getCookiePath(),
+    '', $GLOBALS['PMA_Config']->isHttps(), true);
 
 // cookies are safer (use @ini_set() in case this function is disabled)
 @ini_set('session.use_cookies', true);
