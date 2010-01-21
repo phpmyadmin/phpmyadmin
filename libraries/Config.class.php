@@ -378,9 +378,9 @@ class PMA_Config
             $cfg['DefaultTabDatabase'] = str_replace('_details', '', str_replace('db_details.php', 'db_sql.php', $cfg['DefaultTabDatabase']));
         }
 
-        $this->checkFontsize();
-        //$this->checkPmaAbsoluteUri();
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+        $this->checkPmaAbsoluteUri();
+        $this->checkFontsize();
 
         $this->checkPermissions();
 
@@ -537,10 +537,6 @@ class PMA_Config
      */
     function checkPmaAbsoluteUri()
     {
-        static $url_checked = false;
-
-        if ($url_checked) return;
-
         // Setup a default value to let the people and lazy sysadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
@@ -682,7 +678,6 @@ class PMA_Config
             }
         }
         $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-        $url_checked = true;
     }
 
     /**
@@ -790,7 +785,6 @@ class PMA_Config
             return $is_https;
         }
 
-        $this->checkPmaAbsoluteUri();
         $url = parse_url($this->get('PmaAbsoluteUri'));
 
         if (isset($url['scheme'])
@@ -865,8 +859,6 @@ class PMA_Config
         if (null !== $cookie_path) {
             return $cookie_path;
         }
-
-        $this->checkPmaAbsoluteUri();
 
         $parsed_url = parse_url($this->get('PmaAbsoluteUri'));
 
