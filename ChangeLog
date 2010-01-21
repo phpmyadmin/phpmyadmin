@@ -16,6 +16,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2420684 [export] Allow export of timestamps in UTC.
 + [core] Remove config data from session as it brings chicken-egg problem.
 + [core] Cookie path now honors PmaAbsoluteUri.
++ rfe #2393597 [core] phpMyAdmin honors https in PmaAbsoluteUri.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

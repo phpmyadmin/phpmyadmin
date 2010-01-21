@@ -571,13 +571,9 @@ class PMA_Config
         // Setup a default value to let the people and lazy sysadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        $is_https = $this->get('is_https');
+        $is_https = $this->detectHttps();
 
-        if (strlen($pma_absolute_uri) < 5
-            // needed to catch http/https switch
-            || ($is_https && substr($pma_absolute_uri, 0, 6) != 'https:')
-            || (!$is_https && substr($pma_absolute_uri, 0, 5) != 'http:')
-        ) {
+        if (strlen($pma_absolute_uri) < 5) {
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URL
@@ -817,9 +813,34 @@ class PMA_Config
      */
     public function isHttps()
     {
-        $is_https = false;
+        static $is_https = false;
 
-#        print $this->get('PmaAbsoluteUri');
+        if (null !== $is_https) {
+            return $is_https;
+        }
+
+        $this->checkPmaAbsoluteUri();
+        $url = parse_url($this->get('PmaAbsoluteUri'));
+
+        if (isset($url['scheme'])
+          && $url['scheme'] == 'https') {
+            $is_https = true;
+        } else {
+            $is_https = false;
+        }
+
+        return $is_https;
+    }
+
+    /**
+     * Detects whether https appears to be used.
+     *
+     * Please note that this just detects what we see, so
+     * it completely ignores things like reverse proxies.
+     */
+    function detectHttps()
+    {
+        $is_https = false;
 
         $url = array();
 
@@ -830,7 +851,7 @@ class PMA_Config
                 $url = array();
             }
         }
-
+ 
         // If we don't have scheme, we didn't have full URL so we need to
         // dig deeper
         if (empty($url['scheme'])) {
