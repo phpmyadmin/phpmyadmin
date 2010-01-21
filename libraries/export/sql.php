@@ -117,6 +117,8 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] =
             array('type' => 'bool', 'name' => 'hex_for_blob', 'text' => 'strHexForBLOB');
         $plugin_list['sql']['options'][] =
+            array('type' => 'bool', 'name' => 'utc_time', 'text' => 'strSQLExportUTC');
+        $plugin_list['sql']['options'][] =
             array('type' => 'select', 'name' => 'type', 'text' => 'strSQLExportType', 'values' => array('INSERT' => 'INSERT', 'UPDATE' => 'UPDATE', 'REPLACE' => 'REPLACE'));
         $plugin_list['sql']['options'][] =
             array('type' => 'egroup');
@@ -194,6 +196,11 @@ function PMA_exportFooter()
                . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;' . $crlf;
     }
 
+    /* Restore timezone */
+    if ($GLOBALS['sql_utc_time']) {
+        PMA_DBI_query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
+    }
+
     return PMA_exportOutputHandler($foot);
 }
 
@@ -252,6 +259,14 @@ function PMA_exportHeader()
     if (isset($GLOBALS['sql_use_transaction'])) {
         $head .=  'SET AUTOCOMMIT=0;' . $crlf
                 . 'START TRANSACTION;' . $crlf;
+    }
+
+
+    /* Change timezone if we should export timestamps in UTC */
+    if ($GLOBALS['sql_utc_time']) {
+        $head .= 'SET time_zone = "+00:00";' . $crlf;
+        $GLOBALS['old_tz'] = PMA_DBI_fetch_value('SELECT @@session.time_zone');
+        PMA_DBI_query('SET time_zone = "+00:00"');
     }
 
     $head .= PMA_possibleCRLF();

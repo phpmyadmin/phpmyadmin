@@ -1567,6 +1567,13 @@ $cfg['Export']['sql_delayed'] = false;
 $cfg['Export']['sql_ignore'] = false;
 
 /**
+ * Export time in UTC.
+ *
+ * @global boolean $cfg['Export']['sql_utc_time']
+ */
+$cfg['Export']['sql_utc_time'] = true;
+
+/**
  *
  *
  * @global boolean $cfg['Export']['sql_hex_for_blob']
