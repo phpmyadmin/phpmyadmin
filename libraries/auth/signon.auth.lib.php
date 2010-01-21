@@ -123,10 +123,11 @@ function PMA_auth_check()
         session_start();
 
         /* Set the single signon host */
-        $GLOBALS['cfg']['Server']['host']=$single_signon_host;
+        $GLOBALS['cfg']['Server']['host'] = $single_signon_host;
 
-       /* Set the single signon port */
-       $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
+        /* Set the single signon port */
+        $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
+
         /* Restore our token */
         if (!empty($pma_token)) {
             $_SESSION[' PMA_token '] = $pma_token;
