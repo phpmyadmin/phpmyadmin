@@ -1236,6 +1236,7 @@ $strShowingBookmark = 'Showing bookmark';
 $strShowingPhp = 'Showing as PHP code';
 $strShowingRecords = 'Showing rows';
 $strShowingSQL = 'Showing SQL query';
+$strShowInsert = 'Show insert query';
 $strShowKeys = 'Only show keys';
 $strShowMasterStatus = 'Show master status';
 $strShowOpenTables = 'Show open tables';

@@ -1179,6 +1179,7 @@ $strShowingBookmark = 'Zobrazuji oblíbený dotaz';
 $strShowingPhp = 'Zobrazuji jako PHP kód';
 $strShowingRecords = 'Zobrazeny záznamy';
 $strShowingSQL = 'Zobrazuji SQL dotaz';
+$strShowInsert = 'Zobrazit dotaz pro vložení';
 $strShowKeys = 'Jen zobrazit klíče';
 $strShowMasterStatus = 'Zobrazit stav nadřízeného';
 $strShowOpenTables = 'Zobrazit otevřené tabulky';

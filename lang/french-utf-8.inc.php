@@ -1615,4 +1615,5 @@ $strZip = '"zippé"';
 
 $strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
+$strShowInsert = 'Show insert query';  //to translate
 ?>

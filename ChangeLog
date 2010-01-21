@@ -20,6 +20,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1778337 [core] Try moving tables by RENAME and fail to CREATE/INSERT if that fails.
 + rfe #1721189 [core] Force reload js on code change.
 + rfe #1954161 [interface] Do not display long numbers in server status.
++ rfe #2033616 [edit] Add option to just display insert query.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

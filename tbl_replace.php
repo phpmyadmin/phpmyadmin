@@ -138,7 +138,7 @@ if (isset($_REQUEST['where_clause'])) {
     // we were editing something => use the WHERE clause
     $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
     $using_key  = true;
-    $is_insert  = ($_REQUEST['submit_type'] == 'insert') || ($_REQUEST['submit_type'] == 'insertignore');
+    $is_insert  = ($_REQUEST['submit_type'] == 'insert') || ($_REQUEST['submit_type'] == 'showinsert') || ($_REQUEST['submit_type'] == 'insertignore');
     $is_insertignore  = ($_REQUEST['submit_type'] == 'insertignore');
 } else {
     // new row => use indexes
@@ -360,6 +360,10 @@ $warning_messages = array();
 $error_messages = array();
 
 foreach ($query as $single_query) {
+    if ($_REQUEST['submit_type'] == 'showinsert') {
+        $last_messages[] = PMA_Message::notice('strShowingSQL');
+        continue;
+    }
     if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
         $result = PMA_DBI_try_query($single_query);
     } else {

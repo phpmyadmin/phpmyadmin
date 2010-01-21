@@ -1107,6 +1107,7 @@ if (isset($where_clause)) {
     ?>
                 <option value="insert"><?php echo $strInsertAsNewRow; ?></option>
                 <option value="insertignore"><?php echo $strInsertIgnoreAsNewRow; ?></option>
+                <option value="showinsert"><?php echo $strShowInsert; ?></option>
             </select>
     <?php
 echo "\n";
