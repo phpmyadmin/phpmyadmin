@@ -113,7 +113,7 @@ $GLOBALS['js_events'][] = array(
 );
 
 foreach ($GLOBALS['js_include'] as $js_script_file) {
-    echo '<script src="./js/' . $js_script_file . '" type="text/javascript"></script>' . "\n";
+    echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
 }
 ?>
 <script type="text/javascript">

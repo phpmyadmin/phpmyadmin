@@ -18,6 +18,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [core] Cookie path now honors PmaAbsoluteUri.
 + rfe #2393597 [core] phpMyAdmin honors https in PmaAbsoluteUri.
 + rfe #1778337 [core] Try moving tables by RENAME and fail to CREATE/INSERT if that fails.
++ rfe #1721189 [core] Force reload js on code change.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
