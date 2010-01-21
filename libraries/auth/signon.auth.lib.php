@@ -79,6 +79,9 @@ function PMA_auth_check()
         session_id($_COOKIE[$session_name]);
         session_start();
 
+        /* Clear error message */
+        unset($_SESSION['PMA_single_signon_error_message']);
+
         /* Grab credentials if they exist */
         if (isset($_SESSION['PMA_single_signon_user'])) {
             if ($do_logout) {
