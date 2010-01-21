@@ -874,38 +874,11 @@ class PMA_Config
             return $cookie_path;
         }
 
-        $url = '';
+        $this->checkPmaAbsoluteUri();
 
-        /**
-         * REQUEST_URI contains PATH_INFO too, this is not what we want
-         * script-php/pathinfo/
-        if (PMA_getenv('REQUEST_URI')) {
-            $url = PMA_getenv('REQUEST_URI');
-        }
-         */
+        $parsed_url = parse_url($this->get('PmaAbsoluteUri'));
 
-        // If we don't have path
-        if (empty($url)) {
-            if ($GLOBALS['PMA_PHP_SELF']) {
-                // PHP_SELF in CGI often points to cgi executable, so use it
-                // as last choice
-                $url = $GLOBALS['PMA_PHP_SELF'];
-            // on IIS with PHP-CGI:
-            } elseif (PMA_getenv('SCRIPT_NAME')) {
-                $url = PMA_getenv('SCRIPT_NAME');
-            }
-        }
-
-        /**
-         * REQUEST_URI contains PATH_INFO too, this is not what we want
-         * script-php/pathinfo/
-        $parsed_url = @parse_url($_SERVER['REQUEST_URI']); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-        if ($parsed_url === false) {
-         */
-            $parsed_url = array('path' => $url);
-        //}
-
-        $cookie_path   = substr($parsed_url['path'], 0, strrpos($parsed_url['path'], '/'))  . '/';
+        $cookie_path   = $parsed_url['path'];
 
         return $cookie_path;
     }
