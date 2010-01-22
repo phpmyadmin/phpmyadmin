@@ -33,6 +33,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - rfe #1516803 [edit] Allow to set BLOB to/from NULL with ProtectBinary.
 - [edit] Do not default to UNHEX when using file upload.
 - rfe #1379201 [core] Add option to configure session_save_path.
++ [interface] Provide links to documentation in highlighted SQL.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

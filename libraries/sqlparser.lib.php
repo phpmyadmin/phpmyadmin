@@ -2090,6 +2090,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $html_line_break                    = '<br />';
                 break;
         } // end switch
+        $close_docu_link = false;
         $indent                                     = 0;
         $bracketlevel                               = 0;
         $functionlevel                              = 0;
@@ -2356,22 +2357,61 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
                     switch ($arr[$i]['data']) {
                         case 'CREATE':
+                        case 'ALTER':
+                        case 'DROP':
+                        case 'RENAME';
+                        case 'TRUNCATE':
+                        case 'ANALYZE':
+                        case 'ANALYSE':
+                        case 'OPTIMIZE':
+                            switch ($arr[$i + 1]['data']) {
+                                case 'EVENT':
+                                case 'TABLE':
+                                case 'TABLESPACE':
+                                case 'FUNCTION':
+                                case 'INDEX':
+                                case 'PROCEDURE':
+                                case 'TRIGGER':
+                                case 'SERVER':
+                                case 'DATABASE':
+                                case 'VIEW':
+                                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
+                                    $close_docu_link = true;
+                                    break;
+                            }
+                            if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
+                                $close_docu_link = true;
+                            }
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
                                 $space_alpha_reserved_word = ' ';
                             }
                             break;
+                        case 'EVENT':
+                        case 'TABLESPACE':
+                        case 'TABLE':
+                        case 'FUNCTION':
+                        case 'INDEX':
+                        case 'PROCEDURE':
+                        case 'SERVER':
+                        case 'TRIGGER':
+                        case 'DATABASE':
+                        case 'VIEW':
+                        case 'GROUP':
+                            if ($close_docu_link) {
+                                $after = '</a>' . $after;
+                                $close_docu_link = false;
+                            }
+                            break;
                         case 'EXPLAIN':
                         case 'DESCRIBE':
                         case 'SET':
-                        case 'ALTER':
                         case 'DELETE':
                         case 'SHOW':
-                        case 'DROP':
                         case 'UPDATE':
-                        case 'TRUNCATE':
-                        case 'ANALYZE':
-                        case 'ANALYSE':
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                            $after = '</a>' . $after;
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
                                 $space_alpha_reserved_word = ' ';
@@ -2379,6 +2419,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             break;
                         case 'INSERT':
                         case 'REPLACE':
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                            $after = '</a>' . $after;
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
                                 $space_alpha_reserved_word = $html_line_break;
@@ -2389,8 +2431,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $space_alpha_reserved_word = $html_line_break;
                             break;
                         case 'SELECT':
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
+                            $after = '</a>' . $after;
                             $space_punct_listsep       = ' ';
                             $space_alpha_reserved_word = $html_line_break;
+                            break;
+                        case 'CALL':
+                        case 'DO':
+                        case 'HANDLER':
+                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                            $after = '</a>' . $after;
                             break;
                         default:
                             break;
@@ -2454,6 +2504,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 */
             $str .= $before . ($mode=='color' ? PMA_SQP_formatHTML_colorize($arr[$i]) : $arr[$i]['data']). $after;
         } // end for
+        /* End possibly unclosed documentation link */
+        if ($close_docu_link) {
+            $str .= '</a>';
+            $close_docu_link = false;
+        }
         if ($mode=='color') {
             $str .= '</span>';
         }

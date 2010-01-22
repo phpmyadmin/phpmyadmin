@@ -364,7 +364,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  *
  * @access  public
  */
-function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '')
+function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $just_open = false)
 {
     global $cfg;
 
@@ -428,7 +428,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '')
             break;
     }
 
-    if ($big_icon) {
+    if ($just_open) {
+        return '<a href="' . $url . '" target="mysql_doc">';
+    } elseif ($big_icon) {
         return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
         return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
