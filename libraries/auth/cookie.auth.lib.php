@@ -192,6 +192,11 @@ function PMA_auth()
 if (top != self) {
     window.top.location.href=location;
 }
+// Restore location from hash for bookmarks
+
+if (parent.location.hash != '') {
+    parent.location = 'index.php?' + parent.location.hash.substring(1);
+}
 //]]>
 </script>
 </head>
