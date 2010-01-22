@@ -597,41 +597,32 @@ foreach ($rows as $row_id => $vrow) {
             }
             echo ' />' . "\n";
 
-            if (!(($cfg['ProtectBinary'] && $field['is_blob']) || ($cfg['ProtectBinary'] == 'all' && $field['is_binary']))) {
-
-                echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-                     . ' name="fields_null' . $field_name_appendix . '"';
-                if ($real_null_value && !$field['first_timestamp']) {
-                    echo ' checked="checked"';
-                }
-                echo ' id="field_' . ($idindex) . '_2"';
-                $onclick         = ' onclick="if (this.checked) {nullify(';
-                if (strstr($field['True_Type'], 'enum')) {
-                    if (strlen($field['Type']) > 20) {
-                        $onclick .= '1, ';
-                    } else {
-                        $onclick .= '2, ';
-                    }
-                } elseif (strstr($field['True_Type'], 'set')) {
-                    $onclick     .= '3, ';
-                } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
-                    // foreign key in a drop-down
-                    $onclick     .= '4, ';
-                } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
-                    // foreign key with a browsing icon 
-                    $onclick     .= '6, ';
-                } else {
-                    $onclick     .= '5, ';
-                }
-                $onclick         .= '\'' . PMA_escapeJsString($field['Field_html']) . '\', \'' . $field['Field_md5'] . '\', \'' . PMA_escapeJsString($vkey) . '\'); this.checked = true}; return true" />' . "\n";
-                echo $onclick;
-            } else {
-                echo '            <input type="hidden" name="fields_null' . $field_name_appendix . '"';
-                if ($real_null_value && !$field['first_timestamp']) {
-                    echo ' value="on"';
-                }
-                echo ' />' . "\n";
+            echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
+                 . ' name="fields_null' . $field_name_appendix . '"';
+            if ($real_null_value && !$field['first_timestamp']) {
+                echo ' checked="checked"';
             }
+            echo ' id="field_' . ($idindex) . '_2"';
+            $onclick         = ' onclick="if (this.checked) {nullify(';
+            if (strstr($field['True_Type'], 'enum')) {
+                if (strlen($field['Type']) > 20) {
+                    $onclick .= '1, ';
+                } else {
+                    $onclick .= '2, ';
+                }
+            } elseif (strstr($field['True_Type'], 'set')) {
+                $onclick     .= '3, ';
+            } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
+                // foreign key in a drop-down
+                $onclick     .= '4, ';
+            } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
+                // foreign key with a browsing icon 
+                $onclick     .= '6, ';
+            } else {
+                $onclick     .= '5, ';
+            }
+            $onclick         .= '\'' . PMA_escapeJsString($field['Field_html']) . '\', \'' . $field['Field_md5'] . '\', \'' . PMA_escapeJsString($vkey) . '\'); this.checked = true}; return true" />' . "\n";
+            echo $onclick;
         }
         echo '        </td>' . "\n";
 
