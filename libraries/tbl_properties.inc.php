@@ -45,7 +45,6 @@ if ('horizontal' == $display_type) {
 
 $_form_params = array(
     'db' => $db,
-    'table' => $table,
 );
 
 if ($action == 'tbl_create.php') {
@@ -53,6 +52,7 @@ if ($action == 'tbl_create.php') {
 } elseif ($action == 'tbl_addfield.php') {
     $_form_params['field_where'] = $_REQUEST['field_where'];
     $_form_params['after_field'] = $_REQUEST['after_field'];
+    $_form_params['table'] = $table;
 }
 
 if (isset($num_fields)) {
@@ -609,6 +609,21 @@ document.onkeydown = onKeyDownArrowsHandler;
 <?php
 echo PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
+if ($action == 'tbl_create.php') {
+    ?>
+    <table>
+    <tr valign="top">
+        <th><?php echo $strTableName; ?>:&nbsp;</th>
+    </tr>
+    <tr><td><input type="text" name="table" size="40" maxlength="80"
+                value="<?php echo (isset($_REQUEST['table']) ? htmlspecialchars($_REQUEST['table']) : ''); ?>"
+                class="textfield" />
+        </td>
+    </tr>
+    </table>
+    <?php
+}
+
 
 if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
