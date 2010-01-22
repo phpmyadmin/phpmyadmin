@@ -49,6 +49,11 @@ require_once './libraries/header.inc.php';
 // @todo PMA_checkParameters does not check db and table proper with strlen()
 PMA_checkParameters(array('db', 'table'));
 
+/* Check if database name is empty */
+if (strlen($db) == 0) {
+    PMA_mysqlDie($strDatabaseEmpty, '', '', 'main.php');
+}
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
