@@ -53,6 +53,8 @@ if ($action == 'tbl_create.php') {
     $_form_params['field_where'] = $_REQUEST['field_where'];
     $_form_params['after_field'] = $_REQUEST['after_field'];
     $_form_params['table'] = $table;
+} else {
+    $_form_params['table'] = $table;
 }
 
 if (isset($num_fields)) {
