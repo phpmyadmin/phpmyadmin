@@ -31,6 +31,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #1025696 [browse] Add direct download of binary fields.
 - [browse] Properly display NULL value for BLOB.
 - rfe #1516803 [edit] Allow to set BLOB to/from NULL with ProtectBinary.
+- [edit] Do not default to UNHEX when using file upload.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
