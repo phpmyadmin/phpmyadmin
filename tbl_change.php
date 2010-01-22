@@ -180,7 +180,7 @@ if (isset($where_clause)) {
         } else { // end if (no row returned)
             $meta = PMA_DBI_get_fields_meta($result[$key_id]);
             list($unique_condition, $tmp_clause_is_unique) = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
-            if (! empty($unique_condition)) { 
+            if (! empty($unique_condition)) {
                 $found_unique_key = true;
             }
             unset($unique_condition, $tmp_clause_is_unique);
@@ -429,11 +429,7 @@ foreach ($rows as $row_id => $vrow) {
         $real_null_value = FALSE;
         $special_chars_encoded = '';
         if (isset($vrow)) {
-            // (we are editing)
-            // On a BLOB that can have a NULL value, the is_null() returns
-            // true if it has no content but for me this is different than
-            // having been set explicitely to NULL so I put an exception here
-            if (! $field['is_blob'] && is_null($vrow[$field['Field']])) {
+            if (is_null($vrow[$field['Field']])) {
                 $real_null_value = TRUE;
                 $vrow[$field['Field']]    = '';
                 $special_chars   = '';
@@ -548,12 +544,12 @@ foreach ($rows as $row_id => $vrow) {
                 ) {
                      $default_function = $cfg['DefaultFunctions']['pk_char36'];
                 }
-				
+
                 // this is set only when appropriate and is always true
 				if (isset($field['display_binary_as_hex'])) {
                 	$default_function = 'UNHEX';
 				}
-				
+
                 // garvin: loop on the dropdown array and print all available options for that field.
                 foreach ($dropdown as $each_dropdown){
                     echo '<option';
@@ -627,7 +623,7 @@ foreach ($rows as $row_id => $vrow) {
                     // foreign key in a drop-down
                     $onclick     .= '4, ';
                 } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
-                    // foreign key with a browsing icon 
+                    // foreign key with a browsing icon
                     $onclick     .= '6, ';
                 } else {
                     $onclick     .= '5, ';
