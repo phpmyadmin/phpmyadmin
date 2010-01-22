@@ -973,7 +973,7 @@ foreach ($rows as $row_id => $vrow) {
                 }
 
                 echo '<br />';
-                echo '<input type="file" name="fields_upload_' . $field['Field_md5'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" />&nbsp;';
+                echo '<input type="file" name="fields_upload_' . $field['Field_md5'] . $vkey . '" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
