@@ -42,6 +42,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/Table.class.php';
 
 $GLOBALS['js_include'][] = 'functions.js';
+$action = 'tbl_create.php';
 
 require_once './libraries/header.inc.php';
 
@@ -281,7 +282,6 @@ if (isset($_REQUEST['do_save_data'])) {
 /**
  * Displays the form used to define the structure of the table
  */
-$action = 'tbl_create.php';
 require './libraries/tbl_properties.inc.php';
 // Displays the footer
 require_once './libraries/footer.inc.php';

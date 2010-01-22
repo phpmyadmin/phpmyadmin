@@ -106,7 +106,16 @@ if (empty($GLOBALS['is_header_sent'])) {
                     $GLOBALS['strDatabase'],
                     's_db.png');
 
-            if (strlen($GLOBALS['table'])) {
+            if ($GLOBALS['action'] == 'tbl_create.php') {
+                /* We're creating new table */
+                echo $separator;
+                printf($item,
+                        $action,
+                        PMA_generate_common_url($GLOBALS['db']),
+                        $strNewTable,
+                        '',
+                        's_tbl.png');
+            } elseif (strlen($GLOBALS['table'])) {
                 require_once './libraries/tbl_info.inc.php';
 
                 echo $separator;

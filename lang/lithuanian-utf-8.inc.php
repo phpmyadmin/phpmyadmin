@@ -1637,4 +1637,6 @@ $strJavascriptDisabled = 'Javascript support is missing or disabled in your brow
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
 $strReloadNavi = 'Reload navigation frame';  //to translate
+$strNewTable = 'New table';  //to translate
+$strCreateNewTableShort = 'Create new table';  //to translate
 ?>

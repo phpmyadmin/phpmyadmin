@@ -170,6 +170,7 @@ $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
 $strCreateIndexTopic = 'Create a new index';
 $strCreateNewDatabase = 'Create new database';
 $strCreateNewTable = 'Create new table on database %s';
+$strCreateNewTableShort = 'Create new table';
 $strCreatePage = 'Create a new page';
 $strCreatePdfFeat = 'Creation of PDFs';
 $strCreateRelation = 'Create relation';
@@ -549,6 +550,7 @@ $strMySQLShowProcess = 'Show processes';
 
 $strName = 'Name';
 $strNavTableFilter = 'Filter';
+$strNewTable = 'New table';
 $strNext = 'Next';
 $strNoActivity = 'No activity within %s seconds; please log in again';
 $strNoDatabases = 'No databases';
