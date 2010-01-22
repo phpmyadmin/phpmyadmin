@@ -106,7 +106,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     $GLOBALS['strDatabase'],
                     's_db.png');
 
-            if ($GLOBALS['action'] == 'tbl_create.php') {
+            if (isset($GLOBALS['action']) && $GLOBALS['action'] == 'tbl_create.php') {
                 /* We're creating new table */
                 echo $separator;
                 printf($item,
