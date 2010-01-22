@@ -77,7 +77,10 @@ if (isset($_REQUEST['submit_num_fields'])) {
 /**
  * Selects the database to work with
  */
-PMA_DBI_select_db($db);
+if (!PMA_DBI_select_db($db)) {
+    PMA_mysqlDie(sprintf($GLOBALS['strDatabaseNotExisting'], htmlspecialchars($db)),
+        '', '', 'main.php');
+}
 
 /**
  * The form used to define the structure of the table has been submitted
