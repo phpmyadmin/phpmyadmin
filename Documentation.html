@@ -1297,6 +1297,10 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         This setting is used while importing/exporting dump files and in the
         Synchronize feature but has no effect when PHP is running in safe mode.</dd>
 
+    <dt id="cfg_SessionSavePath">$cfg['SessionSavePath'] string</dt>
+    <dd>Path for storing session data (<a
+    href="http://php.net/session_save_path">session_save_path PHP parameter</a>).</dd>
+
     <dt id="cfg_MemoryLimit">$cfg['MemoryLimit'] integer [number of bytes]</dt>
     <dd>Set the number of bytes a script is allowed to allocate. If set
         to zero, no limit is imposed.<br />

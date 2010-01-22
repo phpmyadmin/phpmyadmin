@@ -536,6 +536,13 @@ $cfg['ForceSSL'] = false;
 $cfg['ExecTimeLimit'] = 300;
 
 /**
+ * Path for storing session data (session_save_path PHP parameter).
+ *
+ * @global integer $cfg['SessionSavePath']
+ */
+$cfg['SessionSavePath'] = '';
+
+/**
  * maximum allocated bytes (0 for no limit)
  *
  * @global integer $cfg['MemoryLimit']

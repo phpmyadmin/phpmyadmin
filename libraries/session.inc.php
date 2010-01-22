@@ -37,6 +37,12 @@ session_set_cookie_params(0, $GLOBALS['PMA_Config']->getCookiePath(),
 // cookies are safer (use @ini_set() in case this function is disabled)
 @ini_set('session.use_cookies', true);
 
+// optionally set session_save_path
+$path = $GLOBALS['PMA_Config']->get('SessionSavePath');
+if (!empty($path)) {
+    session_save_path($path);
+}
+
 // but not all user allow cookies
 @ini_set('session.use_only_cookies', false);
 @ini_set('session.use_trans_sid', true);
