@@ -763,6 +763,10 @@ $strReplaceTable = 'Přepsat data tabulky souborem';
 $strReplicationErrorMasterConnect = 'Nepodařilo se připojit k nadřízenému %s.';
 $strReplication = 'Replikace';
 $strReplicationSlaveConfiguration = 'Nastavení podřízeného';
+$strReplicationSlaveErrorManagement = 'Práce s chybami:';
+$strReplicationSlaveSkipCurrentError = 'Přeskočit současnou chybu';
+$strReplicationSlaveSkipNextErrors = 'chyb.';
+$strReplicationSlaveSkipNext = 'Přeskočit dalších';
 $strReplicationStatusInfo = 'Tento MySQL server pracuje jako %s v <b>replikačním</b> procesu. Pro více informací o stavu replikace se podívejte do <a href="#replication">sekce replikace</a>.';
 $strReplicationStatus_master = 'Stav nadřízeného';
 $strReplicationStatus_slave = 'Stav podřízeného';
@@ -1577,15 +1581,11 @@ $strReplicationShowConnectedSlaves = 'Show connected slaves';  //to translate
 $strReplicationShowMasterStatus = 'Show master status';  //to translate
 $strReplicationSkippingErrorWarn = 'Skipping error(s) might lead into unsynchronized master and slave!';  //to translate
 $strReplicationSlaveConfigured = 'Server is configured as slave in a replication process. Would you like to:';  //to translate
-$strReplicationSlaveErrorManagement = 'Error management:';  //to translate
 $strReplicationSlaveChangeMaster = 'Change or reconfigure master server';  //to translate
 $strReplicationSlaveIOThread = 'IO Thread %s only';  //to translate
 $strReplicationSlaveNotConfigured = 'This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?';  //to translate
 $strReplicationSlaveReset = 'Reset slave';  //to translate
 $strReplicationSlaveSeeStatus = 'See slave status table';  //to translate
-$strReplicationSlaveSkipCurrentError = 'Skip current error';  //to translate
-$strReplicationSlaveSkipNextErrors = 'errors.';  //to translate
-$strReplicationSlaveSkipNext = 'Skip next';  //to translate
 $strReplicationSlave = 'Slave replication';  //to translate
 $strReplicationSlaveSQLThread = 'SQL Thread %s only';  //to translate
 $strReplicationSynchronize = 'Synchronize databases with master';  //to translate
