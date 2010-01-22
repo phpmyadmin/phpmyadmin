@@ -47,8 +47,7 @@ $action = 'tbl_create.php';
 require_once './libraries/header.inc.php';
 
 // Check parameters
-// @todo PMA_checkParameters does not check db and table proper with strlen()
-PMA_checkParameters(array('db', 'table'));
+PMA_checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) == 0) {
@@ -58,11 +57,7 @@ if (strlen($db) == 0) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (! strlen($table)) {
-    // No table name
-    PMA_mysqlDie($strTableEmpty, '', '',
-        'db_structure.php?' . PMA_generate_common_url($db));
-} elseif (PMA_DBI_get_columns($db, $table)) {
+if (PMA_DBI_get_columns($db, $table)) {
     // table exists already
     PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '',
         '', 'db_structure.php?' . PMA_generate_common_url($db));
