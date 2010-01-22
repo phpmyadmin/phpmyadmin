@@ -169,6 +169,7 @@ $strCreateDatabaseBeforeCopying = 'Vytvořit databázi před kopírováním (CRE
 $strCreateIndexTopic = 'Vytvořit nový index';
 $strCreateIndex = 'Vytvořit index na %s sloupcích';
 $strCreateNewDatabase = 'Vytvořit novou databázi';
+$strCreateNewTableShort = 'Vytvořit novou tabulku';
 $strCreateNewTable = 'Vytvořit novou tabulku v databázi %s';
 $strCreatePage = 'Vytvořit novou stránku';
 $strCreatePdfFeat = 'Vytváření PDF';
@@ -550,6 +551,7 @@ $strMySQLShowProcess = 'Zobrazit procesy';
 
 $strName = 'Název';
 $strNavTableFilter = 'Filtr';
+$strNewTable = 'Nová tabulka';
 $strNext = 'Další';
 $strNoActivity = 'Byli jste příliš dlouho neaktivní (déle než %s sekund), prosím přihlaste se znovu';
 $strNoDatabasesSelected = 'Nebyla vybrána žádná databáze.';
@@ -1625,6 +1627,4 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
-$strNewTable = 'New table';  //to translate
-$strCreateNewTableShort = 'Create new table';  //to translate
 ?>
