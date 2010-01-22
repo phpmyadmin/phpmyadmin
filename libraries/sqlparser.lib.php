@@ -2274,6 +2274,48 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
                     break;
                 case 'alpha_columnType':
+                    switch ($arr[$i]['data']) {
+                        case 'tinyint':
+                        case 'smallint':
+                        case 'mediumint':
+                        case 'int':
+                        case 'bigint':
+                        case 'decimal':
+                        case 'float':
+                        case 'double':
+                        case 'real':
+                        case 'bit':
+                        case 'boolean':
+                        case 'serial':
+                            $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
+                            $after = '</a>' . $after;
+                            break;
+                        case 'date':
+                        case 'datetime':
+                        case 'timestamp':
+                        case 'time':
+                        case 'year':
+                            $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
+                            $after = '</a>' . $after;
+                            break;
+                        case 'char':
+                        case 'varchar':
+                        case 'tinytext':
+                        case 'text':
+                        case 'mediumtext':
+                        case 'longtext':
+                        case 'binary':
+                        case 'varbinary':
+                        case 'tinyblob':
+                        case 'mediumblob':
+                        case 'blob':
+                        case 'longblob':
+                        case 'enum':
+                        case 'set':
+                            $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
+                            $after = '</a>' . $after;
+                            break;
+                    }
                     if ($typearr[3] == 'alpha_columnAttrib') {
                         $after     .= ' ';
                     }
