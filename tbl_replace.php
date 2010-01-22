@@ -227,29 +227,29 @@ foreach ($loop_array as $rowcount => $where_clause) {
         require './libraries/tbl_replace_fields.inc.php';
 
         // rajk - for blobstreaming
-	if ($blob_streaming_active && (NULL != $primary_field || strlen($primary_field) > 0)) {
+        if ($blob_streaming_active && (NULL != $primary_field || strlen($primary_field) > 0)) {
             $remove_blob_repo = isset($_REQUEST['remove_blob_repo_' . $key]) ? $_REQUEST['remove_blob_repo_' . $key] : NULL;
             $upload_blob_repo = isset($_REQUEST['upload_blob_repo_' . $key]) ? $_REQUEST['upload_blob_repo_' . $key] : NULL;
 
             // checks if an existing blob repository reference should be removed
             if (isset($remove_blob_repo) && !isset($upload_blob_repo)) {
-		$remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
-		if (isset($remove_blob_reference)) {
+                $remove_blob_reference = $_REQUEST['remove_blob_ref_' . $key];
+                if (isset($remove_blob_reference)) {
                     $val = "''";
-		}
+                }
 
-		// checks if this field requires a bs reference attached to it
-		if (isset($upload_blob_repo)) {
-			// get the most recent BLOB reference
+                // checks if this field requires a bs reference attached to it
+                if (isset($upload_blob_repo)) {
+                    // get the most recent BLOB reference
                     $bs_reference = PMA_File::getRecentBLOBReference();
 
                     // if the most recent BLOB reference exists, set it as a field value
                     if (!is_null($bs_reference)) {
-			$val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                        $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
                     }
-		}
+                }
             }
-	}
+        }
 
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
