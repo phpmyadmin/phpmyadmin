@@ -289,6 +289,11 @@ img.lightbulb {
     font-size:          80%;
 }
 
+.syntax a {
+    text-decoration: none;
+    border-bottom:1px dotted black;
+}
+
 .syntax_comment {
     padding-left:       4pt;
     padding-right:      4pt;
