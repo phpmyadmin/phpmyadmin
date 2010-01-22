@@ -35,6 +35,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - rfe #1379201 [core] Add option to configure session_save_path.
 + [interface] Provide links to documentation in highlighted SQL.
 + [interface] It is now possible to bookmark most pages in JS capable browser.
+- bug #2936482 [core] Fix SSL detection.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

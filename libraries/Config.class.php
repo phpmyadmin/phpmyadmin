@@ -792,7 +792,7 @@ class PMA_Config
      */
     public function isHttps()
     {
-        static $is_https = false;
+        static $is_https = null;
 
         if (null !== $is_https) {
             return $is_https;
