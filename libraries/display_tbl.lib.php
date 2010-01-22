@@ -1320,7 +1320,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if ($bs_reference_exists) {
                         $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
                     } else {
-                        $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
+                        $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
                     }
 
                     $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
@@ -1376,7 +1376,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         } else {
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
-                            $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta);
+                            $row[$i] = PMA_handle_non_printable_contents('BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params);
                         }
                     }
 
@@ -2248,7 +2248,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * @param   object  $meta   the meta-information about this field
  * @return  mixed  string or float
  */
-function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta) {
+function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array()) {
     $result = '[' . $category;
     if (is_null($content)) {
         $result .= ' - NULL';
@@ -2271,6 +2271,10 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
             if (stristr($meta->type, 'BLOB') && $_SESSION['tmp_user_values']['display_blob']) {
                 // in this case, restart from the original $content
                 $result = htmlspecialchars(PMA_replace_binary_contents($content));
+            }
+            /* Create link to download */
+            if (count($url_params) > 0) {
+                $result = '<a href="tbl_get_field.php' . PMA_generate_common_url($url_params) . '">' . $result . '</a>';
             }
         }
     }
