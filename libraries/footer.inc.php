@@ -166,6 +166,9 @@ if (!isset($GLOBALS['checked_special'])) {
 if (PMA_getenv('SCRIPT_NAME') && empty($_POST) && !$GLOBALS['checked_special']) {
     echo '<div id="selflink" class="print_ignore">' . "\n";
     $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+    /* Store current location in hash part of URL to allow direct bookmarking */
+    echo '<script>parent.location.hash = "' . PMA_generate_common_url($url_params, 'text', '') . '";</script>';
+
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
         . ' title="' . $GLOBALS['strOpenNewWindow'] . '" target="_blank">';
     /*
