@@ -29,6 +29,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #854911  [interface] Grey out non applicable actions in structure 
 + [interface] Allow to create new table from navigation frame (in light mode).
 + rfe #1025696 [browse] Add direct download of binary fields.
+- [browse] Properly display NULL value for BLOB.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

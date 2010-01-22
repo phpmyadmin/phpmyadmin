@@ -1276,55 +1276,59 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
-                    // rajk - for blobstreaming
+                    if (!isset($row[$i]) || is_null($row[$i])) {
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
+                    } else {
+                        // rajk - for blobstreaming
 
-                    $bs_reference_exists = $allBSTablesExist = FALSE;
+                        $bs_reference_exists = $allBSTablesExist = FALSE;
 
-                    // load PMA configuration
-                    $PMA_Config = $GLOBALS['PMA_Config'];
+                        // load PMA configuration
+                        $PMA_Config = $GLOBALS['PMA_Config'];
 
-                    // if PMA configuration exists
-                    if ($PMA_Config) {
-                        // load BS variables
-                        $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
+                        // if PMA configuration exists
+                        if ($PMA_Config) {
+                            // load BS variables
+                            $pluginsExist = $PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST');
 
-                        // if BS plugins exist
-                        if ($pluginsExist) {
-                            // load BS databases
-                            $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
+                            // if BS plugins exist
+                            if ($pluginsExist) {
+                                // load BS databases
+                                $bs_tables = $PMA_Config->get('BLOBSTREAMABLE_DATABASES');
 
-                            // if BS db array and specified db string not empty and valid
-                            if (!empty($bs_tables) && strlen($db) > 0) {
-                                $bs_tables = $bs_tables[$db];
+                                // if BS db array and specified db string not empty and valid
+                                if (!empty($bs_tables) && strlen($db) > 0) {
+                                    $bs_tables = $bs_tables[$db];
 
-                                if (isset($bs_tables)) {
-                                    $allBSTablesExist = TRUE;
+                                    if (isset($bs_tables)) {
+                                        $allBSTablesExist = TRUE;
 
-                                    // check if BS tables exist for given database
-                                    foreach ($bs_tables as $table_key=>$bs_tbl)
-                                        if (!$bs_tables[$table_key]['Exists']) {
-                                            $allBSTablesExist = FALSE;
-                                            break;
-                                        }
+                                        // check if BS tables exist for given database
+                                        foreach ($bs_tables as $table_key=>$bs_tbl)
+                                            if (!$bs_tables[$table_key]['Exists']) {
+                                                $allBSTablesExist = FALSE;
+                                                break;
+                                            }
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    // if necessary BS tables exist
-                    if ($allBSTablesExist) {
-                        $bs_reference_exists = PMA_BS_ReferenceExists($row[$i], $db);
-                    }
+                        // if necessary BS tables exist
+                        if ($allBSTablesExist) {
+                            $bs_reference_exists = PMA_BS_ReferenceExists($row[$i], $db);
+                        }
 
-                    // if valid BS reference exists
-                    if ($bs_reference_exists) {
-                        $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
-                    } else {
-                        $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
-                    }
+                        // if valid BS reference exists
+                        if ($bs_reference_exists) {
+                            $blobtext = PMA_BS_CreateReferenceLink($row[$i], $db);
+                        } else {
+                            $blobtext = PMA_handle_non_printable_contents('BLOB', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta, $_url_params);
+                        }
 
-                    $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
-                    unset($blobtext);
+                        $vertical_display['data'][$row_no][$i]      = '    <td align="left"' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $blobtext . '</td>';
+                        unset($blobtext);
+                    }
                 // not binary:
                 } else {
                     if (!isset($row[$i]) || is_null($row[$i])) {
