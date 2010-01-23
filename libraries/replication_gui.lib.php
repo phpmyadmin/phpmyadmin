@@ -122,7 +122,7 @@ function PMA_replication_gui_changemaster($submitname) {
     echo ' </fieldset>';
     echo ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
     echo '    <input type="hidden" name="sr_take_action" value="true" />';
-    echo '     <input type="submit" name="'.$submitname.'" id="confslave_submit" value="' . $GLOBALS['strGo'] . '" />';
+    echo '     <input type="submit" name="' . $submitname . '" id="confslave_submit" value="' . $GLOBALS['strGo'] . '" />';
     echo ' </fieldset>';
     echo '</form>';
 }
@@ -148,7 +148,7 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     //
     //$server_id = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'server_id'", 0, 1);
 
-    echo '<div id="replication_' . $type . '_section" style="' . ($hidden ? 'display: none' : '') . '"> ';
+    echo '<div id="replication_' . $type . '_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
 
     if ($title) {
         echo '<h4><a name="replication_' . $type . '"></a>' . ${"strReplicationStatus_{$type}"} . '</h4>';
@@ -214,7 +214,7 @@ function PMA_replication_print_slaves_table($hidden = false) {
     $data = PMA_DBI_fetch_result('SHOW SLAVE HOSTS', null, null); 
 
     echo '  <br />';
-    echo '  <div id="replication_slaves_section" style="' . ($hidden ? 'display: none' : '') . '"> ';
+    echo '  <div id="replication_slaves_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
     echo '    <table class="data">';
     echo '    <thead>';
     echo '      <tr>';
@@ -352,7 +352,8 @@ function PMA_replication_gui_master_addslaveuser() {
         . '        <option value="localhost"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
         ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost']
-        . '</option>';
+		. '</option>';
+
     if (!empty($thishost)) {
         echo '        <option value="thishost"'
             . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
