@@ -104,6 +104,9 @@ require_once './libraries/List.class.php';
      * @uses    PMA_List_Database::$_db_link_control in case of SHOW DATABASES is disabled for userlink
      * @uses    PMA_DBI_fetch_result()
      * @uses    PMA_DBI_getError()
+     * @uses    natsort()
+     * @uses    sort()
+     * @uses    $cfg['NaturalOrder']
      * @uses    $GLOBALS['error_showdatabases']
      * @uses    $GLOBALS['errno']
      * @param   string  $like_db_name   usally a db_name containing wildcards
@@ -143,6 +146,14 @@ require_once './libraries/List.class.php';
                 $this->_show_databases_disabled = true;
             }
         }
+            
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            natsort($database_list);
+        } else {
+            // need to sort anyway, otherwise information_schema
+            // goes at the top
+            sort($database_list);
+        } 
 
         return $database_list;
     }
@@ -154,17 +165,12 @@ require_once './libraries/List.class.php';
      * @uses    PMA_List_Database::_checkOnlyDatabase()
      * @uses    PMA_List_Database::_retrieve()
      * @uses    PMA_List_Database::_checkHideDatabase()
-     * @uses    array_values()
-     * @uses    natsort()
-     * @uses    $cfg['NaturalOrder']
+     * @uses    exchangeArray()
      */
     public function build()
     {
         if (! $this->_checkOnlyDatabase()) {
             $items = $this->_retrieve();
-            if ($GLOBALS['cfg']['NaturalOrder']) {
-                natsort($items);
-            }
             $this->exchangeArray($items);
         }
 
