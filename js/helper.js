@@ -24,6 +24,10 @@ function setURLHash(hash) {
     if (window.parent != window && window.parent.setURLHash) {
         window.parent.setURLHash(hash);
     } else {
+        /* Do not set if we're not updating frameset */
+        if (window.location.pathname.substring(-9, 9) != "index.php") {
+            return;
+        }
         if (hash_init_done) {
             window.location.hash = "PMAURL:" + hash;
         } else {
