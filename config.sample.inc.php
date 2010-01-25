@@ -69,4 +69,32 @@ $cfg['Servers'][$i]['bs_temp_log_threshold'] = '32M';
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
+/**
+ * Defines whether a user should be displayed a "show all (records)" 
+ * button in browse mode or not.
+ */
+//$cfg['ShowAll'] = false;
+
+/**
+ * Number of rows displayed when browsing a result set. If the result 
+ * set contains more rows, "Previous" and "Next".
+ */
+//$cfg['MaxRows'] = 30;
+
+/**
+ * Use graphically less intense menu tabs
+ */
+//$cfg['LightTabs'] = false;
+
+/**
+ * Set to true if you want DB-based query history.If false, this utilizes
+ * JS-routines to display query history (lost by window close)
+ *
+ * This requires advanced features enabled, see above.
+ */
+//$cfg['QueryHistoryDB'] = false;
+
+/*
+ * You can find more configuration options in Documentation.html
+ */
 ?>
