@@ -14,7 +14,6 @@
 require_once './libraries/common.inc.php';
 //require_once './libraries/display_import_functions.lib.php';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'mootools.js';
 $GLOBALS['js_include'][] = 'mootools-more.js';
 
 // reset import messages for ajax request

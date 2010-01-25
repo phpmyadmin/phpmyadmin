@@ -11,7 +11,6 @@
  */
 define('PMA_MOORAINBOW', true);
 require_once './libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'mootools.js';
 $GLOBALS['js_include'][] = 'mootools-more.js';
 $GLOBALS['js_include'][] = 'mooRainbow/mooRainbow.js';
 $GLOBALS['js_include'][] = 'mootools-domready-rainbow.js';
