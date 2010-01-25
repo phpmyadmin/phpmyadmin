@@ -10,6 +10,7 @@
  * Common functions.
  */
 require_once './libraries/common.inc.php';
+require_once './libraries/mime.lib.php';
 
 /* Check parameters */
 PMA_checkParameters(array('db', 'table', 'where_clause', 'transform_key'));
@@ -37,7 +38,7 @@ if ($result === false) {
 /* Avoid corrupting data */
 @ini_set('url_rewriter.tags','');
 
-header('Content-Type: application/octet-stream');
+header('Content-Type: ' . PMA_detectMIME($result));
 header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
 header('Content-Disposition: attachment; filename="' . $table . '-' .  $transform_key . '.bin"');
 if (PMA_USR_BROWSER_AGENT == 'IE') {
