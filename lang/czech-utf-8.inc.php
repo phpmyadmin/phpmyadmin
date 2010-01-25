@@ -661,6 +661,10 @@ $strPHPVersion = 'Verze PHP';
 $strPhp = 'Vytvořit PHP kód';
 $strPlayAudio = 'Přehrát zvuk';
 $strPleaseSelectPrimaryOrUniqueKey = 'Zvolte, prosím, primární nebo unikátní klíč';
+$strPmadbCreateConfig = 'Zapněte rozšířené funkce v konfiguračním souboru (<code>config.inc.php</code>), můžete se inspirovat v <code>config.sample.inc.php</code>.';
+$strPmadbCreateHelp = 'Stručný návod pro zapnutí rozšířených funkcí:';
+$strPmadbCreateTables = 'Vytvořte potřebné tabulky pomocí skriptu <code>script/create_tables.sql</code>.';
+$strPmadbCreateUser = 'Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky.';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
 $strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaven v konfiguračním souboru!';
 $strPolish = 'Polština';
@@ -1627,8 +1631,4 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
-$strPmadbCreateHelp = 'Quick steps to setup advanced features:';  //to translate
-$strPmadbCreateTables = 'Create the needed tables with the <code>script/create_tables.sql</code>.';  //to translate
-$strPmadbCreateUser = 'Create a pma user and give access to these tables.';  //to translate
-$strPmadbCreateConfig = 'Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.';  //to translate
 ?>
