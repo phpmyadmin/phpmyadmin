@@ -131,12 +131,6 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var pma_text_default_tab = '<?php echo PMA_escapeJsString(PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable'])); ?>';
     var pma_text_left_default_tab = '<?php echo PMA_escapeJsString(PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable'])); ?>';
 
-    // Restore location from hash for bookmarks
-
-    if (parent.location.hash != '') {
-        parent.location = 'index.php?' + parent.location.hash.substring(1);
-    }
-
     // for content and navigation frames
 
     var frame_content = 0;
@@ -165,6 +159,8 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     };
 // ]]>
 </script>
+<script src="./js/mootools.js" type="text/javascript"></script>
+<script src="./js/helper.js" type="text/javascript"></script>
 <script src="./js/common.js" type="text/javascript"></script>
 </head>
 <frameset cols="<?php

@@ -34,7 +34,7 @@ if (function_exists('mcrypt_encrypt')) {
     if (empty($_COOKIE['pma_mcrypt_iv'])
      || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
         srand((double) microtime() * 1000000);
-         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');   
+         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
          if ($td === false) {
             trigger_error(PMA_sanitize(sprintf($strCantLoad, 'mcrypt')), E_USER_WARNING);
          }
@@ -95,7 +95,7 @@ if (function_exists('mcrypt_encrypt')) {
 function PMA_get_blowfish_secret() {
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
         if (empty($_SESSION['auto_blowfish_secret'])) {
-            // this returns 23 characters 
+            // this returns 23 characters
             $_SESSION['auto_blowfish_secret'] = uniqid('', true);
         }
         return $_SESSION['auto_blowfish_secret'];
@@ -186,16 +186,13 @@ function PMA_auth()
     $page_title = 'phpMyAdmin ';
     require './libraries/header_meta_style.inc.php';
     ?>
+<script src="./js/mootools.js" type="text/javascript"></script>
+<script src="./js/helper.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 // show login form in top frame
 if (top != self) {
     window.top.location.href=location;
-}
-// Restore location from hash for bookmarks
-
-if (parent.location.hash != '') {
-    parent.location = 'index.php?' + parent.location.hash.substring(1);
 }
 //]]>
 </script>
