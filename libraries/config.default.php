@@ -865,14 +865,16 @@ $cfg['SuggestDBName'] = true;
 $cfg['NavigationBarIconic'] = true;
 
 /**
- * allows to display all the rows
+ * Defines whether a user should be displayed a "show all (records)" 
+ * button in browse mode or not.
  *
  * @global boolean $cfg['ShowAll']
  */
 $cfg['ShowAll'] = false;
 
 /**
- * maximum number of rows to display
+ * Number of rows displayed when browsing a result set. If the result 
+ * set contains more rows, "Previous" and "Next".
  *
  * @global integer $cfg['MaxRows']
  */
@@ -988,7 +990,7 @@ $cfg['CompressOnFly'] = true;
  */
 
 /**
- * use graphically less intense menu tabs
+ * Use graphically less intense menu tabs
  *
  * @global boolean $cfg['LightTabs']
  */
