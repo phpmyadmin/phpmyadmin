@@ -439,6 +439,24 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     }
 } // end of the 'PMA_showMySQLDocu()' function
 
+
+/**
+ * Displays a link to the phpMyAdmin documentation
+ *
+ * @param string  anchor in documentation
+ *
+ * @return  string  the html link
+ *
+ * @access  public
+ */
+function PMA_showDocu($anchor) {
+    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+    } else {
+        return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . $GLOBALS['strDocu'] . '</a>]';
+    }
+} // end of the 'PMA_showDocu()' function
+
 /**
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
