@@ -156,6 +156,13 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     PMA_printDiagMessageForFeature('strTracking', 'trackingwork', $messages);
 
     echo '</table>' . "\n";
+
+    echo '<p>' . $GLOBALS['strPmadbCreateHelp'] . '</p>';
+    echo '<ul>';
+    echo '<li>' . $GLOBALS['strPmadbCreateTables'] . ' ' . PMA_showDocu('linked-tables') . '</li>';
+    echo '<li>' . $GLOBALS['strPmadbCreateUser'] . ' ' . PMA_showDocu('pmausr') . '</li>';
+    echo '<li>' . $GLOBALS['strPmadbCreateConfig'] . ' ' . PMA_showDocu('quick_install') . '</li>';
+    echo '</ul>';
 }
 
 /**

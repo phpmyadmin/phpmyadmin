@@ -1627,4 +1627,8 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
+$strPmadbCreateHelp = 'Quick steps to setup advanced features:';  //to translate
+$strPmadbCreateTables = 'Create the needed tables with the <code>script/create_tables.sql</code>.';  //to translate
+$strPmadbCreateUser = 'Create a pma user and give access to these tables.';  //to translate
+$strPmadbCreateConfig = 'Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.';  //to translate
 ?>

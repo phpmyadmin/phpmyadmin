@@ -1619,4 +1619,8 @@ $strShowInsert = 'Show insert query';  //to translate
 $strReloadNavi = 'Reload navigation frame';  //to translate
 $strNewTable = 'New table';  //to translate
 $strCreateNewTableShort = 'Create new table';  //to translate
+$strPmadbCreateHelp = 'Quick steps to setup advanced features:';  //to translate
+$strPmadbCreateTables = 'Create the needed tables with the <code>script/create_tables.sql</code>.';  //to translate
+$strPmadbCreateUser = 'Create a pma user and give access to these tables.';  //to translate
+$strPmadbCreateConfig = 'Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.';  //to translate
 ?>
