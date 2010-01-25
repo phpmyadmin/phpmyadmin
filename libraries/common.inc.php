@@ -545,6 +545,7 @@ $_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
  * @global array $js_include
  */
 $GLOBALS['js_include'] = array();
+$GLOBALS['js_include'][] = 'mootools.js';
 
 /**
  * holds locale messages required by JavaScript function

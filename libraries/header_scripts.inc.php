@@ -112,8 +112,6 @@ $GLOBALS['js_events'][] = array(
     'function'  => 'PMA_TT_init',
 );
 
-$GLOBALS['js_include'][] = 'mootools.js';
-
 foreach ($GLOBALS['js_include'] as $js_script_file) {
     echo '<script src="./js/' . $js_script_file . '?ts=' . filemtime('./js/' . $js_script_file) . '" type="text/javascript"></script>' . "\n";
 }
