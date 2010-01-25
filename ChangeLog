@@ -37,6 +37,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [interface] It is now possible to bookmark most pages in JS capable browser.
 - bug #2936482 [core] Fix SSL detection.
 + rfe #2937850 [doc] Add some hints to chk_rel.php for quick setup.
++ rfe #2938579 [interface] Add class to some elements for easier theming.
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,

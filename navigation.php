@@ -633,7 +633,7 @@ function PMA_displayTableList($tables, $visible = false,
             $link_title = PMA_getTitleForTarget($GLOBALS['cfg']['LeftDefaultTabTable']);
             // quick access icon next to each table name
             echo '<li>' . "\n";
-            echo '<a title="'
+            echo '<a class="tableicon" title="'
                 . htmlspecialchars($link_title)
                 . ': ' . htmlspecialchars($table['Comment'])
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . $GLOBALS['strRows'] . ')"'
