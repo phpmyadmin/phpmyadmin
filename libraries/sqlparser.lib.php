@@ -676,7 +676,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
             if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
-                // for example: `thebit` bit(8) NOT NULL DEFAULT b'0' 
+                // for example: `thebit` bit(8) NOT NULL DEFAULT b'0'
                 if ($t_prev == 'alpha' && $d_prev == 'DEFAULT' && $d_cur == 'b' && $t_next == 'quote_single') {
                     $t_suffix = '_bitfield_constant_introducer';
                 } elseif (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
@@ -2365,7 +2365,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         && ($typearr[1] != 'punct_level_plus')
                         && (!PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_no_newline, $keywords_no_newline_cnt))) {
                         // do not put a space before the first token, because
-                        // we use a lot of pattern matching checking for the 
+                        // we use a lot of pattern matching checking for the
                         // first reserved word at beginning of query
                         // so do not put a newline before
                         //
@@ -2446,9 +2446,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $close_docu_link = false;
                             }
                             break;
+                        case 'SET':
+                            if ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER') {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                                $after = '</a>' . $after;
+                            }
+                            if (!$in_priv_list) {
+                                $space_punct_listsep       = $html_line_break;
+                                $space_alpha_reserved_word = ' ';
+                            }
+                            break;
                         case 'EXPLAIN':
                         case 'DESCRIBE':
-                        case 'SET':
                         case 'DELETE':
                         case 'SHOW':
                         case 'UPDATE':
