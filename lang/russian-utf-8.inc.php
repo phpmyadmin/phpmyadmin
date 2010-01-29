@@ -1617,4 +1617,6 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Замечание: Установка значения параметров в 0 (ноль), снимает ограничения.';
 $strZip = 'zip';
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>

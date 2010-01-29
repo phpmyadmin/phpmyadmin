@@ -1640,4 +1640,6 @@ $strTrackingYouCanExecute = 'You can execute the dump by creating and using a te
 $strTrackingCommentOut = 'Comment out these two lines if you do not need them.';  //to translate
 $strTrackingReportForTable = 'Tracking report for table `%s`';  //to translate
 $strDeleteTrackingData = 'Delete tracking data for this table';  //to translate
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>

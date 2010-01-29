@@ -1614,4 +1614,6 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>

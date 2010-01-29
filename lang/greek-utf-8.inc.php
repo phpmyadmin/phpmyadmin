@@ -1642,4 +1642,6 @@ $strTrackingReportForTable = 'Αναφορά παρακολούθησης για
 $strDeleteTrackingData = 'Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα';
 
 $strSynchronizeDb = 'Synchronize Databases'; //to translate
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>
