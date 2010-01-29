@@ -1631,6 +1631,8 @@ $strXMLError = 'The XML file specified was either malformed or incomplete. Pleas
 $strXMLExportContents = 'Export contents';  //to translate
 $strXMLExportStructs = 'Export Structure Schemas (recommended)';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
 $strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate

@@ -1634,4 +1634,6 @@ $strReplicationSlaveReset = 'Reset slave';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>

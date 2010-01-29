@@ -1611,6 +1611,8 @@ $strXML = 'XML';
 $strYes = 'Oui';
 
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 $strZip = '"zippé"';
 
 $strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate

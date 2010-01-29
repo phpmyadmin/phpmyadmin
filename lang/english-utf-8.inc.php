@@ -794,6 +794,7 @@ $strReplicationSlaveConfigured = 'Server is configured as slave in a replication
 $strReplicationSlaveErrorManagement = 'Error management:';
 $strReplicationSlaveChangeMaster = 'Change or reconfigure master server';
 $strReplicationSlaveIOThread = 'IO Thread %s only';
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';
 $strReplicationSlaveNotConfigured = 'This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?';
 $strReplicationSlaveReset = 'Reset slave';
 $strReplicationSlaveSeeStatus = 'See slave status table';
@@ -802,6 +803,7 @@ $strReplicationSlaveSkipNextErrors = 'errors.';
 $strReplicationSlaveSkipNext = 'Skip next';
 $strReplicationSlave = 'Slave replication';
 $strReplicationSlaveSQLThread = 'SQL Thread %s only';
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';
 $strReplicationStatusInfo = 'This MySQL server works as %s in <b>replication</b> process. For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.';
 $strReplicationStatus_master = 'Master status';
 $strReplicationStatus = 'Replication status';

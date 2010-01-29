@@ -1615,6 +1615,8 @@ $strYes = 'Kyllä';
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa rajoituksen.';
 $strZip = '"zip-pakattu"';
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 $strRenameView = 'Rename view to';  //to translate
 $strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 $strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate

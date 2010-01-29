@@ -293,10 +293,12 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sr_slave_skip_error'] = true;
         $slave_skip_error_link = PMA_generate_common_url($_url_params);
 
-        if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No')
-            PMA_Message::warning('Slave SQL Thread not running!')->display();
-        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No')
-            PMA_Message::warning('Slave IO Thread not running!')->display();
+        if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
+            PMA_Message::warning('strReplicationSlaveSQLThreadNotRunning')->display();
+        }
+        if ($server_slave_replication[0]['Slave_IO_Running'] == 'No') {
+            PMA_Message::warning('strReplicationSlaveIOThreadNotRunning')->display();
+        }
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sl_configure'] = true;

@@ -1642,6 +1642,8 @@ $strTrackingReportForTable = 'Αναφορά παρακολούθησης για
 $strDeleteTrackingData = 'Διαγραφή δεδομένων παρακολούθησης για αυτόν τον πίνακα';
 $strRenameView = 'Rename view to';  //to translate
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 $strSynchronizeDb = 'Synchronize Databases'; //to translate
 $strInsertIgnoreAsNewRow = 'Insert as new row and ignore errors';  //to translate
 $strJavascriptDisabled = 'Javascript support is missing or disabled in your browser, some phpMyAdmin functionality will be missing. For example navigation frame will not refresh automatically.';  //to translate
