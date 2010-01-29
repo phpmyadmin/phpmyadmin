@@ -1631,4 +1631,6 @@ $strXMLExportStructs = 'Export Structure Schemas (recommended)';  //to translate
 $strXMLExportTriggers = 'Export triggers';  //to translate
 $strXMLExportViews = 'Export views';  //to translate
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>

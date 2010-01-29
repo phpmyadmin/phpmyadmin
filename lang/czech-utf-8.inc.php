@@ -1619,4 +1619,6 @@ $strSetupZipDumpExportWarning = '[a@?page=form&amp;formset=features#tab_Import_e
 $strSetupZipDumpImportWarning = '[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] requires functions (%s) which are unavailable on this system.';  //to translate
 $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:';  //to translate
 
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>
