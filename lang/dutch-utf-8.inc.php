@@ -791,8 +791,10 @@ $strReplicationSlaveConfiguration = 'Slave instellingen';
 $strReplicationSlaveConfigured = 'Server is ingesteld als slave in een replicatie proces.';
 $strReplicationSlaveErrorManagement = 'Fouten beheer:';
 $strReplicationSlaveIOThread = '%s de IO Thread';
+$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread niet actief!';
 $strReplicationSlaveNotConfigured = 'Deze server is niet ingesteld als slave in een replicatie proces. Wilt u dit nu <a href="%s">instellen</a>?';
 $strReplicationSlaveSQLThread = '%s de SQL Thread';
+$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread niet actief!';
 $strReplicationSlaveSeeStatus = 'Slave status tabel';
 $strReplicationSlaveSkipCurrentError = 'Sla de huidige error over';
 $strReplicationSlaveSkipNext = 'Sla de volgende';
@@ -1634,6 +1636,4 @@ $strReplicationSlaveReset = 'Reset slave';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
 
-$strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
-$strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 ?>
