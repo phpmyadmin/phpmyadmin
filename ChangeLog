@@ -7,6 +7,8 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 
 3.2.6.0 (not yet released)
 - bug #2938492 [display] information_schema sorting order 
+- bug #2941101 [import] import timeout when table already created and
+  several data lines
 
 3.2.5.0 (2010-01-10)
 - patch #2903400 [bookmarks] Status of bookmark table, 
