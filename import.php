@@ -433,7 +433,11 @@ if (isset($message)) {
 }
 // Parse and analyze the query, for correct db and table name
 // in case of a query typed in the query window
-require_once './libraries/parse_analyze.lib.php';
+// (but if the query is too large, in case of an imported file, the parser
+//  can choke on it so avoid parsing)
+if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+    require_once './libraries/parse_analyze.lib.php';
+}
 
 // There was an error?
 if (isset($my_die)) {
