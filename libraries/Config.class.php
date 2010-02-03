@@ -658,6 +658,11 @@ class PMA_Config
                     $path = dirname(dirname($path));
                 }
             }
+
+            // PHP's dirname function would have returned a dot when $path contains no slash
+            if ($path == '.') {
+                $path = '';
+            }
             // in vhost situations, there could be already an ending slash
             if (substr($path, -1) != '/') {
                 $path .= '/';
