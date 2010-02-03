@@ -437,7 +437,7 @@ function openDb(new_db) {
 
 function updateTableTitle( table_link_id, new_title ) {
     //alert('updateTableTitle');
-    if ( window.parent.frame_navigation.document.getElementById(table_link_id) ) {
+    if ( window.parent.frame_navigation.document && window.parent.frame_navigation.document.getElementById(table_link_id) ) {
         var left = window.parent.frame_navigation.document;
 
         var link = left.getElementById(table_link_id);
