@@ -36,7 +36,7 @@ if ($result === false) {
 }
 
 /* Avoid corrupting data */
-@ini_set('url_rewriter.tags','');
+@ini_set('url_rewriter.tags', '');
 
 header('Content-Type: ' . PMA_detectMIME($result));
 header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');

@@ -40,7 +40,6 @@ if (! $is_superuser) {
 /**
  * Handling control requests
  */
-
 if (isset($GLOBALS['sr_take_action'])) {
     $refresh = false;
     if (isset($GLOBALS['slave_changemaster'])) {
@@ -51,6 +50,7 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = $strReplicationUnknownError;
+
         // Attempt to connect to the new master server
         $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);
 
@@ -97,7 +97,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 
     } elseif (isset($GLOBALS['sl_sync'])) {
         // TODO username, host and port could be read from 'show slave status',
-        // when asked for a password this might work in more situations the just after changing master (where the master password is stored in session)
+        // when asked for a password this might work in more situations then just after changing master (where the master password is stored in session)
         $src_link = PMA_replication_connect_to_master($_SESSION['replication']['m_username'], $_SESSION['replication']['m_password'], $_SESSION['replication']['m_hostname'], $_SESSION['replication']['m_port']);
         $trg_link = null; // using null to indicate the current PMA server
 

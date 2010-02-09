@@ -6,14 +6,16 @@
  * @package phpMyAdmin-Designer
  */
 
-/**
- *
- */
 include_once 'pmd_common.php';
+
+/**
+ * If called directly from the designer, first save the positions 
+ */
 if (! isset($scale)) {
     $no_die_save_pos = 1;
     include_once 'pmd_save_pos.php';
 }
+
 require_once './libraries/relation.lib.php';
 
 if (isset($scale) && ! isset($createpage)) {
@@ -49,6 +51,7 @@ if (isset($scale) && ! isset($createpage)) {
 
     die("<script>alert('$strModifications');history.go(-2);</script>");
 }
+
 if (isset($createpage)) {
     /*
      * @see pdf_pages.php
@@ -57,6 +60,7 @@ if (isset($createpage)) {
 
     $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
 }
+
 // no need to use pmd/styles
 require_once './libraries/header_meta_style.inc.php';
 ?>
@@ -72,17 +76,18 @@ require_once './libraries/header_meta_style.inc.php';
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-    <option value="3" selected>1:3 (<?php echo $strRecommended; ?>)</option>
+        <option value="3" selected>1:3 (<?php echo $strRecommended; ?>)</option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
         </select>
       </p>
-  <p><?php echo $strToFromPage; ?>:
+      <p><?php echo $strToFromPage; ?>:
 
       <select name="pdf_page_number">
       <?php
-      $table_info_result = PMA_query_as_controluser('SELECT * FROM '.PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']).'
-                                             WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'');
+        $table_info_result = PMA_query_as_controluser('SELECT * FROM ' 
+            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
+            . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'');
       while($page = PMA_DBI_fetch_assoc($table_info_result))
       {
       ?>
@@ -91,15 +96,15 @@ require_once './libraries/header_meta_style.inc.php';
       }
       ?>
       </select>
-  <input type="submit" name="exp" value="<?php echo $strExport; ?>">
-  <input type="submit" name="imp" value="<?php echo $strImport; ?>">
+      <input type="submit" name="exp" value="<?php echo $strExport; ?>">
+      <input type="submit" name="imp" value="<?php echo $strImport; ?>">
     </fieldset>
     </div>
     <div>
     <fieldset><legend><?php echo $GLOBALS['strCreatePage']; ?></legend>
         <input type="text" name="newpage" />
         <input type="submit" name="createpage" value="<?php echo $strGo; ?>">
-        </fieldset>
+    </fieldset>
     </div>
   </form>
 </div>

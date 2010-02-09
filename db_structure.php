@@ -350,8 +350,8 @@ foreach ($tables as $keyname => $each_table) {
         ////////////////////////////////////////////////////////////////
 
         if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0) 
-            || (strlen(array_search($db, $server_slave_Do_DB))>0) 
-            || (count($server_slave_Do_DB)==1 && count($server_slave_Ignore_DB)==1)
+            || (strlen(array_search($db, $server_slave_Do_DB)) > 0) 
+            || (count($server_slave_Do_DB) == 1 && count($server_slave_Ignore_DB) == 1)
         ) {
             $do = true;
         }
@@ -360,7 +360,7 @@ foreach ($tables as $keyname => $each_table) {
                 $do = true;
         }
         ////////////////////////////////////////////////////////////////////
-        if ((strlen(array_search($truename, $server_slave_Ignore_Table))>0)  || (strlen(array_search($db, $server_slave_Ignore_DB))>0)) {
+        if ((strlen(array_search($truename, $server_slave_Ignore_Table)) > 0)  || (strlen(array_search($db, $server_slave_Ignore_DB)) > 0)) {
             $ignored = true;
         }
         foreach ($server_slave_Wild_Ignore_Table as $table) {
