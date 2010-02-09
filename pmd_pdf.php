@@ -59,6 +59,11 @@ if (isset($createpage)) {
     $query_default_option = PMA_DBI_QUERY_STORE;
 
     $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option);
+    if ($pdf_page_number > 0) {
+        $message = PMA_Message::success('strPDFPageCreated');
+    } else {
+        $message = PMA_Message::error('strPDFPageCreateFailed');
+    }
 }
 
 // no need to use pmd/styles
@@ -68,6 +73,11 @@ require_once './libraries/header_meta_style.inc.php';
 <body>
 <br>
 <div>
+<?php 
+    if (!empty($message)) { 
+        $message->display();
+    }
+?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <div>

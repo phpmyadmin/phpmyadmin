@@ -1633,4 +1633,6 @@ $strSlaveConfigure = 'Make sure, you have unique server-id in your configuration
 
 $strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to translate
 $strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
+$strPDFPageCreated = 'Page has been created';  //to translate
+$strPDFPageCreateFailed = 'Page creation failed';  //to translate
 ?>
