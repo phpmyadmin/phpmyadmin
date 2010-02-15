@@ -666,6 +666,7 @@ $strPmadbCreateConfig = 'Enable advanced features in configuration file (<code>c
 $strPmadbCreateHelp = 'Quick steps to setup advanced features:';
 $strPmadbCreateTables = 'Create the needed tables with the <code>script/create_tables.sql</code>.';
 $strPmadbCreateUser = 'Create a pma user and give access to these tables.';
+$strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';
 $strPmaDocumentation = 'phpMyAdmin documentation';
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
 $strPolish = 'Polish';

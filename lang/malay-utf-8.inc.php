@@ -1668,4 +1668,5 @@ $strPmadbCreateUser = 'Create a pma user and give access to these tables.';  //t
 $strPmadbCreateConfig = 'Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.';  //to translate
 $strPDFPageCreated = 'Page has been created';  //to translate
 $strPDFPageCreateFailed = 'Page creation failed';  //to translate
+$strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 ?>

@@ -162,6 +162,7 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     echo '<li>' . $GLOBALS['strPmadbCreateTables'] . ' ' . PMA_showDocu('linked-tables') . '</li>';
     echo '<li>' . $GLOBALS['strPmadbCreateUser'] . ' ' . PMA_showDocu('pmausr') . '</li>';
     echo '<li>' . $GLOBALS['strPmadbCreateConfig'] . ' ' . PMA_showDocu('quick_install') . '</li>';
+    echo '<li>' . $GLOBALS['strPmadbReLoginToEnable'] . '</li>';
     echo '</ul>';
 }
 

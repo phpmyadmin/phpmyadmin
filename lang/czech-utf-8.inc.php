@@ -1635,4 +1635,5 @@ $strReplicationSlaveSQLThreadNotRunning = 'Slave SQL Thread not running!';  //to
 $strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to translate
 $strPDFPageCreated = 'Page has been created';  //to translate
 $strPDFPageCreateFailed = 'Page creation failed';  //to translate
+$strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 ?>

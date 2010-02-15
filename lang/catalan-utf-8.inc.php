@@ -1634,4 +1634,5 @@ $strRenameView = 'Rename view to';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 
+$strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 ?>

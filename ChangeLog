@@ -39,6 +39,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + rfe #2937850 [doc] Add some hints to chk_rel.php for quick setup.
 + rfe #2938579 [interface] Add class to some elements for easier theming.
 + rfe #2937840 [doc] Add some interesting configs to config.sample.inc.php.
++ rfe #2792992 [doc] Added advice to re-login after changing pmadb settings
 
 3.3.1.0 (not yet released)
 - bug #2941037 [core] Database structure not sorted by table correctly 
