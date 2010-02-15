@@ -59,6 +59,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Lithuanian update, thanks to Rytis Slatkevicius - rytis_s 
 - bug #2931939 [status] Seeing "m" as unit is confusing 
 - bug #2926613 [edit] Copy database shows errors when DB has foreign key
++ [lang] Catalan update, thanks to Xavier Navarro
 
 3.2.6.0 (not yet released)
 - bug #2938492 [display] information_schema sorting order 
