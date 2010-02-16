@@ -508,7 +508,7 @@ if (isset($possible_row_formats[$tbl_type])) {
     } // end if
 ?>
     &nbsp;<strong>.</strong>&nbsp;
-    <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
+    <input type="text" size="20" name="new_name" onfocus="this.select()" value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"/><br />
 <?php
         $choices = array(
             'structure' => $strStrucOnly,
