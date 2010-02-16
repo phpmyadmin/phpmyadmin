@@ -308,6 +308,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
     unset($choices);
 ?>
 </fieldset>
+<br style="clear: both;"/>
 </div>
 </fieldset>
 <fieldset class="tblFooters">
