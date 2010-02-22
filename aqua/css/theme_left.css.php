@@ -16,7 +16,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo $_SESSION['PMA_Config']->get('fontsize'); ?>;
+    font-size: <?php echo $GLOBALS['PMA_Config']->get('fontsize'); ?>;
 }
 
 input, select, textarea {

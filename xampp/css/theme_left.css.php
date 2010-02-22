@@ -19,7 +19,7 @@
 
     $ipath = $_SESSION['PMA_Theme']->getImgPath();
 
-    $pma_fsize = $_SESSION['PMA_Config']->get('fontsize');
+    $pma_fsize = $GLOBALS['PMA_Config']->get('fontsize');
     $pma_fsize = preg_replace("/[^0-9]/", "", $pma_fsize);
     $pma_fsize = @($pma_fsize / 100);
     if ( isset($GLOBALS['cfg']['FontSize']) && !empty($GLOBALS['cfg']['FontSize']) ) {
@@ -27,7 +27,7 @@
         $fsize     = ceil($usr_fsize * $pma_fsize) 
                    . ( (isset($GLOBALS['cfg']['FontSizePrefix']) && !empty($GLOBALS['cfg']['FontSizePrefix'])) ? $GLOBALS['cfg']['FontSizePrefix'] : 'pt' );
     } else
-        $fsize = $_SESSION['PMA_Config']->get('fontsize');
+        $fsize = $GLOBALS['PMA_Config']->get('fontsize');
 ?>
 /******************************************************************************/
 /* general tags */

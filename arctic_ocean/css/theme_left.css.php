@@ -23,7 +23,7 @@
 
     // 2007-08-24 (mkkeck)
     //            Get font-sizes
-    $pma_fsize = $_SESSION['PMA_Config']->get('fontsize');
+    $pma_fsize = $GLOBALS['PMA_Config']->get('fontsize');
     $pma_fsize = preg_replace("/[^0-9]/", "", $pma_fsize);
     if (!empty($pma_fsize)) {
         $pma_fsize = ($pma_fsize * 0.01);
