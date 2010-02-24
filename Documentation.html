@@ -771,6 +771,16 @@ since this link provides funding for phpMyAdmin.
         Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
         for more information.
 	</dd>
+    <dt id="servers_auth_http_realm">
+    <span id="cfg_Servers_auth_http_realm">$cfg['Servers'][$i]['auth_http_realm']</span> string<br />
+    </dt>
+    <dd>
+    When using auth_type = '<abbr title="HyperText Transfer Protocol">HTTP</abbr>', this field allows to define a custom
+   <abbr title="HyperText Transfer Protocol">HTTP</abbr> Basic Auth Realm which will be displayed to the user. If not explicitly
+    specified in your configuration, a string combined of "phpMyAdmin " and either
+    <a href="#cfg_Servers_verbose" class="configrule">$cfg['Servers'][$i]['verbose']</a>
+    or <a href="#cfg_Servers_host" class="configrule">$cfg['Servers'][$i]['host']</a> will be used.
+    </dd>
     <dt id="servers_auth_swekey_config">
     <span id="cfg_Servers_auth_swekey_config">$cfg['Servers'][$i]['auth_swekey_config']</span> string<br />
     </dt>

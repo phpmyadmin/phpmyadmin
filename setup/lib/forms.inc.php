@@ -32,6 +32,7 @@ $forms['Server'] = array('Servers' => array(1 => array(
     'extension',
     'compress',
     'auth_type',
+    'auth_http_realm',
     'user',
     'password',
     'nopassword',

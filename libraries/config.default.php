@@ -177,6 +177,13 @@ $cfg['Servers'][$i]['controlpass'] = '';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 
 /**
+ * HTTP Basic Auth Realm name to display (only used with 'HTTP' auth_type)
+ *
+ * @global string $cfg['Servers'][$i]['auth_http_realm']
+ */
+$cfg['Servers'][$i]['auth_http_realm'] = '';
+
+/**
  * File containing Swekey ids and login names (see /contrib);
  * leave empty to deactivate Swekey hardware authentication
  *

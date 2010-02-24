@@ -1636,4 +1636,6 @@ $strReplicationSlaveIOThreadNotRunning = 'Slave IO Thread not running!';  //to t
 $strPDFPageCreated = 'Page has been created';  //to translate
 $strPDFPageCreateFailed = 'Page creation failed';  //to translate
 $strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
+$strSetupServers_auth_http_realm_desc = 'HTTP Basic Auth Realm name to display when doing HTTP Auth';  //to translate
+$strSetupServers_auth_http_realm_name = 'HTTP Realm';  //to translate
 ?>
