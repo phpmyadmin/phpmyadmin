@@ -14,7 +14,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 }
 ?>
 
-body#body_leftFrame{padding:10px;margin:0;background:<?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?> url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>frame_fone.png) repeat-y right;color:<?php echo $GLOBALS['cfg']['NaviColor'] ?>;font-family:<?php echo $GLOBALS['cfg']['FontFamily'] ?>;font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>;}
+body#body_leftFrame{padding:10px;margin:0;background:<?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?> url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>frame_fone.png) repeat-y right;color:<?php echo $GLOBALS['cfg']['NaviColor'] ?>;font-family:<?php echo $GLOBALS['cfg']['FontFamily'] ?>;font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>;}
 input,
 select,
 textarea{font-size:1em;}

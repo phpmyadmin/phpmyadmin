@@ -16,7 +16,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* general elements
 ********************************************************************** */
-html{font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $_SESSION['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>}
+html{font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']);?>}
 body,
 body#bodyquerywindow{padding:10px;margin:0;background:<?php echo (isset($_SESSION['tmp_user_values']['custom_color']) ? $_SESSION['tmp_user_values']['custom_color'] : $GLOBALS['cfg']['MainBackground']); ?>;color:<?php echo $GLOBALS['cfg']['MainColor'] ?>;font-family:<?php echo $GLOBALS['cfg']['FontFamily'] ?>;font-size:95%;line-height:130%}
 a img{border:none}
