@@ -1351,7 +1351,7 @@ if (isset($_REQUEST['export'])) {
     echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddslashes($username) . "'@'" . PMA_sqlAddslashes($hostname) . "'");
     foreach($grants as $one_grant) {
-        echo $one_grant . "\n\n";
+        echo $one_grant . ";\n\n";
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
