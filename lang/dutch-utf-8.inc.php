@@ -1635,6 +1635,7 @@ $strRenameView = 'Rename view to';  //to translate
 $strReplicationSlaveReset = 'Reset slave';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
+$strCreateNewTableShort = 'Create new table';  //to translate
 
 $strPDFPageCreated = 'Page has been created';  //to translate
 $strPDFPageCreateFailed = 'Page creation failed';  //to translate
