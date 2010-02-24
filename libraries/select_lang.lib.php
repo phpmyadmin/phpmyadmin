@@ -205,6 +205,7 @@ function PMA_langList()
         'de-utf-8'    => array('de|german', 'german-utf-8', 'de', 'Deutsch'),
         'el-utf-8'    => array('el|greek',  'greek-utf-8', 'el', '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;'),
         'en-utf-8'    => array('en|english',  'english-utf-8', 'en', ''),
+        'en-gb-utf-8' => array('en[_-]gb|english (United Kingdom)',  'english-gb-utf-8', 'en', ''),
         'es-utf-8'    => array('es|spanish', 'spanish-utf-8', 'es', 'Espa&ntilde;ol'),
         'et-utf-8'    => array('et|estonian', 'estonian-utf-8', 'et', 'Eesti'),
         'eu-utf-8'    => array('eu|basque', 'basque-utf-8', 'eu', 'Euskara'),
