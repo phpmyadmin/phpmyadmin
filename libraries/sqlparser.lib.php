@@ -2080,14 +2080,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             case 'color':
                 $str                                = '<span class="syntax">';
                 $html_line_break                    = '<br />';
+                $docu                               = TRUE;
                 break;
             case 'query_only':
                 $str                                = '';
                 $html_line_break                    = "\n";
+                $docu                               = FALSE;
                 break;
             case 'text':
                 $str                                = '';
                 $html_line_break                    = '<br />';
+                $docu                               = TRUE;
                 break;
         } // end switch
         $close_docu_link = false;
@@ -2274,47 +2277,49 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
                     break;
                 case 'alpha_columnType':
-                    switch ($arr[$i]['data']) {
-                        case 'tinyint':
-                        case 'smallint':
-                        case 'mediumint':
-                        case 'int':
-                        case 'bigint':
-                        case 'decimal':
-                        case 'float':
-                        case 'double':
-                        case 'real':
-                        case 'bit':
-                        case 'boolean':
-                        case 'serial':
-                            $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
-                            $after = '</a>' . $after;
-                            break;
-                        case 'date':
-                        case 'datetime':
-                        case 'timestamp':
-                        case 'time':
-                        case 'year':
-                            $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
-                            $after = '</a>' . $after;
-                            break;
-                        case 'char':
-                        case 'varchar':
-                        case 'tinytext':
-                        case 'text':
-                        case 'mediumtext':
-                        case 'longtext':
-                        case 'binary':
-                        case 'varbinary':
-                        case 'tinyblob':
-                        case 'mediumblob':
-                        case 'blob':
-                        case 'longblob':
-                        case 'enum':
-                        case 'set':
-                            $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
-                            $after = '</a>' . $after;
-                            break;
+                    if ($docu) {
+                        switch ($arr[$i]['data']) {
+                            case 'tinyint':
+                            case 'smallint':
+                            case 'mediumint':
+                            case 'int':
+                            case 'bigint':
+                            case 'decimal':
+                            case 'float':
+                            case 'double':
+                            case 'real':
+                            case 'bit':
+                            case 'boolean':
+                            case 'serial':
+                                $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
+                                $after = '</a>' . $after;
+                                break;
+                            case 'date':
+                            case 'datetime':
+                            case 'timestamp':
+                            case 'time':
+                            case 'year':
+                                $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
+                                $after = '</a>' . $after;
+                                break;
+                            case 'char':
+                            case 'varchar':
+                            case 'tinytext':
+                            case 'text':
+                            case 'mediumtext':
+                            case 'longtext':
+                            case 'binary':
+                            case 'varbinary':
+                            case 'tinyblob':
+                            case 'mediumblob':
+                            case 'blob':
+                            case 'longblob':
+                            case 'enum':
+                            case 'set':
+                                $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
+                                $after = '</a>' . $after;
+                                break;
+                        }
                     }
                     if ($typearr[3] == 'alpha_columnAttrib') {
                         $after     .= ' ';
@@ -2406,24 +2411,26 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         case 'ANALYZE':
                         case 'ANALYSE':
                         case 'OPTIMIZE':
-                            switch ($arr[$i + 1]['data']) {
-                                case 'EVENT':
-                                case 'TABLE':
-                                case 'TABLESPACE':
-                                case 'FUNCTION':
-                                case 'INDEX':
-                                case 'PROCEDURE':
-                                case 'TRIGGER':
-                                case 'SERVER':
-                                case 'DATABASE':
-                                case 'VIEW':
-                                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
+                            if ($docu) {
+                                switch ($arr[$i + 1]['data']) {
+                                    case 'EVENT':
+                                    case 'TABLE':
+                                    case 'TABLESPACE':
+                                    case 'FUNCTION':
+                                    case 'INDEX':
+                                    case 'PROCEDURE':
+                                    case 'TRIGGER':
+                                    case 'SERVER':
+                                    case 'DATABASE':
+                                    case 'VIEW':
+                                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
+                                        $close_docu_link = true;
+                                        break;
+                                }
+                                if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
+                                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
                                     $close_docu_link = true;
-                                    break;
-                            }
-                            if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
-                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
-                                $close_docu_link = true;
+                                }
                             }
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
@@ -2447,7 +2454,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         case 'SET':
-                            if ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER') {
+                            if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
                                 $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
                                 $after = '</a>' . $after;
                             }
@@ -2461,8 +2468,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         case 'DELETE':
                         case 'SHOW':
                         case 'UPDATE':
-                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                            $after = '</a>' . $after;
+                            if ($docu) {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                                $after = '</a>' . $after;
+                            }
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
                                 $space_alpha_reserved_word = ' ';
@@ -2470,8 +2479,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             break;
                         case 'INSERT':
                         case 'REPLACE':
-                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                            $after = '</a>' . $after;
+                            if ($docu) {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                                $after = '</a>' . $after;
+                            }
                             if (!$in_priv_list) {
                                 $space_punct_listsep       = $html_line_break;
                                 $space_alpha_reserved_word = $html_line_break;
@@ -2482,16 +2493,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $space_alpha_reserved_word = $html_line_break;
                             break;
                         case 'SELECT':
-                            $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
-                            $after = '</a>' . $after;
+                            if ($docu) {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
+                                $after = '</a>' . $after;
+                            }
                             $space_punct_listsep       = ' ';
                             $space_alpha_reserved_word = $html_line_break;
                             break;
                         case 'CALL':
                         case 'DO':
                         case 'HANDLER':
-                            $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
-                            $after = '</a>' . $after;
+                            if ($docu) {
+                                $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                                $after = '</a>' . $after;
+                            }
                             break;
                         default:
                             break;
