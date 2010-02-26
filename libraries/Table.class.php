@@ -423,7 +423,8 @@ class PMA_Table
 
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                    PMA_Table::$cache[$db][$table] = PMA_DBI_fetch_single_row('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, true) . '\'');
+                    $tmp_tables = PMA_DBI_get_tables_full($db, $table);
+                    PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
                 }
                 $row_count = PMA_Table::$cache[$db][$table]['Rows'];
             }

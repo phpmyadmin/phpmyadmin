@@ -290,6 +290,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
            SELECT *,
                   `TABLE_SCHEMA`       AS `Db`,
                   `TABLE_NAME`         AS `Name`,
+                  `TABLE_TYPE`         ÀS `TABLE_TYPE`,
                   `ENGINE`             AS `Engine`,
                   `ENGINE`             AS `Type`,
                   `VERSION`            AS `Version`,
