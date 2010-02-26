@@ -424,9 +424,15 @@ class PMA_Table
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
                     $tmp_tables = PMA_DBI_get_tables_full($db, $table);
-                    PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
+                    if (isset($tmp_tables[$table])) {
+                        PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
+                    }
                 }
-                $row_count = PMA_Table::$cache[$db][$table]['Rows'];
+                if (isset(PMA_Table::$cache[$db][$table]['Rows'])) {
+                    $row_count = PMA_Table::$cache[$db][$table]['Rows'];
+                } else {
+                    $row_count = false;
+                }
             }
 
             // for a VIEW, $row_count is always false at this point
