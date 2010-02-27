@@ -447,7 +447,14 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // Note 2: Instead of array_merge(), simply use the + operator because
     //  array_merge() renumbers numeric keys starting with 0, therefore
     //  we would lose a db name thats consists only of numbers
-    PMA_Table::$cache = PMA_Table::$cache + $tables;
+    foreach($tables as $one_database => $its_tables) {
+        if (isset(PMA_Table::$cache[$one_database])) {
+            PMA_Table::$cache[$one_database] = PMA_Table::$cache[$one_database] + $tables[$one_database];
+        } else {
+            PMA_Table::$cache[$one_database] = $tables[$one_database];
+        }
+    }
+    unset($one_database, $its_tables);
 
     if (! is_array($database)) {
         if (isset($tables[$database])) {

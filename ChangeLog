@@ -51,6 +51,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2941037 [core] Database structure not sorted by table correctly 
 - bug #2948492 [interface] Slide effect masks some fields on search page
 - bug #2959746 [interface] Unknown table status: TABLE_TYPE 
+- bug #2953050 [export] export VIEW as SQL includes INSERT statement 
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
