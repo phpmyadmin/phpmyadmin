@@ -345,9 +345,9 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     unset($table_list);
     echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '">'
         .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" width="10" height="10" alt="' . $strCreateTableShort . '" />'
-        . $strCreateTableShort . '</a></div>' . "\n";
+        . $strCreateTableShort . '</a></li></ul>';
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
-    echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
+    echo '<p>' . $GLOBALS['strSelectADb'] . '</p>';
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
