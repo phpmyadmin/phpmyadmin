@@ -1635,11 +1635,11 @@ $strRenameView = 'Rename view to';  //to translate
 $strReplicationSlaveReset = 'Reset slave';  //to translate
 $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
-$strCreateNewTableShort = 'Create new table';  //to translate
 
 $strPDFPageCreated = 'Page has been created';  //to translate
 $strPDFPageCreateFailed = 'Page creation failed';  //to translate
 $strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 $strSetupServers_auth_http_realm_desc = 'HTTP Basic Auth Realm name to display when doing HTTP Auth';  //to translate
 $strSetupServers_auth_http_realm_name = 'HTTP Realm';  //to translate
+$strCreateTableShort = 'Create table';  //to translate
 ?>

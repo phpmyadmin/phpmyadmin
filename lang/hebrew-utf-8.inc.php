@@ -1643,7 +1643,6 @@ $strSQLExportUTC = 'Export time in UTC';  //to translate
 $strShowInsert = 'Show insert query';  //to translate
 $strReloadNavi = 'Reload navigation frame';  //to translate
 $strNewTable = 'New table';  //to translate
-$strCreateNewTableShort = 'Create new table';  //to translate
 $strPmadbCreateHelp = 'Quick steps to setup advanced features:';  //to translate
 $strPmadbCreateTables = 'Create the needed tables with the <code>script/create_tables.sql</code>.';  //to translate
 $strPmadbCreateUser = 'Create a pma user and give access to these tables.';  //to translate
@@ -1653,4 +1652,5 @@ $strPDFPageCreateFailed = 'Page creation failed';  //to translate
 $strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 $strSetupServers_auth_http_realm_desc = 'HTTP Basic Auth Realm name to display when doing HTTP Auth';  //to translate
 $strSetupServers_auth_http_realm_name = 'HTTP Realm';  //to translate
+$strCreateTableShort = 'Create table';  //to translate
 ?>

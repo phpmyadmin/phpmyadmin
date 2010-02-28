@@ -197,7 +197,6 @@ $strCreateDatabaseBeforeCopying = '复制前创建数据库 (CREATE DATABASE)';
 $strCreateIndexTopic = '新建索引';
 $strCreateIndex = '在第 %s 个字段创建索引';
 $strCreateNewDatabase = '新建数据库';
-$strCreateNewTableShort = '新建数据表';
 $strCreateNewTable = '在数据库 %s 中新建一张数据表';
 $strCreatePage = '创建新页';
 $strCreatePdfFeat = '创建 PDF';
@@ -1645,4 +1644,5 @@ $strZip = 'zip 压缩';
 
 $strTrackingMechanism = 'Tracking Mechanism';  //to translate
 
+$strCreateTableShort = 'Create table';  //to translate
 ?>

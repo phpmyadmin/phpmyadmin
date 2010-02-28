@@ -194,7 +194,6 @@ $strCreateIndex = '&nbsp;%s&nbsp;sütunda indeks oluştur.';
 $strCreateIndexTopic = 'Yeni bir indeks oluştur';
 $strCreateNewDatabase = 'Yeni veritabanı oluştur';
 $strCreateNewTable = '%s veritabanında yeni tablo oluştur';
-$strCreateNewTableShort = 'Yeni tablo oluştur';
 $strCreatePage = 'Yeni bir sayfa oluştur';
 $strCreatePdfFeat = 'PDF\'lerin oluşturulması';
 $strCreateRelation = 'İlişki oluştur';
@@ -1637,4 +1636,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0 (sıfır)\'a ayarlanması sınırı kaldırır.';
 $strZip = '"zip olarak"';
 
+$strCreateTableShort = 'Create table';  //to translate
 ?>

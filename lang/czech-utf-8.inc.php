@@ -169,7 +169,6 @@ $strCreateDatabaseBeforeCopying = 'Vytvořit databázi před kopírováním (CRE
 $strCreateIndexTopic = 'Vytvořit nový index';
 $strCreateIndex = 'Vytvořit index na %s sloupcích';
 $strCreateNewDatabase = 'Vytvořit novou databázi';
-$strCreateNewTableShort = 'Vytvořit novou tabulku';
 $strCreateNewTable = 'Vytvořit novou tabulku v databázi %s';
 $strCreatePage = 'Vytvořit novou stránku';
 $strCreatePdfFeat = 'Vytváření PDF';
@@ -1638,4 +1637,5 @@ $strPDFPageCreateFailed = 'Page creation failed';  //to translate
 $strPmadbReLoginToEnable = 'Re-login to phpMyAdmin to load the updated configuration file.';  //to translate
 $strSetupServers_auth_http_realm_desc = 'HTTP Basic Auth Realm name to display when doing HTTP Auth';  //to translate
 $strSetupServers_auth_http_realm_name = 'HTTP Realm';  //to translate
+$strCreateTableShort = 'Create table';  //to translate
 ?>
