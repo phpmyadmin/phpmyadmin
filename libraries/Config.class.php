@@ -644,6 +644,7 @@ class PMA_Config
             // Backslashes returned by Windows have to be changed.
             // Only replace backslashes by forward slashes if on Windows,
             // as the backslash could be valid on a non-Windows system.
+            $this->checkWebServerOs();
             if ($this->get('PMA_IS_WINDOWS') == 1) {
                 $path = str_replace("\\", "/", dirname($url['path'] . 'a'));
             } else {
