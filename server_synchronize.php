@@ -255,7 +255,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">'
             . PMA_generate_common_hidden_inputs('', '');
-            echo '<table class="data" width = "50%">
+            echo '<table id="serverstatustraffic" class="data" width = "60%">
             <tr>
             <td> <h2>'
             . ($GLOBALS['cfg']['MainPageIconic']
@@ -455,7 +455,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
             */
             echo '<fieldset>
-            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" />' . $strTableDeleteRows . ' </p>
+            <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . $strTableDeleteRows . '</label> </p>
             </fieldset>
             <fieldset class="tblFooters">';
             echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
@@ -899,7 +899,7 @@ if (isset($_REQUEST['Table_ids'])) {
     *  This fieldset displays the checkbox to confirm deletion of previous rows from target tables
     */
     echo '<fieldset>
-    <p><input type= "checkbox" name="delete_rows" id ="delete_rows" />' . $strTableDeleteRows . ' </p>
+    <p><input type="checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . $strTableDeleteRows . '</label> </p>
     </fieldset>';
 
     echo '<fieldset class="tblFooters">';

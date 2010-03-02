@@ -1334,7 +1334,7 @@ function PMA_displayQuery($query) {
 function PMA_syncDisplayHeaderSource($src_db) {
     echo '<div id="serverstatus" style = "overflow: auto; width: 1020px; height: 220px; border-left: 1px gray solid; border-bottom: 1px gray solid; padding:0px; margin-bottom: 1em "> ';
 
-    echo '<table id="serverstatustraffic" class="data" width="55%">';
+    echo '<table id="serverstatusconnections" class="data" width="55%">';
     echo '<tr>';
     echo '<th>' . $GLOBALS['strDatabase_src'] . ':  ' . $src_db . '<br />(';
     if ('cur' == $_SESSION['src_type']) {

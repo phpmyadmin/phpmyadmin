@@ -18,6 +18,7 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
 
     header('Content-type: text/html');
 
+	usleep(300000); // wait 0.3 sec before we check for $_SESSION variable, which is set inside import.php 
     while ($_SESSION['Import_message']['message'] == null) { // wait until message is available 
         usleep(250000); // 0.25 sec
     }
