@@ -26,7 +26,7 @@ if (empty($import_list)) {
 }
 ?>
 
-<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none" src="import.php?<?php echo PMA_generate_common_url(); ?>"></iframe>
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
 <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" /> 
@@ -98,7 +98,7 @@ window.addEvent('domready', function() {
 	<?php
 	} else {
 	?>
-	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable; ?>');
+	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . PMA_showDocu('faq2_9'); ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	<?php
 	} // else 
