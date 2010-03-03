@@ -26,41 +26,13 @@ if (empty($import_list)) {
 }
 ?>
 
-<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none" src="import.php"></iframe>
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" style="display: none"></iframe>
 <div id="import_form_status" style="display: none;"></div>
 <div id="importmain">
 <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" /> 
 <script type="text/javascript">
 //<![CDATA[
-<!--
-// Mootools code for handling Ajax requests
-  window.addEvent('load', function() {
-	  // webkit fix from 3rd source, but it does not work sometimes (??) --
-	  // toms
-  ////////////////////////////// {{{{{
- Request.HTML.implement({
-  
-     processHTML: function(text) {
-         var match = text.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-         text = (match) ? match[1] : text;
-            
-         var container = new Element('div');
-            
-         return $try(function(){
-         var root = '<root>' + text + '</root>', doc;
-             doc = new DOMParser().parseFromString(root, 'text/html');
-             root = doc.getElementsByTagName('root')[0];
-             for (var i = 0, k = root.childNodes.length; i < k; i++){
-                 var child = Element.clone(root.childNodes[i], true, true);
-                 if (child) container.grab(child);
-             }
-             return container;
-         }) || container.set('html', text);
-     }
-    
- });
-
-  ////////////////////////// }}}}}
+window.addEvent('domready', function() {
   // add event when user click on "Go" button
   $('buttonGo').addEvent('click', function() {
     $('upload_form_form').setStyle("display", "none"); // hide form
@@ -84,7 +56,7 @@ if (empty($import_list)) {
       method: 'get',
       update: 'upload_form_status',
       onComplete: function(response) {
-	objectsReturned = JSON.decode(response);
+	   objectsReturned = JSON.decode(response);
 	
 	$each(objectsReturned, function(item, index) {
 					    
@@ -96,32 +68,29 @@ if (empty($import_list)) {
 	      $('import_form_status').setStyle('display', 'inline');
 	      $('import_form_status').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportProceedingFile; ?> ');
 	      $('import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
-//]]>
 	      <?php  
 		// reload the left sidebar when the import is finished
 		$GLOBALS['reload']=true; 
 		PMA_reloadNavigation(true); 
 	      ?>
-//<![CDATA[
-	    } // if [finished==item]
-	  } // if [index==finished]    
+	    } // if finished==item
+	  } // if index==finished    
 	  if (index=="percent")
 	    percent = item;
-
 	  if (index=="total")
 	    total = item;
 	  if (index=="complete")
 	    complete = item;			    
-	}); // [$each]
+	}); // $each
 	 if (total==0 && complete==0 && percent==0) {
 	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat($strImportLargeFileUploading); ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	 } else {
 	  $('upload_form_status_info').set('html', ' '+Math.round(percent)+'%, '+complete+'/'+total);
 	  $('status').tween('width', Math.round(percent)*2+'px');
-	 } //[else]
-    } //[onComplete]
-   }); // [request]
+	 } // else
+    } // onComplete
+   }); // [equest
    perform_upload = function () { 
      request_upload.send('r=' + $time() + $random(0, 100)); // hack for IE7,8 & webkit (Safari, Chrome, Arora...) 
    }
@@ -129,15 +98,15 @@ if (empty($import_list)) {
 	<?php
 	} else {
 	?>
-	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable; ?>');
+	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . PMA_showDocu('faq2_9'); ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	<?php
-	} //[else]
+	} // else 
 	?> 
-  }); //if [click]
-}); // if [load]
-  document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import" <?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo 'target="import_upload_iframe"'; ?>>');
--->
+  }); // if click
+}); // domready
+
+  document.write('<form action="import.php" method="post" enctype="multipart/form-data" name="import"<?php if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") echo ' target="import_upload_iframe"'; ?>>');
 //]]>
 </script>
 <noscript>
