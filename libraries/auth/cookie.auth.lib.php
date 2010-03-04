@@ -646,7 +646,6 @@ function PMA_auth_set_user()
  * this function MUST exit/quit the application,
  * currently doen by call to PMA_auth()
  *
- * @todo    $php_errormsg is invalid here!? it will never be set in this scope
  * @uses    $GLOBALS['server']
  * @uses    $GLOBALS['allowDeny_forbidden']
  * @uses    $GLOBALS['strAccessDenied']
@@ -685,9 +684,7 @@ function PMA_auth_fails()
             }
         }
     } elseif (PMA_DBI_getError()) {
-        $conn_error = PMA_sanitize(PMA_DBI_getError());
-    } elseif (isset($php_errormsg)) {
-        $conn_error = $php_errormsg;
+        $conn_error = '#' . $GLOBALS['errno'] . ' ' . $GLOBALS['strCannotLogin']; 
     } else {
         $conn_error = $GLOBALS['strCannotLogin'];
     }
