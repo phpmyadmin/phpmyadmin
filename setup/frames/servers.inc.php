@@ -38,9 +38,9 @@ if ($mode == 'edit' && $server_exists) {
     $page_title = $GLOBALS['strSetupServersAdd'];
     $id = 0;
 }
-?>
-<h2><?php echo $page_title ?></h2>
-<?php
+if (isset($page_title)) {
+    echo '<h2>' . $page_title . '</h2>';
+}
 $form_display = new FormDisplay();
 $form_display->registerForm('Server', $id);
 $form_display->registerForm('Server_login_options', $id);
