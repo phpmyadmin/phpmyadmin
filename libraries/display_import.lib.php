@@ -98,7 +98,7 @@ window.addEvent('domready', function() {
 	<?php
 	} else {
 	?>
-	  $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . PMA_showDocu('faq2_9'); ?>');
+         $('upload_form_status_info').set('html', '<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo $strImportUploadInfoNotAvailable . ' <a href="Documentation.html#faq2_9" target="documentation">' . $GLOBALS['strDocu'] . '</a>'; ?>');
 	  $('upload_form_status').setStyle("display", "none");
 	<?php
 	} // else 
