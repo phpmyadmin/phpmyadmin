@@ -57,6 +57,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 - bug #2961609 [auth] Potential information disclosure at login page
 - patch #2961540 [export] Do not export data of MERGE table,
   thanks to Dieter Adriaenssens - ruleant
+- bug #2961198 [parser] Querying a table named "data"
 
 3.3.0.0 (not yet released)
 + rfe #2308632 [edit] Use hex for (var)binary fields,
