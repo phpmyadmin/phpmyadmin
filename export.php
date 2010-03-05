@@ -438,7 +438,8 @@ if ($export_type == 'server') {
                         break 3;
                     }
                 }
-                if (isset($GLOBALS[$what . '_data']) && ! $is_view) {
+                // if this is a view or a merge table, don't export data
+                if (isset($GLOBALS[$what . '_data']) && !($is_view || (strcasecmp(PMA_Table::sGetStatusInfo($current_db, $table, 'Engine'),'MRG_MYISAM') == 0))) {
                     $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                     if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                         break 3;
@@ -486,7 +487,8 @@ if ($export_type == 'server') {
                 break 2;
             }
         }
-        if (isset($GLOBALS[$what . '_data']) && ! $is_view) {
+        // if this is a view or a merge table, don't export data
+        if (isset($GLOBALS[$what . '_data']) && !($is_view || (strcasecmp(PMA_Table::sGetStatusInfo($db, $table, 'Engine'),'MRG_MYISAM') == 0))) {
             $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
             if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break 2;
@@ -534,7 +536,9 @@ if ($export_type == 'server') {
     }
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
-    if (isset($GLOBALS[$what . '_data'])) {
+    // if it is a merge table, no data is exported
+    $is_merge = ! PMA_Table::isView($db, $table) && (strcasecmp(PMA_Table::sGetStatusInfo($db, $table, 'Engine'),'MRG_MYISAM') == 0);
+    if (isset($GLOBALS[$what . '_data']) && ! $is_merge) {
         if (!empty($sql_query)) {
             // only preg_replace if needed
             if (!empty($add_query)) {
