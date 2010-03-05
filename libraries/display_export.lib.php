@@ -104,7 +104,10 @@ echo PMA_pluginGetJavascript($export_list);
 //]]>
 </script>
 
-<?php if (strlen($table) && ! isset($num_tables)) { ?>
+<?php 
+    $is_merge = ! PMA_Table::isView($db, $table) && (strcasecmp(PMA_Table::sGetStatusInfo($db, $table, 'Engine'),'MRG_MYISAM') == 0);
+    if (strlen($table) && ! isset($num_tables) && ! $is_merge) { 
+?>
     <div class="formelementrow">
         <?php
         echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
