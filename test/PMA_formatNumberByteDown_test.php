@@ -3,7 +3,6 @@
 /**
  * Test for format number and byte
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_formatNumberByteDown_test.php
  */

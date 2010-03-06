@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Code for displaying server selection written by nijel
+ * Code for displaying server selection
  *
  * @version $Id$
  * @package phpMyAdmin

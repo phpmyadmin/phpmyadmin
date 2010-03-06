@@ -7,7 +7,7 @@
  * fills tooltip arrays and provides $tables, $num_tables, $is_show_stats
  * and $db_is_information_schema
  *
- * staybyte: speedup view on locked tables - 11 June 2001
+ * speedup view on locked tables
  *
  * @uses    $cfg['ShowStats']
  * @uses    $cfg['ShowTooltip']

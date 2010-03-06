@@ -308,7 +308,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 // DELAY_KEY_WRITE, CHECKSUM, : MyISAM only
 // AUTO_INCREMENT: MyISAM and InnoDB since 5.0.3, PBXT
 
-// nijel: Here should be version check for InnoDB, however it is supported
+// Here should be version check for InnoDB, however it is supported
 // in >5.0.4, >4.1.12 and >4.0.11, so I decided not to
 // check for version
 ?>

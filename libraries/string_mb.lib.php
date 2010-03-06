@@ -23,7 +23,6 @@
  * @param   string   string to count
  * @return  int      string length
  * @access  public
- * @author  nijel
  * @todo rename to PM_STR_len()
  */
 function PMA_strlen($string)
@@ -40,7 +39,6 @@ function PMA_strlen($string)
  * @param   int      length of substring
  * @return  int      substring
  * @access  public
- * @author  nijel
  * @todo rename to PM_STR_sub()
  */
 function PMA_substr($string, $start, $length = 2147483647)

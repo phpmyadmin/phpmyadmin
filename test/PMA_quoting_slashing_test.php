@@ -3,7 +3,6 @@
 /**
  * Test for quoting, slashing/backslashing
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_quoting_slashing_test.php
  */

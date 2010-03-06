@@ -62,7 +62,7 @@ if ($num_tables == 0) {
 }
 
 // else
-// 2. Shows table informations - staybyte - 11 June 2001
+// 2. Shows table informations
 
 require_once './libraries/bookmark.lib.php';
 
@@ -172,8 +172,7 @@ foreach ($tables as $keyname => $each_table) {
             }
     }
 
-    // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
-    //        statistics whatever is the table type
+    // Get valid statistics whatever is the table type
 
     $table_is_view = false;
     $table_encoded = urlencode($each_table['TABLE_NAME']);

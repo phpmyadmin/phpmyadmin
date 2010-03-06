@@ -175,7 +175,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getPageBufferpool()
     {
-        // rabus: The following query is only possible because we know
+        // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)
         $sql = '

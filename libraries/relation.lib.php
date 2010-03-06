@@ -25,7 +25,6 @@ require_once './libraries/Table.class.php';
  *
  * @access  public
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
 function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 {
@@ -217,7 +216,6 @@ function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $
  * @uses    PMA_DBI_fetch_row()
  * @uses    PMA_DBI_free_result()
  * @access  protected
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
  * @return  array    the relation parameters for the current user
  */
 function PMA__getRelationsParam()
@@ -361,8 +359,6 @@ function PMA__getRelationsParam()
  * Gets all Relations to foreign tables for a given table or
  * optionally a given column in a table
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
- * @author  Marc Delisle
  * @access  public
  * @uses    $GLOBALS['controllink']
  * @uses    $GLOBALS['information_schema_relations']
@@ -471,7 +467,6 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
  * Gets the display field of a table
  *
  * @access  public
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
  * @uses    $GLOBALS['controllink']
  * @uses    PMA_getRelationsParam()
  * @uses    PMA_backquote()
@@ -522,8 +517,6 @@ function PMA_getDisplayField($db, $table)
 /**
  * Gets the comments for all rows of a table or the db itself
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
- * @author  lem9
  * @access  public
  * @uses    PMA_DBI_get_fields()
  * @uses    PMA_getDbComment()
@@ -555,8 +548,6 @@ function PMA_getComments($db, $table = '')
 /**
  * Gets the comment for a db
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
- * @author  lem9
  * @access  public
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_DBI_num_rows()
@@ -598,8 +589,6 @@ function PMA_getDbComment($db)
 /**
  * Gets the comment for a db
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
- * @author  lem9
  * @access  public
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_DBI_num_rows()

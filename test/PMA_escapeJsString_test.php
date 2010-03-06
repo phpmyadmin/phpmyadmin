@@ -3,7 +3,6 @@
 /**
  * Test for javascript escaping.
  *
- * @author Michal Čihař <michal@cihar.com>
  * @package phpMyAdmin-test
  * @version $Id$
  */

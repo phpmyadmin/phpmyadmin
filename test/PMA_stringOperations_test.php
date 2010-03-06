@@ -3,7 +3,6 @@
 /**
  * Test for several string operations
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @version $Id: PMA_stringOperations_test.php
  */
 

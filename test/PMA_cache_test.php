@@ -3,7 +3,6 @@
 /**
  * Test for caching data in session
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_cache_test.php
  */

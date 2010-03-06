@@ -69,7 +69,6 @@ class PMA_StorageEngine
     /**
      * returns HTML code for storage engine select box
      *
-     * @author  rabus
      * @static
      * @uses    PMA_StorageEngine::getStorageEngines()
      * @uses    strtolower()

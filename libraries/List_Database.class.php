@@ -468,7 +468,7 @@ require_once './libraries/List.class.php';
     protected function _checkAgainstPrivTables()
     {
         // 1. get allowed dbs from the "mysql.db" table
-        // lem9: User can be blank (anonymous user)
+        // User can be blank (anonymous user)
         $local_query = "
             SELECT DISTINCT `Db` FROM `mysql`.`db`
             WHERE `Select_priv` = 'Y'
@@ -488,7 +488,7 @@ require_once './libraries/List.class.php';
             // now populated with actual database names instead of
             // with regular expressions.
             $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
-            // loic1: all databases cases - part 2
+            // all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
                 while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
                     $dblist[] = $tmp_row[0];
@@ -501,7 +501,7 @@ require_once './libraries/List.class.php';
                         $tmp_mydbs[$tmp_db] = 0;
                     } elseif (!isset($dblist[$tmp_db])) {
                         foreach ($tmp_mydbs as $tmp_matchpattern => $tmp_value) {
-                            // loic1: fixed bad regexp
+                            // fixed bad regexp
                             // TODO: db names may contain characters
                             //       that are regexp instructions
                             $re        = '(^|(\\\\\\\\)+|[^\])';

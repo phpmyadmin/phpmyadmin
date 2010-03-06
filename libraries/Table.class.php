@@ -501,7 +501,6 @@ class PMA_Table
 
      * @global  string  relation variable
      *
-     * @author          Garvin Hicking <me@supergarv.de>
      */
     static public function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
       $new_fields)
@@ -573,7 +572,6 @@ class PMA_Table
     /**
      * Copies or renames table
      *
-     * @author          Michal Cihar <michal@cihar.com>
      */
     static public function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
@@ -650,7 +648,7 @@ class PMA_Table
             }
             unset($server_sql_mode);
 
-            /* nijel: Find table name in query and replace it */
+            /* Find table name in query and replace it */
             while ($parsed_sql[$i]['type'] != $table_delimiter) {
                 $i++;
             }

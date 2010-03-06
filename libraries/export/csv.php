@@ -178,7 +178,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             if (!isset($row[$j]) || is_null($row[$j])) {
                 $schema_insert .= $GLOBALS[$what . '_null'];
             } elseif ($row[$j] == '0' || $row[$j] != '') {
-                // loic1 : always enclose fields
+                // always enclose fields
                 if ($what == 'excel') {
                     $row[$j]       = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                 }

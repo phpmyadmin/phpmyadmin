@@ -16,7 +16,7 @@ $GLOBALS['unparsed_sql'] = $sql_query;
 $parsed_sql = PMA_SQP_parse($sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 
-// lem9: for bug 780516: now that we use case insensitive preg_match
+// for bug 780516: now that we use case insensitive preg_match
 // or flags from the analyser, do not put back the reformatted query
 // into $sql_query, to make this kind of query work without
 // capitalizing keywords:

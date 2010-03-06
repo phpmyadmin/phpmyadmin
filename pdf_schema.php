@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contributed by Maxime Delorme and merged by lem9
  *
  * @version $Id$
  * @package phpMyAdmin
@@ -581,8 +580,6 @@ class PMA_RT_Table {
         $pdf->SetFillColor(255);
 
         foreach ($this->fields AS $field) {
-            // loic1 : PHP3 fix
-            // if (in_array($field, $this->primary)) {
             if ($setcolor) {
                 if (in_array($field, $this->primary)) {
                     $pdf->SetFillColor(215, 121, 123);
@@ -1060,7 +1057,6 @@ class PMA_RT {
         // .   ' AND foreign_table IN (' . $intable . ')';
         // $result =  PMA_query_as_controluser($sql);
 
-        // lem9:
         // previous logic was checking master tables and foreign tables
         // but I think that looping on every table of the pdf page as a master
         // and finding its foreigns is OK (then we can support innodb)
@@ -1080,7 +1076,7 @@ class PMA_RT {
                 } // end while
             } // end if
         } // end while
-        // loic1: also show tables without relations
+        // also show tables without relations
         // $norelations     = TRUE;
         // if ($result && PMA_DBI_num_rows($result) > 0) {
         // $norelations = FALSE;
@@ -1286,8 +1282,8 @@ function PMA_RT_DOC($alltables)
 
         while ($row = PMA_DBI_fetch_assoc($result)) {
             $type = $row['Type'];
-            // reformat mysql query output - staybyte - 9. June 2001
-            // loic1: set or enum types: slashes single quotes inside options
+            // reformat mysql query output
+            // set or enum types: slashes single quotes inside options
             if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
                 $tmp[2] = substr(preg_replace("@([^,])''@", "\\1\\'", ',' . $tmp[2]), 1);
                 $type = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';

@@ -3,7 +3,6 @@
 /**
  * Test for PMA_Message class
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @version $Id$
  */
 

@@ -294,7 +294,6 @@ function PMA_unQuote($quoted_string, $quote = null)
  *
  * @access  public
  *
- * @author  Robin Johnson <robbat2@users.sourceforge.net>
  */
 function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 {
@@ -1293,7 +1292,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
  * @access  public
  * @return  boolean whether profiling is supported
  *
- * @author   Marc Delisle
  */
 function PMA_profilingSupported()
 {
@@ -1319,7 +1317,6 @@ function PMA_profilingSupported()
  * @param   string  $sql_query
  * @access  public
  *
- * @author   Marc Delisle
  */
 function PMA_profilingCheckbox($sql_query)
 {
@@ -1340,7 +1337,6 @@ function PMA_profilingCheckbox($sql_query)
  * @param    array   the results
  * @access  public
  *
- * @author   Marc Delisle
  */
 function PMA_profilingResults($profiling_results)
 {
@@ -1371,7 +1367,6 @@ function PMA_profilingResults($profiling_results)
  *
  * @access  public
  *
- * @author   staybyte
  * @version  1.2 - 18 July 2002
  */
 function PMA_formatByteDown($value, $limes = 6, $comma = 0)
@@ -1428,7 +1423,6 @@ function PMA_formatByteDown($value, $limes = 6, $comma = 0)
  *
  * @access  public
  *
- * @author  staybyte, sebastian mendel
  * @version 1.1.0 - 2005-10-27
  */
 function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
@@ -1832,7 +1826,6 @@ function PMA_timespanFormat($seconds)
  * @param   string   The Separator (defaults to "<br />\n")
  *
  * @access  public
- * @author  Garvin Hicking <me@supergarv.de>
  * @return  string      The flipped string
  */
 function PMA_flipstring($string, $Separator = "<br />\n")
@@ -1892,7 +1885,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * @global  boolean flag whether any special variable was required
  *
  * @access  public
- * @author  Marc Delisle (lem9@users.sourceforge.net)
  */
 function PMA_checkParameters($params, $die = true, $request = true)
 {
@@ -1949,7 +1941,6 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
- * @author  Michal Cihar (michal@cihar.com) and others...
  * @return  string     the calculated condition and whether condition is unique 
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
@@ -2075,7 +2066,6 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
  * @param   string      image to display
  *
  * @access  public
- * @author  Michal Cihar (michal@cihar.com)
  */
 function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
     $image)
@@ -2128,7 +2118,6 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
  * @param   string      The prompt to display (sometimes empty)
  *
  * @access  public
- * @author  Garvin Hicking (pma@supergarv.de)
  */
 function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
     $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
@@ -2232,7 +2221,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
 
         // Move to the beginning or to the previous page
         if ($pos > 0) {
-            // loic1: patch #474210 from Gosha Sakovich - part 1
+            // patch #474210 - part 1
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
                 $caption2 = ' &lt; ';
@@ -2614,8 +2603,6 @@ function PMA_convert_bit_default_value($bit_default_value) {
  * @param   string $fieldspec
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
- * @author  Marc Delisle
- * @author  Joshua Hogendorn
  */
 function PMA_extractFieldSpec($fieldspec) {
     $first_bracket_pos = strpos($fieldspec, '(');

@@ -71,7 +71,6 @@ function PMA_transformation_getOptions($option_string)
  * Gets all available MIME-types
  *
  * @access  public
- * @author  Garvin Hicking <me@supergarv.de>
  * @uses    opendir()
  * @uses    readdir()
  * @uses    closedir()
@@ -139,8 +138,6 @@ function PMA_getAvailableMIMEtypes()
  * @uses    PMA_backquote()
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_DBI_fetch_result()
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
- * @author  Garvin Hicking <me@supergarv.de>
  * @access  public
  * @param   string   $db        the name of the db to check for
  * @param   string   $table     the name of the table to check for

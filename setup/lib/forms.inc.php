@@ -13,7 +13,6 @@
  *  'pmadb' => 'phpmyadmin')));
  *
  * @package    phpMyAdmin-setup
- * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  * @version    $Id$
  */

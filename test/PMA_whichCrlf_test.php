@@ -3,7 +3,6 @@
 /**
  * Test whichCrlf function
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_whichCrlf_test.php
  */

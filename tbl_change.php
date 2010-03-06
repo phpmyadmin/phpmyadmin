@@ -201,7 +201,7 @@ $foreigners  = PMA_getForeigners($db, $table);
 /**
  * Displays the form
  */
-// loic1: autocomplete feature of IE kills the "onchange" event handler and it
+// autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
 $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7)
                  ? 'onpropertychange'
@@ -327,11 +327,10 @@ foreach ($rows as $row_id => $vrow) {
 
             // d a t e t i m e
             //
-            // loic1: current date should not be set as default if the field is NULL
-            //        for the current row
-            // lem9:  but do not put here the current datetime if there is a default
-            //        value (the real default value will be set in the
-            //        Default value logic below)
+            // Current date should not be set as default if the field is NULL
+            // for the current row, but do not put here the current datetime 
+            // if there is a default value (the real default value will be set 
+            // in the Default value logic below)
 
             // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
             // $field['Default'] is not set if it contains NULL:
@@ -437,7 +436,7 @@ foreach ($rows as $row_id => $vrow) {
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
             } else {
-                // loic1: special binary "characters"
+                // special binary "characters"
                 if ($field['is_binary'] || $field['is_blob']) {
                 	if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields'] && !$cfg['ProtectBinary']) {
                 		$vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
@@ -453,15 +452,15 @@ foreach ($rows as $row_id => $vrow) {
 
                 $data            = $vrow[$field['Field']];
             } // end if... else...
-            // loic1: if a timestamp field value is not included in an update
-            //        statement MySQL auto-update it to the current timestamp
-            // lem9:  however, things have changed since MySQL 4.1, so
-            //        it's better to set a fields_prev in this situation
+            // If a timestamp field value is not included in an update
+            // statement MySQL auto-update it to the current timestamp;
+            // however, things have changed since MySQL 4.1, so
+            // it's better to set a fields_prev in this situation
             $backup_field  = '<input type="hidden" name="fields_prev'
                 . $field_name_appendix . '" value="'
                 . htmlspecialchars($vrow[$field['Field']]) . '" />';
         } else {
-            // loic1: display default values
+            // display default values
             if (!isset($field['Default'])) {
                 $field['Default'] = '';
                 $real_null_value          = TRUE;

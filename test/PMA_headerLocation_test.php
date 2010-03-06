@@ -3,7 +3,6 @@
 /**
  * Test for PMA_sendHeaderLocation
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @version $Id$
  */
 

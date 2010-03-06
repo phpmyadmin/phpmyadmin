@@ -611,10 +611,8 @@ PMA_generate_slider_effect('tablestatistics', $strDetails);
 /**
  * Displays Space usage and row statistics
  */
-// BEGIN - Calc Table Space - staybyte - 9 June 2001
-// loic1, 22 feb. 2002: updated with patch from
-//                      Joshua Nye <josh at boxcarmedia.com> to get valid
-//                      statistics whatever is the table type
+// BEGIN - Calc Table Space
+// Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], null, true);

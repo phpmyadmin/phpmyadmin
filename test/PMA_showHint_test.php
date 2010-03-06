@@ -3,7 +3,6 @@
 /**
  * Test for showHint function
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_showHint_test.php
  */

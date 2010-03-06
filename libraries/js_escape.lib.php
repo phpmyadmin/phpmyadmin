@@ -3,7 +3,6 @@
 /**
  * Javascript escaping functions.
  *
- * @author Michal Čihař <michal@cihar.com>
  * @package phpMyAdmin
  *
  * @version $Id$

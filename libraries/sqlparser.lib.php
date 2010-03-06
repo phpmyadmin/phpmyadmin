@@ -2,9 +2,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /** SQL Parser Functions for phpMyAdmin
  *
- * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
- * http://www.orbis-terrarum.net/?l=people.robbat2
- *
  * These functions define an SQL parser system, capable of understanding and
  * extracting data from a MySQL type SQL query.
  *
@@ -18,8 +15,8 @@
  * If you want to extract data from it then, you just need to run
  * $sql_info = PMA_SQP_analyze($parsed_sql);
  *
- * lem9: See comments in PMA_SQP_analyze for the returned info
- *       from the analyzer.
+ * See comments in PMA_SQP_analyze for the returned info
+ * from the analyzer.
  *
  * If you want a pretty-printed version of the query, do:
  * $string = PMA_SQP_formatHtml($parsed_sql);
@@ -217,7 +214,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
         global $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt;
 
-        // rabus: Convert all line feeds to Unix style
+        // Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
         $sql = str_replace("\r", "\n", $sql);
 
@@ -848,7 +845,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // for GROUP_CONCAT(...)
         $in_group_concat     = FALSE;
 
-/* Description of analyzer results by lem9
+/* Description of analyzer results
  *
  * db, table, column, alias
  * ------------------------

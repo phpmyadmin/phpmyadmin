@@ -2,7 +2,6 @@
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
  *
- * @author  Geoffray Warnants <http://www.geoffray.be>
  * @version 0.2b (20090704)
  */
 if (! defined('PHPMYADMIN')) {
@@ -69,7 +68,6 @@ function PMA_exportHeader()
           '<?php' . $GLOBALS['crlf']
         . '/**' . $GLOBALS['crlf']
         . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
-        . ' * @author Geoffray Warnants' . $GLOBALS['crlf']
         . ' * @version 0.2b' . $GLOBALS['crlf']
         . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
     );

@@ -128,7 +128,7 @@ class zipfile
 
         // "data descriptor" segment (optional but necessary if archive is not
         // served as file)
-        // nijel(2004-10-19): this seems not to be needed at all and causes
+        // this seems not to be needed at all and causes
         // problems in some cases (bug #1037737)
         //$fr .= pack('V', $crc);                 // crc32
         //$fr .= pack('V', $c_len);               // compressed filesize

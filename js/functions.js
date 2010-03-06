@@ -1123,7 +1123,6 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
  *
  * @return  boolean  whether pointer is set or not
  *
- * @author Garvin Hicking <me@supergarv.de> (rewrite of setPointer.)
  */
 function setVerticalPointer(theRow, theColNum, theAction, theDefaultClass1, theDefaultClass2, thePointerClass, theMarkClass) {
     // 1. Pointer and mark feature are disabled or the browser can't get the

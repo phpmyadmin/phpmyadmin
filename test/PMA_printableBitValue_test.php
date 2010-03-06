@@ -3,7 +3,6 @@
 /**
  * Test printableBitValue function
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_printableBitValue_test.php
  */

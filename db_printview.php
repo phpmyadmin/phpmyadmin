@@ -36,7 +36,7 @@ $cfgRelation = PMA_getRelationsParam();
  *
  * @todo merge this speedup _optionaly_ into PMA_DBI_get_tables_full()
  *
-// staybyte: speedup view on locked tables - 11 June 2001
+// speedup view on locked tables
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if ($cfg['SkipLockedTables'] == true) {
     $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
@@ -95,7 +95,7 @@ echo '<br />';
 if ($num_tables == 0) {
     echo $strNoTablesFound;
 }
-// 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
+// 2. Shows table informations on mysql >= 3.23.03
 else {
     ?>
 <table>

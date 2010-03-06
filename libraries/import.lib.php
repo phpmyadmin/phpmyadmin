@@ -303,8 +303,6 @@ function PMA_importGetNextChunk($size = 32768)
  * Returns the "Excel" column name (i.e. 1 = "A", 26 = "Z", 27 = "AA", etc.)
  * This algorithm only works up to ZZ. it fails on AAA (up to 701 columns) 
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
- *
  * @access  public
  *
  * @uses    chr()
@@ -344,7 +342,6 @@ function PMA_getColumnAlphaName($num)
  * Returns the column number based on the Excel name.
  * So "A" = 1, "AZ" = 27, etc.
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @access  public
  *
@@ -396,7 +393,6 @@ define("SIZES",     1);
 /**
  * Obtains the precision (total # of digits) from a size of type decimal
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @access  public
  *
@@ -412,7 +408,6 @@ function PMA_getM($last_cumulative_size) {
 /**
  * Obtains the scale (# of digits to the right of the decimal point) from a size of type decimal
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @access  public
  *
@@ -429,7 +424,6 @@ function PMA_getD($last_cumulative_size) {
 /**
  * Obtains the decimal size of a given cell
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @access  public
  *
@@ -452,7 +446,6 @@ function PMA_getDecimalSize(&$cell) {
 /**
  * Obtains the size of the given cell
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @todo    Handle the error cases more elegantly
  *
@@ -679,7 +672,6 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
 /**
  * Determines what MySQL type a cell is
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @access  public
  *
@@ -721,7 +713,6 @@ function PMA_detectType($last_cumulative_type, &$cell) {
 /**
  * Determines if the column types are int, decimal, or string
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @link http://wiki.phpmyadmin.net/pma/Devel:Import
  *
@@ -825,7 +816,6 @@ $import_notice = NULL;
  * Builds and executes SQL statements to create the database and tables
  * as necessary, as well as insert all the data.
  *
- * @author  Derek Schaefer (derek.schaefer@gmail.com)
  *
  * @link http://wiki.phpmyadmin.net/pma/Devel:Import
  *

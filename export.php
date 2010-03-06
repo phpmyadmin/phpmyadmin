@@ -334,7 +334,7 @@ if (!$save_on_server) {
 
         header('Content-Type: ' . $mime_type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        // lem9: Tested behavior of
+        // Tested behavior of
         //       IE 5.50.4807.2300
         //       IE 6.0.2800.1106 (small glitch, asks twice when I click Open)
         //       IE 6.0.2900.2180

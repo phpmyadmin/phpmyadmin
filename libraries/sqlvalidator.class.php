@@ -23,7 +23,6 @@
  *
  * @access   public
  *
- * @author   Robin Johnson <robbat2@users.sourceforge.net>
  *
  * @version  $Id$
  * @package phpMyAdmin

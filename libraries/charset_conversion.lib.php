@@ -130,13 +130,12 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  *
  * @access  public
  *
- * @author  nijel
  */
 function PMA_convert_charset($what) {
     global $cfg, $charset, $convcharset;
 
     if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] )
-        || $convcharset == $charset) { // rabus: if input and output charset are the same, we don't have to do anything...
+        || $convcharset == $charset) { // if input and output charset are the same, we don't have to do anything...
         return $what;
     } else {
         switch ($GLOBALS['PMA_recoding_engine']) {
@@ -166,7 +165,6 @@ function PMA_convert_charset($what) {
  *
  * @access  public
  *
- * @author  nijel
  */
 function PMA_convert_string($src_charset, $dest_charset, $what) {
     if ($src_charset == $dest_charset) {
@@ -200,7 +198,6 @@ function PMA_convert_string($src_charset, $dest_charset, $what) {
  *
  * @access  public
  *
- * @author  nijel
  */
 function PMA_convert_file($src_charset, $dest_charset, $file) {
     switch ($GLOBALS['PMA_recoding_engine']) {

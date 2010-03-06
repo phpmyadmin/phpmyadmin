@@ -37,8 +37,8 @@ $is_superuser = PMA_isSuperuser();
  * Prepares links
  */
 // Drop link if allowed
-// rabus: Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
-// nijel: Don't allow to easilly drop mysql database, RFE #1327514.
+// Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+// Don't allow to easilly drop mysql database, RFE #1327514.
 if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_information_schema && ($db != 'mysql')) {
     $tab_drop['link'] = 'sql.php';
     $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);

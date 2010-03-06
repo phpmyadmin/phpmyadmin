@@ -327,8 +327,8 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($row['Field']) . '</text:p>'
             . '</table:table-cell>';
-        // reformat mysql query output - staybyte - 9. June 2001
-        // loic1: set or enum types: slashes single quotes inside options
+        // reformat mysql query output
+        // set or enum types: slashes single quotes inside options
         $field_name = $row['Field'];
         $type = $row['Type'];
         if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {

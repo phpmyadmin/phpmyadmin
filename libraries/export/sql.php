@@ -848,7 +848,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
  *
  * @see     PMA_getTableContentFast(), PMA_getTableContentOld()
  *
- * @author  staybyte
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {

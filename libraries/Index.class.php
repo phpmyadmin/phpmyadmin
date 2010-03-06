@@ -419,7 +419,6 @@ class PMA_Index
      * @param   boolean     $print_mode
      * @access  public
      * @return  array       Index collection array
-     * @author  Garvin Hicking (pma@supergarv.de)
      */
     static public function getView($table, $schema, $print_mode = false)
     {

@@ -108,7 +108,7 @@ $header_cells[] = $strCollation;
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
 
-// lem9: We could remove this 'if' and let the key information be shown and
+// We could remove this 'if' and let the key information be shown and
 // editable. However, for this to work, tbl_alter must be modified to use the
 // key fields, as tbl_addfield does.
 
@@ -504,7 +504,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     $ci++;
 
     // column indexes
-    // lem9: See my other comment about removing this 'if'.
+    // See my other comment about removing this 'if'.
     if (!$is_backup) {
         $content_cells[$i][$ci] = '<select name="field_key[' . $i . ']"'
             . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';

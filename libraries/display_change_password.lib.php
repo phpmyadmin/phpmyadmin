@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * loic1: autocomplete feature of IE kills the "onchange" event handler and it
+ * autocomplete feature of IE kills the "onchange" event handler and it
  *        must be replaced by the "onpropertychange" one in this case
  */
 $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)

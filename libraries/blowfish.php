@@ -11,13 +11,12 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * @author  Mike Cochrane <mike@graftonhall.co.nz>
  * @version $Id$
  * @since   Horde 2.2
  * @package horde.cipher
  */
 
-// Change for phpMyAdmin by lem9:
+// Change for phpMyAdmin
 //class Horde_Cipher_blowfish extends Horde_Cipher {
 /**
  * Horde Blowfish cipher class.
@@ -480,7 +479,6 @@ class Horde_Cipher_blowfish
  *
  * @access  public
  *
- * @author  lem9
  */
 function PMA_blowfish_encrypt($data, $secret)
 {
@@ -509,7 +507,6 @@ function PMA_blowfish_encrypt($data, $secret)
  *
  * @access  public
  *
- * @author  lem9
  */
 function PMA_blowfish_decrypt($encdata, $secret)
 {

@@ -30,7 +30,6 @@
  *
  * @access  public
  *
- * @author  nijel
  */
 function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $skip = array())
 {
@@ -197,7 +196,6 @@ function PMA_getHiddenFields($values, $pre = '')
  *                    instead of '&amp;' for dividing URL parameters
  * @return  string   string with URL parameters
  * @access  public
- * @author  nijel
  */
 function PMA_generate_common_url()
 {
@@ -289,7 +287,6 @@ function PMA_generate_common_url()
  * @param   string  whether to encode separator or not, currently 'none' or 'html'
  * @return  string  character used for separating url parts usally ; or &
  * @access  public
- * @author  nijel
  */
 function PMA_get_arg_separator($encode = 'none')
 {

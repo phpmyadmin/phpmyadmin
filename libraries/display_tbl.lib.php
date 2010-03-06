@@ -812,7 +812,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
             // 2.1.4 Do define the sorting URL
             if (! $is_in_sort) {
-                // loic1: patch #455484 ("Smart" order)
+                // patch #455484 ("Smart" order)
                 $GLOBALS['cfg']['Order'] = strtoupper($GLOBALS['cfg']['Order']);
                 if ($GLOBALS['cfg']['Order'] === 'SMART') {
                     $sort_order .= (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
@@ -1042,7 +1042,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
     $odd_row = true;
     while ($row = PMA_DBI_fetch_row($dt_result)) {
-        // lem9: "vertical display" mode stuff
+        // "vertical display" mode stuff
         if ($row_no != 0 && $_SESSION['tmp_user_values']['repeat_cells'] != 0 && !($row_no % $_SESSION['tmp_user_values']['repeat_cells'])
           && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
@@ -1068,7 +1068,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         $odd_row = ! $odd_row;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
-            // loic1: pointer code part
+            // pointer code part
             echo '    <tr class="' . $class . '">' . "\n";
             $class = '';
         }
@@ -1252,7 +1252,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             // n u m e r i c
             if ($meta->numeric == 1) {
 
-                // lem9: if two fields have the same name (this is possible
+                // if two fields have the same name (this is possible
                 //       with self-join queries, for example), using $meta->name
                 //       will show both fields NULL even if only one is NULL,
                 //       so use the $pointer
@@ -1272,7 +1272,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             //  b l o b
 
             } elseif (stristr($meta->type, 'BLOB')) {
-                // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
+                // PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
@@ -1338,7 +1338,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P') {
                             $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
-                        // loic1: displays all space characters, 4 space
+                        // displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
@@ -1352,16 +1352,16 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td' . $mouse_events . ' class="' . $class . ($condition_field ? ' condition' : '') . '"><i>NULL</i></td>' . "\n";
                 } elseif ($row[$i] != '') {
-                    // loic1: support blanks in the key
+                    // support blanks in the key
                     $relation_id = $row[$i];
 
-                    // nijel: Cut all fields to $GLOBALS['cfg']['LimitChars']
-                    // lem9: (unless it's a link-type transformation)
+                    // Cut all fields to $GLOBALS['cfg']['LimitChars']
+                    // (unless it's a link-type transformation)
                     if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && $_SESSION['tmp_user_values']['display_text'] == 'P' && !strpos($transform_function, 'link') === true) {
                         $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
 
-                    // loic1: displays special characters from binaries
+                    // displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i]     = PMA_printable_bit_value($row[$i], $meta->length);
@@ -1388,7 +1388,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     $function_nowrap = $transform_function . '_nowrap';
                     $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 
-                    // loic1: do not wrap if date field type
+                    // do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
                     $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
                     $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($mouse_events, $class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options);
@@ -1398,7 +1398,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             }
 
-            // lem9: output stored cell
+            // output stored cell
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo $vertical_display['data'][$row_no][$i];
@@ -1987,7 +1987,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 2b ----- Get field references from Database -----
     // (see the 'relation' configuration variable)
-    // loic1, 2002-03-02: extended to php3
 
     // initialize map
     $map = array();

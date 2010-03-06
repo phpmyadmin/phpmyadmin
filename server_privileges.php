@@ -1389,7 +1389,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 PMA_DBI_free_result($res);
                 unset($res);
             } else {
-                // rabus: This message is hardcoded because I will replace it by
+                // This message is hardcoded because I will replace it by
                 // a automatic repair feature soon.
                 $raw = 'Your privilege table structure seems to be older than'
                     . ' this MySQL version!<br />'

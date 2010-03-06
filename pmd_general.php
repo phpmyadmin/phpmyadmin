@@ -1,7 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @author  Ivan A Kirillov (Ivan.A.Kirillov@gmail.com)
  * @version $Id$
  * @package phpMyAdmin-Designer
  */

@@ -47,7 +47,6 @@
  * @uses    sprintf()
  * @uses    in_array()
  * @version $Id$
- * @author  Thomas Chaumeny <chaume92 at aol.com>
  * @package phpMyAdmin
  */
 

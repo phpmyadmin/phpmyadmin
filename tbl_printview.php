@@ -160,8 +160,8 @@ foreach ($the_tables as $key => $table) {
     <?php
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $type             = $row['Type'];
-        // reformat mysql query output - staybyte - 9. June 2001
-        // loic1: set or enum types: slashes single quotes inside options
+        // reformat mysql query output
+        // set or enum types: slashes single quotes inside options
         if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
             $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'',
                                     ',' . $tmp[2]), 1);
@@ -270,7 +270,6 @@ foreach ($the_tables as $key => $table) {
         /**
          * Displays Space usage and row statistics
          *
-         * staybyte - 9 June 2001
          */
         if ($cfg['ShowStats']) {
             $nonisam     = false;

@@ -67,7 +67,7 @@ if (!isset($param) || $param[0] == '') {
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
-        // reformat mysql query output - staybyte - 9. June 2001
+        // reformat mysql query output
         if (strncasecmp($type, 'set', 3) == 0
             || strncasecmp($type, 'enum', 4) == 0) {
             $type = str_replace(',', ', ', $type);

@@ -3,7 +3,6 @@
 /**
  * Test for MySQL Wildcards escaping/unescaping
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id$
  */

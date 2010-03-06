@@ -2,7 +2,6 @@
 /**
  * Config file management and generation
  *
- * @author     Piotr Przybylski <piotrprz@gmail.com>
  * @license    http://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  * @version    $Id$
  * @package    phpMyAdmin-setup

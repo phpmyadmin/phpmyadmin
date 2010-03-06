@@ -3,7 +3,6 @@
 /**
  * Holds class PMA_Message
  *
- * @author Sebastian Mendel <info@sebastianmendel.de>
  * @version $Id$
  * @package phpMyAdmin
  */

@@ -52,7 +52,6 @@ if (function_exists('mcrypt_encrypt')) {
      *
      * @access  public
      *
-     * @author  lem9
      */
     function PMA_blowfish_encrypt($data, $secret)
     {
@@ -70,7 +69,6 @@ if (function_exists('mcrypt_encrypt')) {
      *
      * @access  public
      *
-     * @author  lem9
      */
     function PMA_blowfish_decrypt($encdata, $secret)
     {

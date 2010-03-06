@@ -49,7 +49,6 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  *
  * @access  public
  *
- * @author  bwiberg  Björn Wiberg <Bjorn.Wiberg@its.uu.se>
  */
 function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str) {
 

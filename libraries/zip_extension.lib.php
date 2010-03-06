@@ -13,7 +13,6 @@
   * @param   string  $file
   * @return  array  ($error_message, $file_data); $error_message
   *                  is empty if no error
-  * @author lem9
   */
 
 function PMA_getZipContents($file)
@@ -75,7 +74,6 @@ function PMA_getZipContents($file)
   *
   * @param   integer  error code
   * @return  string  error message
-  * @author lem9
  */
 function PMA_getZipError($code)
 {

@@ -184,7 +184,6 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
  * @return   string  The secured path
  *
  * @access  public
- * @author  Marc Delisle (lem9@users.sourceforge.net)
  */
 function PMA_securePath($path)
 {

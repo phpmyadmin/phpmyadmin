@@ -3,7 +3,6 @@
 /**
  * Test for generating localised date or timespan expression
  *
- * @author Michal Biniek <michal@bystrzyca.pl>
  * @package phpMyAdmin-test
  * @version $Id: PMA_localisedDateTimespan_test.php
  */
