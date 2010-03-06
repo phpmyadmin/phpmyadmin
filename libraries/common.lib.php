@@ -1764,14 +1764,14 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                     . implode(' ', $tag_params_strings)
                     . ' value="' . htmlspecialchars($message) . '" />';
             } else {
+                $displayed_message = htmlspecialchars(
+                        preg_replace('/^.*\salt="([^"]*)".*$/si', '\1',
+                            $message));
                 $ret .= '<input type="image"' . $submit_name . ' '
                     . implode(' ', $tag_params_strings)
                     . ' src="' . preg_replace(
                         '/^.*\ssrc="([^"]*)".*$/si', '\1', $message) . '"'
-                    . ' value="' . htmlspecialchars(
-                        preg_replace('/^.*\salt="([^"]*)".*$/si', '\1',
-                            $message))
-                    . '" />';
+                    . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />'; 
             }
         } else {
             $message = trim(strip_tags($message));
