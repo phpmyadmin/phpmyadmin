@@ -298,6 +298,12 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     echo '</div>' . "\n";
 
+    echo '<script type="text/javascript">' . "\n"
+        .'//<![CDATA[' . "\n"
+        .'document.getElementById("sqlquery").focus();' . "\n"
+        .'//]]>' . "\n"
+        .'</script>' . "\n";
+
     if (count($fields_list)) {
         echo '<div id="tablefieldscontainer">' . "\n"
             .'<label>' . $GLOBALS['strFields'] . '</label>' . "\n"
