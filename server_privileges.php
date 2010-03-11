@@ -1901,7 +1901,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     echo '    </select>' . "\n";
                 }
                 echo '    <input type="text" id="text_dbname" name="dbname" />' . "\n"
-                    . PMA_showHint($GLOBALS['strEscapeWildcards']);
+                    . PMA_showHint(__('Wildcards _ and % should be escaped with a \ to use them literally'));
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . $GLOBALS['strAddPrivilegesOnTbl'] . ':</label>' . "\n";

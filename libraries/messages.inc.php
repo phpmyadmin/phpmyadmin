@@ -35,8 +35,6 @@ $timespanfmt = __('%s days, %s hours, %s minutes and %s seconds');
 
 $strAbortedClients = __('Aborted');
 $strAccessDenied = __('Access denied');
-$strAccessDeniedCreateConfig = __('You probably did not create a configuration file. You might want to use the %1$ssetup script%2$s to create one.');
-$strAccessDeniedExplanation = __('phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.');
 $strAction = __('Action');
 $strActions = __('Actions');
 $strAddAutoIncrement = __('Add AUTO_INCREMENT value');
@@ -316,7 +314,6 @@ $strErrorRelationAdded = __('Error: Relation not added.');
 $strErrorRelationExists = __('Error: relation already exists.');
 $strErrorRenamingTable = __('Error renaming table %1$s to %2$s');
 $strErrorSaveTable = __('Error saving coordinates for Designer.');
-$strEscapeWildcards = __('Wildcards _ and % should be escaped with a \ to use them literally');
 $strEsperanto = __('Esperanto');
 $strEstonian = __('Estonian');
 $strEvent = __('Event');
