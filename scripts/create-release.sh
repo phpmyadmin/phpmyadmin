@@ -4,6 +4,9 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 #
 
+# More documentation about making a release is available at:
+# http://wiki.phpmyadmin.net/pma/Devel:Releasing
+
 # Fail on undefined variables
 set -u
 # Fail on failure
