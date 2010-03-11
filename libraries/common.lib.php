@@ -346,7 +346,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['MySQLManualType']
  * @uses    $cfg['MySQLManualBase']
  * @uses    $cfg['ReplaceHelpImg']
- * @uses    $GLOBALS['mysql_4_1_doc_lang']
  * @uses    $GLOBALS['mysql_5_1_doc_lang']
  * @uses    $GLOBALS['mysql_5_0_doc_lang']
  * @uses    $GLOBALS['strDocu']

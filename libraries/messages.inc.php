@@ -22,7 +22,6 @@ $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'
 
 // MySQL manual language definition, this is optional, en will be used
 // if not defined
-$mysql_4_1_doc_lang = _pgettext('$mysql_4_1_doc_lang', 'en');
 $mysql_5_0_doc_lang = _pgettext('$mysql_5_0_doc_lang', 'en');
 $mysql_5_1_doc_lang = _pgettext('$mysql_5_1_doc_lang', 'en');
 
