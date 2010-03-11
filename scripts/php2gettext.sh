@@ -4,22 +4,26 @@ mkdir -p po
 
 
 sed "
+    s/' ;/';/;
     /to translate/D;
     /\$allow_recoding/D;
     s/\$byteUnits = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_B = '\1';\n\$str_KiB = '\2';\n\$str_MiB = '\3';\n\$str_GiB = '\4';\n\$str_TiB = '\5';\n\$str_PiB = '\6';\n\$str_EiB = '\7';/;
     s/\$day_of_week = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Sun = '\1';\n\$str_Mon = '\2';\n\$str_Tue = '\3';\n\$str_Wed = '\4';\n\$str_Thu = '\5';\n\$str_Fri = '\6';\n\$str_Sat = '\7';\n/;
-    s/\$month = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n\$str_Jul = '\7';\n\$str_Aug = '\8';\n\$str_Sep = '\9';\n\$str_Oct = '\10';\n\$str_Nov = '\11';\n\$str_Dec = '\12';\n/;
+    s/\(\$month = array('.*', '.*', '.*', '.*', '.*', '.*',\) '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\1\n\$str_Jul = '\2';\n\$str_Aug = '\3';\n\$str_Sep = '\4';\n\$str_Oct = '\5';\n\$str_Nov = '\6';\n\$str_Dec = '\7';\n/;
+    s/\$month = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)',/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n/;
     " < lang/english-utf-8.inc.php > po/english.php
 
 for lang in lang/*.inc.php ; do
     loc=`basename $lang | sed 's/-utf-8.inc.php//'`
     # Unfold arrays, delete not translated strings
     sed "
+    s/' ;/';/;
     /to translate/D;
     /\$allow_recoding/D;
     s/\$byteUnits = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_B = '\1';\n\$str_KiB = '\2';\n\$str_MiB = '\3';\n\$str_GiB = '\4';\n\$str_TiB = '\5';\n\$str_PiB = '\6';\n\$str_EiB = '\7';/;
     s/\$day_of_week = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Sun = '\1';\n\$str_Mon = '\2';\n\$str_Tue = '\3';\n\$str_Wed = '\4';\n\$str_Thu = '\5';\n\$str_Fri = '\6';\n\$str_Sat = '\7';\n/;
-    s/\$month = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n\$str_Jul = '\7';\n\$str_Aug = '\8';\n\$str_Sep = '\9';\n\$str_Oct = '\10';\n\$str_Nov = '\11';\n\$str_Dec = '\12';\n/;
+    s/\(\$month = array('.*', '.*', '.*', '.*', '.*', '.*',\) '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\1\n\$str_Jul = '\2';\n\$str_Aug = '\3';\n\$str_Sep = '\4';\n\$str_Oct = '\5';\n\$str_Nov = '\6';\n\$str_Dec = '\7';\n/;
+    s/\$month = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)',/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n/;
     " < $lang > po/$loc.php
 
     case $loc in
@@ -86,13 +90,13 @@ for lang in lang/*.inc.php ; do
 
     echo "$loc -> $langcode"
     if [ $langcode = en ] ; then
-        php2po -i po/english.php -o po/phpmyadmin.pot -P
+        php2po -i po/english.php -o po/phpmyadmin-update.pot -P
         sed -i '
             s/PACKAGE VERSION/phpMyAdmin 3.4/;
             s/Report-Msgid-Bugs-To: .*\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\n/;
-            ' po/phpmyadmin.pot
+            ' po/phpmyadmin-update.pot
     else
-        php2po -t po/english.php -i po/$loc.php  -o po/$langcode.po
+        php2po -t po/english.php -i po/$loc.php  -o po/$langcode-update.po
         sed -i "
             s/PACKAGE VERSION/phpMyAdmin 3.4/;
             /, fuzzy/D;
@@ -100,6 +104,7 @@ for lang in lang/*.inc.php ; do
             s/YEAR-MO-DA HO:MI+ZONE/`date +'%Y-%m-%d %H:%M%z'`/;
             s/FULL NAME <EMAIL@ADDRESS>/Automatically generated/;
             s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\\\n/;
-            " po/$langcode.po
+            " po/$langcode-update.po
+        pomerge -t po/$langcode.po -i po/$langcode-update.po -o po/$langcode.po
     fi
 done
