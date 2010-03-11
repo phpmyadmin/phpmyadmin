@@ -1,0 +1,7 @@
+#!/bin/sh
+for x in po/*.po  ; do 
+    lang=`echo $x | sed 's@po/\(.*\)\.po@\1@'`
+    echo -n "$lang: "
+    mkdir -p locale/$lang/LC_MESSAGES
+    msgfmt --statistics --check -o locale/$lang/LC_MESSAGES/phpmyadmin.mo $x
+done
