@@ -190,6 +190,7 @@ cat <<END
 
 Todo now:
 ---------
+
  1. tag the subversion tree with the new revision number for a plain release
     or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
@@ -197,7 +198,9 @@ Todo now:
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
     this release and paste into it the ChangeLog for this release
- 3. upload the files and the notes file to SF (procedure explained on the sf.net Project Admin/File Manager help page)
+ 3. upload the files to SF, you can use scripts/upload-release, eg.:
+
+        ./scripts/upload-release \$USER $version release
  4. add SF news item to phpMyAdmin project
  5. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
  6. send a short mail (with list of major changes) to
