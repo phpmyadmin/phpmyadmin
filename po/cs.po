@@ -2664,7 +2664,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabulky"
 
