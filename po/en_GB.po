@@ -1565,7 +1565,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
