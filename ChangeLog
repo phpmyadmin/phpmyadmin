@@ -48,6 +48,7 @@ $HeadURL: https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/trunk/phpMyA
 + [lang] Chinese Simplified update, thanks to Shanyan Baishui - rimyxp 
 + [lang] Turkish update, thanks to Burak Yavuz
 + rfe #2963310 [interface] Focus TEXTAREA "sql_query" on click on "SQL" link
++ [lang] Uzbek update, thanks to Orzu Samarqandiy
 
 3.3.2.0 (not yet released)
 
