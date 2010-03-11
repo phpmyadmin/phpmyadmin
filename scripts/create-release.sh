@@ -15,11 +15,13 @@ COMPRESSIONS="zip-7z tbz tgz 7z"
 if [ $# -lt 2 ]
 then
   echo "Usages:"
-  echo "  create-release.sh <version> <from_branch>"
+  echo "  create-release.sh <version> <from_branch> [--tag]"
+  echo ""
+  echo "If --tag is specified, relase tag is automatically created"
   echo ""
   echo "Examples:"
   echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-  echo "  create-release.sh 2.9.0 MAINT_2_9_0 TAG"
+  echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag"
   exit 65
 fi
 
@@ -159,6 +161,29 @@ echo "Files:"
 echo "------"
 
 ls -la *.gz *.zip *.bz2 *.7z
+
+cd ..
+
+
+if [ $# -gt 0 ] ; then
+    echo
+    echo "Additional tasks:"
+    while [ $# -gt 0 ] ; do
+        param=$1
+        case $1 in
+            --tag)
+                tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
+                echo "* Tagging release as $tagname"
+                git tag -a -m "Released $version" $tagname $branch
+                ;;
+            *)
+                echo "Unknown parameter: $1!"
+                exit 1
+        esac
+        shift
+    done
+    echo
+fi
 
 cat <<END
 
