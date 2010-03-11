@@ -2708,7 +2708,6 @@ msgid "Overhead"
 msgstr "Navíc"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Přepsat existující soubory"
 
