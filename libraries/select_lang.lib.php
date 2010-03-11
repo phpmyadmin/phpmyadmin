@@ -344,9 +344,6 @@ function PMA_langList()
  */
 $GLOBALS['lang_path'] = './locale/';
 
-define('LOCALE_DIR', realpath($GLOBALS['lang_path']));
-define('DEFAULT_LOCALE', 'en_US');
-
 /**
  * Load gettext functions.
  */
@@ -451,6 +448,10 @@ if (! PMA_langCheck()) {
 
 // Set locale
 T_setlocale(LC_MESSAGES, $GLOBALS['lang']);
+T_bindtextdomain('phpmyadmin', $GLOBALS['lang_path']);
+T_bind_textdomain_codeset('phpmyadmin', 'UTF-8');
+T_textdomain('phpmyadmin');
+
 
 // Load messages
 require_once './libraries/messages.inc.php';
