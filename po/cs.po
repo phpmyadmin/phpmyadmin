@@ -1417,7 +1417,6 @@ msgid "Execute bookmarked query"
 msgstr "Spustit oblíbený dotaz"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
