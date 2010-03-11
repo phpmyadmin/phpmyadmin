@@ -95,6 +95,18 @@ LC_ALL=C date -u > RELEASE-DATE-${version}
 # Building Documentation.txt
 LC_ALL=C w3m -dump Documentation.html > Documentation.txt
 
+# Check for gettext support
+if [ -d po ] ; then
+    GETTEXT=1
+else
+    GETTEXT=0
+fi
+
+# Generate mo files
+if [ $GETTEXT -eq 1 ] ; then
+    ./scripts/generate-mo
+fi
+
 # Remove test directory from package to avoid Path disclosure messages
 # if someone runs /test/wui.php and there are test failures
 rm -rf test
