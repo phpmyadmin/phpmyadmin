@@ -27,5 +27,6 @@ put phpMyAdmin-$REL-all-languages.zip
 put phpMyAdmin-$REL-english.zip
 put phpMyAdmin-$REL-all-languages.7z	
 put phpMyAdmin-$REL-english.7z
+put phpMyAdmin-$REL-notes.html
 EOT
 
