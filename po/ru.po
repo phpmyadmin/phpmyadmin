@@ -1,7 +1,7 @@
 #. extracted from po/english.php, po/russian.php
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-11 18:52+0200\n"
 "PO-Revision-Date: 2010-03-11 18:52+0100\n"
@@ -5511,10 +5511,6 @@ msgstr "Обновить"
 #: $strSetupSQLQuery_ShowAsPHP_name
 msgid "Create PHP Code"
 msgstr "Генерировать PHP-код"
-
-#: $strSetupSQLQuery_Validate_name
-msgid "Validate SQL"
-msgstr "Проверка синтаксиса"
 
 #: $strSetupSuggestDBName_desc
 msgid ""

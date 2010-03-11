@@ -1,7 +1,7 @@
 #. extracted from po/english.php, po/czech.php
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-11 18:52+0200\n"
 "PO-Revision-Date: 2010-03-11 18:52+0100\n"
@@ -1780,10 +1780,6 @@ msgstr "Upravit strukturu kliknutím na odkaz \"Struktura\""
 #: $strImportODSCurrency
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importovat měny (5.00 místo $5.00)"
-
-#: $strImportODS
-msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
 
 #: $strImportODSPercents
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -4084,10 +4080,6 @@ msgstr "Časový limit běhu skriptu"
 #: $strSetupExport_asfile_name
 msgid "Save as file"
 msgstr "Uložit jako soubor"
-
-#: $strSetupExport_charset_name
-msgid "Character set of the file"
-msgstr "Znaková sada souboru"
 
 #: $strSetupExport_compression_name
 msgid "Compression"
