@@ -1791,7 +1791,6 @@ msgid "Import files"
 msgstr "Importovat soubory"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Formát importovaného souboru"
 
