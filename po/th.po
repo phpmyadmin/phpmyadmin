@@ -1,0 +1,7161 @@
+#. extracted from po/english.php, po/thai.php
+msgid ""
+msgstr ""
+"Project-Id-Version: phpMyAdmin 3.4\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2010-03-11 17:18+0200\n"
+"PO-Revision-Date: 2010-03-11 17:18+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: thai <th@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.5.3\n"
+
+#. /* $Id$
+#: $charset
+msgid "utf-8"
+msgstr "utf-8"
+
+#. ('ltr' for left to right, 'rtl' for right to left)
+#: $text_dir
+msgid "ltr"
+msgstr "ltr"
+
+#: $number_thousands_separator
+msgid ","
+msgstr ","
+
+#: $number_decimal_separator
+msgid "."
+msgstr "."
+
+#: $str_B
+msgid "B"
+msgstr "ไบต์"
+
+#: $str_KiB
+msgid "KiB"
+msgstr "กิโลไบต์"
+
+#: $str_MiB
+msgid "MiB"
+msgstr "เมกกะไบต์"
+
+#: $str_GiB
+msgid "GiB"
+msgstr "กิกะไบต์"
+
+#: $str_TiB
+msgid "TiB"
+msgstr "เทอราไบต์"
+
+#: $str_PiB
+msgid "PiB"
+msgstr "เพตตะไบต์"
+
+#: $str_EiB
+msgid "EiB"
+msgstr "เอกซะไบต์"
+
+#: $mysql_4_1_doc_lang
+msgctxt "$mysql_4_1_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_0_doc_lang
+msgctxt "$mysql_5_0_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_1_doc_lang
+msgctxt "$mysql_5_1_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $str_Sun
+msgid "Sun"
+msgstr "อา."
+
+#: $str_Mon
+msgid "Mon"
+msgstr "จ."
+
+#: $str_Tue
+msgid "Tue"
+msgstr "อ."
+
+#: $str_Wed
+msgid "Wed"
+msgstr "พ."
+
+#: $str_Thu
+msgid "Thu"
+msgstr "พฤ."
+
+#: $str_Fri
+msgid "Fri"
+msgstr "ศ."
+
+#: $str_Sat
+msgid "Sat"
+msgstr "ส."
+
+#: $str_Jan
+msgid "Jan"
+msgstr "ม.ค."
+
+#: $str_Feb
+msgid "Feb"
+msgstr "ก.พ."
+
+#: $str_Mar
+msgid "Mar"
+msgstr "มี.ค."
+
+#: $str_Apr
+msgid "Apr"
+msgstr "เม.ย."
+
+#: $str_May
+msgid "May"
+msgstr "พ.ค."
+
+#: $str_Jun
+msgid "Jun"
+msgstr "มิ.ย."
+
+#: $str_Jul
+msgid "Jul"
+msgstr "ก.ค."
+
+#: $str_Aug
+msgid "Aug"
+msgstr "ส.ค."
+
+#: $str_Sep
+msgid "Sep"
+msgstr "ก.ย."
+
+#: $str_Oct
+msgid "Jan0"
+msgstr "ม.ค.0"
+
+#: $str_Nov
+msgid "Jan1"
+msgstr "ม.ค.1"
+
+#: $str_Dec
+msgid "Jan2"
+msgstr "ม.ค.2"
+
+#: $datefmt
+msgid "%B %d, %Y at %I:%M %p"
+msgstr "%d %B %Y  %Rน."
+
+#: $timespanfmt
+msgid "%s days, %s hours, %s minutes and %s seconds"
+msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินาที"
+
+#: $strAbortedClients
+msgid "Aborted"
+msgstr "ยกเลิก"
+
+#: $strAccessDenied
+msgid "Access denied"
+msgstr "ไม่อนุญาตให้ใช้งาน"
+
+#: $strAccessDeniedCreateConfig
+msgid ""
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
+msgstr ""
+
+#: $strAccessDeniedExplanation
+msgid ""
+"phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
+"connection. You should check the host, username and password in your "
+"configuration and make sure that they correspond to the information given by "
+"the administrator of the MySQL server."
+msgstr ""
+
+#: $strAction
+msgid "Action"
+msgstr "กระทำการ"
+
+#: $strActions
+msgid "Actions"
+msgstr ""
+
+#: $strAddAutoIncrement
+msgid "Add AUTO_INCREMENT value"
+msgstr "เพิ่มค่า AUTO_INCREMENT"
+
+#: $strAddClause
+msgid "Add %s"
+msgstr ""
+
+#: $strAddConstraints
+msgid "Add constraints"
+msgstr ""
+
+#: $strAddDeleteColumn
+msgid "Add/Delete Field Columns"
+msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+
+#: $strAddDeleteRow
+msgid "Add/Delete Criteria Row"
+msgstr "เพิ่ม/ลบ แถว"
+
+#: $strAddFields
+msgid "Add %s field(s)"
+msgstr ""
+
+#: $strAddHeaderComment
+msgid "Add custom comment into header (\\n splits lines)"
+msgstr ""
+
+#: $strAddIntoComments
+msgid "Add into comments"
+msgstr ""
+
+#: $strAddNewField
+msgid "Add new field"
+msgstr "เพิ่มฟิลด์ใหม่"
+
+#: $strAddPrivilegesOnDb
+msgid "Add privileges on the following database"
+msgstr "เพิ่มสิทธิของฐานข้อมูลต่อไปนี้"
+
+#: $strAddPrivilegesOnTbl
+msgid "Add privileges on the following table"
+msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+
+#: $strAddSearchConditions
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "เพิ่มเงื่อนไขในการค้นหา:"
+
+#: $strAddToIndex
+msgid "Add to index &nbsp;%s&nbsp;column(s)"
+msgstr "เพิ่มดัชนีคอลัมน์ %s"
+
+#: $strAddUser
+msgid "Add a new User"
+msgstr "เพิ่มผู้ใช้ใหม่"
+
+#: $strAddUserMessage
+msgid "You have added a new user."
+msgstr "เพิ่มผู้ใช้ใหม่เรียบร้อยแล้ว"
+
+#: $strAdministration
+msgid "Administration"
+msgstr "การดูแลระบบ"
+
+#: $strAfter
+msgid "After %s"
+msgstr "หลัง %s"
+
+#: $strAfterInsertBack
+msgid "Go back to previous page"
+msgstr "ส่งกลับ"
+
+#: $strAfterInsertNewInsert
+msgid "Insert another new row"
+msgstr "แทรกระเบียนใหม่"
+
+#: $strAfterInsertNext
+msgid "Edit next row"
+msgstr ""
+
+#: $strAfterInsertSame
+msgid "Go back to this page"
+msgstr ""
+
+#: $strAll
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: $strAllowInterrupt
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. This might be good way to import large files, "
+"however it can break transactions."
+msgstr ""
+
+#: $strAllTableSameWidth
+msgid "Display all tables with the same width"
+msgstr "ให้แสดงตารางทุกอัน ด้วยความกว้างเท่ากันหรือไม่?"
+
+#: $strAlterOrderBy
+msgid "Alter table order by"
+msgstr "เรียงค่าในตารางตาม"
+
+#: $strAnalyze
+msgid "Analyze"
+msgstr ""
+
+#: $strAnalyzeTable
+msgid "Analyze table"
+msgstr "วิเคราะห์ตาราง"
+
+#: $strAnd
+msgid "And"
+msgstr "และ"
+
+#: $strAndSmall
+msgid "and"
+msgstr ""
+
+#: $strAndThen
+msgid "and then"
+msgstr ""
+
+#: $strAngularLinks
+msgid "Angular links"
+msgstr ""
+
+#: $strAnIndex
+msgid "An index has been added on %s"
+msgstr "ได้เพิ่มดัชนีแล้วใน %s"
+
+#: $strAny
+msgid "Any"
+msgstr "ใดๆ"
+
+#: $strAnyHost
+msgid "Any host"
+msgstr "โฮสต์ใดๆ"
+
+#: $strAnyUser
+msgid "Any user"
+msgstr "ผู้ใช้ใดๆ"
+
+#: $strApplyChanges
+msgid "Apply Selected Changes"
+msgstr ""
+
+#: $strApproximateCount
+msgid ""
+"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a]"
+msgstr ""
+
+#: $strAPrimaryKey
+msgid "A primary key has been added on %s"
+msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+
+#: $strArabic
+msgid "Arabic"
+msgstr "อารบิค"
+
+#: $strArmenian
+msgid "Armenian"
+msgstr "อาร์เมเนีย"
+
+#: $strAscending
+msgid "Ascending"
+msgstr "น้อยไปมาก"
+
+#: $strAsDefined
+msgid "As defined:"
+msgstr ""
+
+#: $strAtBeginningOfTable
+msgid "At Beginning of Table"
+msgstr "ที่จุดเริ่มต้นของตาราง"
+
+#: $strAtEndOfTable
+msgid "At End of Table"
+msgstr "ที่จุดสุดท้ายของตาราง"
+
+#: $strAttr
+msgid "Attributes"
+msgstr "แอตทริบิวต์"
+
+#: $strAutomaticLayout
+msgid "Automatic layout"
+msgstr "จัดตำแหน่งอัตโนมัติ"
+
+#: $strBack
+msgid "Back"
+msgstr "ย้อนกลับ"
+
+#: $strBaltic
+msgid "Baltic"
+msgstr "บอลติก"
+
+#: $strBeginCut
+msgid "BEGIN CUT"
+msgstr "เริ่มจุดตัด"
+
+#: $strBeginRaw
+msgid "BEGIN RAW"
+msgstr "เริ่มข้อมูลดิบ"
+
+#: $strBinary
+msgid "Binary"
+msgstr " ข้อมูลไบนารี "
+
+#: $strBinaryDoNotEdit
+msgid "Binary - do not edit"
+msgstr " ข้อมูลไบนารี - ห้ามแก้ไข "
+
+#: $strBinaryLog
+msgid "Binary log"
+msgstr ""
+
+#: $strBinLogEventType
+msgid "Event type"
+msgstr ""
+
+#: $strBinLogInfo
+msgid "Information"
+msgstr ""
+
+#: $strBinLogName
+msgid "Log name"
+msgstr ""
+
+#: $strBinLogOriginalPosition
+msgid "Original position"
+msgstr ""
+
+#: $strBinLogPosition
+msgid "Position"
+msgstr ""
+
+#: $strBinLogServerId
+msgid "Server ID"
+msgstr ""
+
+#: $strBLOBRepository
+msgid "BLOB Repository"
+msgstr ""
+
+#: $strBLOBRepositoryDamaged
+msgid "Damaged"
+msgstr ""
+
+#: $strBLOBRepositoryDisableAreYouSure
+msgid "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+
+#: $strBLOBRepositoryDisabled
+msgctxt "$strBLOBRepositoryDisabled"
+msgid "Disabled"
+msgstr ""
+
+#: $strBLOBRepositoryDisable
+msgid "Disable"
+msgstr ""
+
+#: $strBLOBRepositoryDisableStrongWarning
+msgid "You are about to DISABLE a BLOB Repository!"
+msgstr ""
+
+#: $strBLOBRepositoryEnabled
+msgctxt "$strBLOBRepositoryEnabled"
+msgid "Enabled"
+msgstr ""
+
+#: $strBLOBRepositoryEnable
+msgid "Enable"
+msgstr ""
+
+#: $strBLOBRepositoryRemove
+msgid "Remove BLOB Repository Reference"
+msgstr ""
+
+#: $strBLOBRepositoryRepair
+msgctxt "$strBLOBRepositoryRepair"
+msgid "Repair"
+msgstr ""
+
+#: $strBLOBRepositoryUpload
+msgid "Upload to BLOB repository"
+msgstr ""
+
+#: $strBookmarkAllUsers
+msgid "Let every user access this bookmark"
+msgstr ""
+
+#: $strBookmarkCreated
+msgid "Bookmark %s created"
+msgstr ""
+
+#: $strBookmarkDeleted
+msgid "The bookmark has been deleted."
+msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
+
+#: $strBookmarkLabel
+msgid "Label"
+msgstr "ป้ายชื่อ"
+
+#: $strBookmarkQuery
+msgid "Bookmarked SQL query"
+msgstr "คำค้นนี้ถูกจดไว้แล้ว"
+
+#: $strBookmarkReplace
+msgid "Replace existing bookmark of same name"
+msgstr ""
+
+#: $strBookmarkThis
+msgid "Bookmark this SQL query"
+msgstr "จดคำค้นนี้ไว้"
+
+#: $strBookmarkView
+msgid "View only"
+msgstr "ดูอย่างเดียว"
+
+#: $strBrowse
+msgid "Browse"
+msgstr "เปิดดู"
+
+#: $strBrowseDistinctValues
+msgid "Browse distinct values"
+msgstr ""
+
+#: $strBrowseForeignValues
+msgid "Browse foreign values"
+msgstr ""
+
+#: $strBufferPoolActivity
+msgid "Buffer Pool Activity"
+msgstr ""
+
+#: $strBufferPool
+msgid "Buffer Pool"
+msgstr ""
+
+#: $strBufferPoolUsage
+msgid "Buffer Pool Usage"
+msgstr ""
+
+#: $strBufferReadMissesInPercent
+msgid "Read misses in %"
+msgstr ""
+
+#: $strBufferReadMisses
+msgid "Read misses"
+msgstr ""
+
+#: $strBufferWriteWaitsInPercent
+msgid "Write waits in %"
+msgstr ""
+
+#: $strBufferWriteWaits
+msgid "Write waits"
+msgstr ""
+
+#: $strBulgarian
+msgid "Bulgarian"
+msgstr "บัลเกเรีย"
+
+#: $strBusyPages
+msgid "Busy pages"
+msgstr ""
+
+#: $strBzip
+msgid "\"bzipped\""
+msgstr "\"bzipped\""
+
+#: $strCalendar
+msgid "Calendar"
+msgstr "ปฏิทิน"
+
+#: $strCancel
+msgid "Cancel"
+msgstr ""
+
+#: $strCanNotLoadExportPlugins
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
+
+#: $strCanNotLoadImportPlugins
+msgid "Could not load import plugins, please check your installation!"
+msgstr ""
+
+#: $strCannotLogin
+msgid "Cannot log in to the MySQL server"
+msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+
+#: $strCantLoad
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr "ไม่สามารถเรียกส่วนขยาย %s,<br />กรุณาตรวจสอบการตั้งค่าของ PHP"
+
+#: $strCantLoadRecodeIconv
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: "
+"1) ตั้งค่าให้ PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin "
+"ไม่ต้องแปลงชุดตัวอักษร"
+
+#: $strCantRenameIdxToPrimary
+msgid "Can't rename index to PRIMARY!"
+msgstr "เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!"
+
+#: $strCantUseRecodeIconv
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ "
+"ที่สามารถเรียกตัวช่วย สำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. "
+"ลองตรวจสอบการตั้งค่าของ PHP"
+
+#: $strCardinality
+msgid "Cardinality"
+msgstr "Cardinality"
+
+#: $strCaseInsensitive
+msgid "case-insensitive"
+msgstr "ไม่สนใจตัวเล็กตัวใหญ่"
+
+#: $strCaseSensitive
+msgid "case-sensitive"
+msgstr "สนใจตัวเล็กตัวใหญ่"
+
+#: $strCentralEuropean
+msgid "Central European"
+msgstr "ยุโรปกลาง"
+
+#: $strChange
+msgid "Change"
+msgstr "เปลี่ยน"
+
+#: $strChangeCopyModeCopy
+msgid "... keep the old one."
+msgstr "... เก็บของเก่าไว้."
+
+#: $strChangeCopyMode
+msgid "Create a new user with the same privileges and ..."
+msgstr "สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ ..."
+
+#: $strChangeCopyModeDeleteAndReload
+msgid ""
+" ... delete the old one from the user tables and reload the privileges "
+"afterwards."
+msgstr " ... ลบของเก่าจากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
+
+#: $strChangeCopyModeJustDelete
+msgid " ... delete the old one from the user tables."
+msgstr " ... ลบของเก่าทิ้งไปจากตารางผู้ใช้."
+
+#: $strChangeCopyModeRevoke
+msgid ""
+" ... revoke all active privileges from the old one and delete it afterwards."
+msgstr " ... เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น."
+
+#: $strChangeCopyUser
+msgid "Change Login Information / Copy User"
+msgstr "เปลี่ยนข้อมูลล็อกอิน / ทำสำเนาผู้ใช้"
+
+#: $strChangeDisplay
+msgid "Choose field to display"
+msgstr "เลือกฟิลด์ที่ต้องการแสดง"
+
+#: $strChangePassword
+msgid "Change password"
+msgstr "เปลี่ยนรหัสผ่าน"
+
+#: $strCharset
+msgid "Charset"
+msgstr "ชุดตัวอักษร"
+
+#: $strCharsetOfFile
+msgid "Character set of the file:"
+msgstr "ชุดอักขระของไฟล์ (character set):"
+
+#: $strCharsetsAndCollations
+msgid "Character Sets and Collations"
+msgstr "ชุดตัวอักษร และการเรียงลำดับ"
+
+#: $strCharsets
+msgid "Charsets"
+msgstr "ชุดตัวอักษร"
+
+#: $strCheckAll
+msgid "Check All"
+msgstr "เลือกทั้งหมด"
+
+#: $strCheck
+msgid "Check"
+msgstr ""
+
+#: $strCheckOverhead
+msgid "Check tables having overhead"
+msgstr ""
+
+#: $strCheckPrivs
+msgid "Check Privileges"
+msgstr "ตรวจสอบสิทธิ"
+
+#: $strCheckPrivsLong
+msgid "Check privileges for database &quot;%s&quot;."
+msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
+
+#: $strCheckTable
+msgid "Check table"
+msgstr "ตรวจสอบตาราง"
+
+#: $strChoosePage
+msgid "Please choose a page to edit"
+msgstr "เลือกหน้าที่ต้องการแก้ไข"
+
+#: $strClickToSelect
+msgid "Click to select"
+msgstr ""
+
+#: $strClickToUnselect
+msgid "Click to unselect"
+msgstr ""
+
+#: $strColComFeat
+msgid "Displaying Column Comments"
+msgstr "แสดงหมายเหตุของคอลัมน์"
+
+#: $strCollation
+msgid "Collation"
+msgstr "การเรียงลำดับ"
+
+#: $strColumnNames
+msgid "Column names"
+msgstr "ชื่อคอลัมน์"
+
+#: $strColumnPrivileges
+msgid "Column-specific privileges"
+msgstr "สิทธิเฉพาะคอลัมน์"
+
+#: $strCommand
+msgid "Command"
+msgstr "คำสั่ง"
+
+#: $strComment
+msgid "Comment"
+msgstr ""
+
+#: $strComments
+msgid "Comments"
+msgstr "หมายเหตุ"
+
+#: $strCompatibleHashing
+msgid "MySQL&nbsp;4.0 compatible"
+msgstr ""
+
+#: $strCompleteInserts
+msgid "Complete inserts"
+msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+
+#: $strCompression
+msgctxt "$strCompression"
+msgid "Compression"
+msgstr "บีบอัดข้อมูล"
+
+#: $strCompressionWillBeDetected
+msgid "Imported file compression will be automatically detected from: %s"
+msgstr ""
+
+#: $strConfigDefaultFileError
+msgid "Could not load default configuration from: \"%1$s\""
+msgstr ""
+
+#: $strConfigDirectoryWarning
+msgid ""
+"Directory [code]config[/code], which is used by the setup script, still "
+"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
+"has been configured."
+msgstr ""
+
+#: $strConfigFileError
+msgid ""
+"phpMyAdmin was unable to read your configuration file!<br />This might "
+"happen if PHP finds a parse error in it or PHP cannot find the file.<br "
+"/>Please call the configuration file directly using the link below and read "
+"the PHP error message(s) that you receive. In most cases a quote or a "
+"semicolon is missing somewhere.<br />If you receive a blank page, everything "
+"is fine."
+msgstr ""
+"phpMyAdmin ไม่สามารถอ่านแฟ้มคอนฟิกูเรชั่นของคุณได้<br />โดยปกติ "
+"อาจจะเป็นเพราะตัว PHP หาไฟล์ไม่เจอ หรือไม่สามารถประมวลผล (parse) ไฟล์ได้<br "
+"/>ลองเรียกไฟล์คอนฟิกูเรชั่นขึ้นมาโดยตรง (กดลิงค์ด้านล่าง) และดูว่ามี error "
+"message อะไรหรือไม่  ลองตรวจสอบดูเครื่องหมาย quote หรือ semicolon "
+"ว่าใส่ครบหรือเปล่า<br />ถ้าคุณเห็นหน้าว่างๆ แสดงว่าทุกอย่างเป็นปกติดี"
+
+#: $strConfigureTableCoord
+msgid "Please configure the coordinates for table %s"
+msgstr "กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s"
+
+#: $strConnectionError
+msgid "Cannot connect: invalid settings."
+msgstr ""
+
+#: $strConnections
+msgid "Connections"
+msgstr "การเชื่อมต่อ"
+
+#: $strConstraintsForDumped
+msgid "Constraints for dumped tables"
+msgstr ""
+
+#: $strConstraintsForTable
+msgid "Constraints for table"
+msgstr ""
+
+#: $strControluserFailed
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+
+#: $strCookiesRequired
+msgid "Cookies must be enabled past this point."
+msgstr "ต้องอนุญาตใช้ใช้ 'คุ๊กกี้' (cookie) เสียก่อน จึงจะผ่านจุดนี้ไปได้"
+
+#: $strCopy
+msgid "Copy"
+msgstr ""
+
+#: $strCopyDatabaseOK
+msgid "Database %s has been copied to %s"
+msgstr ""
+
+#: $strCopyTable
+msgid "Copy table to (database<b>.</b>table):"
+msgstr "คัดลอกตารางไปยัง (ฐานข้อมูล<b>.</b>ตาราง):"
+
+#: $strCopyTableOK
+msgid "Table %s has been copied to %s."
+msgstr "คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว."
+
+#: $strCopyTableSameNames
+msgid "Can't copy table to same one!"
+msgstr "คัดลอกตารางไปที่เดิมไม่ได้"
+
+#: $strCouldNotConnectSource
+msgid "Could not connect to the source"
+msgstr ""
+
+#: $strCouldNotConnectTarget
+msgid "Could not connect to the target"
+msgstr ""
+
+#: $strCouldNotKill
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been "
+"closed."
+msgstr "phpMyAdmin ไม่สามารถฆ่าเธรด %s. บางทีมันอาจจะถูกปิดไปแล้วก็ได้."
+
+#: $strCreate
+msgid "Create"
+msgstr "สร้าง"
+
+#: $strCreateDatabaseBeforeCopying
+msgid "CREATE DATABASE before copying"
+msgstr ""
+
+#: $strCreateIndex
+msgid "Create an index on&nbsp;%s&nbsp;columns"
+msgstr "สร้างดัชนีโดยคอลัมน์ %s"
+
+#: $strCreateIndexTopic
+msgid "Create a new index"
+msgstr "สร้างดัชนีใหม่"
+
+#: $strCreateNewDatabase
+msgid "Create new database"
+msgstr "สร้างฐานข้อมูลใหม่"
+
+#: $strCreateNewTable
+msgid "Create table on database %s"
+msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+
+#: $strCreatePage
+msgid "Create a page"
+msgstr "เริ่มหน้าใหม่"
+
+#: $strCreatePdfFeat
+msgid "Creation of PDFs"
+msgstr "การสร้างเอกสาร PDF"
+
+#: $strCreateRelation
+msgid "Create relation"
+msgstr ""
+
+#: $strCreateTable
+msgctxt "$strCreateTable"
+msgid "Create table"
+msgstr ""
+
+#: $strCreateTableShort
+msgctxt "$strCreateTableShort"
+msgid "Create table"
+msgstr ""
+
+#: $strCreateUserDatabase
+msgid "Database for user"
+msgstr ""
+
+#: $strCreateUserDatabaseName
+msgid "Create database with same name and grant all privileges"
+msgstr ""
+
+#: $strCreateUserDatabaseNone
+msgctxt "$strCreateUserDatabaseNone"
+msgid "None"
+msgstr ""
+
+#: $strCreateUserDatabasePrivileges
+msgid "Grant all privileges on database &quot;%s&quot;"
+msgstr ""
+
+#: $strCreateUserDatabaseWildcard
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr ""
+
+#: $strCreationDates
+msgid "Creation/Update/Check dates"
+msgstr ""
+
+#: $strCriteria
+msgid "Criteria"
+msgstr "เงื่อนไข"
+
+#: $strCroatian
+msgid "Croatian"
+msgstr "โครเอเชีย"
+
+#: $strCSV
+msgctxt "$strCSV"
+msgid "CSV"
+msgstr ""
+
+#: $strCurrentServer
+msgid "Current server"
+msgstr ""
+
+#: $strCustomColor
+msgid "Custom color"
+msgstr ""
+
+#: $strCyrillic
+msgid "Cyrillic"
+msgstr "ซิริลิค"
+
+#: $strCzech
+msgid "Czech"
+msgstr "เช็ค"
+
+#: $strCzechSlovak
+msgid "Czech-Slovak"
+msgstr "เช็ค-สโลวัก"
+
+#: $strDanish
+msgid "Danish"
+msgstr "เดนมาร์ก"
+
+#: $strDatabase
+msgid "Database"
+msgstr "ฐานข้อมูล"
+
+#: $strDatabaseEmpty
+msgid "The database name is empty!"
+msgstr ""
+
+#: $strDatabaseExportOptions
+msgid "Database export options"
+msgstr ""
+
+#: $strDatabaseHasBeenCreated
+msgid "Database %1$s has been created."
+msgstr ""
+
+#: $strDatabaseHasBeenDropped
+msgid "Database %s has been dropped."
+msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
+
+#: $strDatabaseNotExisting
+msgid "'%s' database does not exist."
+msgstr ""
+
+#: $strDatabases
+msgctxt "$strDatabases"
+msgid "Databases"
+msgstr "ฐานข้อมูล"
+
+#: $strDatabasesDropped
+msgid "%s databases have been dropped successfully."
+msgstr "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
+
+#: $strDatabase_src
+msgid "Source database"
+msgstr ""
+
+#: $strDatabasesStats
+msgid "Databases statistics"
+msgstr "สถิติฐานข้อมูล"
+
+#: $strDatabasesStatsDisable
+msgid "Disable Statistics"
+msgstr "ยกเลิกการเก็บสถิติ"
+
+#: $strDatabasesStatsEnable
+msgid "Enable Statistics"
+msgstr "ให้มีการเก็บสถิติ"
+
+#: $strDatabasesStatsHeavyTraffic
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"โปรดทราบ: การเปิดใช้การเก็บสถิติของฐานข้อมูล "
+"อาจจะทำให้มีปริมาณการถ่ายโอนข้อมูลจำนวนมาก ระหว่างเว็บเซิร์ฟเวอร์ "
+"และเซิร์ฟเวอร์ MySQL."
+
+#: $strDatabase_trg
+msgid "Target database"
+msgstr ""
+
+#: $strData
+msgid "Data"
+msgstr "ข้อมูล"
+
+#: $strDataDict
+msgid "Data Dictionary"
+msgstr "พจนานุกรมข้อมูล"
+
+#: $strDataDiff
+msgid "Data Difference"
+msgstr ""
+
+#: $strDataOnly
+msgid "Data only"
+msgstr "เฉพาะข้อมูล"
+
+#: $strDataPages
+msgid "Pages containing data"
+msgstr ""
+
+#: $strDataSyn
+msgid "Data Synchronization"
+msgstr ""
+
+#: $strDBComment
+msgid "Database comment: "
+msgstr "หมายเหตุของฐานข้อมูล: "
+
+#: $strDBCopy
+msgid "Copy database to"
+msgstr ""
+
+#: $strDbIsEmpty
+msgid "Database seems to be empty!"
+msgstr ""
+
+#: $strDbPrivileges
+msgid "Database-specific privileges"
+msgstr "สิทธิเจาะจงเฉพาะฐานข้อมูล"
+
+#: $strDBRename
+msgid "Rename database to"
+msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+
+#: $strDbSpecific
+msgid "database-specific"
+msgstr "เฉพาะฐานข้อมูล"
+
+#: $strDefault
+msgid "Default"
+msgstr "ค่าปริยาย"
+
+#: $strDefaultEngine
+msgid "%s is the default storage engine on this MySQL server."
+msgstr ""
+
+#: $strDefaultValueHelp
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+
+#: $strDefragment
+msgid "Defragment table"
+msgstr "จัดระเบียบตาราง"
+
+#: $strDelayedInserts
+msgid "Use delayed inserts"
+msgstr ""
+
+#: $strDeleteAndFlush
+msgid "Delete the users and reload the privileges afterwards."
+msgstr "ลบผู้ใช้ และเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น."
+
+#: $strDeleteAndFlushDescr
+msgid ""
+"This is the cleanest way, but reloading the privileges may take a while."
+msgstr ""
+"นี่เป็นวิธีที่หมดจดที่สุด แต่การโหลดสิทธิใช้งานใหม่ จะต้องใช้เวลาสักระยะ."
+
+#: $strDelete
+msgid "Delete"
+msgstr "ลบ"
+
+#: $strDeleted
+msgid "The row has been deleted"
+msgstr "ลบเรียบร้อยแล้ว"
+
+#: $strDeleteNoUsersSelected
+msgid "No users selected for deleting!"
+msgstr ""
+
+#: $strDeleteRelation
+msgid "Delete relation"
+msgstr ""
+
+#: $strDeleteTrackingData
+msgid "Delete tracking data for this table"
+msgstr ""
+
+#: $strDeleting
+msgid "Deleting %s"
+msgstr "กำลังลบ %s"
+
+#: $strDelimiter
+msgid "Delimiter"
+msgstr ""
+
+#: $strDelOld
+msgid ""
+"The current page has references to tables that no longer exist. Would you "
+"like to delete those references?"
+msgstr ""
+
+#: $strDescending
+msgid "Descending"
+msgstr "มากไปน้อย"
+
+#: $strDescription
+msgctxt "$strDescription"
+msgid "Description"
+msgstr "รายละเอียด"
+
+#: $strDesigner
+msgid "Designer"
+msgstr ""
+
+#: $strDesignerHelpDisplayField
+msgid ""
+"The display field is shown in pink. To set/unset a field as the display "
+"field, click the \"Choose field to display\" icon, then click on the "
+"appropriate field name."
+msgstr ""
+
+#: $strDetails
+msgid "Details..."
+msgstr ""
+
+#: $strDictionary
+msgid "dictionary"
+msgstr "พจนานุกรม"
+
+#: $strDifference
+msgid "Difference"
+msgstr ""
+
+#: $strDirectLinks
+msgid "Direct links"
+msgstr ""
+
+#: $strDirtyPages
+msgid "Dirty pages"
+msgstr ""
+
+#: $strDisabled
+msgctxt "$strDisabled"
+msgid "Disabled"
+msgstr "ระงับการใช้อยู่"
+
+#: $strDisableForeignChecks
+msgid "Disable foreign key checks"
+msgstr ""
+
+#: $strDisplayFeat
+msgid "Display Features"
+msgstr "ความสามารถด้านการแสดงผล"
+
+#: $strDisplayOrder
+msgid "Display order:"
+msgstr "ลำดับการแสดง:"
+
+#: $strDisplayPDF
+msgid "Display PDF schema"
+msgstr "แสดงสกีมาของ PDF"
+
+#: $strDoAQuery
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+
+#: $strDocSQL
+msgid "DocSQL"
+msgstr ""
+
+#: $strDocu
+msgid "Documentation"
+msgstr "เอกสารอ้างอิง"
+
+#: $strDoNotAutoIncrementZeroValues
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr ""
+
+#: $strDownloadFile
+msgid "Download file"
+msgstr ""
+
+#: $strDoYouReally
+msgid "Do you really want to "
+msgstr "ต้องการจะ "
+
+#: $strDropDatabaseStrongWarning
+msgid "You are about to DESTROY a complete database!"
+msgstr ""
+
+#: $strDrop
+msgid "Drop"
+msgstr "โยนทิ้ง"
+
+#: $strDropUsersDb
+msgid "Drop the databases that have the same names as the users."
+msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
+
+#: $strDumpAllRows
+msgid "Dump all rows"
+msgstr ""
+
+#: $strDumpingData
+msgid "Dumping data for table"
+msgstr "dump ตาราง"
+
+#: $strDumpSaved
+msgid "Dump has been saved to file %s."
+msgstr ""
+
+#: $strDumpXRows
+msgid "Dump %s row(s) starting at record # %s"
+msgstr "ดัมพ์แถว %s แถว เริ่มที่แถว %s"
+
+#: $strDynamic
+msgid "dynamic"
+msgstr "ไม่คงที่"
+
+#: $strEdit
+msgctxt "$strEdit"
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: $strEditPDFPages
+msgid "Edit PDF Pages"
+msgstr "แก้ไขหน้า PDF"
+
+#: $strEditPrivileges
+msgid "Edit Privileges"
+msgstr "แก้ไขสิทธิ"
+
+#: $strEffective
+msgid "Effective"
+msgstr "มีผล"
+
+#: $strEmpty
+msgid "Empty"
+msgstr "ลบข้อมูล"
+
+#: $strEmptyResultSet
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
+
+#: $strEnabled
+msgctxt "$strEnabled"
+msgid "Enabled"
+msgstr "เปิดใช้อยู่"
+
+#: $strEncloseInTransaction
+msgid "Enclose export in a transaction"
+msgstr ""
+
+#: $strEndCut
+msgid "END CUT"
+msgstr "สิ้นสุดจุดตัด"
+
+#: $strEnd
+msgid "End"
+msgstr "ท้ายสุด"
+
+#: $strEndRaw
+msgid "END RAW"
+msgstr "สิ้นสุดข้อมูลดิบ"
+
+#: $strEngineAvailable
+msgid "%s is available on this MySQL server."
+msgstr ""
+
+#: $strEngineDisabled
+msgid "%s has been disabled for this MySQL server."
+msgstr ""
+
+#: $strEngines
+msgid "Engines"
+msgstr ""
+
+#: $strEngineUnsupported
+msgid "This MySQL server does not support the %s storage engine."
+msgstr ""
+
+#: $strEnglish
+msgid "English"
+msgstr "อังกฤษ"
+
+#: $strEnglishPrivileges
+msgid " Note: MySQL privilege names are expressed in English "
+msgstr " โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ "
+
+#: $strError
+msgid "Error"
+msgstr "ผิดพลาด"
+
+#: $strErrorInZipFile
+msgid "Error in ZIP archive:"
+msgstr ""
+
+#: $strErrorRelationAdded
+msgid "Error: Relation not added."
+msgstr ""
+
+#: $strErrorRelationExists
+msgid "Error: relation already exists."
+msgstr ""
+
+#: $strErrorRenamingTable
+msgid "Error renaming table %1$s to %2$s"
+msgstr ""
+
+#: $strErrorSaveTable
+msgid "Error saving coordinates for Designer."
+msgstr ""
+
+#: $strEscapeWildcards
+msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgstr ""
+
+#: $strEsperanto
+msgid "Esperanto"
+msgstr ""
+
+#: $strEstonian
+msgid "Estonian"
+msgstr "เอสโตเนีย"
+
+#: $strEvent
+msgid "Event"
+msgstr ""
+
+#: $strEvents
+msgid "Events"
+msgstr ""
+
+#: $strExcelEdition
+msgid "Excel edition"
+msgstr ""
+
+#: $strExecuteBookmarked
+msgid "Execute bookmarked query"
+msgstr ""
+
+#: $strExplain
+msgctxt "$strExplain"
+msgid "Explain SQL"
+msgstr "อธิบาย SQL"
+
+#: $strExport
+msgid "Export"
+msgstr "ส่งออก"
+
+#: $strExportImportToScale
+msgid "Export/Import to scale"
+msgstr ""
+
+#: $strExportMustBeFile
+msgid "Selected export type has to be saved in file!"
+msgstr ""
+
+#: $strExtendedInserts
+msgid "Extended inserts"
+msgstr "แทรกหลายระเบียนในคราวเดียว"
+
+#: $strExtra
+msgid "Extra"
+msgstr "เพิ่มเติม"
+
+#: $strFailedAttempts
+msgid "Failed attempts"
+msgstr "ความพยายามล้มเหลว"
+
+#: $strField
+msgid "Field"
+msgstr "ฟิลด์"
+
+#: $strFieldHasBeenDropped
+msgid "Field %s has been dropped"
+msgstr "โยนฟิลด์ %s ทิ้งไปเรียบร้อยแล้ว"
+
+#: $strFieldInsertFromFileTempDirNotExists
+msgid ""
+"Error moving the uploaded file, see "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr ""
+
+#: $strFieldsEnclosedBy
+msgid "Fields enclosed by"
+msgstr "คร่อมฟิลด์ด้วย"
+
+#: $strFieldsEscapedBy
+msgid "Fields escaped by"
+msgstr "เครื่องหมายสำหรับ escape char"
+
+#: $strFields
+msgid "Fields"
+msgstr "จำนวนฟิลด์"
+
+#: $strFieldsTerminatedBy
+msgid "Fields terminated by"
+msgstr "จบฟิลด์ด้วย"
+
+#: $strFileAlreadyExists
+msgid ""
+"File %s already exists on server, change filename or check overwrite option."
+msgstr ""
+
+#: $strFileCouldNotBeRead
+msgid "File could not be read"
+msgstr "อ่านไฟล์ไม่ได้"
+
+#: $strFileNameTemplateDescriptionDatabase
+msgid "database name"
+msgstr ""
+
+#: $strFileNameTemplateDescriptionServer
+msgid "server name"
+msgstr ""
+
+#: $strFileNameTemplateDescriptionTable
+msgid "table name"
+msgstr ""
+
+#: $strFileNameTemplateDescription
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
+msgstr ""
+
+#: $strFileNameTemplate
+msgid "File name template"
+msgstr "รูปแบบของชื่อไฟล์"
+
+#: $strFileNameTemplateRemember
+msgid "remember template"
+msgstr "จำรูปแบบ"
+
+#: $strFiles
+msgid "Files"
+msgstr ""
+
+#: $strFileToImport
+msgid "File to import"
+msgstr ""
+
+#: $strFlushPrivilegesNote
+msgid ""
+"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"tables. The content of these tables may differ from the privileges the "
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
+msgstr ""
+
+#: $strFlushQueryCache
+msgid "Flush query cache"
+msgstr ""
+
+#: $strFlushTable
+msgid "Flush the table (\"FLUSH\")"
+msgstr "ล้างตาราง (flush)"
+
+#: $strFlushTables
+msgid "Flush (close) all tables"
+msgstr ""
+
+#: $strFontSize
+msgid "Font size"
+msgstr ""
+
+#: $strForeignKeyError
+msgid "Error creating foreign key on %1$s (check data types)"
+msgstr ""
+
+#: $strForeignKeyRelationAdded
+msgid "FOREIGN KEY relation added"
+msgstr ""
+
+#: $strFormat
+msgctxt "$strFormat"
+msgid "Format"
+msgstr "รูปแบบ"
+
+#: $strFormEmpty
+msgid "Missing value in the form!"
+msgstr "ค่าในแบบฟอร์มหายไป !"
+
+#: $strFreePages
+msgid "Free pages"
+msgstr ""
+
+#: $strFullStart
+msgid "Full start"
+msgstr ""
+
+#: $strFullStop
+msgid "Full stop"
+msgstr ""
+
+#: $strFullText
+msgid "Full Texts"
+msgstr "ทั้งข้อความ"
+
+#: $strFunction
+msgid "Function"
+msgstr "ฟังก์ชั่น"
+
+#: $strFunctions
+msgid "Functions"
+msgstr ""
+
+#: $strGenBy
+msgid "Generated by"
+msgstr "สร้างโดย"
+
+#: $strGeneralRelationFeat
+msgid "General relation features"
+msgstr "ความสามารถด้านรีเลชันทั่วไป"
+
+#: $strGenerate
+msgid "Generate"
+msgstr ""
+
+#: $strGeneratePassword
+msgid "Generate Password"
+msgstr ""
+
+#: $strGenTime
+msgid "Generation Time"
+msgstr "เวลาในการสร้าง"
+
+#: $strGeorgian
+msgid "Georgian"
+msgstr "จอร์เจีย"
+
+#: $strGerman
+msgid "German"
+msgstr "เยอรมัน"
+
+#: $strGetMoreThemes
+msgid "Get more themes!"
+msgstr ""
+
+#: $strGlobal
+msgid "global"
+msgstr "โกลบอล"
+
+#: $strGlobalPrivileges
+msgid "Global privileges"
+msgstr "สิทธิแบบโกลบอล"
+
+#: $strGlobalValue
+msgid "Global value"
+msgstr "ค่าแบบโกลบอล"
+
+#: $strGo
+msgid "Go"
+msgstr "ลงมือ"
+
+#: $strGoToDatabase
+msgid "Go to database"
+msgstr ""
+
+#: $strGoToTable
+msgid "Go to table"
+msgstr ""
+
+#: $strGoToView
+msgid "Go to view"
+msgstr ""
+
+#: $strGrantOption
+msgid "Grant"
+msgstr "มอบสิทธิ"
+
+#: $strGreek
+msgid "Greek"
+msgstr "กรีก"
+
+#: $strGzip
+msgid "\"gzipped\""
+msgstr "\"gzipped\""
+
+#: $strHandler
+msgid "Handler"
+msgstr ""
+
+#: $strHasBeenAltered
+msgid "has been altered."
+msgstr "เปลี่ยนเสร็จแล้ว"
+
+#: $strHaveBeenSynchronized
+msgid "Selected target tables have been synchronized with source tables."
+msgstr ""
+
+#: $strHaveToShow
+msgid "You have to choose at least one column to display"
+msgstr "ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์"
+
+#: $strHebrew
+msgid "Hebrew"
+msgstr "ฮิบรู"
+
+#: $strHelp
+msgid "Help"
+msgstr ""
+
+#: $strHexForBLOB
+msgid "Use hexadecimal for BLOB"
+msgstr ""
+
+#: $strHide
+msgid "Hide"
+msgstr ""
+
+#: $strHideShowAll
+msgid "Hide/Show all"
+msgstr ""
+
+#: $strHideShowNoRelation
+msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: $strHome
+msgid "Home"
+msgstr "หน้าบ้าน"
+
+#: $strHomepageOfficial
+msgid "Official Homepage"
+msgstr "โฮมเพจอย่างเป็นทางการของ phpMyAdmin"
+
+#: $strHostEmpty
+msgid "The host name is empty!"
+msgstr "ชื่อโฮสต์ยังว่างอยู่!"
+
+#: $strHost
+msgid "Host"
+msgstr "โฮสต์"
+
+#: $strHostTableExplanation
+msgid ""
+"When Host table is used, this field is ignored and values stored in Host "
+"table are used instead."
+msgstr ""
+
+#: $strHTMLExcel
+msgid "Microsoft Excel 2000"
+msgstr ""
+
+#: $strHTMLWord
+msgid "Microsoft Word 2000"
+msgstr ""
+
+#: $strHungarian
+msgid "Hungarian"
+msgstr "ฮังการี"
+
+#: $strIcelandic
+msgid "Icelandic"
+msgstr "ไอซ์แลนด์"
+
+#: $strId
+msgid "ID"
+msgstr "ID"
+
+#: $strIdxFulltext
+msgid "Fulltext"
+msgstr "ข้อความเต็ม (fulltext)"
+
+#: $strIEUnsupported
+msgid "Internet Explorer does not support this function."
+msgstr ""
+
+#: $strIgnoreDuplicates
+msgid "Ignore duplicate rows"
+msgstr ""
+
+#: $strIgnore
+msgid "Ignore"
+msgstr "ไม่สนใจ"
+
+#: $strIgnoreInserts
+msgid "Use ignore inserts"
+msgstr ""
+
+#: $strImportColNames
+msgid "Column names in first row"
+msgstr ""
+
+#: $strImportEmptyRows
+msgid "Do not import empty rows"
+msgstr ""
+
+#: $strImportExportCoords
+msgid "Import/Export coordinates for PDF schema"
+msgstr ""
+
+#: $strImportFiles
+msgid "Import files"
+msgstr "นำเข้าไฟล์"
+
+#: $strImportFormat
+msgctxt "$strImportFormat"
+msgid "Format of imported file"
+msgstr ""
+
+#: $strImport
+msgid "Import"
+msgstr ""
+
+#: $strImportLargeFileUploading
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: $strImportNoticePt1
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+
+#: $strImportNoticePt2
+msgid "View a structure`s contents by clicking on its name"
+msgstr ""
+
+#: $strImportNoticePt3
+msgid "Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+
+#: $strImportNoticePt4
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr ""
+
+#: $strImportODSCurrency
+msgid "Import currencies ($5.00 to 5.00)"
+msgstr ""
+
+#: $strImportODS
+msgctxt "$strImportODS"
+msgid "Open Document Spreadsheet"
+msgstr ""
+
+#: $strImportODSPercents
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr ""
+
+#: $strImportProceedingFile
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: $strImportSuccessfullyFinished
+msgid "Import has been successfully finished, %d queries executed."
+msgstr ""
+
+#: $strImportUploadInfoNotAvailable
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: $strImportXLS
+msgid "Excel 97-2003 XLS Workbook"
+msgstr ""
+
+#: $strImportXLSX
+msgid "Excel 2007 XLSX Workbook"
+msgstr ""
+
+#: $strIndexes
+msgid "Indexes"
+msgstr "ดัชนี"
+
+#: $strIndexesSeemEqual
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+
+#: $strIndexHasBeenDropped
+msgid "Index %s has been dropped"
+msgstr "โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว"
+
+#: $strIndex
+msgid "Index"
+msgstr "ดัชนี"
+
+#: $strIndexName
+msgid "Index name:"
+msgstr "ชื่อดัชนี :"
+
+#: $strIndexType
+msgid "Index type:"
+msgstr "ชนิดของดัชนี :"
+
+#: $strIndexWarningTable
+msgid "Problems with indexes of table `%s`"
+msgstr ""
+
+#: $strInnoDBAutoextendIncrement
+msgid "Autoextend increment"
+msgstr ""
+
+#: $strInnoDBAutoextendIncrementDesc
+msgid ""
+" The increment size for extending the size of an autoextending tablespace "
+"when it becomes full."
+msgstr ""
+
+#: $strInnoDBBufferPoolSize
+msgid "Buffer pool size"
+msgstr ""
+
+#: $strInnoDBBufferPoolSizeDesc
+msgid ""
+"The size of the memory buffer InnoDB uses to cache data and indexes of its "
+"tables."
+msgstr ""
+
+#: $strInnoDBDataFilePath
+msgid "Data files"
+msgstr ""
+
+#: $strInnoDBDataHomeDir
+msgid "Data home directory"
+msgstr ""
+
+#: $strInnoDBDataHomeDirDesc
+msgid "The common part of the directory path for all InnoDB data files."
+msgstr ""
+
+#: $strInnoDBPages
+msgid "pages"
+msgstr ""
+
+#: $strInnodbStat
+msgid "InnoDB Status"
+msgstr "สถานะของ InnoDB"
+
+#: $strInsecureMySQL
+msgid ""
+"Your configuration file contains settings (root with no password) that "
+"correspond to the default MySQL privileged account. Your MySQL server is "
+"running with this default, is open to intrusion, and you really should fix "
+"this security hole by setting a password for user 'root'."
+msgstr ""
+"จากไฟล์เก็บค่ากำหนดของคุณ คุณไม่ได้ตั้งรหัสผ่านสำหรับ root "
+"ซึ่งจะถูกใช้เป็นชื่อปริยายซึ่งมีสิทธิพิเศษ.  เซิร์ฟเวอร์ MySQL "
+"ที่ทำงานด้วยค่าปริยายนี้ อาจถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที "
+"เพื่อความปลอดภัย"
+
+#: $strInsertAsNewRow
+msgid "Insert as new row"
+msgstr "แทรกเป็นแถวใหม่"
+
+#: $strInsertedRowId
+msgid "Inserted row id: %1$d"
+msgstr ""
+
+#: $strInsertIgnoreAsNewRow
+msgid "Insert as new row and ignore errors"
+msgstr ""
+
+#: $strInsert
+msgid "Insert"
+msgstr "แทรก"
+
+#: $strInterface
+msgid "Interface"
+msgstr ""
+
+#: $strInternalAndForeign
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: $strInternalRelationAdded
+msgid "Internal relation added"
+msgstr ""
+
+#: $strInternalRelations
+msgid "Internal relations"
+msgstr "รีเลชันภายใน"
+
+#: $strInUse
+msgid "in use"
+msgstr "ใช้อยู่"
+
+#: $strInvalidAuthMethod
+msgid "Invalid authentication method set in configuration:"
+msgstr ""
+
+#: $strInvalidColumnCount
+msgid "Column count has to be larger than zero."
+msgstr ""
+
+#: $strInvalidColumn
+msgid "Invalid column (%s) specified!"
+msgstr ""
+
+#: $strInvalidCSVFieldCount
+msgid "Invalid field count in CSV input on line %d."
+msgstr ""
+
+#: $strInvalidCSVFormat
+msgid "Invalid format of CSV input on line %d."
+msgstr ""
+
+#: $strInvalidCSVParameter
+msgid "Invalid parameter for CSV import: %s"
+msgstr ""
+
+#: $strInvalidDatabase
+msgid "Invalid database"
+msgstr ""
+
+#: $strInvalidFieldAddCount
+msgid "You have to add at least one field."
+msgstr ""
+
+#: $strInvalidFieldCount
+msgid "Table must have at least one field."
+msgstr ""
+
+#: $strInvalidLDIImport
+msgid "This plugin does not support compressed imports!"
+msgstr ""
+
+#: $strInvalidRowNumber
+msgid "%d is not valid row number."
+msgstr ""
+
+#: $strInvalidServerHostname
+msgid "Invalid hostname for server %1$s. Please review your configuration."
+msgstr ""
+
+#: $strInvalidServerIndex
+msgid "Invalid server index: \"%s\""
+msgstr ""
+
+#: $strInvalidTableName
+msgid "Invalid table name"
+msgstr ""
+
+#: $strJapanese
+msgid "Japanese"
+msgstr "ญี่ปุ่น"
+
+#: $strJavascriptDisabled
+msgid ""
+"Javascript support is missing or disabled in your browser, some phpMyAdmin "
+"functionality will be missing. For example navigation frame will not refresh "
+"automatically."
+msgstr ""
+
+#: $strJoins
+msgid "Joins"
+msgstr ""
+
+#: $strJumpToDB
+msgid "Jump to database &quot;%s&quot;."
+msgstr "กระโดดไปที่ฐานข้อมูล &quot;%s&quot;."
+
+#: $strJustDeleteDescr
+msgid ""
+"The &quot;deleted&quot; users will still be able to access the server as "
+"usual until the privileges are reloaded."
+msgstr ""
+
+#: $strJustDelete
+msgid "Just delete the users from the privilege tables."
+msgstr "แค่ลบผู้ใช้ออกจากตารางแสดงสิทธิเข้าถึง"
+
+#: $strKeepPass
+msgid "Do not change the password"
+msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
+
+#: $strKeyCache
+msgid "Key cache"
+msgstr ""
+
+#: $strKeyname
+msgid "Keyname"
+msgstr "ชื่อคีย์"
+
+#: $strKill
+msgid "Kill"
+msgstr "ฆ่าทิ้ง"
+
+#: $strKnownExternalBug
+msgid "The %s functionality is affected by a known bug, see %s"
+msgstr ""
+
+#: $strKorean
+msgid "Korean"
+msgstr "เกาหลี"
+
+#: $strLandscape
+msgid "Landscape"
+msgstr "แนวนอน"
+
+#: $strLanguage
+msgid "Language"
+msgstr ""
+
+#: $strLanguageUnknown
+msgid "Unknown language: %1$s."
+msgstr ""
+
+#: $strLatchedPages
+msgid "Latched pages"
+msgstr ""
+
+#: $strLatexCaption
+msgid "Table caption"
+msgstr "คำอธิบายตาราง"
+
+#: $strLatexContent
+msgid "Content of table __TABLE__"
+msgstr ""
+
+#: $strLatexContinuedCaption
+msgid "Continued table caption"
+msgstr ""
+
+#: $strLatexContinued
+msgid "(continued)"
+msgstr "(ต่อ)"
+
+#: $strLatexIncludeCaption
+msgid "Include table caption"
+msgstr ""
+
+#: $strLatexLabel
+msgid "Label key"
+msgstr ""
+
+#: $strLaTeX
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: $strLatexStructure
+msgid "Structure of table __TABLE__"
+msgstr ""
+
+#: $strLatvian
+msgid "Latvian"
+msgstr "ลัตเวีย"
+
+#: $strLDI
+msgid "CSV using LOAD DATA"
+msgstr ""
+
+#: $strLDILocal
+msgid "Use LOCAL keyword"
+msgstr ""
+
+#: $strLengthSet
+msgid "Length/Values"
+msgstr "ความยาว/เซต*"
+
+#: $strLimitNumRows
+msgid "Number of rows per page"
+msgstr "ระเบียนต่อหน้า"
+
+#: $strLinesTerminatedBy
+msgid "Lines terminated by"
+msgstr "จบแถวด้วย"
+
+#: $strLinkNotFound
+msgid "Link not found"
+msgstr "ไม่พบลิงก์"
+
+#: $strLinksTo
+msgid "Links to"
+msgstr "เชื่อมไปยัง"
+
+#: $strLithuanian
+msgid "Lithuanian"
+msgstr "ลิธัวเนีย"
+
+#: $strLocalhost
+msgid "Local"
+msgstr "โลคอล"
+
+#: $strLocationTextfile
+msgid "Location of the text file"
+msgstr "เลือกไฟล์ข้อความจาก"
+
+#: $strLoginInformation
+msgid "Login Information"
+msgstr "ข้อมูลล็อกอิน"
+
+#: $strLogin
+msgid "Log in"
+msgstr "เข้าสู่ระบบ"
+
+#: $strLoginWithoutPassword
+msgid ""
+"Login without a password is forbidden by configuration (see AllowNoPassword)"
+msgstr ""
+
+#: $strLogout
+msgid "Log out"
+msgstr "ออกจากระบบ"
+
+#: $strLogPassword
+msgid "Password:"
+msgstr "รหัสผ่าน:"
+
+#: $strLogServerHelp
+msgid "You can enter hostname/IP address and port separated by space."
+msgstr ""
+
+#: $strLogServer
+msgid "Server:"
+msgstr "เซิร์ฟเวอร์"
+
+#: $strLogUsername
+msgid "Username:"
+msgstr "ชื่อผู้ใช้:"
+
+#: $strLongOperation
+msgid "This operation could take a long time. Proceed anyway?"
+msgstr ""
+
+#: $strMaxConnects
+msgid "max. concurrent connections"
+msgstr ""
+
+#: $strMaximalQueryLength
+msgid "Maximal length of created query"
+msgstr ""
+
+#: $strMaximumSize
+msgid "Max: %s%s"
+msgstr "ขนาดใหญ่สุด: %s%s"
+
+#: $strMbExtensionMissing
+msgid ""
+"The mbstring PHP extension was not found and you seem to be using a "
+"multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
+"split strings correctly and it may result in unexpected results."
+msgstr ""
+
+#: $strMbOverloadWarning
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+
+#: $strMediaWiki
+msgid "MediaWiki Table"
+msgstr ""
+
+#: $strMIME_available_mime
+msgid "Available MIME types"
+msgstr "MIME-types ที่มีอยู่"
+
+#: $strMIME_available_transform
+msgid "Available transformations"
+msgstr "การแปลงที่เรียกใช้ได้"
+
+#: $strMIME_description
+msgctxt "$strMIME_description"
+msgid "Description"
+msgstr "รายละเอียด"
+
+#: $strMIME_MIMEtype
+msgid "MIME type"
+msgstr "MIME-type"
+
+#: $strMIME_nodescription
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"ไม่ปรากฏรายละเอียดสำหรับการแปลงนี้.<br />กรุณาสอบถามผู้เขียนว่า,  %s ทำอะไร."
+
+#: $strMIME_transformation
+msgid "Browser transformation"
+msgstr ""
+
+#: $strMIME_transformation_note
+msgid ""
+"For a list of available transformation options and their MIME type "
+"transformations, click on %stransformation descriptions%s"
+msgstr ""
+
+#: $strMIME_transformation_options_note
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: $strMIME_transformation_options
+msgid "Transformation options"
+msgstr "ตัวเลือกการแปลง"
+
+#: $strMIMETypesForTable
+msgid "MIME TYPES FOR TABLE"
+msgstr ""
+
+#: $strMIME_without
+msgid ""
+"MIME types printed in italics do not have a separate transformation function"
+msgstr ""
+
+#: $strModifications
+msgid "Modifications have been saved"
+msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
+
+#: $strModifyIndexTopic
+msgid "Modify an index"
+msgstr "แก้ไขดัชนี"
+
+#: $strModify
+msgid "Modify"
+msgstr "แก้ไข"
+
+#: $strMoveMenu
+msgid "Move Menu"
+msgstr ""
+
+#: $strMoveTable
+msgid "Move table to (database<b>.</b>table):"
+msgstr "ย้ายตารางไป (database<b>.</b>table):"
+
+#: $strMoveTableOK
+msgid "Table %s has been moved to %s."
+msgstr "ตาราง %s ถูกย้ายไป %s แล้ว"
+
+#: $strMoveTableSameNames
+msgid "Can't move table to same one!"
+msgstr "ย้ายตารางไปที่เดิมไม่ได้"
+
+#: $strMultilingual
+msgid "multilingual"
+msgstr "หลายภาษา"
+
+#: $strMyISAMDataPointerSize
+msgid "Data pointer size"
+msgstr ""
+
+#: $strMyISAMDataPointerSizeDesc
+msgid ""
+"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
+"tables when no MAX_ROWS option is specified."
+msgstr ""
+
+#: $strMyISAMMaxExtraSortFileSizeDesc
+msgid ""
+"If the temporary file used for fast MyISAM index creation would be larger "
+"than using the key cache by the amount specified here, prefer the key cache "
+"method."
+msgstr ""
+
+#: $strMyISAMMaxExtraSortFileSize
+msgid "Maximum size for temporary files on index creation"
+msgstr ""
+
+#: $strMyISAMMaxSortFileSizeDesc
+msgid ""
+"The maximum size of the temporary file MySQL is allowed to use while re-"
+"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
+"INFILE)."
+msgstr ""
+
+#: $strMyISAMMaxSortFileSize
+msgid "Maximum size for temporary sort files"
+msgstr ""
+
+#: $strMyISAMRecoverOptions
+msgid "Automatic recovery mode"
+msgstr ""
+
+#: $strMyISAMRecoverOptionsDesc
+msgid ""
+"The mode for automatic recovery of crashed MyISAM tables, as set via the "
+"--myisam-recover server startup option."
+msgstr ""
+
+#: $strMyISAMRepairThreadsDesc
+msgid ""
+"If this value is greater than 1, MyISAM table indexes are created in "
+"parallel (each index in its own thread) during the repair by sorting "
+"process."
+msgstr ""
+
+#: $strMyISAMRepairThreads
+msgid "Repair threads"
+msgstr ""
+
+#: $strMyISAMSortBufferSizeDesc
+msgid ""
+"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
+"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
+msgstr ""
+
+#: $strMyISAMSortBufferSize
+msgid "Sort buffer size"
+msgstr ""
+
+#: $strMySQLCharset
+msgid "MySQL charset"
+msgstr "ชุดตัวอักษร (charset) ของ MySQL"
+
+#: $strMysqlClientVersion
+msgid "MySQL client version"
+msgstr ""
+
+#: $strMySQLConnectionCollation
+msgid "MySQL connection collation"
+msgstr ""
+
+#: $strMysqlLibDiffersServerVersion
+msgid ""
+"Your PHP MySQL library version %s differs from your MySQL server version %s. "
+"This may cause unpredictable behavior."
+msgstr ""
+
+#: $strMySQLSaid
+msgid "MySQL said: "
+msgstr "MySQL แสดง: "
+
+#: $strMySQLShowProcess
+msgid "Show processes"
+msgstr "แสดงงานที่ทำอยู่ของ MySQL"
+
+#: $strName
+msgid "Name"
+msgstr "ชื่อ"
+
+#: $strNavTableFilter
+msgid "Filter"
+msgstr ""
+
+#: $strNewTable
+msgid "New table"
+msgstr ""
+
+#: $strNext
+msgid "Next"
+msgstr "ต่อไป"
+
+#: $strNoActivity
+msgid "No activity within %s seconds; please log in again"
+msgstr ""
+
+#: $strNoDatabases
+msgid "No databases"
+msgstr "ไม่มีฐานข้อมูล"
+
+#: $strNoDatabasesSelected
+msgid "No databases selected."
+msgstr "ยังไม่ได้เลือกฐานข้อมูล."
+
+#: $strNoDataReceived
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+
+#: $strNoDescription
+msgid "no description"
+msgstr "ไม่มีรายละเอียด"
+
+#: $strNoDetailsForEngine
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr ""
+
+#: $strNoDropDatabases
+msgid "\"DROP DATABASE\" statements are disabled."
+msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
+
+#: $strNoExplain
+msgid "Skip Explain SQL"
+msgstr "ไม่ต้องอธิบาย SQL"
+
+#: $strNoFilesFoundInZip
+msgid "No files found inside ZIP archive!"
+msgstr ""
+
+#: $strNoFrames
+msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b> จะช่วยให้ใช้ phpMyAdmin ได้ง่ายขึ้น"
+
+#: $strNoIndex
+msgid "No index defined!"
+msgstr "ยังไม่ได้กำหนดดัชนีใดๆ!"
+
+#: $strNoIndexPartsDefined
+msgid "No index parts defined!"
+msgstr "ไม่ได้กำหนดส่วนใดๆ ของดัชนี!"
+
+#: $strNoModification
+msgid "No change"
+msgstr "ไม่มีการเปลี่ยนแปลง"
+
+#: $strNoneDefault
+msgctxt "$strNoneDefault"
+msgid "None"
+msgstr ""
+
+#: $strNone
+msgctxt "$strNone"
+msgid "None"
+msgstr "ไม่มี"
+
+#: $strNo
+msgid "No"
+msgstr "ไม่"
+
+#: $strNoOptions
+msgid "This format has no options"
+msgstr "รูปแบบนี้ไม่มีตัวเลือก"
+
+#: $strNoPassword
+msgid "No Password"
+msgstr "ไม่มีรหัสผ่าน"
+
+#: $strNoPermission
+msgid "The web server does not have permission to save the file %s."
+msgstr ""
+
+#: $strNoPhp
+msgid "Without PHP Code"
+msgstr "ไม่เอาโค้ด PHP"
+
+#: $strNoPrivileges
+msgid "No Privileges"
+msgstr "ไม่มีสิทธิ"
+
+#: $strNoRights
+msgid "You don't have sufficient privileges to be here right now!"
+msgstr "คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!"
+
+#: $strNoRowsSelected
+msgid "No rows selected"
+msgstr "ยังไม่ได้เลือกแถว"
+
+#: $strNoSpace
+msgid "Insufficient space to save the file %s."
+msgstr ""
+
+#: $strNoTablesFound
+msgid "No tables found in database."
+msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+
+#: $strNoThemeSupport
+msgid ""
+"No themes support; please check your configuration and/or your themes in "
+"directory %s."
+msgstr ""
+
+#: $strNotNumber
+msgid "This is not a number!"
+msgstr "ค่านี้ไม่ใช่ตัวเลข!"
+
+#: $strNotOK
+msgid "not OK"
+msgstr "ไม่ตกลง"
+
+#: $strNotPresent
+msgid "not present"
+msgstr ""
+
+#: $strNotSet
+msgid "<b>%s</b> table not found or not set in %s"
+msgstr "ไม่พบตาราง <b>%s</b> ใน %s"
+
+#: $strNoUsersFound
+msgid "No user(s) found."
+msgstr "ไม่พบผู้ใช้ใดๆ."
+
+#: $strNoValidateSQL
+msgid "Skip Validate SQL"
+msgstr "ไม่ต้องตรวจสอบ SQL"
+
+#: $strNull
+msgid "Null"
+msgstr "ว่างเปล่า (null)"
+
+#: $strNumberOfFields
+msgid "Number of fields"
+msgstr ""
+
+#: $strNumberOfTables
+msgid "Number of tables"
+msgstr ""
+
+#: $strNumSearchResultsInTable
+msgid "%s match(es) inside table <i>%s</i>"
+msgstr "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
+
+#: $strNumSearchResultsTotal
+msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgstr "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
+
+#: $strNumTables
+msgctxt "$strNumTables"
+msgid "Tables"
+msgstr "ตาราง"
+
+#: $strOK
+msgid "OK"
+msgstr "ตกลง"
+
+#: $strOpenDocumentSpreadsheet
+msgctxt "$strOpenDocumentSpreadsheet"
+msgid "Open Document Spreadsheet"
+msgstr ""
+
+#: $strOpenDocumentText
+msgid "Open Document Text"
+msgstr ""
+
+#: $strOpenNewWindow
+msgid "Open new phpMyAdmin window"
+msgstr ""
+
+#: $strOperations
+msgid "Operations"
+msgstr "กระบวนการ"
+
+#: $strOperator
+msgid "Operator"
+msgstr ""
+
+#: $strOptimize
+msgid "Optimize"
+msgstr ""
+
+#: $strOptimizeTable
+msgid "Optimize table"
+msgstr "ปรับแต่งตาราง"
+
+#: $strOptions
+msgid "Options"
+msgstr ""
+
+#: $strOr
+msgid "Or"
+msgstr "หรือ"
+
+#: $strOverhead
+msgid "Overhead"
+msgstr "เกินความจำเป็น"
+
+#: $strOverwriteExisting
+msgctxt "$strOverwriteExisting"
+msgid "Overwrite existing file(s)"
+msgstr "เขียนทับแฟ้มที่มีอยู่แล้ว"
+
+#: $strPacked
+msgid "Packed"
+msgstr ""
+
+#: $strPageNumber
+msgid "Page number:"
+msgstr "หมายเลขหน้า:"
+
+#: $strPagesToBeFlushed
+msgid "Pages to be flushed"
+msgstr ""
+
+#: $strPaperSize
+msgid "Paper size"
+msgstr "ขนาดกระดาษ"
+
+#: $strPartialImport
+msgid "Partial import"
+msgstr ""
+
+#: $strPartialText
+msgid "Partial Texts"
+msgstr "ข้อความบางส่วน"
+
+#: $strPartitionDefinition
+msgid "PARTITION definition"
+msgstr ""
+
+#: $strPartitioned
+msgid "partitioned"
+msgstr ""
+
+#: $strPartitionMaintenance
+msgid "Partition maintenance"
+msgstr ""
+
+#: $strPartition
+msgid "Partition %s"
+msgstr ""
+
+#: $strPasswordChanged
+msgid "The password for %s was changed successfully."
+msgstr "เปลี่ยนรหัสผ่านของ %s เรียบร้อยแล้ว"
+
+#: $strPasswordEmpty
+msgid "The password is empty!"
+msgstr "รหัสผ่านยังว่างอยู่!"
+
+#: $strPasswordHashing
+msgid "Password Hashing"
+msgstr ""
+
+#: $strPasswordNotSame
+msgid "The passwords aren't the same!"
+msgstr "รหัสผ่านไม่ตรงกัน!"
+
+#: $strPassword
+msgid "Password"
+msgstr "รหัสผ่าน"
+
+#: $strPBXTCheckpointFrequency
+msgid "Checkpoint frequency"
+msgstr ""
+
+#: $strPBXTCheckpointFrequencyDesc
+msgid ""
+"The amount of data written to the transaction log before a checkpoint is "
+"performed. The default value is 24MB."
+msgstr ""
+
+#: $strPBXTDataFileGrowSize
+msgid "Data file grow size"
+msgstr ""
+
+#: $strPBXTDataFileGrowSizeDesc
+msgid "The grow size of the handle data (.xtd) files."
+msgstr ""
+
+#: $strPBXTDataLogThreshold
+msgid "Data log threshold"
+msgstr ""
+
+#: $strPBXTDataLogThresholdDesc
+msgid ""
+"The maximum size of a data log file. The default value is 64MB. PBXT can "
+"create a maximum of 32000 data logs, which are used by all tables. So the "
+"value of this variable can be increased to increase the total amount of data "
+"that can be stored in the database."
+msgstr ""
+
+#: $strPBXTGarbageThresholdDesc
+msgid ""
+"The percentage of garbage in a data log file before it is compacted. This is "
+"a value between 1 and 99. The default is 50."
+msgstr ""
+
+#: $strPBXTGarbageThreshold
+msgid "Garbage threshold"
+msgstr ""
+
+#: $strPBXTIndexCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the index cache. Default value is "
+"32MB. The memory allocated here is used only for caching index pages."
+msgstr ""
+
+#: $strPBXTIndexCacheSize
+msgid "Index cache size"
+msgstr ""
+
+#: $strPBXTLogBufferSizeDesc
+msgid ""
+"The size of the buffer used when writing a data log. The default is 256MB. "
+"The engine allocates one buffer per thread, but only if the thread is "
+"required to write a data log."
+msgstr ""
+
+#: $strPBXTLogBufferSize
+msgid "Log buffer size"
+msgstr ""
+
+#: $strPBXTLogCacheSizeDesc
+msgid ""
+"The amount of memory allocated to the transaction log cache used to cache on "
+"transaction log data. The default is 16MB."
+msgstr ""
+
+#: $strPBXTLogCacheSize
+msgid "Log cache size"
+msgstr ""
+
+#: $strPBXTLogFileCountDesc
+msgid ""
+"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
+"system will maintain. If the number of logs exceeds this value then old logs "
+"will be deleted, otherwise they are renamed and given the next highest "
+"number."
+msgstr ""
+
+#: $strPBXTLogFileCount
+msgid "Log file count"
+msgstr ""
+
+#: $strPBXTLogFileThresholdDesc
+msgid ""
+"The size of a transaction log before rollover, and a new log is created. The "
+"default value is 16MB."
+msgstr ""
+
+#: $strPBXTLogFileThreshold
+msgid "Log file threshold"
+msgstr ""
+
+#: $strPBXTRecordCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the record cache used to cache "
+"table data. The default value is 32MB. This memory is used to cache changes "
+"to the handle data (.xtd) and row pointer (.xtr) files."
+msgstr ""
+
+#: $strPBXTRecordCacheSize
+msgid "Record cache size"
+msgstr ""
+
+#: $strPBXTRowFileGrowSizeDesc
+msgid "The grow size of the row pointer (.xtr) files."
+msgstr ""
+
+#: $strPBXTRowFileGrowSize
+msgid "Row file grow size"
+msgstr ""
+
+#: $strPBXTTransactionBufferSizeDesc
+msgid ""
+"The size of the global transaction log buffer (the engine allocates 2 "
+"buffers of this size). The default is 1MB."
+msgstr ""
+
+#: $strPBXTTransactionBufferSize
+msgid "Transaction buffer size"
+msgstr ""
+
+#: $strPdfDbSchema
+msgid "Schema of the \"%s\" database - Page %s"
+msgstr "schema ของฐานข้อมูล \"%s\" - หน้า %s"
+
+#: $strPdfInvalidTblName
+msgid "The \"%s\" table doesn't exist!"
+msgstr "ไม่มีตาราง \"%s\"!"
+
+#: $strPdfNoTables
+msgid "No tables"
+msgstr "ไม่มีตาราง"
+
+#: $strPDFPageCreated
+msgid "Page has been created"
+msgstr ""
+
+#: $strPDFPageCreateFailed
+msgid "Page creation failed"
+msgstr ""
+
+#: $strPDF
+msgid "PDF"
+msgstr ""
+
+#: $strPDFReportExplanation
+msgid "(Generates a report containing the data of a single table)"
+msgstr ""
+
+#: $strPDFReportTitle
+msgid "Report title"
+msgstr ""
+
+#: $strPerHour
+msgid "per hour"
+msgstr "ต่อชั่วโมง"
+
+#: $strPerMinute
+msgid "per minute"
+msgstr "ต่อนาที"
+
+#: $strPerSecond
+msgid "per second"
+msgstr "ต่อวินาที"
+
+#: $strPersian
+msgid "Persian"
+msgstr ""
+
+#: $strPhoneBook
+msgid "phone book"
+msgstr "สมุดโทรศัพท์"
+
+#: $strPhpArray
+msgid "PHP array"
+msgstr ""
+
+#: $strPhp
+msgctxt "$strPhp"
+msgid "Create PHP Code"
+msgstr "สร้างโค้ด PHP"
+
+#: $strPHPExtension
+msgid "PHP extension"
+msgstr ""
+
+#: $strPHPVersion
+msgid "PHP Version"
+msgstr "รุ่นของ PHP"
+
+#: $strPlayAudio
+msgid "Play audio"
+msgstr ""
+
+#: $strPleaseSelectPrimaryOrUniqueKey
+msgid "Please select the primary key or a unique key"
+msgstr ""
+
+#: $strPmadbCreateConfig
+msgid ""
+"Enable advanced features in configuration file "
+"(<code>config.inc.php</code>), for example by starting from "
+"<code>config.sample.inc.php</code>."
+msgstr ""
+
+#: $strPmadbCreateHelp
+msgid "Quick steps to setup advanced features:"
+msgstr ""
+
+#: $strPmadbCreateTables
+msgid ""
+"Create the needed tables with the <code>script/create_tables.sql</code>."
+msgstr ""
+
+#: $strPmadbCreateUser
+msgid "Create a pma user and give access to these tables."
+msgstr ""
+
+#: $strPmadbReLoginToEnable
+msgid "Re-login to phpMyAdmin to load the updated configuration file."
+msgstr ""
+
+#: $strPmaDocumentation
+msgid "phpMyAdmin documentation"
+msgstr "เอกสารการใช้ phpMyAdmin"
+
+#: $strPmaUriError
+msgid ""
+"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"configuration file!"
+msgstr ""
+"<b>ต้อง</b>กำหนดค่า <tt>$cfg['PmaAbsoluteUri']</tt> "
+"ในไฟล์คอนฟิกูเรชั่นเสียก่อน"
+
+#: $strPolish
+msgid "Polish"
+msgstr "โปแลนด์"
+
+#: $strPort
+msgid "Port"
+msgstr ""
+
+#: $strPortrait
+msgid "Portrait"
+msgstr "แนวตั้ง"
+
+#: $strPos1
+msgid "Begin"
+msgstr "จุดเริ่มต้น"
+
+#: $strPrevious
+msgid "Previous"
+msgstr "ก่อนหน้า"
+
+#: $strPrimaryKeyHasBeenDropped
+msgid "The primary key has been dropped"
+msgstr "โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว"
+
+#: $strPrimaryKeyName
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "ชื่อของไพรมารีคีย์ จะต้องเป็น PRIMARY เท่านั้น"
+
+#: $strPrimaryKeyWarning
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!)"
+
+#: $strPrimary
+msgid "Primary"
+msgstr "ไพรมารี"
+
+#: $strPrint
+msgid "Print"
+msgstr "พิมพ์"
+
+#: $strPrintViewFull
+msgid "Print view (with full texts)"
+msgstr ""
+
+#: $strPrintView
+msgid "Print view"
+msgstr "แสดง"
+
+#: $strPrivDescAllPrivileges
+msgid "Includes all privileges except GRANT."
+msgstr "ให้สิทธิทุกอย่าง ยกเว้นการให้สิทธิแก่ผู้อื่น (GRANT)."
+
+#: $strPrivDescAlter
+msgid "Allows altering the structure of existing tables."
+msgstr "อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม."
+
+#: $strPrivDescAlterRoutine
+msgid "Allows altering and dropping stored routines."
+msgstr ""
+
+#: $strPrivDescCreateDb
+msgid "Allows creating new databases and tables."
+msgstr "อนุญาตให้สร้างฐานข้อมูล และตารางใหม่."
+
+#: $strPrivDescCreateRoutine
+msgid "Allows creating stored routines."
+msgstr ""
+
+#: $strPrivDescCreateTbl
+msgid "Allows creating new tables."
+msgstr "อนุญาตให้สร้างตารางใหม่."
+
+#: $strPrivDescCreateTmpTable
+msgid "Allows creating temporary tables."
+msgstr "อนุญาตให้สร้างตารางชั่วคราว."
+
+#: $strPrivDescCreateUser
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr ""
+
+#: $strPrivDescCreateView
+msgid "Allows creating new views."
+msgstr ""
+
+#: $strPrivDescDelete
+msgid "Allows deleting data."
+msgstr "อนุญาตให้ลบข้อมูล"
+
+#: $strPrivDescDropDb
+msgid "Allows dropping databases and tables."
+msgstr "อนุญาตให้ทิ้งฐานข้อมูล และตาราง"
+
+#: $strPrivDescDropTbl
+msgid "Allows dropping tables."
+msgstr "อนุญาตให้ทิ้งตาราง"
+
+#: $strPrivDescEvent
+msgid "Allows to set up events for the event scheduler"
+msgstr ""
+
+#: $strPrivDescExecute5
+msgid "Allows executing stored routines."
+msgstr ""
+
+#: $strPrivDescExecute
+msgid "Allows running stored procedures; has no effect in this MySQL version."
+msgstr "อนุญาตให้รัน stored procedure (ไม่มีผลใน MySQL รุ่นนี้)"
+
+#: $strPrivDescFile
+msgid "Allows importing data from and exporting data into files."
+msgstr "อนุญาตให้นำเข้าข้อมูล และส่งออกข้อมูล ไปที่ไฟล์"
+
+#: $strPrivDescGrant
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr "อนุญาตให้เพิ่มผู้ใช้ และสิทธิเข้าถึง โดยไม่ต้องเรียกใช้ตารางสิทธิใหม่"
+
+#: $strPrivDescIndex
+msgid "Allows creating and dropping indexes."
+msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+
+#: $strPrivDescInsert
+msgid "Allows inserting and replacing data."
+msgstr "อนุญาตให้เพิ่ม และแทนที่ ข้อมูล"
+
+#: $strPrivDescLockTables
+msgid "Allows locking tables for the current thread."
+msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
+
+#: $strPrivDescMaxConnections
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
+
+#: $strPrivDescMaxQuestions
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง"
+
+#: $strPrivDescMaxUpdates
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"จำกัดจำนวนของคำสั่ง ที่จะเปลี่ยนแปลงตาราง หรือฐานข้อมูลใดๆ "
+"ที่ผู้ใช้จะสามารถสั่งได้ ต่อชั่วโมง"
+
+#: $strPrivDescMaxUserConnections
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr ""
+
+#: $strPrivDescProcess
+msgid "Allows viewing processes of all users"
+msgstr ""
+
+#: $strPrivDescReferences
+msgid "Has no effect in this MySQL version."
+msgstr "ไม่มีผลใน MySQL รุ่นนี้"
+
+#: $strPrivDescReload
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr "อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์"
+
+#: $strPrivDescReplClient
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "มอบสิทธิให้ผู้ใช้ ในการถามว่า slaves หรือ masters อยู่ที่ไหน."
+
+#: $strPrivDescReplSlave
+msgid "Needed for the replication slaves."
+msgstr ""
+
+#: $strPrivDescSelect
+msgid "Allows reading data."
+msgstr "อนุญาตให้อ่านข้อมูลได้."
+
+#: $strPrivDescShowDb
+msgid "Gives access to the complete list of databases."
+msgstr "สามารถเรียกดูรายการฐานข้อมูลทั้งหมดได้"
+
+#: $strPrivDescShowView
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr ""
+
+#: $strPrivDescShutdown
+msgid "Allows shutting down the server."
+msgstr "อนุญาตให้ปิดเซิร์ฟเวอร์ได้"
+
+#: $strPrivDescSuper
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+
+#: $strPrivDescTrigger
+msgid "Allows creating and dropping triggers"
+msgstr ""
+
+#: $strPrivDescUpdate
+msgid "Allows changing data."
+msgstr "อนุญาตให้เปลี่ยนข้อมูลได้."
+
+#: $strPrivDescUsage
+msgid "No privileges."
+msgstr "ไม่มีสิทธิใดๆ."
+
+#: $strPrivileges
+msgid "Privileges"
+msgstr "สิทธิ"
+
+#: $strPrivilegesReloaded
+msgid "The privileges were reloaded successfully."
+msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
+
+#: $strProcedures
+msgid "Procedures"
+msgstr ""
+
+#: $strProcesses
+msgid "Processes"
+msgstr "โพรเซส"
+
+#: $strProcesslist
+msgid "Process list"
+msgstr "รายการโพรเซส"
+
+#: $strProfiling
+msgid "Profiling"
+msgstr ""
+
+#: $strProtocolVersion
+msgid "Protocol version"
+msgstr ""
+
+#: $strPutColNames
+msgid "Put fields names in the first row"
+msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+
+#: $strQBEDel
+msgid "Del"
+msgstr "ลบ"
+
+#: $strQBEIns
+msgid "Ins"
+msgstr "เพิ่ม"
+
+#: $strQBE
+msgid "Query"
+msgstr "คำค้นจากตัวอย่าง"
+
+#: $strQueriesExecuted
+msgid "The following queries have been executed:"
+msgstr ""
+
+#: $strQueryCache
+msgid "Query cache"
+msgstr ""
+
+#: $strQueryFrame
+msgctxt "$strQueryFrame"
+msgid "Query window"
+msgstr "หน้าต่างคำค้น"
+
+#: $strQueryOnDb
+msgid "SQL query on database <b>%s</b>:"
+msgstr "คำค้นบนฐานข้อมูล <b>%s</b>:"
+
+#: $strQueryResultsOperations
+msgid "Query results operations"
+msgstr ""
+
+#: $strQuerySQLHistory
+msgid "SQL history"
+msgstr "SQL-history"
+
+#: $strQueryStatistics
+msgid ""
+"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
+"server."
+msgstr ""
+"<b>สถิติคำค้น</b>: มี %s คำค้น ถูกส่งไปที่เซิร์ฟเวอร์ นับตั้งแต่เริ่มระบบ."
+
+#: $strQueryTime
+msgid "Query took %01.4f sec"
+msgstr "คำค้นใช้เวลา %01.4f วินาที"
+
+#: $strQueryType
+msgid "Query type"
+msgstr "ชนิดคำค้น"
+
+#: $strQueryWindowLock
+msgid "Do not overwrite this query from outside the window"
+msgstr ""
+
+#: $strReadRequests
+msgid "Read requests"
+msgstr ""
+
+#: $strRebuild
+msgid "Rebuild"
+msgstr ""
+
+#: $strReceived
+msgid "Received"
+msgstr "ได้รับ"
+
+#: $strRecommended
+msgid "recommended"
+msgstr ""
+
+#: $strRecords
+msgid "Records"
+msgstr "ระเบียน"
+
+#: $strReferentialIntegrity
+msgid "Check referential integrity:"
+msgstr "ตรวจสอบความสมบูรณ์ของการอ้างถึง:"
+
+#: $strRefresh
+msgctxt "$strRefresh"
+msgid "Refresh"
+msgstr "เรียกใหม่"
+
+#: $strRelationalDisplayField
+msgid "Relational display field"
+msgstr ""
+
+#: $strRelationalKey
+msgid "Relational key"
+msgstr ""
+
+#: $strRelationalSchema
+msgid "Relational schema"
+msgstr "รีเลชันแนล สกีมา"
+
+#: $strRelationDeleted
+msgid "Relation deleted"
+msgstr ""
+
+#: $strRelationNotWorking
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ "
+"ตามเหตุผลที่แจ้งไว้ใน %shere%s"
+
+#: $strRelationsForTable
+msgid "RELATIONS FOR TABLE"
+msgstr ""
+
+#: $strRelations
+msgid "Relations"
+msgstr "รีเลชัน"
+
+#: $strRelationView
+msgid "Relation view"
+msgstr "มุมมองรีเลชัน"
+
+#: $strReloadingThePrivileges
+msgid "Reloading the privileges"
+msgstr "ปรับปรุงสิทธิเข้าถึงใหม่อีกรอบ"
+
+#: $strReloadNavi
+msgid "Reload navigation frame"
+msgstr ""
+
+#: $strReloadPrivileges
+msgid "Reload privileges"
+msgstr ""
+
+#: $strReload
+msgid "Reload"
+msgstr ""
+
+#: $strRemoteServer
+msgid "Remote server"
+msgstr ""
+
+#: $strRemoveCRLF
+msgid "Remove CRLF characters within fields"
+msgstr ""
+
+#: $strRemovePartitioning
+msgid "Remove partitioning"
+msgstr ""
+
+#: $strRemoveSelectedUsers
+msgid "Remove selected users"
+msgstr "ถอนผู้ใช้ที่เลือก"
+
+#: $strRenameDatabaseOK
+msgid "Database %s has been renamed to %s"
+msgstr ""
+
+#: $strRenameTableOK
+msgid "Table %s has been renamed to %s"
+msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
+
+#: $strRenameTable
+msgid "Rename table to"
+msgstr "เปลี่ยนชื่อตารางเป็น"
+
+#: $strRenameView
+msgid "Rename view to"
+msgstr ""
+
+#: $strRepair
+msgctxt "$strRepair"
+msgid "Repair"
+msgstr ""
+
+#: $strRepairTable
+msgid "Repair table"
+msgstr "ซ่อมแซมตาราง"
+
+#: $strReplaceNULLBy
+msgid "Replace NULL by"
+msgstr "แทนที่ NULL เป็น"
+
+#: $strReplaceTable
+msgid "Replace table data with file"
+msgstr "เขียนทับด้วยข้อมูลจากไฟล์"
+
+#: $strReplicationAddLines
+msgid ""
+"Now, add the following lines at the end of [mysqld] section in your my.cnf "
+"and please restart the MySQL server afterwards."
+msgstr ""
+
+#: $strReplicationAddSlaveUser
+msgid "Add slave replication user"
+msgstr ""
+
+#: $strReplicationChangedSuccesfully
+msgid "Master server changed succesfully to %s"
+msgstr ""
+
+#: $strReplicationConfiguredMaster
+msgid "This server is configured as master in a replication process."
+msgstr ""
+
+#: $strReplicationControlSlave
+msgid "Control slave:"
+msgstr ""
+
+#: $strReplicationErrorGetPosition
+msgid ""
+"Unable to read master log position. Possible privilege problem on master."
+msgstr ""
+
+#: $strReplicationErrorMasterConnect
+msgid "Unable to connect to master %s."
+msgstr ""
+
+#: $strReplicationMasterChooseAll
+msgid "Replicate all databases; Ignore:"
+msgstr ""
+
+#: $strReplicationMasterChooseIgn
+msgid "Ignore all databases; Replicate:"
+msgstr ""
+
+#: $strReplicationMasterChooseMode
+msgid ""
+"This server is not configured as master server in a replication process. You "
+"can choose from either replicating all databases and ignoring certain "
+"(useful if you want to replicate majority of databases) or you can choose to "
+"ignore all databases by default and allow only certain databases to be "
+"replicated. Please select the mode:"
+msgstr ""
+
+#: $strReplicationMasterConfiguration
+msgid "Master configuration"
+msgstr ""
+
+#: $strReplicationMaster
+msgid "Master replication"
+msgstr ""
+
+#: $strReplication
+msgid "Replication"
+msgstr ""
+
+#: $strReplicationRestartServer
+msgid ""
+"Once you restarted MySQL server, please click on Go button. Afterwards, you "
+"should see a message informing you, that this server <b>is</b> configured as "
+"master"
+msgstr ""
+
+#: $strReplicationSelectDatabases
+msgid "Please select databases:"
+msgstr ""
+
+#: $strReplicationServernConfiguredMaster
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationShowConnectedSlavesNote
+msgid ""
+"Only slaves started with the --report-host=host_name option are visible in "
+"this list."
+msgstr ""
+
+#: $strReplicationShowConnectedSlaves
+msgid "Show connected slaves"
+msgstr ""
+
+#: $strReplicationShowMasterStatus
+msgctxt "$strReplicationShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strReplicationSkippingErrorWarn
+msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgstr ""
+
+#: $strReplicationSlaveChangeMaster
+msgid "Change or reconfigure master server"
+msgstr ""
+
+#: $strReplicationSlaveConfiguration
+msgid "Slave configuration"
+msgstr ""
+
+#: $strReplicationSlaveConfigured
+msgid ""
+"Server is configured as slave in a replication process. Would you like to:"
+msgstr ""
+
+#: $strReplicationSlaveErrorManagement
+msgid "Error management:"
+msgstr ""
+
+#: $strReplicationSlaveIOThread
+msgid "IO Thread %s only"
+msgstr ""
+
+#: $strReplicationSlaveIOThreadNotRunning
+msgid "Slave IO Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveNotConfigured
+msgid ""
+"This server is not configured as slave in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationSlaveReset
+msgid "Reset slave"
+msgstr ""
+
+#: $strReplicationSlaveSeeStatus
+msgid "See slave status table"
+msgstr ""
+
+#: $strReplicationSlaveSkipCurrentError
+msgid "Skip current error"
+msgstr ""
+
+#: $strReplicationSlaveSkipNextErrors
+msgid "errors."
+msgstr ""
+
+#: $strReplicationSlaveSkipNext
+msgid "Skip next"
+msgstr ""
+
+#: $strReplicationSlave
+msgid "Slave replication"
+msgstr ""
+
+#: $strReplicationSlaveSQLThreadNotRunning
+msgid "Slave SQL Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveSQLThread
+msgid "SQL Thread %s only"
+msgstr ""
+
+#: $strReplicationStatusInfo
+msgid ""
+"This MySQL server works as %s in <b>replication</b> process. For further "
+"information about replication status on the server, please visit the <a "
+"href=\"#replication\">replication section</a>."
+msgstr ""
+
+#: $strReplicationStatus_master
+msgid "Master status"
+msgstr ""
+
+#: $strReplicationStatus
+msgid "Replication status"
+msgstr ""
+
+#: $strReplicationStatus_slave
+msgid "Slave status"
+msgstr ""
+
+#: $strReplicationSynchronize
+msgid "Synchronize databases with master"
+msgstr ""
+
+#: $strReplicationUnableToChange
+msgid "Unable to change master"
+msgstr ""
+
+#: $strReplicationUnknownError
+msgid "Unknown error"
+msgstr ""
+
+#: $strReset
+msgctxt "$strReset"
+msgid "Reset"
+msgstr "เริ่มใหม่"
+
+#: $strResourceLimits
+msgid "Resource limits"
+msgstr "ขีดจำกัดของทรัพยากร"
+
+#: $strRestartInsertion
+msgid "Restart insertion with %s rows"
+msgstr ""
+
+#: $strReType
+msgid "Re-type"
+msgstr "พิมพ์ใหม่"
+
+#: $strRevokeAndDeleteDescr
+msgid ""
+"The users will still have the USAGE privilege until the privileges are "
+"reloaded."
+msgstr ""
+"ผู้ใช้ต่างๆ ยังคงมีสิทธิ USAGE จนกว่า ข้อมูลสิทธิ จะถูกเรียกใช้ใหม่อีกที."
+
+#: $strRevokeAndDelete
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
+
+#: $strRevokeMessage
+msgid "You have revoked the privileges for %s"
+msgstr "คุณได้เพิกถอนสิทธิของ %s"
+
+#: $strRevoke
+msgid "Revoke"
+msgstr "เพิกถอน"
+
+#: $strRomanian
+msgid "Romanian"
+msgstr "โรมาเนีย"
+
+#: $strRoutineReturnType
+msgid "Return type"
+msgstr ""
+
+#: $strRoutines
+msgid "Routines"
+msgstr ""
+
+#: $strRowLength
+msgid "Row length"
+msgstr "ความยาวแถว"
+
+#: $strRowsAffected
+msgid "%1$d row(s) affected."
+msgstr ""
+
+#: $strRowsDeleted
+msgid "%1$d row(s) deleted."
+msgstr ""
+
+#: $strRowsFrom
+msgid "row(s) starting from record #"
+msgstr "แถว เริ่มจากแถวที่"
+
+#: $strRowsInserted
+msgid "%1$d row(s) inserted."
+msgstr ""
+
+#: $strRowSize
+msgid " Row size "
+msgstr " ขนาดแถว "
+
+#: $strRowsModeFlippedHorizontal
+msgid "horizontal (rotated headers)"
+msgstr "แนวนอน (หมุนหัวเรื่อง)"
+
+#: $strRowsModeHorizontal
+msgid "horizontal"
+msgstr "แนวนอน"
+
+#: $strRowsModeOptions
+msgid "in %s mode and repeat headers after %s cells"
+msgstr "อยู่ใน %s และซ้ำหัวแถวทุกๆ %s เซลล์"
+
+#: $strRowsModeVertical
+msgid "vertical"
+msgstr "แนวตั้ง"
+
+#: $strRows
+msgid "Rows"
+msgstr "แถว"
+
+#: $strRowsStatistic
+msgid "Row Statistics"
+msgstr "สถิติของแถว"
+
+#: $strRunning
+msgid "running on %s"
+msgstr "ทำงานอยู่บน %s"
+
+#: $strRunQuery
+msgid "Submit Query"
+msgstr "ประมวลผลคำค้น"
+
+#: $strRunSQLQueryOnServer
+msgid "Run SQL query/queries on server %s"
+msgstr ""
+
+#: $strRunSQLQuery
+msgid "Run SQL query/queries on database %s"
+msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
+
+#: $strRussian
+msgid "Russian"
+msgstr "รัสเซีย"
+
+#: $strSaveOnServer
+msgid "Save on server in %s directory"
+msgstr ""
+
+#: $strSavePosition
+msgid "Save position"
+msgstr ""
+
+#: $strSave
+msgid "Save"
+msgstr "บันทึก"
+
+#: $strScaleFactorSmall
+msgid "The scale factor is too small to fit the schema on one page"
+msgstr "อัตราย่อน้อยเกินไป ที่จะจัดให้สกีมาอยู่ในหน้าเดียว"
+
+#: $strSearchFormTitle
+msgid "Search in database"
+msgstr "ค้นหาในฐานข้อมูล"
+
+#: $strSearchInField
+msgid "Inside field:"
+msgstr ""
+
+#: $strSearchInTables
+msgid "Inside table(s):"
+msgstr "ในตาราง:"
+
+#: $strSearchNeedle
+msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "คำ หรือ ค่าที่ต้องการค้นหา (wildcard: \"%\"):"
+
+#: $strSearchOption1
+msgid "at least one of the words"
+msgstr "อย่างน้อยหนึ่งคำ"
+
+#: $strSearchOption2
+msgid "all words"
+msgstr "ทุกคำ"
+
+#: $strSearchOption3
+msgid "the exact phrase"
+msgstr "เหมือนทั้งวลี"
+
+#: $strSearchOption4
+msgid "as regular expression"
+msgstr "รูปแบบคำพ้อง (regular expression)"
+
+#: $strSearchResultsFor
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "ผลการค้นหา \"<i>%s</i>\" %s:"
+
+#: $strSearch
+msgid "Search"
+msgstr "ค้นหา"
+
+#: $strSearchType
+msgid "Find:"
+msgstr "ค้น:"
+
+#: $strSecretRequired
+msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+msgstr ""
+
+#: $strSelectADb
+msgid "Please select a database"
+msgstr "โปรดเลือกฐานข้อมูล"
+
+#: $strSelectAll
+msgid "Select All"
+msgstr "เลือกทั้งหมด"
+
+#: $strSelectBinaryLog
+msgid "Select binary log to view"
+msgstr ""
+
+#: $strSelectFields
+msgid "Select fields (at least one):"
+msgstr "เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):"
+
+#: $strSelectForeignKey
+msgid "Select Foreign Key"
+msgstr ""
+
+#: $strSelectNumRows
+msgid "in query"
+msgstr "ในคำค้น"
+
+#: $strSelectReferencedKey
+msgid "Select referenced key"
+msgstr ""
+
+#: $strSelectTables
+msgid "Select Tables"
+msgstr "เลือกตาราง"
+
+#: $strSend
+msgctxt "$strSend"
+msgid "Save as file"
+msgstr "ส่งมาเป็นไฟล์"
+
+#: $strSent
+msgid "Sent"
+msgstr "ถูกส่ง"
+
+#: $strServerChoice
+msgid "Server Choice"
+msgstr "ตัวเลือกเซิร์ฟเวอร์"
+
+#: $strServerNotResponding
+msgid "The server is not responding"
+msgstr "เซิร์ฟเวอร์ดังกล่าวไม่ตอบสนอง"
+
+#: $strServer
+msgid "Server"
+msgstr "เซิร์ฟเวอร์"
+
+#: $strServers
+msgctxt "$strServers"
+msgid "Servers"
+msgstr ""
+
+#: $strServerStatusDelayedInserts
+msgid "Delayed inserts"
+msgstr ""
+
+#: $strServerStatus
+msgid "Runtime Information"
+msgstr "ข้อมูลรันไทม์"
+
+#: $strServerStatusUptime
+msgid "This MySQL server has been running for %s. It started up on %s."
+msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s."
+
+#: $strServerTabVariables
+msgid "Variables"
+msgstr "ตัวแปร"
+
+#: $strServerTrafficNotes
+msgid ""
+"<b>Server traffic</b>: These tables show the network traffic statistics of "
+"this MySQL server since its startup."
+msgstr ""
+"<b>การจราจรของเซิร์ฟเวอร์</b>: ตารางนี้แสดงสถิติของการจราจรบนเครือข่าย "
+"สำหรับเซิร์ฟเวอร์ MySQL นี้ ตั้งแต่มันเริ่มทำงาน."
+
+#: $strServerVars
+msgid "Server variables and settings"
+msgstr "ตัวแปร และค่ากำหนด ของเซิร์ฟเวอร์"
+
+#: $strServerVersion
+msgid "Server version"
+msgstr "รุ่นของเซิร์ฟเวอร์"
+
+#: $strSessionGCWarning
+msgid ""
+"Your PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity "
+"configured in phpMyAdmin, because of this, your login will expire sooner "
+"than configured in phpMyAdmin."
+msgstr ""
+
+#: $strSessionStartupErrorGeneral
+msgid ""
+"Cannot start session without errors, please check errors given in your PHP "
+"and/or webserver log file and configure your PHP installation properly."
+msgstr ""
+
+#: $strSessionValue
+msgid "Session value"
+msgstr "ค่าเซสชั่น"
+
+#: $strSetEnumVal
+msgid ""
+"If field type is \"enum\" or \"set\", please enter the values using this format: "
+"'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br "
+"/>ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
+"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or "
+"'a\\'b')"
+
+#: $strSettings
+msgid "settings"
+msgstr ""
+
+#: $strSetupAllowAnywhereRecoding_name
+msgid "Allow character set conversion"
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_desc
+msgid ""
+"If enabled user can enter any MySQL server in login form for cookie auth"
+msgstr ""
+
+#: $strSetupAllowArbitraryServerMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"disabled as it allows attackers to bruteforce login to any MySQL server. If "
+"you feel this is necessary, use "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_name
+msgid "Allow login to any MySQL server"
+msgstr ""
+
+#: $strSetupAllowUserDropDatabase_name
+msgid "Show &quot;Drop database&quot; link to normal users"
+msgstr ""
+
+#: $strSetupBlowfishSecretCharsMsg
+msgid "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr ""
+
+#: $strSetupblowfish_secret_desc
+msgid ""
+"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+"authentication"
+msgstr ""
+
+#: $strSetupBlowfishSecretLengthMsg
+msgid "Key is too short, it should have at least 8 characters"
+msgstr ""
+
+#: $strSetupBlowfishSecretMsg
+msgid ""
+"You didn't have blowfish secret set and have enabled cookie authentication, "
+"so a key was automatically generated for you. It is used to encrypt cookies; "
+"you don't need to remember it."
+msgstr ""
+
+#: $strSetupblowfish_secret_name
+msgid "Blowfish secret"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_desc
+msgid "Highlight selected rows"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_name
+msgid "Row marker"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_desc
+msgid "Highlight row pointed by the mouse cursor"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_name
+msgid "Highlight pointer"
+msgstr ""
+
+#: $strSetupBZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+"import and export operations"
+msgstr ""
+
+#: $strSetupBZipDump_name
+msgid "Bzip2"
+msgstr ""
+
+#: $strSetupBZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupCannotLoadConfig
+msgid "Cannot load or save configuration"
+msgstr ""
+
+#: $strSetupCannotLoadConfigMsg
+msgid ""
+"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
+"level directory as described in "
+"[a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will "
+"be only able to download or display it."
+msgstr ""
+
+#: $strSetupCharEditing_desc
+msgid ""
+"Defines which type of editing controls should be used for CHAR and VARCHAR "
+"fields; [kbd]input[/kbd] - allows limiting of input length, "
+"[kbd]textarea[/kbd] - allows newlines in fields"
+msgstr ""
+
+#: $strSetupCharEditing_name
+msgid "CHAR fields editing"
+msgstr ""
+
+#: $strSetupCharTextareaCols_desc
+msgid "Number of columns for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaCols_name
+msgid "CHAR textarea columns"
+msgstr ""
+
+#: $strSetupCharTextareaRows_desc
+msgid "Number of rows for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaRows_name
+msgid "CHAR textarea rows"
+msgstr ""
+
+#: $strSetupCheckConfigurationPermissions_name
+msgid "Check config file permissions"
+msgstr ""
+
+#: $strSetupClear
+msgid "Clear"
+msgstr ""
+
+#: $strSetupCompressOnFly_desc
+msgid ""
+"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
+"you encounter problems with created gzip/bzip2 files disable this feature"
+msgstr ""
+
+#: $strSetupCompressOnFly_name
+msgid "Compress on the fly"
+msgstr ""
+
+#: $strSetupConfigurationFile
+msgid "Configuration file"
+msgstr ""
+
+#: $strSetupConfirm_desc
+msgid ""
+"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"when you're about to lose data"
+msgstr ""
+
+#: $strSetupConfirm_name
+msgid "Confirm DROP queries"
+msgstr ""
+
+#: $strSetupDefaultCharset_desc
+msgid "Default character set used for conversions"
+msgstr ""
+
+#: $strSetupDefaultCharset_name
+msgid "Default character set"
+msgstr ""
+
+#: $strSetupDefaultLanguage
+msgid "Default language"
+msgstr ""
+
+#: $strSetupDefaultServer
+msgid "Default server"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_desc
+msgid "Tab that is displayed when entering a database"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_name
+msgid "Default database tab"
+msgstr ""
+
+#: $strSetupDefaultTabServer_desc
+msgid "Tab that is displayed when entering a server"
+msgstr ""
+
+#: $strSetupDefaultTabServer_name
+msgid "Default server tab"
+msgstr ""
+
+#: $strSetupDefaultTabTable_desc
+msgid "Tab that is displayed when entering a table"
+msgstr ""
+
+#: $strSetupDefaultTabTable_name
+msgid "Default table tab"
+msgstr ""
+
+#: $strSetupDirectoryNotice
+msgid ""
+"This value should be double checked to ensure that this directory is neither "
+"world accessible nor readable or writable by other users on your server."
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_desc
+msgid "Show database listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_name
+msgid "Display databases as a list"
+msgstr ""
+
+#: $strSetupDisplay
+msgid "Display"
+msgstr ""
+
+#: $strSetupDisplayServersList_desc
+msgid "Show server listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayServersList_name
+msgid "Display servers as a list"
+msgstr ""
+
+#: $strSetupDonateLink
+msgid "Donate"
+msgstr ""
+
+#: $strSetupDownload
+msgid "Download"
+msgstr ""
+
+#: $strSetupEndOfLine
+msgid "End of line"
+msgstr ""
+
+#: $strSetuperror_connection
+msgid "Could not connect to MySQL server"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_password
+msgid "Empty phpMyAdmin control user password while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_user
+msgid "Empty phpMyAdmin control user while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_signon_session
+msgid "Empty signon session name while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_signon_url
+msgid "Empty signon URL while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_user_for_config_auth
+msgid "Empty username while using config authentication method"
+msgstr ""
+
+#: $strSetuperror_form
+msgid "Submitted form contains errors"
+msgstr ""
+
+#: $strSetuperror_incorrect_ip_address
+msgid "Incorrect IP address: %s"
+msgstr ""
+
+#: $strSetuperror_incorrect_port
+msgid "Not a valid port number"
+msgstr ""
+
+#: $strSetuperror_incorrect_value
+msgid "Incorrect value"
+msgstr ""
+
+#: $strSetuperror_missing_field_data
+msgid "Missing data for %s"
+msgstr ""
+
+#: $strSetuperror_nan_nneg
+msgid "Not a non-negative number"
+msgstr ""
+
+#: $strSetuperror_nan_p
+msgid "Not a positive number"
+msgstr ""
+
+#: $strSetupExecTimeLimit_desc
+msgid ""
+"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
+"limit)"
+msgstr ""
+
+#: $strSetupExecTimeLimit_name
+msgid "Maximum execution time"
+msgstr ""
+
+#: $strSetupExport_asfile_name
+msgctxt "$strSetupExport_asfile_name"
+msgid "Save as file"
+msgstr ""
+
+#: $strSetupExport_charset_name
+msgid "Character set of the file"
+msgstr ""
+
+#: $strSetupExport_compression_name
+msgctxt "$strSetupExport_compression_name"
+msgid "Compression"
+msgstr ""
+
+#: $strSetupExport_file_template_database_name
+msgid "Database name template"
+msgstr ""
+
+#: $strSetupExport_file_template_server_name
+msgid "Server name template"
+msgstr ""
+
+#: $strSetupExport_file_template_table_name
+msgid "Table name template"
+msgstr ""
+
+#: $strSetupExport_format_name
+msgctxt "$strSetupExport_format_name"
+msgid "Format"
+msgstr ""
+
+#: $strSetupExport_onserver_name
+msgid "Save on server"
+msgstr ""
+
+#: $strSetupExport_onserver_overwrite_name
+msgctxt "$strSetupExport_onserver_overwrite_name"
+msgid "Overwrite existing file(s)"
+msgstr ""
+
+#: $strSetupExport_remember_file_template_name
+msgid "Remember file name template"
+msgstr ""
+
+#: $strSetupFalse
+msgid "no"
+msgstr ""
+
+#: $strSetupForceSSL_desc
+msgid "Force secured connection while using phpMyAdmin"
+msgstr ""
+
+#: $strSetupForceSSLMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"enabled if your web server supports it"
+msgstr ""
+
+#: $strSetupForceSSL_name
+msgid "Force SSL connection"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_desc
+msgid ""
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+"the referenced data, [kbd]id[/kbd] is the key value"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_name
+msgid "Foreign key dropdown order"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_desc
+msgid "A dropdown will be used if fewer items are present"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_name
+msgid "Foreign key limit"
+msgstr ""
+
+#: $strSetupForm_Browse
+msgid "Browse mode"
+msgstr ""
+
+#: $strSetupForm_Browse_desc
+msgid "Customize browse mode"
+msgstr ""
+
+#: $strSetupForm_Edit_desc
+msgid "Customize edit mode"
+msgstr ""
+
+#: $strSetupForm_Edit
+msgid "Edit mode"
+msgstr ""
+
+#: $strSetupForm_Export_defaults_desc
+msgid "Customize default export options"
+msgstr ""
+
+#: $strSetupForm_Export_defaults
+msgid "Export defaults"
+msgstr ""
+
+#: $strSetupForm_Import_defaults_desc
+msgid "Customize default common import options"
+msgstr ""
+
+#: $strSetupForm_Import_defaults
+msgid "Import defaults"
+msgstr ""
+
+#: $strSetupForm_Import_export_desc
+msgid "Set import and export directories and compression options"
+msgstr ""
+
+#: $strSetupForm_Import_export
+msgid "Import / export"
+msgstr ""
+
+#: $strSetupForm_Left_databases
+msgctxt "$strSetupForm_Left_databases"
+msgid "Databases"
+msgstr ""
+
+#: $strSetupForm_Left_databases_desc
+msgid "Databases display options"
+msgstr ""
+
+#: $strSetupForm_Left_frame_desc
+msgid "Customize appearance of the navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_frame
+msgid "Navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_servers_desc
+msgid "Servers display options"
+msgstr ""
+
+#: $strSetupForm_Left_servers
+msgctxt "$strSetupForm_Left_servers"
+msgid "Servers"
+msgstr ""
+
+#: $strSetupForm_Left_tables_desc
+msgid "Tables display options"
+msgstr ""
+
+#: $strSetupForm_Left_tables
+msgctxt "$strSetupForm_Left_tables"
+msgid "Tables"
+msgstr ""
+
+#: $strSetupForm_Main_frame
+msgid "Main frame"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings_desc
+msgid "Settings that didn't fit enywhere else"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings
+msgid "Other core settings"
+msgstr ""
+
+#: $strSetupForm_Query_window_desc
+msgid "Customize query window options"
+msgstr ""
+
+#: $strSetupForm_Query_window
+msgctxt "$strSetupForm_Query_window"
+msgid "Query window"
+msgstr ""
+
+#: $strSetupForm_Security_desc
+msgid ""
+"Please note that phpMyAdmin is just a user interface and its features do not "
+"limit MySQL"
+msgstr ""
+
+#: $strSetupForm_Security
+msgid "Security"
+msgstr ""
+
+#: $strSetupForm_Server
+msgid "Basic settings"
+msgstr ""
+
+#: $strSetupForm_Server_config_desc
+msgid ""
+"Advanced server configuration, do not change these options unless you know "
+"what they are for"
+msgstr ""
+
+#: $strSetupForm_Server_config
+msgid "Server configuration"
+msgstr ""
+
+#: $strSetupForm_Server_desc
+msgid "Enter server connection parameters"
+msgstr ""
+
+#: $strSetupForm_Server_login_options_desc
+msgid "Enter login options for signon authentication"
+msgstr ""
+
+#: $strSetupForm_Server_login_options
+msgid "Signon login options"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb_desc
+msgid ""
+"Configure phpMyAdmin database to gain access to additional features, see "
+"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
+"documentation"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb
+msgctxt "$strSetupForm_Server_pmadb"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupFormset_customization
+msgid "Customization"
+msgstr ""
+
+#: $strSetupFormset_export
+msgid "Customize export options"
+msgstr ""
+
+#: $strSetupFormset_features
+msgid "Features"
+msgstr ""
+
+#: $strSetupFormset_import
+msgid "Customize import defaults"
+msgstr ""
+
+#: $strSetupFormset_left_frame
+msgid "Customize navigation frame"
+msgstr ""
+
+#: $strSetupFormset_main_frame
+msgid "Customize main frame"
+msgstr ""
+
+#: $strSetupForm_Sql_box_desc
+msgid "Customize links shown in SQL Query boxes"
+msgstr ""
+
+#: $strSetupForm_Sql_box
+msgid "SQL Query box"
+msgstr ""
+
+#: $strSetupForm_Sql_queries_desc
+msgid ""
+"SQL queries settings, for SQL Query box options see "
+"[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] "
+"settings"
+msgstr ""
+
+#: $strSetupForm_Sql_queries
+msgid "SQL queries"
+msgstr ""
+
+#: $strSetupForm_Startup_desc
+msgid "Customize startup page"
+msgstr ""
+
+#: $strSetupForm_Startup
+msgid "Startup"
+msgstr ""
+
+#: $strSetupForm_Tabs_desc
+msgid "Choose how you want tabs to work"
+msgstr ""
+
+#: $strSetupForm_Tabs
+msgid "Tabs"
+msgstr ""
+
+#: $strSetupGZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
+"and export operations"
+msgstr ""
+
+#: $strSetupGZipDump_name
+msgid "GZip"
+msgstr ""
+
+#: $strSetupGZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupHomepageLink
+msgid "phpMyAdmin homepage"
+msgstr ""
+
+#: $strSetupIconvExtraParams_name
+msgid "Extra parameters for iconv"
+msgstr ""
+
+#: $strSetupIgnoreErrors
+msgid "Ignore errors"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_desc
+msgid ""
+"If enabled, phpMyAdmin continues computing multiple-statement queries even "
+"if one of the queries failed"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_name
+msgid "Ignore multiple statement errors"
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_desc
+msgid ""
+"Allow interrupt of import in case script detects it is close to time limit. "
+"This might be good way to import large files, however it can break "
+"transactions."
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_name
+msgid "Partial import: allow interrupt"
+msgstr ""
+
+#: $strSetupImport_format_desc
+msgid ""
+"Default format; be aware that this list depends on location (database, "
+"table) and only SQL is always available"
+msgstr ""
+
+#: $strSetupImport_format_name
+msgctxt "$strSetupImport_format_name"
+msgid "Format of imported file"
+msgstr ""
+
+#: $strSetupImport_skip_queries_desc
+msgctxt "$strSetupImport_skip_queries_desc"
+msgid "Number of records (queries) to skip from start"
+msgstr ""
+
+#: $strSetupImport_skip_queries_name
+msgid "Partial import: skip queries"
+msgstr ""
+
+#: $strSetupInsecureConnection
+msgid "Insecure connection"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg1
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg2
+msgid ""
+"If your server is also configured to accept HTTPS requests follow [a@%s]this "
+"link[/a] to use a secure connection."
+msgstr ""
+
+#: $strSetupInsertRows_desc
+msgid "How many rows can be inserted at one time"
+msgstr ""
+
+#: $strSetupInsertRows_name
+msgid "Number of inserted rows"
+msgstr ""
+
+#: $strSetupLeftDefaultTabTable_name
+msgid "Target for quick access icon"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_desc
+msgid "Show logo in left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_name
+msgid "Display logo"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_desc
+msgid "Display server choice at the top of the left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_name
+msgid "Display servers selection"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_desc
+msgid "String that separates databases into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_name
+msgid "Database tree separator"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_desc
+msgid ""
+"Only light version; display databases in a tree (determined by the separator "
+"defined below)"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_name
+msgid "Display databases in a tree"
+msgstr ""
+
+#: $strSetupLeftFrameLight_desc
+msgid "Disable this if you want to see all databases at once"
+msgstr ""
+
+#: $strSetupLeftFrameLight_name
+msgid "Use light version"
+msgstr ""
+
+#: $strSetupLeftFrameTableLevel_name
+msgid "Maximum table tree depth"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_desc
+msgid "String that separates tables into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_name
+msgid "Table tree separator"
+msgstr ""
+
+#: $strSetupLeftLogoLink_name
+msgid "Logo link URL"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_desc
+msgid ""
+"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
+"([kbd]new[/kbd])"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_name
+msgid "Logo link target"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_desc
+msgid "Highlight server under the mouse cursor"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_name
+msgid "Enable highlighting"
+msgstr ""
+
+#: $strSetupLetUserChoose
+msgid "let the user choose"
+msgstr ""
+
+#: $strSetupLightTabs_desc
+msgid "Use less graphically intense tabs"
+msgstr ""
+
+#: $strSetupLightTabs_name
+msgid "Light tabs"
+msgstr ""
+
+#: $strSetupLoad
+msgid "Load"
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_desc
+msgid ""
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
+"only occurs for the current server. Setting this to FALSE makes it easy to "
+"forget to log out from other servers when connected to multiple servers."
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_name
+msgid "Delete all cookies on logout"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_desc
+msgid ""
+"Define whether the previous login should be recalled or not in cookie "
+"authentication mode"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_name
+msgid "Recall user name"
+msgstr ""
+
+#: $strSetupLoginCookieStore_desc
+msgid ""
+"Defines how long (in seconds) a login cookie should be stored in browser. "
+"The default of 0 means that it will be kept for the existing session only, "
+"and will be deleted as soon as you close the browser window. This is "
+"recommended for non-trusted environments."
+msgstr ""
+
+#: $strSetupLoginCookieStore_name
+msgid "Login cookie store"
+msgstr ""
+
+#: $strSetupLoginCookieValidity_desc
+msgid "Define how long (in seconds) a login cookie is valid"
+msgstr ""
+
+#: $strSetupLoginCookieValidityMsg
+msgid ""
+"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
+"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
+"pose a security risk such as impersonation."
+msgstr ""
+
+#: $strSetupLoginCookieValidity_name
+msgid "Login cookie validity"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_desc
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_name
+msgid "Maximum displayed SQL length"
+msgstr ""
+
+#: $strSetupMaxDbList_desc
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr ""
+
+#: $strSetupMaxDbList_name
+msgid "Maximum databases"
+msgstr ""
+
+#: $strSetupMaxRows_desc
+msgid ""
+"Number of rows displayed when browsing a result set. If the result set "
+"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"shown."
+msgstr ""
+
+#: $strSetupMaxRows_name
+msgid "Maximum number of rows to display"
+msgstr ""
+
+#: $strSetupMaxTableList_desc
+msgid "Maximum number of tables displayed in table list"
+msgstr ""
+
+#: $strSetupMaxTableList_name
+msgid "Maximum tables"
+msgstr ""
+
+#: $strSetupMemoryLimit_desc
+msgid ""
+"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] for no limit)"
+msgstr ""
+
+#: $strSetupMemoryLimit_name
+msgid "Memory limit"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_desc
+msgctxt "$strSetupNavigationBarIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_name
+msgid "Iconic navigation bar"
+msgstr ""
+
+#: $strSetupNewServer
+msgid "New server"
+msgstr ""
+
+#: $strSetupNoServers
+msgid "There are no configured servers"
+msgstr ""
+
+#: $strSetupOBGzip_desc
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr ""
+
+#: $strSetupOBGzip_name
+msgid "GZip output buffering"
+msgstr ""
+
+#: $strSetupOptionNone
+msgid "- none -"
+msgstr ""
+
+#: $strSetupOrder_desc
+msgid ""
+"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"DATETIME and TIMESTAMP, ascending order otherwise"
+msgstr ""
+
+#: $strSetupOrder_name
+msgid "Default sorting order"
+msgstr ""
+
+#: $strSetupOverview
+msgid "Overview"
+msgstr ""
+
+#: $strSetupPersistentConnections_desc
+msgid "Use persistent connections to MySQL databases"
+msgstr ""
+
+#: $strSetupPersistentConnections_name
+msgid "Persistent connections"
+msgstr ""
+
+#: $strSetupPropertiesIconic_desc
+msgctxt "$strSetupPropertiesIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupPropertiesIconic_name
+msgid "Iconic table operations"
+msgstr ""
+
+#: $strSetupProtectBinary_desc
+msgid "Disallow BLOB and BINARY fields from editing"
+msgstr ""
+
+#: $strSetupProtectBinary_name
+msgid "Protect binary fields"
+msgstr ""
+
+#: $strSetupQueryHistoryDB_desc
+msgid ""
+"Enable if you want DB-based query history (requires pmadb). If disabled, "
+"this utilizes JS-routines to display query history (lost by window close)."
+msgstr ""
+
+#: $strSetupQueryHistoryDB_name
+msgid "Permanent query history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_desc
+msgid "How many queries are kept in history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_name
+msgid "Query history length"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_desc
+msgid "Tab displayed when opening a new query window"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_name
+msgid "Default query window tab"
+msgstr ""
+
+#: $strSetupRecodingEngine_desc
+msgid "Select which functions will be used for character set conversion"
+msgstr ""
+
+#: $strSetupRecodingEngine_name
+msgid "Recoding engine"
+msgstr ""
+
+#: $strSetupRestoreDefaultValue
+msgid "Restore default value"
+msgstr ""
+
+#: $strSetupRevertErroneousFields
+msgid "Try to revert erroneous fields to their default values"
+msgstr ""
+
+#: $strSetupSaveDir_desc
+msgid "Directory where exports can be saved on server"
+msgstr ""
+
+#: $strSetupSaveDir_name
+msgid "Save directory"
+msgstr ""
+
+#: $strSetupServerAuthConfigMsg
+msgid ""
+"You set the [kbd]config[/kbd] authentication type and included username and "
+"password for auto-login, which is not a desirable option for live hosts. "
+"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
+"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%"
+"1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
+msgstr ""
+
+#: $strSetupServerExtensionMsg
+msgid "You should use mysqli for performance reasons"
+msgstr ""
+
+#: $strSetupServerNoPasswordMsg
+msgid "You allow for connecting to the server without a password."
+msgstr ""
+
+#: $strSetupServersAdd
+msgid "Add a new server"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_desc
+msgid "Leave blank if not used"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_name
+msgid "Host authentication order"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_desc
+msgid "Leave blank for defaults"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_name
+msgid "Host authentication rules"
+msgstr ""
+
+#: $strSetupServers_AllowNoPassword_name
+msgid "Allow logins without a password"
+msgstr ""
+
+#: $strSetupServers_AllowRoot_name
+msgid "Allow root login"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_desc
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_name
+msgid "HTTP Realm"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_desc
+msgid ""
+"The path for the config file for [a@http://swekey.com]SweKey hardware "
+"authentication[/a] (not located in your document root; suggested: "
+"/etc/swekey.conf)"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_name
+msgid "SweKey config file"
+msgstr ""
+
+#: $strSetupServers_auth_type_desc
+msgid "Authentication method to use"
+msgstr ""
+
+#: $strSetupServers_auth_type_name
+msgid "Authentication type"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"support, suggested: [kbd]pma_bookmark[/kbd]"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_name
+msgid "Bookmark table"
+msgstr ""
+
+#: $strSetupServers_column_info_desc
+msgid ""
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma_column_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_column_info_name
+msgid "Column information table"
+msgstr ""
+
+#: $strSetupServers_compress_desc
+msgid "Compress connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_compress_name
+msgid "Compress connection"
+msgstr ""
+
+#: $strSetupServers_connect_type_desc
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr ""
+
+#: $strSetupServers_connect_type_name
+msgid "Connection type"
+msgstr ""
+
+#: $strSetupServers_controlpass_name
+msgid "Control user password"
+msgstr ""
+
+#: $strSetupServers_controluser_desc
+msgid ""
+"A special MySQL user configured with limited permissions, more information "
+"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+msgstr ""
+
+#: $strSetupServers_controluser_name
+msgid "Control user"
+msgstr ""
+
+#: $strSetupServers_CountTables_desc
+msgid "Count tables when showing database list"
+msgstr ""
+
+#: $strSetupServers_CountTables_name
+msgid "Count tables"
+msgstr ""
+
+#: $strSetupServers_designer_coords_desc
+msgid ""
+"Leave blank for no Designer support, suggested: "
+"[kbd]pma_designer_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_designer_coords_name
+msgid "Designer table"
+msgstr ""
+
+#: $strSetupServers_DisableIS_desc
+msgid ""
+"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+msgstr ""
+
+#: $strSetupServers_DisableIS_name
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr ""
+
+#: $strSetupServerSecurityInfoMsg
+msgid ""
+"If you feel this is necessary, use additional protection settings - "
+"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
+"authentication[/a] settings and "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupServersEdit
+msgid "Edit server"
+msgstr ""
+
+#: $strSetupServers_extension_desc
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr ""
+
+#: $strSetupServers_extension_name
+msgid "PHP extension to use"
+msgstr ""
+
+#: $strSetupServers_hide_db_desc
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr ""
+
+#: $strSetupServers_hide_db_name
+msgid "Hide databases"
+msgstr ""
+
+#: $strSetupServers_history_desc
+msgid ""
+"Leave blank for no SQL query history support, suggested: "
+"[kbd]pma_history[/kbd]"
+msgstr ""
+
+#: $strSetupServers_history_name
+msgid "SQL query history table"
+msgstr ""
+
+#: $strSetupServers_host_desc
+msgid "Hostname where MySQL server is running"
+msgstr ""
+
+#: $strSetupServers_host_name
+msgid "Server hostname"
+msgstr ""
+
+#: $strSetupServers_LogoutURL_name
+msgid "Logout URL"
+msgstr ""
+
+#: $strSetupServers_nopassword_desc
+msgid "Try to connect without password"
+msgstr ""
+
+#: $strSetupServers_nopassword_name
+msgid "Connect without password"
+msgstr ""
+
+#: $strSetupServers_only_db_desc
+msgid ""
+"You can use MySQL wildcard characters (% and _), escape them if you want to "
+"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+msgstr ""
+
+#: $strSetupServers_only_db_name
+msgid "Show only listed databases"
+msgstr ""
+
+#: $strSetupServers_password_desc
+msgctxt "$strSetupServers_password_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_password_name
+msgid "Password for config auth"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_name
+msgid "PDF schema: pages table"
+msgstr ""
+
+#: $strSetupServers_pmadb_desc
+msgid ""
+"Database used for relations, bookmarks, and PDF features. See "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. "
+"Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pmadb_name
+msgctxt "$strSetupServers_pmadb_name"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupServers_port_desc
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_port_name
+msgid "Server port"
+msgstr ""
+
+#: $strSetupServers_relation_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
+msgstr ""
+
+#: $strSetupServers_relation_name
+msgid "Relation table"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_desc
+msgid "SQL command to fetch available databases"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_name
+msgid "SHOW DATABASES command"
+msgstr ""
+
+#: $strSetupServers_SignonSession_desc
+msgid ""
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
+msgstr ""
+
+#: $strSetupServers_SignonSession_name
+msgid "Signon session name"
+msgstr ""
+
+#: $strSetupServers_SignonURL_name
+msgid "Signon URL"
+msgstr ""
+
+#: $strSetupServerSslMsg
+msgid "You should use SSL connections if your web server supports it"
+msgstr ""
+
+#: $strSetupServers_socket_desc
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_socket_name
+msgid "Server socket"
+msgstr ""
+
+#: $strSetupServers_ssl_desc
+msgid "Enable SSL for connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_ssl_name
+msgid "Use SSL"
+msgstr ""
+
+#: $strSetupServers_table_coords_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma_table_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_coords_name
+msgid "PDF schema: table coordinates"
+msgstr ""
+
+#: $strSetupServers_table_info_desc
+msgid ""
+"Table to describe the display fields, leave blank for no support; suggested: "
+"[kbd]pma_table_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_info_name
+msgid "Display fields table"
+msgstr ""
+
+#: $strSetupServers_user_desc
+msgctxt "$strSetupServers_user_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_user_name
+msgid "User for config auth"
+msgstr ""
+
+#: $strSetupServers_verbose_check_desc
+msgid ""
+"Disable if you know that your pma_* tables are up to date. This prevents "
+"compatibility checks and thereby increases performance"
+msgstr ""
+
+#: $strSetupServers_verbose_check_name
+msgid "Verbose check"
+msgstr ""
+
+#: $strSetupServers_verbose_desc
+msgid ""
+"A user-friendly description of this server. Leave blank to display the "
+"hostname instead."
+msgstr ""
+
+#: $strSetupServers_verbose_name
+msgid "Verbose name of this server"
+msgstr ""
+
+#: $strSetupSetValue
+msgid "Set value: %s"
+msgstr ""
+
+#: $strSetupShowAll_desc
+msgid ""
+"Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgstr ""
+
+#: $strSetupShowAll_name
+msgid "Allow to display all the rows"
+msgstr ""
+
+#: $strSetupShowChgPassword_desc
+msgid ""
+"Please note that enabling this has no effect with [kbd]config[/kbd] "
+"authentication mode because the password is hard coded in the configuration "
+"file; this does not limit the ability to execute the same command directly"
+msgstr ""
+
+#: $strSetupShowChgPassword_name
+msgid "Show password change form"
+msgstr ""
+
+#: $strSetupShowCreateDb_name
+msgid "Show create database form"
+msgstr ""
+
+#: $strSetupShowForm
+msgid "Show form"
+msgstr ""
+
+#: $strSetupShowFunctionFields_desc
+msgid "Display the function fields in edit/insert mode"
+msgstr ""
+
+#: $strSetupShowFunctionFields_name
+msgid "Show function fields"
+msgstr ""
+
+#: $strSetupShowHiddenMessages
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr ""
+
+#: $strSetupShowPhpInfo_desc
+msgid ""
+"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output"
+msgstr ""
+
+#: $strSetupShowPhpInfo_name
+msgid "Show phpinfo() link"
+msgstr ""
+
+#: $strSetupShowServerInfo_name
+msgid "Show detailed MySQL server information"
+msgstr ""
+
+#: $strSetupShowSQL_desc
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr ""
+
+#: $strSetupShowSQL_name
+msgid "Show SQL queries"
+msgstr ""
+
+#: $strSetupShowStats_desc
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: $strSetupShowStats_name
+msgid "Show statistics"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_desc
+msgid ""
+"If tooltips are enabled and a database comment is set, this will flip the "
+"comment and the real name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_name
+msgid "Display database comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_desc
+msgid ""
+"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
+"used to split/nest the tables according to the "
+"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called like "
+"the alias, the table name itself stays unchanged"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_name
+msgid "Display table comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltip_name
+msgid "Display table comments in tooltips"
+msgstr ""
+
+#: $strSetupSkipLockedTables_desc
+msgid ""
+"Mark used tables and make it possible to show databases with locked tables"
+msgstr ""
+
+#: $strSetupSkipLockedTables_name
+msgid "Skip locked tables"
+msgstr ""
+
+#: $strSetupSQLQuery_Edit_name
+msgctxt "$strSetupSQLQuery_Edit_name"
+msgid "Edit"
+msgstr ""
+
+#: $strSetupSQLQuery_Explain_name
+msgctxt "$strSetupSQLQuery_Explain_name"
+msgid "Explain SQL"
+msgstr ""
+
+#: $strSetupSQLQuery_Refresh_name
+msgctxt "$strSetupSQLQuery_Refresh_name"
+msgid "Refresh"
+msgstr ""
+
+#: $strSetupSQLQuery_ShowAsPHP_name
+msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
+msgid "Create PHP Code"
+msgstr ""
+
+#: $strSetupSQLQuery_Validate_name
+msgctxt "$strSetupSQLQuery_Validate_name"
+msgid "Validate SQL"
+msgstr ""
+
+#: $strSetupSuggestDBName_desc
+msgid ""
+"Suggest a database name on the &quot;Create Database&quot; form (if "
+"possible) or keep the text field empty"
+msgstr ""
+
+#: $strSetupSuggestDBName_name
+msgid "Suggest new database name"
+msgstr ""
+
+#: $strSetupTrue
+msgid "yes"
+msgstr ""
+
+#: $strSetupTrustedProxies_desc
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
+msgstr ""
+
+#: $strSetupTrustedProxies_name
+msgid "List of trusted proxies for IP allow/deny"
+msgstr ""
+
+#: $strSetupUploadDir_desc
+msgid "Directory on server where you can upload files for import"
+msgstr ""
+
+#: $strSetupUploadDir_name
+msgid "Upload directory"
+msgstr ""
+
+#: $strSetupUseDbSearch_desc
+msgid "Allow for searching inside the entire database"
+msgstr ""
+
+#: $strSetupUseDbSearch_name
+msgid "Use database search"
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_desc
+msgid ""
+"Show affected rows of each statement on multiple-statement queries. See "
+"libraries/import.lib.php for defaults on how many queries a statement may "
+"contain."
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_name
+msgid "Verbose multiple statements"
+msgstr ""
+
+#: $strSetupVersionCheckDataError
+msgid ""
+"Reading of version failed. Maybe you're offline or the upgrade server does "
+"not respond."
+msgstr ""
+
+#: $strSetupVersionCheckInvalid
+msgid "Got invalid version string from server"
+msgstr ""
+
+#: $strSetupVersionCheckLink
+msgid "Check for latest version"
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailable
+msgid ""
+"A newer version of phpMyAdmin is available and you should consider "
+"upgrading. The newest version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailableSvn
+msgid ""
+"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
+"latest stable version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNone
+msgid "No newer stable version is available"
+msgstr ""
+
+#: $strSetupVersionCheckUnparsable
+msgid "Unparsable version string"
+msgstr ""
+
+#: $strSetupVersionCheck
+msgid "Version check"
+msgstr ""
+
+#: $strSetupVersionCheckWrapperError
+msgid ""
+"Neither URL wrapper nor CURL is available. Version check is not possible."
+msgstr ""
+
+#: $strSetupWarning
+msgid "Warning"
+msgstr ""
+
+#: $strSetupZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
+"for import and export operations"
+msgstr ""
+
+#: $strSetupZipDumpExportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDumpImportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDump_name
+msgid "ZIP"
+msgstr ""
+
+#: $strShowAll
+msgid "Show all"
+msgstr "แสดงทั้งหมด"
+
+#: $strShowBinaryContentsAsHex
+msgid "Show binary contents as HEX"
+msgstr ""
+
+#: $strShowBinaryContents
+msgid "Show binary contents"
+msgstr ""
+
+#: $strShowBLOBContents
+msgid "Show BLOB contents"
+msgstr ""
+
+#: $strShowColor
+msgid "Show color"
+msgstr "แสดงสี"
+
+#: $strShowDatadictAs
+msgid "Data Dictionary Format"
+msgstr "รูปแบบพจนานุกรมข้อมูล"
+
+#: $strShowFullQueries
+msgid "Show Full Queries"
+msgstr "แสดงคำค้นแบบเต็ม"
+
+#: $strShowGrid
+msgid "Show grid"
+msgstr "แสดงกริด"
+
+#: $strShowHideLeftMenu
+msgid "Show/Hide left menu"
+msgstr ""
+
+#: $strShowingBookmark
+msgid "Showing bookmark"
+msgstr ""
+
+#: $strShowingPhp
+msgid "Showing as PHP code"
+msgstr ""
+
+#: $strShowingRecords
+msgid "Showing rows"
+msgstr "แสดงระเบียนที่ "
+
+#: $strShowingSQL
+msgid "Showing SQL query"
+msgstr ""
+
+#: $strShowInsert
+msgid "Show insert query"
+msgstr ""
+
+#: $strShowKeys
+msgid "Only show keys"
+msgstr ""
+
+#: $strShowMasterStatus
+msgctxt "$strShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strShowOpenTables
+msgid "Show open tables"
+msgstr ""
+
+#: $strShowPHPInfo
+msgid "Show PHP information"
+msgstr "แสดงข้อมูลของ PHP"
+
+#: $strShow
+msgid "Show"
+msgstr "แสดง"
+
+#: $strShowSlaveHosts
+msgid "Show slave hosts"
+msgstr ""
+
+#: $strShowSlaveStatus
+msgid "Show slave status"
+msgstr ""
+
+#: $strShowStatusBinlog_cache_disk_useDescr
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+
+#: $strShowStatusBinlog_cache_useDescr
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_disk_tablesDescr
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be "
+"memory-based instead of disk-based."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_filesDescr
+msgid "How many temporary files mysqld has created."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_tablesDescr
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+
+#: $strShowStatusDelayed_errorsDescr
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+
+#: $strShowStatusDelayed_insert_threadsDescr
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+
+#: $strShowStatusDelayed_writesDescr
+msgid "The number of INSERT DELAYED rows written."
+msgstr ""
+
+#: $strShowStatusFlush_commandsDescr
+msgid "The number of executed FLUSH statements."
+msgstr ""
+
+#: $strShowStatusHandler_commitDescr
+msgid "The number of internal COMMIT statements."
+msgstr ""
+
+#: $strShowStatusHandler_deleteDescr
+msgid "The number of times a row was deleted from a table."
+msgstr ""
+
+#: $strShowStatusHandler_discoverDescr
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+
+#: $strShowStatusHandler_read_firstDescr
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for "
+"example, SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+
+#: $strShowStatusHandler_read_keyDescr
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+
+#: $strShowStatusHandler_read_nextDescr
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+
+#: $strShowStatusHandler_read_prevDescr
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY ... DESC."
+msgstr ""
+
+#: $strShowStatusHandler_read_rndDescr
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+
+#: $strShowStatusHandler_read_rnd_nextDescr
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+
+#: $strShowStatusHandler_rollbackDescr
+msgid "The number of internal ROLLBACK statements."
+msgstr ""
+
+#: $strShowStatusHandler_updateDescr
+msgid "The number of requests to update a row in a table."
+msgstr ""
+
+#: $strShowStatusHandler_writeDescr
+msgid "The number of requests to insert a row in a table."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_dataDescr
+msgid "The number of pages containing data (dirty or clean)."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_dirtyDescr
+msgid "The number of pages currently dirty."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_flushedDescr
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_freeDescr
+msgid "The number of free pages."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_latchedDescr
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_miscDescr
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_totalDescr
+msgid "Total size of buffer pool, in pages."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_rndDescr
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_seqDescr
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_requestsDescr
+msgid "The number of logical read requests InnoDB has done."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_readsDescr
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_wait_freeDescr
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_write_requestsDescr
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr ""
+
+#: $strShowStatusInnodb_data_fsyncsDescr
+msgid "The number of fsync() operations so far."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_fsyncsDescr
+msgid "The current number of pending fsync() operations."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_readsDescr
+msgid "The current number of pending reads."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_writesDescr
+msgid "The current number of pending writes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_readDescr
+msgid "The amount of data read so far, in bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_readsDescr
+msgid "The total number of data reads."
+msgstr ""
+
+#: $strShowStatusInnodb_data_writesDescr
+msgid "The total number of data writes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_writtenDescr
+msgid "The amount of data written so far, in bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_dblwr_pages_writtenDescr
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+
+#: $strShowStatusInnodb_dblwr_writesDescr
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+
+#: $strShowStatusInnodb_log_waitsDescr
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+
+#: $strShowStatusInnodb_log_write_requestsDescr
+msgid "The number of log write requests."
+msgstr ""
+
+#: $strShowStatusInnodb_log_writesDescr
+msgid "The number of physical writes to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_fsyncsDescr
+msgid "The number of fsync() writes done to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_pending_fsyncsDescr
+msgid "The number of pending log file fsyncs."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_pending_writesDescr
+msgid "Pending log file writes."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_writtenDescr
+msgid "The number of bytes written to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_createdDescr
+msgid "The number of pages created."
+msgstr ""
+
+#: $strShowStatusInnodb_page_sizeDescr
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_readDescr
+msgid "The number of pages read."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_writtenDescr
+msgid "The number of pages written."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_current_waitsDescr
+msgid "The number of row locks currently being waited for."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_time_avgDescr
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_timeDescr
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_time_maxDescr
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_waitsDescr
+msgid "The number of times a row lock had to be waited for."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_deletedDescr
+msgid "The number of rows deleted from InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_insertedDescr
+msgid "The number of rows inserted in InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_readDescr
+msgid "The number of rows read from InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_updatedDescr
+msgid "The number of rows updated in InnoDB tables."
+msgstr ""
+
+#: $strShowStatusKey_blocks_not_flushedDescr
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+
+#: $strShowStatusKey_blocks_unusedDescr
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+
+#: $strShowStatusKey_blocks_usedDescr
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+
+#: $strShowStatusKey_read_requestsDescr
+msgid "The number of requests to read a key block from the cache."
+msgstr ""
+
+#: $strShowStatusKey_readsDescr
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+
+#: $strShowStatusKey_write_requestsDescr
+msgid "The number of requests to write a key block to the cache."
+msgstr ""
+
+#: $strShowStatusKey_writesDescr
+msgid "The number of physical writes of a key block to disk."
+msgstr ""
+
+#: $strShowStatusLast_query_costDescr
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled "
+"yet."
+msgstr ""
+
+#: $strShowStatusNot_flushed_delayed_rowsDescr
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr ""
+
+#: $strShowStatusOpened_tablesDescr
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+
+#: $strShowStatusOpen_filesDescr
+msgid "The number of files that are open."
+msgstr ""
+
+#: $strShowStatusOpen_streamsDescr
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+
+#: $strShowStatusOpen_tablesDescr
+msgid "The number of tables that are open."
+msgstr ""
+
+#: $strShowStatusQcache_free_blocksDescr
+msgid "The number of free memory blocks in query cache."
+msgstr ""
+
+#: $strShowStatusQcache_free_memoryDescr
+msgid "The amount of free memory for query cache."
+msgstr ""
+
+#: $strShowStatusQcache_hitsDescr
+msgid "The number of cache hits."
+msgstr ""
+
+#: $strShowStatusQcache_insertsDescr
+msgid "The number of queries added to the cache."
+msgstr ""
+
+#: $strShowStatusQcache_lowmem_prunesDescr
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+
+#: $strShowStatusQcache_not_cachedDescr
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+
+#: $strShowStatusQcache_queries_in_cacheDescr
+msgid "The number of queries registered in the cache."
+msgstr ""
+
+#: $strShowStatusQcache_total_blocksDescr
+msgid "The total number of blocks in the query cache."
+msgstr ""
+
+#: $strShowStatusReset
+msgctxt "$strShowStatusReset"
+msgid "Reset"
+msgstr ""
+
+#: $strShowStatusRpl_statusDescr
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr ""
+
+#: $strShowStatusSelect_full_joinDescr
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+
+#: $strShowStatusSelect_full_range_joinDescr
+msgid "The number of joins that used a range search on a reference table."
+msgstr ""
+
+#: $strShowStatusSelect_range_checkDescr
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+
+#: $strShowStatusSelect_rangeDescr
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+
+#: $strShowStatusSelect_scanDescr
+msgid "The number of joins that did a full scan of the first table."
+msgstr ""
+
+#: $strShowStatusSlave_open_temp_tablesDescr
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr ""
+
+#: $strShowStatusSlave_retried_transactionsDescr
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+
+#: $strShowStatusSlave_runningDescr
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr ""
+
+#: $strShowStatusSlow_launch_threadsDescr
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+
+#: $strShowStatusSlow_queriesDescr
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr ""
+
+#: $strShowStatusSort_merge_passesDescr
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+
+#: $strShowStatusSort_rangeDescr
+msgid "The number of sorts that were done with ranges."
+msgstr ""
+
+#: $strShowStatusSort_rowsDescr
+msgid "The number of sorted rows."
+msgstr ""
+
+#: $strShowStatusSort_scanDescr
+msgid "The number of sorts that were done by scanning the table."
+msgstr ""
+
+#: $strShowStatusTable_locks_immediateDescr
+msgid "The number of times that a table lock was acquired immediately."
+msgstr ""
+
+#: $strShowStatusTable_locks_waitedDescr
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+
+#: $strShowStatusThreads_cachedDescr
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+
+#: $strShowStatusThreads_connectedDescr
+msgid "The number of currently open connections."
+msgstr ""
+
+#: $strShowStatusThreads_createdDescr
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+
+#: $strShowStatusThreads_runningDescr
+msgid "The number of threads that are not sleeping."
+msgstr ""
+
+#: $strShowTableDimension
+msgid "Show dimension of tables"
+msgstr "แสดงมิติของตาราง"
+
+#: $strShowTables
+msgid "Show tables"
+msgstr "แสดงตาราง"
+
+#: $strShowThisQuery
+msgid " Show this query here again "
+msgstr " แสดงคำค้นนี้อีกที "
+
+#: $strSimplifiedChinese
+msgid "Simplified Chinese"
+msgstr "จีน (แผ่นดินใหญ่)"
+
+#: $strSingly
+msgid "(singly)"
+msgstr "(เดี่ยว)"
+
+#: $strSize
+msgid "Size"
+msgstr "ขนาด"
+
+#: $strSkipQueries
+msgctxt "$strSkipQueries"
+msgid "Number of records (queries) to skip from start"
+msgstr ""
+
+#: $strSlaveConfigure
+msgid ""
+"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"not, please add the following line into [mysqld] section:"
+msgstr ""
+
+#: $strSlovak
+msgid "Slovak"
+msgstr "สโลวัก"
+
+#: $strSlovenian
+msgid "Slovenian"
+msgstr "สโลเวเนีย"
+
+#: $strSmallBigAll
+msgid "Small/Big All"
+msgstr ""
+
+#: $strSnapToGrid
+msgid "Snap to grid"
+msgstr ""
+
+#: $strSocketProblem
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+
+#: $strSocket
+msgid "Socket"
+msgstr ""
+
+#: $strSortByKey
+msgid "Sort by key"
+msgstr "เรียงโดยคีย์"
+
+#: $strSorting
+msgid "Sorting"
+msgstr ""
+
+#: $strSort
+msgid "Sort"
+msgstr "เรียง"
+
+#: $strSpaceUsage
+msgid "Space usage"
+msgstr "เนื้อที่ที่ใช้"
+
+#: $strSpanish
+msgid "Spanish"
+msgstr "สเปน"
+
+#: $strSplitWordsWithSpace
+msgid "Words are separated by a space character (\" \")."
+msgstr "คำถูกแบ่งด้วยช่องว่าง (\" \")."
+
+#: $strSQLCompatibility
+msgid "SQL compatibility mode"
+msgstr ""
+
+#: $strSQLExportType
+msgid "Export type"
+msgstr ""
+
+#: $strSQLExportUTC
+msgid "Export time in UTC"
+msgstr ""
+
+#: $strSQLParserBugMessage
+msgid ""
+"There is a chance that you may have found a bug in the SQL parser. Please "
+"examine your query closely, and check that the quotes are correct and not "
+"mis-matched. Other possible failure causes may be that you are uploading a "
+"file with binary outside of a quoted text area. You can also try your query "
+"on the MySQL command line interface. The MySQL server error output below, if "
+"there is any, may also help you in diagnosing the problem. If you still "
+"have problems or if the parser fails where the command line interface "
+"succeeds, please reduce your SQL query input to the single query that causes "
+"problems, and submit a bug report with the data chunk in the CUT section "
+"below:"
+msgstr ""
+"อาจจะมีการเปลี่ยนแปลงบางอย่าง ที่คุณพบว่ามันเป็นข้อผิดพลาดของตัวอ่านคำสั่ง "
+"SQL. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด "
+"(quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้คือ "
+"คุณอาจจะอัพโหลดแฟ้มไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. "
+"คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL "
+"ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หากเซิร์ฟเวอร์ MySQL "
+"แจ้งข้อผิดพลาดมา, ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. "
+"ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser "
+"ในคอมมานด์ไลน์, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL "
+"เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา, "
+"ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง."
+
+#: $strSQLParserUserError
+msgid ""
+"There seems to be an error in your SQL query. The MySQL server error output "
+"below, if there is any, may also help you in diagnosing the problem"
+msgstr ""
+"อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server "
+"ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู "
+"มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น"
+
+#: $strSQLQuery
+msgid "SQL query"
+msgstr "คำค้น SQL"
+
+#: $strSQLResult
+msgid "SQL result"
+msgstr "ผลลัพธ์ SQL"
+
+#: $strSQL
+msgid "SQL"
+msgstr "SQL"
+
+#: $strSQPBugInvalidIdentifer
+msgid "Invalid Identifer"
+msgstr "ชื่อตัวแปรไม่ถูกต้อง"
+
+#: $strSQPBugUnclosedQuote
+msgid "Unclosed quote"
+msgstr "ไม่ได้ปิดเครื่องหมายคำพูด"
+
+#: $strSQPBugUnknownPunctuation
+msgid "Unknown Punctuation String"
+msgstr "มีเครื่องหมายวรรคตอนที่ไม่รู้จัก"
+
+#: $strStandInStructureForView
+msgid "Stand-in structure for view"
+msgstr ""
+
+#: $strStart
+msgid "Start"
+msgstr ""
+
+#: $strStatCheckTime
+msgid "Last check"
+msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+
+#: $strStatCreateTime
+msgid "Creation"
+msgstr "สร้างเมื่อ"
+
+#: $strStatement
+msgid "Statements"
+msgstr "คำสั่ง"
+
+#: $strStatic
+msgid "static"
+msgstr ""
+
+#: $strStatisticsOverrun
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr ""
+
+#: $strStatUpdateTime
+msgid "Last update"
+msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ"
+
+#: $strStatus
+msgid "Status"
+msgstr "สถานะ"
+
+#: $strStop
+msgid "Stop"
+msgstr ""
+
+#: $strStorageEngines
+msgid "Storage Engines"
+msgstr ""
+
+#: $strStorageEngine
+msgid "Storage Engine"
+msgstr ""
+
+#: $strStrucCSV
+msgctxt "$strStrucCSV"
+msgid "CSV"
+msgstr "ข้อมูล CSV (คั่นด้วยเครื่องหมายลูกน้ำ \",\")"
+
+#: $strStrucData
+msgid "Structure and data"
+msgstr "ทั้งโครงสร้างและข้อมูล"
+
+#: $strStrucExcelCSV
+msgid "CSV for MS Excel"
+msgstr "ข้อมูล CSV สำหรับไมโครซอฟต์เอ็กเซล"
+
+#: $strStrucNativeExcel
+msgid "Native MS Excel format"
+msgstr ""
+
+#: $strStrucOnly
+msgid "Structure only"
+msgstr "เฉพาะโครงสร้าง"
+
+#: $strStructPropose
+msgid "Propose table structure"
+msgstr "เสนอโครงสร้างตาราง"
+
+#: $strStructureDiff
+msgid ""
+"Structure Difference' ;\n"
+"$strStructureForView = 'Structure for view"
+msgstr ""
+
+#: $strStructureLC
+msgid "structure"
+msgstr ""
+
+#: $strStructure
+msgid "Structure"
+msgstr "โครงสร้าง"
+
+#: $strStructureSyn
+msgid "Structure Synchronization"
+msgstr ""
+
+#: $strSubmit
+msgid "Submit"
+msgstr "ส่ง"
+
+#: $strSuccess
+msgid "Your SQL query has been executed successfully"
+msgstr "ทำคำค้นเสร็จเรียบร้อยแล้ว"
+
+#: $strSuhosin
+msgid ""
+"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
+"issues."
+msgstr ""
+
+#: $strSum
+msgid "Sum"
+msgstr "ผลรวม"
+
+#: $strSwedish
+msgid "Swedish"
+msgstr "สวีเดน"
+
+#: $strSwekeyAuthenticating
+msgid "Authenticating..."
+msgstr ""
+
+#: $strSwekeyAuthFailed
+msgid "Hardware authentication failed"
+msgstr ""
+
+#: $strSwekeyNoKeyId
+msgid "File %s does not contain any key id"
+msgstr ""
+
+#: $strSwekeyNoKey
+msgid "No valid authentication key plugged"
+msgstr ""
+
+#: $strSwitchToDatabase
+msgid "Switch to copied database"
+msgstr ""
+
+#: $strSwitchToTable
+msgid "Switch to copied table"
+msgstr "สลับไปที่ตารางที่ถูกทำสำเนาไว้"
+
+#: $strSynchronizationNote
+msgid ""
+"Target database will be completely synchronized with source database. Source "
+"database will remain unchanged."
+msgstr ""
+
+#: $strSynchronizeDb
+msgid "Synchronize Databases"
+msgstr ""
+
+#: $strSynchronize
+msgid "Synchronize"
+msgstr ""
+
+#: $strTableAddColumn
+msgid "Add column(s)"
+msgstr ""
+
+#: $strTableAlreadyExists
+msgid "Table %s already exists!"
+msgstr ""
+
+#: $strTableAlterColumn
+msgid "Alter column(s)"
+msgstr ""
+
+#: $strTableAlteredSuccessfully
+msgid "Table %1$s has been altered successfully"
+msgstr ""
+
+#: $strTableAlterIndex
+msgid "Alter index(s)"
+msgstr ""
+
+#: $strTableApplyIndex
+msgid "Apply index(s)"
+msgstr ""
+
+#: $strTableComments
+msgid "Table comments"
+msgstr "หมายเหตุของตาราง"
+
+#: $strTableDeleteRows
+msgid "Would you like to delete all the previous rows from target tables?"
+msgstr ""
+
+#: $strTableEmpty
+msgid "The table name is empty!"
+msgstr "ชื่อตารางยังว่างอยู่!"
+
+#: $strTableHasBeenCreated
+msgid "Table %1$s has been created."
+msgstr ""
+
+#: $strTableHasBeenDropped
+msgid "Table %s has been dropped"
+msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+
+#: $strTableHasBeenEmptied
+msgid "Table %s has been emptied"
+msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
+
+#: $strTableHasBeenFlushed
+msgid "Table %s has been flushed"
+msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
+
+#: $strTableInsertRow
+msgid "Insert row(s)"
+msgstr ""
+
+#: $strTableIsEmpty
+msgid "Table seems to be empty!"
+msgstr ""
+
+#: $strTableMaintenance
+msgid "Table maintenance"
+msgstr "การดูแลรักษาตาราง"
+
+#: $strTableName
+msgid "Table name"
+msgstr ""
+
+#: $strTableOfContents
+msgid "Table of contents"
+msgstr "สารบัญ"
+
+#: $strTableOptions
+msgid "Table options"
+msgstr "ตัวเลือกตาราง"
+
+#: $strTableRemoveColumn
+msgid "Remove column(s)"
+msgstr ""
+
+#: $strTableRemoveIndex
+msgid "Remove index(s)"
+msgstr ""
+
+#: $strTables
+msgid "%s table(s)"
+msgstr "%s ตาราง"
+
+#: $strTableStructure
+msgid "Table structure for table"
+msgstr "โครงสร้างตาราง"
+
+#: $strTable
+msgid "Table"
+msgstr "ตาราง "
+
+#: $strTableUpdateRow
+msgid "Update row(s)"
+msgstr ""
+
+#: $strTakeIt
+msgid "take it"
+msgstr ""
+
+#: $strTargetDatabaseHasBeenSynchronized
+msgid "Target database has been synchronized with source database"
+msgstr ""
+
+#: $strTblPrivileges
+msgid "Table-specific privileges"
+msgstr "สิทธิเจาะจงเฉพาะตาราง"
+
+#: $strTempData
+msgid "Temporary data"
+msgstr ""
+
+#: $strTextAreaLength
+msgid " Because of its length,<br /> this field might not be editable "
+msgstr "เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้"
+
+#: $strTexyText
+msgid "Texy! text"
+msgstr ""
+
+#: $strThai
+msgid "Thai"
+msgstr "ไทย"
+
+#: $strThemeDefaultNotFound
+msgid "Default theme %s not found!"
+msgstr ""
+
+#: $strThemeNoPreviewAvailable
+msgid "No preview available."
+msgstr ""
+
+#: $strThemeNotFound
+msgid "Theme %s not found!"
+msgstr ""
+
+#: $strThemeNoValidImgPath
+msgid "No valid image path for theme %s found!"
+msgstr ""
+
+#: $strThemePathNotFound
+msgid "Theme path not found for theme %s!"
+msgstr ""
+
+#: $strTheme
+msgid "Theme / Style"
+msgstr "หน้าตา"
+
+#: $strThisHost
+msgid "This Host"
+msgstr "โฮสต์นี้"
+
+#: $strThreads
+msgid "Threads"
+msgstr ""
+
+#: $strThreadSuccessfullyKilled
+msgid "Thread %s was successfully killed."
+msgstr "เธรด %s ถูกทำลายเรียบร้อยแล้ว."
+
+#: $strTimeoutInfo
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %"
+"d."
+msgstr ""
+
+#: $strTimeoutNothingParsed
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won't be able to finish this import unless you increase php time limits."
+msgstr ""
+
+#: $strTimeoutPassed
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+
+#: $strTime
+msgid "Time"
+msgstr "เวลา"
+
+#: $strToFromPage
+msgid "to/from page"
+msgstr ""
+
+#: $strToggleScratchboard
+msgid "Toggle scratchboard"
+msgstr ""
+
+#: $strToggleSmallBig
+msgid "Toggle small/big"
+msgstr ""
+
+#: $strToSelectRelation
+msgid "To select relation, click :"
+msgstr ""
+
+#: $strTotal
+msgid "total"
+msgstr "ทั้งหมด"
+
+#: $strTotalUC
+msgid "Total"
+msgstr "รวม"
+
+#: $strTrackingActivated
+msgid "Tracking of %s.%s is activated."
+msgstr ""
+
+#: $strTrackingActivateNow
+msgid "Activate now"
+msgstr ""
+
+#: $strTrackingActivateTrackingFor
+msgid "Activate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingCommentOut
+msgid "Comment out these two lines if you do not need them."
+msgstr ""
+
+#: $strTrackingCreateVersion
+msgid "Create version"
+msgstr ""
+
+#: $strTrackingCreateVersionOf
+msgid "Create version %s of %s.%s"
+msgstr ""
+
+#: $strTrackingDatabaseLog
+msgid "Database Log"
+msgstr ""
+
+#: $strTrackingDataDefinitionStatement
+msgid "Data definition statement"
+msgstr ""
+
+#: $strTrackingDataManipulationStatement
+msgid "Data manipulation statement"
+msgstr ""
+
+#: $strTrackingDate
+msgid "Date"
+msgstr ""
+
+#: $strTrackingDeactivateNow
+msgid "Deactivate now"
+msgstr ""
+
+#: $strTrackingDeactivateTrackingFor
+msgid "Deactivate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingExportAs
+msgid "Export as %s"
+msgstr ""
+
+#: $strTrackingIsActive
+msgid "Tracking is active."
+msgstr ""
+
+#: $strTrackingIsNotActive
+msgid "Tracking is not active."
+msgstr ""
+
+#: $strTrackingMechanism
+msgid "Tracking Mechanism"
+msgstr ""
+
+#: $strTrackingReportClose
+msgid "Close"
+msgstr ""
+
+#: $strTrackingReportForTable
+msgid "Tracking report for table `%s`"
+msgstr ""
+
+#: $strTrackingReport
+msgid "Tracking report"
+msgstr ""
+
+#: $strTrackingShowLogDateUsers
+msgid "Show %s with dates from %s to %s by user %s %s"
+msgstr ""
+
+#: $strTrackingShowVersions
+msgid "Show versions"
+msgstr ""
+
+#: $strTrackingSQLDumpFile
+msgid "SQL dump (file download)"
+msgstr ""
+
+#: $strTrackingSQLDump
+msgid "SQL dump"
+msgstr ""
+
+#: $strTrackingSQLExecuted
+msgid "SQL statements executed."
+msgstr ""
+
+#: $strTrackingSQLExecutionAlert
+msgid "This option will replace your table and contained data."
+msgstr ""
+
+#: $strTrackingSQLExecution
+msgid "SQL execution"
+msgstr ""
+
+#: $strTrackingSQLExported
+msgid "SQL statements exported. Please copy the dump or execute it."
+msgstr ""
+
+#: $strTrackingStatements
+msgid "Tracking statements"
+msgstr ""
+
+#: $strTrackingStatusActive
+msgid "active"
+msgstr ""
+
+#: $strTrackingStatusNotActive
+msgid "not active"
+msgstr ""
+
+#: $strTrackingStructureSnapshot
+msgid "Structure snapshot"
+msgstr ""
+
+#: $strTrackingThCreated
+msgid "Created"
+msgstr ""
+
+#: $strTrackingThLastVersion
+msgid "Last version"
+msgstr ""
+
+#: $strTrackingThUpdated
+msgid "Updated"
+msgstr ""
+
+#: $strTrackingThVersion
+msgid "Version"
+msgstr ""
+
+#: $strTrackingTrackDDStatements
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: $strTrackingTrackDMStatements
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: $strTrackingTrackedTables
+msgid "Tracked tables"
+msgstr ""
+
+#: $strTracking
+msgid "Tracking"
+msgstr ""
+
+#: $strTrackingTrackTable
+msgid "Track table"
+msgstr ""
+
+#: $strTrackingUntrackedTables
+msgid "Untracked tables"
+msgstr ""
+
+#: $strTrackingUsername
+msgid "Username"
+msgstr ""
+
+#: $strTrackingVersionActivated
+msgid "Tracking for %s.%s , version %s is activated."
+msgstr ""
+
+#: $strTrackingVersionCreated
+msgid "Version %s is created, tracking for %s.%s is activated."
+msgstr ""
+
+#: $strTrackingVersionDeactivated
+msgid "Tracking for %s.%s , version %s is deactivated."
+msgstr ""
+
+#: $strTrackingVersionSnapshotSQL
+msgid "Version %s snapshot (SQL code)"
+msgstr ""
+
+#: $strTrackingVersions
+msgid "Versions"
+msgstr ""
+
+#: $strTrackingYouCanExecute
+msgid ""
+"You can execute the dump by creating and using a temporary database. Please "
+"ensure that you have the privileges to do so."
+msgstr ""
+
+#: $strTraditionalChinese
+msgid "Traditional Chinese"
+msgstr "จีน (ไต้หวัน)"
+
+#: $strTraditionalSpanish
+msgid "Traditional Spanish"
+msgstr "สเปน (ดั้งเดิม)"
+
+#: $strTraffic
+msgid "Traffic"
+msgstr "การจราจร"
+
+#: $strTransactionCoordinator
+msgid "Transaction coordinator"
+msgstr ""
+
+#: $strTransformation_application_octetstream__download
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+
+#: $strTransformation_application_octetstream__hex
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+
+#: $strTransformation_image_jpeg__inline
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้; ตัวเลือก: ความกว้าง, ความสูง "
+"หน่วยเป็นพิกเซล (คงสัดส่วนเดิม)"
+
+#: $strTransformation_image_jpeg__link
+msgid "Displays a link to download this image."
+msgstr "แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob)."
+
+#: $strTransformation_image_png__inline
+msgid "See image/jpeg: inline"
+msgstr "ดูรูปชนิด image/jpeg ทันที"
+
+#: $strTransformation_text_plain__dateformat
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+
+#: $strTransformation_text_plain__external
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file "
+"libraries/transformations/text_plain__external.inc.php and list the tools "
+"you want to make available. The first option is then the number of the "
+"program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent "
+"wrapping and ensure that the output appears all on one line (Default 1)."
+msgstr ""
+
+#: $strTransformation_text_plain__formatted
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr "สงวนการจัดรูปแบบเดิมในฟิลด์ไว้ -- ไม่แทรก escape character."
+
+#: $strTransformation_text_plain__imagelink
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and third "
+"options are the width and the height in pixels."
+msgstr ""
+
+#: $strTransformation_text_plain__link
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for the "
+"link."
+msgstr ""
+
+#: $strTransformation_text_plain__sql
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr ""
+
+#: $strTransformation_text_plain__substr
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+
+#: $strTriggers
+msgid "Triggers"
+msgstr ""
+
+#: $strTruncateQueries
+msgid "Truncate Shown Queries"
+msgstr "ตัดทอนคำค้นที่แสดง"
+
+#: $strTurkish
+msgid "Turkish"
+msgstr "ตุรกี"
+
+#: $strType
+msgid "Type"
+msgstr "ชนิด"
+
+#: $strUkrainian
+msgid "Ukrainian"
+msgstr "ยูเครน"
+
+#: $strUncheckAll
+msgid "Uncheck All"
+msgstr "ไม่เลือกเลย"
+
+#: $strUnicode
+msgid "Unicode"
+msgstr "ยูนิโค้ด"
+
+#: $strUnique
+msgid "Unique"
+msgstr "เอกลักษณ์"
+
+#: $strUnknown
+msgid "unknown"
+msgstr "ไม่ระบุ"
+
+#: $strUnselectAll
+msgid "Unselect All"
+msgstr "ไม่เลือกเลย"
+
+#: $strUnsupportedCompressionDetected
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+
+#: $strUpdatePrivMessage
+msgid "You have updated the privileges for %s."
+msgstr "คุณได้ปรับปรุงสิทธิสำหรับ %s แล้ว"
+
+#: $strUpdateProfileMessage
+msgid "The profile has been updated."
+msgstr "ปรับปรุงโพรไฟล์เรียบร้อยแล้ว"
+
+#: $strUpdateQuery
+msgid "Update Query"
+msgstr "ปรับปรุงคำค้น"
+
+#: $strUpdComTab
+msgid ""
+"Please see the documentation on how to update your column_comments table"
+msgstr ""
+"โปรดอ่านเอกสารเกี่ยวกับ วิธีการปรับปรุงตาราง Column_comments "
+"(เก็บหมายเหตุของคอลัมน์) ของคุณ"
+
+#: $strUpgrade
+msgid "You should upgrade to %s %s or later."
+msgstr ""
+
+#: $strUploadErrorCantWrite
+msgid "Failed to write file to disk."
+msgstr ""
+
+#: $strUploadErrorExtension
+msgid "File upload stopped by extension."
+msgstr ""
+
+#: $strUploadErrorFormSize
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+#: $strUploadErrorIniSize
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+#: $strUploadErrorNoTempDir
+msgid "Missing a temporary folder."
+msgstr ""
+
+#: $strUploadErrorPartial
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#: $strUploadErrorUnknown
+msgid "Unknown error in file upload."
+msgstr ""
+
+#: $strUploadLimit
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
+msgstr ""
+
+#: $strUploadsNotAllowed
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: $strUsage
+msgid "Usage"
+msgstr "ใช้งาน"
+
+#: $strUseBackquotes
+msgid "Enclose table and field names with backquotes"
+msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
+
+#: $strUseHostTable
+msgid "Use Host Table"
+msgstr ""
+
+#: $strUserAlreadyExists
+msgid "The user %s already exists!"
+msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+
+#: $strUserEmpty
+msgid "The user name is empty!"
+msgstr "ชื่อผู้ใช้ยังว่างอยู่!"
+
+#: $strUserName
+msgid "User name"
+msgstr "ชื่อผู้ใช้"
+
+#: $strUserNotFound
+msgid "The selected user was not found in the privilege table."
+msgstr "ไม่พบผู้ใช้ที่เลือกในตารางแสดงสิทธิ"
+
+#: $strUserOverview
+msgid "User overview"
+msgstr "ข้อมูลทั่วไปของผู้ใช้"
+
+#: $strUsersDeleted
+msgid "The selected users have been deleted successfully."
+msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
+
+#: $strUsersHavingAccessToDb
+msgid "Users having access to &quot;%s&quot;"
+msgstr "ผู้ใช้มีสิทธิเข้าถึงฐานข้อมูล &quot;%s&quot;"
+
+#: $strUser
+msgid "User"
+msgstr "ผู้ใช้"
+
+#: $strUseTabKey
+msgid ""
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+msgstr ""
+
+#: $strUseTables
+msgid "Use Tables"
+msgstr "ใช้ตาราง"
+
+#: $strUseTextField
+msgid "Use text field"
+msgstr "ใช้ช่องใส่ข้อความ (text field)"
+
+#: $strUseThisValue
+msgid "Use this value"
+msgstr "ใช้ค่านี้"
+
+#: $strValidateSQL
+msgctxt "$strValidateSQL"
+msgid "Validate SQL"
+msgstr "ตรวจสอบ SQL"
+
+#: $strValidatorError
+msgid ""
+"The SQL validator could not be initialized. Please check if you have "
+"installed the necessary PHP extensions as described in the %sdocumentation%"
+"s."
+msgstr ""
+"ไม่สามารถเริ่มตัวตรวจสอบ SQL ได้. กรุณาตรวจสอบว่า คุณได้ติดตั้ง php "
+"extensions ที่จำเป็น ดังที่อธิบายไว้ใน %sdocumentation%s เรียบร้อยแล้ว"
+
+#: $strValue
+msgid "Value"
+msgstr "ค่า"
+
+#: $strVar
+msgid "Variable"
+msgstr "ตัวแปร"
+
+#: $strVersionInformation
+msgid "Version information"
+msgstr ""
+
+#: $strViewDumpDatabases
+msgid "View dump (schema) of databases"
+msgstr ""
+
+#: $strViewDumpDB
+msgid "View dump (schema) of database"
+msgstr "ดูโครงสร้างของฐานข้อมูล"
+
+#: $strViewDump
+msgid "View dump (schema) of table"
+msgstr "ดูโครงสร้างของตาราง"
+
+#: $strViewHasAtLeast
+msgid ""
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
+msgstr ""
+
+#: $strViewHasBeenDropped
+msgid "View %s has been dropped"
+msgstr ""
+
+#: $strViewImage
+msgid "View image"
+msgstr ""
+
+#: $strViewName
+msgid "VIEW name"
+msgstr ""
+
+#: $strViewVideo
+msgid "View video"
+msgstr ""
+
+#: $strView
+msgid "View"
+msgstr ""
+
+#: $strWebServerUploadDirectoryError
+msgid "The directory you set for upload work cannot be reached"
+msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
+
+#: $strWebServerUploadDirectory
+msgid "web server upload directory"
+msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+
+#: $strWebServer
+msgid "Web server"
+msgstr ""
+
+#: $strWelcome
+msgid "Welcome to %s"
+msgstr "%s ยินดีต้อนรับ"
+
+#: $strWestEuropean
+msgid "West European"
+msgstr "ยุโรปตะวันตก"
+
+#: $strWiki
+msgid "Wiki"
+msgstr ""
+
+#: $strWildcard
+msgid "wildcard"
+msgstr "ไวล์การ์ด"
+
+#: $strWindowNotFound
+msgid ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
+msgstr ""
+
+#: $strWithChecked
+msgid "With selected:"
+msgstr "ทำกับที่เลือก:"
+
+#: $strWriteRequests
+msgid "Write requests"
+msgstr ""
+
+#: $strWrongUser
+msgid "Wrong username/password. Access denied."
+msgstr "อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด"
+
+#: $strXMLError
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+
+#: $strXMLExportContents
+msgid "Export contents"
+msgstr ""
+
+#: $strXMLExportFunctions
+msgid "Export functions"
+msgstr ""
+
+#: $strXMLExportProcedures
+msgid "Export procedures"
+msgstr ""
+
+#: $strXMLExportStructs
+msgid "Export Structure Schemas (recommended)"
+msgstr ""
+
+#: $strXMLExportTables
+msgid "Export tables"
+msgstr ""
+
+#: $strXMLExportTriggers
+msgid "Export triggers"
+msgstr ""
+
+#: $strXMLExportViews
+msgid "Export views"
+msgstr ""
+
+#: $strXML
+msgid "XML"
+msgstr "XML"
+
+#: $strYes
+msgid "Yes"
+msgstr "ใช่"
+
+#: $strZeroRemovesTheLimit
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด."
+
+#: $strZip
+msgid "\"zipped\""
+msgstr "\"ถูกบีบอัดอยู่ (zip)\""

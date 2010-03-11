@@ -1,0 +1,7141 @@
+#. extracted from po/english.php, po/chinese_traditional.php
+msgid ""
+msgstr ""
+"Project-Id-Version: phpMyAdmin 3.4\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2010-03-11 17:17+0200\n"
+"PO-Revision-Date: 2010-03-11 17:17+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: chinese_traditional <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.5.3\n"
+
+#. /* $Id$
+#: $charset
+msgid "utf-8"
+msgstr "utf-8"
+
+#. ('ltr' for left to right, 'rtl' for right to left)
+#: $text_dir
+msgid "ltr"
+msgstr "ltr"
+
+#: $number_thousands_separator
+msgid ","
+msgstr ","
+
+#: $number_decimal_separator
+msgid "."
+msgstr "."
+
+#: $str_B
+msgid "B"
+msgstr "Bytes"
+
+#: $str_KiB
+msgid "KiB"
+msgstr "KB"
+
+#: $str_MiB
+msgid "MiB"
+msgstr "MB"
+
+#: $str_GiB
+msgid "GiB"
+msgstr "GB"
+
+#: $str_TiB
+msgid "TiB"
+msgstr "TB"
+
+#: $str_PiB
+msgid "PiB"
+msgstr "PB"
+
+#: $str_EiB
+msgid "EiB"
+msgstr "EB"
+
+#: $mysql_4_1_doc_lang
+msgctxt "$mysql_4_1_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_0_doc_lang
+msgctxt "$mysql_5_0_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_1_doc_lang
+msgctxt "$mysql_5_1_doc_lang"
+msgid "en"
+msgstr "zh"
+
+#: $str_Sun
+msgid "Sun"
+msgstr "Sun"
+
+#: $str_Mon
+msgid "Mon"
+msgstr "Mon"
+
+#: $str_Tue
+msgid "Tue"
+msgstr "Tue"
+
+#: $str_Wed
+msgid "Wed"
+msgstr "Wed"
+
+#: $str_Thu
+msgid "Thu"
+msgstr "Thu"
+
+#: $str_Fri
+msgid "Fri"
+msgstr "Fri"
+
+#: $str_Sat
+msgid "Sat"
+msgstr "Sat"
+
+#: $str_Jan
+msgid "Jan"
+msgstr "Jan"
+
+#: $str_Feb
+msgid "Feb"
+msgstr "Feb"
+
+#: $str_Mar
+msgid "Mar"
+msgstr "Mar"
+
+#: $str_Apr
+msgid "Apr"
+msgstr "Apr"
+
+#: $str_May
+msgid "May"
+msgstr "May"
+
+#: $str_Jun
+msgid "Jun"
+msgstr "Jun"
+
+#: $str_Jul
+msgid "Jul"
+msgstr "Jul"
+
+#: $str_Aug
+msgid "Aug"
+msgstr "Aug"
+
+#: $str_Sep
+msgid "Sep"
+msgstr "Sep"
+
+#: $str_Oct
+msgid "Jan0"
+msgstr "Jan0"
+
+#: $str_Nov
+msgid "Jan1"
+msgstr "Jan1"
+
+#: $str_Dec
+msgid "Jan2"
+msgstr "Jan2"
+
+#: $datefmt
+msgid "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y, %I:%M %p"
+
+#: $timespanfmt
+msgid "%s days, %s hours, %s minutes and %s seconds"
+msgstr "%s 日, %s 小時, %s 分鐘 %s 秒"
+
+#: $strAbortedClients
+msgid "Aborted"
+msgstr "取消"
+
+#: $strAccessDenied
+msgid "Access denied"
+msgstr "拒絕存取"
+
+#: $strAccessDeniedCreateConfig
+msgid ""
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
+msgstr "有可能你未建立設定檔. 你可利用此 %1$s安裝程序%2$s 建立設定檔."
+
+#: $strAccessDeniedExplanation
+msgid ""
+"phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
+"connection. You should check the host, username and password in your "
+"configuration and make sure that they correspond to the information given by "
+"the administrator of the MySQL server."
+msgstr ""
+"phpMyAdmin 嘗試連線到 MySQL 伺服器, 但伺服器拒絕了連線. 您應於 config.inc.php 內檢查主機名稱, "
+"登入名稱及密碼及確保這些資料是與系統管理人員所提供的 MySQL 伺服器資料相同"
+
+#: $strAction
+msgid "Action"
+msgstr "執行"
+
+#: $strActions
+msgid "Actions"
+msgstr ""
+
+#: $strAddAutoIncrement
+msgid "Add AUTO_INCREMENT value"
+msgstr "新增 AUTO_INCREMENT 數值"
+
+#: $strAddClause
+msgid "Add %s"
+msgstr ""
+
+#: $strAddConstraints
+msgid "Add constraints"
+msgstr "加入限制"
+
+#: $strAddDeleteColumn
+msgid "Add/Delete Field Columns"
+msgstr "新增/減少 選擇欄"
+
+#: $strAddDeleteRow
+msgid "Add/Delete Criteria Row"
+msgstr "新增/減少 篩選列"
+
+#: $strAddFields
+msgid "Add %s field(s)"
+msgstr "新增 %s 個欄位"
+
+#: $strAddHeaderComment
+msgid "Add custom comment into header (\\n splits lines)"
+msgstr "於標題加入個人註解 (\\n 開新行)"
+
+#: $strAddIntoComments
+msgid "Add into comments"
+msgstr "加入註解文字"
+
+#: $strAddNewField
+msgid "Add new field"
+msgstr "增加新欄位"
+
+#: $strAddPrivilegesOnDb
+msgid "Add privileges on the following database"
+msgstr "於以下資料庫加入權限"
+
+#: $strAddPrivilegesOnTbl
+msgid "Add privileges on the following table"
+msgstr "於以下資料表加入權限"
+
+#: $strAddSearchConditions
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "增加檢索條件 (\"where\" 子句的主體)"
+
+#: $strAddToIndex
+msgid "Add to index &nbsp;%s&nbsp;column(s)"
+msgstr "新增 &nbsp;%s&nbsp; 組索引欄"
+
+#: $strAddUser
+msgid "Add a new User"
+msgstr "新增使用者"
+
+#: $strAddUserMessage
+msgid "You have added a new user."
+msgstr "您已新增了一個新使用者."
+
+#: $strAdministration
+msgid "Administration"
+msgstr "系統管理"
+
+#: $strAfter
+msgid "After %s"
+msgstr "在 %s 之後"
+
+#: $strAfterInsertBack
+msgid "Go back to previous page"
+msgstr "返回"
+
+#: $strAfterInsertNewInsert
+msgid "Insert another new row"
+msgstr "新增一筆記錄"
+
+#: $strAfterInsertNext
+msgid "Edit next row"
+msgstr "編輯新一列"
+
+#: $strAfterInsertSame
+msgid "Go back to this page"
+msgstr "返回這頁"
+
+#: $strAll
+msgid "All"
+msgstr "全部"
+
+#: $strAllowInterrupt
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. This might be good way to import large files, "
+"however it can break transactions."
+msgstr ""
+
+#: $strAllTableSameWidth
+msgid "Display all tables with the same width"
+msgstr "以相同寬度顯示所有資料表?"
+
+#: $strAlterOrderBy
+msgid "Alter table order by"
+msgstr "根據欄位內容排序記錄"
+
+#: $strAnalyze
+msgid "Analyze"
+msgstr ""
+
+#: $strAnalyzeTable
+msgid "Analyze table"
+msgstr "分析資料表"
+
+#: $strAnd
+msgid "And"
+msgstr "與"
+
+#: $strAndSmall
+msgid "and"
+msgstr ""
+
+#: $strAndThen
+msgid "and then"
+msgstr "然後"
+
+#: $strAngularLinks
+msgid "Angular links"
+msgstr ""
+
+#: $strAnIndex
+msgid "An index has been added on %s"
+msgstr "索引已經新增到 %s"
+
+#: $strAny
+msgid "Any"
+msgstr "任何"
+
+#: $strAnyHost
+msgid "Any host"
+msgstr "任何主機"
+
+#: $strAnyUser
+msgid "Any user"
+msgstr "任何使用者"
+
+#: $strApplyChanges
+msgid "Apply Selected Changes"
+msgstr ""
+
+#: $strApproximateCount
+msgid ""
+"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a]"
+msgstr "可能接近. 請參看 FAQ 3.11"
+
+#: $strAPrimaryKey
+msgid "A primary key has been added on %s"
+msgstr "主鍵已經新增到 %s"
+
+#: $strArabic
+msgid "Arabic"
+msgstr "阿拉伯語"
+
+#: $strArmenian
+msgid "Armenian"
+msgstr "美式英語"
+
+#: $strAscending
+msgid "Ascending"
+msgstr "遞增"
+
+#: $strAsDefined
+msgid "As defined:"
+msgstr ""
+
+#: $strAtBeginningOfTable
+msgid "At Beginning of Table"
+msgstr "於資料表開頭"
+
+#: $strAtEndOfTable
+msgid "At End of Table"
+msgstr "於資料表尾端"
+
+#: $strAttr
+msgid "Attributes"
+msgstr "屬性"
+
+#: $strAutomaticLayout
+msgid "Automatic layout"
+msgstr "自動格式"
+
+#: $strBack
+msgid "Back"
+msgstr "回上一頁"
+
+#: $strBaltic
+msgid "Baltic"
+msgstr "波羅的海語"
+
+#: $strBeginCut
+msgid "BEGIN CUT"
+msgstr "開始 剪取"
+
+#: $strBeginRaw
+msgid "BEGIN RAW"
+msgstr "開始 原始資料"
+
+#: $strBinary
+msgid "Binary"
+msgstr "二進制碼"
+
+#: $strBinaryDoNotEdit
+msgid "Binary - do not edit"
+msgstr "二進制碼 - 不能編輯"
+
+#: $strBinaryLog
+msgid "Binary log"
+msgstr "二進制記錄"
+
+#: $strBinLogEventType
+msgid "Event type"
+msgstr "事件方式"
+
+#: $strBinLogInfo
+msgid "Information"
+msgstr "資料"
+
+#: $strBinLogName
+msgid "Log name"
+msgstr "記錄檔案稱"
+
+#: $strBinLogOriginalPosition
+msgid "Original position"
+msgstr "原有位置"
+
+#: $strBinLogPosition
+msgid "Position"
+msgstr "位置"
+
+#: $strBinLogServerId
+msgid "Server ID"
+msgstr "伺服器 ID"
+
+#: $strBLOBRepository
+msgid "BLOB Repository"
+msgstr ""
+
+#: $strBLOBRepositoryDamaged
+msgid "Damaged"
+msgstr ""
+
+#: $strBLOBRepositoryDisableAreYouSure
+msgid "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+
+#: $strBLOBRepositoryDisabled
+msgctxt "$strBLOBRepositoryDisabled"
+msgid "Disabled"
+msgstr ""
+
+#: $strBLOBRepositoryDisable
+msgid "Disable"
+msgstr ""
+
+#: $strBLOBRepositoryDisableStrongWarning
+msgid "You are about to DISABLE a BLOB Repository!"
+msgstr ""
+
+#: $strBLOBRepositoryEnabled
+msgctxt "$strBLOBRepositoryEnabled"
+msgid "Enabled"
+msgstr ""
+
+#: $strBLOBRepositoryEnable
+msgid "Enable"
+msgstr ""
+
+#: $strBLOBRepositoryRemove
+msgid "Remove BLOB Repository Reference"
+msgstr ""
+
+#: $strBLOBRepositoryRepair
+msgctxt "$strBLOBRepositoryRepair"
+msgid "Repair"
+msgstr ""
+
+#: $strBLOBRepositoryUpload
+msgid "Upload to BLOB repository"
+msgstr ""
+
+#: $strBookmarkAllUsers
+msgid "Let every user access this bookmark"
+msgstr "所有用者可讀取此書籤"
+
+#: $strBookmarkCreated
+msgid "Bookmark %s created"
+msgstr "書籤 %s 已建立"
+
+#: $strBookmarkDeleted
+msgid "The bookmark has been deleted."
+msgstr "書籤已經刪除."
+
+#: $strBookmarkLabel
+msgid "Label"
+msgstr "書籤名稱"
+
+#: $strBookmarkQuery
+msgid "Bookmarked SQL query"
+msgstr "SQL 語法書籤"
+
+#: $strBookmarkReplace
+msgid "Replace existing bookmark of same name"
+msgstr "取代相同名稱之書籤"
+
+#: $strBookmarkThis
+msgid "Bookmark this SQL query"
+msgstr "將此 SQL 語法加入書籤"
+
+#: $strBookmarkView
+msgid "View only"
+msgstr "查看"
+
+#: $strBrowse
+msgid "Browse"
+msgstr "瀏覽"
+
+#: $strBrowseDistinctValues
+msgid "Browse distinct values"
+msgstr "瀏覽不同數值"
+
+#: $strBrowseForeignValues
+msgid "Browse foreign values"
+msgstr "瀏覽外來值"
+
+#: $strBufferPoolActivity
+msgid "Buffer Pool Activity"
+msgstr "緩衝區活動率"
+
+#: $strBufferPool
+msgid "Buffer Pool"
+msgstr "緩衝區"
+
+#: $strBufferPoolUsage
+msgid "Buffer Pool Usage"
+msgstr "緩衝區使用空間"
+
+#: $strBufferReadMissesInPercent
+msgid "Read misses in %"
+msgstr "讀取遺漏 %"
+
+#: $strBufferReadMisses
+msgid "Read misses"
+msgstr "讀取遺漏"
+
+#: $strBufferWriteWaitsInPercent
+msgid "Write waits in %"
+msgstr "寫入等候 %"
+
+#: $strBufferWriteWaits
+msgid "Write waits"
+msgstr "寫入等候"
+
+#: $strBulgarian
+msgid "Bulgarian"
+msgstr "保加利亞語"
+
+#: $strBusyPages
+msgid "Busy pages"
+msgstr "繁忙頁"
+
+#: $strBzip
+msgid "\"bzipped\""
+msgstr "\"bzipped\""
+
+#: $strCalendar
+msgid "Calendar"
+msgstr "日曆"
+
+#: $strCancel
+msgid "Cancel"
+msgstr ""
+
+#: $strCanNotLoadExportPlugins
+msgid "Could not load export plugins, please check your installation!"
+msgstr ""
+
+#: $strCanNotLoadImportPlugins
+msgid "Could not load import plugins, please check your installation!"
+msgstr "無法讀取載入的外掛程式, 請檢查安裝程序!"
+
+#: $strCannotLogin
+msgid "Cannot log in to the MySQL server"
+msgstr "無法登入 MySQL 伺服器"
+
+#: $strCantLoad
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr "無法讀取 %s 模組,<br />請檢查 PHP 設定"
+
+#: $strCantLoadRecodeIconv
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr "未能讀取 iconv 或重新編碼程式來作文字編碼轉換, 請設定 php 來啟動這些模組或取消 phpMyAdmin 使用文字編碼轉換功能."
+
+#: $strCantRenameIdxToPrimary
+msgid "Can't rename index to PRIMARY!"
+msgstr "無法將索引更名為 PRIMARY!"
+
+#: $strCantUseRecodeIconv
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr "當文編碼模組讀取後,未能使用 iconv, libiconv 或 recode_string 功能. 請檢查您的 php 設定."
+
+#: $strCardinality
+msgid "Cardinality"
+msgstr "組別"
+
+#: $strCaseInsensitive
+msgid "case-insensitive"
+msgstr "大小寫不相符"
+
+#: $strCaseSensitive
+msgid "case-sensitive"
+msgstr "大小寫相符"
+
+#: $strCentralEuropean
+msgid "Central European"
+msgstr "中歐語"
+
+#: $strChange
+msgid "Change"
+msgstr "修改"
+
+#: $strChangeCopyModeCopy
+msgid "... keep the old one."
+msgstr "... 保留舊使用者."
+
+#: $strChangeCopyMode
+msgid "Create a new user with the same privileges and ..."
+msgstr "建立新使用者及使用相同之權限, 及 ..."
+
+#: $strChangeCopyModeDeleteAndReload
+msgid ""
+" ... delete the old one from the user tables and reload the privileges "
+"afterwards."
+msgstr " ... 刪除舊使用者及重新讀取權限資料表."
+
+#: $strChangeCopyModeJustDelete
+msgid " ... delete the old one from the user tables."
+msgstr " ... 刪除舊使用者."
+
+#: $strChangeCopyModeRevoke
+msgid ""
+" ... revoke all active privileges from the old one and delete it afterwards."
+msgstr " ... 廢除所有舊使用者有效之權限並刪除."
+
+#: $strChangeCopyUser
+msgid "Change Login Information / Copy User"
+msgstr "更改登入資訊 / 複製使用者"
+
+#: $strChangeDisplay
+msgid "Choose field to display"
+msgstr "選擇顯示之欄位"
+
+#: $strChangePassword
+msgid "Change password"
+msgstr "更改密碼"
+
+#: $strCharset
+msgid "Charset"
+msgstr "文字編碼 (Charset)"
+
+#: $strCharsetOfFile
+msgid "Character set of the file:"
+msgstr "文字編碼檔案:"
+
+#: $strCharsetsAndCollations
+msgid "Character Sets and Collations"
+msgstr "文字編碼及校對"
+
+#: $strCharsets
+msgid "Charsets"
+msgstr "文字編碼"
+
+#: $strCheckAll
+msgid "Check All"
+msgstr "全選"
+
+#: $strCheck
+msgid "Check"
+msgstr ""
+
+#: $strCheckOverhead
+msgid "Check tables having overhead"
+msgstr "檢查額外記錄 (overhead)"
+
+#: $strCheckPrivs
+msgid "Check Privileges"
+msgstr "查詢權限"
+
+#: $strCheckPrivsLong
+msgid "Check privileges for database &quot;%s&quot;."
+msgstr "查詢資料庫 &quot;%s&quot; 之權限."
+
+#: $strCheckTable
+msgid "Check table"
+msgstr "檢查資料表"
+
+#: $strChoosePage
+msgid "Please choose a page to edit"
+msgstr "請選擇需要編輯的頁碼"
+
+#: $strClickToSelect
+msgid "Click to select"
+msgstr ""
+
+#: $strClickToUnselect
+msgid "Click to unselect"
+msgstr ""
+
+#: $strColComFeat
+msgid "Displaying Column Comments"
+msgstr "顯示欄位註解"
+
+#: $strCollation
+msgid "Collation"
+msgstr "校對"
+
+#: $strColumnNames
+msgid "Column names"
+msgstr "欄位名稱"
+
+#: $strColumnPrivileges
+msgid "Column-specific privileges"
+msgstr "指定欄位權限"
+
+#: $strCommand
+msgid "Command"
+msgstr "指令"
+
+#: $strComment
+msgid "Comment"
+msgstr ""
+
+#: $strComments
+msgid "Comments"
+msgstr "註解"
+
+#: $strCompatibleHashing
+msgid "MySQL&nbsp;4.0 compatible"
+msgstr "MySQL&nbsp;4.0 相容"
+
+#: $strCompleteInserts
+msgid "Complete inserts"
+msgstr "使用完整新增指令"
+
+#: $strCompression
+msgctxt "$strCompression"
+msgid "Compression"
+msgstr "壓縮"
+
+#: $strCompressionWillBeDetected
+msgid "Imported file compression will be automatically detected from: %s"
+msgstr "載入檔案壓縮會自動檢查: %s"
+
+#: $strConfigDefaultFileError
+msgid "Could not load default configuration from: \"%1$s\""
+msgstr "無法讀取預設設定: \"%1$s\""
+
+#: $strConfigDirectoryWarning
+msgid ""
+"Directory [code]config[/code], which is used by the setup script, still "
+"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
+"has been configured."
+msgstr ""
+
+#: $strConfigFileError
+msgid ""
+"phpMyAdmin was unable to read your configuration file!<br />This might "
+"happen if PHP finds a parse error in it or PHP cannot find the file.<br "
+"/>Please call the configuration file directly using the link below and read "
+"the PHP error message(s) that you receive. In most cases a quote or a "
+"semicolon is missing somewhere.<br />If you receive a blank page, everything "
+"is fine."
+msgstr ""
+"phpMyAdmin 未能讀取您的設定檔! 這可能是因為 php 找到語法上的錯誤或 php 未能找到檔案而成.<br "
+"/>請嘗試直接按下下方的連結開啟並查看 php 的錯誤信息. 通常的錯誤都來自某處漏了引號或分別.<br />如果按下連結後出現空白頁, "
+"即代表沒有任何問題."
+
+#: $strConfigureTableCoord
+msgid "Please configure the coordinates for table %s"
+msgstr "請設定表格 %s 內的坐標"
+
+#: $strConnectionError
+msgid "Cannot connect: invalid settings."
+msgstr "無法連線: 錯誤設定."
+
+#: $strConnections
+msgid "Connections"
+msgstr "連線"
+
+#: $strConstraintsForDumped
+msgid "Constraints for dumped tables"
+msgstr "備份資料表限制"
+
+#: $strConstraintsForTable
+msgid "Constraints for table"
+msgstr "資料表限制"
+
+#: $strControluserFailed
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+
+#: $strCookiesRequired
+msgid "Cookies must be enabled past this point."
+msgstr "Cookies 必須啟動才能登入."
+
+#: $strCopy
+msgid "Copy"
+msgstr "複製"
+
+#: $strCopyDatabaseOK
+msgid "Database %s has been copied to %s"
+msgstr "資料庫 %s 已複製到 %s"
+
+#: $strCopyTable
+msgid "Copy table to (database<b>.</b>table):"
+msgstr "複製資料表到： (格式為 資料庫名稱<b>.</b>資料表名稱):"
+
+#: $strCopyTableOK
+msgid "Table %s has been copied to %s."
+msgstr "已經將資料表 %s 複製為 %s."
+
+#: $strCopyTableSameNames
+msgid "Can't copy table to same one!"
+msgstr "無法複製到相同資料表!"
+
+#: $strCouldNotConnectSource
+msgid "Could not connect to the source"
+msgstr ""
+
+#: $strCouldNotConnectTarget
+msgid "Could not connect to the target"
+msgstr ""
+
+#: $strCouldNotKill
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been "
+"closed."
+msgstr "phpMyAdmin 無法中斷指令 %s. 可能這指令已經結束."
+
+#: $strCreate
+msgid "Create"
+msgstr "建立"
+
+#: $strCreateDatabaseBeforeCopying
+msgid "CREATE DATABASE before copying"
+msgstr "複製前建立資料庫 (CREATE DATABASE)"
+
+#: $strCreateIndex
+msgid "Create an index on&nbsp;%s&nbsp;columns"
+msgstr "新增 &nbsp;%s&nbsp; 組索引欄"
+
+#: $strCreateIndexTopic
+msgid "Create a new index"
+msgstr "新增一組索引"
+
+#: $strCreateNewDatabase
+msgid "Create new database"
+msgstr "建立新資料庫"
+
+#: $strCreateNewTable
+msgid "Create table on database %s"
+msgstr "建立新資料表於資料庫 %s"
+
+#: $strCreatePage
+msgid "Create a page"
+msgstr "建立新一頁"
+
+#: $strCreatePdfFeat
+msgid "Creation of PDFs"
+msgstr "建立 PDF"
+
+#: $strCreateRelation
+msgid "Create relation"
+msgstr ""
+
+#: $strCreateTable
+msgctxt "$strCreateTable"
+msgid "Create table"
+msgstr ""
+
+#: $strCreateTableShort
+msgctxt "$strCreateTableShort"
+msgid "Create table"
+msgstr ""
+
+#: $strCreateUserDatabase
+msgid "Database for user"
+msgstr ""
+
+#: $strCreateUserDatabaseName
+msgid "Create database with same name and grant all privileges"
+msgstr ""
+
+#: $strCreateUserDatabaseNone
+msgctxt "$strCreateUserDatabaseNone"
+msgid "None"
+msgstr ""
+
+#: $strCreateUserDatabasePrivileges
+msgid "Grant all privileges on database &quot;%s&quot;"
+msgstr ""
+
+#: $strCreateUserDatabaseWildcard
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr ""
+
+#: $strCreationDates
+msgid "Creation/Update/Check dates"
+msgstr "建立/更新/檢查 日期"
+
+#: $strCriteria
+msgid "Criteria"
+msgstr "篩選"
+
+#: $strCroatian
+msgid "Croatian"
+msgstr "克羅西亞語"
+
+#: $strCSV
+msgctxt "$strCSV"
+msgid "CSV"
+msgstr "CSV"
+
+#: $strCurrentServer
+msgid "Current server"
+msgstr ""
+
+#: $strCustomColor
+msgid "Custom color"
+msgstr ""
+
+#: $strCyrillic
+msgid "Cyrillic"
+msgstr "西里爾語"
+
+#: $strCzech
+msgid "Czech"
+msgstr "捷克語"
+
+#: $strCzechSlovak
+msgid "Czech-Slovak"
+msgstr "捷克語"
+
+#: $strDanish
+msgid "Danish"
+msgstr "丹麥語"
+
+#: $strDatabase
+msgid "Database"
+msgstr "資料庫"
+
+#: $strDatabaseEmpty
+msgid "The database name is empty!"
+msgstr "資料庫名稱並未輸入!!"
+
+#: $strDatabaseExportOptions
+msgid "Database export options"
+msgstr "資料庫輸出選項"
+
+#: $strDatabaseHasBeenCreated
+msgid "Database %1$s has been created."
+msgstr ""
+
+#: $strDatabaseHasBeenDropped
+msgid "Database %s has been dropped."
+msgstr "資料庫 %s 已被刪除"
+
+#: $strDatabaseNotExisting
+msgid "'%s' database does not exist."
+msgstr ""
+
+#: $strDatabases
+msgctxt "$strDatabases"
+msgid "Databases"
+msgstr "資料庫"
+
+#: $strDatabasesDropped
+msgid "%s databases have been dropped successfully."
+msgstr "%s 個資料庫已成功刪除."
+
+#: $strDatabase_src
+msgid "Source database"
+msgstr ""
+
+#: $strDatabasesStats
+msgid "Databases statistics"
+msgstr "資料庫統計"
+
+#: $strDatabasesStatsDisable
+msgid "Disable Statistics"
+msgstr "停止統計數據"
+
+#: $strDatabasesStatsEnable
+msgid "Enable Statistics"
+msgstr "啟動統計數據"
+
+#: $strDatabasesStatsHeavyTraffic
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr "註: 啟動資料庫統計數據可能會產生大量由 Web 伺服器及 MySQL 之間的流量."
+
+#: $strDatabase_trg
+msgid "Target database"
+msgstr ""
+
+#: $strData
+msgid "Data"
+msgstr "資料"
+
+#: $strDataDict
+msgid "Data Dictionary"
+msgstr "數據字典"
+
+#: $strDataDiff
+msgid "Data Difference"
+msgstr ""
+
+#: $strDataOnly
+msgid "Data only"
+msgstr "只有資料"
+
+#: $strDataPages
+msgid "Pages containing data"
+msgstr "包含資料頁"
+
+#: $strDataSyn
+msgid "Data Synchronization"
+msgstr ""
+
+#: $strDBComment
+msgid "Database comment: "
+msgstr "資料庫註解文字: "
+
+#: $strDBCopy
+msgid "Copy database to"
+msgstr "複製資料庫到"
+
+#: $strDbIsEmpty
+msgid "Database seems to be empty!"
+msgstr ""
+
+#: $strDbPrivileges
+msgid "Database-specific privileges"
+msgstr "指定資料庫權限"
+
+#: $strDBRename
+msgid "Rename database to"
+msgstr "更改資料庫名稱到"
+
+#: $strDbSpecific
+msgid "database-specific"
+msgstr "指定資料庫"
+
+#: $strDefault
+msgid "Default"
+msgstr "預設值"
+
+#: $strDefaultEngine
+msgid "%s is the default storage engine on this MySQL server."
+msgstr "這 MySQL 伺服器的預設儲存引擎是 %s "
+
+#: $strDefaultValueHelp
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr "預設值: 請只輸入該預設值, 無需加上任何反斜線或引號"
+
+#: $strDefragment
+msgid "Defragment table"
+msgstr "整理資料表"
+
+#: $strDelayedInserts
+msgid "Use delayed inserts"
+msgstr "使用延遲式新增"
+
+#: $strDeleteAndFlush
+msgid "Delete the users and reload the privileges afterwards."
+msgstr "刪除使用者及重新讀取權限."
+
+#: $strDeleteAndFlushDescr
+msgid ""
+"This is the cleanest way, but reloading the privileges may take a while."
+msgstr "這是一個最清潔的做法,但重新讀取權限需一段時間."
+
+#: $strDelete
+msgid "Delete"
+msgstr "刪除"
+
+#: $strDeleted
+msgid "The row has been deleted"
+msgstr "記錄已被刪除"
+
+#: $strDeleteNoUsersSelected
+msgid "No users selected for deleting!"
+msgstr "並未選擇需要刪除之使用者!"
+
+#: $strDeleteRelation
+msgid "Delete relation"
+msgstr ""
+
+#: $strDeleteTrackingData
+msgid "Delete tracking data for this table"
+msgstr ""
+
+#: $strDeleting
+msgid "Deleting %s"
+msgstr "刪除 %s"
+
+#: $strDelimiter
+msgid "Delimiter"
+msgstr ""
+
+#: $strDelOld
+msgid ""
+"The current page has references to tables that no longer exist. Would you "
+"like to delete those references?"
+msgstr "本頁的參考到資料表已不存在. 您希望刪除這些參考嗎?"
+
+#: $strDescending
+msgid "Descending"
+msgstr "遞減"
+
+#: $strDescription
+msgctxt "$strDescription"
+msgid "Description"
+msgstr "說明"
+
+#: $strDesigner
+msgid "Designer"
+msgstr ""
+
+#: $strDesignerHelpDisplayField
+msgid ""
+"The display field is shown in pink. To set/unset a field as the display "
+"field, click the \"Choose field to display\" icon, then click on the "
+"appropriate field name."
+msgstr ""
+
+#: $strDetails
+msgid "Details..."
+msgstr ""
+
+#: $strDictionary
+msgid "dictionary"
+msgstr "字典"
+
+#: $strDifference
+msgid "Difference"
+msgstr ""
+
+#: $strDirectLinks
+msgid "Direct links"
+msgstr ""
+
+#: $strDirtyPages
+msgid "Dirty pages"
+msgstr "問題頁"
+
+#: $strDisabled
+msgctxt "$strDisabled"
+msgid "Disabled"
+msgstr "未啟動"
+
+#: $strDisableForeignChecks
+msgid "Disable foreign key checks"
+msgstr "暫定外來鍵 (Foreign Key) 檢查"
+
+#: $strDisplayFeat
+msgid "Display Features"
+msgstr "功能顯示"
+
+#: $strDisplayOrder
+msgid "Display order:"
+msgstr "顯示次序"
+
+#: $strDisplayPDF
+msgid "Display PDF schema"
+msgstr "顯示 PDF 概要"
+
+#: $strDoAQuery
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "以範例查詢 (萬用字元 : \"%\")"
+
+#: $strDocSQL
+msgid "DocSQL"
+msgstr ""
+
+#: $strDocu
+msgid "Documentation"
+msgstr "說明文件"
+
+#: $strDoNotAutoIncrementZeroValues
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr ""
+
+#: $strDownloadFile
+msgid "Download file"
+msgstr ""
+
+#: $strDoYouReally
+msgid "Do you really want to "
+msgstr "您確定要 "
+
+#: $strDropDatabaseStrongWarning
+msgid "You are about to DESTROY a complete database!"
+msgstr "您將會刪除整個資料庫!"
+
+#: $strDrop
+msgid "Drop"
+msgstr "刪除"
+
+#: $strDropUsersDb
+msgid "Drop the databases that have the same names as the users."
+msgstr "刪除與使用者相同名稱之資料庫."
+
+#: $strDumpAllRows
+msgid "Dump all rows"
+msgstr ""
+
+#: $strDumpingData
+msgid "Dumping data for table"
+msgstr "列出以下資料庫的數據："
+
+#: $strDumpSaved
+msgid "Dump has been saved to file %s."
+msgstr "備份已儲到檔案 %s."
+
+#: $strDumpXRows
+msgid "Dump %s row(s) starting at record # %s"
+msgstr "備份 %s 行, 由 %s 行開始."
+
+#: $strDynamic
+msgid "dynamic"
+msgstr "動態"
+
+#: $strEdit
+msgctxt "$strEdit"
+msgid "Edit"
+msgstr "編輯"
+
+#: $strEditPDFPages
+msgid "Edit PDF Pages"
+msgstr "編輯 PDF 頁碼"
+
+#: $strEditPrivileges
+msgid "Edit Privileges"
+msgstr "編輯權限"
+
+#: $strEffective
+msgid "Effective"
+msgstr "實際"
+
+#: $strEmpty
+msgid "Empty"
+msgstr "清空"
+
+#: $strEmptyResultSet
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL 傳回的查詢結果為空 (原因可能為：沒有找到符合條件的記錄)"
+
+#: $strEnabled
+msgctxt "$strEnabled"
+msgid "Enabled"
+msgstr "啟動"
+
+#: $strEncloseInTransaction
+msgid "Enclose export in a transaction"
+msgstr "使用事務塊 (Transaction) 方式"
+
+#: $strEndCut
+msgid "END CUT"
+msgstr "結束 剪取"
+
+#: $strEnd
+msgid "End"
+msgstr "最後一頁"
+
+#: $strEndRaw
+msgid "END RAW"
+msgstr "結束 原始資料"
+
+#: $strEngineAvailable
+msgid "%s is available on this MySQL server."
+msgstr "%s 已支援這 MySQL 伺服器."
+
+#: $strEngineDisabled
+msgid "%s has been disabled for this MySQL server."
+msgstr "%s 己於這個 MySQL 伺服器中停用."
+
+#: $strEngines
+msgid "Engines"
+msgstr "引擎"
+
+#: $strEngineUnsupported
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "這 MySQL 版本並不接受 %s 儲存引擎."
+
+#: $strEnglish
+msgid "English"
+msgstr "英語"
+
+#: $strEnglishPrivileges
+msgid " Note: MySQL privilege names are expressed in English "
+msgstr "注意: MySQL 權限名稱會以英語顯示"
+
+#: $strError
+msgid "Error"
+msgstr "錯誤"
+
+#: $strErrorInZipFile
+msgid "Error in ZIP archive:"
+msgstr "ZIP 檔案錯誤:"
+
+#: $strErrorRelationAdded
+msgid "Error: Relation not added."
+msgstr ""
+
+#: $strErrorRelationExists
+msgid "Error: relation already exists."
+msgstr ""
+
+#: $strErrorRenamingTable
+msgid "Error renaming table %1$s to %2$s"
+msgstr ""
+
+#: $strErrorSaveTable
+msgid "Error saving coordinates for Designer."
+msgstr ""
+
+#: $strEscapeWildcards
+msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgstr "萬用符號 _ 及 % 應正確地加入 \\ "
+
+#: $strEsperanto
+msgid "Esperanto"
+msgstr "世界語"
+
+#: $strEstonian
+msgid "Estonian"
+msgstr "愛沙尼亞語"
+
+#: $strEvent
+msgid "Event"
+msgstr ""
+
+#: $strEvents
+msgid "Events"
+msgstr ""
+
+#: $strExcelEdition
+msgid "Excel edition"
+msgstr "Excel 版本"
+
+#: $strExecuteBookmarked
+msgid "Execute bookmarked query"
+msgstr "執行書籤查詢"
+
+#: $strExplain
+msgctxt "$strExplain"
+msgid "Explain SQL"
+msgstr "說明 SQL"
+
+#: $strExport
+msgid "Export"
+msgstr "輸出"
+
+#: $strExportImportToScale
+msgid "Export/Import to scale"
+msgstr ""
+
+#: $strExportMustBeFile
+msgid "Selected export type has to be saved in file!"
+msgstr ""
+
+#: $strExtendedInserts
+msgid "Extended inserts"
+msgstr "伸延新增模式"
+
+#: $strExtra
+msgid "Extra"
+msgstr "附加"
+
+#: $strFailedAttempts
+msgid "Failed attempts"
+msgstr "嘗試失敗"
+
+#: $strField
+msgid "Field"
+msgstr "欄位"
+
+#: $strFieldHasBeenDropped
+msgid "Field %s has been dropped"
+msgstr "資料表 %s 已被刪除"
+
+#: $strFieldInsertFromFileTempDirNotExists
+msgid ""
+"Error moving the uploaded file, see "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr ""
+
+#: $strFieldsEnclosedBy
+msgid "Fields enclosed by"
+msgstr "「欄位」使用字元："
+
+#: $strFieldsEscapedBy
+msgid "Fields escaped by"
+msgstr "「ESCAPE」使用字元："
+
+#: $strFields
+msgid "Fields"
+msgstr "欄位"
+
+#: $strFieldsTerminatedBy
+msgid "Fields terminated by"
+msgstr "「欄位分隔」使用字元："
+
+#: $strFileAlreadyExists
+msgid ""
+"File %s already exists on server, change filename or check overwrite option."
+msgstr "檔案 %s 已存在,請更改檔案名稱或選擇「覆寫己存在檔案」選項."
+
+#: $strFileCouldNotBeRead
+msgid "File could not be read"
+msgstr "讀案無法讀取"
+
+#: $strFileNameTemplateDescriptionDatabase
+msgid "database name"
+msgstr "資料庫名稱"
+
+#: $strFileNameTemplateDescriptionServer
+msgid "server name"
+msgstr "伺服器名稱"
+
+#: $strFileNameTemplateDescriptionTable
+msgid "table name"
+msgstr "資料表名稱"
+
+#: $strFileNameTemplateDescription
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
+msgstr ""
+
+#: $strFileNameTemplate
+msgid "File name template"
+msgstr "檔案名稱樣式"
+
+#: $strFileNameTemplateRemember
+msgid "remember template"
+msgstr "保留樣式名稱"
+
+#: $strFiles
+msgid "Files"
+msgstr ""
+
+#: $strFileToImport
+msgid "File to import"
+msgstr "載入檔案"
+
+#: $strFlushPrivilegesNote
+msgid ""
+"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"tables. The content of these tables may differ from the privileges the "
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
+msgstr ""
+"註: phpMyAdmin 直接由 MySQL 權限資料表取得使用者權限. 如果使用者自行更改資料表, 資料表內容將可能與實際使用者情況有異. "
+"在這情況下, 您應在繼續前 %s重新載入%s 權限資料表."
+
+#: $strFlushQueryCache
+msgid "Flush query cache"
+msgstr "強迫更新語法快取"
+
+#: $strFlushTable
+msgid "Flush the table (\"FLUSH\")"
+msgstr "強迫更新資料表 (\"FLUSH\")"
+
+#: $strFlushTables
+msgid "Flush (close) all tables"
+msgstr "強迫更新 (關閉) 所有資料表"
+
+#: $strFontSize
+msgid "Font size"
+msgstr ""
+
+#: $strForeignKeyError
+msgid "Error creating foreign key on %1$s (check data types)"
+msgstr ""
+
+#: $strForeignKeyRelationAdded
+msgid "FOREIGN KEY relation added"
+msgstr ""
+
+#: $strFormat
+msgctxt "$strFormat"
+msgid "Format"
+msgstr "格式"
+
+#: $strFormEmpty
+msgid "Missing value in the form!"
+msgstr "表格內漏填一些資料!"
+
+#: $strFreePages
+msgid "Free pages"
+msgstr "閒置頁"
+
+#: $strFullStart
+msgid "Full start"
+msgstr ""
+
+#: $strFullStop
+msgid "Full stop"
+msgstr ""
+
+#: $strFullText
+msgid "Full Texts"
+msgstr "顯示完整文字"
+
+#: $strFunction
+msgid "Function"
+msgstr "函數"
+
+#: $strFunctions
+msgid "Functions"
+msgstr ""
+
+#: $strGenBy
+msgid "Generated by"
+msgstr "建立"
+
+#: $strGeneralRelationFeat
+msgid "General relation features"
+msgstr "一般關聯功能"
+
+#: $strGenerate
+msgid "Generate"
+msgstr "產生"
+
+#: $strGeneratePassword
+msgid "Generate Password"
+msgstr "產生密碼"
+
+#: $strGenTime
+msgid "Generation Time"
+msgstr "建立日期"
+
+#: $strGeorgian
+msgid "Georgian"
+msgstr "格魯吉亞語"
+
+#: $strGerman
+msgid "German"
+msgstr "德語"
+
+#: $strGetMoreThemes
+msgid "Get more themes!"
+msgstr ""
+
+#: $strGlobal
+msgid "global"
+msgstr "整體"
+
+#: $strGlobalPrivileges
+msgid "Global privileges"
+msgstr "整體權限"
+
+#: $strGlobalValue
+msgid "Global value"
+msgstr "整體值"
+
+#: $strGo
+msgid "Go"
+msgstr "執行"
+
+#: $strGoToDatabase
+msgid "Go to database"
+msgstr ""
+
+#: $strGoToTable
+msgid "Go to table"
+msgstr ""
+
+#: $strGoToView
+msgid "Go to view"
+msgstr ""
+
+#: $strGrantOption
+msgid "Grant"
+msgstr "授權"
+
+#: $strGreek
+msgid "Greek"
+msgstr "希臘語"
+
+#: $strGzip
+msgid "\"gzipped\""
+msgstr "\"gzipped\""
+
+#: $strHandler
+msgid "Handler"
+msgstr "操作者"
+
+#: $strHasBeenAltered
+msgid "has been altered."
+msgstr "已經修改"
+
+#: $strHaveBeenSynchronized
+msgid "Selected target tables have been synchronized with source tables."
+msgstr ""
+
+#: $strHaveToShow
+msgid "You have to choose at least one column to display"
+msgstr "您需要選擇最少顯示一行欄位"
+
+#: $strHebrew
+msgid "Hebrew"
+msgstr "希伯來語"
+
+#: $strHelp
+msgid "Help"
+msgstr ""
+
+#: $strHexForBLOB
+msgid "Use hexadecimal for BLOB"
+msgstr ""
+
+#: $strHide
+msgid "Hide"
+msgstr ""
+
+#: $strHideShowAll
+msgid "Hide/Show all"
+msgstr ""
+
+#: $strHideShowNoRelation
+msgid "Hide/Show Tables with no relation"
+msgstr ""
+
+#: $strHome
+msgid "Home"
+msgstr "主目錄"
+
+#: $strHomepageOfficial
+msgid "Official Homepage"
+msgstr "phpMyAdmin 官方網站"
+
+#: $strHostEmpty
+msgid "The host name is empty!"
+msgstr "請輸入主機名稱!"
+
+#: $strHost
+msgid "Host"
+msgstr "主機"
+
+#: $strHostTableExplanation
+msgid ""
+"When Host table is used, this field is ignored and values stored in Host "
+"table are used instead."
+msgstr ""
+
+#: $strHTMLExcel
+msgid "Microsoft Excel 2000"
+msgstr "Microsoft Excel 2000"
+
+#: $strHTMLWord
+msgid "Microsoft Word 2000"
+msgstr "Microsoft Word 2000"
+
+#: $strHungarian
+msgid "Hungarian"
+msgstr "匈牙利語"
+
+#: $strIcelandic
+msgid "Icelandic"
+msgstr "冰島語"
+
+#: $strId
+msgid "ID"
+msgstr "ID"
+
+#: $strIdxFulltext
+msgid "Fulltext"
+msgstr "全文檢索"
+
+#: $strIEUnsupported
+msgid "Internet Explorer does not support this function."
+msgstr ""
+
+#: $strIgnoreDuplicates
+msgid "Ignore duplicate rows"
+msgstr "略過重覆列"
+
+#: $strIgnore
+msgid "Ignore"
+msgstr "忽略"
+
+#: $strIgnoreInserts
+msgid "Use ignore inserts"
+msgstr "使用忽略加入 (insert)"
+
+#: $strImportColNames
+msgid "Column names in first row"
+msgstr ""
+
+#: $strImportEmptyRows
+msgid "Do not import empty rows"
+msgstr ""
+
+#: $strImportExportCoords
+msgid "Import/Export coordinates for PDF schema"
+msgstr ""
+
+#: $strImportFiles
+msgid "Import files"
+msgstr "輸入檔案"
+
+#: $strImportFormat
+msgctxt "$strImportFormat"
+msgid "Format of imported file"
+msgstr "載入檔案格式"
+
+#: $strImport
+msgid "Import"
+msgstr "載入"
+
+#: $strImportLargeFileUploading
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: $strImportNoticePt1
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+
+#: $strImportNoticePt2
+msgid "View a structure`s contents by clicking on its name"
+msgstr ""
+
+#: $strImportNoticePt3
+msgid "Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+
+#: $strImportNoticePt4
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr ""
+
+#: $strImportODSCurrency
+msgid "Import currencies ($5.00 to 5.00)"
+msgstr ""
+
+#: $strImportODS
+msgctxt "$strImportODS"
+msgid "Open Document Spreadsheet"
+msgstr ""
+
+#: $strImportODSPercents
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr ""
+
+#: $strImportProceedingFile
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: $strImportSuccessfullyFinished
+msgid "Import has been successfully finished, %d queries executed."
+msgstr "載入成功, 共 %d 句語法已執行."
+
+#: $strImportUploadInfoNotAvailable
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: $strImportXLS
+msgid "Excel 97-2003 XLS Workbook"
+msgstr ""
+
+#: $strImportXLSX
+msgid "Excel 2007 XLSX Workbook"
+msgstr ""
+
+#: $strIndexes
+msgid "Indexes"
+msgstr "索引"
+
+#: $strIndexesSeemEqual
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+
+#: $strIndexHasBeenDropped
+msgid "Index %s has been dropped"
+msgstr "索引 %s 已被刪除"
+
+#: $strIndex
+msgid "Index"
+msgstr "索引鍵 INDEX"
+
+#: $strIndexName
+msgid "Index name:"
+msgstr "索引名稱&nbsp;:"
+
+#: $strIndexType
+msgid "Index type:"
+msgstr "索引類型&nbsp;:"
+
+#: $strIndexWarningTable
+msgid "Problems with indexes of table `%s`"
+msgstr "於資料表 `%s` 中有索引問題"
+
+#: $strInnoDBAutoextendIncrement
+msgid "Autoextend increment"
+msgstr "自動伸延大小"
+
+#: $strInnoDBAutoextendIncrementDesc
+msgid ""
+" The increment size for extending the size of an autoextending tablespace "
+"when it becomes full."
+msgstr "當資料表容量接近滿時, 自動增大容量的大小."
+
+#: $strInnoDBBufferPoolSize
+msgid "Buffer pool size"
+msgstr "緩衝區大小"
+
+#: $strInnoDBBufferPoolSizeDesc
+msgid ""
+"The size of the memory buffer InnoDB uses to cache data and indexes of its "
+"tables."
+msgstr "InnoDB 資料表用於快取資料及索引時使用的記憶體綬緩衝大小."
+
+#: $strInnoDBDataFilePath
+msgid "Data files"
+msgstr "資料檔案"
+
+#: $strInnoDBDataHomeDir
+msgid "Data home directory"
+msgstr "資料主目錄"
+
+#: $strInnoDBDataHomeDirDesc
+msgid "The common part of the directory path for all InnoDB data files."
+msgstr "所有 InnoDB 資料檔案的主資料目錄位置."
+
+#: $strInnoDBPages
+msgid "pages"
+msgstr "頁"
+
+#: $strInnodbStat
+msgid "InnoDB Status"
+msgstr "InnoDB 狀態"
+
+#: $strInsecureMySQL
+msgid ""
+"Your configuration file contains settings (root with no password) that "
+"correspond to the default MySQL privileged account. Your MySQL server is "
+"running with this default, is open to intrusion, and you really should fix "
+"this security hole by setting a password for user 'root'."
+msgstr ""
+"設定檔內有關設定 (root登入及沒有密碼) 與預設的 MySQL 權限戶口相同。 MySQL "
+"伺服器在這預設的設定運行的話會很容易被入侵，您應更改有關設定去防止安全漏洞。"
+
+#: $strInsertAsNewRow
+msgid "Insert as new row"
+msgstr "儲存為新記錄"
+
+#: $strInsertedRowId
+msgid "Inserted row id: %1$d"
+msgstr ""
+
+#: $strInsertIgnoreAsNewRow
+msgid "Insert as new row and ignore errors"
+msgstr ""
+
+#: $strInsert
+msgid "Insert"
+msgstr "新增"
+
+#: $strInterface
+msgid "Interface"
+msgstr ""
+
+#: $strInternalAndForeign
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: $strInternalRelationAdded
+msgid "Internal relation added"
+msgstr ""
+
+#: $strInternalRelations
+msgid "Internal relations"
+msgstr "內部關聯"
+
+#: $strInUse
+msgid "in use"
+msgstr "使用中"
+
+#: $strInvalidAuthMethod
+msgid "Invalid authentication method set in configuration:"
+msgstr "於設定內設定錯誤認證方式:"
+
+#: $strInvalidColumnCount
+msgid "Column count has to be larger than zero."
+msgstr "欄位數目需要大於零."
+
+#: $strInvalidColumn
+msgid "Invalid column (%s) specified!"
+msgstr "欄 (%s) 區分錯誤.!"
+
+#: $strInvalidCSVFieldCount
+msgid "Invalid field count in CSV input on line %d."
+msgstr "CSV 檔案第 %d 行中之欄位總數錯誤."
+
+#: $strInvalidCSVFormat
+msgid "Invalid format of CSV input on line %d."
+msgstr "Invalid format of CSV 檔案第 %d 行中之格式錯誤."
+
+#: $strInvalidCSVParameter
+msgid "Invalid parameter for CSV import: %s"
+msgstr "CSV 載入時參數錯誤: %s"
+
+#: $strInvalidDatabase
+msgid "Invalid database"
+msgstr ""
+
+#: $strInvalidFieldAddCount
+msgid "You have to add at least one field."
+msgstr "你最少要加入一個欄位."
+
+#: $strInvalidFieldCount
+msgid "Table must have at least one field."
+msgstr "資料表最少需要有一個欄位."
+
+#: $strInvalidLDIImport
+msgid "This plugin does not support compressed imports!"
+msgstr "這外掛程式不支援壓縮輸入!"
+
+#: $strInvalidRowNumber
+msgid "%d is not valid row number."
+msgstr "%d 不是一個有效的列數數目."
+
+#: $strInvalidServerHostname
+msgid "Invalid hostname for server %1$s. Please review your configuration."
+msgstr "伺服器 %1$s 主機名稱錯誤, 請翻查設定值."
+
+#: $strInvalidServerIndex
+msgid "Invalid server index: \"%s\""
+msgstr "伺服器索引錯誤: \"%s\""
+
+#: $strInvalidTableName
+msgid "Invalid table name"
+msgstr ""
+
+#: $strJapanese
+msgid "Japanese"
+msgstr "日語"
+
+#: $strJavascriptDisabled
+msgid ""
+"Javascript support is missing or disabled in your browser, some phpMyAdmin "
+"functionality will be missing. For example navigation frame will not refresh "
+"automatically."
+msgstr ""
+
+#: $strJoins
+msgid "Joins"
+msgstr "結合"
+
+#: $strJumpToDB
+msgid "Jump to database &quot;%s&quot;."
+msgstr "跳到資料庫 &quot;%s&quot;."
+
+#: $strJustDeleteDescr
+msgid ""
+"The &quot;deleted&quot; users will still be able to access the server as "
+"usual until the privileges are reloaded."
+msgstr " &quot;刪除&quot; 的使用者仍然能夠登入資料庫直至重新載入資料庫為止."
+
+#: $strJustDelete
+msgid "Just delete the users from the privilege tables."
+msgstr "只從權限資料庫刪除使用者."
+
+#: $strKeepPass
+msgid "Do not change the password"
+msgstr "請不要更改密碼"
+
+#: $strKeyCache
+msgid "Key cache"
+msgstr "鍵快取"
+
+#: $strKeyname
+msgid "Keyname"
+msgstr "鍵名"
+
+#: $strKill
+msgid "Kill"
+msgstr "Kill"
+
+#: $strKnownExternalBug
+msgid "The %s functionality is affected by a known bug, see %s"
+msgstr ""
+
+#: $strKorean
+msgid "Korean"
+msgstr "韓語"
+
+#: $strLandscape
+msgid "Landscape"
+msgstr "橫向"
+
+#: $strLanguage
+msgid "Language"
+msgstr ""
+
+#: $strLanguageUnknown
+msgid "Unknown language: %1$s."
+msgstr "不知名語言: %1$s."
+
+#: $strLatchedPages
+msgid "Latched pages"
+msgstr "鎖上頁"
+
+#: $strLatexCaption
+msgid "Table caption"
+msgstr "資料表標題"
+
+#: $strLatexContent
+msgid "Content of table __TABLE__"
+msgstr "資料表 __TABLE__ 內容"
+
+#: $strLatexContinuedCaption
+msgid "Continued table caption"
+msgstr "連續資料表標題"
+
+#: $strLatexContinued
+msgid "(continued)"
+msgstr "(連續)"
+
+#: $strLatexIncludeCaption
+msgid "Include table caption"
+msgstr "包括資料表標題"
+
+#: $strLatexLabel
+msgid "Label key"
+msgstr "標記鍵名"
+
+#: $strLaTeX
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: $strLatexStructure
+msgid "Structure of table __TABLE__"
+msgstr "資料表 __TABLE__ 結構"
+
+#: $strLatvian
+msgid "Latvian"
+msgstr "拉脫維亞語"
+
+#: $strLDI
+msgid "CSV using LOAD DATA"
+msgstr "CSV 使用 LOAD DATA"
+
+#: $strLDILocal
+msgid "Use LOCAL keyword"
+msgstr "使用 LOCAL 關鍵字"
+
+#: $strLengthSet
+msgid "Length/Values"
+msgstr "長度/集合*"
+
+#: $strLimitNumRows
+msgid "Number of rows per page"
+msgstr "筆記錄/每頁"
+
+#: $strLinesTerminatedBy
+msgid "Lines terminated by"
+msgstr "「下一行」使用字元："
+
+#: $strLinkNotFound
+msgid "Link not found"
+msgstr "找不到連結"
+
+#: $strLinksTo
+msgid "Links to"
+msgstr "連結到"
+
+#: $strLithuanian
+msgid "Lithuanian"
+msgstr "立陶宛語"
+
+#: $strLocalhost
+msgid "Local"
+msgstr "本地"
+
+#: $strLocationTextfile
+msgid "Location of the text file"
+msgstr "文字檔案的位置"
+
+#: $strLoginInformation
+msgid "Login Information"
+msgstr "登入資訊"
+
+#: $strLogin
+msgid "Log in"
+msgstr "登入"
+
+#: $strLoginWithoutPassword
+msgid ""
+"Login without a password is forbidden by configuration (see AllowNoPassword)"
+msgstr ""
+
+#: $strLogout
+msgid "Log out"
+msgstr "登出系統"
+
+#: $strLogPassword
+msgid "Password:"
+msgstr "密碼:"
+
+#: $strLogServerHelp
+msgid "You can enter hostname/IP address and port separated by space."
+msgstr ""
+
+#: $strLogServer
+msgid "Server:"
+msgstr "伺服器"
+
+#: $strLogUsername
+msgid "Username:"
+msgstr "登入名稱:"
+
+#: $strLongOperation
+msgid "This operation could take a long time. Proceed anyway?"
+msgstr "這個作業所用時間會較長, 繼續?"
+
+#: $strMaxConnects
+msgid "max. concurrent connections"
+msgstr "最大連線數目"
+
+#: $strMaximalQueryLength
+msgid "Maximal length of created query"
+msgstr "建立之查詢最大長度"
+
+#: $strMaximumSize
+msgid "Max: %s%s"
+msgstr "最大容量: %s%s"
+
+#: $strMbExtensionMissing
+msgid ""
+"The mbstring PHP extension was not found and you seem to be using a "
+"multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
+"split strings correctly and it may result in unexpected results."
+msgstr "找不到 PHP 內的 mbstring 編碼模組, 沒有這個模組, phpMyAdmin 無法準確地分割雙字元文字, 而可能產生問題."
+
+#: $strMbOverloadWarning
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+"你在 PHP 設定內啟動了 mbstring.func_overload 選項, 這個選項暫時不兼容 phpMyAdmin , 你可能會損失部份資料!"
+
+#: $strMediaWiki
+msgid "MediaWiki Table"
+msgstr ""
+
+#: $strMIME_available_mime
+msgid "Available MIME types"
+msgstr "可使用 MIME 類型"
+
+#: $strMIME_available_transform
+msgid "Available transformations"
+msgstr "可使用轉換方式"
+
+#: $strMIME_description
+msgctxt "$strMIME_description"
+msgid "Description"
+msgstr "說明"
+
+#: $strMIME_MIMEtype
+msgid "MIME type"
+msgstr "MIME 類型"
+
+#: $strMIME_nodescription
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr "這個轉換方式沒有說明.<br />請向作者查詢 %s 是甚麼用途."
+
+#: $strMIME_transformation
+msgid "Browser transformation"
+msgstr "瀏覽器轉換方式"
+
+#: $strMIME_transformation_note
+msgid ""
+"For a list of available transformation options and their MIME type "
+"transformations, click on %stransformation descriptions%s"
+msgstr "有關可使用之轉換方式選項及 MINE 類型轉換選項, 請查看 %s轉換方式說明%s"
+
+#: $strMIME_transformation_options_note
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"請用以下的格式輸入轉換選項值: 'a', 100, b,'c'...<br />如您需要輸入反斜線 (\"\\\") 或單引號 (\"'\") 請再加上反斜線 "
+"(例如 '\\\\xyz' or 'a\\'b')."
+
+#: $strMIME_transformation_options
+msgid "Transformation options"
+msgstr "轉換方式選項"
+
+#: $strMIMETypesForTable
+msgid "MIME TYPES FOR TABLE"
+msgstr "MIME TYPES FOR TABLE"
+
+#: $strMIME_without
+msgid ""
+"MIME types printed in italics do not have a separate transformation function"
+msgstr "MIME 類型以斜體顯示是沒有分隔轉換功能"
+
+#: $strModifications
+msgid "Modifications have been saved"
+msgstr "修改已儲存"
+
+#: $strModifyIndexTopic
+msgid "Modify an index"
+msgstr "修改索引"
+
+#: $strModify
+msgid "Modify"
+msgstr "修改"
+
+#: $strMoveMenu
+msgid "Move Menu"
+msgstr ""
+
+#: $strMoveTable
+msgid "Move table to (database<b>.</b>table):"
+msgstr "移動資料表到：(格式為 資料庫名稱<b>.</b>資料表名稱)"
+
+#: $strMoveTableOK
+msgid "Table %s has been moved to %s."
+msgstr "資料表 %s 已經移動到 %s."
+
+#: $strMoveTableSameNames
+msgid "Can't move table to same one!"
+msgstr "無法移動到相同資料表!"
+
+#: $strMultilingual
+msgid "multilingual"
+msgstr "多語言"
+
+#: $strMyISAMDataPointerSize
+msgid "Data pointer size"
+msgstr "資料指標大小"
+
+#: $strMyISAMDataPointerSizeDesc
+msgid ""
+"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
+"tables when no MAX_ROWS option is specified."
+msgstr ""
+"預設的資料指標大小時當以 CREATE TABLE 建立 MyISAM 資料表, 而並無設定最大列數 (MAX_ROWS) 時, 將會以位完組為設定大小"
+
+#: $strMyISAMMaxExtraSortFileSizeDesc
+msgid ""
+"If the temporary file used for fast MyISAM index creation would be larger "
+"than using the key cache by the amount specified here, prefer the key cache "
+"method."
+msgstr "如臨時檔案用作快速 MyISAM 索引時大於這個設定的容量, 建議使用鍵名快取方式."
+
+#: $strMyISAMMaxExtraSortFileSize
+msgid "Maximum size for temporary files on index creation"
+msgstr "臨時檔案建立索引時最大的容量"
+
+#: $strMyISAMMaxSortFileSizeDesc
+msgid ""
+"The maximum size of the temporary file MySQL is allowed to use while re-"
+"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
+"INFILE)."
+msgstr ""
+"MySQL 用於重建 MyISAM 索引 (REPAIR TABLE, ALTER TABLE, 或 LOAD DATA INFILE) "
+"時的臨時檔案大小."
+
+#: $strMyISAMMaxSortFileSize
+msgid "Maximum size for temporary sort files"
+msgstr "臨時排序檔案最大容量"
+
+#: $strMyISAMRecoverOptions
+msgid "Automatic recovery mode"
+msgstr "自動修復模式"
+
+#: $strMyISAMRecoverOptionsDesc
+msgid ""
+"The mode for automatic recovery of crashed MyISAM tables, as set via the "
+"--myisam-recover server startup option."
+msgstr "這個模式將會自動修復損壞之 MyISAM 資料表, 如同於伺服器啟動設定加入 --myisam-recover 選項."
+
+#: $strMyISAMRepairThreadsDesc
+msgid ""
+"If this value is greater than 1, MyISAM table indexes are created in "
+"parallel (each index in its own thread) during the repair by sorting "
+"process."
+msgstr "如數值大於 1 , MyISAM 資料表於修復時之索引將會以同步建立."
+
+#: $strMyISAMRepairThreads
+msgid "Repair threads"
+msgstr "修復工作"
+
+#: $strMyISAMSortBufferSizeDesc
+msgid ""
+"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
+"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
+msgstr ""
+"這個緩衝大小是分配給在執行修復資料表指令 (REPAIR TABLE) 、執行 CREATE INDEX 或 ALTER TABLE 指令時, 用於排序 "
+"MyISAM 索引之用"
+
+#: $strMyISAMSortBufferSize
+msgid "Sort buffer size"
+msgstr "排序緩衝大小"
+
+#: $strMySQLCharset
+msgid "MySQL charset"
+msgstr "MySQL 文字編碼"
+
+#: $strMysqlClientVersion
+msgid "MySQL client version"
+msgstr "MySQL 客戶端版本"
+
+#: $strMySQLConnectionCollation
+msgid "MySQL connection collation"
+msgstr "MySQL 連線校對"
+
+#: $strMysqlLibDiffersServerVersion
+msgid ""
+"Your PHP MySQL library version %s differs from your MySQL server version %s. "
+"This may cause unpredictable behavior."
+msgstr ""
+
+#: $strMySQLSaid
+msgid "MySQL said: "
+msgstr "MySQL 傳回： "
+
+#: $strMySQLShowProcess
+msgid "Show processes"
+msgstr "顯示程序 (Process)"
+
+#: $strName
+msgid "Name"
+msgstr "名稱"
+
+#: $strNavTableFilter
+msgid "Filter"
+msgstr ""
+
+#: $strNewTable
+msgid "New table"
+msgstr ""
+
+#: $strNext
+msgid "Next"
+msgstr "下一個"
+
+#: $strNoActivity
+msgid "No activity within %s seconds; please log in again"
+msgstr "由於已閒置了達 %s 秒, 請重新登入"
+
+#: $strNoDatabases
+msgid "No databases"
+msgstr "沒有資料庫"
+
+#: $strNoDatabasesSelected
+msgid "No databases selected."
+msgstr "沒有資料庫選擇."
+
+#: $strNoDataReceived
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+
+#: $strNoDescription
+msgid "no description"
+msgstr "沒有說明"
+
+#: $strNoDetailsForEngine
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr "這儲存引擎並無詳細的狀態資料."
+
+#: $strNoDropDatabases
+msgid "\"DROP DATABASE\" statements are disabled."
+msgstr "\"DROP DATABASE\" 指令已經停用."
+
+#: $strNoExplain
+msgid "Skip Explain SQL"
+msgstr "略過說明 SQL"
+
+#: $strNoFilesFoundInZip
+msgid "No files found inside ZIP archive!"
+msgstr "於 ZIP 檔案內找不到任何檔案!"
+
+#: $strNoFrames
+msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+msgstr "phpMyAdmin 較為適合使用在支援<b>頁框</b>的瀏覽器."
+
+#: $strNoIndex
+msgid "No index defined!"
+msgstr "沒有已定義的索引!"
+
+#: $strNoIndexPartsDefined
+msgid "No index parts defined!"
+msgstr "部份索引資料還未定義!"
+
+#: $strNoModification
+msgid "No change"
+msgstr "沒有變更"
+
+#: $strNoneDefault
+msgctxt "$strNoneDefault"
+msgid "None"
+msgstr ""
+
+#: $strNone
+msgctxt "$strNone"
+msgid "None"
+msgstr "不適用"
+
+#: $strNo
+msgid "No"
+msgstr " 否 "
+
+#: $strNoOptions
+msgid "This format has no options"
+msgstr "這種格式並無選項"
+
+#: $strNoPassword
+msgid "No Password"
+msgstr "不用密碼"
+
+#: $strNoPermission
+msgid "The web server does not have permission to save the file %s."
+msgstr "Web 伺服器沒有權限儲存檔案 %s."
+
+#: $strNoPhp
+msgid "Without PHP Code"
+msgstr "移除 PHP 程式碼"
+
+#: $strNoPrivileges
+msgid "No Privileges"
+msgstr "沒有權限"
+
+#: $strNoRights
+msgid "You don't have sufficient privileges to be here right now!"
+msgstr "您現在沒有足夠的權限!"
+
+#: $strNoRowsSelected
+msgid "No rows selected"
+msgstr "並無資料列已選擇"
+
+#: $strNoSpace
+msgid "Insufficient space to save the file %s."
+msgstr "空間不足儲存檔案 %s."
+
+#: $strNoTablesFound
+msgid "No tables found in database."
+msgstr "資料庫中沒有資料表"
+
+#: $strNoThemeSupport
+msgid ""
+"No themes support; please check your configuration and/or your themes in "
+"directory %s."
+msgstr "不支援款式功能, 請查看設定案及儲存款式檔案的資料夾 %s."
+
+#: $strNotNumber
+msgid "This is not a number!"
+msgstr "這不是一個數字!"
+
+#: $strNotOK
+msgid "not OK"
+msgstr "未能確定"
+
+#: $strNotPresent
+msgid "not present"
+msgstr ""
+
+#: $strNotSet
+msgid "<b>%s</b> table not found or not set in %s"
+msgstr "<b>%s</b> 資料表找不到或還未在 %s 設定"
+
+#: $strNoUsersFound
+msgid "No user(s) found."
+msgstr "找不到使用者"
+
+#: $strNoValidateSQL
+msgid "Skip Validate SQL"
+msgstr "略過檢查 SQL"
+
+#: $strNull
+msgid "Null"
+msgstr "Null"
+
+#: $strNumberOfFields
+msgid "Number of fields"
+msgstr "欄位數目"
+
+#: $strNumberOfTables
+msgid "Number of tables"
+msgstr ""
+
+#: $strNumSearchResultsInTable
+msgid "%s match(es) inside table <i>%s</i>"
+msgstr "%s 項資料符合 - 於資料表 <i>%s</i>"
+
+#: $strNumSearchResultsTotal
+msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgstr "<b>總計:</b> <i>%s</i> 項資料符合"
+
+#: $strNumTables
+msgctxt "$strNumTables"
+msgid "Tables"
+msgstr "個資料表"
+
+#: $strOK
+msgid "OK"
+msgstr "確定"
+
+#: $strOpenDocumentSpreadsheet
+msgctxt "$strOpenDocumentSpreadsheet"
+msgid "Open Document Spreadsheet"
+msgstr ""
+
+#: $strOpenDocumentText
+msgid "Open Document Text"
+msgstr ""
+
+#: $strOpenNewWindow
+msgid "Open new phpMyAdmin window"
+msgstr "開啟新 phpMyAdmin 視窗"
+
+#: $strOperations
+msgid "Operations"
+msgstr "管理"
+
+#: $strOperator
+msgid "Operator"
+msgstr "操作員"
+
+#: $strOptimize
+msgid "Optimize"
+msgstr ""
+
+#: $strOptimizeTable
+msgid "Optimize table"
+msgstr "最佳化資料表"
+
+#: $strOptions
+msgid "Options"
+msgstr ""
+
+#: $strOr
+msgid "Or"
+msgstr "或"
+
+#: $strOverhead
+msgid "Overhead"
+msgstr "多餘"
+
+#: $strOverwriteExisting
+msgctxt "$strOverwriteExisting"
+msgid "Overwrite existing file(s)"
+msgstr "覆寫已存在檔案"
+
+#: $strPacked
+msgid "Packed"
+msgstr ""
+
+#: $strPageNumber
+msgid "Page number:"
+msgstr "頁碼:"
+
+#: $strPagesToBeFlushed
+msgid "Pages to be flushed"
+msgstr "強迫更新頁"
+
+#: $strPaperSize
+msgid "Paper size"
+msgstr "紙張大小"
+
+#: $strPartialImport
+msgid "Partial import"
+msgstr "部份載入"
+
+#: $strPartialText
+msgid "Partial Texts"
+msgstr "顯示部份文字"
+
+#: $strPartitionDefinition
+msgid "PARTITION definition"
+msgstr ""
+
+#: $strPartitioned
+msgid "partitioned"
+msgstr ""
+
+#: $strPartitionMaintenance
+msgid "Partition maintenance"
+msgstr ""
+
+#: $strPartition
+msgid "Partition %s"
+msgstr ""
+
+#: $strPasswordChanged
+msgid "The password for %s was changed successfully."
+msgstr "%s 的密碼已成功更改."
+
+#: $strPasswordEmpty
+msgid "The password is empty!"
+msgstr "請輸入密碼!"
+
+#: $strPasswordHashing
+msgid "Password Hashing"
+msgstr "密碼雜湊"
+
+#: $strPasswordNotSame
+msgid "The passwords aren't the same!"
+msgstr "第二次輸入的密碼不同!"
+
+#: $strPassword
+msgid "Password"
+msgstr "密碼"
+
+#: $strPBXTCheckpointFrequency
+msgid "Checkpoint frequency"
+msgstr ""
+
+#: $strPBXTCheckpointFrequencyDesc
+msgid ""
+"The amount of data written to the transaction log before a checkpoint is "
+"performed. The default value is 24MB."
+msgstr ""
+
+#: $strPBXTDataFileGrowSize
+msgid "Data file grow size"
+msgstr ""
+
+#: $strPBXTDataFileGrowSizeDesc
+msgid "The grow size of the handle data (.xtd) files."
+msgstr ""
+
+#: $strPBXTDataLogThreshold
+msgid "Data log threshold"
+msgstr ""
+
+#: $strPBXTDataLogThresholdDesc
+msgid ""
+"The maximum size of a data log file. The default value is 64MB. PBXT can "
+"create a maximum of 32000 data logs, which are used by all tables. So the "
+"value of this variable can be increased to increase the total amount of data "
+"that can be stored in the database."
+msgstr ""
+
+#: $strPBXTGarbageThresholdDesc
+msgid ""
+"The percentage of garbage in a data log file before it is compacted. This is "
+"a value between 1 and 99. The default is 50."
+msgstr ""
+
+#: $strPBXTGarbageThreshold
+msgid "Garbage threshold"
+msgstr ""
+
+#: $strPBXTIndexCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the index cache. Default value is "
+"32MB. The memory allocated here is used only for caching index pages."
+msgstr ""
+
+#: $strPBXTIndexCacheSize
+msgid "Index cache size"
+msgstr ""
+
+#: $strPBXTLogBufferSizeDesc
+msgid ""
+"The size of the buffer used when writing a data log. The default is 256MB. "
+"The engine allocates one buffer per thread, but only if the thread is "
+"required to write a data log."
+msgstr ""
+
+#: $strPBXTLogBufferSize
+msgid "Log buffer size"
+msgstr ""
+
+#: $strPBXTLogCacheSizeDesc
+msgid ""
+"The amount of memory allocated to the transaction log cache used to cache on "
+"transaction log data. The default is 16MB."
+msgstr ""
+
+#: $strPBXTLogCacheSize
+msgid "Log cache size"
+msgstr ""
+
+#: $strPBXTLogFileCountDesc
+msgid ""
+"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
+"system will maintain. If the number of logs exceeds this value then old logs "
+"will be deleted, otherwise they are renamed and given the next highest "
+"number."
+msgstr ""
+
+#: $strPBXTLogFileCount
+msgid "Log file count"
+msgstr ""
+
+#: $strPBXTLogFileThresholdDesc
+msgid ""
+"The size of a transaction log before rollover, and a new log is created. The "
+"default value is 16MB."
+msgstr ""
+
+#: $strPBXTLogFileThreshold
+msgid "Log file threshold"
+msgstr ""
+
+#: $strPBXTRecordCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the record cache used to cache "
+"table data. The default value is 32MB. This memory is used to cache changes "
+"to the handle data (.xtd) and row pointer (.xtr) files."
+msgstr ""
+
+#: $strPBXTRecordCacheSize
+msgid "Record cache size"
+msgstr ""
+
+#: $strPBXTRowFileGrowSizeDesc
+msgid "The grow size of the row pointer (.xtr) files."
+msgstr ""
+
+#: $strPBXTRowFileGrowSize
+msgid "Row file grow size"
+msgstr ""
+
+#: $strPBXTTransactionBufferSizeDesc
+msgid ""
+"The size of the global transaction log buffer (the engine allocates 2 "
+"buffers of this size). The default is 1MB."
+msgstr ""
+
+#: $strPBXTTransactionBufferSize
+msgid "Transaction buffer size"
+msgstr ""
+
+#: $strPdfDbSchema
+msgid "Schema of the \"%s\" database - Page %s"
+msgstr "\"%s\" 資料庫概要 - 第 %s 頁"
+
+#: $strPdfInvalidTblName
+msgid "The \"%s\" table doesn't exist!"
+msgstr "資料表 \"%s\" 不存在!"
+
+#: $strPdfNoTables
+msgid "No tables"
+msgstr "沒有資料表"
+
+#: $strPDFPageCreated
+msgid "Page has been created"
+msgstr ""
+
+#: $strPDFPageCreateFailed
+msgid "Page creation failed"
+msgstr ""
+
+#: $strPDF
+msgid "PDF"
+msgstr "PDF"
+
+#: $strPDFReportExplanation
+msgid "(Generates a report containing the data of a single table)"
+msgstr ""
+
+#: $strPDFReportTitle
+msgid "Report title"
+msgstr "報告標題"
+
+#: $strPerHour
+msgid "per hour"
+msgstr "每小時"
+
+#: $strPerMinute
+msgid "per minute"
+msgstr "每分鐘"
+
+#: $strPerSecond
+msgid "per second"
+msgstr "每秒"
+
+#: $strPersian
+msgid "Persian"
+msgstr "波斯語"
+
+#: $strPhoneBook
+msgid "phone book"
+msgstr "電話簿"
+
+#: $strPhpArray
+msgid "PHP array"
+msgstr ""
+
+#: $strPhp
+msgctxt "$strPhp"
+msgid "Create PHP Code"
+msgstr "建立 PHP 程式碼"
+
+#: $strPHPExtension
+msgid "PHP extension"
+msgstr ""
+
+#: $strPHPVersion
+msgid "PHP Version"
+msgstr "PHP 版本"
+
+#: $strPlayAudio
+msgid "Play audio"
+msgstr ""
+
+#: $strPleaseSelectPrimaryOrUniqueKey
+msgid "Please select the primary key or a unique key"
+msgstr ""
+
+#: $strPmadbCreateConfig
+msgid ""
+"Enable advanced features in configuration file "
+"(<code>config.inc.php</code>), for example by starting from "
+"<code>config.sample.inc.php</code>."
+msgstr ""
+
+#: $strPmadbCreateHelp
+msgid "Quick steps to setup advanced features:"
+msgstr ""
+
+#: $strPmadbCreateTables
+msgid ""
+"Create the needed tables with the <code>script/create_tables.sql</code>."
+msgstr ""
+
+#: $strPmadbCreateUser
+msgid "Create a pma user and give access to these tables."
+msgstr ""
+
+#: $strPmadbReLoginToEnable
+msgid "Re-login to phpMyAdmin to load the updated configuration file."
+msgstr ""
+
+#: $strPmaDocumentation
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin 說明文件"
+
+#: $strPmaUriError
+msgid ""
+"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"configuration file!"
+msgstr " 必須在設定檔內設定 <tt>$cfg['PmaAbsoluteUri']</tt> !"
+
+#: $strPolish
+msgid "Polish"
+msgstr "波蘭語"
+
+#: $strPort
+msgid "Port"
+msgstr ""
+
+#: $strPortrait
+msgid "Portrait"
+msgstr "直向"
+
+#: $strPos1
+msgid "Begin"
+msgstr "第一頁"
+
+#: $strPrevious
+msgid "Previous"
+msgstr "前一頁"
+
+#: $strPrimaryKeyHasBeenDropped
+msgid "The primary key has been dropped"
+msgstr "主鍵已被刪除"
+
+#: $strPrimaryKeyName
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "主鍵的名稱必須稱為 PRIMARY!"
+
+#: $strPrimaryKeyWarning
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(\"PRIMARY\" <b>必須</b>是主鍵的名稱以及是<b>唯一</b>一組主鍵!)"
+
+#: $strPrimary
+msgid "Primary"
+msgstr "主鍵 PRIMARY"
+
+#: $strPrint
+msgid "Print"
+msgstr "列印"
+
+#: $strPrintViewFull
+msgid "Print view (with full texts)"
+msgstr "列印檢視 (顯示完整文字)"
+
+#: $strPrintView
+msgid "Print view"
+msgstr "列印檢視"
+
+#: $strPrivDescAllPrivileges
+msgid "Includes all privileges except GRANT."
+msgstr "包括所有權限除了授權 (GRNANT)."
+
+#: $strPrivDescAlter
+msgid "Allows altering the structure of existing tables."
+msgstr "容許修改現有資料表的結構."
+
+#: $strPrivDescAlterRoutine
+msgid "Allows altering and dropping stored routines."
+msgstr "容許修改及刪除儲存程序."
+
+#: $strPrivDescCreateDb
+msgid "Allows creating new databases and tables."
+msgstr "容許建立新資料庫及資料表."
+
+#: $strPrivDescCreateRoutine
+msgid "Allows creating stored routines."
+msgstr "容許建立儲存程序"
+
+#: $strPrivDescCreateTbl
+msgid "Allows creating new tables."
+msgstr "容許建立新資料表."
+
+#: $strPrivDescCreateTmpTable
+msgid "Allows creating temporary tables."
+msgstr "容許建立暫時性資料表."
+
+#: $strPrivDescCreateUser
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "容許建立、刪除及重新命名使用者戶口."
+
+#: $strPrivDescCreateView
+msgid "Allows creating new views."
+msgstr "容許建立新的檢視."
+
+#: $strPrivDescDelete
+msgid "Allows deleting data."
+msgstr "容許刪除記錄."
+
+#: $strPrivDescDropDb
+msgid "Allows dropping databases and tables."
+msgstr "容許刪除資料庫及資料表."
+
+#: $strPrivDescDropTbl
+msgid "Allows dropping tables."
+msgstr "容許刪除資料表."
+
+#: $strPrivDescEvent
+msgid "Allows to set up events for the event scheduler"
+msgstr ""
+
+#: $strPrivDescExecute5
+msgid "Allows executing stored routines."
+msgstr "容許執行儲存程序."
+
+#: $strPrivDescExecute
+msgid "Allows running stored procedures; has no effect in this MySQL version."
+msgstr "容許 執行預先儲存之程式. 於本 MySQL 版本無效."
+
+#: $strPrivDescFile
+msgid "Allows importing data from and exporting data into files."
+msgstr "容許輸入及輸出數據到檔案."
+
+#: $strPrivDescGrant
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr "容許新增使用者及權限而無需重新讀取權限資料表."
+
+#: $strPrivDescIndex
+msgid "Allows creating and dropping indexes."
+msgstr "容許建立及刪除索引."
+
+#: $strPrivDescInsert
+msgid "Allows inserting and replacing data."
+msgstr "容許新增及取代數據."
+
+#: $strPrivDescLockTables
+msgid "Allows locking tables for the current thread."
+msgstr "容許鎖上現時連線之資料表."
+
+#: $strPrivDescMaxConnections
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "限制每小時使用者開啟新連線的數目."
+
+#: $strPrivDescMaxQuestions
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "限制每小時使用者查詢的數目."
+
+#: $strPrivDescMaxUpdates
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr "限制每小時使用者更改資料表及數據表之指令的數目."
+
+#: $strPrivDescMaxUserConnections
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "限制每個使用者之同步連線."
+
+#: $strPrivDescProcess
+msgid "Allows viewing processes of all users"
+msgstr ""
+
+#: $strPrivDescReferences
+msgid "Has no effect in this MySQL version."
+msgstr "於本 MySQL 版本無效."
+
+#: $strPrivDescReload
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr "容許重新讀取伺服器設定及強行更新伺服器快取記憶."
+
+#: $strPrivDescReplClient
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "容許用戶查詢 slaves / masters 在何處."
+
+#: $strPrivDescReplSlave
+msgid "Needed for the replication slaves."
+msgstr "需要複製的 slaves."
+
+#: $strPrivDescSelect
+msgid "Allows reading data."
+msgstr "容許讀取數據."
+
+#: $strPrivDescShowDb
+msgid "Gives access to the complete list of databases."
+msgstr "可讀取整個資料庫清單."
+
+#: $strPrivDescShowView
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "容許執行 SHOW CREATE VIEW 查詢."
+
+#: $strPrivDescShutdown
+msgid "Allows shutting down the server."
+msgstr "容許停止伺服器."
+
+#: $strPrivDescSuper
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr "容許連線, 就算超過了最大連線限制; 用於最高系統管理如設定整體權限或中止其他使用者指令."
+
+#: $strPrivDescTrigger
+msgid "Allows creating and dropping triggers"
+msgstr ""
+
+#: $strPrivDescUpdate
+msgid "Allows changing data."
+msgstr "容許更新數據."
+
+#: $strPrivDescUsage
+msgid "No privileges."
+msgstr "沒有權限."
+
+#: $strPrivileges
+msgid "Privileges"
+msgstr "權限"
+
+#: $strPrivilegesReloaded
+msgid "The privileges were reloaded successfully."
+msgstr "權限已成功重新讀取."
+
+#: $strProcedures
+msgid "Procedures"
+msgstr ""
+
+#: $strProcesses
+msgid "Processes"
+msgstr "處理"
+
+#: $strProcesslist
+msgid "Process list"
+msgstr "系統執行清單"
+
+#: $strProfiling
+msgid "Profiling"
+msgstr ""
+
+#: $strProtocolVersion
+msgid "Protocol version"
+msgstr "通訊協定版本"
+
+#: $strPutColNames
+msgid "Put fields names in the first row"
+msgstr "將欄位名稱放在首行"
+
+#: $strQBEDel
+msgid "Del"
+msgstr "移除"
+
+#: $strQBEIns
+msgid "Ins"
+msgstr "新增"
+
+#: $strQBE
+msgid "Query"
+msgstr "依範例查詢 (QBE)"
+
+#: $strQueriesExecuted
+msgid "The following queries have been executed:"
+msgstr ""
+
+#: $strQueryCache
+msgid "Query cache"
+msgstr "查詢快取"
+
+#: $strQueryFrame
+msgctxt "$strQueryFrame"
+msgid "Query window"
+msgstr "查詢視窗"
+
+#: $strQueryOnDb
+msgid "SQL query on database <b>%s</b>:"
+msgstr "在資料庫 <b>%s</b> 執行 SQL 語法:"
+
+#: $strQueryResultsOperations
+msgid "Query results operations"
+msgstr "查詢結果操作"
+
+#: $strQuerySQLHistory
+msgid "SQL history"
+msgstr "SQL 歷程"
+
+#: $strQueryStatistics
+msgid ""
+"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
+"server."
+msgstr "<b>查詣統計</b>: 當統計啟動後, 共有 %s 個查詢傳送到此伺服器."
+
+#: $strQueryTime
+msgid "Query took %01.4f sec"
+msgstr "查詢需時 %01.4f 秒"
+
+#: $strQueryType
+msgid "Query type"
+msgstr "查詢方式"
+
+#: $strQueryWindowLock
+msgid "Do not overwrite this query from outside the window"
+msgstr "不要將這語法覆蓋到本視窗外的SQL語法"
+
+#: $strReadRequests
+msgid "Read requests"
+msgstr "讀取要求"
+
+#: $strRebuild
+msgid "Rebuild"
+msgstr ""
+
+#: $strReceived
+msgid "Received"
+msgstr "接收"
+
+#: $strRecommended
+msgid "recommended"
+msgstr ""
+
+#: $strRecords
+msgid "Records"
+msgstr "記錄"
+
+#: $strReferentialIntegrity
+msgid "Check referential integrity:"
+msgstr "檢查指示完整性:"
+
+#: $strRefresh
+msgctxt "$strRefresh"
+msgid "Refresh"
+msgstr "更新"
+
+#: $strRelationalDisplayField
+msgid "Relational display field"
+msgstr ""
+
+#: $strRelationalKey
+msgid "Relational key"
+msgstr ""
+
+#: $strRelationalSchema
+msgid "Relational schema"
+msgstr "關聯概要"
+
+#: $strRelationDeleted
+msgid "Relation deleted"
+msgstr ""
+
+#: $strRelationNotWorking
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr "關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因."
+
+#: $strRelationsForTable
+msgid "RELATIONS FOR TABLE"
+msgstr "RELATIONS FOR TABLE"
+
+#: $strRelations
+msgid "Relations"
+msgstr "關聯"
+
+#: $strRelationView
+msgid "Relation view"
+msgstr "關聯檢視"
+
+#: $strReloadingThePrivileges
+msgid "Reloading the privileges"
+msgstr "重新讀取權限"
+
+#: $strReloadNavi
+msgid "Reload navigation frame"
+msgstr ""
+
+#: $strReloadPrivileges
+msgid "Reload privileges"
+msgstr ""
+
+#: $strReload
+msgid "Reload"
+msgstr ""
+
+#: $strRemoteServer
+msgid "Remote server"
+msgstr ""
+
+#: $strRemoveCRLF
+msgid "Remove CRLF characters within fields"
+msgstr ""
+
+#: $strRemovePartitioning
+msgid "Remove partitioning"
+msgstr ""
+
+#: $strRemoveSelectedUsers
+msgid "Remove selected users"
+msgstr "移除已選擇使用者"
+
+#: $strRenameDatabaseOK
+msgid "Database %s has been renamed to %s"
+msgstr "資料庫 %s 已更改名稱為 %s"
+
+#: $strRenameTableOK
+msgid "Table %s has been renamed to %s"
+msgstr "已經將資料表 %s 改名成 %s"
+
+#: $strRenameTable
+msgid "Rename table to"
+msgstr "將資料表改名為"
+
+#: $strRenameView
+msgid "Rename view to"
+msgstr ""
+
+#: $strRepair
+msgctxt "$strRepair"
+msgid "Repair"
+msgstr ""
+
+#: $strRepairTable
+msgid "Repair table"
+msgstr "修復資料表"
+
+#: $strReplaceNULLBy
+msgid "Replace NULL by"
+msgstr "將 NULL 取代為"
+
+#: $strReplaceTable
+msgid "Replace table data with file"
+msgstr "以檔案取代資料表資料"
+
+#: $strReplicationAddLines
+msgid ""
+"Now, add the following lines at the end of [mysqld] section in your my.cnf "
+"and please restart the MySQL server afterwards."
+msgstr ""
+
+#: $strReplicationAddSlaveUser
+msgid "Add slave replication user"
+msgstr ""
+
+#: $strReplicationChangedSuccesfully
+msgid "Master server changed succesfully to %s"
+msgstr ""
+
+#: $strReplicationConfiguredMaster
+msgid "This server is configured as master in a replication process."
+msgstr ""
+
+#: $strReplicationControlSlave
+msgid "Control slave:"
+msgstr ""
+
+#: $strReplicationErrorGetPosition
+msgid ""
+"Unable to read master log position. Possible privilege problem on master."
+msgstr ""
+
+#: $strReplicationErrorMasterConnect
+msgid "Unable to connect to master %s."
+msgstr ""
+
+#: $strReplicationMasterChooseAll
+msgid "Replicate all databases; Ignore:"
+msgstr ""
+
+#: $strReplicationMasterChooseIgn
+msgid "Ignore all databases; Replicate:"
+msgstr ""
+
+#: $strReplicationMasterChooseMode
+msgid ""
+"This server is not configured as master server in a replication process. You "
+"can choose from either replicating all databases and ignoring certain "
+"(useful if you want to replicate majority of databases) or you can choose to "
+"ignore all databases by default and allow only certain databases to be "
+"replicated. Please select the mode:"
+msgstr ""
+
+#: $strReplicationMasterConfiguration
+msgid "Master configuration"
+msgstr ""
+
+#: $strReplicationMaster
+msgid "Master replication"
+msgstr ""
+
+#: $strReplication
+msgid "Replication"
+msgstr "複製"
+
+#: $strReplicationRestartServer
+msgid ""
+"Once you restarted MySQL server, please click on Go button. Afterwards, you "
+"should see a message informing you, that this server <b>is</b> configured as "
+"master"
+msgstr ""
+
+#: $strReplicationSelectDatabases
+msgid "Please select databases:"
+msgstr ""
+
+#: $strReplicationServernConfiguredMaster
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationShowConnectedSlavesNote
+msgid ""
+"Only slaves started with the --report-host=host_name option are visible in "
+"this list."
+msgstr ""
+
+#: $strReplicationShowConnectedSlaves
+msgid "Show connected slaves"
+msgstr ""
+
+#: $strReplicationShowMasterStatus
+msgctxt "$strReplicationShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strReplicationSkippingErrorWarn
+msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgstr ""
+
+#: $strReplicationSlaveChangeMaster
+msgid "Change or reconfigure master server"
+msgstr ""
+
+#: $strReplicationSlaveConfiguration
+msgid "Slave configuration"
+msgstr ""
+
+#: $strReplicationSlaveConfigured
+msgid ""
+"Server is configured as slave in a replication process. Would you like to:"
+msgstr ""
+
+#: $strReplicationSlaveErrorManagement
+msgid "Error management:"
+msgstr ""
+
+#: $strReplicationSlaveIOThread
+msgid "IO Thread %s only"
+msgstr ""
+
+#: $strReplicationSlaveIOThreadNotRunning
+msgid "Slave IO Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveNotConfigured
+msgid ""
+"This server is not configured as slave in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationSlaveReset
+msgid "Reset slave"
+msgstr ""
+
+#: $strReplicationSlaveSeeStatus
+msgid "See slave status table"
+msgstr ""
+
+#: $strReplicationSlaveSkipCurrentError
+msgid "Skip current error"
+msgstr ""
+
+#: $strReplicationSlaveSkipNextErrors
+msgid "errors."
+msgstr ""
+
+#: $strReplicationSlaveSkipNext
+msgid "Skip next"
+msgstr ""
+
+#: $strReplicationSlave
+msgid "Slave replication"
+msgstr ""
+
+#: $strReplicationSlaveSQLThreadNotRunning
+msgid "Slave SQL Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveSQLThread
+msgid "SQL Thread %s only"
+msgstr ""
+
+#: $strReplicationStatusInfo
+msgid ""
+"This MySQL server works as %s in <b>replication</b> process. For further "
+"information about replication status on the server, please visit the <a "
+"href=\"#replication\">replication section</a>."
+msgstr ""
+
+#: $strReplicationStatus_master
+msgid "Master status"
+msgstr ""
+
+#: $strReplicationStatus
+msgid "Replication status"
+msgstr ""
+
+#: $strReplicationStatus_slave
+msgid "Slave status"
+msgstr ""
+
+#: $strReplicationSynchronize
+msgid "Synchronize databases with master"
+msgstr ""
+
+#: $strReplicationUnableToChange
+msgid "Unable to change master"
+msgstr ""
+
+#: $strReplicationUnknownError
+msgid "Unknown error"
+msgstr ""
+
+#: $strReset
+msgctxt "$strReset"
+msgid "Reset"
+msgstr "重置"
+
+#: $strResourceLimits
+msgid "Resource limits"
+msgstr "資源限制"
+
+#: $strRestartInsertion
+msgid "Restart insertion with %s rows"
+msgstr ""
+
+#: $strReType
+msgid "Re-type"
+msgstr "確認密碼"
+
+#: $strRevokeAndDeleteDescr
+msgid ""
+"The users will still have the USAGE privilege until the privileges are "
+"reloaded."
+msgstr "使用者仍然有 USAGE 權限直至權限資料表更新讀取."
+
+#: $strRevokeAndDelete
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "廢除使用者所有有效之權限並刪除."
+
+#: $strRevokeMessage
+msgid "You have revoked the privileges for %s"
+msgstr "您已移除這位使用者的權限: %s"
+
+#: $strRevoke
+msgid "Revoke"
+msgstr "移除"
+
+#: $strRomanian
+msgid "Romanian"
+msgstr "羅馬尼亞語"
+
+#: $strRoutineReturnType
+msgid "Return type"
+msgstr ""
+
+#: $strRoutines
+msgid "Routines"
+msgstr ""
+
+#: $strRowLength
+msgid "Row length"
+msgstr "資料列長度"
+
+#: $strRowsAffected
+msgid "%1$d row(s) affected."
+msgstr ""
+
+#: $strRowsDeleted
+msgid "%1$d row(s) deleted."
+msgstr ""
+
+#: $strRowsFrom
+msgid "row(s) starting from record #"
+msgstr "筆記錄，開始列數:"
+
+#: $strRowsInserted
+msgid "%1$d row(s) inserted."
+msgstr ""
+
+#: $strRowSize
+msgid " Row size "
+msgstr "資料列大小"
+
+#: $strRowsModeFlippedHorizontal
+msgid "horizontal (rotated headers)"
+msgstr "垂直 (旋轉標題)"
+
+#: $strRowsModeHorizontal
+msgid "horizontal"
+msgstr "水平"
+
+#: $strRowsModeOptions
+msgid "in %s mode and repeat headers after %s cells"
+msgstr "顯示為 %s 方式 及 每隔 %s 行顯示欄名"
+
+#: $strRowsModeVertical
+msgid "vertical"
+msgstr "垂直"
+
+#: $strRows
+msgid "Rows"
+msgstr "資料列列數"
+
+#: $strRowsStatistic
+msgid "Row Statistics"
+msgstr "資料列統計數值"
+
+#: $strRunning
+msgid "running on %s"
+msgstr "在 %s 執行"
+
+#: $strRunQuery
+msgid "Submit Query"
+msgstr "執行語法"
+
+#: $strRunSQLQueryOnServer
+msgid "Run SQL query/queries on server %s"
+msgstr "於伺服器 %s 執行 SQL 語法"
+
+#: $strRunSQLQuery
+msgid "Run SQL query/queries on database %s"
+msgstr "在資料庫 %s 執行以下指令"
+
+#: $strRussian
+msgid "Russian"
+msgstr "俄語"
+
+#: $strSaveOnServer
+msgid "Save on server in %s directory"
+msgstr "儲存到伺服器於 %s 目錄"
+
+#: $strSavePosition
+msgid "Save position"
+msgstr ""
+
+#: $strSave
+msgid "Save"
+msgstr "儲存"
+
+#: $strScaleFactorSmall
+msgid "The scale factor is too small to fit the schema on one page"
+msgstr "比例倍數太細, 無法將圖表放在一頁內"
+
+#: $strSearchFormTitle
+msgid "Search in database"
+msgstr "搜索資料庫"
+
+#: $strSearchInField
+msgid "Inside field:"
+msgstr ""
+
+#: $strSearchInTables
+msgid "Inside table(s):"
+msgstr "於以下資料表:"
+
+#: $strSearchNeedle
+msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "尋找之文字或數值 (萬用字元: \"%\"):"
+
+#: $strSearchOption1
+msgid "at least one of the words"
+msgstr "任何一組文字"
+
+#: $strSearchOption2
+msgid "all words"
+msgstr "所有文字"
+
+#: $strSearchOption3
+msgid "the exact phrase"
+msgstr "完整詞語"
+
+#: $strSearchOption4
+msgid "as regular expression"
+msgstr "以規則表示法 (regular expression) 搜索"
+
+#: $strSearchResultsFor
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "搜索 \"<i>%s</i>\" 的結果 %s:"
+
+#: $strSearch
+msgid "Search"
+msgstr "搜索"
+
+#: $strSearchType
+msgid "Find:"
+msgstr "尋找:"
+
+#: $strSecretRequired
+msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+msgstr "設定檔案現在需要密碼 (passphrase) (blowfish_secret)."
+
+#: $strSelectADb
+msgid "Please select a database"
+msgstr "請選擇資料庫"
+
+#: $strSelectAll
+msgid "Select All"
+msgstr "全選"
+
+#: $strSelectBinaryLog
+msgid "Select binary log to view"
+msgstr "選擇檢視二進制記錄"
+
+#: $strSelectFields
+msgid "Select fields (at least one):"
+msgstr "選擇欄位 (至少一個)"
+
+#: $strSelectForeignKey
+msgid "Select Foreign Key"
+msgstr ""
+
+#: $strSelectNumRows
+msgid "in query"
+msgstr "查詢中"
+
+#: $strSelectReferencedKey
+msgid "Select referenced key"
+msgstr ""
+
+#: $strSelectTables
+msgid "Select Tables"
+msgstr "選擇資料表"
+
+#: $strSend
+msgctxt "$strSend"
+msgid "Save as file"
+msgstr "下載儲存"
+
+#: $strSent
+msgid "Sent"
+msgstr "送出"
+
+#: $strServerChoice
+msgid "Server Choice"
+msgstr "選擇伺服器"
+
+#: $strServerNotResponding
+msgid "The server is not responding"
+msgstr "伺服器並無回應"
+
+#: $strServer
+msgid "Server"
+msgstr "伺服器"
+
+#: $strServers
+msgctxt "$strServers"
+msgid "Servers"
+msgstr ""
+
+#: $strServerStatusDelayedInserts
+msgid "Delayed inserts"
+msgstr "延遲插入"
+
+#: $strServerStatus
+msgid "Runtime Information"
+msgstr "運行資訊"
+
+#: $strServerStatusUptime
+msgid "This MySQL server has been running for %s. It started up on %s."
+msgstr "這 MySQL 伺服器已啟動了 %s. 伺服器於 %s 啟動."
+
+#: $strServerTabVariables
+msgid "Variables"
+msgstr "資訊"
+
+#: $strServerTrafficNotes
+msgid ""
+"<b>Server traffic</b>: These tables show the network traffic statistics of "
+"this MySQL server since its startup."
+msgstr "<b>伺服器流量</b>: 這些表顯示了此 MySQL 伺服器自啟動以來的網絡流量統計。"
+
+#: $strServerVars
+msgid "Server variables and settings"
+msgstr "伺服器資訊及設定"
+
+#: $strServerVersion
+msgid "Server version"
+msgstr "伺服器版本"
+
+#: $strSessionGCWarning
+msgid ""
+"Your PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity "
+"configured in phpMyAdmin, because of this, your login will expire sooner "
+"than configured in phpMyAdmin."
+msgstr ""
+
+#: $strSessionStartupErrorGeneral
+msgid ""
+"Cannot start session without errors, please check errors given in your PHP "
+"and/or webserver log file and configure your PHP installation properly."
+msgstr ""
+
+#: $strSessionValue
+msgid "Session value"
+msgstr "程序數值"
+
+#: $strSetEnumVal
+msgid ""
+"If field type is \"enum\" or \"set\", please enter the values using this format: "
+"'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"如欄位格式是 \"enum\" 或 \"set\", 請使用以下的格式輸入: 'a','b','c'...<br />如在數值上需要輸入反斜線 (\\) 或單引號 "
+"(') , 請再加上反斜線 (例如 '\\\\xyz' or 'a\\'b')."
+
+#: $strSettings
+msgid "settings"
+msgstr ""
+
+#: $strSetupAllowAnywhereRecoding_name
+msgid "Allow character set conversion"
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_desc
+msgid ""
+"If enabled user can enter any MySQL server in login form for cookie auth"
+msgstr ""
+
+#: $strSetupAllowArbitraryServerMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"disabled as it allows attackers to bruteforce login to any MySQL server. If "
+"you feel this is necessary, use "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_name
+msgid "Allow login to any MySQL server"
+msgstr ""
+
+#: $strSetupAllowUserDropDatabase_name
+msgid "Show &quot;Drop database&quot; link to normal users"
+msgstr ""
+
+#: $strSetupBlowfishSecretCharsMsg
+msgid "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr ""
+
+#: $strSetupblowfish_secret_desc
+msgid ""
+"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+"authentication"
+msgstr ""
+
+#: $strSetupBlowfishSecretLengthMsg
+msgid "Key is too short, it should have at least 8 characters"
+msgstr ""
+
+#: $strSetupBlowfishSecretMsg
+msgid ""
+"You didn't have blowfish secret set and have enabled cookie authentication, "
+"so a key was automatically generated for you. It is used to encrypt cookies; "
+"you don't need to remember it."
+msgstr ""
+
+#: $strSetupblowfish_secret_name
+msgid "Blowfish secret"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_desc
+msgid "Highlight selected rows"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_name
+msgid "Row marker"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_desc
+msgid "Highlight row pointed by the mouse cursor"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_name
+msgid "Highlight pointer"
+msgstr ""
+
+#: $strSetupBZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+"import and export operations"
+msgstr ""
+
+#: $strSetupBZipDump_name
+msgid "Bzip2"
+msgstr ""
+
+#: $strSetupBZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupCannotLoadConfig
+msgid "Cannot load or save configuration"
+msgstr ""
+
+#: $strSetupCannotLoadConfigMsg
+msgid ""
+"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
+"level directory as described in "
+"[a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will "
+"be only able to download or display it."
+msgstr ""
+
+#: $strSetupCharEditing_desc
+msgid ""
+"Defines which type of editing controls should be used for CHAR and VARCHAR "
+"fields; [kbd]input[/kbd] - allows limiting of input length, "
+"[kbd]textarea[/kbd] - allows newlines in fields"
+msgstr ""
+
+#: $strSetupCharEditing_name
+msgid "CHAR fields editing"
+msgstr ""
+
+#: $strSetupCharTextareaCols_desc
+msgid "Number of columns for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaCols_name
+msgid "CHAR textarea columns"
+msgstr ""
+
+#: $strSetupCharTextareaRows_desc
+msgid "Number of rows for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaRows_name
+msgid "CHAR textarea rows"
+msgstr ""
+
+#: $strSetupCheckConfigurationPermissions_name
+msgid "Check config file permissions"
+msgstr ""
+
+#: $strSetupClear
+msgid "Clear"
+msgstr ""
+
+#: $strSetupCompressOnFly_desc
+msgid ""
+"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
+"you encounter problems with created gzip/bzip2 files disable this feature"
+msgstr ""
+
+#: $strSetupCompressOnFly_name
+msgid "Compress on the fly"
+msgstr ""
+
+#: $strSetupConfigurationFile
+msgid "Configuration file"
+msgstr ""
+
+#: $strSetupConfirm_desc
+msgid ""
+"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"when you're about to lose data"
+msgstr ""
+
+#: $strSetupConfirm_name
+msgid "Confirm DROP queries"
+msgstr ""
+
+#: $strSetupDefaultCharset_desc
+msgid "Default character set used for conversions"
+msgstr ""
+
+#: $strSetupDefaultCharset_name
+msgid "Default character set"
+msgstr ""
+
+#: $strSetupDefaultLanguage
+msgid "Default language"
+msgstr ""
+
+#: $strSetupDefaultServer
+msgid "Default server"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_desc
+msgid "Tab that is displayed when entering a database"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_name
+msgid "Default database tab"
+msgstr ""
+
+#: $strSetupDefaultTabServer_desc
+msgid "Tab that is displayed when entering a server"
+msgstr ""
+
+#: $strSetupDefaultTabServer_name
+msgid "Default server tab"
+msgstr ""
+
+#: $strSetupDefaultTabTable_desc
+msgid "Tab that is displayed when entering a table"
+msgstr ""
+
+#: $strSetupDefaultTabTable_name
+msgid "Default table tab"
+msgstr ""
+
+#: $strSetupDirectoryNotice
+msgid ""
+"This value should be double checked to ensure that this directory is neither "
+"world accessible nor readable or writable by other users on your server."
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_desc
+msgid "Show database listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_name
+msgid "Display databases as a list"
+msgstr ""
+
+#: $strSetupDisplay
+msgid "Display"
+msgstr ""
+
+#: $strSetupDisplayServersList_desc
+msgid "Show server listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayServersList_name
+msgid "Display servers as a list"
+msgstr ""
+
+#: $strSetupDonateLink
+msgid "Donate"
+msgstr ""
+
+#: $strSetupDownload
+msgid "Download"
+msgstr ""
+
+#: $strSetupEndOfLine
+msgid "End of line"
+msgstr ""
+
+#: $strSetuperror_connection
+msgid "Could not connect to MySQL server"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_password
+msgid "Empty phpMyAdmin control user password while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_user
+msgid "Empty phpMyAdmin control user while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_signon_session
+msgid "Empty signon session name while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_signon_url
+msgid "Empty signon URL while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_user_for_config_auth
+msgid "Empty username while using config authentication method"
+msgstr ""
+
+#: $strSetuperror_form
+msgid "Submitted form contains errors"
+msgstr ""
+
+#: $strSetuperror_incorrect_ip_address
+msgid "Incorrect IP address: %s"
+msgstr ""
+
+#: $strSetuperror_incorrect_port
+msgid "Not a valid port number"
+msgstr ""
+
+#: $strSetuperror_incorrect_value
+msgid "Incorrect value"
+msgstr ""
+
+#: $strSetuperror_missing_field_data
+msgid "Missing data for %s"
+msgstr ""
+
+#: $strSetuperror_nan_nneg
+msgid "Not a non-negative number"
+msgstr ""
+
+#: $strSetuperror_nan_p
+msgid "Not a positive number"
+msgstr ""
+
+#: $strSetupExecTimeLimit_desc
+msgid ""
+"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
+"limit)"
+msgstr ""
+
+#: $strSetupExecTimeLimit_name
+msgid "Maximum execution time"
+msgstr ""
+
+#: $strSetupExport_asfile_name
+msgctxt "$strSetupExport_asfile_name"
+msgid "Save as file"
+msgstr ""
+
+#: $strSetupExport_charset_name
+msgid "Character set of the file"
+msgstr ""
+
+#: $strSetupExport_compression_name
+msgctxt "$strSetupExport_compression_name"
+msgid "Compression"
+msgstr ""
+
+#: $strSetupExport_file_template_database_name
+msgid "Database name template"
+msgstr ""
+
+#: $strSetupExport_file_template_server_name
+msgid "Server name template"
+msgstr ""
+
+#: $strSetupExport_file_template_table_name
+msgid "Table name template"
+msgstr ""
+
+#: $strSetupExport_format_name
+msgctxt "$strSetupExport_format_name"
+msgid "Format"
+msgstr ""
+
+#: $strSetupExport_onserver_name
+msgid "Save on server"
+msgstr ""
+
+#: $strSetupExport_onserver_overwrite_name
+msgctxt "$strSetupExport_onserver_overwrite_name"
+msgid "Overwrite existing file(s)"
+msgstr ""
+
+#: $strSetupExport_remember_file_template_name
+msgid "Remember file name template"
+msgstr ""
+
+#: $strSetupFalse
+msgid "no"
+msgstr ""
+
+#: $strSetupForceSSL_desc
+msgid "Force secured connection while using phpMyAdmin"
+msgstr ""
+
+#: $strSetupForceSSLMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"enabled if your web server supports it"
+msgstr ""
+
+#: $strSetupForceSSL_name
+msgid "Force SSL connection"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_desc
+msgid ""
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+"the referenced data, [kbd]id[/kbd] is the key value"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_name
+msgid "Foreign key dropdown order"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_desc
+msgid "A dropdown will be used if fewer items are present"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_name
+msgid "Foreign key limit"
+msgstr ""
+
+#: $strSetupForm_Browse
+msgid "Browse mode"
+msgstr ""
+
+#: $strSetupForm_Browse_desc
+msgid "Customize browse mode"
+msgstr ""
+
+#: $strSetupForm_Edit_desc
+msgid "Customize edit mode"
+msgstr ""
+
+#: $strSetupForm_Edit
+msgid "Edit mode"
+msgstr ""
+
+#: $strSetupForm_Export_defaults_desc
+msgid "Customize default export options"
+msgstr ""
+
+#: $strSetupForm_Export_defaults
+msgid "Export defaults"
+msgstr ""
+
+#: $strSetupForm_Import_defaults_desc
+msgid "Customize default common import options"
+msgstr ""
+
+#: $strSetupForm_Import_defaults
+msgid "Import defaults"
+msgstr ""
+
+#: $strSetupForm_Import_export_desc
+msgid "Set import and export directories and compression options"
+msgstr ""
+
+#: $strSetupForm_Import_export
+msgid "Import / export"
+msgstr ""
+
+#: $strSetupForm_Left_databases
+msgctxt "$strSetupForm_Left_databases"
+msgid "Databases"
+msgstr ""
+
+#: $strSetupForm_Left_databases_desc
+msgid "Databases display options"
+msgstr ""
+
+#: $strSetupForm_Left_frame_desc
+msgid "Customize appearance of the navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_frame
+msgid "Navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_servers_desc
+msgid "Servers display options"
+msgstr ""
+
+#: $strSetupForm_Left_servers
+msgctxt "$strSetupForm_Left_servers"
+msgid "Servers"
+msgstr ""
+
+#: $strSetupForm_Left_tables_desc
+msgid "Tables display options"
+msgstr ""
+
+#: $strSetupForm_Left_tables
+msgctxt "$strSetupForm_Left_tables"
+msgid "Tables"
+msgstr ""
+
+#: $strSetupForm_Main_frame
+msgid "Main frame"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings_desc
+msgid "Settings that didn't fit enywhere else"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings
+msgid "Other core settings"
+msgstr ""
+
+#: $strSetupForm_Query_window_desc
+msgid "Customize query window options"
+msgstr ""
+
+#: $strSetupForm_Query_window
+msgctxt "$strSetupForm_Query_window"
+msgid "Query window"
+msgstr ""
+
+#: $strSetupForm_Security_desc
+msgid ""
+"Please note that phpMyAdmin is just a user interface and its features do not "
+"limit MySQL"
+msgstr ""
+
+#: $strSetupForm_Security
+msgid "Security"
+msgstr ""
+
+#: $strSetupForm_Server
+msgid "Basic settings"
+msgstr ""
+
+#: $strSetupForm_Server_config_desc
+msgid ""
+"Advanced server configuration, do not change these options unless you know "
+"what they are for"
+msgstr ""
+
+#: $strSetupForm_Server_config
+msgid "Server configuration"
+msgstr ""
+
+#: $strSetupForm_Server_desc
+msgid "Enter server connection parameters"
+msgstr ""
+
+#: $strSetupForm_Server_login_options_desc
+msgid "Enter login options for signon authentication"
+msgstr ""
+
+#: $strSetupForm_Server_login_options
+msgid "Signon login options"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb_desc
+msgid ""
+"Configure phpMyAdmin database to gain access to additional features, see "
+"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
+"documentation"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb
+msgctxt "$strSetupForm_Server_pmadb"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupFormset_customization
+msgid "Customization"
+msgstr ""
+
+#: $strSetupFormset_export
+msgid "Customize export options"
+msgstr ""
+
+#: $strSetupFormset_features
+msgid "Features"
+msgstr ""
+
+#: $strSetupFormset_import
+msgid "Customize import defaults"
+msgstr ""
+
+#: $strSetupFormset_left_frame
+msgid "Customize navigation frame"
+msgstr ""
+
+#: $strSetupFormset_main_frame
+msgid "Customize main frame"
+msgstr ""
+
+#: $strSetupForm_Sql_box_desc
+msgid "Customize links shown in SQL Query boxes"
+msgstr ""
+
+#: $strSetupForm_Sql_box
+msgid "SQL Query box"
+msgstr ""
+
+#: $strSetupForm_Sql_queries_desc
+msgid ""
+"SQL queries settings, for SQL Query box options see "
+"[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] "
+"settings"
+msgstr ""
+
+#: $strSetupForm_Sql_queries
+msgid "SQL queries"
+msgstr ""
+
+#: $strSetupForm_Startup_desc
+msgid "Customize startup page"
+msgstr ""
+
+#: $strSetupForm_Startup
+msgid "Startup"
+msgstr ""
+
+#: $strSetupForm_Tabs_desc
+msgid "Choose how you want tabs to work"
+msgstr ""
+
+#: $strSetupForm_Tabs
+msgid "Tabs"
+msgstr ""
+
+#: $strSetupGZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
+"and export operations"
+msgstr ""
+
+#: $strSetupGZipDump_name
+msgid "GZip"
+msgstr ""
+
+#: $strSetupGZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupHomepageLink
+msgid "phpMyAdmin homepage"
+msgstr ""
+
+#: $strSetupIconvExtraParams_name
+msgid "Extra parameters for iconv"
+msgstr ""
+
+#: $strSetupIgnoreErrors
+msgid "Ignore errors"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_desc
+msgid ""
+"If enabled, phpMyAdmin continues computing multiple-statement queries even "
+"if one of the queries failed"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_name
+msgid "Ignore multiple statement errors"
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_desc
+msgid ""
+"Allow interrupt of import in case script detects it is close to time limit. "
+"This might be good way to import large files, however it can break "
+"transactions."
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_name
+msgid "Partial import: allow interrupt"
+msgstr ""
+
+#: $strSetupImport_format_desc
+msgid ""
+"Default format; be aware that this list depends on location (database, "
+"table) and only SQL is always available"
+msgstr ""
+
+#: $strSetupImport_format_name
+msgctxt "$strSetupImport_format_name"
+msgid "Format of imported file"
+msgstr ""
+
+#: $strSetupImport_skip_queries_desc
+msgctxt "$strSetupImport_skip_queries_desc"
+msgid "Number of records (queries) to skip from start"
+msgstr ""
+
+#: $strSetupImport_skip_queries_name
+msgid "Partial import: skip queries"
+msgstr ""
+
+#: $strSetupInsecureConnection
+msgid "Insecure connection"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg1
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg2
+msgid ""
+"If your server is also configured to accept HTTPS requests follow [a@%s]this "
+"link[/a] to use a secure connection."
+msgstr ""
+
+#: $strSetupInsertRows_desc
+msgid "How many rows can be inserted at one time"
+msgstr ""
+
+#: $strSetupInsertRows_name
+msgid "Number of inserted rows"
+msgstr ""
+
+#: $strSetupLeftDefaultTabTable_name
+msgid "Target for quick access icon"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_desc
+msgid "Show logo in left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_name
+msgid "Display logo"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_desc
+msgid "Display server choice at the top of the left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_name
+msgid "Display servers selection"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_desc
+msgid "String that separates databases into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_name
+msgid "Database tree separator"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_desc
+msgid ""
+"Only light version; display databases in a tree (determined by the separator "
+"defined below)"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_name
+msgid "Display databases in a tree"
+msgstr ""
+
+#: $strSetupLeftFrameLight_desc
+msgid "Disable this if you want to see all databases at once"
+msgstr ""
+
+#: $strSetupLeftFrameLight_name
+msgid "Use light version"
+msgstr ""
+
+#: $strSetupLeftFrameTableLevel_name
+msgid "Maximum table tree depth"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_desc
+msgid "String that separates tables into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_name
+msgid "Table tree separator"
+msgstr ""
+
+#: $strSetupLeftLogoLink_name
+msgid "Logo link URL"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_desc
+msgid ""
+"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
+"([kbd]new[/kbd])"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_name
+msgid "Logo link target"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_desc
+msgid "Highlight server under the mouse cursor"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_name
+msgid "Enable highlighting"
+msgstr ""
+
+#: $strSetupLetUserChoose
+msgid "let the user choose"
+msgstr ""
+
+#: $strSetupLightTabs_desc
+msgid "Use less graphically intense tabs"
+msgstr ""
+
+#: $strSetupLightTabs_name
+msgid "Light tabs"
+msgstr ""
+
+#: $strSetupLoad
+msgid "Load"
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_desc
+msgid ""
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
+"only occurs for the current server. Setting this to FALSE makes it easy to "
+"forget to log out from other servers when connected to multiple servers."
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_name
+msgid "Delete all cookies on logout"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_desc
+msgid ""
+"Define whether the previous login should be recalled or not in cookie "
+"authentication mode"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_name
+msgid "Recall user name"
+msgstr ""
+
+#: $strSetupLoginCookieStore_desc
+msgid ""
+"Defines how long (in seconds) a login cookie should be stored in browser. "
+"The default of 0 means that it will be kept for the existing session only, "
+"and will be deleted as soon as you close the browser window. This is "
+"recommended for non-trusted environments."
+msgstr ""
+
+#: $strSetupLoginCookieStore_name
+msgid "Login cookie store"
+msgstr ""
+
+#: $strSetupLoginCookieValidity_desc
+msgid "Define how long (in seconds) a login cookie is valid"
+msgstr ""
+
+#: $strSetupLoginCookieValidityMsg
+msgid ""
+"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
+"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
+"pose a security risk such as impersonation."
+msgstr ""
+
+#: $strSetupLoginCookieValidity_name
+msgid "Login cookie validity"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_desc
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_name
+msgid "Maximum displayed SQL length"
+msgstr ""
+
+#: $strSetupMaxDbList_desc
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr ""
+
+#: $strSetupMaxDbList_name
+msgid "Maximum databases"
+msgstr ""
+
+#: $strSetupMaxRows_desc
+msgid ""
+"Number of rows displayed when browsing a result set. If the result set "
+"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"shown."
+msgstr ""
+
+#: $strSetupMaxRows_name
+msgid "Maximum number of rows to display"
+msgstr ""
+
+#: $strSetupMaxTableList_desc
+msgid "Maximum number of tables displayed in table list"
+msgstr ""
+
+#: $strSetupMaxTableList_name
+msgid "Maximum tables"
+msgstr ""
+
+#: $strSetupMemoryLimit_desc
+msgid ""
+"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] for no limit)"
+msgstr ""
+
+#: $strSetupMemoryLimit_name
+msgid "Memory limit"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_desc
+msgctxt "$strSetupNavigationBarIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_name
+msgid "Iconic navigation bar"
+msgstr ""
+
+#: $strSetupNewServer
+msgid "New server"
+msgstr ""
+
+#: $strSetupNoServers
+msgid "There are no configured servers"
+msgstr ""
+
+#: $strSetupOBGzip_desc
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr ""
+
+#: $strSetupOBGzip_name
+msgid "GZip output buffering"
+msgstr ""
+
+#: $strSetupOptionNone
+msgid "- none -"
+msgstr ""
+
+#: $strSetupOrder_desc
+msgid ""
+"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"DATETIME and TIMESTAMP, ascending order otherwise"
+msgstr ""
+
+#: $strSetupOrder_name
+msgid "Default sorting order"
+msgstr ""
+
+#: $strSetupOverview
+msgid "Overview"
+msgstr ""
+
+#: $strSetupPersistentConnections_desc
+msgid "Use persistent connections to MySQL databases"
+msgstr ""
+
+#: $strSetupPersistentConnections_name
+msgid "Persistent connections"
+msgstr ""
+
+#: $strSetupPropertiesIconic_desc
+msgctxt "$strSetupPropertiesIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupPropertiesIconic_name
+msgid "Iconic table operations"
+msgstr ""
+
+#: $strSetupProtectBinary_desc
+msgid "Disallow BLOB and BINARY fields from editing"
+msgstr ""
+
+#: $strSetupProtectBinary_name
+msgid "Protect binary fields"
+msgstr ""
+
+#: $strSetupQueryHistoryDB_desc
+msgid ""
+"Enable if you want DB-based query history (requires pmadb). If disabled, "
+"this utilizes JS-routines to display query history (lost by window close)."
+msgstr ""
+
+#: $strSetupQueryHistoryDB_name
+msgid "Permanent query history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_desc
+msgid "How many queries are kept in history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_name
+msgid "Query history length"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_desc
+msgid "Tab displayed when opening a new query window"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_name
+msgid "Default query window tab"
+msgstr ""
+
+#: $strSetupRecodingEngine_desc
+msgid "Select which functions will be used for character set conversion"
+msgstr ""
+
+#: $strSetupRecodingEngine_name
+msgid "Recoding engine"
+msgstr ""
+
+#: $strSetupRestoreDefaultValue
+msgid "Restore default value"
+msgstr ""
+
+#: $strSetupRevertErroneousFields
+msgid "Try to revert erroneous fields to their default values"
+msgstr ""
+
+#: $strSetupSaveDir_desc
+msgid "Directory where exports can be saved on server"
+msgstr ""
+
+#: $strSetupSaveDir_name
+msgid "Save directory"
+msgstr ""
+
+#: $strSetupServerAuthConfigMsg
+msgid ""
+"You set the [kbd]config[/kbd] authentication type and included username and "
+"password for auto-login, which is not a desirable option for live hosts. "
+"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
+"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%"
+"1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
+msgstr ""
+
+#: $strSetupServerExtensionMsg
+msgid "You should use mysqli for performance reasons"
+msgstr ""
+
+#: $strSetupServerNoPasswordMsg
+msgid "You allow for connecting to the server without a password."
+msgstr ""
+
+#: $strSetupServersAdd
+msgid "Add a new server"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_desc
+msgid "Leave blank if not used"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_name
+msgid "Host authentication order"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_desc
+msgid "Leave blank for defaults"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_name
+msgid "Host authentication rules"
+msgstr ""
+
+#: $strSetupServers_AllowNoPassword_name
+msgid "Allow logins without a password"
+msgstr ""
+
+#: $strSetupServers_AllowRoot_name
+msgid "Allow root login"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_desc
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_name
+msgid "HTTP Realm"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_desc
+msgid ""
+"The path for the config file for [a@http://swekey.com]SweKey hardware "
+"authentication[/a] (not located in your document root; suggested: "
+"/etc/swekey.conf)"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_name
+msgid "SweKey config file"
+msgstr ""
+
+#: $strSetupServers_auth_type_desc
+msgid "Authentication method to use"
+msgstr ""
+
+#: $strSetupServers_auth_type_name
+msgid "Authentication type"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"support, suggested: [kbd]pma_bookmark[/kbd]"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_name
+msgid "Bookmark table"
+msgstr ""
+
+#: $strSetupServers_column_info_desc
+msgid ""
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma_column_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_column_info_name
+msgid "Column information table"
+msgstr ""
+
+#: $strSetupServers_compress_desc
+msgid "Compress connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_compress_name
+msgid "Compress connection"
+msgstr ""
+
+#: $strSetupServers_connect_type_desc
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr ""
+
+#: $strSetupServers_connect_type_name
+msgid "Connection type"
+msgstr ""
+
+#: $strSetupServers_controlpass_name
+msgid "Control user password"
+msgstr ""
+
+#: $strSetupServers_controluser_desc
+msgid ""
+"A special MySQL user configured with limited permissions, more information "
+"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+msgstr ""
+
+#: $strSetupServers_controluser_name
+msgid "Control user"
+msgstr ""
+
+#: $strSetupServers_CountTables_desc
+msgid "Count tables when showing database list"
+msgstr ""
+
+#: $strSetupServers_CountTables_name
+msgid "Count tables"
+msgstr ""
+
+#: $strSetupServers_designer_coords_desc
+msgid ""
+"Leave blank for no Designer support, suggested: "
+"[kbd]pma_designer_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_designer_coords_name
+msgid "Designer table"
+msgstr ""
+
+#: $strSetupServers_DisableIS_desc
+msgid ""
+"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+msgstr ""
+
+#: $strSetupServers_DisableIS_name
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr ""
+
+#: $strSetupServerSecurityInfoMsg
+msgid ""
+"If you feel this is necessary, use additional protection settings - "
+"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
+"authentication[/a] settings and "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupServersEdit
+msgid "Edit server"
+msgstr ""
+
+#: $strSetupServers_extension_desc
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr ""
+
+#: $strSetupServers_extension_name
+msgid "PHP extension to use"
+msgstr ""
+
+#: $strSetupServers_hide_db_desc
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr ""
+
+#: $strSetupServers_hide_db_name
+msgid "Hide databases"
+msgstr ""
+
+#: $strSetupServers_history_desc
+msgid ""
+"Leave blank for no SQL query history support, suggested: "
+"[kbd]pma_history[/kbd]"
+msgstr ""
+
+#: $strSetupServers_history_name
+msgid "SQL query history table"
+msgstr ""
+
+#: $strSetupServers_host_desc
+msgid "Hostname where MySQL server is running"
+msgstr ""
+
+#: $strSetupServers_host_name
+msgid "Server hostname"
+msgstr ""
+
+#: $strSetupServers_LogoutURL_name
+msgid "Logout URL"
+msgstr ""
+
+#: $strSetupServers_nopassword_desc
+msgid "Try to connect without password"
+msgstr ""
+
+#: $strSetupServers_nopassword_name
+msgid "Connect without password"
+msgstr ""
+
+#: $strSetupServers_only_db_desc
+msgid ""
+"You can use MySQL wildcard characters (% and _), escape them if you want to "
+"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+msgstr ""
+
+#: $strSetupServers_only_db_name
+msgid "Show only listed databases"
+msgstr ""
+
+#: $strSetupServers_password_desc
+msgctxt "$strSetupServers_password_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_password_name
+msgid "Password for config auth"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_name
+msgid "PDF schema: pages table"
+msgstr ""
+
+#: $strSetupServers_pmadb_desc
+msgid ""
+"Database used for relations, bookmarks, and PDF features. See "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. "
+"Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pmadb_name
+msgctxt "$strSetupServers_pmadb_name"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupServers_port_desc
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_port_name
+msgid "Server port"
+msgstr ""
+
+#: $strSetupServers_relation_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
+msgstr ""
+
+#: $strSetupServers_relation_name
+msgid "Relation table"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_desc
+msgid "SQL command to fetch available databases"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_name
+msgid "SHOW DATABASES command"
+msgstr ""
+
+#: $strSetupServers_SignonSession_desc
+msgid ""
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
+msgstr ""
+
+#: $strSetupServers_SignonSession_name
+msgid "Signon session name"
+msgstr ""
+
+#: $strSetupServers_SignonURL_name
+msgid "Signon URL"
+msgstr ""
+
+#: $strSetupServerSslMsg
+msgid "You should use SSL connections if your web server supports it"
+msgstr ""
+
+#: $strSetupServers_socket_desc
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_socket_name
+msgid "Server socket"
+msgstr ""
+
+#: $strSetupServers_ssl_desc
+msgid "Enable SSL for connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_ssl_name
+msgid "Use SSL"
+msgstr ""
+
+#: $strSetupServers_table_coords_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma_table_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_coords_name
+msgid "PDF schema: table coordinates"
+msgstr ""
+
+#: $strSetupServers_table_info_desc
+msgid ""
+"Table to describe the display fields, leave blank for no support; suggested: "
+"[kbd]pma_table_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_info_name
+msgid "Display fields table"
+msgstr ""
+
+#: $strSetupServers_user_desc
+msgctxt "$strSetupServers_user_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_user_name
+msgid "User for config auth"
+msgstr ""
+
+#: $strSetupServers_verbose_check_desc
+msgid ""
+"Disable if you know that your pma_* tables are up to date. This prevents "
+"compatibility checks and thereby increases performance"
+msgstr ""
+
+#: $strSetupServers_verbose_check_name
+msgid "Verbose check"
+msgstr ""
+
+#: $strSetupServers_verbose_desc
+msgid ""
+"A user-friendly description of this server. Leave blank to display the "
+"hostname instead."
+msgstr ""
+
+#: $strSetupServers_verbose_name
+msgid "Verbose name of this server"
+msgstr ""
+
+#: $strSetupSetValue
+msgid "Set value: %s"
+msgstr ""
+
+#: $strSetupShowAll_desc
+msgid ""
+"Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgstr ""
+
+#: $strSetupShowAll_name
+msgid "Allow to display all the rows"
+msgstr ""
+
+#: $strSetupShowChgPassword_desc
+msgid ""
+"Please note that enabling this has no effect with [kbd]config[/kbd] "
+"authentication mode because the password is hard coded in the configuration "
+"file; this does not limit the ability to execute the same command directly"
+msgstr ""
+
+#: $strSetupShowChgPassword_name
+msgid "Show password change form"
+msgstr ""
+
+#: $strSetupShowCreateDb_name
+msgid "Show create database form"
+msgstr ""
+
+#: $strSetupShowForm
+msgid "Show form"
+msgstr ""
+
+#: $strSetupShowFunctionFields_desc
+msgid "Display the function fields in edit/insert mode"
+msgstr ""
+
+#: $strSetupShowFunctionFields_name
+msgid "Show function fields"
+msgstr ""
+
+#: $strSetupShowHiddenMessages
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr ""
+
+#: $strSetupShowPhpInfo_desc
+msgid ""
+"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output"
+msgstr ""
+
+#: $strSetupShowPhpInfo_name
+msgid "Show phpinfo() link"
+msgstr ""
+
+#: $strSetupShowServerInfo_name
+msgid "Show detailed MySQL server information"
+msgstr ""
+
+#: $strSetupShowSQL_desc
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr ""
+
+#: $strSetupShowSQL_name
+msgid "Show SQL queries"
+msgstr ""
+
+#: $strSetupShowStats_desc
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: $strSetupShowStats_name
+msgid "Show statistics"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_desc
+msgid ""
+"If tooltips are enabled and a database comment is set, this will flip the "
+"comment and the real name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_name
+msgid "Display database comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_desc
+msgid ""
+"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
+"used to split/nest the tables according to the "
+"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called like "
+"the alias, the table name itself stays unchanged"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_name
+msgid "Display table comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltip_name
+msgid "Display table comments in tooltips"
+msgstr ""
+
+#: $strSetupSkipLockedTables_desc
+msgid ""
+"Mark used tables and make it possible to show databases with locked tables"
+msgstr ""
+
+#: $strSetupSkipLockedTables_name
+msgid "Skip locked tables"
+msgstr ""
+
+#: $strSetupSQLQuery_Edit_name
+msgctxt "$strSetupSQLQuery_Edit_name"
+msgid "Edit"
+msgstr ""
+
+#: $strSetupSQLQuery_Explain_name
+msgctxt "$strSetupSQLQuery_Explain_name"
+msgid "Explain SQL"
+msgstr ""
+
+#: $strSetupSQLQuery_Refresh_name
+msgctxt "$strSetupSQLQuery_Refresh_name"
+msgid "Refresh"
+msgstr ""
+
+#: $strSetupSQLQuery_ShowAsPHP_name
+msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
+msgid "Create PHP Code"
+msgstr ""
+
+#: $strSetupSQLQuery_Validate_name
+msgctxt "$strSetupSQLQuery_Validate_name"
+msgid "Validate SQL"
+msgstr ""
+
+#: $strSetupSuggestDBName_desc
+msgid ""
+"Suggest a database name on the &quot;Create Database&quot; form (if "
+"possible) or keep the text field empty"
+msgstr ""
+
+#: $strSetupSuggestDBName_name
+msgid "Suggest new database name"
+msgstr ""
+
+#: $strSetupTrue
+msgid "yes"
+msgstr ""
+
+#: $strSetupTrustedProxies_desc
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
+msgstr ""
+
+#: $strSetupTrustedProxies_name
+msgid "List of trusted proxies for IP allow/deny"
+msgstr ""
+
+#: $strSetupUploadDir_desc
+msgid "Directory on server where you can upload files for import"
+msgstr ""
+
+#: $strSetupUploadDir_name
+msgid "Upload directory"
+msgstr ""
+
+#: $strSetupUseDbSearch_desc
+msgid "Allow for searching inside the entire database"
+msgstr ""
+
+#: $strSetupUseDbSearch_name
+msgid "Use database search"
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_desc
+msgid ""
+"Show affected rows of each statement on multiple-statement queries. See "
+"libraries/import.lib.php for defaults on how many queries a statement may "
+"contain."
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_name
+msgid "Verbose multiple statements"
+msgstr ""
+
+#: $strSetupVersionCheckDataError
+msgid ""
+"Reading of version failed. Maybe you're offline or the upgrade server does "
+"not respond."
+msgstr ""
+
+#: $strSetupVersionCheckInvalid
+msgid "Got invalid version string from server"
+msgstr ""
+
+#: $strSetupVersionCheckLink
+msgid "Check for latest version"
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailable
+msgid ""
+"A newer version of phpMyAdmin is available and you should consider "
+"upgrading. The newest version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailableSvn
+msgid ""
+"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
+"latest stable version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNone
+msgid "No newer stable version is available"
+msgstr ""
+
+#: $strSetupVersionCheckUnparsable
+msgid "Unparsable version string"
+msgstr ""
+
+#: $strSetupVersionCheck
+msgid "Version check"
+msgstr ""
+
+#: $strSetupVersionCheckWrapperError
+msgid ""
+"Neither URL wrapper nor CURL is available. Version check is not possible."
+msgstr ""
+
+#: $strSetupWarning
+msgid "Warning"
+msgstr ""
+
+#: $strSetupZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
+"for import and export operations"
+msgstr ""
+
+#: $strSetupZipDumpExportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDumpImportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDump_name
+msgid "ZIP"
+msgstr ""
+
+#: $strShowAll
+msgid "Show all"
+msgstr "顯示全部"
+
+#: $strShowBinaryContentsAsHex
+msgid "Show binary contents as HEX"
+msgstr ""
+
+#: $strShowBinaryContents
+msgid "Show binary contents"
+msgstr ""
+
+#: $strShowBLOBContents
+msgid "Show BLOB contents"
+msgstr ""
+
+#: $strShowColor
+msgid "Show color"
+msgstr "顯示顏色"
+
+#: $strShowDatadictAs
+msgid "Data Dictionary Format"
+msgstr "數據字典格式"
+
+#: $strShowFullQueries
+msgid "Show Full Queries"
+msgstr "顯示完整查詢"
+
+#: $strShowGrid
+msgid "Show grid"
+msgstr "顯示框格"
+
+#: $strShowHideLeftMenu
+msgid "Show/Hide left menu"
+msgstr ""
+
+#: $strShowingBookmark
+msgid "Showing bookmark"
+msgstr "顯示書籤"
+
+#: $strShowingPhp
+msgid "Showing as PHP code"
+msgstr ""
+
+#: $strShowingRecords
+msgid "Showing rows"
+msgstr "顯示記錄"
+
+#: $strShowingSQL
+msgid "Showing SQL query"
+msgstr ""
+
+#: $strShowInsert
+msgid "Show insert query"
+msgstr ""
+
+#: $strShowKeys
+msgid "Only show keys"
+msgstr ""
+
+#: $strShowMasterStatus
+msgctxt "$strShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strShowOpenTables
+msgid "Show open tables"
+msgstr "顯示開啟資料表"
+
+#: $strShowPHPInfo
+msgid "Show PHP information"
+msgstr "顯示 PHP 資訊"
+
+#: $strShow
+msgid "Show"
+msgstr "顯示"
+
+#: $strShowSlaveHosts
+msgid "Show slave hosts"
+msgstr "顯示 slave 主機"
+
+#: $strShowSlaveStatus
+msgid "Show slave status"
+msgstr "顯示 slave 狀態"
+
+#: $strShowStatusBinlog_cache_disk_useDescr
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+
+#: $strShowStatusBinlog_cache_useDescr
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_disk_tablesDescr
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be "
+"memory-based instead of disk-based."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_filesDescr
+msgid "How many temporary files mysqld has created."
+msgstr ""
+
+#: $strShowStatusCreated_tmp_tablesDescr
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+
+#: $strShowStatusDelayed_errorsDescr
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+
+#: $strShowStatusDelayed_insert_threadsDescr
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+
+#: $strShowStatusDelayed_writesDescr
+msgid "The number of INSERT DELAYED rows written."
+msgstr ""
+
+#: $strShowStatusFlush_commandsDescr
+msgid "The number of executed FLUSH statements."
+msgstr ""
+
+#: $strShowStatusHandler_commitDescr
+msgid "The number of internal COMMIT statements."
+msgstr ""
+
+#: $strShowStatusHandler_deleteDescr
+msgid "The number of times a row was deleted from a table."
+msgstr ""
+
+#: $strShowStatusHandler_discoverDescr
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+
+#: $strShowStatusHandler_read_firstDescr
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for "
+"example, SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+
+#: $strShowStatusHandler_read_keyDescr
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+
+#: $strShowStatusHandler_read_nextDescr
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+
+#: $strShowStatusHandler_read_prevDescr
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimize ORDER BY ... DESC."
+msgstr ""
+
+#: $strShowStatusHandler_read_rndDescr
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+
+#: $strShowStatusHandler_read_rnd_nextDescr
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+
+#: $strShowStatusHandler_rollbackDescr
+msgid "The number of internal ROLLBACK statements."
+msgstr ""
+
+#: $strShowStatusHandler_updateDescr
+msgid "The number of requests to update a row in a table."
+msgstr ""
+
+#: $strShowStatusHandler_writeDescr
+msgid "The number of requests to insert a row in a table."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_dataDescr
+msgid "The number of pages containing data (dirty or clean)."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_dirtyDescr
+msgid "The number of pages currently dirty."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_flushedDescr
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_freeDescr
+msgid "The number of free pages."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_latchedDescr
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_miscDescr
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_pages_totalDescr
+msgid "Total size of buffer pool, in pages."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_rndDescr
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_seqDescr
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_read_requestsDescr
+msgid "The number of logical read requests InnoDB has done."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_readsDescr
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_wait_freeDescr
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+
+#: $strShowStatusInnodb_buffer_pool_write_requestsDescr
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr ""
+
+#: $strShowStatusInnodb_data_fsyncsDescr
+msgid "The number of fsync() operations so far."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_fsyncsDescr
+msgid "The current number of pending fsync() operations."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_readsDescr
+msgid "The current number of pending reads."
+msgstr ""
+
+#: $strShowStatusInnodb_data_pending_writesDescr
+msgid "The current number of pending writes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_readDescr
+msgid "The amount of data read so far, in bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_readsDescr
+msgid "The total number of data reads."
+msgstr ""
+
+#: $strShowStatusInnodb_data_writesDescr
+msgid "The total number of data writes."
+msgstr ""
+
+#: $strShowStatusInnodb_data_writtenDescr
+msgid "The amount of data written so far, in bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_dblwr_pages_writtenDescr
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+
+#: $strShowStatusInnodb_dblwr_writesDescr
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+
+#: $strShowStatusInnodb_log_waitsDescr
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+
+#: $strShowStatusInnodb_log_write_requestsDescr
+msgid "The number of log write requests."
+msgstr ""
+
+#: $strShowStatusInnodb_log_writesDescr
+msgid "The number of physical writes to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_fsyncsDescr
+msgid "The number of fsync() writes done to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_pending_fsyncsDescr
+msgid "The number of pending log file fsyncs."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_pending_writesDescr
+msgid "Pending log file writes."
+msgstr ""
+
+#: $strShowStatusInnodb_os_log_writtenDescr
+msgid "The number of bytes written to the log file."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_createdDescr
+msgid "The number of pages created."
+msgstr ""
+
+#: $strShowStatusInnodb_page_sizeDescr
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_readDescr
+msgid "The number of pages read."
+msgstr ""
+
+#: $strShowStatusInnodb_pages_writtenDescr
+msgid "The number of pages written."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_current_waitsDescr
+msgid "The number of row locks currently being waited for."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_time_avgDescr
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_timeDescr
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_time_maxDescr
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr ""
+
+#: $strShowStatusInnodb_row_lock_waitsDescr
+msgid "The number of times a row lock had to be waited for."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_deletedDescr
+msgid "The number of rows deleted from InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_insertedDescr
+msgid "The number of rows inserted in InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_readDescr
+msgid "The number of rows read from InnoDB tables."
+msgstr ""
+
+#: $strShowStatusInnodb_rows_updatedDescr
+msgid "The number of rows updated in InnoDB tables."
+msgstr ""
+
+#: $strShowStatusKey_blocks_not_flushedDescr
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+
+#: $strShowStatusKey_blocks_unusedDescr
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+
+#: $strShowStatusKey_blocks_usedDescr
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+
+#: $strShowStatusKey_read_requestsDescr
+msgid "The number of requests to read a key block from the cache."
+msgstr ""
+
+#: $strShowStatusKey_readsDescr
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+
+#: $strShowStatusKey_write_requestsDescr
+msgid "The number of requests to write a key block to the cache."
+msgstr ""
+
+#: $strShowStatusKey_writesDescr
+msgid "The number of physical writes of a key block to disk."
+msgstr ""
+
+#: $strShowStatusLast_query_costDescr
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimizer. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled "
+"yet."
+msgstr ""
+
+#: $strShowStatusNot_flushed_delayed_rowsDescr
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr ""
+
+#: $strShowStatusOpened_tablesDescr
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+
+#: $strShowStatusOpen_filesDescr
+msgid "The number of files that are open."
+msgstr ""
+
+#: $strShowStatusOpen_streamsDescr
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr ""
+
+#: $strShowStatusOpen_tablesDescr
+msgid "The number of tables that are open."
+msgstr ""
+
+#: $strShowStatusQcache_free_blocksDescr
+msgid "The number of free memory blocks in query cache."
+msgstr ""
+
+#: $strShowStatusQcache_free_memoryDescr
+msgid "The amount of free memory for query cache."
+msgstr ""
+
+#: $strShowStatusQcache_hitsDescr
+msgid "The number of cache hits."
+msgstr ""
+
+#: $strShowStatusQcache_insertsDescr
+msgid "The number of queries added to the cache."
+msgstr ""
+
+#: $strShowStatusQcache_lowmem_prunesDescr
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+
+#: $strShowStatusQcache_not_cachedDescr
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+
+#: $strShowStatusQcache_queries_in_cacheDescr
+msgid "The number of queries registered in the cache."
+msgstr ""
+
+#: $strShowStatusQcache_total_blocksDescr
+msgid "The total number of blocks in the query cache."
+msgstr ""
+
+#: $strShowStatusReset
+msgctxt "$strShowStatusReset"
+msgid "Reset"
+msgstr "重設"
+
+#: $strShowStatusRpl_statusDescr
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr ""
+
+#: $strShowStatusSelect_full_joinDescr
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+
+#: $strShowStatusSelect_full_range_joinDescr
+msgid "The number of joins that used a range search on a reference table."
+msgstr ""
+
+#: $strShowStatusSelect_range_checkDescr
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+
+#: $strShowStatusSelect_rangeDescr
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+
+#: $strShowStatusSelect_scanDescr
+msgid "The number of joins that did a full scan of the first table."
+msgstr ""
+
+#: $strShowStatusSlave_open_temp_tablesDescr
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr ""
+
+#: $strShowStatusSlave_retried_transactionsDescr
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+
+#: $strShowStatusSlave_runningDescr
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr ""
+
+#: $strShowStatusSlow_launch_threadsDescr
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+
+#: $strShowStatusSlow_queriesDescr
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr ""
+
+#: $strShowStatusSort_merge_passesDescr
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+
+#: $strShowStatusSort_rangeDescr
+msgid "The number of sorts that were done with ranges."
+msgstr ""
+
+#: $strShowStatusSort_rowsDescr
+msgid "The number of sorted rows."
+msgstr ""
+
+#: $strShowStatusSort_scanDescr
+msgid "The number of sorts that were done by scanning the table."
+msgstr ""
+
+#: $strShowStatusTable_locks_immediateDescr
+msgid "The number of times that a table lock was acquired immediately."
+msgstr ""
+
+#: $strShowStatusTable_locks_waitedDescr
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimize your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+
+#: $strShowStatusThreads_cachedDescr
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+
+#: $strShowStatusThreads_connectedDescr
+msgid "The number of currently open connections."
+msgstr ""
+
+#: $strShowStatusThreads_createdDescr
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+
+#: $strShowStatusThreads_runningDescr
+msgid "The number of threads that are not sleeping."
+msgstr ""
+
+#: $strShowTableDimension
+msgid "Show dimension of tables"
+msgstr "顯示表格大小"
+
+#: $strShowTables
+msgid "Show tables"
+msgstr "顯示資料表"
+
+#: $strShowThisQuery
+msgid " Show this query here again "
+msgstr "重新顯示 SQL 語法 "
+
+#: $strSimplifiedChinese
+msgid "Simplified Chinese"
+msgstr "簡體中文"
+
+#: $strSingly
+msgid "(singly)"
+msgstr "(只會排序現時的記錄)"
+
+#: $strSize
+msgid "Size"
+msgstr "大小"
+
+#: $strSkipQueries
+msgctxt "$strSkipQueries"
+msgid "Number of records (queries) to skip from start"
+msgstr "開始時略過多少行記錄 (語法)"
+
+#: $strSlaveConfigure
+msgid ""
+"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"not, please add the following line into [mysqld] section:"
+msgstr ""
+
+#: $strSlovak
+msgid "Slovak"
+msgstr "斯洛伐克語"
+
+#: $strSlovenian
+msgid "Slovenian"
+msgstr "斯洛文尼亞語"
+
+#: $strSmallBigAll
+msgid "Small/Big All"
+msgstr ""
+
+#: $strSnapToGrid
+msgid "Snap to grid"
+msgstr ""
+
+#: $strSocketProblem
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "( 或者本機 MySQL 伺服器之 socket 並未正確設定)"
+
+#: $strSocket
+msgid "Socket"
+msgstr ""
+
+#: $strSortByKey
+msgid "Sort by key"
+msgstr "依鍵名排序"
+
+#: $strSorting
+msgid "Sorting"
+msgstr "排序"
+
+#: $strSort
+msgid "Sort"
+msgstr "排序"
+
+#: $strSpaceUsage
+msgid "Space usage"
+msgstr "已使用空間"
+
+#: $strSpanish
+msgid "Spanish"
+msgstr "西班牙語"
+
+#: $strSplitWordsWithSpace
+msgid "Words are separated by a space character (\" \")."
+msgstr "每組文字以空格 (\" \") 分隔."
+
+#: $strSQLCompatibility
+msgid "SQL compatibility mode"
+msgstr "SQL 兼容模式"
+
+#: $strSQLExportType
+msgid "Export type"
+msgstr "輸出方式"
+
+#: $strSQLExportUTC
+msgid "Export time in UTC"
+msgstr ""
+
+#: $strSQLParserBugMessage
+msgid ""
+"There is a chance that you may have found a bug in the SQL parser. Please "
+"examine your query closely, and check that the quotes are correct and not "
+"mis-matched. Other possible failure causes may be that you are uploading a "
+"file with binary outside of a quoted text area. You can also try your query "
+"on the MySQL command line interface. The MySQL server error output below, if "
+"there is any, may also help you in diagnosing the problem. If you still "
+"have problems or if the parser fails where the command line interface "
+"succeeds, please reduce your SQL query input to the single query that causes "
+"problems, and submit a bug report with the data chunk in the CUT section "
+"below:"
+msgstr ""
+"這可能是您找到了 SQL 分析程式的一些程式錯誤，請細心查看您的語法，檢查一下引號是正確及沒有遺漏，其他可能出錯的原因可能來自您上載檔案時在引號外的地方"
+"使用了二進制碼。您可以嘗試在 MySQL 命令列介面執行該語法。如 MySQL "
+"伺服器發出錯誤信息，這可能幫助您去找出問題所在。如您仍然未能解決問題，或在分析程式出現錯誤，但在命令列模式能正常執行，請將該句出現錯誤的 SQL "
+"語法抽出，並將以下的\"剪取\"部份一同提交到臭虫區:"
+
+#: $strSQLParserUserError
+msgid ""
+"There seems to be an error in your SQL query. The MySQL server error output "
+"below, if there is any, may also help you in diagnosing the problem"
+msgstr "可能是您的 SQL 語法出現錯誤，如 MySQL 伺服器發出錯誤信息，這可能幫助您去找出問題所在。"
+
+#: $strSQLQuery
+msgid "SQL query"
+msgstr "SQL 語法"
+
+#: $strSQLResult
+msgid "SQL result"
+msgstr "SQL 查詢結果"
+
+#: $strSQL
+msgid "SQL"
+msgstr "SQL"
+
+#: $strSQPBugInvalidIdentifer
+msgid "Invalid Identifer"
+msgstr "無效的識別碼 (Invalid Identifer)"
+
+#: $strSQPBugUnclosedQuote
+msgid "Unclosed quote"
+msgstr "未完結的引號 (Unclosed quote)"
+
+#: $strSQPBugUnknownPunctuation
+msgid "Unknown Punctuation String"
+msgstr "不知明的標點符號 (Unknown Punctuation String)"
+
+#: $strStandInStructureForView
+msgid "Stand-in structure for view"
+msgstr ""
+
+#: $strStart
+msgid "Start"
+msgstr ""
+
+#: $strStatCheckTime
+msgid "Last check"
+msgstr "最後檢查"
+
+#: $strStatCreateTime
+msgid "Creation"
+msgstr "建立"
+
+#: $strStatement
+msgid "Statements"
+msgstr "敘述"
+
+#: $strStatic
+msgid "static"
+msgstr ""
+
+#: $strStatisticsOverrun
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr "於較繁忙的伺服器, 計算器可能會溢出, 令 MySQL 伺服器提供之統計有誤差."
+
+#: $strStatUpdateTime
+msgid "Last update"
+msgstr "最後更新"
+
+#: $strStatus
+msgid "Status"
+msgstr "狀態"
+
+#: $strStop
+msgid "Stop"
+msgstr ""
+
+#: $strStorageEngines
+msgid "Storage Engines"
+msgstr "儲存引擎"
+
+#: $strStorageEngine
+msgid "Storage Engine"
+msgstr "儲存引擎"
+
+#: $strStrucCSV
+msgctxt "$strStrucCSV"
+msgid "CSV"
+msgstr "CSV 資料"
+
+#: $strStrucData
+msgid "Structure and data"
+msgstr "結構與資料"
+
+#: $strStrucExcelCSV
+msgid "CSV for MS Excel"
+msgstr "MS Excel 的 CSV 格式"
+
+#: $strStrucNativeExcel
+msgid "Native MS Excel format"
+msgstr "原始 MS Excel 資料"
+
+#: $strStrucOnly
+msgid "Structure only"
+msgstr "只有結構"
+
+#: $strStructPropose
+msgid "Propose table structure"
+msgstr "分析資料表結構"
+
+#: $strStructureDiff
+msgid ""
+"Structure Difference' ;\n"
+"$strStructureForView = 'Structure for view"
+msgstr ""
+
+#: $strStructureLC
+msgid "structure"
+msgstr ""
+
+#: $strStructure
+msgid "Structure"
+msgstr "結構"
+
+#: $strStructureSyn
+msgid "Structure Synchronization"
+msgstr ""
+
+#: $strSubmit
+msgid "Submit"
+msgstr "送出"
+
+#: $strSuccess
+msgid "Your SQL query has been executed successfully"
+msgstr "您的SQL語法已順利執行"
+
+#: $strSuhosin
+msgid ""
+"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
+"issues."
+msgstr ""
+
+#: $strSum
+msgid "Sum"
+msgstr "總計"
+
+#: $strSwedish
+msgid "Swedish"
+msgstr "瑞典語"
+
+#: $strSwekeyAuthenticating
+msgid "Authenticating..."
+msgstr ""
+
+#: $strSwekeyAuthFailed
+msgid "Hardware authentication failed"
+msgstr ""
+
+#: $strSwekeyNoKeyId
+msgid "File %s does not contain any key id"
+msgstr ""
+
+#: $strSwekeyNoKey
+msgid "No valid authentication key plugged"
+msgstr ""
+
+#: $strSwitchToDatabase
+msgid "Switch to copied database"
+msgstr "轉移到複製之資料庫"
+
+#: $strSwitchToTable
+msgid "Switch to copied table"
+msgstr "跳到已複製之資料表"
+
+#: $strSynchronizationNote
+msgid ""
+"Target database will be completely synchronized with source database. Source "
+"database will remain unchanged."
+msgstr ""
+
+#: $strSynchronizeDb
+msgid "Synchronize Databases"
+msgstr ""
+
+#: $strSynchronize
+msgid "Synchronize"
+msgstr ""
+
+#: $strTableAddColumn
+msgid "Add column(s)"
+msgstr ""
+
+#: $strTableAlreadyExists
+msgid "Table %s already exists!"
+msgstr "資料表 %s 已存在!"
+
+#: $strTableAlterColumn
+msgid "Alter column(s)"
+msgstr ""
+
+#: $strTableAlteredSuccessfully
+msgid "Table %1$s has been altered successfully"
+msgstr ""
+
+#: $strTableAlterIndex
+msgid "Alter index(s)"
+msgstr ""
+
+#: $strTableApplyIndex
+msgid "Apply index(s)"
+msgstr ""
+
+#: $strTableComments
+msgid "Table comments"
+msgstr "資料表註解文字"
+
+#: $strTableDeleteRows
+msgid "Would you like to delete all the previous rows from target tables?"
+msgstr ""
+
+#: $strTableEmpty
+msgid "The table name is empty!"
+msgstr "請輸入資料表名稱!"
+
+#: $strTableHasBeenCreated
+msgid "Table %1$s has been created."
+msgstr ""
+
+#: $strTableHasBeenDropped
+msgid "Table %s has been dropped"
+msgstr "資料表 %s 已被刪除"
+
+#: $strTableHasBeenEmptied
+msgid "Table %s has been emptied"
+msgstr "資料表 %s 已被清空"
+
+#: $strTableHasBeenFlushed
+msgid "Table %s has been flushed"
+msgstr "資料表 %s 已被強迫更新"
+
+#: $strTableInsertRow
+msgid "Insert row(s)"
+msgstr ""
+
+#: $strTableIsEmpty
+msgid "Table seems to be empty!"
+msgstr ""
+
+#: $strTableMaintenance
+msgid "Table maintenance"
+msgstr "資料表維護"
+
+#: $strTableName
+msgid "Table name"
+msgstr ""
+
+#: $strTableOfContents
+msgid "Table of contents"
+msgstr "目錄"
+
+#: $strTableOptions
+msgid "Table options"
+msgstr "資料表選項"
+
+#: $strTableRemoveColumn
+msgid "Remove column(s)"
+msgstr ""
+
+#: $strTableRemoveIndex
+msgid "Remove index(s)"
+msgstr ""
+
+#: $strTables
+msgid "%s table(s)"
+msgstr "%s 資料表"
+
+#: $strTableStructure
+msgid "Table structure for table"
+msgstr "資料表格式："
+
+#: $strTable
+msgid "Table"
+msgstr "資料表"
+
+#: $strTableUpdateRow
+msgid "Update row(s)"
+msgstr ""
+
+#: $strTakeIt
+msgid "take it"
+msgstr "選用"
+
+#: $strTargetDatabaseHasBeenSynchronized
+msgid "Target database has been synchronized with source database"
+msgstr ""
+
+#: $strTblPrivileges
+msgid "Table-specific privileges"
+msgstr "指定資料表權限"
+
+#: $strTempData
+msgid "Temporary data"
+msgstr "暫存資料"
+
+#: $strTextAreaLength
+msgid " Because of its length,<br /> this field might not be editable "
+msgstr " 由於長度限制<br /> 此欄位不能編輯 "
+
+#: $strTexyText
+msgid "Texy! text"
+msgstr ""
+
+#: $strThai
+msgid "Thai"
+msgstr "泰語"
+
+#: $strThemeDefaultNotFound
+msgid "Default theme %s not found!"
+msgstr "找不到預設佈景主題 %s !"
+
+#: $strThemeNoPreviewAvailable
+msgid "No preview available."
+msgstr "並無預覽."
+
+#: $strThemeNotFound
+msgid "Theme %s not found!"
+msgstr "找不到佈景主題 %s !"
+
+#: $strThemeNoValidImgPath
+msgid "No valid image path for theme %s found!"
+msgstr "找不到佈景主題 %s 設定圖像之路徑!"
+
+#: $strThemePathNotFound
+msgid "Theme path not found for theme %s!"
+msgstr "找不到佈景主題 %s 之設定路徑!"
+
+#: $strTheme
+msgid "Theme / Style"
+msgstr "款式"
+
+#: $strThisHost
+msgid "This Host"
+msgstr "指定主機"
+
+#: $strThreads
+msgid "Threads"
+msgstr "線程"
+
+#: $strThreadSuccessfullyKilled
+msgid "Thread %s was successfully killed."
+msgstr "指令 %s 已成功中止."
+
+#: $strTimeoutInfo
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %"
+"d."
+msgstr ""
+
+#: $strTimeoutNothingParsed
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won't be able to finish this import unless you increase php time limits."
+msgstr ""
+
+#: $strTimeoutPassed
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+
+#: $strTime
+msgid "Time"
+msgstr "時間"
+
+#: $strToFromPage
+msgid "to/from page"
+msgstr ""
+
+#: $strToggleScratchboard
+msgid "Toggle scratchboard"
+msgstr "轉換便條"
+
+#: $strToggleSmallBig
+msgid "Toggle small/big"
+msgstr ""
+
+#: $strToSelectRelation
+msgid "To select relation, click :"
+msgstr ""
+
+#: $strTotal
+msgid "total"
+msgstr "總計"
+
+#: $strTotalUC
+msgid "Total"
+msgstr "總共"
+
+#: $strTrackingActivated
+msgid "Tracking of %s.%s is activated."
+msgstr ""
+
+#: $strTrackingActivateNow
+msgid "Activate now"
+msgstr ""
+
+#: $strTrackingActivateTrackingFor
+msgid "Activate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingCommentOut
+msgid "Comment out these two lines if you do not need them."
+msgstr ""
+
+#: $strTrackingCreateVersion
+msgid "Create version"
+msgstr ""
+
+#: $strTrackingCreateVersionOf
+msgid "Create version %s of %s.%s"
+msgstr ""
+
+#: $strTrackingDatabaseLog
+msgid "Database Log"
+msgstr ""
+
+#: $strTrackingDataDefinitionStatement
+msgid "Data definition statement"
+msgstr ""
+
+#: $strTrackingDataManipulationStatement
+msgid "Data manipulation statement"
+msgstr ""
+
+#: $strTrackingDate
+msgid "Date"
+msgstr ""
+
+#: $strTrackingDeactivateNow
+msgid "Deactivate now"
+msgstr ""
+
+#: $strTrackingDeactivateTrackingFor
+msgid "Deactivate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingExportAs
+msgid "Export as %s"
+msgstr ""
+
+#: $strTrackingIsActive
+msgid "Tracking is active."
+msgstr ""
+
+#: $strTrackingIsNotActive
+msgid "Tracking is not active."
+msgstr ""
+
+#: $strTrackingMechanism
+msgid "Tracking Mechanism"
+msgstr ""
+
+#: $strTrackingReportClose
+msgid "Close"
+msgstr ""
+
+#: $strTrackingReportForTable
+msgid "Tracking report for table `%s`"
+msgstr ""
+
+#: $strTrackingReport
+msgid "Tracking report"
+msgstr ""
+
+#: $strTrackingShowLogDateUsers
+msgid "Show %s with dates from %s to %s by user %s %s"
+msgstr ""
+
+#: $strTrackingShowVersions
+msgid "Show versions"
+msgstr ""
+
+#: $strTrackingSQLDumpFile
+msgid "SQL dump (file download)"
+msgstr ""
+
+#: $strTrackingSQLDump
+msgid "SQL dump"
+msgstr ""
+
+#: $strTrackingSQLExecuted
+msgid "SQL statements executed."
+msgstr ""
+
+#: $strTrackingSQLExecutionAlert
+msgid "This option will replace your table and contained data."
+msgstr ""
+
+#: $strTrackingSQLExecution
+msgid "SQL execution"
+msgstr ""
+
+#: $strTrackingSQLExported
+msgid "SQL statements exported. Please copy the dump or execute it."
+msgstr ""
+
+#: $strTrackingStatements
+msgid "Tracking statements"
+msgstr ""
+
+#: $strTrackingStatusActive
+msgid "active"
+msgstr ""
+
+#: $strTrackingStatusNotActive
+msgid "not active"
+msgstr ""
+
+#: $strTrackingStructureSnapshot
+msgid "Structure snapshot"
+msgstr ""
+
+#: $strTrackingThCreated
+msgid "Created"
+msgstr ""
+
+#: $strTrackingThLastVersion
+msgid "Last version"
+msgstr ""
+
+#: $strTrackingThUpdated
+msgid "Updated"
+msgstr ""
+
+#: $strTrackingThVersion
+msgid "Version"
+msgstr ""
+
+#: $strTrackingTrackDDStatements
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: $strTrackingTrackDMStatements
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: $strTrackingTrackedTables
+msgid "Tracked tables"
+msgstr ""
+
+#: $strTracking
+msgid "Tracking"
+msgstr ""
+
+#: $strTrackingTrackTable
+msgid "Track table"
+msgstr ""
+
+#: $strTrackingUntrackedTables
+msgid "Untracked tables"
+msgstr ""
+
+#: $strTrackingUsername
+msgid "Username"
+msgstr ""
+
+#: $strTrackingVersionActivated
+msgid "Tracking for %s.%s , version %s is activated."
+msgstr ""
+
+#: $strTrackingVersionCreated
+msgid "Version %s is created, tracking for %s.%s is activated."
+msgstr ""
+
+#: $strTrackingVersionDeactivated
+msgid "Tracking for %s.%s , version %s is deactivated."
+msgstr ""
+
+#: $strTrackingVersionSnapshotSQL
+msgid "Version %s snapshot (SQL code)"
+msgstr ""
+
+#: $strTrackingVersions
+msgid "Versions"
+msgstr ""
+
+#: $strTrackingYouCanExecute
+msgid ""
+"You can execute the dump by creating and using a temporary database. Please "
+"ensure that you have the privileges to do so."
+msgstr ""
+
+#: $strTraditionalChinese
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: $strTraditionalSpanish
+msgid "Traditional Spanish"
+msgstr "傳統西班牙語"
+
+#: $strTraffic
+msgid "Traffic"
+msgstr "流量"
+
+#: $strTransactionCoordinator
+msgid "Transaction coordinator"
+msgstr "交易協調器"
+
+#: $strTransformation_application_octetstream__download
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"於欄位顯示連線來下載二進制資料. 第一個選項是二進制的檔案名稱. 第二個選項可設定可用的欄位名稱用作檔案名稱. 如您設定了第二個選項, "
+"第一個選項無需設定"
+
+#: $strTransformation_application_octetstream__hex
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr "以十六進制方式顯示."
+
+#: $strTransformation_image_jpeg__inline
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr "顯示可按式圖像; 選項; 寬度,高度[以像素為單位] (保時原有比例)"
+
+#: $strTransformation_image_jpeg__link
+msgid "Displays a link to download this image."
+msgstr "顯示圖像的連線 (直接下載)."
+
+#: $strTransformation_image_png__inline
+msgid "See image/jpeg: inline"
+msgstr "參看 image/jpeg: 內建"
+
+#: $strTransformation_text_plain__dateformat
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+
+#: $strTransformation_text_plain__external
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file "
+"libraries/transformations/text_plain__external.inc.php and list the tools "
+"you want to make available. The first option is then the number of the "
+"program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent "
+"wrapping and ensure that the output appears all on one line (Default 1)."
+msgstr ""
+"只限於 LINUX : 執行外部程式及將內容以標準輸入模式輸入. 輸出程式之標準輸出. 預設是整齊的, 方便顯示 HTML 碼. 由於保安理由, "
+"您需要自行編輯 libraries/transformations/text_plain__external.inc.php "
+"及加入需要使用工具作為執行. 第一個選項為有多少個程式需要使用, 第二個選項為這式程式的參數, 第三個選項, 如設定為 1 將會使用 "
+"htmlspecialchars() 轉換輸出 (預設: 1). 第四個選項, 如設定為 1 將會加入 NOWRAP 於內容的表格內, "
+"令輸出之所有內容都不會重新排位 (預設: 1)"
+
+#: $strTransformation_text_plain__formatted
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr "保存原本內容之格式. 不進行任何 Escaping 處理."
+
+#: $strTransformation_text_plain__imagelink
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and third "
+"options are the width and the height in pixels."
+msgstr ""
+"顯示圖像及連結, 數據內容是檔案名稱; 第一個選項是網址前段 (例 \"http://domain.com/\" ), "
+"第二個選項是寬度的像素,第三個選項是高度的像素."
+
+#: $strTransformation_text_plain__link
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for the "
+"link."
+msgstr "顯示連結, 數據內容是檔案名稱; 第一個選項是網址前段 (例 \"http://domain.com/\" ), 第二選項是連結的標題."
+
+#: $strTransformation_text_plain__sql
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "格式化文字為 SQL 查詢及特出語法."
+
+#: $strTransformation_text_plain__substr
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"只顯示部份的字串. 第一個選項為字串開始輸出的位置 (offset)  (預設: 0). 第二個選項為多少個字串輸出. 留空為輸出餘下所有字串. "
+"第三個選項為當部份字串取回後顯示什麼字串於結尾 (預設: ...) ."
+
+#: $strTriggers
+msgid "Triggers"
+msgstr ""
+
+#: $strTruncateQueries
+msgid "Truncate Shown Queries"
+msgstr "刪除已顯示查詢"
+
+#: $strTurkish
+msgid "Turkish"
+msgstr "土耳其語"
+
+#: $strType
+msgid "Type"
+msgstr "型態"
+
+#: $strUkrainian
+msgid "Ukrainian"
+msgstr "烏克蘭語"
+
+#: $strUncheckAll
+msgid "Uncheck All"
+msgstr "全部取消"
+
+#: $strUnicode
+msgid "Unicode"
+msgstr "統一碼 (Unicode)"
+
+#: $strUnique
+msgid "Unique"
+msgstr "唯一鍵 UNIQUE"
+
+#: $strUnknown
+msgid "unknown"
+msgstr "不詳"
+
+#: $strUnselectAll
+msgid "Unselect All"
+msgstr "全部取消"
+
+#: $strUnsupportedCompressionDetected
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+
+#: $strUpdatePrivMessage
+msgid "You have updated the privileges for %s."
+msgstr "您已經更新了 %s 的權限."
+
+#: $strUpdateProfileMessage
+msgid "The profile has been updated."
+msgstr "資料己經更新."
+
+#: $strUpdateQuery
+msgid "Update Query"
+msgstr "更新語法"
+
+#: $strUpdComTab
+msgid ""
+"Please see the documentation on how to update your column_comments table"
+msgstr "請參看說明文件查詢如何更新 Column_comments 資料表"
+
+#: $strUpgrade
+msgid "You should upgrade to %s %s or later."
+msgstr "您應該更新到 %s %s 或之後."
+
+#: $strUploadErrorCantWrite
+msgid "Failed to write file to disk."
+msgstr ""
+
+#: $strUploadErrorExtension
+msgid "File upload stopped by extension."
+msgstr ""
+
+#: $strUploadErrorFormSize
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+#: $strUploadErrorIniSize
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+#: $strUploadErrorNoTempDir
+msgid "Missing a temporary folder."
+msgstr ""
+
+#: $strUploadErrorPartial
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#: $strUploadErrorUnknown
+msgid "Unknown error in file upload."
+msgstr ""
+
+#: $strUploadLimit
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
+msgstr "你正嘗試上載大容量檔案，請查看此 %s文件%s 如何略過此限制."
+
+#: $strUploadsNotAllowed
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: $strUsage
+msgid "Usage"
+msgstr "使用"
+
+#: $strUseBackquotes
+msgid "Enclose table and field names with backquotes"
+msgstr "在資料表及欄位使用引號"
+
+#: $strUseHostTable
+msgid "Use Host Table"
+msgstr "使用主機資料表"
+
+#: $strUserAlreadyExists
+msgid "The user %s already exists!"
+msgstr "使用者 %s 己存在!"
+
+#: $strUserEmpty
+msgid "The user name is empty!"
+msgstr "請輸入使用者名稱!"
+
+#: $strUserName
+msgid "User name"
+msgstr "使用者名稱"
+
+#: $strUserNotFound
+msgid "The selected user was not found in the privilege table."
+msgstr "選擇的使用者在權限資料表內找不到."
+
+#: $strUserOverview
+msgid "User overview"
+msgstr "使用者一覽"
+
+#: $strUsersDeleted
+msgid "The selected users have been deleted successfully."
+msgstr "選擇的使用者已成功刪除."
+
+#: $strUsersHavingAccessToDb
+msgid "Users having access to &quot;%s&quot;"
+msgstr "可讀取 &quot;%s&quot; 之使用者"
+
+#: $strUser
+msgid "User"
+msgstr "使用者"
+
+#: $strUseTabKey
+msgid ""
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+msgstr "按 TAB 鍵跳到下一個數值, 或 CTRL+方向鍵 作隨意移動"
+
+#: $strUseTables
+msgid "Use Tables"
+msgstr "使用資料表"
+
+#: $strUseTextField
+msgid "Use text field"
+msgstr "文字輸入"
+
+#: $strUseThisValue
+msgid "Use this value"
+msgstr "使用此值"
+
+#: $strValidateSQL
+msgctxt "$strValidateSQL"
+msgid "Validate SQL"
+msgstr "檢查 SQL"
+
+#: $strValidatorError
+msgid ""
+"The SQL validator could not be initialized. Please check if you have "
+"installed the necessary PHP extensions as described in the %sdocumentation%"
+"s."
+msgstr "SQL 分析程式未能啟動，請檢查是否已將 %s文件%s 內的 PHP 檔案安裝。"
+
+#: $strValue
+msgid "Value"
+msgstr "值"
+
+#: $strVar
+msgid "Variable"
+msgstr "資訊"
+
+#: $strVersionInformation
+msgid "Version information"
+msgstr "版本資訊"
+
+#: $strViewDumpDatabases
+msgid "View dump (schema) of databases"
+msgstr "顯示資料庫概要 (schema)"
+
+#: $strViewDumpDB
+msgid "View dump (schema) of database"
+msgstr "檢視資料庫的備份概要 (dump schema)"
+
+#: $strViewDump
+msgid "View dump (schema) of table"
+msgstr "檢視資料表的備份概要 (dump schema)"
+
+#: $strViewHasAtLeast
+msgid ""
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
+msgstr ""
+
+#: $strViewHasBeenDropped
+msgid "View %s has been dropped"
+msgstr "檢視 %s 己被刪除."
+
+#: $strViewImage
+msgid "View image"
+msgstr ""
+
+#: $strViewName
+msgid "VIEW name"
+msgstr ""
+
+#: $strViewVideo
+msgid "View video"
+msgstr ""
+
+#: $strView
+msgid "View"
+msgstr "檢視"
+
+#: $strWebServerUploadDirectoryError
+msgid "The directory you set for upload work cannot be reached"
+msgstr "設定之上載目錄錯誤，未能使用"
+
+#: $strWebServerUploadDirectory
+msgid "web server upload directory"
+msgstr "Web 伺服器上載目錄"
+
+#: $strWebServer
+msgid "Web server"
+msgstr ""
+
+#: $strWelcome
+msgid "Welcome to %s"
+msgstr "歡迎使用 %s"
+
+#: $strWestEuropean
+msgid "West European"
+msgstr "西歐語文"
+
+#: $strWiki
+msgid "Wiki"
+msgstr ""
+
+#: $strWildcard
+msgid "wildcard"
+msgstr "萬用字元"
+
+#: $strWindowNotFound
+msgid ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
+msgstr "目地的視窗無法更新. 可能你已關閉此視窗或你的瀏覽器於安全設定內啟動了無法跨視窗更新"
+
+#: $strWithChecked
+msgid "With selected:"
+msgstr "選擇的資料表："
+
+#: $strWriteRequests
+msgid "Write requests"
+msgstr "寫入要求"
+
+#: $strWrongUser
+msgid "Wrong username/password. Access denied."
+msgstr "錯誤的使用者名稱或密碼，拒絕存取"
+
+#: $strXMLError
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+
+#: $strXMLExportContents
+msgid "Export contents"
+msgstr ""
+
+#: $strXMLExportFunctions
+msgid "Export functions"
+msgstr ""
+
+#: $strXMLExportProcedures
+msgid "Export procedures"
+msgstr ""
+
+#: $strXMLExportStructs
+msgid "Export Structure Schemas (recommended)"
+msgstr ""
+
+#: $strXMLExportTables
+msgid "Export tables"
+msgstr ""
+
+#: $strXMLExportTriggers
+msgid "Export triggers"
+msgstr ""
+
+#: $strXMLExportViews
+msgid "Export views"
+msgstr ""
+
+#: $strXML
+msgid "XML"
+msgstr "XML"
+
+#: $strYes
+msgid "Yes"
+msgstr " 是 "
+
+#: $strZeroRemovesTheLimit
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "註: 設定這些選項為 0 (零) 可解除限制."
+
+#: $strZip
+msgid "\"zipped\""
+msgstr "\"zipped\""

@@ -1,0 +1,7467 @@
+#. extracted from po/english.php, po/croatian.php
+msgid ""
+msgstr ""
+"Project-Id-Version: phpMyAdmin 3.4\n"
+"Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2010-03-11 17:17+0200\n"
+"PO-Revision-Date: 2010-03-11 17:17+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: croatian <hr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.5.3\n"
+
+#. /* $Id$
+#: $charset
+msgid "utf-8"
+msgstr "utf-8"
+
+#. ('ltr' for left to right, 'rtl' for right to left)
+#: $text_dir
+msgid "ltr"
+msgstr "ltr"
+
+#: $number_thousands_separator
+msgid ","
+msgstr "."
+
+#: $number_decimal_separator
+msgid "."
+msgstr ","
+
+#: $str_B
+msgid "B"
+msgstr "B"
+
+#: $str_KiB
+msgid "KiB"
+msgstr "kB"
+
+#: $str_MiB
+msgid "MiB"
+msgstr "MB"
+
+#: $str_GiB
+msgid "GiB"
+msgstr "GB"
+
+#: $str_TiB
+msgid "TiB"
+msgstr "TB"
+
+#: $str_PiB
+msgid "PiB"
+msgstr "PB"
+
+#: $str_EiB
+msgid "EiB"
+msgstr "EB"
+
+#: $mysql_4_1_doc_lang
+msgctxt "$mysql_4_1_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_0_doc_lang
+msgctxt "$mysql_5_0_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $mysql_5_1_doc_lang
+msgctxt "$mysql_5_1_doc_lang"
+msgid "en"
+msgstr ""
+
+#: $str_Sun
+msgid "Sun"
+msgstr "Ned"
+
+#: $str_Mon
+msgid "Mon"
+msgstr "Pon"
+
+#: $str_Tue
+msgid "Tue"
+msgstr "Uto"
+
+#: $str_Wed
+msgid "Wed"
+msgstr "Sri"
+
+#: $str_Thu
+msgid "Thu"
+msgstr "Čet"
+
+#: $str_Fri
+msgid "Fri"
+msgstr "Pet"
+
+#: $str_Sat
+msgid "Sat"
+msgstr "Sub"
+
+#: $str_Jan
+msgid "Jan"
+msgstr "Sij"
+
+#: $str_Feb
+msgid "Feb"
+msgstr "Velj"
+
+#: $str_Mar
+msgid "Mar"
+msgstr "Ožu"
+
+#: $str_Apr
+msgid "Apr"
+msgstr "Tra"
+
+#: $str_May
+msgid "May"
+msgstr "Svi"
+
+#: $str_Jun
+msgid "Jun"
+msgstr "Lip"
+
+#: $str_Jul
+msgid "Jul"
+msgstr "Srp"
+
+#: $str_Aug
+msgid "Aug"
+msgstr "Kol"
+
+#: $str_Sep
+msgid "Sep"
+msgstr "Ruj"
+
+#: $str_Oct
+msgid "Jan0"
+msgstr "Sij0"
+
+#: $str_Nov
+msgid "Jan1"
+msgstr "Sij1"
+
+#: $str_Dec
+msgid "Jan2"
+msgstr "Sij2"
+
+#: $datefmt
+msgid "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y u %I:%M %p"
+
+#: $timespanfmt
+msgid "%s days, %s hours, %s minutes and %s seconds"
+msgstr "%s dana, %s sati, %s minuta i %s sekunda"
+
+#: $strAbortedClients
+msgid "Aborted"
+msgstr "Prekinuto"
+
+#: $strAccessDenied
+msgid "Access denied"
+msgstr "Pristup odbijen"
+
+#: $strAccessDeniedCreateConfig
+msgid ""
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
+msgstr ""
+"Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu možete "
+"upotrijebiti naredbu %1$ssetup script%2$s"
+
+#: $strAccessDeniedExplanation
+msgid ""
+"phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
+"connection. You should check the host, username and password in your "
+"configuration and make sure that they correspond to the information given by "
+"the administrator of the MySQL server."
+msgstr ""
+"phpMyAdmin pokušao je uspostaviti vezu s MySQL poslužiteljem, ali je "
+"poslužitelj odbio povezivanje. U datoteci config.inc.php provjerite naziv "
+"računala, korisničko ime i lozinku, te provjerite da se odgovaraju podacima "
+"koje vam je dao administrator MySQL poslužitelja."
+
+#: $strAction
+msgid "Action"
+msgstr "Aktivnost"
+
+#: $strActions
+msgid "Actions"
+msgstr "Aktivnosti"
+
+#: $strAddAutoIncrement
+msgid "Add AUTO_INCREMENT value"
+msgstr "Dodaj vrijednost AUTO_INCREMENT"
+
+#: $strAddClause
+msgid "Add %s"
+msgstr "Dodaj %s"
+
+#: $strAddConstraints
+msgid "Add constraints"
+msgstr "Dodaj prisile"
+
+#: $strAddDeleteColumn
+msgid "Add/Delete Field Columns"
+msgstr "Dodaj/Izbriši stupce polja"
+
+#: $strAddDeleteRow
+msgid "Add/Delete Criteria Row"
+msgstr "Dodaj/Izbriši redak kriterija"
+
+#: $strAddFields
+msgid "Add %s field(s)"
+msgstr "Dodaj %s polja"
+
+#: $strAddHeaderComment
+msgid "Add custom comment into header (\\n splits lines)"
+msgstr "Dodaj prilagođeni komentar u zaglavlje (\"\\n\" razdvaja retke)"
+
+#: $strAddIntoComments
+msgid "Add into comments"
+msgstr "Dodaj u komentare"
+
+#: $strAddNewField
+msgid "Add new field"
+msgstr "Dodaj novo polje"
+
+#: $strAddPrivilegesOnDb
+msgid "Add privileges on the following database"
+msgstr "Dodaj privilegije za sljedeće baze podataka"
+
+#: $strAddPrivilegesOnTbl
+msgid "Add privileges on the following table"
+msgstr "Dodaj privilegije za sljedeću tablicu"
+
+#: $strAddSearchConditions
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Dodaj  uvjete pretrage (sadržaj uvjeta \"gdje\"):"
+
+#: $strAddToIndex
+msgid "Add to index &nbsp;%s&nbsp;column(s)"
+msgstr "Dodaj u indeks &nbsp;%s&nbsp;stupci"
+
+#: $strAddUser
+msgid "Add a new User"
+msgstr "Dodaj novog korisnika"
+
+#: $strAddUserMessage
+msgid "You have added a new user."
+msgstr "Dodali ste novog korisnika."
+
+#: $strAdministration
+msgid "Administration"
+msgstr "Administracija"
+
+#: $strAfter
+msgid "After %s"
+msgstr "Poslije %s"
+
+#: $strAfterInsertBack
+msgid "Go back to previous page"
+msgstr "Kreni nazad na prethodnu stranicu"
+
+#: $strAfterInsertNewInsert
+msgid "Insert another new row"
+msgstr "Umetni dodatni novi redak"
+
+#: $strAfterInsertNext
+msgid "Edit next row"
+msgstr "Uredi sljedeći redak"
+
+#: $strAfterInsertSame
+msgid "Go back to this page"
+msgstr "Kreni nazad na ovu stranicu"
+
+#: $strAll
+msgid "All"
+msgstr "Sve"
+
+#: $strAllowInterrupt
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. This might be good way to import large files, "
+"however it can break transactions."
+msgstr ""
+"Dopusti prekid uvoza u slučaju da skripta otkrije blizinu vremenskog "
+"ograničenja. Ovo bi mogao biti dobar način uvoza velikih datoteka, ali može "
+"prekinuti transakcije."
+
+#: $strAllTableSameWidth
+msgid "Display all tables with the same width"
+msgstr "Prikazati sve tablice uz istu širinu?"
+
+#: $strAlterOrderBy
+msgid "Alter table order by"
+msgstr "Izmijeni rasporede tablice po"
+
+#: $strAnalyze
+msgid "Analyse"
+msgstr "Analiziraj"
+
+#: $strAnalyzeTable
+msgid "Analyse table"
+msgstr "Analiziraj tablicu"
+
+#: $strAnd
+msgid "And"
+msgstr "I"
+
+#: $strAndSmall
+msgid "and"
+msgstr ""
+
+#: $strAndThen
+msgid "and then"
+msgstr "i potom"
+
+#: $strAngularLinks
+msgid "Angular links"
+msgstr "Kutne veze"
+
+#: $strAnIndex
+msgid "An index has been added on %s"
+msgstr "Indeks je pridodan na %s"
+
+#: $strAny
+msgid "Any"
+msgstr "Bilo koji"
+
+#: $strAnyHost
+msgid "Any host"
+msgstr "Bilo koje računalo"
+
+#: $strAnyUser
+msgid "Any user"
+msgstr "Bilo koji korisnik"
+
+#: $strApplyChanges
+msgid "Apply Selected Changes"
+msgstr ""
+
+#: $strApproximateCount
+msgid ""
+"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
+"3.11[/a]"
+msgstr "Može biti približno. Pogledajte ČPP 3.11"
+
+#: $strAPrimaryKey
+msgid "A primary key has been added on %s"
+msgstr "Primarni ključ je dodan na %s"
+
+#: $strArabic
+msgid "Arabic"
+msgstr "Arapski"
+
+#: $strArmenian
+msgid "Armenian"
+msgstr "Armenski"
+
+#: $strAscending
+msgid "Ascending"
+msgstr "Uzlazno"
+
+#: $strAsDefined
+msgid "As defined:"
+msgstr "Kako je definirano:"
+
+#: $strAtBeginningOfTable
+msgid "At Beginning of Table"
+msgstr "Pri početku tablice"
+
+#: $strAtEndOfTable
+msgid "At End of Table"
+msgstr "Pri završetku tablice"
+
+#: $strAttr
+msgid "Attributes"
+msgstr "Atributi"
+
+#: $strAutomaticLayout
+msgid "Automatic layout"
+msgstr "Automatski raspored"
+
+#: $strBack
+msgid "Back"
+msgstr "Nazad"
+
+#: $strBaltic
+msgid "Baltic"
+msgstr "Baltički"
+
+#: $strBeginCut
+msgid "BEGIN CUT"
+msgstr "BEGIN CUT"
+
+#: $strBeginRaw
+msgid "BEGIN RAW"
+msgstr "BEGIN RAW"
+
+#: $strBinary
+msgid "Binary"
+msgstr "Binarno"
+
+#: $strBinaryDoNotEdit
+msgid "Binary - do not edit"
+msgstr "Binarno - ne uređuj"
+
+#: $strBinaryLog
+msgid "Binary log"
+msgstr "Binarni zapisnik"
+
+#: $strBinLogEventType
+msgid "Event type"
+msgstr "Vrsta događaja"
+
+#: $strBinLogInfo
+msgid "Information"
+msgstr "Podaci"
+
+#: $strBinLogName
+msgid "Log name"
+msgstr "Naziv zapisnika"
+
+#: $strBinLogOriginalPosition
+msgid "Original position"
+msgstr "Izvorni položaj"
+
+#: $strBinLogPosition
+msgid "Position"
+msgstr "Položaj"
+
+#: $strBinLogServerId
+msgid "Server ID"
+msgstr "ID poslužitelja"
+
+#: $strBLOBRepository
+msgid "BLOB Repository"
+msgstr ""
+
+#: $strBLOBRepositoryDamaged
+msgid "Damaged"
+msgstr ""
+
+#: $strBLOBRepositoryDisableAreYouSure
+msgid "Are you sure you want to disable all BLOB references for database %s?"
+msgstr ""
+
+#: $strBLOBRepositoryDisabled
+msgctxt "$strBLOBRepositoryDisabled"
+msgid "Disabled"
+msgstr ""
+
+#: $strBLOBRepositoryDisable
+msgid "Disable"
+msgstr ""
+
+#: $strBLOBRepositoryDisableStrongWarning
+msgid "You are about to DISABLE a BLOB Repository!"
+msgstr ""
+
+#: $strBLOBRepositoryEnabled
+msgctxt "$strBLOBRepositoryEnabled"
+msgid "Enabled"
+msgstr ""
+
+#: $strBLOBRepositoryEnable
+msgid "Enable"
+msgstr ""
+
+#: $strBLOBRepositoryRemove
+msgid "Remove BLOB Repository Reference"
+msgstr ""
+
+#: $strBLOBRepositoryRepair
+msgctxt "$strBLOBRepositoryRepair"
+msgid "Repair"
+msgstr ""
+
+#: $strBLOBRepositoryUpload
+msgid "Upload to BLOB repository"
+msgstr ""
+
+#: $strBookmarkAllUsers
+msgid "Let every user access this bookmark"
+msgstr "Neka svi korisnici imaju pristup ovom favoritu"
+
+#: $strBookmarkCreated
+msgid "Bookmark %s created"
+msgstr "Izrađen je favorit %s"
+
+#: $strBookmarkDeleted
+msgid "The bookmark has been deleted."
+msgstr "Favorit je izbrisan."
+
+#: $strBookmarkLabel
+msgid "Label"
+msgstr "Oznaka"
+
+#: $strBookmarkQuery
+msgid "Bookmarked SQL query"
+msgstr "Favorizirani SQL upit"
+
+#: $strBookmarkReplace
+msgid "Replace existing bookmark of same name"
+msgstr "Zamijeni postojećim favoritom istog naziva"
+
+#: $strBookmarkThis
+msgid "Bookmark this SQL query"
+msgstr "Favoriziraj ovaj SQL upit"
+
+#: $strBookmarkView
+msgid "View only"
+msgstr "Samo prikaz"
+
+#: $strBrowse
+msgid "Browse"
+msgstr "Pretraživanje"
+
+#: $strBrowseDistinctValues
+msgid "Browse distinct values"
+msgstr "Pretraži prepoznatljive vrijednosti"
+
+#: $strBrowseForeignValues
+msgid "Browse foreign values"
+msgstr "Pretraži strane vrijednosti"
+
+#: $strBufferPoolActivity
+msgid "Buffer Pool Activity"
+msgstr "Aktivnost međuspremnika"
+
+#: $strBufferPool
+msgid "Buffer Pool"
+msgstr "Međuspremnik"
+
+#: $strBufferPoolUsage
+msgid "Buffer Pool Usage"
+msgstr "Iskoristivost međuspremnika"
+
+#: $strBufferReadMissesInPercent
+msgid "Read misses in %"
+msgstr "Propuštena čitanja pri %"
+
+#: $strBufferReadMisses
+msgid "Read misses"
+msgstr "Propuštena čitanja"
+
+#: $strBufferWriteWaitsInPercent
+msgid "Write waits in %"
+msgstr "Zapisivanje čeka pri %"
+
+#: $strBufferWriteWaits
+msgid "Write waits"
+msgstr "Zapisivanje čeka"
+
+#: $strBulgarian
+msgid "Bulgarian"
+msgstr "Bugarski"
+
+#: $strBusyPages
+msgid "Busy pages"
+msgstr "Zaposlene stranice"
+
+#: $strBzip
+msgid "\"bzipped\""
+msgstr "\"bzipano\""
+
+#: $strCalendar
+msgid "Calendar"
+msgstr "Kalendar"
+
+#: $strCancel
+msgid "Cancel"
+msgstr "Odustani"
+
+#: $strCanNotLoadExportPlugins
+msgid "Could not load export plug-ins, please check your installation!"
+msgstr "Nije moguće učitati dodatke za izvoz. Provjerite svoju instalaciju!"
+
+#: $strCanNotLoadImportPlugins
+msgid "Could not load import plug-ins, please check your installation!"
+msgstr "Nije moguće učitati dodatke za uvoz. Provjerite svoju instalaciju!"
+
+#: $strCannotLogin
+msgid "Cannot log in to the MySQL server"
+msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
+
+#: $strCantLoad
+msgid ""
+"Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+"extension. Please check your PHP configuration."
+msgstr ""
+"Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation][em]%"
+"1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+
+#: $strCantLoadRecodeIconv
+msgid ""
+"Couldn't load the iconv or recode extension needed for charset conversion. "
+"Either configure PHP to enable these extensions or disable charset "
+"conversion in phpMyAdmin."
+msgstr ""
+"Nije moguće učitati proširenja iconv ili recode potrebna za pretvaranje "
+"znakova. Potrebno je konfigurirati PHP radi omogućavanja ovih proširenja ili "
+"unutar phpMyAdmin onemogućiti pretvaranje znakova."
+
+#: $strCantRenameIdxToPrimary
+msgid "Can't rename index to PRIMARY!"
+msgstr "Preimenovanje indeksa u PRIMARY nije moguće!"
+
+#: $strCantUseRecodeIconv
+msgid ""
+"Couldn't use the iconv, libiconv, or recode_string functions, although the "
+"necessary extensions appear to be loaded. Check your PHP configuration."
+msgstr ""
+"Nije moguće upotrijebiti funkcije iconv, libiconv ili recode_string, iako "
+"izgleda da su sva potrebna proširenja učitana. Provjerite svoju PHP "
+"konfiguraciju."
+
+#: $strCardinality
+msgid "Cardinality"
+msgstr "Najvažnije"
+
+#: $strCaseInsensitive
+msgid "case-insensitive"
+msgstr "nebitna veličina znakova"
+
+#: $strCaseSensitive
+msgid "case-sensitive"
+msgstr "veličina znakova je važna"
+
+#: $strCentralEuropean
+msgid "Central European"
+msgstr "Srednjoeuropski"
+
+#: $strChange
+msgid "Change"
+msgstr "Promijeni"
+
+#: $strChangeCopyModeCopy
+msgid "... keep the old one."
+msgstr "... zadržati staru."
+
+#: $strChangeCopyMode
+msgid "Create a new user with the same privileges and ..."
+msgstr "Izradi novog korisnika s istim privilegijama i..."
+
+#: $strChangeCopyModeDeleteAndReload
+msgid ""
+" ... delete the old one from the user tables and reload the privileges "
+"afterwards."
+msgstr ""
+" ... izbriši starog iz korisničkih tablica i potom ponovo učitaj "
+"privilegije."
+
+#: $strChangeCopyModeJustDelete
+msgid " ... delete the old one from the user tables."
+msgstr " ... izbriši starog iz korisničkih tablica."
+
+#: $strChangeCopyModeRevoke
+msgid ""
+" ... revoke all active privileges from the old one and delete it afterwards."
+msgstr " ... opozovi sve aktivne privilegije iz stare i potom je izbriši."
+
+#: $strChangeCopyUser
+msgid "Change Login Information / Copy User"
+msgstr "Promjena podataka prijave / Kopiranje korisnika"
+
+#: $strChangeDisplay
+msgid "Choose field to display"
+msgstr "Odaberi polje za prikaz"
+
+#: $strChangePassword
+msgid "Change password"
+msgstr "Promijeni lozinku"
+
+#: $strCharset
+msgid "Charset"
+msgstr "Tablica znakova"
+
+#: $strCharsetOfFile
+msgid "Character set of the file:"
+msgstr "Tablica znakova za datoteku:"
+
+#: $strCharsetsAndCollations
+msgid "Character Sets and Collations"
+msgstr "Tablica znakova i uspoređivanja"
+
+#: $strCharsets
+msgid "Charsets"
+msgstr "Tablice znakova"
+
+#: $strCheckAll
+msgid "Check All"
+msgstr "Označi sve"
+
+#: $strCheck
+msgid "Check"
+msgstr "Provjeri"
+
+#: $strCheckOverhead
+msgid "Check tables having overhead"
+msgstr "Provjeri za prepunjene tablice"
+
+#: $strCheckPrivs
+msgid "Check Privileges"
+msgstr "Provjeri privilegije"
+
+#: $strCheckPrivsLong
+msgid "Check privileges for database &quot;%s&quot;."
+msgstr "Provjeri privilegije za bazu podataka \"%s\"."
+
+#: $strCheckTable
+msgid "Check table"
+msgstr "Provjeri tablicu"
+
+#: $strChoosePage
+msgid "Please choose a page to edit"
+msgstr "Odaberite tablicu za uređivanje"
+
+#: $strClickToSelect
+msgid "Click to select"
+msgstr ""
+
+#: $strClickToUnselect
+msgid "Click to unselect"
+msgstr ""
+
+#: $strColComFeat
+msgid "Displaying Column Comments"
+msgstr "Prikazivanje stupca komentara"
+
+#: $strCollation
+msgid "Collation"
+msgstr "Uspoređivanje"
+
+#: $strColumnNames
+msgid "Column names"
+msgstr "Nazivi stupaca"
+
+#: $strColumnPrivileges
+msgid "Column-specific privileges"
+msgstr "Privilegije specifične za stupac"
+
+#: $strCommand
+msgid "Command"
+msgstr "Naredba"
+
+#: $strComment
+msgid "Comment"
+msgstr "Komentar"
+
+#: $strComments
+msgid "Comments"
+msgstr "Komentari"
+
+#: $strCompatibleHashing
+msgid "MySQL&nbsp;4.0 compatible"
+msgstr "MySQL&nbsp;4.0 kompatibilno"
+
+#: $strCompleteInserts
+msgid "Complete inserts"
+msgstr "Dovrši umetanja"
+
+#: $strCompression
+msgctxt "$strCompression"
+msgid "Compression"
+msgstr "Kompresija"
+
+#: $strCompressionWillBeDetected
+msgid "Imported file compression will be automatically detected from: %s"
+msgstr "Kompresija uvezene datoteke bit će automatski prepoznata iz: %s"
+
+#: $strConfigDefaultFileError
+msgid "Could not load default configuration from: \"%1$s\""
+msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
+
+#: $strConfigDirectoryWarning
+msgid ""
+"Directory [code]config[/code], which is used by the setup script, still "
+"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
+"has been configured."
+msgstr ""
+
+#: $strConfigFileError
+msgid ""
+"phpMyAdmin was unable to read your configuration file!<br />This might "
+"happen if PHP finds a parse error in it or PHP cannot find the file.<br "
+"/>Please call the configuration file directly using the link below and read "
+"the PHP error message(s) that you receive. In most cases a quote or a "
+"semicolon is missing somewhere.<br />If you receive a blank page, everything "
+"is fine."
+msgstr ""
+"phpMyAdmin nije mogao pročitati vašu konfiguracijsku datoteku!<br />Mogući "
+"razlog je ako PHP pronađe pogrešku u njezinom raščlanjivanju ili ako PHP ne "
+"može pronaći datoteku.<br />Potrebno je izravno pozvati konfiguracijsku "
+"datoteku putem donje veze i proučiti prikazane PHP poruke o pogreškama. U "
+"većini slučajeva na nekom mjestu nedostaje znak navodnika ili točke-"
+"zareza.<br />Ako se prikaže prazna stranica, sve je u redu."
+
+#: $strConfigureTableCoord
+msgid "Please configure the coordinates for table %s"
+msgstr "Konfigurirajte koordinate tablice %s"
+
+#: $strConnectionError
+msgid "Cannot connect: invalid settings."
+msgstr "Povezivanje nije moguće: neispravna postavka."
+
+#: $strConnections
+msgid "Connections"
+msgstr "Veze"
+
+#: $strConstraintsForDumped
+msgid "Constraints for dumped tables"
+msgstr "Ograničenja za izbačene tablice"
+
+#: $strConstraintsForTable
+msgid "Constraints for table"
+msgstr "Ograničenja za tablicu"
+
+#: $strControluserFailed
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+"Povezivanje kontrolnih korisnika na način kako je definirano u vašoj "
+"konfiguraciji nije uspjelo."
+
+#: $strCookiesRequired
+msgid "Cookies must be enabled past this point."
+msgstr "Od ovog mjesta potrebno je omogućiti kolačiće."
+
+#: $strCopy
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: $strCopyDatabaseOK
+msgid "Database %s has been copied to %s"
+msgstr "Baza podataka %s kopirana je u %s"
+
+#: $strCopyTable
+msgid "Copy table to (database<b>.</b>table):"
+msgstr "Kopiraj tablicu u (bazapodataka<b>.</b>tablica):"
+
+#: $strCopyTableOK
+msgid "Table %s has been copied to %s."
+msgstr "Tablica %s kopirana je u %s."
+
+#: $strCopyTableSameNames
+msgid "Can't copy table to same one!"
+msgstr "Kopiranje u istu tablicu nije moguće!"
+
+#: $strCouldNotConnectSource
+msgid "Could not connect to the source"
+msgstr ""
+
+#: $strCouldNotConnectTarget
+msgid "Could not connect to the target"
+msgstr ""
+
+#: $strCouldNotKill
+msgid ""
+"phpMyAdmin was unable to kill thread %s. It probably has already been "
+"closed."
+msgstr "phpMyAdmin nije mogao ugasiti granu %s. Vjerojatno je već zatvorena."
+
+#: $strCreate
+msgid "Create"
+msgstr "Izradi"
+
+#: $strCreateDatabaseBeforeCopying
+msgid "CREATE DATABASE before copying"
+msgstr "Prije kopiranja izradi bazu podataka (CREATE DATABASE)"
+
+#: $strCreateIndex
+msgid "Create an index on&nbsp;%s&nbsp;columns"
+msgstr "Izradi indeks &nbsp;%s&nbsp;stupaca"
+
+#: $strCreateIndexTopic
+msgid "Create a new index"
+msgstr "Izradi novi indeks"
+
+#: $strCreateNewDatabase
+msgid "Create new database"
+msgstr "Izradi novu bazu podataka"
+
+#: $strCreateNewTable
+msgid "Create table on database %s"
+msgstr "Izradi novu tablicu u bazi podataka %s"
+
+#: $strCreatePage
+msgid "Create a page"
+msgstr "Izradi novu stranicu"
+
+#: $strCreatePdfFeat
+msgid "Creation of PDFs"
+msgstr "Izrada PDF datoteka"
+
+#: $strCreateRelation
+msgid "Create relation"
+msgstr "Izradi relaciju"
+
+#: $strCreateTable
+msgctxt "$strCreateTable"
+msgid "Create table"
+msgstr "Izradi tablicu"
+
+#: $strCreateTableShort
+msgctxt "$strCreateTableShort"
+msgid "Create table"
+msgstr ""
+
+#: $strCreateUserDatabase
+msgid "Database for user"
+msgstr "Baza podataka za korisnika"
+
+#: $strCreateUserDatabaseName
+msgid "Create database with same name and grant all privileges"
+msgstr "Izradi bazu podataka istog naziva i podari sve privilegije"
+
+#: $strCreateUserDatabaseNone
+msgctxt "$strCreateUserDatabaseNone"
+"$strCreateUserDatabaseNone"
+msgid "None"
+msgstr "Nijedan"
+
+#: $strCreateUserDatabasePrivileges
+msgid "Grant all privileges on database &quot;%s&quot;"
+msgstr ""
+
+#: $strCreateUserDatabaseWildcard
+msgid "Grant all privileges on wildcard name (username\\_%)"
+msgstr "Podari sve privilegije imenima s džokerima (korisničkoime_%)"
+
+#: $strCreationDates
+msgid "Creation/Update/Check dates"
+msgstr "Izrada/Ažuriranje/Provjera datuma"
+
+#: $strCriteria
+msgid "Criteria"
+msgstr "Kriterij"
+
+#: $strCroatian
+msgid "Croatian"
+msgstr "Hrvatski"
+
+#: $strCSV
+msgctxt "$strCSV"
+msgid "CSV"
+msgstr "CSV"
+
+#: $strCurrentServer
+msgid "Current server"
+msgstr ""
+
+#: $strCustomColor
+msgid "Custom colour"
+msgstr "Prilagođena boja"
+
+#: $strCyrillic
+msgid "Cyrillic"
+msgstr "Ćirilica"
+
+#: $strCzech
+msgid "Czech"
+msgstr "Češki"
+
+#: $strCzechSlovak
+msgid "Czech-Slovak"
+msgstr "Češki ili Slovački"
+
+#: $strDanish
+msgid "Danish"
+msgstr "Danski"
+
+#: $strDatabase
+msgid "Database"
+msgstr "Baza podataka"
+
+#: $strDatabaseEmpty
+msgid "The database name is empty!"
+msgstr "Naziv baze podataka je prazan!"
+
+#: $strDatabaseExportOptions
+msgid "Database export options"
+msgstr "Opcije izvoza baze podataka"
+
+#: $strDatabaseHasBeenCreated
+msgid "Database %1$s has been created."
+msgstr "Baza podataka %1$s uspješno je izrađena."
+
+#: $strDatabaseHasBeenDropped
+msgid "Database %s has been dropped."
+msgstr "Baza podataka %s je odbačena."
+
+#: $strDatabaseNotExisting
+msgid "'%s' database does not exist."
+msgstr ""
+
+#: $strDatabases
+msgctxt "$strDatabases"
+msgid "Databases"
+msgstr "Baze podataka"
+
+#: $strDatabasesDropped
+msgid "%s databases have been dropped successfully."
+msgstr "Baza podataka %s uspješno je odbačena."
+
+#: $strDatabase_src
+msgid "Source database"
+msgstr ""
+
+#: $strDatabasesStats
+msgid "Databases statistics"
+msgstr "Statistike baza podataka"
+
+#: $strDatabasesStatsDisable
+msgid "Disable Statistics"
+msgstr "Onemogući statistike"
+
+#: $strDatabasesStatsEnable
+msgid "Enable Statistics"
+msgstr "Omogući statistike"
+
+#: $strDatabasesStatsHeavyTraffic
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Napomena: Omogućavanja statistika baze podataka može prouzrokovati izuzetno "
+"velik promet između web poslužitelja i MySQL poslužitelja."
+
+#: $strDatabase_trg
+msgid "Target database"
+msgstr ""
+
+#: $strData
+msgid "Data"
+msgstr "Podaci"
+
+#: $strDataDict
+msgid "Data Dictionary"
+msgstr "Rječnik podataka"
+
+#: $strDataDiff
+msgid "Data Difference"
+msgstr ""
+
+#: $strDataOnly
+msgid "Data only"
+msgstr "Samo podatke"
+
+#: $strDataPages
+msgid "Pages containing data"
+msgstr "Stranice koje sadrže podatke"
+
+#: $strDataSyn
+msgid "Data Synchronisation"
+msgstr ""
+
+#: $strDBComment
+msgid "Database comment: "
+msgstr "Komentar baze podataka:  "
+
+#: $strDBCopy
+msgid "Copy database to"
+msgstr "Kopiraj bazu podataka u"
+
+#: $strDbIsEmpty
+msgid "Database seems to be empty!"
+msgstr "Baza podataka izgleda praznom!"
+
+#: $strDbPrivileges
+msgid "Database-specific privileges"
+msgstr "Privilegije specifične za bazu podataka"
+
+#: $strDBRename
+msgid "Rename database to"
+msgstr "Preimenuj bazu podataka u"
+
+#: $strDbSpecific
+msgid "database-specific"
+msgstr "specifično za bazu podataka"
+
+#: $strDefault
+msgid "Default"
+msgstr "Zadano"
+
+#: $strDefaultEngine
+msgid "%s is the default storage engine on this MySQL server."
+msgstr "%s je zadani pogon pohranjivanja na ovom MySQL poslužitelju."
+
+#: $strDefaultValueHelp
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Za zadane vrijednosti unesite samo jednu vrijednost, bez kosih crta ili "
+"navodnika, u sljedećem obliku: a"
+
+#: $strDefragment
+msgid "Defragment table"
+msgstr "Defragmentiraj tablicu"
+
+#: $strDelayedInserts
+msgid "Use delayed inserts"
+msgstr "Upotrijebi odgođena umetanja"
+
+#: $strDeleteAndFlush
+msgid "Delete the users and reload the privileges afterwards."
+msgstr "Izbriši korisnike i potom ponovo učitaj privilegije."
+
+#: $strDeleteAndFlushDescr
+msgid ""
+"This is the cleanest way, but reloading the privileges may take a while."
+msgstr ""
+"Ovo je najčišći način, ali ponovno učitavanje privilegija može potrajati."
+
+#: $strDelete
+msgid "Delete"
+msgstr "Izbriši"
+
+#: $strDeleted
+msgid "The row has been deleted"
+msgstr "Redak je izbrisan"
+
+#: $strDeleteNoUsersSelected
+msgid "No users selected for deleting!"
+msgstr "Nema odabranih korisnika za uklanjanje!"
+
+#: $strDeleteRelation
+msgid "Delete relation"
+msgstr "Izbriši relaciju"
+
+#: $strDeleteTrackingData
+msgid "Delete tracking data for this table"
+msgstr ""
+
+#: $strDeleting
+msgid "Deleting %s"
+msgstr "Brisanje %s"
+
+#: $strDelimiter
+msgid "Delimiter"
+msgstr "Razgraničavanje"
+
+#: $strDelOld
+msgid ""
+"The current page has references to tables that no longer exist. Would you "
+"like to delete those references?"
+msgstr ""
+"Trenutna stranica sadrži reference prema tablicama koje više ne postoje. "
+"Želite li izbrisati te reference?"
+
+#: $strDescending
+msgid "Descending"
+msgstr "Silazno"
+
+#: $strDescription
+msgctxt "$strDescription"
+msgid "Description"
+msgstr "Opis"
+
+#: $strDesigner
+msgid "Designer"
+msgstr "Kreator"
+
+#: $strDesignerHelpDisplayField
+msgid ""
+"The display field is shown in pink. To set/unset a field as the display "
+"field, click the \"Choose field to display\" icon, then click on the "
+"appropriate field name."
+msgstr ""
+"Polje pregledavanja prikazano je u rozoj boji. Kako biste za polje odabrali "
+"ili uklonili opciju polja za prikazivanje pritisnite ikonu \"Odaberite polje "
+"za prikazivanje\", a zatim pritisnite odgovarajući naziv polja."
+
+#: $strDetails
+msgid "Details..."
+msgstr "Detalji..."
+
+#: $strDictionary
+msgid "dictionary"
+msgstr "rječnik"
+
+#: $strDifference
+msgid "Difference"
+msgstr ""
+
+#: $strDirectLinks
+msgid "Direct links"
+msgstr "Izravne veze"
+
+#: $strDirtyPages
+msgid "Dirty pages"
+msgstr "Prljave stranice"
+
+#: $strDisabled
+msgctxt "$strDisabled"
+msgid "Disabled"
+msgstr "Onemogućeno"
+
+#: $strDisableForeignChecks
+msgid "Disable foreign key checks"
+msgstr "Onemogući provjere stranih znakova"
+
+#: $strDisplayFeat
+msgid "Display Features"
+msgstr "Osobine prikaza"
+
+#: $strDisplayOrder
+msgid "Display order:"
+msgstr "Redoslijed prikaza:"
+
+#: $strDisplayPDF
+msgid "Display PDF schema"
+msgstr "Prikaži PDF shemu"
+
+#: $strDoAQuery
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Izvedi \"upit po primjeru\" (džoker: \"%\")"
+
+#: $strDocSQL
+msgid "DocSQL"
+msgstr "DocSQL"
+
+#: $strDocu
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: $strDoNotAutoIncrementZeroValues
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr ""
+
+#: $strDownloadFile
+msgid "Download file"
+msgstr ""
+
+#: $strDoYouReally
+msgid "Do you really want to "
+msgstr "Želite li zaista  "
+
+#: $strDropDatabaseStrongWarning
+msgid "You are about to DESTROY a complete database!"
+msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
+
+#: $strDrop
+msgid "Drop"
+msgstr "Ispusti"
+
+#: $strDropUsersDb
+msgid "Drop the databases that have the same names as the users."
+msgstr "Ispusti baze podataka koje imaju iste nazive i korisnike."
+
+#: $strDumpAllRows
+msgid "Dump all rows"
+msgstr ""
+
+#: $strDumpingData
+msgid "Dumping data for table"
+msgstr "Izbacivanje podataka za tablicu"
+
+#: $strDumpSaved
+msgid "Dump has been saved to file %s."
+msgstr "Izbacivanje je spremljeno u datoteku %s."
+
+#: $strDumpXRows
+msgid "Dump %s row(s) starting at record # %s"
+msgstr "Izbaci %s redaka, počevši od zapisa # %s."
+
+#: $strDynamic
+msgid "dynamic"
+msgstr "dinamički"
+
+#: $strEdit
+msgctxt "$strEdit"
+msgid "Edit"
+msgstr "Uređivanje"
+
+#: $strEditPDFPages
+msgid "Edit PDF Pages"
+msgstr "Uredi PDF stranice"
+
+#: $strEditPrivileges
+msgid "Edit Privileges"
+msgstr "Uredi privilegije"
+
+#: $strEffective
+msgid "Effective"
+msgstr "Na snazi"
+
+#: $strEmpty
+msgid "Empty"
+msgstr "Isprazni"
+
+#: $strEmptyResultSet
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL je vratio prazan komplet rezultata (npr. nula redova)."
+
+#: $strEnabled
+msgctxt "$strEnabled"
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: $strEncloseInTransaction
+msgid "Enclose export in a transaction"
+msgstr "Izvoz uključi u transakciju"
+
+#: $strEndCut
+msgid "END CUT"
+msgstr "END CUT"
+
+#: $strEnd
+msgid "End"
+msgstr "Završetak"
+
+#: $strEndRaw
+msgid "END RAW"
+msgstr "END RAW"
+
+#: $strEngineAvailable
+msgid "%s is available on this MySQL server."
+msgstr "%s je raspoloživ na ovom MySQL poslužitelju."
+
+#: $strEngineDisabled
+msgid "%s has been disabled for this MySQL server."
+msgstr "%s je onemogućen za ovaj MySQL poslužitelj."
+
+#: $strEngines
+msgid "Engines"
+msgstr "Pogoni"
+
+#: $strEngineUnsupported
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "Ovaj MySQL poslužitelj ne podržava pogon pohranjivanja %s."
+
+#: $strEnglish
+msgid "English"
+msgstr "Engleski"
+
+#: $strEnglishPrivileges
+msgid " Note: MySQL privilege names are expressed in English "
+msgstr " Napomena: Nazivi MySQL privilegija navedeni su na engleskom jeziku "
+
+#: $strError
+msgid "Error"
+msgstr "Pogreška"
+
+#: $strErrorInZipFile
+msgid "Error in ZIP archive:"
+msgstr "Pogreška u ZIP arhivi:"
+
+#: $strErrorRelationAdded
+msgid "Error: Relation not added."
+msgstr "Pogreška: Relacija nije dodana."
+
+#: $strErrorRelationExists
+msgid "Error: relation already exists."
+msgstr "Pogreška: Relacija već postoji."
+
+#: $strErrorRenamingTable
+msgid "Error renaming table %1$s to %2$s"
+msgstr "Pogreška tijekom preimenovanja tablice %1$s u %2$s"
+
+#: $strErrorSaveTable
+msgid "Error saving coordinates for Designer."
+msgstr "Pogreška tijekom spremanja koordinata za Kreatora."
+
+#: $strEscapeWildcards
+msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgstr ""
+"Kako bi se mogli upotrebljavati u doslovnom smislu, džokerima \\_ i \\% mora "
+"prethoditi znak \\"
+
+#: $strEsperanto
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: $strEstonian
+msgid "Estonian"
+msgstr "Estonski"
+
+#: $strEvent
+msgid "Event"
+msgstr "Događaj"
+
+#: $strEvents
+msgid "Events"
+msgstr "Događaji"
+
+#: $strExcelEdition
+msgid "Excel edition"
+msgstr "Excel izdanje"
+
+#: $strExecuteBookmarked
+msgid "Execute bookmarked query"
+msgstr "Izvrši favorizirani upit"
+
+#: $strExplain
+msgctxt "$strExplain"
+msgid "Explain SQL"
+msgstr "Objasni SQL"
+
+#: $strExport
+msgid "Export"
+msgstr "Izvoz"
+
+#: $strExportImportToScale
+msgid "Export/Import to scale"
+msgstr "Uvoz / Izvor prema omjeru"
+
+#: $strExportMustBeFile
+msgid "Selected export type has to be saved in file!"
+msgstr "Odabrana vrsta izvoza mora biti spremljena u datoteku!"
+
+#: $strExtendedInserts
+msgid "Extended inserts"
+msgstr "Proširena umetanja"
+
+#: $strExtra
+msgid "Extra"
+msgstr "Dodatno"
+
+#: $strFailedAttempts
+msgid "Failed attempts"
+msgstr "Neuspjeli pokušaji"
+
+#: $strField
+msgid "Field"
+msgstr "Polje"
+
+#: $strFieldHasBeenDropped
+msgid "Field %s has been dropped"
+msgstr "Polje %s je odbačeno"
+
+#: $strFieldInsertFromFileTempDirNotExists
+msgid ""
+"Error moving the uploaded file, see "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr "Pogreška tijekom premještanja učitane datoteke. Pogledajte ČPP 1.11"
+
+#: $strFieldsEnclosedBy
+msgid "Fields enclosed by"
+msgstr "Polja obuhvaćena po"
+
+#: $strFieldsEscapedBy
+msgid "Fields escaped by"
+msgstr "Polja izostavljena po"
+
+#: $strFields
+msgid "Fields"
+msgstr "Polja"
+
+#: $strFieldsTerminatedBy
+msgid "Fields terminated by"
+msgstr "Polja završena s"
+
+#: $strFileAlreadyExists
+msgid ""
+"File %s already exists on server, change filename or check overwrite option."
+msgstr ""
+"Datoteka %s već postoji na poslužitelju. Promijenite naziv ili označite "
+"opciju za prepisivanje."
+
+#: $strFileCouldNotBeRead
+msgid "File could not be read"
+msgstr "Datoteku nije moguće pročitati"
+
+#: $strFileNameTemplateDescriptionDatabase
+msgid "database name"
+msgstr "naziv baze podataka"
+
+#: $strFileNameTemplateDescriptionServer
+msgid "server name"
+msgstr "naziv poslužitelja"
+
+#: $strFileNameTemplateDescriptionTable
+msgid "table name"
+msgstr "naziv tablice"
+
+#: $strFileNameTemplateDescription
+msgid ""
+"This value is interpreted using %1$sstrftime%2$s, so you can use time "
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is."
+msgstr ""
+"Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
+"naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
+"preoblikovanja: \"%3$s\". Ostatak teksta bit će zadržan u izvornom obliku."
+
+#: $strFileNameTemplate
+msgid "File name template"
+msgstr "Predložak naziva datoteka"
+
+#: $strFileNameTemplateRemember
+msgid "remember template"
+msgstr "zapamti predložak"
+
+#: $strFiles
+msgid "Files"
+msgstr "Datoteke"
+
+#: $strFileToImport
+msgid "File to import"
+msgstr "Datoteka za uvoz"
+
+#: $strFlushPrivilegesNote
+msgid ""
+"Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
+"tables. The content of these tables may differ from the privileges the "
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
+msgstr ""
+"Napomena: phpMyAdmin preuzima korisničke privilegije izravno iz MySQL "
+"tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih tablica "
+"može se razlikovati od privilegija koje upotrebljava poslužitelj. U tom je "
+"slučaju potrebno %sponovo učitati privilegije%s prije nastavljanja rada."
+
+#: $strFlushQueryCache
+msgid "Flush query cache"
+msgstr "Isprazni pohranu upita"
+
+#: $strFlushTable
+msgid "Flush the table (\"FLUSH\")"
+msgstr "Isprazni tablicu (\"FLUSH\")"
+
+#: $strFlushTables
+msgid "Flush (close) all tables"
+msgstr "Isprazni (zatvori) sve tablice"
+
+#: $strFontSize
+msgid "Font size"
+msgstr "Veličina fonta"
+
+#: $strForeignKeyError
+msgid "Error creating foreign key on %1$s (check data types)"
+msgstr ""
+"Pogreška tijekom izrade stranog ključa na %1$s (provjerite vrste podataka)"
+
+#: $strForeignKeyRelationAdded
+msgid "FOREIGN KEY relation added"
+msgstr "Dodana je relacija FOREIGN KEY"
+
+#: $strFormat
+msgctxt "$strFormat"
+msgid "Format"
+msgstr "Oblikovanje"
+
+#: $strFormEmpty
+msgid "Missing value in the form!"
+msgstr "U obrascu nedostaje vrijednost!"
+
+#: $strFreePages
+msgid "Free pages"
+msgstr "Slobodne stranice"
+
+#: $strFullStart
+msgid "Full start"
+msgstr ""
+
+#: $strFullStop
+msgid "Full stop"
+msgstr ""
+
+#: $strFullText
+msgid "Full Texts"
+msgstr "Potpuni tekstovi"
+
+#: $strFunction
+msgid "Function"
+msgstr "Funkcija"
+
+#: $strFunctions
+msgid "Functions"
+msgstr "Funkcije"
+
+#: $strGenBy
+msgid "Generated by"
+msgstr "Generirano s"
+
+#: $strGeneralRelationFeat
+msgid "General relation features"
+msgstr "Opće osobine relacija"
+
+#: $strGenerate
+msgid "Generate"
+msgstr "Generiraj"
+
+#: $strGeneratePassword
+msgid "Generate Password"
+msgstr "Generiraj lozinku"
+
+#: $strGenTime
+msgid "Generation Time"
+msgstr "Vrijeme generiranja"
+
+#: $strGeorgian
+msgid "Georgian"
+msgstr "Gruzijski"
+
+#: $strGerman
+msgid "German"
+msgstr "Njemački"
+
+#: $strGetMoreThemes
+msgid "Get more themes!"
+msgstr ""
+
+#: $strGlobal
+msgid "global"
+msgstr "opće"
+
+#: $strGlobalPrivileges
+msgid "Global privileges"
+msgstr "Opće privilegije"
+
+#: $strGlobalValue
+msgid "Global value"
+msgstr "Opća vrijednost"
+
+#: $strGo
+msgid "Go"
+msgstr "Kreni"
+
+#: $strGoToDatabase
+msgid "Go to database"
+msgstr ""
+
+#: $strGoToTable
+msgid "Go to table"
+msgstr ""
+
+#: $strGoToView
+msgid "Go to view"
+msgstr ""
+
+#: $strGrantOption
+msgid "Grant"
+msgstr "Podarivanje"
+
+#: $strGreek
+msgid "Greek"
+msgstr "Grčki"
+
+#: $strGzip
+msgid "\"gzipped\""
+msgstr "\"gzipano\""
+
+#: $strHandler
+msgid "Handler"
+msgstr "Hvatišta"
+
+#: $strHasBeenAltered
+msgid "has been altered."
+msgstr "izmijenjeno je."
+
+#: $strHaveBeenSynchronized
+msgid "Selected target tables have been synchronised with source tables."
+msgstr ""
+
+#: $strHaveToShow
+msgid "You have to choose at least one column to display"
+msgstr "Morate odabrati najmanje jedan stupac za prikazivanje"
+
+#: $strHebrew
+msgid "Hebrew"
+msgstr "Hebrejski"
+
+#: $strHelp
+msgid "Help"
+msgstr "Pomoć"
+
+#: $strHexForBLOB
+msgid "Use hexadecimal for BLOB"
+msgstr "Za BLOB upotrijebi heksadecimalno"
+
+#: $strHide
+msgid "Hide"
+msgstr "Sakrij"
+
+#: $strHideShowAll
+msgid "Hide/Show all"
+msgstr "Prikaži / Sakrij sve"
+
+#: $strHideShowNoRelation
+msgid "Hide/Show Tables with no relation"
+msgstr "Prikaži / Sakrij tablice bez relacija"
+
+#: $strHome
+msgid "Home"
+msgstr "Početna stranica"
+
+#: $strHomepageOfficial
+msgid "Official Homepage"
+msgstr "Službena stranica programa phpMyAdmin"
+
+#: $strHostEmpty
+msgid "The host name is empty!"
+msgstr "Naziv računala je prazan!"
+
+#: $strHost
+msgid "Host"
+msgstr "Računalo"
+
+#: $strHostTableExplanation
+msgid ""
+"When Host table is used, this field is ignored and values stored in Host "
+"table are used instead."
+msgstr ""
+
+#: $strHTMLExcel
+msgid "Microsoft Excel 2000"
+msgstr "Microsoft Excel 2000"
+
+#: $strHTMLWord
+msgid "Microsoft Word 2000"
+msgstr "Microsoft Word 2000"
+
+#: $strHungarian
+msgid "Hungarian"
+msgstr "Mađarski"
+
+#: $strIcelandic
+msgid "Icelandic"
+msgstr "Islandski"
+
+#: $strId
+msgid "ID"
+msgstr "ID"
+
+#: $strIdxFulltext
+msgid "Fulltext"
+msgstr "Puni tekst"
+
+#: $strIEUnsupported
+msgid "Internet Explorer does not support this function."
+msgstr "Internet Explorer ne podržava ovu funkciju."
+
+#: $strIgnoreDuplicates
+msgid "Ignore duplicate rows"
+msgstr "Ignoriraj istovjetne redove"
+
+#: $strIgnore
+msgid "Ignore"
+msgstr "Ignoriraj"
+
+#: $strIgnoreInserts
+msgid "Use ignore inserts"
+msgstr "Upotrijebi ignoriranje umetaka"
+
+#: $strImportColNames
+msgid "Column names in first row"
+msgstr ""
+
+#: $strImportEmptyRows
+msgid "Do not import empty rows"
+msgstr ""
+
+#: $strImportExportCoords
+msgid "Import/Export coordinates for PDF schema"
+msgstr "Uvoz / Izvoz koordinate iz PDF sheme"
+
+#: $strImportFiles
+msgid "Import files"
+msgstr "Uvezi datoteke"
+
+#: $strImportFormat
+msgctxt "$strImportFormat"
+msgid "Format of imported file"
+msgstr "Oblikovanje uvezene datoteke"
+
+#: $strImport
+msgid "Import"
+msgstr "Uvoz"
+
+#: $strImportLargeFileUploading
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: $strImportNoticePt1
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+
+#: $strImportNoticePt2
+msgid "View a structure`s contents by clicking on its name"
+msgstr ""
+
+#: $strImportNoticePt3
+msgid "Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+
+#: $strImportNoticePt4
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr ""
+
+#: $strImportODSCurrency
+msgid "Import currencies ($5.00 to 5.00)"
+msgstr ""
+
+#: $strImportODS
+msgctxt "$strImportODS"
+msgid "Open Document Spreadsheet"
+msgstr ""
+
+#: $strImportODSPercents
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr ""
+
+#: $strImportProceedingFile
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: $strImportSuccessfullyFinished
+msgid "Import has been successfully finished, %d queries executed."
+msgstr "Uvoz je uspješno dovršen. Izvršeno upita: %d ."
+
+#: $strImportUploadInfoNotAvailable
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: $strImportXLS
+msgid "Excel 97-2003 XLS Workbook"
+msgstr ""
+
+#: $strImportXLSX
+msgid "Excel 2007 XLSX Workbook"
+msgstr ""
+
+#: $strIndexes
+msgid "Indexes"
+msgstr "Indeksi"
+
+#: $strIndexesSeemEqual
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Indeksi %1$s i %2$s izgledaju jednakim i jednog od njih moguće je ukloniti."
+
+#: $strIndexHasBeenDropped
+msgid "Index %s has been dropped"
+msgstr "Index %s je odbačen"
+
+#: $strIndex
+msgid "Index"
+msgstr "Indeks"
+
+#: $strIndexName
+msgid "Index name:"
+msgstr "Naziv indeksa:"
+
+#: $strIndexType
+msgid "Index type:"
+msgstr "Vrsta indeksa:"
+
+#: $strIndexWarningTable
+msgid "Problems with indexes of table `%s`"
+msgstr "Problemi s indeksima tablice `%s`"
+
+#: $strInnoDBAutoextendIncrement
+msgid "Autoextend increment"
+msgstr "Korak autoproširenja"
+
+#: $strInnoDBAutoextendIncrementDesc
+msgid ""
+" The increment size for extending the size of an autoextending tablespace "
+"when it becomes full."
+msgstr ""
+" Veličina koraka za proširivanje veličine automatski proširujućeg prostora "
+"tablice u slučaju njezinog ispunjavanja."
+
+#: $strInnoDBBufferPoolSize
+msgid "Buffer pool size"
+msgstr "Veličina međuspremnika"
+
+#: $strInnoDBBufferPoolSizeDesc
+msgid ""
+"The size of the memory buffer InnoDB uses to cache data and indexes of its "
+"tables."
+msgstr ""
+"Veličina memorijskog međuspremnika koju InnoDB upotrebljava za privremenu "
+"pohranu podataka i indeksa svojih tablica."
+
+#: $strInnoDBDataFilePath
+msgid "Data files"
+msgstr "Podatkovne datoteke"
+
+#: $strInnoDBDataHomeDir
+msgid "Data home directory"
+msgstr "Osnovna mapa podataka"
+
+#: $strInnoDBDataHomeDirDesc
+msgid "The common part of the directory path for all InnoDB data files."
+msgstr "Uobičajeni dio putanje mapa za sve InnoDB podatkovne datoteke."
+
+#: $strInnoDBPages
+msgid "pages"
+msgstr "stranice"
+
+#: $strInnodbStat
+msgid "InnoDB Status"
+msgstr "InnoDB stanje"
+
+#: $strInsecureMySQL
+msgid ""
+"Your configuration file contains settings (root with no password) that "
+"correspond to the default MySQL privileged account. Your MySQL server is "
+"running with this default, is open to intrusion, and you really should fix "
+"this security hole by setting a password for user 'root'."
+msgstr ""
+"Vaša konfiguracijska datoteka sadrži postavke (root korisnik bez lozinke) "
+"koja odgovara zadanom privilegiranom nalogu MySQL-a. Vaš MySQL poslužitelj "
+"pokrenut je sa zadanim postavkama i kao takav otvoren je upadima. Potrebno "
+"je ispraviti ovaj sigurnosni nedostatak."
+
+#: $strInsertAsNewRow
+msgid "Insert as new row"
+msgstr "Umetni kao novi redak"
+
+#: $strInsertedRowId
+msgid "Inserted row id: %1$d"
+msgstr "Umetnut ID retka: %1$d"
+
+#: $strInsertIgnoreAsNewRow
+msgid "Insert as new row and ignore errors"
+msgstr ""
+
+#: $strInsert
+msgid "Insert"
+msgstr "Umetni"
+
+#: $strInterface
+msgid "Interface"
+msgstr "Sučelje"
+
+#: $strInternalAndForeign
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Interna relacija nije potrebna ako postoji odgovarajuća relacija FOREIGN "
+"KEY."
+
+#: $strInternalRelationAdded
+msgid "Internal relation added"
+msgstr "Dodane interne relacije"
+
+#: $strInternalRelations
+msgid "Internal relations"
+msgstr "Interne relacije"
+
+#: $strInUse
+msgid "in use"
+msgstr "u upotrebi"
+
+#: $strInvalidAuthMethod
+msgid "Invalid authentication method set in configuration:"
+msgstr "Neispravan komplet načina provjere vjerodostojnosti u konfiguraciji:"
+
+#: $strInvalidColumnCount
+msgid "Column count has to be larger than zero."
+msgstr "Broj stupaca mora biti veći od nule."
+
+#: $strInvalidColumn
+msgid "Invalid column (%s) specified!"
+msgstr "Određen je neispravan stupac (%s) !"
+
+#: $strInvalidCSVFieldCount
+msgid "Invalid field count in CSV input on line %d."
+msgstr "Neispravan broj polja u CSV unosu unutar retka %d."
+
+#: $strInvalidCSVFormat
+msgid "Invalid format of CSV input on line %d."
+msgstr "Neispravno oblikovanje u CSV unosu unutar retka %d."
+
+#: $strInvalidCSVParameter
+msgid "Invalid parameter for CSV import: %s"
+msgstr "Neispravan parametar za CSV uvoz: %s"
+
+#: $strInvalidDatabase
+msgid "Invalid database"
+msgstr "Neispravna baza podataka"
+
+#: $strInvalidFieldAddCount
+msgid "You have to add at least one field."
+msgstr "Morate dodati najmanje jedno polje."
+
+#: $strInvalidFieldCount
+msgid "Table must have at least one field."
+msgstr "Tablica mora sadržavati najmanje jedno polje."
+
+#: $strInvalidLDIImport
+msgid "This plug-in does not support compressed imports!"
+msgstr "Ovaj dodatak ne podržava uvoz komprimiranih datoteka!"
+
+#: $strInvalidRowNumber
+msgid "%d is not valid row number."
+msgstr "%d nije valjani broj retka."
+
+#: $strInvalidServerHostname
+msgid "Invalid hostname for server %1$s. Please review your configuration."
+msgstr ""
+"Neispravan naziv za poslužitelj %1$s. Molimo, pregledajte svoju "
+"konfiguraciju."
+
+#: $strInvalidServerIndex
+msgid "Invalid server index: \"%s\""
+msgstr "Neispravan indeks poslužitelja: \"%s\""
+
+#: $strInvalidTableName
+msgid "Invalid table name"
+msgstr "Neispravan naziv tablice"
+
+#: $strJapanese
+msgid "Japanese"
+msgstr "Japanski"
+
+#: $strJavascriptDisabled
+msgid ""
+"Javascript support is missing or disabled in your browser, some phpMyAdmin "
+"functionality will be missing. For example navigation frame will not refresh "
+"automatically."
+msgstr ""
+
+#: $strJoins
+msgid "Joins"
+msgstr "Spojevi"
+
+#: $strJumpToDB
+msgid "Jump to database &quot;%s&quot;."
+msgstr "Skoči do baze podataka \"%s\"."
+
+#: $strJustDeleteDescr
+msgid ""
+"The &quot;deleted&quot; users will still be able to access the server as "
+"usual until the privileges are reloaded."
+msgstr ""
+"\"Izbrisani\" će korisnici i dalje moći pristupati poslužitelju sve dok se "
+"privilegije ne učitaju ponovo."
+
+#: $strJustDelete
+msgid "Just delete the users from the privilege tables."
+msgstr "Samo izbriši korisnike iz tablice privilegija."
+
+#: $strKeepPass
+msgid "Do not change the password"
+msgstr "Ne mijenjaj lozinku"
+
+#: $strKeyCache
+msgid "Key cache"
+msgstr "Pohrana ključeva"
+
+#: $strKeyname
+msgid "Keyname"
+msgstr "Naziv ključa"
+
+#: $strKill
+msgid "Kill"
+msgstr "Eliminiraj"
+
+#: $strKnownExternalBug
+msgid "The %s functionality is affected by a known bug, see %s"
+msgstr "Na funkcionalnost %s utječe poznati nedostatak. Pogledajte %s"
+
+#: $strKorean
+msgid "Korean"
+msgstr "Korejski"
+
+#: $strLandscape
+msgid "Landscape"
+msgstr "Položeno"
+
+#: $strLanguage
+msgid "Language"
+msgstr "Jezik"
+
+#: $strLanguageUnknown
+msgid "Unknown language: %1$s."
+msgstr "Nepoznati jezik: %1$s."
+
+#: $strLatchedPages
+msgid "Latched pages"
+msgstr "Vezane stranice"
+
+#: $strLatexCaption
+msgid "Table caption"
+msgstr "Naslov tablice"
+
+#: $strLatexContent
+msgid "Content of table __TABLE__"
+msgstr "Sadržaj tablice __TABLE__"
+
+#: $strLatexContinuedCaption
+msgid "Continued table caption"
+msgstr "Nastavljeni naslov tablice"
+
+#: $strLatexContinued
+msgid "(continued)"
+msgstr "(nastavljeno)"
+
+#: $strLatexIncludeCaption
+msgid "Include table caption"
+msgstr "Uključi naslov tablice"
+
+#: $strLatexLabel
+msgid "Label key"
+msgstr "Ključ oznake"
+
+#: $strLaTeX
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: $strLatexStructure
+msgid "Structure of table __TABLE__"
+msgstr "Struktura tablice __TABLE__"
+
+#: $strLatvian
+msgid "Latvian"
+msgstr "Latvijski"
+
+#: $strLDI
+msgid "CSV using LOAD DATA"
+msgstr "CSV upotrebom LOAD DATA"
+
+#: $strLDILocal
+msgid "Use LOCAL keyword"
+msgstr "Upotrijebi lokalnu ključnu riječ"
+
+#: $strLengthSet
+msgid "Length/Values"
+msgstr "Duljina/Vrijednosti"
+
+#: $strLimitNumRows
+msgid "Number of rows per page"
+msgstr "Broj redaka po stranici"
+
+#: $strLinesTerminatedBy
+msgid "Lines terminated by"
+msgstr "Redovi završeni s"
+
+#: $strLinkNotFound
+msgid "Link not found"
+msgstr "Veza nije pronađena"
+
+#: $strLinksTo
+msgid "Links to"
+msgstr "Povezano s"
+
+#: $strLithuanian
+msgid "Lithuanian"
+msgstr "Litavski"
+
+#: $strLocalhost
+msgid "Local"
+msgstr "Lokalno"
+
+#: $strLocationTextfile
+msgid "Location of the text file"
+msgstr "Lokacija tekstualne datoteke"
+
+#: $strLoginInformation
+msgid "Login Information"
+msgstr "_Podaci prijave"
+
+#: $strLogin
+msgid "Log in"
+msgstr "Prijava"
+
+#: $strLoginWithoutPassword
+msgid ""
+"Login without a password is forbidden by configuration (see AllowNoPassword)"
+msgstr ""
+
+#: $strLogout
+msgid "Log out"
+msgstr "Odjava"
+
+#: $strLogPassword
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: $strLogServerHelp
+msgid "You can enter hostname/IP address and port separated by space."
+msgstr ""
+
+#: $strLogServer
+msgid "Server:"
+msgstr "Poslužitelj"
+
+#: $strLogUsername
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#: $strLongOperation
+msgid "This operation could take a long time. Proceed anyway?"
+msgstr "Ovaj postupak može potrajati dulje vrijeme. Ipak nastaviti?"
+
+#: $strMaxConnects
+msgid "max. concurrent connections"
+msgstr "najv. uzastopnih veza"
+
+#: $strMaximalQueryLength
+msgid "Maximal length of created query"
+msgstr "Najveća duljina izrađenog upita"
+
+#: $strMaximumSize
+msgid "Max: %s%s"
+msgstr "Najv: %s%s"
+
+#: $strMbExtensionMissing
+msgid ""
+"The mbstring PHP extension was not found and you seem to be using a "
+"multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
+"split strings correctly and it may result in unexpected results."
+msgstr ""
+"PHP proširenje mbstring nije pronađeno i izgleda da upotrebljavate multibyte "
+"tablicu znakova. Bez proširenja mbstring, phpMyAdmin nije u mogućnosti "
+"pravilno razdjeljivati naredbe i može doći do neočekivanih rezultata."
+
+#: $strMbOverloadWarning
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+"Omogućili ste funkciju mbstring.func_overload u vašoj PHP konfiguraciji. Ova "
+"opcija nije kompatibilna s programom phpMyAdmin i može prouzrokovati "
+"oštećivanje nekih podataka!"
+
+#: $strMediaWiki
+msgid "MediaWiki Table"
+msgstr ""
+
+#: $strMIME_available_mime
+msgid "Available MIME types"
+msgstr "Raspoložive MIME vrste"
+
+#: $strMIME_available_transform
+msgid "Available transformations"
+msgstr "Raspoloživa preoblikovanja"
+
+#: $strMIME_description
+msgctxt "$strMIME_description"
+msgid "Description"
+msgstr "Opis"
+
+#: $strMIME_MIMEtype
+msgid "MIME type"
+msgstr "MIME vrsta"
+
+#: $strMIME_nodescription
+msgid ""
+"No description is available for this transformation.<br />Please ask the "
+"author what %s does."
+msgstr ""
+"Za ovo preoblikovanje ne postoji raspoloživ opis.<br />Molimo da od autora "
+"zatražite objašnjenje rada %s ."
+
+#: $strMIME_transformation
+msgid "Browser transformation"
+msgstr "Pretvaranje preglednika"
+
+#: $strMIME_transformation_note
+msgid ""
+"For a list of available transformation options and their MIME type "
+"transformations, click on %stransformation descriptions%s"
+msgstr ""
+"Za popis raspoloživih opcija preoblikovanja i njihovih MIME vrsta "
+"oblikovanja, pritisnite %sopcije preoblikovanja%s"
+
+#: $strMIME_transformation_options_note
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
+"100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
+"jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka stavite "
+"lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
+
+#: $strMIME_transformation_options
+msgid "Transformation options"
+msgstr "Opcije preoblikovanja"
+
+#: $strMIMETypesForTable
+msgid "MIME TYPES FOR TABLE"
+msgstr "MIME VRSTE ZA TABLICU"
+
+#: $strMIME_without
+msgid ""
+"MIME types printed in italics do not have a separate transformation function"
+msgstr "MIME vrste ispisane kurzivom nemaju posebnu funkciju preoblikovanja"
+
+#: $strModifications
+msgid "Modifications have been saved"
+msgstr "Izmjene su spremljene"
+
+#: $strModifyIndexTopic
+msgid "Modify an index"
+msgstr "Uredi indeks"
+
+#: $strModify
+msgid "Modify"
+msgstr "Uredi"
+
+#: $strMoveMenu
+msgid "Move Menu"
+msgstr "Premjesti izbornik"
+
+#: $strMoveTable
+msgid "Move table to (database<b>.</b>table):"
+msgstr "Premjesti tablicu u (bazapodataka<b>.</b>tablica):"
+
+#: $strMoveTableOK
+msgid "Table %s has been moved to %s."
+msgstr "Tablica %s premještena je u %s."
+
+#: $strMoveTableSameNames
+msgid "Can't move table to same one!"
+msgstr "Premještanje u istu tablicu nije moguće!"
+
+#: $strMultilingual
+msgid "multilingual"
+msgstr "višejezično"
+
+#: $strMyISAMDataPointerSize
+msgid "Data pointer size"
+msgstr "Veličina pokazatelja podataka"
+
+#: $strMyISAMDataPointerSizeDesc
+msgid ""
+"The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
+"tables when no MAX_ROWS option is specified."
+msgstr ""
+"Zadana veličina pokazatelja podataka u bajtovima, koju će upotrijebiti "
+"naredba CREATE TABLE za MyISAM tablice ako opcija MAX_ROWS nije određena."
+
+#: $strMyISAMMaxExtraSortFileSizeDesc
+msgid ""
+"If the temporary file used for fast MyISAM index creation would be larger "
+"than using the key cache by the amount specified here, prefer the key cache "
+"method."
+msgstr ""
+"Ako bi privremena datoteka za brzu izradu MyISAM indeksa mogla biti veća od "
+"pohrane ključeva, uz ovdje navedenu vrijednost, preferiraj način pohrane "
+"ključeva."
+
+#: $strMyISAMMaxExtraSortFileSize
+msgid "Maximum size for temporary files on index creation"
+msgstr "Najveća veličina privremenih datoteka pri izradi indeksa"
+
+#: $strMyISAMMaxSortFileSizeDesc
+msgid ""
+"The maximum size of the temporary file MySQL is allowed to use while re-"
+"creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
+"INFILE)."
+msgstr ""
+"Najveća veličina privremene datoteke koju MySQL smije upotrijebiti tijekom "
+"ponovne izrade MyISAM indeksa (tijekom izvođenja naredbi REPAIR TABLE, ALTER "
+"TABLE ili LOAD DATA INFILE)."
+
+#: $strMyISAMMaxSortFileSize
+msgid "Maximum size for temporary sort files"
+msgstr "Najveća veličina datoteke za privremeno preslagivanje"
+
+#: $strMyISAMRecoverOptions
+msgid "Automatic recovery mode"
+msgstr "Rad s automatskim povratom"
+
+#: $strMyISAMRecoverOptionsDesc
+msgid ""
+"The mode for automatic recovery of crashed MyISAM tables, as set via the "
+"--myisam-recover server startup option."
+msgstr ""
+"Način rada za automatski povrat srušenih MyISAM tablica, na način kojim je "
+"određen putem opcije --myisam-recover."
+
+#: $strMyISAMRepairThreadsDesc
+msgid ""
+"If this value is greater than 1, MyISAM table indexes are created in "
+"parallel (each index in its own thread) during the repair by sorting "
+"process."
+msgstr ""
+"Ako je ova vrijednost veća od 1, MyISAM indeksi tablica izrađuju se "
+"paralelno (svaki indeks unutar vlastite grane) tijekom popravka putem "
+"postupka preslagivanja."
+
+#: $strMyISAMRepairThreads
+msgid "Repair threads"
+msgstr "Popravi grane"
+
+#: $strMyISAMSortBufferSizeDesc
+msgid ""
+"The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
+"TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
+msgstr ""
+"Međuspremnik koji je predodređen za potrebe preslagivanja MyISAM indeksa "
+"tijekom naredbe REPAIR TABLE ili tijekom izrade indeksa naredbama CREATE "
+"INDEX ili ALTER TABLE."
+
+#: $strMyISAMSortBufferSize
+msgid "Sort buffer size"
+msgstr "Veličina međuspremnika preslagivanja"
+
+#: $strMySQLCharset
+msgid "MySQL charset"
+msgstr "MySQL tablica znakova"
+
+#: $strMysqlClientVersion
+msgid "MySQL client version"
+msgstr "MySQL verzija klijenta"
+
+#: $strMySQLConnectionCollation
+msgid "MySQL connection collation"
+msgstr "MySQL uspoređivanje veza"
+
+#: $strMysqlLibDiffersServerVersion
+msgid ""
+"Your PHP MySQL library version %s differs from your MySQL server version %s. "
+"This may cause unpredictable behavior."
+msgstr ""
+"Verzija %s vaše PHP MySQL biblioteke razlikuje se oda vaše verzije %s MySQL "
+"poslužitelja. Ovo bi moglo prouzrokovati nepredviđeno ponašanje."
+
+#: $strMySQLSaid
+msgid "MySQL said: "
+msgstr "MySQL je poručio:  "
+
+#: $strMySQLShowProcess
+msgid "Show processes"
+msgstr "Prikaži procese"
+
+#: $strName
+msgid "Name"
+msgstr "Naziv"
+
+#: $strNavTableFilter
+msgid "Filter"
+msgstr ""
+
+#: $strNewTable
+msgid "New table"
+msgstr ""
+
+#: $strNext
+msgid "Next"
+msgstr "Sljedeće"
+
+#: $strNoActivity
+msgid "No activity within %s seconds; please log in again"
+msgstr "Nije bilo nikakvih aktivnosti tijekom %s sekunda. Prijavite se ponovo."
+
+#: $strNoDatabases
+msgid "No databases"
+msgstr "Nema baza podataka"
+
+#: $strNoDatabasesSelected
+msgid "No databases selected."
+msgstr "Nema odabrane baze podataka."
+
+#: $strNoDataReceived
+msgid ""
+"No data was received to import. Either no file name was submitted, or the "
+"file size exceeded the maximum size permitted by your PHP configuration. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+msgstr ""
+"Nisu primljeni nikakvi podaci za uvoz. Ili nije dat naziv datoteke ili "
+"veličina datoteke prelazi najveću dopuštenu veličinu od strane vaše PHP "
+"konfiguracije. Pogledajte ČPP 1.16."
+
+#: $strNoDescription
+msgid "no description"
+msgstr "bez opisa"
+
+#: $strNoDetailsForEngine
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr "Za ovaj pogon pohranjivanje ne postoje raspoloživi podaci."
+
+#: $strNoDropDatabases
+msgid "\"DROP DATABASE\" statements are disabled."
+msgstr "\"DROP DATABASE\" izjave su onemogućene."
+
+#: $strNoExplain
+msgid "Skip Explain SQL"
+msgstr "Preskoči Objasni SQL"
+
+#: $strNoFilesFoundInZip
+msgid "No files found inside ZIP archive!"
+msgstr "Datoteke nisu pronađene unutar ZIP arhive!"
+
+#: $strNoFrames
+msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+msgstr ""
+"phpMyAdmin je jednostavniji za upotrebu s preglednikom koji <b>podržava "
+"okvire</b>."
+
+#: $strNoIndex
+msgid "No index defined!"
+msgstr "Nema definiranog indeksa!"
+
+#: $strNoIndexPartsDefined
+msgid "No index parts defined!"
+msgstr "Nema definiranih dijelova indeksa!"
+
+#: $strNoModification
+msgid "No change"
+msgstr "Bez izmjena"
+
+#: $strNoneDefault
+msgctxt "$strNoneDefault"
+msgid "None"
+msgstr ""
+
+#: $strNone
+msgctxt "$strNone"
+msgid "None"
+msgstr "bez kompresije"
+
+#: $strNo
+msgid "No"
+msgstr "Ne"
+
+#: $strNoOptions
+msgid "This format has no options"
+msgstr "Ovaj oblik nema raspoložive opcije"
+
+#: $strNoPassword
+msgid "No Password"
+msgstr "Bez lozinke"
+
+#: $strNoPermission
+msgid "The web server does not have permission to save the file %s."
+msgstr "Web poslužitelj nema dopuštenja za spremanje datoteke %s."
+
+#: $strNoPhp
+msgid "Without PHP Code"
+msgstr "Bez PHP koda"
+
+#: $strNoPrivileges
+msgid "No Privileges"
+msgstr "Bez privilegija"
+
+#: $strNoRights
+msgid "You don't have sufficient privileges to be here right now!"
+msgstr "Nemate dovoljno privilegija da boravite ovdje!"
+
+#: $strNoRowsSelected
+msgid "No rows selected"
+msgstr "Nema odabranih redova"
+
+#: $strNoSpace
+msgid "Insufficient space to save the file %s."
+msgstr "Nema dovoljno prostora za spremanje datoteke %s."
+
+#: $strNoTablesFound
+msgid "No tables found in database."
+msgstr "U bazi podataka nisu pronađene tablice."
+
+#: $strNoThemeSupport
+msgid ""
+"No themes support; please check your configuration and/or your themes in "
+"directory %s."
+msgstr ""
+"Podrška za teme ne postoji. Provjerite vašu konfiguraciju i/ili vaše teme u "
+"mapi %s."
+
+#: $strNotNumber
+msgid "This is not a number!"
+msgstr "Ovo nije brojka!"
+
+#: $strNotOK
+msgid "not OK"
+msgstr "nije OK"
+
+#: $strNotPresent
+msgid "not present"
+msgstr ""
+
+#: $strNotSet
+msgid "<b>%s</b> table not found or not set in %s"
+msgstr "tablica <b>%s</b> nije pronađena ili nije zadana u %s"
+
+#: $strNoUsersFound
+msgid "No user(s) found."
+msgstr "Korisnici nisu pronađeni."
+
+#: $strNoValidateSQL
+msgid "Skip Validate SQL"
+msgstr "Preskoči provjeru valjanosti SQL-a"
+
+#: $strNull
+msgid "Null"
+msgstr "Null"
+
+#: $strNumberOfFields
+msgid "Number of fields"
+msgstr "Broj polja"
+
+#: $strNumberOfTables
+msgid "Number of tables"
+msgstr "Broj tablica"
+
+#: $strNumSearchResultsInTable
+msgid "%s match(es) inside table <i>%s</i>"
+msgstr "%s poklapanja unutar tablice <i>%s</i>"
+
+#: $strNumSearchResultsTotal
+msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgstr "<b>Ukupno:</b> <i>%s</i> poklapanja"
+
+#: $strNumTables
+msgctxt "$strNumTables"
+msgid "Tables"
+msgstr "Tablice"
+
+#: $strOK
+msgid "OK"
+msgstr "U redu  "
+
+#: $strOpenDocumentSpreadsheet
+msgctxt "$strOpenDocumentSpreadsheet"
+msgid "Open Document Spreadsheet"
+msgstr "Otvori izračunsku tablicu dokumenta"
+
+#: $strOpenDocumentText
+msgid "Open Document Text"
+msgstr "Otvori tekst dokumenta"
+
+#: $strOpenNewWindow
+msgid "Open new phpMyAdmin window"
+msgstr "Otvori novi phpMyAdmin prozor"
+
+#: $strOperations
+msgid "Operations"
+msgstr "Operacije"
+
+#: $strOperator
+msgid "Operator"
+msgstr "Operator"
+
+#: $strOptimize
+msgid "Optimise"
+msgstr "Optimiziraj"
+
+#: $strOptimizeTable
+msgid "Optimise table"
+msgstr "Optimiziraj tablicu"
+
+#: $strOptions
+msgid "Options"
+msgstr "Opcije"
+
+#: $strOr
+msgid "Or"
+msgstr "Ili"
+
+#: $strOverhead
+msgid "Overhead"
+msgstr "Prepunjenje"
+
+#: $strOverwriteExisting
+msgctxt "$strOverwriteExisting"
+msgid "Overwrite existing file(s)"
+msgstr "Prepiši postojeće datoteke"
+
+#: $strPacked
+msgid "Packed"
+msgstr "Pakirano"
+
+#: $strPageNumber
+msgid "Page number:"
+msgstr "Broj stranice:"
+
+#: $strPagesToBeFlushed
+msgid "Pages to be flushed"
+msgstr "Stranice za pražnjenje"
+
+#: $strPaperSize
+msgid "Paper size"
+msgstr "Veličina papira"
+
+#: $strPartialImport
+msgid "Partial import"
+msgstr "Djelomičan uvoz"
+
+#: $strPartialText
+msgid "Partial Texts"
+msgstr "Djelomični tekstovi"
+
+#: $strPartitionDefinition
+msgid "PARTITION definition"
+msgstr "Definicija PARTICIJE"
+
+#: $strPartitioned
+msgid "partitioned"
+msgstr "particionirano"
+
+#: $strPartitionMaintenance
+msgid "Partition maintenance"
+msgstr "Održavanje particije"
+
+#: $strPartition
+msgid "Partition %s"
+msgstr "Particija %s"
+
+#: $strPasswordChanged
+msgid "The password for %s was changed successfully."
+msgstr "Lozinka za %s uspješno je promijenjena."
+
+#: $strPasswordEmpty
+msgid "The password is empty!"
+msgstr "Lozinka je prazna!"
+
+#: $strPasswordHashing
+msgid "Password Hashing"
+msgstr "Izrada presjeka lozinke"
+
+#: $strPasswordNotSame
+msgid "The passwords aren't the same!"
+msgstr "Lozinke se ne podudaraju!"
+
+#: $strPassword
+msgid "Password"
+msgstr "Lozinka"
+
+#: $strPBXTCheckpointFrequency
+msgid "Checkpoint frequency"
+msgstr "Učestalost točke provjere"
+
+#: $strPBXTCheckpointFrequencyDesc
+msgid ""
+"The amount of data written to the transaction log before a checkpoint is "
+"performed. The default value is 24MB."
+msgstr ""
+"Količina podataka zapisana u zapisnik transakcija prije izvođenja točke "
+"provjere. Zadana vrijednost je 24 MB."
+
+#: $strPBXTDataFileGrowSize
+msgid "Data file grow size"
+msgstr "Veličina porasta datoteke podataka"
+
+#: $strPBXTDataFileGrowSizeDesc
+msgid "The grow size of the handle data (.xtd) files."
+msgstr "Veličina porasta rukovanim datotekama podataka (.xtr)."
+
+#: $strPBXTDataLogThreshold
+msgid "Data log threshold"
+msgstr "Najveća veličina zapisnika podataka"
+
+#: $strPBXTDataLogThresholdDesc
+msgid ""
+"The maximum size of a data log file. The default value is 64MB. PBXT can "
+"create a maximum of 32000 data logs, which are used by all tables. So the "
+"value of this variable can be increased to increase the total amount of data "
+"that can be stored in the database."
+msgstr ""
+"Najveća dopuštena veličina datoteke zapisnika podataka. Zadana vrijednost je "
+"64 MB. PBXT može izraditi najviše 32.000 zapisnika koje koriste sve "
+"tablice. Vrijednost ove varijable može se povećati kako bi se povećao ukupan "
+"broj podataka koji se mogu pohraniti u bazu podataka."
+
+#: $strPBXTGarbageThresholdDesc
+msgid ""
+"The percentage of garbage in a data log file before it is compacted. This is "
+"a value between 1 and 99. The default is 50."
+msgstr ""
+"Postotak otpada u datoteci zapisnika podataka prije sređivanja. Vrijednost "
+"može biti od 1 do 99. Zadana vrijednost je 50."
+
+#: $strPBXTGarbageThreshold
+msgid "Garbage threshold"
+msgstr "Najveća veličina otpada"
+
+#: $strPBXTIndexCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the index cache. Default value is "
+"32MB. The memory allocated here is used only for caching index pages."
+msgstr ""
+"Količina memorije dodijeljena međuspremniku indeksa. Zadana vrijednost je 32 "
+"MB. Ovdje dodijeljena memorija koristi se samo za međupohranjivanje "
+"stranica indeksa."
+
+#: $strPBXTIndexCacheSize
+msgid "Index cache size"
+msgstr "Veličina pohrane indeksa"
+
+#: $strPBXTLogBufferSizeDesc
+msgid ""
+"The size of the buffer used when writing a data log. The default is 256MB. "
+"The engine allocates one buffer per thread, but only if the thread is "
+"required to write a data log."
+msgstr ""
+"Veličina međuspremnika tijekom zapisivanja podataka zapisnika. Zadana "
+"vrijednost je 256 MB. Pogon dodjeljuje jedan međuspremnik po grani, ali samo "
+"ako je grana potrebna za zapisivanje zapisnika podataka."
+
+#: $strPBXTLogBufferSize
+msgid "Log buffer size"
+msgstr "Veličina međuspremnika zapisnika"
+
+#: $strPBXTLogCacheSizeDesc
+msgid ""
+"The amount of memory allocated to the transaction log cache used to cache on "
+"transaction log data. The default is 16MB."
+msgstr ""
+"Količina memorije dodijeljena međuspremniku zapisnika transakcija. Zadana "
+"vrijednost je 16 MB."
+
+#: $strPBXTLogCacheSize
+msgid "Log cache size"
+msgstr "Veličina pohrane zapisnika"
+
+#: $strPBXTLogFileCountDesc
+msgid ""
+"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
+"system will maintain. If the number of logs exceeds this value then old logs "
+"will be deleted, otherwise they are renamed and given the next highest "
+"number."
+msgstr ""
+"Broj datoteka zapisnika transakcija (pbxt/system/xlog*.xt) koje će sustav "
+"održavati. Ako broj zapisnika premašuje ovu vrijednost, stari zapisnici bit "
+"će izbrisani. U protivnom se preimenuju i daje im se sljedeći veći redni "
+"broj."
+
+#: $strPBXTLogFileCount
+msgid "Log file count"
+msgstr "Najveći broj datoteka zapisnika"
+
+#: $strPBXTLogFileThresholdDesc
+msgid ""
+"The size of a transaction log before rollover, and a new log is created. The "
+"default value is 16MB."
+msgstr ""
+"Veličina zapisnika transakcija prije povrata i izrade novog zapisnika. "
+"Zadana vrijednost je 16 MB."
+
+#: $strPBXTLogFileThreshold
+msgid "Log file threshold"
+msgstr "Najveća veličina datoteke zapisnika"
+
+#: $strPBXTRecordCacheSizeDesc
+msgid ""
+"This is the amount of memory allocated to the record cache used to cache "
+"table data. The default value is 32MB. This memory is used to cache changes "
+"to the handle data (.xtd) and row pointer (.xtr) files."
+msgstr ""
+"Količina memorije dodijeljena međuspremniku zapisnika koja se koristi za "
+"međuspremanje podataka tablice. Zadana vrijednost je 32 MB. Ova se memorija "
+"upotrebljava za međuspremanje izmjena u datotekama rukovanim podacima (.xtd) "
+"pokazivača retka (.xtr)."
+
+#: $strPBXTRecordCacheSize
+msgid "Record cache size"
+msgstr "Veličina pohrane zapisa"
+
+#: $strPBXTRowFileGrowSizeDesc
+msgid "The grow size of the row pointer (.xtr) files."
+msgstr "Veličina porasta datoteka pokazivača retka (.xtr)."
+
+#: $strPBXTRowFileGrowSize
+msgid "Row file grow size"
+msgstr "Veličina porasta datoteke redaka"
+
+#: $strPBXTTransactionBufferSizeDesc
+msgid ""
+"The size of the global transaction log buffer (the engine allocates 2 "
+"buffers of this size). The default is 1MB."
+msgstr ""
+"Veličina globalnog međuspremnika zapisnika transakcija (pogon dodjeljuje 2 "
+"međuspremnika ove veličine). Zadana vrijednost je 1 MB."
+
+#: $strPBXTTransactionBufferSize
+msgid "Transaction buffer size"
+msgstr "Veličina međuspremnika transakcije"
+
+#: $strPdfDbSchema
+msgid "Schema of the \"%s\" database - Page %s"
+msgstr "Shema \"%s\" baza podataka - stranica %s"
+
+#: $strPdfInvalidTblName
+msgid "The \"%s\" table doesn't exist!"
+msgstr "Tablica \"%s\" ne postoji!"
+
+#: $strPdfNoTables
+msgid "No tables"
+msgstr "Nema tablica"
+
+#: $strPDFPageCreated
+msgid "Page has been created"
+msgstr ""
+
+#: $strPDFPageCreateFailed
+msgid "Page creation failed"
+msgstr ""
+
+#: $strPDF
+msgid "PDF"
+msgstr "PDF"
+
+#: $strPDFReportExplanation
+msgid "(Generates a report containing the data of a single table)"
+msgstr "(Generira izvještaj koji sadrži podatke samo jedne tablice)"
+
+#: $strPDFReportTitle
+msgid "Report title"
+msgstr "Naslov izvještaja"
+
+#: $strPerHour
+msgid "per hour"
+msgstr "po satu"
+
+#: $strPerMinute
+msgid "per minute"
+msgstr "po minuti"
+
+#: $strPerSecond
+msgid "per second"
+msgstr "po sekundi"
+
+#: $strPersian
+msgid "Persian"
+msgstr "Perzijski"
+
+#: $strPhoneBook
+msgid "phone book"
+msgstr "telefonski imenik"
+
+#: $strPhpArray
+msgid "PHP array"
+msgstr ""
+
+#: $strPhp
+msgctxt "$strPhp"
+msgid "Create PHP Code"
+msgstr "Izradi PHP kod"
+
+#: $strPHPExtension
+msgid "PHP extension"
+msgstr "PHP ekstenzija"
+
+#: $strPHPVersion
+msgid "PHP Version"
+msgstr "PHP verzija"
+
+#: $strPlayAudio
+msgid "Play audio"
+msgstr ""
+
+#: $strPleaseSelectPrimaryOrUniqueKey
+msgid "Please select the primary key or a unique key"
+msgstr "Odaberite primarni ključ ili jedinstveni ključ"
+
+#: $strPmadbCreateConfig
+msgid ""
+"Enable advanced features in configuration file "
+"(<code>config.inc.php</code>), for example by starting from "
+"<code>config.sample.inc.php</code>."
+msgstr ""
+
+#: $strPmadbCreateHelp
+msgid "Quick steps to setup advanced features:"
+msgstr ""
+
+#: $strPmadbCreateTables
+msgid ""
+"Create the needed tables with the <code>script/create_tables.sql</code>."
+msgstr ""
+
+#: $strPmadbCreateUser
+msgid "Create a pma user and give access to these tables."
+msgstr ""
+
+#: $strPmadbReLoginToEnable
+msgid "Re-login to phpMyAdmin to load the updated configuration file."
+msgstr ""
+
+#: $strPmaDocumentation
+msgid "phpMyAdmin documentation"
+msgstr "phpMyAdmin dokumentacija"
+
+#: $strPmaUriError
+msgid ""
+"The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
+"configuration file!"
+msgstr ""
+"Direktiva <tt>$cfg['PmaAbsoluteUri']</tt> MORA BITI postavljena u vašoj "
+"konfiguracijskoj datoteci!"
+
+#: $strPolish
+msgid "Polish"
+msgstr "Poljski"
+
+#: $strPort
+msgid "Port"
+msgstr ""
+
+#: $strPortrait
+msgid "Portrait"
+msgstr "Portret"
+
+#: $strPos1
+msgid "Begin"
+msgstr "Na vrh stranice"
+
+#: $strPrevious
+msgid "Previous"
+msgstr "Prethodni"
+
+#: $strPrimaryKeyHasBeenDropped
+msgid "The primary key has been dropped"
+msgstr "Primarni ključ je odbačen"
+
+#: $strPrimaryKeyName
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "Naziv primarnog ključa mora biti \"PRIMARY\"!"
+
+#: $strPrimaryKeyWarning
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr ""
+"(\"PRIMARY\" <b>mora biti</b> naziv i <b>samo naziv</b> primarnog ključa!)"
+
+#: $strPrimary
+msgid "Primary"
+msgstr "Primarni"
+
+#: $strPrint
+msgid "Print"
+msgstr "Ispiši"
+
+#: $strPrintViewFull
+msgid "Print view (with full texts)"
+msgstr "Prikaz ispisa (s potpunim tekstovima)"
+
+#: $strPrintView
+msgid "Print view"
+msgstr "Prikaz ispisa"
+
+#: $strPrivDescAllPrivileges
+msgid "Includes all privileges except GRANT."
+msgstr "Obuhvaća sve privilegije osim GRANT (Podari)."
+
+#: $strPrivDescAlter
+msgid "Allows altering the structure of existing tables."
+msgstr "Dopušta izmjenu strukture postojećih tablice."
+
+#: $strPrivDescAlterRoutine
+msgid "Allows altering and dropping stored routines."
+msgstr "Dopušta izmjenu i odbacivanje pohranjenih rutina."
+
+#: $strPrivDescCreateDb
+msgid "Allows creating new databases and tables."
+msgstr "Dopušta izradu novih baze podataka i tablice."
+
+#: $strPrivDescCreateRoutine
+msgid "Allows creating stored routines."
+msgstr "Dopušta izradu pohranjenih rutina."
+
+#: $strPrivDescCreateTbl
+msgid "Allows creating new tables."
+msgstr "Dopušta izradu novih tablica."
+
+#: $strPrivDescCreateTmpTable
+msgid "Allows creating temporary tables."
+msgstr "Dopušta izradu privremenih tablica."
+
+#: $strPrivDescCreateUser
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Dopušta izradu, odbacivanje i preimenovanje korisničkih naloga."
+
+#: $strPrivDescCreateView
+msgid "Allows creating new views."
+msgstr "Dopušta izradu novih prikaza."
+
+#: $strPrivDescDelete
+msgid "Allows deleting data."
+msgstr "Dopušta brisanje podataka."
+
+#: $strPrivDescDropDb
+msgid "Allows dropping databases and tables."
+msgstr "Dopušta odbacivanje baza podataka i tablica."
+
+#: $strPrivDescDropTbl
+msgid "Allows dropping tables."
+msgstr "Dopušta odbacivanje tablica."
+
+#: $strPrivDescEvent
+msgid "Allows to set up events for the event scheduler"
+msgstr "Omogućuje postavljanje događaja za planer"
+
+#: $strPrivDescExecute5
+msgid "Allows executing stored routines."
+msgstr "Dopušta pokretanje pohranjenih rutina."
+
+#: $strPrivDescExecute
+msgid "Allows running stored procedures; has no effect in this MySQL version."
+msgstr ""
+"Dopušta izvršavanje pohranjenih postupaka. Nema učinka u ovoj verziji "
+"MySQL-a."
+
+#: $strPrivDescFile
+msgid "Allows importing data from and exporting data into files."
+msgstr "Dopušta uvoz i izvoz podataka iz datoteka."
+
+#: $strPrivDescGrant
+msgid ""
+"Allows adding users and privileges without reloading the privilege tables."
+msgstr ""
+"Dopušta dodavanje korisnika i privilegija bez ponovnog učitavanja tablica."
+
+#: $strPrivDescIndex
+msgid "Allows creating and dropping indexes."
+msgstr "Dopušta izradu i odbacivanje indeksa."
+
+#: $strPrivDescInsert
+msgid "Allows inserting and replacing data."
+msgstr "Dopušta umetanje i zamjenu podataka."
+
+#: $strPrivDescLockTables
+msgid "Allows locking tables for the current thread."
+msgstr "Dopušta zaključavanje tablica u trenutnoj grani."
+
+#: $strPrivDescMaxConnections
+msgid "Limits the number of new connections the user may open per hour."
+msgstr "Ograničava broj novih povezivanja koje korisnik može otvoriti, po satu."
+
+#: $strPrivDescMaxQuestions
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "Ograničava broj upita koje korisnik može poslati poslužitelju, po satu."
+
+#: $strPrivDescMaxUpdates
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Ograničava broj naredbi koje korisnik može pokrenuti, a čija je namjena "
+"mijenjanje bilo koje tablice ili baze podataka, po satu."
+
+#: $strPrivDescMaxUserConnections
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Ograničava broj istovremenih povezivanja koje korisnik može imati."
+
+#: $strPrivDescProcess
+msgid "Allows viewing processes of all users"
+msgstr "Omogućuje pregledavanje procesa za sve korisnike"
+
+#: $strPrivDescReferences
+msgid "Has no effect in this MySQL version."
+msgstr "Nema učinka u ovoj verziji MySQL-a."
+
+#: $strPrivDescReload
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr ""
+"Dopušta ponovno učitavanje postavki poslužitelja i pražnjenje privremene "
+"pohrane poslužitelja."
+
+#: $strPrivDescReplClient
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "Dopušta korisnik postavljanje upita o lokaciji potčinjenih i gospodara."
+
+#: $strPrivDescReplSlave
+msgid "Needed for the replication slaves."
+msgstr "Potrebno za replikacijske potčinjene."
+
+#: $strPrivDescSelect
+msgid "Allows reading data."
+msgstr "Dopušta čitanje podataka."
+
+#: $strPrivDescShowDb
+msgid "Gives access to the complete list of databases."
+msgstr "Daje pristup cjelokupnom popisu baza podataka."
+
+#: $strPrivDescShowView
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Dopušta izvođenje upita SHOW CREATE VIEW."
+
+#: $strPrivDescShutdown
+msgid "Allows shutting down the server."
+msgstr "Dopušta gašenje poslužitelja."
+
+#: $strPrivDescSuper
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+"Dopušta povezivanje čak i kad je dostignut najveći broj veza. Potrebno za "
+"većinu administrativnih operacija poput postavljanja općih varijabli ili "
+"eliminiranje grana drugih korisnika."
+
+#: $strPrivDescTrigger
+msgid "Allows creating and dropping triggers"
+msgstr "Omogućuje izradu i uklanjanje okidača"
+
+#: $strPrivDescUpdate
+msgid "Allows changing data."
+msgstr "Dopušta mijenjanje podataka."
+
+#: $strPrivDescUsage
+msgid "No privileges."
+msgstr "Bez privilegija."
+
+#: $strPrivileges
+msgid "Privileges"
+msgstr "Privilegije"
+
+#: $strPrivilegesReloaded
+msgid "The privileges were reloaded successfully."
+msgstr "Privilegije su uspješno učitane."
+
+#: $strProcedures
+msgid "Procedures"
+msgstr "Postupci"
+
+#: $strProcesses
+msgid "Processes"
+msgstr "Procesi"
+
+#: $strProcesslist
+msgid "Process list"
+msgstr "Popis procesa"
+
+#: $strProfiling
+msgid "Profiling"
+msgstr "Izrada profila"
+
+#: $strProtocolVersion
+msgid "Protocol version"
+msgstr "Verzija protokola"
+
+#: $strPutColNames
+msgid "Put fields names in the first row"
+msgstr "Nazive polja stavi u prvi red"
+
+#: $strQBEDel
+msgid "Del"
+msgstr "Del"
+
+#: $strQBEIns
+msgid "Ins"
+msgstr "Ins"
+
+#: $strQBE
+msgid "Query"
+msgstr "Upit"
+
+#: $strQueriesExecuted
+msgid "The following queries have been executed:"
+msgstr ""
+
+#: $strQueryCache
+msgid "Query cache"
+msgstr "Pohrana upita"
+
+#: $strQueryFrame
+msgctxt "$strQueryFrame"
+msgid "Query window"
+msgstr "Prozor za upite"
+
+#: $strQueryOnDb
+msgid "SQL query on database <b>%s</b>:"
+msgstr "SQL upit nad bazom podataka <b>%s</b>:"
+
+#: $strQueryResultsOperations
+msgid "Query results operations"
+msgstr "Operacije rezultata upita"
+
+#: $strQuerySQLHistory
+msgid "SQL history"
+msgstr "SQL povijest"
+
+#: $strQueryStatistics
+msgid ""
+"<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
+"server."
+msgstr ""
+"<b>Statistike upita</b>: Od pokretanja poslužitelju je upućeno %s upita."
+
+#: $strQueryTime
+msgid "Query took %01.4f sec"
+msgstr "Upit je trajao %01,4f sek"
+
+#: $strQueryType
+msgid "Query type"
+msgstr "Vrsta upita"
+
+#: $strQueryWindowLock
+msgid "Do not overwrite this query from outside the window"
+msgstr "Ne prepisuj ovaj upit iz vanjskog prozora"
+
+#: $strReadRequests
+msgid "Read requests"
+msgstr "Pročitaj zahtjeve"
+
+#: $strRebuild
+msgid "Rebuild"
+msgstr "Ponovno izgradi"
+
+#: $strReceived
+msgid "Received"
+msgstr "Primljeno"
+
+#: $strRecommended
+msgid "recommended"
+msgstr "preporučeno"
+
+#: $strRecords
+msgid "Records"
+msgstr "Zapisi"
+
+#: $strReferentialIntegrity
+msgid "Check referential integrity:"
+msgstr "Provjeri referencijalan integritet:"
+
+#: $strRefresh
+msgctxt "$strRefresh"
+msgid "Refresh"
+msgstr "Osvježi"
+
+#: $strRelationalDisplayField
+msgid "Relational display field"
+msgstr "Polje za prikaz relacija"
+
+#: $strRelationalKey
+msgid "Relational key"
+msgstr "Relacijski ključ"
+
+#: $strRelationalSchema
+msgid "Relational schema"
+msgstr "Shema relacija"
+
+#: $strRelationDeleted
+msgid "Relation deleted"
+msgstr "Relacija je izbrisana"
+
+#: $strRelationNotWorking
+msgid ""
+"The additional features for working with linked tables have been "
+"deactivated. To find out why click %shere%s."
+msgstr ""
+"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
+"saznali razloge, pritisnite %sovdje%s."
+
+#: $strRelationsForTable
+msgid "RELATIONS FOR TABLE"
+msgstr "RELACIJE TABLICE"
+
+#: $strRelations
+msgid "Relations"
+msgstr "Relacije"
+
+#: $strRelationView
+msgid "Relation view"
+msgstr "Prikaz relacija"
+
+#: $strReloadingThePrivileges
+msgid "Reloading the privileges"
+msgstr "Ponovno učitavanje privilegija"
+
+#: $strReloadNavi
+msgid "Reload navigation frame"
+msgstr ""
+
+#: $strReloadPrivileges
+msgid "Reload privileges"
+msgstr "Ponovno učitaj privilegije"
+
+#: $strReload
+msgid "Reload"
+msgstr "Osvježi"
+
+#: $strRemoteServer
+msgid "Remote server"
+msgstr ""
+
+#: $strRemoveCRLF
+msgid "Remove CRLF characters within fields"
+msgstr ""
+
+#: $strRemovePartitioning
+msgid "Remove partitioning"
+msgstr "Ukloni particioniranje"
+
+#: $strRemoveSelectedUsers
+msgid "Remove selected users"
+msgstr "Ukloni odabrane korisnike"
+
+#: $strRenameDatabaseOK
+msgid "Database %s has been renamed to %s"
+msgstr "Baza podataka %s preimenovana je u %s"
+
+#: $strRenameTableOK
+msgid "Table %s has been renamed to %s"
+msgstr "Tablica %s preimenovana je u %s"
+
+#: $strRenameTable
+msgid "Rename table to"
+msgstr "Preimenuj tablicu u"
+
+#: $strRenameView
+msgid "Rename view to"
+msgstr ""
+
+#: $strRepair
+msgctxt "$strRepair"
+msgid "Repair"
+msgstr "Popravi"
+
+#: $strRepairTable
+msgid "Repair table"
+msgstr "Popravi tablicu"
+
+#: $strReplaceNULLBy
+msgid "Replace NULL by"
+msgstr "NULL zamijeni s"
+
+#: $strReplaceTable
+msgid "Replace table data with file"
+msgstr "Podatke tablice zamijeni datotekom"
+
+#: $strReplicationAddLines
+msgid ""
+"Now, add the following lines at the end of [mysqld] section in your my.cnf "
+"and please restart the MySQL server afterwards."
+msgstr ""
+
+#: $strReplicationAddSlaveUser
+msgid "Add slave replication user"
+msgstr ""
+
+#: $strReplicationChangedSuccesfully
+msgid "Master server changed succesfully to %s"
+msgstr ""
+
+#: $strReplicationConfiguredMaster
+msgid "This server is configured as master in a replication process."
+msgstr ""
+
+#: $strReplicationControlSlave
+msgid "Control slave:"
+msgstr ""
+
+#: $strReplicationErrorGetPosition
+msgid ""
+"Unable to read master log position. Possible privilege problem on master."
+msgstr ""
+
+#: $strReplicationErrorMasterConnect
+msgid "Unable to connect to master %s."
+msgstr ""
+
+#: $strReplicationMasterChooseAll
+msgid "Replicate all databases; Ignore:"
+msgstr ""
+
+#: $strReplicationMasterChooseIgn
+msgid "Ignore all databases; Replicate:"
+msgstr ""
+
+#: $strReplicationMasterChooseMode
+msgid ""
+"This server is not configured as master server in a replication process. You "
+"can choose from either replicating all databases and ignoring certain "
+"(useful if you want to replicate majority of databases) or you can choose to "
+"ignore all databases by default and allow only certain databases to be "
+"replicated. Please select the mode:"
+msgstr ""
+
+#: $strReplicationMasterConfiguration
+msgid "Master configuration"
+msgstr ""
+
+#: $strReplicationMaster
+msgid "Master replication"
+msgstr ""
+
+#: $strReplication
+msgid "Replication"
+msgstr "Replikacija"
+
+#: $strReplicationRestartServer
+msgid ""
+"Once you restarted MySQL server, please click on Go button. Afterwards, you "
+"should see a message informing you, that this server <b>is</b> configured as "
+"master"
+msgstr ""
+
+#: $strReplicationSelectDatabases
+msgid "Please select databases:"
+msgstr ""
+
+#: $strReplicationServernConfiguredMaster
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationShowConnectedSlavesNote
+msgid ""
+"Only slaves started with the --report-host=host_name option are visible in "
+"this list."
+msgstr ""
+
+#: $strReplicationShowConnectedSlaves
+msgid "Show connected slaves"
+msgstr ""
+
+#: $strReplicationShowMasterStatus
+msgctxt "$strReplicationShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strReplicationSkippingErrorWarn
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
+msgstr ""
+
+#: $strReplicationSlaveChangeMaster
+msgid "Change or reconfigure master server"
+msgstr ""
+
+#: $strReplicationSlaveConfiguration
+msgid "Slave configuration"
+msgstr ""
+
+#: $strReplicationSlaveConfigured
+msgid ""
+"Server is configured as slave in a replication process. Would you like to:"
+msgstr ""
+
+#: $strReplicationSlaveErrorManagement
+msgid "Error management:"
+msgstr ""
+
+#: $strReplicationSlaveIOThread
+msgid "IO Thread %s only"
+msgstr ""
+
+#: $strReplicationSlaveIOThreadNotRunning
+msgid "Slave IO Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveNotConfigured
+msgid ""
+"This server is not configured as slave in a replication process. Would you "
+"like to <a href=\"%s\">configure</a> it?"
+msgstr ""
+
+#: $strReplicationSlaveReset
+msgid "Reset slave"
+msgstr ""
+
+#: $strReplicationSlaveSeeStatus
+msgid "See slave status table"
+msgstr ""
+
+#: $strReplicationSlaveSkipCurrentError
+msgid "Skip current error"
+msgstr ""
+
+#: $strReplicationSlaveSkipNextErrors
+msgid "errors."
+msgstr ""
+
+#: $strReplicationSlaveSkipNext
+msgid "Skip next"
+msgstr ""
+
+#: $strReplicationSlave
+msgid "Slave replication"
+msgstr ""
+
+#: $strReplicationSlaveSQLThreadNotRunning
+msgid "Slave SQL Thread not running!"
+msgstr ""
+
+#: $strReplicationSlaveSQLThread
+msgid "SQL Thread %s only"
+msgstr ""
+
+#: $strReplicationStatusInfo
+msgid ""
+"This MySQL server works as %s in <b>replication</b> process. For further "
+"information about replication status on the server, please visit the <a "
+"href=\"#replication\">replication section</a>."
+msgstr ""
+
+#: $strReplicationStatus_master
+msgid "Master status"
+msgstr ""
+
+#: $strReplicationStatus
+msgid "Replication status"
+msgstr ""
+
+#: $strReplicationStatus_slave
+msgid "Slave status"
+msgstr ""
+
+#: $strReplicationSynchronize
+msgid "Synchronise databases with master"
+msgstr ""
+
+#: $strReplicationUnableToChange
+msgid "Unable to change master"
+msgstr ""
+
+#: $strReplicationUnknownError
+msgid "Unknown error"
+msgstr ""
+
+#: $strReset
+msgctxt "$strReset"
+msgid "Reset"
+msgstr "Povrat"
+
+#: $strResourceLimits
+msgid "Resource limits"
+msgstr "Ograničenja resursa"
+
+#: $strRestartInsertion
+msgid "Restart insertion with %s rows"
+msgstr "Ponovno pokreni umetanje s %s redaka"
+
+#: $strReType
+msgid "Re-type"
+msgstr "Ponovite"
+
+#: $strRevokeAndDeleteDescr
+msgid ""
+"The users will still have the USAGE privilege until the privileges are "
+"reloaded."
+msgstr ""
+"Korisnici će i dalje imati privilegiju USAGE (Upotreba) sve dok se "
+"privilegije ponovno ne učitaju."
+
+#: $strRevokeAndDelete
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Opozovi sve aktivne privilegije korisnika i potom ih izbriši."
+
+#: $strRevokeMessage
+msgid "You have revoked the privileges for %s"
+msgstr "Opozvali ste privilegije za %s"
+
+#: $strRevoke
+msgid "Revoke"
+msgstr "Opozovi"
+
+#: $strRomanian
+msgid "Romanian"
+msgstr "Rumunjski"
+
+#: $strRoutineReturnType
+msgid "Return type"
+msgstr "Vrsta povratka"
+
+#: $strRoutines
+msgid "Routines"
+msgstr "Rutine"
+
+#: $strRowLength
+msgid "Row length"
+msgstr "Duljina retka"
+
+#: $strRowsAffected
+msgid "%1$d row(s) affected."
+msgstr "Zahvaćeno redaka: %1$d."
+
+#: $strRowsDeleted
+msgid "%1$d row(s) deleted."
+msgstr "Izbrisano redaka: %1$d."
+
+#: $strRowsFrom
+msgid "row(s) starting from record #"
+msgstr "redovi koji započinju zapisom #"
+
+#: $strRowsInserted
+msgid "%1$d row(s) inserted."
+msgstr "Umetnuto redaka: %1$d."
+
+#: $strRowSize
+msgid " Row size "
+msgstr " Veličina retka "
+
+#: $strRowsModeFlippedHorizontal
+msgid "horizontal (rotated headers)"
+msgstr "vodoravno (okrenuta zaglavlja)"
+
+#: $strRowsModeHorizontal
+msgid "horizontal"
+msgstr "vodoravno"
+
+#: $strRowsModeOptions
+msgid "in %s mode and repeat headers after %s cells"
+msgstr "u načinu %s i ponavljaj zaglavlja nakon %s ćelija"
+
+#: $strRowsModeVertical
+msgid "vertical"
+msgstr "uspravno"
+
+#: $strRows
+msgid "Rows"
+msgstr "Redaka"
+
+#: $strRowsStatistic
+msgid "Row Statistics"
+msgstr "Statistike redova"
+
+#: $strRunning
+msgid "running on %s"
+msgstr "Izvršava se pri %s"
+
+#: $strRunQuery
+msgid "Submit Query"
+msgstr "Podnesi upit"
+
+#: $strRunSQLQueryOnServer
+msgid "Run SQL query/queries on server %s"
+msgstr "Pokreni SQL upit na poslužitelju %s"
+
+#: $strRunSQLQuery
+msgid "Run SQL query/queries on database %s"
+msgstr "Pokreni SQL upit na bazi podataka %s"
+
+#: $strRussian
+msgid "Russian"
+msgstr "Ruski"
+
+#: $strSaveOnServer
+msgid "Save on server in %s directory"
+msgstr "Spremi na poslužitelju u mapi %s"
+
+#: $strSavePosition
+msgid "Save position"
+msgstr "Spremi položaj"
+
+#: $strSave
+msgid "Save"
+msgstr "Spremi"
+
+#: $strScaleFactorSmall
+msgid "The scale factor is too small to fit the schema on one page"
+msgstr "Vrijednost omjera suviše je malen kako bi shema stala na jednu stranicu"
+
+#: $strSearchFormTitle
+msgid "Search in database"
+msgstr "Traži u bazi podataka"
+
+#: $strSearchInField
+msgid "Inside field:"
+msgstr "Unutar polja:"
+
+#: $strSearchInTables
+msgid "Inside table(s):"
+msgstr "Unutar tablica:"
+
+#: $strSearchNeedle
+msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "Riječi ili vrijednost za pretraživanje (džoker: \"%\"):"
+
+#: $strSearchOption1
+msgid "at least one of the words"
+msgstr "najmanje jedna riječ"
+
+#: $strSearchOption2
+msgid "all words"
+msgstr "sve riječi"
+
+#: $strSearchOption3
+msgid "the exact phrase"
+msgstr "točan izraz"
+
+#: $strSearchOption4
+msgid "as regular expression"
+msgstr "kao regularan izraz"
+
+#: $strSearchResultsFor
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "Rezultati pretraživanja za \"<i>%s</i>\" %s:"
+
+#: $strSearch
+msgid "Search"
+msgstr "Traži"
+
+#: $strSearchType
+msgid "Find:"
+msgstr "Traži:"
+
+#: $strSecretRequired
+msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
+msgstr "Konfiguracijska datoteka potražuje tajnu lozinku (blowfish_secret)."
+
+#: $strSelectADb
+msgid "Please select a database"
+msgstr "Odaberite bazu podataka"
+
+#: $strSelectAll
+msgid "Select All"
+msgstr "Odaberi sve"
+
+#: $strSelectBinaryLog
+msgid "Select binary log to view"
+msgstr "Odaberite binarni zapisnik za prikaz"
+
+#: $strSelectFields
+msgid "Select fields (at least one):"
+msgstr "Odaberite polja (najmanje jedno):"
+
+#: $strSelectForeignKey
+msgid "Select Foreign Key"
+msgstr "Odaberite strani ključ"
+
+#: $strSelectNumRows
+msgid "in query"
+msgstr "unutar upita"
+
+#: $strSelectReferencedKey
+msgid "Select referenced key"
+msgstr "Odaberite referentni ključ"
+
+#: $strSelectTables
+msgid "Select Tables"
+msgstr "Odaberite tablice"
+
+#: $strSend
+msgctxt "$strSend"
+msgid "Save as file"
+msgstr "Spremi kao datoteku"
+
+#: $strSent
+msgid "Sent"
+msgstr "Poslano"
+
+#: $strServerChoice
+msgid "Server Choice"
+msgstr "Odabir poslužitelja"
+
+#: $strServerNotResponding
+msgid "The server is not responding"
+msgstr "Poslužitelj ne odgovara"
+
+#: $strServer
+msgid "Server"
+msgstr "Poslužitelj"
+
+#: $strServers
+msgctxt "$strServers"
+msgid "Servers"
+msgstr "Poslužitelji"
+
+#: $strServerStatusDelayedInserts
+msgid "Delayed inserts"
+msgstr "Odgođena umetanja"
+
+#: $strServerStatus
+msgid "Runtime Information"
+msgstr "Podaci o razini izvršavanja"
+
+#: $strServerStatusUptime
+msgid "This MySQL server has been running for %s. It started up on %s."
+msgstr "Ovaj MySQL poslužitelj radi tijekom %s. Pokrenut je %s."
+
+#: $strServerTabVariables
+msgid "Variables"
+msgstr "Varijable"
+
+#: $strServerTrafficNotes
+msgid ""
+"<b>Server traffic</b>: These tables show the network traffic statistics of "
+"this MySQL server since its startup."
+msgstr ""
+"<b>Promet poslužitelja</b>: Ove tablice prikazuju statistike mrežnog prometa "
+"na ovom MySQL poslužitelju od trenutka njegovog pokretanja."
+
+#: $strServerVars
+msgid "Server variables and settings"
+msgstr "Varijable i postavke poslužitelja"
+
+#: $strServerVersion
+msgid "Server version"
+msgstr "Verzija poslužitelja"
+
+#: $strSessionGCWarning
+msgid ""
+"Your PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity "
+"configured in phpMyAdmin, because of this, your login will expire sooner "
+"than configured in phpMyAdmin."
+msgstr ""
+
+#: $strSessionStartupErrorGeneral
+msgid ""
+"Cannot start session without errors, please check errors given in your PHP "
+"and/or webserver log file and configure your PHP installation properly."
+msgstr ""
+"Pokretanje sesije nije moguće uslijed pogrešaka. Provjerite pogreške koje "
+"ispisuje vaš PHP i/ili datoteku zapisnika poslužitelja i pravilno "
+"konfigurirajte vašu instalaciju PHP-a."
+
+#: $strSessionValue
+msgid "Session value"
+msgstr "Vrijednost sesije"
+
+#: $strSetEnumVal
+msgid ""
+"If field type is \"enum\" or \"set\", please enter the values using this format: "
+"'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Ako je vrata polja \"enum\" ili \"set\", unesite vrijednosti u sljedećem obliku: "
+"'a','B','c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+
+#: $strSettings
+msgid "settings"
+msgstr ""
+
+#: $strSetupAllowAnywhereRecoding_name
+msgid "Allow character set conversion"
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_desc
+msgid ""
+"If enabled user can enter any MySQL server in login form for cookie auth"
+msgstr ""
+
+#: $strSetupAllowArbitraryServerMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"disabled as it allows attackers to bruteforce login to any MySQL server. If "
+"you feel this is necessary, use "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupAllowArbitraryServer_name
+msgid "Allow login to any MySQL server"
+msgstr ""
+
+#: $strSetupAllowUserDropDatabase_name
+msgid "Show &quot;Drop database&quot; link to normal users"
+msgstr ""
+
+#: $strSetupBlowfishSecretCharsMsg
+msgid "Key should contain letters, numbers [em]and[/em] special characters"
+msgstr ""
+
+#: $strSetupblowfish_secret_desc
+msgid ""
+"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+"authentication"
+msgstr ""
+
+#: $strSetupBlowfishSecretLengthMsg
+msgid "Key is too short, it should have at least 8 characters"
+msgstr ""
+
+#: $strSetupBlowfishSecretMsg
+msgid ""
+"You didn't have blowfish secret set and have enabled cookie authentication, "
+"so a key was automatically generated for you. It is used to encrypt cookies; "
+"you don't need to remember it."
+msgstr ""
+
+#: $strSetupblowfish_secret_name
+msgid "Blowfish secret"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_desc
+msgid "Highlight selected rows"
+msgstr ""
+
+#: $strSetupBrowseMarkerEnable_name
+msgid "Row marker"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_desc
+msgid "Highlight row pointed by the mouse cursor"
+msgstr ""
+
+#: $strSetupBrowsePointerEnable_name
+msgid "Highlight pointer"
+msgstr ""
+
+#: $strSetupBZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+"import and export operations"
+msgstr ""
+
+#: $strSetupBZipDump_name
+msgid "Bzip2"
+msgstr ""
+
+#: $strSetupBZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupCannotLoadConfig
+msgid "Cannot load or save configuration"
+msgstr ""
+
+#: $strSetupCannotLoadConfigMsg
+msgid ""
+"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
+"level directory as described in "
+"[a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will "
+"be only able to download or display it."
+msgstr ""
+
+#: $strSetupCharEditing_desc
+msgid ""
+"Defines which type of editing controls should be used for CHAR and VARCHAR "
+"fields; [kbd]input[/kbd] - allows limiting of input length, "
+"[kbd]textarea[/kbd] - allows newlines in fields"
+msgstr ""
+
+#: $strSetupCharEditing_name
+msgid "CHAR fields editing"
+msgstr ""
+
+#: $strSetupCharTextareaCols_desc
+msgid "Number of columns for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaCols_name
+msgid "CHAR textarea columns"
+msgstr ""
+
+#: $strSetupCharTextareaRows_desc
+msgid "Number of rows for CHAR/VARCHAR textareas"
+msgstr ""
+
+#: $strSetupCharTextareaRows_name
+msgid "CHAR textarea rows"
+msgstr ""
+
+#: $strSetupCheckConfigurationPermissions_name
+msgid "Check config file permissions"
+msgstr ""
+
+#: $strSetupClear
+msgid "Clear"
+msgstr ""
+
+#: $strSetupCompressOnFly_desc
+msgid ""
+"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
+"you encounter problems with created gzip/bzip2 files disable this feature"
+msgstr ""
+
+#: $strSetupCompressOnFly_name
+msgid "Compress on the fly"
+msgstr ""
+
+#: $strSetupConfigurationFile
+msgid "Configuration file"
+msgstr ""
+
+#: $strSetupConfirm_desc
+msgid ""
+"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"when you're about to lose data"
+msgstr ""
+
+#: $strSetupConfirm_name
+msgid "Confirm DROP queries"
+msgstr ""
+
+#: $strSetupDefaultCharset_desc
+msgid "Default character set used for conversions"
+msgstr ""
+
+#: $strSetupDefaultCharset_name
+msgid "Default character set"
+msgstr ""
+
+#: $strSetupDefaultLanguage
+msgid "Default language"
+msgstr ""
+
+#: $strSetupDefaultServer
+msgid "Default server"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_desc
+msgid "Tab that is displayed when entering a database"
+msgstr ""
+
+#: $strSetupDefaultTabDatabase_name
+msgid "Default database tab"
+msgstr ""
+
+#: $strSetupDefaultTabServer_desc
+msgid "Tab that is displayed when entering a server"
+msgstr ""
+
+#: $strSetupDefaultTabServer_name
+msgid "Default server tab"
+msgstr ""
+
+#: $strSetupDefaultTabTable_desc
+msgid "Tab that is displayed when entering a table"
+msgstr ""
+
+#: $strSetupDefaultTabTable_name
+msgid "Default table tab"
+msgstr ""
+
+#: $strSetupDirectoryNotice
+msgid ""
+"This value should be double checked to ensure that this directory is neither "
+"world accessible nor readable or writable by other users on your server."
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_desc
+msgid "Show database listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayDatabasesList_name
+msgid "Display databases as a list"
+msgstr ""
+
+#: $strSetupDisplay
+msgid "Display"
+msgstr ""
+
+#: $strSetupDisplayServersList_desc
+msgid "Show server listing as a list instead of a drop down"
+msgstr ""
+
+#: $strSetupDisplayServersList_name
+msgid "Display servers as a list"
+msgstr ""
+
+#: $strSetupDonateLink
+msgid "Donate"
+msgstr ""
+
+#: $strSetupDownload
+msgid "Download"
+msgstr ""
+
+#: $strSetupEndOfLine
+msgid "End of line"
+msgstr ""
+
+#: $strSetuperror_connection
+msgid "Could not connect to MySQL server"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_password
+msgid "Empty phpMyAdmin control user password while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_pmadb_user
+msgid "Empty phpMyAdmin control user while using pmadb"
+msgstr ""
+
+#: $strSetuperror_empty_signon_session
+msgid "Empty signon session name while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_signon_url
+msgid "Empty signon URL while using signon authentication method"
+msgstr ""
+
+#: $strSetuperror_empty_user_for_config_auth
+msgid "Empty username while using config authentication method"
+msgstr ""
+
+#: $strSetuperror_form
+msgid "Submitted form contains errors"
+msgstr ""
+
+#: $strSetuperror_incorrect_ip_address
+msgid "Incorrect IP address: %s"
+msgstr ""
+
+#: $strSetuperror_incorrect_port
+msgid "Not a valid port number"
+msgstr ""
+
+#: $strSetuperror_incorrect_value
+msgid "Incorrect value"
+msgstr ""
+
+#: $strSetuperror_missing_field_data
+msgid "Missing data for %s"
+msgstr ""
+
+#: $strSetuperror_nan_nneg
+msgid "Not a non-negative number"
+msgstr ""
+
+#: $strSetuperror_nan_p
+msgid "Not a positive number"
+msgstr ""
+
+#: $strSetupExecTimeLimit_desc
+msgid ""
+"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
+"limit)"
+msgstr ""
+
+#: $strSetupExecTimeLimit_name
+msgid "Maximum execution time"
+msgstr ""
+
+#: $strSetupExport_asfile_name
+msgctxt "$strSetupExport_asfile_name"
+msgid "Save as file"
+msgstr ""
+
+#: $strSetupExport_charset_name
+msgid "Character set of the file"
+msgstr ""
+
+#: $strSetupExport_compression_name
+msgctxt "$strSetupExport_compression_name"
+msgid "Compression"
+msgstr ""
+
+#: $strSetupExport_file_template_database_name
+msgid "Database name template"
+msgstr ""
+
+#: $strSetupExport_file_template_server_name
+msgid "Server name template"
+msgstr ""
+
+#: $strSetupExport_file_template_table_name
+msgid "Table name template"
+msgstr ""
+
+#: $strSetupExport_format_name
+msgctxt "$strSetupExport_format_name"
+msgid "Format"
+msgstr ""
+
+#: $strSetupExport_onserver_name
+msgid "Save on server"
+msgstr ""
+
+#: $strSetupExport_onserver_overwrite_name
+msgctxt "$strSetupExport_onserver_overwrite_name"
+msgid "Overwrite existing file(s)"
+msgstr ""
+
+#: $strSetupExport_remember_file_template_name
+msgid "Remember file name template"
+msgstr ""
+
+#: $strSetupFalse
+msgid "no"
+msgstr ""
+
+#: $strSetupForceSSL_desc
+msgid "Force secured connection while using phpMyAdmin"
+msgstr ""
+
+#: $strSetupForceSSLMsg
+msgid ""
+"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
+"enabled if your web server supports it"
+msgstr ""
+
+#: $strSetupForceSSL_name
+msgid "Force SSL connection"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_desc
+msgid ""
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+"the referenced data, [kbd]id[/kbd] is the key value"
+msgstr ""
+
+#: $strSetupForeignKeyDropdownOrder_name
+msgid "Foreign key dropdown order"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_desc
+msgid "A dropdown will be used if fewer items are present"
+msgstr ""
+
+#: $strSetupForeignKeyMaxLimit_name
+msgid "Foreign key limit"
+msgstr ""
+
+#: $strSetupForm_Browse
+msgid "Browse mode"
+msgstr ""
+
+#: $strSetupForm_Browse_desc
+msgid "Customise browse mode"
+msgstr ""
+
+#: $strSetupForm_Edit_desc
+msgid "Customise edit mode"
+msgstr ""
+
+#: $strSetupForm_Edit
+msgid "Edit mode"
+msgstr ""
+
+#: $strSetupForm_Export_defaults_desc
+msgid "Customise default export options"
+msgstr ""
+
+#: $strSetupForm_Export_defaults
+msgid "Export defaults"
+msgstr ""
+
+#: $strSetupForm_Import_defaults_desc
+msgid "Customise default common import options"
+msgstr ""
+
+#: $strSetupForm_Import_defaults
+msgid "Import defaults"
+msgstr ""
+
+#: $strSetupForm_Import_export_desc
+msgid "Set import and export directories and compression options"
+msgstr ""
+
+#: $strSetupForm_Import_export
+msgid "Import / export"
+msgstr ""
+
+#: $strSetupForm_Left_databases
+msgctxt "$strSetupForm_Left_databases"
+msgid "Databases"
+msgstr ""
+
+#: $strSetupForm_Left_databases_desc
+msgid "Databases display options"
+msgstr ""
+
+#: $strSetupForm_Left_frame_desc
+msgid "Customise appearance of the navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_frame
+msgid "Navigation frame"
+msgstr ""
+
+#: $strSetupForm_Left_servers_desc
+msgid "Servers display options"
+msgstr ""
+
+#: $strSetupForm_Left_servers
+msgctxt "$strSetupForm_Left_servers"
+msgid "Servers"
+msgstr ""
+
+#: $strSetupForm_Left_tables_desc
+msgid "Tables display options"
+msgstr ""
+
+#: $strSetupForm_Left_tables
+msgctxt "$strSetupForm_Left_tables"
+msgid "Tables"
+msgstr ""
+
+#: $strSetupForm_Main_frame
+msgid "Main frame"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings_desc
+msgid "Settings that didn't fit enywhere else"
+msgstr ""
+
+#: $strSetupForm_Other_core_settings
+msgid "Other core settings"
+msgstr ""
+
+#: $strSetupForm_Query_window_desc
+msgid "Customise query window options"
+msgstr ""
+
+#: $strSetupForm_Query_window
+msgctxt "$strSetupForm_Query_window"
+msgid "Query window"
+msgstr ""
+
+#: $strSetupForm_Security_desc
+msgid ""
+"Please note that phpMyAdmin is just a user interface and its features do not "
+"limit MySQL"
+msgstr ""
+
+#: $strSetupForm_Security
+msgid "Security"
+msgstr ""
+
+#: $strSetupForm_Server
+msgid "Basic settings"
+msgstr ""
+
+#: $strSetupForm_Server_config_desc
+msgid ""
+"Advanced server configuration, do not change these options unless you know "
+"what they are for"
+msgstr ""
+
+#: $strSetupForm_Server_config
+msgid "Server configuration"
+msgstr ""
+
+#: $strSetupForm_Server_desc
+msgid "Enter server connection parameters"
+msgstr ""
+
+#: $strSetupForm_Server_login_options_desc
+msgid "Enter login options for signon authentication"
+msgstr ""
+
+#: $strSetupForm_Server_login_options
+msgid "Signon login options"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb_desc
+msgid ""
+"Configure phpMyAdmin database to gain access to additional features, see "
+"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
+"documentation"
+msgstr ""
+
+#: $strSetupForm_Server_pmadb
+msgctxt "$strSetupForm_Server_pmadb"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupFormset_customization
+msgid "Customisation"
+msgstr ""
+
+#: $strSetupFormset_export
+msgid "Customise export options"
+msgstr ""
+
+#: $strSetupFormset_features
+msgid "Features"
+msgstr ""
+
+#: $strSetupFormset_import
+msgid "Customise import defaults"
+msgstr ""
+
+#: $strSetupFormset_left_frame
+msgid "Customise navigation frame"
+msgstr ""
+
+#: $strSetupFormset_main_frame
+msgid "Customise main frame"
+msgstr ""
+
+#: $strSetupForm_Sql_box_desc
+msgid "Customise links shown in SQL Query boxes"
+msgstr ""
+
+#: $strSetupForm_Sql_box
+msgid "SQL Query box"
+msgstr ""
+
+#: $strSetupForm_Sql_queries_desc
+msgid ""
+"SQL queries settings, for SQL Query box options see "
+"[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] "
+"settings"
+msgstr ""
+
+#: $strSetupForm_Sql_queries
+msgid "SQL queries"
+msgstr ""
+
+#: $strSetupForm_Startup_desc
+msgid "Customise startup page"
+msgstr ""
+
+#: $strSetupForm_Startup
+msgid "Startup"
+msgstr ""
+
+#: $strSetupForm_Tabs_desc
+msgid "Choose how you want tabs to work"
+msgstr ""
+
+#: $strSetupForm_Tabs
+msgid "Tabs"
+msgstr ""
+
+#: $strSetupGZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
+"and export operations"
+msgstr ""
+
+#: $strSetupGZipDump_name
+msgid "GZip"
+msgstr ""
+
+#: $strSetupGZipDumpWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
+"decompression[/a] requires functions (%s) which are unavailable on this "
+"system."
+msgstr ""
+
+#: $strSetupHomepageLink
+msgid "phpMyAdmin homepage"
+msgstr ""
+
+#: $strSetupIconvExtraParams_name
+msgid "Extra parameters for iconv"
+msgstr ""
+
+#: $strSetupIgnoreErrors
+msgid "Ignore errors"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_desc
+msgid ""
+"If enabled, phpMyAdmin continues computing multiple-statement queries even "
+"if one of the queries failed"
+msgstr ""
+
+#: $strSetupIgnoreMultiSubmitErrors_name
+msgid "Ignore multiple statement errors"
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_desc
+msgid ""
+"Allow interrupt of import in case script detects it is close to time limit. "
+"This might be good way to import large files, however it can break "
+"transactions."
+msgstr ""
+
+#: $strSetupImport_allow_interrupt_name
+msgid "Partial import: allow interrupt"
+msgstr ""
+
+#: $strSetupImport_format_desc
+msgid ""
+"Default format; be aware that this list depends on location (database, "
+"table) and only SQL is always available"
+msgstr ""
+
+#: $strSetupImport_format_name
+msgctxt "$strSetupImport_format_name"
+msgid "Format of imported file"
+msgstr ""
+
+#: $strSetupImport_skip_queries_desc
+msgctxt "$strSetupImport_skip_queries_desc"
+msgid "Number of records (queries) to skip from start"
+msgstr ""
+
+#: $strSetupImport_skip_queries_name
+msgid "Partial import: skip queries"
+msgstr ""
+
+#: $strSetupInsecureConnection
+msgid "Insecure connection"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg1
+msgid ""
+"You are not using a secure connection; all data (including potentially "
+"sensitive information, like passwords) is transferred unencrypted!"
+msgstr ""
+
+#: $strSetupInsecureConnectionMsg2
+msgid ""
+"If your server is also configured to accept HTTPS requests follow [a@%s]this "
+"link[/a] to use a secure connection."
+msgstr ""
+
+#: $strSetupInsertRows_desc
+msgid "How many rows can be inserted at one time"
+msgstr ""
+
+#: $strSetupInsertRows_name
+msgid "Number of inserted rows"
+msgstr ""
+
+#: $strSetupLeftDefaultTabTable_name
+msgid "Target for quick access icon"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_desc
+msgid "Show logo in left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayLogo_name
+msgid "Display logo"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_desc
+msgid "Display server choice at the top of the left frame"
+msgstr ""
+
+#: $strSetupLeftDisplayServers_name
+msgid "Display servers selection"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_desc
+msgid "String that separates databases into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameDBSeparator_name
+msgid "Database tree separator"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_desc
+msgid ""
+"Only light version; display databases in a tree (determined by the separator "
+"defined below)"
+msgstr ""
+
+#: $strSetupLeftFrameDBTree_name
+msgid "Display databases in a tree"
+msgstr ""
+
+#: $strSetupLeftFrameLight_desc
+msgid "Disable this if you want to see all databases at once"
+msgstr ""
+
+#: $strSetupLeftFrameLight_name
+msgid "Use light version"
+msgstr ""
+
+#: $strSetupLeftFrameTableLevel_name
+msgid "Maximum table tree depth"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_desc
+msgid "String that separates tables into different tree levels"
+msgstr ""
+
+#: $strSetupLeftFrameTableSeparator_name
+msgid "Table tree separator"
+msgstr ""
+
+#: $strSetupLeftLogoLink_name
+msgid "Logo link URL"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_desc
+msgid ""
+"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
+"([kbd]new[/kbd])"
+msgstr ""
+
+#: $strSetupLeftLogoLinkWindow_name
+msgid "Logo link target"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_desc
+msgid "Highlight server under the mouse cursor"
+msgstr ""
+
+#: $strSetupLeftPointerEnable_name
+msgid "Enable highlighting"
+msgstr ""
+
+#: $strSetupLetUserChoose
+msgid "let the user choose"
+msgstr ""
+
+#: $strSetupLightTabs_desc
+msgid "Use less graphically intense tabs"
+msgstr ""
+
+#: $strSetupLightTabs_name
+msgid "Light tabs"
+msgstr ""
+
+#: $strSetupLoad
+msgid "Load"
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_desc
+msgid ""
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
+"only occurs for the current server. Setting this to FALSE makes it easy to "
+"forget to log out from other servers when connected to multiple servers."
+msgstr ""
+
+#: $strSetupLoginCookieDeleteAll_name
+msgid "Delete all cookies on logout"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_desc
+msgid ""
+"Define whether the previous login should be recalled or not in cookie "
+"authentication mode"
+msgstr ""
+
+#: $strSetupLoginCookieRecall_name
+msgid "Recall user name"
+msgstr ""
+
+#: $strSetupLoginCookieStore_desc
+msgid ""
+"Defines how long (in seconds) a login cookie should be stored in browser. "
+"The default of 0 means that it will be kept for the existing session only, "
+"and will be deleted as soon as you close the browser window. This is "
+"recommended for non-trusted environments."
+msgstr ""
+
+#: $strSetupLoginCookieStore_name
+msgid "Login cookie store"
+msgstr ""
+
+#: $strSetupLoginCookieValidity_desc
+msgid "Define how long (in seconds) a login cookie is valid"
+msgstr ""
+
+#: $strSetupLoginCookieValidityMsg
+msgid ""
+"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
+"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
+"pose a security risk such as impersonation."
+msgstr ""
+
+#: $strSetupLoginCookieValidity_name
+msgid "Login cookie validity"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_desc
+msgid "Maximum number of characters used when a SQL query is displayed"
+msgstr ""
+
+#: $strSetupMaxCharactersInDisplayedSQL_name
+msgid "Maximum displayed SQL length"
+msgstr ""
+
+#: $strSetupMaxDbList_desc
+msgid "Maximum number of databases displayed in left frame and database list"
+msgstr ""
+
+#: $strSetupMaxDbList_name
+msgid "Maximum databases"
+msgstr ""
+
+#: $strSetupMaxRows_desc
+msgid ""
+"Number of rows displayed when browsing a result set. If the result set "
+"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"shown."
+msgstr ""
+
+#: $strSetupMaxRows_name
+msgid "Maximum number of rows to display"
+msgstr ""
+
+#: $strSetupMaxTableList_desc
+msgid "Maximum number of tables displayed in table list"
+msgstr ""
+
+#: $strSetupMaxTableList_name
+msgid "Maximum tables"
+msgstr ""
+
+#: $strSetupMemoryLimit_desc
+msgid ""
+"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+"([kbd]0[/kbd] for no limit)"
+msgstr ""
+
+#: $strSetupMemoryLimit_name
+msgid "Memory limit"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_desc
+msgctxt "$strSetupNavigationBarIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupNavigationBarIconic_name
+msgid "Iconic navigation bar"
+msgstr ""
+
+#: $strSetupNewServer
+msgid "New server"
+msgstr ""
+
+#: $strSetupNoServers
+msgid "There are no configured servers"
+msgstr ""
+
+#: $strSetupOBGzip_desc
+msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgstr ""
+
+#: $strSetupOBGzip_name
+msgid "GZip output buffering"
+msgstr ""
+
+#: $strSetupOptionNone
+msgid "- none -"
+msgstr ""
+
+#: $strSetupOrder_desc
+msgid ""
+"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
+"DATETIME and TIMESTAMP, ascending order otherwise"
+msgstr ""
+
+#: $strSetupOrder_name
+msgid "Default sorting order"
+msgstr ""
+
+#: $strSetupOverview
+msgid "Overview"
+msgstr ""
+
+#: $strSetupPersistentConnections_desc
+msgid "Use persistent connections to MySQL databases"
+msgstr ""
+
+#: $strSetupPersistentConnections_name
+msgid "Persistent connections"
+msgstr ""
+
+#: $strSetupPropertiesIconic_desc
+msgctxt "$strSetupPropertiesIconic_desc"
+msgid "Use only icons, only text or both"
+msgstr ""
+
+#: $strSetupPropertiesIconic_name
+msgid "Iconic table operations"
+msgstr ""
+
+#: $strSetupProtectBinary_desc
+msgid "Disallow BLOB and BINARY fields from editing"
+msgstr ""
+
+#: $strSetupProtectBinary_name
+msgid "Protect binary fields"
+msgstr ""
+
+#: $strSetupQueryHistoryDB_desc
+msgid ""
+"Enable if you want DB-based query history (requires pmadb). If disabled, "
+"this utilises JS-routines to display query history (lost by window close)."
+msgstr ""
+
+#: $strSetupQueryHistoryDB_name
+msgid "Permanent query history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_desc
+msgid "How many queries are kept in history"
+msgstr ""
+
+#: $strSetupQueryHistoryMax_name
+msgid "Query history length"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_desc
+msgid "Tab displayed when opening a new query window"
+msgstr ""
+
+#: $strSetupQueryWindowDefTab_name
+msgid "Default query window tab"
+msgstr ""
+
+#: $strSetupRecodingEngine_desc
+msgid "Select which functions will be used for character set conversion"
+msgstr ""
+
+#: $strSetupRecodingEngine_name
+msgid "Recoding engine"
+msgstr ""
+
+#: $strSetupRestoreDefaultValue
+msgid "Restore default value"
+msgstr ""
+
+#: $strSetupRevertErroneousFields
+msgid "Try to revert erroneous fields to their default values"
+msgstr ""
+
+#: $strSetupSaveDir_desc
+msgid "Directory where exports can be saved on server"
+msgstr ""
+
+#: $strSetupSaveDir_name
+msgid "Save directory"
+msgstr ""
+
+#: $strSetupServerAuthConfigMsg
+msgid ""
+"You set the [kbd]config[/kbd] authentication type and included username and "
+"password for auto-login, which is not a desirable option for live hosts. "
+"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
+"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%"
+"1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
+msgstr ""
+
+#: $strSetupServerExtensionMsg
+msgid "You should use mysqli for performance reasons"
+msgstr ""
+
+#: $strSetupServerNoPasswordMsg
+msgid "You allow for connecting to the server without a password."
+msgstr ""
+
+#: $strSetupServersAdd
+msgid "Add a new server"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_desc
+msgid "Leave blank if not used"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_order_name
+msgid "Host authentication order"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_desc
+msgid "Leave blank for defaults"
+msgstr ""
+
+#: $strSetupServers_AllowDeny_rules_name
+msgid "Host authentication rules"
+msgstr ""
+
+#: $strSetupServers_AllowNoPassword_name
+msgid "Allow logins without a password"
+msgstr ""
+
+#: $strSetupServers_AllowRoot_name
+msgid "Allow root login"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_desc
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr ""
+
+#: $strSetupServers_auth_http_realm_name
+msgid "HTTP Realm"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_desc
+msgid ""
+"The path for the config file for [a@http://swekey.com]SweKey hardware "
+"authentication[/a] (not located in your document root; suggested: "
+"/etc/swekey.conf)"
+msgstr ""
+
+#: $strSetupServers_auth_swekey_config_name
+msgid "SweKey config file"
+msgstr ""
+
+#: $strSetupServers_auth_type_desc
+msgid "Authentication method to use"
+msgstr ""
+
+#: $strSetupServers_auth_type_name
+msgid "Authentication type"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
+"support, suggested: [kbd]pma_bookmark[/kbd]"
+msgstr ""
+
+#: $strSetupServers_bookmarktable_name
+msgid "Bookmark table"
+msgstr ""
+
+#: $strSetupServers_column_info_desc
+msgid ""
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma_column_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_column_info_name
+msgid "Column information table"
+msgstr ""
+
+#: $strSetupServers_compress_desc
+msgid "Compress connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_compress_name
+msgid "Compress connection"
+msgstr ""
+
+#: $strSetupServers_connect_type_desc
+msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
+msgstr ""
+
+#: $strSetupServers_connect_type_name
+msgid "Connection type"
+msgstr ""
+
+#: $strSetupServers_controlpass_name
+msgid "Control user password"
+msgstr ""
+
+#: $strSetupServers_controluser_desc
+msgid ""
+"A special MySQL user configured with limited permissions, more information "
+"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+msgstr ""
+
+#: $strSetupServers_controluser_name
+msgid "Control user"
+msgstr ""
+
+#: $strSetupServers_CountTables_desc
+msgid "Count tables when showing database list"
+msgstr ""
+
+#: $strSetupServers_CountTables_name
+msgid "Count tables"
+msgstr ""
+
+#: $strSetupServers_designer_coords_desc
+msgid ""
+"Leave blank for no Designer support, suggested: "
+"[kbd]pma_designer_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_designer_coords_name
+msgid "Designer table"
+msgstr ""
+
+#: $strSetupServers_DisableIS_desc
+msgid ""
+"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+msgstr ""
+
+#: $strSetupServers_DisableIS_name
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr ""
+
+#: $strSetupServerSecurityInfoMsg
+msgid ""
+"If you feel this is necessary, use additional protection settings - "
+"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
+"authentication[/a] settings and "
+"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
+msgstr ""
+
+#: $strSetupServersEdit
+msgid "Edit server"
+msgstr ""
+
+#: $strSetupServers_extension_desc
+msgid "What PHP extension to use; you should use mysqli if supported"
+msgstr ""
+
+#: $strSetupServers_extension_name
+msgid "PHP extension to use"
+msgstr ""
+
+#: $strSetupServers_hide_db_desc
+msgid "Hide databases matching regular expression (PCRE)"
+msgstr ""
+
+#: $strSetupServers_hide_db_name
+msgid "Hide databases"
+msgstr ""
+
+#: $strSetupServers_history_desc
+msgid ""
+"Leave blank for no SQL query history support, suggested: "
+"[kbd]pma_history[/kbd]"
+msgstr ""
+
+#: $strSetupServers_history_name
+msgid "SQL query history table"
+msgstr ""
+
+#: $strSetupServers_host_desc
+msgid "Hostname where MySQL server is running"
+msgstr ""
+
+#: $strSetupServers_host_name
+msgid "Server hostname"
+msgstr ""
+
+#: $strSetupServers_LogoutURL_name
+msgid "Logout URL"
+msgstr ""
+
+#: $strSetupServers_nopassword_desc
+msgid "Try to connect without password"
+msgstr ""
+
+#: $strSetupServers_nopassword_name
+msgid "Connect without password"
+msgstr ""
+
+#: $strSetupServers_only_db_desc
+msgid ""
+"You can use MySQL wildcard characters (% and _), escape them if you want to "
+"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
+msgstr ""
+
+#: $strSetupServers_only_db_name
+msgid "Show only listed databases"
+msgstr ""
+
+#: $strSetupServers_password_desc
+msgctxt "$strSetupServers_password_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_password_name
+msgid "Password for config auth"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pdf_pages_name
+msgid "PDF schema: pages table"
+msgstr ""
+
+#: $strSetupServers_pmadb_desc
+msgid ""
+"Database used for relations, bookmarks, and PDF features. See "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. "
+"Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
+msgstr ""
+
+#: $strSetupServers_pmadb_name
+msgctxt "$strSetupServers_pmadb_name"
+msgid "PMA database"
+msgstr ""
+
+#: $strSetupServers_port_desc
+msgid "Port on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_port_name
+msgid "Server port"
+msgstr ""
+
+#: $strSetupServers_relation_desc
+msgid ""
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
+msgstr ""
+
+#: $strSetupServers_relation_name
+msgid "Relation table"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_desc
+msgid "SQL command to fetch available databases"
+msgstr ""
+
+#: $strSetupServers_ShowDatabasesCommand_name
+msgid "SHOW DATABASES command"
+msgstr ""
+
+#: $strSetupServers_SignonSession_desc
+msgid ""
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example"
+msgstr ""
+
+#: $strSetupServers_SignonSession_name
+msgid "Signon session name"
+msgstr ""
+
+#: $strSetupServers_SignonURL_name
+msgid "Signon URL"
+msgstr ""
+
+#: $strSetupServerSslMsg
+msgid "You should use SSL connections if your web server supports it"
+msgstr ""
+
+#: $strSetupServers_socket_desc
+msgid "Socket on which MySQL server is listening, leave empty for default"
+msgstr ""
+
+#: $strSetupServers_socket_name
+msgid "Server socket"
+msgstr ""
+
+#: $strSetupServers_ssl_desc
+msgid "Enable SSL for connection to MySQL server"
+msgstr ""
+
+#: $strSetupServers_ssl_name
+msgid "Use SSL"
+msgstr ""
+
+#: $strSetupServers_table_coords_desc
+msgid ""
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma_table_coords[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_coords_name
+msgid "PDF schema: table coordinates"
+msgstr ""
+
+#: $strSetupServers_table_info_desc
+msgid ""
+"Table to describe the display fields, leave blank for no support; suggested: "
+"[kbd]pma_table_info[/kbd]"
+msgstr ""
+
+#: $strSetupServers_table_info_name
+msgid "Display fields table"
+msgstr ""
+
+#: $strSetupServers_user_desc
+msgctxt "$strSetupServers_user_desc"
+msgid "Leave empty if not using config auth"
+msgstr ""
+
+#: $strSetupServers_user_name
+msgid "User for config auth"
+msgstr ""
+
+#: $strSetupServers_verbose_check_desc
+msgid ""
+"Disable if you know that your pma_* tables are up to date. This prevents "
+"compatibility checks and thereby increases performance"
+msgstr ""
+
+#: $strSetupServers_verbose_check_name
+msgid "Verbose check"
+msgstr ""
+
+#: $strSetupServers_verbose_desc
+msgid ""
+"A user-friendly description of this server. Leave blank to display the "
+"hostname instead."
+msgstr ""
+
+#: $strSetupServers_verbose_name
+msgid "Verbose name of this server"
+msgstr ""
+
+#: $strSetupSetValue
+msgid "Set value: %s"
+msgstr ""
+
+#: $strSetupShowAll_desc
+msgid ""
+"Whether a user should be displayed a &quot;show all (records)&quot; button"
+msgstr ""
+
+#: $strSetupShowAll_name
+msgid "Allow to display all the rows"
+msgstr ""
+
+#: $strSetupShowChgPassword_desc
+msgid ""
+"Please note that enabling this has no effect with [kbd]config[/kbd] "
+"authentication mode because the password is hard coded in the configuration "
+"file; this does not limit the ability to execute the same command directly"
+msgstr ""
+
+#: $strSetupShowChgPassword_name
+msgid "Show password change form"
+msgstr ""
+
+#: $strSetupShowCreateDb_name
+msgid "Show create database form"
+msgstr ""
+
+#: $strSetupShowForm
+msgid "Show form"
+msgstr ""
+
+#: $strSetupShowFunctionFields_desc
+msgid "Display the function fields in edit/insert mode"
+msgstr ""
+
+#: $strSetupShowFunctionFields_name
+msgid "Show function fields"
+msgstr ""
+
+#: $strSetupShowHiddenMessages
+msgid "Show hidden messages (#MSG_COUNT)"
+msgstr ""
+
+#: $strSetupShowPhpInfo_desc
+msgid ""
+"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output"
+msgstr ""
+
+#: $strSetupShowPhpInfo_name
+msgid "Show phpinfo() link"
+msgstr ""
+
+#: $strSetupShowServerInfo_name
+msgid "Show detailed MySQL server information"
+msgstr ""
+
+#: $strSetupShowSQL_desc
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
+msgstr ""
+
+#: $strSetupShowSQL_name
+msgid "Show SQL queries"
+msgstr ""
+
+#: $strSetupShowStats_desc
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: $strSetupShowStats_name
+msgid "Show statistics"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_desc
+msgid ""
+"If tooltips are enabled and a database comment is set, this will flip the "
+"comment and the real name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasDB_name
+msgid "Display database comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_desc
+msgid ""
+"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
+"used to split/nest the tables according to the "
+"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called like "
+"the alias, the table name itself stays unchanged"
+msgstr ""
+
+#: $strSetupShowTooltipAliasTB_name
+msgid "Display table comment instead of its name"
+msgstr ""
+
+#: $strSetupShowTooltip_name
+msgid "Display table comments in tooltips"
+msgstr ""
+
+#: $strSetupSkipLockedTables_desc
+msgid ""
+"Mark used tables and make it possible to show databases with locked tables"
+msgstr ""
+
+#: $strSetupSkipLockedTables_name
+msgid "Skip locked tables"
+msgstr ""
+
+#: $strSetupSQLQuery_Edit_name
+msgctxt "$strSetupSQLQuery_Edit_name"
+msgid "Edit"
+msgstr ""
+
+#: $strSetupSQLQuery_Explain_name
+msgctxt "$strSetupSQLQuery_Explain_name"
+msgid "Explain SQL"
+msgstr ""
+
+#: $strSetupSQLQuery_Refresh_name
+msgctxt "$strSetupSQLQuery_Refresh_name"
+msgid "Refresh"
+msgstr ""
+
+#: $strSetupSQLQuery_ShowAsPHP_name
+msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
+msgid "Create PHP Code"
+msgstr ""
+
+#: $strSetupSQLQuery_Validate_name
+msgctxt "$strSetupSQLQuery_Validate_name"
+msgid "Validate SQL"
+msgstr ""
+
+#: $strSetupSuggestDBName_desc
+msgid ""
+"Suggest a database name on the &quot;Create Database&quot; form (if "
+"possible) or keep the text field empty"
+msgstr ""
+
+#: $strSetupSuggestDBName_name
+msgid "Suggest new database name"
+msgstr ""
+
+#: $strSetupTrue
+msgid "yes"
+msgstr ""
+
+#: $strSetupTrustedProxies_desc
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
+msgstr ""
+
+#: $strSetupTrustedProxies_name
+msgid "List of trusted proxies for IP allow/deny"
+msgstr ""
+
+#: $strSetupUploadDir_desc
+msgid "Directory on server where you can upload files for import"
+msgstr ""
+
+#: $strSetupUploadDir_name
+msgid "Upload directory"
+msgstr ""
+
+#: $strSetupUseDbSearch_desc
+msgid "Allow for searching inside the entire database"
+msgstr ""
+
+#: $strSetupUseDbSearch_name
+msgid "Use database search"
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_desc
+msgid ""
+"Show affected rows of each statement on multiple-statement queries. See "
+"libraries/import.lib.php for defaults on how many queries a statement may "
+"contain."
+msgstr ""
+
+#: $strSetupVerboseMultiSubmit_name
+msgid "Verbose multiple statements"
+msgstr ""
+
+#: $strSetupVersionCheckDataError
+msgid ""
+"Reading of version failed. Maybe you're offline or the upgrade server does "
+"not respond."
+msgstr ""
+
+#: $strSetupVersionCheckInvalid
+msgid "Got invalid version string from server"
+msgstr ""
+
+#: $strSetupVersionCheckLink
+msgid "Check for latest version"
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailable
+msgid ""
+"A newer version of phpMyAdmin is available and you should consider "
+"upgrading. The newest version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNewAvailableSvn
+msgid ""
+"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
+"latest stable version is %s, released on %s."
+msgstr ""
+
+#: $strSetupVersionCheckNone
+msgid "No newer stable version is available"
+msgstr ""
+
+#: $strSetupVersionCheckUnparsable
+msgid "Unparsable version string"
+msgstr ""
+
+#: $strSetupVersionCheck
+msgid "Version check"
+msgstr ""
+
+#: $strSetupVersionCheckWrapperError
+msgid ""
+"Neither URL wrapper nor CURL is available. Version check is not possible."
+msgstr ""
+
+#: $strSetupWarning
+msgid "Warning"
+msgstr ""
+
+#: $strSetupZipDump_desc
+msgid ""
+"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
+"for import and export operations"
+msgstr ""
+
+#: $strSetupZipDumpExportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDumpImportWarning
+msgid ""
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
+"requires functions (%s) which are unavailable on this system."
+msgstr ""
+
+#: $strSetupZipDump_name
+msgid "ZIP"
+msgstr ""
+
+#: $strShowAll
+msgid "Show all"
+msgstr "Prikaži sve"
+
+#: $strShowBinaryContentsAsHex
+msgid "Show binary contents as HEX"
+msgstr ""
+
+#: $strShowBinaryContents
+msgid "Show binary contents"
+msgstr ""
+
+#: $strShowBLOBContents
+msgid "Show BLOB contents"
+msgstr ""
+
+#: $strShowColor
+msgid "Show colour"
+msgstr "Prikaži boju"
+
+#: $strShowDatadictAs
+msgid "Data Dictionary Format"
+msgstr "Oblikovanje rječnika podataka"
+
+#: $strShowFullQueries
+msgid "Show Full Queries"
+msgstr "Prikaži pune upite"
+
+#: $strShowGrid
+msgid "Show grid"
+msgstr "Prikaži mrežu"
+
+#: $strShowHideLeftMenu
+msgid "Show/Hide left menu"
+msgstr "Prikaži/sakrij lijevi izbornik"
+
+#: $strShowingBookmark
+msgid "Showing bookmark"
+msgstr "Prikazivanje oznake"
+
+#: $strShowingPhp
+msgid "Showing as PHP code"
+msgstr "Prikazivanje kao PHP koda"
+
+#: $strShowingRecords
+msgid "Showing rows"
+msgstr "Prikazivanje redaka"
+
+#: $strShowingSQL
+msgid "Showing SQL query"
+msgstr "Prikazivanje SQL upita"
+
+#: $strShowInsert
+msgid "Show insert query"
+msgstr ""
+
+#: $strShowKeys
+msgid "Only show keys"
+msgstr ""
+
+#: $strShowMasterStatus
+msgctxt "$strShowMasterStatus"
+msgid "Show master status"
+msgstr ""
+
+#: $strShowOpenTables
+msgid "Show open tables"
+msgstr "Prikaži otvorene tablice"
+
+#: $strShowPHPInfo
+msgid "Show PHP information"
+msgstr "Prikaži PHP podatke"
+
+#: $strShow
+msgid "Show"
+msgstr "Prikaži"
+
+#: $strShowSlaveHosts
+msgid "Show slave hosts"
+msgstr "Prikaži potčinjena računala"
+
+#: $strShowSlaveStatus
+msgid "Show slave status"
+msgstr "Prikaži stanje potčinjenog"
+
+#: $strShowStatusBinlog_cache_disk_useDescr
+msgid ""
+"The number of transactions that used the temporary binary log cache but that "
+"exceeded the value of binlog_cache_size and used a temporary file to store "
+"statements from the transaction."
+msgstr ""
+"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik pohrane, "
+"ali su nadmašile vrijednost binlog_cache_size i upotrijebile privremenu "
+"datoteku za pohranjivanje izjava transakcija."
+
+#: $strShowStatusBinlog_cache_useDescr
+msgid "The number of transactions that used the temporary binary log cache."
+msgstr ""
+"Broj transakcija koje su upotrebljavale privremeni binarni zapisnik pohrane."
+
+#: $strShowStatusCreated_tmp_disk_tablesDescr
+msgid ""
+"The number of temporary tables on disk created automatically by the server "
+"while executing statements. If Created_tmp_disk_tables is big, you may want "
+"to increase the tmp_table_size  value to cause temporary tables to be "
+"memory-based instead of disk-based."
+msgstr ""
+"Broj privremenih tablica koje poslužitelj automatski izrađuje na disku "
+"tijekom izvršavanja izjava. Ako je stavka Created_tmp_disk_tables velika, "
+"moglo bi biti potrebno da povećate vrijednost tmp_table_size, kako biste "
+"privremene tablice smjestili u radnu memoriju, a ne na tvrdi disk."
+
+#: $strShowStatusCreated_tmp_filesDescr
+msgid "How many temporary files mysqld has created."
+msgstr "Koliko je privremenih tablica izradio mysqld."
+
+#: $strShowStatusCreated_tmp_tablesDescr
+msgid ""
+"The number of in-memory temporary tables created automatically by the server "
+"while executing statements."
+msgstr ""
+"Broj privremenih tablica u memoriji koje je poslužitelj automatski izradio "
+"tijekom izvršavanja izjava."
+
+#: $strShowStatusDelayed_errorsDescr
+msgid ""
+"The number of rows written with INSERT DELAYED for which some error occurred "
+"(probably duplicate key)."
+msgstr ""
+"Broj redaka upisanih pomoću naredbe INSERT DELAYED, a kod kojih je došlo do "
+"neke vrste pogreške (vjerojatan razlog je udvojen ključ)."
+
+#: $strShowStatusDelayed_insert_threadsDescr
+msgid ""
+"The number of INSERT DELAYED handler threads in use. Every different table "
+"on which one uses INSERT DELAYED gets its own thread."
+msgstr ""
+"Broj hvatište grana INSERT DELAYED u upotrebi. Svaka druga tablica na koju "
+"se primjeni INSERT DELAYED dobiva vlastitu granu."
+
+#: $strShowStatusDelayed_writesDescr
+msgid "The number of INSERT DELAYED rows written."
+msgstr "Broj redaka zapisanih pomoću INSERT DELAYED."
+
+#: $strShowStatusFlush_commandsDescr
+msgid "The number of executed FLUSH statements."
+msgstr "Broj izvršenih izjava FLUSH."
+
+#: $strShowStatusHandler_commitDescr
+msgid "The number of internal COMMIT statements."
+msgstr "Broj internih izjava COMMIT."
+
+#: $strShowStatusHandler_deleteDescr
+msgid "The number of times a row was deleted from a table."
+msgstr "Brojka koja prokazuje koliko puta je redak bio izbrisan iz tablice."
+
+#: $strShowStatusHandler_discoverDescr
+msgid ""
+"The MySQL server can ask the NDB Cluster storage engine if it knows about a "
+"table with a given name. This is called discovery. Handler_discover "
+"indicates the number of time tables have been discovered."
+msgstr ""
+"MySQL poslužitelj može upitati pogon pohranjivanja NDB skupine, zna li za "
+"tablicu s traženim nazivom. Ovaj se postupak naziva otkrivanje. "
+"Handler_discover naznačuje koliko je puta tablica bila otkrivenom."
+
+#: $strShowStatusHandler_read_firstDescr
+msgid ""
+"The number of times the first entry was read from an index. If this is high, "
+"it suggests that the server is doing a lot of full index scans; for "
+"example, SELECT col1 FROM foo, assuming that col1 is indexed."
+msgstr ""
+"Brojka koja prokazuje koliko puta je prvi unos bio čitan iz indeksa. Velik "
+"broj je pokazatelj da poslužitelj izvodi mnogo potpunih pretraživanja "
+"indeksa, npr. SELECT col1 FROM foo, pri čemu je col1 indeksiran."
+
+#: $strShowStatusHandler_read_keyDescr
+msgid ""
+"The number of requests to read a row based on a key. If this is high, it is "
+"a good indication that your queries and tables are properly indexed."
+msgstr ""
+"Broj zahtjeva za čitanje retka zasnovan na ključu. Velik broj je pokazatelj "
+"da su vaši upiti i tablice pravilno indeksirani."
+
+#: $strShowStatusHandler_read_nextDescr
+msgid ""
+"The number of requests to read the next row in key order. This is "
+"incremented if you are querying an index column with a range constraint or "
+"if you are doing an index scan."
+msgstr ""
+"Broj zahtjeva za čitanje sljedećeg retka u redoslijedu ključa. Ovaj se broj "
+"povećava ako izvodite upite stupca indeksa s ograničenjem opsega ili ako "
+"izvodite pretraživanje indeksa."
+
+#: $strShowStatusHandler_read_prevDescr
+msgid ""
+"The number of requests to read the previous row in key order. This read "
+"method is mainly used to optimise ORDER BY ... DESC."
+msgstr ""
+"Broj zahtjeva za čitanje prethodnog retka u redoslijedu ključa. Ovaj način "
+"čitanja uglavnom se upotrebljava za optimiziranje opcije ORDER BY ... DESC."
+
+#: $strShowStatusHandler_read_rndDescr
+msgid ""
+"The number of requests to read a row based on a fixed position. This is high "
+"if you are doing a lot of queries that require sorting of the result. You "
+"probably have a lot of queries that require MySQL to scan whole tables or "
+"you have joins that don't use keys properly."
+msgstr ""
+"Broj zahtjeva za čitanje retka zasnovanog na fiksnom položaju. Ovaj iznos je "
+"velik ako izvodite mnogo upita koji zahtjevaju preslagivanje rezultata. "
+"Vjerojatno imate mnogo upita koji zahtijevaju da MySQL pretražuje cjelokupne "
+"tablice ili imate spojeve koji ne upotrebljavaju ključ na pravilan način."
+
+#: $strShowStatusHandler_read_rnd_nextDescr
+msgid ""
+"The number of requests to read the next row in the data file. This is high "
+"if you are doing a lot of table scans. Generally this suggests that your "
+"tables are not properly indexed or that your queries are not written to take "
+"advantage of the indexes you have."
+msgstr ""
+"Broj zahtjeva za čitanje sljedećeg retka u datoteci s podacima. Ovaj broj je "
+"velik ako izvodite mnogo pretraživanja tablice. Općenito, ovaj iznos "
+"naznačuje da vaša tablice nisu pravilno indeksirane ili da vaši upiti nisu "
+"napisani na način koji iskorištava prednosti raspoloživih indeksa."
+
+#: $strShowStatusHandler_rollbackDescr
+msgid "The number of internal ROLLBACK statements."
+msgstr "Broj internih izjava ROLLBACK."
+
+#: $strShowStatusHandler_updateDescr
+msgid "The number of requests to update a row in a table."
+msgstr "Broj zahtjeva za ažuriranje retka u tablici."
+
+#: $strShowStatusHandler_writeDescr
+msgid "The number of requests to insert a row in a table."
+msgstr "Broj zahtjeva za umetanje retka u tablici."
+
+#: $strShowStatusInnodb_buffer_pool_pages_dataDescr
+msgid "The number of pages containing data (dirty or clean)."
+msgstr "Broj stranice koje sadrže podatke (dirty ili clean)."
+
+#: $strShowStatusInnodb_buffer_pool_pages_dirtyDescr
+msgid "The number of pages currently dirty."
+msgstr "Broj stranica koje su trenutno 'dirty'."
+
+#: $strShowStatusInnodb_buffer_pool_pages_flushedDescr
+msgid "The number of buffer pool pages that have been requested to be flushed."
+msgstr "Broj stranica međuspremnika za koje je podnesen zahtjev za pražnjenjem."
+
+#: $strShowStatusInnodb_buffer_pool_pages_freeDescr
+msgid "The number of free pages."
+msgstr "Broj slobodnih stranica."
+
+#: $strShowStatusInnodb_buffer_pool_pages_latchedDescr
+msgid ""
+"The number of latched pages in InnoDB buffer pool. These are pages currently "
+"being read or written or that can't be flushed or removed for some other "
+"reason."
+msgstr ""
+"Broj vezanih stranica u InnoDB međuspremniku. Ove se stranice trenutno "
+"čitaju ili zapisuju, ili ih nije moguće isprazniti ili ukloniti iz nekog "
+"drugog razloga."
+
+#: $strShowStatusInnodb_buffer_pool_pages_miscDescr
+msgid ""
+"The number of pages busy because they have been allocated for administrative "
+"overhead such as row locks or the adaptive hash index. This value can also "
+"be calculated as Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+msgstr ""
+"Broj stranica koje su zauzete jer su dodijeljene za administrativna "
+"prepunjenja, poput zaključavanja redaka ili adaptivni indeks presjeka. Ovu "
+"je vrijednost moguće izračunati i kao Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
+
+#: $strShowStatusInnodb_buffer_pool_pages_totalDescr
+msgid "Total size of buffer pool, in pages."
+msgstr "Ukupna veličina međuspremnika, u stranicama."
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_rndDescr
+msgid ""
+"The number of \"random\" read-aheads InnoDB initiated. This happens when a "
+"query is to scan a large portion of a table but in random order."
+msgstr ""
+"Broj \"nasumičnih\" pripremnih čitanja koje je InnoDB inicijalizirao. Događa "
+"se kad upit mora pretražiti veliki dio tablice, ali nasumičnim redoslijedom."
+
+#: $strShowStatusInnodb_buffer_pool_read_ahead_seqDescr
+msgid ""
+"The number of sequential read-aheads InnoDB initiated. This happens when "
+"InnoDB does a sequential full table scan."
+msgstr ""
+"Broj slijednih pripremnih čitanja koje je inicijalizirao InnoDB. Ovo se "
+"događa kad InnoDB izvodi potpuno pretraživanje tablice."
+
+#: $strShowStatusInnodb_buffer_pool_read_requestsDescr
+msgid "The number of logical read requests InnoDB has done."
+msgstr "Broj logičkih zahtjeva za čitanjem koje je obavio InnoDB."
+
+#: $strShowStatusInnodb_buffer_pool_readsDescr
+msgid ""
+"The number of logical reads that InnoDB could not satisfy from buffer pool "
+"and had to do a single-page read."
+msgstr ""
+"Broj logičkih čitanja koje InnoDB nije mogao zadovoljiti iz međuspremnik i "
+"morao je izvesti čitanje po jedne stranice."
+
+#: $strShowStatusInnodb_buffer_pool_wait_freeDescr
+msgid ""
+"Normally, writes to the InnoDB buffer pool happen in the background. "
+"However, if it's necessary to read or create a page and no clean pages are "
+"available, it's necessary to wait for pages to be flushed first. This "
+"counter counts instances of these waits. If the buffer pool size was set "
+"properly, this value should be small."
+msgstr ""
+"Uobičajeno, zapisivanja u InnoDB međuspremnik izvode se u pozadini. Ipak, "
+"ako je potrebno iščitati ili izraditi stranicu, a nema raspoložive prazne "
+"stranice, bit će potrebno pričekati pražnjenje stranice. Ovaj brojač "
+"prikazuje stanje ovog čekanja. Ako je veličina međuspremnika pravilno "
+"postavljena, ova bi vrijednost trebala biti malenom."
+
+#: $strShowStatusInnodb_buffer_pool_write_requestsDescr
+msgid "The number writes done to the InnoDB buffer pool."
+msgstr "Broj izvršenih zapisivanja u InnoDB međuspremnik."
+
+#: $strShowStatusInnodb_data_fsyncsDescr
+msgid "The number of fsync() operations so far."
+msgstr "Broj dosadašnjih fsync() operacija."
+
+#: $strShowStatusInnodb_data_pending_fsyncsDescr
+msgid "The current number of pending fsync() operations."
+msgstr "Trenutan broj fsync() operacija u čekanju."
+
+#: $strShowStatusInnodb_data_pending_readsDescr
+msgid "The current number of pending reads."
+msgstr "Trenutan broj čitanja u čekanju."
+
+#: $strShowStatusInnodb_data_pending_writesDescr
+msgid "The current number of pending writes."
+msgstr "Trenutan broj zapisivanja u čekanju."
+
+#: $strShowStatusInnodb_data_readDescr
+msgid "The amount of data read so far, in bytes."
+msgstr "Količina podataka pročitanih do ovog trenutka, u bajtovima."
+
+#: $strShowStatusInnodb_data_readsDescr
+msgid "The total number of data reads."
+msgstr "Ukupan broj iščitavanja podataka."
+
+#: $strShowStatusInnodb_data_writesDescr
+msgid "The total number of data writes."
+msgstr "Ukupan broj zapisivanja podataka."
+
+#: $strShowStatusInnodb_data_writtenDescr
+msgid "The amount of data written so far, in bytes."
+msgstr "Količina podataka zapisanih do ovog trenutka, u bajtovima."
+
+#: $strShowStatusInnodb_dblwr_pages_writtenDescr
+msgid "The number of pages that have been written for doublewrite operations."
+msgstr ""
+"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih za "
+"ovu potrebu."
+
+#: $strShowStatusInnodb_dblwr_writesDescr
+msgid "The number of doublewrite operations that have been performed."
+msgstr ""
+"Broj dvostrukih zapisivanja do ovog trenutka i broj stranica zapisanih za "
+"ovu potrebu."
+
+#: $strShowStatusInnodb_log_waitsDescr
+msgid ""
+"The number of waits we had because log buffer was too small and we had to "
+"wait for it to be flushed before continuing."
+msgstr ""
+"Broj čekanja koja su se dogodila zbog nedovoljno velikog zapisnika "
+"međuspremnika, te je bilo potrebno čekati njegovo pražnjenje prije nastavka "
+"rada."
+
+#: $strShowStatusInnodb_log_write_requestsDescr
+msgid "The number of log write requests."
+msgstr "Broj zahtjeva za zapisivanje u zapisnik."
+
+#: $strShowStatusInnodb_log_writesDescr
+msgid "The number of physical writes to the log file."
+msgstr "Broj fizičkih zapisivanja u zapisnik."
+
+#: $strShowStatusInnodb_os_log_fsyncsDescr
+msgid "The number of fsync() writes done to the log file."
+msgstr "Broj fsyncs zapisivanja izvršenih u datoteci zapisnika."
+
+#: $strShowStatusInnodb_os_log_pending_fsyncsDescr
+msgid "The number of pending log file fsyncs."
+msgstr "Broj naredbi fsyncs za zapisnik, a koje su na čekanju."
+
+#: $strShowStatusInnodb_os_log_pending_writesDescr
+msgid "Pending log file writes."
+msgstr "Zapisivanja u zapisnik na čekanju."
+
+#: $strShowStatusInnodb_os_log_writtenDescr
+msgid "The number of bytes written to the log file."
+msgstr "Broj bajtova zapisanih u zapisnik."
+
+#: $strShowStatusInnodb_pages_createdDescr
+msgid "The number of pages created."
+msgstr "Broj izrađenih stranica."
+
+#: $strShowStatusInnodb_page_sizeDescr
+msgid ""
+"The compiled-in InnoDB page size (default 16KB). Many values are counted in "
+"pages; the page size allows them to be easily converted to bytes."
+msgstr ""
+"Izrađena veličina InnoDB stranice (zadana vrijednost je 16kB). Mnoge se "
+"vrijednosti prebrojavaju u stranicama. Veličina stranice dopušta njihovo "
+"jednostavno pretvaranje u bajtove."
+
+#: $strShowStatusInnodb_pages_readDescr
+msgid "The number of pages read."
+msgstr "Broj iščitanih stranica."
+
+#: $strShowStatusInnodb_pages_writtenDescr
+msgid "The number of pages written."
+msgstr "Broj zapisanih stranica."
+
+#: $strShowStatusInnodb_row_lock_current_waitsDescr
+msgid "The number of row locks currently being waited for."
+msgstr "Broj zaključavanja redaka na koje se trenutno čeka."
+
+#: $strShowStatusInnodb_row_lock_time_avgDescr
+msgid "The average time to acquire a row lock, in milliseconds."
+msgstr "Prosječno vrijeme postizanja zaključanosti retka, u milisekundama."
+
+#: $strShowStatusInnodb_row_lock_timeDescr
+msgid "The total time spent in acquiring row locks, in milliseconds."
+msgstr ""
+"Ukupno vrijeme utrošeno na postizanja zaključanosti retka, u milisekundama."
+
+#: $strShowStatusInnodb_row_lock_time_maxDescr
+msgid "The maximum time to acquire a row lock, in milliseconds."
+msgstr "Najdulje vrijeme postizanja zaključanosti retka, u milisekundama."
+
+#: $strShowStatusInnodb_row_lock_waitsDescr
+msgid "The number of times a row lock had to be waited for."
+msgstr "Broj okolnosti kad je bilo potrebno čekati na zaključanost retka."
+
+#: $strShowStatusInnodb_rows_deletedDescr
+msgid "The number of rows deleted from InnoDB tables."
+msgstr "Broj redaka izbrisanih iz InnoDB tablica."
+
+#: $strShowStatusInnodb_rows_insertedDescr
+msgid "The number of rows inserted in InnoDB tables."
+msgstr "Broj redaka umetnutih u InnoDB tablice."
+
+#: $strShowStatusInnodb_rows_readDescr
+msgid "The number of rows read from InnoDB tables."
+msgstr "Broj redaka iščitanih iz InnoDB tablica."
+
+#: $strShowStatusInnodb_rows_updatedDescr
+msgid "The number of rows updated in InnoDB tables."
+msgstr "Broj ažuriranih redaka u InnoDB tablicama."
+
+#: $strShowStatusKey_blocks_not_flushedDescr
+msgid ""
+"The number of key blocks in the key cache that have changed but haven't yet "
+"been flushed to disk. It used to be known as Not_flushed_key_blocks."
+msgstr ""
+"Broj ključnih blokova u pohrani ključeva koji su izmijenjeni ali još nisu "
+"ispražnjeni na disk. Nekoć se nazivalo: Not_flushed_key_blocks."
+
+#: $strShowStatusKey_blocks_unusedDescr
+msgid ""
+"The number of unused blocks in the key cache. You can use this value to "
+"determine how much of the key cache is in use."
+msgstr ""
+"Broj neiskorištenih blokova u pohrani ključeva. Ovu vrijednost možete "
+"upotrijebiti za određivanje veličine pohrane ključeva koja je u upotrebi."
+
+#: $strShowStatusKey_blocks_usedDescr
+msgid ""
+"The number of used blocks in the key cache. This value is a high-water mark "
+"that indicates the maximum number of blocks that have ever been in use at "
+"one time."
+msgstr ""
+"Broj iskorištenih blokova u pohrani ključeva. Ova je vrijednost oznaka "
+"gornje razine koja označuje najveći broj blokova koji su ikad bili u "
+"istovremenoj upotrebi."
+
+#: $strShowStatusKey_read_requestsDescr
+msgid "The number of requests to read a key block from the cache."
+msgstr "Broj zahtjeva za čitanje ključnog bloka iz pohrane."
+
+#: $strShowStatusKey_readsDescr
+msgid ""
+"The number of physical reads of a key block from disk. If Key_reads is big, "
+"then your key_buffer_size value is probably too small. The cache miss rate "
+"can be calculated as Key_reads/Key_read_requests."
+msgstr ""
+"Broj fizičkih čitanja ključnih blokova s diska. Ako je iznos Key_reads "
+"velik, vjerojatno je vaša vrijednost key_buffer_size premala. Stupanj "
+"promašivanja pohrane moguće je izračunati putem naredbi "
+"Key_reads/Key_read_requests."
+
+#: $strShowStatusKey_write_requestsDescr
+msgid "The number of requests to write a key block to the cache."
+msgstr "Broj zahtjeva za zapisivanje ključnog bloka u pohranu."
+
+#: $strShowStatusKey_writesDescr
+msgid "The number of physical writes of a key block to disk."
+msgstr "Broj fizičkih zapisivanja ključnih blokova na disk. "
+
+#: $strShowStatusLast_query_costDescr
+msgid ""
+"The total cost of the last compiled query as computed by the query "
+"optimiser. Useful for comparing the cost of different query plans for the "
+"same query. The default value of 0 means that no query has been compiled "
+"yet."
+msgstr ""
+"Ukupan trošak posljednjeg složenog upita, izračunat od strane optimizatora "
+"upita. Korisno za uspoređivanje troškova različitih planova upita za isti "
+"upit. Zadana vrijednost je 0 i podrazumijeva da još nema složenog upita."
+
+#: $strShowStatusNot_flushed_delayed_rowsDescr
+msgid "The number of rows waiting to be written in INSERT DELAYED queues."
+msgstr "Broj redaka koji čekaju svoje upisivanje u red čekanja INSERT DELAYED."
+
+#: $strShowStatusOpened_tablesDescr
+msgid ""
+"The number of tables that have been opened. If opened tables is big, your "
+"table cache value is probably too small."
+msgstr ""
+"Broj tablica koje su otvorene. Ako je iznos otvorenih tablica velik, vaša "
+"vrijednost za pohranu tablica vjerojatno je premala."
+
+#: $strShowStatusOpen_filesDescr
+msgid "The number of files that are open."
+msgstr "Broj otvorenih datoteka."
+
+#: $strShowStatusOpen_streamsDescr
+msgid "The number of streams that are open (used mainly for logging)."
+msgstr "Broj otvorenih protoka (uglavnom se upotrebljava za vođenje zapisnika)."
+
+#: $strShowStatusOpen_tablesDescr
+msgid "The number of tables that are open."
+msgstr "Broj otvorenih tablica."
+
+#: $strShowStatusQcache_free_blocksDescr
+msgid "The number of free memory blocks in query cache."
+msgstr "Broj slobodnih memorijskih blokova u pohrani upita."
+
+#: $strShowStatusQcache_free_memoryDescr
+msgid "The amount of free memory for query cache."
+msgstr "Količina slobodne memorije za pohranu upita."
+
+#: $strShowStatusQcache_hitsDescr
+msgid "The number of cache hits."
+msgstr "Broj pronalaženja u pohrani."
+
+#: $strShowStatusQcache_insertsDescr
+msgid "The number of queries added to the cache."
+msgstr "Broj upita pridodanih u pohranu."
+
+#: $strShowStatusQcache_lowmem_prunesDescr
+msgid ""
+"The number of queries that have been removed from the cache to free up "
+"memory for caching new queries. This information can help you tune the query "
+"cache size. The query cache uses a least recently used (LRU) strategy to "
+"decide which queries to remove from the cache."
+msgstr ""
+"Broj upita koji su uklonjeni iz pohrane radi oslobađanja memorije za potrebe "
+"pohranjivanja novih upita. Ovaj vam podatak može pomoći pri podešavanju "
+"veličine pohrane upita. Pohrana upita upotrebljava strategiju posljednjeg "
+"nedavno upotrebljavanog (LRU - least recently used) radi odlučivanja koje će "
+"upite ukloniti iz pohrane."
+
+#: $strShowStatusQcache_not_cachedDescr
+msgid ""
+"The number of non-cached queries (not cachable, or not cached due to the "
+"query_cache_type setting)."
+msgstr ""
+"Broj upita koji nisu pohranjeni (nisu za pohranu ili nisu pohranjeni zbog "
+"postavke query_cache_type)."
+
+#: $strShowStatusQcache_queries_in_cacheDescr
+msgid "The number of queries registered in the cache."
+msgstr "Broj upita registriranih u pohrani."
+
+#: $strShowStatusQcache_total_blocksDescr
+msgid "The total number of blocks in the query cache."
+msgstr "Ukupan broj blokova u pohrani upita."
+
+#: $strShowStatusReset
+msgctxt "$strShowStatusReset"
+msgid "Reset"
+msgstr "Povrat"
+
+#: $strShowStatusRpl_statusDescr
+msgid "The status of failsafe replication (not yet implemented)."
+msgstr "Stanje replikacije sigurnosti protiv otkaza (još nije implementirano)."
+
+#: $strShowStatusSelect_full_joinDescr
+msgid ""
+"The number of joins that do not use indexes. If this value is not 0, you "
+"should carefully check the indexes of your tables."
+msgstr ""
+"Broj spojeva koji ne upotrebljavaju indekse. Ako ovaj iznos nije 0, bit će "
+"potrebno da pažljivo provjerite indekse vaših tablica."
+
+#: $strShowStatusSelect_full_range_joinDescr
+msgid "The number of joins that used a range search on a reference table."
+msgstr ""
+"Broj spojeva koji nad referentnom tablicom upotrebljavaju opseg traženja."
+
+#: $strShowStatusSelect_range_checkDescr
+msgid ""
+"The number of joins without keys that check for key usage after each row. "
+"(If this is not 0, you should carefully check the indexes of your tables.)"
+msgstr ""
+"Broj spojeva bez ključeva koji provjeravaju upotrebu ključa nakon svakog "
+"retka. (Ako ovaj iznos nije 0, bit će potrebno da pažljivo provjerite "
+"indekse vaših tablica."
+
+#: $strShowStatusSelect_rangeDescr
+msgid ""
+"The number of joins that used ranges on the first table. (It's normally not "
+"critical even if this is big.)"
+msgstr ""
+"Broj spojeva koji su upotrijebili opsege nad prvom tablicom. (Općenito nije "
+"kritično ako je ovaj iznos velik.)"
+
+#: $strShowStatusSelect_scanDescr
+msgid "The number of joins that did a full scan of the first table."
+msgstr "Broj spojeva koji su izveli potpuno pretraživanje prve tablice."
+
+#: $strShowStatusSlave_open_temp_tablesDescr
+msgid "The number of temporary tables currently open by the slave SQL thread."
+msgstr ""
+"Broj privremenih tablica koje su trenutno otvorene od strane potčinjene SQL "
+"grane."
+
+#: $strShowStatusSlave_retried_transactionsDescr
+msgid ""
+"Total (since startup) number of times the replication slave SQL thread has "
+"retried transactions."
+msgstr ""
+"Ukupna količina (od pokretanja) ponovnih pokušaja transakcija od strane "
+"replikacijske potčinjene SQL grane."
+
+#: $strShowStatusSlave_runningDescr
+msgid "This is ON if this server is a slave that is connected to a master."
+msgstr ""
+"Uključeno (ON) ako je ovaj poslužitelj potčinjen i povezan na gospodara."
+
+#: $strShowStatusSlow_launch_threadsDescr
+msgid ""
+"The number of threads that have taken more than slow_launch_time seconds to "
+"create."
+msgstr ""
+"Broj grana kojima je bilo potrebno više vremena za izradu, nego što je to "
+"definirano u slow_launch_time (sporo vrijeme pokretanja), u sekundama."
+
+#: $strShowStatusSlow_queriesDescr
+msgid ""
+"The number of queries that have taken more than long_query_time seconds."
+msgstr ""
+"Broj upita kojima je bilo potrebno više vremena nego što je to definirano u "
+"long_query_time (dugo vrijeme upita), u sekundama."
+
+#: $strShowStatusSort_merge_passesDescr
+msgid ""
+"The number of merge passes the sort algorithm has had to do. If this value "
+"is large, you should consider increasing the value of the sort_buffer_size "
+"system variable."
+msgstr ""
+"Broj prolaza udruživanja koje je algoritam za preslagivanje morao izvesti. "
+"Ako je ovaj iznos velik, razmotrite mogućnost povećanja vrijednosti "
+"sistemske varijable sort_buffer_size."
+
+#: $strShowStatusSort_rangeDescr
+msgid "The number of sorts that were done with ranges."
+msgstr "Broj preslagivanja učinjenih pomoću opsega."
+
+#: $strShowStatusSort_rowsDescr
+msgid "The number of sorted rows."
+msgstr "Broj presloženih redaka."
+
+#: $strShowStatusSort_scanDescr
+msgid "The number of sorts that were done by scanning the table."
+msgstr "Broj preslagivanja učinjenih pomoću pretraživanja tablice."
+
+#: $strShowStatusTable_locks_immediateDescr
+msgid "The number of times that a table lock was acquired immediately."
+msgstr "Količina trenutno postignutih zaključavanja tablica."
+
+#: $strShowStatusTable_locks_waitedDescr
+msgid ""
+"The number of times that a table lock could not be acquired immediately and "
+"a wait was needed. If this is high, and you have performance problems, you "
+"should first optimise your queries, and then either split your table or "
+"tables or use replication."
+msgstr ""
+"Količina zaključavanja tablica koji nisu mogli biti trenutno postignuti i "
+"bilo je potrebno određeno čekanje. Ako je ovaj iznos visok i ako imate "
+"problema s performansama, bit će potrebno da prvo optimizirate svoje upite i "
+"potom ili podijelite svoje tablice ili upotrijebite replikaciju."
+
+#: $strShowStatusThreads_cachedDescr
+msgid ""
+"The number of threads in the thread cache. The cache hit rate can be "
+"calculated as Threads_created/Connections. If this value is red you should "
+"raise your thread_cache_size."
+msgstr ""
+"Broj grana u pohrani grana. Stupanj pogodaka u pohrani može se izračunati "
+"kao Threads_created/Connections. Ako je ovaj iznos prikazan crvenom bojom, "
+"bit će potrebno da povećate svoju vrijednost thread_cache_size."
+
+#: $strShowStatusThreads_connectedDescr
+msgid "The number of currently open connections."
+msgstr "Broj trenutno otvorenih veza."
+
+#: $strShowStatusThreads_createdDescr
+msgid ""
+"The number of threads created to handle connections. If Threads_created is "
+"big, you may want to increase the thread_cache_size value. (Normally this "
+"doesn't give a notable performance improvement if you have a good thread "
+"implementation.)"
+msgstr ""
+"Broj grana izrađenih za rukovanje vezama. Ako je iznos Threads_created "
+"velik, moglo bi biti potrebno da povećate vrijednost thread_cache_size. "
+"(Uobičajeno, ako imate dobru implementaciju grana, ova opcija neće pružiti "
+"primjetna poboljšanja performansi.)"
+
+#: $strShowStatusThreads_runningDescr
+msgid "The number of threads that are not sleeping."
+msgstr "Broj grana koje nisu uspavane."
+
+#: $strShowTableDimension
+msgid "Show dimension of tables"
+msgstr "Prikaži dimenzije tablice"
+
+#: $strShowTables
+msgid "Show tables"
+msgstr "Prikaži tablice"
+
+#: $strShowThisQuery
+msgid " Show this query here again "
+msgstr "Ovaj upit ponovno prikaži ovdje"
+
+#: $strSimplifiedChinese
+msgid "Simplified Chinese"
+msgstr "Kineski, pojednostavljen"
+
+#: $strSingly
+msgid "(singly)"
+msgstr "(pojedinačno)"
+
+#: $strSize
+msgid "Size"
+msgstr "Veličina"
+
+#: $strSkipQueries
+msgctxt "$strSkipQueries"
+msgid "Number of records (queries) to skip from start"
+msgstr "Broj zapisa (upita) koje je potrebno preskočiti od početka"
+
+#: $strSlaveConfigure
+msgid ""
+"Make sure, you have unique server-id in your configuration file (my.cnf). If "
+"not, please add the following line into [mysqld] section:"
+msgstr ""
+
+#: $strSlovak
+msgid "Slovak"
+msgstr "Slovački"
+
+#: $strSlovenian
+msgid "Slovenian"
+msgstr "Slovenski"
+
+#: $strSmallBigAll
+msgid "Small/Big All"
+msgstr "Malo / Sve veliko"
+
+#: $strSnapToGrid
+msgid "Snap to grid"
+msgstr "Poravnaj s mrežom"
+
+#: $strSocketProblem
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr "(ili priključak lokalnog MySQL poslužitelja nije ispravno konfiguriran)"
+
+#: $strSocket
+msgid "Socket"
+msgstr ""
+
+#: $strSortByKey
+msgid "Sort by key"
+msgstr "Presloži po ključu"
+
+#: $strSorting
+msgid "Sorting"
+msgstr "Preslagivanje"
+
+#: $strSort
+msgid "Sort"
+msgstr "Presloži"
+
+#: $strSpaceUsage
+msgid "Space usage"
+msgstr "Iskorištenost prostora"
+
+#: $strSpanish
+msgid "Spanish"
+msgstr "Španjolski"
+
+#: $strSplitWordsWithSpace
+msgid "Words are separated by a space character (\" \")."
+msgstr "Riječi su razdvojene znakom razmaka (\" \")."
+
+#: $strSQLCompatibility
+msgid "SQL compatibility mode"
+msgstr "Način rada SQL kompatibilnosti"
+
+#: $strSQLExportType
+msgid "Export type"
+msgstr "Vrsta izvoza"
+
+#: $strSQLExportUTC
+msgid "Export time in UTC"
+msgstr ""
+
+#: $strSQLParserBugMessage
+msgid ""
+"There is a chance that you may have found a bug in the SQL parser. Please "
+"examine your query closely, and check that the quotes are correct and not "
+"mis-matched. Other possible failure causes may be that you are uploading a "
+"file with binary outside of a quoted text area. You can also try your query "
+"on the MySQL command line interface. The MySQL server error output below, if "
+"there is any, may also help you in diagnosing the problem. If you still "
+"have problems or if the parser fails where the command line interface "
+"succeeds, please reduce your SQL query input to the single query that causes "
+"problems, and submit a bug report with the data chunk in the CUT section "
+"below:"
+msgstr ""
+"Postoji mogućnost da ste pronašli nedostatak u SQL raščlanjivaču. Temeljito "
+"proučite vaš upit i provjerite ispravan unos navodnika. Jedan od mogućih "
+"razloga je i da ste učitali datoteku s binarnim vrijednosti izvan prostora s "
+"navodnicima. Vaš upit također možete provjeriti u naredbenom retku MySQL-a. "
+"Ispis pogreške MySQL poslužitelja može vam pomoći u dijagnosticiranju "
+"problema. Ako i dalje postoje problemi ili ako raščlanjivač ne uspijeva u "
+"zadacima koji uspijevaju u naredbenom retku, suzite svoj unos SQL upita na "
+"samo onaj upit koji izaziva probleme i podnesite prijavu o nedostatku "
+"zajedno s dijelom podatka u donjem odjeljku CUT:"
+
+#: $strSQLParserUserError
+msgid ""
+"There seems to be an error in your SQL query. The MySQL server error output "
+"below, if there is any, may also help you in diagnosing the problem"
+msgstr ""
+"Izgleda da postoji pogreška u vašem SQL upitu. Ispis pogreške MySQL "
+"poslužitelja može vam pomoći u dijagnosticiranju problema."
+
+#: $strSQLQuery
+msgid "SQL query"
+msgstr "SQL upit"
+
+#: $strSQLResult
+msgid "SQL result"
+msgstr "SQL rezultat"
+
+#: $strSQL
+msgid "SQL"
+msgstr "SQL"
+
+#: $strSQPBugInvalidIdentifer
+msgid "Invalid Identifer"
+msgstr "Neispravna ID oznaka"
+
+#: $strSQPBugUnclosedQuote
+msgid "Unclosed quote"
+msgstr "Navodnik nije zatvoren"
+
+#: $strSQPBugUnknownPunctuation
+msgid "Unknown Punctuation String"
+msgstr "Nepoznat niz interpunkcija"
+
+#: $strStandInStructureForView
+msgid "Stand-in structure for view"
+msgstr "Unutarnja struktura za pregledavanje"
+
+#: $strStart
+msgid "Start"
+msgstr ""
+
+#: $strStatCheckTime
+msgid "Last check"
+msgstr "Posljednja provjera"
+
+#: $strStatCreateTime
+msgid "Creation"
+msgstr "Izrada"
+
+#: $strStatement
+msgid "Statements"
+msgstr "Izjave"
+
+#: $strStatic
+msgid "static"
+msgstr ""
+
+#: $strStatisticsOverrun
+msgid ""
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
+msgstr ""
+"Na zaposlenom poslužitelju brojač bajtova mogao bi preletjeti svoj raspon "
+"prikaza, pri čemu bi statistike koje prikazuje MySQL poslužitelj mogle biti "
+"netočne."
+
+#: $strStatUpdateTime
+msgid "Last update"
+msgstr "Posljednje ažuriranje"
+
+#: $strStatus
+msgid "Status"
+msgstr "Stanje"
+
+#: $strStop
+msgid "Stop"
+msgstr ""
+
+#: $strStorageEngines
+msgid "Storage Engines"
+msgstr "Pogoni pohrane"
+
+#: $strStorageEngine
+msgid "Storage Engine"
+msgstr "Pogon pohrane"
+
+#: $strStrucCSV
+msgctxt "$strStrucCSV"
+msgid "CSV"
+msgstr "CSV"
+
+#: $strStrucData
+msgid "Structure and data"
+msgstr "Strukturu i podatke"
+
+#: $strStrucExcelCSV
+msgid "CSV for MS Excel"
+msgstr "CSV za MS Excel"
+
+#: $strStrucNativeExcel
+msgid "Native MS Excel format"
+msgstr "Izvorno MS Excel oblikovanje"
+
+#: $strStrucOnly
+msgid "Structure only"
+msgstr "Samo strukturu"
+
+#: $strStructPropose
+msgid "Propose table structure"
+msgstr "Predloži strukturu tablice"
+
+#: $strStructureDiff
+msgid ""
+"Structure Difference' ;\n"
+"$strStructureForView = 'Structure for view"
+msgstr ""
+
+#: $strStructureLC
+msgid "structure"
+msgstr ""
+
+#: $strStructure
+msgid "Structure"
+msgstr "Strukturu"
+
+#: $strStructureSyn
+msgid "Structure Synchronisation"
+msgstr ""
+
+#: $strSubmit
+msgid "Submit"
+msgstr "Podnesi"
+
+#: $strSuccess
+msgid "Your SQL query has been executed successfully"
+msgstr "Vaš SQL upit uspješno je izvršen"
+
+#: $strSuhosin
+msgid ""
+"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
+"issues."
+msgstr ""
+"Poslužitelj pokrenut sa Suhosin. Proučite %sdokumentaciju%s radi mogućih "
+"problema."
+
+#: $strSum
+msgid "Sum"
+msgstr "Zbroj"
+
+#: $strSwedish
+msgid "Swedish"
+msgstr "Švedski"
+
+#: $strSwekeyAuthenticating
+msgid "Authenticating..."
+msgstr ""
+
+#: $strSwekeyAuthFailed
+msgid "Hardware authentication failed"
+msgstr ""
+
+#: $strSwekeyNoKeyId
+msgid "File %s does not contain any key id"
+msgstr ""
+
+#: $strSwekeyNoKey
+msgid "No valid authentication key plugged"
+msgstr ""
+
+#: $strSwitchToDatabase
+msgid "Switch to copied database"
+msgstr "Prebaci se na kopiranu bazu podataka"
+
+#: $strSwitchToTable
+msgid "Switch to copied table"
+msgstr "Prebaci se na kopiranu tablicu"
+
+#: $strSynchronizationNote
+msgid ""
+"Target database will be completely synchronised with source database. Source "
+"database will remain unchanged."
+msgstr ""
+
+#: $strSynchronizeDb
+msgid "Synchronise Databases"
+msgstr ""
+
+#: $strSynchronize
+msgid "Synchronise"
+msgstr ""
+
+#: $strTableAddColumn
+msgid "Add column(s)"
+msgstr ""
+
+#: $strTableAlreadyExists
+msgid "Table %s already exists!"
+msgstr "Tablica %s već postoji!"
+
+#: $strTableAlterColumn
+msgid "Alter column(s)"
+msgstr ""
+
+#: $strTableAlteredSuccessfully
+msgid "Table %1$s has been altered successfully"
+msgstr "Tablica %1$s uspješno je izmijenjena."
+
+#: $strTableAlterIndex
+msgid "Alter index(s)"
+msgstr ""
+
+#: $strTableApplyIndex
+msgid "Apply index(s)"
+msgstr ""
+
+#: $strTableComments
+msgid "Table comments"
+msgstr "Komentari tablice"
+
+#: $strTableDeleteRows
+msgid "Would you like to delete all the previous rows from target tables?"
+msgstr ""
+
+#: $strTableEmpty
+msgid "The table name is empty!"
+msgstr "Naziv tablice je prazan!"
+
+#: $strTableHasBeenCreated
+msgid "Table %1$s has been created."
+msgstr "Tablica %1$s je izrađena."
+
+#: $strTableHasBeenDropped
+msgid "Table %s has been dropped"
+msgstr "Tablica %s je odbačen"
+
+#: $strTableHasBeenEmptied
+msgid "Table %s has been emptied"
+msgstr "Tablica %s je očišćena"
+
+#: $strTableHasBeenFlushed
+msgid "Table %s has been flushed"
+msgstr "Tablica %s je ispražnjena"
+
+#: $strTableInsertRow
+msgid "Insert row(s)"
+msgstr ""
+
+#: $strTableIsEmpty
+msgid "Table seems to be empty!"
+msgstr "Tablica izgleda praznom!"
+
+#: $strTableMaintenance
+msgid "Table maintenance"
+msgstr "Održavanje tablice"
+
+#: $strTableName
+msgid "Table name"
+msgstr "Naziv tablice"
+
+#: $strTableOfContents
+msgid "Table of contents"
+msgstr "Sadržaj tablice"
+
+#: $strTableOptions
+msgid "Table options"
+msgstr "Opcije tablice"
+
+#: $strTableRemoveColumn
+msgid "Remove column(s)"
+msgstr ""
+
+#: $strTableRemoveIndex
+msgid "Remove index(s)"
+msgstr ""
+
+#: $strTables
+msgid "%s table(s)"
+msgstr "%s tablica"
+
+#: $strTableStructure
+msgid "Table structure for table"
+msgstr "Tablična struktura za tablicu"
+
+#: $strTable
+msgid "Table"
+msgstr "Tablica"
+
+#: $strTableUpdateRow
+msgid "Update row(s)"
+msgstr ""
+
+#: $strTakeIt
+msgid "take it"
+msgstr "Dodijeli"
+
+#: $strTargetDatabaseHasBeenSynchronized
+msgid "Target database has been synchronised with source database"
+msgstr ""
+
+#: $strTblPrivileges
+msgid "Table-specific privileges"
+msgstr "Privilegije specifične za tablicu"
+
+#: $strTempData
+msgid "Temporary data"
+msgstr "Privremeni podaci"
+
+#: $strTextAreaLength
+msgid " Because of its length,<br /> this field might not be editable "
+msgstr ""
+" Zbog svoje duljine,<br /> uređivanje ovog polja možda neće biti moguće "
+
+#: $strTexyText
+msgid "Texy! text"
+msgstr "Texy! tekst"
+
+#: $strThai
+msgid "Thai"
+msgstr "Thai"
+
+#: $strThemeDefaultNotFound
+msgid "Default theme %s not found!"
+msgstr "Zadana tema %s nije pronađena!"
+
+#: $strThemeNoPreviewAvailable
+msgid "No preview available."
+msgstr "Nema raspoloživog pregleda."
+
+#: $strThemeNotFound
+msgid "Theme %s not found!"
+msgstr "Tema %s nije pronađena!"
+
+#: $strThemeNoValidImgPath
+msgid "No valid image path for theme %s found!"
+msgstr "Valjana putanja slika za temu %s nije pronađena!"
+
+#: $strThemePathNotFound
+msgid "Theme path not found for theme %s!"
+msgstr "Za temu %s nije pronađena putanje tema!"
+
+#: $strTheme
+msgid "Theme / Style"
+msgstr "Tema / Stil"
+
+#: $strThisHost
+msgid "This Host"
+msgstr "Ovo računalo"
+
+#: $strThreads
+msgid "Threads"
+msgstr "Grane"
+
+#: $strThreadSuccessfullyKilled
+msgid "Thread %s was successfully killed."
+msgstr "Grana %s uspješno je prekinuta."
+
+#: $strTimeoutInfo
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %"
+"d."
+msgstr ""
+"Vrijeme prethodnog uvoza je isteklo. Nakon ponovno podnošenja bit će "
+"nastavljeno od položaja %d."
+
+#: $strTimeoutNothingParsed
+msgid ""
+"However on last run no data has been parsed, this usually means phpMyAdmin "
+"won't be able to finish this import unless you increase php time limits."
+msgstr ""
+"Ipak, pri posljednjem prijelazu nikakvi podaci nisu bili raščlanjeni. To "
+"znači da phpMyAdmin neće biti u mogućnosti završiti ovaj uvoz sve dok ne "
+"povećate vremenska ograničenja unutar php."
+
+#: $strTimeoutPassed
+msgid ""
+"Script timeout passed, if you want to finish import, please resubmit same "
+"file and import will resume."
+msgstr ""
+"Vrijeme za skriptu je isteklo. Ako želite završiti uvoz, ponovo podnesite "
+"istu datoteku i uvoz će nastaviti."
+
+#: $strTime
+msgid "Time"
+msgstr "Vrijeme"
+
+#: $strToFromPage
+msgid "to/from page"
+msgstr "stranica od / prema"
+
+#: $strToggleScratchboard
+msgid "Toggle scratchboard"
+msgstr "Uključi bilješke"
+
+#: $strToggleSmallBig
+msgid "Toggle small/big"
+msgstr "Malo / Veliko"
+
+#: $strToSelectRelation
+msgid "To select relation, click :"
+msgstr "Za odabir relacije pritisnite:"
+
+#: $strTotal
+msgid "total"
+msgstr "ukupno"
+
+#: $strTotalUC
+msgid "Total"
+msgstr "Ukupno"
+
+#: $strTrackingActivated
+msgid "Tracking of %s.%s is activated."
+msgstr ""
+
+#: $strTrackingActivateNow
+msgid "Activate now"
+msgstr ""
+
+#: $strTrackingActivateTrackingFor
+msgid "Activate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingCommentOut
+msgid "Comment out these two lines if you do not need them."
+msgstr ""
+
+#: $strTrackingCreateVersion
+msgid "Create version"
+msgstr ""
+
+#: $strTrackingCreateVersionOf
+msgid "Create version %s of %s.%s"
+msgstr ""
+
+#: $strTrackingDatabaseLog
+msgid "Database Log"
+msgstr ""
+
+#: $strTrackingDataDefinitionStatement
+msgid "Data definition statement"
+msgstr ""
+
+#: $strTrackingDataManipulationStatement
+msgid "Data manipulation statement"
+msgstr ""
+
+#: $strTrackingDate
+msgid "Date"
+msgstr ""
+
+#: $strTrackingDeactivateNow
+msgid "Deactivate now"
+msgstr ""
+
+#: $strTrackingDeactivateTrackingFor
+msgid "Deactivate tracking for %s.%s"
+msgstr ""
+
+#: $strTrackingExportAs
+msgid "Export as %s"
+msgstr ""
+
+#: $strTrackingIsActive
+msgid "Tracking is active."
+msgstr ""
+
+#: $strTrackingIsNotActive
+msgid "Tracking is not active."
+msgstr ""
+
+#: $strTrackingMechanism
+msgid "Tracking Mechanism"
+msgstr ""
+
+#: $strTrackingReportClose
+msgid "Close"
+msgstr ""
+
+#: $strTrackingReportForTable
+msgid "Tracking report for table `%s`"
+msgstr ""
+
+#: $strTrackingReport
+msgid "Tracking report"
+msgstr ""
+
+#: $strTrackingShowLogDateUsers
+msgid "Show %s with dates from %s to %s by user %s %s"
+msgstr ""
+
+#: $strTrackingShowVersions
+msgid "Show versions"
+msgstr ""
+
+#: $strTrackingSQLDumpFile
+msgid "SQL dump (file download)"
+msgstr ""
+
+#: $strTrackingSQLDump
+msgid "SQL dump"
+msgstr ""
+
+#: $strTrackingSQLExecuted
+msgid "SQL statements executed."
+msgstr ""
+
+#: $strTrackingSQLExecutionAlert
+msgid "This option will replace your table and contained data."
+msgstr ""
+
+#: $strTrackingSQLExecution
+msgid "SQL execution"
+msgstr ""
+
+#: $strTrackingSQLExported
+msgid "SQL statements exported. Please copy the dump or execute it."
+msgstr ""
+
+#: $strTrackingStatements
+msgid "Tracking statements"
+msgstr ""
+
+#: $strTrackingStatusActive
+msgid "active"
+msgstr ""
+
+#: $strTrackingStatusNotActive
+msgid "not active"
+msgstr ""
+
+#: $strTrackingStructureSnapshot
+msgid "Structure snapshot"
+msgstr ""
+
+#: $strTrackingThCreated
+msgid "Created"
+msgstr ""
+
+#: $strTrackingThLastVersion
+msgid "Last version"
+msgstr ""
+
+#: $strTrackingThUpdated
+msgid "Updated"
+msgstr ""
+
+#: $strTrackingThVersion
+msgid "Version"
+msgstr ""
+
+#: $strTrackingTrackDDStatements
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: $strTrackingTrackDMStatements
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: $strTrackingTrackedTables
+msgid "Tracked tables"
+msgstr ""
+
+#: $strTracking
+msgid "Tracking"
+msgstr ""
+
+#: $strTrackingTrackTable
+msgid "Track table"
+msgstr ""
+
+#: $strTrackingUntrackedTables
+msgid "Untracked tables"
+msgstr ""
+
+#: $strTrackingUsername
+msgid "Username"
+msgstr ""
+
+#: $strTrackingVersionActivated
+msgid "Tracking for %s.%s , version %s is activated."
+msgstr ""
+
+#: $strTrackingVersionCreated
+msgid "Version %s is created, tracking for %s.%s is activated."
+msgstr ""
+
+#: $strTrackingVersionDeactivated
+msgid "Tracking for %s.%s , version %s is deactivated."
+msgstr ""
+
+#: $strTrackingVersionSnapshotSQL
+msgid "Version %s snapshot (SQL code)"
+msgstr ""
+
+#: $strTrackingVersions
+msgid "Versions"
+msgstr ""
+
+#: $strTrackingYouCanExecute
+msgid ""
+"You can execute the dump by creating and using a temporary database. Please "
+"ensure that you have the privileges to do so."
+msgstr ""
+
+#: $strTraditionalChinese
+msgid "Traditional Chinese"
+msgstr "Kineski, tradicionalan"
+
+#: $strTraditionalSpanish
+msgid "Traditional Spanish"
+msgstr "Španjolski, tradicionalan"
+
+#: $strTraffic
+msgid "Traffic"
+msgstr "Promet"
+
+#: $strTransactionCoordinator
+msgid "Transaction coordinator"
+msgstr "Koordinator transakcije"
+
+#: $strTransformation_application_octetstream__download
+msgid ""
+"Displays a link to download the binary data of the field. You can use the "
+"first option to specify the filename, or use the second option as the name "
+"of a field which contains the filename. If you use the second option, you "
+"need to set the first option to the empty string."
+msgstr ""
+"Prikazuje vezu prema preuzimanju binarnih podataka polja. Možete "
+"upotrijebiti prvu opciju kako biste sami odredili naziv datoteke ili drugu "
+"opciju kako biste upotrijebili naziv polja koje sadrži naziv datoteke. Ako "
+"upotrijebite drugu opciju, u prvu opciju morate unijeti prazan niz."
+
+#: $strTransformation_application_octetstream__hex
+msgid ""
+"Displays hexadecimal representation of data. Optional first parameter "
+"specifies how often space will be added (defaults to 2 nibbles)."
+msgstr ""
+"Prikazuje podatke u heksadecimalnom obliku. Opcionalan prvi parametar "
+"određuje koliko često će prazna mjesta biti dodavana (zadana vrijednost je "
+"2)."
+
+#: $strTransformation_image_jpeg__inline
+msgid ""
+"Displays a clickable thumbnail. The options are the maximum width and height "
+"in pixels. The original aspect ratio is preserved."
+msgstr ""
+"Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i "
+"visina u pikselima. Izvorne proporcije su očuvane."
+
+#: $strTransformation_image_jpeg__link
+msgid "Displays a link to download this image."
+msgstr "Prikazuje vezu za preuzimanje ove slike."
+
+#: $strTransformation_image_png__inline
+msgid "See image/jpeg: inline"
+msgstr "Pogledajte slika/jpeg: inline"
+
+#: $strTransformation_text_plain__dateformat
+msgid ""
+"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
+"formatted date. The first option is the offset (in hours) which will be "
+"added to the timestamp (Default: 0). Use second option to specify a "
+"different date/time format string. Third option determines whether you want "
+"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
+"According to that, date format has different value - for \"local\" see the "
+"documentation for PHP's strftime() function and for \"utc\" it is done using "
+"gmdate() function."
+msgstr ""
+"Polja TIME (vrijeme), TIMESTAMP (vremenska oznaka), DATETIME (datum i "
+"vrijeme) ili brojčanu uniksoidnu oznaku vremena prikazuje kao oblikovani "
+"datum. Prva opcija je odmak (u satima) koji će biti pridodan vremenskoj "
+"oznaci (zadano: 0). Druga opcije određuje drukčiji oblik izražavanja datuma "
+"i vremena. Treća opcija određuje želite li prikazati lokalni datum ili u "
+"skladu s UTC (upotrijebite izraz \"local\" ili \"utc\"). Sukladno tome, oblik "
+"datuma ima različite vrijednosti - za opciju \"local\" pogledajte "
+"dokumentaciju o upotrebi PHP funkcije strftime(), a za \"utc\" pogledajte "
+"dokumentaciju o upotrebi funkcije gmdate()."
+
+#: $strTransformation_text_plain__external
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the field data via "
+"standard input. Returns the standard output of the application. The default "
+"is Tidy, to pretty-print HTML code. For security reasons, you have to "
+"manually edit the file "
+"libraries/transformations/text_plain__external.inc.php and list the tools "
+"you want to make available. The first option is then the number of the "
+"program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent "
+"wrapping and ensure that the output appears all on one line (Default 1)."
+msgstr ""
+"SAMO ZA LINUX: Pokreće vanjsku aplikaciju i predaje joj podatke polja putem "
+"standardnog unosa. Vraća standardan ispis aplikacije. Zadana aplikacija je "
+"Tidy, uredno ispisivanje HTML koda. Iz sigurnosnih razloga morate ručno "
+"urediti datoteku libraries/transformations/text_plain__external.inc.php i "
+"izraditi popis alata koje želite učiniti raspoloživim. Prva opcija će biti "
+"redni broj programa kojeg želite upotrebljavati a druga opcija su parametri "
+"programa. Ako je treća opcija postavljena na vrijednost 1, pretvorit će "
+"ispis pomoću htmlspecialchars(), (zadano: 1). Ako je četvrta opcija "
+"postavljena na vrijednost 1, spriječit će omatanje i osigurati prikaz ispisa "
+"u jednom retku (zadano: 1)."
+
+#: $strTransformation_text_plain__formatted
+msgid ""
+"Displays the contents of the field as-is, without running it through "
+"htmlspecialchars(). That is, the field is assumed to contain valid HTML."
+msgstr ""
+"Prikazuje sadržaj polje u izvornom obliku, bez njegovog provlačenja kroz "
+"htmlspecialchars(). Odnosno, za polje se pretpostavlja da ne sadrži valjani "
+"HTML kod."
+
+#: $strTransformation_text_plain__imagelink
+msgid ""
+"Displays an image and a link; the field contains the filename. The first "
+"option is a URL prefix like \"http://www.example.com/\". The second and third "
+"options are the width and the height in pixels."
+msgstr ""
+"Prikazuje sliku i vezu. Polje sadrži naziv datoteke. Prva opcija je URL "
+"prefiks, poput \"http://www.example.com/\". Druga i treća opcija predstavljaju "
+"širinu i visinu u pikselima."
+
+#: $strTransformation_text_plain__link
+msgid ""
+"Displays a link; the field contains the filename. The first option is a URL "
+"prefix like \"http://www.example.com/\". The second option is a title for the "
+"link."
+msgstr ""
+"Prikazuje vezu. Polje sadrži naziv datoteke. Prva opcija je URL prefiks, "
+"poput \"http://www.example.com/\". Druga opcija je naziv veze."
+
+#: $strTransformation_text_plain__sql
+msgid "Formats text as SQL query with syntax highlighting."
+msgstr "Oblikuje tekst kao SQL upit s naglašavanjem sintakse."
+
+#: $strTransformation_text_plain__substr
+msgid ""
+"Displays a part of a string. The first option is the number of characters to "
+"skip from the beginning of the string (Default 0). The second option is the "
+"number of characters to return (Default: until end of string). The third "
+"option is the string to append and/or prepend when truncation occurs "
+"(Default: \"...\")."
+msgstr ""
+"Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno preskočiti, "
+"od početka niza (zadano: 0). Druga opcija je broj znakova za povrat "
+"(zadano: do završetka niza). Treća opcija  je niz koji je potrebno pridodati "
+"iza završetka i/ili prije početka kad započne srezivanje (zadano: \"...\")."
+
+#: $strTriggers
+msgid "Triggers"
+msgstr "Okidači"
+
+#: $strTruncateQueries
+msgid "Truncate Shown Queries"
+msgstr "Sreži prikazane rezultate"
+
+#: $strTurkish
+msgid "Turkish"
+msgstr "Turski"
+
+#: $strType
+msgid "Type"
+msgstr "Vrsta"
+
+#: $strUkrainian
+msgid "Ukrainian"
+msgstr "Ukrajinski"
+
+#: $strUncheckAll
+msgid "Uncheck All"
+msgstr "Ukloni sve oznake"
+
+#: $strUnicode
+msgid "Unicode"
+msgstr "Unicode"
+
+#: $strUnique
+msgid "Unique"
+msgstr "Jedinstveno"
+
+#: $strUnknown
+msgid "unknown"
+msgstr "nepoznato"
+
+#: $strUnselectAll
+msgid "Unselect All"
+msgstr "Ukloni sav odabir"
+
+#: $strUnsupportedCompressionDetected
+msgid ""
+"You attempted to load file with unsupported compression (%s). Either support "
+"for it is not implemented or disabled by your configuration."
+msgstr ""
+"Pokušali ste učitati datoteku s nepodržanim načinom komprimiranja (%s). "
+"Takva podrška još nije implementirana ili je onemogućena u vašoj "
+"konfiguraciji."
+
+#: $strUpdatePrivMessage
+msgid "You have updated the privileges for %s."
+msgstr "Ažurirali ste privilegije za %s."
+
+#: $strUpdateProfileMessage
+msgid "The profile has been updated."
+msgstr "Profil je ažuriran."
+
+#: $strUpdateQuery
+msgid "Update Query"
+msgstr "Ažuriraj upit"
+
+#: $strUpdComTab
+msgid ""
+"Please see the documentation on how to update your column_comments table"
+msgstr ""
+"Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments."
+
+#: $strUpgrade
+msgid "You should upgrade to %s %s or later."
+msgstr "Trebali biste nadograditi na %s %s ili kasniju."
+
+#: $strUploadErrorCantWrite
+msgid "Failed to write file to disk."
+msgstr "Zapisivanje datoteke na disk nije uspjelo."
+
+#: $strUploadErrorExtension
+msgid "File upload stopped by extension."
+msgstr "Učitavanje datoteke prekinuto je uslijed ekstenzije."
+
+#: $strUploadErrorFormSize
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Učitana datoteka nadmašuje uputu MAX_FILE_SIZE (najveća veličina datoteke), "
+"određenu u HTML obliku."
+
+#: $strUploadErrorIniSize
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"Učitana datoteka nadmašuje uputu upload_max_filesize (najveća veličina "
+"datoteke) u datoteci php.ini."
+
+#: $strUploadErrorNoTempDir
+msgid "Missing a temporary folder."
+msgstr "Nedostaje mapa privremene pohrane."
+
+#: $strUploadErrorPartial
+msgid "The uploaded file was only partially uploaded."
+msgstr "Učitana datoteka bila je djelomično učitana."
+
+#: $strUploadErrorUnknown
+msgid "Unknown error in file upload."
+msgstr "Nepoznata pogreška tijekom učitavanja datoteke."
+
+#: $strUploadLimit
+msgid ""
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
+msgstr ""
+"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
+"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
+
+#: $strUploadsNotAllowed
+msgid "File uploads are not allowed on this server."
+msgstr "Učitavanje datoteka nije dopušteno na ovom poslužitelju."
+
+#: $strUsage
+msgid "Usage"
+msgstr "Upotreba"
+
+#: $strUseBackquotes
+msgid "Enclose table and field names with backquotes"
+msgstr "Unesi nazive tablica i polja sa stražnjim navodnicima"
+
+#: $strUseHostTable
+msgid "Use Host Table"
+msgstr "Upotrijebi tablicu poslužitelja"
+
+#: $strUserAlreadyExists
+msgid "The user %s already exists!"
+msgstr "Korisnik %s već postoji!"
+
+#: $strUserEmpty
+msgid "The user name is empty!"
+msgstr "Korisničko ime je prazno!"
+
+#: $strUserName
+msgid "User name"
+msgstr "Korisničko ime"
+
+#: $strUserNotFound
+msgid "The selected user was not found in the privilege table."
+msgstr "Odabrani korisnik nije pronađen u tablici privilegija."
+
+#: $strUserOverview
+msgid "User overview"
+msgstr "Pregled korisnika"
+
+#: $strUsersDeleted
+msgid "The selected users have been deleted successfully."
+msgstr "Odabrani korisnici uspješno su izbrisani."
+
+#: $strUsersHavingAccessToDb
+msgid "Users having access to &quot;%s&quot;"
+msgstr "Korisnici koji imaju pristup u \"%s\""
+
+#: $strUser
+msgid "User"
+msgstr "Korisnik"
+
+#: $strUseTabKey
+msgid ""
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
+msgstr ""
+"Pomoću tipke TAB premještate se od jedne vrijednost do druge vrijednost, "
+"odnosno s tipkama CTRL+Strelice za premještanje bilo kamo"
+
+#: $strUseTables
+msgid "Use Tables"
+msgstr "Upotrijebi tablice"
+
+#: $strUseTextField
+msgid "Use text field"
+msgstr "Upotrijebi tekstualno polje"
+
+#: $strUseThisValue
+msgid "Use this value"
+msgstr "Upotrijebi ovu vrijednost"
+
+#: $strValidateSQL
+msgctxt "$strValidateSQL"
+msgid "Validate SQL"
+msgstr "Provjera valjanosti SQL-a"
+
+#: $strValidatorError
+msgid ""
+"The SQL validator could not be initialised. Please check if you have "
+"installed the necessary PHP extensions as described in the %sdocumentation%"
+"s."
+msgstr ""
+"SQL validator nije bilo moguće pokrenuti. Provjerite jeste li instalirali "
+"potrebna PHP proširenja, na način opisan u %sdokumentaciji%s."
+
+#: $strValue
+msgid "Value"
+msgstr "Vrijednost"
+
+#: $strVar
+msgid "Variable"
+msgstr "Varijabla"
+
+#: $strVersionInformation
+msgid "Version information"
+msgstr "Podaci o verziji"
+
+#: $strViewDumpDatabases
+msgid "View dump (schema) of databases"
+msgstr "Prikaži ispis (shemu) baza podataka"
+
+#: $strViewDumpDB
+msgid "View dump (schema) of database"
+msgstr "Prikaži ispis (shemu) baze podataka"
+
+#: $strViewDump
+msgid "View dump (schema) of table"
+msgstr "Prikaži ispis (shemu) tablice"
+
+#: $strViewHasAtLeast
+msgid ""
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
+msgstr "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
+
+#: $strViewHasBeenDropped
+msgid "View %s has been dropped"
+msgstr "Index %s je ispušten"
+
+#: $strViewImage
+msgid "View image"
+msgstr ""
+
+#: $strViewName
+msgid "VIEW name"
+msgstr "Naziv prikaza"
+
+#: $strViewVideo
+msgid "View video"
+msgstr ""
+
+#: $strView
+msgid "View"
+msgstr "Prikaz"
+
+#: $strWebServerUploadDirectoryError
+msgid "The directory you set for upload work cannot be reached"
+msgstr "Mapu koju ste odabrali za potrebe učitavanja nije moguće dohvatiti"
+
+#: $strWebServerUploadDirectory
+msgid "web server upload directory"
+msgstr "mapa učitavanja web poslužitelja"
+
+#: $strWebServer
+msgid "Web server"
+msgstr "Web poslužitelj"
+
+#: $strWelcome
+msgid "Welcome to %s"
+msgstr "Dobro došli u %s"
+
+#: $strWestEuropean
+msgid "West European"
+msgstr "Zapadno europski"
+
+#: $strWiki
+msgid "Wiki"
+msgstr "Wiki"
+
+#: $strWildcard
+msgid "wildcard"
+msgstr "džoker"
+
+#: $strWindowNotFound
+msgid ""
+"The target browser window could not be updated. Maybe you have closed the "
+"parent window, or your browser's security settings are configured to block "
+"cross-window updates."
+msgstr ""
+"Ciljani prozor preglednika nije bilo moguće osvježiti. Možda ste zatvorili "
+"nadređeni prozor ili su postavke sigurnosti vašeg preglednika konfigurirane "
+"za blokiranje ažuriranja preko više prozora."
+
+#: $strWithChecked
+msgid "With selected:"
+msgstr "S odabirom:"
+
+#: $strWriteRequests
+msgid "Write requests"
+msgstr "Zahtjevi zapisivanja"
+
+#: $strWrongUser
+msgid "Wrong username/password. Access denied."
+msgstr "Pogrešno korisničko ime ili lozinka. Pristup odbijen."
+
+#: $strXMLError
+msgid ""
+"The XML file specified was either malformed or incomplete. Please correct "
+"the issue and try again."
+msgstr ""
+
+#: $strXMLExportContents
+msgid "Export contents"
+msgstr ""
+
+#: $strXMLExportFunctions
+msgid "Export functions"
+msgstr ""
+
+#: $strXMLExportProcedures
+msgid "Export procedures"
+msgstr ""
+
+#: $strXMLExportStructs
+msgid "Export Structure Schemas (recommended)"
+msgstr ""
+
+#: $strXMLExportTables
+msgid "Export tables"
+msgstr ""
+
+#: $strXMLExportTriggers
+msgid "Export triggers"
+msgstr ""
+
+#: $strXMLExportViews
+msgid "Export views"
+msgstr ""
+
+#: $strXML
+msgid "XML"
+msgstr "XML"
+
+#: $strYes
+msgid "Yes"
+msgstr "Da"
+
+#: $strZeroRemovesTheLimit
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Napomena: Postavljanje ovih opcija na vrijednost 0 (nula) uklanja "
+"ograničenje."
+
+#: $strZip
+msgid "\"zipped\""
+msgstr "\"zipano\""
