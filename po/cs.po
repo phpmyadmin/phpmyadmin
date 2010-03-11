@@ -2981,7 +2981,6 @@ msgid "PHP array"
 msgstr "PHP pole"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Vytvořit PHP kód"
 
