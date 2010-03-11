@@ -3922,7 +3922,6 @@ msgid "Select Tables"
 msgstr "Select Tables"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Save as file"
 
