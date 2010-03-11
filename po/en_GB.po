@@ -4538,7 +4538,6 @@ msgstr ""
 "documentation"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA database"
 
