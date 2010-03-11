@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:02+0100\n"
+"POT-Creation-Date: 2010-03-12 00:25+0100\n"
 "PO-Revision-Date: 2010-03-11 23:36+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -1581,7 +1581,8 @@ msgstr "Font formaat"
 #: libraries/messages.inc.php:346
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Fout bij het maken van vreemdesleutel naar %1$s (controleer data typen)"
+msgstr ""
+"Fout bij het maken van vreemdesleutel naar %1$s (controleer data typen)"
 
 #: libraries/messages.inc.php:347
 msgid "FOREIGN KEY relation added"
@@ -7792,7 +7793,6 @@ msgid "\"zipped\""
 msgstr "\"Gezipt\""
 
 #: server_privileges.php:1904
-#, php-format
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Wildcards _ en % moeten worden ge-escaped met een \\ om ze letterlijk te "

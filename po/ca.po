@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:02+0100\n"
+"POT-Creation-Date: 2010-03-12 00:25+0100\n"
 "PO-Revision-Date: 2010-03-11 23:36+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -6770,8 +6770,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s per "
-"a possibles assumptes."
+"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s "
+"per a possibles assumptes."
 
 #: libraries/messages.inc.php:1427
 msgid "Sum"
@@ -7750,7 +7750,6 @@ msgid "\"zipped\""
 msgstr "\"comprimit amb zip\""
 
 #: server_privileges.php:1904
-#, php-format
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment"
