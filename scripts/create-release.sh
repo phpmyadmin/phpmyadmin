@@ -11,7 +11,6 @@ if [ $# = 0 ]
 then
   echo "Usages:"
   echo "  create-release.sh <version> [from_branch]"
-  echo "  create-release.sh snapshot [sf]"
   echo "  (no spaces allowed!)"
   echo ""
   echo "Examples:"
@@ -22,11 +21,6 @@ fi
 
 branch='trunk'
 
-if [ "$1" = "snapshot" ] ; then
-    mode="snapshot"
-    date_snapshot=`date +%Y%m%d-%H%M%S`
-    target=$date_snapshot
-else
     if [ "$#" -ge 2 ] ; then
         branch="$2"
     fi
@@ -52,18 +46,6 @@ END
     if [ "$do_release" != 'y' ]; then
         exit
     fi
-fi
-
-if [ "$mode" = "snapshot" -a "$2" = "sf" ] ; then
-    # Goto project dir
-    cd /home/groups/p/ph/phpmyadmin/htdocs
-
-    # Keep one previous version of the cvs directory
-    if [ -e svn-prev ] ; then
-        rm -rf svn-prev
-    fi
-    mv svn svn-prev
-fi
 
 # Do SVNcheckout
 mkdir -p ./svn
@@ -143,9 +125,6 @@ done
 # Cleanup
 rm -rf phpMyAdmin-${target}
 
-if [ "$mode" != "snapshot" ]
-then
-
 
 echo ""
 echo ""
@@ -192,5 +171,3 @@ Todo now:
  9. the end :-)
 
 END
-
-fi
