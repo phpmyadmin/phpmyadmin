@@ -3342,7 +3342,7 @@ msgstr ""
 #: libraries/messages.inc.php:742
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "Upit je trajao %01,4f sek"
+msgstr "Upit je trajao %01.4f sek"
 
 #: libraries/messages.inc.php:743
 msgid "Query type"
