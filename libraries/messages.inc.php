@@ -20,13 +20,6 @@ $number_decimal_separator = __('.');
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
 
-// MySQL manual language definition, this is optional, en will be used
-// if not defined
-/* l10n: Language to use for MySQL 5.0 documentation */
-$mysql_5_0_doc_lang = _pgettext('$mysql_5_0_doc_lang', 'en');
-/* l10n: Language to use for MySQL 5.1 documentation */
-$mysql_5_1_doc_lang = _pgettext('$mysql_5_1_doc_lang', 'en');
-
 $day_of_week = array(__('Sun'), __('Mon'), __('Tue'), __('Wed'), __('Thu'), __('Fri'), __('Sat'));
 $month = array(__('Jan'), __('Feb'), __('Mar'), __('Apr'), __('May'), __('Jun'), __('Jul'), __('Aug'), __('Sep'), __('Oct'), __('Nov'), __('Dec'));
 /* l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string */

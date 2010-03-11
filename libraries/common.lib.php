@@ -346,8 +346,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
  * @uses    $cfg['MySQLManualType']
  * @uses    $cfg['MySQLManualBase']
  * @uses    $cfg['ReplaceHelpImg']
- * @uses    $GLOBALS['mysql_5_1_doc_lang']
- * @uses    $GLOBALS['mysql_5_0_doc_lang']
  * @uses    $GLOBALS['strDocu']
  * @uses    $GLOBALS['pmaThemeImage']
  * @uses    PMA_MYSQL_INT_VERSION
@@ -409,14 +407,12 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
             if (defined('PMA_MYSQL_INT_VERSION')) {
                 if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
-                    if (!empty($GLOBALS['mysql_5_1_doc_lang'])) {
-                        $lang = $GLOBALS['mysql_5_1_doc_lang'];
-                    }
+                    /* l10n: Language to use for MySQL 5.1 documentation */
+                    $lang = _pgettext('$mysql_5_1_doc_lang', 'en');
                 } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                     $mysql = '5.0';
-                    if (!empty($GLOBALS['mysql_5_0_doc_lang'])) {
-                        $lang = $GLOBALS['mysql_5_0_doc_lang'];
-                    }
+                    /* l10n: Language to use for MySQL 5.0 documentation */
+                    $lang = _pgettext('$mysql_5_0_doc_lang', 'en');
                 }
             }
             $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/' . $lang . '/' . $link . '.html';
