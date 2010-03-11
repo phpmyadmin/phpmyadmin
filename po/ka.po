@@ -7634,8 +7634,8 @@ msgstr "\"zip-ით შეკუმშული\""
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
-msgstr "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
+msgstr "Wildcards % and _ should be escaped with a \\ to use them literally"
 
 #, fuzzy
 #~ msgctxt "$mysql_4_1_doc_lang"

@@ -1780,7 +1780,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     if (in_array($table_search_in, $tables)) {
                         $db_rights_sqls[] = '
                             SELECT DISTINCT `Table_name`
-                                   FROM `mysql`.' . PMA_backquote($table_search_in) 
+                                   FROM `mysql`.' . PMA_backquote($table_search_in)
                                    . $user_host_condition;
                     }
                 }
@@ -1891,7 +1891,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                         $current_db = PMA_escape_mysql_wildcards($current_db);
                         // cannot use array_diff() once, outside of the loop,
                         // because the list of databases has special characters
-                        // already escaped in $found_rows, 
+                        // already escaped in $found_rows,
                         // contrary to the output of SHOW DATABASES
                         if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
                             echo '        <option value="' . htmlspecialchars($current_db) . '">'
@@ -1901,7 +1901,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     echo '    </select>' . "\n";
                 }
                 echo '    <input type="text" id="text_dbname" name="dbname" />' . "\n"
-                    . PMA_showHint(__('Wildcards _ and % should be escaped with a \ to use them literally'));
+                    . PMA_showHint(__('Wildcards % and _ should be escaped with a \ to use them literally'));
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . $GLOBALS['strAddPrivilegesOnTbl'] . ':</label>' . "\n";

@@ -7838,7 +7838,7 @@ msgstr "συμπίεση «zip»"
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Οι χαρακτήρες μπαλαντέρ _ και % πρέπει να γραφούν μπροστά με \\ για να "
 "χρησιμοποιηθούν"

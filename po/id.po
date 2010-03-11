@@ -7298,7 +7298,7 @@ msgstr "Dikompress dengan Zip"
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Wildcard _ dan % sebaiknya diakhiri dengan tanda \\ untuk mengunakannya "
 "secara harfiah"

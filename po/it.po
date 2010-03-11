@@ -7531,7 +7531,7 @@ msgstr "\"compresso con zip\""
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "I caratteri jolly _ e % dovrebbero essere preceduti da un \\ per l'utilizzo "
 "letterale"

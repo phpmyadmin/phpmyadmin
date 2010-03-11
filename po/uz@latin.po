@@ -7872,7 +7872,7 @@ msgstr "zip"
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Ma`lumotlar bazalari nomlarida pastki chiziq (_) va foiz (%) belgilari "
 "ishlatilganda ular oldiga teskari egri chiziq (\\) qo‘yish kerak."

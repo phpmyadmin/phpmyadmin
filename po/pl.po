@@ -7587,7 +7587,7 @@ msgstr "\".zip\""
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Aby użyć symboli wieloznacznych _ i % w znaczeniu dosłownym, należy je "
 "poprzedzić znakiem \\ "

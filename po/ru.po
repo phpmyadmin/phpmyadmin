@@ -7802,7 +7802,7 @@ msgstr "zip"
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "При использовании в имени базы данных символов нижнего подчеркивания (_) и "
 "процента (%), необходимо экранировать их символом обратной косой черты (\\), "

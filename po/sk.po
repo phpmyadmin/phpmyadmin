@@ -7427,7 +7427,7 @@ msgstr "\"zozipované\""
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Náhradzujúcim znakom _ a % by mal predchádzať znak \\, pokiaľ ich nechcete "
 "použiť doslovne"

@@ -7728,7 +7728,7 @@ msgstr "\"zip-pakattu\""
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Korvausmerkkien _ ja % eteen on lisättävä \\-merkki, jotta ne näkyisivät "
 "oikein"

@@ -7520,7 +7520,7 @@ msgstr "archivavany ŭ zip"
 
 #: server_privileges.php:1904
 #, php-format
-msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Symbali padstanoŭki _ i % musiać być ekranavanymi symbalem \\ dla ich "
 "litaralnaha vykarystańnia"
