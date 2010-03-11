@@ -3310,7 +3310,6 @@ msgid "Query cache"
 msgstr "Query cache"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Query window"
 
