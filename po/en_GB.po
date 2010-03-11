@@ -2718,7 +2718,6 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
