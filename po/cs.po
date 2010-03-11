@@ -2699,7 +2699,6 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/messages.inc.php:612
-#, fuzzy
 #| msgid "Optimise"
 msgid "Optimize"
 msgstr "Optimalizovat"
