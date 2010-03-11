@@ -1831,7 +1831,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importovat měny (5.00 místo $5.00)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Sešit OpenDocument"
 
