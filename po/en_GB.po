@@ -4671,7 +4671,6 @@ msgstr ""
 "table) and only SQL is always available"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
