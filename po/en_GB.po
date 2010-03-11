@@ -3697,7 +3697,6 @@ msgid "Unknown error"
 msgstr "Unknown error"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Reset"
 
