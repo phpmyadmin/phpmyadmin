@@ -83,7 +83,26 @@ function _get_reader($domain=null, $category=5, $enable_cache=true) {
                        ."(\.([-A-Za-z0-9_]))?"    // charset
                        ."(@([-A-Za-z0-9_]+))?/",  // @ modifier
                        $locale, $matches)) {
-          list(,$lang,,$country,,$charset,,$modifier) = $matches;
+          if (isset($matches[1])) {
+              $lang = $matches[1];
+          } else {
+              $lang = NULL;
+          }
+          if (isset($matches[3])) {
+              $country = $matches[3];
+          } else {
+              $country = NULL;
+          }
+          if (isset($matches[5])) {
+              $charset = $matches[5];
+          } else {
+              $charset = NULL;
+          }
+          if (isset($matches[7])) {
+              $modifier = $matches[7];
+          } else {
+              $modifier = NULL;
+          }
           if ($modifier) {
             $locale_names = array("${lang}_$country.$charset@$modifier",
                                   "${lang}_$country@$modifier",
