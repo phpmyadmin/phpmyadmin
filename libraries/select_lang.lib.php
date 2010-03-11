@@ -447,10 +447,10 @@ if (! PMA_langCheck()) {
 }
 
 // Set locale
-T_setlocale(LC_MESSAGES, $GLOBALS['lang']);
-T_bindtextdomain('phpmyadmin', $GLOBALS['lang_path']);
-T_bind_textdomain_codeset('phpmyadmin', 'UTF-8');
-T_textdomain('phpmyadmin');
+_setlocale(LC_MESSAGES, $GLOBALS['lang']);
+_bindtextdomain('phpmyadmin', $GLOBALS['lang_path']);
+_bind_textdomain_codeset('phpmyadmin', 'UTF-8');
+_textdomain('phpmyadmin');
 
 
 // Load messages
