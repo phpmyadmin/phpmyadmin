@@ -20,3 +20,5 @@ phpmyadmin.wpj
 .buildpath
 .cache
 *.sw[op]
+# Locales
+locale
