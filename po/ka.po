@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:17+0200\n"
-"PO-Revision-Date: 2010-03-11 17:17+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -300,11 +300,11 @@ msgid "Alter table order by"
 msgstr "Alter table order by"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Analyze"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Analyze table"
 
 #: $strAnd
@@ -579,11 +579,11 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr "Could not load export plugins, please check your installation!"
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr "Could not load import plugins, please check your installation!"
 
 #: $strCannotLogin
@@ -957,7 +957,7 @@ msgid "Current server"
 msgstr ""
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Custom color"
 
 #: $strCyrillic
@@ -1058,7 +1058,7 @@ msgid "Pages containing data"
 msgstr "Pages containing data"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr ""
 
 #: $strDBComment
@@ -1656,7 +1656,7 @@ msgid "has been altered."
 msgstr "has been altered."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr ""
 
 #: $strHaveToShow
@@ -1998,7 +1998,7 @@ msgid "Table must have at least one field."
 msgstr "Table must have at least one field."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "This plugin does not support compressed imports!"
 
 #: $strInvalidRowNumber
@@ -2648,11 +2648,11 @@ msgid "Operator"
 msgstr "ოპერატორი"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "ოპტიმიზება"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "ცხრილის ოპტიმიზება"
 
 #: $strOptions
@@ -3515,7 +3515,7 @@ msgid "Show master status"
 msgstr ""
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr ""
 
 #: $strReplicationSlaveChangeMaster
@@ -3601,7 +3601,7 @@ msgid "Slave status"
 msgstr ""
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr ""
 
 #: $strReplicationUnableToChange
@@ -4342,11 +4342,11 @@ msgid "Browse mode"
 msgstr "დათვალიერების რეჟიმი"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Customize browse mode"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Customize edit mode"
 
 #: $strSetupForm_Edit
@@ -4354,7 +4354,7 @@ msgid "Edit mode"
 msgstr "რედაქტირების რეჟიმი"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Customize default export options"
 
 #: $strSetupForm_Export_defaults
@@ -4362,7 +4362,7 @@ msgid "Export defaults"
 msgstr "Export defaults"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Customize default common import options"
 
 #: $strSetupForm_Import_defaults
@@ -4387,7 +4387,7 @@ msgid "Databases display options"
 msgstr "მონაცემთა ბაზის ჩვენების პარამეტრები"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Customize appearance of the navigation frame"
 
 #: $strSetupForm_Left_frame
@@ -4425,7 +4425,7 @@ msgid "Other core settings"
 msgstr "Other core settings"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Customize query window options"
 
 #: $strSetupForm_Query_window
@@ -4489,11 +4489,11 @@ msgid "PMA database"
 msgstr "PMA-ის მონაცემთა ბაზა"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Customization"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Customize export options"
 
 #: $strSetupFormset_features
@@ -4501,19 +4501,19 @@ msgid "Features"
 msgstr "Features"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Customize import defaults"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Customize navigation frame"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Customize main frame"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "Customize links shown in SQL Query boxes"
 
 #: $strSetupForm_Sql_box
@@ -4535,7 +4535,7 @@ msgid "SQL queries"
 msgstr "SQL მოთხოვნები"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Customize startup page"
 
 #: $strSetupForm_Startup
@@ -4943,7 +4943,7 @@ msgstr "Protect binary fields"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -5705,7 +5705,7 @@ msgid "Show BLOB contents"
 msgstr "Show BLOB contents"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "ფერის ჩვენება"
 
 #: $strShowDatadictAs
@@ -5884,7 +5884,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6192,7 +6192,7 @@ msgstr "The number of physical writes of a key block to disk."
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6370,7 +6370,7 @@ msgstr "The number of times that a table lock was acquired immediately."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "The number of times that a table lock could not be acquired immediately and "
@@ -6651,7 +6651,7 @@ msgid "Structure"
 msgstr "სტრუქტურა"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr ""
 
 #: $strSubmit
@@ -6704,16 +6704,16 @@ msgstr "Switch to copied table"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr ""
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr ""
 
 #: $strTableAddColumn
@@ -6821,7 +6821,7 @@ msgid "take it"
 msgstr "take it"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr ""
 
 #: $strTblPrivileges
@@ -7451,7 +7451,7 @@ msgstr "Validate SQL"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""

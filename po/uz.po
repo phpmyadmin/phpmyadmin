@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:18+0200\n"
-"PO-Revision-Date: 2010-03-11 17:18+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -299,11 +299,11 @@ msgid "Alter table order by"
 msgstr "Жадвал сортировкасини ўзгартириш"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Таҳлил"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Жадвал таҳлили"
 
 #: $strAnd
@@ -340,7 +340,7 @@ msgstr "Ҳар қайси фойдаланувчи"
 
 #: $strApplyChanges
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Киритилган ўзгаришларни сақлаш"
 
 #: $strApproximateCount
 msgid ""
@@ -580,13 +580,13 @@ msgid "Cancel"
 msgstr "Бекор қилиш"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr ""
 "Экспорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг "
 "libraries/export каталогини текширинг."
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr ""
 "Импорт модуллари мавжуд эмас! Ўрнатилган phpMyAdmin нусхасининг "
 "libraries/export каталогини текширинг."
@@ -729,11 +729,11 @@ msgstr "Таҳрирлаш лозим бўлган саҳифани танлаш
 
 #: $strClickToSelect
 msgid "Click to select"
-msgstr ""
+msgstr "Танлаш учун сичқонча тугмасини босинг"
 
 #: $strClickToUnselect
 msgid "Click to unselect"
-msgstr ""
+msgstr "Танлашни бекор қилиш учун сичқонча тугмасини босинг"
 
 #: $strColComFeat
 msgid "Displaying Column Comments"
@@ -861,11 +861,11 @@ msgstr "Жадвалнинг ўзидан ўзига нусха кўчириш �
 
 #: $strCouldNotConnectSource
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "Манбага уланиб бўлмади"
 
 #: $strCouldNotConnectTarget
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Нишонга уланиб бўлмади"
 
 #: $strCouldNotKill
 msgid ""
@@ -917,7 +917,7 @@ msgstr "Жадвал тузиш"
 #: $strCreateTableShort
 msgctxt "$strCreateTableShort"
 msgid "Create table"
-msgstr ""
+msgstr "Жадвал тузиш"
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -964,10 +964,10 @@ msgstr "CSV"
 
 #: $strCurrentServer
 msgid "Current server"
-msgstr ""
+msgstr "Жорий сервер"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Рангни танлаш"
 
 #: $strCyrillic
@@ -1008,7 +1008,7 @@ msgstr " \"%s\" маълумотлар омбори ўчирилди."
 
 #: $strDatabaseNotExisting
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s' номли база мавжуд эмас."
 
 #: $strDatabases
 msgctxt "$strDatabases"
@@ -1021,7 +1021,7 @@ msgstr "\"%s\" маълумотлар базаси муваффақиятли ў
 
 #: $strDatabase_src
 msgid "Source database"
-msgstr ""
+msgstr "Манба база"
 
 #: $strDatabasesStats
 msgid "Databases statistics"
@@ -1045,7 +1045,7 @@ msgstr ""
 
 #: $strDatabase_trg
 msgid "Target database"
-msgstr ""
+msgstr "Нишон база"
 
 #: $strData
 msgid "Data"
@@ -1057,7 +1057,7 @@ msgstr "Маълумотлар луғати"
 
 #: $strDataDiff
 msgid "Data Difference"
-msgstr ""
+msgstr "Маълумотлар фарқи"
 
 #: $strDataOnly
 msgid "Data only"
@@ -1068,8 +1068,8 @@ msgid "Pages containing data"
 msgstr "Маълумотлар мавжуд саҳифалар"
 
 #: $strDataSyn
-msgid "Data Synchronization"
-msgstr ""
+msgid "Data Synchronisation"
+msgstr "Маълумотлар синхронизацияси"
 
 #: $strDBComment
 msgid "Database comment: "
@@ -1147,7 +1147,7 @@ msgstr "Боғлиқликни ўчириш"
 
 #: $strDeleteTrackingData
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 
 #: $strDeleting
 msgid "Deleting %s"
@@ -1197,7 +1197,7 @@ msgstr "луғат"
 
 #: $strDifference
 msgid "Difference"
-msgstr ""
+msgstr "Фарқ"
 
 #: $strDirectLinks
 msgid "Direct links"
@@ -1266,7 +1266,7 @@ msgstr "Фойдаланувчилар номлари билан аталган 
 
 #: $strDumpAllRows
 msgid "Dump all rows"
-msgstr ""
+msgstr "Барча қаторларни дамп қилиш"
 
 #: $strDumpingData
 msgid "Dumping data for table"
@@ -1571,11 +1571,11 @@ msgstr "Бўш саҳифалар сони "
 
 #: $strFullStart
 msgid "Full start"
-msgstr ""
+msgstr "Барчасини бошлаш"
 
 #: $strFullStop
 msgid "Full stop"
-msgstr ""
+msgstr "Барчасини тўхтатиш"
 
 #: $strFullText
 msgid "Full Texts"
@@ -1639,15 +1639,15 @@ msgstr "OK"
 
 #: $strGoToDatabase
 msgid "Go to database"
-msgstr ""
+msgstr "Ушбу базага ўтиш"
 
 #: $strGoToTable
 msgid "Go to table"
-msgstr ""
+msgstr "Ушбу жадвалга ўтиш"
 
 #: $strGoToView
 msgid "Go to view"
-msgstr ""
+msgstr "Ушбу кўринишга ўтиш"
 
 #: $strGrantOption
 msgid "Grant"
@@ -1670,8 +1670,8 @@ msgid "has been altered."
 msgstr " ўзгартирилди."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgid "Selected target tables have been synchronised with source tables."
+msgstr "Танланган жадваллар манба жадваллар билан синхронизация қилинди."
 
 #: $strHaveToShow
 msgid "You have to choose at least one column to display"
@@ -1767,11 +1767,11 @@ msgstr "Эътибор бермаслик (IGNORE) қўйилмалардан ф
 
 #: $strImportColNames
 msgid "Column names in first row"
-msgstr ""
+msgstr "Биринчи қаторга устун номлари"
 
 #: $strImportEmptyRows
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Бўш қаторларни импорт қилмаслик"
 
 #: $strImportExportCoords
 msgid "Import/Export coordinates for PDF schema"
@@ -1796,43 +1796,46 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+"Юкланаётган файл рухсат берилган максимумдан катта ё бу \"webkit\"га "
+"асосланган браузерларнинг (Safari, Google Chrome, Arora ва ҳкз) маълум "
+"камчилиги."
 
 #: $strImportNoticePt1
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
+"Қуйидаги тузилишлар ё тузилди ё ўзгартирилди. Бу ерда сиз қуйидаги амалларни "
+"бажаришингиз мумкин:"
 
 #: $strImportNoticePt2
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Тузилмани кўриш учун унинг номи устига сичқонча тугмасини босинг"
 
 #: $strImportNoticePt3
 msgid "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
+msgstr "Қуйидаги танловларни ўзгартириш учун, \"Танловлар\" боғига босинг"
 
 #: $strImportNoticePt4
 msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Тузилмани ўзгартириш учун, \"Тузилма\" боғига киринг"
 
 #: $strImportODSCurrency
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Пул бирликларини импорт қилиш (масалан, $5.00 ни 5.00 га)"
 
 #: $strImportODS
 msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
-msgstr ""
+msgstr "Open Document жадвали"
 
 #: $strImportODSPercents
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
+"Фоизларни мос ўнли касрлар каби импорт қилиш (масалан, 12.00% ўрнига 0.12)"
 
 #: $strImportProceedingFile
 msgid "The file is being processed, please be patient."
-msgstr "The file is being processed, please be patient."
+msgstr "Файл қайта ишланмоқда, илтимос, сабр қилинг."
 
 #: $strImportSuccessfullyFinished
 msgid "Import has been successfully finished, %d queries executed."
@@ -1843,16 +1846,16 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
+"Сабр қилинг, файл юкланмоқда. Ушбу юкланиш ҳақида батафсил маълумот мавжуд "
+"эмас."
 
 #: $strImportXLS
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS иш китоби"
 
 #: $strImportXLSX
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX иш китоби"
 
 #: $strIndexes
 msgid "Indexes"
@@ -1950,7 +1953,7 @@ msgstr "Киритилган қатор идентификатори: %1$d"
 
 #: $strInsertIgnoreAsNewRow
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Янги қатор сифатида қўшиш ва хатоликларга эътибор бермаслик"
 
 #: $strInsert
 msgid "Insert"
@@ -2019,7 +2022,7 @@ msgid "Table must have at least one field."
 msgstr "Жадвалда, ҳеч бўлмаганда, битта майдон бўлиши шарт."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Ушбу модул қисилган маълумотларни импорт қила олмайди!"
 
 #: $strInvalidRowNumber
@@ -2050,6 +2053,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Браузерингизда Javascript ўчирилган ё ўрнатилмаган, phpMyAdmin дастурининг "
+"баъзи функциялари ишламайди. Масалан, навигация ойнаси автоматик тарзда "
+"янгиланиб турмайди."
 
 #: $strJoins
 msgid "Joins"
@@ -2263,7 +2269,7 @@ msgstr ""
 
 #: $strMediaWiki
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki жадвали"
 
 #: $strMIME_available_mime
 msgid "Available MIME types"
@@ -2474,11 +2480,11 @@ msgstr "Номи"
 
 #: $strNavTableFilter
 msgid "Filter"
-msgstr "Filter"
+msgstr "Фильтр"
 
 #: $strNewTable
 msgid "New table"
-msgstr ""
+msgstr "Янги жадвал"
 
 #: $strNext
 msgid "Next"
@@ -2615,7 +2621,7 @@ msgstr "Тайёр эмас"
 
 #: $strNotPresent
 msgid "not present"
-msgstr ""
+msgstr "Мавжуд эмас"
 
 #: $strNotSet
 msgid "<b>%s</b> table not found or not set in %s"
@@ -2680,11 +2686,11 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Оптимизация"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Жадвални оптималлаштириш"
 
 #: $strOptions
@@ -2926,11 +2932,11 @@ msgstr "Жадвал мавжуд эмас"
 
 #: $strPDFPageCreated
 msgid "Page has been created"
-msgstr ""
+msgstr "Саҳифа тузилди"
 
 #: $strPDFPageCreateFailed
 msgid "Page creation failed"
-msgstr ""
+msgstr "Саҳифа тузиб бўлмади"
 
 #: $strPDF
 msgid "PDF"
@@ -2966,7 +2972,7 @@ msgstr "телефонлар китоби"
 
 #: $strPhpArray
 msgid "PHP array"
-msgstr "PHP array"
+msgstr "PHP массиви"
 
 #: $strPhp
 msgctxt "$strPhp"
@@ -2995,23 +3001,29 @@ msgid ""
 "(<code>config.inc.php</code>), for example by starting from "
 "<code>config.sample.inc.php</code>."
 msgstr ""
+"(<code>config.inc.php</code>) файлидаги муфассал танловларни фаоллаштириш, "
+"масалан, <code>config.sample.inc.php</code> дан бошлаб."
 
 #: $strPmadbCreateHelp
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Муфассал танловларни тез созлаш учун қадамларs:"
 
 #: $strPmadbCreateTables
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
+"Керакли жадвалларни <code>script/create_tables.sql</code> код ёрдамида "
+"тузиш."
 
 #: $strPmadbCreateUser
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "phpMyAdmin фойдаланувчиси қўшиш ва ушбу жадвалларга рухсат бериш."
 
 #: $strPmadbReLoginToEnable
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Янгиланган конфигурация файли ишга тушиши учун, phpMyAdmin дастуридан чиқиб, "
+"қайта киринг."
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3031,7 +3043,7 @@ msgstr "Полякча"
 
 #: $strPort
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: $strPortrait
 msgid "Portrait"
@@ -3292,7 +3304,7 @@ msgstr "Сўров"
 
 #: $strQueriesExecuted
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Қуйидаги сўровлар бажарилди:"
 
 #: $strQueryCache
 msgid "Query cache"
@@ -3406,7 +3418,7 @@ msgstr "Привилегиялар қайта юкланмоқда"
 
 #: $strReloadNavi
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Навигация ойнасини қайта юклаш"
 
 #: $strReloadPrivileges
 msgid "Reload privileges"
@@ -3418,7 +3430,7 @@ msgstr "Қайта юклаш"
 
 #: $strRemoteServer
 msgid "Remote server"
-msgstr ""
+msgstr "Масофадаги сервер"
 
 #: $strRemoveCRLF
 msgid "Remove CRLF characters within fields"
@@ -3446,7 +3458,7 @@ msgstr "Жадвал номини ўзгартириш"
 
 #: $strRenameView
 msgid "Rename view to"
-msgstr ""
+msgstr "Кўриниш номини ўзгартириш"
 
 #: $strRepair
 msgctxt "$strRepair"
@@ -3470,39 +3482,43 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Энди қуйидаги қаторларни \"my.cnf\" файлининг охирига қўшинг ва MySQL "
+"серверини қайта юкланг."
 
 #: $strReplicationAddSlaveUser
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Тобе репликация фойдаланувчисини қўшиш"
 
 #: $strReplicationChangedSuccesfully
 msgid "Master server changed succesfully to %s"
-msgstr ""
+msgstr "Бош репликация сервери қуйидагига ўзгартирилди: %s"
 
 #: $strReplicationConfiguredMaster
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Ушбу сервер репликация жараёнида \"бош\" деб конфигурация қилинган."
 
 #: $strReplicationControlSlave
 msgid "Control slave:"
-msgstr ""
+msgstr "Тобе серверни назорат қилиш:"
 
 #: $strReplicationErrorGetPosition
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Бош сервер позициясини ўқиб бўлмади. Сервердаги привилегиларда муаммо бўлиши "
+"мумкин."
 
 #: $strReplicationErrorMasterConnect
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "%s бош серверига уланиб бўлмади."
 
 #: $strReplicationMasterChooseAll
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Барча базаларни репликация қилиш; Қуйидагилардан ташқари:"
 
 #: $strReplicationMasterChooseIgn
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Барча базаларга эътибор бермаслик; Қуйидагилардан ташқари:"
 
 #: $strReplicationMasterChooseMode
 msgid ""
@@ -3512,14 +3528,19 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Ушбу сервер репликация жараёнида \"бош сервер\" деб конфигурация қилинмаган. "
+"Сиз барча базаларни репликация қилиш ва баъзиларига эътибор бермаслик "
+"(аксарият базаларни репликация қилишда фойдали) ёки барча базаларга эътибор "
+"бермаслик ва баъзиларини репликация қилишни (бир нечта базаларнигина "
+"репликация қилишда фойдали) танлашингиз мумкин. Репликация усулини танланг:"
 
 #: $strReplicationMasterConfiguration
 msgid "Master configuration"
-msgstr ""
+msgstr "Бош сервер конфигурацияси"
 
 #: $strReplicationMaster
 msgid "Master replication"
-msgstr ""
+msgstr "Бош сервер репликацияси"
 
 #: $strReplication
 msgid "Replication"
@@ -3531,98 +3552,111 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"MySQL серверини қайта юклаганингиздан сўнг, \"ОК\" тугмасини босинг. Сўнг, "
+"ушбу сервер \"бош сервер\" деб конфигурация қилинганлиги ҳақидаги маълумотни "
+"кўришингиз керак."
 
 #: $strReplicationSelectDatabases
 msgid "Please select databases:"
-msgstr ""
+msgstr "Базаларни танланг:"
 
 #: $strReplicationServernConfiguredMaster
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Ушбу сервер репликация жараёнида \"бош сервер\" деб конфигурация қилинмаган. "
+"Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
 
 #: $strReplicationShowConnectedSlavesNote
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Рўйхатда фақат \"--report-host=host_name\" танлови ёрдамда юкланган тобе "
+"серверлар кўрсатилмоқда."
 
 #: $strReplicationShowConnectedSlaves
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Уланган тобе серверларни кўрсатиш"
 
 #: $strReplicationShowMasterStatus
 msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
-msgstr ""
+msgstr "Уланган бош серверларни кўрсатиш"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr ""
+"Хатолик(лар)ни ташлаб кетиш бош ва тобе серверларнинг тўла синхронизация "
+"қилинмаганлигига олиб келиши мумкин!"
 
 #: $strReplicationSlaveChangeMaster
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Бош серверни ўзгартириш ёки қайта конфигурация қилиш"
 
 #: $strReplicationSlaveConfiguration
 msgid "Slave configuration"
-msgstr ""
+msgstr "Тобе сервер конфигурацияси"
 
 #: $strReplicationSlaveConfigured
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Ушбу сервер репликация жараёнида \"тобе сервер\" деб конфигурация қилинган. "
+"Қуйидаги амаллардан бирини танланг:"
 
 #: $strReplicationSlaveErrorManagement
 msgid "Error management:"
-msgstr ""
+msgstr "Хатоликларни бошқариш:"
 
 #: $strReplicationSlaveIOThread
 msgid "IO Thread %s only"
-msgstr ""
+msgstr "Фақат %s қириш/чиқиш оқимини"
 
 #: $strReplicationSlaveIOThreadNotRunning
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Тобе кириш/чиқиш оқими ишламаяпти!"
 
 #: $strReplicationSlaveNotConfigured
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Ушбу сервер репликация жараёнида \"тобе сервер\" деб конфигурация қилинмаган. "
+"Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
 
 #: $strReplicationSlaveReset
 msgid "Reset slave"
-msgstr ""
+msgstr "Тобе серверни тиклаш"
 
 #: $strReplicationSlaveSeeStatus
 msgid "See slave status table"
-msgstr ""
+msgstr "Тобе сервер статуси жадвалини кўриш"
 
 #: $strReplicationSlaveSkipCurrentError
 msgid "Skip current error"
-msgstr ""
+msgstr "Жорий хатоликларни ташлаб кетиш"
 
 #: $strReplicationSlaveSkipNextErrors
 msgid "errors."
-msgstr ""
+msgstr " хатоликлар."
 
 #: $strReplicationSlaveSkipNext
 msgid "Skip next"
-msgstr ""
+msgstr "Кейингисини ташлаб кетиш"
 
 #: $strReplicationSlave
 msgid "Slave replication"
-msgstr ""
+msgstr "Тобе сервер репликацияси"
 
 #: $strReplicationSlaveSQLThreadNotRunning
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Тобе SQL Оқими ишламаяпти!"
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
-msgstr ""
+msgstr "Фақат %s SQL кириш/чиқиш оқимини"
 
 #: $strReplicationStatusInfo
 msgid ""
@@ -3647,16 +3681,16 @@ msgid "Slave status"
 msgstr "Тобе сервер статуси"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
-msgstr ""
+msgid "Synchronise databases with master"
+msgstr "Базаларни бош сервер билан синхронизация қилиш"
 
 #: $strReplicationUnableToChange
 msgid "Unable to change master"
-msgstr ""
+msgstr "Бош серверни ўзгартириб бўлмади"
 
 #: $strReplicationUnknownError
 msgid "Unknown error"
-msgstr ""
+msgstr "Номаълум хатолик"
 
 #: $strReset
 msgctxt "$strReset"
@@ -3973,7 +4007,7 @@ msgstr ""
 
 #: $strSettings
 msgid "settings"
-msgstr ""
+msgstr "танловлар"
 
 #: $strSetupAllowAnywhereRecoding_name
 msgid "Allow character set conversion"
@@ -4411,11 +4445,11 @@ msgid "Browse mode"
 msgstr "Кўриб чиқиш усул"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Кўриб чиқиш усулини созлаш"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Таҳрирлаш усулини созлаш"
 
 #: $strSetupForm_Edit
@@ -4423,7 +4457,7 @@ msgid "Edit mode"
 msgstr "Таҳрирлаш усули"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Экспорт афзалликларини созлаш"
 
 #: $strSetupForm_Export_defaults
@@ -4431,7 +4465,7 @@ msgid "Export defaults"
 msgstr "Экспорт"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Импорт афзалликларини созлаш"
 
 #: $strSetupForm_Import_defaults
@@ -4456,7 +4490,7 @@ msgid "Databases display options"
 msgstr "Маълумотлар базаларини кўрсатиш афзалликлари"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Навигация панели кўринишини созлаш"
 
 #: $strSetupForm_Left_frame
@@ -4494,7 +4528,7 @@ msgid "Other core settings"
 msgstr "Бошқа созланишлар"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Сўровлар ойнаси кўринишини созлаш"
 
 #: $strSetupForm_Query_window
@@ -4559,11 +4593,11 @@ msgid "PMA database"
 msgstr "PMA маълумотлар базаси"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Мослашлар"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Экспорт танловларини мослаштириш"
 
 #: $strSetupFormset_features
@@ -4571,19 +4605,19 @@ msgid "Features"
 msgstr "Функциялар"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Импорт танловларини мослаштириш"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Навигация панелини мослаштириш"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Асосий рамкани мослаштириш"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "SQL сўровлари қутисида кўрсатиладиган боғларни созлаш"
 
 #: $strSetupForm_Sql_box
@@ -4605,7 +4639,7 @@ msgid "SQL queries"
 msgstr "SQL сўровлари"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Бошланғич саҳифани созлаш"
 
 #: $strSetupForm_Startup
@@ -5018,7 +5052,7 @@ msgstr "Бинар (иккилик) майдонларни ҳимоялаш"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Агар базага асосланган сўровлар тарихидан фойдаланмоқчи бўлсангиз, шу "
 "танловни ёқинг (pmadb талаб этилади). Ушбу танлов ўчирилган бўлса, ойна "
@@ -5118,7 +5152,7 @@ msgstr "Аутентификация қоидалари"
 
 #: $strSetupServers_AllowNoPassword_name
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Паролсиз қиришга рухсат бериш"
 
 #: $strSetupServers_AllowRoot_name
 msgid "Allow root login"
@@ -5127,10 +5161,11 @@ msgstr "\"root\"га киришга рухсат бериш"
 #: $strSetupServers_auth_http_realm_desc
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
+"HTTP Авторизация вақтида кўрсатиладиган Оддий HTTP Авторизация Бўлими номи"
 
 #: $strSetupServers_auth_http_realm_name
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Бўлими"
 
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
@@ -5297,7 +5332,7 @@ msgstr "SQL сўровлари тарихи жадвали"
 
 #: $strSetupServers_host_desc
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "MySQL сервери ишлаётган хост номи"
 
 #: $strSetupServers_host_name
 msgid "Server hostname"
@@ -5787,7 +5822,7 @@ msgstr "Барчасини кўрсатиш"
 
 #: $strShowBinaryContentsAsHex
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Иккилик маълумотларни ўн олтилик шаклда кўрсатиш"
 
 #: $strShowBinaryContents
 msgid "Show binary contents"
@@ -5798,7 +5833,7 @@ msgid "Show BLOB contents"
 msgstr "BLOB туридаги маълумотларни кўрсатиш"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Рангда кўрсатиш"
 
 #: $strShowDatadictAs
@@ -5835,7 +5870,7 @@ msgstr "SQL-сўровни кўрсатиш"
 
 #: $strShowInsert
 msgid "Show insert query"
-msgstr ""
+msgstr "Киритилган сўровни кўрсатиш"
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -5844,7 +5879,7 @@ msgstr "Фақат калитларни кўрсатиш"
 #: $strShowMasterStatus
 msgctxt "$strShowMasterStatus"
 msgid "Show master status"
-msgstr ""
+msgstr "Бош сервер статусини кўрсатиш"
 
 #: $strShowOpenTables
 msgid "Show open tables"
@@ -5977,7 +6012,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Индексни камайиб бориш тартибида сортировка қилинганда олдинги ёзувни ўқишга "
 "бўлган сўровлар сони. Одатда оптималлаштириш учун қўлланилади: ORDER BY ... "
@@ -6290,7 +6325,7 @@ msgstr "Дискдан индекс блокларини жисмоний ёзи
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6483,7 +6518,7 @@ msgstr "Дарҳол қониқтирилган жадвални блокиро�
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Маълум бир вақтдандан кейин қониқтирилган жадвални блокировка қилишга бўлган "
@@ -6556,6 +6591,9 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Конфигурация файлида (\"my.cnf\") серверга уникал ID белгиланганлигига ишонч "
+"ҳосил қилинг. Агар шундай бўлмаса, қуйидаги қаторларни [mysqld] бўлимига "
+"қўшинг:"
 
 #: $strSlovak
 msgid "Slovak"
@@ -6579,7 +6617,7 @@ msgstr "(ёки локал MySQL сервернинг сокети нотўғр�
 
 #: $strSocket
 msgid "Socket"
-msgstr ""
+msgstr "Сокет"
 
 #: $strSortByKey
 msgid "Sort by key"
@@ -6615,7 +6653,7 @@ msgstr "Эскпорт тури"
 
 #: $strSQLExportUTC
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Вақтни UTC шаклда экспорт қилиш"
 
 #: $strSQLParserBugMessage
 msgid ""
@@ -6678,7 +6716,7 @@ msgstr "Намойиш этиш учун тузилма"
 
 #: $strStart
 msgid "Start"
-msgstr ""
+msgstr "Бошлаш"
 
 #: $strStatCheckTime
 msgid "Last check"
@@ -6714,7 +6752,7 @@ msgstr "Ҳолат"
 
 #: $strStop
 msgid "Stop"
-msgstr ""
+msgstr "Тўхтатиш"
 
 #: $strStorageEngines
 msgid "Storage Engines"
@@ -6754,18 +6792,20 @@ msgid ""
 "Structure Difference' ;\n"
 "$strStructureForView = 'Structure for view"
 msgstr ""
+"Тузилишдаги фарқ' ;\n"
+"$strStructureForView = 'Намойиш этиш учун тузилма"
 
 #: $strStructureLC
 msgid "structure"
-msgstr ""
+msgstr "тузилиш"
 
 #: $strStructure
 msgid "Structure"
 msgstr "Тузилиши"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
-msgstr ""
+msgid "Structure Synchronisation"
+msgstr "Тузилишни синхронизация қилиш"
 
 #: $strSubmit
 msgid "Submit"
@@ -6817,21 +6857,23 @@ msgstr "Нусха олинган жадвалга ўтиш"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Нишон база манба база билан тўлиқ синхронизация қилинади. Манба база "
+"ўзгаришсиз қолади."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
-msgstr ""
+msgid "Synchronise Databases"
+msgstr "Базаларни синхронизация қилиш"
 
 #: $strSynchronize
-msgid "Synchronize"
-msgstr ""
+msgid "Synchronise"
+msgstr "Синхронизация қилиш"
 
 #: $strTableAddColumn
 msgid "Add column(s)"
-msgstr ""
+msgstr "Устун(лар) қўшиш"
 
 #: $strTableAlreadyExists
 msgid "Table %s already exists!"
@@ -6839,7 +6881,7 @@ msgstr "\"%s\" номли жадвал мавжуд!"
 
 #: $strTableAlterColumn
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Устун(лар)ни ўзгартириш"
 
 #: $strTableAlteredSuccessfully
 msgid "Table %1$s has been altered successfully"
@@ -6847,11 +6889,11 @@ msgstr "%1$s жадвали муваффақиятли ўзгартирилди"
 
 #: $strTableAlterIndex
 msgid "Alter index(s)"
-msgstr ""
+msgstr "Индек(лар)ни ўзгартириш"
 
 #: $strTableApplyIndex
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Индекс(лар)ни сақлаш"
 
 #: $strTableComments
 msgid "Table comments"
@@ -6859,7 +6901,7 @@ msgstr "Жадвал изоҳи"
 
 #: $strTableDeleteRows
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Нишон жадвалдаги барча олдинги қаторларни ўчирмоқчимисиз?"
 
 #: $strTableEmpty
 msgid "The table name is empty!"
@@ -6883,7 +6925,7 @@ msgstr "\"%s\" жадвали кеши янгиланди"
 
 #: $strTableInsertRow
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Қатор(лар) қўшиш"
 
 #: $strTableIsEmpty
 msgid "Table seems to be empty!"
@@ -6907,11 +6949,11 @@ msgstr "Жадвал параметрлари"
 
 #: $strTableRemoveColumn
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Устун(лар)ни олиб ташлаш"
 
 #: $strTableRemoveIndex
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Индекс(лар)ни олиб ташлаш"
 
 #: $strTables
 msgid "%s table(s)"
@@ -6927,15 +6969,15 @@ msgstr "Жадвал "
 
 #: $strTableUpdateRow
 msgid "Update row(s)"
-msgstr ""
+msgstr "Қатор(лар)ни янгилаш"
 
 #: $strTakeIt
 msgid "take it"
 msgstr "Тадбиқ қилиш"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
-msgstr ""
+msgid "Target database has been synchronised with source database"
+msgstr "Нишон база манба база билан синхронизация қилинди"
 
 #: $strTblPrivileges
 msgid "Table-specific privileges"
@@ -7049,197 +7091,199 @@ msgstr "Жами"
 
 #: $strTrackingActivated
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "\"%s.%s\" жадвалини кузатиш фаоллаштирилди."
 
 #: $strTrackingActivateNow
 msgid "Activate now"
-msgstr ""
+msgstr "Ҳозир фаоллаштириш"
 
 #: $strTrackingActivateTrackingFor
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "\"%s.%s\" жадвалини кузатишни фаоллаштириш"
 
 #: $strTrackingCommentOut
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Агар керак бўлмаса, ушбу икки қатор олдига шарҳ белгисини қўйинг."
 
 #: $strTrackingCreateVersion
 msgid "Create version"
-msgstr ""
+msgstr "Версиясини тузиш"
 
 #: $strTrackingCreateVersionOf
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "\"%s.%s\" жадвалининг %s рақамли версиясини тузиш"
 
 #: $strTrackingDatabaseLog
 msgid "Database Log"
-msgstr ""
+msgstr "База лог файлини"
 
 #: $strTrackingDataDefinitionStatement
 msgid "Data definition statement"
-msgstr ""
+msgstr "Маълумотлар таърифи операторини"
 
 #: $strTrackingDataManipulationStatement
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Маълумотларни бошқариш операторини"
 
 #: $strTrackingDate
 msgid "Date"
-msgstr ""
+msgstr "Санани"
 
 #: $strTrackingDeactivateNow
 msgid "Deactivate now"
-msgstr ""
+msgstr "Ҳозир фаолсизлантириш"
 
 #: $strTrackingDeactivateTrackingFor
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "\"%s.%s\" жадвалини кузатишни фаолсизлантириш"
 
 #: $strTrackingExportAs
 msgid "Export as %s"
-msgstr ""
+msgstr "\"%s\" деб экспорт қилиш"
 
 #: $strTrackingIsActive
 msgid "Tracking is active."
-msgstr ""
+msgstr "Кузатиш фаол."
 
 #: $strTrackingIsNotActive
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Кузатиш фаол эмас."
 
 #: $strTrackingMechanism
 msgid "Tracking Mechanism"
-msgstr ""
+msgstr "Кузатиш механизми"
 
 #: $strTrackingReportClose
 msgid "Close"
-msgstr ""
+msgstr "Ёпиш"
 
 #: $strTrackingReportForTable
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "\"%s\" жадвали учун кузатув ҳисоботи"
 
 #: $strTrackingReport
 msgid "Tracking report"
-msgstr ""
+msgstr "Кузатиш ҳисоботи"
 
 #: $strTrackingShowLogDateUsers
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "\"%s\"ни кўрсатиш, %s дан %s санагача, фойдаланувчи %s %s"
 
 #: $strTrackingShowVersions
 msgid "Show versions"
-msgstr ""
+msgstr "Версияларни кўрсатиш"
 
 #: $strTrackingSQLDumpFile
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL дампи (файлни юклаб олиш)"
 
 #: $strTrackingSQLDump
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL дамп"
 
 #: $strTrackingSQLExecuted
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL сўрови бажарилди."
 
 #: $strTrackingSQLExecutionAlert
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Ушбу танлов жадвал ва унинг таркибини амаштиради."
 
 #: $strTrackingSQLExecution
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL бажаруви"
 
 #: $strTrackingSQLExported
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL сўрови экспорт қилинди. Дампдан нусха олинг ёки уни бажаринг."
 
 #: $strTrackingStatements
 msgid "Tracking statements"
-msgstr ""
+msgstr "Кузатиш операторлари"
 
 #: $strTrackingStatusActive
 msgid "active"
-msgstr ""
+msgstr "фаол"
 
 #: $strTrackingStatusNotActive
 msgid "not active"
-msgstr ""
+msgstr "фаол эмас"
 
 #: $strTrackingStructureSnapshot
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Тузилма расми"
 
 #: $strTrackingThCreated
 msgid "Created"
-msgstr ""
+msgstr "Тузилди"
 
 #: $strTrackingThLastVersion
 msgid "Last version"
-msgstr ""
+msgstr "Охирги версия"
 
 #: $strTrackingThUpdated
 msgid "Updated"
-msgstr ""
+msgstr "Янгиланди"
 
 #: $strTrackingThVersion
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: $strTrackingTrackDDStatements
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Ушбу маълумотлар таърифи операторларини кузатиш:"
 
 #: $strTrackingTrackDMStatements
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Ушбу маълумотлар бошқаруви операторларини кузатиш:"
 
 #: $strTrackingTrackedTables
 msgid "Tracked tables"
-msgstr ""
+msgstr "Кузатилган жадваллар"
 
 #: $strTracking
 msgid "Tracking"
-msgstr ""
+msgstr "Кузатиш"
 
 #: $strTrackingTrackTable
 msgid "Track table"
-msgstr ""
+msgstr "Жадвални кузатиш"
 
 #: $strTrackingUntrackedTables
 msgid "Untracked tables"
-msgstr ""
+msgstr "Кузатилмаган жадваллар"
 
 #: $strTrackingUsername
 msgid "Username"
-msgstr ""
+msgstr "Фойдаланувчи"
 
 #: $strTrackingVersionActivated
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "\"%s.%s\" ни кузатиш, %s версия фаоллаштирилган."
 
 #: $strTrackingVersionCreated
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "%s версия тузилди, \"%s.%s\" ни кузатишш фаоллаштирилган."
 
 #: $strTrackingVersionDeactivated
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "\"%s.%s\" ни кузатиш, %s версия фаолсизлантирилган."
 
 #: $strTrackingVersionSnapshotSQL
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "%s версия расми (SQL коди)"
 
 #: $strTrackingVersions
 msgid "Versions"
-msgstr ""
+msgstr "Версиялар"
 
 #: $strTrackingYouCanExecute
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Дампни бажариш учун вақтинчалик база тузинг ё борини ишлатинг. Бунинг учун "
+"етарли привилегияларга эга бўлишингиз керак."
 
 #: $strTraditionalChinese
 msgid "Traditional Chinese"
@@ -7574,7 +7618,7 @@ msgstr "SQL синтаксисини текшириш"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""
@@ -7619,15 +7663,15 @@ msgstr " \"%s\" намойиши ўчирилди"
 
 #: $strViewImage
 msgid "View image"
-msgstr "VIEW расм"
+msgstr "Расм кўриниши"
 
 #: $strViewName
 msgid "VIEW name"
-msgstr "VIEW номи"
+msgstr "Ном кўриниши"
 
 #: $strViewVideo
 msgid "View video"
-msgstr "VIEW видео"
+msgstr "Видео кўриниши"
 
 #: $strView
 msgid "View"
@@ -7687,34 +7731,36 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"Кўрсатилган XML файл ё нотўғри тузилган ё чала. Уни тўғирлаб, қайта ҳаракат "
+"қилиб кўринг."
 
 #: $strXMLExportContents
 msgid "Export contents"
-msgstr ""
+msgstr "Таркибини экспорт қилиш"
 
 #: $strXMLExportFunctions
 msgid "Export functions"
-msgstr ""
+msgstr "Функцияларни экспорт қилиш"
 
 #: $strXMLExportProcedures
 msgid "Export procedures"
-msgstr ""
+msgstr "Процедуларни экспорт қилиш"
 
 #: $strXMLExportStructs
 msgid "Export Structure Schemas (recommended)"
-msgstr ""
+msgstr "Тузилма схемасини экспорт қилиш (тавсия этилади)"
 
 #: $strXMLExportTables
 msgid "Export tables"
-msgstr ""
+msgstr "Жадвалларни экспорт қилиш"
 
 #: $strXMLExportTriggers
 msgid "Export triggers"
-msgstr ""
+msgstr "Триггерларни экспорт қилиш"
 
 #: $strXMLExportViews
 msgid "Export views"
-msgstr ""
+msgstr "Кўринишларни экспорт қилиш"
 
 #: $strXML
 msgid "XML"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:17+0200\n"
-"PO-Revision-Date: 2010-03-11 17:17+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -302,11 +302,11 @@ msgid "Alter table order by"
 msgstr "Αλλαγή ταξινόμησης Πίνακα κατά"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Ανάλυση"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Ανάλυση Πίνακα"
 
 #: $strAnd
@@ -580,11 +580,11 @@ msgid "Cancel"
 msgstr "Άκυρο"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr "Αδύνατη η φόρτωση προσθέτων εξαγωγής. Ελέξτε την εγκατάστασή σας!"
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr "Αδύνατη η φόρτωση προσθέτων εισαγωγής. Ελέξτε την εγκατάστασή σας!"
 
 #: $strCannotLogin
@@ -963,7 +963,7 @@ msgid "Current server"
 msgstr "Τρέχων διακομιστής"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Προσαρμοσμένο χρώμα"
 
 #: $strCyrillic
@@ -1064,7 +1064,7 @@ msgid "Pages containing data"
 msgstr "Σελίδες που περιέχουν δεδομένα"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr "Συγχρονισμός Δεδομένων"
 
 #: $strDBComment
@@ -1668,7 +1668,7 @@ msgid "has been altered."
 msgstr "έχει αλλαχθεί."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr ""
 "Οι επιλεγμένοι πίνακες προορισμου έχουν συγχρονιστεί με τους πίνακες "
 "προέλευσης."
@@ -2020,7 +2020,7 @@ msgid "Table must have at least one field."
 msgstr "Ο πίνακας πρέπει να έχει τουλάχιστον ένα πεδίο."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει συμπιεσμένες εισαγωγές!"
 
 #: $strInvalidRowNumber
@@ -2682,11 +2682,11 @@ msgid "Operator"
 msgstr "Τελεστής"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Βελτιστοποίηση"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Βελτιστοποίηση Πίνακα"
 
 #: $strOptions
@@ -3586,7 +3586,7 @@ msgid "Show master status"
 msgstr "Προβολή κατάστασης πρωτεύοντος"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr ""
 "Η παράβλεψη σφαλμάτων μπορεί να οδηγήσει στο μη συγχρονισμό πρωτεύοντος και "
 "δευτερεύοντος!"
@@ -3682,7 +3682,7 @@ msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr "Συγχρονισμός βάσεων δεδομένων με την πρωτεύουσα"
 
 #: $strReplicationUnableToChange
@@ -4440,11 +4440,11 @@ msgid "Browse mode"
 msgstr "Κατάσταση αναζήτησης"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Προσαρμοσμένη κατάσταση αναζήτησης"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Προσαρμοσμένη κατάσταση επεξεργασίας"
 
 #: $strSetupForm_Edit
@@ -4452,7 +4452,7 @@ msgid "Edit mode"
 msgstr "Κατάσταση επεξεργασίας"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών εξαγωγής"
 
 #: $strSetupForm_Export_defaults
@@ -4460,7 +4460,7 @@ msgid "Export defaults"
 msgstr "Προεπιλογές εξαγωγής"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Προσαρμογή προεπιλεγμένων επιλογών εισαγωγής"
 
 #: $strSetupForm_Import_defaults
@@ -4485,7 +4485,7 @@ msgid "Databases display options"
 msgstr "Επιλογές προβολής βάσεων δεδομένων"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Προσαρμογή εμφάνισης του πλαισίου πλοήγησης"
 
 #: $strSetupForm_Left_frame
@@ -4523,7 +4523,7 @@ msgid "Other core settings"
 msgstr "Άλλες ρυθμίσεις πυρήνα"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Προσαρμόστε επιλογές παραθύρου ερωτήματος"
 
 #: $strSetupForm_Query_window
@@ -4587,11 +4587,11 @@ msgid "PMA database"
 msgstr "Βάση δεδομένων PMA"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Προσαρμογή"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Προσαρμογή επιλογών εξαγωγής"
 
 #: $strSetupFormset_features
@@ -4599,19 +4599,19 @@ msgid "Features"
 msgstr "Χαρακτηριστικά"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Προσαρμογή επιλογών εισαγωγής"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Προσαρμογή πλαισίου πλοήγησης"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Προσαρμογή βασικού πλαισίου"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "Προσαρμογή εμφανιζόμενων συνδέσμων στους χώρους ερωτημάτων SQL"
 
 #: $strSetupForm_Sql_box
@@ -4633,7 +4633,7 @@ msgid "SQL queries"
 msgstr "Ερωτήματα SQL"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Προσαρμογή σελίδας εκκίνησης"
 
 #: $strSetupForm_Startup
@@ -5048,7 +5048,7 @@ msgstr "Προστασία δυαδικών πεδίων"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Ενεργοποιήστε το αν θέλετε ιστορικό ανά βάση δεδομένων (απαιτεί pmadb). Αν "
 "απενεργοποιηθεί, λειτουργούν ρουτίνες JS για προβολή του ιστορικού "
@@ -5833,7 +5833,7 @@ msgid "Show BLOB contents"
 msgstr "Εμφάνιση περιεχομένων BLOB"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Εμφάνιση χρωμάτων"
 
 #: $strShowDatadictAs
@@ -6020,7 +6020,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Ο αριθμός των αιτήσεων που ανέγνωσαν την προηγούμενη γραμμή ανά κλειδί. Αυτή "
 "η μέθοδος ανάγνωσης χρησιμοποιείτε κυρίως για βελτιστοποίηση της εντολής "
@@ -6350,7 +6350,7 @@ msgstr "Ο αριθμός των φυσικών εγγραφών ενός κλε
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6544,7 +6544,7 @@ msgstr "Οι φορές που ένα κλείδωμα πινακα ανακτή
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Οι φορές που ένα κλείδωμα πίνακα δεν μπόρεσε να ληφθεί αμέσως και ήταν "
@@ -6828,7 +6828,7 @@ msgid "Structure"
 msgstr "Δομή"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr "Συγχρονισμός δομής"
 
 #: $strSubmit
@@ -6881,18 +6881,18 @@ msgstr "Μεταφορά στον αντεγραμμένο πίνακα"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 "Η βάση δεδομένων προορισμού θα συγχρονιστεί πλήρως με τη βάση δεδομένων "
 "προέλευσης. Η βάση δεδομένων προέλευσης θα παραμείνει ως έχει."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr "Συγχρονισμός Βάσεων δεδομένων"
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr "Συγχρονισμός"
 
 #: $strTableAddColumn
@@ -7002,7 +7002,7 @@ msgid "take it"
 msgstr "πάρτε το"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr ""
 "Η βάση δεδομένων προορισμού συγχρονίστηκε με τη βάση δεδομένων προέλευσης"
 
@@ -7649,7 +7649,7 @@ msgstr "Επικύρωση SQL"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""

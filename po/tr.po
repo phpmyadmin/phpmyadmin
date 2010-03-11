@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:18+0200\n"
-"PO-Revision-Date: 2010-03-11 17:18+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -301,11 +301,11 @@ msgid "Alter table order by"
 msgstr "Tablo sıralamasını şuna göre değiştir"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "İncele"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Tabloyu incele"
 
 #: $strAnd
@@ -582,12 +582,12 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr ""
 "Dışarı aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr ""
 "İçeri aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
@@ -965,7 +965,7 @@ msgid "Current server"
 msgstr "Şu anki sunucu"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Özel renk"
 
 #: $strCyrillic
@@ -1066,7 +1066,7 @@ msgid "Pages containing data"
 msgstr "Veri içeren sayfalar"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr "Veri Eşitleme"
 
 #: $strDBComment
@@ -1663,7 +1663,7 @@ msgid "has been altered."
 msgstr "değiştirildi."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr "Seçili hedef tablolar kaynak tablolar ile eşitlendi."
 
 #: $strHaveToShow
@@ -2014,7 +2014,7 @@ msgid "Table must have at least one field."
 msgstr "Tablonun en az bir alanı olmalı."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Bu eklenti sıkıştırılmış içeri aktarım dosyalarını desteklemez!"
 
 #: $strInvalidRowNumber
@@ -2674,11 +2674,11 @@ msgid "Operator"
 msgstr "İşletici"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Uyarla"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Tabloyu uyarla"
 
 #: $strOptions
@@ -3572,7 +3572,7 @@ msgid "Show master status"
 msgstr "Master durumunu göster"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr "Hata(ları)yı atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
 
 #: $strReplicationSlaveChangeMaster
@@ -3665,7 +3665,7 @@ msgid "Slave status"
 msgstr "Slave durumu"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr "Asılı ile veritabanlarını eşitle"
 
 #: $strReplicationUnableToChange
@@ -4417,11 +4417,11 @@ msgid "Browse mode"
 msgstr "Gözatma modu"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Gözatma modunu özelleştirir"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Düzenleme modunu özelleştirir"
 
 #: $strSetupForm_Edit
@@ -4429,7 +4429,7 @@ msgid "Edit mode"
 msgstr "Düzenleme modu"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Varsayılan dışarı aktarma seçeneklerini özelleştirir"
 
 #: $strSetupForm_Export_defaults
@@ -4437,7 +4437,7 @@ msgid "Export defaults"
 msgstr "Dışarı aktarma varsayılanları"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Varsayılan genel içeri aktarma seçeneklerini özelleştirir"
 
 #: $strSetupForm_Import_defaults
@@ -4464,7 +4464,7 @@ msgid "Databases display options"
 msgstr "Veritabanlarının görüntü seçenekleri"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Rehber çerçevesinin görünümünü özelleştirir"
 
 #: $strSetupForm_Left_frame
@@ -4502,7 +4502,7 @@ msgid "Other core settings"
 msgstr "Diğer çekirdek ayarlar"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Sorgu penceresi seçeneklerini özelleştirir"
 
 #: $strSetupForm_Query_window
@@ -4566,11 +4566,11 @@ msgid "PMA database"
 msgstr "PMA veritabanı"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Özelleştirme"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Dışarı aktarma seçeneklerini özelleştir"
 
 #: $strSetupFormset_features
@@ -4578,19 +4578,19 @@ msgid "Features"
 msgstr "Özellikler"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "İçeri aktarma varsayılanlarını özelleştir"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Rehber çerçeveyi özelleştir"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Ana çerçeveyi özelleştir"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "SQL Sorgu kutularında gösterilecek bağlantıları özelleştirir"
 
 #: $strSetupForm_Sql_box
@@ -4612,7 +4612,7 @@ msgid "SQL queries"
 msgstr "SQL sorguları"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Başlangıç sayfasını özelleştirir"
 
 #: $strSetupForm_Startup
@@ -5028,7 +5028,7 @@ msgstr "Binari alanlarını koru"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Eğer VT-tabanlı sorgu geçmişi isterseniz etkinleştirin (pmadb gerektirir). "
 "Eğer etkisizleştirilirse, sorgu geçmişini görüntülemek için bu JS-"
@@ -5809,7 +5809,7 @@ msgid "Show BLOB contents"
 msgstr "BLOB içerikleri göster"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Rengi göster"
 
 #: $strShowDatadictAs
@@ -5989,7 +5989,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Anahtar sırasında önceki satırı okumak için istek sayısıdır. Bu okuma "
 "yöntemi başlıca ORDER BY ... DESC komutunu uyarlamak için kullanılır."
@@ -6304,7 +6304,7 @@ msgstr "Diske anahtar bloğunu fiziksel yazma sayısıdır."
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6482,7 +6482,7 @@ msgstr "Tablo kilidinin hemen tanındığı süre sayısıdır."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
@@ -6767,7 +6767,7 @@ msgid "Structure"
 msgstr "Yapı"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr "Yapı Eşitleme"
 
 #: $strSubmit
@@ -6820,18 +6820,18 @@ msgstr "Kopyalanmış tabloya geç"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 "Hedef veritabanı kaynak veritabanı ile tamamen eşitlenecektir. Kaynak "
 "veritabanı değitirelemeyecektir."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr "Veritabanlarını Eşitle"
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr "Eşitle"
 
 #: $strTableAddColumn
@@ -6939,7 +6939,7 @@ msgid "take it"
 msgstr "Al"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr "Hedef veritabanı kaynak veritabanı ile eşitlendi"
 
 #: $strTblPrivileges
@@ -7579,7 +7579,7 @@ msgstr "SQL'i onayla"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""

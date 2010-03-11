@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:17+0200\n"
-"PO-Revision-Date: 2010-03-11 17:17+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -300,11 +300,11 @@ msgid "Alter table order by"
 msgstr "Ordenar a táboa por"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Analizar"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Analizar a táboa"
 
 #: $strAnd
@@ -579,13 +579,13 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr ""
 "Non se deron carregado as extensións de exportación. Verifique a "
 "instalación."
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr "Non se puideron importar as extensións - Comprobe a instalación."
 
 #: $strCannotLogin
@@ -963,7 +963,7 @@ msgid "Current server"
 msgstr "Servidor actual"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Cor personalizada"
 
 #: $strCyrillic
@@ -1064,7 +1064,7 @@ msgid "Pages containing data"
 msgstr "Páxinas con datos"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr "Sincronización dos datos"
 
 #: $strDBComment
@@ -1665,7 +1665,7 @@ msgid "has been altered."
 msgstr "foi alterado."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr ""
 "Sincronizáronse as táboas de destino seleccionadas coas táboas de orixe."
 
@@ -2019,7 +2019,7 @@ msgid "Table must have at least one field."
 msgstr "A táboa ha de ter, polo menos, un campo."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Este engadido non é capaz de realizar importacións comprimidas!"
 
 #: $strInvalidRowNumber
@@ -2676,11 +2676,11 @@ msgid "Operator"
 msgstr "Operador"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Optimizar"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Optimizar a táboa"
 
 #: $strOptions
@@ -3567,7 +3567,7 @@ msgid "Show master status"
 msgstr "Mostrar o estado do principal"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr ""
 "Omitir o(s) erro(s) podería conducir a que o principal e o escravo non "
 "estean sincronizados."
@@ -3661,7 +3661,7 @@ msgid "Slave status"
 msgstr "Estado do escravo"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr "Sincronizar as bases de datos co principal"
 
 #: $strReplicationUnableToChange
@@ -4428,11 +4428,11 @@ msgid "Browse mode"
 msgstr "Modo de navegación"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Personalizar o modo de navegación"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Personalizar o modo de edición"
 
 #: $strSetupForm_Edit
@@ -4440,7 +4440,7 @@ msgid "Edit mode"
 msgstr "Modo de edición"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Personalizar as opcións de exportación por omisión"
 
 #: $strSetupForm_Export_defaults
@@ -4448,7 +4448,7 @@ msgid "Export defaults"
 msgstr "Exportar o predeterminado"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Personalizar as opcións frecuentes de importación por omisión"
 
 #: $strSetupForm_Import_defaults
@@ -4475,7 +4475,7 @@ msgid "Databases display options"
 msgstr "Opcións de exhibición das bases de datos"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Personalizar a aparencia da moldura de navegación"
 
 #: $strSetupForm_Left_frame
@@ -4513,7 +4513,7 @@ msgid "Other core settings"
 msgstr "Outras opcións principais"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Personalizar as opcións da xanela de procuras"
 
 #: $strSetupForm_Query_window
@@ -4579,11 +4579,11 @@ msgid "PMA database"
 msgstr "Base de datos PMA"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Personalización"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Personalizar as opcións de exportación"
 
 #: $strSetupFormset_features
@@ -4591,19 +4591,19 @@ msgid "Features"
 msgstr "Funcionalidades"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Personalizar as opcións de importación por omisión"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Personalizar a moldura de navegación"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Personalizar a moldura principal"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "Personalizar as ligazóns que aparecen nas caixas de Procura SQL"
 
 #: $strSetupForm_Sql_box
@@ -4625,7 +4625,7 @@ msgid "SQL queries"
 msgstr "Solicitudes SQL"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Personalizar a páxina de inicio"
 
 #: $strSetupForm_Startup
@@ -5040,7 +5040,7 @@ msgstr "Protexer os campos binarios"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Activar se se quere un historial baseado en base de datos (require pmadb). "
 "Se estiver desactivado, utiliza rutinas JS para mostrar o historial de "
@@ -5823,7 +5823,7 @@ msgid "Show BLOB contents"
 msgstr "Mostrar os contidos BLOB"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Mostrar a cor"
 
 #: $strShowDatadictAs
@@ -6003,7 +6003,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Número de peticións para ler a fileira anterior na orde da chave. Este "
 "método de lectura utilízase sobre todo para optimizar ORDER BY ... DESC."
@@ -6322,7 +6322,7 @@ msgstr "Número de escritas físicas dun bloque chave no disco."
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6506,7 +6506,7 @@ msgstr "Número de veces que se adquiriu inmediatamente un bloqueo de táboa."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Número de veces que non se puido adquirir inmediatamente un bloqueo de táboa "
@@ -6795,7 +6795,7 @@ msgid "Structure"
 msgstr ""
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr "Sincronización da estrutura"
 
 #: $strSubmit
@@ -6848,18 +6848,18 @@ msgstr "Ir à táboa copiada"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 "A base de datos de destino sincronizarase completamente coa base de datos de "
 "orixe. A base de datos de orixe ficará sen alteracións."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr "Sincronizar as bases de datos"
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr "Sincronizar"
 
 #: $strTableAddColumn
@@ -6967,7 +6967,7 @@ msgid "take it"
 msgstr "cólleo"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr ""
 
 #: $strTblPrivileges
@@ -7601,7 +7601,7 @@ msgstr "Validar SQL"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:18+0200\n"
-"PO-Revision-Date: 2010-03-11 17:18+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -300,11 +300,11 @@ msgid "Alter table order by"
 msgstr "Endre tabellrekkefølge ved"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Analyser"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Analyser tabell"
 
 #: $strAnd
@@ -578,11 +578,11 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
 
@@ -955,7 +955,7 @@ msgid "Current server"
 msgstr "Nåværende tjener"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Egendefinert farge"
 
 #: $strCyrillic
@@ -1056,7 +1056,7 @@ msgid "Pages containing data"
 msgstr "Sider som inneholder data"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr "Datasynkronisering"
 
 #: $strDBComment
@@ -1656,7 +1656,7 @@ msgid "has been altered."
 msgstr "er endret."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr "Valgte måltabeller har blitt synkronisert med kildetabeller."
 
 #: $strHaveToShow
@@ -2007,7 +2007,7 @@ msgid "Table must have at least one field."
 msgstr "Tabellen må ha minst ett felt."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Dette tillegget støtter ikke komprimerte importeringer!"
 
 #: $strInvalidRowNumber
@@ -2653,11 +2653,11 @@ msgid "Operator"
 msgstr "Operator"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Optimaliser"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Optimiser tabell"
 
 #: $strOptions
@@ -3540,7 +3540,7 @@ msgid "Show master status"
 msgstr "Vis masterstatus"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr "Å hoppe over feil kan føre til usynkroniserte master og slave!"
 
 #: $strReplicationSlaveChangeMaster
@@ -3629,7 +3629,7 @@ msgid "Slave status"
 msgstr "Slavestatus"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr "Synkroniser databaser med master"
 
 #: $strReplicationUnableToChange
@@ -4374,11 +4374,11 @@ msgid "Browse mode"
 msgstr "Visningsmodus"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Endre visningsmodus"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Endre redigeringsmodus"
 
 #: $strSetupForm_Edit
@@ -4386,7 +4386,7 @@ msgid "Edit mode"
 msgstr "Redigeringsmodus"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Endre standard eksportinnstillinger"
 
 #: $strSetupForm_Export_defaults
@@ -4394,7 +4394,7 @@ msgid "Export defaults"
 msgstr "Eksportinnstillinger"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Endre standard importinnstillinger"
 
 #: $strSetupForm_Import_defaults
@@ -4419,7 +4419,7 @@ msgid "Databases display options"
 msgstr "Databasevisningsinnstillinger"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Endre utseendet til navigasjonsrammen"
 
 #: $strSetupForm_Left_frame
@@ -4457,7 +4457,7 @@ msgid "Other core settings"
 msgstr "Andre hovedinnstillinger"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Endre spørringsvinduinnstillinger"
 
 #: $strSetupForm_Query_window
@@ -4521,11 +4521,11 @@ msgid "PMA database"
 msgstr "PMA database"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Tilpasning"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Endre eksportstandarder"
 
 #: $strSetupFormset_features
@@ -4533,19 +4533,19 @@ msgid "Features"
 msgstr "Egenskaper"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Endre importstandarder"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Endre navigasjonsrammen"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Endre hovedrammen"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "Endre linker vist i SQL spørringsbokser"
 
 #: $strSetupForm_Sql_box
@@ -4567,7 +4567,7 @@ msgid "SQL queries"
 msgstr "SQL spørringer"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Endre oppstartssiden"
 
 #: $strSetupForm_Startup
@@ -4976,7 +4976,7 @@ msgstr "Beskytt binære felter"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Slå på hvis du ønsker DB-basert spørringshistorie (trenger pmadb). Hvis "
 "avslått, vil JS-rutiner vise spørringshistorien (tapt ved lukking av vindu)."
@@ -5744,7 +5744,7 @@ msgid "Show BLOB contents"
 msgstr "Vis BLOB innhold"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Vis farger"
 
 #: $strShowDatadictAs
@@ -5926,7 +5926,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Antall forespørsler for å lese den forrige raden i nøkkelrekkefølge. Denne "
 "lesemetoden er hovedsakelig brukt for å optimalisere ORDER BY ... DESC."
@@ -6239,7 +6239,7 @@ msgstr "Antall fysiske skrivinger av en nøkkelblokk til disk."
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6419,7 +6419,7 @@ msgstr "Antall ganger en tabellåsing ble utført umiddelbart."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Antall ganger en tabellås ikke har kunnet blitt opprettet umiddelbart og en "
@@ -6702,7 +6702,7 @@ msgid "Structure"
 msgstr "Struktur"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr "Struktursynkronisering"
 
 #: $strSubmit
@@ -6755,18 +6755,18 @@ msgstr "Bytt til kopiert tabell"
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 "Måldatabase vil bli fullstendig synkronisert med kildedatabase. "
 "Kildedatabase vil forbli uforandret."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr "Synkroniser databaser"
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr "Synkroniser"
 
 #: $strTableAddColumn
@@ -6874,7 +6874,7 @@ msgid "take it"
 msgstr "velg"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr "Måldatabase har blitt synkronisert med kildedatabase"
 
 #: $strTblPrivileges
@@ -7508,7 +7508,7 @@ msgstr "Test SQL"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""

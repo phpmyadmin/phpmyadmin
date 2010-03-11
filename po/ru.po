@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 17:18+0200\n"
-"PO-Revision-Date: 2010-03-11 17:18+0100\n"
+"POT-Creation-Date: 2010-03-11 18:52+0200\n"
+"PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -299,11 +299,11 @@ msgid "Alter table order by"
 msgstr "Изменить сортировку таблицы"
 
 #: $strAnalyze
-msgid "Analyze"
+msgid "Analyse"
 msgstr "Анализ"
 
 #: $strAnalyzeTable
-msgid "Analyze table"
+msgid "Analyse table"
 msgstr "Анализ таблицы"
 
 #: $strAnd
@@ -576,13 +576,13 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: $strCanNotLoadExportPlugins
-msgid "Could not load export plugins, please check your installation!"
+msgid "Could not load export plug-ins, please check your installation!"
 msgstr ""
 "Модули экспорта, отсутствуют! Проверьте содержимое каталога libraries/export "
 "установленной копии phpMyAdmin."
 
 #: $strCanNotLoadImportPlugins
-msgid "Could not load import plugins, please check your installation!"
+msgid "Could not load import plug-ins, please check your installation!"
 msgstr ""
 "Модули импорта - отсутствуют! Проверьте содержимое каталога libraries/import "
 "установленной копии phpMyAdmin."
@@ -964,7 +964,7 @@ msgid "Current server"
 msgstr "Текущий сервер"
 
 #: $strCustomColor
-msgid "Custom color"
+msgid "Custom colour"
 msgstr "Выбрать цвет"
 
 #: $strCyrillic
@@ -1065,7 +1065,7 @@ msgid "Pages containing data"
 msgstr "Страниц с данными"
 
 #: $strDataSyn
-msgid "Data Synchronization"
+msgid "Data Synchronisation"
 msgstr "Синхронизация данных"
 
 #: $strDBComment
@@ -1665,7 +1665,7 @@ msgid "has been altered."
 msgstr "была изменена."
 
 #: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronized with source tables."
+msgid "Selected target tables have been synchronised with source tables."
 msgstr "Выбранные целевые таблицы были синхронизированы с таблицами источника."
 
 #: $strHaveToShow
@@ -2014,7 +2014,7 @@ msgid "Table must have at least one field."
 msgstr "У таблицы должно быть, как минимум, одно поле."
 
 #: $strInvalidLDIImport
-msgid "This plugin does not support compressed imports!"
+msgid "This plug-in does not support compressed imports!"
 msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
 #: $strInvalidRowNumber
@@ -2672,11 +2672,11 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: $strOptimize
-msgid "Optimize"
+msgid "Optimise"
 msgstr "Оптимизация"
 
 #: $strOptimizeTable
-msgid "Optimize table"
+msgid "Optimise table"
 msgstr "Оптимизировать таблицу"
 
 #: $strOptions
@@ -3566,7 +3566,7 @@ msgid "Show master status"
 msgstr "Показать состояние головного сервера"
 
 #: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronized master and slave!"
+msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgstr ""
 "Игнорирование ошибок может привести к рассинхронизации головного и "
 "подчинённого сервера!"
@@ -3661,7 +3661,7 @@ msgid "Slave status"
 msgstr "Статус Slave"
 
 #: $strReplicationSynchronize
-msgid "Synchronize databases with master"
+msgid "Synchronise databases with master"
 msgstr "Синхронизировать базы данных с головным сервером"
 
 #: $strReplicationUnableToChange
@@ -4420,11 +4420,11 @@ msgid "Browse mode"
 msgstr "Обзор"
 
 #: $strSetupForm_Browse_desc
-msgid "Customize browse mode"
+msgid "Customise browse mode"
 msgstr "Настройка режима обзора данных"
 
 #: $strSetupForm_Edit_desc
-msgid "Customize edit mode"
+msgid "Customise edit mode"
 msgstr "Настройка режима редакции данных"
 
 #: $strSetupForm_Edit
@@ -4432,7 +4432,7 @@ msgid "Edit mode"
 msgstr "Редакция"
 
 #: $strSetupForm_Export_defaults_desc
-msgid "Customize default export options"
+msgid "Customise default export options"
 msgstr "Настройте параметры экспорта используемые по умолчанию"
 
 #: $strSetupForm_Export_defaults
@@ -4440,7 +4440,7 @@ msgid "Export defaults"
 msgstr "Экспорт"
 
 #: $strSetupForm_Import_defaults_desc
-msgid "Customize default common import options"
+msgid "Customise default common import options"
 msgstr "Настройте параметры импорта используемые по умолчанию"
 
 #: $strSetupForm_Import_defaults
@@ -4465,7 +4465,7 @@ msgid "Databases display options"
 msgstr "Параметры отображения списка баз данных"
 
 #: $strSetupForm_Left_frame_desc
-msgid "Customize appearance of the navigation frame"
+msgid "Customise appearance of the navigation frame"
 msgstr "Настройки отображения фрейма навигации"
 
 #: $strSetupForm_Left_frame
@@ -4503,7 +4503,7 @@ msgid "Other core settings"
 msgstr "Другие настройки ядра"
 
 #: $strSetupForm_Query_window_desc
-msgid "Customize query window options"
+msgid "Customise query window options"
 msgstr "Настройте параметры окна запросов"
 
 #: $strSetupForm_Query_window
@@ -4567,11 +4567,11 @@ msgid "PMA database"
 msgstr "Расширения PMA"
 
 #: $strSetupFormset_customization
-msgid "Customization"
+msgid "Customisation"
 msgstr "Модификация"
 
 #: $strSetupFormset_export
-msgid "Customize export options"
+msgid "Customise export options"
 msgstr "Модифицировать параметры экспорта"
 
 #: $strSetupFormset_features
@@ -4579,19 +4579,19 @@ msgid "Features"
 msgstr "Настройки"
 
 #: $strSetupFormset_import
-msgid "Customize import defaults"
+msgid "Customise import defaults"
 msgstr "Модифицировать изначальлные настройки импорта"
 
 #: $strSetupFormset_left_frame
-msgid "Customize navigation frame"
+msgid "Customise navigation frame"
 msgstr "Модифицировать фрейм навигации"
 
 #: $strSetupFormset_main_frame
-msgid "Customize main frame"
+msgid "Customise main frame"
 msgstr "Модифицировать основной фрейм"
 
 #: $strSetupForm_Sql_box_desc
-msgid "Customize links shown in SQL Query boxes"
+msgid "Customise links shown in SQL Query boxes"
 msgstr "Настройте ссылки выводимые в блоке SQL запросов"
 
 #: $strSetupForm_Sql_box
@@ -4613,7 +4613,7 @@ msgid "SQL queries"
 msgstr "SQL запросы"
 
 #: $strSetupForm_Startup_desc
-msgid "Customize startup page"
+msgid "Customise startup page"
 msgstr "Настройка отображения главной страницы"
 
 #: $strSetupForm_Startup
@@ -5029,7 +5029,7 @@ msgstr "Защитить бинарные данные"
 #: $strSetupQueryHistoryDB_desc
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilizes JS-routines to display query history (lost by window close)."
+"this utilises JS-routines to display query history (lost by window close)."
 msgstr ""
 "Включите для хранения истории запросов с помощью базы данных (требуется "
 "pmadb). При отключении, для истории запросов используется JS (история "
@@ -5817,7 +5817,7 @@ msgid "Show BLOB contents"
 msgstr "Показать BLOB содержимое"
 
 #: $strShowColor
-msgid "Show color"
+msgid "Show colour"
 msgstr "Отображать в цвете"
 
 #: $strShowDatadictAs
@@ -5998,7 +5998,7 @@ msgstr ""
 #: $strShowStatusHandler_read_prevDescr
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimise ORDER BY ... DESC."
 msgstr ""
 "Количество запросов на чтение предыдущей строки при ниспадающей сортировке "
 "индекса. Обычно используется при оптимизации: ORDER BY ... DESC."
@@ -6319,7 +6319,7 @@ msgstr "Количество физических операций записи 
 #: $strShowStatusLast_query_costDescr
 msgid ""
 "The total cost of the last compiled query as computed by the query "
-"optimizer. Useful for comparing the cost of different query plans for the "
+"optimiser. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled "
 "yet."
 msgstr ""
@@ -6514,7 +6514,7 @@ msgstr ""
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
-"should first optimize your queries, and then either split your table or "
+"should first optimise your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
 "Количество запросов на блокировку таблицы, которые были удовлетворены только "
@@ -6796,7 +6796,7 @@ msgid "Structure"
 msgstr "Структура"
 
 #: $strStructureSyn
-msgid "Structure Synchronization"
+msgid "Structure Synchronisation"
 msgstr "Синхронизация структуры"
 
 #: $strSubmit
@@ -6849,18 +6849,18 @@ msgstr "Переключиться на скопированную таблиц�
 
 #: $strSynchronizationNote
 msgid ""
-"Target database will be completely synchronized with source database. Source "
+"Target database will be completely synchronised with source database. Source "
 "database will remain unchanged."
 msgstr ""
 "Целевая база данных будет полностью синхронизована с источником. База данных "
 "источника останется неизменной."
 
 #: $strSynchronizeDb
-msgid "Synchronize Databases"
+msgid "Synchronise Databases"
 msgstr "Синхронизировать базы данных"
 
 #: $strSynchronize
-msgid "Synchronize"
+msgid "Synchronise"
 msgstr "Синхронизировать"
 
 #: $strTableAddColumn
@@ -6968,7 +6968,7 @@ msgid "take it"
 msgstr "Применить"
 
 #: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronized with source database"
+msgid "Target database has been synchronised with source database"
 msgstr "Целевая база данных была синхронизирована с базой данных источника"
 
 #: $strTblPrivileges
@@ -7612,7 +7612,7 @@ msgstr "Проверка синтаксиса SQL"
 
 #: $strValidatorError
 msgid ""
-"The SQL validator could not be initialized. Please check if you have "
+"The SQL validator could not be initialised. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%"
 "s."
 msgstr ""
