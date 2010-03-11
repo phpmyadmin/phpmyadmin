@@ -1182,7 +1182,6 @@ msgid "Descending"
 msgstr "Sestupně"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Popis"
 
