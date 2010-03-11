@@ -2704,7 +2704,6 @@ msgid "Optimize"
 msgstr "Optimalizovat"
 
 #: libraries/messages.inc.php:613
-#, fuzzy
 #| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Optimalizovat tabulku"
