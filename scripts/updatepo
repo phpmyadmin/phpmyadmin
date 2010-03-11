@@ -8,7 +8,7 @@ xgettext \
     --language=PHP \
     --add-comments=l10n \
     --add-location \
-    --keyword=__ \
+    --keyword=__ --keyword=_pgettext:1c,2 \
     --copyright-holder="phpMyAdmin devel team" \
     `find . -name '*.php' | sort`
 
