@@ -4,36 +4,72 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 #
 
+# Fail on undefined variables
+set -u
+# Fail on failure
+set -e
+
 KITS="all-languages english"
 COMPRESSIONS="zip-7z tbz tgz 7z"
 
-if [ $# = 0 ]
+if [ $# -lt 2 ]
 then
   echo "Usages:"
-  echo "  create-release.sh <version> [from_branch]"
-  echo "  (no spaces allowed!)"
+  echo "  create-release.sh <version> <from_branch>"
   echo ""
   echo "Examples:"
-  echo "  create-release.sh 2.9.0-rc1 branches/QA_2_9"
-  echo "  create-release.sh 2.9.0 tags/RELEASE_2_9_0"
+  echo "  create-release.sh 2.9.0-rc1 QA_2_9"
+  echo "  create-release.sh 2.9.0 MAINT_2_9_0 TAG"
   exit 65
 fi
 
-branch='trunk'
 
-    if [ "$#" -ge 2 ] ; then
-        branch="$2"
-    fi
-    target="$1"
-    cat <<END
+# Read required parameters
+version=$1
+shift
+branch=$1
+shift
+
+# Create working copy
+mkdir -p release
+workdir=release/phpMyAdmin-$version
+if [ -d $workdir ] ; then
+    echo "Working directory '$workdir' already exists, please move it out of way"
+    exit 1
+fi
+git clone --local . $workdir
+cd $workdir
+
+# Checkout branch
+git checkout $branch
+
+# Check release version
+if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
+    echo "There seems to be wrong version in libraries/Config.class.php!"
+    exit 2
+fi
+if ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
+    echo "There seems to be wrong version in Documentation.html"
+    exit 2
+fi
+if ! grep -q "phpMyAdmin $version - Official translators" translators.html ; then
+    echo "There seems to be wrong version in translators.html"
+    exit 2
+fi
+if ! grep -q "Version $version\$" README ; then
+    echo "There seems to be wrong version in README"
+    exit 2
+fi
+
+cat <<END
 
 Please ensure you have:
   1. incremented rc count or version in subversion :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
-          " \$this->set( 'PMA_VERSION', '$1' ); "
+          " \$this->set( 'PMA_VERSION', '$version' ); "
      - in Documentation.html the 2 lines
-          " <title>phpMyAdmin $1 - Documentation</title> "
-          " <h1>phpMyAdmin $1 Documentation</h1> "
+          " <title>phpMyAdmin $version - Documentation</title> "
+          " <h1>phpMyAdmin $version Documentation</h1> "
      - in translators.html
      - in README
   2. checked that all language files are valid (use
@@ -41,46 +77,36 @@ Please ensure you have:
 
 Continue (y/n)?
 END
-    read do_release
+read do_release
 
-    if [ "$do_release" != 'y' ]; then
-        exit
-    fi
-
-# Do SVNcheckout
-mkdir -p ./svn
-cd svn
-
-echo "Exporting repository from subversion"
-
-svn export -q https://phpmyadmin.svn.sourceforge.net/svnroot/phpmyadmin/$branch/phpMyAdmin
-
-if [ $? -ne 0 ] ; then
-    echo "Subversion checkout failed, bailing out"
-    exit 2
+if [ "$do_release" != 'y' ]; then
+    exit 100
 fi
 
+
 # Cleanup release dir
-LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-${target}
+LC_ALL=C date -u > RELEASE-DATE-${version}
 
 # Building Documentation.txt
-LC_ALL=C w3m -dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
+LC_ALL=C w3m -dump Documentation.html > Documentation.txt
 
 # Remove test directory from package to avoid Path disclosure messages
 # if someone runs /test/wui.php and there are test failures
-rm -rf phpMyAdmin/test
+rm -rf test
 
-# Renaming directory
-mv phpMyAdmin phpMyAdmin-$target
+# Remove git metadata
+rm -rf .git
+
+cd ..
 
 # Prepare all kits
 for kit in $KITS ; do
     # Copy all files
-	name=phpMyAdmin-$target-$kit
-	cp -r phpMyAdmin-$target $name
+	name=phpMyAdmin-$version-$kit
+	cp -r phpMyAdmin-$version $name
 
 	# Cleanup translations
-    cd phpMyAdmin-$target-$kit
+    cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
     cd ..
 
@@ -123,7 +149,7 @@ for kit in $KITS ; do
 done
 
 # Cleanup
-rm -rf phpMyAdmin-${target}
+rm -rf phpMyAdmin-${version}
 
 
 echo ""
@@ -159,7 +185,7 @@ Todo now:
 
  7. increment rc count or version in subversion :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
-              " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
+              " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
