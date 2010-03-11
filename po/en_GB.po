@@ -4918,7 +4918,6 @@ msgid "Memory limit"
 msgstr "Memory limit"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Use only icons, only text or both"
 
