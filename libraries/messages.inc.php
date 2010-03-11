@@ -1,7 +1,9 @@
 <?php
 /* $Id$ */
 
-$charset = __('utf-8');
+/* We use only utf-8 */
+$charset = 'utf-8';
+
 /* l10n: Text direction, use either ltr or rtl */
 $text_dir = __('ltr');
 /* l10n: Thousands separator */
