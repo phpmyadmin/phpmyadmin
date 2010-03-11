@@ -5550,7 +5550,6 @@ msgid "Skip locked tables"
 msgstr "Skip locked tables"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
