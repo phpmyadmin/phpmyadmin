@@ -2,8 +2,11 @@
 /* $Id$ */
 
 $charset = __('utf-8');
-$text_dir = __('ltr'); // ('ltr' for left to right, 'rtl' for right to left)
+/* l10n: Text direction, use either ltr or rtl */
+$text_dir = __('ltr');
+/* l10n: Thousands separator */
 $number_thousands_separator = __(',');
+/* l10n: Decimal separator */
 $number_decimal_separator = __('.');
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'), __('EiB'));
