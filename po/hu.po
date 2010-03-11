@@ -7580,8 +7580,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  %"
-"dokumentációban% leírtak szerint telepítette-e a szükséges PHP-kiterjesztést."
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  %s"
+"dokumentációban%s leírtak szerint telepítette-e a szükséges PHP-kiterjesztést."
 
 #: libraries/messages.inc.php:1598
 msgid "Value"

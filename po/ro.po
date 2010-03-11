@@ -1962,7 +1962,7 @@ msgstr "Inserează ca o nouă linie"
 #: libraries/messages.inc.php:439
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr "ID rînd inserat:"
+msgstr "ID rînd inserat: %1$d"
 
 #: libraries/messages.inc.php:440
 msgid "Insert as new row and ignore errors"
@@ -3759,7 +3759,7 @@ msgstr "%1$d rînd(uri) afectat(e)."
 #: libraries/messages.inc.php:832
 #, php-format
 msgid "%1$d row(s) deleted."
-msgstr "%1$s rînd(uri) șters(e)."
+msgstr "%1$d rînd(uri) șters(e)."
 
 #: libraries/messages.inc.php:833
 msgid "row(s) starting from record #"

@@ -352,7 +352,7 @@ msgstr "Може да има приблизителна стойност. Виж
 #: libraries/messages.inc.php:70
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "Беше добавен първичен ключ към "
+msgstr "Беше добавен първичен ключ към %s"
 
 #: libraries/messages.inc.php:71
 msgid "Arabic"

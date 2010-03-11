@@ -7224,7 +7224,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Stai cercando di importare un file con un tipo di compressione non "
+"Stai cercando di importare un file con un tipo di compressione (%s) non "
 "supportato. Altrimenti il supporto per questo tipo di compressione non è "
 "stato ancora implementato o è stato disabilitato dalla tua configurazione."
 

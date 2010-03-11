@@ -3376,7 +3376,7 @@ msgstr ""
 #: libraries/messages.inc.php:742
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "La consulta tarda %s seg"
+msgstr "La consulta tarda %01.4f seg"
 
 #: libraries/messages.inc.php:743
 msgid "Query type"
@@ -6770,7 +6770,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation% per "
+"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s per "
 "a possibles assumptes."
 
 #: libraries/messages.inc.php:1427
@@ -7623,7 +7623,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
-"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%."
+"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
 #: libraries/messages.inc.php:1605
 #, php-format

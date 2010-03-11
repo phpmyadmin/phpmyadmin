@@ -20,7 +20,7 @@ msgid ""
 "1$ssetup script%2$s to create one."
 msgstr ""
 "Ehtimol, konfiguratsiya fayli tuzilmagan. Uni tuzish uchun %1$sso‘rnatish "
-"ssenariysidan%2$ foydalanishingiz mumkin."
+"ssenariysidan%2$s foydalanishingiz mumkin."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -7630,7 +7630,7 @@ msgid ""
 "s for ways to workaround this limit."
 msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
-"usullari dokumentatsiyada keltirilgan."
+"usullari %sdokumentatsiyada%s keltirilgan."
 
 #: libraries/messages.inc.php:1579
 msgid "File uploads are not allowed on this server."
@@ -7708,7 +7708,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL sintaksisini tekshirib bo‘lmadi. PHP uchun zarur kengaytmalar "
-"o‘rnatilganligini tekshiring, batafsil ma`lumot uchun dokumentatsiyaga "
+"o‘rnatilganligini tekshiring, batafsil ma`lumot uchun %sdokumentatsiyaga%s "
 "qarang."
 
 #: libraries/messages.inc.php:1598
@@ -7742,7 +7742,7 @@ msgid ""
 "s."
 msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
-"ma`lumot uchun dokumentatsiyaga qarang."
+"ma`lumot uchun %sdokumentatsiyaga%s qarang."
 
 #: libraries/messages.inc.php:1605
 #, php-format

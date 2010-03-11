@@ -1521,7 +1521,7 @@ msgid "File to import"
 msgstr ""
 
 #: libraries/messages.inc.php:341
-#, php-format
+#, fuzzy , php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "

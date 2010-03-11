@@ -2318,7 +2318,7 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 "Pre zoznam dostupných parametrov a ich MIME typov kliknite na %spopisy "
-"transformácií"
+"transformácií%s"
 
 #: libraries/messages.inc.php:522
 msgid ""
