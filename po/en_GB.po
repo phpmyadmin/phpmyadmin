@@ -3585,7 +3585,6 @@ msgid "Show connected slaves"
 msgstr "Show connected slaves"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Show master status"
 
