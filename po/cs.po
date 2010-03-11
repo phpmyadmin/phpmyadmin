@@ -2950,10 +2950,9 @@ msgid "No tables"
 msgstr "žádné tabulky"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
 #| msgid "Table %1$s has been created."
 msgid "Page has been created"
-msgstr "Byla vytvořena tabulka %1$s."
+msgstr "Stránka byla vytvořena"
 
 #: libraries/messages.inc.php:662
 #, fuzzy
