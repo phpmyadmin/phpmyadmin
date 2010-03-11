@@ -2938,7 +2938,7 @@ msgstr "žádné tabulky"
 
 #: libraries/messages.inc.php:651
 msgid "Page has been created"
-msgstr ""
+msgstr "Stránka byla vytvořena"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
