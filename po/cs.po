@@ -4,15 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:13+0100\n"
-"POT-Creation-Date: 2010-03-11 22:56+0100\n"
+"POT-Creation-Date: 2010-03-11 23:16+0100\n"
 "PO-Revision-Date: 2010-03-12 00:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -1689,7 +1688,6 @@ msgid "has been altered."
 msgstr "byla změněna."
 
 #: libraries/messages.inc.php:388
-#| msgid "Selected target tables have been synchronised with source tables."
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Vybrané cílové tabulky byly synchronizovány se zdrojovými."
 
@@ -2042,7 +2040,6 @@ msgid "Table must have at least one field."
 msgstr "Tabulka musí mít alespoň jeden sloupec."
 
 #: libraries/messages.inc.php:466
-#| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Tento plugin nepodporuje komprimované soubory!"
 
@@ -2700,12 +2697,10 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/messages.inc.php:612
-#| msgid "Optimise"
 msgid "Optimize"
 msgstr "Optimalizovat"
 
 #: libraries/messages.inc.php:613
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Optimalizovat tabulku"
 
@@ -2951,7 +2946,6 @@ msgid "No tables"
 msgstr "žádné tabulky"
 
 #: libraries/messages.inc.php:661
-#| msgid "Table %1$s has been created."
 msgid "Page has been created"
 msgstr "Stránka byla vytvořena"
 
