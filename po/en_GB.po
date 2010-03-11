@@ -964,7 +964,6 @@ msgid "Croatian"
 msgstr "Croatian"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
