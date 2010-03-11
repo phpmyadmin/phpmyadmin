@@ -777,7 +777,6 @@ msgid "Complete inserts"
 msgstr "Complete inserts"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Compression"
 
