@@ -88,18 +88,18 @@ for lang in lang/*.inc.php ; do
     if [ $langcode = en ] ; then
         php2po -i po/english.php -o po/phpmyadmin.pot -P
         sed -i '
-            s/PACKAGE VERSION/phpMyAdmin 3.3/;
-            s/Report-Msgid-Bugs-To: .*\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sf.net\\n/;
+            s/PACKAGE VERSION/phpMyAdmin 3.4/;
+            s/Report-Msgid-Bugs-To: .*\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\n/;
             ' po/phpmyadmin.pot
     else
         php2po -t po/english.php -i po/$loc.php  -o po/$langcode.po
         sed -i "
-            s/PACKAGE VERSION/phpMyAdmin 3.3/;
+            s/PACKAGE VERSION/phpMyAdmin 3.4/;
             /, fuzzy/D;
             s/LANGUAGE <LL@li.org>/$loc <$langcode@li.org>/;
             s/YEAR-MO-DA HO:MI+ZONE/`date +'%Y-%m-%d %H:%M%z'`/;
             s/FULL NAME <EMAIL@ADDRESS>/Automatically generated/;
-            s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sf.net\\\\n/;
+            s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\\\n/;
             " po/$langcode.po
     fi
 done
