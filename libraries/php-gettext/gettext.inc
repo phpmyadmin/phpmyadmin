@@ -260,6 +260,17 @@ function __($msgid) {
     return _gettext($msgid);
 }
 /**
+ * Gettext with context.
+ */
+function _pgettext($msgctx, $msgid) {
+    $ret = _gettext($msgctx . "\004" . $msgid);
+    if (strpos($ret, "\004") !== FALSE) {
+        return $msgid;
+    } else {
+        return $ret;
+    }
+}
+/**
  * Plural version of gettext.
  */
 function _ngettext($single, $plural, $number) {
