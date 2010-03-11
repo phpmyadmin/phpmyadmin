@@ -2041,7 +2041,6 @@ msgid "Table must have at least one field."
 msgstr "Tabulka musí mít alespoň jeden sloupec."
 
 #: libraries/messages.inc.php:466
-#, fuzzy
 #| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Tento plugin nepodporuje komprimované soubory!"
