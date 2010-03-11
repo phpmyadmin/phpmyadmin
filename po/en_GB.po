@@ -1789,7 +1789,6 @@ msgid "Import files"
 msgstr "Import files"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Format of imported file"
 
