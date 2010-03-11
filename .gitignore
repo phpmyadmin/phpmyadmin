@@ -22,3 +22,5 @@ phpmyadmin.wpj
 *.sw[op]
 # Locales
 locale
+# Backups
+*~
