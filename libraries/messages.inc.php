@@ -1,5 +1,12 @@
 <?php
 /* $Id$ */
+/**
+ * Messages for phpMyAdmin.
+ *
+ * This file is here for easy transition to Gettext. You should not add any
+ * new messages here, use instead gettext directly in your template/PHP
+ * file.
+ */
 
 /* We use only utf-8 */
 $charset = 'utf-8';
