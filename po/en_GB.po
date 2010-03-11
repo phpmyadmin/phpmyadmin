@@ -2990,7 +2990,6 @@ msgid "PHP array"
 msgstr "PHP array"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Create PHP Code"
 
