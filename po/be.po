@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:16+0100\n"
+"POT-Creation-Date: 2010-03-11 23:30+0100\n"
 "PO-Revision-Date: 2010-03-11 18:52+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -6854,6 +6854,12 @@ msgstr "Толькі структуру"
 #: libraries/messages.inc.php:1428
 msgid "Propose table structure"
 msgstr "Прапанаваная структура табліцы"
+
+#: libraries/messages.inc.php:1429
+#, fuzzy
+#| msgid "Stand-in structure for view"
+msgid "Structure Difference"
+msgstr "Замяняльная структура для прагляду"
 
 #: libraries/messages.inc.php:1430
 #, fuzzy

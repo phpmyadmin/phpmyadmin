@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:16+0100\n"
+"POT-Creation-Date: 2010-03-11 23:30+0100\n"
 "PO-Revision-Date: 2010-03-12 00:14+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -6721,6 +6721,12 @@ msgstr "Pouze strukturu"
 #: libraries/messages.inc.php:1428
 msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
+
+#: libraries/messages.inc.php:1429
+#, fuzzy
+#| msgid "Data Difference"
+msgid "Structure Difference"
+msgstr "Rozdíl mezi daty"
 
 #: libraries/messages.inc.php:1430
 #, fuzzy
