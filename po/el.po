@@ -769,7 +769,6 @@ msgid "Complete inserts"
 msgstr "Πλήρεις εντολές «Insert»"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Συμπίεση"
 
@@ -909,7 +908,6 @@ msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
 
@@ -954,7 +952,6 @@ msgid "Croatian"
 msgstr "Κροατικά"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1007,7 +1004,6 @@ msgid "'%s' database does not exist."
 msgstr "Η βάση δεδομένων «%s» δεν υπάρχει."
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Βάσεις Δεδομένων"
 
@@ -1168,7 +1164,6 @@ msgid "Descending"
 msgstr "Φθίνουσα"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -1207,7 +1202,6 @@ msgid "Dirty pages"
 msgstr "Προβληματικές σελίδες"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Απενεργοποιημένο"
 
@@ -1284,7 +1278,6 @@ msgid "dynamic"
 msgstr "δυναμικά"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -1309,7 +1302,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Ενεργοποιημένο"
 
@@ -1408,7 +1400,6 @@ msgid "Execute bookmarked query"
 msgstr "Εκτέλεση αποθηκευμένου ερωτήματος"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Ανάλυση SQL"
 
@@ -1555,7 +1546,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Μορφοποίηση"
 
@@ -1782,7 +1772,6 @@ msgid "Import files"
 msgstr "Εισαγωγή αρχείων"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Μορφή εισαχθέντος αρχείου"
 
@@ -1822,7 +1811,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Εισαγωγή νομισμάτων (€5,00 αντί 5,00)"
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα (ODS)"
 
@@ -2555,7 +2543,6 @@ msgid "None"
 msgstr "Κανένα"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Καμία"
 
@@ -2652,7 +2639,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -2661,7 +2647,6 @@ msgid "OK"
 msgstr "Εντάξει"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα (ODS)"
 
@@ -2702,7 +2687,6 @@ msgid "Overhead"
 msgstr "Επιβάρυνση"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Αντικατάσταση υπαρχόντων αρχείων"
 
@@ -2975,7 +2959,6 @@ msgid "PHP array"
 msgstr "σειρά PHP"
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
@@ -3308,7 +3291,6 @@ msgid "Query cache"
 msgstr "Λανθάνουσα μνήμη ερωτήματος"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Παράθυρο ερωτήματος"
 
@@ -3369,7 +3351,6 @@ msgid "Check referential integrity:"
 msgstr "Έλεγχος ακεραιότητας συσχετίσεων:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Ανανέωση"
 
@@ -3458,7 +3439,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Επιδιόρθωση"
 
@@ -3581,7 +3561,6 @@ msgid "Show connected slaves"
 msgstr "Προβολή συνδεδεμένων δευτερευόντων"
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr "Προβολή κατάστασης πρωτεύοντος"
 
@@ -3694,7 +3673,6 @@ msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -3910,7 +3888,6 @@ msgid "Select Tables"
 msgstr "Επιλογή Πινάκων"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Αποστολή"
 
@@ -3931,7 +3908,6 @@ msgid "Server"
 msgstr "Διακομιστής"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Διακομιστές"
 
@@ -4351,7 +4327,6 @@ msgid "Maximum execution time"
 msgstr "Μέγιστος χρόνος εκτέλεσης"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Αποθήκευση ως αρχείο"
 
@@ -4360,7 +4335,6 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Συμπίεση"
 
@@ -4377,7 +4351,6 @@ msgid "Table name template"
 msgstr "Πρότυπο ονόματος πίνακα"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Μορφή"
 
@@ -4386,7 +4359,6 @@ msgid "Save on server"
 msgstr "Αποθήκευση στο διακομιστή"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Αντικατάσταση υπάρχοντος(ων) αρχείου(ων)"
 
@@ -4476,7 +4448,6 @@ msgid "Import / export"
 msgstr "Εισαγωγή / Εξαγωγή"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Βάσεις δεδομένων"
 
@@ -4497,7 +4468,6 @@ msgid "Servers display options"
 msgstr "Επιλογές προβολής διακομιστών"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Διακομιστές"
 
@@ -4506,7 +4476,6 @@ msgid "Tables display options"
 msgstr "Επιλογές προβολής πινάκων"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Πίνακες"
 
@@ -4527,7 +4496,6 @@ msgid "Customise query window options"
 msgstr "Προσαρμόστε επιλογές παραθύρου ερωτήματος"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Παράθυρο ερωτήματος"
 
@@ -4582,7 +4550,6 @@ msgstr ""
 "συνδεδεμένων πινάκων[/a] στην τεκμηρίωση"
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "Βάση δεδομένων PMA"
 
@@ -4718,12 +4685,10 @@ msgstr ""
 "τοποθεσία (βάση δεδομένων, πίνακας) και ότι μόνο η SQL είναι πάντα διαθέσιμη"
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "Μορφή εισαχθέντος αρχείου"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
 
@@ -4976,7 +4941,6 @@ msgid "Memory limit"
 msgstr "Όριο μνήμης"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
 
@@ -5029,7 +4993,6 @@ msgid "Persistent connections"
 msgstr "Επιμένουσες συνδέσεις"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Χρήση μόνο εικονιδίων, μόνο κειμένου ή και τα δύο"
 
@@ -5356,7 +5319,6 @@ msgid "Show only listed databases"
 msgstr "Εμφάνιση μόνο των βάσεων δεδομένων από λίστα"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Αφήστε το άδειο αν δεν χρησιμοποιείτε ρύθμισμένη επικύρωση"
 
@@ -5387,7 +5349,6 @@ msgstr ""
 "κενό για να μην υπάρχει υποστήριξη. Προτείνεται: [kbd]phpmyadmin[/kbd]"
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "Βάση δεδομένων PMA"
 
@@ -5486,7 +5447,6 @@ msgid "Display fields table"
 msgstr "Πίνακας προβολής πεδίων"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Αφήστε το κενό για μη χρήση ρυθμισμένης επικύρωσης"
 
@@ -5646,27 +5606,22 @@ msgid "Skip locked tables"
 msgstr "Παράβλεψη κλειδωμένων πινάκων"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "Επεξήγηση SQL"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Ανανέωση"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "Δημιουργία κώδικα PHP"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 
@@ -5877,7 +5832,6 @@ msgid "Only show keys"
 msgstr "Μόνο ερφάνιση κλειδιών"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr "Εμφάνιση κατάστασης πρωτεύοντος"
 
@@ -6607,7 +6561,6 @@ msgid "Size"
 msgstr "Μέγεθος"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Αριθμός εγγραφών (ερωτημάτων) που θα παραβλεφθούν από την αρχή"
 
@@ -7643,7 +7596,6 @@ msgid "Use this value"
 msgstr "Χρήση αυτής της τιμής"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 

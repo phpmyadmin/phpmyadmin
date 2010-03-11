@@ -748,7 +748,6 @@ msgid "Complete inserts"
 msgstr "使用完整新增指令"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "壓縮"
 
@@ -879,7 +878,6 @@ msgid "Create relation"
 msgstr ""
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr ""
 
@@ -922,7 +920,6 @@ msgid "Croatian"
 msgstr "克羅西亞語"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -975,7 +972,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "資料庫"
 
@@ -1127,7 +1123,6 @@ msgid "Descending"
 msgstr "遞減"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "說明"
 
@@ -1163,7 +1158,6 @@ msgid "Dirty pages"
 msgstr "問題頁"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "未啟動"
 
@@ -1240,7 +1234,6 @@ msgid "dynamic"
 msgstr "動態"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "編輯"
 
@@ -1265,7 +1258,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回的查詢結果為空 (原因可能為：沒有找到符合條件的記錄)"
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "啟動"
 
@@ -1362,7 +1354,6 @@ msgid "Execute bookmarked query"
 msgstr "執行書籤查詢"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "說明 SQL"
 
@@ -1499,7 +1490,6 @@ msgid "FOREIGN KEY relation added"
 msgstr ""
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "格式"
 
@@ -1722,7 +1712,6 @@ msgid "Import files"
 msgstr "輸入檔案"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "載入檔案格式"
 
@@ -1759,7 +1748,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2436,7 +2424,6 @@ msgid "None"
 msgstr ""
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "不適用"
 
@@ -2531,7 +2518,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>總計:</b> <i>%s</i> 項資料符合"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "個資料表"
 
@@ -2540,7 +2526,6 @@ msgid "OK"
 msgstr "確定"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2581,7 +2566,6 @@ msgid "Overhead"
 msgstr "多餘"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "覆寫已存在檔案"
 
@@ -2824,7 +2808,6 @@ msgid "PHP array"
 msgstr ""
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "建立 PHP 程式碼"
 
@@ -3134,7 +3117,6 @@ msgid "Query cache"
 msgstr "查詢快取"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "查詢視窗"
 
@@ -3193,7 +3175,6 @@ msgid "Check referential integrity:"
 msgstr "檢查指示完整性:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "更新"
 
@@ -3280,7 +3261,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr ""
 
@@ -3384,7 +3364,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3487,7 +3466,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "重置"
 
@@ -3698,7 +3676,6 @@ msgid "Select Tables"
 msgstr "選擇資料表"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "下載儲存"
 
@@ -3719,7 +3696,6 @@ msgid "Server"
 msgstr "伺服器"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr ""
 
@@ -4083,7 +4059,6 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr ""
 
@@ -4092,7 +4067,6 @@ msgid "Character set of the file"
 msgstr ""
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr ""
 
@@ -4109,7 +4083,6 @@ msgid "Table name template"
 msgstr ""
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr ""
 
@@ -4118,7 +4091,6 @@ msgid "Save on server"
 msgstr ""
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -4203,7 +4175,6 @@ msgid "Import / export"
 msgstr ""
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr ""
 
@@ -4224,7 +4195,6 @@ msgid "Servers display options"
 msgstr ""
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr ""
 
@@ -4233,7 +4203,6 @@ msgid "Tables display options"
 msgstr ""
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr ""
 
@@ -4254,7 +4223,6 @@ msgid "Customise query window options"
 msgstr ""
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr ""
 
@@ -4302,7 +4270,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr ""
 
@@ -4422,12 +4389,10 @@ msgid ""
 msgstr ""
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr ""
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 
@@ -4649,7 +4614,6 @@ msgid "Memory limit"
 msgstr ""
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -4700,7 +4664,6 @@ msgid "Persistent connections"
 msgstr ""
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -4988,7 +4951,6 @@ msgid "Show only listed databases"
 msgstr ""
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5013,7 +4975,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr ""
 
@@ -5098,7 +5059,6 @@ msgid "Display fields table"
 msgstr ""
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5236,27 +5196,22 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr ""
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr ""
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr ""
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr ""
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr ""
 
@@ -5443,7 +5398,6 @@ msgid "Only show keys"
 msgstr ""
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -6024,7 +5978,6 @@ msgid "Size"
 msgstr "大小"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "開始時略過多少行記錄 (語法)"
 
@@ -6982,7 +6935,6 @@ msgid "Use this value"
 msgstr "使用此值"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "檢查 SQL"
 

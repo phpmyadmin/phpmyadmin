@@ -772,7 +772,6 @@ msgid "Complete inserts"
 msgstr "Vollständige 'INSERT's"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Kompression"
 
@@ -912,7 +911,6 @@ msgid "Create relation"
 msgstr "Erzeuge Verknüpfung"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
@@ -958,7 +956,6 @@ msgid "Croatian"
 msgstr "Kroatisch"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1011,7 +1008,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Datenbanken"
 
@@ -1171,7 +1167,6 @@ msgid "Descending"
 msgstr "absteigend"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -1210,7 +1205,6 @@ msgid "Dirty pages"
 msgstr "Inkonsistente Seiten (&quot;dirty&quot;)"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Deaktiviert"
 
@@ -1287,7 +1281,6 @@ msgid "dynamic"
 msgstr "dynamisch"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -1312,7 +1305,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.&nbsp;h. null Zeilen)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Aktiviert"
 
@@ -1411,7 +1403,6 @@ msgid "Execute bookmarked query"
 msgstr "Gespeicherte SQL-Anfrage ausführen"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "SQL erklären"
 
@@ -1558,7 +1549,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY Relation hinzugefügt"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Format"
 
@@ -1783,7 +1773,6 @@ msgid "Import files"
 msgstr "Dateiimport"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Dateiformat"
 
@@ -1820,7 +1809,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2550,7 +2538,6 @@ msgid "None"
 msgstr "Kein"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "keine"
 
@@ -2649,7 +2636,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Insgesamt</b> <i>%s</i> Treffer"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -2658,7 +2644,6 @@ msgid "OK"
 msgstr "OK"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Kalkulationstabelle"
 
@@ -2699,7 +2684,6 @@ msgid "Overhead"
 msgstr "Überhang"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Bestehende Datei(en) überschreiben"
 
@@ -2967,7 +2951,6 @@ msgid "PHP array"
 msgstr ""
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "PHP-Code erzeugen"
 
@@ -3299,7 +3282,6 @@ msgid "Query cache"
 msgstr "Abfragencache"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Abfragefenster"
 
@@ -3360,7 +3342,6 @@ msgid "Check referential integrity:"
 msgstr "Prüfe referentielle Integrität:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Aktualisieren"
 
@@ -3449,7 +3430,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Reparieren"
 
@@ -3553,7 +3533,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3656,7 +3635,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -3875,7 +3853,6 @@ msgid "Select Tables"
 msgstr "Tabellenauswahl"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Senden"
 
@@ -3896,7 +3873,6 @@ msgid "Server"
 msgstr "Server"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Server"
 
@@ -4309,7 +4285,6 @@ msgid "Maximum execution time"
 msgstr "Maximale Ausführungszeit"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "In Datei speichern"
 
@@ -4318,7 +4293,6 @@ msgid "Character set of the file"
 msgstr "Zeichensatz der Datei"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Kompression"
 
@@ -4335,7 +4309,6 @@ msgid "Table name template"
 msgstr "Schablone für Tabellennamen"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Format"
 
@@ -4344,7 +4317,6 @@ msgid "Save on server"
 msgstr "Auf Server speichern"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Existierende Datei(en) überschreiben"
 
@@ -4434,7 +4406,6 @@ msgid "Import / export"
 msgstr "Import/export"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Datenbanken"
 
@@ -4455,7 +4426,6 @@ msgid "Servers display options"
 msgstr "Anzeigeoptionen für Server"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Server"
 
@@ -4464,7 +4434,6 @@ msgid "Tables display options"
 msgstr "Anzeigeoptionen für Tabellen"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -4485,7 +4454,6 @@ msgid "Customise query window options"
 msgstr "Queryfenster-Einstellungen anpassen"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Queryfenster"
 
@@ -4540,7 +4508,6 @@ msgstr ""
 "infrastructure[/a]"
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA-Datenbank"
 
@@ -4672,12 +4639,10 @@ msgid ""
 msgstr ""
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "Format"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 
@@ -4906,7 +4871,6 @@ msgid "Memory limit"
 msgstr "Speicher Limit"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -4957,7 +4921,6 @@ msgid "Persistent connections"
 msgstr "Persistente Verbindung"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -5263,7 +5226,6 @@ msgid "Show only listed databases"
 msgstr "Nur aufgelistete Datenbanken zeigen"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5288,7 +5250,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "PMA Datenbank"
 
@@ -5374,7 +5335,6 @@ msgid "Display fields table"
 msgstr "Table Info Table"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5514,27 +5474,22 @@ msgid "Skip locked tables"
 msgstr "Überspringe gesperrte Tabellen"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr ""
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr ""
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr ""
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr ""
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr ""
 
@@ -5733,7 +5688,6 @@ msgid "Only show keys"
 msgstr "Nur Schlüssel anzeigen"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -6448,7 +6402,6 @@ msgid "Size"
 msgstr "Größe"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Anzahl der am Anfang zu überspringenden Einträge (Abfragen)"
 
@@ -7481,7 +7434,6 @@ msgid "Use this value"
 msgstr "Diesen Wert verwenden"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "SQL validieren"
 

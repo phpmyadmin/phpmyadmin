@@ -769,7 +769,6 @@ msgid "Complete inserts"
 msgstr "Inserări complete"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Compresie"
 
@@ -905,7 +904,6 @@ msgid "Create relation"
 msgstr "Creare relație"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Creare tabel"
 
@@ -949,7 +947,6 @@ msgid "Croatian"
 msgstr "Croat"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1002,7 +999,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Baze de date"
 
@@ -1162,7 +1158,6 @@ msgid "Descending"
 msgstr "Descrescător"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Descriere"
 
@@ -1201,7 +1196,6 @@ msgid "Dirty pages"
 msgstr "Pagini murdare"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Dezactivat"
 
@@ -1278,7 +1272,6 @@ msgid "dynamic"
 msgstr "dinamic"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Editare"
 
@@ -1303,7 +1296,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a dat un set de rezultate gol (zero linii)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Activat"
 
@@ -1400,7 +1392,6 @@ msgid "Execute bookmarked query"
 msgstr "Executare comandă marcată"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
@@ -1544,7 +1535,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Format"
 
@@ -1767,7 +1757,6 @@ msgid "Import files"
 msgstr "Import fișiere"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Formatul fișierului importat"
 
@@ -1804,7 +1793,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2525,7 +2513,6 @@ msgid "None"
 msgstr ""
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Nici unul(a)"
 
@@ -2622,7 +2609,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> rezultat(e)"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tabele"
 
@@ -2631,7 +2617,6 @@ msgid "OK"
 msgstr "E bine"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Foaie de calcul Open Document"
 
@@ -2672,7 +2657,6 @@ msgid "Overhead"
 msgstr "Asupra"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Suprascrie fișier(e) existent(e)"
 
@@ -2941,7 +2925,6 @@ msgid "PHP array"
 msgstr ""
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
@@ -3270,7 +3253,6 @@ msgid "Query cache"
 msgstr "Cache interogări"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Fereastra de comandă"
 
@@ -3331,7 +3313,6 @@ msgid "Check referential integrity:"
 msgstr "Verificarea integrității referinței:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Reîncarcă"
 
@@ -3420,7 +3401,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Repară"
 
@@ -3524,7 +3504,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3627,7 +3606,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Resetare"
 
@@ -3844,7 +3822,6 @@ msgid "Select Tables"
 msgstr "Selectează tabele"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Trimite"
 
@@ -3865,7 +3842,6 @@ msgid "Server"
 msgstr "Server"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Servere"
 
@@ -4235,7 +4211,6 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Salvează ca fișier"
 
@@ -4244,7 +4219,6 @@ msgid "Character set of the file"
 msgstr "Setul de caractere al fișierului"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Compresie"
 
@@ -4261,7 +4235,6 @@ msgid "Table name template"
 msgstr ""
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Format"
 
@@ -4270,7 +4243,6 @@ msgid "Save on server"
 msgstr "Salvează pe server"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -4355,7 +4327,6 @@ msgid "Import / export"
 msgstr "Import / export"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Baze de date"
 
@@ -4376,7 +4347,6 @@ msgid "Servers display options"
 msgstr ""
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Servere"
 
@@ -4385,7 +4355,6 @@ msgid "Tables display options"
 msgstr "Opțiuni de afișare a tabelelor"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Tabele"
 
@@ -4406,7 +4375,6 @@ msgid "Customise query window options"
 msgstr ""
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Fereastra interogării"
 
@@ -4454,7 +4422,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr ""
 
@@ -4574,12 +4541,10 @@ msgid ""
 msgstr ""
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr ""
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 
@@ -4801,7 +4766,6 @@ msgid "Memory limit"
 msgstr ""
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -4852,7 +4816,6 @@ msgid "Persistent connections"
 msgstr ""
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -5140,7 +5103,6 @@ msgid "Show only listed databases"
 msgstr ""
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
@@ -5165,7 +5127,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr ""
 
@@ -5250,7 +5211,6 @@ msgid "Display fields table"
 msgstr ""
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
@@ -5388,27 +5348,22 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Editează"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Actualizează"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Validează SQL"
 
@@ -5595,7 +5550,6 @@ msgid "Only show keys"
 msgstr ""
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -6283,7 +6237,6 @@ msgid "Size"
 msgstr "Mărime"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
@@ -7294,7 +7247,6 @@ msgid "Use this value"
 msgstr "Folosește această valoare"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Validează SQL"
 

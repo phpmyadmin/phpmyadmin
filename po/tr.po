@@ -771,7 +771,6 @@ msgid "Complete inserts"
 msgstr "Bütün eklemeler"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Sıkıştırma"
 
@@ -912,7 +911,6 @@ msgid "Create relation"
 msgstr "İlişki oluştur"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Tablo oluştur"
 
@@ -956,7 +954,6 @@ msgid "Croatian"
 msgstr "Hırvatça"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1009,7 +1006,6 @@ msgid "'%s' database does not exist."
 msgstr "'%s' veritabanı mevcut değil."
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Veritabanları"
 
@@ -1167,7 +1163,6 @@ msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Açıklama"
 
@@ -1206,7 +1201,6 @@ msgid "Dirty pages"
 msgstr "Bozuk sayfalar"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Etkisiz"
 
@@ -1283,7 +1277,6 @@ msgid "dynamic"
 msgstr "değişken"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -1308,7 +1301,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Etkin"
 
@@ -1405,7 +1397,6 @@ msgid "Execute bookmarked query"
 msgstr "İşaretlenmiş sorguyu çalıştır"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
@@ -1550,7 +1541,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY bağlantısı eklendi"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Biçim"
 
@@ -1775,7 +1765,6 @@ msgid "Import files"
 msgstr "Dosyaları içeri aktar"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "İçeri aktarılmış dosyanın biçimi"
 
@@ -1817,7 +1806,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Parasalları içeri aktar ($5.00'dan 5.00'a)"
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr "Açık Kaynaklı Tablolama Belgesi"
 
@@ -2547,7 +2535,6 @@ msgid "None"
 msgstr "Hiçbiri"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Hiçbiri"
 
@@ -2644,7 +2631,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Toplam:</b> <i>%s</i> eşleşme"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tablolar"
 
@@ -2653,7 +2639,6 @@ msgid "OK"
 msgstr "TAMAM"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Açık Belge Hesap Çizelgesi"
 
@@ -2694,7 +2679,6 @@ msgid "Overhead"
 msgstr "Ek Yük"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Mevcut dosya(ların)nın üzerine yaz"
 
@@ -2965,7 +2949,6 @@ msgid "PHP array"
 msgstr "PHP düzeni"
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
@@ -3298,7 +3281,6 @@ msgid "Query cache"
 msgstr "Sorgu önbelleği"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Sorgu penceresi"
 
@@ -3358,7 +3340,6 @@ msgid "Check referential integrity:"
 msgstr "İlgili bütünlük kontrolü:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -3447,7 +3428,6 @@ msgid "Rename view to"
 msgstr "Görünümü yeniden şuna adlandır"
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Onar"
 
@@ -3567,7 +3547,6 @@ msgid "Show connected slaves"
 msgstr "Bağlı slave'leri göster"
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr "Master durumunu göster"
 
@@ -3677,7 +3656,6 @@ msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -3892,7 +3870,6 @@ msgid "Select Tables"
 msgstr "Tabloları seç"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Dosya olarak kaydet"
 
@@ -3913,7 +3890,6 @@ msgid "Server"
 msgstr "Sunucu"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Sunucular"
 
@@ -4328,7 +4304,6 @@ msgid "Maximum execution time"
 msgstr "En fazla yürütme süresi"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Dosyayı farklı kaydet"
 
@@ -4337,7 +4312,6 @@ msgid "Character set of the file"
 msgstr "Dosyanın karakter grubu"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Sıkıştırma"
 
@@ -4354,7 +4328,6 @@ msgid "Table name template"
 msgstr "Tablo adı şablonu"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Biçim"
 
@@ -4363,7 +4336,6 @@ msgid "Save on server"
 msgstr "Sunucuda kaydet"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Var olan dosya(ların)nın üzerine yaz"
 
@@ -4455,7 +4427,6 @@ msgid "Import / export"
 msgstr "İçeri Aktar / Dışarı Aktar"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Veritabanları"
 
@@ -4476,7 +4447,6 @@ msgid "Servers display options"
 msgstr "Sunucuların görüntü seçenekleri"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Sunucular"
 
@@ -4485,7 +4455,6 @@ msgid "Tables display options"
 msgstr "Tabloların görüntü seçenekleri"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Tablolar"
 
@@ -4506,7 +4475,6 @@ msgid "Customise query window options"
 msgstr "Sorgu penceresi seçeneklerini özelleştirir"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Sorgu penceresi"
 
@@ -4561,7 +4529,6 @@ msgstr ""
 "altyapısına[/a] bakın"
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA veritabanı"
 
@@ -4695,12 +4662,10 @@ msgstr ""
 "her zaman SQL vardır"
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "İçeri aktarılan dosyanın biçimi"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Başlangıçtan atlanacak kayıt (sorgu) sayısı"
 
@@ -4954,7 +4919,6 @@ msgid "Memory limit"
 msgstr "Bellek sınırı"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullanır"
 
@@ -5009,7 +4973,6 @@ msgid "Persistent connections"
 msgstr "Sürekli bağlantılar"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullanır"
 
@@ -5336,7 +5299,6 @@ msgid "Show only listed databases"
 msgstr "Sadece listelenmiş veritabanları göster"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Eğer yapılandırma kimlik denetimi kullanılmıyorsa boş bırakın"
 
@@ -5366,7 +5328,6 @@ msgstr ""
 "Destek istenmiyorsa boş bırakın. Varsayılan: [kbd]phpmyadmin[/kbd]"
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "PMA veritabanı"
 
@@ -5462,7 +5423,6 @@ msgid "Display fields table"
 msgstr "Görüntü alanları tablosu"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Eğer yapılandırma kimlik denetimi kullanılmıyorsa boş bırakın"
 
@@ -5624,27 +5584,22 @@ msgid "Skip locked tables"
 msgstr "Kilitli tabloları atla"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Düzenle"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Yenile"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "PHP Kodu oluştur"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "SQL'i onayla"
 
@@ -5853,7 +5808,6 @@ msgid "Only show keys"
 msgstr "Sadece anahtarları göster"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr "Master durumunu göster"
 
@@ -6545,7 +6499,6 @@ msgid "Size"
 msgstr "Boyut"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Başlangıçtan atlamak için kayıt(sorgu) sayısı:"
 
@@ -7573,7 +7526,6 @@ msgid "Use this value"
 msgstr "Bu değeri kullan"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "SQL'i onayla"
 

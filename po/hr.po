@@ -765,7 +765,6 @@ msgid "Complete inserts"
 msgstr "Dovrši umetanja"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Kompresija"
 
@@ -901,7 +900,6 @@ msgid "Create relation"
 msgstr "Izradi relaciju"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Izradi tablicu"
 
@@ -945,7 +943,6 @@ msgid "Croatian"
 msgstr "Hrvatski"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -998,7 +995,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Baze podataka"
 
@@ -1157,7 +1153,6 @@ msgid "Descending"
 msgstr "Silazno"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Opis"
 
@@ -1196,7 +1191,6 @@ msgid "Dirty pages"
 msgstr "Prljave stranice"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Onemogućeno"
 
@@ -1273,7 +1267,6 @@ msgid "dynamic"
 msgstr "dinamički"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Uređivanje"
 
@@ -1298,7 +1291,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vratio prazan komplet rezultata (npr. nula redova)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Omogućeno"
 
@@ -1397,7 +1389,6 @@ msgid "Execute bookmarked query"
 msgstr "Izvrši favorizirani upit"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Objasni SQL"
 
@@ -1542,7 +1533,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Dodana je relacija FOREIGN KEY"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Oblikovanje"
 
@@ -1765,7 +1755,6 @@ msgid "Import files"
 msgstr "Uvezi datoteke"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Oblikovanje uvezene datoteke"
 
@@ -1802,7 +1791,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2521,7 +2509,6 @@ msgid "None"
 msgstr ""
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "bez kompresije"
 
@@ -2618,7 +2605,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Ukupno:</b> <i>%s</i> poklapanja"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tablice"
 
@@ -2627,7 +2613,6 @@ msgid "OK"
 msgstr "U redu  "
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Otvori izračunsku tablicu dokumenta"
 
@@ -2668,7 +2653,6 @@ msgid "Overhead"
 msgstr "Prepunjenje"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Prepiši postojeće datoteke"
 
@@ -2939,7 +2923,6 @@ msgid "PHP array"
 msgstr ""
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Izradi PHP kod"
 
@@ -3262,7 +3245,6 @@ msgid "Query cache"
 msgstr "Pohrana upita"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Prozor za upite"
 
@@ -3322,7 +3304,6 @@ msgid "Check referential integrity:"
 msgstr "Provjeri referencijalan integritet:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Osvježi"
 
@@ -3411,7 +3392,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Popravi"
 
@@ -3515,7 +3495,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3618,7 +3597,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Povrat"
 
@@ -3831,7 +3809,6 @@ msgid "Select Tables"
 msgstr "Odaberite tablice"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Spremi kao datoteku"
 
@@ -3852,7 +3829,6 @@ msgid "Server"
 msgstr "Poslužitelj"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Poslužitelji"
 
@@ -4223,7 +4199,6 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr ""
 
@@ -4232,7 +4207,6 @@ msgid "Character set of the file"
 msgstr ""
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr ""
 
@@ -4249,7 +4223,6 @@ msgid "Table name template"
 msgstr ""
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr ""
 
@@ -4258,7 +4231,6 @@ msgid "Save on server"
 msgstr ""
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -4343,7 +4315,6 @@ msgid "Import / export"
 msgstr ""
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr ""
 
@@ -4364,7 +4335,6 @@ msgid "Servers display options"
 msgstr ""
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr ""
 
@@ -4373,7 +4343,6 @@ msgid "Tables display options"
 msgstr ""
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr ""
 
@@ -4394,7 +4363,6 @@ msgid "Customise query window options"
 msgstr ""
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr ""
 
@@ -4442,7 +4410,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr ""
 
@@ -4562,12 +4529,10 @@ msgid ""
 msgstr ""
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr ""
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr ""
 
@@ -4789,7 +4754,6 @@ msgid "Memory limit"
 msgstr ""
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -4840,7 +4804,6 @@ msgid "Persistent connections"
 msgstr ""
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr ""
 
@@ -5128,7 +5091,6 @@ msgid "Show only listed databases"
 msgstr ""
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5153,7 +5115,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr ""
 
@@ -5238,7 +5199,6 @@ msgid "Display fields table"
 msgstr ""
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 
@@ -5376,27 +5336,22 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr ""
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr ""
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr ""
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr ""
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr ""
 
@@ -5583,7 +5538,6 @@ msgid "Only show keys"
 msgstr ""
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -6282,7 +6236,6 @@ msgid "Size"
 msgstr "Veličina"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Broj zapisa (upita) koje je potrebno preskočiti od početka"
 
@@ -7301,7 +7254,6 @@ msgid "Use this value"
 msgstr "Upotrijebi ovu vrijednost"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Provjera valjanosti SQL-a"
 

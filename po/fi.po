@@ -765,7 +765,6 @@ msgid "Complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Pakkaus"
 
@@ -903,7 +902,6 @@ msgid "Create relation"
 msgstr "Luo relaatio"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Luo taulu"
 
@@ -948,7 +946,6 @@ msgid "Croatian"
 msgstr "Kroaatti"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1001,7 +998,6 @@ msgid "'%s' database does not exist."
 msgstr "Tietokantaa '%s' ei ole olemassa."
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Tietokannat"
 
@@ -1161,7 +1157,6 @@ msgid "Descending"
 msgstr "Laskeva"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -1200,7 +1195,6 @@ msgid "Dirty pages"
 msgstr "Epäsiistit sivut"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Pois päältä"
 
@@ -1277,7 +1271,6 @@ msgid "dynamic"
 msgstr "dynaaminen"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -1302,7 +1295,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän vastauksen, toisin sanoen nolla riviä."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Päällä"
 
@@ -1401,7 +1393,6 @@ msgid "Execute bookmarked query"
 msgstr "Suorita kysely kirjanmerkeistä"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Selitä SQL-kysely"
 
@@ -1545,7 +1536,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY -relaatio lisätty"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Muoto"
 
@@ -1770,7 +1760,6 @@ msgid "Import files"
 msgstr "Tuo tiedostoja"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Tuotavan tiedoston muoto"
 
@@ -1811,7 +1800,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Tuo valuutta-arvot ($5.00 muotoon 5.00)"
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2530,7 +2518,6 @@ msgid "None"
 msgstr "Ei mikään"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Ei mitään"
 
@@ -2626,7 +2613,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Yhteensä:</b> <i>%s</i> hakutulosta"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Taulut"
 
@@ -2635,7 +2621,6 @@ msgid "OK"
 msgstr "Kunnossa"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2676,7 +2661,6 @@ msgid "Overhead"
 msgstr "Ylijäämä"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Korvaa jo olemassa oleva(t) tiedosto(t)"
 
@@ -2945,7 +2929,6 @@ msgid "PHP array"
 msgstr "PHP-taulukko"
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Näytä PHP-koodi"
 
@@ -3266,7 +3249,6 @@ msgid "Query cache"
 msgstr "Kyselyvälimuisti"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Kyselyikkuna"
 
@@ -3327,7 +3309,6 @@ msgid "Check referential integrity:"
 msgstr "Tarkista viitteiden eheys:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Päivitä"
 
@@ -3416,7 +3397,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Korjaa"
 
@@ -3536,7 +3516,6 @@ msgid "Show connected slaves"
 msgstr "Näytä alipalvelimet, joihin on muodostettu yhteys"
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr "Näytä isäntäpalvelimen tila"
 
@@ -3648,7 +3627,6 @@ msgid "Unknown error"
 msgstr "Tuntematon virhe"
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Nollaa"
 
@@ -3861,7 +3839,6 @@ msgid "Select Tables"
 msgstr "Valitse taulut"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Tallenna tiedostoon"
 
@@ -3882,7 +3859,6 @@ msgid "Server"
 msgstr "Palvelin"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Palvelimet"
 
@@ -4293,7 +4269,6 @@ msgid "Maximum execution time"
 msgstr "Suorituksen enimmäiskesto"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Tallenna tiedostona"
 
@@ -4302,7 +4277,6 @@ msgid "Character set of the file"
 msgstr "Tiedoston merkistö"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Pakkaus"
 
@@ -4319,7 +4293,6 @@ msgid "Table name template"
 msgstr "Taulunimen pohja"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Muoto"
 
@@ -4328,7 +4301,6 @@ msgid "Save on server"
 msgstr "Tallenna palvelimelle"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Korvaa olemassa oleva(t) tiedosto(t)"
 
@@ -4417,7 +4389,6 @@ msgid "Import / export"
 msgstr "Tuonti ja vienti"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Tietokannat"
 
@@ -4438,7 +4409,6 @@ msgid "Servers display options"
 msgstr "Palvelinten näyttöasetukset"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Palvelimet"
 
@@ -4447,7 +4417,6 @@ msgid "Tables display options"
 msgstr "Taulujen näyttöasetukset"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Taulut"
 
@@ -4468,7 +4437,6 @@ msgid "Customise query window options"
 msgstr "Mukauta kyselyikkunan asetuksia"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Kyselyikkuna"
 
@@ -4523,7 +4491,6 @@ msgstr ""
 "infrastruktuuri[/a]."
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA-tietokanta"
 
@@ -4658,12 +4625,10 @@ msgstr ""
 "taulu), ja käytettävissä on vain SQL"
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "Tuodun tiedoston muoto"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Alusta ohitettavien tietueiden (kyselyjen) määrä"
 
@@ -4912,7 +4877,6 @@ msgid "Memory limit"
 msgstr "Muistirajoitus"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia"
 
@@ -4965,7 +4929,6 @@ msgid "Persistent connections"
 msgstr "Jatkuvat yhteydet"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Käytä vain kuvakkeita, vain tekstiä tai molempia"
 
@@ -5291,7 +5254,6 @@ msgid "Show only listed databases"
 msgstr "Näytä vain luetteloidut tietokannat"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Jätä tyhjäksi, jot et käytä config-todennusta"
 
@@ -5322,7 +5284,6 @@ msgstr ""
 "halua tukea. Oletusarvo: [kbd]phpmyadmin[/kbd]"
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "PMA-tietokanta"
 
@@ -5420,7 +5381,6 @@ msgid "Display fields table"
 msgstr "Näyttökenttien taulu"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Jätä tyhjäksi, jos et käytä config-todennusta"
 
@@ -5576,27 +5536,22 @@ msgid "Skip locked tables"
 msgstr "Ohita lukitut taulut"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Muokkaa"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "Selitä SQL"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Päivitä"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "Luo PHP-koodi"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Tarkista SQL-lause"
 
@@ -5809,7 +5764,6 @@ msgid "Only show keys"
 msgstr "Näytä vain avaimet"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr "Näytä isäntäpalvelimen tila"
 
@@ -6516,7 +6470,6 @@ msgid "Size"
 msgstr "Koko"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Tiedoston alusta ohitettavien tietueiden (kyselyjen) määrä"
 
@@ -7540,7 +7493,6 @@ msgid "Use this value"
 msgstr "Käytä tätä arvoa"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Tarkista SQL-kysely"
 

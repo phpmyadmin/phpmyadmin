@@ -766,7 +766,6 @@ msgid "Complete inserts"
 msgstr "Úplné inserty"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Komprese"
 
@@ -908,7 +907,6 @@ msgid "Create relation"
 msgstr "Vytvořit relaci"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Vytvořit tabulku"
 
@@ -951,7 +949,6 @@ msgid "Croatian"
 msgstr "Chorvatština"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1004,7 +1001,6 @@ msgid "'%s' database does not exist."
 msgstr "Databáze '%s' neexistuje."
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "Databáze"
 
@@ -1162,7 +1158,6 @@ msgid "Descending"
 msgstr "Sestupně"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Popis"
 
@@ -1200,7 +1195,6 @@ msgid "Dirty pages"
 msgstr "Změněných stránek"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Vypnuto"
 
@@ -1277,7 +1271,6 @@ msgid "dynamic"
 msgstr "dynamický"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Upravit"
 
@@ -1302,7 +1295,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Zapnuto"
 
@@ -1401,7 +1393,6 @@ msgid "Execute bookmarked query"
 msgstr "Spustit oblíbený dotaz"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Vysvětlit dotaz"
 
@@ -1548,7 +1539,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relace FOREIGN KEY byla vytvořena"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Formát"
 
@@ -1773,7 +1763,6 @@ msgid "Import files"
 msgstr "Importovat soubory"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Formát importovaného souboru"
 
@@ -1813,7 +1802,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importovat měny (5.00 místo $5.00)"
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2527,7 +2515,6 @@ msgid "None"
 msgstr "Žádná"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Žádná"
 
@@ -2624,7 +2611,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tabulek"
 
@@ -2633,7 +2619,6 @@ msgid "OK"
 msgstr "OK"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Sešit OpenDocument"
 
@@ -2674,7 +2659,6 @@ msgid "Overhead"
 msgstr "Navíc"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Přepsat existující soubor(y)"
 
@@ -2945,7 +2929,6 @@ msgid "PHP array"
 msgstr "PHP pole"
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Vytvořit PHP kód"
 
@@ -3271,7 +3254,6 @@ msgid "Query cache"
 msgstr "Vyrovnávací paměť dotazů"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "SQL okno"
 
@@ -3330,7 +3312,6 @@ msgid "Check referential integrity:"
 msgstr "Zkontrolovat integritu odkazů:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Obnovit"
 
@@ -3419,7 +3400,6 @@ msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Opravit"
 
@@ -3523,7 +3503,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3629,7 +3608,6 @@ msgid "Unknown error"
 msgstr "Neznámá chyba"
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Původní"
 
@@ -3844,7 +3822,6 @@ msgid "Select Tables"
 msgstr "Vybrat tabulky"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "Do souboru"
 
@@ -3865,7 +3842,6 @@ msgid "Server"
 msgstr "Server"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Servery"
 
@@ -4276,7 +4252,6 @@ msgid "Maximum execution time"
 msgstr "Časový limit běhu skriptu"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Uložit jako soubor"
 
@@ -4285,7 +4260,6 @@ msgid "Character set of the file"
 msgstr "Znaková sada souboru"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Komprese"
 
@@ -4302,7 +4276,6 @@ msgid "Table name template"
 msgstr "Vzor pro jméno tabulky"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Formát"
 
@@ -4311,7 +4284,6 @@ msgid "Save on server"
 msgstr "Uložit na server"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Přepsat existující soubory"
 
@@ -4401,7 +4373,6 @@ msgid "Import / export"
 msgstr "Import / export"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Databáze"
 
@@ -4422,7 +4393,6 @@ msgid "Servers display options"
 msgstr "Nastavení zobrazení serverů"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Servery"
 
@@ -4431,7 +4401,6 @@ msgid "Tables display options"
 msgstr "Nastavení zobrazení tabulek"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Tabulky"
 
@@ -4452,7 +4421,6 @@ msgid "Customise query window options"
 msgstr "Přizpůsobit nastavení okna dotazů"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Okno dotazů"
 
@@ -4507,7 +4475,6 @@ msgstr ""
 "tabulek[/a] v dokumentaci."
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA databáze"
 
@@ -4641,12 +4608,10 @@ msgstr ""
 "tabulka) a pouze SQL je vždy dostupný."
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "Formát importovaného souboru"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Počet záznamů (dotazů) od začátku, které se mají přeskočit."
 
@@ -4895,7 +4860,6 @@ msgid "Memory limit"
 msgstr "Omezení paměti"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Zda se mají použít pouze ikony, text, nebo objí."
 
@@ -4948,7 +4912,6 @@ msgid "Persistent connections"
 msgstr "Trvalé připojení"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Zda se mají zobrazit pouze ikony, nebo pouze text, případně obojí."
 
@@ -5259,7 +5222,6 @@ msgid "Show only listed databases"
 msgstr "Zobrazit jen vybrané databáze"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Nechte prázdné, pokud nepoužíváte autentizaci config"
 
@@ -5284,7 +5246,6 @@ msgid ""
 msgstr ""
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "Databáze PMA"
 
@@ -5371,7 +5332,6 @@ msgid "Display fields table"
 msgstr ""
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Nechte prázdné, pokud nepoužíváte autentizaci config"
 
@@ -5512,27 +5472,22 @@ msgid "Skip locked tables"
 msgstr "Přeskočit zamčené tabulky"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Upravit"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Obnovit"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "Vytvořit PHP kód"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Ověřit SQL"
 
@@ -5726,7 +5681,6 @@ msgid "Only show keys"
 msgstr "Jen zobrazit klíče"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr "Zobrazit stav nadřízeného"
 
@@ -6400,7 +6354,6 @@ msgid "Size"
 msgstr "Velikost"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Počet záznamů (dotazů) od začátku, které se mají přeskočit"
 
@@ -7414,7 +7367,6 @@ msgid "Use this value"
 msgstr "Použít tuto hodnotu"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Zkontrolovat SQL"
 

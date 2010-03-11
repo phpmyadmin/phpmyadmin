@@ -773,7 +773,6 @@ msgid "Complete inserts"
 msgstr "Invoegen voltooid"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "Compressie"
 
@@ -914,7 +913,6 @@ msgid "Create relation"
 msgstr "Maak relatie"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "Maak tabel"
 
@@ -957,7 +955,6 @@ msgid "Croatian"
 msgstr "Kroatisch"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1010,7 +1007,6 @@ msgid "'%s' database does not exist."
 msgstr "Database '%s' bestaat niet."
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "databases"
 
@@ -1170,7 +1166,6 @@ msgid "Descending"
 msgstr "Aflopend"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -1209,7 +1204,6 @@ msgid "Dirty pages"
 msgstr "Dirty pages"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
@@ -1286,7 +1280,6 @@ msgid "dynamic"
 msgstr "dynamisch"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "Wijzigen"
 
@@ -1311,7 +1304,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultaat set terug (0 rijen)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
@@ -1411,7 +1403,6 @@ msgid "Execute bookmarked query"
 msgstr "Voor de gebookmarkte query uit"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
@@ -1559,7 +1550,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Vreemde sleutel(FOREIGN KEY) relatie toegevoegd"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "Formatteren"
 
@@ -1784,7 +1774,6 @@ msgid "Import files"
 msgstr "Bestanden importeren"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "Opmaak van te importeren bestand"
 
@@ -1824,7 +1813,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2558,7 +2546,6 @@ msgid "None"
 msgstr "Geen"
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "Geen"
 
@@ -2655,7 +2642,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totaal:</b> <i>%s</i> overeenkomst(en)"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -2664,7 +2650,6 @@ msgid "OK"
 msgstr "Correct"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2705,7 +2690,6 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Overschrijf bestaand(e) bestand(en)"
 
@@ -2975,7 +2959,6 @@ msgid "PHP array"
 msgstr "PHP-array"
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "Genereer PHP-Code"
 
@@ -3309,7 +3292,6 @@ msgid "Query cache"
 msgstr "Query cache"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Query window"
 
@@ -3370,7 +3352,6 @@ msgid "Check referential integrity:"
 msgstr "Controleer referentiële integriteit"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "Vernieuw"
 
@@ -3459,7 +3440,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "Repareer"
 
@@ -3578,7 +3558,6 @@ msgid "Show connected slaves"
 msgstr "Toon verbonden slaves"
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr "Toon master status"
 
@@ -3688,7 +3667,6 @@ msgid "Unknown error"
 msgstr "Onbekende fout"
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "Opnieuw"
 
@@ -3905,7 +3883,6 @@ msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "verzenden"
 
@@ -3926,7 +3903,6 @@ msgid "Server"
 msgstr "Server"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "Servers"
 
@@ -4344,7 +4320,6 @@ msgid "Maximum execution time"
 msgstr "Maximale uitvoertijd"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "Opslaan als bestand"
 
@@ -4353,7 +4328,6 @@ msgid "Character set of the file"
 msgstr "Karakertset voor het bestand"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "Compressie"
 
@@ -4370,7 +4344,6 @@ msgid "Table name template"
 msgstr "Tabel naam template"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "Opmaak"
 
@@ -4379,7 +4352,6 @@ msgid "Save on server"
 msgstr "Opslaan op server"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Overschrijf bestaand(e) bestand(en)"
 
@@ -4469,7 +4441,6 @@ msgid "Import / export"
 msgstr "Importeer / exporteer"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "Databases"
 
@@ -4490,7 +4461,6 @@ msgid "Servers display options"
 msgstr "Weergave opties voor servers"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "Servers"
 
@@ -4499,7 +4469,6 @@ msgid "Tables display options"
 msgstr "Weergave opties voor tabellen"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -4520,7 +4489,6 @@ msgid "Customise query window options"
 msgstr "Aanpassen query-venster opties"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "Query-venster"
 
@@ -4575,7 +4543,6 @@ msgstr ""
 "infrastructure[/a] in de documentatie"
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA database"
 
@@ -4710,12 +4677,10 @@ msgstr ""
 "tabel), enkel SQL is altijd beschikbaar."
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Het aantal rijen (queries) dat initieel moet worden overgeslagen"
 
@@ -4969,7 +4934,6 @@ msgid "Memory limit"
 msgstr "Geheugen limiet"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Gebruik enkel iconen, enkel tekst of beide"
 
@@ -5022,7 +4986,6 @@ msgid "Persistent connections"
 msgstr "Persistente connecties"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Gebruik enkel iconen, enkel tekst of beide"
 
@@ -5352,7 +5315,6 @@ msgid "Show only listed databases"
 msgstr "Toon enkel de opgesomde databases"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr " gebruikt"
 
@@ -5383,7 +5345,6 @@ msgstr ""
 "[kbd]phpmyadmin[/kbd]"
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "PMA database"
 
@@ -5483,7 +5444,6 @@ msgid "Display fields table"
 msgstr "Toon velden tabel"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr ""
 "Laat dit veld leeg indien u geen gebruik maakt van 'config' authenticatie"
@@ -5643,27 +5603,22 @@ msgid "Skip locked tables"
 msgstr "Herken vergrendelde tabellen"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "Wijzig"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "Vernieuw"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "Genereer PHP-Code"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Valideer SQL"
 
@@ -5874,7 +5829,6 @@ msgid "Only show keys"
 msgstr "Alleen sleutels tonen"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr "Toon master status"
 
@@ -6581,7 +6535,6 @@ msgid "Size"
 msgstr "Grootte"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
 
@@ -7609,7 +7562,6 @@ msgid "Use this value"
 msgstr "Gebruik deze waarde"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Valideer SQL"
 

@@ -767,7 +767,6 @@ msgid "Complete inserts"
 msgstr "სრული ჩასმები"
 
 #: $strCompression
-msgctxt "$strCompression"
 msgid "Compression"
 msgstr "შეკუმშვა"
 
@@ -903,7 +902,6 @@ msgid "Create relation"
 msgstr "Create relation"
 
 #: $strCreateTable
-msgctxt "$strCreateTable"
 msgid "Create table"
 msgstr "ცხრილის შექმნა"
 
@@ -948,7 +946,6 @@ msgid "Croatian"
 msgstr "ხორვატული"
 
 #: $strCSV
-msgctxt "$strCSV"
 msgid "CSV"
 msgstr "CSV"
 
@@ -1001,7 +998,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: $strDatabases
-msgctxt "$strDatabases"
 msgid "Databases"
 msgstr "მონაცემთა ბაზები"
 
@@ -1160,7 +1156,6 @@ msgid "Descending"
 msgstr "კლებადობით"
 
 #: $strDescription
-msgctxt "$strDescription"
 msgid "Description"
 msgstr "აღწერილობა"
 
@@ -1199,7 +1194,6 @@ msgid "Dirty pages"
 msgstr "Dirty pages"
 
 #: $strDisabled
-msgctxt "$strDisabled"
 msgid "Disabled"
 msgstr "გათიშულია"
 
@@ -1276,7 +1270,6 @@ msgid "dynamic"
 msgstr "დინამიური"
 
 #: $strEdit
-msgctxt "$strEdit"
 msgid "Edit"
 msgstr "რედაქტირება"
 
@@ -1301,7 +1294,6 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
 #: $strEnabled
-msgctxt "$strEnabled"
 msgid "Enabled"
 msgstr "ჩართულია"
 
@@ -1398,7 +1390,6 @@ msgid "Execute bookmarked query"
 msgstr "ჩანიშნული მოთხოვნის გაშვება"
 
 #: $strExplain
-msgctxt "$strExplain"
 msgid "Explain SQL"
 msgstr "SQL-ის ახსნა"
 
@@ -1543,7 +1534,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: $strFormat
-msgctxt "$strFormat"
 msgid "Format"
 msgstr "ფორმატი"
 
@@ -1766,7 +1756,6 @@ msgid "Import files"
 msgstr "ფაილების შემოტანა"
 
 #: $strImportFormat
-msgctxt "$strImportFormat"
 msgid "Format of imported file"
 msgstr "შემოტანილი ფაილების ფორმატი"
 
@@ -1803,7 +1792,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: $strImportODS
-msgctxt "$strImportODS"
 msgid "Open Document Spreadsheet"
 msgstr ""
 
@@ -2521,7 +2509,6 @@ msgid "None"
 msgstr ""
 
 #: $strNone
-msgctxt "$strNone"
 msgid "None"
 msgstr "არაა"
 
@@ -2618,7 +2605,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> match(es)"
 
 #: $strNumTables
-msgctxt "$strNumTables"
 msgid "Tables"
 msgstr "ცხრილები"
 
@@ -2627,7 +2613,6 @@ msgid "OK"
 msgstr "OK"
 
 #: $strOpenDocumentSpreadsheet
-msgctxt "$strOpenDocumentSpreadsheet"
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2668,7 +2653,6 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: $strOverwriteExisting
-msgctxt "$strOverwriteExisting"
 msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
@@ -2937,7 +2921,6 @@ msgid "PHP array"
 msgstr ""
 
 #: $strPhp
-msgctxt "$strPhp"
 msgid "Create PHP Code"
 msgstr "PHP კოდის შექმნა"
 
@@ -3256,7 +3239,6 @@ msgid "Query cache"
 msgstr "Query cache"
 
 #: $strQueryFrame
-msgctxt "$strQueryFrame"
 msgid "Query window"
 msgstr "Query window"
 
@@ -3317,7 +3299,6 @@ msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
 #: $strRefresh
-msgctxt "$strRefresh"
 msgid "Refresh"
 msgstr "განახლება"
 
@@ -3406,7 +3387,6 @@ msgid "Rename view to"
 msgstr ""
 
 #: $strRepair
-msgctxt "$strRepair"
 msgid "Repair"
 msgstr "აღდგენა"
 
@@ -3510,7 +3490,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: $strReplicationShowMasterStatus
-msgctxt "$strReplicationShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -3613,7 +3592,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: $strReset
-msgctxt "$strReset"
 msgid "Reset"
 msgstr "დაბრუნება"
 
@@ -3826,7 +3804,6 @@ msgid "Select Tables"
 msgstr "ცხრილების არჩევა"
 
 #: $strSend
-msgctxt "$strSend"
 msgid "Save as file"
 msgstr "ფაილის სახის შენახვა"
 
@@ -3847,7 +3824,6 @@ msgid "Server"
 msgstr "სერვერი"
 
 #: $strServers
-msgctxt "$strServers"
 msgid "Servers"
 msgstr "სერვერები"
 
@@ -4254,7 +4230,6 @@ msgid "Maximum execution time"
 msgstr "Maximum execution time"
 
 #: $strSetupExport_asfile_name
-msgctxt "$strSetupExport_asfile_name"
 msgid "Save as file"
 msgstr "ფაილად შენახვა"
 
@@ -4263,7 +4238,6 @@ msgid "Character set of the file"
 msgstr "სომბოლოთა ნაკრები ფაილისათვის"
 
 #: $strSetupExport_compression_name
-msgctxt "$strSetupExport_compression_name"
 msgid "Compression"
 msgstr "შეკუმშვა"
 
@@ -4280,7 +4254,6 @@ msgid "Table name template"
 msgstr "Table name template"
 
 #: $strSetupExport_format_name
-msgctxt "$strSetupExport_format_name"
 msgid "Format"
 msgstr "ფორმატი"
 
@@ -4289,7 +4262,6 @@ msgid "Save on server"
 msgstr "სერვერზე შენახვა"
 
 #: $strSetupExport_onserver_overwrite_name
-msgctxt "$strSetupExport_onserver_overwrite_name"
 msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
 
@@ -4378,7 +4350,6 @@ msgid "Import / export"
 msgstr "იმპორტი / ექსპორტი"
 
 #: $strSetupForm_Left_databases
-msgctxt "$strSetupForm_Left_databases"
 msgid "Databases"
 msgstr "მონაცემთა ბაზები"
 
@@ -4399,7 +4370,6 @@ msgid "Servers display options"
 msgstr "სერვერის ჩვენების პარამეტრები"
 
 #: $strSetupForm_Left_servers
-msgctxt "$strSetupForm_Left_servers"
 msgid "Servers"
 msgstr "სერვერები"
 
@@ -4408,7 +4378,6 @@ msgid "Tables display options"
 msgstr "ცხრილების ჩვენების პარამეტრები"
 
 #: $strSetupForm_Left_tables
-msgctxt "$strSetupForm_Left_tables"
 msgid "Tables"
 msgstr "ცხრილები"
 
@@ -4429,7 +4398,6 @@ msgid "Customise query window options"
 msgstr "Customize query window options"
 
 #: $strSetupForm_Query_window
-msgctxt "$strSetupForm_Query_window"
 msgid "Query window"
 msgstr "მოთხოვნების ფანჯარა"
 
@@ -4484,7 +4452,6 @@ msgstr ""
 "documentation"
 
 #: $strSetupForm_Server_pmadb
-msgctxt "$strSetupForm_Server_pmadb"
 msgid "PMA database"
 msgstr "PMA-ის მონაცემთა ბაზა"
 
@@ -4619,12 +4586,10 @@ msgstr ""
 "table) and only SQL is always available"
 
 #: $strSetupImport_format_name
-msgctxt "$strSetupImport_format_name"
 msgid "Format of imported file"
 msgstr "შემოტანილი ფაილის ფორმატი"
 
 #: $strSetupImport_skip_queries_desc
-msgctxt "$strSetupImport_skip_queries_desc"
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
@@ -4871,7 +4836,6 @@ msgid "Memory limit"
 msgstr "მეხსიერების შეზღუდვა"
 
 #: $strSetupNavigationBarIconic_desc
-msgctxt "$strSetupNavigationBarIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Use only icons, only text or both"
 
@@ -4924,7 +4888,6 @@ msgid "Persistent connections"
 msgstr "Persistent connections"
 
 #: $strSetupPropertiesIconic_desc
-msgctxt "$strSetupPropertiesIconic_desc"
 msgid "Use only icons, only text or both"
 msgstr "Use only icons, only text or both"
 
@@ -5243,7 +5206,6 @@ msgid "Show only listed databases"
 msgstr "Show only listed databases"
 
 #: $strSetupServers_password_desc
-msgctxt "$strSetupServers_password_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Leave empty if not using config auth"
 
@@ -5272,7 +5234,6 @@ msgstr ""
 "Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
 
 #: $strSetupServers_pmadb_name
-msgctxt "$strSetupServers_pmadb_name"
 msgid "PMA database"
 msgstr "PMA-ის მონაცემთა ბაზა"
 
@@ -5365,7 +5326,6 @@ msgid "Display fields table"
 msgstr "Display fields table"
 
 #: $strSetupServers_user_desc
-msgctxt "$strSetupServers_user_desc"
 msgid "Leave empty if not using config auth"
 msgstr "Leave empty if not using config auth"
 
@@ -5520,27 +5480,22 @@ msgid "Skip locked tables"
 msgstr "დაბლოკილი ცხრილების გამოტოვება"
 
 #: $strSetupSQLQuery_Edit_name
-msgctxt "$strSetupSQLQuery_Edit_name"
 msgid "Edit"
 msgstr "რედაქტირება"
 
 #: $strSetupSQLQuery_Explain_name
-msgctxt "$strSetupSQLQuery_Explain_name"
 msgid "Explain SQL"
 msgstr "SQL-ის ახსნა"
 
 #: $strSetupSQLQuery_Refresh_name
-msgctxt "$strSetupSQLQuery_Refresh_name"
 msgid "Refresh"
 msgstr "განახლება"
 
 #: $strSetupSQLQuery_ShowAsPHP_name
-msgctxt "$strSetupSQLQuery_ShowAsPHP_name"
 msgid "Create PHP Code"
 msgstr "PHP კოდის შექმნა"
 
 #: $strSetupSQLQuery_Validate_name
-msgctxt "$strSetupSQLQuery_Validate_name"
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
@@ -5749,7 +5704,6 @@ msgid "Only show keys"
 msgstr "Only show keys"
 
 #: $strShowMasterStatus
-msgctxt "$strShowMasterStatus"
 msgid "Show master status"
 msgstr ""
 
@@ -6433,7 +6387,6 @@ msgid "Size"
 msgstr "ზომა"
 
 #: $strSkipQueries
-msgctxt "$strSkipQueries"
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records (queries) to skip from start"
 
@@ -7445,7 +7398,6 @@ msgid "Use this value"
 msgstr "გამოიყენე ეს ველი"
 
 #: $strValidateSQL
-msgctxt "$strValidateSQL"
 msgid "Validate SQL"
 msgstr "Validate SQL"
 
