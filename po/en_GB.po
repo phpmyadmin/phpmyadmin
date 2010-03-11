@@ -5284,7 +5284,6 @@ msgid "Show only listed databases"
 msgstr "Show only listed databases"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Leave empty if not using config auth"
 
