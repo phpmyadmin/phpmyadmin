@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 22:41+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:38+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,7 @@ msgid "EiB"
 msgstr "EiO"
 
 #: libraries/messages.inc.php:25
+#, fuzzy
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
 msgstr "en"
@@ -137,19 +138,15 @@ msgstr "Sep"
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "Nu"
+msgstr "Noi"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "Del"
+msgstr "Dec"
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -308,14 +305,10 @@ msgid "Alter table order by"
 msgstr "Alterare „ordonare tabel după”"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse"
 msgid "Analyze"
 msgstr "Analizează"
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "Analizare tabel"
 
@@ -324,10 +317,8 @@ msgid "And"
 msgstr "Și"
 
 #: libraries/messages.inc.php:70
-#, fuzzy
-#| msgid "Jan"
 msgid "and"
-msgstr "Ian"
+msgstr ""
 
 #: libraries/messages.inc.php:71
 msgid "and then"
@@ -467,6 +458,7 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr "Are you sure you want to disable all BLOB references for database %s?"
 
 #: libraries/messages.inc.php:105
+#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Dezactivat"
@@ -480,6 +472,7 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "You are about to DISABLE a BLOB Repository!"
 
 #: libraries/messages.inc.php:108
+#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Activat"
@@ -493,6 +486,7 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Remove BLOB Repository Reference"
 
 #: libraries/messages.inc.php:111
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Repară"
@@ -595,16 +589,12 @@ msgid "Cancel"
 msgstr "Renunță"
 
 #: libraries/messages.inc.php:137
-#, fuzzy
-#| msgid "Could not load export plug-ins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nu au putut fi încărcate modulele de export adiționale, vă rog verificați "
 "instalarea!"
 
 #: libraries/messages.inc.php:138
-#, fuzzy
-#| msgid "Could not load import plug-ins, please check your installation!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nu au putut fi încărcate modulele adiționale de import, vă rog verificați "
@@ -749,10 +739,8 @@ msgid "Please choose a page to edit"
 msgstr "Selectează o pagină pentru a fi editată"
 
 #: libraries/messages.inc.php:168
-#, fuzzy
-#| msgid "With selected:"
 msgid "Click to select"
-msgstr "Cele bifate:"
+msgstr ""
 
 #: libraries/messages.inc.php:169
 msgid "Click to unselect"
@@ -795,6 +783,7 @@ msgid "Complete inserts"
 msgstr "Inserări complete"
 
 #: libraries/messages.inc.php:179 libraries/messages.inc.php:968
+#, fuzzy
 msgid "Compression"
 msgstr "Compresie"
 
@@ -938,7 +927,7 @@ msgstr "Creare relație"
 
 #: libraries/messages.inc.php:208
 msgid "Create table"
-msgstr "Creare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:209
 #, fuzzy
@@ -963,10 +952,9 @@ msgid "None"
 msgstr "Nici unul(a)"
 
 #: libraries/messages.inc.php:213
-#, fuzzy, php-format
-#| msgid "Check privileges for database &quot;%s&quot;."
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "Verifică privilegiile pentru baza de date &quot;%s&quot;."
+msgstr ""
 
 #: libraries/messages.inc.php:214
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -985,18 +973,15 @@ msgid "Croatian"
 msgstr "Croat"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "CSV"
-msgstr "CSV"
+msgstr "Date CSV"
 
 #: libraries/messages.inc.php:219
-#, fuzzy
-#| msgid "Web server"
 msgid "Current server"
-msgstr "Server Web"
+msgstr ""
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Custom colour"
 msgid "Custom color"
 msgstr "Culoare personalizată"
 
@@ -1039,12 +1024,12 @@ msgid "Database %s has been dropped."
 msgstr "Baza de date %s a fost aruncată."
 
 #: libraries/messages.inc.php:231
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
+#, php-format
 msgid "'%s' database does not exist."
-msgstr "Tabelul „%s” nu există!"
+msgstr ""
 
 #: libraries/messages.inc.php:232 libraries/messages.inc.php:994
+#, fuzzy
 msgid "Databases"
 msgstr "Baze de date"
 
@@ -1054,10 +1039,8 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s baza(ele) de data(e) au fost aruncate."
 
 #: libraries/messages.inc.php:234
-#, fuzzy
-#| msgid "No databases"
 msgid "Source database"
-msgstr "Nu sînt baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:235
 msgid "Databases statistics"
@@ -1080,10 +1063,8 @@ msgstr ""
 "traficului între MySQL și serverul Web."
 
 #: libraries/messages.inc.php:239
-#, fuzzy
-#| msgid "Create new database"
 msgid "Target database"
-msgstr "Creează bază de date nouă"
+msgstr ""
 
 #: libraries/messages.inc.php:240
 msgid "Data"
@@ -1186,10 +1167,8 @@ msgid "Delete relation"
 msgstr "Șterge relația"
 
 #: libraries/messages.inc.php:263
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table"
-msgstr "Salvarea datelor din tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:264
 #, php-format
@@ -1213,6 +1192,7 @@ msgid "Descending"
 msgstr "Descrescător"
 
 #: libraries/messages.inc.php:268
+#, fuzzy
 msgid "Description"
 msgstr "Descriere"
 
@@ -1283,10 +1263,8 @@ msgid "Documentation"
 msgstr "Documentație"
 
 #: libraries/messages.inc.php:284
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Adaugă valoare pentru AUTO_INCREMENT"
+msgstr ""
 
 #: libraries/messages.inc.php:285
 msgid "Download file"
@@ -1331,8 +1309,9 @@ msgid "dynamic"
 msgstr "dinamic"
 
 #: libraries/messages.inc.php:296 libraries/messages.inc.php:1222
+#, fuzzy
 msgid "Edit"
-msgstr "Editare"
+msgstr "Editează"
 
 #: libraries/messages.inc.php:297
 msgid "Edit PDF Pages"
@@ -1427,8 +1406,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Eroare la salvarea coordonatelor pentru Designer."
 
 #: libraries/messages.inc.php:319
-#, fuzzy, php-format
-#| msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+#, php-format
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr "Metacaracterele _ și % trebuiesc însoțite de \\ pentru a le aplica"
 
@@ -1457,6 +1435,7 @@ msgid "Execute bookmarked query"
 msgstr "Executare comandă marcată"
 
 #: libraries/messages.inc.php:326 libraries/messages.inc.php:1223
+#, fuzzy
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
@@ -1605,6 +1584,7 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relation added"
 
 #: libraries/messages.inc.php:358 libraries/messages.inc.php:972
+#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1617,16 +1597,12 @@ msgid "Free pages"
 msgstr "Pagini libere"
 
 #: libraries/messages.inc.php:361
-#, fuzzy
-#| msgid "Fulltext"
 msgid "Full start"
-msgstr "Tot textul"
+msgstr ""
 
 #: libraries/messages.inc.php:362
-#, fuzzy
-#| msgid "Full Texts"
 msgid "Full stop"
-msgstr "Texte întregi"
+msgstr ""
 
 #: libraries/messages.inc.php:363
 msgid "Full Texts"
@@ -1689,22 +1665,16 @@ msgid "Go"
 msgstr "Execută"
 
 #: libraries/messages.inc.php:379
-#, fuzzy
-#| msgid "No databases"
 msgid "Go to database"
-msgstr "Nu sînt baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:380
-#, fuzzy
-#| msgid "No tables"
 msgid "Go to table"
-msgstr "Nu există tabele"
+msgstr ""
 
 #: libraries/messages.inc.php:381
-#, fuzzy
-#| msgid "Relation view"
 msgid "Go to view"
-msgstr "Vizualizare relațională"
+msgstr ""
 
 #: libraries/messages.inc.php:382
 msgid "Grant"
@@ -1821,10 +1791,8 @@ msgid "Use ignore inserts"
 msgstr "Utilizați ignorare inserări"
 
 #: libraries/messages.inc.php:412
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Pune numele cîmpului în primul rînd"
+msgstr ""
 
 #: libraries/messages.inc.php:413
 msgid "Do not import empty rows"
@@ -1840,7 +1808,7 @@ msgstr "Import fișiere"
 
 #: libraries/messages.inc.php:416 libraries/messages.inc.php:1042
 msgid "Format of imported file"
-msgstr "Formatul fișierului importat"
+msgstr ""
 
 #: libraries/messages.inc.php:417
 msgid "Import"
@@ -1876,6 +1844,7 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:424 libraries/messages.inc.php:607
+#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Foaie de calcul Open Document"
 
@@ -1999,16 +1968,13 @@ msgid "Insert as new row"
 msgstr "Inserează ca o nouă linie"
 
 #: libraries/messages.inc.php:449
-#, fuzzy, php-format
-#| msgid "Inserted row id: %1$d"
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rînd inserat:"
 
 #: libraries/messages.inc.php:450
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert as new row and ignore errors"
-msgstr "Inserează ca o nouă linie"
+msgstr ""
 
 #: libraries/messages.inc.php:451
 msgid "Insert"
@@ -2079,8 +2045,6 @@ msgid "Table must have at least one field."
 msgstr "Tabelul trebuie să conțină cel puțin un cîmp."
 
 #: libraries/messages.inc.php:466
-#, fuzzy
-#| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Modulul opțional nu suportă importuri comprimate!"
 
@@ -2539,16 +2503,12 @@ msgid "Name"
 msgstr "Nume"
 
 #: libraries/messages.inc.php:564
-#, fuzzy
-#| msgid "Files"
 msgid "Filter"
-msgstr "Fișiere"
+msgstr ""
 
 #: libraries/messages.inc.php:565
-#, fuzzy
-#| msgid "No tables"
 msgid "New table"
-msgstr "Nu există tabele"
+msgstr ""
 
 #: libraries/messages.inc.php:566
 msgid "Next"
@@ -2730,6 +2690,7 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> rezultat(e)"
 
 #: libraries/messages.inc.php:604 libraries/messages.inc.php:1001
+#, fuzzy
 msgid "Tables"
 msgstr "Tabele"
 
@@ -2754,14 +2715,10 @@ msgid "Operator"
 msgstr "Operand"
 
 #: libraries/messages.inc.php:612
-#, fuzzy
-#| msgid "Optimise"
 msgid "Optimize"
 msgstr "Optimizează"
 
 #: libraries/messages.inc.php:613
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Optimizare tabel"
 
@@ -2779,7 +2736,7 @@ msgstr "Asupra"
 
 #: libraries/messages.inc.php:617 libraries/messages.inc.php:974
 msgid "Overwrite existing file(s)"
-msgstr "Suprascrie fișier(e) existent(e)"
+msgstr ""
 
 #: libraries/messages.inc.php:619
 msgid "Packed"
@@ -3006,16 +2963,12 @@ msgid "No tables"
 msgstr "Nu există tabele"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
-#| msgid "Table %1$s has been created."
 msgid "Page has been created"
-msgstr "Tabelul %1$s a fost creat."
+msgstr ""
 
 #: libraries/messages.inc.php:662
-#, fuzzy
-#| msgid "Hardware authentication failed"
 msgid "Page creation failed"
-msgstr "Hardware authentication failed"
+msgstr ""
 
 #: libraries/messages.inc.php:663
 msgid "PDF"
@@ -3054,6 +3007,7 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:672 libraries/messages.inc.php:1225
+#, fuzzy
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
@@ -3113,10 +3067,8 @@ msgid "Polish"
 msgstr "Polononez"
 
 #: libraries/messages.inc.php:685
-#, fuzzy
-#| msgid "Sort"
 msgid "Port"
-msgstr "Sortare"
+msgstr ""
 
 #: libraries/messages.inc.php:686
 msgid "Portrait"
@@ -3375,18 +3327,17 @@ msgid "Query"
 msgstr "Interogare prin exemplu"
 
 #: libraries/messages.inc.php:745
-#, fuzzy
-#| msgid "The row has been deleted"
 msgid "The following queries have been executed:"
-msgstr "Linia a fost ștearsă"
+msgstr ""
 
 #: libraries/messages.inc.php:746
 msgid "Query cache"
 msgstr "Cache interogări"
 
 #: libraries/messages.inc.php:747 libraries/messages.inc.php:1006
+#, fuzzy
 msgid "Query window"
-msgstr "Fereastra de comandă"
+msgstr "Fereastra interogării"
 
 #: libraries/messages.inc.php:748
 #, php-format
@@ -3448,8 +3399,9 @@ msgid "Check referential integrity:"
 msgstr "Verificarea integrității referinței:"
 
 #: libraries/messages.inc.php:762 libraries/messages.inc.php:1224
+#, fuzzy
 msgid "Refresh"
-msgstr "Reîncarcă"
+msgstr "Actualizează"
 
 #: libraries/messages.inc.php:763
 msgid "Relational display field"
@@ -3505,10 +3457,8 @@ msgid "Reload"
 msgstr "Reîncarcă"
 
 #: libraries/messages.inc.php:775
-#, fuzzy
-#| msgid "Web server"
 msgid "Remote server"
-msgstr "Server Web"
+msgstr ""
 
 #: libraries/messages.inc.php:776
 msgid "Remove CRLF characters within fields"
@@ -3537,10 +3487,8 @@ msgid "Rename table to"
 msgstr "Redenumire tabel la"
 
 #: libraries/messages.inc.php:782
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Rename view to"
-msgstr "Redenumire tabel la"
+msgstr ""
 
 #: libraries/messages.inc.php:783
 msgid "Repair"
@@ -3565,10 +3513,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:788
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Add slave replication user"
-msgstr "Necesară pentru „slave replication”."
+msgstr ""
 
 #: libraries/messages.inc.php:789
 #, php-format
@@ -3594,16 +3540,12 @@ msgid "Unable to connect to master %s."
 msgstr ""
 
 #: libraries/messages.inc.php:794
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Replicate all databases; Ignore:"
-msgstr "Redenumire bază de date în"
+msgstr ""
 
 #: libraries/messages.inc.php:795
-#, fuzzy
-#| msgid "No databases selected."
 msgid "Ignore all databases; Replicate:"
-msgstr "Nu este selectată nici o bază de date."
+msgstr ""
 
 #: libraries/messages.inc.php:796
 msgid ""
@@ -3615,16 +3557,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:797
-#, fuzzy
-#| msgid "User for config auth"
 msgid "Master configuration"
-msgstr "Utilizator pentru „config auth”"
+msgstr ""
 
 #: libraries/messages.inc.php:798
-#, fuzzy
-#| msgid "Create relation"
 msgid "Master replication"
-msgstr "Creare relație"
+msgstr ""
 
 #: libraries/messages.inc.php:799
 msgid "Replication"
@@ -3638,10 +3576,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:801
-#, fuzzy
-#| msgid "Please select a database"
 msgid "Please select databases:"
-msgstr "Selectați baza de date"
+msgstr ""
 
 #: libraries/messages.inc.php:802
 #, php-format
@@ -3657,16 +3593,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:804
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show connected slaves"
-msgstr "Afișează procesele"
+msgstr ""
 
 #: libraries/messages.inc.php:805 libraries/messages.inc.php:1267
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show master status"
-msgstr "Afișează stare sclav"
+msgstr ""
 
 #: libraries/messages.inc.php:806
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3677,10 +3609,8 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:808
-#, fuzzy
-#| msgid "Save position"
 msgid "Slave configuration"
-msgstr "Salvează poziție"
+msgstr ""
 
 #: libraries/messages.inc.php:809
 msgid ""
@@ -3708,36 +3638,28 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:814
-#, fuzzy
-#| msgid "Reset"
 msgid "Reset slave"
-msgstr "Resetare"
+msgstr ""
 
 #: libraries/messages.inc.php:815
-#, fuzzy
-#| msgid "Show slave status"
 msgid "See slave status table"
-msgstr "Afișează stare sclav"
+msgstr ""
 
 #: libraries/messages.inc.php:816
 msgid "Skip current error"
 msgstr ""
 
 #: libraries/messages.inc.php:817
-#, fuzzy
-#| msgid "Error"
 msgid "errors."
-msgstr "Eroare"
+msgstr ""
 
 #: libraries/messages.inc.php:818
 msgid "Skip next"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
-#| msgid "Save position"
 msgid "Slave replication"
-msgstr "Salvează poziție"
+msgstr ""
 
 #: libraries/messages.inc.php:820
 msgid "Slave SQL Thread not running!"
@@ -3757,22 +3679,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:823
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Master status"
-msgstr "Afișează stare sclav"
+msgstr ""
 
 #: libraries/messages.inc.php:824
-#, fuzzy
-#| msgid "Replication"
 msgid "Replication status"
-msgstr "Replicare"
+msgstr ""
 
 #: libraries/messages.inc.php:825
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Slave status"
-msgstr "Afișează stare sclav"
+msgstr ""
 
 #: libraries/messages.inc.php:826
 msgid "Synchronize databases with master"
@@ -3783,14 +3699,13 @@ msgid "Unable to change master"
 msgstr ""
 
 #: libraries/messages.inc.php:828
-#, fuzzy
-#| msgid "Unknown error in file upload."
 msgid "Unknown error"
-msgstr "Eroare necunoscută la încărcarea fișierului."
+msgstr ""
 
 #: libraries/messages.inc.php:829
+#, fuzzy
 msgid "Reset"
-msgstr "Resetare"
+msgstr "Reinițializare"
 
 #: libraries/messages.inc.php:830
 msgid "Resource limits"
@@ -3850,8 +3765,7 @@ msgid "%1$d row(s) affected."
 msgstr "%1$d rînd(uri) afectat(e)."
 
 #: libraries/messages.inc.php:842
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
+#, php-format
 msgid "%1$d row(s) deleted."
 msgstr "%1$s rînd(uri) șters(e)."
 
@@ -4017,8 +3931,9 @@ msgid "Select Tables"
 msgstr "Selectează tabele"
 
 #: libraries/messages.inc.php:882 libraries/messages.inc.php:966
+#, fuzzy
 msgid "Save as file"
-msgstr "Trimite"
+msgstr "Salvează ca fișier"
 
 #: libraries/messages.inc.php:883
 msgid "Sent"
@@ -4037,6 +3952,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:887 libraries/messages.inc.php:999
+#, fuzzy
 msgid "Servers"
 msgstr "Servere"
 
@@ -4106,10 +4022,8 @@ msgstr ""
 "( '\\\\xyz' or 'a\\'b')."
 
 #: libraries/messages.inc.php:899
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "settings"
-msgstr "Șterge %s"
+msgstr ""
 
 #: libraries/messages.inc.php:900
 msgid "Allow character set conversion"
@@ -4131,10 +4045,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:903
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Allow login to any MySQL server"
-msgstr "Nu pot face conexiunea catre serverul MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:904
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4200,10 +4112,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:917
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Cannot load or save configuration"
-msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
+msgstr ""
 
 #: libraries/messages.inc.php:918
 msgid ""
@@ -4244,10 +4154,8 @@ msgid "Check config file permissions"
 msgstr ""
 
 #: libraries/messages.inc.php:926
-#, fuzzy
-#| msgid "Calendar"
 msgid "Clear"
-msgstr "Calendar"
+msgstr ""
 
 #: libraries/messages.inc.php:927
 msgid ""
@@ -4256,16 +4164,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:928
-#, fuzzy
-#| msgid "Compression"
 msgid "Compress on the fly"
-msgstr "Compresie"
+msgstr ""
 
 #: libraries/messages.inc.php:929
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Configuration file"
-msgstr "Timp de generare"
+msgstr ""
 
 #: libraries/messages.inc.php:930
 msgid ""
@@ -4286,26 +4190,20 @@ msgid "Default character set"
 msgstr ""
 
 #: libraries/messages.inc.php:934
-#, fuzzy
-#| msgid "Default"
 msgid "Default language"
-msgstr "Setare de bază"
+msgstr ""
 
 #: libraries/messages.inc.php:935
-#, fuzzy
-#| msgid "Default"
 msgid "Default server"
-msgstr "Setare de bază"
+msgstr ""
 
 #: libraries/messages.inc.php:936
 msgid "Tab that is displayed when entering a database"
 msgstr ""
 
 #: libraries/messages.inc.php:937
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Default database tab"
-msgstr "Redenumire bază de date în"
+msgstr ""
 
 #: libraries/messages.inc.php:938
 msgid "Tab that is displayed when entering a server"
@@ -4320,10 +4218,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr ""
 
 #: libraries/messages.inc.php:941
-#, fuzzy
-#| msgid "Defragment table"
 msgid "Default table tab"
-msgstr "Defragmentare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:942
 msgid ""
@@ -4336,10 +4232,8 @@ msgid "Show database listing as a list instead of a drop down"
 msgstr ""
 
 #: libraries/messages.inc.php:944
-#, fuzzy
-#| msgid "Databases statistics"
 msgid "Display databases as a list"
-msgstr "Statisticile bazelor de date"
+msgstr ""
 
 #: libraries/messages.inc.php:945
 msgid "Display"
@@ -4354,26 +4248,20 @@ msgid "Display servers as a list"
 msgstr ""
 
 #: libraries/messages.inc.php:948
-#, fuzzy
-#| msgid "Data"
 msgid "Donate"
-msgstr "Date"
+msgstr ""
 
 #: libraries/messages.inc.php:949
 msgid "Download"
 msgstr "Descarcă"
 
 #: libraries/messages.inc.php:950
-#, fuzzy
-#| msgid "At End of Table"
 msgid "End of line"
-msgstr "La sfîrșitul tabelului"
+msgstr ""
 
 #: libraries/messages.inc.php:951
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
 msgid "Could not connect to MySQL server"
-msgstr "Comprimă conexiunea la serverul MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:952
 msgid "Empty phpMyAdmin control user password while using pmadb"
@@ -4405,20 +4293,17 @@ msgid "Incorrect IP address: %s"
 msgstr ""
 
 #: libraries/messages.inc.php:959
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Not a valid port number"
-msgstr "%d nu este un număr valid de rînduri."
+msgstr ""
 
 #: libraries/messages.inc.php:960
 msgid "Incorrect value"
 msgstr ""
 
 #: libraries/messages.inc.php:961
-#, fuzzy, php-format
-#| msgid "Missing a temporary folder."
+#, php-format
 msgid "Missing data for %s"
-msgstr "Lipsește un dosar temporar."
+msgstr ""
 
 #: libraries/messages.inc.php:962
 msgid "Not a non-negative number"
@@ -4443,32 +4328,24 @@ msgid "Character set of the file"
 msgstr "Setul de caractere al fișierului"
 
 #: libraries/messages.inc.php:969
-#, fuzzy
-#| msgid "File name template"
 msgid "Database name template"
-msgstr "Șablon nume fișier"
+msgstr ""
 
 #: libraries/messages.inc.php:970
-#, fuzzy
-#| msgid "File name template"
 msgid "Server name template"
-msgstr "Șablon nume fișier"
+msgstr ""
 
 #: libraries/messages.inc.php:971
-#, fuzzy
-#| msgid "File name template"
 msgid "Table name template"
-msgstr "Șablon nume fișier"
+msgstr ""
 
 #: libraries/messages.inc.php:973
 msgid "Save on server"
 msgstr "Salvează pe server"
 
 #: libraries/messages.inc.php:975
-#, fuzzy
-#| msgid "File name template"
 msgid "Remember file name template"
-msgstr "Șablon nume fișier"
+msgstr ""
 
 #: libraries/messages.inc.php:976
 msgid "no"
@@ -4485,10 +4362,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:979
-#, fuzzy
-#| msgid "Compress connection"
 msgid "Force SSL connection"
-msgstr "Comprimă conexiunea"
+msgstr ""
 
 #: libraries/messages.inc.php:980
 msgid ""
@@ -4513,14 +4388,10 @@ msgid "Browse mode"
 msgstr "Regim de navigare"
 
 #: libraries/messages.inc.php:985
-#, fuzzy
-#| msgid "Customise browse mode"
 msgid "Customize browse mode"
 msgstr "Personalizează regimul de navigare"
 
 #: libraries/messages.inc.php:986
-#, fuzzy
-#| msgid "Customise edit mode"
 msgid "Customize edit mode"
 msgstr "Personalizează regimul de redactare"
 
@@ -4529,26 +4400,20 @@ msgid "Edit mode"
 msgstr "Regim de redactare"
 
 #: libraries/messages.inc.php:988
-#, fuzzy
-#| msgid "Database export options"
 msgid "Customize default export options"
-msgstr "Opțiuni de exportare a bazei de date"
+msgstr ""
 
 #: libraries/messages.inc.php:989
-#, fuzzy
-#| msgid "Export type"
 msgid "Export defaults"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:990
 msgid "Customize default common import options"
 msgstr ""
 
 #: libraries/messages.inc.php:991
-#, fuzzy
-#| msgid "Import files"
 msgid "Import defaults"
-msgstr "Import fișiere"
+msgstr ""
 
 #: libraries/messages.inc.php:992
 msgid "Set import and export directories and compression options"
@@ -4563,22 +4428,16 @@ msgid "Databases display options"
 msgstr "Opțiuni de afișare a bazelor de date"
 
 #: libraries/messages.inc.php:996
-#, fuzzy
-#| msgid "Customise appearance of the navigation frame"
 msgid "Customize appearance of the navigation frame"
 msgstr "Personalizează aspectul cadrului de navigare"
 
 #: libraries/messages.inc.php:997
-#, fuzzy
-#| msgid "Main frame"
 msgid "Navigation frame"
-msgstr "Cadrul principal"
+msgstr ""
 
 #: libraries/messages.inc.php:998
-#, fuzzy
-#| msgid "Tables display options"
 msgid "Servers display options"
-msgstr "Opțiuni de afișare a tabelelor"
+msgstr ""
 
 #: libraries/messages.inc.php:1000
 msgid "Tables display options"
@@ -4621,10 +4480,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1011
-#, fuzzy
-#| msgid "Server version"
 msgid "Server configuration"
-msgstr "Versiune server"
+msgstr ""
 
 #: libraries/messages.inc.php:1012
 msgid "Enter server connection parameters"
@@ -4646,42 +4503,30 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016 libraries/messages.inc.php:1173
-#, fuzzy
-#| msgid "No databases"
 msgid "PMA database"
-msgstr "Nu sînt baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1017
-#, fuzzy
-#| msgid "Customisation"
 msgid "Customization"
 msgstr "Personalizare"
 
 #: libraries/messages.inc.php:1018
-#, fuzzy
-#| msgid "Database export options"
 msgid "Customize export options"
-msgstr "Opțiuni de exportare a bazei de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1019
 msgid "Features"
 msgstr "Funcționalități"
 
 #: libraries/messages.inc.php:1020
-#, fuzzy
-#| msgid "Customise edit mode"
 msgid "Customize import defaults"
-msgstr "Personalizează regimul de redactare"
+msgstr ""
 
 #: libraries/messages.inc.php:1021
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize navigation frame"
-msgstr "Personalizează cadrul principal"
+msgstr ""
 
 #: libraries/messages.inc.php:1022
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize main frame"
 msgstr "Personalizează cadrul principal"
 
@@ -4690,10 +4535,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/messages.inc.php:1024
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query box"
-msgstr "Comanda SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1025
 msgid ""
@@ -4702,22 +4545,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1026
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL queries"
-msgstr "Comanda SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1027
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize startup page"
-msgstr "Personalizează cadrul principal"
+msgstr ""
 
 #: libraries/messages.inc.php:1028
-#, fuzzy
-#| msgid "Status"
 msgid "Startup"
-msgstr "Stare"
+msgstr ""
 
 #: libraries/messages.inc.php:1029
 msgid "Choose how you want tabs to work"
@@ -4746,20 +4583,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1034
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin homepage"
-msgstr "Documentație phpMyAdmin"
+msgstr ""
 
 #: libraries/messages.inc.php:1035
 msgid "Extra parameters for iconv"
 msgstr ""
 
 #: libraries/messages.inc.php:1036
-#, fuzzy
-#| msgid "Ignore duplicate rows"
 msgid "Ignore errors"
-msgstr "Ignoră rînduri duplicate"
+msgstr ""
 
 #: libraries/messages.inc.php:1037
 msgid ""
@@ -4768,31 +4601,19 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1038
-#, fuzzy
-#| msgid "Ignore duplicate rows"
 msgid "Ignore multiple statement errors"
-msgstr "Ignoră rînduri duplicate"
+msgstr ""
 
 #: libraries/messages.inc.php:1039
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. This might be good way to import large "
-#| "files, however it can break transactions."
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Permite întreruperea importului în cazul în care scriptul detectează că se "
-"apropie de limita de timp. Aceasta poate fi o metodă bună de a importa "
-"fișiere mari, deși poate strica tranzacții."
 
 #: libraries/messages.inc.php:1040
-#, fuzzy
-#| msgid "Partial import"
 msgid "Partial import: allow interrupt"
-msgstr "Importare parțială"
+msgstr ""
 
 #: libraries/messages.inc.php:1041
 msgid ""
@@ -4801,20 +4622,17 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1043 libraries/messages.inc.php:1386
+#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
 #: libraries/messages.inc.php:1044
-#, fuzzy
-#| msgid "Partial import"
 msgid "Partial import: skip queries"
-msgstr "Importare parțială"
+msgstr ""
 
 #: libraries/messages.inc.php:1045
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Insecure connection"
-msgstr "conexiuni concurente (maxim)"
+msgstr ""
 
 #: libraries/messages.inc.php:1046
 msgid ""
@@ -4834,26 +4652,20 @@ msgid "How many rows can be inserted at one time"
 msgstr ""
 
 #: libraries/messages.inc.php:1049
-#, fuzzy
-#| msgid "The number of sorted rows."
 msgid "Number of inserted rows"
-msgstr "Numărul de rînduri sortate."
+msgstr ""
 
 #: libraries/messages.inc.php:1050
 msgid "Target for quick access icon"
 msgstr ""
 
 #: libraries/messages.inc.php:1051
-#, fuzzy
-#| msgid "Show/Hide left menu"
 msgid "Show logo in left frame"
-msgstr "Arată/ascunde meniul stîng"
+msgstr ""
 
 #: libraries/messages.inc.php:1052
-#, fuzzy
-#| msgid "Display"
 msgid "Display logo"
-msgstr "Afișează"
+msgstr ""
 
 #: libraries/messages.inc.php:1053
 msgid "Display server choice at the top of the left frame"
@@ -4868,10 +4680,8 @@ msgid "String that separates databases into different tree levels"
 msgstr ""
 
 #: libraries/messages.inc.php:1056
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database tree separator"
-msgstr "Bază de date pentru utilizatorul"
+msgstr ""
 
 #: libraries/messages.inc.php:1057
 msgid ""
@@ -4880,20 +4690,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1058
-#, fuzzy
-#| msgid "Display all tables with the same width"
 msgid "Display databases in a tree"
-msgstr "Arată toate tabelele cu aceeaăi mărime?"
+msgstr ""
 
 #: libraries/messages.inc.php:1059
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
 
 #: libraries/messages.inc.php:1060
-#, fuzzy
-#| msgid "MySQL client version"
 msgid "Use light version"
-msgstr "Versiunea clientului MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1061
 msgid "Maximum table tree depth"
@@ -4908,10 +4714,8 @@ msgid "Table tree separator"
 msgstr ""
 
 #: libraries/messages.inc.php:1064
-#, fuzzy
-#| msgid "Log in"
 msgid "Logo link URL"
-msgstr "Autentificare"
+msgstr ""
 
 #: libraries/messages.inc.php:1065
 msgid ""
@@ -4944,10 +4748,8 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1072
-#, fuzzy
-#| msgid "Local"
 msgid "Load"
-msgstr "Local"
+msgstr ""
 
 #: libraries/messages.inc.php:1073
 msgid ""
@@ -4967,10 +4769,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1076
-#, fuzzy
-#| msgid "User name"
 msgid "Recall user name"
-msgstr "Nume utilizator"
+msgstr ""
 
 #: libraries/messages.inc.php:1077
 msgid ""
@@ -5012,10 +4812,8 @@ msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1085
-#, fuzzy
-#| msgid "Hide databases"
 msgid "Maximum databases"
-msgstr "Ascunde baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1086
 msgid ""
@@ -5025,20 +4823,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1087
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Maximum number of rows to display"
-msgstr "Numărul de înregistrări pe pagină"
+msgstr ""
 
 #: libraries/messages.inc.php:1088
 msgid "Maximum number of tables displayed in table list"
 msgstr ""
 
 #: libraries/messages.inc.php:1089
-#, fuzzy
-#| msgid "Repair table"
 msgid "Maximum tables"
-msgstr "Reparare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:1090
 msgid ""
@@ -5047,10 +4841,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1091
-#, fuzzy
-#| msgid "Resource limits"
 msgid "Memory limit"
-msgstr "Limitare de resurse"
+msgstr ""
 
 #: libraries/messages.inc.php:1092 libraries/messages.inc.php:1104
 msgid "Use only icons, only text or both"
@@ -5061,10 +4853,8 @@ msgid "Iconic navigation bar"
 msgstr ""
 
 #: libraries/messages.inc.php:1094
-#, fuzzy
-#| msgid "Web server"
 msgid "New server"
-msgstr "Server Web"
+msgstr ""
 
 #: libraries/messages.inc.php:1095
 msgid "There are no configured servers"
@@ -5093,28 +4883,20 @@ msgid "Default sorting order"
 msgstr ""
 
 #: libraries/messages.inc.php:1101
-#, fuzzy
-#| msgid "User overview"
 msgid "Overview"
-msgstr "Descriere utilizator"
+msgstr ""
 
 #: libraries/messages.inc.php:1102
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
 msgid "Use persistent connections to MySQL databases"
-msgstr "Comprimă conexiunea la serverul MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1103
-#, fuzzy
-#| msgid "Compress connection"
 msgid "Persistent connections"
-msgstr "Comprimă conexiunea"
+msgstr ""
 
 #: libraries/messages.inc.php:1105
-#, fuzzy
-#| msgid "Include table caption"
 msgid "Iconic table operations"
-msgstr "Include captură tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:1106
 msgid "Disallow BLOB and BINARY fields from editing"
@@ -5139,20 +4921,16 @@ msgid "How many queries are kept in history"
 msgstr ""
 
 #: libraries/messages.inc.php:1111
-#, fuzzy
-#| msgid "Query type"
 msgid "Query history length"
-msgstr "Tip interogare"
+msgstr ""
 
 #: libraries/messages.inc.php:1112
 msgid "Tab displayed when opening a new query window"
 msgstr ""
 
 #: libraries/messages.inc.php:1113
-#, fuzzy
-#| msgid "Query window"
 msgid "Default query window tab"
-msgstr "Fereastra de comandă"
+msgstr ""
 
 #: libraries/messages.inc.php:1114
 msgid "Select which functions will be used for character set conversion"
@@ -5175,10 +4953,8 @@ msgid "Directory where exports can be saved on server"
 msgstr ""
 
 #: libraries/messages.inc.php:1119
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Save directory"
-msgstr "Directorul de bază pentru date"
+msgstr ""
 
 #: libraries/messages.inc.php:1120
 #, php-format
@@ -5195,10 +4971,8 @@ msgid "You should use mysqli for performance reasons"
 msgstr ""
 
 #: libraries/messages.inc.php:1122
-#, fuzzy
-#| msgid "Try to connect without password"
 msgid "You allow for connecting to the server without a password."
-msgstr "Încearcă conectarea fără parolă"
+msgstr ""
 
 #: libraries/messages.inc.php:1123
 msgid "Add a new server"
@@ -5209,26 +4983,20 @@ msgid "Leave blank if not used"
 msgstr ""
 
 #: libraries/messages.inc.php:1125
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Host authentication order"
-msgstr "Tipul autentificării"
+msgstr ""
 
 #: libraries/messages.inc.php:1126
 msgid "Leave blank for defaults"
 msgstr ""
 
 #: libraries/messages.inc.php:1127
-#, fuzzy
-#| msgid "Hardware authentication failed"
 msgid "Host authentication rules"
-msgstr "Hardware authentication failed"
+msgstr ""
 
 #: libraries/messages.inc.php:1128
-#, fuzzy
-#| msgid "Connect without password"
 msgid "Allow logins without a password"
-msgstr "Conectează fără parolă"
+msgstr ""
 
 #: libraries/messages.inc.php:1129
 msgid "Allow root login"
@@ -5268,10 +5036,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1137
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark table"
-msgstr "Semnul de carte %s a fost creat"
+msgstr ""
 
 #: libraries/messages.inc.php:1138
 msgid ""
@@ -5280,10 +5046,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1139
-#, fuzzy
-#| msgid "Version information"
 msgid "Column information table"
-msgstr "Informații despre versiune"
+msgstr ""
 
 #: libraries/messages.inc.php:1140
 msgid "Compress connection to MySQL server"
@@ -5302,10 +5066,8 @@ msgid "Connection type"
 msgstr "Tipul conexiunii"
 
 #: libraries/messages.inc.php:1144
-#, fuzzy
-#| msgid "Change password"
 msgid "Control user password"
-msgstr "Schimbare parolă"
+msgstr ""
 
 #: libraries/messages.inc.php:1145
 msgid ""
@@ -5314,22 +5076,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1146
-#, fuzzy
-#| msgid "Any user"
 msgid "Control user"
-msgstr "Oricare utilizator"
+msgstr ""
 
 #: libraries/messages.inc.php:1147
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Count tables when showing database list"
-msgstr "Creează tabel nou în baza de date %s"
+msgstr ""
 
 #: libraries/messages.inc.php:1148
-#, fuzzy
-#| msgid "No tables"
 msgid "Count tables"
-msgstr "Nu există tabele"
+msgstr ""
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -5338,10 +5094,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1150
-#, fuzzy
-#| msgid "Designer"
 msgid "Designer table"
-msgstr "Designer"
+msgstr ""
 
 #: libraries/messages.inc.php:1151
 msgid ""
@@ -5377,10 +5131,8 @@ msgid "PHP extension to use"
 msgstr "Extensia PHP de utilizat"
 
 #: libraries/messages.inc.php:1157
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr "ca o expresie"
+msgstr ""
 
 #: libraries/messages.inc.php:1158
 msgid "Hide databases"
@@ -5393,10 +5145,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1160
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL query history table"
-msgstr "Istoric SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1161
 msgid "Hostname where MySQL server is running"
@@ -5407,10 +5157,8 @@ msgid "Server hostname"
 msgstr "Numele de gazdă al serverului"
 
 #: libraries/messages.inc.php:1163
-#, fuzzy
-#| msgid "Log out"
 msgid "Logout URL"
-msgstr "Deconectare"
+msgstr ""
 
 #: libraries/messages.inc.php:1164
 msgid "Try to connect without password"
@@ -5427,12 +5175,11 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1167
-#, fuzzy
-#| msgid "Switch to copied database"
 msgid "Show only listed databases"
-msgstr "Schimbă la tabela copiată"
+msgstr ""
 
 #: libraries/messages.inc.php:1168 libraries/messages.inc.php:1192
+#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
@@ -5471,10 +5218,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1177
-#, fuzzy
-#| msgid "Relational key"
 msgid "Relation table"
-msgstr "Cheie relațională"
+msgstr ""
 
 #: libraries/messages.inc.php:1178
 msgid "SQL command to fetch available databases"
@@ -5491,10 +5236,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1181
-#, fuzzy
-#| msgid "Session value"
 msgid "Signon session name"
-msgstr "Valoare sesiune"
+msgstr ""
 
 #: libraries/messages.inc.php:1182
 msgid "Signon URL"
@@ -5505,20 +5248,16 @@ msgid "You should use SSL connections if your web server supports it"
 msgstr ""
 
 #: libraries/messages.inc.php:1184
-#, fuzzy
-#| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr "Portul la care ascultă serverul MySQL, lăsați gol pentru implicit"
+msgstr ""
 
 #: libraries/messages.inc.php:1185
 msgid "Server socket"
 msgstr "Soclul serverului"
 
 #: libraries/messages.inc.php:1186
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server"
-msgstr "Comprimă conexiunea la serverul MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1187
 msgid "Use SSL"
@@ -5540,10 +5279,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1191
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display fields table"
-msgstr "Arată facilitățile"
+msgstr ""
 
 #: libraries/messages.inc.php:1193
 msgid "User for config auth"
@@ -5556,10 +5293,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1195
-#, fuzzy
-#| msgid "Last check"
 msgid "Verbose check"
-msgstr "Ultima verficare"
+msgstr ""
 
 #: libraries/messages.inc.php:1196
 msgid ""
@@ -5568,16 +5303,13 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1197
-#, fuzzy
-#| msgid "File uploads are not allowed on this server."
 msgid "Verbose name of this server"
-msgstr "Încărcările de fișiere nu sînt permise pe acest server."
+msgstr ""
 
 #: libraries/messages.inc.php:1198
-#, fuzzy, php-format
-#| msgid "Select Tables"
+#, php-format
 msgid "Set value: %s"
-msgstr "Selectează tabele"
+msgstr ""
 
 #: libraries/messages.inc.php:1199
 msgid ""
@@ -5600,16 +5332,12 @@ msgid "Show password change form"
 msgstr ""
 
 #: libraries/messages.inc.php:1203
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Show create database form"
-msgstr "Redenumire bază de date în"
+msgstr ""
 
 #: libraries/messages.inc.php:1204
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show form"
-msgstr "Arată culoarea"
+msgstr ""
 
 #: libraries/messages.inc.php:1205
 msgid "Display the function fields in edit/insert mode"
@@ -5642,20 +5370,16 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/messages.inc.php:1212
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL queries"
-msgstr "Afișare interogare SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1213
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1214
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Show statistics"
-msgstr "Statisticile rîndului"
+msgstr ""
 
 #: libraries/messages.inc.php:1215
 msgid ""
@@ -5689,12 +5413,11 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1221
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Skip locked tables"
-msgstr "Schimbă la tabela copiată"
+msgstr ""
 
 #: libraries/messages.inc.php:1226 libraries/messages.inc.php:1606
+#, fuzzy
 msgid "Validate SQL"
 msgstr "Validează SQL"
 
@@ -5705,10 +5428,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1228
-#, fuzzy
-#| msgid "database name"
 msgid "Suggest new database name"
-msgstr "nume bază de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1229
 msgid "yes"
@@ -5731,20 +5452,16 @@ msgid "Directory on server where you can upload files for import"
 msgstr ""
 
 #: libraries/messages.inc.php:1233
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "Upload directory"
-msgstr "director de încărcare al serverului Web"
+msgstr ""
 
 #: libraries/messages.inc.php:1234
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
 #: libraries/messages.inc.php:1235
-#, fuzzy
-#| msgid "Hide databases"
 msgid "Use database search"
-msgstr "Ascunde baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1236
 msgid ""
@@ -5794,10 +5511,8 @@ msgid "Unparsable version string"
 msgstr ""
 
 #: libraries/messages.inc.php:1245
-#, fuzzy
-#| msgid "Last check"
 msgid "Version check"
-msgstr "Ultima verficare"
+msgstr ""
 
 #: libraries/messages.inc.php:1246
 msgid ""
@@ -5849,8 +5564,6 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/messages.inc.php:1256
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show color"
 msgstr "Arată culoarea"
 
@@ -5887,10 +5600,8 @@ msgid "Showing SQL query"
 msgstr "Afișare interogare SQL"
 
 #: libraries/messages.inc.php:1265
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show insert query"
-msgstr "Afișare interogare SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1266
 msgid "Only show keys"
@@ -6025,10 +5736,6 @@ msgstr ""
 "if you are doing an index scan."
 
 #: libraries/messages.inc.php:1288
-#, fuzzy
-#| msgid ""
-#| "The number of requests to read the previous row in key order. This read "
-#| "method is mainly used to optimise ORDER BY ... DESC."
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6342,12 +6049,6 @@ msgid "The number of physical writes of a key block to disk."
 msgstr "The number of physical writes of a key block to disk."
 
 #: libraries/messages.inc.php:1344
-#, fuzzy
-#| msgid ""
-#| "The total cost of the last compiled query as computed by the query "
-#| "optimiser. Useful for comparing the cost of different query plans for the "
-#| "same query. The default value of 0 means that no query has been compiled "
-#| "yet."
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -6523,12 +6224,6 @@ msgid "The number of times that a table lock was acquired immediately."
 msgstr "The number of times that a table lock was acquired immediately."
 
 #: libraries/messages.inc.php:1375
-#, fuzzy
-#| msgid ""
-#| "The number of times that a table lock could not be acquired immediately "
-#| "and a wait was needed. If this is high, and you have performance "
-#| "problems, you should first optimise your queries, and then either split "
-#| "your table or tables or use replication."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -6621,10 +6316,8 @@ msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(sau soclul serverului MySQL local nu este configurat momentan)"
 
 #: libraries/messages.inc.php:1393
-#, fuzzy
-#| msgid "Server socket"
 msgid "Socket"
-msgstr "Soclul serverului"
+msgstr ""
 
 #: libraries/messages.inc.php:1394
 msgid "Sort by key"
@@ -6659,10 +6352,8 @@ msgid "Export type"
 msgstr "Modul de export"
 
 #: libraries/messages.inc.php:1402
-#, fuzzy
-#| msgid "Export type"
 msgid "Export time in UTC"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:1403
 msgid ""
@@ -6722,10 +6413,8 @@ msgid "Stand-in structure for view"
 msgstr "Stand-in structure for view"
 
 #: libraries/messages.inc.php:1412
-#, fuzzy
-#| msgid "Sat"
 msgid "Start"
-msgstr "Dum"
+msgstr ""
 
 #: libraries/messages.inc.php:1413
 msgid "Last check"
@@ -6740,10 +6429,8 @@ msgid "Statements"
 msgstr "Comenzi"
 
 #: libraries/messages.inc.php:1416
-#, fuzzy
-#| msgid "Baltic"
 msgid "static"
-msgstr "Baltic"
+msgstr ""
 
 #: libraries/messages.inc.php:1417
 msgid ""
@@ -6799,32 +6486,24 @@ msgid "Propose table structure"
 msgstr "Propune structura de tabele"
 
 #: libraries/messages.inc.php:1429
-#, fuzzy
-#| msgid "Stand-in structure for view"
 msgid "Structure Difference"
-msgstr "Stand-in structure for view"
+msgstr ""
 
 #: libraries/messages.inc.php:1430
-#, fuzzy
-#| msgid "Stand-in structure for view"
 msgid "Structure for view"
-msgstr "Stand-in structure for view"
+msgstr "Structură pentru vizualizare"
 
 #: libraries/messages.inc.php:1431
-#, fuzzy
-#| msgid "Structure"
 msgid "structure"
-msgstr "Structură"
+msgstr ""
 
 #: libraries/messages.inc.php:1432
 msgid "Structure"
 msgstr "Structură"
 
 #: libraries/messages.inc.php:1433
-#, fuzzy
-#| msgid "Structure only"
 msgid "Structure Synchronization"
-msgstr "Numai structura"
+msgstr ""
 
 #: libraries/messages.inc.php:1434
 msgid "Submit"
@@ -6883,20 +6562,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1446
-#, fuzzy
-#| msgid "Hide databases"
 msgid "Synchronize Databases"
-msgstr "Ascunde baze de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1447
 msgid "Synchronize"
 msgstr ""
 
 #: libraries/messages.inc.php:1449
-#, fuzzy
-#| msgid "Add into comments"
 msgid "Add column(s)"
-msgstr "Adăugare la comentarii"
+msgstr ""
 
 #: libraries/messages.inc.php:1450
 #, php-format
@@ -6925,10 +6600,8 @@ msgid "Table comments"
 msgstr "Comentarii tabel"
 
 #: libraries/messages.inc.php:1456
-#, fuzzy
-#| msgid "Just delete the users from the privilege tables."
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Șterge utilizatorii din tabelele de drepturi."
+msgstr ""
 
 #: libraries/messages.inc.php:1457
 msgid "The table name is empty!"
@@ -6955,10 +6628,8 @@ msgid "Table %s has been flushed"
 msgstr "Tabelul %s a fost curățat"
 
 #: libraries/messages.inc.php:1462
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert row(s)"
-msgstr "Inserează ca o nouă linie"
+msgstr ""
 
 #: libraries/messages.inc.php:1463
 msgid "Table seems to be empty!"
@@ -7002,10 +6673,8 @@ msgid "Table"
 msgstr "Tabel"
 
 #: libraries/messages.inc.php:1473
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update row(s)"
-msgstr "Reînnoire comandă"
+msgstr ""
 
 #: libraries/messages.inc.php:1474
 msgid "take it"
@@ -7147,22 +6816,17 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1504
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create version"
-msgstr "Creare relație"
+msgstr ""
 
 #: libraries/messages.inc.php:1505
-#, fuzzy, php-format
-#| msgid "Creation of PDFs"
+#, php-format
 msgid "Create version %s of %s.%s"
-msgstr "Creare PDF"
+msgstr ""
 
 #: libraries/messages.inc.php:1506
-#, fuzzy
-#| msgid "Database"
 msgid "Database Log"
-msgstr "Baza de date"
+msgstr ""
 
 #: libraries/messages.inc.php:1507
 msgid "Data definition statement"
@@ -7173,10 +6837,8 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1509
-#, fuzzy
-#| msgid "Data"
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #: libraries/messages.inc.php:1510
 msgid "Deactivate now"
@@ -7188,10 +6850,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1512
-#, fuzzy, php-format
-#| msgid "Export"
+#, php-format
 msgid "Export as %s"
-msgstr "Exportă"
+msgstr ""
 
 #: libraries/messages.inc.php:1513
 msgid "Tracking is active."
@@ -7224,10 +6885,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
-#, fuzzy
-#| msgid "Server version"
 msgid "Show versions"
-msgstr "Versiune server"
+msgstr ""
 
 #: libraries/messages.inc.php:1521
 msgid "SQL dump (file download)"
@@ -7246,60 +6905,44 @@ msgid "This option will replace your table and contained data."
 msgstr ""
 
 #: libraries/messages.inc.php:1525
-#, fuzzy
-#| msgid "SQL result"
 msgid "SQL execution"
-msgstr "Rezultat SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1526
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
 #: libraries/messages.inc.php:1527
-#, fuzzy
-#| msgid "Statements"
 msgid "Tracking statements"
-msgstr "Comenzi"
+msgstr ""
 
 #: libraries/messages.inc.php:1528
-#, fuzzy
-#| msgid "Effective"
 msgid "active"
-msgstr "Efectiv"
+msgstr ""
 
 #: libraries/messages.inc.php:1529
 msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1530
-#, fuzzy
-#| msgid "Structure and data"
 msgid "Structure snapshot"
-msgstr "Structura și date"
+msgstr ""
 
 #: libraries/messages.inc.php:1531
-#, fuzzy
-#| msgid "Create"
 msgid "Created"
-msgstr "Creează"
+msgstr ""
 
 #: libraries/messages.inc.php:1532
-#, fuzzy
-#| msgid "Protocol version"
 msgid "Last version"
-msgstr "Versiune protocol"
+msgstr ""
 
 #: libraries/messages.inc.php:1533
-#, fuzzy
-#| msgid "Update Query"
 msgid "Updated"
-msgstr "Reînnoire comandă"
+msgstr ""
 
 #: libraries/messages.inc.php:1534
-#, fuzzy
-#| msgid "PHP Version"
 msgid "Version"
-msgstr "Versiune PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:1535
 msgid "Track these data definition statements:"
@@ -7310,32 +6953,24 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1537
-#, fuzzy
-#| msgid "Create table"
 msgid "Tracked tables"
-msgstr "Creare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:1538
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1539
-#, fuzzy
-#| msgid "Check table"
 msgid "Track table"
-msgstr "Verificare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:1540
-#, fuzzy
-#| msgid "Create table"
 msgid "Untracked tables"
-msgstr "Creare tabel"
+msgstr ""
 
 #: libraries/messages.inc.php:1541
-#, fuzzy
-#| msgid "Username:"
 msgid "Username"
-msgstr "Nume utilizator:"
+msgstr ""
 
 #: libraries/messages.inc.php:1542
 #, php-format
@@ -7358,10 +6993,8 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1546
-#, fuzzy
-#| msgid "PHP Version"
 msgid "Versions"
-msgstr "Versiune PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:1547
 msgid ""
@@ -7695,11 +7328,7 @@ msgid "Use this value"
 msgstr "Folosește această valoare"
 
 #: libraries/messages.inc.php:1607
-#, fuzzy, php-format
-#| msgid ""
-#| "The SQL validator could not be initialised. Please check if you have "
-#| "installed the necessary PHP extensions as described in the %sdocumentation"
-#| "%s."
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -7818,44 +7447,32 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1634
-#, fuzzy
-#| msgid "Export type"
 msgid "Export contents"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:1635
-#, fuzzy
-#| msgid "Functions"
 msgid "Export functions"
-msgstr "Funcții"
+msgstr ""
 
 #: libraries/messages.inc.php:1636
-#, fuzzy
-#| msgid "Procedures"
 msgid "Export procedures"
-msgstr "Proceduri"
+msgstr ""
 
 #: libraries/messages.inc.php:1637
 msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1638
-#, fuzzy
-#| msgid "Export type"
 msgid "Export tables"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:1639
-#, fuzzy
-#| msgid "Export type"
 msgid "Export triggers"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:1640
-#, fuzzy
-#| msgid "Export type"
 msgid "Export views"
-msgstr "Modul de export"
+msgstr ""
 
 #: libraries/messages.inc.php:1641
 msgid "XML"

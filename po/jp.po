@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 18:52+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:38+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,12 +55,9 @@ msgid "EiB"
 msgstr "EiB"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgctxt "$mysql_4_1_doc_lang$mysql_4_1_doc_lang"
-#| msgid "en"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "ja"
+msgstr ""
 
 #: libraries/messages.inc.php:26
 #, fuzzy
@@ -127,10 +124,8 @@ msgid "May"
 msgstr ""
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Sun"
 msgid "Jun"
-msgstr "日"
+msgstr ""
 
 #: libraries/messages.inc.php:30
 msgid "Jul"
@@ -2399,10 +2394,8 @@ msgid "Name"
 msgstr ""
 
 #: libraries/messages.inc.php:564
-#, fuzzy
-#| msgid "ltr"
 msgid "Filter"
-msgstr "ltr"
+msgstr ""
 
 #: libraries/messages.inc.php:565
 msgid "New table"
@@ -3760,11 +3753,8 @@ msgid "Save as file"
 msgstr ""
 
 #: libraries/messages.inc.php:883
-#, fuzzy
-#| msgctxt "$mysql_4_1_doc_lang$mysql_4_1_doc_lang"
-#| msgid "en"
 msgid "Sent"
-msgstr "ja"
+msgstr ""
 
 #: libraries/messages.inc.php:884
 msgid "Server Choice"
@@ -4371,10 +4361,8 @@ msgid "Customize startup page"
 msgstr ""
 
 #: libraries/messages.inc.php:1028
-#, fuzzy
-#| msgid "Sat"
 msgid "Startup"
-msgstr "土"
+msgstr ""
 
 #: libraries/messages.inc.php:1029
 msgid "Choose how you want tabs to work"
@@ -6113,10 +6101,8 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/messages.inc.php:1412
-#, fuzzy
-#| msgid "Sat"
 msgid "Start"
-msgstr "土"
+msgstr ""
 
 #: libraries/messages.inc.php:1413
 msgid "Last check"
@@ -6145,10 +6131,8 @@ msgid "Last update"
 msgstr ""
 
 #: libraries/messages.inc.php:1419
-#, fuzzy
-#| msgid "Sat"
 msgid "Status"
-msgstr "土"
+msgstr ""
 
 #: libraries/messages.inc.php:1420
 msgid "Stop"
@@ -6223,10 +6207,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1437
-#, fuzzy
-#| msgid "Sun"
 msgid "Sum"
-msgstr "日"
+msgstr ""
 
 #: libraries/messages.inc.php:1438
 msgid "Swedish"

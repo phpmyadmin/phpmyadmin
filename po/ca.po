@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 22:38+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:36+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,9 @@ msgid "EiB"
 msgstr "EB"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "Enviat"
+msgstr ""
 
 #: libraries/messages.inc.php:26
 #, fuzzy
@@ -143,19 +141,15 @@ msgstr "Set"
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "No"
+msgstr "Nov"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "Sup"
+msgstr "Dec"
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -314,14 +308,10 @@ msgid "Alter table order by"
 msgstr "Altera la taula i ordena per"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse"
 msgid "Analyze"
 msgstr "Analitza"
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "Analitza la taula"
 
@@ -473,6 +463,7 @@ msgstr ""
 "dades %s?"
 
 #: libraries/messages.inc.php:105
+#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Desactivat"
@@ -486,6 +477,7 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Estàs a punt de DESACTIVAR un repositori BLOB!"
 
 #: libraries/messages.inc.php:108
+#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Activat"
@@ -499,6 +491,7 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Treure Referència a Repositori BLOB"
 
 #: libraries/messages.inc.php:111
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Repara"
@@ -601,15 +594,11 @@ msgid "Cancel"
 msgstr "Cancel.lar"
 
 #: libraries/messages.inc.php:137
-#, fuzzy
-#| msgid "Could not load export plug-ins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'exportació, comprova l'instal.lació!"
 
 #: libraries/messages.inc.php:138
-#, fuzzy
-#| msgid "Could not load import plug-ins, please check your installation!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
@@ -794,8 +783,9 @@ msgid "Complete inserts"
 msgstr "Completa insercions"
 
 #: libraries/messages.inc.php:179 libraries/messages.inc.php:968
+#, fuzzy
 msgid "Compression"
-msgstr "Compressió"
+msgstr "Compresió"
 
 #: libraries/messages.inc.php:180
 #, php-format
@@ -942,7 +932,7 @@ msgstr "Crea una relació"
 
 #: libraries/messages.inc.php:208
 msgid "Create table"
-msgstr "Crea una taula"
+msgstr ""
 
 #: libraries/messages.inc.php:209
 #, fuzzy
@@ -960,9 +950,10 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Crea una base de dades amb el mateix nom i atorga tots els permisos"
 
 #: libraries/messages.inc.php:212
+#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
-msgstr "Cap"
+msgstr "Res"
 
 #: libraries/messages.inc.php:213
 #, php-format
@@ -986,16 +977,15 @@ msgid "Croatian"
 msgstr "Croata"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "CSV"
-msgstr "CSV"
+msgstr "dades CSV "
 
 #: libraries/messages.inc.php:219
 msgid "Current server"
 msgstr "Servidor actual"
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Custom colour"
 msgid "Custom color"
 msgstr "Color triat"
 
@@ -1043,8 +1033,9 @@ msgid "'%s' database does not exist."
 msgstr "La base de dades '%s' no existeix."
 
 #: libraries/messages.inc.php:232 libraries/messages.inc.php:994
+#, fuzzy
 msgid "Databases"
-msgstr "bases de dades"
+msgstr "Bases de dades"
 
 #: libraries/messages.inc.php:233
 #, php-format
@@ -1100,8 +1091,6 @@ msgid "Pages containing data"
 msgstr "Pàgines contenint dades"
 
 #: libraries/messages.inc.php:245
-#, fuzzy
-#| msgid "Data Synchronisation"
 msgid "Data Synchronization"
 msgstr "Sincronizació de dades"
 
@@ -1207,6 +1196,7 @@ msgid "Descending"
 msgstr "Descendent"
 
 #: libraries/messages.inc.php:268
+#, fuzzy
 msgid "Description"
 msgstr "Descripció"
 
@@ -1324,6 +1314,7 @@ msgid "dynamic"
 msgstr "dinàmic"
 
 #: libraries/messages.inc.php:296 libraries/messages.inc.php:1222
+#, fuzzy
 msgid "Edit"
 msgstr "Edita"
 
@@ -1420,8 +1411,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Error desant coordenades per al Dissenyador."
 
 #: libraries/messages.inc.php:319
-#, fuzzy, php-format
-#| msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+#, php-format
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr ""
 "Els comodins _ i % han de marcar-se amb una \\ per usar-los literalment"
@@ -1451,8 +1441,9 @@ msgid "Execute bookmarked query"
 msgstr "Executa una consulta desada"
 
 #: libraries/messages.inc.php:326 libraries/messages.inc.php:1223
+#, fuzzy
 msgid "Explain SQL"
-msgstr "Explicació de l'SQL"
+msgstr "Explica SQL"
 
 #: libraries/messages.inc.php:327
 msgid "Export"
@@ -1600,6 +1591,7 @@ msgid "FOREIGN KEY relation added"
 msgstr "Afegida relació de FOREIGN KEY"
 
 #: libraries/messages.inc.php:358 libraries/messages.inc.php:972
+#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1712,8 +1704,6 @@ msgid "has been altered."
 msgstr "ha estat alterada."
 
 #: libraries/messages.inc.php:388
-#, fuzzy
-#| msgid "Selected target tables have been synchronised with source tables."
 msgid "Selected target tables have been synchronized with source tables."
 msgstr ""
 "Les taules de destinació seleccionades s'han sincronitzat amb les taules "
@@ -1828,6 +1818,7 @@ msgid "Import files"
 msgstr "Importa arxius"
 
 #: libraries/messages.inc.php:416 libraries/messages.inc.php:1042
+#, fuzzy
 msgid "Format of imported file"
 msgstr "Format de l'arxiu importat"
 
@@ -1870,6 +1861,7 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar monedes ($5.00 a 5.00)"
 
 #: libraries/messages.inc.php:424 libraries/messages.inc.php:607
+#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Full de càlcul Open Document"
 
@@ -2005,10 +1997,8 @@ msgid "Inserted row id: %1$d"
 msgstr "Id de la fila inserida: %1$d"
 
 #: libraries/messages.inc.php:450
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert as new row and ignore errors"
-msgstr "Insereix com a nova fila"
+msgstr ""
 
 #: libraries/messages.inc.php:451
 msgid "Insert"
@@ -2079,8 +2069,6 @@ msgid "Table must have at least one field."
 msgstr "La taula ha de tenir al menys un camp."
 
 #: libraries/messages.inc.php:466
-#, fuzzy
-#| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Aquesta extensió no suporta importacions comprimides!"
 
@@ -2542,10 +2530,8 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: libraries/messages.inc.php:565
-#, fuzzy
-#| msgid "No tables"
 msgid "New table"
-msgstr "No hi ha taules"
+msgstr ""
 
 #: libraries/messages.inc.php:566
 msgid "Next"
@@ -2722,6 +2708,7 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> resultat(s)"
 
 #: libraries/messages.inc.php:604 libraries/messages.inc.php:1001
+#, fuzzy
 msgid "Tables"
 msgstr "Taules"
 
@@ -2746,14 +2733,10 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/messages.inc.php:612
-#, fuzzy
-#| msgid "Optimise"
 msgid "Optimize"
 msgstr "Optimitza"
 
 #: libraries/messages.inc.php:613
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Optimitza la taula"
 
@@ -2770,6 +2753,7 @@ msgid "Overhead"
 msgstr "Defragmentat"
 
 #: libraries/messages.inc.php:617 libraries/messages.inc.php:974
+#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Sobreescriu arxiu(s) existent(s)"
 
@@ -3001,16 +2985,12 @@ msgid "No tables"
 msgstr "No hi ha taules"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
-#| msgid "Table %1$s has been created."
 msgid "Page has been created"
-msgstr "S'ha creat la taula %1$s."
+msgstr ""
 
 #: libraries/messages.inc.php:662
-#, fuzzy
-#| msgid "Hardware authentication failed"
 msgid "Page creation failed"
-msgstr "Error a l'autenticació de maquinari"
+msgstr ""
 
 #: libraries/messages.inc.php:663
 msgid "PDF"
@@ -3049,6 +3029,7 @@ msgid "PHP array"
 msgstr "matriu PHP"
 
 #: libraries/messages.inc.php:672 libraries/messages.inc.php:1225
+#, fuzzy
 msgid "Create PHP Code"
 msgstr "Crea codi PHP"
 
@@ -3374,8 +3355,9 @@ msgid "Query cache"
 msgstr "Memòria cau de consultes"
 
 #: libraries/messages.inc.php:747 libraries/messages.inc.php:1006
+#, fuzzy
 msgid "Query window"
-msgstr "Finestra de la Consulta"
+msgstr "Finestra de consultes"
 
 #: libraries/messages.inc.php:748
 #, php-format
@@ -3400,8 +3382,7 @@ msgstr ""
 "consultes al servidor."
 
 #: libraries/messages.inc.php:752
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f sec"
 msgstr "La consulta tarda %s seg"
 
@@ -3438,8 +3419,9 @@ msgid "Check referential integrity:"
 msgstr "Comprova la integritat referencial:"
 
 #: libraries/messages.inc.php:762 libraries/messages.inc.php:1224
+#, fuzzy
 msgid "Refresh"
-msgstr "Actualitza"
+msgstr "Refresca"
 
 #: libraries/messages.inc.php:763
 msgid "Relational display field"
@@ -3483,10 +3465,8 @@ msgid "Reloading the privileges"
 msgstr "Recarregant permisos"
 
 #: libraries/messages.inc.php:772
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Reload navigation frame"
-msgstr "Marc de navegació"
+msgstr ""
 
 #: libraries/messages.inc.php:773
 msgid "Reload privileges"
@@ -3527,10 +3507,8 @@ msgid "Rename table to"
 msgstr "Reanomena les taules a"
 
 #: libraries/messages.inc.php:782
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Rename view to"
-msgstr "Reanomena les taules a"
+msgstr ""
 
 #: libraries/messages.inc.php:783
 msgid "Repair"
@@ -3656,12 +3634,11 @@ msgid "Show connected slaves"
 msgstr "Mostra els esclaus connectats"
 
 #: libraries/messages.inc.php:805 libraries/messages.inc.php:1267
+#, fuzzy
 msgid "Show master status"
 msgstr "Mostra l'estat del mestre (Show master status)"
 
 #: libraries/messages.inc.php:806
-#, fuzzy
-#| msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
 "Saltar error(s) podria donar lloc a falta de sincronització entre mestre i "
@@ -3759,8 +3736,6 @@ msgid "Slave status"
 msgstr "Estat de l'esclau"
 
 #: libraries/messages.inc.php:826
-#, fuzzy
-#| msgid "Synchronise databases with master"
 msgid "Synchronize databases with master"
 msgstr "Sincronitza les bases de dades amb el mestre"
 
@@ -3773,8 +3748,9 @@ msgid "Unknown error"
 msgstr "Error desconegut"
 
 #: libraries/messages.inc.php:829
+#, fuzzy
 msgid "Reset"
-msgstr "Esborra"
+msgstr "Reinicia"
 
 #: libraries/messages.inc.php:830
 msgid "Resource limits"
@@ -3998,8 +3974,9 @@ msgid "Select Tables"
 msgstr "Tria Taules"
 
 #: libraries/messages.inc.php:882 libraries/messages.inc.php:966
+#, fuzzy
 msgid "Save as file"
-msgstr "enviar"
+msgstr "Desa com a arxiu"
 
 #: libraries/messages.inc.php:883
 msgid "Sent"
@@ -4018,6 +3995,7 @@ msgid "Server"
 msgstr "Servidor"
 
 #: libraries/messages.inc.php:887 libraries/messages.inc.php:999
+#, fuzzy
 msgid "Servers"
 msgstr "Servidors"
 
@@ -4499,14 +4477,10 @@ msgid "Browse mode"
 msgstr "Mode de navegació"
 
 #: libraries/messages.inc.php:985
-#, fuzzy
-#| msgid "Customise browse mode"
 msgid "Customize browse mode"
 msgstr "Configura el mode de navegació"
 
 #: libraries/messages.inc.php:986
-#, fuzzy
-#| msgid "Customise edit mode"
 msgid "Customize edit mode"
 msgstr "Configura el mode d'edició"
 
@@ -4515,8 +4489,6 @@ msgid "Edit mode"
 msgstr "Mode d'edició"
 
 #: libraries/messages.inc.php:988
-#, fuzzy
-#| msgid "Customise default export options"
 msgid "Customize default export options"
 msgstr "Configura les opcions predeterminades d'exportació"
 
@@ -4525,8 +4497,6 @@ msgid "Export defaults"
 msgstr "Predeterminats d'exportació"
 
 #: libraries/messages.inc.php:990
-#, fuzzy
-#| msgid "Customise default common import options"
 msgid "Customize default common import options"
 msgstr "Configura les opcions predeterminades d'importació"
 
@@ -4548,8 +4518,6 @@ msgid "Databases display options"
 msgstr "Opcions de visualització de les bases de dades"
 
 #: libraries/messages.inc.php:996
-#, fuzzy
-#| msgid "Customise appearance of the navigation frame"
 msgid "Customize appearance of the navigation frame"
 msgstr "Configura l'aspecte del marc de navegació"
 
@@ -4578,8 +4546,6 @@ msgid "Other core settings"
 msgstr "Altres paràmetres principals"
 
 #: libraries/messages.inc.php:1005
-#, fuzzy
-#| msgid "Customise query window options"
 msgid "Customize query window options"
 msgstr "Configura les opcions de la finestra de consultes"
 
@@ -4634,18 +4600,15 @@ msgstr ""
 "de taules enllaçades[/a] a la documentació"
 
 #: libraries/messages.inc.php:1016 libraries/messages.inc.php:1173
+#, fuzzy
 msgid "PMA database"
 msgstr "Base de dades PMA"
 
 #: libraries/messages.inc.php:1017
-#, fuzzy
-#| msgid "Customisation"
 msgid "Customization"
 msgstr "Configuració"
 
 #: libraries/messages.inc.php:1018
-#, fuzzy
-#| msgid "Customise export options"
 msgid "Customize export options"
 msgstr "Configurar valors d'expotació predeterminats"
 
@@ -4654,26 +4617,18 @@ msgid "Features"
 msgstr "Propietats"
 
 #: libraries/messages.inc.php:1020
-#, fuzzy
-#| msgid "Customise import defaults"
 msgid "Customize import defaults"
 msgstr "Configurar valors d'importació predeterminats"
 
 #: libraries/messages.inc.php:1021
-#, fuzzy
-#| msgid "Customise navigation frame"
 msgid "Customize navigation frame"
 msgstr "Configurar marc de navegació"
 
 #: libraries/messages.inc.php:1022
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize main frame"
 msgstr "Configurar marc principal"
 
 #: libraries/messages.inc.php:1023
-#, fuzzy
-#| msgid "Customise links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Configura els enllaços mostrats a les caixes de consultes SQL"
 
@@ -4695,8 +4650,6 @@ msgid "SQL queries"
 msgstr "Consultes SQL"
 
 #: libraries/messages.inc.php:1027
-#, fuzzy
-#| msgid "Customise startup page"
 msgid "Customize startup page"
 msgstr "Configura la pàgina d'inici"
 
@@ -4782,8 +4735,9 @@ msgstr ""
 "(base de dades, taula) i només SQL està sempre disponible"
 
 #: libraries/messages.inc.php:1043 libraries/messages.inc.php:1386
+#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Nombre de registres (consultes) a saltar des de l'inici"
+msgstr "Nombre de registres(consultes) a saltar des de l'inici"
 
 #: libraries/messages.inc.php:1044
 msgid "Partial import: skip queries"
@@ -5034,8 +4988,9 @@ msgid "Memory limit"
 msgstr "Límit de memoria"
 
 #: libraries/messages.inc.php:1092 libraries/messages.inc.php:1104
+#, fuzzy
 msgid "Use only icons, only text or both"
-msgstr "Usar només icones, només text o bé ambdós"
+msgstr "Usa només icones, només text o bé ambdós"
 
 #: libraries/messages.inc.php:1093
 msgid "Iconic navigation bar"
@@ -5100,10 +5055,6 @@ msgid "Protect binary fields"
 msgstr "Protegeix els camps binaris"
 
 #: libraries/messages.inc.php:1108
-#, fuzzy
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilises JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -5412,6 +5363,7 @@ msgid "Show only listed databases"
 msgstr "Mostra només les bases de dades de la llista"
 
 #: libraries/messages.inc.php:1168 libraries/messages.inc.php:1192
+#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Deixa en blanc si no utilitzes l'autenticació config"
 
@@ -5687,8 +5639,9 @@ msgid "Skip locked tables"
 msgstr "Salta taules bloquejades"
 
 #: libraries/messages.inc.php:1226 libraries/messages.inc.php:1606
+#, fuzzy
 msgid "Validate SQL"
-msgstr "Valida SQL"
+msgstr "Valida l'SQL"
 
 #: libraries/messages.inc.php:1227
 msgid ""
@@ -5854,8 +5807,6 @@ msgid "Show BLOB contents"
 msgstr "Mostra contingut BLOB"
 
 #: libraries/messages.inc.php:1256
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show color"
 msgstr "Mostra color"
 
@@ -5892,10 +5843,8 @@ msgid "Showing SQL query"
 msgstr "Mostrant consulta SQL"
 
 #: libraries/messages.inc.php:1265
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show insert query"
-msgstr "Mostrant consulta SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1266
 msgid "Only show keys"
@@ -6032,10 +5981,6 @@ msgstr ""
 "rang o si s'està fent una cerca d'index."
 
 #: libraries/messages.inc.php:1288
-#, fuzzy
-#| msgid ""
-#| "The number of requests to read the previous row in key order. This read "
-#| "method is mainly used to optimise ORDER BY ... DESC."
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6353,12 +6298,6 @@ msgid "The number of physical writes of a key block to disk."
 msgstr "El nombre d'escriptures físiques d'un bloc de clau a disc."
 
 #: libraries/messages.inc.php:1344
-#, fuzzy
-#| msgid ""
-#| "The total cost of the last compiled query as computed by the query "
-#| "optimiser. Useful for comparing the cost of different query plans for the "
-#| "same query. The default value of 0 means that no query has been compiled "
-#| "yet."
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -6540,12 +6479,6 @@ msgid "The number of times that a table lock was acquired immediately."
 msgstr "El nombre de vegades que un bloqueig de taula s'ha fet immediatament."
 
 #: libraries/messages.inc.php:1375
-#, fuzzy
-#| msgid ""
-#| "The number of times that a table lock could not be acquired immediately "
-#| "and a wait was needed. If this is high, and you have performance "
-#| "problems, you should first optimise your queries, and then either split "
-#| "your table or tables or use replication."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -6676,10 +6609,8 @@ msgid "Export type"
 msgstr "Tipus d' Exportació"
 
 #: libraries/messages.inc.php:1402
-#, fuzzy
-#| msgid "Export type"
 msgid "Export time in UTC"
-msgstr "Tipus d' Exportació"
+msgstr ""
 
 #: libraries/messages.inc.php:1403
 msgid ""
@@ -6814,16 +6745,12 @@ msgid "Propose table structure"
 msgstr "Proposa una estructura de taula"
 
 #: libraries/messages.inc.php:1429
-#, fuzzy
-#| msgid "Data Difference"
 msgid "Structure Difference"
-msgstr "Diferència de dades"
+msgstr "Diferència d'estructura"
 
 #: libraries/messages.inc.php:1430
-#, fuzzy
-#| msgid "Stand-in structure for view"
 msgid "Structure for view"
-msgstr "Estructura de suport per a vistes"
+msgstr "Estructura per a vista"
 
 #: libraries/messages.inc.php:1431
 msgid "structure"
@@ -6834,8 +6761,6 @@ msgid "Structure"
 msgstr "Estructura"
 
 #: libraries/messages.inc.php:1433
-#, fuzzy
-#| msgid "Structure Synchronisation"
 msgid "Structure Synchronization"
 msgstr "Sincronització d'estructura"
 
@@ -6848,10 +6773,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "La vostra comanda SQL ha estat executada amb èxit"
 
 #: libraries/messages.inc.php:1436
-#, fuzzy, php-format
-#| msgid ""
-#| "Server running with Suhosin. Please refer to %sdocumentation%s for "
-#| "possible issues."
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -6893,10 +6815,6 @@ msgid "Switch to copied table"
 msgstr "Canvia a una taula copiada"
 
 #: libraries/messages.inc.php:1445
-#, fuzzy
-#| msgid ""
-#| "Target database will be completely synchronised with source database. "
-#| "Source database will remain unchanged."
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -6905,14 +6823,10 @@ msgstr ""
 "dades origen. L'origen restarà sense canvis."
 
 #: libraries/messages.inc.php:1446
-#, fuzzy
-#| msgid "Synchronise Databases"
 msgid "Synchronize Databases"
 msgstr "Sincronitza Based de dades"
 
 #: libraries/messages.inc.php:1447
-#, fuzzy
-#| msgid "Synchronise"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
@@ -7028,8 +6942,6 @@ msgid "take it"
 msgstr "agafa"
 
 #: libraries/messages.inc.php:1475
-#, fuzzy
-#| msgid "Target database has been synchronised with source database"
 msgid "Target database has been synchronized with source database"
 msgstr ""
 "La base de dades destinació s'ha sincronitzat amb la base de dades origen"
@@ -7680,11 +7592,7 @@ msgid "Use this value"
 msgstr "Fes servir aquest valor"
 
 #: libraries/messages.inc.php:1607
-#, fuzzy, php-format
-#| msgid ""
-#| "The SQL validator could not be initialised. Please check if you have "
-#| "installed the necessary PHP extensions as described in the %sdocumentation"
-#| "%s."
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -7718,10 +7626,7 @@ msgid "View dump (schema) of table"
 msgstr "Veure un esquema de la taula"
 
 #: libraries/messages.inc.php:1614
-#, fuzzy, php-format
-#| msgid ""
-#| "This view has at least this number of rows. Please refer to %"
-#| "sdocumentation%s."
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."

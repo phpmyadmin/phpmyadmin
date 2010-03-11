@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 22:40+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:38+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,9 @@ msgid "EiB"
 msgstr "EiB"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "Sendt"
+msgstr ""
 
 #: libraries/messages.inc.php:26
 #, fuzzy
@@ -143,19 +141,15 @@ msgstr "Sep"
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "Okt"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "Nei"
+msgstr "Nov"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "Slett"
+msgstr "Des"
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -314,14 +308,10 @@ msgid "Alter table order by"
 msgstr "Endre tabellrekkefølge ved"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse"
 msgid "Analyze"
 msgstr "Analyser"
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "Analyser tabell"
 
@@ -472,6 +462,7 @@ msgstr ""
 "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %s?"
 
 #: libraries/messages.inc.php:105
+#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Avslått"
@@ -485,6 +476,7 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Du er i ferd med å SLÅ AV et BLOB lager!"
 
 #: libraries/messages.inc.php:108
+#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Påslått"
@@ -498,6 +490,7 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Fjern BLOB lager referanse"
 
 #: libraries/messages.inc.php:111
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Reparer"
@@ -600,14 +593,10 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: libraries/messages.inc.php:137
-#, fuzzy
-#| msgid "Could not load export plug-ins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Kunne ikke laste eksporttillegg, kontroller din innstallasjon!"
 
 #: libraries/messages.inc.php:138
-#, fuzzy
-#| msgid "Could not load import plug-ins, please check your installation!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
@@ -793,6 +782,7 @@ msgid "Complete inserts"
 msgstr "Komplette innlegg"
 
 #: libraries/messages.inc.php:179 libraries/messages.inc.php:968
+#, fuzzy
 msgid "Compression"
 msgstr "Kompresjon"
 
@@ -938,7 +928,7 @@ msgstr "Opprett relasjon"
 
 #: libraries/messages.inc.php:208
 msgid "Create table"
-msgstr "Opprett tabell"
+msgstr ""
 
 #: libraries/messages.inc.php:209
 #, fuzzy
@@ -956,6 +946,7 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Opprett database med samme navn og gi alle rettigheter"
 
 #: libraries/messages.inc.php:212
+#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Ingen"
@@ -982,16 +973,15 @@ msgid "Croatian"
 msgstr "kroatisk"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "CSV"
-msgstr "CSV"
+msgstr "CSV-data"
 
 #: libraries/messages.inc.php:219
 msgid "Current server"
 msgstr "Nåværende tjener"
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Custom colour"
 msgid "Custom color"
 msgstr "Egendefinert farge"
 
@@ -1039,8 +1029,9 @@ msgid "'%s' database does not exist."
 msgstr "'%s' database eksisterer ikke."
 
 #: libraries/messages.inc.php:232 libraries/messages.inc.php:994
+#, fuzzy
 msgid "Databases"
-msgstr "databaser"
+msgstr "Databaser"
 
 #: libraries/messages.inc.php:233
 #, php-format
@@ -1096,8 +1087,6 @@ msgid "Pages containing data"
 msgstr "Sider som inneholder data"
 
 #: libraries/messages.inc.php:245
-#, fuzzy
-#| msgid "Data Synchronisation"
 msgid "Data Synchronization"
 msgstr "Datasynkronisering"
 
@@ -1202,6 +1191,7 @@ msgid "Descending"
 msgstr "Synkende"
 
 #: libraries/messages.inc.php:268
+#, fuzzy
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -1318,8 +1308,9 @@ msgid "dynamic"
 msgstr "dynamisk"
 
 #: libraries/messages.inc.php:296 libraries/messages.inc.php:1222
+#, fuzzy
 msgid "Edit"
-msgstr "Endre"
+msgstr "Rediger"
 
 #: libraries/messages.inc.php:297
 msgid "Edit PDF Pages"
@@ -1414,8 +1405,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Feil oppstod under lagring av Designerkoordinater."
 
 #: libraries/messages.inc.php:319
-#, fuzzy, php-format
-#| msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+#, php-format
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr "Jokertegnene _ og % må beskyttes med en \\ for å bruke dem direkte"
 
@@ -1444,6 +1434,7 @@ msgid "Execute bookmarked query"
 msgstr "Utfør lagret spørring"
 
 #: libraries/messages.inc.php:326 libraries/messages.inc.php:1223
+#, fuzzy
 msgid "Explain SQL"
 msgstr "Forklar SQL"
 
@@ -1595,6 +1586,7 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY relasjon lagt til"
 
 #: libraries/messages.inc.php:358 libraries/messages.inc.php:972
+#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1707,8 +1699,6 @@ msgid "has been altered."
 msgstr "er endret."
 
 #: libraries/messages.inc.php:388
-#, fuzzy
-#| msgid "Selected target tables have been synchronised with source tables."
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Valgte måltabeller har blitt synkronisert med kildetabeller."
 
@@ -1821,8 +1811,9 @@ msgid "Import files"
 msgstr "Importer filer"
 
 #: libraries/messages.inc.php:416 libraries/messages.inc.php:1042
+#, fuzzy
 msgid "Format of imported file"
-msgstr "Formatet til importert fil"
+msgstr "Importfilformat"
 
 #: libraries/messages.inc.php:417
 msgid "Import"
@@ -1864,6 +1855,7 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer valuta ($5.00 til 5.00)"
 
 #: libraries/messages.inc.php:424 libraries/messages.inc.php:607
+#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document regneark"
 
@@ -1996,10 +1988,8 @@ msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
 
 #: libraries/messages.inc.php:450
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert as new row and ignore errors"
-msgstr "Sett inn som ny rad"
+msgstr ""
 
 #: libraries/messages.inc.php:451
 msgid "Insert"
@@ -2070,8 +2060,6 @@ msgid "Table must have at least one field."
 msgstr "Tabellen må ha minst ett felt."
 
 #: libraries/messages.inc.php:466
-#, fuzzy
-#| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Dette tillegget støtter ikke komprimerte importeringer!"
 
@@ -2530,10 +2518,8 @@ msgid "Filter"
 msgstr "Filter"
 
 #: libraries/messages.inc.php:565
-#, fuzzy
-#| msgid "No tables"
 msgid "New table"
-msgstr "Ingen tabeller"
+msgstr ""
 
 #: libraries/messages.inc.php:566
 msgid "Next"
@@ -2708,6 +2694,7 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totalt:</b> <i>%s</i> treff"
 
 #: libraries/messages.inc.php:604 libraries/messages.inc.php:1001
+#, fuzzy
 msgid "Tables"
 msgstr "Tabeller"
 
@@ -2732,14 +2719,10 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/messages.inc.php:612
-#, fuzzy
-#| msgid "Optimise"
 msgid "Optimize"
 msgstr "Optimaliser"
 
 #: libraries/messages.inc.php:613
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Optimiser tabell"
 
@@ -2756,8 +2739,9 @@ msgid "Overhead"
 msgstr "Overheng"
 
 #: libraries/messages.inc.php:617 libraries/messages.inc.php:974
+#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Overskriv eksisterende fil(-er)"
+msgstr "Skriv over eksisterende filer"
 
 #: libraries/messages.inc.php:619
 msgid "Packed"
@@ -2984,16 +2968,12 @@ msgid "No tables"
 msgstr "Ingen tabeller"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
-#| msgid "Table %1$s has been created."
 msgid "Page has been created"
-msgstr "Tabellen %1$s har blitt opprettet."
+msgstr ""
 
 #: libraries/messages.inc.php:662
-#, fuzzy
-#| msgid "Hardware authentication failed"
 msgid "Page creation failed"
-msgstr "Maskinvaregodkjenning mislyktes"
+msgstr ""
 
 #: libraries/messages.inc.php:663
 msgid "PDF"
@@ -3032,6 +3012,7 @@ msgid "PHP array"
 msgstr "PHP array"
 
 #: libraries/messages.inc.php:672 libraries/messages.inc.php:1225
+#, fuzzy
 msgid "Create PHP Code"
 msgstr "Lag PHP kode"
 
@@ -3355,6 +3336,7 @@ msgid "Query cache"
 msgstr "Spørringsmellomlager"
 
 #: libraries/messages.inc.php:747 libraries/messages.inc.php:1006
+#, fuzzy
 msgid "Query window"
 msgstr "Spørringsvindu"
 
@@ -3418,6 +3400,7 @@ msgid "Check referential integrity:"
 msgstr "Sjekk referanseintegritet:"
 
 #: libraries/messages.inc.php:762 libraries/messages.inc.php:1224
+#, fuzzy
 msgid "Refresh"
 msgstr "Oppdater"
 
@@ -3463,10 +3446,8 @@ msgid "Reloading the privileges"
 msgstr "Oppfrisker privilegiene"
 
 #: libraries/messages.inc.php:772
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Reload navigation frame"
-msgstr "Navigasjonsramme"
+msgstr ""
 
 #: libraries/messages.inc.php:773
 msgid "Reload privileges"
@@ -3507,10 +3488,8 @@ msgid "Rename table to"
 msgstr "Endre tabellens navn"
 
 #: libraries/messages.inc.php:782
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Rename view to"
-msgstr "Endre tabellens navn"
+msgstr ""
 
 #: libraries/messages.inc.php:783
 msgid "Repair"
@@ -3634,12 +3613,11 @@ msgid "Show connected slaves"
 msgstr "Vis tilkoblede slaver"
 
 #: libraries/messages.inc.php:805 libraries/messages.inc.php:1267
+#, fuzzy
 msgid "Show master status"
 msgstr "Vis masterstatus"
 
 #: libraries/messages.inc.php:806
-#, fuzzy
-#| msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr "Å hoppe over feil kan føre til usynkroniserte master og slave!"
 
@@ -3670,16 +3648,11 @@ msgid "Slave IO Thread not running!"
 msgstr ""
 
 #: libraries/messages.inc.php:813
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Denne tjeneren er ikke konfigurert som master i en replikasjonsprosess. "
-"Ønsker du å <a href=\"%s\">konfigurere</a> den?"
 
 #: libraries/messages.inc.php:814
 msgid "Reset slave"
@@ -3738,8 +3711,6 @@ msgid "Slave status"
 msgstr "Slavestatus"
 
 #: libraries/messages.inc.php:826
-#, fuzzy
-#| msgid "Synchronise databases with master"
 msgid "Synchronize databases with master"
 msgstr "Synkroniser databaser med master"
 
@@ -3752,8 +3723,9 @@ msgid "Unknown error"
 msgstr "Ukjent feil"
 
 #: libraries/messages.inc.php:829
+#, fuzzy
 msgid "Reset"
-msgstr "Tøm skjema"
+msgstr "Tilbakestill"
 
 #: libraries/messages.inc.php:830
 msgid "Resource limits"
@@ -3976,8 +3948,9 @@ msgid "Select Tables"
 msgstr "Velg tabeller"
 
 #: libraries/messages.inc.php:882 libraries/messages.inc.php:966
+#, fuzzy
 msgid "Save as file"
-msgstr "Last ned som fil"
+msgstr "Lagre som fil"
 
 #: libraries/messages.inc.php:883
 msgid "Sent"
@@ -3996,6 +3969,7 @@ msgid "Server"
 msgstr "Tjener"
 
 #: libraries/messages.inc.php:887 libraries/messages.inc.php:999
+#, fuzzy
 msgid "Servers"
 msgstr "Tjenere"
 
@@ -4473,14 +4447,10 @@ msgid "Browse mode"
 msgstr "Visningsmodus"
 
 #: libraries/messages.inc.php:985
-#, fuzzy
-#| msgid "Customise browse mode"
 msgid "Customize browse mode"
 msgstr "Endre visningsmodus"
 
 #: libraries/messages.inc.php:986
-#, fuzzy
-#| msgid "Customise edit mode"
 msgid "Customize edit mode"
 msgstr "Endre redigeringsmodus"
 
@@ -4489,8 +4459,6 @@ msgid "Edit mode"
 msgstr "Redigeringsmodus"
 
 #: libraries/messages.inc.php:988
-#, fuzzy
-#| msgid "Customise default export options"
 msgid "Customize default export options"
 msgstr "Endre standard eksportinnstillinger"
 
@@ -4499,8 +4467,6 @@ msgid "Export defaults"
 msgstr "Eksportinnstillinger"
 
 #: libraries/messages.inc.php:990
-#, fuzzy
-#| msgid "Customise default common import options"
 msgid "Customize default common import options"
 msgstr "Endre standard importinnstillinger"
 
@@ -4521,8 +4487,6 @@ msgid "Databases display options"
 msgstr "Databasevisningsinnstillinger"
 
 #: libraries/messages.inc.php:996
-#, fuzzy
-#| msgid "Customise appearance of the navigation frame"
 msgid "Customize appearance of the navigation frame"
 msgstr "Endre utseendet til navigasjonsrammen"
 
@@ -4551,8 +4515,6 @@ msgid "Other core settings"
 msgstr "Andre hovedinnstillinger"
 
 #: libraries/messages.inc.php:1005
-#, fuzzy
-#| msgid "Customise query window options"
 msgid "Customize query window options"
 msgstr "Endre spørringsvinduinnstillinger"
 
@@ -4607,18 +4569,15 @@ msgstr ""
 "dokumentasjonen"
 
 #: libraries/messages.inc.php:1016 libraries/messages.inc.php:1173
+#, fuzzy
 msgid "PMA database"
 msgstr "PMA database"
 
 #: libraries/messages.inc.php:1017
-#, fuzzy
-#| msgid "Customisation"
 msgid "Customization"
 msgstr "Tilpasning"
 
 #: libraries/messages.inc.php:1018
-#, fuzzy
-#| msgid "Customise export options"
 msgid "Customize export options"
 msgstr "Endre eksportstandarder"
 
@@ -4627,26 +4586,18 @@ msgid "Features"
 msgstr "Egenskaper"
 
 #: libraries/messages.inc.php:1020
-#, fuzzy
-#| msgid "Customise import defaults"
 msgid "Customize import defaults"
 msgstr "Endre importstandarder"
 
 #: libraries/messages.inc.php:1021
-#, fuzzy
-#| msgid "Customise navigation frame"
 msgid "Customize navigation frame"
 msgstr "Endre navigasjonsrammen"
 
 #: libraries/messages.inc.php:1022
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize main frame"
 msgstr "Endre hovedrammen"
 
 #: libraries/messages.inc.php:1023
-#, fuzzy
-#| msgid "Customise links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Endre linker vist i SQL spørringsbokser"
 
@@ -4668,8 +4619,6 @@ msgid "SQL queries"
 msgstr "SQL spørringer"
 
 #: libraries/messages.inc.php:1027
-#, fuzzy
-#| msgid "Customise startup page"
 msgid "Customize startup page"
 msgstr "Endre oppstartssiden"
 
@@ -4755,8 +4704,9 @@ msgstr ""
 "og bare SQL er alltid tilgjengelig"
 
 #: libraries/messages.inc.php:1043 libraries/messages.inc.php:1386
+#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Antall rader (spørringer) å hoppe over fra start"
+msgstr "Antall poster(spørringer) å hoppe over fra start"
 
 #: libraries/messages.inc.php:1044
 msgid "Partial import: skip queries"
@@ -5003,6 +4953,7 @@ msgid "Memory limit"
 msgstr "Minnetak"
 
 #: libraries/messages.inc.php:1092 libraries/messages.inc.php:1104
+#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Bruk bare ikoner, bare tekst eller begge deler"
 
@@ -5067,10 +5018,6 @@ msgid "Protect binary fields"
 msgstr "Beskytt binære felter"
 
 #: libraries/messages.inc.php:1108
-#, fuzzy
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilises JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -5372,6 +5319,7 @@ msgid "Show only listed databases"
 msgstr "Vis kun opplistede databaser"
 
 #: libraries/messages.inc.php:1168 libraries/messages.inc.php:1192
+#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "La stå tom om du ikke skal bruke config autentisering"
 
@@ -5636,8 +5584,9 @@ msgid "Skip locked tables"
 msgstr "Ignorer låste tabeller"
 
 #: libraries/messages.inc.php:1226 libraries/messages.inc.php:1606
+#, fuzzy
 msgid "Validate SQL"
-msgstr "Kontroller SQL"
+msgstr "Test SQL"
 
 #: libraries/messages.inc.php:1227
 msgid ""
@@ -5805,8 +5754,6 @@ msgid "Show BLOB contents"
 msgstr "Vis BLOB innhold"
 
 #: libraries/messages.inc.php:1256
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show color"
 msgstr "Vis farger"
 
@@ -5843,10 +5790,8 @@ msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
 #: libraries/messages.inc.php:1265
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show insert query"
-msgstr "Viser SQL spørring"
+msgstr ""
 
 #: libraries/messages.inc.php:1266
 msgid "Only show keys"
@@ -5984,10 +5929,6 @@ msgstr ""
 "eller du har joins som ikke bruker nøkler korrekt."
 
 #: libraries/messages.inc.php:1288
-#, fuzzy
-#| msgid ""
-#| "The number of requests to read the previous row in key order. This read "
-#| "method is mainly used to optimise ORDER BY ... DESC."
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6301,12 +6242,6 @@ msgid "The number of physical writes of a key block to disk."
 msgstr "Antall fysiske skrivinger av en nøkkelblokk til disk."
 
 #: libraries/messages.inc.php:1344
-#, fuzzy
-#| msgid ""
-#| "The total cost of the last compiled query as computed by the query "
-#| "optimiser. Useful for comparing the cost of different query plans for the "
-#| "same query. The default value of 0 means that no query has been compiled "
-#| "yet."
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -6485,12 +6420,6 @@ msgid "The number of times that a table lock was acquired immediately."
 msgstr "Antall ganger en tabellåsing ble utført umiddelbart."
 
 #: libraries/messages.inc.php:1375
-#, fuzzy
-#| msgid ""
-#| "The number of times that a table lock could not be acquired immediately "
-#| "and a wait was needed. If this is high, and you have performance "
-#| "problems, you should first optimise your queries, and then either split "
-#| "your table or tables or use replication."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -6620,10 +6549,8 @@ msgid "Export type"
 msgstr "Eksporttype"
 
 #: libraries/messages.inc.php:1402
-#, fuzzy
-#| msgid "Export type"
 msgid "Export time in UTC"
-msgstr "Eksporttype"
+msgstr ""
 
 #: libraries/messages.inc.php:1403
 msgid ""
@@ -6759,16 +6686,12 @@ msgid "Propose table structure"
 msgstr "Foreslå tabellstruktur"
 
 #: libraries/messages.inc.php:1429
-#, fuzzy
-#| msgid "Data Difference"
 msgid "Structure Difference"
-msgstr "Datadifferanse"
+msgstr "Strukturdifferanse"
 
 #: libraries/messages.inc.php:1430
-#, fuzzy
-#| msgid "Stand-in structure for view"
 msgid "Structure for view"
-msgstr "Erstatningsstruktur for visning"
+msgstr "Visningsstruktur"
 
 #: libraries/messages.inc.php:1431
 msgid "structure"
@@ -6779,8 +6702,6 @@ msgid "Structure"
 msgstr "Struktur"
 
 #: libraries/messages.inc.php:1433
-#, fuzzy
-#| msgid "Structure Synchronisation"
 msgid "Structure Synchronization"
 msgstr "Struktursynkronisering"
 
@@ -6835,10 +6756,6 @@ msgid "Switch to copied table"
 msgstr "Bytt til kopiert tabell"
 
 #: libraries/messages.inc.php:1445
-#, fuzzy
-#| msgid ""
-#| "Target database will be completely synchronised with source database. "
-#| "Source database will remain unchanged."
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -6847,14 +6764,10 @@ msgstr ""
 "Kildedatabase vil forbli uforandret."
 
 #: libraries/messages.inc.php:1446
-#, fuzzy
-#| msgid "Synchronise Databases"
 msgid "Synchronize Databases"
 msgstr "Synkroniser databaser"
 
 #: libraries/messages.inc.php:1447
-#, fuzzy
-#| msgid "Synchronise"
 msgid "Synchronize"
 msgstr "Synkroniser"
 
@@ -6970,8 +6883,6 @@ msgid "take it"
 msgstr "velg"
 
 #: libraries/messages.inc.php:1475
-#, fuzzy
-#| msgid "Target database has been synchronised with source database"
 msgid "Target database has been synchronized with source database"
 msgstr "Måldatabase har blitt synkronisert med kildedatabase"
 
@@ -7622,11 +7533,7 @@ msgid "Use this value"
 msgstr "Bruk denne verdien"
 
 #: libraries/messages.inc.php:1607
-#, fuzzy, php-format
-#| msgid ""
-#| "The SQL validator could not be initialised. Please check if you have "
-#| "installed the necessary PHP extensions as described in the %sdocumentation"
-#| "%s."
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."

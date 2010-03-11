@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 18:52+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:39+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,11 +55,9 @@ msgid "EiB"
 msgstr "เอกซะไบต์"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "ถูกส่ง"
+msgstr ""
 
 #: libraries/messages.inc.php:26
 #, fuzzy
@@ -141,19 +139,15 @@ msgstr "ก.ย."
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "ต.ค."
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "ไม่"
+msgstr "พ.ย."
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "ลบ"
+msgstr "ธ.ค."
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -192,10 +186,8 @@ msgid "Action"
 msgstr "กระทำการ"
 
 #: libraries/messages.inc.php:41
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "กระทำการ"
+msgstr ""
 
 #: libraries/messages.inc.php:42
 msgid "Add AUTO_INCREMENT value"
@@ -207,10 +199,8 @@ msgid "Add %s"
 msgstr ""
 
 #: libraries/messages.inc.php:44
-#, fuzzy
-#| msgid "Administration"
 msgid "Add constraints"
-msgstr "การดูแลระบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:45
 msgid "Add/Delete Field Columns"
@@ -221,10 +211,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "เพิ่ม/ลบ แถว"
 
 #: libraries/messages.inc.php:47
-#, fuzzy, php-format
-#| msgid "Add new field"
+#, php-format
 msgid "Add %s field(s)"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:48
 msgid "Add custom comment into header (\\n splits lines)"
@@ -285,10 +274,8 @@ msgid "Edit next row"
 msgstr ""
 
 #: libraries/messages.inc.php:62
-#, fuzzy
-#| msgid "Go back to previous page"
 msgid "Go back to this page"
-msgstr "ส่งกลับ"
+msgstr ""
 
 #: libraries/messages.inc.php:63
 msgid "All"
@@ -310,14 +297,10 @@ msgid "Alter table order by"
 msgstr "เรียงค่าในตารางตาม"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze"
-msgstr "วิเคราะห์ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "วิเคราะห์ตาราง"
 
@@ -326,10 +309,8 @@ msgid "And"
 msgstr "และ"
 
 #: libraries/messages.inc.php:70
-#, fuzzy
-#| msgid "Jan"
 msgid "and"
-msgstr "ม.ค."
+msgstr ""
 
 #: libraries/messages.inc.php:71
 msgid "and then"
@@ -384,10 +365,8 @@ msgid "Ascending"
 msgstr "น้อยไปมาก"
 
 #: libraries/messages.inc.php:83
-#, fuzzy
-#| msgid "Access denied"
 msgid "As defined:"
-msgstr "ไม่อนุญาตให้ใช้งาน"
+msgstr ""
 
 #: libraries/messages.inc.php:84
 msgid "At Beginning of Table"
@@ -430,44 +409,32 @@ msgid "Binary - do not edit"
 msgstr " ข้อมูลไบนารี - ห้ามแก้ไข "
 
 #: libraries/messages.inc.php:95
-#, fuzzy
-#| msgid "Binary"
 msgid "Binary log"
-msgstr " ข้อมูลไบนารี "
+msgstr ""
 
 #: libraries/messages.inc.php:96
-#, fuzzy
-#| msgid "MIME type"
 msgid "Event type"
-msgstr "MIME-type"
+msgstr ""
 
 #: libraries/messages.inc.php:97
-#, fuzzy
-#| msgid "Login Information"
 msgid "Information"
-msgstr "ข้อมูลล็อกอิน"
+msgstr ""
 
 #: libraries/messages.inc.php:98
-#, fuzzy
-#| msgid "Log in"
 msgid "Log name"
-msgstr "เข้าสู่ระบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:99
 msgid "Original position"
 msgstr ""
 
 #: libraries/messages.inc.php:100
-#, fuzzy
-#| msgid "no description"
 msgid "Position"
-msgstr "ไม่มีรายละเอียด"
+msgstr ""
 
 #: libraries/messages.inc.php:101
-#, fuzzy
-#| msgid "Server"
 msgid "Server ID"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:102
 msgid "BLOB Repository"
@@ -490,10 +457,8 @@ msgid "Disabled"
 msgstr "ระงับการใช้อยู่"
 
 #: libraries/messages.inc.php:106
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "ระงับการใช้อยู่"
+msgstr ""
 
 #: libraries/messages.inc.php:107
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -507,21 +472,17 @@ msgid "Enabled"
 msgstr "เปิดใช้อยู่"
 
 #: libraries/messages.inc.php:109
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "เปิดใช้อยู่"
+msgstr ""
 
 #: libraries/messages.inc.php:110
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
 #: libraries/messages.inc.php:111
-#, fuzzy
-#| msgid "Repair table"
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:112
 msgid "Upload to BLOB repository"
@@ -565,10 +526,8 @@ msgid "Browse"
 msgstr "เปิดดู"
 
 #: libraries/messages.inc.php:122
-#, fuzzy
-#| msgid "Use this value"
 msgid "Browse distinct values"
-msgstr "ใช้ค่านี้"
+msgstr ""
 
 #: libraries/messages.inc.php:123
 msgid "Browse foreign values"
@@ -619,10 +578,8 @@ msgid "Calendar"
 msgstr "ปฏิทิน"
 
 #: libraries/messages.inc.php:136
-#, fuzzy
-#| msgid "Change"
 msgid "Cancel"
-msgstr "เปลี่ยน"
+msgstr ""
 
 #: libraries/messages.inc.php:137
 msgid "Could not load export plugins, please check your installation!"
@@ -740,10 +697,8 @@ msgid "Check All"
 msgstr "เลือกทั้งหมด"
 
 #: libraries/messages.inc.php:162
-#, fuzzy
-#| msgid "Check All"
 msgid "Check"
-msgstr "เลือกทั้งหมด"
+msgstr ""
 
 #: libraries/messages.inc.php:163
 msgid "Check tables having overhead"
@@ -767,10 +722,8 @@ msgid "Please choose a page to edit"
 msgstr "เลือกหน้าที่ต้องการแก้ไข"
 
 #: libraries/messages.inc.php:168
-#, fuzzy
-#| msgid "With selected:"
 msgid "Click to select"
-msgstr "ทำกับที่เลือก:"
+msgstr ""
 
 #: libraries/messages.inc.php:169
 msgid "Click to unselect"
@@ -797,10 +750,8 @@ msgid "Command"
 msgstr "คำสั่ง"
 
 #: libraries/messages.inc.php:175
-#, fuzzy
-#| msgid "Comments"
 msgid "Comment"
-msgstr "หมายเหตุ"
+msgstr ""
 
 #: libraries/messages.inc.php:176
 msgid "Comments"
@@ -816,7 +767,7 @@ msgstr "คำสั่ง INSERT เต็มรูปแบบ"
 
 #: libraries/messages.inc.php:179 libraries/messages.inc.php:968
 msgid "Compression"
-msgstr "บีบอัดข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:180
 #, php-format
@@ -868,10 +819,8 @@ msgid "Constraints for dumped tables"
 msgstr ""
 
 #: libraries/messages.inc.php:188
-#, fuzzy
-#| msgid "Table structure for table"
 msgid "Constraints for table"
-msgstr "โครงสร้างตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:189
 msgid "Connection for controluser as defined in your configuration failed."
@@ -886,10 +835,9 @@ msgid "Copy"
 msgstr ""
 
 #: libraries/messages.inc.php:192
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Database %s has been copied to %s"
-msgstr "คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว."
+msgstr ""
 
 #: libraries/messages.inc.php:193
 msgid "Copy table to (database<b>.</b>table):"
@@ -953,16 +901,12 @@ msgid "Creation of PDFs"
 msgstr "การสร้างเอกสาร PDF"
 
 #: libraries/messages.inc.php:207
-#, fuzzy
-#| msgid "Creation"
 msgid "Create relation"
-msgstr "สร้างเมื่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:208
-#, fuzzy
-#| msgid "Create a page"
 msgid "Create table"
-msgstr "เริ่มหน้าใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:209
 #, fuzzy
@@ -972,16 +916,12 @@ msgid "Create table"
 msgstr "เริ่มหน้าใหม่"
 
 #: libraries/messages.inc.php:210
-#, fuzzy
-#| msgid "Databases"
 msgid "Database for user"
-msgstr "ฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:211
-#, fuzzy
-#| msgid "Create a new user with the same privileges and ..."
 msgid "Create database with same name and grant all privileges"
-msgstr "สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ ..."
+msgstr ""
 
 #: libraries/messages.inc.php:212
 #, fuzzy
@@ -991,10 +931,9 @@ msgid "None"
 msgstr "ไม่มี"
 
 #: libraries/messages.inc.php:213
-#, fuzzy, php-format
-#| msgid "Check privileges for database &quot;%s&quot;."
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "ตรวจสอบสิทธิสำหรับฐานข้อมูล &quot;%s&quot;."
+msgstr ""
 
 #: libraries/messages.inc.php:214
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -1024,10 +963,8 @@ msgid "Current server"
 msgstr ""
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Show colour"
 msgid "Custom color"
-msgstr "แสดงสี"
+msgstr ""
 
 #: libraries/messages.inc.php:221
 msgid "Cyrillic"
@@ -1050,22 +987,17 @@ msgid "Database"
 msgstr "ฐานข้อมูล"
 
 #: libraries/messages.inc.php:227
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The database name is empty!"
-msgstr "ชื่อตารางยังว่างอยู่!"
+msgstr ""
 
 #: libraries/messages.inc.php:228
-#, fuzzy
-#| msgid "Table options"
 msgid "Database export options"
-msgstr "ตัวเลือกตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:229
-#, fuzzy, php-format
-#| msgid "Database %s has been dropped."
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:230
 #, php-format
@@ -1073,14 +1005,13 @@ msgid "Database %s has been dropped."
 msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: libraries/messages.inc.php:231
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
+#, php-format
 msgid "'%s' database does not exist."
-msgstr "ไม่มีตาราง \"%s\"!"
+msgstr ""
 
 #: libraries/messages.inc.php:232 libraries/messages.inc.php:994
 msgid "Databases"
-msgstr "ฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:233
 #, php-format
@@ -1088,10 +1019,8 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
 
 #: libraries/messages.inc.php:234
-#, fuzzy
-#| msgid "No databases"
 msgid "Source database"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:235
 msgid "Databases statistics"
@@ -1114,10 +1043,8 @@ msgstr ""
 "ระหว่างเว็บเซิร์ฟเวอร์ และเซิร์ฟเวอร์ MySQL."
 
 #: libraries/messages.inc.php:239
-#, fuzzy
-#| msgid "Create new database"
 msgid "Target database"
-msgstr "สร้างฐานข้อมูลใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:240
 msgid "Data"
@@ -1136,10 +1063,8 @@ msgid "Data only"
 msgstr "เฉพาะข้อมูล"
 
 #: libraries/messages.inc.php:244
-#, fuzzy
-#| msgid "Allows changing data."
 msgid "Pages containing data"
-msgstr "อนุญาตให้เปลี่ยนข้อมูลได้."
+msgstr ""
 
 #: libraries/messages.inc.php:245
 msgid "Data Synchronization"
@@ -1150,10 +1075,8 @@ msgid "Database comment: "
 msgstr "หมายเหตุของฐานข้อมูล: "
 
 #: libraries/messages.inc.php:247
-#, fuzzy
-#| msgid "No databases"
 msgid "Copy database to"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:248
 msgid "Database seems to be empty!"
@@ -1191,10 +1114,8 @@ msgid "Defragment table"
 msgstr "จัดระเบียบตาราง"
 
 #: libraries/messages.inc.php:256
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "Use delayed inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr ""
 
 #: libraries/messages.inc.php:257
 msgid "Delete the users and reload the privileges afterwards."
@@ -1218,16 +1139,12 @@ msgid "No users selected for deleting!"
 msgstr ""
 
 #: libraries/messages.inc.php:262
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Delete relation"
-msgstr "รีเลชันภายใน"
+msgstr ""
 
 #: libraries/messages.inc.php:263
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table"
-msgstr "dump ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:264
 #, php-format
@@ -1235,10 +1152,8 @@ msgid "Deleting %s"
 msgstr "กำลังลบ %s"
 
 #: libraries/messages.inc.php:265
-#, fuzzy
-#| msgid "Delete"
 msgid "Delimiter"
-msgstr "ลบ"
+msgstr ""
 
 #: libraries/messages.inc.php:266
 msgid ""
@@ -1251,6 +1166,7 @@ msgid "Descending"
 msgstr "มากไปน้อย"
 
 #: libraries/messages.inc.php:268
+#, fuzzy
 msgid "Description"
 msgstr "รายละเอียด"
 
@@ -1310,20 +1226,16 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
 
 #: libraries/messages.inc.php:282
-#, fuzzy
-#| msgid "SQL"
 msgid "DocSQL"
-msgstr "SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:283
 msgid "Documentation"
 msgstr "เอกสารอ้างอิง"
 
 #: libraries/messages.inc.php:284
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "เพิ่มค่า AUTO_INCREMENT"
+msgstr ""
 
 #: libraries/messages.inc.php:285
 msgid "Download file"
@@ -1354,10 +1266,9 @@ msgid "Dumping data for table"
 msgstr "dump ตาราง"
 
 #: libraries/messages.inc.php:292
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Dump has been saved to file %s."
-msgstr "ตาราง %s ถูกย้ายไป %s แล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:293
 #, php-format
@@ -1370,7 +1281,7 @@ msgstr "ไม่คงที่"
 
 #: libraries/messages.inc.php:296 libraries/messages.inc.php:1222
 msgid "Edit"
-msgstr "แก้ไข"
+msgstr ""
 
 #: libraries/messages.inc.php:297
 msgid "Edit PDF Pages"
@@ -1413,10 +1324,9 @@ msgid "END RAW"
 msgstr "สิ้นสุดข้อมูลดิบ"
 
 #: libraries/messages.inc.php:307
-#, fuzzy, php-format
-#| msgid "Has no effect in this MySQL version."
+#, php-format
 msgid "%s is available on this MySQL server."
-msgstr "ไม่มีผลใน MySQL รุ่นนี้"
+msgstr ""
 
 #: libraries/messages.inc.php:308
 #, php-format
@@ -1424,16 +1334,13 @@ msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
 #: libraries/messages.inc.php:309
-#, fuzzy
-#| msgid "English"
 msgid "Engines"
-msgstr "อังกฤษ"
+msgstr ""
 
 #: libraries/messages.inc.php:310
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s."
+msgstr ""
 
 #: libraries/messages.inc.php:311
 msgid "English"
@@ -1474,40 +1381,32 @@ msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr ""
 
 #: libraries/messages.inc.php:320
-#, fuzzy
-#| msgid "Operations"
 msgid "Esperanto"
-msgstr "กระบวนการ"
+msgstr ""
 
 #: libraries/messages.inc.php:321
 msgid "Estonian"
 msgstr "เอสโตเนีย"
 
 #: libraries/messages.inc.php:322
-#, fuzzy
-#| msgid "Sent"
 msgid "Event"
-msgstr "ถูกส่ง"
+msgstr ""
 
 #: libraries/messages.inc.php:323
-#, fuzzy
-#| msgid "Sent"
 msgid "Events"
-msgstr "ถูกส่ง"
+msgstr ""
 
 #: libraries/messages.inc.php:324
 msgid "Excel edition"
 msgstr ""
 
 #: libraries/messages.inc.php:325
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Execute bookmarked query"
-msgstr "คำค้นนี้ถูกจดไว้แล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:326 libraries/messages.inc.php:1223
 msgid "Explain SQL"
-msgstr "อธิบาย SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:327
 msgid "Export"
@@ -1575,22 +1474,16 @@ msgid "File could not be read"
 msgstr "อ่านไฟล์ไม่ได้"
 
 #: libraries/messages.inc.php:343
-#, fuzzy
-#| msgid "Database"
 msgid "database name"
-msgstr "ฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:344
-#, fuzzy
-#| msgid "User name"
 msgid "server name"
-msgstr "ชื่อผู้ใช้"
+msgstr ""
 
 #: libraries/messages.inc.php:345
-#, fuzzy
-#| msgid "User name"
 msgid "table name"
-msgstr "ชื่อผู้ใช้"
+msgstr ""
 
 #: libraries/messages.inc.php:346
 #, php-format
@@ -1609,16 +1502,12 @@ msgid "remember template"
 msgstr "จำรูปแบบ"
 
 #: libraries/messages.inc.php:349
-#, fuzzy
-#| msgid "Fields"
 msgid "Files"
-msgstr "จำนวนฟิลด์"
+msgstr ""
 
 #: libraries/messages.inc.php:350
-#, fuzzy
-#| msgid "Failed attempts"
 msgid "File to import"
-msgstr "ความพยายามล้มเหลว"
+msgstr ""
 
 #: libraries/messages.inc.php:351
 #, php-format
@@ -1642,10 +1531,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: libraries/messages.inc.php:355
-#, fuzzy
-#| msgid " Row size "
 msgid "Font size"
-msgstr " ขนาดแถว "
+msgstr ""
 
 #: libraries/messages.inc.php:356
 #, php-format
@@ -1658,29 +1545,23 @@ msgstr ""
 
 #: libraries/messages.inc.php:358 libraries/messages.inc.php:972
 msgid "Format"
-msgstr "รูปแบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:359
 msgid "Missing value in the form!"
 msgstr "ค่าในแบบฟอร์มหายไป !"
 
 #: libraries/messages.inc.php:360
-#, fuzzy
-#| msgid "Create a page"
 msgid "Free pages"
-msgstr "เริ่มหน้าใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:361
-#, fuzzy
-#| msgid "Fulltext"
 msgid "Full start"
-msgstr "ข้อความเต็ม (fulltext)"
+msgstr ""
 
 #: libraries/messages.inc.php:362
-#, fuzzy
-#| msgid "Full Texts"
 msgid "Full stop"
-msgstr "ทั้งข้อความ"
+msgstr ""
 
 #: libraries/messages.inc.php:363
 msgid "Full Texts"
@@ -1691,10 +1572,8 @@ msgid "Function"
 msgstr "ฟังก์ชั่น"
 
 #: libraries/messages.inc.php:365
-#, fuzzy
-#| msgid "Function"
 msgid "Functions"
-msgstr "ฟังก์ชั่น"
+msgstr ""
 
 #: libraries/messages.inc.php:367
 msgid "Generated by"
@@ -1705,16 +1584,12 @@ msgid "General relation features"
 msgstr "ความสามารถด้านรีเลชันทั่วไป"
 
 #: libraries/messages.inc.php:369
-#, fuzzy
-#| msgid "Generated by"
 msgid "Generate"
-msgstr "สร้างโดย"
+msgstr ""
 
 #: libraries/messages.inc.php:370
-#, fuzzy
-#| msgid "No Password"
 msgid "Generate Password"
-msgstr "ไม่มีรหัสผ่าน"
+msgstr ""
 
 #: libraries/messages.inc.php:371
 msgid "Generation Time"
@@ -1749,22 +1624,16 @@ msgid "Go"
 msgstr "ลงมือ"
 
 #: libraries/messages.inc.php:379
-#, fuzzy
-#| msgid "No databases"
 msgid "Go to database"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:380
-#, fuzzy
-#| msgid "No tables"
 msgid "Go to table"
-msgstr "ไม่มีตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:381
-#, fuzzy
-#| msgid "Relation view"
 msgid "Go to view"
-msgstr "มุมมองรีเลชัน"
+msgstr ""
 
 #: libraries/messages.inc.php:382
 msgid "Grant"
@@ -1811,10 +1680,8 @@ msgid "Hide"
 msgstr ""
 
 #: libraries/messages.inc.php:394
-#, fuzzy
-#| msgid "Show all"
 msgid "Hide/Show all"
-msgstr "แสดงทั้งหมด"
+msgstr ""
 
 #: libraries/messages.inc.php:395
 msgid "Hide/Show Tables with no relation"
@@ -1879,16 +1746,12 @@ msgid "Ignore"
 msgstr "ไม่สนใจ"
 
 #: libraries/messages.inc.php:411
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr ""
 
 #: libraries/messages.inc.php:412
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "ใส่ชื่อฟิลด์ที่แถวแรก"
+msgstr ""
 
 #: libraries/messages.inc.php:413
 msgid "Do not import empty rows"
@@ -1907,10 +1770,8 @@ msgid "Format of imported file"
 msgstr ""
 
 #: libraries/messages.inc.php:417
-#, fuzzy
-#| msgid "Export"
 msgid "Import"
-msgstr "ส่งออก"
+msgstr ""
 
 #: libraries/messages.inc.php:418
 msgid ""
@@ -2001,10 +1862,9 @@ msgid "Index type:"
 msgstr "ชนิดของดัชนี :"
 
 #: libraries/messages.inc.php:437
-#, fuzzy, php-format
-#| msgid "Please configure the coordinates for table %s"
+#, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s"
+msgstr ""
 
 #: libraries/messages.inc.php:438
 msgid "Autoextend increment"
@@ -2027,26 +1887,20 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:442
-#, fuzzy
-#| msgid "Import files"
 msgid "Data files"
-msgstr "นำเข้าไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:443
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data home directory"
-msgstr "พจนานุกรมข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:444
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/messages.inc.php:445
-#, fuzzy
-#| msgid "Japanese"
 msgid "pages"
-msgstr "ญี่ปุ่น"
+msgstr ""
 
 #: libraries/messages.inc.php:446
 msgid "InnoDB Status"
@@ -2073,10 +1927,8 @@ msgid "Inserted row id: %1$d"
 msgstr ""
 
 #: libraries/messages.inc.php:450
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert as new row and ignore errors"
-msgstr "แทรกเป็นแถวใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:451
 msgid "Insert"
@@ -2093,10 +1945,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:454
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relation added"
-msgstr "รีเลชันภายใน"
+msgstr ""
 
 #: libraries/messages.inc.php:455
 msgid "Internal relations"
@@ -2135,16 +1985,12 @@ msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
 #: libraries/messages.inc.php:463
-#, fuzzy
-#| msgid "Invalid Identifer"
 msgid "Invalid database"
-msgstr "ชื่อตัวแปรไม่ถูกต้อง"
+msgstr ""
 
 #: libraries/messages.inc.php:464
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one field."
-msgstr "ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์"
+msgstr ""
 
 #: libraries/messages.inc.php:465
 msgid "Table must have at least one field."
@@ -2155,10 +2001,9 @@ msgid "This plugin does not support compressed imports!"
 msgstr ""
 
 #: libraries/messages.inc.php:467
-#, fuzzy, php-format
-#| msgid "This is not a number!"
+#, php-format
 msgid "%d is not valid row number."
-msgstr "ค่านี้ไม่ใช่ตัวเลข!"
+msgstr ""
 
 #: libraries/messages.inc.php:468
 #, php-format
@@ -2171,10 +2016,8 @@ msgid "Invalid server index: \"%s\""
 msgstr ""
 
 #: libraries/messages.inc.php:470
-#, fuzzy
-#| msgid "Invalid Identifer"
 msgid "Invalid table name"
-msgstr "ชื่อตัวแปรไม่ถูกต้อง"
+msgstr ""
 
 #: libraries/messages.inc.php:472
 msgid "Japanese"
@@ -2197,14 +2040,10 @@ msgid "Jump to database &quot;%s&quot;."
 msgstr "กระโดดไปที่ฐานข้อมูล &quot;%s&quot;."
 
 #: libraries/messages.inc.php:476
-#, fuzzy
-#| msgid ""
-#| "The users will still have the USAGE privilege until the privileges are "
-#| "reloaded."
 msgid ""
 "The &quot;deleted&quot; users will still be able to access the server as "
 "usual until the privileges are reloaded."
-msgstr "ผู้ใช้ต่างๆ ยังคงมีสิทธิ USAGE จนกว่า ข้อมูลสิทธิ จะถูกเรียกใช้ใหม่อีกที."
+msgstr ""
 
 #: libraries/messages.inc.php:477
 msgid "Just delete the users from the privilege tables."
@@ -2215,10 +2054,8 @@ msgid "Do not change the password"
 msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
 
 #: libraries/messages.inc.php:480
-#, fuzzy
-#| msgid "Keyname"
 msgid "Key cache"
-msgstr "ชื่อคีย์"
+msgstr ""
 
 #: libraries/messages.inc.php:481
 msgid "Keyname"
@@ -2251,10 +2088,8 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/messages.inc.php:489
-#, fuzzy
-#| msgid "Create a page"
 msgid "Latched pages"
-msgstr "เริ่มหน้าใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:490
 msgid "Table caption"
@@ -2265,36 +2100,28 @@ msgid "Content of table __TABLE__"
 msgstr ""
 
 #: libraries/messages.inc.php:492
-#, fuzzy
-#| msgid "Table caption"
 msgid "Continued table caption"
-msgstr "คำอธิบายตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:493
 msgid "(continued)"
 msgstr "(ต่อ)"
 
 #: libraries/messages.inc.php:494
-#, fuzzy
-#| msgid "Table caption"
 msgid "Include table caption"
-msgstr "คำอธิบายตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:495
-#, fuzzy
-#| msgid "Label"
 msgid "Label key"
-msgstr "ป้ายชื่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:496
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/messages.inc.php:497
-#, fuzzy
-#| msgid "Table structure for table"
 msgid "Structure of table __TABLE__"
-msgstr "โครงสร้างตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:498
 msgid "Latvian"
@@ -2433,10 +2260,8 @@ msgid ""
 msgstr "ไม่ปรากฏรายละเอียดสำหรับการแปลงนี้.<br />กรุณาสอบถามผู้เขียนว่า,  %s ทำอะไร."
 
 #: libraries/messages.inc.php:530
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Browser transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr ""
 
 #: libraries/messages.inc.php:531
 #, php-format
@@ -2446,21 +2271,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:532
-#, fuzzy
-#| msgid ""
-#| "If field type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") "
-#| "or a single quote (\"'\") amongst those values, precede it with a "
-#| "backslash (for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'...<br /"
-">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #: libraries/messages.inc.php:533
 msgid "Transformation options"
@@ -2509,10 +2325,8 @@ msgid "multilingual"
 msgstr "หลายภาษา"
 
 #: libraries/messages.inc.php:544
-#, fuzzy
-#| msgid "Paper size"
 msgid "Data pointer size"
-msgstr "ขนาดกระดาษ"
+msgstr ""
 
 #: libraries/messages.inc.php:545
 msgid ""
@@ -2543,10 +2357,8 @@ msgid "Maximum size for temporary sort files"
 msgstr ""
 
 #: libraries/messages.inc.php:550
-#, fuzzy
-#| msgid "Automatic layout"
 msgid "Automatic recovery mode"
-msgstr "จัดตำแหน่งอัตโนมัติ"
+msgstr ""
 
 #: libraries/messages.inc.php:551
 msgid ""
@@ -2561,10 +2373,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:553
-#, fuzzy
-#| msgid "Repair table"
 msgid "Repair threads"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:554
 msgid ""
@@ -2608,16 +2418,12 @@ msgid "Name"
 msgstr "ชื่อ"
 
 #: libraries/messages.inc.php:564
-#, fuzzy
-#| msgid "ltr"
 msgid "Filter"
-msgstr "ltr"
+msgstr ""
 
 #: libraries/messages.inc.php:565
-#, fuzzy
-#| msgid "No tables"
 msgid "New table"
-msgstr "ไม่มีตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:566
 msgid "Next"
@@ -2774,10 +2580,8 @@ msgid "Number of fields"
 msgstr ""
 
 #: libraries/messages.inc.php:601
-#, fuzzy
-#| msgid "No tables"
 msgid "Number of tables"
-msgstr "ไม่มีตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:602
 #, php-format
@@ -2791,7 +2595,7 @@ msgstr "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
 
 #: libraries/messages.inc.php:604 libraries/messages.inc.php:1001
 msgid "Tables"
-msgstr "ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:606
 msgid "OK"
@@ -2810,28 +2614,20 @@ msgid "Operations"
 msgstr "กระบวนการ"
 
 #: libraries/messages.inc.php:611
-#, fuzzy
-#| msgid "Operations"
 msgid "Operator"
-msgstr "กระบวนการ"
+msgstr ""
 
 #: libraries/messages.inc.php:612
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize"
-msgstr "ปรับแต่งตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:613
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "ปรับแต่งตาราง"
 
 #: libraries/messages.inc.php:614
-#, fuzzy
-#| msgid "Operations"
 msgid "Options"
-msgstr "กระบวนการ"
+msgstr ""
 
 #: libraries/messages.inc.php:615
 msgid "Or"
@@ -2843,33 +2639,27 @@ msgstr "เกินความจำเป็น"
 
 #: libraries/messages.inc.php:617 libraries/messages.inc.php:974
 msgid "Overwrite existing file(s)"
-msgstr "เขียนทับแฟ้มที่มีอยู่แล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:619
-#, fuzzy
-#| msgid "Back"
 msgid "Packed"
-msgstr "ย้อนกลับ"
+msgstr ""
 
 #: libraries/messages.inc.php:620
 msgid "Page number:"
 msgstr "หมายเลขหน้า:"
 
 #: libraries/messages.inc.php:621
-#, fuzzy
-#| msgid "Table %s has been flushed"
 msgid "Pages to be flushed"
-msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:622
 msgid "Paper size"
 msgstr "ขนาดกระดาษ"
 
 #: libraries/messages.inc.php:623
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "Partial import"
-msgstr "ข้อความบางส่วน"
+msgstr ""
 
 #: libraries/messages.inc.php:624
 msgid "Partial Texts"
@@ -2884,10 +2674,8 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:627
-#, fuzzy
-#| msgid "Table maintenance"
 msgid "Partition maintenance"
-msgstr "การดูแลรักษาตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:628
 #, php-format
@@ -2904,10 +2692,8 @@ msgid "The password is empty!"
 msgstr "รหัสผ่านยังว่างอยู่!"
 
 #: libraries/messages.inc.php:631
-#, fuzzy
-#| msgid "Password"
 msgid "Password Hashing"
-msgstr "รหัสผ่าน"
+msgstr ""
 
 #: libraries/messages.inc.php:632
 msgid "The passwords aren't the same!"
@@ -2964,10 +2750,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:643
-#, fuzzy
-#| msgid "Indexes"
 msgid "Index cache size"
-msgstr "ดัชนี"
+msgstr ""
 
 #: libraries/messages.inc.php:644
 msgid ""
@@ -2999,10 +2783,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:649
-#, fuzzy
-#| msgid "Log out"
 msgid "Log file count"
-msgstr "ออกจากระบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:650
 msgid ""
@@ -3058,10 +2840,8 @@ msgid "No tables"
 msgstr "ไม่มีตาราง"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
-#| msgid "Table %s has been emptied"
 msgid "Page has been created"
-msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:662
 msgid "Page creation failed"
@@ -3076,10 +2856,8 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
 #: libraries/messages.inc.php:665
-#, fuzzy
-#| msgid "Import files"
 msgid "Report title"
-msgstr "นำเข้าไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:666
 msgid "per hour"
@@ -3094,10 +2872,8 @@ msgid "per second"
 msgstr "ต่อวินาที"
 
 #: libraries/messages.inc.php:669
-#, fuzzy
-#| msgid "Georgian"
 msgid "Persian"
-msgstr "จอร์เจีย"
+msgstr ""
 
 #: libraries/messages.inc.php:670
 msgid "phone book"
@@ -3109,13 +2885,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:672 libraries/messages.inc.php:1225
 msgid "Create PHP Code"
-msgstr "สร้างโค้ด PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:673
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP extension"
-msgstr "รุ่นของ PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:674
 msgid "PHP Version"
@@ -3167,10 +2941,8 @@ msgid "Polish"
 msgstr "โปแลนด์"
 
 #: libraries/messages.inc.php:685
-#, fuzzy
-#| msgid "Sort"
 msgid "Port"
-msgstr "เรียง"
+msgstr ""
 
 #: libraries/messages.inc.php:686
 msgid "Portrait"
@@ -3222,20 +2994,16 @@ msgid "Allows altering the structure of existing tables."
 msgstr "อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม."
 
 #: libraries/messages.inc.php:698
-#, fuzzy
-#| msgid "Allows creating and dropping indexes."
 msgid "Allows altering and dropping stored routines."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr ""
 
 #: libraries/messages.inc.php:699
 msgid "Allows creating new databases and tables."
 msgstr "อนุญาตให้สร้างฐานข้อมูล และตารางใหม่."
 
 #: libraries/messages.inc.php:700
-#, fuzzy
-#| msgid "Allows creating new tables."
 msgid "Allows creating stored routines."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr ""
 
 #: libraries/messages.inc.php:701
 msgid "Allows creating new tables."
@@ -3246,16 +3014,12 @@ msgid "Allows creating temporary tables."
 msgstr "อนุญาตให้สร้างตารางชั่วคราว."
 
 #: libraries/messages.inc.php:703
-#, fuzzy
-#| msgid "Allows creating and dropping indexes."
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr ""
 
 #: libraries/messages.inc.php:704
-#, fuzzy
-#| msgid "Allows creating new tables."
 msgid "Allows creating new views."
-msgstr "อนุญาตให้สร้างตารางใหม่."
+msgstr ""
 
 #: libraries/messages.inc.php:705
 msgid "Allows deleting data."
@@ -3270,16 +3034,12 @@ msgid "Allows dropping tables."
 msgstr "อนุญาตให้ทิ้งตาราง"
 
 #: libraries/messages.inc.php:708
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
 msgid "Allows to set up events for the event scheduler"
-msgstr "อนุญาตให้ล็อกตารางสำหรับเธรดปัจจุบัน"
+msgstr ""
 
 #: libraries/messages.inc.php:709
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Allows executing stored routines."
-msgstr "อนุญาตให้สร้างตารางชั่วคราว."
+msgstr ""
 
 #: libraries/messages.inc.php:710
 msgid "Allows running stored procedures; has no effect in this MySQL version."
@@ -3322,10 +3082,8 @@ msgstr ""
 "จำกัดจำนวนของคำสั่ง ที่จะเปลี่ยนแปลงตาราง หรือฐานข้อมูลใดๆ ที่ผู้ใช้จะสามารถสั่งได้ ต่อชั่วโมง"
 
 #: libraries/messages.inc.php:719
-#, fuzzy
-#| msgid "Limits the number of new connections the user may open per hour."
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
+msgstr ""
 
 #: libraries/messages.inc.php:720
 msgid "Allows viewing processes of all users"
@@ -3371,10 +3129,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:730
-#, fuzzy
-#| msgid "Allows creating and dropping indexes."
 msgid "Allows creating and dropping triggers"
-msgstr "อนุญาตให้สร้าง และทิ้ง ดัชนี"
+msgstr ""
 
 #: libraries/messages.inc.php:731
 msgid "Allows changing data."
@@ -3393,10 +3149,8 @@ msgid "The privileges were reloaded successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
 #: libraries/messages.inc.php:735
-#, fuzzy
-#| msgid "Processes"
 msgid "Procedures"
-msgstr "โพรเซส"
+msgstr ""
 
 #: libraries/messages.inc.php:736
 msgid "Processes"
@@ -3411,10 +3165,8 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/messages.inc.php:739
-#, fuzzy
-#| msgid "Server version"
 msgid "Protocol version"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:740
 msgid "Put fields names in the first row"
@@ -3433,20 +3185,16 @@ msgid "Query"
 msgstr "คำค้นจากตัวอย่าง"
 
 #: libraries/messages.inc.php:745
-#, fuzzy
-#| msgid "The row has been deleted"
 msgid "The following queries have been executed:"
-msgstr "ลบเรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:746
-#, fuzzy
-#| msgid "Query type"
 msgid "Query cache"
-msgstr "ชนิดคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:747 libraries/messages.inc.php:1006
 msgid "Query window"
-msgstr "หน้าต่างคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:748
 #, php-format
@@ -3507,29 +3255,23 @@ msgstr "ตรวจสอบความสมบูรณ์ของการ
 
 #: libraries/messages.inc.php:762 libraries/messages.inc.php:1224
 msgid "Refresh"
-msgstr "เรียกใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:763
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Relational display field"
-msgstr "รีเลชันแนล สกีมา"
+msgstr ""
 
 #: libraries/messages.inc.php:764
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Relational key"
-msgstr "รีเลชันแนล สกีมา"
+msgstr ""
 
 #: libraries/messages.inc.php:765
 msgid "Relational schema"
 msgstr "รีเลชันแนล สกีมา"
 
 #: libraries/messages.inc.php:766
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation deleted"
-msgstr "มุมมองรีเลชัน"
+msgstr ""
 
 #: libraries/messages.inc.php:767
 #, php-format
@@ -3560,16 +3302,12 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/messages.inc.php:773
-#, fuzzy
-#| msgid "Reloading the privileges"
 msgid "Reload privileges"
-msgstr "ปรับปรุงสิทธิเข้าถึงใหม่อีกรอบ"
+msgstr ""
 
 #: libraries/messages.inc.php:774
-#, fuzzy
-#| msgid "Records"
 msgid "Reload"
-msgstr "ระเบียน"
+msgstr ""
 
 #: libraries/messages.inc.php:775
 msgid "Remote server"
@@ -3588,10 +3326,9 @@ msgid "Remove selected users"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
 #: libraries/messages.inc.php:779
-#, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#, php-format
 msgid "Database %s has been renamed to %s"
-msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
+msgstr ""
 
 #: libraries/messages.inc.php:780
 #, php-format
@@ -3603,10 +3340,8 @@ msgid "Rename table to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #: libraries/messages.inc.php:782
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Rename view to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
+msgstr ""
 
 #: libraries/messages.inc.php:783
 #, fuzzy
@@ -3660,16 +3395,12 @@ msgid "Unable to connect to master %s."
 msgstr ""
 
 #: libraries/messages.inc.php:794
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Replicate all databases; Ignore:"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr ""
 
 #: libraries/messages.inc.php:795
-#, fuzzy
-#| msgid "No databases selected."
 msgid "Ignore all databases; Replicate:"
-msgstr "ยังไม่ได้เลือกฐานข้อมูล."
+msgstr ""
 
 #: libraries/messages.inc.php:796
 msgid ""
@@ -3685,16 +3416,12 @@ msgid "Master configuration"
 msgstr ""
 
 #: libraries/messages.inc.php:798
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Master replication"
-msgstr "รีเลชันภายใน"
+msgstr ""
 
 #: libraries/messages.inc.php:799
-#, fuzzy
-#| msgid "Relations"
 msgid "Replication"
-msgstr "รีเลชัน"
+msgstr ""
 
 #: libraries/messages.inc.php:800
 msgid ""
@@ -3704,10 +3431,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:801
-#, fuzzy
-#| msgid "Please select a database"
 msgid "Please select databases:"
-msgstr "โปรดเลือกฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:802
 #, php-format
@@ -3723,10 +3448,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:804
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show connected slaves"
-msgstr "แสดงงานที่ทำอยู่ของ MySQL"
+msgstr ""
 
 #: libraries/messages.inc.php:805 libraries/messages.inc.php:1267
 msgid "Show master status"
@@ -3770,10 +3493,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:814
-#, fuzzy
-#| msgid "Reset"
 msgid "Reset slave"
-msgstr "เริ่มใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:815
 msgid "See slave status table"
@@ -3784,20 +3505,16 @@ msgid "Skip current error"
 msgstr ""
 
 #: libraries/messages.inc.php:817
-#, fuzzy
-#| msgid "Error"
 msgid "errors."
-msgstr "ผิดพลาด"
+msgstr ""
 
 #: libraries/messages.inc.php:818
 msgid "Skip next"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
-#| msgid "Table caption"
 msgid "Slave replication"
-msgstr "คำอธิบายตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:820
 msgid "Slave SQL Thread not running!"
@@ -3821,16 +3538,12 @@ msgid "Master status"
 msgstr ""
 
 #: libraries/messages.inc.php:824
-#, fuzzy
-#| msgid "Relations"
 msgid "Replication status"
-msgstr "รีเลชัน"
+msgstr ""
 
 #: libraries/messages.inc.php:825
-#, fuzzy
-#| msgid "Status"
 msgid "Slave status"
-msgstr "สถานะ"
+msgstr ""
 
 #: libraries/messages.inc.php:826
 msgid "Synchronize databases with master"
@@ -3841,14 +3554,12 @@ msgid "Unable to change master"
 msgstr ""
 
 #: libraries/messages.inc.php:828
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown error"
-msgstr "ไม่ระบุ"
+msgstr ""
 
 #: libraries/messages.inc.php:829
 msgid "Reset"
-msgstr "เริ่มใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:830
 msgid "Resource limits"
@@ -3887,10 +3598,8 @@ msgid "Romanian"
 msgstr "โรมาเนีย"
 
 #: libraries/messages.inc.php:838
-#, fuzzy
-#| msgid "Query type"
 msgid "Return type"
-msgstr "ชนิดคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:839
 msgid "Routines"
@@ -3906,10 +3615,9 @@ msgid "%1$d row(s) affected."
 msgstr ""
 
 #: libraries/messages.inc.php:842
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row(s) deleted."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr ""
 
 #: libraries/messages.inc.php:843
 msgid "row(s) starting from record #"
@@ -3959,10 +3667,9 @@ msgid "Submit Query"
 msgstr "ประมวลผลคำค้น"
 
 #: libraries/messages.inc.php:854
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
+msgstr ""
 
 #: libraries/messages.inc.php:855
 #, php-format
@@ -3974,16 +3681,13 @@ msgid "Russian"
 msgstr "รัสเซีย"
 
 #: libraries/messages.inc.php:858
-#, fuzzy, php-format
-#| msgid "web server upload directory"
+#, php-format
 msgid "Save on server in %s directory"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:859
-#, fuzzy
-#| msgid "Table caption"
 msgid "Save position"
-msgstr "คำอธิบายตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:860
 msgid "Save"
@@ -3998,10 +3702,8 @@ msgid "Search in database"
 msgstr "ค้นหาในฐานข้อมูล"
 
 #: libraries/messages.inc.php:863
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside field:"
-msgstr "ในตาราง:"
+msgstr ""
 
 #: libraries/messages.inc.php:864
 msgid "Inside table(s):"
@@ -4078,7 +3780,7 @@ msgstr "เลือกตาราง"
 
 #: libraries/messages.inc.php:882 libraries/messages.inc.php:966
 msgid "Save as file"
-msgstr "ส่งมาเป็นไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:883
 msgid "Sent"
@@ -4097,16 +3799,12 @@ msgid "Server"
 msgstr "เซิร์ฟเวอร์"
 
 #: libraries/messages.inc.php:887 libraries/messages.inc.php:999
-#, fuzzy
-#| msgid "Server"
 msgid "Servers"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:888
-#, fuzzy
-#| msgid "Extended inserts"
 msgid "Delayed inserts"
-msgstr "แทรกหลายระเบียนในคราวเดียว"
+msgstr ""
 
 #: libraries/messages.inc.php:889
 msgid "Runtime Information"
@@ -4167,10 +3865,8 @@ msgstr ""
 "เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #: libraries/messages.inc.php:899
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "settings"
-msgstr "กำลังลบ %s"
+msgstr ""
 
 #: libraries/messages.inc.php:900
 msgid "Allow character set conversion"
@@ -4192,10 +3888,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:903
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Allow login to any MySQL server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr ""
 
 #: libraries/messages.inc.php:904
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4303,10 +3997,8 @@ msgid "Check config file permissions"
 msgstr ""
 
 #: libraries/messages.inc.php:926
-#, fuzzy
-#| msgid "Calendar"
 msgid "Clear"
-msgstr "ปฏิทิน"
+msgstr ""
 
 #: libraries/messages.inc.php:927
 msgid ""
@@ -4315,16 +4007,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:928
-#, fuzzy
-#| msgid "Compression"
 msgid "Compress on the fly"
-msgstr "บีบอัดข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:929
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Configuration file"
-msgstr "เวลาในการสร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:930
 msgid ""
@@ -4345,26 +4033,20 @@ msgid "Default character set"
 msgstr ""
 
 #: libraries/messages.inc.php:934
-#, fuzzy
-#| msgid "Default"
 msgid "Default language"
-msgstr "ค่าปริยาย"
+msgstr ""
 
 #: libraries/messages.inc.php:935
-#, fuzzy
-#| msgid "Default"
 msgid "Default server"
-msgstr "ค่าปริยาย"
+msgstr ""
 
 #: libraries/messages.inc.php:936
 msgid "Tab that is displayed when entering a database"
 msgstr ""
 
 #: libraries/messages.inc.php:937
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Default database tab"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr ""
 
 #: libraries/messages.inc.php:938
 msgid "Tab that is displayed when entering a server"
@@ -4379,10 +4061,8 @@ msgid "Tab that is displayed when entering a table"
 msgstr ""
 
 #: libraries/messages.inc.php:941
-#, fuzzy
-#| msgid "Defragment table"
 msgid "Default table tab"
-msgstr "จัดระเบียบตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:942
 msgid ""
@@ -4395,16 +4075,12 @@ msgid "Show database listing as a list instead of a drop down"
 msgstr ""
 
 #: libraries/messages.inc.php:944
-#, fuzzy
-#| msgid "Databases statistics"
 msgid "Display databases as a list"
-msgstr "สถิติฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:945
-#, fuzzy
-#| msgid "Display order:"
 msgid "Display"
-msgstr "ลำดับการแสดง:"
+msgstr ""
 
 #: libraries/messages.inc.php:946
 msgid "Show server listing as a list instead of a drop down"
@@ -4415,26 +4091,20 @@ msgid "Display servers as a list"
 msgstr ""
 
 #: libraries/messages.inc.php:948
-#, fuzzy
-#| msgid "Data"
 msgid "Donate"
-msgstr "ข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:949
 msgid "Download"
 msgstr ""
 
 #: libraries/messages.inc.php:950
-#, fuzzy
-#| msgid "At End of Table"
 msgid "End of line"
-msgstr "ที่จุดสุดท้ายของตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:951
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Could not connect to MySQL server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr ""
 
 #: libraries/messages.inc.php:952
 msgid "Empty phpMyAdmin control user password while using pmadb"
@@ -4474,10 +4144,9 @@ msgid "Incorrect value"
 msgstr ""
 
 #: libraries/messages.inc.php:961
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Missing data for %s"
-msgstr "dump ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:962
 msgid "Not a non-negative number"
@@ -4498,40 +4167,28 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/messages.inc.php:967
-#, fuzzy
-#| msgid "Character set of the file:"
 msgid "Character set of the file"
-msgstr "ชุดอักขระของไฟล์ (character set):"
+msgstr ""
 
 #: libraries/messages.inc.php:969
-#, fuzzy
-#| msgid "File name template"
 msgid "Database name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:970
-#, fuzzy
-#| msgid "File name template"
 msgid "Server name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:971
-#, fuzzy
-#| msgid "File name template"
 msgid "Table name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:973
-#, fuzzy
-#| msgid "Server"
 msgid "Save on server"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:975
-#, fuzzy
-#| msgid "File name template"
 msgid "Remember file name template"
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:976
 msgid "no"
@@ -4570,10 +4227,8 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: libraries/messages.inc.php:984
-#, fuzzy
-#| msgid "Browse"
 msgid "Browse mode"
-msgstr "เปิดดู"
+msgstr ""
 
 #: libraries/messages.inc.php:985
 msgid "Customize browse mode"
@@ -4584,10 +4239,8 @@ msgid "Customize edit mode"
 msgstr ""
 
 #: libraries/messages.inc.php:987
-#, fuzzy
-#| msgid "Edit"
 msgid "Edit mode"
-msgstr "แก้ไข"
+msgstr ""
 
 #: libraries/messages.inc.php:988
 msgid "Customize default export options"
@@ -4602,10 +4255,8 @@ msgid "Customize default common import options"
 msgstr ""
 
 #: libraries/messages.inc.php:991
-#, fuzzy
-#| msgid "Import files"
 msgid "Import defaults"
-msgstr "นำเข้าไฟล์"
+msgstr ""
 
 #: libraries/messages.inc.php:992
 msgid "Set import and export directories and compression options"
@@ -4616,10 +4267,8 @@ msgid "Import / export"
 msgstr ""
 
 #: libraries/messages.inc.php:995
-#, fuzzy
-#| msgid "Databases statistics"
 msgid "Databases display options"
-msgstr "สถิติฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:996
 msgid "Customize appearance of the navigation frame"
@@ -4634,10 +4283,8 @@ msgid "Servers display options"
 msgstr ""
 
 #: libraries/messages.inc.php:1000
-#, fuzzy
-#| msgid "Table options"
 msgid "Tables display options"
-msgstr "ตัวเลือกตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1002
 msgid "Main frame"
@@ -4676,10 +4323,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1011
-#, fuzzy
-#| msgid "Server version"
 msgid "Server configuration"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1012
 msgid "Enter server connection parameters"
@@ -4701,26 +4346,20 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016 libraries/messages.inc.php:1173
-#, fuzzy
-#| msgid "No databases"
 msgid "PMA database"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1017
-#, fuzzy
-#| msgid "Collation"
 msgid "Customization"
-msgstr "การเรียงลำดับ"
+msgstr ""
 
 #: libraries/messages.inc.php:1018
 msgid "Customize export options"
 msgstr ""
 
 #: libraries/messages.inc.php:1019
-#, fuzzy
-#| msgid "Display Features"
 msgid "Features"
-msgstr "ความสามารถด้านการแสดงผล"
+msgstr ""
 
 #: libraries/messages.inc.php:1020
 msgid "Customize import defaults"
@@ -4739,10 +4378,8 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/messages.inc.php:1024
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query box"
-msgstr "คำค้น SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1025
 msgid ""
@@ -4751,30 +4388,24 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1026
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL queries"
-msgstr "คำค้น SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1027
 msgid "Customize startup page"
 msgstr ""
 
 #: libraries/messages.inc.php:1028
-#, fuzzy
-#| msgid "Status"
 msgid "Startup"
-msgstr "สถานะ"
+msgstr ""
 
 #: libraries/messages.inc.php:1029
 msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/messages.inc.php:1030
-#, fuzzy
-#| msgid "Tables"
 msgid "Tabs"
-msgstr "ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1031
 msgid ""
@@ -4795,20 +4426,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1034
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin homepage"
-msgstr "เอกสารการใช้ phpMyAdmin"
+msgstr ""
 
 #: libraries/messages.inc.php:1035
 msgid "Extra parameters for iconv"
 msgstr ""
 
 #: libraries/messages.inc.php:1036
-#, fuzzy
-#| msgid "Ignore"
 msgid "Ignore errors"
-msgstr "ไม่สนใจ"
+msgstr ""
 
 #: libraries/messages.inc.php:1037
 msgid ""
@@ -4846,10 +4473,8 @@ msgid "Partial import: skip queries"
 msgstr ""
 
 #: libraries/messages.inc.php:1045
-#, fuzzy
-#| msgid "Connections"
 msgid "Insecure connection"
-msgstr "การเชื่อมต่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1046
 msgid ""
@@ -4869,10 +4494,8 @@ msgid "How many rows can be inserted at one time"
 msgstr ""
 
 #: libraries/messages.inc.php:1049
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of inserted rows"
-msgstr "ระเบียนต่อหน้า"
+msgstr ""
 
 #: libraries/messages.inc.php:1050
 msgid "Target for quick access icon"
@@ -4883,10 +4506,8 @@ msgid "Show logo in left frame"
 msgstr ""
 
 #: libraries/messages.inc.php:1052
-#, fuzzy
-#| msgid "Display order:"
 msgid "Display logo"
-msgstr "ลำดับการแสดง:"
+msgstr ""
 
 #: libraries/messages.inc.php:1053
 msgid "Display server choice at the top of the left frame"
@@ -4911,10 +4532,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1058
-#, fuzzy
-#| msgid "Display all tables with the same width"
 msgid "Display databases in a tree"
-msgstr "ให้แสดงตารางทุกอัน ด้วยความกว้างเท่ากันหรือไม่?"
+msgstr ""
 
 #: libraries/messages.inc.php:1059
 msgid "Disable this if you want to see all databases at once"
@@ -4937,10 +4556,8 @@ msgid "Table tree separator"
 msgstr ""
 
 #: libraries/messages.inc.php:1064
-#, fuzzy
-#| msgid "Log in"
 msgid "Logo link URL"
-msgstr "เข้าสู่ระบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:1065
 msgid ""
@@ -4973,10 +4590,8 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1072
-#, fuzzy
-#| msgid "Local"
 msgid "Load"
-msgstr "โลคอล"
+msgstr ""
 
 #: libraries/messages.inc.php:1073
 msgid ""
@@ -4996,10 +4611,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1076
-#, fuzzy
-#| msgid "User name"
 msgid "Recall user name"
-msgstr "ชื่อผู้ใช้"
+msgstr ""
 
 #: libraries/messages.inc.php:1077
 msgid ""
@@ -5041,10 +4654,8 @@ msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1085
-#, fuzzy
-#| msgid "No databases"
 msgid "Maximum databases"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1086
 msgid ""
@@ -5054,20 +4665,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1087
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Maximum number of rows to display"
-msgstr "ระเบียนต่อหน้า"
+msgstr ""
 
 #: libraries/messages.inc.php:1088
 msgid "Maximum number of tables displayed in table list"
 msgstr ""
 
 #: libraries/messages.inc.php:1089
-#, fuzzy
-#| msgid "Repair table"
 msgid "Maximum tables"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1090
 msgid ""
@@ -5076,10 +4683,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1091
-#, fuzzy
-#| msgid "Resource limits"
 msgid "Memory limit"
-msgstr "ขีดจำกัดของทรัพยากร"
+msgstr ""
 
 #: libraries/messages.inc.php:1092 libraries/messages.inc.php:1104
 msgid "Use only icons, only text or both"
@@ -5090,10 +4695,8 @@ msgid "Iconic navigation bar"
 msgstr ""
 
 #: libraries/messages.inc.php:1094
-#, fuzzy
-#| msgid "Server"
 msgid "New server"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1095
 msgid "There are no configured servers"
@@ -5122,26 +4725,20 @@ msgid "Default sorting order"
 msgstr ""
 
 #: libraries/messages.inc.php:1101
-#, fuzzy
-#| msgid "User overview"
 msgid "Overview"
-msgstr "ข้อมูลทั่วไปของผู้ใช้"
+msgstr ""
 
 #: libraries/messages.inc.php:1102
 msgid "Use persistent connections to MySQL databases"
 msgstr ""
 
 #: libraries/messages.inc.php:1103
-#, fuzzy
-#| msgid "Connections"
 msgid "Persistent connections"
-msgstr "การเชื่อมต่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1105
-#, fuzzy
-#| msgid "Table options"
 msgid "Iconic table operations"
-msgstr "ตัวเลือกตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1106
 msgid "Disallow BLOB and BINARY fields from editing"
@@ -5166,20 +4763,16 @@ msgid "How many queries are kept in history"
 msgstr ""
 
 #: libraries/messages.inc.php:1111
-#, fuzzy
-#| msgid "Query type"
 msgid "Query history length"
-msgstr "ชนิดคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:1112
 msgid "Tab displayed when opening a new query window"
 msgstr ""
 
 #: libraries/messages.inc.php:1113
-#, fuzzy
-#| msgid "Query window"
 msgid "Default query window tab"
-msgstr "หน้าต่างคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:1114
 msgid "Select which functions will be used for character set conversion"
@@ -5224,10 +4817,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/messages.inc.php:1123
-#, fuzzy
-#| msgid "Add a new User"
 msgid "Add a new server"
-msgstr "เพิ่มผู้ใช้ใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:1124
 msgid "Leave blank if not used"
@@ -5287,10 +4878,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1137
-#, fuzzy
-#| msgid "Repair table"
 msgid "Bookmark table"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1138
 msgid ""
@@ -5299,38 +4888,28 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1139
-#, fuzzy
-#| msgid "Login Information"
 msgid "Column information table"
-msgstr "ข้อมูลล็อกอิน"
+msgstr ""
 
 #: libraries/messages.inc.php:1140
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Compress connection to MySQL server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr ""
 
 #: libraries/messages.inc.php:1141
-#, fuzzy
-#| msgid "Compression"
 msgid "Compress connection"
-msgstr "บีบอัดข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1142
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/messages.inc.php:1143
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection type"
-msgstr "การเชื่อมต่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1144
-#, fuzzy
-#| msgid "Change password"
 msgid "Control user password"
-msgstr "เปลี่ยนรหัสผ่าน"
+msgstr ""
 
 #: libraries/messages.inc.php:1145
 msgid ""
@@ -5339,22 +4918,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1146
-#, fuzzy
-#| msgid "Any user"
 msgid "Control user"
-msgstr "ผู้ใช้ใดๆ"
+msgstr ""
 
 #: libraries/messages.inc.php:1147
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Count tables when showing database list"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+msgstr ""
 
 #: libraries/messages.inc.php:1148
-#, fuzzy
-#| msgid "No tables"
 msgid "Count tables"
-msgstr "ไม่มีตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -5363,10 +4936,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1150
-#, fuzzy
-#| msgid "Repair table"
 msgid "Designer table"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1151
 msgid ""
@@ -5390,10 +4961,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1154
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit server"
-msgstr "แก้ไขสิทธิ"
+msgstr ""
 
 #: libraries/messages.inc.php:1155
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -5404,16 +4973,12 @@ msgid "PHP extension to use"
 msgstr ""
 
 #: libraries/messages.inc.php:1157
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr "รูปแบบคำพ้อง (regular expression)"
+msgstr ""
 
 #: libraries/messages.inc.php:1158
-#, fuzzy
-#| msgid "No databases"
 msgid "Hide databases"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1159
 msgid ""
@@ -5422,38 +4987,28 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1160
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL query history table"
-msgstr "SQL-history"
+msgstr ""
 
 #: libraries/messages.inc.php:1161
 msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/messages.inc.php:1162
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server hostname"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1163
-#, fuzzy
-#| msgid "Log out"
 msgid "Logout URL"
-msgstr "ออกจากระบบ"
+msgstr ""
 
 #: libraries/messages.inc.php:1164
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Try to connect without password"
-msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
+msgstr ""
 
 #: libraries/messages.inc.php:1165
-#, fuzzy
-#| msgid "Do not change the password"
 msgid "Connect without password"
-msgstr "กรุณาอย่าเปลี่ยนรหัสผ่าน"
+msgstr ""
 
 #: libraries/messages.inc.php:1166
 msgid ""
@@ -5494,10 +5049,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1175
-#, fuzzy
-#| msgid "Server"
 msgid "Server port"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1176
 msgid ""
@@ -5506,10 +5059,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1177
-#, fuzzy
-#| msgid "Repair table"
 msgid "Relation table"
-msgstr "ซ่อมแซมตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1178
 msgid "SQL command to fetch available databases"
@@ -5526,10 +5077,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1181
-#, fuzzy
-#| msgid "Session value"
 msgid "Signon session name"
-msgstr "ค่าเซสชั่น"
+msgstr ""
 
 #: libraries/messages.inc.php:1182
 msgid "Signon URL"
@@ -5544,10 +5093,8 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1185
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server socket"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1186
 msgid "Enable SSL for connection to MySQL server"
@@ -5573,10 +5120,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1191
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display fields table"
-msgstr "ความสามารถด้านการแสดงผล"
+msgstr ""
 
 #: libraries/messages.inc.php:1193
 msgid "User for config auth"
@@ -5589,10 +5134,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1195
-#, fuzzy
-#| msgid "Last check"
 msgid "Verbose check"
-msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1196
 msgid ""
@@ -5605,10 +5148,9 @@ msgid "Verbose name of this server"
 msgstr ""
 
 #: libraries/messages.inc.php:1198
-#, fuzzy, php-format
-#| msgid "Select Tables"
+#, php-format
 msgid "Set value: %s"
-msgstr "เลือกตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1199
 msgid ""
@@ -5631,16 +5173,12 @@ msgid "Show password change form"
 msgstr ""
 
 #: libraries/messages.inc.php:1203
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Show create database form"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr ""
 
 #: libraries/messages.inc.php:1204
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show form"
-msgstr "แสดงสี"
+msgstr ""
 
 #: libraries/messages.inc.php:1205
 msgid "Display the function fields in edit/insert mode"
@@ -5673,20 +5211,16 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/messages.inc.php:1212
-#, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show SQL queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr ""
 
 #: libraries/messages.inc.php:1213
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1214
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Show statistics"
-msgstr "สถิติของแถว"
+msgstr ""
 
 #: libraries/messages.inc.php:1215
 msgid ""
@@ -5720,12 +5254,11 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1221
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Skip locked tables"
-msgstr "สลับไปที่ตารางที่ถูกทำสำเนาไว้"
+msgstr ""
 
 #: libraries/messages.inc.php:1226 libraries/messages.inc.php:1606
+#, fuzzy
 msgid "Validate SQL"
 msgstr "ตรวจสอบ SQL"
 
@@ -5736,16 +5269,12 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1228
-#, fuzzy
-#| msgid "Create new database"
 msgid "Suggest new database name"
-msgstr "สร้างฐานข้อมูลใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:1229
-#, fuzzy
-#| msgid "Yes"
 msgid "yes"
-msgstr "ใช่"
+msgstr ""
 
 #: libraries/messages.inc.php:1230
 msgid ""
@@ -5764,20 +5293,16 @@ msgid "Directory on server where you can upload files for import"
 msgstr ""
 
 #: libraries/messages.inc.php:1233
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "Upload directory"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1234
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
 #: libraries/messages.inc.php:1235
-#, fuzzy
-#| msgid "No databases"
 msgid "Use database search"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1236
 msgid ""
@@ -5827,10 +5352,8 @@ msgid "Unparsable version string"
 msgstr ""
 
 #: libraries/messages.inc.php:1245
-#, fuzzy
-#| msgid "Last check"
 msgid "Version check"
-msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1246
 msgid ""
@@ -5882,8 +5405,6 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/messages.inc.php:1256
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show color"
 msgstr "แสดงสี"
 
@@ -5904,10 +5425,8 @@ msgid "Show/Hide left menu"
 msgstr ""
 
 #: libraries/messages.inc.php:1261
-#, fuzzy
-#| msgid "Showing rows"
 msgid "Showing bookmark"
-msgstr "แสดงระเบียนที่ "
+msgstr ""
 
 #: libraries/messages.inc.php:1262
 msgid "Showing as PHP code"
@@ -5918,26 +5437,20 @@ msgid "Showing rows"
 msgstr "แสดงระเบียนที่ "
 
 #: libraries/messages.inc.php:1264
-#, fuzzy
-#| msgid "SQL query"
 msgid "Showing SQL query"
-msgstr "คำค้น SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1265
-#, fuzzy
-#| msgid "in query"
 msgid "Show insert query"
-msgstr "ในคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:1266
 msgid "Only show keys"
 msgstr ""
 
 #: libraries/messages.inc.php:1268
-#, fuzzy
-#| msgid "Show tables"
 msgid "Show open tables"
-msgstr "แสดงตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1269
 msgid "Show PHP information"
@@ -6086,10 +5599,8 @@ msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: libraries/messages.inc.php:1297
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "The number of free pages."
-msgstr "ระเบียนต่อหน้า"
+msgstr ""
 
 #: libraries/messages.inc.php:1298
 msgid ""
@@ -6182,10 +5693,8 @@ msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 
 #: libraries/messages.inc.php:1316
-#, fuzzy
-#| msgid "Limits the number of new connections the user may open per hour."
 msgid "The number of doublewrite operations that have been performed."
-msgstr "จำกัดจำนวนการเชื่อมต่อใหม่ ที่ผู้ใช้จะสามารถเปิดได้ ต่อชั่วโมง"
+msgstr ""
 
 #: libraries/messages.inc.php:1317
 msgid ""
@@ -6327,10 +5836,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1347
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "The number of files that are open."
-msgstr "ปรับปรุงโพรไฟล์เรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:1348
 msgid "The number of streams that are open (used mainly for logging)."
@@ -6353,11 +5860,8 @@ msgid "The number of cache hits."
 msgstr ""
 
 #: libraries/messages.inc.php:1353
-#, fuzzy
-#| msgid ""
-#| "Limits the number of queries the user may send to the server per hour."
 msgid "The number of queries added to the cache."
-msgstr "จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง"
+msgstr ""
 
 #: libraries/messages.inc.php:1354
 msgid ""
@@ -6374,11 +5878,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1356
-#, fuzzy
-#| msgid ""
-#| "Limits the number of queries the user may send to the server per hour."
 msgid "The number of queries registered in the cache."
-msgstr "จำกัดจำนวนของคำค้น ที่ผู้ใช้จะสามารถส่งมาที่เซิร์ฟเวอร์ได้ ต่อชั่วโมง"
+msgstr ""
 
 #: libraries/messages.inc.php:1357
 msgid "The total number of blocks in the query cache."
@@ -6543,30 +6044,24 @@ msgid "Small/Big All"
 msgstr ""
 
 #: libraries/messages.inc.php:1391
-#, fuzzy
-#| msgid "Show grid"
 msgid "Snap to grid"
-msgstr "แสดงกริด"
+msgstr ""
 
 #: libraries/messages.inc.php:1392
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
 #: libraries/messages.inc.php:1393
-#, fuzzy
-#| msgid "Sent"
 msgid "Socket"
-msgstr "ถูกส่ง"
+msgstr ""
 
 #: libraries/messages.inc.php:1394
 msgid "Sort by key"
 msgstr "เรียงโดยคีย์"
 
 #: libraries/messages.inc.php:1395
-#, fuzzy
-#| msgid "Sort"
 msgid "Sorting"
-msgstr "เรียง"
+msgstr ""
 
 #: libraries/messages.inc.php:1396
 msgid "Sort"
@@ -6589,10 +6084,8 @@ msgid "SQL compatibility mode"
 msgstr ""
 
 #: libraries/messages.inc.php:1401
-#, fuzzy
-#| msgid "Export"
 msgid "Export type"
-msgstr "ส่งออก"
+msgstr ""
 
 #: libraries/messages.inc.php:1402
 msgid "Export time in UTC"
@@ -6652,16 +6145,12 @@ msgid "Unknown Punctuation String"
 msgstr "มีเครื่องหมายวรรคตอนที่ไม่รู้จัก"
 
 #: libraries/messages.inc.php:1411
-#, fuzzy
-#| msgid "Table structure for table"
 msgid "Stand-in structure for view"
-msgstr "โครงสร้างตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1412
-#, fuzzy
-#| msgid "Sat"
 msgid "Start"
-msgstr "ส."
+msgstr ""
 
 #: libraries/messages.inc.php:1413
 msgid "Last check"
@@ -6676,10 +6165,8 @@ msgid "Statements"
 msgstr "คำสั่ง"
 
 #: libraries/messages.inc.php:1416
-#, fuzzy
-#| msgid "Baltic"
 msgid "static"
-msgstr "บอลติก"
+msgstr ""
 
 #: libraries/messages.inc.php:1417
 msgid ""
@@ -6733,32 +6220,24 @@ msgid "Propose table structure"
 msgstr "เสนอโครงสร้างตาราง"
 
 #: libraries/messages.inc.php:1429
-#, fuzzy
-#| msgid "Structure only"
 msgid "Structure Difference"
-msgstr "เฉพาะโครงสร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:1430
-#, fuzzy
-#| msgid "Structure only"
 msgid "Structure for view"
-msgstr "เฉพาะโครงสร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:1431
-#, fuzzy
-#| msgid "Structure"
 msgid "structure"
-msgstr "โครงสร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:1432
 msgid "Structure"
 msgstr "โครงสร้าง"
 
 #: libraries/messages.inc.php:1433
-#, fuzzy
-#| msgid "Structure only"
 msgid "Structure Synchronization"
-msgstr "เฉพาะโครงสร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:1434
 msgid "Submit"
@@ -6801,10 +6280,8 @@ msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/messages.inc.php:1443
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to copied database"
-msgstr "สลับไปที่ตารางที่ถูกทำสำเนาไว้"
+msgstr ""
 
 #: libraries/messages.inc.php:1444
 msgid "Switch to copied table"
@@ -6817,10 +6294,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1446
-#, fuzzy
-#| msgid "Search in database"
 msgid "Synchronize Databases"
-msgstr "ค้นหาในฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1447
 msgid "Synchronize"
@@ -6831,20 +6306,18 @@ msgid "Add column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1450
-#, fuzzy, php-format
-#| msgid "The user %s already exists!"
+#, php-format
 msgid "Table %s already exists!"
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr ""
 
 #: libraries/messages.inc.php:1451
 msgid "Alter column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1452
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
+msgstr ""
 
 #: libraries/messages.inc.php:1453
 msgid "Alter index(s)"
@@ -6859,20 +6332,17 @@ msgid "Table comments"
 msgstr "หมายเหตุของตาราง"
 
 #: libraries/messages.inc.php:1456
-#, fuzzy
-#| msgid "Just delete the users from the privilege tables."
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "แค่ลบผู้ใช้ออกจากตารางแสดงสิทธิเข้าถึง"
+msgstr ""
 
 #: libraries/messages.inc.php:1457
 msgid "The table name is empty!"
 msgstr "ชื่อตารางยังว่างอยู่!"
 
 #: libraries/messages.inc.php:1458
-#, fuzzy, php-format
-#| msgid "Table %s has been emptied"
+#, php-format
 msgid "Table %1$s has been created."
-msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:1459
 #, php-format
@@ -6890,26 +6360,20 @@ msgid "Table %s has been flushed"
 msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
 
 #: libraries/messages.inc.php:1462
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert row(s)"
-msgstr "แทรกเป็นแถวใหม่"
+msgstr ""
 
 #: libraries/messages.inc.php:1463
-#, fuzzy
-#| msgid "Table %s has been emptied"
 msgid "Table seems to be empty!"
-msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:1464
 msgid "Table maintenance"
 msgstr "การดูแลรักษาตาราง"
 
 #: libraries/messages.inc.php:1465
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table name"
-msgstr "หมายเหตุของตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1466
 msgid "Table of contents"
@@ -6941,10 +6405,8 @@ msgid "Table"
 msgstr "ตาราง "
 
 #: libraries/messages.inc.php:1473
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update row(s)"
-msgstr "ปรับปรุงคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:1474
 msgid "take it"
@@ -6980,16 +6442,13 @@ msgid "Default theme %s not found!"
 msgstr ""
 
 #: libraries/messages.inc.php:1482
-#, fuzzy
-#| msgid "No privileges."
 msgid "No preview available."
-msgstr "ไม่มีสิทธิใดๆ."
+msgstr ""
 
 #: libraries/messages.inc.php:1483
-#, fuzzy, php-format
-#| msgid "Link not found"
+#, php-format
 msgid "Theme %s not found!"
-msgstr "ไม่พบลิงก์"
+msgstr ""
 
 #: libraries/messages.inc.php:1484
 #, php-format
@@ -7083,22 +6542,17 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1504
-#, fuzzy
-#| msgid "Creation"
 msgid "Create version"
-msgstr "สร้างเมื่อ"
+msgstr ""
 
 #: libraries/messages.inc.php:1505
-#, fuzzy, php-format
-#| msgid "Creation of PDFs"
+#, php-format
 msgid "Create version %s of %s.%s"
-msgstr "การสร้างเอกสาร PDF"
+msgstr ""
 
 #: libraries/messages.inc.php:1506
-#, fuzzy
-#| msgid "Database"
 msgid "Database Log"
-msgstr "ฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1507
 msgid "Data definition statement"
@@ -7109,10 +6563,8 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1509
-#, fuzzy
-#| msgid "Data"
 msgid "Date"
-msgstr "ข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1510
 msgid "Deactivate now"
@@ -7124,10 +6576,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1512
-#, fuzzy, php-format
-#| msgid "Export"
+#, php-format
 msgid "Export as %s"
-msgstr "ส่งออก"
+msgstr ""
 
 #: libraries/messages.inc.php:1513
 msgid "Tracking is active."
@@ -7160,10 +6611,8 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
-#, fuzzy
-#| msgid "Server version"
 msgid "Show versions"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1521
 msgid "SQL dump (file download)"
@@ -7182,60 +6631,44 @@ msgid "This option will replace your table and contained data."
 msgstr ""
 
 #: libraries/messages.inc.php:1525
-#, fuzzy
-#| msgid "SQL result"
 msgid "SQL execution"
-msgstr "ผลลัพธ์ SQL"
+msgstr ""
 
 #: libraries/messages.inc.php:1526
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
 #: libraries/messages.inc.php:1527
-#, fuzzy
-#| msgid "Statements"
 msgid "Tracking statements"
-msgstr "คำสั่ง"
+msgstr ""
 
 #: libraries/messages.inc.php:1528
-#, fuzzy
-#| msgid "Effective"
 msgid "active"
-msgstr "มีผล"
+msgstr ""
 
 #: libraries/messages.inc.php:1529
 msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1530
-#, fuzzy
-#| msgid "Structure and data"
 msgid "Structure snapshot"
-msgstr "ทั้งโครงสร้างและข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1531
-#, fuzzy
-#| msgid "Create"
 msgid "Created"
-msgstr "สร้าง"
+msgstr ""
 
 #: libraries/messages.inc.php:1532
-#, fuzzy
-#| msgid "Latvian"
 msgid "Last version"
-msgstr "ลัตเวีย"
+msgstr ""
 
 #: libraries/messages.inc.php:1533
-#, fuzzy
-#| msgid "Update Query"
 msgid "Updated"
-msgstr "ปรับปรุงคำค้น"
+msgstr ""
 
 #: libraries/messages.inc.php:1534
-#, fuzzy
-#| msgid "PHP Version"
 msgid "Version"
-msgstr "รุ่นของ PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:1535
 msgid "Track these data definition statements:"
@@ -7246,32 +6679,24 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1537
-#, fuzzy
-#| msgid "Check table"
 msgid "Tracked tables"
-msgstr "ตรวจสอบตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1538
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1539
-#, fuzzy
-#| msgid "Check table"
 msgid "Track table"
-msgstr "ตรวจสอบตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1540
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Untracked tables"
-msgstr "วิเคราะห์ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1541
-#, fuzzy
-#| msgid "Username:"
 msgid "Username"
-msgstr "ชื่อผู้ใช้:"
+msgstr ""
 
 #: libraries/messages.inc.php:1542
 #, php-format
@@ -7294,10 +6719,8 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1546
-#, fuzzy
-#| msgid "PHP Version"
 msgid "Versions"
-msgstr "รุ่นของ PHP"
+msgstr ""
 
 #: libraries/messages.inc.php:1547
 msgid ""
@@ -7318,10 +6741,8 @@ msgid "Traffic"
 msgstr "การจราจร"
 
 #: libraries/messages.inc.php:1551
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Transaction coordinator"
-msgstr "ตัวเลือกการแปลง"
+msgstr ""
 
 #: libraries/messages.inc.php:1552
 msgid ""
@@ -7503,10 +6924,8 @@ msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 
 #: libraries/messages.inc.php:1585
-#, fuzzy
-#| msgid "Missing value in the form!"
 msgid "Missing a temporary folder."
-msgstr "ค่าในแบบฟอร์มหายไป !"
+msgstr ""
 
 #: libraries/messages.inc.php:1586
 msgid "The uploaded file was only partially uploaded."
@@ -7536,10 +6955,8 @@ msgid "Enclose table and field names with backquotes"
 msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
 
 #: libraries/messages.inc.php:1592
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use Host Table"
-msgstr "ใช้ตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1593
 #, php-format
@@ -7593,11 +7010,7 @@ msgid "Use this value"
 msgstr "ใช้ค่านี้"
 
 #: libraries/messages.inc.php:1607
-#, fuzzy, php-format
-#| msgid ""
-#| "The SQL validator could not be initialised. Please check if you have "
-#| "installed the necessary PHP extensions as described in the %sdocumentation"
-#| "%s."
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -7614,16 +7027,12 @@ msgid "Variable"
 msgstr "ตัวแปร"
 
 #: libraries/messages.inc.php:1610
-#, fuzzy
-#| msgid "Login Information"
 msgid "Version information"
-msgstr "ข้อมูลล็อกอิน"
+msgstr ""
 
 #: libraries/messages.inc.php:1611
-#, fuzzy
-#| msgid "View dump (schema) of database"
 msgid "View dump (schema) of databases"
-msgstr "ดูโครงสร้างของฐานข้อมูล"
+msgstr ""
 
 #: libraries/messages.inc.php:1612
 msgid "View dump (schema) of database"
@@ -7641,32 +7050,25 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1615
-#, fuzzy, php-format
-#| msgid "Field %s has been dropped"
+#, php-format
 msgid "View %s has been dropped"
-msgstr "โยนฟิลด์ %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr ""
 
 #: libraries/messages.inc.php:1616
 msgid "View image"
 msgstr ""
 
 #: libraries/messages.inc.php:1617
-#, fuzzy
-#| msgid "Index name:"
 msgid "VIEW name"
-msgstr "ชื่อดัชนี :"
+msgstr ""
 
 #: libraries/messages.inc.php:1618
-#, fuzzy
-#| msgid "View only"
 msgid "View video"
-msgstr "ดูอย่างเดียว"
+msgstr ""
 
 #: libraries/messages.inc.php:1619
-#, fuzzy
-#| msgid "View only"
 msgid "View"
-msgstr "ดูอย่างเดียว"
+msgstr ""
 
 #: libraries/messages.inc.php:1621
 msgid "The directory you set for upload work cannot be reached"
@@ -7677,10 +7079,8 @@ msgid "web server upload directory"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
 #: libraries/messages.inc.php:1623
-#, fuzzy
-#| msgid "Server"
 msgid "Web server"
-msgstr "เซิร์ฟเวอร์"
+msgstr ""
 
 #: libraries/messages.inc.php:1624
 #, php-format
@@ -7725,10 +7125,8 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1634
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Export contents"
-msgstr "สารบัญ"
+msgstr ""
 
 #: libraries/messages.inc.php:1635
 msgid "Export functions"
@@ -7743,20 +7141,16 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1638
-#, fuzzy
-#| msgid "No tables"
 msgid "Export tables"
-msgstr "ไม่มีตาราง"
+msgstr ""
 
 #: libraries/messages.inc.php:1639
 msgid "Export triggers"
 msgstr ""
 
 #: libraries/messages.inc.php:1640
-#, fuzzy
-#| msgid "Export"
 msgid "Export views"
-msgstr "ส่งออก"
+msgstr ""
 
 #: libraries/messages.inc.php:1641
 msgid "XML"

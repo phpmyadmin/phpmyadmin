@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 23:30+0100\n"
-"PO-Revision-Date: 2010-03-11 22:41+0100\n"
+"POT-Creation-Date: 2010-03-11 23:43+0100\n"
+"PO-Revision-Date: 2010-03-11 23:39+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,9 @@ msgid "EiB"
 msgstr "ЭБ"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "Отправлено"
+msgstr ""
 
 #: libraries/messages.inc.php:26
 #, fuzzy
@@ -143,19 +141,15 @@ msgstr "Сен"
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "Окт"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "Нет"
+msgstr "Ноя"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "Удалить"
+msgstr "Дек"
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -313,14 +307,10 @@ msgid "Alter table order by"
 msgstr "Изменить сортировку таблицы"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse"
 msgid "Analyze"
 msgstr "Анализ"
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "Анализ таблицы"
 
@@ -470,9 +460,10 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr "Вы уверены, что хотите отключить все BLOB ссылки для базы данных %s?"
 
 #: libraries/messages.inc.php:105
+#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Отключено"
+msgstr "Недоступно"
 
 #: libraries/messages.inc.php:106
 msgid "Disable"
@@ -483,9 +474,10 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Вы собираетесь ОТКЛЮЧИТЬ хранилище BLOB данных!"
 
 #: libraries/messages.inc.php:108
+#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Включено"
+msgstr "Доступно"
 
 #: libraries/messages.inc.php:109
 msgid "Enable"
@@ -496,9 +488,10 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Удалить ссылку хранилища BLOB данных"
 
 #: libraries/messages.inc.php:111
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr "Восстановить"
+msgstr "Исправление"
 
 #: libraries/messages.inc.php:112
 msgid "Upload to BLOB repository"
@@ -598,16 +591,12 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: libraries/messages.inc.php:137
-#, fuzzy
-#| msgid "Could not load export plug-ins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Модули экспорта, отсутствуют! Проверьте содержимое каталога libraries/export "
 "установленной копии phpMyAdmin."
 
 #: libraries/messages.inc.php:138
-#, fuzzy
-#| msgid "Could not load import plug-ins, please check your installation!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Модули импорта - отсутствуют! Проверьте содержимое каталога libraries/import "
@@ -793,8 +782,9 @@ msgid "Complete inserts"
 msgstr "Полная вставка"
 
 #: libraries/messages.inc.php:179 libraries/messages.inc.php:968
+#, fuzzy
 msgid "Compression"
-msgstr "Упаковать"
+msgstr "Сжатие"
 
 #: libraries/messages.inc.php:180
 #, php-format
@@ -942,7 +932,7 @@ msgstr "Создать связь"
 
 #: libraries/messages.inc.php:208
 msgid "Create table"
-msgstr "Создать таблицу"
+msgstr ""
 
 #: libraries/messages.inc.php:209
 #, fuzzy
@@ -992,6 +982,7 @@ msgid "Croatian"
 msgstr "Хорватский"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1000,8 +991,6 @@ msgid "Current server"
 msgstr "Текущий сервер"
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Custom colour"
 msgid "Custom color"
 msgstr "Выбрать цвет"
 
@@ -1049,6 +1038,7 @@ msgid "'%s' database does not exist."
 msgstr "База данных '%s' не существует."
 
 #: libraries/messages.inc.php:232 libraries/messages.inc.php:994
+#, fuzzy
 msgid "Databases"
 msgstr "Базы данных"
 
@@ -1106,8 +1096,6 @@ msgid "Pages containing data"
 msgstr "Страниц с данными"
 
 #: libraries/messages.inc.php:245
-#, fuzzy
-#| msgid "Data Synchronisation"
 msgid "Data Synchronization"
 msgstr "Синхронизация данных"
 
@@ -1212,6 +1200,7 @@ msgid "Descending"
 msgstr "По убыванию"
 
 #: libraries/messages.inc.php:268
+#, fuzzy
 msgid "Description"
 msgstr "Описание"
 
@@ -1328,8 +1317,9 @@ msgid "dynamic"
 msgstr "динамический"
 
 #: libraries/messages.inc.php:296 libraries/messages.inc.php:1222
+#, fuzzy
 msgid "Edit"
-msgstr "Изменить"
+msgstr "Редактировать"
 
 #: libraries/messages.inc.php:297
 msgid "Edit PDF Pages"
@@ -1424,8 +1414,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Ошибка сохранения координат."
 
 #: libraries/messages.inc.php:319
-#, fuzzy, php-format
-#| msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+#, php-format
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr ""
 "При использовании в имени базы данных символов нижнего подчеркивания (_) и "
@@ -1457,6 +1446,7 @@ msgid "Execute bookmarked query"
 msgstr "Выполнить отмеченный запрос"
 
 #: libraries/messages.inc.php:326 libraries/messages.inc.php:1223
+#, fuzzy
 msgid "Explain SQL"
 msgstr "Анализ запроса"
 
@@ -1605,6 +1595,7 @@ msgid "FOREIGN KEY relation added"
 msgstr "Добавлена связь на внешний ключ (FOREIGN KEY)"
 
 #: libraries/messages.inc.php:358 libraries/messages.inc.php:972
+#, fuzzy
 msgid "Format"
 msgstr "Формат"
 
@@ -1717,8 +1708,6 @@ msgid "has been altered."
 msgstr "была изменена."
 
 #: libraries/messages.inc.php:388
-#, fuzzy
-#| msgid "Selected target tables have been synchronised with source tables."
 msgid "Selected target tables have been synchronized with source tables."
 msgstr "Выбранные целевые таблицы были синхронизированы с таблицами источника."
 
@@ -1832,8 +1821,9 @@ msgid "Import files"
 msgstr "Импорт файлов"
 
 #: libraries/messages.inc.php:416 libraries/messages.inc.php:1042
+#, fuzzy
 msgid "Format of imported file"
-msgstr "Формат импортируемого файла"
+msgstr "Формат импортируемых файлов"
 
 #: libraries/messages.inc.php:417
 msgid "Import"
@@ -1872,8 +1862,9 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Импортировать денежные единицы ($5.00 в 5.00)"
 
 #: libraries/messages.inc.php:424 libraries/messages.inc.php:607
+#, fuzzy
 msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "OpenDocument таблица"
 
 #: libraries/messages.inc.php:425
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -2002,10 +1993,8 @@ msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
 
 #: libraries/messages.inc.php:450
-#, fuzzy
-#| msgid "Insert as new row"
 msgid "Insert as new row and ignore errors"
-msgstr "Вставить запись"
+msgstr ""
 
 #: libraries/messages.inc.php:451
 msgid "Insert"
@@ -2077,8 +2066,6 @@ msgid "Table must have at least one field."
 msgstr "У таблицы должно быть, как минимум, одно поле."
 
 #: libraries/messages.inc.php:466
-#, fuzzy
-#| msgid "This plug-in does not support compressed imports!"
 msgid "This plugin does not support compressed imports!"
 msgstr "Этот модуль не поддерживает импорт сжатых данных!"
 
@@ -2547,10 +2534,8 @@ msgid "Filter"
 msgstr "Фильтр"
 
 #: libraries/messages.inc.php:565
-#, fuzzy
-#| msgid "No tables"
 msgid "New table"
-msgstr "Нет таблиц"
+msgstr ""
 
 #: libraries/messages.inc.php:566
 msgid "Next"
@@ -2726,6 +2711,7 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Итого:</b> <i>%s</i> вхождения(ий)"
 
 #: libraries/messages.inc.php:604 libraries/messages.inc.php:1001
+#, fuzzy
 msgid "Tables"
 msgstr "Таблицы"
 
@@ -2750,14 +2736,10 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/messages.inc.php:612
-#, fuzzy
-#| msgid "Optimise"
 msgid "Optimize"
 msgstr "Оптимизация"
 
 #: libraries/messages.inc.php:613
-#, fuzzy
-#| msgid "Optimise table"
 msgid "Optimize table"
 msgstr "Оптимизировать таблицу"
 
@@ -2774,8 +2756,9 @@ msgid "Overhead"
 msgstr "Фрагментировано"
 
 #: libraries/messages.inc.php:617 libraries/messages.inc.php:974
+#, fuzzy
 msgid "Overwrite existing file(s)"
-msgstr "Перезаписать существующий(е) файл(ы)"
+msgstr "Перезаписать существующий файл(ы)"
 
 #: libraries/messages.inc.php:619
 msgid "Packed"
@@ -3003,16 +2986,12 @@ msgid "No tables"
 msgstr "Нет таблиц"
 
 #: libraries/messages.inc.php:661
-#, fuzzy
-#| msgid "Table %1$s has been created."
 msgid "Page has been created"
-msgstr "Таблица %1$s была создана."
+msgstr ""
 
 #: libraries/messages.inc.php:662
-#, fuzzy
-#| msgid "Hardware authentication failed"
 msgid "Page creation failed"
-msgstr "Ошибка аппаратной идентификации"
+msgstr ""
 
 #: libraries/messages.inc.php:663
 msgid "PDF"
@@ -3051,8 +3030,9 @@ msgid "PHP array"
 msgstr "Массив PHP"
 
 #: libraries/messages.inc.php:672 libraries/messages.inc.php:1225
+#, fuzzy
 msgid "Create PHP Code"
-msgstr "PHP-код"
+msgstr "Генерировать PHP-код"
 
 #: libraries/messages.inc.php:673
 msgid "PHP extension"
@@ -3378,8 +3358,9 @@ msgid "Query cache"
 msgstr "Кеш запросов"
 
 #: libraries/messages.inc.php:747 libraries/messages.inc.php:1006
+#, fuzzy
 msgid "Query window"
-msgstr "Окно запроса"
+msgstr "Окно запросов"
 
 #: libraries/messages.inc.php:748
 #, php-format
@@ -3441,6 +3422,7 @@ msgid "Check referential integrity:"
 msgstr "Проверить целостность данных:"
 
 #: libraries/messages.inc.php:762 libraries/messages.inc.php:1224
+#, fuzzy
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -3486,10 +3468,8 @@ msgid "Reloading the privileges"
 msgstr "Перезагрузка привилегий"
 
 #: libraries/messages.inc.php:772
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Reload navigation frame"
-msgstr "Фрейм навигации"
+msgstr ""
 
 #: libraries/messages.inc.php:773
 msgid "Reload privileges"
@@ -3530,10 +3510,8 @@ msgid "Rename table to"
 msgstr "Переименовать таблицу в"
 
 #: libraries/messages.inc.php:782
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Rename view to"
-msgstr "Переименовать таблицу в"
+msgstr ""
 
 #: libraries/messages.inc.php:783
 msgid "Repair"
@@ -3658,12 +3636,11 @@ msgid "Show connected slaves"
 msgstr "Показать соединённые подчиненные сервера"
 
 #: libraries/messages.inc.php:805 libraries/messages.inc.php:1267
+#, fuzzy
 msgid "Show master status"
 msgstr "Показать состояние головного сервера"
 
 #: libraries/messages.inc.php:806
-#, fuzzy
-#| msgid "Skipping error(s) might lead into unsynchronised master and slave!"
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
 msgstr ""
 "Игнорирование ошибок может привести к рассинхронизации головного и "
@@ -3763,8 +3740,6 @@ msgid "Slave status"
 msgstr "Статус Slave"
 
 #: libraries/messages.inc.php:826
-#, fuzzy
-#| msgid "Synchronise databases with master"
 msgid "Synchronize databases with master"
 msgstr "Синхронизировать базы данных с головным сервером"
 
@@ -3777,6 +3752,7 @@ msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
 #: libraries/messages.inc.php:829
+#, fuzzy
 msgid "Reset"
 msgstr "Сбросить"
 
@@ -4002,6 +3978,7 @@ msgid "Select Tables"
 msgstr "Выберите таблицы"
 
 #: libraries/messages.inc.php:882 libraries/messages.inc.php:966
+#, fuzzy
 msgid "Save as file"
 msgstr "Сохранить как файл"
 
@@ -4022,6 +3999,7 @@ msgid "Server"
 msgstr "Сервер"
 
 #: libraries/messages.inc.php:887 libraries/messages.inc.php:999
+#, fuzzy
 msgid "Servers"
 msgstr "Сервера"
 
@@ -4516,14 +4494,10 @@ msgid "Browse mode"
 msgstr "Обзор"
 
 #: libraries/messages.inc.php:985
-#, fuzzy
-#| msgid "Customise browse mode"
 msgid "Customize browse mode"
 msgstr "Настройка режима обзора данных"
 
 #: libraries/messages.inc.php:986
-#, fuzzy
-#| msgid "Customise edit mode"
 msgid "Customize edit mode"
 msgstr "Настройка режима редакции данных"
 
@@ -4532,8 +4506,6 @@ msgid "Edit mode"
 msgstr "Редакция"
 
 #: libraries/messages.inc.php:988
-#, fuzzy
-#| msgid "Customise default export options"
 msgid "Customize default export options"
 msgstr "Настройте параметры экспорта используемые по умолчанию"
 
@@ -4542,8 +4514,6 @@ msgid "Export defaults"
 msgstr "Экспорт"
 
 #: libraries/messages.inc.php:990
-#, fuzzy
-#| msgid "Customise default common import options"
 msgid "Customize default common import options"
 msgstr "Настройте параметры импорта используемые по умолчанию"
 
@@ -4564,8 +4534,6 @@ msgid "Databases display options"
 msgstr "Параметры отображения списка баз данных"
 
 #: libraries/messages.inc.php:996
-#, fuzzy
-#| msgid "Customise appearance of the navigation frame"
 msgid "Customize appearance of the navigation frame"
 msgstr "Настройки отображения фрейма навигации"
 
@@ -4594,8 +4562,6 @@ msgid "Other core settings"
 msgstr "Другие настройки ядра"
 
 #: libraries/messages.inc.php:1005
-#, fuzzy
-#| msgid "Customise query window options"
 msgid "Customize query window options"
 msgstr "Настройте параметры окна запросов"
 
@@ -4650,18 +4616,15 @@ msgstr ""
 "tables]инфраструктуру связанных таблиц[/a]"
 
 #: libraries/messages.inc.php:1016 libraries/messages.inc.php:1173
+#, fuzzy
 msgid "PMA database"
-msgstr "Расширения PMA"
+msgstr "База данных PMA"
 
 #: libraries/messages.inc.php:1017
-#, fuzzy
-#| msgid "Customisation"
 msgid "Customization"
 msgstr "Модификация"
 
 #: libraries/messages.inc.php:1018
-#, fuzzy
-#| msgid "Customise export options"
 msgid "Customize export options"
 msgstr "Модифицировать параметры экспорта"
 
@@ -4670,26 +4633,18 @@ msgid "Features"
 msgstr "Настройки"
 
 #: libraries/messages.inc.php:1020
-#, fuzzy
-#| msgid "Customise import defaults"
 msgid "Customize import defaults"
 msgstr "Модифицировать изначальлные настройки импорта"
 
 #: libraries/messages.inc.php:1021
-#, fuzzy
-#| msgid "Customise navigation frame"
 msgid "Customize navigation frame"
 msgstr "Модифицировать фрейм навигации"
 
 #: libraries/messages.inc.php:1022
-#, fuzzy
-#| msgid "Customise main frame"
 msgid "Customize main frame"
 msgstr "Модифицировать основной фрейм"
 
 #: libraries/messages.inc.php:1023
-#, fuzzy
-#| msgid "Customise links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes"
 msgstr "Настройте ссылки выводимые в блоке SQL запросов"
 
@@ -4711,8 +4666,6 @@ msgid "SQL queries"
 msgstr "SQL запросы"
 
 #: libraries/messages.inc.php:1027
-#, fuzzy
-#| msgid "Customise startup page"
 msgid "Customize startup page"
 msgstr "Настройка отображения главной страницы"
 
@@ -4798,8 +4751,9 @@ msgstr ""
 "положения (база данных, таблица) и только SQL доступен в любом случае"
 
 #: libraries/messages.inc.php:1043 libraries/messages.inc.php:1386
+#, fuzzy
 msgid "Number of records (queries) to skip from start"
-msgstr "Количество запросов пропускаемых от начала импорта"
+msgstr "Количество запросов, пропущенных от начала"
 
 #: libraries/messages.inc.php:1044
 msgid "Partial import: skip queries"
@@ -5051,8 +5005,10 @@ msgid "Memory limit"
 msgstr "Лимит памяти"
 
 #: libraries/messages.inc.php:1092 libraries/messages.inc.php:1104
+#, fuzzy
 msgid "Use only icons, only text or both"
-msgstr "Использовать только иконки, только текст, или все вместе"
+msgstr ""
+"Использовать для ссылок операций над таблицами иконки, текст, или все вместе"
 
 #: libraries/messages.inc.php:1093
 msgid "Iconic navigation bar"
@@ -5116,10 +5072,6 @@ msgid "Protect binary fields"
 msgstr "Защитить бинарные данные"
 
 #: libraries/messages.inc.php:1108
-#, fuzzy
-#| msgid ""
-#| "Enable if you want DB-based query history (requires pmadb). If disabled, "
-#| "this utilises JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires pmadb). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
@@ -5432,6 +5384,7 @@ msgid "Show only listed databases"
 msgstr "Показывать только базы данных из списка"
 
 #: libraries/messages.inc.php:1168 libraries/messages.inc.php:1192
+#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Если не используется идентификация config, оставьте поле пустым"
 
@@ -5709,6 +5662,7 @@ msgid "Skip locked tables"
 msgstr "Пропускать заблокированные таблицы"
 
 #: libraries/messages.inc.php:1226 libraries/messages.inc.php:1606
+#, fuzzy
 msgid "Validate SQL"
 msgstr "Проверка синтаксиса SQL"
 
@@ -5880,8 +5834,6 @@ msgid "Show BLOB contents"
 msgstr "Показать BLOB содержимое"
 
 #: libraries/messages.inc.php:1256
-#, fuzzy
-#| msgid "Show colour"
 msgid "Show color"
 msgstr "Отображать в цвете"
 
@@ -5918,10 +5870,8 @@ msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
 #: libraries/messages.inc.php:1265
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show insert query"
-msgstr "Отображает SQL-запрос"
+msgstr ""
 
 #: libraries/messages.inc.php:1266
 msgid "Only show keys"
@@ -6058,10 +6008,6 @@ msgstr ""
 "ограничением по размеру или при сканировании индекса."
 
 #: libraries/messages.inc.php:1288
-#, fuzzy
-#| msgid ""
-#| "The number of requests to read the previous row in key order. This read "
-#| "method is mainly used to optimise ORDER BY ... DESC."
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -6383,12 +6329,6 @@ msgid "The number of physical writes of a key block to disk."
 msgstr "Количество физических операций записи блока индексов на диск."
 
 #: libraries/messages.inc.php:1344
-#, fuzzy
-#| msgid ""
-#| "The total cost of the last compiled query as computed by the query "
-#| "optimiser. Useful for comparing the cost of different query plans for the "
-#| "same query. The default value of 0 means that no query has been compiled "
-#| "yet."
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -6582,12 +6522,6 @@ msgstr ""
 "немедленно."
 
 #: libraries/messages.inc.php:1375
-#, fuzzy
-#| msgid ""
-#| "The number of times that a table lock could not be acquired immediately "
-#| "and a wait was needed. If this is high, and you have performance "
-#| "problems, you should first optimise your queries, and then either split "
-#| "your table or tables or use replication."
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -6718,10 +6652,8 @@ msgid "Export type"
 msgstr "Тип экспорта"
 
 #: libraries/messages.inc.php:1402
-#, fuzzy
-#| msgid "Export type"
 msgid "Export time in UTC"
-msgstr "Тип экспорта"
+msgstr ""
 
 #: libraries/messages.inc.php:1403
 msgid ""
@@ -6855,16 +6787,12 @@ msgid "Propose table structure"
 msgstr "Анализ структуры таблицы"
 
 #: libraries/messages.inc.php:1429
-#, fuzzy
-#| msgid "Data Difference"
 msgid "Structure Difference"
-msgstr "Различие данных"
+msgstr "Различие структуры"
 
 #: libraries/messages.inc.php:1430
-#, fuzzy
-#| msgid "Stand-in structure for view"
 msgid "Structure for view"
-msgstr "Дублирующая структура для представления"
+msgstr "Структура для представления"
 
 #: libraries/messages.inc.php:1431
 msgid "structure"
@@ -6875,8 +6803,6 @@ msgid "Structure"
 msgstr "Структура"
 
 #: libraries/messages.inc.php:1433
-#, fuzzy
-#| msgid "Structure Synchronisation"
 msgid "Structure Synchronization"
 msgstr "Синхронизация структуры"
 
@@ -6931,10 +6857,6 @@ msgid "Switch to copied table"
 msgstr "Переключиться на скопированную таблицу"
 
 #: libraries/messages.inc.php:1445
-#, fuzzy
-#| msgid ""
-#| "Target database will be completely synchronised with source database. "
-#| "Source database will remain unchanged."
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
@@ -6943,14 +6865,10 @@ msgstr ""
 "источника останется неизменной."
 
 #: libraries/messages.inc.php:1446
-#, fuzzy
-#| msgid "Synchronise Databases"
 msgid "Synchronize Databases"
 msgstr "Синхронизировать базы данных"
 
 #: libraries/messages.inc.php:1447
-#, fuzzy
-#| msgid "Synchronise"
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
@@ -7066,8 +6984,6 @@ msgid "take it"
 msgstr "Применить"
 
 #: libraries/messages.inc.php:1475
-#, fuzzy
-#| msgid "Target database has been synchronised with source database"
 msgid "Target database has been synchronized with source database"
 msgstr "Целевая база данных была синхронизирована с базой данных источника"
 
@@ -7728,11 +7644,7 @@ msgid "Use this value"
 msgstr "Использовать это значение"
 
 #: libraries/messages.inc.php:1607
-#, fuzzy, php-format
-#| msgid ""
-#| "The SQL validator could not be initialised. Please check if you have "
-#| "installed the necessary PHP extensions as described in the %sdocumentation"
-#| "%s."
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
