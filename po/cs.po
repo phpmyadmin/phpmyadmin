@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-11 22:35+0100\n"
-"PO-Revision-Date: 2010-03-11 22:35+0100\n"
+"POT-Creation-Date: 2010-03-11 22:56+0100\n"
+"PO-Revision-Date: 2010-03-11 22:54+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,25 +57,19 @@ msgid "EiB"
 msgstr "EiB"
 
 #: libraries/messages.inc.php:25
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_4_1_doc_lang"
 msgid "en"
-msgstr "Odesláno"
+msgstr "en"
 
 #: libraries/messages.inc.php:26
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "Odesláno"
+msgstr "en"
 
 #: libraries/messages.inc.php:27
-#, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "Odesláno"
+msgstr "en"
 
 #: libraries/messages.inc.php:29
 msgid "Sun"
@@ -143,19 +137,15 @@ msgstr "září"
 
 #: libraries/messages.inc.php:30
 msgid "Oct"
-msgstr ""
+msgstr "října"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "No"
 msgid "Nov"
-msgstr "Ne"
+msgstr "listopadu"
 
 #: libraries/messages.inc.php:30
-#, fuzzy
-#| msgid "Del"
 msgid "Dec"
-msgstr "smazat"
+msgstr "prosince"
 
 #: libraries/messages.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
@@ -314,14 +304,10 @@ msgid "Alter table order by"
 msgstr "Změnit pořadí tabulky podle"
 
 #: libraries/messages.inc.php:67
-#, fuzzy
-#| msgid "Analyse"
 msgid "Analyze"
 msgstr "Analyzovat"
 
 #: libraries/messages.inc.php:68
-#, fuzzy
-#| msgid "Analyse table"
 msgid "Analyze table"
 msgstr "Analyzovat tabulku"
 
@@ -601,15 +587,11 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: libraries/messages.inc.php:137
-#, fuzzy
-#| msgid "Could not load export plug-ins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
 
 #: libraries/messages.inc.php:138
-#, fuzzy
-#| msgid "Could not load import plug-ins, please check your installation!"
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
@@ -946,8 +928,6 @@ msgid "Create table"
 msgstr "Vytvořit tabulku"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Vytvořit tabulku"
@@ -995,8 +975,6 @@ msgid "Current server"
 msgstr "Aktuální server"
 
 #: libraries/messages.inc.php:220
-#, fuzzy
-#| msgid "Custom colour"
 msgid "Custom color"
 msgstr "Vlastní barva"
 
@@ -1101,8 +1079,6 @@ msgid "Pages containing data"
 msgstr "Stránek obsahujících data"
 
 #: libraries/messages.inc.php:245
-#, fuzzy
-#| msgid "Data Synchronisation"
 msgid "Data Synchronization"
 msgstr "Synchronizace dat"
 
@@ -1417,8 +1393,7 @@ msgid "Error saving coordinates for Designer."
 msgstr "Chyba při ukládání souřadnic pro Návrháře."
 
 #: libraries/messages.inc.php:319
-#, fuzzy, php-format
-#| msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
+#, php-format
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
 msgstr ""
 "Zástupné znaky _ a % by měly být escapovány pomocí \\, pokud je chcete "
