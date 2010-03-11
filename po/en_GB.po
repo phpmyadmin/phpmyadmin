@@ -1296,7 +1296,6 @@ msgid "dynamic"
 msgstr "dynamic"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Edit"
 
