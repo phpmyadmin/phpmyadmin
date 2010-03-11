@@ -36,7 +36,6 @@
  * @uses PMA_getTableList()
  * @uses PMA_getRelationsParam()
  * @uses PMA_outBufferPre()
- * @uses session_write_close()
  * @uses strlen()
  * @uses session_write_close()
  * @uses is_array()

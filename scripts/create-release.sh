@@ -69,7 +69,7 @@ fi
 cat <<END
 
 Please ensure you have:
-  1. incremented rc count or version in subversion :
+  1. incremented rc count or version in the repository :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in Documentation.html the 2 lines
@@ -206,7 +206,7 @@ cat <<END
 Todo now:
 ---------
 
- 1. tag the subversion tree with the new revision number for a plain release
+ 1. tag the repository with the new revision number for a plain release
     or a release candidate:
     version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE
     version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
@@ -226,7 +226,7 @@ Todo now:
     Don't forget to update the Description section in the announcement,
     based on Documentation.html.
 
- 7. increment rc count or version in subversion :
+ 7. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html the 2 lines
