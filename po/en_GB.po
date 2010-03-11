@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-12 01:29+0200\n"
+"PO-Revision-Date: 2010-03-12 01:30+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -3373,7 +3373,6 @@ msgid "Check referential integrity:"
 msgstr "Check referential integrity:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Refresh"
 
