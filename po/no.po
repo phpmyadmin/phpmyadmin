@@ -58,21 +58,6 @@ msgstr "PiB"
 msgid "EiB"
 msgstr "EiB"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Søn"
@@ -904,11 +889,6 @@ msgstr "Opprett relasjon"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Opprett tabell"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1926,10 +1906,6 @@ msgstr "Sett inn som ny rad"
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Sett inn"
@@ -2017,13 +1993,6 @@ msgstr "Ugylding tabellnavn"
 #: $strJapanese
 msgid "Japanese"
 msgstr "japansk"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2440,10 +2409,6 @@ msgstr "Navn"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Filter"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2881,14 +2846,6 @@ msgstr "Tabellen \"%s\" eksisterer ikke!"
 msgid "No tables"
 msgstr "Ingen tabeller"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2944,30 +2901,6 @@ msgstr "Spill lyd"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Velg primærnøkkelen eller en unik nøkkel"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3353,10 +3286,6 @@ msgstr "Relasjonsvisning"
 msgid "Reloading the privileges"
 msgstr "Oppfrisker privilegiene"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Oppfrisk privilegier"
@@ -3392,10 +3321,6 @@ msgstr "Tabellen %s har fått nytt navn %s"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Endre tabellens navn"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3543,16 +3468,6 @@ msgstr "Feilbehandling:"
 msgid "IO Thread %s only"
 msgstr "Kun IO tråd %s"
 
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveNotConfigured
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
 #: $strReplicationSlaveReset
 msgid "Reset slave"
 msgstr "Resett slave"
@@ -3576,10 +3491,6 @@ msgstr "Hopp over neste"
 #: $strReplicationSlave
 msgid "Slave replication"
 msgstr "Slavereplikasjon"
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
@@ -5041,14 +4952,6 @@ msgstr "Tillat innlogging uten passord"
 msgid "Allow root login"
 msgstr "Tillat innlogging som root"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5733,10 +5636,6 @@ msgstr "Viser rader "
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6501,10 +6400,6 @@ msgstr "SQL kompatibilitetsmodus"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Eksporttype"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

@@ -58,21 +58,6 @@ msgstr "PB"
 msgid "EiB"
 msgstr "EB"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Κυριακή"
@@ -910,11 +895,6 @@ msgstr "Δημιουργία συσχέτισης"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1939,10 +1919,6 @@ msgstr "Εισαγωγή ως νέα εγγραφή"
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Προσθήκη"
@@ -2032,13 +2008,6 @@ msgstr "Μη έγκυρο όνομα πίνακα"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Ιαπωνικά"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2465,10 +2434,6 @@ msgstr "Όνομα"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Φίλτρο"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2914,14 +2879,6 @@ msgstr "Ο πίνακας «%s» δεν υπάρχει!"
 msgid "No tables"
 msgstr "Δεν υπάρχουν πίνακες"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2977,30 +2934,6 @@ msgstr "Αναπαραγωγή ήχου"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3394,10 +3327,6 @@ msgstr "Εμφάνιση συσχετίσεων"
 msgid "Reloading the privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
@@ -3433,10 +3362,6 @@ msgstr "Ο Πίνακας %s μετονομάσθηκε σε %s"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Μετονομασία πίνακα σε"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3593,10 +3518,6 @@ msgstr "Διαχείριση σφάλματος:"
 msgid "IO Thread %s only"
 msgstr "Διεργασία IO %s μόνο"
 
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
 #: $strReplicationSlaveNotConfigured
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3628,10 +3549,6 @@ msgstr "Παράβλεψη επόμενου"
 #: $strReplicationSlave
 msgid "Slave replication"
 msgstr "Δευτερεύουσα αναπαραγωγή"
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
@@ -5114,14 +5031,6 @@ msgstr "Δικαίωμα συνδέσεων χωρίς κωδικό πρόσβα
 msgid "Allow root login"
 msgstr "Δικαίωμα ριζικής σύνδεσης"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5822,10 +5731,6 @@ msgstr "Εμφάνιση εγγραφής "
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6627,10 +6532,6 @@ msgstr "Κατάσταση συμβατότητας SQL"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Τύπος εξαγωγής"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

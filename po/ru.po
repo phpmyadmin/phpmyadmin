@@ -58,21 +58,6 @@ msgstr "ПБ"
 msgid "EiB"
 msgstr "ЭБ"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Вс"
@@ -908,11 +893,6 @@ msgstr "Создать связь"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Создать таблицу"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1931,10 +1911,6 @@ msgstr "Вставить запись"
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Вставить"
@@ -2026,13 +2002,6 @@ msgstr "Неправильное имя таблицы"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Японский"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2458,10 +2427,6 @@ msgstr "Имя"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Фильтр"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2901,14 +2866,6 @@ msgstr "Таблица \"%s\" не существует!"
 msgid "No tables"
 msgstr "Нет таблиц"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2966,30 +2923,6 @@ msgid "Please select the primary key or a unique key"
 msgstr ""
 "Выберите поле являющееся первичным (PRIMARY), или уникальным (UNIQUE) "
 "индексом!"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3377,10 +3310,6 @@ msgstr "Связи"
 msgid "Reloading the privileges"
 msgstr "Перезагрузка привилегий"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Перезагрузить привилегии"
@@ -3416,10 +3345,6 @@ msgstr "Таблица `%s` была переименована в `%s`."
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Переименовать таблицу в"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3573,10 +3498,6 @@ msgstr "Управление ошибками:"
 msgid "IO Thread %s only"
 msgstr "IO только поток %s"
 
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
 #: $strReplicationSlaveNotConfigured
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3608,10 +3529,6 @@ msgstr "Пропустить следующую"
 #: $strReplicationSlave
 msgid "Slave replication"
 msgstr "Репликация подчинённого сервера"
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
@@ -5098,14 +5015,6 @@ msgstr "Разрешать подключения без пароля"
 msgid "Allow root login"
 msgstr "Разрешить вход под root"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5806,10 +5715,6 @@ msgstr "Отображает строки"
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6597,10 +6502,6 @@ msgstr "Режим совместимости SQL"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Тип экспорта"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

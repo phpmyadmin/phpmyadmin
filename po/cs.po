@@ -58,21 +58,6 @@ msgstr "PiB"
 msgid "EiB"
 msgstr "EiB"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Neděle"
@@ -909,11 +894,6 @@ msgstr "Vytvořit relaci"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Vytvořit tabulku"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -2884,14 +2864,6 @@ msgstr "Tabulka „%s“ neexistuje!"
 msgid "No tables"
 msgstr "žádné tabulky"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2972,10 +2944,6 @@ msgstr ""
 #: $strPmadbCreateUser
 msgid "Create a pma user and give access to these tables."
 msgstr "Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky."
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3415,139 +3383,21 @@ msgstr "Nahradit NULL hodnoty"
 msgid "Replace table data with file"
 msgstr "Přepsat data tabulky souborem"
 
-#: $strReplicationAddLines
-msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
-msgstr ""
-
-#: $strReplicationAddSlaveUser
-msgid "Add slave replication user"
-msgstr ""
-
-#: $strReplicationChangedSuccesfully
-msgid "Master server changed succesfully to %s"
-msgstr ""
-
-#: $strReplicationConfiguredMaster
-msgid "This server is configured as master in a replication process."
-msgstr ""
-
-#: $strReplicationControlSlave
-msgid "Control slave:"
-msgstr ""
-
-#: $strReplicationErrorGetPosition
-msgid ""
-"Unable to read master log position. Possible privilege problem on master."
-msgstr ""
-
 #: $strReplicationErrorMasterConnect
 msgid "Unable to connect to master %s."
 msgstr "Nepodařilo se připojit k nadřízenému %s."
-
-#: $strReplicationMasterChooseAll
-msgid "Replicate all databases; Ignore:"
-msgstr ""
-
-#: $strReplicationMasterChooseIgn
-msgid "Ignore all databases; Replicate:"
-msgstr ""
-
-#: $strReplicationMasterChooseMode
-msgid ""
-"This server is not configured as master server in a replication process. You "
-"can choose from either replicating all databases and ignoring certain "
-"(useful if you want to replicate majority of databases) or you can choose to "
-"ignore all databases by default and allow only certain databases to be "
-"replicated. Please select the mode:"
-msgstr ""
-
-#: $strReplicationMasterConfiguration
-msgid "Master configuration"
-msgstr ""
-
-#: $strReplicationMaster
-msgid "Master replication"
-msgstr ""
 
 #: $strReplication
 msgid "Replication"
 msgstr "Replikace"
 
-#: $strReplicationRestartServer
-msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <b>is</b> configured as "
-"master"
-msgstr ""
-
-#: $strReplicationSelectDatabases
-msgid "Please select databases:"
-msgstr ""
-
-#: $strReplicationServernConfiguredMaster
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationShowConnectedSlavesNote
-msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
-msgstr ""
-
-#: $strReplicationShowConnectedSlaves
-msgid "Show connected slaves"
-msgstr ""
-
-#: $strReplicationShowMasterStatus
-msgid "Show master status"
-msgstr ""
-
-#: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronised master and slave!"
-msgstr ""
-
-#: $strReplicationSlaveChangeMaster
-msgid "Change or reconfigure master server"
-msgstr ""
-
 #: $strReplicationSlaveConfiguration
 msgid "Slave configuration"
 msgstr "Nastavení podřízeného"
 
-#: $strReplicationSlaveConfigured
-msgid ""
-"Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
-
 #: $strReplicationSlaveErrorManagement
 msgid "Error management:"
 msgstr "Práce s chybami:"
-
-#: $strReplicationSlaveIOThread
-msgid "IO Thread %s only"
-msgstr ""
-
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveNotConfigured
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationSlaveReset
-msgid "Reset slave"
-msgstr ""
-
-#: $strReplicationSlaveSeeStatus
-msgid "See slave status table"
-msgstr ""
 
 #: $strReplicationSlaveSkipCurrentError
 msgid "Skip current error"
@@ -3560,18 +3410,6 @@ msgstr "chyb."
 #: $strReplicationSlaveSkipNext
 msgid "Skip next"
 msgstr "Přeskočit dalších"
-
-#: $strReplicationSlave
-msgid "Slave replication"
-msgstr ""
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveSQLThread
-msgid "SQL Thread %s only"
-msgstr ""
 
 #: $strReplicationStatusInfo
 msgid ""
@@ -3594,14 +3432,6 @@ msgstr "Stav replikace"
 #: $strReplicationStatus_slave
 msgid "Slave status"
 msgstr "Stav podřízeného"
-
-#: $strReplicationSynchronize
-msgid "Synchronise databases with master"
-msgstr ""
-
-#: $strReplicationUnableToChange
-msgid "Unable to change master"
-msgstr ""
 
 #: $strReplicationUnknownError
 msgid "Unknown error"
@@ -5032,14 +4862,6 @@ msgstr "Povolit přihlášení bez hesla"
 msgid "Allow root login"
 msgstr "Povolit přihlašování uživatele root"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5127,12 +4949,6 @@ msgstr "Zda počítat tabulky, když se zobrazuje seznam databází."
 msgid "Count tables"
 msgstr "Počítat tabulky"
 
-#: $strSetupServers_designer_coords_desc
-msgid ""
-"Leave blank for no Designer support, suggested: "
-"[kbd]pma_designer_coords[/kbd]"
-msgstr ""
-
 #: $strSetupServers_designer_coords_name
 msgid "Designer table"
 msgstr "Tabulka návrháře"
@@ -5148,16 +4964,6 @@ msgstr ""
 #: $strSetupServers_DisableIS_name
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Zakázat použití INFORMATION_SCHEMA"
-
-#: $strSetupServerSecurityInfoMsg
-msgid ""
-"If you feel this is necessary, use additional protection settings - "
-"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
-"authentication[/a] settings and "
-"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
-"However, IP-based protection may not be reliable if your IP belongs to an "
-"ISP where thousands of users, including you, are connected to."
-msgstr ""
 
 #: $strSetupServersEdit
 msgid "Edit server"
@@ -5178,12 +4984,6 @@ msgstr "Skrýt databáze odpovídající regulárnímu výrazu (PCRE)"
 #: $strSetupServers_hide_db_name
 msgid "Hide databases"
 msgstr "Skrýt databáze"
-
-#: $strSetupServers_history_desc
-msgid ""
-"Leave blank for no SQL query history support, suggested: "
-"[kbd]pma_history[/kbd]"
-msgstr ""
 
 #: $strSetupServers_history_name
 msgid "SQL query history table"
@@ -5229,22 +5029,6 @@ msgstr "Nechte prázdné, pokud nepoužíváte autentizaci config"
 msgid "Password for config auth"
 msgstr "Heslo pro autentizaci config"
 
-#: $strSetupServers_pdf_pages_desc
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr ""
-
-#: $strSetupServers_pdf_pages_name
-msgid "PDF schema: pages table"
-msgstr ""
-
-#: $strSetupServers_pmadb_desc
-msgid ""
-"Database used for relations, bookmarks, and PDF features. See "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. "
-"Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
-msgstr ""
-
 #: $strSetupServers_pmadb_name
 msgid "PMA database"
 msgstr "Databáze PMA"
@@ -5258,12 +5042,6 @@ msgstr ""
 msgid "Server port"
 msgstr "Port serveru"
 
-#: $strSetupServers_relation_desc
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
-msgstr ""
-
 #: $strSetupServers_relation_name
 msgid "Relation table"
 msgstr "Tabulka s relacemi"
@@ -5275,12 +5053,6 @@ msgstr "SQL příkaz pro načtení dostupných databází"
 #: $strSetupServers_ShowDatabasesCommand_name
 msgid "SHOW DATABASES command"
 msgstr "Příkaz SHOW DATABASES"
-
-#: $strSetupServers_SignonSession_desc
-msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
-msgstr ""
 
 #: $strSetupServers_SignonSession_name
 msgid "Signon session name"
@@ -5303,33 +5075,9 @@ msgstr ""
 msgid "Server socket"
 msgstr "Socket serveru"
 
-#: $strSetupServers_ssl_desc
-msgid "Enable SSL for connection to MySQL server"
-msgstr ""
-
 #: $strSetupServers_ssl_name
 msgid "Use SSL"
 msgstr "Použít SSL"
-
-#: $strSetupServers_table_coords_desc
-msgid ""
-"Leave blank for no PDF schema support, suggested: "
-"[kbd]pma_table_coords[/kbd]"
-msgstr ""
-
-#: $strSetupServers_table_coords_name
-msgid "PDF schema: table coordinates"
-msgstr ""
-
-#: $strSetupServers_table_info_desc
-msgid ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
-msgstr ""
-
-#: $strSetupServers_table_info_name
-msgid "Display fields table"
-msgstr ""
 
 #: $strSetupServers_user_desc
 msgid "Leave empty if not using config auth"
@@ -5375,13 +5123,6 @@ msgstr "Jestli uživateli bude zobrazeno tlačítko &quot;zobrazit vše&quot;"
 msgid "Allow to display all the rows"
 msgstr "Umožní zobrazit všechny řádky"
 
-#: $strSetupShowChgPassword_desc
-msgid ""
-"Please note that enabling this has no effect with [kbd]config[/kbd] "
-"authentication mode because the password is hard coded in the configuration "
-"file; this does not limit the ability to execute the same command directly"
-msgstr ""
-
 #: $strSetupShowChgPassword_name
 msgid "Show password change form"
 msgstr "Zobrazit formulář pro změnu hesla"
@@ -5405,12 +5146,6 @@ msgstr "Zobrazit seznam fukncí"
 #: $strSetupShowHiddenMessages
 msgid "Show hidden messages (#MSG_COUNT)"
 msgstr "Zobrazit skyté zprávy (#MSG_COUNT)"
-
-#: $strSetupShowPhpInfo_desc
-msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output"
-msgstr ""
 
 #: $strSetupShowPhpInfo_name
 msgid "Show phpinfo() link"
@@ -5436,23 +5171,9 @@ msgstr "Povolí zobrazení statistik (např. použití místa) pro databáze a t
 msgid "Show statistics"
 msgstr "Zobrazit statistiky"
 
-#: $strSetupShowTooltipAliasDB_desc
-msgid ""
-"If tooltips are enabled and a database comment is set, this will flip the "
-"comment and the real name"
-msgstr ""
-
 #: $strSetupShowTooltipAliasDB_name
 msgid "Display database comment instead of its name"
 msgstr "Zobrazit komentář databáze místo jména"
-
-#: $strSetupShowTooltipAliasTB_desc
-msgid ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the "
-"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called like "
-"the alias, the table name itself stays unchanged"
-msgstr ""
 
 #: $strSetupShowTooltipAliasTB_name
 msgid "Display table comment instead of its name"
@@ -5461,11 +5182,6 @@ msgstr "Zobrazit komentář tabulky místo jména"
 #: $strSetupShowTooltip_name
 msgid "Display table comments in tooltips"
 msgstr "Zobrazit komentáře tabulky v tooltipu"
-
-#: $strSetupSkipLockedTables_desc
-msgid ""
-"Mark used tables and make it possible to show databases with locked tables"
-msgstr ""
 
 #: $strSetupSkipLockedTables_name
 msgid "Skip locked tables"
@@ -5507,18 +5223,6 @@ msgstr "Navrhnout jméno nové databáze"
 msgid "yes"
 msgstr "ano"
 
-#: $strSetupTrustedProxies_desc
-msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
-msgstr ""
-
-#: $strSetupTrustedProxies_name
-msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
-
 #: $strSetupUploadDir_desc
 msgid "Directory on server where you can upload files for import"
 msgstr "Adresář na serveru, kam můžete nahrát souboru pro import"
@@ -5534,23 +5238,6 @@ msgstr "Povolit prohledávání přes celou databázi"
 #: $strSetupUseDbSearch_name
 msgid "Use database search"
 msgstr "Použít prohledávání databáze"
-
-#: $strSetupVerboseMultiSubmit_desc
-msgid ""
-"Show affected rows of each statement on multiple-statement queries. See "
-"libraries/import.lib.php for defaults on how many queries a statement may "
-"contain."
-msgstr ""
-
-#: $strSetupVerboseMultiSubmit_name
-msgid "Verbose multiple statements"
-msgstr ""
-
-#: $strSetupVersionCheckDataError
-msgid ""
-"Reading of version failed. Maybe you're offline or the upgrade server does "
-"not respond."
-msgstr ""
 
 #: $strSetupVersionCheckInvalid
 msgid "Got invalid version string from server"
@@ -5597,24 +5284,6 @@ msgstr ""
 #: $strSetupWarning
 msgid "Warning"
 msgstr "Varování"
-
-#: $strSetupZipDump_desc
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations"
-msgstr ""
-
-#: $strSetupZipDumpExportWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
-
-#: $strSetupZipDumpImportWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
 
 #: $strSetupZipDump_name
 msgid "ZIP"
@@ -6356,12 +6025,6 @@ msgstr "Velikost"
 #: $strSkipQueries
 msgid "Number of records (queries) to skip from start"
 msgstr "Počet záznamů (dotazů) od začátku, které se mají přeskočit"
-
-#: $strSlaveConfigure
-msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
-"not, please add the following line into [mysqld] section:"
-msgstr ""
 
 #: $strSlovak
 msgid "Slovak"

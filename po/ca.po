@@ -58,21 +58,6 @@ msgstr "PB"
 msgid "EiB"
 msgstr "EB"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Diu"
@@ -908,11 +893,6 @@ msgstr "Crea una relació"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Crea una taula"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1933,10 +1913,6 @@ msgstr "Insereix com a nova fila"
 msgid "Inserted row id: %1$d"
 msgstr "Id de la fila inserida: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Insereix"
@@ -2025,13 +2001,6 @@ msgstr "Nom de taula incorrecte"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Japonès"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2451,10 +2420,6 @@ msgstr "Nom"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Filtre"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2899,14 +2864,6 @@ msgstr "La taula \"%s\" no existeix!"
 msgid "No tables"
 msgstr "No hi ha taules"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2962,30 +2919,6 @@ msgstr "Escolta audio"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Tria la clau principal o una clau única"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3374,10 +3307,6 @@ msgstr "Vista de Relacions"
 msgid "Reloading the privileges"
 msgstr "Recarregant permisos"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Recarrega els permisos"
@@ -3413,10 +3342,6 @@ msgstr "La taula %s ha canviat de nom. Ara es diu %s"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Reanomena les taules a"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -5081,14 +5006,6 @@ msgstr "Permetre connexions sense contrasenya"
 msgid "Allow root login"
 msgstr "Permetre la connexió de root"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5784,10 +5701,6 @@ msgstr "Mostrant registres: "
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Mostrant consulta SQL"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6558,10 +6471,6 @@ msgstr "Modus de compatibilitat SQL"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Tipus d' Exportació"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

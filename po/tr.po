@@ -914,11 +914,6 @@ msgstr "İlişki oluştur"
 msgid "Create table"
 msgstr "Tablo oluştur"
 
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
-
 #: $strCreateUserDatabase
 msgid "Database for user"
 msgstr "Kullanıcı için veritabanı"

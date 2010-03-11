@@ -58,21 +58,6 @@ msgstr "Pt"
 msgid "EiB"
 msgstr "Et"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Su"
@@ -904,11 +889,6 @@ msgstr "Luo relaatio"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Luo taulu"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1924,10 +1904,6 @@ msgstr "Lisää uutena rivinä"
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Lisää rivi"
@@ -2015,13 +1991,6 @@ msgstr "Virheellinen taulun nimi"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Japanilainen"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2441,10 +2410,6 @@ msgstr "Nimi"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Suodatin"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2884,14 +2849,6 @@ msgstr "Taulua \"%s\" ei ole!"
 msgid "No tables"
 msgstr "Ei tauluja"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2947,30 +2904,6 @@ msgstr "Toista ääni"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Valitse perusavain tai uniikki avain"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3352,10 +3285,6 @@ msgstr "Relaationäkymä"
 msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Lataa käyttöoikeudet uudelleen"
@@ -3391,10 +3320,6 @@ msgstr "Taulun %s nimi on nyt %s"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Nimeä taulu uudelleen"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3548,10 +3473,6 @@ msgstr "Virheiden hallinta:"
 msgid "IO Thread %s only"
 msgstr "IO-säie %s vain"
 
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
 #: $strReplicationSlaveNotConfigured
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3583,10 +3504,6 @@ msgstr "Ohita seuraava"
 #: $strReplicationSlave
 msgid "Slave replication"
 msgstr "Alipalvelimen replikointi"
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
@@ -5049,14 +4966,6 @@ msgstr "Salli kirjautumiset ilman salasanaa"
 msgid "Allow root login"
 msgstr "Salli pääkäyttäjän kirjautuminen"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5754,10 +5663,6 @@ msgstr "Näkyvillä rivit "
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6538,10 +6443,6 @@ msgstr "SQL-yhteensopiva tila"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Vientityyppi"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

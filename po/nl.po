@@ -916,11 +916,6 @@ msgstr "Maak relatie"
 msgid "Create table"
 msgstr "Maak tabel"
 
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
-
 #: $strCreateUserDatabase
 msgid "Database for user"
 msgstr "Database voor gebruiker"
@@ -1942,10 +1937,6 @@ msgstr "Voeg toe als nieuwe rij"
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rij nummer: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Invoegen"
@@ -2033,13 +2024,6 @@ msgstr "Ongeldige tabel naam"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Japans"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2467,10 +2451,6 @@ msgstr "Naam"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Filter"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2914,14 +2894,6 @@ msgstr "De tabel \"%s\" bestaat niet!"
 msgid "No tables"
 msgstr "Geen Tabellen"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2977,30 +2949,6 @@ msgstr "Afspelen"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Selecteer de primaire sleutel of een unieke sleutel"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3395,10 +3343,6 @@ msgstr "Relatieoverzicht"
 msgid "Reloading the privileges"
 msgstr "Bezig de privileges te verversen"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Ververs rechten"
@@ -3434,10 +3378,6 @@ msgstr "Tabel %s is hernoemd naar %s"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Tabel hernoemen naar"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3599,10 +3539,6 @@ msgid ""
 msgstr ""
 "Deze server is niet ingesteld als slave in een replicatie proces. Wilt u dit "
 "nu <a href=\"%s\">instellen</a>?"
-
-#: $strReplicationSlaveReset
-msgid "Reset slave"
-msgstr ""
 
 #: $strReplicationSlaveSeeStatus
 msgid "See slave status table"
@@ -5110,14 +5046,6 @@ msgstr "Inloggen zonder wachtwoord toestaan"
 msgid "Allow root login"
 msgstr "Root login toestaan"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5819,10 +5747,6 @@ msgstr "Toon Records"
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6602,10 +6526,6 @@ msgstr "SQL-compatibiliteits mode"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Export type"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""

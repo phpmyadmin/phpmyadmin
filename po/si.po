@@ -189,10 +189,6 @@ msgstr ""
 msgid "Action"
 msgstr "ක්‍රියාව"
 
-#: $strActions
-msgid "Actions"
-msgstr ""
-
 #: $strAddAutoIncrement
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT අගයක් එක් කරන්න"
@@ -299,10 +295,6 @@ msgstr "එකම ප්‍රමාණයේ සියලු වගු පෙ�
 msgid "Alter table order by"
 msgstr "අනුව වගු අනුපිළිවෙල වෙනස් කරන්න"
 
-#: $strAnalyze
-msgid "Analyse"
-msgstr ""
-
 #: $strAnalyzeTable
 msgid "Analyse table"
 msgstr "වගුව විශ්ලේෂණය කරන්න"
@@ -311,17 +303,9 @@ msgstr "වගුව විශ්ලේෂණය කරන්න"
 msgid "And"
 msgstr "සහ"
 
-#: $strAndSmall
-msgid "and"
-msgstr ""
-
 #: $strAndThen
 msgid "and then"
 msgstr "සහ එවිට"
-
-#: $strAngularLinks
-msgid "Angular links"
-msgstr ""
 
 #: $strAnIndex
 msgid "An index has been added on %s"
@@ -338,10 +322,6 @@ msgstr "ඕනෑම දායකයෙක්"
 #: $strAnyUser
 msgid "Any user"
 msgstr "ඕනෑම භාවිතා කරන්නෙක්"
-
-#: $strApplyChanges
-msgid "Apply Selected Changes"
-msgstr ""
 
 #: $strApproximateCount
 msgid ""
@@ -364,10 +344,6 @@ msgstr "ඇමෙරිකානු"
 #: $strAscending
 msgid "Ascending"
 msgstr "ආරෝහන"
-
-#: $strAsDefined
-msgid "As defined:"
-msgstr ""
 
 #: $strAtBeginningOfTable
 msgid "At Beginning of Table"
@@ -436,53 +412,6 @@ msgstr "පිහිටුම"
 #: $strBinLogServerId
 msgid "Server ID"
 msgstr "සර්වරයේ හැඳුනුම් අංකය"
-
-#: $strBLOBRepository
-msgid "BLOB Repository"
-msgstr ""
-
-#: $strBLOBRepositoryDamaged
-msgid "Damaged"
-msgstr ""
-
-#: $strBLOBRepositoryDisableAreYouSure
-msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
-
-#: $strBLOBRepositoryDisabled
-msgctxt "$strBLOBRepositoryDisabled"
-msgid "Disabled"
-msgstr ""
-
-#: $strBLOBRepositoryDisable
-msgid "Disable"
-msgstr ""
-
-#: $strBLOBRepositoryDisableStrongWarning
-msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
-
-#: $strBLOBRepositoryEnabled
-msgctxt "$strBLOBRepositoryEnabled"
-msgid "Enabled"
-msgstr ""
-
-#: $strBLOBRepositoryEnable
-msgid "Enable"
-msgstr ""
-
-#: $strBLOBRepositoryRemove
-msgid "Remove BLOB Repository Reference"
-msgstr ""
-
-#: $strBLOBRepositoryRepair
-msgctxt "$strBLOBRepositoryRepair"
-msgid "Repair"
-msgstr ""
-
-#: $strBLOBRepositoryUpload
-msgid "Upload to BLOB repository"
-msgstr ""
 
 #: $strBookmarkAllUsers
 msgid "Let every user access this bookmark"
@@ -571,10 +500,6 @@ msgstr "\"bzipp ගතකරන ලදි\""
 #: $strCalendar
 msgid "Calendar"
 msgstr "දින දර්ශනය"
-
-#: $strCancel
-msgid "Cancel"
-msgstr ""
 
 #: $strCanNotLoadExportPlugins
 msgid "Could not load export plug-ins, please check your installation!"
@@ -695,10 +620,6 @@ msgstr "අක්ෂර කට්ටලය"
 msgid "Check All"
 msgstr "සියල්ල කතිර කොටුගත කරන්න"
 
-#: $strCheck
-msgid "Check"
-msgstr ""
-
 #: $strCheckOverhead
 msgid "Check tables having overhead"
 msgstr "Check tables having overhead"
@@ -719,14 +640,6 @@ msgstr "වගුව පරීක්ෂා කරන්න"
 msgid "Please choose a page to edit"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
-#: $strClickToSelect
-msgid "Click to select"
-msgstr ""
-
-#: $strClickToUnselect
-msgid "Click to unselect"
-msgstr ""
-
 #: $strColComFeat
 msgid "Displaying Column Comments"
 msgstr "තීර විස්තර පෙන්වීම"
@@ -746,10 +659,6 @@ msgstr "Column-specific privileges"
 #: $strCommand
 msgid "Command"
 msgstr "විධානය"
-
-#: $strComment
-msgid "Comment"
-msgstr ""
 
 #: $strComments
 msgid "Comments"
@@ -774,13 +683,6 @@ msgstr "Imported file compression will be automatically detected from: %s"
 #: $strConfigDefaultFileError
 msgid "Could not load default configuration from: \"%1$s\""
 msgstr "Could not load default configuration from: \"%1$s\""
-
-#: $strConfigDirectoryWarning
-msgid ""
-"Directory [code]config[/code], which is used by the setup script, still "
-"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
-"has been configured."
-msgstr ""
 
 #: $strConfigFileError
 msgid ""
@@ -818,10 +720,6 @@ msgstr "නික්ෂේපනය කරන ලද වගු සඳහා ස�
 msgid "Constraints for table"
 msgstr "වගුව සඳහා සීමා බාධක"
 
-#: $strControluserFailed
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-
 #: $strCookiesRequired
 msgid "Cookies must be enabled past this point."
 msgstr "මෙම ස්ථානය පසු කිරීම සඳහා කුකීස් - Cookies සක්‍රිය කල යුතුයි."
@@ -845,14 +743,6 @@ msgstr "%s වගුව %s වෙතට පිටපත් කරන ලදි."
 #: $strCopyTableSameNames
 msgid "Can't copy table to same one!"
 msgstr "එම වගුවටම පිටපත් කල නොහැක!"
-
-#: $strCouldNotConnectSource
-msgid "Could not connect to the source"
-msgstr ""
-
-#: $strCouldNotConnectTarget
-msgid "Could not connect to the target"
-msgstr ""
 
 #: $strCouldNotKill
 msgid ""
@@ -894,19 +784,6 @@ msgstr "නව පිටුවක් සාදන්න"
 msgid "Creation of PDFs"
 msgstr "PDF සෑදීම"
 
-#: $strCreateRelation
-msgid "Create relation"
-msgstr ""
-
-#: $strCreateTable
-msgid "Create table"
-msgstr ""
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
-
 #: $strCreateUserDatabase
 msgid "Database for user"
 msgstr "භාවිතා කරන්නා සඳහා දත්තගබඩාව"
@@ -920,10 +797,6 @@ msgctxt "$strCreateUserDatabaseNone"
 "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "කිසිවක් නැත"
-
-#: $strCreateUserDatabasePrivileges
-msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
 
 #: $strCreateUserDatabaseWildcard
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -944,14 +817,6 @@ msgstr "ක්‍රොයේශියානු"
 #: $strCSV
 msgid "CSV"
 msgstr "CSV"
-
-#: $strCurrentServer
-msgid "Current server"
-msgstr ""
-
-#: $strCustomColor
-msgid "Custom colour"
-msgstr ""
 
 #: $strCyrillic
 msgid "Cyrillic"
@@ -981,17 +846,9 @@ msgstr "දත්තගබඩා නම හිස්ව පවතී!"
 msgid "Database export options"
 msgstr "දත්තගබඩා අපනයන විකල්ප"
 
-#: $strDatabaseHasBeenCreated
-msgid "Database %1$s has been created."
-msgstr ""
-
 #: $strDatabaseHasBeenDropped
 msgid "Database %s has been dropped."
 msgstr "%s දත්තගබඩාව හලන ලදි."
-
-#: $strDatabaseNotExisting
-msgid "'%s' database does not exist."
-msgstr ""
 
 #: $strDatabases
 msgid "Databases"
@@ -1000,10 +857,6 @@ msgstr "දත්තගබඩා"
 #: $strDatabasesDropped
 msgid "%s databases have been dropped successfully."
 msgstr "%s දත්තගබඩාව සාර්ථකව හලන ලදි."
-
-#: $strDatabase_src
-msgid "Source database"
-msgstr ""
 
 #: $strDatabasesStats
 msgid "Databases statistics"
@@ -1025,10 +878,6 @@ msgstr ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 
-#: $strDatabase_trg
-msgid "Target database"
-msgstr ""
-
 #: $strData
 msgid "Data"
 msgstr "දත්ත"
@@ -1036,10 +885,6 @@ msgstr "දත්ත"
 #: $strDataDict
 msgid "Data Dictionary"
 msgstr "දත්ත කෝෂය"
-
-#: $strDataDiff
-msgid "Data Difference"
-msgstr ""
 
 #: $strDataOnly
 msgid "Data only"
@@ -1049,10 +894,6 @@ msgstr "දත්ත පමණයි"
 msgid "Pages containing data"
 msgstr "දත්ත අඩංගු පිටු"
 
-#: $strDataSyn
-msgid "Data Synchronisation"
-msgstr ""
-
 #: $strDBComment
 msgid "Database comment: "
 msgstr "දත්තගබඩා විස්තර: "
@@ -1060,10 +901,6 @@ msgstr "දත්තගබඩා විස්තර: "
 #: $strDBCopy
 msgid "Copy database to"
 msgstr "වෙත දත්තගබඩාව පිටවත් කරන්න"
-
-#: $strDbIsEmpty
-msgid "Database seems to be empty!"
-msgstr ""
 
 #: $strDbPrivileges
 msgid "Database-specific privileges"
@@ -1123,14 +960,6 @@ msgstr "පෙළ ඉවත් කරන ලදි"
 msgid "No users selected for deleting!"
 msgstr "ඉවත් කිරීම සඳහා භාවිතා කරන්නන් කිසිවෙක් තෝරාගෙන නොමැත!"
 
-#: $strDeleteRelation
-msgid "Delete relation"
-msgstr ""
-
-#: $strDeleteTrackingData
-msgid "Delete tracking data for this table"
-msgstr ""
-
 #: $strDeleting
 msgid "Deleting %s"
 msgstr "%s ඉවත් කරමින් පවතී"
@@ -1155,32 +984,9 @@ msgstr "අවරෝහන"
 msgid "Description"
 msgstr "විස්තරය"
 
-#: $strDesigner
-msgid "Designer"
-msgstr ""
-
-#: $strDesignerHelpDisplayField
-msgid ""
-"The display field is shown in pink. To set/unset a field as the display "
-"field, click the \"Choose field to display\" icon, then click on the "
-"appropriate field name."
-msgstr ""
-
-#: $strDetails
-msgid "Details..."
-msgstr ""
-
 #: $strDictionary
 msgid "dictionary"
 msgstr "කෝෂය"
-
-#: $strDifference
-msgid "Difference"
-msgstr ""
-
-#: $strDirectLinks
-msgid "Direct links"
-msgstr ""
 
 #: $strDirtyPages
 msgid "Dirty pages"
@@ -1210,21 +1016,9 @@ msgstr "PDF නිරූපනය පෙන්වන්න"
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Do a \"query by example\" (wildcard: \"%\")"
 
-#: $strDocSQL
-msgid "DocSQL"
-msgstr ""
-
 #: $strDocu
 msgid "Documentation"
 msgstr "ලියකියවිලි"
-
-#: $strDoNotAutoIncrementZeroValues
-msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
-
-#: $strDownloadFile
-msgid "Download file"
-msgstr ""
 
 #: $strDoYouReally
 msgid "Do you really want to "
@@ -1241,10 +1035,6 @@ msgstr "හලන්න"
 #: $strDropUsersDb
 msgid "Drop the databases that have the same names as the users."
 msgstr "භාවිතා කරන්නන් හා සමාන නම් ඇති දත්තගබඩා හලන්න."
-
-#: $strDumpAllRows
-msgid "Dump all rows"
-msgstr ""
 
 #: $strDumpingData
 msgid "Dumping data for table"
@@ -1338,21 +1128,9 @@ msgstr "දෝෂය"
 msgid "Error in ZIP archive:"
 msgstr "සිප් ආරක්ෂණයේ දෝෂයක් ඇත:"
 
-#: $strErrorRelationAdded
-msgid "Error: Relation not added."
-msgstr ""
-
-#: $strErrorRelationExists
-msgid "Error: relation already exists."
-msgstr ""
-
 #: $strErrorRenamingTable
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s සිට %2$s දක්වා වගුවේ නම් වෙනස් කිරීමේ දෝෂයක් ඇත"
-
-#: $strErrorSaveTable
-msgid "Error saving coordinates for Designer."
-msgstr ""
 
 #: $strEscapeWildcards
 msgid "Wildcards _ and % should be escaped with a \\ to use them literally"
@@ -1365,14 +1143,6 @@ msgstr "Esperanto"
 #: $strEstonian
 msgid "Estonian"
 msgstr "එස්තෝනියානු"
-
-#: $strEvent
-msgid "Event"
-msgstr ""
-
-#: $strEvents
-msgid "Events"
-msgstr ""
 
 #: $strExcelEdition
 msgid "Excel edition"
@@ -1389,10 +1159,6 @@ msgstr "SQL ය පහදන්න "
 #: $strExport
 msgid "Export"
 msgstr "අපනයනය"
-
-#: $strExportImportToScale
-msgid "Export/Import to scale"
-msgstr ""
 
 #: $strExportMustBeFile
 msgid "Selected export type has to be saved in file!"
@@ -1417,12 +1183,6 @@ msgstr "ක්ෂේත්‍රය"
 #: $strFieldHasBeenDropped
 msgid "Field %s has been dropped"
 msgstr "%s ක්ෂේත්‍රය ඉවත් කරන ලදි"
-
-#: $strFieldInsertFromFileTempDirNotExists
-msgid ""
-"Error moving the uploaded file, see "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
 
 #: $strFieldsEnclosedBy
 msgid "Fields enclosed by"
@@ -1480,10 +1240,6 @@ msgstr "ෆයිල් නම් ටෙම්ප්ලේටය"
 msgid "remember template"
 msgstr "ටෙම්ප්ලේටය මතක තබා ගන්න"
 
-#: $strFiles
-msgid "Files"
-msgstr ""
-
 #: $strFileToImport
 msgid "File to import"
 msgstr "ආනයනය සඳහා වූ ගොනුව"
@@ -1516,14 +1272,6 @@ msgstr "Flush (close) all tables"
 msgid "Font size"
 msgstr "ෆොන්ට් එකෙහි ප්‍රමාණය"
 
-#: $strForeignKeyError
-msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
-
-#: $strForeignKeyRelationAdded
-msgid "FOREIGN KEY relation added"
-msgstr ""
-
 #: $strFormat
 msgid "Format"
 msgstr "ආකෘතිය"
@@ -1535,14 +1283,6 @@ msgstr "පෝරම‍යේ අස්ථනගත වූ අගයන් ඇ�
 #: $strFreePages
 msgid "Free pages"
 msgstr "නිදහස් පිටු"
-
-#: $strFullStart
-msgid "Full start"
-msgstr ""
-
-#: $strFullStop
-msgid "Full stop"
-msgstr ""
 
 #: $strFullText
 msgid "Full Texts"
@@ -1584,10 +1324,6 @@ msgstr "ජෝජියානු‍"
 msgid "German"
 msgstr "ජර්මානු"
 
-#: $strGetMoreThemes
-msgid "Get more themes!"
-msgstr ""
-
 #: $strGlobal
 msgid "global"
 msgstr "ගෝලීම"
@@ -1603,18 +1339,6 @@ msgstr "ගෝලීය අගය"
 #: $strGo
 msgid "Go"
 msgstr "යන්න"
-
-#: $strGoToDatabase
-msgid "Go to database"
-msgstr ""
-
-#: $strGoToTable
-msgid "Go to table"
-msgstr ""
-
-#: $strGoToView
-msgid "Go to view"
-msgstr ""
 
 #: $strGrantOption
 msgid "Grant"
@@ -1636,10 +1360,6 @@ msgstr "Handler"
 msgid "has been altered."
 msgstr "වෙනස් කරන ලදි."
 
-#: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronised with source tables."
-msgstr ""
-
 #: $strHaveToShow
 msgid "You have to choose at least one column to display"
 msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක් තීරයක්වත් තෝරාගත යුතුයි"
@@ -1647,26 +1367,6 @@ msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක�
 #: $strHebrew
 msgid "Hebrew"
 msgstr "හීබෲ"
-
-#: $strHelp
-msgid "Help"
-msgstr ""
-
-#: $strHexForBLOB
-msgid "Use hexadecimal for BLOB"
-msgstr ""
-
-#: $strHide
-msgid "Hide"
-msgstr ""
-
-#: $strHideShowAll
-msgid "Hide/Show all"
-msgstr ""
-
-#: $strHideShowNoRelation
-msgid "Hide/Show Tables with no relation"
-msgstr ""
 
 #: $strHome
 msgid "Home"
@@ -1683,12 +1383,6 @@ msgstr "දාරක නම හිස්ව පවතී!"
 #: $strHost
 msgid "Host"
 msgstr "දායකයා"
-
-#: $strHostTableExplanation
-msgid ""
-"When Host table is used, this field is ignored and values stored in Host "
-"table are used instead."
-msgstr ""
 
 #: $strHTMLExcel
 msgid "Microsoft Excel 2000"
@@ -1714,10 +1408,6 @@ msgstr "හැඳුනුම් අංකය (ID)"
 msgid "Fulltext"
 msgstr "සම්පූර්ණ පාඨය"
 
-#: $strIEUnsupported
-msgid "Internet Explorer does not support this function."
-msgstr ""
-
 #: $strIgnoreDuplicates
 msgid "Ignore duplicate rows"
 msgstr "Ignore duplicate rows"
@@ -1729,18 +1419,6 @@ msgstr "අත්හැර දමන්න"
 #: $strIgnoreInserts
 msgid "Use ignore inserts"
 msgstr "Use ignore inserts"
-
-#: $strImportColNames
-msgid "Column names in first row"
-msgstr ""
-
-#: $strImportEmptyRows
-msgid "Do not import empty rows"
-msgstr ""
-
-#: $strImportExportCoords
-msgid "Import/Export coordinates for PDF schema"
-msgstr ""
 
 #: $strImportFiles
 msgid "Import files"
@@ -1754,73 +1432,13 @@ msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
 msgid "Import"
 msgstr "ආනයනය"
 
-#: $strImportLargeFileUploading
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: $strImportNoticePt1
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr ""
-
-#: $strImportNoticePt2
-msgid "View a structure`s contents by clicking on its name"
-msgstr ""
-
-#: $strImportNoticePt3
-msgid "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-
-#: $strImportNoticePt4
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
-
-#: $strImportODSCurrency
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
-
-#: $strImportODS
-msgid "Open Document Spreadsheet"
-msgstr ""
-
-#: $strImportODSPercents
-msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
-
-#: $strImportProceedingFile
-msgid "The file is being processed, please be patient."
-msgstr ""
-
 #: $strImportSuccessfullyFinished
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම්%d ක්‍රියාත්මක කරන ලදි."
 
-#: $strImportUploadInfoNotAvailable
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: $strImportXLS
-msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
-
-#: $strImportXLSX
-msgid "Excel 2007 XLSX Workbook"
-msgstr ""
-
 #: $strIndexes
 msgid "Indexes"
 msgstr "සූචියන්"
-
-#: $strIndexesSeemEqual
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
 
 #: $strIndexHasBeenDropped
 msgid "Index %s has been dropped"
@@ -1902,31 +1520,9 @@ msgstr ""
 msgid "Insert as new row"
 msgstr "Insert as new row"
 
-#: $strInsertedRowId
-msgid "Inserted row id: %1$d"
-msgstr ""
-
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "ඇතුල් කරන්න"
-
-#: $strInterface
-msgid "Interface"
-msgstr ""
-
-#: $strInternalAndForeign
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: $strInternalRelationAdded
-msgid "Internal relation added"
-msgstr ""
 
 #: $strInternalRelations
 msgid "Internal relations"
@@ -1996,13 +1592,6 @@ msgstr "වලංගු නොවන වගු නම"
 msgid "Japanese"
 msgstr "ජපන්"
 
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
-
 #: $strJoins
 msgid "Joins"
 msgstr "Joins"
@@ -2038,10 +1627,6 @@ msgstr "යතුරු නම"
 #: $strKill
 msgid "Kill"
 msgstr "Kill"
-
-#: $strKnownExternalBug
-msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
 
 #: $strKorean
 msgid "Korean"
@@ -2147,11 +1732,6 @@ msgstr "ලොගින තොරතුරු"
 msgid "Log in"
 msgstr "ලොගින් වන්න"
 
-#: $strLoginWithoutPassword
-msgid ""
-"Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
-
 #: $strLogout
 msgid "Log out"
 msgstr "ලොග්අවුට් වන්න"
@@ -2159,10 +1739,6 @@ msgstr "ලොග්අවුට් වන්න"
 #: $strLogPassword
 msgid "Password:"
 msgstr "මුරපදය:"
-
-#: $strLogServerHelp
-msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
 
 #: $strLogServer
 msgid "Server:"
@@ -2207,10 +1783,6 @@ msgstr ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
-
-#: $strMediaWiki
-msgid "MediaWiki Table"
-msgstr ""
 
 #: $strMIME_available_mime
 msgid "Available MIME types"
@@ -2286,10 +1858,6 @@ msgstr "සූචිය වෙනස් කරන්න"
 #: $strModify
 msgid "Modify"
 msgstr "වෙනස් කිරීම"
-
-#: $strMoveMenu
-msgid "Move Menu"
-msgstr ""
 
 #: $strMoveTable
 msgid "Move table to (database<b>.</b>table):"
@@ -2397,12 +1965,6 @@ msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
 msgid "MySQL connection collation"
 msgstr "MySQL සම්බන්ධතා collation"
 
-#: $strMysqlLibDiffersServerVersion
-msgid ""
-"Your PHP MySQL library version %s differs from your MySQL server version %s. "
-"This may cause unpredictable behavior."
-msgstr ""
-
 #: $strMySQLSaid
 msgid "MySQL said: "
 msgstr "MySQL said: "
@@ -2414,14 +1976,6 @@ msgstr "ක්‍රියාවලිය පෙන්වන්න"
 #: $strName
 msgid "Name"
 msgstr "නම"
-
-#: $strNavTableFilter
-msgid "Filter"
-msgstr ""
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2487,11 +2041,6 @@ msgstr "No index parts defined!"
 msgid "No change"
 msgstr "වෙනස්කම් නැත"
 
-#: $strNoneDefault
-msgctxt "$strNoneDefault"
-msgid "None"
-msgstr ""
-
 #: $strNone
 msgid "None"
 msgstr "කිසිවක් නැත"
@@ -2552,10 +2101,6 @@ msgstr "මෙය අංකයක් නොවේ!"
 msgid "not OK"
 msgstr "OK නැත"
 
-#: $strNotPresent
-msgid "not present"
-msgstr ""
-
 #: $strNotSet
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> table not found or not set in %s"
@@ -2575,10 +2120,6 @@ msgstr "Null"
 #: $strNumberOfFields
 msgid "Number of fields"
 msgstr "ක්ෂේත්‍ර ගණන"
-
-#: $strNumberOfTables
-msgid "Number of tables"
-msgstr ""
 
 #: $strNumSearchResultsInTable
 msgid "%s match(es) inside table <i>%s</i>"
@@ -2616,17 +2157,9 @@ msgstr "මෙහෙයුම්"
 msgid "Operator"
 msgstr "මෙහෙයවනය"
 
-#: $strOptimize
-msgid "Optimise"
-msgstr ""
-
 #: $strOptimizeTable
 msgid "Optimise table"
 msgstr "ප්‍රශස්තගත වගුව"
-
-#: $strOptions
-msgid "Options"
-msgstr ""
 
 #: $strOr
 msgid "Or"
@@ -2639,10 +2172,6 @@ msgstr "පිරිවැය"
 #: $strOverwriteExisting
 msgid "Overwrite existing file(s)"
 msgstr "Overwrite existing file(s)"
-
-#: $strPacked
-msgid "Packed"
-msgstr ""
 
 #: $strPageNumber
 msgid "Page number:"
@@ -2664,22 +2193,6 @@ msgstr "Partial import"
 msgid "Partial Texts"
 msgstr "Partial Texts"
 
-#: $strPartitionDefinition
-msgid "PARTITION definition"
-msgstr ""
-
-#: $strPartitioned
-msgid "partitioned"
-msgstr ""
-
-#: $strPartitionMaintenance
-msgid "Partition maintenance"
-msgstr ""
-
-#: $strPartition
-msgid "Partition %s"
-msgstr ""
-
 #: $strPasswordChanged
 msgid "The password for %s was changed successfully."
 msgstr "The password for %s was changed successfully."
@@ -2700,128 +2213,6 @@ msgstr "The passwords aren't the same!"
 msgid "Password"
 msgstr "මුරපදය"
 
-#: $strPBXTCheckpointFrequency
-msgid "Checkpoint frequency"
-msgstr ""
-
-#: $strPBXTCheckpointFrequencyDesc
-msgid ""
-"The amount of data written to the transaction log before a checkpoint is "
-"performed. The default value is 24MB."
-msgstr ""
-
-#: $strPBXTDataFileGrowSize
-msgid "Data file grow size"
-msgstr ""
-
-#: $strPBXTDataFileGrowSizeDesc
-msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
-
-#: $strPBXTDataLogThreshold
-msgid "Data log threshold"
-msgstr ""
-
-#: $strPBXTDataLogThresholdDesc
-msgid ""
-"The maximum size of a data log file. The default value is 64MB. PBXT can "
-"create a maximum of 32000 data logs, which are used by all tables. So the "
-"value of this variable can be increased to increase the total amount of data "
-"that can be stored in the database."
-msgstr ""
-
-#: $strPBXTGarbageThresholdDesc
-msgid ""
-"The percentage of garbage in a data log file before it is compacted. This is "
-"a value between 1 and 99. The default is 50."
-msgstr ""
-
-#: $strPBXTGarbageThreshold
-msgid "Garbage threshold"
-msgstr ""
-
-#: $strPBXTIndexCacheSizeDesc
-msgid ""
-"This is the amount of memory allocated to the index cache. Default value is "
-"32MB. The memory allocated here is used only for caching index pages."
-msgstr ""
-
-#: $strPBXTIndexCacheSize
-msgid "Index cache size"
-msgstr ""
-
-#: $strPBXTLogBufferSizeDesc
-msgid ""
-"The size of the buffer used when writing a data log. The default is 256MB. "
-"The engine allocates one buffer per thread, but only if the thread is "
-"required to write a data log."
-msgstr ""
-
-#: $strPBXTLogBufferSize
-msgid "Log buffer size"
-msgstr ""
-
-#: $strPBXTLogCacheSizeDesc
-msgid ""
-"The amount of memory allocated to the transaction log cache used to cache on "
-"transaction log data. The default is 16MB."
-msgstr ""
-
-#: $strPBXTLogCacheSize
-msgid "Log cache size"
-msgstr ""
-
-#: $strPBXTLogFileCountDesc
-msgid ""
-"This is the number of transaction log files (pbxt/system/xlog*.xt) the "
-"system will maintain. If the number of logs exceeds this value then old logs "
-"will be deleted, otherwise they are renamed and given the next highest "
-"number."
-msgstr ""
-
-#: $strPBXTLogFileCount
-msgid "Log file count"
-msgstr ""
-
-#: $strPBXTLogFileThresholdDesc
-msgid ""
-"The size of a transaction log before rollover, and a new log is created. The "
-"default value is 16MB."
-msgstr ""
-
-#: $strPBXTLogFileThreshold
-msgid "Log file threshold"
-msgstr ""
-
-#: $strPBXTRecordCacheSizeDesc
-msgid ""
-"This is the amount of memory allocated to the record cache used to cache "
-"table data. The default value is 32MB. This memory is used to cache changes "
-"to the handle data (.xtd) and row pointer (.xtr) files."
-msgstr ""
-
-#: $strPBXTRecordCacheSize
-msgid "Record cache size"
-msgstr ""
-
-#: $strPBXTRowFileGrowSizeDesc
-msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
-
-#: $strPBXTRowFileGrowSize
-msgid "Row file grow size"
-msgstr ""
-
-#: $strPBXTTransactionBufferSizeDesc
-msgid ""
-"The size of the global transaction log buffer (the engine allocates 2 "
-"buffers of this size). The default is 1MB."
-msgstr ""
-
-#: $strPBXTTransactionBufferSize
-msgid "Transaction buffer size"
-msgstr ""
-
 #: $strPdfDbSchema
 msgid "Schema of the \"%s\" database - Page %s"
 msgstr "Schema of the \"%s\" database - Page %s"
@@ -2833,14 +2224,6 @@ msgstr "The \"%s\" table doesn't exist!"
 #: $strPdfNoTables
 msgid "No tables"
 msgstr "වගු නොමැත"
-
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
 
 #: $strPDF
 msgid "PDF"
@@ -2874,53 +2257,13 @@ msgstr "පර්සියානු"
 msgid "phone book"
 msgstr "දුරකථන පොත"
 
-#: $strPhpArray
-msgid "PHP array"
-msgstr ""
-
 #: $strPhp
 msgid "Create PHP Code"
 msgstr "PHP කේත සාදන්න"
 
-#: $strPHPExtension
-msgid "PHP extension"
-msgstr ""
-
 #: $strPHPVersion
 msgid "PHP Version"
 msgstr "PHP සංස්කරණය"
-
-#: $strPlayAudio
-msgid "Play audio"
-msgstr ""
-
-#: $strPleaseSelectPrimaryOrUniqueKey
-msgid "Please select the primary key or a unique key"
-msgstr ""
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -2937,10 +2280,6 @@ msgstr ""
 #: $strPolish
 msgid "Polish"
 msgstr "පෝලන්ත"
-
-#: $strPort
-msgid "Port"
-msgstr ""
 
 #: $strPortrait
 msgid "Portrait"
@@ -3032,10 +2371,6 @@ msgstr "Allows dropping databases and tables."
 msgid "Allows dropping tables."
 msgstr "Allows dropping tables."
 
-#: $strPrivDescEvent
-msgid "Allows to set up events for the event scheduler"
-msgstr ""
-
 #: $strPrivDescExecute5
 msgid "Allows executing stored routines."
 msgstr "Allows executing stored routines."
@@ -3086,10 +2421,6 @@ msgstr ""
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Limits the number of simultaneous connections the user may have."
 
-#: $strPrivDescProcess
-msgid "Allows viewing processes of all users"
-msgstr ""
-
 #: $strPrivDescReferences
 msgid "Has no effect in this MySQL version."
 msgstr "Has no effect in this MySQL version."
@@ -3132,10 +2463,6 @@ msgstr ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 
-#: $strPrivDescTrigger
-msgid "Allows creating and dropping triggers"
-msgstr ""
-
 #: $strPrivDescUpdate
 msgid "Allows changing data."
 msgstr "Allows changing data."
@@ -3164,10 +2491,6 @@ msgstr "ක්‍රියාවලිය"
 msgid "Process list"
 msgstr "ක්‍රියාවලි ලයිස්තුව"
 
-#: $strProfiling
-msgid "Profiling"
-msgstr ""
-
 #: $strProtocolVersion
 msgid "Protocol version"
 msgstr "ප්‍රෝටකෝල සංස්කරණය"
@@ -3187,10 +2510,6 @@ msgstr "Ins"
 #: $strQBE
 msgid "Query"
 msgstr "විමසුම"
-
-#: $strQueriesExecuted
-msgid "The following queries have been executed:"
-msgstr ""
 
 #: $strQueryCache
 msgid "Query cache"
@@ -3236,17 +2555,9 @@ msgstr "Do not overwrite this query from outside the window"
 msgid "Read requests"
 msgstr "Read requests"
 
-#: $strRebuild
-msgid "Rebuild"
-msgstr ""
-
 #: $strReceived
 msgid "Received"
 msgstr "ලබන ලද"
-
-#: $strRecommended
-msgid "recommended"
-msgstr ""
 
 #: $strRecords
 msgid "Records"
@@ -3260,21 +2571,9 @@ msgstr "Check referential integrity:"
 msgid "Refresh"
 msgstr "අලුත් කරන්න"
 
-#: $strRelationalDisplayField
-msgid "Relational display field"
-msgstr ""
-
-#: $strRelationalKey
-msgid "Relational key"
-msgstr ""
-
 #: $strRelationalSchema
 msgid "Relational schema"
 msgstr "Relational schema"
-
-#: $strRelationDeleted
-msgid "Relation deleted"
-msgstr ""
 
 #: $strRelationNotWorking
 msgid ""
@@ -3300,29 +2599,9 @@ msgstr "Relation view"
 msgid "Reloading the privileges"
 msgstr "Reloading the privileges"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "වරප්‍රසාද ප්‍රතිප්‍රවේශනය කරන්න"
-
-#: $strReload
-msgid "Reload"
-msgstr ""
-
-#: $strRemoteServer
-msgid "Remote server"
-msgstr ""
-
-#: $strRemoveCRLF
-msgid "Remove CRLF characters within fields"
-msgstr ""
-
-#: $strRemovePartitioning
-msgid "Remove partitioning"
-msgstr ""
 
 #: $strRemoveSelectedUsers
 msgid "Remove selected users"
@@ -3340,14 +2619,6 @@ msgstr "%s වගුව %s බවට නම වෙනස් කරන ලදි"
 msgid "Rename table to"
 msgstr "වගුව බවට නම වෙනස් කරන්න"
 
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
-
-#: $strRepair
-msgid "Repair"
-msgstr ""
-
 #: $strRepairTable
 msgid "Repair table"
 msgstr "වගුව ප්‍රතිසංස්කරණය කරන්න"
@@ -3360,194 +2631,9 @@ msgstr "Replace NULL by"
 msgid "Replace table data with file"
 msgstr "Replace table data with file"
 
-#: $strReplicationAddLines
-msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
-msgstr ""
-
-#: $strReplicationAddSlaveUser
-msgid "Add slave replication user"
-msgstr ""
-
-#: $strReplicationChangedSuccesfully
-msgid "Master server changed succesfully to %s"
-msgstr ""
-
-#: $strReplicationConfiguredMaster
-msgid "This server is configured as master in a replication process."
-msgstr ""
-
-#: $strReplicationControlSlave
-msgid "Control slave:"
-msgstr ""
-
-#: $strReplicationErrorGetPosition
-msgid ""
-"Unable to read master log position. Possible privilege problem on master."
-msgstr ""
-
-#: $strReplicationErrorMasterConnect
-msgid "Unable to connect to master %s."
-msgstr ""
-
-#: $strReplicationMasterChooseAll
-msgid "Replicate all databases; Ignore:"
-msgstr ""
-
-#: $strReplicationMasterChooseIgn
-msgid "Ignore all databases; Replicate:"
-msgstr ""
-
-#: $strReplicationMasterChooseMode
-msgid ""
-"This server is not configured as master server in a replication process. You "
-"can choose from either replicating all databases and ignoring certain "
-"(useful if you want to replicate majority of databases) or you can choose to "
-"ignore all databases by default and allow only certain databases to be "
-"replicated. Please select the mode:"
-msgstr ""
-
-#: $strReplicationMasterConfiguration
-msgid "Master configuration"
-msgstr ""
-
-#: $strReplicationMaster
-msgid "Master replication"
-msgstr ""
-
 #: $strReplication
 msgid "Replication"
 msgstr "Replication"
-
-#: $strReplicationRestartServer
-msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <b>is</b> configured as "
-"master"
-msgstr ""
-
-#: $strReplicationSelectDatabases
-msgid "Please select databases:"
-msgstr ""
-
-#: $strReplicationServernConfiguredMaster
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationShowConnectedSlavesNote
-msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
-msgstr ""
-
-#: $strReplicationShowConnectedSlaves
-msgid "Show connected slaves"
-msgstr ""
-
-#: $strReplicationShowMasterStatus
-msgid "Show master status"
-msgstr ""
-
-#: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronised master and slave!"
-msgstr ""
-
-#: $strReplicationSlaveChangeMaster
-msgid "Change or reconfigure master server"
-msgstr ""
-
-#: $strReplicationSlaveConfiguration
-msgid "Slave configuration"
-msgstr ""
-
-#: $strReplicationSlaveConfigured
-msgid ""
-"Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
-
-#: $strReplicationSlaveErrorManagement
-msgid "Error management:"
-msgstr ""
-
-#: $strReplicationSlaveIOThread
-msgid "IO Thread %s only"
-msgstr ""
-
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveNotConfigured
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationSlaveReset
-msgid "Reset slave"
-msgstr ""
-
-#: $strReplicationSlaveSeeStatus
-msgid "See slave status table"
-msgstr ""
-
-#: $strReplicationSlaveSkipCurrentError
-msgid "Skip current error"
-msgstr ""
-
-#: $strReplicationSlaveSkipNextErrors
-msgid "errors."
-msgstr ""
-
-#: $strReplicationSlaveSkipNext
-msgid "Skip next"
-msgstr ""
-
-#: $strReplicationSlave
-msgid "Slave replication"
-msgstr ""
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveSQLThread
-msgid "SQL Thread %s only"
-msgstr ""
-
-#: $strReplicationStatusInfo
-msgid ""
-"This MySQL server works as %s in <b>replication</b> process. For further "
-"information about replication status on the server, please visit the <a "
-"href=\"#replication\">replication section</a>."
-msgstr ""
-
-#: $strReplicationStatus_master
-msgid "Master status"
-msgstr ""
-
-#: $strReplicationStatus
-msgid "Replication status"
-msgstr ""
-
-#: $strReplicationStatus_slave
-msgid "Slave status"
-msgstr ""
-
-#: $strReplicationSynchronize
-msgid "Synchronise databases with master"
-msgstr ""
-
-#: $strReplicationUnableToChange
-msgid "Unable to change master"
-msgstr ""
-
-#: $strReplicationUnknownError
-msgid "Unknown error"
-msgstr ""
 
 #: $strReset
 msgid "Reset"
@@ -3556,10 +2642,6 @@ msgstr "ප්‍රතිසකසන්න"
 #: $strResourceLimits
 msgid "Resource limits"
 msgstr "සම්පත් සීමා"
-
-#: $strRestartInsertion
-msgid "Restart insertion with %s rows"
-msgstr ""
 
 #: $strReType
 msgid "Re-type"
@@ -3589,33 +2671,13 @@ msgstr "Revoke"
 msgid "Romanian"
 msgstr "රුමේනියානු"
 
-#: $strRoutineReturnType
-msgid "Return type"
-msgstr ""
-
-#: $strRoutines
-msgid "Routines"
-msgstr ""
-
 #: $strRowLength
 msgid "Row length"
 msgstr "පේළියේ දිග"
 
-#: $strRowsAffected
-msgid "%1$d row(s) affected."
-msgstr ""
-
-#: $strRowsDeleted
-msgid "%1$d row(s) deleted."
-msgstr ""
-
 #: $strRowsFrom
 msgid "row(s) starting from record #"
 msgstr "row(s) starting from record #"
-
-#: $strRowsInserted
-msgid "%1$d row(s) inserted."
-msgstr ""
 
 #: $strRowSize
 msgid " Row size "
@@ -3669,10 +2731,6 @@ msgstr "රුසියානු"
 msgid "Save on server in %s directory"
 msgstr "සර්වරයේ %s ඩිරෙක්ටරියේ සේව් කරන්න"
 
-#: $strSavePosition
-msgid "Save position"
-msgstr ""
-
 #: $strSave
 msgid "Save"
 msgstr "සේව් කරන්න"
@@ -3684,10 +2742,6 @@ msgstr "The scale factor is too small to fit the schema on one page"
 #: $strSearchFormTitle
 msgid "Search in database"
 msgstr "දත්තගබඩාවේ සොයන්න"
-
-#: $strSearchInField
-msgid "Inside field:"
-msgstr ""
 
 #: $strSearchInTables
 msgid "Inside table(s):"
@@ -3745,17 +2799,9 @@ msgstr "පෙන්වීම සඳහා ද්වීමය ලොගය ත�
 msgid "Select fields (at least one):"
 msgstr "Select fields (at least one):"
 
-#: $strSelectForeignKey
-msgid "Select Foreign Key"
-msgstr ""
-
 #: $strSelectNumRows
 msgid "in query"
 msgstr "in query"
-
-#: $strSelectReferencedKey
-msgid "Select referenced key"
-msgstr ""
 
 #: $strSelectTables
 msgid "Select Tables"
@@ -3817,21 +2863,6 @@ msgstr "Server variables and settings"
 msgid "Server version"
 msgstr "සර්වරයේ සංස්කරණය"
 
-#: $strSessionGCWarning
-msgid ""
-"Your PHP parameter "
-"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@]session.gc_maxlifetime[/a] is lower that cookie validity "
-"configured in phpMyAdmin, because of this, your login will expire sooner "
-"than configured in phpMyAdmin."
-msgstr ""
-
-#: $strSessionStartupErrorGeneral
-msgid ""
-"Cannot start session without errors, please check errors given in your PHP "
-"and/or webserver log file and configure your PHP installation properly."
-msgstr ""
-
 #: $strSessionValue
 msgid "Session value"
 msgstr "සැසි අගය"
@@ -3848,1600 +2879,9 @@ msgstr ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 
-#: $strSettings
-msgid "settings"
-msgstr ""
-
-#: $strSetupAllowAnywhereRecoding_name
-msgid "Allow character set conversion"
-msgstr ""
-
-#: $strSetupAllowArbitraryServer_desc
-msgid ""
-"If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr ""
-
-#: $strSetupAllowArbitraryServerMsg
-msgid ""
-"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-"disabled as it allows attackers to bruteforce login to any MySQL server. If "
-"you feel this is necessary, use "
-"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
-"However, IP-based protection may not be reliable if your IP belongs to an "
-"ISP where thousands of users, including you, are connected to."
-msgstr ""
-
-#: $strSetupAllowArbitraryServer_name
-msgid "Allow login to any MySQL server"
-msgstr ""
-
-#: $strSetupAllowUserDropDatabase_name
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
-
-#: $strSetupBlowfishSecretCharsMsg
-msgid "Key should contain letters, numbers [em]and[/em] special characters"
-msgstr ""
-
-#: $strSetupblowfish_secret_desc
-msgid ""
-"Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-"authentication"
-msgstr ""
-
-#: $strSetupBlowfishSecretLengthMsg
-msgid "Key is too short, it should have at least 8 characters"
-msgstr ""
-
-#: $strSetupBlowfishSecretMsg
-msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
-msgstr ""
-
-#: $strSetupblowfish_secret_name
-msgid "Blowfish secret"
-msgstr ""
-
-#: $strSetupBrowseMarkerEnable_desc
-msgid "Highlight selected rows"
-msgstr ""
-
-#: $strSetupBrowseMarkerEnable_name
-msgid "Row marker"
-msgstr ""
-
-#: $strSetupBrowsePointerEnable_desc
-msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
-
-#: $strSetupBrowsePointerEnable_name
-msgid "Highlight pointer"
-msgstr ""
-
-#: $strSetupBZipDump_desc
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import and export operations"
-msgstr ""
-
-#: $strSetupBZipDump_name
-msgid "Bzip2"
-msgstr ""
-
-#: $strSetupBZipDumpWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
-"decompression[/a] requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-
-#: $strSetupCannotLoadConfig
-msgid "Cannot load or save configuration"
-msgstr ""
-
-#: $strSetupCannotLoadConfigMsg
-msgid ""
-"Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in "
-"[a@../Documentation.html#setup_script]documentation[/a]. Otherwise you will "
-"be only able to download or display it."
-msgstr ""
-
-#: $strSetupCharEditing_desc
-msgid ""
-"Defines which type of editing controls should be used for CHAR and VARCHAR "
-"fields; [kbd]input[/kbd] - allows limiting of input length, "
-"[kbd]textarea[/kbd] - allows newlines in fields"
-msgstr ""
-
-#: $strSetupCharEditing_name
-msgid "CHAR fields editing"
-msgstr ""
-
-#: $strSetupCharTextareaCols_desc
-msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
-
-#: $strSetupCharTextareaCols_name
-msgid "CHAR textarea columns"
-msgstr ""
-
-#: $strSetupCharTextareaRows_desc
-msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
-
-#: $strSetupCharTextareaRows_name
-msgid "CHAR textarea rows"
-msgstr ""
-
-#: $strSetupCheckConfigurationPermissions_name
-msgid "Check config file permissions"
-msgstr ""
-
-#: $strSetupClear
-msgid "Clear"
-msgstr ""
-
-#: $strSetupCompressOnFly_desc
-msgid ""
-"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
-"you encounter problems with created gzip/bzip2 files disable this feature"
-msgstr ""
-
-#: $strSetupCompressOnFly_name
-msgid "Compress on the fly"
-msgstr ""
-
-#: $strSetupConfigurationFile
-msgid "Configuration file"
-msgstr ""
-
-#: $strSetupConfirm_desc
-msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
-"when you're about to lose data"
-msgstr ""
-
-#: $strSetupConfirm_name
-msgid "Confirm DROP queries"
-msgstr ""
-
-#: $strSetupDefaultCharset_desc
-msgid "Default character set used for conversions"
-msgstr ""
-
-#: $strSetupDefaultCharset_name
-msgid "Default character set"
-msgstr ""
-
-#: $strSetupDefaultLanguage
-msgid "Default language"
-msgstr ""
-
-#: $strSetupDefaultServer
-msgid "Default server"
-msgstr ""
-
-#: $strSetupDefaultTabDatabase_desc
-msgid "Tab that is displayed when entering a database"
-msgstr ""
-
-#: $strSetupDefaultTabDatabase_name
-msgid "Default database tab"
-msgstr ""
-
-#: $strSetupDefaultTabServer_desc
-msgid "Tab that is displayed when entering a server"
-msgstr ""
-
-#: $strSetupDefaultTabServer_name
-msgid "Default server tab"
-msgstr ""
-
-#: $strSetupDefaultTabTable_desc
-msgid "Tab that is displayed when entering a table"
-msgstr ""
-
-#: $strSetupDefaultTabTable_name
-msgid "Default table tab"
-msgstr ""
-
-#: $strSetupDirectoryNotice
-msgid ""
-"This value should be double checked to ensure that this directory is neither "
-"world accessible nor readable or writable by other users on your server."
-msgstr ""
-
-#: $strSetupDisplayDatabasesList_desc
-msgid "Show database listing as a list instead of a drop down"
-msgstr ""
-
-#: $strSetupDisplayDatabasesList_name
-msgid "Display databases as a list"
-msgstr ""
-
-#: $strSetupDisplay
-msgid "Display"
-msgstr ""
-
-#: $strSetupDisplayServersList_desc
-msgid "Show server listing as a list instead of a drop down"
-msgstr ""
-
-#: $strSetupDisplayServersList_name
-msgid "Display servers as a list"
-msgstr ""
-
-#: $strSetupDonateLink
-msgid "Donate"
-msgstr ""
-
-#: $strSetupDownload
-msgid "Download"
-msgstr ""
-
-#: $strSetupEndOfLine
-msgid "End of line"
-msgstr ""
-
-#: $strSetuperror_connection
-msgid "Could not connect to MySQL server"
-msgstr ""
-
-#: $strSetuperror_empty_pmadb_password
-msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
-
-#: $strSetuperror_empty_pmadb_user
-msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
-
-#: $strSetuperror_empty_signon_session
-msgid "Empty signon session name while using signon authentication method"
-msgstr ""
-
-#: $strSetuperror_empty_signon_url
-msgid "Empty signon URL while using signon authentication method"
-msgstr ""
-
-#: $strSetuperror_empty_user_for_config_auth
-msgid "Empty username while using config authentication method"
-msgstr ""
-
-#: $strSetuperror_form
-msgid "Submitted form contains errors"
-msgstr ""
-
-#: $strSetuperror_incorrect_ip_address
-msgid "Incorrect IP address: %s"
-msgstr ""
-
-#: $strSetuperror_incorrect_port
-msgid "Not a valid port number"
-msgstr ""
-
-#: $strSetuperror_incorrect_value
-msgid "Incorrect value"
-msgstr ""
-
-#: $strSetuperror_missing_field_data
-msgid "Missing data for %s"
-msgstr ""
-
-#: $strSetuperror_nan_nneg
-msgid "Not a non-negative number"
-msgstr ""
-
-#: $strSetuperror_nan_p
-msgid "Not a positive number"
-msgstr ""
-
-#: $strSetupExecTimeLimit_desc
-msgid ""
-"Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-"limit)"
-msgstr ""
-
-#: $strSetupExecTimeLimit_name
-msgid "Maximum execution time"
-msgstr ""
-
-#: $strSetupExport_asfile_name
-msgid "Save as file"
-msgstr ""
-
-#: $strSetupExport_charset_name
-msgid "Character set of the file"
-msgstr ""
-
-#: $strSetupExport_compression_name
-msgid "Compression"
-msgstr ""
-
-#: $strSetupExport_file_template_database_name
-msgid "Database name template"
-msgstr ""
-
-#: $strSetupExport_file_template_server_name
-msgid "Server name template"
-msgstr ""
-
-#: $strSetupExport_file_template_table_name
-msgid "Table name template"
-msgstr ""
-
-#: $strSetupExport_format_name
-msgid "Format"
-msgstr ""
-
-#: $strSetupExport_onserver_name
-msgid "Save on server"
-msgstr ""
-
-#: $strSetupExport_onserver_overwrite_name
-msgid "Overwrite existing file(s)"
-msgstr ""
-
-#: $strSetupExport_remember_file_template_name
-msgid "Remember file name template"
-msgstr ""
-
-#: $strSetupFalse
-msgid "no"
-msgstr ""
-
-#: $strSetupForceSSL_desc
-msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
-
-#: $strSetupForceSSLMsg
-msgid ""
-"This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
-"enabled if your web server supports it"
-msgstr ""
-
-#: $strSetupForceSSL_name
-msgid "Force SSL connection"
-msgstr ""
-
-#: $strSetupForeignKeyDropdownOrder_desc
-msgid ""
-"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-"the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
-
-#: $strSetupForeignKeyDropdownOrder_name
-msgid "Foreign key dropdown order"
-msgstr ""
-
-#: $strSetupForeignKeyMaxLimit_desc
-msgid "A dropdown will be used if fewer items are present"
-msgstr ""
-
-#: $strSetupForeignKeyMaxLimit_name
-msgid "Foreign key limit"
-msgstr ""
-
-#: $strSetupForm_Browse
-msgid "Browse mode"
-msgstr ""
-
-#: $strSetupForm_Browse_desc
-msgid "Customise browse mode"
-msgstr ""
-
-#: $strSetupForm_Edit_desc
-msgid "Customise edit mode"
-msgstr ""
-
-#: $strSetupForm_Edit
-msgid "Edit mode"
-msgstr ""
-
-#: $strSetupForm_Export_defaults_desc
-msgid "Customise default export options"
-msgstr ""
-
-#: $strSetupForm_Export_defaults
-msgid "Export defaults"
-msgstr ""
-
-#: $strSetupForm_Import_defaults_desc
-msgid "Customise default common import options"
-msgstr ""
-
-#: $strSetupForm_Import_defaults
-msgid "Import defaults"
-msgstr ""
-
-#: $strSetupForm_Import_export_desc
-msgid "Set import and export directories and compression options"
-msgstr ""
-
-#: $strSetupForm_Import_export
-msgid "Import / export"
-msgstr ""
-
-#: $strSetupForm_Left_databases
-msgid "Databases"
-msgstr ""
-
-#: $strSetupForm_Left_databases_desc
-msgid "Databases display options"
-msgstr ""
-
-#: $strSetupForm_Left_frame_desc
-msgid "Customise appearance of the navigation frame"
-msgstr ""
-
-#: $strSetupForm_Left_frame
-msgid "Navigation frame"
-msgstr ""
-
-#: $strSetupForm_Left_servers_desc
-msgid "Servers display options"
-msgstr ""
-
-#: $strSetupForm_Left_servers
-msgid "Servers"
-msgstr ""
-
-#: $strSetupForm_Left_tables_desc
-msgid "Tables display options"
-msgstr ""
-
-#: $strSetupForm_Left_tables
-msgid "Tables"
-msgstr ""
-
-#: $strSetupForm_Main_frame
-msgid "Main frame"
-msgstr ""
-
-#: $strSetupForm_Other_core_settings_desc
-msgid "Settings that didn't fit enywhere else"
-msgstr ""
-
-#: $strSetupForm_Other_core_settings
-msgid "Other core settings"
-msgstr ""
-
-#: $strSetupForm_Query_window_desc
-msgid "Customise query window options"
-msgstr ""
-
-#: $strSetupForm_Query_window
-msgid "Query window"
-msgstr ""
-
-#: $strSetupForm_Security_desc
-msgid ""
-"Please note that phpMyAdmin is just a user interface and its features do not "
-"limit MySQL"
-msgstr ""
-
-#: $strSetupForm_Security
-msgid "Security"
-msgstr ""
-
-#: $strSetupForm_Server
-msgid "Basic settings"
-msgstr ""
-
-#: $strSetupForm_Server_config_desc
-msgid ""
-"Advanced server configuration, do not change these options unless you know "
-"what they are for"
-msgstr ""
-
-#: $strSetupForm_Server_config
-msgid "Server configuration"
-msgstr ""
-
-#: $strSetupForm_Server_desc
-msgid "Enter server connection parameters"
-msgstr ""
-
-#: $strSetupForm_Server_login_options_desc
-msgid "Enter login options for signon authentication"
-msgstr ""
-
-#: $strSetupForm_Server_login_options
-msgid "Signon login options"
-msgstr ""
-
-#: $strSetupForm_Server_pmadb_desc
-msgid ""
-"Configure phpMyAdmin database to gain access to additional features, see "
-"[a@../Documentation.html#linked-tables]linked-tables infrastructure[/a] in "
-"documentation"
-msgstr ""
-
-#: $strSetupForm_Server_pmadb
-msgid "PMA database"
-msgstr ""
-
-#: $strSetupFormset_customization
-msgid "Customisation"
-msgstr ""
-
-#: $strSetupFormset_export
-msgid "Customise export options"
-msgstr ""
-
-#: $strSetupFormset_features
-msgid "Features"
-msgstr ""
-
-#: $strSetupFormset_import
-msgid "Customise import defaults"
-msgstr ""
-
-#: $strSetupFormset_left_frame
-msgid "Customise navigation frame"
-msgstr ""
-
-#: $strSetupFormset_main_frame
-msgid "Customise main frame"
-msgstr ""
-
-#: $strSetupForm_Sql_box_desc
-msgid "Customise links shown in SQL Query boxes"
-msgstr ""
-
-#: $strSetupForm_Sql_box
-msgid "SQL Query box"
-msgstr ""
-
-#: $strSetupForm_Sql_queries_desc
-msgid ""
-"SQL queries settings, for SQL Query box options see "
-"[a@?page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] "
-"settings"
-msgstr ""
-
-#: $strSetupForm_Sql_queries
-msgid "SQL queries"
-msgstr ""
-
-#: $strSetupForm_Startup_desc
-msgid "Customise startup page"
-msgstr ""
-
-#: $strSetupForm_Startup
-msgid "Startup"
-msgstr ""
-
-#: $strSetupForm_Tabs_desc
-msgid "Choose how you want tabs to work"
-msgstr ""
-
-#: $strSetupForm_Tabs
-msgid "Tabs"
-msgstr ""
-
-#: $strSetupGZipDump_desc
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
-"and export operations"
-msgstr ""
-
-#: $strSetupGZipDump_name
-msgid "GZip"
-msgstr ""
-
-#: $strSetupGZipDumpWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
-"decompression[/a] requires functions (%s) which are unavailable on this "
-"system."
-msgstr ""
-
-#: $strSetupHomepageLink
-msgid "phpMyAdmin homepage"
-msgstr ""
-
-#: $strSetupIconvExtraParams_name
-msgid "Extra parameters for iconv"
-msgstr ""
-
-#: $strSetupIgnoreErrors
-msgid "Ignore errors"
-msgstr ""
-
-#: $strSetupIgnoreMultiSubmitErrors_desc
-msgid ""
-"If enabled, phpMyAdmin continues computing multiple-statement queries even "
-"if one of the queries failed"
-msgstr ""
-
-#: $strSetupIgnoreMultiSubmitErrors_name
-msgid "Ignore multiple statement errors"
-msgstr ""
-
-#: $strSetupImport_allow_interrupt_desc
-msgid ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
-"transactions."
-msgstr ""
-
-#: $strSetupImport_allow_interrupt_name
-msgid "Partial import: allow interrupt"
-msgstr ""
-
-#: $strSetupImport_format_desc
-msgid ""
-"Default format; be aware that this list depends on location (database, "
-"table) and only SQL is always available"
-msgstr ""
-
-#: $strSetupImport_format_name
-msgid "Format of imported file"
-msgstr ""
-
-#: $strSetupImport_skip_queries_desc
-msgid "Number of records (queries) to skip from start"
-msgstr ""
-
-#: $strSetupImport_skip_queries_name
-msgid "Partial import: skip queries"
-msgstr ""
-
-#: $strSetupInsecureConnection
-msgid "Insecure connection"
-msgstr ""
-
-#: $strSetupInsecureConnectionMsg1
-msgid ""
-"You are not using a secure connection; all data (including potentially "
-"sensitive information, like passwords) is transferred unencrypted!"
-msgstr ""
-
-#: $strSetupInsecureConnectionMsg2
-msgid ""
-"If your server is also configured to accept HTTPS requests follow [a@%s]this "
-"link[/a] to use a secure connection."
-msgstr ""
-
-#: $strSetupInsertRows_desc
-msgid "How many rows can be inserted at one time"
-msgstr ""
-
-#: $strSetupInsertRows_name
-msgid "Number of inserted rows"
-msgstr ""
-
-#: $strSetupLeftDefaultTabTable_name
-msgid "Target for quick access icon"
-msgstr ""
-
-#: $strSetupLeftDisplayLogo_desc
-msgid "Show logo in left frame"
-msgstr ""
-
-#: $strSetupLeftDisplayLogo_name
-msgid "Display logo"
-msgstr ""
-
-#: $strSetupLeftDisplayServers_desc
-msgid "Display server choice at the top of the left frame"
-msgstr ""
-
-#: $strSetupLeftDisplayServers_name
-msgid "Display servers selection"
-msgstr ""
-
-#: $strSetupLeftFrameDBSeparator_desc
-msgid "String that separates databases into different tree levels"
-msgstr ""
-
-#: $strSetupLeftFrameDBSeparator_name
-msgid "Database tree separator"
-msgstr ""
-
-#: $strSetupLeftFrameDBTree_desc
-msgid ""
-"Only light version; display databases in a tree (determined by the separator "
-"defined below)"
-msgstr ""
-
-#: $strSetupLeftFrameDBTree_name
-msgid "Display databases in a tree"
-msgstr ""
-
-#: $strSetupLeftFrameLight_desc
-msgid "Disable this if you want to see all databases at once"
-msgstr ""
-
-#: $strSetupLeftFrameLight_name
-msgid "Use light version"
-msgstr ""
-
-#: $strSetupLeftFrameTableLevel_name
-msgid "Maximum table tree depth"
-msgstr ""
-
-#: $strSetupLeftFrameTableSeparator_desc
-msgid "String that separates tables into different tree levels"
-msgstr ""
-
-#: $strSetupLeftFrameTableSeparator_name
-msgid "Table tree separator"
-msgstr ""
-
-#: $strSetupLeftLogoLink_name
-msgid "Logo link URL"
-msgstr ""
-
-#: $strSetupLeftLogoLinkWindow_desc
-msgid ""
-"Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-"([kbd]new[/kbd])"
-msgstr ""
-
-#: $strSetupLeftLogoLinkWindow_name
-msgid "Logo link target"
-msgstr ""
-
-#: $strSetupLeftPointerEnable_desc
-msgid "Highlight server under the mouse cursor"
-msgstr ""
-
-#: $strSetupLeftPointerEnable_name
-msgid "Enable highlighting"
-msgstr ""
-
-#: $strSetupLetUserChoose
-msgid "let the user choose"
-msgstr ""
-
-#: $strSetupLightTabs_desc
-msgid "Use less graphically intense tabs"
-msgstr ""
-
-#: $strSetupLightTabs_name
-msgid "Light tabs"
-msgstr ""
-
-#: $strSetupLoad
-msgid "Load"
-msgstr ""
-
-#: $strSetupLoginCookieDeleteAll_desc
-msgid ""
-"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
-"only occurs for the current server. Setting this to FALSE makes it easy to "
-"forget to log out from other servers when connected to multiple servers."
-msgstr ""
-
-#: $strSetupLoginCookieDeleteAll_name
-msgid "Delete all cookies on logout"
-msgstr ""
-
-#: $strSetupLoginCookieRecall_desc
-msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode"
-msgstr ""
-
-#: $strSetupLoginCookieRecall_name
-msgid "Recall user name"
-msgstr ""
-
-#: $strSetupLoginCookieStore_desc
-msgid ""
-"Defines how long (in seconds) a login cookie should be stored in browser. "
-"The default of 0 means that it will be kept for the existing session only, "
-"and will be deleted as soon as you close the browser window. This is "
-"recommended for non-trusted environments."
-msgstr ""
-
-#: $strSetupLoginCookieStore_name
-msgid "Login cookie store"
-msgstr ""
-
-#: $strSetupLoginCookieValidity_desc
-msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
-
-#: $strSetupLoginCookieValidityMsg
-msgid ""
-"[a@?page=form&formset=features#tab_Security]Login cookie validity[/a] should "
-"be set to 1800 seconds (30 minutes) at most. Values larger than 1800 may "
-"pose a security risk such as impersonation."
-msgstr ""
-
-#: $strSetupLoginCookieValidity_name
-msgid "Login cookie validity"
-msgstr ""
-
-#: $strSetupMaxCharactersInDisplayedSQL_desc
-msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
-
-#: $strSetupMaxCharactersInDisplayedSQL_name
-msgid "Maximum displayed SQL length"
-msgstr ""
-
-#: $strSetupMaxDbList_desc
-msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
-
-#: $strSetupMaxDbList_name
-msgid "Maximum databases"
-msgstr ""
-
-#: $strSetupMaxRows_desc
-msgid ""
-"Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
-"shown."
-msgstr ""
-
-#: $strSetupMaxRows_name
-msgid "Maximum number of rows to display"
-msgstr ""
-
-#: $strSetupMaxTableList_desc
-msgid "Maximum number of tables displayed in table list"
-msgstr ""
-
-#: $strSetupMaxTableList_name
-msgid "Maximum tables"
-msgstr ""
-
-#: $strSetupMemoryLimit_desc
-msgid ""
-"The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for no limit)"
-msgstr ""
-
-#: $strSetupMemoryLimit_name
-msgid "Memory limit"
-msgstr ""
-
-#: $strSetupNavigationBarIconic_desc
-msgid "Use only icons, only text or both"
-msgstr ""
-
-#: $strSetupNavigationBarIconic_name
-msgid "Iconic navigation bar"
-msgstr ""
-
-#: $strSetupNewServer
-msgid "New server"
-msgstr ""
-
-#: $strSetupNoServers
-msgid "There are no configured servers"
-msgstr ""
-
-#: $strSetupOBGzip_desc
-msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
-
-#: $strSetupOBGzip_name
-msgid "GZip output buffering"
-msgstr ""
-
-#: $strSetupOptionNone
-msgid "- none -"
-msgstr ""
-
-#: $strSetupOrder_desc
-msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
-"DATETIME and TIMESTAMP, ascending order otherwise"
-msgstr ""
-
-#: $strSetupOrder_name
-msgid "Default sorting order"
-msgstr ""
-
-#: $strSetupOverview
-msgid "Overview"
-msgstr ""
-
-#: $strSetupPersistentConnections_desc
-msgid "Use persistent connections to MySQL databases"
-msgstr ""
-
-#: $strSetupPersistentConnections_name
-msgid "Persistent connections"
-msgstr ""
-
-#: $strSetupPropertiesIconic_desc
-msgid "Use only icons, only text or both"
-msgstr ""
-
-#: $strSetupPropertiesIconic_name
-msgid "Iconic table operations"
-msgstr ""
-
-#: $strSetupProtectBinary_desc
-msgid "Disallow BLOB and BINARY fields from editing"
-msgstr ""
-
-#: $strSetupProtectBinary_name
-msgid "Protect binary fields"
-msgstr ""
-
-#: $strSetupQueryHistoryDB_desc
-msgid ""
-"Enable if you want DB-based query history (requires pmadb). If disabled, "
-"this utilises JS-routines to display query history (lost by window close)."
-msgstr ""
-
-#: $strSetupQueryHistoryDB_name
-msgid "Permanent query history"
-msgstr ""
-
-#: $strSetupQueryHistoryMax_desc
-msgid "How many queries are kept in history"
-msgstr ""
-
-#: $strSetupQueryHistoryMax_name
-msgid "Query history length"
-msgstr ""
-
-#: $strSetupQueryWindowDefTab_desc
-msgid "Tab displayed when opening a new query window"
-msgstr ""
-
-#: $strSetupQueryWindowDefTab_name
-msgid "Default query window tab"
-msgstr ""
-
-#: $strSetupRecodingEngine_desc
-msgid "Select which functions will be used for character set conversion"
-msgstr ""
-
-#: $strSetupRecodingEngine_name
-msgid "Recoding engine"
-msgstr ""
-
-#: $strSetupRestoreDefaultValue
-msgid "Restore default value"
-msgstr ""
-
-#: $strSetupRevertErroneousFields
-msgid "Try to revert erroneous fields to their default values"
-msgstr ""
-
-#: $strSetupSaveDir_desc
-msgid "Directory where exports can be saved on server"
-msgstr ""
-
-#: $strSetupSaveDir_name
-msgid "Save directory"
-msgstr ""
-
-#: $strSetupServerAuthConfigMsg
-msgid ""
-"You set the [kbd]config[/kbd] authentication type and included username and "
-"password for auto-login, which is not a desirable option for live hosts. "
-"Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%"
-"1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
-msgstr ""
-
-#: $strSetupServerExtensionMsg
-msgid "You should use mysqli for performance reasons"
-msgstr ""
-
-#: $strSetupServerNoPasswordMsg
-msgid "You allow for connecting to the server without a password."
-msgstr ""
-
-#: $strSetupServersAdd
-msgid "Add a new server"
-msgstr ""
-
-#: $strSetupServers_AllowDeny_order_desc
-msgid "Leave blank if not used"
-msgstr ""
-
-#: $strSetupServers_AllowDeny_order_name
-msgid "Host authentication order"
-msgstr ""
-
-#: $strSetupServers_AllowDeny_rules_desc
-msgid "Leave blank for defaults"
-msgstr ""
-
-#: $strSetupServers_AllowDeny_rules_name
-msgid "Host authentication rules"
-msgstr ""
-
-#: $strSetupServers_AllowNoPassword_name
-msgid "Allow logins without a password"
-msgstr ""
-
-#: $strSetupServers_AllowRoot_name
-msgid "Allow root login"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
-#: $strSetupServers_auth_swekey_config_desc
-msgid ""
-"The path for the config file for [a@http://swekey.com]SweKey hardware "
-"authentication[/a] (not located in your document root; suggested: "
-"/etc/swekey.conf)"
-msgstr ""
-
-#: $strSetupServers_auth_swekey_config_name
-msgid "SweKey config file"
-msgstr ""
-
-#: $strSetupServers_auth_type_desc
-msgid "Authentication method to use"
-msgstr ""
-
-#: $strSetupServers_auth_type_name
-msgid "Authentication type"
-msgstr ""
-
-#: $strSetupServers_bookmarktable_desc
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
-msgstr ""
-
-#: $strSetupServers_bookmarktable_name
-msgid "Bookmark table"
-msgstr ""
-
-#: $strSetupServers_column_info_desc
-msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma_column_info[/kbd]"
-msgstr ""
-
-#: $strSetupServers_column_info_name
-msgid "Column information table"
-msgstr ""
-
-#: $strSetupServers_compress_desc
-msgid "Compress connection to MySQL server"
-msgstr ""
-
-#: $strSetupServers_compress_name
-msgid "Compress connection"
-msgstr ""
-
-#: $strSetupServers_connect_type_desc
-msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
-
-#: $strSetupServers_connect_type_name
-msgid "Connection type"
-msgstr ""
-
-#: $strSetupServers_controlpass_name
-msgid "Control user password"
-msgstr ""
-
-#: $strSetupServers_controluser_desc
-msgid ""
-"A special MySQL user configured with limited permissions, more information "
-"available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
-msgstr ""
-
-#: $strSetupServers_controluser_name
-msgid "Control user"
-msgstr ""
-
-#: $strSetupServers_CountTables_desc
-msgid "Count tables when showing database list"
-msgstr ""
-
-#: $strSetupServers_CountTables_name
-msgid "Count tables"
-msgstr ""
-
-#: $strSetupServers_designer_coords_desc
-msgid ""
-"Leave blank for no Designer support, suggested: "
-"[kbd]pma_designer_coords[/kbd]"
-msgstr ""
-
-#: $strSetupServers_designer_coords_name
-msgid "Designer table"
-msgstr ""
-
-#: $strSetupServers_DisableIS_desc
-msgid ""
-"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
-"tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
-msgstr ""
-
-#: $strSetupServers_DisableIS_name
-msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
-
-#: $strSetupServerSecurityInfoMsg
-msgid ""
-"If you feel this is necessary, use additional protection settings - "
-"[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host "
-"authentication[/a] settings and "
-"[a@?page=form&amp;formset=features#tab_Security]trusted proxies list[/a]. "
-"However, IP-based protection may not be reliable if your IP belongs to an "
-"ISP where thousands of users, including you, are connected to."
-msgstr ""
-
-#: $strSetupServersEdit
-msgid "Edit server"
-msgstr ""
-
-#: $strSetupServers_extension_desc
-msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr ""
-
-#: $strSetupServers_extension_name
-msgid "PHP extension to use"
-msgstr ""
-
-#: $strSetupServers_hide_db_desc
-msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
-
-#: $strSetupServers_hide_db_name
-msgid "Hide databases"
-msgstr ""
-
-#: $strSetupServers_history_desc
-msgid ""
-"Leave blank for no SQL query history support, suggested: "
-"[kbd]pma_history[/kbd]"
-msgstr ""
-
-#: $strSetupServers_history_name
-msgid "SQL query history table"
-msgstr ""
-
-#: $strSetupServers_host_desc
-msgid "Hostname where MySQL server is running"
-msgstr ""
-
-#: $strSetupServers_host_name
-msgid "Server hostname"
-msgstr ""
-
-#: $strSetupServers_LogoutURL_name
-msgid "Logout URL"
-msgstr ""
-
-#: $strSetupServers_nopassword_desc
-msgid "Try to connect without password"
-msgstr ""
-
-#: $strSetupServers_nopassword_name
-msgid "Connect without password"
-msgstr ""
-
-#: $strSetupServers_only_db_desc
-msgid ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
-msgstr ""
-
-#: $strSetupServers_only_db_name
-msgid "Show only listed databases"
-msgstr ""
-
-#: $strSetupServers_password_desc
-msgid "Leave empty if not using config auth"
-msgstr ""
-
-#: $strSetupServers_password_name
-msgid "Password for config auth"
-msgstr ""
-
-#: $strSetupServers_pdf_pages_desc
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
-msgstr ""
-
-#: $strSetupServers_pdf_pages_name
-msgid "PDF schema: pages table"
-msgstr ""
-
-#: $strSetupServers_pmadb_desc
-msgid ""
-"Database used for relations, bookmarks, and PDF features. See "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. "
-"Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
-msgstr ""
-
-#: $strSetupServers_pmadb_name
-msgid "PMA database"
-msgstr ""
-
-#: $strSetupServers_port_desc
-msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
-
-#: $strSetupServers_port_name
-msgid "Server port"
-msgstr ""
-
-#: $strSetupServers_relation_desc
-msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma_relation[/kbd]"
-msgstr ""
-
-#: $strSetupServers_relation_name
-msgid "Relation table"
-msgstr ""
-
-#: $strSetupServers_ShowDatabasesCommand_desc
-msgid "SQL command to fetch available databases"
-msgstr ""
-
-#: $strSetupServers_ShowDatabasesCommand_name
-msgid "SHOW DATABASES command"
-msgstr ""
-
-#: $strSetupServers_SignonSession_desc
-msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
-msgstr ""
-
-#: $strSetupServers_SignonSession_name
-msgid "Signon session name"
-msgstr ""
-
-#: $strSetupServers_SignonURL_name
-msgid "Signon URL"
-msgstr ""
-
-#: $strSetupServerSslMsg
-msgid "You should use SSL connections if your web server supports it"
-msgstr ""
-
-#: $strSetupServers_socket_desc
-msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
-
-#: $strSetupServers_socket_name
-msgid "Server socket"
-msgstr ""
-
-#: $strSetupServers_ssl_desc
-msgid "Enable SSL for connection to MySQL server"
-msgstr ""
-
-#: $strSetupServers_ssl_name
-msgid "Use SSL"
-msgstr ""
-
-#: $strSetupServers_table_coords_desc
-msgid ""
-"Leave blank for no PDF schema support, suggested: "
-"[kbd]pma_table_coords[/kbd]"
-msgstr ""
-
-#: $strSetupServers_table_coords_name
-msgid "PDF schema: table coordinates"
-msgstr ""
-
-#: $strSetupServers_table_info_desc
-msgid ""
-"Table to describe the display fields, leave blank for no support; suggested: "
-"[kbd]pma_table_info[/kbd]"
-msgstr ""
-
-#: $strSetupServers_table_info_name
-msgid "Display fields table"
-msgstr ""
-
-#: $strSetupServers_user_desc
-msgid "Leave empty if not using config auth"
-msgstr ""
-
-#: $strSetupServers_user_name
-msgid "User for config auth"
-msgstr ""
-
-#: $strSetupServers_verbose_check_desc
-msgid ""
-"Disable if you know that your pma_* tables are up to date. This prevents "
-"compatibility checks and thereby increases performance"
-msgstr ""
-
-#: $strSetupServers_verbose_check_name
-msgid "Verbose check"
-msgstr ""
-
-#: $strSetupServers_verbose_desc
-msgid ""
-"A user-friendly description of this server. Leave blank to display the "
-"hostname instead."
-msgstr ""
-
-#: $strSetupServers_verbose_name
-msgid "Verbose name of this server"
-msgstr ""
-
-#: $strSetupSetValue
-msgid "Set value: %s"
-msgstr ""
-
-#: $strSetupShowAll_desc
-msgid ""
-"Whether a user should be displayed a &quot;show all (records)&quot; button"
-msgstr ""
-
-#: $strSetupShowAll_name
-msgid "Allow to display all the rows"
-msgstr ""
-
-#: $strSetupShowChgPassword_desc
-msgid ""
-"Please note that enabling this has no effect with [kbd]config[/kbd] "
-"authentication mode because the password is hard coded in the configuration "
-"file; this does not limit the ability to execute the same command directly"
-msgstr ""
-
-#: $strSetupShowChgPassword_name
-msgid "Show password change form"
-msgstr ""
-
-#: $strSetupShowCreateDb_name
-msgid "Show create database form"
-msgstr ""
-
-#: $strSetupShowForm
-msgid "Show form"
-msgstr ""
-
-#: $strSetupShowFunctionFields_desc
-msgid "Display the function fields in edit/insert mode"
-msgstr ""
-
-#: $strSetupShowFunctionFields_name
-msgid "Show function fields"
-msgstr ""
-
-#: $strSetupShowHiddenMessages
-msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
-
-#: $strSetupShowPhpInfo_desc
-msgid ""
-"Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output"
-msgstr ""
-
-#: $strSetupShowPhpInfo_name
-msgid "Show phpinfo() link"
-msgstr ""
-
-#: $strSetupShowServerInfo_name
-msgid "Show detailed MySQL server information"
-msgstr ""
-
-#: $strSetupShowSQL_desc
-msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr ""
-
-#: $strSetupShowSQL_name
-msgid "Show SQL queries"
-msgstr ""
-
-#: $strSetupShowStats_desc
-msgid "Allow to display database and table statistics (eg. space usage)"
-msgstr ""
-
-#: $strSetupShowStats_name
-msgid "Show statistics"
-msgstr ""
-
-#: $strSetupShowTooltipAliasDB_desc
-msgid ""
-"If tooltips are enabled and a database comment is set, this will flip the "
-"comment and the real name"
-msgstr ""
-
-#: $strSetupShowTooltipAliasDB_name
-msgid "Display database comment instead of its name"
-msgstr ""
-
-#: $strSetupShowTooltipAliasTB_desc
-msgid ""
-"When setting this to [kbd]nested[/kbd], the alias of the table name is only "
-"used to split/nest the tables according to the "
-"$cfg['LeftFrameTableSeparator'] directive, so only the folder is called like "
-"the alias, the table name itself stays unchanged"
-msgstr ""
-
-#: $strSetupShowTooltipAliasTB_name
-msgid "Display table comment instead of its name"
-msgstr ""
-
-#: $strSetupShowTooltip_name
-msgid "Display table comments in tooltips"
-msgstr ""
-
-#: $strSetupSkipLockedTables_desc
-msgid ""
-"Mark used tables and make it possible to show databases with locked tables"
-msgstr ""
-
-#: $strSetupSkipLockedTables_name
-msgid "Skip locked tables"
-msgstr ""
-
-#: $strSetupSQLQuery_Edit_name
-msgid "Edit"
-msgstr ""
-
-#: $strSetupSQLQuery_Explain_name
-msgid "Explain SQL"
-msgstr ""
-
-#: $strSetupSQLQuery_Refresh_name
-msgid "Refresh"
-msgstr ""
-
-#: $strSetupSQLQuery_ShowAsPHP_name
-msgid "Create PHP Code"
-msgstr ""
-
-#: $strSetupSQLQuery_Validate_name
-msgid "Validate SQL"
-msgstr ""
-
-#: $strSetupSuggestDBName_desc
-msgid ""
-"Suggest a database name on the &quot;Create Database&quot; form (if "
-"possible) or keep the text field empty"
-msgstr ""
-
-#: $strSetupSuggestDBName_name
-msgid "Suggest new database name"
-msgstr ""
-
-#: $strSetupTrue
-msgid "yes"
-msgstr ""
-
-#: $strSetupTrustedProxies_desc
-msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
-msgstr ""
-
-#: $strSetupTrustedProxies_name
-msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
-
-#: $strSetupUploadDir_desc
-msgid "Directory on server where you can upload files for import"
-msgstr ""
-
-#: $strSetupUploadDir_name
-msgid "Upload directory"
-msgstr ""
-
-#: $strSetupUseDbSearch_desc
-msgid "Allow for searching inside the entire database"
-msgstr ""
-
-#: $strSetupUseDbSearch_name
-msgid "Use database search"
-msgstr ""
-
-#: $strSetupVerboseMultiSubmit_desc
-msgid ""
-"Show affected rows of each statement on multiple-statement queries. See "
-"libraries/import.lib.php for defaults on how many queries a statement may "
-"contain."
-msgstr ""
-
-#: $strSetupVerboseMultiSubmit_name
-msgid "Verbose multiple statements"
-msgstr ""
-
-#: $strSetupVersionCheckDataError
-msgid ""
-"Reading of version failed. Maybe you're offline or the upgrade server does "
-"not respond."
-msgstr ""
-
-#: $strSetupVersionCheckInvalid
-msgid "Got invalid version string from server"
-msgstr ""
-
-#: $strSetupVersionCheckLink
-msgid "Check for latest version"
-msgstr ""
-
-#: $strSetupVersionCheckNewAvailable
-msgid ""
-"A newer version of phpMyAdmin is available and you should consider "
-"upgrading. The newest version is %s, released on %s."
-msgstr ""
-
-#: $strSetupVersionCheckNewAvailableSvn
-msgid ""
-"You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
-"latest stable version is %s, released on %s."
-msgstr ""
-
-#: $strSetupVersionCheckNone
-msgid "No newer stable version is available"
-msgstr ""
-
-#: $strSetupVersionCheckUnparsable
-msgid "Unparsable version string"
-msgstr ""
-
-#: $strSetupVersionCheck
-msgid "Version check"
-msgstr ""
-
-#: $strSetupVersionCheckWrapperError
-msgid ""
-"Neither URL wrapper nor CURL is available. Version check is not possible."
-msgstr ""
-
-#: $strSetupWarning
-msgid "Warning"
-msgstr ""
-
-#: $strSetupZipDump_desc
-msgid ""
-"Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
-"for import and export operations"
-msgstr ""
-
-#: $strSetupZipDumpExportWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
-
-#: $strSetupZipDumpImportWarning
-msgid ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
-"requires functions (%s) which are unavailable on this system."
-msgstr ""
-
-#: $strSetupZipDump_name
-msgid "ZIP"
-msgstr ""
-
 #: $strShowAll
 msgid "Show all"
 msgstr "සියල්ල පෙන්වන්න"
-
-#: $strShowBinaryContentsAsHex
-msgid "Show binary contents as HEX"
-msgstr ""
-
-#: $strShowBinaryContents
-msgid "Show binary contents"
-msgstr ""
-
-#: $strShowBLOBContents
-msgid "Show BLOB contents"
-msgstr ""
 
 #: $strShowColor
 msgid "Show colour"
@@ -5459,37 +2899,13 @@ msgstr "සම්පූර්ණ විමසුම් පෙන්වන්න"
 msgid "Show grid"
 msgstr "කොටු සැලැස්ම පෙන්වන්න"
 
-#: $strShowHideLeftMenu
-msgid "Show/Hide left menu"
-msgstr ""
-
 #: $strShowingBookmark
 msgid "Showing bookmark"
 msgstr "පොත් සලකුණ පෙන්වන්න"
 
-#: $strShowingPhp
-msgid "Showing as PHP code"
-msgstr ""
-
 #: $strShowingRecords
 msgid "Showing rows"
 msgstr "පේළි පෙන්වන්න"
-
-#: $strShowingSQL
-msgid "Showing SQL query"
-msgstr ""
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
-
-#: $strShowKeys
-msgid "Only show keys"
-msgstr ""
-
-#: $strShowMasterStatus
-msgid "Show master status"
-msgstr ""
 
 #: $strShowOpenTables
 msgid "Show open tables"
@@ -6178,12 +3594,6 @@ msgstr "ප්‍රමාණය"
 msgid "Number of records (queries) to skip from start"
 msgstr "Number of records(queries) to skip from start"
 
-#: $strSlaveConfigure
-msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
-"not, please add the following line into [mysqld] section:"
-msgstr ""
-
 #: $strSlovak
 msgid "Slovak"
 msgstr "ස්ලෝවැකි"
@@ -6192,21 +3602,9 @@ msgstr "ස්ලෝවැකි"
 msgid "Slovenian"
 msgstr "ස්ලෝවේනියානු"
 
-#: $strSmallBigAll
-msgid "Small/Big All"
-msgstr ""
-
-#: $strSnapToGrid
-msgid "Snap to grid"
-msgstr ""
-
 #: $strSocketProblem
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(or the local MySQL server's socket is not correctly configured)"
-
-#: $strSocket
-msgid "Socket"
-msgstr ""
 
 #: $strSortByKey
 msgid "Sort by key"
@@ -6239,10 +3637,6 @@ msgstr "SQL compatibility mode"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "අපනයන වර්ගය"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""
@@ -6300,14 +3694,6 @@ msgstr "නොවසන ලද උද්ධරනය"
 msgid "Unknown Punctuation String"
 msgstr "නොදන්නා විරාම අකුරු වැල"
 
-#: $strStandInStructureForView
-msgid "Stand-in structure for view"
-msgstr ""
-
-#: $strStart
-msgid "Start"
-msgstr ""
-
 #: $strStatCheckTime
 msgid "Last check"
 msgstr "අවසන් පරීක්ෂාව"
@@ -6319,10 +3705,6 @@ msgstr "සෑදීම"
 #: $strStatement
 msgid "Statements"
 msgstr "ප්‍රකාශය"
-
-#: $strStatic
-msgid "static"
-msgstr ""
 
 #: $strStatisticsOverrun
 msgid ""
@@ -6339,10 +3721,6 @@ msgstr "අවසන් යාවත් කාලීන කිරීම"
 #: $strStatus
 msgid "Status"
 msgstr "තත්වය"
-
-#: $strStop
-msgid "Stop"
-msgstr ""
 
 #: $strStorageEngines
 msgid "Storage Engines"
@@ -6377,23 +3755,9 @@ msgstr "Structure only"
 msgid "Propose table structure"
 msgstr "Propose table structure"
 
-#: $strStructureDiff
-msgid ""
-"Structure Difference' ;\n"
-"$strStructureForView = 'Structure for view"
-msgstr ""
-
-#: $strStructureLC
-msgid "structure"
-msgstr ""
-
 #: $strStructure
 msgid "Structure"
 msgstr "සැකිල්ල"
-
-#: $strStructureSyn
-msgid "Structure Synchronisation"
-msgstr ""
 
 #: $strSubmit
 msgid "Submit"
@@ -6403,12 +3767,6 @@ msgstr "ඉදිරිපත් කරන්න"
 msgid "Your SQL query has been executed successfully"
 msgstr "ඔබගේ SQL විමසුම සාර්ථකව ක්‍රියාවට නංවන ලදි"
 
-#: $strSuhosin
-msgid ""
-"Server running with Suhosin. Please refer to %sdocumentation%s for possible "
-"issues."
-msgstr ""
-
 #: $strSum
 msgid "Sum"
 msgstr "එකතුව"
@@ -6416,22 +3774,6 @@ msgstr "එකතුව"
 #: $strSwedish
 msgid "Swedish"
 msgstr "ස්වීඩීනියානු"
-
-#: $strSwekeyAuthenticating
-msgid "Authenticating..."
-msgstr ""
-
-#: $strSwekeyAuthFailed
-msgid "Hardware authentication failed"
-msgstr ""
-
-#: $strSwekeyNoKeyId
-msgid "File %s does not contain any key id"
-msgstr ""
-
-#: $strSwekeyNoKey
-msgid "No valid authentication key plugged"
-msgstr ""
 
 #: $strSwitchToDatabase
 msgid "Switch to copied database"
@@ -6441,59 +3783,17 @@ msgstr "Switch to copied database"
 msgid "Switch to copied table"
 msgstr "Switch to copied table"
 
-#: $strSynchronizationNote
-msgid ""
-"Target database will be completely synchronised with source database. Source "
-"database will remain unchanged."
-msgstr ""
-
-#: $strSynchronizeDb
-msgid "Synchronise Databases"
-msgstr ""
-
-#: $strSynchronize
-msgid "Synchronise"
-msgstr ""
-
-#: $strTableAddColumn
-msgid "Add column(s)"
-msgstr ""
-
 #: $strTableAlreadyExists
 msgid "Table %s already exists!"
 msgstr " %s වගුව දැනටමත් පවතී!"
-
-#: $strTableAlterColumn
-msgid "Alter column(s)"
-msgstr ""
-
-#: $strTableAlteredSuccessfully
-msgid "Table %1$s has been altered successfully"
-msgstr ""
-
-#: $strTableAlterIndex
-msgid "Alter index(s)"
-msgstr ""
-
-#: $strTableApplyIndex
-msgid "Apply index(s)"
-msgstr ""
 
 #: $strTableComments
 msgid "Table comments"
 msgstr "වගු විස්තර"
 
-#: $strTableDeleteRows
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
-
 #: $strTableEmpty
 msgid "The table name is empty!"
 msgstr "වගුවෙහි නම හිස්ව ඇත!"
-
-#: $strTableHasBeenCreated
-msgid "Table %1$s has been created."
-msgstr ""
 
 #: $strTableHasBeenDropped
 msgid "Table %s has been dropped"
@@ -6507,21 +3807,9 @@ msgstr "%s වගුව හිස් කරන ලදි"
 msgid "Table %s has been flushed"
 msgstr "Table %s has been flushed"
 
-#: $strTableInsertRow
-msgid "Insert row(s)"
-msgstr ""
-
-#: $strTableIsEmpty
-msgid "Table seems to be empty!"
-msgstr ""
-
 #: $strTableMaintenance
 msgid "Table maintenance"
 msgstr "වගු නඩත්තුව"
-
-#: $strTableName
-msgid "Table name"
-msgstr ""
 
 #: $strTableOfContents
 msgid "Table of contents"
@@ -6530,14 +3818,6 @@ msgstr "පටුන"
 #: $strTableOptions
 msgid "Table options"
 msgstr "වගු විකල්ප"
-
-#: $strTableRemoveColumn
-msgid "Remove column(s)"
-msgstr ""
-
-#: $strTableRemoveIndex
-msgid "Remove index(s)"
-msgstr ""
 
 #: $strTables
 msgid "%s table(s)"
@@ -6551,17 +3831,9 @@ msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 msgid "Table"
 msgstr "වගුව"
 
-#: $strTableUpdateRow
-msgid "Update row(s)"
-msgstr ""
-
 #: $strTakeIt
 msgid "take it"
 msgstr "take it"
-
-#: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronised with source database"
-msgstr ""
 
 #: $strTblPrivileges
 msgid "Table-specific privileges"
@@ -6574,10 +3846,6 @@ msgstr "තාවකාලික දත්ත"
 #: $strTextAreaLength
 msgid " Because of its length,<br /> this field might not be editable "
 msgstr " Because of its length,<br /> this field might not be editable "
-
-#: $strTexyText
-msgid "Texy! text"
-msgstr ""
 
 #: $strThai
 msgid "Thai"
@@ -6647,21 +3915,9 @@ msgstr ""
 msgid "Time"
 msgstr "වේලාව"
 
-#: $strToFromPage
-msgid "to/from page"
-msgstr ""
-
 #: $strToggleScratchboard
 msgid "Toggle scratchboard"
 msgstr "Toggle scratchboard"
-
-#: $strToggleSmallBig
-msgid "Toggle small/big"
-msgstr ""
-
-#: $strToSelectRelation
-msgid "To select relation, click :"
-msgstr ""
 
 #: $strTotal
 msgid "total"
@@ -6670,200 +3926,6 @@ msgstr "මුළු එකතුව"
 #: $strTotalUC
 msgid "Total"
 msgstr "මුළු එකතුව"
-
-#: $strTrackingActivated
-msgid "Tracking of %s.%s is activated."
-msgstr ""
-
-#: $strTrackingActivateNow
-msgid "Activate now"
-msgstr ""
-
-#: $strTrackingActivateTrackingFor
-msgid "Activate tracking for %s.%s"
-msgstr ""
-
-#: $strTrackingCommentOut
-msgid "Comment out these two lines if you do not need them."
-msgstr ""
-
-#: $strTrackingCreateVersion
-msgid "Create version"
-msgstr ""
-
-#: $strTrackingCreateVersionOf
-msgid "Create version %s of %s.%s"
-msgstr ""
-
-#: $strTrackingDatabaseLog
-msgid "Database Log"
-msgstr ""
-
-#: $strTrackingDataDefinitionStatement
-msgid "Data definition statement"
-msgstr ""
-
-#: $strTrackingDataManipulationStatement
-msgid "Data manipulation statement"
-msgstr ""
-
-#: $strTrackingDate
-msgid "Date"
-msgstr ""
-
-#: $strTrackingDeactivateNow
-msgid "Deactivate now"
-msgstr ""
-
-#: $strTrackingDeactivateTrackingFor
-msgid "Deactivate tracking for %s.%s"
-msgstr ""
-
-#: $strTrackingExportAs
-msgid "Export as %s"
-msgstr ""
-
-#: $strTrackingIsActive
-msgid "Tracking is active."
-msgstr ""
-
-#: $strTrackingIsNotActive
-msgid "Tracking is not active."
-msgstr ""
-
-#: $strTrackingMechanism
-msgid "Tracking Mechanism"
-msgstr ""
-
-#: $strTrackingReportClose
-msgid "Close"
-msgstr ""
-
-#: $strTrackingReportForTable
-msgid "Tracking report for table `%s`"
-msgstr ""
-
-#: $strTrackingReport
-msgid "Tracking report"
-msgstr ""
-
-#: $strTrackingShowLogDateUsers
-msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
-
-#: $strTrackingShowVersions
-msgid "Show versions"
-msgstr ""
-
-#: $strTrackingSQLDumpFile
-msgid "SQL dump (file download)"
-msgstr ""
-
-#: $strTrackingSQLDump
-msgid "SQL dump"
-msgstr ""
-
-#: $strTrackingSQLExecuted
-msgid "SQL statements executed."
-msgstr ""
-
-#: $strTrackingSQLExecutionAlert
-msgid "This option will replace your table and contained data."
-msgstr ""
-
-#: $strTrackingSQLExecution
-msgid "SQL execution"
-msgstr ""
-
-#: $strTrackingSQLExported
-msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
-
-#: $strTrackingStatements
-msgid "Tracking statements"
-msgstr ""
-
-#: $strTrackingStatusActive
-msgid "active"
-msgstr ""
-
-#: $strTrackingStatusNotActive
-msgid "not active"
-msgstr ""
-
-#: $strTrackingStructureSnapshot
-msgid "Structure snapshot"
-msgstr ""
-
-#: $strTrackingThCreated
-msgid "Created"
-msgstr ""
-
-#: $strTrackingThLastVersion
-msgid "Last version"
-msgstr ""
-
-#: $strTrackingThUpdated
-msgid "Updated"
-msgstr ""
-
-#: $strTrackingThVersion
-msgid "Version"
-msgstr ""
-
-#: $strTrackingTrackDDStatements
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: $strTrackingTrackDMStatements
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: $strTrackingTrackedTables
-msgid "Tracked tables"
-msgstr ""
-
-#: $strTracking
-msgid "Tracking"
-msgstr ""
-
-#: $strTrackingTrackTable
-msgid "Track table"
-msgstr ""
-
-#: $strTrackingUntrackedTables
-msgid "Untracked tables"
-msgstr ""
-
-#: $strTrackingUsername
-msgid "Username"
-msgstr ""
-
-#: $strTrackingVersionActivated
-msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
-
-#: $strTrackingVersionCreated
-msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
-
-#: $strTrackingVersionDeactivated
-msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
-
-#: $strTrackingVersionSnapshotSQL
-msgid "Version %s snapshot (SQL code)"
-msgstr ""
-
-#: $strTrackingVersions
-msgid "Versions"
-msgstr ""
-
-#: $strTrackingYouCanExecute
-msgid ""
-"You can execute the dump by creating and using a temporary database. Please "
-"ensure that you have the privileges to do so."
-msgstr ""
 
 #: $strTraditionalChinese
 msgid "Traditional Chinese"
@@ -6916,18 +3978,6 @@ msgstr "Displays a link to download this image."
 #: $strTransformation_image_png__inline
 msgid "See image/jpeg: inline"
 msgstr "See image/jpeg: inline"
-
-#: $strTransformation_text_plain__dateformat
-msgid ""
-"Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as "
-"formatted date. The first option is the offset (in hours) which will be "
-"added to the timestamp (Default: 0). Use second option to specify a "
-"different date/time format string. Third option determines whether you want "
-"to see local date or UTC one (use \"local\" or \"utc\" strings) for that. "
-"According to that, date format has different value - for \"local\" see the "
-"documentation for PHP's strftime() function and for \"utc\" it is done using "
-"gmdate() function."
-msgstr ""
 
 #: $strTransformation_text_plain__external
 msgid ""
@@ -6999,10 +4049,6 @@ msgstr ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"...\")."
 
-#: $strTriggers
-msgid "Triggers"
-msgstr ""
-
 #: $strTruncateQueries
 msgid "Truncate Shown Queries"
 msgstr "Truncate Shown Queries"
@@ -7068,36 +4114,6 @@ msgstr ""
 #: $strUpgrade
 msgid "You should upgrade to %s %s or later."
 msgstr "You should upgrade to %s %s or later."
-
-#: $strUploadErrorCantWrite
-msgid "Failed to write file to disk."
-msgstr ""
-
-#: $strUploadErrorExtension
-msgid "File upload stopped by extension."
-msgstr ""
-
-#: $strUploadErrorFormSize
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-
-#: $strUploadErrorIniSize
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-
-#: $strUploadErrorNoTempDir
-msgid "Missing a temporary folder."
-msgstr ""
-
-#: $strUploadErrorPartial
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-#: $strUploadErrorUnknown
-msgid "Unknown error in file upload."
-msgstr ""
 
 #: $strUploadLimit
 msgid ""
@@ -7211,27 +4227,9 @@ msgstr "View dump (schema) of database"
 msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
-#: $strViewHasAtLeast
-msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
-msgstr ""
-
 #: $strViewHasBeenDropped
 msgid "View %s has been dropped"
 msgstr "View %s has been dropped"
-
-#: $strViewImage
-msgid "View image"
-msgstr ""
-
-#: $strViewName
-msgid "VIEW name"
-msgstr ""
-
-#: $strViewVideo
-msgid "View video"
-msgstr ""
 
 #: $strView
 msgid "View"
@@ -7245,10 +4243,6 @@ msgstr "අප්ලෝඩ් කිරීම් සඳහා සැකසූ �
 msgid "web server upload directory"
 msgstr "අන්තර්ජාල සර්වරයේ අප්ලෝඩ් ඩිරෙක්ටරිය"
 
-#: $strWebServer
-msgid "Web server"
-msgstr ""
-
 #: $strWelcome
 msgid "Welcome to %s"
 msgstr "%s වෙත ආයුබෝවන්"
@@ -7256,10 +4250,6 @@ msgstr "%s වෙත ආයුබෝවන්"
 #: $strWestEuropean
 msgid "West European"
 msgstr "බටහිර යුරෝපියානු"
-
-#: $strWiki
-msgid "Wiki"
-msgstr ""
 
 #: $strWildcard
 msgid "wildcard"
@@ -7286,40 +4276,6 @@ msgstr "ලිවීම සඳහා වූ  ඉල්ලීම්"
 #: $strWrongUser
 msgid "Wrong username/password. Access denied."
 msgstr "වැරදි භාවිත නාමය/මුරපදය. පිවිසුම වලක්වා ඇත."
-
-#: $strXMLError
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-
-#: $strXMLExportContents
-msgid "Export contents"
-msgstr ""
-
-#: $strXMLExportFunctions
-msgid "Export functions"
-msgstr ""
-
-#: $strXMLExportProcedures
-msgid "Export procedures"
-msgstr ""
-
-#: $strXMLExportStructs
-msgid "Export Structure Schemas (recommended)"
-msgstr ""
-
-#: $strXMLExportTables
-msgid "Export tables"
-msgstr ""
-
-#: $strXMLExportTriggers
-msgid "Export triggers"
-msgstr ""
-
-#: $strXMLExportViews
-msgid "Export views"
-msgstr ""
 
 #: $strXML
 msgid "XML"

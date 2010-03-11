@@ -339,10 +339,6 @@ msgstr "Bármilyen hoszt"
 msgid "Any user"
 msgstr "Bármilyen felhasználó"
 
-#: $strApplyChanges
-msgid "Apply Selected Changes"
-msgstr ""
-
 #: $strApproximateCount
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
@@ -726,14 +722,6 @@ msgstr "Tábla ellenőrzése"
 msgid "Please choose a page to edit"
 msgstr "Válassza ki a szerkesztendő oldalt"
 
-#: $strClickToSelect
-msgid "Click to select"
-msgstr ""
-
-#: $strClickToUnselect
-msgid "Click to unselect"
-msgstr ""
-
 #: $strColComFeat
 msgid "Displaying Column Comments"
 msgstr "Oszlopmegjegyzések megjelenítése"
@@ -859,14 +847,6 @@ msgstr "A(z) %s tábla másolása %s néven megtörtént."
 msgid "Can't copy table to same one!"
 msgstr "Nem másolható ugyanabba a tábla!"
 
-#: $strCouldNotConnectSource
-msgid "Could not connect to the source"
-msgstr ""
-
-#: $strCouldNotConnectTarget
-msgid "Could not connect to the target"
-msgstr ""
-
 #: $strCouldNotKill
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been "
@@ -915,11 +895,6 @@ msgstr "Kapcsolat létrehozása"
 msgid "Create table"
 msgstr "Tábla létrehozása"
 
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
-
 #: $strCreateUserDatabase
 msgid "Database for user"
 msgstr "Adatbázis a felhasználó számára"
@@ -956,10 +931,6 @@ msgstr "Horvát"
 #: $strCSV
 msgid "CSV"
 msgstr "CSV"
-
-#: $strCurrentServer
-msgid "Current server"
-msgstr ""
 
 #: $strCustomColor
 msgid "Custom colour"
@@ -1001,10 +972,6 @@ msgstr "A(z) %1$s adatbázis elkészült."
 msgid "Database %s has been dropped."
 msgstr "A(z) %s adatbázis eldobása megtörtént."
 
-#: $strDatabaseNotExisting
-msgid "'%s' database does not exist."
-msgstr ""
-
 #: $strDatabases
 msgid "Databases"
 msgstr "Adatbázisok"
@@ -1012,10 +979,6 @@ msgstr "Adatbázisok"
 #: $strDatabasesDropped
 msgid "%s databases have been dropped successfully."
 msgstr "A(z) %s adatbázis eldobása sikerült."
-
-#: $strDatabase_src
-msgid "Source database"
-msgstr ""
 
 #: $strDatabasesStats
 msgid "Databases statistics"
@@ -1037,10 +1000,6 @@ msgstr ""
 "Megjegyzés: az adatbázis-statisztika engedélyezése a webszerver és a MySQL "
 "közti nagy adatforgalomhoz vezethet."
 
-#: $strDatabase_trg
-msgid "Target database"
-msgstr ""
-
 #: $strData
 msgid "Data"
 msgstr "Adatok"
@@ -1049,10 +1008,6 @@ msgstr "Adatok"
 msgid "Data Dictionary"
 msgstr "Adatkönyvtár"
 
-#: $strDataDiff
-msgid "Data Difference"
-msgstr ""
-
 #: $strDataOnly
 msgid "Data only"
 msgstr "Csak az adatok"
@@ -1060,10 +1015,6 @@ msgstr "Csak az adatok"
 #: $strDataPages
 msgid "Pages containing data"
 msgstr "Adatokat tartalmazó lapok"
-
-#: $strDataSyn
-msgid "Data Synchronisation"
-msgstr ""
 
 #: $strDBComment
 msgid "Database comment: "
@@ -1138,10 +1089,6 @@ msgstr "Nincs törlésre kijelölt felhasználó!"
 msgid "Delete relation"
 msgstr "Kapcsolat törlése"
 
-#: $strDeleteTrackingData
-msgid "Delete tracking data for this table"
-msgstr ""
-
 #: $strDeleting
 msgid "Deleting %s"
 msgstr "%s törlése"
@@ -1187,10 +1134,6 @@ msgstr "Részletek..."
 #: $strDictionary
 msgid "dictionary"
 msgstr "szótár"
-
-#: $strDifference
-msgid "Difference"
-msgstr ""
 
 #: $strDirectLinks
 msgid "Direct links"
@@ -1256,10 +1199,6 @@ msgstr "Eldobás"
 #: $strDropUsersDb
 msgid "Drop the databases that have the same names as the users."
 msgstr "A felhasználókéval azonos nevű adatbázisok eldobása."
-
-#: $strDumpAllRows
-msgid "Dump all rows"
-msgstr ""
 
 #: $strDumpingData
 msgid "Dumping data for table"
@@ -1556,14 +1495,6 @@ msgstr "Érték hiányzik az űrlapban!"
 msgid "Free pages"
 msgstr "Szabad lapok"
 
-#: $strFullStart
-msgid "Full start"
-msgstr ""
-
-#: $strFullStop
-msgid "Full stop"
-msgstr ""
-
 #: $strFullText
 msgid "Full Texts"
 msgstr "Teljes szövegek"
@@ -1624,18 +1555,6 @@ msgstr "Globális változó"
 msgid "Go"
 msgstr "Indítás"
 
-#: $strGoToDatabase
-msgid "Go to database"
-msgstr ""
-
-#: $strGoToTable
-msgid "Go to table"
-msgstr ""
-
-#: $strGoToView
-msgid "Go to view"
-msgstr ""
-
 #: $strGrantOption
 msgid "Grant"
 msgstr "Engedélyezés"
@@ -1655,10 +1574,6 @@ msgstr "Kezelő"
 #: $strHasBeenAltered
 msgid "has been altered."
 msgstr "megváltozott."
-
-#: $strHaveBeenSynchronized
-msgid "Selected target tables have been synchronised with source tables."
-msgstr ""
 
 #: $strHaveToShow
 msgid "You have to choose at least one column to display"
@@ -1752,14 +1667,6 @@ msgstr "Kihagyás"
 msgid "Use ignore inserts"
 msgstr "Mellőző beszúrások használata"
 
-#: $strImportColNames
-msgid "Column names in first row"
-msgstr ""
-
-#: $strImportEmptyRows
-msgid "Do not import empty rows"
-msgstr ""
-
 #: $strImportExportCoords
 msgid "Import/Export coordinates for PDF schema"
 msgstr "A PDF-séma importálási/exportálási koordinátái"
@@ -1776,64 +1683,10 @@ msgstr "Importálandó fájl formátuma"
 msgid "Import"
 msgstr "Importálás"
 
-#: $strImportLargeFileUploading
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: $strImportNoticePt1
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr ""
-
-#: $strImportNoticePt2
-msgid "View a structure`s contents by clicking on its name"
-msgstr ""
-
-#: $strImportNoticePt3
-msgid "Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-
-#: $strImportNoticePt4
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
-
-#: $strImportODSCurrency
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
-
-#: $strImportODS
-msgid "Open Document Spreadsheet"
-msgstr ""
-
-#: $strImportODSPercents
-msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
-
-#: $strImportProceedingFile
-msgid "The file is being processed, please be patient."
-msgstr ""
-
 #: $strImportSuccessfullyFinished
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 "Az importálás sikeresen befejeződött, %d lekérdezés került végrehajtásra."
-
-#: $strImportUploadInfoNotAvailable
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: $strImportXLS
-msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
-
-#: $strImportXLSX
-msgid "Excel 2007 XLSX Workbook"
-msgstr ""
 
 #: $strIndexes
 msgid "Indexes"
@@ -1931,10 +1784,6 @@ msgstr "Beszúrás új sorként"
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Beszúrás"
@@ -2022,13 +1871,6 @@ msgstr "Érvénytelen táblanév"
 #: $strJapanese
 msgid "Japanese"
 msgstr "Japán"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2237,10 +2079,6 @@ msgstr ""
 "Ön engedélyezte az mbstring.func_overload funkciót a PHP konfigurációban. Ez "
 "a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
 
-#: $strMediaWiki
-msgid "MediaWiki Table"
-msgstr ""
-
 #: $strMIME_available_mime
 msgid "Available MIME types"
 msgstr "Létező MIME-típusok"
@@ -2445,14 +2283,6 @@ msgstr "Folyamatok megjelenítése"
 msgid "Name"
 msgstr "Név"
 
-#: $strNavTableFilter
-msgid "Filter"
-msgstr ""
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
-
 #: $strNext
 msgid "Next"
 msgstr "Következő"
@@ -2581,10 +2411,6 @@ msgstr "Ez nem szám!"
 #: $strNotOK
 msgid "not OK"
 msgstr "Nincs rendben"
-
-#: $strNotPresent
-msgid "not present"
-msgstr ""
 
 #: $strNotSet
 msgid "<b>%s</b> table not found or not set in %s"
@@ -2893,14 +2719,6 @@ msgstr "Nem létezik a(z) \"%s\" tábla!"
 msgid "No tables"
 msgstr "Nincs tábla"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2933,10 +2751,6 @@ msgstr "Perzsa"
 msgid "phone book"
 msgstr "telefonkönyv"
 
-#: $strPhpArray
-msgid "PHP array"
-msgstr ""
-
 #: $strPhp
 msgid "Create PHP Code"
 msgstr "PHP kód készítése"
@@ -2957,30 +2771,6 @@ msgstr "Hang lejátszása"
 msgid "Please select the primary key or a unique key"
 msgstr "Válassza ki az elsődleges kulcsot, vagy egy egyedi kulcsot"
 
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
-
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentáció"
@@ -2996,10 +2786,6 @@ msgstr ""
 #: $strPolish
 msgid "Polish"
 msgstr "Lengyel"
-
-#: $strPort
-msgid "Port"
-msgstr ""
 
 #: $strPortrait
 msgid "Portrait"
@@ -3260,10 +3046,6 @@ msgstr "Beszúrás"
 msgid "Query"
 msgstr "Lekérdezés"
 
-#: $strQueriesExecuted
-msgid "The following queries have been executed:"
-msgstr ""
-
 #: $strQueryCache
 msgid "Query cache"
 msgstr "Lekérdezési gyorsítótár"
@@ -3372,10 +3154,6 @@ msgstr "Kapcsolat nézete"
 msgid "Reloading the privileges"
 msgstr "A jogok újratöltése"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Jogok újratöltése"
@@ -3383,10 +3161,6 @@ msgstr "Jogok újratöltése"
 #: $strReload
 msgid "Reload"
 msgstr "Újratöltés"
-
-#: $strRemoteServer
-msgid "Remote server"
-msgstr ""
 
 #: $strRemoveCRLF
 msgid "Remove CRLF characters within fields"
@@ -3412,10 +3186,6 @@ msgstr "A(z) %s tábla átnevezése %s névre megtörtént"
 msgid "Rename table to"
 msgstr "Tábla átnevezése"
 
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
-
 #: $strRepair
 msgid "Repair"
 msgstr "Javítás"
@@ -3432,163 +3202,9 @@ msgstr "NULL cseréje ezzel:"
 msgid "Replace table data with file"
 msgstr "A táblaadatok lecserélése fájlra"
 
-#: $strReplicationAddLines
-msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
-msgstr ""
-
-#: $strReplicationAddSlaveUser
-msgid "Add slave replication user"
-msgstr ""
-
-#: $strReplicationChangedSuccesfully
-msgid "Master server changed succesfully to %s"
-msgstr ""
-
-#: $strReplicationConfiguredMaster
-msgid "This server is configured as master in a replication process."
-msgstr ""
-
-#: $strReplicationControlSlave
-msgid "Control slave:"
-msgstr ""
-
-#: $strReplicationErrorGetPosition
-msgid ""
-"Unable to read master log position. Possible privilege problem on master."
-msgstr ""
-
-#: $strReplicationErrorMasterConnect
-msgid "Unable to connect to master %s."
-msgstr ""
-
-#: $strReplicationMasterChooseAll
-msgid "Replicate all databases; Ignore:"
-msgstr ""
-
-#: $strReplicationMasterChooseIgn
-msgid "Ignore all databases; Replicate:"
-msgstr ""
-
-#: $strReplicationMasterChooseMode
-msgid ""
-"This server is not configured as master server in a replication process. You "
-"can choose from either replicating all databases and ignoring certain "
-"(useful if you want to replicate majority of databases) or you can choose to "
-"ignore all databases by default and allow only certain databases to be "
-"replicated. Please select the mode:"
-msgstr ""
-
-#: $strReplicationMasterConfiguration
-msgid "Master configuration"
-msgstr ""
-
-#: $strReplicationMaster
-msgid "Master replication"
-msgstr ""
-
 #: $strReplication
 msgid "Replication"
 msgstr "Többszörözés"
-
-#: $strReplicationRestartServer
-msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <b>is</b> configured as "
-"master"
-msgstr ""
-
-#: $strReplicationSelectDatabases
-msgid "Please select databases:"
-msgstr ""
-
-#: $strReplicationServernConfiguredMaster
-msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationShowConnectedSlavesNote
-msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
-msgstr ""
-
-#: $strReplicationShowConnectedSlaves
-msgid "Show connected slaves"
-msgstr ""
-
-#: $strReplicationShowMasterStatus
-msgid "Show master status"
-msgstr ""
-
-#: $strReplicationSkippingErrorWarn
-msgid "Skipping error(s) might lead into unsynchronised master and slave!"
-msgstr ""
-
-#: $strReplicationSlaveChangeMaster
-msgid "Change or reconfigure master server"
-msgstr ""
-
-#: $strReplicationSlaveConfiguration
-msgid "Slave configuration"
-msgstr ""
-
-#: $strReplicationSlaveConfigured
-msgid ""
-"Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
-
-#: $strReplicationSlaveErrorManagement
-msgid "Error management:"
-msgstr ""
-
-#: $strReplicationSlaveIOThread
-msgid "IO Thread %s only"
-msgstr ""
-
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveNotConfigured
-msgid ""
-"This server is not configured as slave in a replication process. Would you "
-"like to <a href=\"%s\">configure</a> it?"
-msgstr ""
-
-#: $strReplicationSlaveReset
-msgid "Reset slave"
-msgstr ""
-
-#: $strReplicationSlaveSeeStatus
-msgid "See slave status table"
-msgstr ""
-
-#: $strReplicationSlaveSkipCurrentError
-msgid "Skip current error"
-msgstr ""
-
-#: $strReplicationSlaveSkipNextErrors
-msgid "errors."
-msgstr ""
-
-#: $strReplicationSlaveSkipNext
-msgid "Skip next"
-msgstr ""
-
-#: $strReplicationSlave
-msgid "Slave replication"
-msgstr ""
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
-
-#: $strReplicationSlaveSQLThread
-msgid "SQL Thread %s only"
-msgstr ""
 
 #: $strReplicationStatusInfo
 msgid ""
@@ -3611,18 +3227,6 @@ msgstr "Többszörözéses állapot"
 #: $strReplicationStatus_slave
 msgid "Slave status"
 msgstr "Másodlagos állapot"
-
-#: $strReplicationSynchronize
-msgid "Synchronise databases with master"
-msgstr ""
-
-#: $strReplicationUnableToChange
-msgid "Unable to change master"
-msgstr ""
-
-#: $strReplicationUnknownError
-msgid "Unknown error"
-msgstr ""
 
 #: $strReset
 msgid "Reset"
@@ -3929,10 +3533,6 @@ msgstr ""
 "be: 'a','b','c'...<br />Ha fordított perjelet (\"\\\") vagy aposztrófot (\"'\") "
 "akar ezekben az értékekben használni, akkor fordított perjellel kezdje (pl.: "
 "'\\\\xyz' vagy 'a\\'b')."
-
-#: $strSettings
-msgid "settings"
-msgstr ""
 
 #: $strSetupAllowAnywhereRecoding_name
 msgid "Allow character set conversion"
@@ -5067,14 +4667,6 @@ msgstr "A jelszó nélküli bejelentkezés engedélyezése"
 msgid "Allow root login"
 msgstr "A root bejelentkezés engedélyezése"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5365,10 +4957,6 @@ msgstr ""
 #: $strSetupServers_socket_name
 msgid "Server socket"
 msgstr "A szerver szoftvercsatornája"
-
-#: $strSetupServers_ssl_desc
-msgid "Enable SSL for connection to MySQL server"
-msgstr ""
 
 #: $strSetupServers_ssl_name
 msgid "Use SSL"
@@ -5729,10 +5317,6 @@ msgstr "ZIP"
 msgid "Show all"
 msgstr "Mind látható"
 
-#: $strShowBinaryContentsAsHex
-msgid "Show binary contents as HEX"
-msgstr ""
-
 #: $strShowBinaryContents
 msgid "Show binary contents"
 msgstr "Bináris tartalom megjelenítése"
@@ -5777,17 +5361,9 @@ msgstr "Megjelenített sorok:"
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
-
 #: $strShowKeys
 msgid "Only show keys"
 msgstr "Csak a kulcsok megjelenítése"
-
-#: $strShowMasterStatus
-msgid "Show master status"
-msgstr ""
 
 #: $strShowOpenTables
 msgid "Show open tables"
@@ -6484,12 +6060,6 @@ msgstr "Méret"
 msgid "Number of records (queries) to skip from start"
 msgstr "Az elejétől kihagyandó rekordok (lekérdezések) száma"
 
-#: $strSlaveConfigure
-msgid ""
-"Make sure, you have unique server-id in your configuration file (my.cnf). If "
-"not, please add the following line into [mysqld] section:"
-msgstr ""
-
 #: $strSlovak
 msgid "Slovak"
 msgstr "Szlovák"
@@ -6511,10 +6081,6 @@ msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 "(vagy nem megfelelően állították be a helyi MySQL szerver "
 "szoftvercsatornáját)"
-
-#: $strSocket
-msgid "Socket"
-msgstr ""
 
 #: $strSortByKey
 msgid "Sort by key"
@@ -6547,10 +6113,6 @@ msgstr "SQL kompatibilitási mód"
 #: $strSQLExportType
 msgid "Export type"
 msgstr "Exportálás típusa"
-
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
 
 #: $strSQLParserBugMessage
 msgid ""
@@ -6613,10 +6175,6 @@ msgstr "Ismeretlen írásjeleket tartalmazó karakterlánc"
 msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
 
-#: $strStart
-msgid "Start"
-msgstr ""
-
 #: $strStatCheckTime
 msgid "Last check"
 msgstr "Utolsó ellenőrzés"
@@ -6648,10 +6206,6 @@ msgstr "Utolsó frissítés"
 #: $strStatus
 msgid "Status"
 msgstr "Állapot"
-
-#: $strStop
-msgid "Stop"
-msgstr ""
 
 #: $strStorageEngines
 msgid "Storage Engines"
@@ -6686,23 +6240,9 @@ msgstr "Csak a szerkezet"
 msgid "Propose table structure"
 msgstr "Táblaszerkezet ajánlása"
 
-#: $strStructureDiff
-msgid ""
-"Structure Difference' ;\n"
-"$strStructureForView = 'Structure for view"
-msgstr ""
-
-#: $strStructureLC
-msgid "structure"
-msgstr ""
-
 #: $strStructure
 msgid "Structure"
 msgstr "Szerkezet"
-
-#: $strStructureSyn
-msgid "Structure Synchronisation"
-msgstr ""
 
 #: $strSubmit
 msgid "Submit"
@@ -6752,51 +6292,17 @@ msgstr "A másolt adatbázisra váltás"
 msgid "Switch to copied table"
 msgstr "A másolt táblára váltás"
 
-#: $strSynchronizationNote
-msgid ""
-"Target database will be completely synchronised with source database. Source "
-"database will remain unchanged."
-msgstr ""
-
-#: $strSynchronizeDb
-msgid "Synchronise Databases"
-msgstr ""
-
-#: $strSynchronize
-msgid "Synchronise"
-msgstr ""
-
-#: $strTableAddColumn
-msgid "Add column(s)"
-msgstr ""
-
 #: $strTableAlreadyExists
 msgid "Table %s already exists!"
 msgstr "Már létezik nevű %s tábla!"
-
-#: $strTableAlterColumn
-msgid "Alter column(s)"
-msgstr ""
 
 #: $strTableAlteredSuccessfully
 msgid "Table %1$s has been altered successfully"
 msgstr "A(z) %1$s tábla módosítása sikerült"
 
-#: $strTableAlterIndex
-msgid "Alter index(s)"
-msgstr ""
-
-#: $strTableApplyIndex
-msgid "Apply index(s)"
-msgstr ""
-
 #: $strTableComments
 msgid "Table comments"
 msgstr "Tábla megjegyzése"
-
-#: $strTableDeleteRows
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
 
 #: $strTableEmpty
 msgid "The table name is empty!"
@@ -6818,10 +6324,6 @@ msgstr "A(z) %s tábla kiürítése megtörtént"
 msgid "Table %s has been flushed"
 msgstr "A(z) %s tábla kiírása megtörtént"
 
-#: $strTableInsertRow
-msgid "Insert row(s)"
-msgstr ""
-
 #: $strTableIsEmpty
 msgid "Table seems to be empty!"
 msgstr "Üresnek tűnik a tábla!"
@@ -6842,14 +6344,6 @@ msgstr "Tartalomjegyzék"
 msgid "Table options"
 msgstr "Tábla beállításai"
 
-#: $strTableRemoveColumn
-msgid "Remove column(s)"
-msgstr ""
-
-#: $strTableRemoveIndex
-msgid "Remove index(s)"
-msgstr ""
-
 #: $strTables
 msgid "%s table(s)"
 msgstr "%s tábla"
@@ -6862,17 +6356,9 @@ msgstr "Tábla szerkezet:"
 msgid "Table"
 msgstr "Tábla"
 
-#: $strTableUpdateRow
-msgid "Update row(s)"
-msgstr ""
-
 #: $strTakeIt
 msgid "take it"
 msgstr "csináld"
-
-#: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronised with source database"
-msgstr ""
 
 #: $strTblPrivileges
 msgid "Table-specific privileges"
@@ -6982,200 +6468,6 @@ msgstr "összesen"
 #: $strTotalUC
 msgid "Total"
 msgstr "Összesen"
-
-#: $strTrackingActivated
-msgid "Tracking of %s.%s is activated."
-msgstr ""
-
-#: $strTrackingActivateNow
-msgid "Activate now"
-msgstr ""
-
-#: $strTrackingActivateTrackingFor
-msgid "Activate tracking for %s.%s"
-msgstr ""
-
-#: $strTrackingCommentOut
-msgid "Comment out these two lines if you do not need them."
-msgstr ""
-
-#: $strTrackingCreateVersion
-msgid "Create version"
-msgstr ""
-
-#: $strTrackingCreateVersionOf
-msgid "Create version %s of %s.%s"
-msgstr ""
-
-#: $strTrackingDatabaseLog
-msgid "Database Log"
-msgstr ""
-
-#: $strTrackingDataDefinitionStatement
-msgid "Data definition statement"
-msgstr ""
-
-#: $strTrackingDataManipulationStatement
-msgid "Data manipulation statement"
-msgstr ""
-
-#: $strTrackingDate
-msgid "Date"
-msgstr ""
-
-#: $strTrackingDeactivateNow
-msgid "Deactivate now"
-msgstr ""
-
-#: $strTrackingDeactivateTrackingFor
-msgid "Deactivate tracking for %s.%s"
-msgstr ""
-
-#: $strTrackingExportAs
-msgid "Export as %s"
-msgstr ""
-
-#: $strTrackingIsActive
-msgid "Tracking is active."
-msgstr ""
-
-#: $strTrackingIsNotActive
-msgid "Tracking is not active."
-msgstr ""
-
-#: $strTrackingMechanism
-msgid "Tracking Mechanism"
-msgstr ""
-
-#: $strTrackingReportClose
-msgid "Close"
-msgstr ""
-
-#: $strTrackingReportForTable
-msgid "Tracking report for table `%s`"
-msgstr ""
-
-#: $strTrackingReport
-msgid "Tracking report"
-msgstr ""
-
-#: $strTrackingShowLogDateUsers
-msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
-
-#: $strTrackingShowVersions
-msgid "Show versions"
-msgstr ""
-
-#: $strTrackingSQLDumpFile
-msgid "SQL dump (file download)"
-msgstr ""
-
-#: $strTrackingSQLDump
-msgid "SQL dump"
-msgstr ""
-
-#: $strTrackingSQLExecuted
-msgid "SQL statements executed."
-msgstr ""
-
-#: $strTrackingSQLExecutionAlert
-msgid "This option will replace your table and contained data."
-msgstr ""
-
-#: $strTrackingSQLExecution
-msgid "SQL execution"
-msgstr ""
-
-#: $strTrackingSQLExported
-msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
-
-#: $strTrackingStatements
-msgid "Tracking statements"
-msgstr ""
-
-#: $strTrackingStatusActive
-msgid "active"
-msgstr ""
-
-#: $strTrackingStatusNotActive
-msgid "not active"
-msgstr ""
-
-#: $strTrackingStructureSnapshot
-msgid "Structure snapshot"
-msgstr ""
-
-#: $strTrackingThCreated
-msgid "Created"
-msgstr ""
-
-#: $strTrackingThLastVersion
-msgid "Last version"
-msgstr ""
-
-#: $strTrackingThUpdated
-msgid "Updated"
-msgstr ""
-
-#: $strTrackingThVersion
-msgid "Version"
-msgstr ""
-
-#: $strTrackingTrackDDStatements
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: $strTrackingTrackDMStatements
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: $strTrackingTrackedTables
-msgid "Tracked tables"
-msgstr ""
-
-#: $strTracking
-msgid "Tracking"
-msgstr ""
-
-#: $strTrackingTrackTable
-msgid "Track table"
-msgstr ""
-
-#: $strTrackingUntrackedTables
-msgid "Untracked tables"
-msgstr ""
-
-#: $strTrackingUsername
-msgid "Username"
-msgstr ""
-
-#: $strTrackingVersionActivated
-msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
-
-#: $strTrackingVersionCreated
-msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
-
-#: $strTrackingVersionDeactivated
-msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
-
-#: $strTrackingVersionSnapshotSQL
-msgid "Version %s snapshot (SQL code)"
-msgstr ""
-
-#: $strTrackingVersions
-msgid "Versions"
-msgstr ""
-
-#: $strTrackingYouCanExecute
-msgid ""
-"You can execute the dump by creating and using a temporary database. Please "
-"ensure that you have the privileges to do so."
-msgstr ""
 
 #: $strTraditionalChinese
 msgid "Traditional Chinese"
@@ -7620,40 +6912,6 @@ msgstr "Írási kérések"
 #: $strWrongUser
 msgid "Wrong username/password. Access denied."
 msgstr "Hibás felhasználónév/jelszó. A hozzáférés megtagadva."
-
-#: $strXMLError
-msgid ""
-"The XML file specified was either malformed or incomplete. Please correct "
-"the issue and try again."
-msgstr ""
-
-#: $strXMLExportContents
-msgid "Export contents"
-msgstr ""
-
-#: $strXMLExportFunctions
-msgid "Export functions"
-msgstr ""
-
-#: $strXMLExportProcedures
-msgid "Export procedures"
-msgstr ""
-
-#: $strXMLExportStructs
-msgid "Export Structure Schemas (recommended)"
-msgstr ""
-
-#: $strXMLExportTables
-msgid "Export tables"
-msgstr ""
-
-#: $strXMLExportTriggers
-msgid "Export triggers"
-msgstr ""
-
-#: $strXMLExportViews
-msgid "Export views"
-msgstr ""
 
 #: $strXML
 msgid "XML"

@@ -58,21 +58,6 @@ msgstr "PiB"
 msgid "EiB"
 msgstr "EiB"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_0_doc_lang
-msgctxt "$mysql_5_0_doc_lang"
-msgid "en"
-msgstr ""
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $str_Sun
 msgid "Sun"
 msgstr "Do"
@@ -724,14 +709,6 @@ msgstr "Verificar a táboa"
 msgid "Please choose a page to edit"
 msgstr "Escolla unha páxina para modificar"
 
-#: $strClickToSelect
-msgid "Click to select"
-msgstr ""
-
-#: $strClickToUnselect
-msgid "Click to unselect"
-msgstr ""
-
 #: $strColComFeat
 msgid "Displaying Column Comments"
 msgstr "A mostrar os comentarios das columnas"
@@ -911,11 +888,6 @@ msgstr "Crear relación"
 #: $strCreateTable
 msgid "Create table"
 msgstr "Crear táboas"
-
-#: $strCreateTableShort
-msgctxt "$strCreateTableShort"
-msgid "Create table"
-msgstr ""
 
 #: $strCreateUserDatabase
 msgid "Database for user"
@@ -1137,10 +1109,6 @@ msgstr "Non se seleccionaron utilizadores para eliminar!"
 #: $strDeleteRelation
 msgid "Delete relation"
 msgstr "Eliminar a relación"
-
-#: $strDeleteTrackingData
-msgid "Delete tracking data for this table"
-msgstr ""
 
 #: $strDeleting
 msgid "Deleting %s"
@@ -1938,10 +1906,6 @@ msgstr "Inserir unha columna nova"
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
 
-#: $strInsertIgnoreAsNewRow
-msgid "Insert as new row and ignore errors"
-msgstr ""
-
 #: $strInsert
 msgid "Insert"
 msgstr "Inserir"
@@ -2031,13 +1995,6 @@ msgstr "Non se admite este nome de táboa."
 #: $strJapanese
 msgid "Japanese"
 msgstr "Xaponés"
-
-#: $strJavascriptDisabled
-msgid ""
-"Javascript support is missing or disabled in your browser, some phpMyAdmin "
-"functionality will be missing. For example navigation frame will not refresh "
-"automatically."
-msgstr ""
 
 #: $strJoins
 msgid "Joins"
@@ -2459,10 +2416,6 @@ msgstr "Nome"
 #: $strNavTableFilter
 msgid "Filter"
 msgstr "Filtro"
-
-#: $strNewTable
-msgid "New table"
-msgstr ""
 
 #: $strNext
 msgid "Next"
@@ -2908,14 +2861,6 @@ msgstr "Non existe a táboa \"%s\"."
 msgid "No tables"
 msgstr "Sen táboas"
 
-#: $strPDFPageCreated
-msgid "Page has been created"
-msgstr ""
-
-#: $strPDFPageCreateFailed
-msgid "Page creation failed"
-msgstr ""
-
 #: $strPDF
 msgid "PDF"
 msgstr "PDF"
@@ -2971,30 +2916,6 @@ msgstr "Reproducir o son"
 #: $strPleaseSelectPrimaryOrUniqueKey
 msgid "Please select the primary key or a unique key"
 msgstr "Escolla a chave primaria ou unha chave única"
-
-#: $strPmadbCreateConfig
-msgid ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
-"<code>config.sample.inc.php</code>."
-msgstr ""
-
-#: $strPmadbCreateHelp
-msgid "Quick steps to setup advanced features:"
-msgstr ""
-
-#: $strPmadbCreateTables
-msgid ""
-"Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
-
-#: $strPmadbCreateUser
-msgid "Create a pma user and give access to these tables."
-msgstr ""
-
-#: $strPmadbReLoginToEnable
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
 
 #: $strPmaDocumentation
 msgid "phpMyAdmin documentation"
@@ -3377,10 +3298,6 @@ msgstr "Vista das relacións"
 msgid "Reloading the privileges"
 msgstr "A recargar os privilexios"
 
-#: $strReloadNavi
-msgid "Reload navigation frame"
-msgstr ""
-
 #: $strReloadPrivileges
 msgid "Reload privileges"
 msgstr "Volver a cargar os privilexios"
@@ -3416,10 +3333,6 @@ msgstr "A táboa \\$table chámase agora \\$new_name"
 #: $strRenameTable
 msgid "Rename table to"
 msgstr "Mudar o nome da táboa para"
-
-#: $strRenameView
-msgid "Rename view to"
-msgstr ""
 
 #: $strRepair
 msgid "Repair"
@@ -3573,10 +3486,6 @@ msgstr "Xestión de erros:"
 msgid "IO Thread %s only"
 msgstr "Fío de E/S %s só"
 
-#: $strReplicationSlaveIOThreadNotRunning
-msgid "Slave IO Thread not running!"
-msgstr ""
-
 #: $strReplicationSlaveNotConfigured
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -3608,10 +3517,6 @@ msgstr "Omitir os seguintes"
 #: $strReplicationSlave
 msgid "Slave replication"
 msgstr "Replicación do escravo"
-
-#: $strReplicationSlaveSQLThreadNotRunning
-msgid "Slave SQL Thread not running!"
-msgstr ""
 
 #: $strReplicationSlaveSQLThread
 msgid "SQL Thread %s only"
@@ -5107,14 +5012,6 @@ msgstr "Permitir rexistrarse sen contrasinal"
 msgid "Allow root login"
 msgstr "Permitir o rexistro de root"
 
-#: $strSetupServers_auth_http_realm_desc
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
-
-#: $strSetupServers_auth_http_realm_name
-msgid "HTTP Realm"
-msgstr ""
-
 #: $strSetupServers_auth_swekey_config_desc
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -5404,10 +5301,6 @@ msgstr ""
 #: $strSetupServers_socket_name
 msgid "Server socket"
 msgstr "Socket do servidor"
-
-#: $strSetupServers_ssl_desc
-msgid "Enable SSL for connection to MySQL server"
-msgstr ""
 
 #: $strSetupServers_ssl_name
 msgid "Use SSL"
@@ -5812,10 +5705,6 @@ msgstr "A mostrar rexistros "
 #: $strShowingSQL
 msgid "Showing SQL query"
 msgstr "Mostrar procura SQL"
-
-#: $strShowInsert
-msgid "Show insert query"
-msgstr ""
 
 #: $strShowKeys
 msgid "Only show keys"
@@ -6592,10 +6481,6 @@ msgstr "Modo de compatiblidade SQL"
 msgid "Export type"
 msgstr "Tipo de exportación"
 
-#: $strSQLExportUTC
-msgid "Export time in UTC"
-msgstr ""
-
 #: $strSQLParserBugMessage
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
@@ -6742,10 +6627,6 @@ msgstr ""
 #: $strStructureLC
 msgid "structure"
 msgstr "estrutura"
-
-#: $strStructure
-msgid "Structure"
-msgstr ""
 
 #: $strStructureSyn
 msgid "Structure Synchronisation"
@@ -6919,10 +6800,6 @@ msgstr "Actualizar fileira(s)"
 msgid "take it"
 msgstr "cólleo"
 
-#: $strTargetDatabaseHasBeenSynchronized
-msgid "Target database has been synchronised with source database"
-msgstr ""
-
 #: $strTblPrivileges
 msgid "Table-specific privileges"
 msgstr "Privilexios propios de táboa"
@@ -7044,10 +6921,6 @@ msgstr "Activar agora"
 msgid "Activate tracking for %s.%s"
 msgstr "Activar o seguemento de %s.%s"
 
-#: $strTrackingCommentOut
-msgid "Comment out these two lines if you do not need them."
-msgstr ""
-
 #: $strTrackingCreateVersion
 msgid "Create version"
 msgstr "Crear unha versión"
@@ -7099,10 +6972,6 @@ msgstr "Mecanismo de seguemento"
 #: $strTrackingReportClose
 msgid "Close"
 msgstr "Fechar"
-
-#: $strTrackingReportForTable
-msgid "Tracking report for table `%s`"
-msgstr ""
 
 #: $strTrackingReport
 msgid "Tracking report"
@@ -7219,12 +7088,6 @@ msgstr "Instantánea da versión %s (código SQL)"
 #: $strTrackingVersions
 msgid "Versions"
 msgstr "Versións"
-
-#: $strTrackingYouCanExecute
-msgid ""
-"You can execute the dump by creating and using a temporary database. Please "
-"ensure that you have the privileges to do so."
-msgstr ""
 
 #: $strTraditionalChinese
 msgid "Traditional Chinese"

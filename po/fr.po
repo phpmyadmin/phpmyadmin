@@ -58,21 +58,10 @@ msgstr "Pio"
 msgid "EiB"
 msgstr "Eio"
 
-#: $mysql_4_1_doc_lang
-msgctxt "$mysql_4_1_doc_lang"
-"$mysql_4_1_doc_lang"
-msgid "en"
-msgstr ""
-
 #: $mysql_5_0_doc_lang
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "fr"
-
-#: $mysql_5_1_doc_lang
-msgctxt "$mysql_5_1_doc_lang"
-msgid "en"
-msgstr ""
 
 #: $str_Sun
 msgid "Sun"
@@ -4074,10 +4063,6 @@ msgstr "(utilisé quand on clique sur une ligne)"
 msgid "Row marker"
 msgstr "Activer le marqueur d'enregistrements"
 
-#: $strSetupBrowsePointerEnable_desc
-msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
-
 #: $strSetupBrowsePointerEnable_name
 msgid "Highlight pointer"
 msgstr "Activer le pointeur de surbrillance"
@@ -4201,25 +4186,13 @@ msgstr "Langue par défaut"
 msgid "Default server"
 msgstr "Serveur par défaut"
 
-#: $strSetupDefaultTabDatabase_desc
-msgid "Tab that is displayed when entering a database"
-msgstr ""
-
 #: $strSetupDefaultTabDatabase_name
 msgid "Default database tab"
 msgstr "Onglet par défaut pour bases de données"
 
-#: $strSetupDefaultTabServer_desc
-msgid "Tab that is displayed when entering a server"
-msgstr ""
-
 #: $strSetupDefaultTabServer_name
 msgid "Default server tab"
 msgstr "Onglet par défaut pour serveur"
-
-#: $strSetupDefaultTabTable_desc
-msgid "Tab that is displayed when entering a table"
-msgstr ""
 
 #: $strSetupDefaultTabTable_name
 msgid "Default table tab"
@@ -4721,10 +4694,6 @@ msgstr ""
 "Si votre serveur accepte les requêtes HTTPS, utilisez une [a@%s]connexion "
 "sécurisée[/a]."
 
-#: $strSetupInsertRows_desc
-msgid "How many rows can be inserted at one time"
-msgstr ""
-
 #: $strSetupInsertRows_name
 msgid "Number of inserted rows"
 msgstr "Nombre d'enregistrements à insérer"
@@ -4904,13 +4873,6 @@ msgstr "...affichées dans le panneau de gauche et la liste des bases"
 msgid "Maximum databases"
 msgstr "Nombre maximum de bases de données"
 
-#: $strSetupMaxRows_desc
-msgid ""
-"Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
-"shown."
-msgstr ""
-
 #: $strSetupMaxRows_name
 msgid "Maximum number of rows to display"
 msgstr "Nombre maximum d'enregistrements à afficher"
@@ -5023,10 +4985,6 @@ msgstr "Le nombre de requêtes à conserver dans l'historique"
 msgid "Query history length"
 msgstr "Taille de l'historique"
 
-#: $strSetupQueryWindowDefTab_desc
-msgid "Tab displayed when opening a new query window"
-msgstr ""
-
 #: $strSetupQueryWindowDefTab_name
 msgid "Default query window tab"
 msgstr "Onglet par défaut pour fenêtre de requêtes"
@@ -5132,10 +5090,6 @@ msgstr ""
 #: $strSetupServers_auth_swekey_config_name
 msgid "SweKey config file"
 msgstr "Fichier de configuration SweKey"
-
-#: $strSetupServers_auth_type_desc
-msgid "Authentication method to use"
-msgstr ""
 
 #: $strSetupServers_auth_type_name
 msgid "Authentication type"
@@ -5643,10 +5597,6 @@ msgstr ""
 #: $strSetupUploadDir_name
 msgid "Upload directory"
 msgstr "Répertoire de téléchargement"
-
-#: $strSetupUseDbSearch_desc
-msgid "Allow for searching inside the entire database"
-msgstr ""
 
 #: $strSetupUseDbSearch_name
 msgid "Use database search"
