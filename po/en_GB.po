@@ -2674,7 +2674,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> match(es)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tables"
 
