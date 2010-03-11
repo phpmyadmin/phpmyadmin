@@ -22,7 +22,9 @@ $byteUnits = array(__('B'), __('KiB'), __('MiB'), __('GiB'), __('TiB'), __('PiB'
 
 // MySQL manual language definition, this is optional, en will be used
 // if not defined
+/* l10n: Language to use for MySQL 5.0 documentation */
 $mysql_5_0_doc_lang = _pgettext('$mysql_5_0_doc_lang', 'en');
+/* l10n: Language to use for MySQL 5.1 documentation */
 $mysql_5_1_doc_lang = _pgettext('$mysql_5_1_doc_lang', 'en');
 
 $day_of_week = array(__('Sun'), __('Mon'), __('Tue'), __('Wed'), __('Thu'), __('Fri'), __('Sat'));
