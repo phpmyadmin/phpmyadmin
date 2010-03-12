@@ -3031,6 +3031,7 @@ msgstr "Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky."
 #: libraries/messages.inc.php:671
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Prosím přihlašte se znovu , aby se projevily změny v konfiguračním souboru."
 
 #: libraries/messages.inc.php:672
 msgid "phpMyAdmin documentation"
