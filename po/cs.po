@@ -7224,7 +7224,9 @@ msgstr ""
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr "Zachová původní formátování sloupce, tak jak je uložen v databázi."
+msgstr ""
+"Zachová původní formátování sloupce, tak jak je uložen v databázi, bez "
+"použití htmlspecialchars(). Předpokládá se, že sloupec obsahuje platné HTML."
 
 #: libraries/messages.inc.php:1550
 msgid ""
