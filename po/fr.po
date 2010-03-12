@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 11:16+0200\n"
-"Last-Translator: Michal <michal@cihar.com>\n"
+"PO-Revision-Date: 2010-03-12 17:47+0200\n"
+"Last-Translator:  <olivier.tetard@miskin.fr>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -460,10 +460,9 @@ msgstr ""
 "base %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "désactivé"
+msgstr "Désactivé"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
