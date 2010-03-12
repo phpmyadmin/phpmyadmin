@@ -1184,7 +1184,6 @@ msgid "Descending"
 msgstr "Descendente"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Descrição"
 
