@@ -1030,7 +1030,6 @@ msgid "'%s' database does not exist."
 msgstr "La base de données '%s' n'existe pas."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Bases de données"
 
