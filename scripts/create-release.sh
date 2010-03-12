@@ -105,6 +105,7 @@ fi
 
 # Generate mo files
 if [ $GETTEXT -eq 1 ] ; then
+    echo "* Generating mo files"
     ./scripts/generate-mo
 fi
 
