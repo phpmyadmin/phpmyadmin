@@ -226,7 +226,11 @@ foreach ($tables as $keyname => $each_table) {
             }
             //$display_rows                   =  ' - ';
             break;
+	    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
+        // Both are aliases for MERGE
+        case 'MRG_MyISAM' :
         case 'MRG_MYISAM' :
+        case 'MERGE' :
         case 'BerkeleyDB' :
             // Merge or BerkleyDB table: Only row count is accurate.
             if ($is_show_stats) {
@@ -255,7 +259,7 @@ foreach ($tables as $keyname => $each_table) {
             }
     } // end switch
 
-    if ('MRG_MYISAM' != $each_table['ENGINE']) {
+    if (! PMA_Table::isMerge($db, $each_table['TABLE_NAME'])) {
         $sum_entries += $each_table['TABLE_ROWS'];
     }
 

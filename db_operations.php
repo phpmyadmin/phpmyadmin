@@ -110,7 +110,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
-            if ($tables_full[$each_table]['Engine'] == 'MRG_MyISAM') {
+            if (PMA_Table::isMerge($db, $each_table)) {
                 if ($this_what == 'data') {
                     $this_what = 'structure';
                 }

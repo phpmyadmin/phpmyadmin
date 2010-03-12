@@ -279,10 +279,9 @@ foreach ($the_tables as $key => $table) {
             }
             if ($nonisam == false) {
                 // Gets some sizes
-                $mergetable     = false;
-                if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-                    $mergetable = true;
-                }
+
+		$mergetable = PMA_Table::isMerge($db, $table);
+
                 list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
                 if ($mergetable == false) {
                     list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);

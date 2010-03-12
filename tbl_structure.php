@@ -612,10 +612,9 @@ if ($cfg['ShowStats']) {
     }
 
     // Gets some sizes
-    $mergetable     = false;
-    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-        $mergetable = true;
-    }
+
+    $mergetable = PMA_Table::isMerge($GLOBALS['db'], $GLOBALS['table']);
+
     // this is to display for example 261.2 MiB instead of 268k KiB
     $max_digits = 5;
     $decimals = 1;
