@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-12 09:08+0200\n"
+"PO-Revision-Date: 2010-03-12 09:09+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -459,11 +459,10 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 #| msgid "Disabled"
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Desabilitado"
+msgstr "Desabilitado "
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
