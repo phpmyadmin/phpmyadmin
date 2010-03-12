@@ -4,13 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 09:14+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-12 11:16+0200\n"
+"Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.5.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: libraries/auth/config.auth.lib.php:107
 #, php-format
@@ -35,10 +37,9 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
-msgstr "fr"
+msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 09:13+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-12 11:13+0200\n"
+"Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -37,7 +37,6 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
-#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "en"
@@ -459,7 +458,6 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr "Are you sure you want to disable all BLOB references for database %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Disabled"
@@ -473,7 +471,6 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "You are about to DISABLE a BLOB Repository!"
 
 #: libraries/messages.inc.php:99
-#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Enabled"
@@ -487,7 +484,6 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Remove BLOB Repository Reference"
 
 #: libraries/messages.inc.php:102
-#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Repair"
@@ -941,7 +937,6 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Create database with same name and grant all privileges"
 
 #: libraries/messages.inc.php:203
-#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "None"
