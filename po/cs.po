@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 11:02+0200\n"
+"PO-Revision-Date: 2010-03-12 11:03+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2547,7 +2547,7 @@ msgstr "V ZIP archívu nebyly nalezeny žádné soubory!"
 
 #: libraries/messages.inc.php:566
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin se lépe používá v prohlížeči podporujícím rámy („FRAME“)."
+msgstr "phpMyAdmin se lépe používá v prohlížeči <b>podporujícím rámce</b>."
 
 #: libraries/messages.inc.php:567
 msgid "No index defined!"
