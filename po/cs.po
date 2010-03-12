@@ -1910,7 +1910,7 @@ msgstr "Krok automatického zvětšování"
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr "Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
+msgstr " Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
 
 #: libraries/messages.inc.php:430
 msgid "Buffer pool size"
