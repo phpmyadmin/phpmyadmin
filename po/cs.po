@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 11:09+0200\n"
+"PO-Revision-Date: 2010-03-12 11:10+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6053,7 +6053,7 @@ msgstr "Počet skutečných zápisů do logovacího souboru."
 
 #: libraries/messages.inc.php:1310
 msgid "The number of fsync() writes done to the log file."
-msgstr "Počet synchronizací provedených na logovacích souborech."
+msgstr "Počet synchronizací fsync() provedených na logovacích souborech."
 
 #: libraries/messages.inc.php:1311
 msgid "The number of pending log file fsyncs."
