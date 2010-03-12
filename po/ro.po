@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-13 00:26+0200\n"
+"PO-Revision-Date: 2010-03-13 00:27+0200\n"
 "Last-Translator:  <ronaldinia@yahoo.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -99,7 +99,7 @@ msgstr "Dum"
 
 #: libraries/messages.inc.php:23
 msgid "Mon"
-msgstr "Mar"
+msgstr "Lun"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
