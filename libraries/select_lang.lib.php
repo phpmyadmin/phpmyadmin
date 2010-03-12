@@ -244,8 +244,8 @@ function PMA_langDetails($lang) {
             return array('id|indonesian', 'indonesian-utf-8', 'id', 'Bahasa Indonesia');
         case 'it':
             return array('it|italian', 'italian-utf-8', 'it', 'Italiano');
-        case 'jp':
-            return array('jp|japanese', 'japanese-utf-8', 'jp', '&#26085;&#26412;&#35486;');
+        case 'ja':
+            return array('ja|japanese', 'japanese-utf-8', 'ja', '&#26085;&#26412;&#35486;');
         case 'ko':
             return array('ko|korean', 'korean-utf-8', 'ko', '&#54620;&#44397;&#50612;');
         case 'ka':

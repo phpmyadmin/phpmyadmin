@@ -56,7 +56,7 @@ for lang in lang/*.inc.php ; do
         hungarian) langcode='hu';;
         indonesian) langcode='id';;
         italian) langcode='it';;
-        japanese) langcode='jp';;
+        japanese) langcode='ja';;
         korean) langcode='ko';;
         georgian) langcode='ka';;
         lithuanian) langcode='lt';;
