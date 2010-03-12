@@ -6391,7 +6391,7 @@ msgstr "Zobrazit tabulky"
 
 #: libraries/messages.inc.php:1372
 msgid " Show this query here again "
-msgstr "Zobrazit zde tento dotaz znovu"
+msgstr " Zobrazit zde tento dotaz znovu "
 
 #: libraries/messages.inc.php:1373
 msgid "Simplified Chinese"
