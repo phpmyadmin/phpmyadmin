@@ -5272,7 +5272,7 @@ msgid ""
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgstr ""
 "Můžete použít žolíky MySQL (% a _), escapujte je, pokud je chcete použít "
-"jako znaky, např. použijte 'moje\\_db' a ne  'moje_db'"
+"jako znaky, např. použijte 'moje\\_db' a ne 'moje_db'"
 
 #: libraries/messages.inc.php:1157
 msgid "Show only listed databases"
