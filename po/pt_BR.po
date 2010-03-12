@@ -462,7 +462,7 @@ msgstr ""
 #| msgid "Disabled"
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Desabilitado "
+msgstr "Desabilitado"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
