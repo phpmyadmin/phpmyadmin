@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:21+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -864,7 +864,7 @@ msgstr "Copiar a táboa a (base_de_datos<b>.</b>táboa):"
 #: libraries/messages.inc.php:185
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "A táboa \\$table copiouse para \\$new_name."
+msgstr "A táboa %s copiouse para %s."
 
 #: libraries/messages.inc.php:186
 msgid "Can't copy table to same one!"
@@ -3485,7 +3485,7 @@ msgstr "Mudóuselle o nome á base de datos %s para %s"
 #: libraries/messages.inc.php:770
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "A táboa \\$table chámase agora \\$new_name"
+msgstr "A táboa %s chámase agora %s"
 
 #: libraries/messages.inc.php:771
 msgid "Rename table to"

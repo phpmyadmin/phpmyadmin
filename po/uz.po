@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:21+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -18,7 +18,7 @@ msgid ""
 "1$ssetup script%2$s to create one."
 msgstr ""
 "Эҳтимол, конфигурация файли тузилмаган. Уни тузиш учун %1$ssўрнатиш "
-"сценарийсидан%2$ фойдаланишингиз мумкин."
+"сценарийсидан%2$s фойдаланишингиз мумкин."
 
 #: libraries/auth/config.auth.lib.php:116
 msgid ""
@@ -7562,8 +7562,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
 msgstr ""
-"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари "
-"документацияда келтирилган."
+"Эҳтимол, юкланаётган файл ҳажми жуда катта. Бу муаммони ечишнинг усуллари %"
+"sдокументацияда%s келтирилган."
 
 #: libraries/messages.inc.php:1579
 msgid "File uploads are not allowed on this server."
@@ -7640,7 +7640,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL синтаксисини текшириб бўлмади. PHP учун зарур кенгайтмалар "
-"ўрнатилганлигини текширинг, батафсил маълумот учун документацияга қаранг."
+"ўрнатилганлигини текширинг, батафсил маълумот учун %sдокументацияга%s қаранг."
 
 #: libraries/messages.inc.php:1598
 msgid "Value"
@@ -7673,7 +7673,7 @@ msgid ""
 "s."
 msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
-"учун документацияга қаранг."
+"учун %sдокументацияга%s қаранг."
 
 #: libraries/messages.inc.php:1605
 #, php-format

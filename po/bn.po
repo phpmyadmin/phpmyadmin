@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:21+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: bangla <bn@li.org>\n"
@@ -1360,9 +1360,7 @@ msgstr "%s is available on this MySQL server."
 #: libraries/messages.inc.php:299
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
-"MySQL সার্ভার এর জন্য  %s বন্ধ করা হয়েছে %s has been disabled for this MySQL "
-"server."
+msgstr "MySQL সার্ভার এর জন্য  %s বন্ধ করা হয়েছে ."
 
 #: libraries/messages.inc.php:300
 msgid "Engines"
@@ -1371,9 +1369,7 @@ msgstr "ইঞ্জিনসমূহ"
 #: libraries/messages.inc.php:301
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
-"এই MySQL সার্ভার  %s ধরনের স্টোরেজ ইঞ্জিন সমর্থন করেনা  This MySQL server does "
-"not support the %s storage engine."
+msgstr "এই MySQL সার্ভার  %s ধরনের স্টোরেজ ইঞ্জিন সমর্থন করেনা."
 
 #: libraries/messages.inc.php:302
 msgid "English"

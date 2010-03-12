@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:21+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
@@ -3362,7 +3362,7 @@ msgstr ""
 #: libraries/messages.inc.php:742
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "La consulta tarda %s seg"
+msgstr "La consulta tarda %01.4f seg"
 
 #: libraries/messages.inc.php:743
 msgid "Query type"
@@ -6749,8 +6749,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation% per "
-"a possibles assumptes."
+"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s "
+"per a possibles assumptes."
 
 #: libraries/messages.inc.php:1427
 msgid "Sum"
@@ -7602,7 +7602,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
-"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%."
+"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
 #: libraries/messages.inc.php:1605
 #, php-format

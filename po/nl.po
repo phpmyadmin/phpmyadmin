@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:21+0100\n"
+"POT-Creation-Date: 2010-03-12 09:27+0100\n"
 "PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -1575,7 +1575,8 @@ msgstr "Font formaat"
 #: libraries/messages.inc.php:346
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "Fout bij het maken van vreemdesleutel naar %1$ (controleer data typen)"
+msgstr ""
+"Fout bij het maken van vreemdesleutel naar %1$s (controleer data typen)"
 
 #: libraries/messages.inc.php:347
 msgid "FOREIGN KEY relation added"
@@ -7492,7 +7493,7 @@ msgstr ""
 #: libraries/messages.inc.php:1570
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "U moet opwaarderen (upgraden) naar %s of hoger."
+msgstr "U moet opwaarderen (upgraden) naar %s %s of hoger."
 
 #: libraries/messages.inc.php:1571
 msgid "Failed to write file to disk."
