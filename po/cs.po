@@ -4308,7 +4308,7 @@ msgstr "Nesprávná IP adresa: %s"
 
 #: libraries/messages.inc.php:949
 msgid "Not a valid port number"
-msgstr "Neplatné číslo portu "
+msgstr "Neplatné číslo portu"
 
 #: libraries/messages.inc.php:950
 msgid "Incorrect value"
