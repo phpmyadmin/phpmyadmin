@@ -926,7 +926,6 @@ msgid "Create table"
 msgstr ""
 
 #: libraries/messages.inc.php:200
-#, fuzzy
 #| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
