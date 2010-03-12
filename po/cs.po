@@ -6813,7 +6813,7 @@ msgstr "Dočasná data"
 
 #: libraries/messages.inc.php:1468
 msgid " Because of its length,<br /> this field might not be editable "
-msgstr "Tento sloupec možná nepůjde <br />(kvůli délce) upravit "
+msgstr " Tento sloupec možná nepůjde <br />kvůli délce upravit "
 
 #: libraries/messages.inc.php:1469
 msgid "Texy! text"
