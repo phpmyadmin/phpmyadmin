@@ -103,7 +103,7 @@ msgstr "Lun"
 
 #: libraries/messages.inc.php:23
 msgid "Tue"
-msgstr "Mie"
+msgstr "Mar"
 
 #: libraries/messages.inc.php:23
 msgid "Wed"
