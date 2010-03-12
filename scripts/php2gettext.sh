@@ -20,10 +20,10 @@ for lang in lang/*.inc.php ; do
     s/' ;/';/;
     /to translate/D;
     /\$allow_recoding/D;
-    s/\$byteUnits = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_B = '\1';\n\$str_KiB = '\2';\n\$str_MiB = '\3';\n\$str_GiB = '\4';\n\$str_TiB = '\5';\n\$str_PiB = '\6';\n\$str_EiB = '\7';/;
-    s/\$day_of_week = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Sun = '\1';\n\$str_Mon = '\2';\n\$str_Tue = '\3';\n\$str_Wed = '\4';\n\$str_Thu = '\5';\n\$str_Fri = '\6';\n\$str_Sat = '\7';\n/;
-    s/\(\$month = array('.*', '.*', '.*', '.*', '.*', '.*',\) '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\1\n\$str_Jul = '\2';\n\$str_Aug = '\3';\n\$str_Sep = '\4';\n\$str_Oct = '\5';\n\$str_Nov = '\6';\n\$str_Dec = '\7';\n/;
-    s/\$month = array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)',/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n/;
+    s/\$byteUnits *= *array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_B = '\1';\n\$str_KiB = '\2';\n\$str_MiB = '\3';\n\$str_GiB = '\4';\n\$str_TiB = '\5';\n\$str_PiB = '\6';\n\$str_EiB = '\7';/;
+    s/\$day_of_week *= *array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\$str_Sun = '\1';\n\$str_Mon = '\2';\n\$str_Tue = '\3';\n\$str_Wed = '\4';\n\$str_Thu = '\5';\n\$str_Fri = '\6';\n\$str_Sat = '\7';\n/;
+    s/\(\$month *= *array('.*', '.*', '.*', '.*', '.*', '.*',\) '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)');/\1\n\$str_Jul = '\2';\n\$str_Aug = '\3';\n\$str_Sep = '\4';\n\$str_Oct = '\5';\n\$str_Nov = '\6';\n\$str_Dec = '\7';\n/;
+    s/\$month *= *array('\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)', '\(.*\)',/\$str_Jan = '\1';\n\$str_Feb = '\2';\n\$str_Mar = '\3';\n\$str_Apr = '\4';\n\$str_May = '\5';\n\$str_Jun = '\6';\n/;
     " < $lang > po/$loc.php
 
     case $loc in
@@ -106,12 +106,5 @@ for lang in lang/*.inc.php ; do
             s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\\\n/;
             " po/$langcode-update.po
         msgmerge -U -C po/$langcode-update.po po/$langcode.po po/phpmyadmin.pot
-        pomerge -t po/$langcode.po -i po/$langcode-update.po -o po/$langcode.po
-        pot2po -i po/phpmyadmin.pot -t po/$langcode.po -o po/$langcode.po --tm po/$langcode-update.po -s 60
-        sed -i '/^msgctxt.*/D' po/$langcode-update.po
-        msgmerge -U -C po/$langcode-update.po po/$langcode.po po/phpmyadmin.pot
-        pomerge -t po/$langcode.po -i po/$langcode-update.po -o po/$langcode.po
-        pot2po -i po/phpmyadmin.pot -t po/$langcode.po -o po/$langcode.po --tm po/$langcode-update.po -s 60
-        msgmerge -U po/$langcode.po po/phpmyadmin.pot
     fi
 done
