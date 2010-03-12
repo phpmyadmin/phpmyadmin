@@ -5997,7 +5997,7 @@ msgstr "Počet provedených synchronizací fsync()."
 
 #: libraries/messages.inc.php:1298
 msgid "The current number of pending fsync() operations."
-msgstr "Počet nevyřízených synchronizací."
+msgstr "Počet nevyřízených synchronizací fsync()."
 
 #: libraries/messages.inc.php:1299
 msgid "The current number of pending reads."
