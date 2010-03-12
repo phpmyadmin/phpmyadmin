@@ -19,6 +19,7 @@ for lang in lang/*.inc.php ; do
     sed "
     s/' ;/';/;
     /to translate/D;
+    /^\/\//D;
     /\$allow_recoding/D;
     s/\$byteUnits *= *array('\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)');/\$str_B = '\1';\n\$str_KiB = '\2';\n\$str_MiB = '\3';\n\$str_GiB = '\4';\n\$str_TiB = '\5';\n\$str_PiB = '\6';\n\$str_EiB = '\7';/;
     s/\$day_of_week *= *array('\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)', *'\(.*\)');/\$str_Sun = '\1';\n\$str_Mon = '\2';\n\$str_Tue = '\3';\n\$str_Wed = '\4';\n\$str_Thu = '\5';\n\$str_Fri = '\6';\n\$str_Sat = '\7';\n/;
