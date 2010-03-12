@@ -1076,7 +1076,7 @@ msgstr "Rozdíl mezi daty"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
-msgstr " Jen data"
+msgstr "Jen data"
 
 #: libraries/messages.inc.php:235
 msgid "Pages containing data"
