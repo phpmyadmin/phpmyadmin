@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 11:04+0200\n"
+"PO-Revision-Date: 2010-03-12 11:05+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -7002,7 +7002,7 @@ msgstr "Informace o sledování"
 #: libraries/messages.inc.php:1509
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr "Zobrazit %s s datumy od %s do %s od uživatele %s %s"
+msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: libraries/messages.inc.php:1510
 msgid "Show versions"
