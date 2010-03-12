@@ -2448,7 +2448,7 @@ msgid ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
 "Paměť, která je alokována při řazení MyISAM indexů během jejich vytváření "
-"nebo opravování."
+"příkazem CREATE INDEX nebo opravování příkazem ALTER TABLE."
 
 #: libraries/messages.inc.php:545
 msgid "Sort buffer size"
