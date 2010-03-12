@@ -6756,7 +6756,7 @@ msgstr "Tabulka se zdá být prázdná!"
 
 #: libraries/messages.inc.php:1454
 msgid "Table maintenance"
-msgstr " Údržba tabulky "
+msgstr "Údržba tabulky"
 
 #: libraries/messages.inc.php:1455
 msgid "Table name"
