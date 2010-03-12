@@ -65,7 +65,7 @@ for lang in lang/*.inc.php ; do
         mongolian) langcode='mn';;
         malay) langcode='ms';;
         dutch) langcode='nl';;
-        norwegian) langcode='no';;
+        norwegian) langcode='nb';;
         polish) langcode='pl';;
         brazilian_portuguese) langcode='pt_BR';;
         portuguese) langcode='pt';;

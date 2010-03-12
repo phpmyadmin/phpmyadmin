@@ -262,8 +262,8 @@ function PMA_langDetails($lang) {
             return array('ms|malay', 'malay-utf-8', 'ms', 'Bahasa Melayu');
         case 'nl':
             return array('nl|dutch', 'dutch-utf-8', 'nl', 'Nederlands');
-        case 'no':
-            return array('no|norwegian', 'norwegian-utf-8', 'no', 'Norsk');
+        case 'nb':
+            return array('nb|norwegian', 'norwegian-utf-8', 'nb', 'Norsk');
         case 'pl':
             return array('pl|polish', 'polish-utf-8', 'pl', 'Polski');
         case 'pt_BR':
