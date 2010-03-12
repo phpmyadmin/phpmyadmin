@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"POT-Creation-Date: 2010-03-12 09:21+0100\n"
 "PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -2977,7 +2977,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:674
 msgid "Polish"
-msgstr ""
+msgstr "波兰语"
 
 #: libraries/messages.inc.php:675
 msgid "Port"
@@ -3729,7 +3729,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:846
 msgid "Russian"
-msgstr ""
+msgstr "俄语"
 
 #: libraries/messages.inc.php:848
 #, php-format
@@ -6118,11 +6118,11 @@ msgstr ""
 
 #: libraries/messages.inc.php:1378
 msgid "Slovak"
-msgstr ""
+msgstr "斯洛伐克语"
 
 #: libraries/messages.inc.php:1379
 msgid "Slovenian"
-msgstr ""
+msgstr "斯洛文尼亚语"
 
 #: libraries/messages.inc.php:1380
 msgid "Small/Big All"
@@ -6343,7 +6343,7 @@ msgstr "周日"
 
 #: libraries/messages.inc.php:1428
 msgid "Swedish"
-msgstr ""
+msgstr "瑞典语"
 
 #: libraries/messages.inc.php:1429
 msgid "Authenticating..."
@@ -6526,7 +6526,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1470
 msgid "Thai"
-msgstr ""
+msgstr "泰语"
 
 #: libraries/messages.inc.php:1471
 #, php-format
@@ -6942,7 +6942,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1556
 msgid "Turkish"
-msgstr ""
+msgstr "土耳其语"
 
 #: libraries/messages.inc.php:1557
 msgid "Type"
@@ -6950,7 +6950,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1559
 msgid "Ukrainian"
-msgstr ""
+msgstr "乌克兰语"
 
 #: libraries/messages.inc.php:1560
 #, fuzzy

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4\n"
+"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"POT-Creation-Date: 2010-03-12 09:21+0100\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: libraries/auth/config.auth.lib.php:107
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
@@ -168,7 +168,7 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
 #: libraries/messages.inc.php:27
-#, possible-php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgid "Add AUTO_INCREMENT value"
 msgstr ""
 
 #: libraries/messages.inc.php:34
-#, possible-php-format
+#, php-format
 msgid "Add %s"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgid "Add/Delete Criteria Row"
 msgstr ""
 
 #: libraries/messages.inc.php:38
-#, possible-php-format
+#, php-format
 msgid "Add %s field(s)"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgid "Add search conditions (body of the \"where\" clause):"
 msgstr ""
 
 #: libraries/messages.inc.php:45
-#, possible-php-format
+#, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgid "Administration"
 msgstr ""
 
 #: libraries/messages.inc.php:49
-#, possible-php-format
+#, php-format
 msgid "After %s"
 msgstr ""
 
@@ -320,7 +320,7 @@ msgid "Angular links"
 msgstr ""
 
 #: libraries/messages.inc.php:64
-#, possible-php-format
+#, php-format
 msgid "An index has been added on %s"
 msgstr ""
 
@@ -347,7 +347,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:70
-#, possible-php-format
+#, php-format
 msgid "A primary key has been added on %s"
 msgstr ""
 
@@ -444,7 +444,7 @@ msgid "Damaged"
 msgstr ""
 
 #: libraries/messages.inc.php:95
-#, possible-php-format
+#, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
 
@@ -488,7 +488,7 @@ msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/messages.inc.php:105
-#, possible-php-format
+#, php-format
 msgid "Bookmark %s created"
 msgstr ""
 
@@ -589,7 +589,7 @@ msgid "Cannot log in to the MySQL server"
 msgstr ""
 
 #: libraries/messages.inc.php:131
-#, possible-php-format
+#, php-format
 msgid ""
 "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 "extension. Please check your PHP configuration."
@@ -700,7 +700,7 @@ msgid "Check Privileges"
 msgstr ""
 
 #: libraries/messages.inc.php:156
-#, possible-php-format
+#, php-format
 msgid "Check privileges for database &quot;%s&quot;."
 msgstr ""
 
@@ -761,12 +761,12 @@ msgid "Compression"
 msgstr ""
 
 #: libraries/messages.inc.php:171
-#, possible-php-format
+#, php-format
 msgid "Imported file compression will be automatically detected from: %s"
 msgstr ""
 
 #: libraries/messages.inc.php:172
-#, possible-php-format
+#, php-format
 msgid "Could not load default configuration from: \"%1$s\""
 msgstr ""
 
@@ -788,7 +788,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:175
-#, possible-php-format
+#, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
@@ -821,7 +821,7 @@ msgid "Copy"
 msgstr ""
 
 #: libraries/messages.inc.php:183
-#, possible-php-format
+#, php-format
 msgid "Database %s has been copied to %s"
 msgstr ""
 
@@ -830,7 +830,7 @@ msgid "Copy table to (database<b>.</b>table):"
 msgstr ""
 
 #: libraries/messages.inc.php:185
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
@@ -847,7 +847,7 @@ msgid "Could not connect to the target"
 msgstr ""
 
 #: libraries/messages.inc.php:189
-#, possible-php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
@@ -861,7 +861,7 @@ msgid "CREATE DATABASE before copying"
 msgstr ""
 
 #: libraries/messages.inc.php:192
-#, possible-php-format
+#, php-format
 msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgstr ""
 
@@ -874,7 +874,7 @@ msgid "Create new database"
 msgstr ""
 
 #: libraries/messages.inc.php:195
-#, possible-php-format
+#, php-format
 msgid "Create table on database %s"
 msgstr ""
 
@@ -913,7 +913,7 @@ msgid "None"
 msgstr ""
 
 #: libraries/messages.inc.php:204
-#, possible-php-format
+#, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
@@ -974,17 +974,17 @@ msgid "Database export options"
 msgstr ""
 
 #: libraries/messages.inc.php:220
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr ""
 
 #: libraries/messages.inc.php:221
-#, possible-php-format
+#, php-format
 msgid "Database %s has been dropped."
 msgstr ""
 
 #: libraries/messages.inc.php:222
-#, possible-php-format
+#, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
@@ -993,7 +993,7 @@ msgid "Databases"
 msgstr ""
 
 #: libraries/messages.inc.php:224
-#, possible-php-format
+#, php-format
 msgid "%s databases have been dropped successfully."
 msgstr ""
 
@@ -1076,7 +1076,7 @@ msgid "Default"
 msgstr ""
 
 #: libraries/messages.inc.php:244
-#, possible-php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
@@ -1124,7 +1124,7 @@ msgid "Delete tracking data for this table"
 msgstr ""
 
 #: libraries/messages.inc.php:255
-#, possible-php-format
+#, php-format
 msgid "Deleting %s"
 msgstr ""
 
@@ -1242,12 +1242,12 @@ msgid "Dumping data for table"
 msgstr ""
 
 #: libraries/messages.inc.php:283
-#, possible-php-format
+#, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: libraries/messages.inc.php:284
-#, possible-php-format
+#, php-format
 msgid "Dump %s row(s) starting at record # %s"
 msgstr ""
 
@@ -1300,12 +1300,12 @@ msgid "END RAW"
 msgstr ""
 
 #: libraries/messages.inc.php:298
-#, possible-php-format
+#, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
 #: libraries/messages.inc.php:299
-#, possible-php-format
+#, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
@@ -1314,7 +1314,7 @@ msgid "Engines"
 msgstr ""
 
 #: libraries/messages.inc.php:301
-#, possible-php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
@@ -1343,7 +1343,7 @@ msgid "Error: relation already exists."
 msgstr ""
 
 #: libraries/messages.inc.php:308
-#, possible-php-format
+#, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
@@ -1408,7 +1408,7 @@ msgid "Field"
 msgstr ""
 
 #: libraries/messages.inc.php:325
-#, possible-php-format
+#, php-format
 msgid "Field %s has been dropped"
 msgstr ""
 
@@ -1435,7 +1435,7 @@ msgid "Fields terminated by"
 msgstr ""
 
 #: libraries/messages.inc.php:331
-#, possible-php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
@@ -1457,7 +1457,7 @@ msgid "table name"
 msgstr ""
 
 #: libraries/messages.inc.php:336
-#, possible-php-format
+#, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: %"
@@ -1481,7 +1481,7 @@ msgid "File to import"
 msgstr ""
 
 #: libraries/messages.inc.php:341
-#, possible-php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -1506,7 +1506,7 @@ msgid "Font size"
 msgstr ""
 
 #: libraries/messages.inc.php:346
-#, possible-php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
@@ -1786,7 +1786,7 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: libraries/messages.inc.php:417
-#, possible-php-format
+#, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr ""
 
@@ -1809,14 +1809,14 @@ msgid "Indexes"
 msgstr ""
 
 #: libraries/messages.inc.php:422
-#, possible-php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
 
 #: libraries/messages.inc.php:423
-#, possible-php-format
+#, php-format
 msgid "Index %s has been dropped"
 msgstr ""
 
@@ -1833,7 +1833,7 @@ msgid "Index type:"
 msgstr ""
 
 #: libraries/messages.inc.php:427
-#, possible-php-format
+#, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
@@ -1890,7 +1890,7 @@ msgid "Insert as new row"
 msgstr ""
 
 #: libraries/messages.inc.php:439
-#, possible-php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
@@ -1933,22 +1933,22 @@ msgid "Column count has to be larger than zero."
 msgstr ""
 
 #: libraries/messages.inc.php:449
-#, possible-php-format
+#, php-format
 msgid "Invalid column (%s) specified!"
 msgstr ""
 
 #: libraries/messages.inc.php:450
-#, possible-php-format
+#, php-format
 msgid "Invalid field count in CSV input on line %d."
 msgstr ""
 
 #: libraries/messages.inc.php:451
-#, possible-php-format
+#, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/messages.inc.php:452
-#, possible-php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
@@ -1969,17 +1969,17 @@ msgid "This plugin does not support compressed imports!"
 msgstr ""
 
 #: libraries/messages.inc.php:457
-#, possible-php-format
+#, php-format
 msgid "%d is not valid row number."
 msgstr ""
 
 #: libraries/messages.inc.php:458
-#, possible-php-format
+#, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/messages.inc.php:459
-#, possible-php-format
+#, php-format
 msgid "Invalid server index: \"%s\""
 msgstr ""
 
@@ -2003,7 +2003,7 @@ msgid "Joins"
 msgstr ""
 
 #: libraries/messages.inc.php:465
-#, possible-php-format
+#, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr ""
 
@@ -2034,7 +2034,7 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/messages.inc.php:473
-#, possible-php-format
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
@@ -2051,7 +2051,7 @@ msgid "Language"
 msgstr ""
 
 #: libraries/messages.inc.php:478
-#, possible-php-format
+#, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
 
@@ -2181,7 +2181,7 @@ msgid "Maximal length of created query"
 msgstr ""
 
 #: libraries/messages.inc.php:511
-#, possible-php-format
+#, php-format
 msgid "Max: %s%s"
 msgstr ""
 
@@ -2221,7 +2221,7 @@ msgid "MIME type"
 msgstr ""
 
 #: libraries/messages.inc.php:519
-#, possible-php-format
+#, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
@@ -2232,7 +2232,7 @@ msgid "Browser transformation"
 msgstr ""
 
 #: libraries/messages.inc.php:521
-#, possible-php-format
+#, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
@@ -2280,7 +2280,7 @@ msgid "Move table to (database<b>.</b>table):"
 msgstr ""
 
 #: libraries/messages.inc.php:531
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
@@ -2367,7 +2367,7 @@ msgid "MySQL connection collation"
 msgstr ""
 
 #: libraries/messages.inc.php:549
-#, possible-php-format
+#, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
@@ -2398,7 +2398,7 @@ msgid "Next"
 msgstr ""
 
 #: libraries/messages.inc.php:557
-#, possible-php-format
+#, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
@@ -2476,7 +2476,7 @@ msgid "No Password"
 msgstr ""
 
 #: libraries/messages.inc.php:575
-#, possible-php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
@@ -2497,7 +2497,7 @@ msgid "No rows selected"
 msgstr ""
 
 #: libraries/messages.inc.php:580
-#, possible-php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
@@ -2506,7 +2506,7 @@ msgid "No tables found in database."
 msgstr ""
 
 #: libraries/messages.inc.php:582
-#, possible-php-format
+#, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
@@ -2525,7 +2525,7 @@ msgid "not present"
 msgstr ""
 
 #: libraries/messages.inc.php:586
-#, possible-php-format
+#, php-format
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 
@@ -2550,12 +2550,12 @@ msgid "Number of tables"
 msgstr ""
 
 #: libraries/messages.inc.php:592
-#, possible-php-format
+#, php-format
 msgid "%s match(es) inside table <i>%s</i>"
 msgstr ""
 
 #: libraries/messages.inc.php:593
-#, possible-php-format
+#, php-format
 msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
@@ -2644,12 +2644,12 @@ msgid "Partition maintenance"
 msgstr ""
 
 #: libraries/messages.inc.php:618
-#, possible-php-format
+#, php-format
 msgid "Partition %s"
 msgstr ""
 
 #: libraries/messages.inc.php:619
-#, possible-php-format
+#, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
@@ -2792,12 +2792,12 @@ msgid "Transaction buffer size"
 msgstr ""
 
 #: libraries/messages.inc.php:648
-#, possible-php-format
+#, php-format
 msgid "Schema of the \"%s\" database - Page %s"
 msgstr ""
 
 #: libraries/messages.inc.php:649
-#, possible-php-format
+#, php-format
 msgid "The \"%s\" table doesn't exist!"
 msgstr ""
 
@@ -3162,7 +3162,7 @@ msgid "Query window"
 msgstr ""
 
 #: libraries/messages.inc.php:738
-#, possible-php-format
+#, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
@@ -3175,14 +3175,14 @@ msgid "SQL history"
 msgstr ""
 
 #: libraries/messages.inc.php:741
-#, possible-php-format
+#, php-format
 msgid ""
 "<b>Query statistics</b>: Since its startup, %s queries have been sent to the "
 "server."
 msgstr ""
 
 #: libraries/messages.inc.php:742
-#, possible-php-format
+#, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
@@ -3239,7 +3239,7 @@ msgid "Relation deleted"
 msgstr ""
 
 #: libraries/messages.inc.php:757
-#, possible-php-format
+#, php-format
 msgid ""
 "The additional features for working with linked tables have been "
 "deactivated. To find out why click %shere%s."
@@ -3290,12 +3290,12 @@ msgid "Remove selected users"
 msgstr ""
 
 #: libraries/messages.inc.php:769
-#, possible-php-format
+#, php-format
 msgid "Database %s has been renamed to %s"
 msgstr ""
 
 #: libraries/messages.inc.php:770
-#, possible-php-format
+#, php-format
 msgid "Table %s has been renamed to %s"
 msgstr ""
 
@@ -3334,7 +3334,7 @@ msgid "Add slave replication user"
 msgstr ""
 
 #: libraries/messages.inc.php:779
-#, possible-php-format
+#, php-format
 msgid "Master server changed succesfully to %s"
 msgstr ""
 
@@ -3352,7 +3352,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:783
-#, possible-php-format
+#, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
@@ -3397,7 +3397,7 @@ msgid "Please select databases:"
 msgstr ""
 
 #: libraries/messages.inc.php:792
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -3439,7 +3439,7 @@ msgid "Error management:"
 msgstr ""
 
 #: libraries/messages.inc.php:801
-#, possible-php-format
+#, php-format
 msgid "IO Thread %s only"
 msgstr ""
 
@@ -3448,7 +3448,7 @@ msgid "Slave IO Thread not running!"
 msgstr ""
 
 #: libraries/messages.inc.php:803
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
@@ -3483,12 +3483,12 @@ msgid "Slave SQL Thread not running!"
 msgstr ""
 
 #: libraries/messages.inc.php:811
-#, possible-php-format
+#, php-format
 msgid "SQL Thread %s only"
 msgstr ""
 
 #: libraries/messages.inc.php:812
-#, possible-php-format
+#, php-format
 msgid ""
 "This MySQL server works as %s in <b>replication</b> process. For further "
 "information about replication status on the server, please visit the <a href="
@@ -3528,7 +3528,7 @@ msgid "Resource limits"
 msgstr ""
 
 #: libraries/messages.inc.php:821
-#, possible-php-format
+#, php-format
 msgid "Restart insertion with %s rows"
 msgstr ""
 
@@ -3547,7 +3547,7 @@ msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 
 #: libraries/messages.inc.php:825
-#, possible-php-format
+#, php-format
 msgid "You have revoked the privileges for %s"
 msgstr ""
 
@@ -3572,12 +3572,12 @@ msgid "Row length"
 msgstr ""
 
 #: libraries/messages.inc.php:831
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) affected."
 msgstr ""
 
 #: libraries/messages.inc.php:832
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) deleted."
 msgstr ""
 
@@ -3586,7 +3586,7 @@ msgid "row(s) starting from record #"
 msgstr ""
 
 #: libraries/messages.inc.php:834
-#, possible-php-format
+#, php-format
 msgid "%1$d row(s) inserted."
 msgstr ""
 
@@ -3603,7 +3603,7 @@ msgid "horizontal"
 msgstr ""
 
 #: libraries/messages.inc.php:838
-#, possible-php-format
+#, php-format
 msgid "in %s mode and repeat headers after %s cells"
 msgstr ""
 
@@ -3620,7 +3620,7 @@ msgid "Row Statistics"
 msgstr ""
 
 #: libraries/messages.inc.php:842
-#, possible-php-format
+#, php-format
 msgid "running on %s"
 msgstr ""
 
@@ -3629,12 +3629,12 @@ msgid "Submit Query"
 msgstr ""
 
 #: libraries/messages.inc.php:844
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr ""
 
 #: libraries/messages.inc.php:845
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr ""
 
@@ -3643,7 +3643,7 @@ msgid "Russian"
 msgstr ""
 
 #: libraries/messages.inc.php:848
-#, possible-php-format
+#, php-format
 msgid "Save on server in %s directory"
 msgstr ""
 
@@ -3692,7 +3692,7 @@ msgid "as regular expression"
 msgstr ""
 
 #: libraries/messages.inc.php:860
-#, possible-php-format
+#, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr ""
 
@@ -3757,8 +3757,9 @@ msgid "The server is not responding"
 msgstr ""
 
 #: libraries/messages.inc.php:876
+#, fuzzy
 msgid "Server"
-msgstr ""
+msgstr "[1. サーバ]"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
 msgid "Servers"
@@ -3773,7 +3774,7 @@ msgid "Runtime Information"
 msgstr ""
 
 #: libraries/messages.inc.php:880
-#, possible-php-format
+#, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr ""
 
@@ -3904,7 +3905,7 @@ msgid "Bzip2"
 msgstr ""
 
 #: libraries/messages.inc.php:906
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Bzip2 compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -4088,7 +4089,7 @@ msgid "Submitted form contains errors"
 msgstr ""
 
 #: libraries/messages.inc.php:948
-#, possible-php-format
+#, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
@@ -4101,7 +4102,7 @@ msgid "Incorrect value"
 msgstr ""
 
 #: libraries/messages.inc.php:951
-#, possible-php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr ""
 
@@ -4266,8 +4267,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:998
+#, fuzzy
 msgid "Security"
-msgstr ""
+msgstr "[8. セキュリティ]"
 
 #: libraries/messages.inc.php:999
 msgid "Basic settings"
@@ -4376,7 +4378,7 @@ msgid "GZip"
 msgstr ""
 
 #: libraries/messages.inc.php:1023
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]GZip compression and "
 "decompression[/a] requires functions (%s) which are unavailable on this "
@@ -4441,7 +4443,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1037
-#, possible-php-format
+#, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
@@ -4616,11 +4618,14 @@ msgid "Maximum databases"
 msgstr ""
 
 #: libraries/messages.inc.php:1076
+#, fuzzy
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"結果セットの表示行数。結果セットの行数の方が多い場合は「前（Previous）／次"
+"（Next）」のリンクが表示されます。"
 
 #: libraries/messages.inc.php:1077
 msgid "Maximum number of rows to display"
@@ -4757,7 +4762,7 @@ msgid "Save directory"
 msgstr ""
 
 #: libraries/messages.inc.php:1110
-#, possible-php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -4908,7 +4913,7 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr ""
 
 #: libraries/messages.inc.php:1143
-#, possible-php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
@@ -5106,7 +5111,7 @@ msgid "Verbose name of this server"
 msgstr ""
 
 #: libraries/messages.inc.php:1188
-#, possible-php-format
+#, php-format
 msgid "Set value: %s"
 msgstr ""
 
@@ -5287,14 +5292,14 @@ msgid "Check for latest version"
 msgstr ""
 
 #: libraries/messages.inc.php:1231
-#, possible-php-format
+#, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 
 #: libraries/messages.inc.php:1232
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using subversion version, run [kbd]svn update[/kbd] :-)[br]The "
 "latest stable version is %s, released on %s."
@@ -5328,14 +5333,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1239
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
 
 #: libraries/messages.inc.php:1240
-#, possible-php-format
+#, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
 "requires functions (%s) which are unavailable on this system."
@@ -6195,7 +6200,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr ""
 
 #: libraries/messages.inc.php:1426
-#, possible-php-format
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
@@ -6219,7 +6224,7 @@ msgid "Hardware authentication failed"
 msgstr ""
 
 #: libraries/messages.inc.php:1431
-#, possible-php-format
+#, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
@@ -6254,7 +6259,7 @@ msgid "Add column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1440
-#, possible-php-format
+#, php-format
 msgid "Table %s already exists!"
 msgstr ""
 
@@ -6263,7 +6268,7 @@ msgid "Alter column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1442
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
@@ -6288,22 +6293,22 @@ msgid "The table name is empty!"
 msgstr ""
 
 #: libraries/messages.inc.php:1448
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been created."
 msgstr ""
 
 #: libraries/messages.inc.php:1449
-#, possible-php-format
+#, php-format
 msgid "Table %s has been dropped"
 msgstr ""
 
 #: libraries/messages.inc.php:1450
-#, possible-php-format
+#, php-format
 msgid "Table %s has been emptied"
 msgstr ""
 
 #: libraries/messages.inc.php:1451
-#, possible-php-format
+#, php-format
 msgid "Table %s has been flushed"
 msgstr ""
 
@@ -6340,7 +6345,7 @@ msgid "Remove index(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1460
-#, possible-php-format
+#, php-format
 msgid "%s table(s)"
 msgstr ""
 
@@ -6385,7 +6390,7 @@ msgid "Thai"
 msgstr ""
 
 #: libraries/messages.inc.php:1471
-#, possible-php-format
+#, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
@@ -6394,17 +6399,17 @@ msgid "No preview available."
 msgstr ""
 
 #: libraries/messages.inc.php:1473
-#, possible-php-format
+#, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
 #: libraries/messages.inc.php:1474
-#, possible-php-format
+#, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
 #: libraries/messages.inc.php:1475
-#, possible-php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
@@ -6421,12 +6426,12 @@ msgid "Threads"
 msgstr ""
 
 #: libraries/messages.inc.php:1479
-#, possible-php-format
+#, php-format
 msgid "Thread %s was successfully killed."
 msgstr ""
 
 #: libraries/messages.inc.php:1480
-#, possible-php-format
+#, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
@@ -6472,7 +6477,7 @@ msgid "Total"
 msgstr ""
 
 #: libraries/messages.inc.php:1490
-#, possible-php-format
+#, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
@@ -6481,7 +6486,7 @@ msgid "Activate now"
 msgstr ""
 
 #: libraries/messages.inc.php:1492
-#, possible-php-format
+#, php-format
 msgid "Activate tracking for %s.%s"
 msgstr ""
 
@@ -6494,7 +6499,7 @@ msgid "Create version"
 msgstr ""
 
 #: libraries/messages.inc.php:1495
-#, possible-php-format
+#, php-format
 msgid "Create version %s of %s.%s"
 msgstr ""
 
@@ -6519,12 +6524,12 @@ msgid "Deactivate now"
 msgstr ""
 
 #: libraries/messages.inc.php:1501
-#, possible-php-format
+#, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, possible-php-format
+#, php-format
 msgid "Export as %s"
 msgstr ""
 
@@ -6545,7 +6550,7 @@ msgid "Close"
 msgstr ""
 
 #: libraries/messages.inc.php:1507
-#, possible-php-format
+#, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
@@ -6554,7 +6559,7 @@ msgid "Tracking report"
 msgstr ""
 
 #: libraries/messages.inc.php:1509
-#, possible-php-format
+#, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
@@ -6647,22 +6652,22 @@ msgid "Username"
 msgstr ""
 
 #: libraries/messages.inc.php:1532
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is activated."
 msgstr ""
 
 #: libraries/messages.inc.php:1533
-#, possible-php-format
+#, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
 msgstr ""
 
 #: libraries/messages.inc.php:1534
-#, possible-php-format
+#, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
 msgstr ""
 
 #: libraries/messages.inc.php:1535
-#, possible-php-format
+#, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
@@ -6820,14 +6825,14 @@ msgid "Unselect All"
 msgstr ""
 
 #: libraries/messages.inc.php:1565
-#, possible-php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 
 #: libraries/messages.inc.php:1566
-#, possible-php-format
+#, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
@@ -6845,7 +6850,7 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1570
-#, possible-php-format
+#, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
@@ -6880,7 +6885,7 @@ msgid "Unknown error in file upload."
 msgstr ""
 
 #: libraries/messages.inc.php:1578
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation%"
 "s for ways to workaround this limit."
@@ -6903,7 +6908,7 @@ msgid "Use Host Table"
 msgstr ""
 
 #: libraries/messages.inc.php:1583
-#, possible-php-format
+#, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
@@ -6928,7 +6933,7 @@ msgid "The selected users have been deleted successfully."
 msgstr ""
 
 #: libraries/messages.inc.php:1589
-#, possible-php-format
+#, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
@@ -6954,7 +6959,7 @@ msgid "Use this value"
 msgstr ""
 
 #: libraries/messages.inc.php:1597
-#, possible-php-format
+#, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
@@ -6985,14 +6990,14 @@ msgid "View dump (schema) of table"
 msgstr ""
 
 #: libraries/messages.inc.php:1604
-#, possible-php-format
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
 
 #: libraries/messages.inc.php:1605
-#, possible-php-format
+#, php-format
 msgid "View %s has been dropped"
 msgstr ""
 
@@ -7025,7 +7030,7 @@ msgid "Web server"
 msgstr ""
 
 #: libraries/messages.inc.php:1614
-#, possible-php-format
+#, php-format
 msgid "Welcome to %s"
 msgstr ""
 
