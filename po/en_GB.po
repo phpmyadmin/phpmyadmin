@@ -458,7 +458,6 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr "Are you sure you want to disable all BLOB references for database %s?"
 
 #: libraries/messages.inc.php:96
-#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Disabled"
