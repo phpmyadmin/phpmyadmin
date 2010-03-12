@@ -117,7 +117,7 @@ else {
     $sum_entries = $sum_size = 0;
     $odd_row = true;
     foreach ($tables as $sts_data) {
-        if (strtoupper($sts_data['ENGINE']) == 'MRG_MYISAM'
+        if (PMA_Table::isMerge($db, $sts_data['TABLE_NAME'])
          || strtoupper($sts_data['ENGINE']) == 'FEDERATED') {
             $merged_size = true;
         } else {
