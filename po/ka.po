@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:37+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +35,7 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
+#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "ka"
@@ -314,8 +314,9 @@ msgid "And"
 msgstr "და"
 
 #: libraries/messages.inc.php:61
+#, fuzzy
 msgid "and"
-msgstr ""
+msgstr "და"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
@@ -778,7 +779,6 @@ msgid "Complete inserts"
 msgstr "სრული ჩასმები"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "შეკუმშვა"
 
@@ -867,12 +867,14 @@ msgid "Can't copy table to same one!"
 msgstr "Can't copy table to same one!"
 
 #: libraries/messages.inc.php:187
+#, fuzzy
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "MySQL სერვერთან დაკავშირება ვერ მოხერხდა"
 
 #: libraries/messages.inc.php:188
+#, fuzzy
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "MySQL სერვერთან დაკავშირება ვერ მოხერხდა"
 
 #: libraries/messages.inc.php:189
 #, php-format
@@ -920,12 +922,12 @@ msgid "Create relation"
 msgstr "Create relation"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "ცხრილის შექმნა"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "ცხრილის შექმნა"
@@ -941,7 +943,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "არაა"
@@ -1034,8 +1035,9 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s databases have been dropped successfully."
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "მონაცემთა ბაზაში ძებნა"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1058,8 +1060,9 @@ msgstr ""
 "between the web server and the MySQL server."
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "მონაცემთა ბაზაში ძებნა"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1070,8 +1073,9 @@ msgid "Data Dictionary"
 msgstr "მონაცემების ლექსიკონი"
 
 #: libraries/messages.inc.php:233
+#, fuzzy
 msgid "Data Difference"
-msgstr ""
+msgstr "სტრუქტურა ხედისათვის"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
@@ -1587,12 +1591,14 @@ msgid "Free pages"
 msgstr "Free pages"
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Fulltext"
 
 #: libraries/messages.inc.php:352
+#, fuzzy
 msgid "Full stop"
-msgstr ""
+msgstr "Fulltext"
 
 #: libraries/messages.inc.php:353
 msgid "Full Texts"
@@ -1655,12 +1661,14 @@ msgid "Go"
 msgstr "გადასვლა"
 
 #: libraries/messages.inc.php:369
+#, fuzzy
 msgid "Go to database"
-msgstr ""
+msgstr "მონაცემთა ბაზები არაა"
 
 #: libraries/messages.inc.php:370
+#, fuzzy
 msgid "Go to table"
-msgstr ""
+msgstr "მონაცემთა ბაზები არაა"
 
 #: libraries/messages.inc.php:371
 msgid "Go to view"
@@ -2494,12 +2502,14 @@ msgid "Name"
 msgstr "სახელი"
 
 #: libraries/messages.inc.php:554
+#, fuzzy
 msgid "Filter"
-msgstr ""
+msgstr "ფაილები"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "ცხრილები არაა"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2568,7 +2578,6 @@ msgstr "ცვლილების გარეშე"
 
 #: libraries/messages.inc.php:570
 #, fuzzy
-#| msgid "None"
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "არაა"
@@ -2950,8 +2959,9 @@ msgid "No tables"
 msgstr "ცხრილები არაა"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Table %1$s has been created."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3054,8 +3064,9 @@ msgid "Polish"
 msgstr "პოლონური"
 
 #: libraries/messages.inc.php:675
+#, fuzzy
 msgid "Port"
-msgstr ""
+msgstr "დალაგება"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
@@ -3422,8 +3433,9 @@ msgid "Reloading the privileges"
 msgstr "Reloading the privileges"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Customize navigation frame"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3434,8 +3446,9 @@ msgid "Reload"
 msgstr "გადატვირთვა"
 
 #: libraries/messages.inc.php:765
+#, fuzzy
 msgid "Remote server"
-msgstr ""
+msgstr "ახალი სერვერი"
 
 #: libraries/messages.inc.php:766
 msgid "Remove CRLF characters within fields"
@@ -3464,8 +3477,9 @@ msgid "Rename table to"
 msgstr "Rename table to"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Rename table to"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3503,8 +3517,9 @@ msgid "This server is configured as master in a replication process."
 msgstr ""
 
 #: libraries/messages.inc.php:781
+#, fuzzy
 msgid "Control slave:"
-msgstr ""
+msgstr "Control user"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3534,12 +3549,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/messages.inc.php:788
+#, fuzzy
 msgid "Master replication"
-msgstr ""
+msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/messages.inc.php:789
 msgid "Replication"
@@ -3553,8 +3570,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "გთხოვთ აირჩიოთ მონაცემთა ბაზა"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3574,8 +3592,9 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
+#, fuzzy
 msgid "Show master status"
-msgstr ""
+msgstr "Show slave status"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3586,8 +3605,9 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:798
+#, fuzzy
 msgid "Slave configuration"
-msgstr ""
+msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/messages.inc.php:799
 msgid ""
@@ -3635,8 +3655,9 @@ msgid "Skip next"
 msgstr ""
 
 #: libraries/messages.inc.php:809
+#, fuzzy
 msgid "Slave replication"
-msgstr ""
+msgstr "სერვერის კონფიგურაცია"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
@@ -3656,16 +3677,19 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:813
+#, fuzzy
 msgid "Master status"
-msgstr ""
+msgstr "Show slave status"
 
 #: libraries/messages.inc.php:814
+#, fuzzy
 msgid "Replication status"
-msgstr ""
+msgstr "რეპლიკაცია"
 
 #: libraries/messages.inc.php:815
+#, fuzzy
 msgid "Slave status"
-msgstr ""
+msgstr "Show slave status"
 
 #: libraries/messages.inc.php:816
 msgid "Synchronize databases with master"
@@ -5358,8 +5382,9 @@ msgid "Server socket"
 msgstr "Server socket"
 
 #: libraries/messages.inc.php:1176
+#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "MySQL სერვერთან კავშირის შეკუმშვა"
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
@@ -5697,8 +5722,9 @@ msgid "Show all"
 msgstr "ყველას ჩვენება"
 
 #: libraries/messages.inc.php:1243
+#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "ორობითი შიგთავსის ჩვენება"
 
 #: libraries/messages.inc.php:1244
 msgid "Show binary contents"
@@ -5745,8 +5771,9 @@ msgid "Showing SQL query"
 msgstr "Showing SQL query"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Showing SQL query"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -6555,8 +6582,9 @@ msgid "Stand-in structure for view"
 msgstr "Stand-in structure for view"
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "Startup"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
@@ -6628,16 +6656,18 @@ msgid "Propose table structure"
 msgstr "ცხრილის სტრუქტურის შეთავაზება"
 
 #: libraries/messages.inc.php:1419
+#, fuzzy
 msgid "Structure Difference"
-msgstr ""
+msgstr "სტრუქტურა ხედისათვის"
 
 #: libraries/messages.inc.php:1420
 msgid "Structure for view"
 msgstr "სტრუქტურა ხედისათვის"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "სტრუქტურა"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -6957,8 +6987,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "Create relation"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6966,8 +6997,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "მონაცემთა ბაზა"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -6978,8 +7010,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "მონაცემები"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -6991,9 +7024,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Export defaults"
 
 #: libraries/messages.inc.php:1503
 msgid "Tracking is active."
@@ -7066,24 +7099,28 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "მხოლოდ სტრუქტურა"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "შექმნა"
 
 #: libraries/messages.inc.php:1522
+#, fuzzy
 msgid "Last version"
-msgstr ""
+msgstr "Create relation"
 
 #: libraries/messages.inc.php:1523
 msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "სპარსული"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -7094,24 +7131,28 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1527
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "დაბლოკილი ცხრილების გამოტოვება"
 
 #: libraries/messages.inc.php:1528
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "ცხრილის შემოწმება"
 
 #: libraries/messages.inc.php:1530
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "დაბლოკილი ცხრილების გამოტოვება"
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "მომხმარებელი:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -7134,8 +7175,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "სპარსული"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -7589,12 +7631,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1624
+#, fuzzy
 msgid "Export contents"
-msgstr ""
+msgstr "Export defaults"
 
 #: libraries/messages.inc.php:1625
+#, fuzzy
 msgid "Export functions"
-msgstr ""
+msgstr "Export defaults"
 
 #: libraries/messages.inc.php:1626
 msgid "Export procedures"
@@ -7605,16 +7649,19 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "Export type"
 
 #: libraries/messages.inc.php:1629
+#, fuzzy
 msgid "Export triggers"
-msgstr ""
+msgstr "Export type"
 
 #: libraries/messages.inc.php:1630
+#, fuzzy
 msgid "Export views"
-msgstr ""
+msgstr "Export defaults"
 
 #: libraries/messages.inc.php:1631
 msgid "XML"
@@ -7636,11 +7683,6 @@ msgstr "\"zip-ით შეკუმშული\""
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "Wildcards % and _ should be escaped with a \\ to use them literally"
 
-#, fuzzy
-#~ msgctxt "$mysql_4_1_doc_lang"
-#~ msgid "en"
-#~ msgstr "ka"
-
 #~ msgid "utf-8"
 #~ msgstr "utf-8"
 
@@ -7652,7 +7694,3 @@ msgstr "Wildcards % and _ should be escaped with a \\ to use them literally"
 
 #~ msgid "Jan2"
 #~ msgstr "იან2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "არაა"

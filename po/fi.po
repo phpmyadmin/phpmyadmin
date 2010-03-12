@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:36+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +36,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Lähetetty"
@@ -45,7 +43,6 @@ msgstr "Lähetetty"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Lähetetty"
@@ -463,7 +460,7 @@ msgstr ""
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Pois päältä"
+msgstr "Ei käytössä"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -477,7 +474,7 @@ msgstr "Olet POISTAMASSA KÄYTÖSTÄ BLOB-tietokannan!"
 #, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Päällä"
+msgstr "Käytössä"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -780,7 +777,6 @@ msgid "Complete inserts"
 msgstr "Kokonaiset lisäyslauseet"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Pakkaus"
 
@@ -924,12 +920,12 @@ msgid "Create relation"
 msgstr "Luo relaatio"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Luo taulu"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Luo taulu"
@@ -944,7 +940,6 @@ msgstr "Luo samanniminen tietokanta ja anna kaikki oikeudet"
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Ei mitään"
@@ -2508,8 +2503,9 @@ msgid "Filter"
 msgstr "Suodatin"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Ei tauluja"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2958,8 +2954,9 @@ msgid "No tables"
 msgstr "Ei tauluja"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Taulu %1$s on luotu."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3433,8 +3430,9 @@ msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Mukauta navigointikehystä"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3475,8 +3473,9 @@ msgid "Rename table to"
 msgstr "Nimeä taulu uudelleen"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Nimeä taulu uudelleen"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -5800,8 +5799,9 @@ msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Näytetään SQL-kysely"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -7743,10 +7743,6 @@ msgstr ""
 
 #~ msgid "Jan2"
 #~ msgstr "Tammi2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Ei mitään"
 
 #~ msgid ""
 #~ "Structure Difference' ;\n"

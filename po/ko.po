@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:38+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "보냄"
@@ -37,7 +36,6 @@ msgstr "보냄"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "보냄"
@@ -184,8 +182,9 @@ msgid "Action"
 msgstr "실행"
 
 #: libraries/messages.inc.php:32
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "실행"
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
@@ -209,9 +208,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "Criteria 행(레코드) 추가/삭제"
 
 #: libraries/messages.inc.php:38
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s field(s)"
-msgstr ""
+msgstr "필드 추가하기"
 
 #: libraries/messages.inc.php:39
 msgid "Add custom comment into header (\\n splits lines)"
@@ -272,8 +271,9 @@ msgid "Edit next row"
 msgstr ""
 
 #: libraries/messages.inc.php:53
+#, fuzzy
 msgid "Go back to this page"
-msgstr ""
+msgstr "되돌아가기"
 
 #: libraries/messages.inc.php:54
 msgid "All"
@@ -307,8 +307,9 @@ msgid "And"
 msgstr "그리고"
 
 #: libraries/messages.inc.php:61
+#, fuzzy
 msgid "and"
-msgstr ""
+msgstr "그리고"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
@@ -407,16 +408,19 @@ msgid "Binary - do not edit"
 msgstr " 바이너리 - 편집 금지 "
 
 #: libraries/messages.inc.php:86
+#, fuzzy
 msgid "Binary log"
-msgstr ""
+msgstr "바이너리"
 
 #: libraries/messages.inc.php:87
+#, fuzzy
 msgid "Event type"
-msgstr ""
+msgstr "질의 종류"
 
 #: libraries/messages.inc.php:88
+#, fuzzy
 msgid "Information"
-msgstr ""
+msgstr "로그인 정보"
 
 #: libraries/messages.inc.php:89
 msgid "Log name"
@@ -431,8 +435,9 @@ msgid "Position"
 msgstr ""
 
 #: libraries/messages.inc.php:92
+#, fuzzy
 msgid "Server ID"
-msgstr ""
+msgstr "서버"
 
 #: libraries/messages.inc.php:93
 msgid "BLOB Repository"
@@ -449,14 +454,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:96
 #, fuzzy
-#| msgid "Disabled"
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "사용불가"
 
 #: libraries/messages.inc.php:97
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "사용불가"
 
 #: libraries/messages.inc.php:98
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -464,23 +469,24 @@ msgstr ""
 
 #: libraries/messages.inc.php:99
 #, fuzzy
-#| msgid "Enabled"
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "사용가능"
 
 #: libraries/messages.inc.php:100
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "사용가능"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
 #: libraries/messages.inc.php:102
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr ""
+msgstr "테이블 복구"
 
 #: libraries/messages.inc.php:103
 msgid "Upload to BLOB repository"
@@ -644,19 +650,22 @@ msgid "Create a new user with the same privileges and ..."
 msgstr ""
 
 #: libraries/messages.inc.php:142
+#, fuzzy
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr ""
+msgstr "사용자를 삭제하고 사용권한을 갱신함."
 
 #: libraries/messages.inc.php:143
+#, fuzzy
 msgid " ... delete the old one from the user tables."
-msgstr ""
+msgstr "권한 테이블에서 사용자를 삭제하기만 함."
 
 #: libraries/messages.inc.php:144
+#, fuzzy
 msgid ""
 " ... revoke all active privileges from the old one and delete it afterwards."
-msgstr ""
+msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 
 #: libraries/messages.inc.php:145
 msgid "Change Login Information / Copy User"
@@ -728,8 +737,9 @@ msgid "Displaying Column Comments"
 msgstr "열(칼럼) 설명(코멘트) 출력하기"
 
 #: libraries/messages.inc.php:162
+#, fuzzy
 msgid "Collation"
-msgstr ""
+msgstr "생성"
 
 #: libraries/messages.inc.php:163
 msgid "Column names"
@@ -740,12 +750,14 @@ msgid "Column-specific privileges"
 msgstr "열(칼럼)에 관한 권한"
 
 #: libraries/messages.inc.php:165
+#, fuzzy
 msgid "Command"
-msgstr ""
+msgstr "설명(코멘트)"
 
 #: libraries/messages.inc.php:166
+#, fuzzy
 msgid "Comment"
-msgstr ""
+msgstr "설명(코멘트)"
 
 #: libraries/messages.inc.php:167
 msgid "Comments"
@@ -761,7 +773,7 @@ msgstr "완전한 INSERT문 작성"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "압축"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -829,9 +841,9 @@ msgid "Copy"
 msgstr ""
 
 #: libraries/messages.inc.php:183
-#, php-format
+#, fuzzy, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
 #: libraries/messages.inc.php:184
 msgid "Copy table to (database<b>.</b>table):"
@@ -899,12 +911,12 @@ msgid "Create relation"
 msgstr ""
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "새 페이지 만들기"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create a page"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "새 페이지 만들기"
@@ -919,15 +931,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "없음"
 
 #: libraries/messages.inc.php:204
-#, php-format
+#, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
+msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -942,13 +953,11 @@ msgid "Criteria"
 msgstr "Criteria"
 
 #: libraries/messages.inc.php:208
+#, fuzzy
 msgid "Croatian"
-msgstr ""
+msgstr "생성"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
-#| msgctxt "$strStrucCSV"
-#| msgid "CSV"
 msgid "CSV"
 msgstr "CSV 데이터"
 
@@ -981,17 +990,18 @@ msgid "Database"
 msgstr "데이터베이스"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "The database name is empty!"
-msgstr ""
+msgstr "테이블명이 없습니다!"
 
 #: libraries/messages.inc.php:219
 msgid "Database export options"
 msgstr ""
 
 #: libraries/messages.inc.php:220
-#, php-format
+#, fuzzy, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "데이터베이스 %s 를 제거했습니다."
 
 #: libraries/messages.inc.php:221
 #, php-format
@@ -1004,8 +1014,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
+#, fuzzy
 msgid "Databases"
-msgstr ""
+msgstr "데이터베이스"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1013,8 +1024,9 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s 데이터베이스를 삭제했습니다."
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "데이터베이스 검색"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1036,8 +1048,9 @@ msgstr ""
 "주의: 데이터베이스 통계 보기는 웹서버와 MySQL 서버 사이에 큰 부하를 줍니다."
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "데이터베이스 검색"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1064,12 +1077,14 @@ msgid "Data Synchronization"
 msgstr ""
 
 #: libraries/messages.inc.php:237
+#, fuzzy
 msgid "Database comment: "
-msgstr ""
+msgstr "테이블 설명"
 
 #: libraries/messages.inc.php:238
+#, fuzzy
 msgid "Copy database to"
-msgstr ""
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/messages.inc.php:239
 msgid "Database seems to be empty!"
@@ -1080,8 +1095,9 @@ msgid "Database-specific privileges"
 msgstr "데이터베이스에 관한 권한"
 
 #: libraries/messages.inc.php:241
+#, fuzzy
 msgid "Rename database to"
-msgstr ""
+msgstr "테이블 이름 바꾸기"
 
 #: libraries/messages.inc.php:242
 msgid "database-specific"
@@ -1161,8 +1177,9 @@ msgid "Descending"
 msgstr "내림차순(역순)"
 
 #: libraries/messages.inc.php:259
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "설명이 없습니다"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1180,8 +1197,9 @@ msgid "Details..."
 msgstr ""
 
 #: libraries/messages.inc.php:263
+#, fuzzy
 msgid "dictionary"
-msgstr ""
+msgstr "데이터 사전 (전체 구조보기)"
 
 #: libraries/messages.inc.php:264
 msgid "Difference"
@@ -1275,7 +1293,7 @@ msgstr "동적(다이내믹)"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "수정"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1378,8 +1396,9 @@ msgid "Estonian"
 msgstr ""
 
 #: libraries/messages.inc.php:312
+#, fuzzy
 msgid "Event"
-msgstr ""
+msgstr "보냄"
 
 #: libraries/messages.inc.php:313
 msgid "Events"
@@ -1394,8 +1413,9 @@ msgid "Execute bookmarked query"
 msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
+#, fuzzy
 msgid "Explain SQL"
-msgstr ""
+msgstr "해석(EXPLAIN) 생략"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1467,8 +1487,9 @@ msgid "database name"
 msgstr ""
 
 #: libraries/messages.inc.php:334
+#, fuzzy
 msgid "server name"
-msgstr ""
+msgstr "사용자명"
 
 #: libraries/messages.inc.php:335
 msgid "table name"
@@ -1491,8 +1512,9 @@ msgid "remember template"
 msgstr "템플릿 기억"
 
 #: libraries/messages.inc.php:339
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "필드"
 
 #: libraries/messages.inc.php:340
 msgid "File to import"
@@ -1534,7 +1556,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1545,8 +1567,9 @@ msgid "Free pages"
 msgstr ""
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Fulltext"
 
 #: libraries/messages.inc.php:352
 msgid "Full stop"
@@ -1561,8 +1584,9 @@ msgid "Function"
 msgstr "함수"
 
 #: libraries/messages.inc.php:355
+#, fuzzy
 msgid "Functions"
-msgstr ""
+msgstr "함수"
 
 #: libraries/messages.inc.php:357
 msgid "Generated by"
@@ -1613,8 +1637,9 @@ msgid "Go"
 msgstr "실행"
 
 #: libraries/messages.inc.php:369
+#, fuzzy
 msgid "Go to database"
-msgstr ""
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/messages.inc.php:370
 msgid "Go to table"
@@ -1625,8 +1650,9 @@ msgid "Go to view"
 msgstr ""
 
 #: libraries/messages.inc.php:372
+#, fuzzy
 msgid "Grant"
-msgstr ""
+msgstr "인쇄"
 
 #: libraries/messages.inc.php:373
 msgid "Greek"
@@ -1669,8 +1695,9 @@ msgid "Hide"
 msgstr ""
 
 #: libraries/messages.inc.php:384
+#, fuzzy
 msgid "Hide/Show all"
-msgstr ""
+msgstr "모두 보기"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
@@ -1759,8 +1786,9 @@ msgid "Format of imported file"
 msgstr ""
 
 #: libraries/messages.inc.php:407
+#, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "내보내기"
 
 #: libraries/messages.inc.php:408
 msgid ""
@@ -1876,8 +1904,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:432
+#, fuzzy
 msgid "Data files"
-msgstr ""
+msgstr "데이터만"
 
 #: libraries/messages.inc.php:433
 msgid "Data home directory"
@@ -2107,8 +2136,9 @@ msgid "Label key"
 msgstr ""
 
 #: libraries/messages.inc.php:486
+#, fuzzy
 msgid "LaTeX"
-msgstr ""
+msgstr "Label"
 
 #: libraries/messages.inc.php:487
 msgid "Structure of table __TABLE__"
@@ -2184,8 +2214,9 @@ msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
 #: libraries/messages.inc.php:505
+#, fuzzy
 msgid "Server:"
-msgstr ""
+msgstr "서버"
 
 #: libraries/messages.inc.php:506
 msgid "Username:"
@@ -2236,7 +2267,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:517
 #, fuzzy
-#| msgid "no description"
 msgctxt "$strMIME_description"
 msgid "Description"
 msgstr "설명이 없습니다"
@@ -2264,12 +2294,16 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:522
+#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
+"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/messages.inc.php:523
 msgid "Transformation options"
@@ -2415,8 +2449,9 @@ msgid "Filter"
 msgstr ""
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "테이블이 없습니다"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2481,7 +2516,6 @@ msgstr "변화 없음"
 
 #: libraries/messages.inc.php:570
 #, fuzzy
-#| msgid "None"
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "없음"
@@ -2561,8 +2595,9 @@ msgid "No user(s) found."
 msgstr "사용자가 없습니다."
 
 #: libraries/messages.inc.php:588
+#, fuzzy
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "SQL 검사"
 
 #: libraries/messages.inc.php:589
 msgid "Null"
@@ -2587,8 +2622,9 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
+#, fuzzy
 msgid "Tables"
-msgstr ""
+msgstr "테이블 "
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2607,8 +2643,9 @@ msgid "Operations"
 msgstr "테이블 작업"
 
 #: libraries/messages.inc.php:601
+#, fuzzy
 msgid "Operator"
-msgstr ""
+msgstr "테이블 작업"
 
 #: libraries/messages.inc.php:602
 msgid "Optimize"
@@ -2619,8 +2656,9 @@ msgid "Optimize table"
 msgstr "테이블 최적화"
 
 #: libraries/messages.inc.php:604
+#, fuzzy
 msgid "Options"
-msgstr ""
+msgstr "테이블 작업"
 
 #: libraries/messages.inc.php:605
 msgid "Or"
@@ -2643,8 +2681,9 @@ msgid "Page number:"
 msgstr "페이지:"
 
 #: libraries/messages.inc.php:611
+#, fuzzy
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "테이블 %s 을 닫았습니다(캐시 삭제)"
 
 #: libraries/messages.inc.php:612
 msgid "Paper size"
@@ -2667,8 +2706,9 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:617
+#, fuzzy
 msgid "Partition maintenance"
-msgstr ""
+msgstr "테이블 유지보수"
 
 #: libraries/messages.inc.php:618
 #, php-format
@@ -2833,8 +2873,9 @@ msgid "No tables"
 msgstr "테이블이 없습니다"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "테이블 %s 을 제거했습니다."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -2877,12 +2918,14 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
+#, fuzzy
 msgid "Create PHP Code"
-msgstr ""
+msgstr "새 페이지 만들기"
 
 #: libraries/messages.inc.php:663
+#, fuzzy
 msgid "PHP extension"
-msgstr ""
+msgstr "PHP 버전"
 
 #: libraries/messages.inc.php:664
 msgid "PHP Version"
@@ -2934,8 +2977,9 @@ msgid "Polish"
 msgstr ""
 
 #: libraries/messages.inc.php:675
+#, fuzzy
 msgid "Port"
-msgstr ""
+msgstr "정렬"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
@@ -2987,16 +3031,18 @@ msgid "Allows altering the structure of existing tables."
 msgstr "테이블 구조 변경 허용."
 
 #: libraries/messages.inc.php:688
+#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "인덱스 생성 및 삭제 허용."
 
 #: libraries/messages.inc.php:689
 msgid "Allows creating new databases and tables."
 msgstr "DB 및 테이블 생성 허용."
 
 #: libraries/messages.inc.php:690
+#, fuzzy
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "테이블 생성 허용."
 
 #: libraries/messages.inc.php:691
 msgid "Allows creating new tables."
@@ -3011,8 +3057,9 @@ msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
 #: libraries/messages.inc.php:694
+#, fuzzy
 msgid "Allows creating new views."
-msgstr ""
+msgstr "테이블 생성 허용."
 
 #: libraries/messages.inc.php:695
 msgid "Allows deleting data."
@@ -3076,8 +3123,9 @@ msgstr ""
 "execute per hour."
 
 #: libraries/messages.inc.php:709
+#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "Limits the number of new connections the user may open per hour."
 
 #: libraries/messages.inc.php:710
 msgid "Allows viewing processes of all users"
@@ -3123,8 +3171,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:720
+#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr ""
+msgstr "인덱스 생성 및 삭제 허용."
 
 #: libraries/messages.inc.php:721
 msgid "Allows changing data."
@@ -3143,8 +3192,9 @@ msgid "The privileges were reloaded successfully."
 msgstr "권한을 다시 로딩했습니다."
 
 #: libraries/messages.inc.php:725
+#, fuzzy
 msgid "Procedures"
-msgstr ""
+msgstr "프로세스 목록"
 
 #: libraries/messages.inc.php:726
 msgid "Processes"
@@ -3183,12 +3233,13 @@ msgid "The following queries have been executed:"
 msgstr ""
 
 #: libraries/messages.inc.php:736
+#, fuzzy
 msgid "Query cache"
-msgstr ""
+msgstr "질의 종류"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "질의 창"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3281,8 +3332,9 @@ msgid "RELATIONS FOR TABLE"
 msgstr ""
 
 #: libraries/messages.inc.php:759
+#, fuzzy
 msgid "Relations"
-msgstr ""
+msgstr "테이블 작업"
 
 #: libraries/messages.inc.php:760
 msgid "Relation view"
@@ -3297,8 +3349,9 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/messages.inc.php:763
+#, fuzzy
 msgid "Reload privileges"
-msgstr ""
+msgstr "전체적 권한"
 
 #: libraries/messages.inc.php:764
 msgid "Reload"
@@ -3321,9 +3374,9 @@ msgid "Remove selected users"
 msgstr "선택한 사용자를 삭제"
 
 #: libraries/messages.inc.php:769
-#, php-format
+#, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "테이블 %s을(를) %s(으)로 변경하였습니다."
 
 #: libraries/messages.inc.php:770
 #, php-format
@@ -3335,12 +3388,12 @@ msgid "Rename table to"
 msgstr "테이블 이름 바꾸기"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "테이블 이름 바꾸기"
 
 #: libraries/messages.inc.php:773
 #, fuzzy
-#| msgid "Repair table"
 msgid "Repair"
 msgstr "테이블 복구"
 
@@ -3426,8 +3479,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "데이터베이스를 선택하세요"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3553,8 +3607,9 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "리세트"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3664,9 +3719,9 @@ msgid "Submit Query"
 msgstr "질의 실행"
 
 #: libraries/messages.inc.php:844
-#, php-format
+#, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "데이터베이스 %s에 SQL 질의를 실행"
 
 #: libraries/messages.inc.php:845
 #, php-format
@@ -3678,9 +3733,9 @@ msgid "Russian"
 msgstr ""
 
 #: libraries/messages.inc.php:848
-#, php-format
+#, fuzzy, php-format
 msgid "Save on server in %s directory"
-msgstr ""
+msgstr "웹서버 업로드 디렉토리"
 
 #: libraries/messages.inc.php:849
 msgid "Save position"
@@ -3772,12 +3827,13 @@ msgid "Select referenced key"
 msgstr ""
 
 #: libraries/messages.inc.php:871
+#, fuzzy
 msgid "Select Tables"
-msgstr ""
+msgstr "모두 선택"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "파일로 저장"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3796,12 +3852,14 @@ msgid "Server"
 msgstr "서버"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
+#, fuzzy
 msgid "Servers"
-msgstr ""
+msgstr "서버"
 
 #: libraries/messages.inc.php:878
+#, fuzzy
 msgid "Delayed inserts"
-msgstr ""
+msgstr "확장된 inserts"
 
 #: libraries/messages.inc.php:879
 msgid "Runtime Information"
@@ -3886,8 +3944,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:893
+#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "MySQL 서버에 로그인할 수 없습니다"
 
 #: libraries/messages.inc.php:894
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4165,28 +4224,33 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/messages.inc.php:957
+#, fuzzy
 msgid "Character set of the file"
-msgstr ""
+msgstr "파일 문자셋:"
 
 #: libraries/messages.inc.php:959
+#, fuzzy
 msgid "Database name template"
-msgstr ""
+msgstr "파일명 템플릿"
 
 #: libraries/messages.inc.php:960
+#, fuzzy
 msgid "Server name template"
-msgstr ""
+msgstr "파일명 템플릿"
 
 #: libraries/messages.inc.php:961
+#, fuzzy
 msgid "Table name template"
-msgstr ""
+msgstr "파일명 템플릿"
 
 #: libraries/messages.inc.php:963
 msgid "Save on server"
 msgstr ""
 
 #: libraries/messages.inc.php:965
+#, fuzzy
 msgid "Remember file name template"
-msgstr ""
+msgstr "파일명 템플릿"
 
 #: libraries/messages.inc.php:966
 msgid "no"
@@ -4253,8 +4317,9 @@ msgid "Customize default common import options"
 msgstr ""
 
 #: libraries/messages.inc.php:981
+#, fuzzy
 msgid "Import defaults"
-msgstr ""
+msgstr "파일 가져오기"
 
 #: libraries/messages.inc.php:982
 msgid "Set import and export directories and compression options"
@@ -4265,8 +4330,9 @@ msgid "Import / export"
 msgstr ""
 
 #: libraries/messages.inc.php:985
+#, fuzzy
 msgid "Databases display options"
-msgstr ""
+msgstr "데이터베이스 사용량 통계"
 
 #: libraries/messages.inc.php:986
 msgid "Customize appearance of the navigation frame"
@@ -4344,8 +4410,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
+#, fuzzy
 msgid "PMA database"
-msgstr ""
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4376,8 +4443,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/messages.inc.php:1014
+#, fuzzy
 msgid "SQL Query box"
-msgstr ""
+msgstr "SQL 질의"
 
 #: libraries/messages.inc.php:1015
 msgid ""
@@ -4386,24 +4454,27 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016
+#, fuzzy
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL 질의"
 
 #: libraries/messages.inc.php:1017
 msgid "Customize startup page"
 msgstr ""
 
 #: libraries/messages.inc.php:1018
+#, fuzzy
 msgid "Startup"
-msgstr ""
+msgstr "상태"
 
 #: libraries/messages.inc.php:1019
 msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/messages.inc.php:1020
+#, fuzzy
 msgid "Tabs"
-msgstr ""
+msgstr "테이블 "
 
 #: libraries/messages.inc.php:1021
 msgid ""
@@ -4424,8 +4495,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1024
+#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin 설명서"
 
 #: libraries/messages.inc.php:1025
 msgid "Extra parameters for iconv"
@@ -4588,8 +4660,9 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1062
+#, fuzzy
 msgid "Load"
-msgstr ""
+msgstr "Local"
 
 #: libraries/messages.inc.php:1063
 msgid ""
@@ -4681,8 +4754,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1081
+#, fuzzy
 msgid "Memory limit"
-msgstr ""
+msgstr "리소스 제한"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
 msgid "Use only icons, only text or both"
@@ -4815,8 +4889,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/messages.inc.php:1113
+#, fuzzy
 msgid "Add a new server"
-msgstr ""
+msgstr "새 사용자 추가"
 
 #: libraries/messages.inc.php:1114
 msgid "Leave blank if not used"
@@ -4902,8 +4977,9 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/messages.inc.php:1133
+#, fuzzy
 msgid "Connection type"
-msgstr ""
+msgstr "연결 수"
 
 #: libraries/messages.inc.php:1134
 msgid "Control user password"
@@ -4924,8 +5000,9 @@ msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1138
+#, fuzzy
 msgid "Count tables"
-msgstr ""
+msgstr "테이블이 없습니다"
 
 #: libraries/messages.inc.php:1139
 msgid ""
@@ -4975,8 +5052,9 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/messages.inc.php:1148
+#, fuzzy
 msgid "Hide databases"
-msgstr ""
+msgstr "데이터베이스가 없습니다"
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -4993,8 +5071,9 @@ msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/messages.inc.php:1152
+#, fuzzy
 msgid "Server hostname"
-msgstr ""
+msgstr "서버 선택"
 
 #: libraries/messages.inc.php:1153
 msgid "Logout URL"
@@ -5047,8 +5126,9 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1165
+#, fuzzy
 msgid "Server port"
-msgstr ""
+msgstr "서버 선택"
 
 #: libraries/messages.inc.php:1166
 msgid ""
@@ -5057,8 +5137,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1167
+#, fuzzy
 msgid "Relation table"
-msgstr ""
+msgstr "테이블 복구"
 
 #: libraries/messages.inc.php:1168
 msgid "SQL command to fetch available databases"
@@ -5091,8 +5172,9 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1175
+#, fuzzy
 msgid "Server socket"
-msgstr ""
+msgstr "서버 선택"
 
 #: libraries/messages.inc.php:1176
 msgid "Enable SSL for connection to MySQL server"
@@ -5175,8 +5257,9 @@ msgid "Show create database form"
 msgstr ""
 
 #: libraries/messages.inc.php:1194
+#, fuzzy
 msgid "Show form"
-msgstr ""
+msgstr "색깔 보기"
 
 #: libraries/messages.inc.php:1195
 msgid "Display the function fields in edit/insert mode"
@@ -5217,8 +5300,9 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1204
+#, fuzzy
 msgid "Show statistics"
-msgstr ""
+msgstr "행(레코드) 통계"
 
 #: libraries/messages.inc.php:1205
 msgid ""
@@ -5256,7 +5340,6 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "SQL 검사"
 
@@ -5271,8 +5354,9 @@ msgid "Suggest new database name"
 msgstr ""
 
 #: libraries/messages.inc.php:1219
+#, fuzzy
 msgid "yes"
-msgstr ""
+msgstr " 예 "
 
 #: libraries/messages.inc.php:1220
 msgid ""
@@ -5407,8 +5491,9 @@ msgid "Show color"
 msgstr "색깔 보기"
 
 #: libraries/messages.inc.php:1247
+#, fuzzy
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "데이터 사전 (전체 구조보기)"
 
 #: libraries/messages.inc.php:1248
 msgid "Show Full Queries"
@@ -5447,8 +5532,9 @@ msgid "Only show keys"
 msgstr ""
 
 #: libraries/messages.inc.php:1258
+#, fuzzy
 msgid "Show open tables"
-msgstr ""
+msgstr "테이블 보기"
 
 #: libraries/messages.inc.php:1259
 msgid "Show PHP information"
@@ -5885,7 +5971,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:1348
 #, fuzzy
-#| msgid "Reset"
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "리세트"
@@ -6139,8 +6224,9 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "토"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
@@ -6214,12 +6300,14 @@ msgid "Structure Difference"
 msgstr ""
 
 #: libraries/messages.inc.php:1420
+#, fuzzy
 msgid "Structure for view"
-msgstr ""
+msgstr "구조만"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "구조"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -6270,8 +6358,9 @@ msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/messages.inc.php:1433
+#, fuzzy
 msgid "Switch to copied database"
-msgstr ""
+msgstr "복사한 테이블로 옮겨감"
 
 #: libraries/messages.inc.php:1434
 msgid "Switch to copied table"
@@ -6296,18 +6385,18 @@ msgid "Add column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1440
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "사용자 %s 가 이미 존재합니다!"
 
 #: libraries/messages.inc.php:1441
 msgid "Alter column(s)"
 msgstr ""
 
 #: libraries/messages.inc.php:1442
-#, php-format
+#, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr ""
+msgstr "선택한 사용자들을 삭제했습니다."
 
 #: libraries/messages.inc.php:1443
 msgid "Alter index(s)"
@@ -6330,9 +6419,9 @@ msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
 #: libraries/messages.inc.php:1448
-#, php-format
+#, fuzzy, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "테이블 %s 을 제거했습니다."
 
 #: libraries/messages.inc.php:1449
 #, php-format
@@ -6366,8 +6455,9 @@ msgid "Table name"
 msgstr ""
 
 #: libraries/messages.inc.php:1456
+#, fuzzy
 msgid "Table of contents"
-msgstr ""
+msgstr "테이블 설명"
 
 #: libraries/messages.inc.php:1457
 msgid "Table options"
@@ -6532,8 +6622,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "서버 버전"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6541,8 +6632,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "데이터베이스"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -6553,8 +6645,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "데이터"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -6641,12 +6734,14 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "구조만"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr " 만들기 "
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
@@ -6657,8 +6752,9 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "PHP 버전"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -6677,16 +6773,18 @@ msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "테이블 검사"
 
 #: libraries/messages.inc.php:1530
 msgid "Untracked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "사용자명:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -6709,8 +6807,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "테이블 작업"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -7013,12 +7112,14 @@ msgid "Variable"
 msgstr "변수"
 
 #: libraries/messages.inc.php:1600
+#, fuzzy
 msgid "Version information"
-msgstr ""
+msgstr "로그인 정보"
 
 #: libraries/messages.inc.php:1601
+#, fuzzy
 msgid "View dump (schema) of databases"
-msgstr ""
+msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
 #: libraries/messages.inc.php:1602
 msgid "View dump (schema) of database"
@@ -7036,9 +7137,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1605
-#, php-format
+#, fuzzy, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "필드 %s 를 제거했습니다"
 
 #: libraries/messages.inc.php:1606
 msgid "View image"
@@ -7127,8 +7228,9 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "테이블이 없습니다"
 
 #: libraries/messages.inc.php:1629
 msgid "Export triggers"

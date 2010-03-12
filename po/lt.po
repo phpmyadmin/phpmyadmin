@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:38+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +36,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Siųsta"
@@ -45,7 +43,6 @@ msgstr "Siųsta"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Siųsta"
@@ -488,7 +485,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:102
 #, fuzzy
-#| msgid "Repair"
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Taisyti"
@@ -543,8 +539,9 @@ msgid "Browse foreign values"
 msgstr "Naršyti išorines reikšmes"
 
 #: libraries/messages.inc.php:115
+#, fuzzy
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Buferio pool'o dydis"
 
 #: libraries/messages.inc.php:116
 msgid "Buffer Pool"
@@ -575,8 +572,9 @@ msgid "Bulgarian"
 msgstr "Bulgarų"
 
 #: libraries/messages.inc.php:123
+#, fuzzy
 msgid "Busy pages"
-msgstr ""
+msgstr "Tušti puslapiai"
 
 #: libraries/messages.inc.php:124
 msgid "\"bzipped\""
@@ -711,8 +709,9 @@ msgid "Check All"
 msgstr "Pažymėti visus"
 
 #: libraries/messages.inc.php:153
+#, fuzzy
 msgid "Check"
-msgstr ""
+msgstr "Čekų"
 
 #: libraries/messages.inc.php:154
 msgid "Check tables having overhead"
@@ -780,9 +779,8 @@ msgid "Complete inserts"
 msgstr "Visiškas įterpimas"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
-msgstr "Suspaudimas"
+msgstr "Kompresija"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -869,12 +867,14 @@ msgid "Can't copy table to same one!"
 msgstr "Negalima kopijuoti lentelės į ją pačią!"
 
 #: libraries/messages.inc.php:187
+#, fuzzy
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "Nepavyko prisijungti prie MySQL serverio"
 
 #: libraries/messages.inc.php:188
+#, fuzzy
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Nepavyko prisijungti prie MySQL serverio"
 
 #: libraries/messages.inc.php:189
 #, php-format
@@ -918,16 +918,17 @@ msgid "Creation of PDFs"
 msgstr "PDF failo generavimas"
 
 #: libraries/messages.inc.php:198
+#, fuzzy
 msgid "Create relation"
-msgstr ""
+msgstr "Paskutinė versija"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Sukurti lentelę"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Sukurti lentelę"
@@ -942,15 +943,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Nėra"
 
 #: libraries/messages.inc.php:204
-#, php-format
+#, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
+msgstr "Patikrinti duombazės &quot;%s&quot; privilegijas."
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
@@ -1035,8 +1035,9 @@ msgid "%s databases have been dropped successfully."
 msgstr "Sėkmingai pašalintos %s duombazės."
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "Eiti į duomenų bazę"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1059,8 +1060,9 @@ msgstr ""
 "darbinių stočių, gali padidėti aukščiau normos."
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "Paieška duombazėje"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1071,8 +1073,9 @@ msgid "Data Dictionary"
 msgstr "Duomenų žodynas"
 
 #: libraries/messages.inc.php:233
+#, fuzzy
 msgid "Data Difference"
-msgstr ""
+msgstr "Skirtumas"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
@@ -1095,8 +1098,9 @@ msgid "Copy database to"
 msgstr "Kopijuoti duombazę į"
 
 #: libraries/messages.inc.php:239
+#, fuzzy
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Lentelė atrodo tuščia!"
 
 #: libraries/messages.inc.php:240
 msgid "Database-specific privileges"
@@ -1220,8 +1224,9 @@ msgid "Direct links"
 msgstr ""
 
 #: libraries/messages.inc.php:266
+#, fuzzy
 msgid "Dirty pages"
-msgstr ""
+msgstr "Tušti puslapiai"
 
 #: libraries/messages.inc.php:267
 msgid "Disabled"
@@ -1304,7 +1309,7 @@ msgstr "dinaminis"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "Redaguoti"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1423,8 +1428,9 @@ msgid "Execute bookmarked query"
 msgstr "Įvykdyti išsaugotą užklausą"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
+#, fuzzy
 msgid "Explain SQL"
-msgstr ""
+msgstr "Praleisti SQL užklausos aiškinimą"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1460,10 +1466,11 @@ msgid "Field %s has been dropped"
 msgstr "Laukas %s išmestas"
 
 #: libraries/messages.inc.php:326
+#, fuzzy
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
+msgstr "Gali būti apytikslis. Žiūrėkite DUK 3.11"
 
 #: libraries/messages.inc.php:327
 msgid "Fields enclosed by"
@@ -1583,12 +1590,14 @@ msgid "Free pages"
 msgstr "Tušti puslapiai"
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Fulltext"
 
 #: libraries/messages.inc.php:352
+#, fuzzy
 msgid "Full stop"
-msgstr ""
+msgstr "Fulltext"
 
 #: libraries/messages.inc.php:353
 msgid "Full Texts"
@@ -1975,8 +1984,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:444
+#, fuzzy
 msgid "Internal relation added"
-msgstr ""
+msgstr "Vidiniai sąryšiai"
 
 #: libraries/messages.inc.php:445
 msgid "Internal relations"
@@ -2015,8 +2025,9 @@ msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
 #: libraries/messages.inc.php:453
+#, fuzzy
 msgid "Invalid database"
-msgstr ""
+msgstr "Neteisingas lentelės vardas"
 
 #: libraries/messages.inc.php:454
 msgid "You have to add at least one field."
@@ -2086,8 +2097,9 @@ msgid "Do not change the password"
 msgstr "Nekeisti slaptažodžio"
 
 #: libraries/messages.inc.php:470
+#, fuzzy
 msgid "Key cache"
-msgstr ""
+msgstr "Užklausų saugykla"
 
 #: libraries/messages.inc.php:471
 msgid "Keyname"
@@ -2475,8 +2487,9 @@ msgid "Filter"
 msgstr "Filtras"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "No tables"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2544,7 +2557,6 @@ msgstr "Nėra pakeitimų"
 
 #: libraries/messages.inc.php:570
 #, fuzzy
-#| msgid "None"
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "Nėra"
@@ -2710,8 +2722,9 @@ msgid "Page number:"
 msgstr "Puslapis:"
 
 #: libraries/messages.inc.php:611
+#, fuzzy
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Lentelės buferis  %s išvalytas"
 
 #: libraries/messages.inc.php:612
 msgid "Paper size"
@@ -2734,8 +2747,9 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:617
+#, fuzzy
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Lentelės diagnostika"
 
 #: libraries/messages.inc.php:618
 #, php-format
@@ -2821,8 +2835,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:635
+#, fuzzy
 msgid "Log buffer size"
-msgstr ""
+msgstr "Rūšiavimo buferio dydis"
 
 #: libraries/messages.inc.php:636
 msgid ""
@@ -2831,8 +2846,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:637
+#, fuzzy
 msgid "Log cache size"
-msgstr ""
+msgstr "Rūšiavimo buferio dydis"
 
 #: libraries/messages.inc.php:638
 msgid ""
@@ -2900,8 +2916,9 @@ msgid "No tables"
 msgstr "No tables"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Duomenų bazė %1$s sukurta."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -2944,8 +2961,9 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
+#, fuzzy
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Sukurti naują puslapį"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3055,16 +3073,18 @@ msgid "Allows altering the structure of existing tables."
 msgstr "Leisti keisti jau egzistuojančių lenetelių struktūrą."
 
 #: libraries/messages.inc.php:688
+#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "Leisti įterpti ir modifikuoti indeksus."
 
 #: libraries/messages.inc.php:689
 msgid "Allows creating new databases and tables."
 msgstr "Leisti kurti naujas duombazes ir lenteles."
 
 #: libraries/messages.inc.php:690
+#, fuzzy
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "Leidžia sukurti naujus view'us."
 
 #: libraries/messages.inc.php:691
 msgid "Allows creating new tables."
@@ -3099,8 +3119,9 @@ msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
 #: libraries/messages.inc.php:699
+#, fuzzy
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "Leidžia sukurti naujus view'us."
 
 #: libraries/messages.inc.php:700
 msgid "Allows running stored procedures; has no effect in this MySQL version."
@@ -3146,8 +3167,9 @@ msgstr ""
 "kiekį per valandą."
 
 #: libraries/messages.inc.php:709
+#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "Riboti prisijungimų kiekį per valandą."
 
 #: libraries/messages.inc.php:710
 msgid "Allows viewing processes of all users"
@@ -3198,8 +3220,9 @@ msgstr ""
 "vartotojų atjungimui."
 
 #: libraries/messages.inc.php:720
+#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr ""
+msgstr "Leisti įterpti ir modifikuoti indeksus."
 
 #: libraries/messages.inc.php:721
 msgid "Allows changing data."
@@ -3327,23 +3350,25 @@ msgstr "Patikrinti sąryšių vientisumą:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
-msgstr ""
+msgstr "Atnaujinti"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
 msgstr ""
 
 #: libraries/messages.inc.php:754
+#, fuzzy
 msgid "Relational key"
-msgstr ""
+msgstr "Ryšių schema"
 
 #: libraries/messages.inc.php:755
 msgid "Relational schema"
 msgstr "Ryšių schema"
 
 #: libraries/messages.inc.php:756
+#, fuzzy
 msgid "Relation deleted"
-msgstr ""
+msgstr "Peržiūrėti sąryšius"
 
 #: libraries/messages.inc.php:757
 #, php-format
@@ -3413,8 +3438,9 @@ msgid "Rename table to"
 msgstr "Pervadinti lentelę į"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Pervadinti lentelę į"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3483,12 +3509,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "Serverio nustatymai"
 
 #: libraries/messages.inc.php:788
+#, fuzzy
 msgid "Master replication"
-msgstr ""
+msgstr "Serverio nustatymai"
 
 #: libraries/messages.inc.php:789
 msgid "Replication"
@@ -3502,8 +3530,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "Pasirinkite duombazę"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3535,8 +3564,9 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:798
+#, fuzzy
 msgid "Slave configuration"
-msgstr ""
+msgstr "Serverio nustatymai"
 
 #: libraries/messages.inc.php:799
 msgid ""
@@ -3584,8 +3614,9 @@ msgid "Skip next"
 msgstr ""
 
 #: libraries/messages.inc.php:809
+#, fuzzy
 msgid "Slave replication"
-msgstr ""
+msgstr "Serverio nustatymai"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
@@ -3617,8 +3648,9 @@ msgid "Slave status"
 msgstr ""
 
 #: libraries/messages.inc.php:816
+#, fuzzy
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Sinchronizuoti duomenų bazes"
 
 #: libraries/messages.inc.php:817
 msgid "Unable to change master"
@@ -3629,8 +3661,9 @@ msgid "Unknown error"
 msgstr "Nežinoma klaida"
 
 #: libraries/messages.inc.php:819
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "Atstatyti į pradinę būseną"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3740,9 +3773,9 @@ msgid "Submit Query"
 msgstr "Vykdyti užklausą"
 
 #: libraries/messages.inc.php:844
-#, php-format
+#, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "Vykdyti SQL sakinius duombazėje <strong>%s</strong>"
 
 #: libraries/messages.inc.php:845
 #, php-format
@@ -3878,8 +3911,9 @@ msgid "Servers"
 msgstr "Serveriai"
 
 #: libraries/messages.inc.php:878
+#, fuzzy
 msgid "Delayed inserts"
-msgstr ""
+msgstr "Naudoti užlaikytus įterpimus"
 
 #: libraries/messages.inc.php:879
 msgid "Runtime Information"
@@ -4122,24 +4156,27 @@ msgid "Tab that is displayed when entering a database"
 msgstr ""
 
 #: libraries/messages.inc.php:927
+#, fuzzy
 msgid "Default database tab"
-msgstr ""
+msgstr "Pervadinti duombazę į"
 
 #: libraries/messages.inc.php:928
 msgid "Tab that is displayed when entering a server"
 msgstr ""
 
 #: libraries/messages.inc.php:929
+#, fuzzy
 msgid "Default server tab"
-msgstr ""
+msgstr "Įprastinis serveris"
 
 #: libraries/messages.inc.php:930
 msgid "Tab that is displayed when entering a table"
 msgstr ""
 
 #: libraries/messages.inc.php:931
+#, fuzzy
 msgid "Default table tab"
-msgstr ""
+msgstr "Pervadinti duombazę į"
 
 #: libraries/messages.inc.php:932
 msgid ""
@@ -4244,8 +4281,9 @@ msgid "Maximum execution time"
 msgstr "Ilgiausias vykdymo laikas"
 
 #: libraries/messages.inc.php:957
+#, fuzzy
 msgid "Character set of the file"
-msgstr ""
+msgstr "Simbolių koduotė faile:"
 
 #: libraries/messages.inc.php:959
 msgid "Database name template"
@@ -4320,20 +4358,23 @@ msgid "Edit mode"
 msgstr ""
 
 #: libraries/messages.inc.php:978
+#, fuzzy
 msgid "Customize default export options"
-msgstr ""
+msgstr "Duombazės eksportavimo parinktys"
 
 #: libraries/messages.inc.php:979
+#, fuzzy
 msgid "Export defaults"
-msgstr ""
+msgstr "Eksportuoti lenteles"
 
 #: libraries/messages.inc.php:980
 msgid "Customize default common import options"
 msgstr ""
 
 #: libraries/messages.inc.php:981
+#, fuzzy
 msgid "Import defaults"
-msgstr ""
+msgstr "Importuoti failus"
 
 #: libraries/messages.inc.php:982
 msgid "Set import and export directories and compression options"
@@ -4356,8 +4397,9 @@ msgid "Navigation frame"
 msgstr ""
 
 #: libraries/messages.inc.php:988
+#, fuzzy
 msgid "Servers display options"
-msgstr ""
+msgstr "Lentelių rodymo nustatymai"
 
 #: libraries/messages.inc.php:990
 msgid "Tables display options"
@@ -4376,8 +4418,9 @@ msgid "Other core settings"
 msgstr ""
 
 #: libraries/messages.inc.php:995
+#, fuzzy
 msgid "Customize query window options"
-msgstr ""
+msgstr "Duombazės eksportavimo parinktys"
 
 #: libraries/messages.inc.php:997
 msgid ""
@@ -4423,24 +4466,27 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
+#, fuzzy
 msgid "PMA database"
-msgstr ""
+msgstr "Nėra duombazių"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
 msgstr ""
 
 #: libraries/messages.inc.php:1008
+#, fuzzy
 msgid "Customize export options"
-msgstr ""
+msgstr "Duombazės eksportavimo parinktys"
 
 #: libraries/messages.inc.php:1009
 msgid "Features"
 msgstr "Funkcijos"
 
 #: libraries/messages.inc.php:1010
+#, fuzzy
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Duombazės eksportavimo parinktys"
 
 #: libraries/messages.inc.php:1011
 msgid "Customize navigation frame"
@@ -4465,16 +4511,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016
+#, fuzzy
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL užklausa"
 
 #: libraries/messages.inc.php:1017
 msgid "Customize startup page"
 msgstr ""
 
 #: libraries/messages.inc.php:1018
+#, fuzzy
 msgid "Startup"
-msgstr ""
+msgstr "Statusas"
 
 #: libraries/messages.inc.php:1019
 msgid "Choose how you want tabs to work"
@@ -4525,15 +4573,20 @@ msgid "Ignore multiple statement errors"
 msgstr ""
 
 #: libraries/messages.inc.php:1029
+#, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Leisti sustabdyti importavimą jei skriptas nustato, kad priartėta prie laiko "
+"limito. Gali būti naudinga importuojant didelius failus, tačiau gali "
+"sugadinti transakcijas."
 
 #: libraries/messages.inc.php:1030
+#, fuzzy
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Dalinis importas: praleisti užklausas"
 
 #: libraries/messages.inc.php:1031
 msgid ""
@@ -4600,8 +4653,9 @@ msgid "String that separates databases into different tree levels"
 msgstr ""
 
 #: libraries/messages.inc.php:1046
+#, fuzzy
 msgid "Database tree separator"
-msgstr ""
+msgstr "Duomenų bazės vardo šablonas"
 
 #: libraries/messages.inc.php:1047
 msgid ""
@@ -4610,16 +4664,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1048
+#, fuzzy
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Rodyti duomenų bazes kaip sąrašą"
 
 #: libraries/messages.inc.php:1049
 msgid "Disable this if you want to see all databases at once"
 msgstr ""
 
 #: libraries/messages.inc.php:1050
+#, fuzzy
 msgid "Use light version"
-msgstr ""
+msgstr "MySQL kliento versija"
 
 #: libraries/messages.inc.php:1051
 msgid "Maximum table tree depth"
@@ -4630,8 +4686,9 @@ msgid "String that separates tables into different tree levels"
 msgstr ""
 
 #: libraries/messages.inc.php:1053
+#, fuzzy
 msgid "Table tree separator"
-msgstr ""
+msgstr "Duomenų bazės vardo šablonas"
 
 #: libraries/messages.inc.php:1054
 msgid "Logo link URL"
@@ -4648,8 +4705,9 @@ msgid "Logo link target"
 msgstr ""
 
 #: libraries/messages.inc.php:1057
+#, fuzzy
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Paryškinti eilutę po pelės žymekliu"
 
 #: libraries/messages.inc.php:1058
 msgid "Enable highlighting"
@@ -4668,8 +4726,9 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1062
+#, fuzzy
 msgid "Load"
-msgstr ""
+msgstr "Lokali darbinė stotis"
 
 #: libraries/messages.inc.php:1063
 msgid ""
@@ -4732,8 +4791,9 @@ msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1075
+#, fuzzy
 msgid "Maximum databases"
-msgstr ""
+msgstr "Nėra duombazių"
 
 #: libraries/messages.inc.php:1076
 msgid ""
@@ -4761,8 +4821,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1081
+#, fuzzy
 msgid "Memory limit"
-msgstr ""
+msgstr "Išteklių apribojimai"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
 msgid "Use only icons, only text or both"
@@ -4895,8 +4956,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/messages.inc.php:1113
+#, fuzzy
 msgid "Add a new server"
-msgstr ""
+msgstr "Sukurti naują vartotoją"
 
 #: libraries/messages.inc.php:1114
 msgid "Leave blank if not used"
@@ -4970,12 +5032,14 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/messages.inc.php:1130
+#, fuzzy
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "Nepavyko prisijungti prie MySQL serverio"
 
 #: libraries/messages.inc.php:1131
+#, fuzzy
 msgid "Compress connection"
-msgstr ""
+msgstr "Naudoti SSL susijungimą"
 
 #: libraries/messages.inc.php:1132
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
@@ -5004,8 +5068,9 @@ msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1138
+#, fuzzy
 msgid "Count tables"
-msgstr ""
+msgstr "No tables"
 
 #: libraries/messages.inc.php:1139
 msgid ""
@@ -5014,8 +5079,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1140
+#, fuzzy
 msgid "Designer table"
-msgstr ""
+msgstr "Defragmentuoti lentelę"
 
 #: libraries/messages.inc.php:1141
 msgid ""
@@ -5039,8 +5105,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1144
+#, fuzzy
 msgid "Edit server"
-msgstr ""
+msgstr "Naujas serveris"
 
 #: libraries/messages.inc.php:1145
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -5055,8 +5122,9 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/messages.inc.php:1148
+#, fuzzy
 msgid "Hide databases"
-msgstr ""
+msgstr "Nėra duombazių"
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -5137,8 +5205,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1167
+#, fuzzy
 msgid "Relation table"
-msgstr ""
+msgstr "Redaguoti"
 
 #: libraries/messages.inc.php:1168
 msgid "SQL command to fetch available databases"
@@ -5171,12 +5240,14 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1175
+#, fuzzy
 msgid "Server socket"
-msgstr ""
+msgstr "Serverio jungtis"
 
 #: libraries/messages.inc.php:1176
+#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Nepavyko prisijungti prie MySQL serverio"
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
@@ -5212,8 +5283,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1185
+#, fuzzy
 msgid "Verbose check"
-msgstr ""
+msgstr "Versijos patikrinimas"
 
 #: libraries/messages.inc.php:1186
 msgid ""
@@ -5255,8 +5327,9 @@ msgid "Show create database form"
 msgstr ""
 
 #: libraries/messages.inc.php:1194
+#, fuzzy
 msgid "Show form"
-msgstr ""
+msgstr "Rodyti spalvą"
 
 #: libraries/messages.inc.php:1195
 msgid "Display the function fields in edit/insert mode"
@@ -5289,16 +5362,18 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/messages.inc.php:1202
+#, fuzzy
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Rodyti pilnas užklausas"
 
 #: libraries/messages.inc.php:1203
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1204
+#, fuzzy
 msgid "Show statistics"
-msgstr ""
+msgstr "Eilučių statistika"
 
 #: libraries/messages.inc.php:1205
 msgid ""
@@ -5332,8 +5407,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1211
+#, fuzzy
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Rodyti lentelės"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
 #, fuzzy
@@ -5519,16 +5595,18 @@ msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Rodoma SQL užklausa"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
 msgstr ""
 
 #: libraries/messages.inc.php:1258
+#, fuzzy
 msgid "Show open tables"
-msgstr ""
+msgstr "Rodyti lentelės"
 
 #: libraries/messages.inc.php:1259
 msgid "Show PHP information"
@@ -5596,8 +5674,9 @@ msgid "The number of executed FLUSH statements."
 msgstr "Įvykdytų FLUSH užklausų skaičius."
 
 #: libraries/messages.inc.php:1272
+#, fuzzy
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Įvykdytų FLUSH užklausų skaičius."
 
 #: libraries/messages.inc.php:1273
 msgid "The number of times a row was deleted from a table."
@@ -5653,8 +5732,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1281
+#, fuzzy
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Įvykdytų FLUSH užklausų skaičius."
 
 #: libraries/messages.inc.php:1282
 msgid "The number of requests to update a row in a table."
@@ -5669,16 +5749,18 @@ msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 
 #: libraries/messages.inc.php:1285
+#, fuzzy
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "Duomenų nuskaitymų skaičius."
 
 #: libraries/messages.inc.php:1286
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: libraries/messages.inc.php:1287
+#, fuzzy
 msgid "The number of free pages."
-msgstr ""
+msgstr "Įkeltų eilučių skaičius"
 
 #: libraries/messages.inc.php:1288
 msgid ""
@@ -5739,16 +5821,19 @@ msgid "The number of fsync() operations so far."
 msgstr ""
 
 #: libraries/messages.inc.php:1298
+#, fuzzy
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Duomenų nuskaitymų skaičius."
 
 #: libraries/messages.inc.php:1299
+#, fuzzy
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Duomenų nuskaitymų skaičius."
 
 #: libraries/messages.inc.php:1300
+#, fuzzy
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Duomenų įrašymų skaičius."
 
 #: libraries/messages.inc.php:1301
 msgid "The amount of data read so far, in bytes."
@@ -5781,8 +5866,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1308
+#, fuzzy
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Įkeltų eilučių skaičius"
 
 #: libraries/messages.inc.php:1309
 msgid "The number of physical writes to the log file."
@@ -5805,8 +5891,9 @@ msgid "The number of bytes written to the log file."
 msgstr ""
 
 #: libraries/messages.inc.php:1314
+#, fuzzy
 msgid "The number of pages created."
-msgstr ""
+msgstr "Duomenų nuskaitymų skaičius."
 
 #: libraries/messages.inc.php:1315
 msgid ""
@@ -5815,12 +5902,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1316
+#, fuzzy
 msgid "The number of pages read."
-msgstr ""
+msgstr "Duomenų nuskaitymų skaičius."
 
 #: libraries/messages.inc.php:1317
+#, fuzzy
 msgid "The number of pages written."
-msgstr ""
+msgstr "Duomenų įrašymų skaičius."
 
 #: libraries/messages.inc.php:1318
 msgid "The number of row locks currently being waited for."
@@ -5914,16 +6003,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1337
+#, fuzzy
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Duomenų įrašymų skaičius."
 
 #: libraries/messages.inc.php:1338
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
 #: libraries/messages.inc.php:1339
+#, fuzzy
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Duomenų įrašymų skaičius."
 
 #: libraries/messages.inc.php:1340
 msgid "The number of free memory blocks in query cache."
@@ -5934,8 +6025,9 @@ msgid "The amount of free memory for query cache."
 msgstr ""
 
 #: libraries/messages.inc.php:1342
+#, fuzzy
 msgid "The number of cache hits."
-msgstr ""
+msgstr "Įkeltų eilučių skaičius"
 
 #: libraries/messages.inc.php:1343
 msgid "The number of queries added to the cache."
@@ -5965,7 +6057,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:1348
 #, fuzzy
-#| msgid "Reset"
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Atstatyti į pradinę būseną"
@@ -6037,8 +6128,9 @@ msgid "The number of sorts that were done with ranges."
 msgstr ""
 
 #: libraries/messages.inc.php:1362
+#, fuzzy
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "Įkeltų eilučių skaičius"
 
 #: libraries/messages.inc.php:1363
 msgid "The number of sorts that were done by scanning the table."
@@ -6224,12 +6316,14 @@ msgid "Unknown Punctuation String"
 msgstr "Klaidinga skyryba"
 
 #: libraries/messages.inc.php:1401
+#, fuzzy
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Tik struktūra"
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "Šeštadienis"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
@@ -6299,24 +6393,28 @@ msgid "Propose table structure"
 msgstr "Analizuoti lentelės struktūrą"
 
 #: libraries/messages.inc.php:1419
+#, fuzzy
 msgid "Structure Difference"
-msgstr ""
+msgstr "Skirtumas"
 
 #: libraries/messages.inc.php:1420
+#, fuzzy
 msgid "Structure for view"
-msgstr ""
+msgstr "Tik struktūra"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "Struktūra"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
 msgstr "Struktūra"
 
 #: libraries/messages.inc.php:1423
+#, fuzzy
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Duomenų sinchronizacija"
 
 #: libraries/messages.inc.php:1424
 msgid "Submit"
@@ -6403,8 +6501,9 @@ msgid "Alter index(s)"
 msgstr "Keisti indeksą(-us)"
 
 #: libraries/messages.inc.php:1444
+#, fuzzy
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Keisti indeksą(-us)"
 
 #: libraries/messages.inc.php:1445
 msgid "Table comments"
@@ -6419,9 +6518,9 @@ msgid "The table name is empty!"
 msgstr "Tuščias lentelės vardas!"
 
 #: libraries/messages.inc.php:1448
-#, php-format
+#, fuzzy, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "Duomenų bazė %1$s sukurta."
 
 #: libraries/messages.inc.php:1449
 #, php-format
@@ -6463,12 +6562,14 @@ msgid "Table options"
 msgstr "Lentelės parinktys"
 
 #: libraries/messages.inc.php:1458
+#, fuzzy
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Pridėti stulpelį(-ius)"
 
 #: libraries/messages.inc.php:1459
+#, fuzzy
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Keisti indeksą(-us)"
 
 #: libraries/messages.inc.php:1460
 #, php-format
@@ -6621,8 +6722,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "Paskutinė versija"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6630,8 +6732,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "Duombazė"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -6655,9 +6758,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Eksportuoti lenteles"
 
 #: libraries/messages.inc.php:1503
 msgid "Tracking is active."
@@ -6690,8 +6793,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: libraries/messages.inc.php:1510
+#, fuzzy
 msgid "Show versions"
-msgstr ""
+msgstr "Paskutinė versija"
 
 #: libraries/messages.inc.php:1511
 msgid "SQL dump (file download)"
@@ -6730,8 +6834,9 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Tik struktūra"
 
 #: libraries/messages.inc.php:1521
 msgid "Created"
@@ -6758,20 +6863,23 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1527
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "Patikrinti lentelę"
 
 #: libraries/messages.inc.php:1528
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "Patikrinti lentelę"
 
 #: libraries/messages.inc.php:1530
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "Patikrinti lentelę"
 
 #: libraries/messages.inc.php:1531
 msgid "Username"
@@ -7233,8 +7341,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1624
+#, fuzzy
 msgid "Export contents"
-msgstr ""
+msgstr "Eksportuoti funkcijas"
 
 #: libraries/messages.inc.php:1625
 msgid "Export functions"
@@ -7253,12 +7362,14 @@ msgid "Export tables"
 msgstr "Eksportuoti lenteles"
 
 #: libraries/messages.inc.php:1629
+#, fuzzy
 msgid "Export triggers"
-msgstr ""
+msgstr "Eksportuoti lenteles"
 
 #: libraries/messages.inc.php:1630
+#, fuzzy
 msgid "Export views"
-msgstr ""
+msgstr "Eksportuoti lenteles"
 
 #: libraries/messages.inc.php:1631
 msgid "XML"
@@ -7291,7 +7402,3 @@ msgstr "Norint naudoti _ ir % simblius, juos reikėtų eskeipinti su \\"
 
 #~ msgid "Jan2"
 #~ msgstr "Sausio2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Nėra"

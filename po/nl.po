@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:36+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +35,7 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
+#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "en"
@@ -784,7 +784,6 @@ msgid "Complete inserts"
 msgstr "Invoegen voltooid"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Compressie"
 
@@ -932,12 +931,12 @@ msgid "Create relation"
 msgstr "Maak relatie"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Maak tabel"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Maak tabel"
@@ -978,7 +977,6 @@ msgid "Croatian"
 msgstr "Kroatisch"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV gegevens"
 
@@ -1034,7 +1032,6 @@ msgid "'%s' database does not exist."
 msgstr "Database '%s' bestaat niet."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Databases"
 
@@ -1196,7 +1193,6 @@ msgid "Descending"
 msgstr "Aflopend"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -1313,7 +1309,6 @@ msgid "dynamic"
 msgstr "dynamisch"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Wijzig"
 
@@ -1435,7 +1430,6 @@ msgid "Execute bookmarked query"
 msgstr "Voor de gebookmarkte query uit"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
@@ -1581,15 +1575,13 @@ msgstr "Font formaat"
 #: libraries/messages.inc.php:346
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
-"Fout bij het maken van vreemdesleutel naar %1$s (controleer data typen)"
+msgstr "Fout bij het maken van vreemdesleutel naar %1$ (controleer data typen)"
 
 #: libraries/messages.inc.php:347
 msgid "FOREIGN KEY relation added"
 msgstr "Vreemde sleutel(FOREIGN KEY) relatie toegevoegd"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Opmaak"
 
@@ -1814,7 +1806,6 @@ msgid "Import files"
 msgstr "Bestanden importeren"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
 
@@ -1855,7 +1846,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Valuta importeren ($5.00 naar 5.00)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document Spreadsheet"
 
@@ -2530,8 +2520,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Geen Tabellen"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2710,7 +2701,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Totaal:</b> <i>%s</i> overeenkomst(en)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -2755,7 +2745,6 @@ msgid "Overhead"
 msgstr "Overhead"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Overschrijf bestaand(e) bestand(en)"
 
@@ -2985,8 +2974,9 @@ msgid "No tables"
 msgstr "Geen Tabellen"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Tabel %1$s is aangemaakt."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3029,7 +3019,6 @@ msgid "PHP array"
 msgstr "PHP-array"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Genereer PHP-Code"
 
@@ -3362,7 +3351,6 @@ msgid "Query cache"
 msgstr "Query cache"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Query-venster"
 
@@ -3426,7 +3414,6 @@ msgid "Check referential integrity:"
 msgstr "Controleer referentiële integriteit"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Vernieuw"
 
@@ -3472,8 +3459,9 @@ msgid "Reloading the privileges"
 msgstr "Bezig de privileges te verversen"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Aanpassen navigatieframe"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3514,8 +3502,9 @@ msgid "Rename table to"
 msgstr "Tabel hernoemen naar"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Tabel hernoemen naar"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3638,7 +3627,6 @@ msgid "Show connected slaves"
 msgstr "Toon verbonden slaves"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Toon master status"
 
@@ -3752,7 +3740,6 @@ msgid "Unknown error"
 msgstr "Onbekende fout"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Herstel"
 
@@ -3979,7 +3966,6 @@ msgid "Select Tables"
 msgstr "Selecteer tabellen"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Opslaan als bestand"
 
@@ -4000,7 +3986,6 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Servers"
 
@@ -4610,7 +4595,6 @@ msgstr ""
 "infrastructure[/a] in de documentatie"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA database"
 
@@ -4744,7 +4728,6 @@ msgstr ""
 "tabel), enkel SQL is altijd beschikbaar."
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
 
@@ -4998,7 +4981,6 @@ msgid "Memory limit"
 msgstr "Geheugen limiet"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Gebruik enkel iconen, enkel tekst of beide"
 
@@ -5376,7 +5358,6 @@ msgid "Show only listed databases"
 msgstr "Toon enkel de opgesomde databases"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr ""
 "Laat dit veld leeg indien u geen gebruik maakt van 'config' authenticatie"
@@ -5657,7 +5638,6 @@ msgid "Skip locked tables"
 msgstr "Herken vergrendelde tabellen"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Valideer SQL"
 
@@ -5864,8 +5844,9 @@ msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Toont SQL-query"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -7511,7 +7492,7 @@ msgstr ""
 #: libraries/messages.inc.php:1570
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "U moet opwaarderen (upgraden) naar %s %s of hoger."
+msgstr "U moet opwaarderen (upgraden) naar %s of hoger."
 
 #: libraries/messages.inc.php:1571
 msgid "Failed to write file to disk."
@@ -7797,11 +7778,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Wildcards _ en % moeten worden ge-escaped met een \\ om ze letterlijk te "
 "gebruiken"
-
-#, fuzzy
-#~ msgctxt "$mysql_4_1_doc_lang"
-#~ msgid "en"
-#~ msgstr "en"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

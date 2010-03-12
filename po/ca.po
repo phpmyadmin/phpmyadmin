@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:36+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:13+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +36,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Enviat"
@@ -45,7 +43,6 @@ msgstr "Enviat"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Enviat"
@@ -781,7 +778,6 @@ msgid "Complete inserts"
 msgstr "Completa insercions"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Compresió"
 
@@ -929,12 +925,12 @@ msgid "Create relation"
 msgstr "Crea una relació"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Crea una taula"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Crea una taula"
@@ -975,7 +971,6 @@ msgid "Croatian"
 msgstr "Croata"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "dades CSV "
 
@@ -1031,7 +1026,6 @@ msgid "'%s' database does not exist."
 msgstr "La base de dades '%s' no existeix."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Bases de dades"
 
@@ -1194,7 +1188,6 @@ msgid "Descending"
 msgstr "Descendent"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Descripció"
 
@@ -1312,7 +1305,6 @@ msgid "dynamic"
 msgstr "dinàmic"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Edita"
 
@@ -1433,7 +1425,6 @@ msgid "Execute bookmarked query"
 msgstr "Executa una consulta desada"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Explica SQL"
 
@@ -1583,7 +1574,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "Afegida relació de FOREIGN KEY"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
@@ -1810,7 +1800,6 @@ msgid "Import files"
 msgstr "Importa arxius"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Format de l'arxiu importat"
 
@@ -1853,7 +1842,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar monedes ($5.00 a 5.00)"
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Full de càlcul Open Document"
 
@@ -2522,8 +2510,9 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "No hi ha taules"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2700,7 +2689,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Total:</b> <i>%s</i> resultat(s)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Taules"
 
@@ -2745,7 +2733,6 @@ msgid "Overhead"
 msgstr "Defragmentat"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "Sobreescriu arxiu(s) existent(s)"
 
@@ -2977,8 +2964,9 @@ msgid "No tables"
 msgstr "No hi ha taules"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "S'ha creat la taula %1$s."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3021,7 +3009,6 @@ msgid "PHP array"
 msgstr "matriu PHP"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "Crea codi PHP"
 
@@ -3347,7 +3334,6 @@ msgid "Query cache"
 msgstr "Memòria cau de consultes"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Finestra de consultes"
 
@@ -3376,7 +3362,7 @@ msgstr ""
 #: libraries/messages.inc.php:742
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "La consulta tarda %01.4f seg"
+msgstr "La consulta tarda %s seg"
 
 #: libraries/messages.inc.php:743
 msgid "Query type"
@@ -3411,7 +3397,6 @@ msgid "Check referential integrity:"
 msgstr "Comprova la integritat referencial:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Refresca"
 
@@ -3457,8 +3442,9 @@ msgid "Reloading the privileges"
 msgstr "Recarregant permisos"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Configurar marc de navegació"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3499,8 +3485,9 @@ msgid "Rename table to"
 msgstr "Reanomena les taules a"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Reanomena les taules a"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3626,7 +3613,6 @@ msgid "Show connected slaves"
 msgstr "Mostra els esclaus connectats"
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Mostra l'estat del mestre (Show master status)"
 
@@ -3740,7 +3726,6 @@ msgid "Unknown error"
 msgstr "Error desconegut"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Reinicia"
 
@@ -3966,7 +3951,6 @@ msgid "Select Tables"
 msgstr "Tria Taules"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Desa com a arxiu"
 
@@ -3987,7 +3971,6 @@ msgid "Server"
 msgstr "Servidor"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Servidors"
 
@@ -4592,7 +4575,6 @@ msgstr ""
 "de taules enllaçades[/a] a la documentació"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "Base de dades PMA"
 
@@ -4727,7 +4709,6 @@ msgstr ""
 "(base de dades, taula) i només SQL està sempre disponible"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Nombre de registres(consultes) a saltar des de l'inici"
 
@@ -4980,7 +4961,6 @@ msgid "Memory limit"
 msgstr "Límit de memoria"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Usa només icones, només text o bé ambdós"
 
@@ -5355,7 +5335,6 @@ msgid "Show only listed databases"
 msgstr "Mostra només les bases de dades de la llista"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Deixa en blanc si no utilitzes l'autenticació config"
 
@@ -5631,7 +5610,6 @@ msgid "Skip locked tables"
 msgstr "Salta taules bloquejades"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Valida l'SQL"
 
@@ -5835,8 +5813,9 @@ msgid "Showing SQL query"
 msgstr "Mostrant consulta SQL"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Mostrant consulta SQL"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -6770,8 +6749,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation%s "
-"per a possibles assumptes."
+"Servidor executant-se amb Suhosin. Si us plau, consulta %sdocumentation% per "
+"a possibles assumptes."
 
 #: libraries/messages.inc.php:1427
 msgid "Sum"
@@ -7623,7 +7602,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
-"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
+"Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%."
 
 #: libraries/messages.inc.php:1605
 #, php-format

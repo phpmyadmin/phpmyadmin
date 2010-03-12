@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:37+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,8 +36,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgctxt "$mysql_5_0_doc_lang"
-#| msgid "en"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "fr"
@@ -954,7 +951,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "aucune"
@@ -4180,8 +4176,9 @@ msgid "Row marker"
 msgstr "Activer le marqueur d'enregistrements"
 
 #: libraries/messages.inc.php:902
+#, fuzzy
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "...dans le panneau de navigation"
 
 #: libraries/messages.inc.php:903
 msgid "Highlight pointer"
@@ -5206,8 +5203,9 @@ msgid "SweKey config file"
 msgstr "Fichier de configuration SweKey"
 
 #: libraries/messages.inc.php:1124
+#, fuzzy
 msgid "Authentication method to use"
-msgstr ""
+msgstr "Type d'Authentification"
 
 #: libraries/messages.inc.php:1125
 msgid "Authentication type"
@@ -7789,10 +7787,6 @@ msgstr "Préfixer avec \\ les passepartouts _ et % pour un usage littéral"
 
 #~ msgid "Jan2"
 #~ msgstr "Janvier2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Aucune"
 
 #~ msgid ""
 #~ "Structure Difference' ;\n"

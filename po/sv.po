@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:39+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +36,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Skickade"
@@ -45,7 +43,6 @@ msgstr "Skickade"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Skickade"
@@ -462,7 +459,7 @@ msgstr "Vill du verkligen inaktivera alla BLOB-referenser för databas %s?"
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Inaktiverat"
+msgstr "Inaktiverad"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -476,7 +473,7 @@ msgstr "Du håller på att inaktivera en BLOB-förvaringsplats!"
 #, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Aktiverat"
+msgstr "Aktiverad"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -780,7 +777,6 @@ msgid "Complete inserts"
 msgstr "Kompletta infogningar"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Komprimering"
 
@@ -871,12 +867,14 @@ msgid "Can't copy table to same one!"
 msgstr "Kan inte kopiera tabell till samma namn!"
 
 #: libraries/messages.inc.php:187
+#, fuzzy
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "Kunde inte ansluta till MySQL-server"
 
 #: libraries/messages.inc.php:188
+#, fuzzy
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Kunde inte ansluta till MySQL-server"
 
 #: libraries/messages.inc.php:189
 #, php-format
@@ -924,12 +922,12 @@ msgid "Create relation"
 msgstr "Skapa relation"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Skapa tabell"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Skapa tabell"
@@ -944,7 +942,6 @@ msgstr "Skapa databas med samma namn och ge alla privilegier"
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Inget"
@@ -1037,8 +1034,9 @@ msgid "%s databases have been dropped successfully."
 msgstr "%s databaser har tagits bort."
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "Sök i databas"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1061,8 +1059,9 @@ msgstr ""
 "MySQL-servern."
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "Sök i databas"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1073,8 +1072,9 @@ msgid "Data Dictionary"
 msgstr "Datalexikon"
 
 #: libraries/messages.inc.php:233
+#, fuzzy
 msgid "Data Difference"
-msgstr ""
+msgstr "Struktur för visning"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
@@ -1588,12 +1588,14 @@ msgid "Free pages"
 msgstr "Fria sidor"
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Heltext"
 
 #: libraries/messages.inc.php:352
+#, fuzzy
 msgid "Full stop"
-msgstr ""
+msgstr "Heltext"
 
 #: libraries/messages.inc.php:353
 msgid "Full Texts"
@@ -1656,12 +1658,14 @@ msgid "Go"
 msgstr "Kör"
 
 #: libraries/messages.inc.php:369
+#, fuzzy
 msgid "Go to database"
-msgstr ""
+msgstr "Inga databaser"
 
 #: libraries/messages.inc.php:370
+#, fuzzy
 msgid "Go to table"
-msgstr ""
+msgstr "Inga databaser"
 
 #: libraries/messages.inc.php:371
 msgid "Go to view"
@@ -2506,8 +2510,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Inga tabeller"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2956,8 +2961,9 @@ msgid "No tables"
 msgstr "Inga tabeller"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Tabell %1$s har skapats."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3060,8 +3066,9 @@ msgid "Polish"
 msgstr "Polska"
 
 #: libraries/messages.inc.php:675
+#, fuzzy
 msgid "Port"
-msgstr ""
+msgstr "Sortering"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
@@ -3433,8 +3440,9 @@ msgid "Reloading the privileges"
 msgstr "Laddar om privilegierna"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Anpassa navigeringsram"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3445,8 +3453,9 @@ msgid "Reload"
 msgstr "Uppdatera"
 
 #: libraries/messages.inc.php:765
+#, fuzzy
 msgid "Remote server"
-msgstr ""
+msgstr "Ny server"
 
 #: libraries/messages.inc.php:766
 msgid "Remove CRLF characters within fields"
@@ -3475,8 +3484,9 @@ msgid "Rename table to"
 msgstr "Döp om tabellen till"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Döp om tabellen till"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3514,8 +3524,9 @@ msgid "This server is configured as master in a replication process."
 msgstr ""
 
 #: libraries/messages.inc.php:781
+#, fuzzy
 msgid "Control slave:"
-msgstr ""
+msgstr "Kontrollanvändare"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3545,12 +3556,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "Serverkonfiguration"
 
 #: libraries/messages.inc.php:788
+#, fuzzy
 msgid "Master replication"
-msgstr ""
+msgstr "Serverkonfiguration"
 
 #: libraries/messages.inc.php:789
 msgid "Replication"
@@ -3564,8 +3577,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "Välj en databas"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3585,8 +3599,9 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
+#, fuzzy
 msgid "Show master status"
-msgstr ""
+msgstr "Visa slav-status"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3597,8 +3612,9 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:798
+#, fuzzy
 msgid "Slave configuration"
-msgstr ""
+msgstr "Serverkonfiguration"
 
 #: libraries/messages.inc.php:799
 msgid ""
@@ -3646,8 +3662,9 @@ msgid "Skip next"
 msgstr ""
 
 #: libraries/messages.inc.php:809
+#, fuzzy
 msgid "Slave replication"
-msgstr ""
+msgstr "Serverkonfiguration"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
@@ -5380,8 +5397,9 @@ msgid "Server socket"
 msgstr "Serversockel"
 
 #: libraries/messages.inc.php:1176
+#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Komprimera anslutning till MySQL-servern"
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
@@ -5720,8 +5738,9 @@ msgid "Show all"
 msgstr "Visa alla"
 
 #: libraries/messages.inc.php:1243
+#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Visa binärt innehåll"
 
 #: libraries/messages.inc.php:1244
 msgid "Show binary contents"
@@ -5768,8 +5787,9 @@ msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Visar SQL-fråga"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -6585,8 +6605,9 @@ msgid "Stand-in structure for view"
 msgstr "Ersättningsstruktur för visning"
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
@@ -6658,16 +6679,18 @@ msgid "Propose table structure"
 msgstr "Föreslå tabellstruktur"
 
 #: libraries/messages.inc.php:1419
+#, fuzzy
 msgid "Structure Difference"
-msgstr ""
+msgstr "Struktur för visning"
 
 #: libraries/messages.inc.php:1420
 msgid "Structure for view"
 msgstr "Struktur för visning"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "Struktur"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -6987,8 +7010,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "Skapa relation"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6996,8 +7020,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "Databas"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -7008,8 +7033,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -7021,9 +7047,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Standard för export"
 
 #: libraries/messages.inc.php:1503
 msgid "Tracking is active."
@@ -7096,24 +7122,28 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Enbart struktur"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "Skapa"
 
 #: libraries/messages.inc.php:1522
+#, fuzzy
 msgid "Last version"
-msgstr ""
+msgstr "Skapa relation"
 
 #: libraries/messages.inc.php:1523
 msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "Persiska"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -7124,24 +7154,28 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1527
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "Hoppa över låsta tabeller"
 
 #: libraries/messages.inc.php:1528
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "Kontrollera tabell"
 
 #: libraries/messages.inc.php:1530
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "Hoppa över låsta tabeller"
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Användarnamn:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -7164,8 +7198,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "Persiska"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -7616,12 +7651,14 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1624
+#, fuzzy
 msgid "Export contents"
-msgstr ""
+msgstr "Standard för export"
 
 #: libraries/messages.inc.php:1625
+#, fuzzy
 msgid "Export functions"
-msgstr ""
+msgstr "Standard för export"
 
 #: libraries/messages.inc.php:1626
 msgid "Export procedures"
@@ -7632,16 +7669,19 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "Export-typ"
 
 #: libraries/messages.inc.php:1629
+#, fuzzy
 msgid "Export triggers"
-msgstr ""
+msgstr "Export-typ"
 
 #: libraries/messages.inc.php:1630
+#, fuzzy
 msgid "Export views"
-msgstr ""
+msgstr "Standard för export"
 
 #: libraries/messages.inc.php:1631
 msgid "XML"
@@ -7677,7 +7717,3 @@ msgstr ""
 
 #~ msgid "Jan2"
 #~ msgstr "januari2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Ingen"

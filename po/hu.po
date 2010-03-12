@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:37+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +35,7 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
+#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "en"
@@ -782,7 +782,6 @@ msgid "Complete inserts"
 msgstr "Teljes beszúrások"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Tömörítés"
 
@@ -878,12 +877,14 @@ msgid "Can't copy table to same one!"
 msgstr "Nem másolható ugyanabba a tábla!"
 
 #: libraries/messages.inc.php:187
+#, fuzzy
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
 
 #: libraries/messages.inc.php:188
+#, fuzzy
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
 
 #: libraries/messages.inc.php:189
 #, php-format
@@ -932,12 +933,12 @@ msgid "Create relation"
 msgstr "Kapcsolat létrehozása"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Tábla létrehozása"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Tábla létrehozása"
@@ -978,7 +979,6 @@ msgid "Croatian"
 msgstr "Horvát"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV"
 
@@ -1034,7 +1034,6 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
-#, fuzzy
 msgid "Databases"
 msgstr "Adatbázisok"
 
@@ -1044,8 +1043,9 @@ msgid "%s databases have been dropped successfully."
 msgstr "A(z) %s adatbázis eldobása sikerült."
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "Keresés az adatbázisban"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
@@ -1068,8 +1068,9 @@ msgstr ""
 "közti nagy adatforgalomhoz vezethet."
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "Keresés az adatbázisban"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1195,7 +1196,6 @@ msgid "Descending"
 msgstr "Csökkenő"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Leírás"
 
@@ -1313,7 +1313,6 @@ msgid "dynamic"
 msgstr "dinamikus"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
-#, fuzzy
 msgid "Edit"
 msgstr "Módosítás"
 
@@ -1434,7 +1433,6 @@ msgid "Execute bookmarked query"
 msgstr "Könyvjelzőkhöz hozzáadott lekérdezés végrehajtása"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
-#, fuzzy
 msgid "Explain SQL"
 msgstr "Az SQL magyarázata"
 
@@ -1585,7 +1583,6 @@ msgid "FOREIGN KEY relation added"
 msgstr "IDEGEN KULCS kapcsolat hozzáadása megtörtént"
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
-#, fuzzy
 msgid "Format"
 msgstr "Formátum"
 
@@ -1598,8 +1595,9 @@ msgid "Free pages"
 msgstr "Szabad lapok"
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Teljes szöveg"
 
 #: libraries/messages.inc.php:352
 msgid "Full stop"
@@ -1666,8 +1664,9 @@ msgid "Go"
 msgstr "Indítás"
 
 #: libraries/messages.inc.php:369
+#, fuzzy
 msgid "Go to database"
-msgstr ""
+msgstr "Nincs adatbázis"
 
 #: libraries/messages.inc.php:370
 msgid "Go to table"
@@ -1810,7 +1809,6 @@ msgid "Import files"
 msgstr "Fájlok importálása"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
-#, fuzzy
 msgid "Format of imported file"
 msgstr "Az importált fájl formátuma"
 
@@ -1848,7 +1846,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Open Document munkafüzet"
 
@@ -2508,12 +2505,14 @@ msgid "Name"
 msgstr "Név"
 
 #: libraries/messages.inc.php:554
+#, fuzzy
 msgid "Filter"
-msgstr ""
+msgstr "Fájlok"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Nincs tábla"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2689,7 +2688,6 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Összesen:</b> <i>%s</i> találat"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
-#, fuzzy
 msgid "Tables"
 msgstr "Táblák"
 
@@ -2734,7 +2732,6 @@ msgid "Overhead"
 msgstr "Felülírás"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
-#, fuzzy
 msgid "Overwrite existing file(s)"
 msgstr "A létező fájl(ok) felülírása"
 
@@ -2965,8 +2962,9 @@ msgid "No tables"
 msgstr "Nincs tábla"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "A(z) %1$s tábla elkészült."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3009,7 +3007,6 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
-#, fuzzy
 msgid "Create PHP Code"
 msgstr "PHP-kód létrehozása"
 
@@ -3069,8 +3066,9 @@ msgid "Polish"
 msgstr "Lengyel"
 
 #: libraries/messages.inc.php:675
+#, fuzzy
 msgid "Port"
-msgstr ""
+msgstr "Rendezés"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
@@ -3340,7 +3338,6 @@ msgid "Query cache"
 msgstr "Lekérdezési gyorsítótár"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Lekérdezés ablak"
 
@@ -3404,7 +3401,6 @@ msgid "Check referential integrity:"
 msgstr "Hivatkozási sértetlenség ellenőrzése:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Frissítés"
 
@@ -3450,8 +3446,9 @@ msgid "Reloading the privileges"
 msgstr "A jogok újratöltése"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "A navigációs keret testreszabása"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3462,8 +3459,9 @@ msgid "Reload"
 msgstr "Újratöltés"
 
 #: libraries/messages.inc.php:765
+#, fuzzy
 msgid "Remote server"
-msgstr ""
+msgstr "Új szerver"
 
 #: libraries/messages.inc.php:766
 msgid "Remove CRLF characters within fields"
@@ -3492,8 +3490,9 @@ msgid "Rename table to"
 msgstr "Tábla átnevezése"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Tábla átnevezése"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3531,8 +3530,9 @@ msgid "This server is configured as master in a replication process."
 msgstr ""
 
 #: libraries/messages.inc.php:781
+#, fuzzy
 msgid "Control slave:"
-msgstr ""
+msgstr "Kontrollfelhasználó"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3562,8 +3562,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "Szerverbeállítások"
 
 #: libraries/messages.inc.php:788
 msgid "Master replication"
@@ -3581,8 +3582,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "Válasszon adatbázist"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3602,8 +3604,9 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
+#, fuzzy
 msgid "Show master status"
-msgstr ""
+msgstr "Kisegítő állapot megjelenítése"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3614,8 +3617,9 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:798
+#, fuzzy
 msgid "Slave configuration"
-msgstr ""
+msgstr "Szerverbeállítások"
 
 #: libraries/messages.inc.php:799
 msgid ""
@@ -3711,7 +3715,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Törlés"
 
@@ -3935,7 +3938,6 @@ msgid "Select Tables"
 msgstr "Táblák kiválasztása"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Mentés fájlként"
 
@@ -3956,7 +3958,6 @@ msgid "Server"
 msgstr "Szerver"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Szerverek"
 
@@ -4574,7 +4575,6 @@ msgstr ""
 "infrastruktúra[/a] fejezetet a dokumentációban"
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "PMA adatbázis"
 
@@ -4709,7 +4709,6 @@ msgstr ""
 "SQL mindig elérhető"
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Az elejétől kihagyandó rekordok (lekérdezések) száma"
 
@@ -4962,7 +4961,6 @@ msgid "Memory limit"
 msgstr "A memória korlátozása"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Csak ikonok, csak szöveg, vagy mindkettő használata"
 
@@ -5338,7 +5336,6 @@ msgid "Show only listed databases"
 msgstr "Csak a kilistázott adatbázisok megjelenítése"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Hagyja üresen, ha nem a konfigurációs hitelesítést használja"
 
@@ -5428,8 +5425,9 @@ msgid "Server socket"
 msgstr "A szerver szoftvercsatornája"
 
 #: libraries/messages.inc.php:1176
+#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "A MySQL-szerverhez csatlakozás tömörítése"
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
@@ -5616,7 +5614,6 @@ msgid "Skip locked tables"
 msgstr "A zárolt táblák kihagyása"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "SQL érvényesítése"
 
@@ -5776,8 +5773,9 @@ msgid "Show all"
 msgstr "Mind látható"
 
 #: libraries/messages.inc.php:1243
+#, fuzzy
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Bináris tartalom megjelenítése"
 
 #: libraries/messages.inc.php:1244
 msgid "Show binary contents"
@@ -5824,8 +5822,9 @@ msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Megjelenítés SQL lekérdezésként"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -6650,8 +6649,9 @@ msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "Indítás"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
@@ -6723,16 +6723,18 @@ msgid "Propose table structure"
 msgstr "Táblaszerkezet ajánlása"
 
 #: libraries/messages.inc.php:1419
+#, fuzzy
 msgid "Structure Difference"
-msgstr ""
+msgstr "Nézet szerkezete"
 
 #: libraries/messages.inc.php:1420
 msgid "Structure for view"
 msgstr "Nézet szerkezete"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "Szerkezet"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -7054,8 +7056,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "Kapcsolat létrehozása"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -7063,8 +7066,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "Adatbázis"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -7075,8 +7079,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Adatok"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -7088,9 +7093,9 @@ msgid "Deactivate tracking for %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1502
-#, php-format
+#, fuzzy, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Exportálás alapértelmezései"
 
 #: libraries/messages.inc.php:1503
 msgid "Tracking is active."
@@ -7163,12 +7168,14 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Csak a szerkezet"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "Létrehozás"
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
@@ -7179,8 +7186,9 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "Perzsa"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -7191,24 +7199,28 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: libraries/messages.inc.php:1527
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "A zárolt táblák kihagyása"
 
 #: libraries/messages.inc.php:1528
 msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "Tábla ellenőrzése"
 
 #: libraries/messages.inc.php:1530
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "A zárolt táblák kihagyása"
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Felhasználónév:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -7231,8 +7243,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "Perzsa"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -7581,8 +7594,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a  %"
-"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
-"kiterjesztést."
+"dokumentációban% leírtak szerint telepítette-e a szükséges PHP-kiterjesztést."
 
 #: libraries/messages.inc.php:1598
 msgid "Value"
@@ -7696,8 +7708,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1624
+#, fuzzy
 msgid "Export contents"
-msgstr ""
+msgstr "Exportálás alapértelmezései"
 
 #: libraries/messages.inc.php:1625
 msgid "Export functions"
@@ -7712,12 +7725,14 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "Exportálás típusa"
 
 #: libraries/messages.inc.php:1629
+#, fuzzy
 msgid "Export triggers"
-msgstr ""
+msgstr "Exportálás típusa"
 
 #: libraries/messages.inc.php:1630
 msgid "Export views"
@@ -7745,11 +7760,6 @@ msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "A _ és a % karakterhelyettesítőt \\ jellel kell lezárni, hogy "
 "szövegkonstansként lehessen őket használni"
-
-#, fuzzy
-#~ msgctxt "$mysql_4_1_doc_lang"
-#~ msgid "en"
-#~ msgstr "en"
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

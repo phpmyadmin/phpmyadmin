@@ -105,6 +105,13 @@ for lang in lang/*.inc.php ; do
             s/FULL NAME <EMAIL@ADDRESS>/Automatically generated/;
             s/Report-Msgid-Bugs-To: .*\\\\n/Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\\\\n/;
             " po/$langcode-update.po
+        msgmerge -U -C po/$langcode-update.po po/$langcode.po po/phpmyadmin.pot
         pomerge -t po/$langcode.po -i po/$langcode-update.po -o po/$langcode.po
+        pot2po -i po/phpmyadmin.pot -t po/$langcode.po -o po/$langcode.po --tm po/$langcode-update.po -s 60
+        sed -i '/^msgctxt.*/D' po/$langcode-update.po
+        msgmerge -U -C po/$langcode-update.po po/$langcode.po po/phpmyadmin.pot
+        pomerge -t po/$langcode.po -i po/$langcode-update.po -o po/$langcode.po
+        pot2po -i po/phpmyadmin.pot -t po/$langcode.po -o po/$langcode.po --tm po/$langcode-update.po -s 60
+        msgmerge -U po/$langcode.po po/phpmyadmin.pot
     fi
 done

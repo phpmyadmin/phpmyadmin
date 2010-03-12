@@ -1,17 +1,16 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-12 01:33+0200\n"
-"Last-Translator: Michal <michal@cihar.com>\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:13+0100\n"
+"Last-Translator: Automatically generated\n"
 "Language-Team: czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -38,6 +37,7 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
+#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "en"
@@ -459,9 +459,10 @@ msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr "Chcete vypnout všechny odkazy do skladiště BLOBů v databázi %s?"
 
 #: libraries/messages.inc.php:96
+#, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Vypnuté"
+msgstr "Vypnuto"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -472,9 +473,10 @@ msgid "You are about to DISABLE a BLOB Repository!"
 msgstr "Chystáte se vypnout skladiště BLOBů!"
 
 #: libraries/messages.inc.php:99
+#, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Zapnuté"
+msgstr "Zapnuto"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -485,6 +487,7 @@ msgid "Remove BLOB Repository Reference"
 msgstr "Odstranit odkaz do skladiště BLOBů"
 
 #: libraries/messages.inc.php:102
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Opravit"
@@ -941,6 +944,7 @@ msgid "Create database with same name and grant all privileges"
 msgstr "Vytvořit databázi stejného jména a přidělit všechna oprávnění"
 
 #: libraries/messages.inc.php:203
+#, fuzzy
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Žádná"
@@ -2937,12 +2941,13 @@ msgid "No tables"
 msgstr "žádné tabulky"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr "Stránka byla vytvořena"
+msgstr "Byla vytvořena tabulka %1$s."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
-msgstr "Vytvoření stránky selhalo"
+msgstr ""
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
@@ -3305,7 +3310,6 @@ msgid "Query cache"
 msgstr "Vyrovnávací paměť dotazů"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
-#, fuzzy
 msgid "Query window"
 msgstr "Okno dotazů"
 
@@ -3367,7 +3371,6 @@ msgid "Check referential integrity:"
 msgstr "Zkontrolovat integritu odkazů:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
-#, fuzzy
 msgid "Refresh"
 msgstr "Obnovit"
 
@@ -3494,8 +3497,9 @@ msgid "This server is configured as master in a replication process."
 msgstr ""
 
 #: libraries/messages.inc.php:781
+#, fuzzy
 msgid "Control slave:"
-msgstr ""
+msgstr "Kontrolní uživatel"
 
 #: libraries/messages.inc.php:782
 msgid ""
@@ -3525,8 +3529,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "Nastavení serveru"
 
 #: libraries/messages.inc.php:788
 msgid "Master replication"
@@ -3544,8 +3549,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "Prosím vyberte databázi"
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3565,7 +3571,6 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
-#, fuzzy
 msgid "Show master status"
 msgstr "Zobrazit stav nadřízeného"
 
@@ -3627,8 +3632,9 @@ msgid "Skip next"
 msgstr "Přeskočit dalších"
 
 #: libraries/messages.inc.php:809
+#, fuzzy
 msgid "Slave replication"
-msgstr ""
+msgstr "Nastavení podřízeného"
 
 #: libraries/messages.inc.php:810
 msgid "Slave SQL Thread not running!"
@@ -3663,19 +3669,20 @@ msgid "Slave status"
 msgstr "Stav podřízeného"
 
 #: libraries/messages.inc.php:816
+#, fuzzy
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Synchronovat databáze"
 
 #: libraries/messages.inc.php:817
+#, fuzzy
 msgid "Unable to change master"
-msgstr ""
+msgstr "Nepodařilo se připojit k nadřízenému %s."
 
 #: libraries/messages.inc.php:818
 msgid "Unknown error"
 msgstr "Neznámá chyba"
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Vynulovat statistiky"
 
@@ -3901,7 +3908,6 @@ msgid "Select Tables"
 msgstr "Vybrat tabulky"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
-#, fuzzy
 msgid "Save as file"
 msgstr "Uložit jako soubor"
 
@@ -3922,7 +3928,6 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
-#, fuzzy
 msgid "Servers"
 msgstr "Servery"
 
@@ -4525,7 +4530,6 @@ msgstr ""
 "[/a] v dokumentaci."
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
-#, fuzzy
 msgid "PMA database"
 msgstr "Databáze PMA"
 
@@ -4659,7 +4663,6 @@ msgstr ""
 "tabulka) a pouze SQL je vždy dostupný."
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Počet záznamů (dotazů) od začátku, které se mají přeskočit"
 
@@ -4909,7 +4912,6 @@ msgid "Memory limit"
 msgstr "Omezení paměti"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
-#, fuzzy
 msgid "Use only icons, only text or both"
 msgstr "Zda se mají zobrazit pouze ikony, nebo pouze text, případně obojí."
 
@@ -5195,7 +5197,7 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Zakázat použití INFORMATION_SCHEMA"
 
 #: libraries/messages.inc.php:1143
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - [a@?"
 "page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]host authentication"
@@ -5204,6 +5206,13 @@ msgid ""
 "IP belongs to an ISP where thousands of users, including you, are connected "
 "to."
 msgstr ""
+"Tato [a@?page=form&amp;formset=features#tab_Security]volba[/a] by měla být "
+"zakázána, protože umožňuje útočníkům prolomit přihlašování k libovolnému "
+"MySQL serveru útokem hrobou silou. V případě nutnosti použijte [a@?"
+"page=form&amp;formset=features#tab_Security]seznam důvěryhodných proxy[/a]. "
+"Nicméně ochrana založená na kotrole IP adres, nemusí být spolehlivá, pokud "
+"Vaše IP adresa patří poskytovateli internetových služeb, ke kterému jsou "
+"připojeny tisíce uživatelů."
 
 #: libraries/messages.inc.php:1144
 msgid "Edit server"
@@ -5268,7 +5277,6 @@ msgid "Show only listed databases"
 msgstr "Zobrazit jen vybrané databáze"
 
 #: libraries/messages.inc.php:1158 libraries/messages.inc.php:1182
-#, fuzzy
 msgid "Leave empty if not using config auth"
 msgstr "Nechte prázdné, pokud nepoužíváte autentizaci config"
 
@@ -5277,9 +5285,12 @@ msgid "Password for config auth"
 msgstr "Heslo pro autentizaci config"
 
 #: libraries/messages.inc.php:1160
+#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
+"Nechte prázdné pro žádné komentaře či mime typy sloupců, výchozí nastavení: "
+"[kbd]pma_column_info[/kbd]."
 
 #: libraries/messages.inc.php:1161
 msgid "PDF schema: pages table"
@@ -5302,10 +5313,14 @@ msgid "Server port"
 msgstr "Port serveru"
 
 #: libraries/messages.inc.php:1166
+#, fuzzy
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Nechte prázdné pro žádnou podporu Leave blank for no [a@http://wiki."
+"phpmyadmin.net/pma/bookmark]záložek[/a], výchozí nastavení: [kbd]"
+"pma_bookmarks[/kbd]."
 
 #: libraries/messages.inc.php:1167
 msgid "Relation table"
@@ -5347,17 +5362,21 @@ msgid "Server socket"
 msgstr "Socket serveru"
 
 #: libraries/messages.inc.php:1176
+#, fuzzy
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Zda se má komprimovat připojení k MySQL serveru."
 
 #: libraries/messages.inc.php:1177
 msgid "Use SSL"
 msgstr "Použít SSL"
 
 #: libraries/messages.inc.php:1178
+#, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"Nechte prázdné pro žádné komentaře či mime typy sloupců, výchozí nastavení: "
+"[kbd]pma_column_info[/kbd]."
 
 #: libraries/messages.inc.php:1179
 msgid "PDF schema: table coordinates"
@@ -5512,7 +5531,6 @@ msgid "Skip locked tables"
 msgstr "Přeskočit zamčené tabulky"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Zkontrolovat SQL"
 
@@ -5568,8 +5586,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1227
+#, fuzzy
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Ignorovat chyby ve víceprvkových dotazech"
 
 #: libraries/messages.inc.php:1228
 msgid ""
@@ -5626,24 +5645,31 @@ msgid "Warning"
 msgstr "Varování"
 
 #: libraries/messages.inc.php:1238
+#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Povolí [a@http://cs.wikipedia.org/wiki/Gzip]gzip[/a] kompresi pro "
+"importování a exportování."
 
 #: libraries/messages.inc.php:1239
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip compression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip komprese a "
+"dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému"
 
 #: libraries/messages.inc.php:1240
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "[a@?page=form&amp;formset=features#tab_Import_export]Zip decompression[/a] "
 "requires functions (%s) which are unavailable on this system."
 msgstr ""
+"[a@?page=form&amp;formset=features#tab_Import_export]GZip komprese a "
+"dekomprese[/a] vyžaduje funkce (%s) které nejsou dostupné na tomto systému"
 
 #: libraries/messages.inc.php:1241
 msgid "ZIP"

@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:37+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +37,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Εστάλησαν"
@@ -46,7 +44,6 @@ msgstr "Εστάλησαν"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Εστάλησαν"
@@ -464,7 +461,7 @@ msgstr ""
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Απενεργοποιημένο"
+msgstr "Απενεργοποιημένη"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -478,7 +475,7 @@ msgstr "Πρόκειτε να ΑΠΕΝΕΡΓΟΠΟΙΉΣΕΤΕ μια Αποθή
 #, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Ενεργοποιημένο"
+msgstr "Ενεργοποιημένη"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -492,7 +489,7 @@ msgstr "Απομάκρυνση της Αναφοράς Αποθήκης BLOB"
 #, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr "Επιδιόρθωση"
+msgstr "Επισκευή"
 
 #: libraries/messages.inc.php:103
 msgid "Upload to BLOB repository"
@@ -783,7 +780,6 @@ msgid "Complete inserts"
 msgstr "Πλήρεις εντολές «Insert»"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Συμπίεση"
 
@@ -930,12 +926,12 @@ msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Δημιουργία πίνακα"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Δημιουργία πίνακα"
@@ -951,7 +947,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Καμία"
@@ -1529,8 +1524,7 @@ msgid ""
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
-"και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως "
-"είναι."
+"και οι ακόλουθες μετατροπές. Το υπόλοιπο κείμενο θα παραμείνει όπως είναι."
 
 #: libraries/messages.inc.php:337
 msgid "File name template"
@@ -2534,8 +2528,9 @@ msgid "Filter"
 msgstr "Φίλτρο"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Δεν υπάρχουν πίνακες"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2992,8 +2987,9 @@ msgid "No tables"
 msgstr "Δεν υπάρχουν πίνακες"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -3477,8 +3473,9 @@ msgid "Reloading the privileges"
 msgstr "Επαναφόρτωση δικαιωμάτων"
 
 #: libraries/messages.inc.php:762
+#, fuzzy
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Προσαρμογή πλαισίου πλοήγησης"
 
 #: libraries/messages.inc.php:763
 msgid "Reload privileges"
@@ -3519,8 +3516,9 @@ msgid "Rename table to"
 msgstr "Μετονομασία πίνακα σε"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Μετονομασία πίνακα σε"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -5875,8 +5873,9 @@ msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Εμφάνιση ερωτήματος SQL"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -7854,10 +7853,6 @@ msgstr ""
 
 #~ msgid "Jan2"
 #~ msgstr "Ιανουαρίου2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Καμία"
 
 #~ msgid ""
 #~ "Structure Difference' ;\n"

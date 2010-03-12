@@ -1,11 +1,10 @@
-#
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:39+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +35,7 @@ msgstr ""
 
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
+#, fuzzy
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "tr"
@@ -462,7 +462,7 @@ msgstr ""
 #, fuzzy
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
-msgstr "Etkisiz"
+msgstr "Etkisizleştirildi"
 
 #: libraries/messages.inc.php:97
 msgid "Disable"
@@ -476,7 +476,7 @@ msgstr "BLOB Havuzunu ETKİSİZLEŞTİRMEK'tesiniz!"
 #, fuzzy
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
-msgstr "Etkin"
+msgstr "Etkinleştirildi"
 
 #: libraries/messages.inc.php:100
 msgid "Enable"
@@ -781,7 +781,6 @@ msgid "Complete inserts"
 msgstr "Bütün eklemeler"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
-#, fuzzy
 msgid "Compression"
 msgstr "Sıkıştırma"
 
@@ -929,12 +928,12 @@ msgid "Create relation"
 msgstr "İlişki oluştur"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Tablo oluştur"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Tablo oluştur"
@@ -949,7 +948,6 @@ msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver"
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "Hiçbiri"
@@ -7754,11 +7752,6 @@ msgstr "\"zip olarak\""
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
 
-#, fuzzy
-#~ msgctxt "$mysql_4_1_doc_lang"
-#~ msgid "en"
-#~ msgstr "tr"
-
 #~ msgid "utf-8"
 #~ msgstr "utf-8"
 
@@ -7770,10 +7763,6 @@ msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun."
 
 #~ msgid "Jan2"
 #~ msgstr "Ocak2"
-
-#~ msgctxt "$strCreateUserDatabaseNone$strCreateUserDatabaseNone"
-#~ msgid "None"
-#~ msgstr "Yok"
 
 #~ msgid ""
 #~ "Structure Difference' ;\n"

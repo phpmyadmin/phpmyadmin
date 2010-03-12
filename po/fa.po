@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:38+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -180,8 +180,9 @@ msgid "Action"
 msgstr "عمل"
 
 #: libraries/messages.inc.php:32
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "عمل"
 
 #: libraries/messages.inc.php:33
 msgid "Add AUTO_INCREMENT value"
@@ -205,9 +206,9 @@ msgid "Add/Delete Criteria Row"
 msgstr "اضافه/حذف معيارها"
 
 #: libraries/messages.inc.php:38
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s field(s)"
-msgstr ""
+msgstr "افزودن ستون جديد"
 
 #: libraries/messages.inc.php:39
 msgid "Add custom comment into header (\\n splits lines)"
@@ -234,9 +235,9 @@ msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "افزودن شرايط جستجو (بدنه شرط \"where\"):"
 
 #: libraries/messages.inc.php:45
-#, php-format
+#, fuzzy, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr ""
+msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
 
 #: libraries/messages.inc.php:46
 msgid "Add a new User"
@@ -303,8 +304,9 @@ msgid "And"
 msgstr "و"
 
 #: libraries/messages.inc.php:61
+#, fuzzy
 msgid "and"
-msgstr ""
+msgstr "و"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
@@ -403,8 +405,9 @@ msgid "Binary - do not edit"
 msgstr ""
 
 #: libraries/messages.inc.php:86
+#, fuzzy
 msgid "Binary log"
-msgstr ""
+msgstr "دودويي"
 
 #: libraries/messages.inc.php:87
 msgid "Event type"
@@ -427,8 +430,9 @@ msgid "Position"
 msgstr ""
 
 #: libraries/messages.inc.php:92
+#, fuzzy
 msgid "Server ID"
-msgstr ""
+msgstr "سرور"
 
 #: libraries/messages.inc.php:93
 msgid "BLOB Repository"
@@ -445,14 +449,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:96
 #, fuzzy
-#| msgid "Disabled"
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "غيرفعال"
 
 #: libraries/messages.inc.php:97
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "غيرفعال"
 
 #: libraries/messages.inc.php:98
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -460,23 +464,24 @@ msgstr ""
 
 #: libraries/messages.inc.php:99
 #, fuzzy
-#| msgid "Enabled"
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "فعال"
 
 #: libraries/messages.inc.php:100
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "فعال"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
 #: libraries/messages.inc.php:102
+#, fuzzy
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
-msgstr ""
+msgstr "مرمت جدول"
 
 #: libraries/messages.inc.php:103
 msgid "Upload to BLOB repository"
@@ -492,8 +497,9 @@ msgid "Bookmark %s created"
 msgstr ""
 
 #: libraries/messages.inc.php:106
+#, fuzzy
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "سطر حذف گرديد ."
 
 #: libraries/messages.inc.php:107
 msgid "Label"
@@ -627,8 +633,9 @@ msgid "case-sensitive"
 msgstr ""
 
 #: libraries/messages.inc.php:138
+#, fuzzy
 msgid "Central European"
-msgstr ""
+msgstr "اروپای غربی"
 
 #: libraries/messages.inc.php:139
 msgid "Change"
@@ -698,8 +705,9 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: libraries/messages.inc.php:155
+#, fuzzy
 msgid "Check Privileges"
-msgstr ""
+msgstr "ويرايش امتيازات"
 
 #: libraries/messages.inc.php:156
 #, php-format
@@ -743,8 +751,9 @@ msgid "Command"
 msgstr "دستور"
 
 #: libraries/messages.inc.php:166
+#, fuzzy
 msgid "Comment"
-msgstr ""
+msgstr "توضيحات"
 
 #: libraries/messages.inc.php:167
 msgid "Comments"
@@ -760,7 +769,7 @@ msgstr "تمام وروديها"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "فشرده‌سازي"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -829,9 +838,9 @@ msgid "Copy"
 msgstr "نسخه برداری"
 
 #: libraries/messages.inc.php:183
-#, php-format
+#, fuzzy, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "جدول %s به %s كپي شد."
 
 #: libraries/messages.inc.php:184
 msgid "Copy table to (database<b>.</b>table):"
@@ -899,12 +908,12 @@ msgid "Create relation"
 msgstr ""
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "ساخت يك صفحه جديد"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create a page"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "ساخت يك صفحه جديد"
@@ -919,7 +928,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:203
 #, fuzzy
-#| msgid "None"
 msgctxt "$strCreateUserDatabaseNone"
 msgid "None"
 msgstr "خير"
@@ -946,9 +954,6 @@ msgid "Croatian"
 msgstr ""
 
 #: libraries/messages.inc.php:209
-#, fuzzy
-#| msgctxt "$strStrucCSV"
-#| msgid "CSV"
 msgid "CSV"
 msgstr "داده‌هاي CSV"
 
@@ -981,17 +986,18 @@ msgid "Database"
 msgstr "پايگاه داده"
 
 #: libraries/messages.inc.php:218
+#, fuzzy
 msgid "The database name is empty!"
-msgstr ""
+msgstr "نام جدول وارد نشده‌است !"
 
 #: libraries/messages.inc.php:219
 msgid "Database export options"
 msgstr ""
 
 #: libraries/messages.inc.php:220
-#, php-format
+#, fuzzy, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "پايگاه داده %s حذف گرديد."
 
 #: libraries/messages.inc.php:221
 #, php-format
@@ -1004,8 +1010,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
+#, fuzzy
 msgid "Databases"
-msgstr ""
+msgstr "پايگاه داده"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1013,20 +1020,23 @@ msgid "%s databases have been dropped successfully."
 msgstr ""
 
 #: libraries/messages.inc.php:225
+#, fuzzy
 msgid "Source database"
-msgstr ""
+msgstr "جستجو در پايگاه‌داده"
 
 #: libraries/messages.inc.php:226
 msgid "Databases statistics"
 msgstr "آمار پايگاههاي داده"
 
 #: libraries/messages.inc.php:227
+#, fuzzy
 msgid "Disable Statistics"
-msgstr ""
+msgstr "آمار پايگاههاي داده"
 
 #: libraries/messages.inc.php:228
+#, fuzzy
 msgid "Enable Statistics"
-msgstr ""
+msgstr "آمار پايگاههاي داده"
 
 #: libraries/messages.inc.php:229
 msgid ""
@@ -1035,8 +1045,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:230
+#, fuzzy
 msgid "Target database"
-msgstr ""
+msgstr "جستجو در پايگاه‌داده"
 
 #: libraries/messages.inc.php:231
 msgid "Data"
@@ -1063,12 +1074,14 @@ msgid "Data Synchronization"
 msgstr ""
 
 #: libraries/messages.inc.php:237
+#, fuzzy
 msgid "Database comment: "
-msgstr ""
+msgstr "توضيحات جدول"
 
 #: libraries/messages.inc.php:238
+#, fuzzy
 msgid "Copy database to"
-msgstr ""
+msgstr "No databases"
 
 #: libraries/messages.inc.php:239
 msgid "Database seems to be empty!"
@@ -1079,8 +1092,9 @@ msgid "Database-specific privileges"
 msgstr ""
 
 #: libraries/messages.inc.php:241
+#, fuzzy
 msgid "Rename database to"
-msgstr ""
+msgstr "بازناميدن جدول به"
 
 #: libraries/messages.inc.php:242
 msgid "database-specific"
@@ -1158,8 +1172,9 @@ msgid "Descending"
 msgstr "نزولي"
 
 #: libraries/messages.inc.php:259
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: libraries/messages.inc.php:260
 msgid "Designer"
@@ -1272,7 +1287,7 @@ msgstr "پويا"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "ويرايش"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1392,7 +1407,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
 msgid "Explain SQL"
-msgstr ""
+msgstr "شرح دادن SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1464,8 +1479,9 @@ msgid "database name"
 msgstr ""
 
 #: libraries/messages.inc.php:334
+#, fuzzy
 msgid "server name"
-msgstr ""
+msgstr "نام كاربر"
 
 #: libraries/messages.inc.php:335
 msgid "table name"
@@ -1488,8 +1504,9 @@ msgid "remember template"
 msgstr ""
 
 #: libraries/messages.inc.php:339
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "ستونها"
 
 #: libraries/messages.inc.php:340
 msgid "File to import"
@@ -1531,7 +1548,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "قالب"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1542,8 +1559,9 @@ msgid "Free pages"
 msgstr ""
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "كاملا متن"
 
 #: libraries/messages.inc.php:352
 msgid "Full stop"
@@ -1558,8 +1576,9 @@ msgid "Function"
 msgstr "تابع"
 
 #: libraries/messages.inc.php:355
+#, fuzzy
 msgid "Functions"
-msgstr ""
+msgstr "تابع"
 
 #: libraries/messages.inc.php:357
 msgid "Generated by"
@@ -1570,8 +1589,9 @@ msgid "General relation features"
 msgstr ""
 
 #: libraries/messages.inc.php:359
+#, fuzzy
 msgid "Generate"
-msgstr ""
+msgstr "توليد‌شده توسط"
 
 #: libraries/messages.inc.php:360
 msgid "Generate Password"
@@ -1610,8 +1630,9 @@ msgid "Go"
 msgstr "تاييد"
 
 #: libraries/messages.inc.php:369
+#, fuzzy
 msgid "Go to database"
-msgstr ""
+msgstr "No databases"
 
 #: libraries/messages.inc.php:370
 msgid "Go to table"
@@ -1622,8 +1643,9 @@ msgid "Go to view"
 msgstr ""
 
 #: libraries/messages.inc.php:372
+#, fuzzy
 msgid "Grant"
-msgstr ""
+msgstr "چاپ"
 
 #: libraries/messages.inc.php:373
 msgid "Greek"
@@ -1666,8 +1688,9 @@ msgid "Hide"
 msgstr ""
 
 #: libraries/messages.inc.php:384
+#, fuzzy
 msgid "Hide/Show all"
-msgstr ""
+msgstr "نمايش همه"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
@@ -1704,8 +1727,9 @@ msgid "Microsoft Word 2000"
 msgstr ""
 
 #: libraries/messages.inc.php:393
+#, fuzzy
 msgid "Hungarian"
-msgstr ""
+msgstr "بلغاری"
 
 #: libraries/messages.inc.php:395
 msgid "Icelandic"
@@ -1756,8 +1780,9 @@ msgid "Format of imported file"
 msgstr ""
 
 #: libraries/messages.inc.php:407
+#, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "صدور"
 
 #: libraries/messages.inc.php:408
 msgid ""
@@ -1873,8 +1898,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:432
+#, fuzzy
 msgid "Data files"
-msgstr ""
+msgstr "فقط داده‌ها"
 
 #: libraries/messages.inc.php:433
 msgid "Data home directory"
@@ -2179,8 +2205,9 @@ msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
 #: libraries/messages.inc.php:505
+#, fuzzy
 msgid "Server:"
-msgstr ""
+msgstr "سرور"
 
 #: libraries/messages.inc.php:506
 msgid "Username:"
@@ -2231,7 +2258,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:517
 #, fuzzy
-#| msgid "Description"
 msgctxt "$strMIME_description"
 msgid "Description"
 msgstr "توضیحات"
@@ -2259,12 +2285,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:522
+#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
+"استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
+"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
+"\\'b')"
 
 #: libraries/messages.inc.php:523
 msgid "Transformation options"
@@ -2410,8 +2442,9 @@ msgid "Filter"
 msgstr ""
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "No tables"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2451,8 +2484,9 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "دستور \"DROP DATABASE\" غيرفعال مي‌باشد."
 
 #: libraries/messages.inc.php:564
+#, fuzzy
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "شرح دادن SQL"
 
 #: libraries/messages.inc.php:565
 msgid "No files found inside ZIP archive!"
@@ -2467,8 +2501,9 @@ msgid "No index defined!"
 msgstr "هيچ فهرستي تعريف‌نشده‌است!"
 
 #: libraries/messages.inc.php:568
+#, fuzzy
 msgid "No index parts defined!"
-msgstr ""
+msgstr "هيچ فهرستي تعريف‌نشده‌است!"
 
 #: libraries/messages.inc.php:569
 msgid "No change"
@@ -2476,7 +2511,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:570
 #, fuzzy
-#| msgid "None"
 msgctxt "$strNoneDefault"
 msgid "None"
 msgstr "خير"
@@ -2507,8 +2541,9 @@ msgid "Without PHP Code"
 msgstr "بدون كد PHP"
 
 #: libraries/messages.inc.php:577
+#, fuzzy
 msgid "No Privileges"
-msgstr ""
+msgstr "امتيازات"
 
 #: libraries/messages.inc.php:578
 msgid "You don't have sufficient privileges to be here right now!"
@@ -2556,8 +2591,9 @@ msgid "No user(s) found."
 msgstr "هيچ كاربري وچود ندارد."
 
 #: libraries/messages.inc.php:588
+#, fuzzy
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "معتبرسازي SQL"
 
 #: libraries/messages.inc.php:589
 msgid "Null"
@@ -2582,8 +2618,9 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr ""
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
+#, fuzzy
 msgid "Tables"
-msgstr ""
+msgstr "جدول"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2602,8 +2639,9 @@ msgid "Operations"
 msgstr "عمليات"
 
 #: libraries/messages.inc.php:601
+#, fuzzy
 msgid "Operator"
-msgstr ""
+msgstr "عمليات"
 
 #: libraries/messages.inc.php:602
 msgid "Optimize"
@@ -2614,8 +2652,9 @@ msgid "Optimize table"
 msgstr "بهينه‌سازي جدول"
 
 #: libraries/messages.inc.php:604
+#, fuzzy
 msgid "Options"
-msgstr ""
+msgstr "عمليات"
 
 #: libraries/messages.inc.php:605
 msgid "Or"
@@ -2662,8 +2701,9 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:617
+#, fuzzy
 msgid "Partition maintenance"
-msgstr ""
+msgstr "نگهداشت جدول"
 
 #: libraries/messages.inc.php:618
 #, php-format
@@ -2828,8 +2868,9 @@ msgid "No tables"
 msgstr "No tables"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "جدول %s حذف گرديد"
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -2872,12 +2913,14 @@ msgid "PHP array"
 msgstr ""
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
+#, fuzzy
 msgid "Create PHP Code"
-msgstr ""
+msgstr "ساخت يك صفحه جديد"
 
 #: libraries/messages.inc.php:663
+#, fuzzy
 msgid "PHP extension"
-msgstr ""
+msgstr "نسخه PHP"
 
 #: libraries/messages.inc.php:664
 msgid "PHP Version"
@@ -2929,8 +2972,9 @@ msgid "Polish"
 msgstr "لهستانی"
 
 #: libraries/messages.inc.php:675
+#, fuzzy
 msgid "Port"
-msgstr ""
+msgstr "ترتيب"
 
 #: libraries/messages.inc.php:676
 msgid "Portrait"
@@ -3124,8 +3168,9 @@ msgid "Allows changing data."
 msgstr ""
 
 #: libraries/messages.inc.php:722
+#, fuzzy
 msgid "No privileges."
-msgstr ""
+msgstr "امتيازات"
 
 #: libraries/messages.inc.php:723
 msgid "Privileges"
@@ -3274,8 +3319,9 @@ msgid "RELATIONS FOR TABLE"
 msgstr ""
 
 #: libraries/messages.inc.php:759
+#, fuzzy
 msgid "Relations"
-msgstr ""
+msgstr "عمليات"
 
 #: libraries/messages.inc.php:760
 msgid "Relation view"
@@ -3314,9 +3360,9 @@ msgid "Remove selected users"
 msgstr ""
 
 #: libraries/messages.inc.php:769
-#, php-format
+#, fuzzy, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "جدول %s به %s تغيير نام داده‌شد"
 
 #: libraries/messages.inc.php:770
 #, php-format
@@ -3328,12 +3374,12 @@ msgid "Rename table to"
 msgstr "بازناميدن جدول به"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "بازناميدن جدول به"
 
 #: libraries/messages.inc.php:773
 #, fuzzy
-#| msgid "Repair table"
 msgid "Repair"
 msgstr "مرمت جدول"
 
@@ -3419,8 +3465,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:791
+#, fuzzy
 msgid "Please select databases:"
-msgstr ""
+msgstr "لطفا يك پايگاه داده را انتخاب نماييد."
 
 #: libraries/messages.inc.php:792
 #, php-format
@@ -3546,8 +3593,9 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: libraries/messages.inc.php:820
 msgid "Resource limits"
@@ -3582,8 +3630,9 @@ msgid "Revoke"
 msgstr "ابطال"
 
 #: libraries/messages.inc.php:827
+#, fuzzy
 msgid "Romanian"
-msgstr ""
+msgstr "ارمنی"
 
 #: libraries/messages.inc.php:828
 msgid "Return type"
@@ -3655,9 +3704,9 @@ msgid "Submit Query"
 msgstr "Submit Query"
 
 #: libraries/messages.inc.php:844
-#, php-format
+#, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr ""
+msgstr "اجراي پرس و جو(ها)ي SQL در پايگاه‌داده %s"
 
 #: libraries/messages.inc.php:845
 #, php-format
@@ -3768,7 +3817,7 @@ msgstr "Select Tables"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "ذخيره به صورت پرونده"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3787,16 +3836,19 @@ msgid "Server"
 msgstr "سرور"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
+#, fuzzy
 msgid "Servers"
-msgstr ""
+msgstr "سرور"
 
 #: libraries/messages.inc.php:878
+#, fuzzy
 msgid "Delayed inserts"
-msgstr ""
+msgstr "وروديهاي تمديدشده"
 
 #: libraries/messages.inc.php:879
+#, fuzzy
 msgid "Runtime Information"
-msgstr ""
+msgstr "اطلاعات ورود"
 
 #: libraries/messages.inc.php:880
 #, php-format
@@ -3804,8 +3856,9 @@ msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr ""
 
 #: libraries/messages.inc.php:881
+#, fuzzy
 msgid "Variables"
-msgstr ""
+msgstr "متغییر"
 
 #: libraries/messages.inc.php:882
 msgid ""
@@ -3985,8 +4038,9 @@ msgid "Check config file permissions"
 msgstr ""
 
 #: libraries/messages.inc.php:916
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "تقویم"
 
 #: libraries/messages.inc.php:917
 msgid ""
@@ -4155,8 +4209,9 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/messages.inc.php:957
+#, fuzzy
 msgid "Character set of the file"
-msgstr ""
+msgstr "مجموعه كاراكترهاي پرونده:"
 
 #: libraries/messages.inc.php:959
 msgid "Database name template"
@@ -4255,8 +4310,9 @@ msgid "Import / export"
 msgstr ""
 
 #: libraries/messages.inc.php:985
+#, fuzzy
 msgid "Databases display options"
-msgstr ""
+msgstr "آمار پايگاههاي داده"
 
 #: libraries/messages.inc.php:986
 msgid "Customize appearance of the navigation frame"
@@ -4334,8 +4390,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
+#, fuzzy
 msgid "PMA database"
-msgstr ""
+msgstr "No databases"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
@@ -4366,8 +4423,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/messages.inc.php:1014
+#, fuzzy
 msgid "SQL Query box"
-msgstr ""
+msgstr "پرس و جوي SQL"
 
 #: libraries/messages.inc.php:1015
 msgid ""
@@ -4376,8 +4434,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016
+#, fuzzy
 msgid "SQL queries"
-msgstr ""
+msgstr "پرس و جوي SQL"
 
 #: libraries/messages.inc.php:1017
 msgid "Customize startup page"
@@ -4392,8 +4451,9 @@ msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/messages.inc.php:1020
+#, fuzzy
 msgid "Tabs"
-msgstr ""
+msgstr "جدول"
 
 #: libraries/messages.inc.php:1021
 msgid ""
@@ -4414,8 +4474,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1024
+#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "مستندات phpMyAdmin"
 
 #: libraries/messages.inc.php:1025
 msgid "Extra parameters for iconv"
@@ -4578,8 +4639,9 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1062
+#, fuzzy
 msgid "Load"
-msgstr ""
+msgstr "محلی"
 
 #: libraries/messages.inc.php:1063
 msgid ""
@@ -4805,8 +4867,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/messages.inc.php:1113
+#, fuzzy
 msgid "Add a new server"
-msgstr ""
+msgstr "افزودن يك كاربر جديد"
 
 #: libraries/messages.inc.php:1114
 msgid "Leave blank if not used"
@@ -4914,8 +4977,9 @@ msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1138
+#, fuzzy
 msgid "Count tables"
-msgstr ""
+msgstr "No tables"
 
 #: libraries/messages.inc.php:1139
 msgid ""
@@ -4965,8 +5029,9 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/messages.inc.php:1148
+#, fuzzy
 msgid "Hide databases"
-msgstr ""
+msgstr "No databases"
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -5047,8 +5112,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1167
+#, fuzzy
 msgid "Relation table"
-msgstr ""
+msgstr "مرمت جدول"
 
 #: libraries/messages.inc.php:1168
 msgid "SQL command to fetch available databases"
@@ -5165,8 +5231,9 @@ msgid "Show create database form"
 msgstr ""
 
 #: libraries/messages.inc.php:1194
+#, fuzzy
 msgid "Show form"
-msgstr ""
+msgstr "نمايش رنگ"
 
 #: libraries/messages.inc.php:1195
 msgid "Display the function fields in edit/insert mode"
@@ -5207,8 +5274,9 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1204
+#, fuzzy
 msgid "Show statistics"
-msgstr ""
+msgstr "آمار سطرها"
 
 #: libraries/messages.inc.php:1205
 msgid ""
@@ -5246,7 +5314,6 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "معتبرسازي SQL"
 
@@ -5261,8 +5328,9 @@ msgid "Suggest new database name"
 msgstr ""
 
 #: libraries/messages.inc.php:1219
+#, fuzzy
 msgid "yes"
-msgstr ""
+msgstr "بلي"
 
 #: libraries/messages.inc.php:1220
 msgid ""
@@ -5397,8 +5465,9 @@ msgid "Show color"
 msgstr "نمايش رنگ"
 
 #: libraries/messages.inc.php:1247
+#, fuzzy
 msgid "Data Dictionary Format"
-msgstr ""
+msgstr "فرهنگ داده‌ها"
 
 #: libraries/messages.inc.php:1248
 msgid "Show Full Queries"
@@ -5437,8 +5506,9 @@ msgid "Only show keys"
 msgstr ""
 
 #: libraries/messages.inc.php:1258
+#, fuzzy
 msgid "Show open tables"
-msgstr ""
+msgstr "نمايش جدولها"
 
 #: libraries/messages.inc.php:1259
 msgid "Show PHP information"
@@ -5875,7 +5945,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:1348
 #, fuzzy
-#| msgid "Reset"
 msgctxt "$strShowStatusReset"
 msgid "Reset"
 msgstr "Reset"
@@ -6127,16 +6196,18 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/messages.inc.php:1402
+#, fuzzy
 msgid "Start"
-msgstr ""
+msgstr "شنبه"
 
 #: libraries/messages.inc.php:1403
 msgid "Last check"
 msgstr ""
 
 #: libraries/messages.inc.php:1404
+#, fuzzy
 msgid "Creation"
-msgstr ""
+msgstr "ساختن"
 
 #: libraries/messages.inc.php:1405
 msgid "Statements"
@@ -6202,12 +6273,14 @@ msgid "Structure Difference"
 msgstr ""
 
 #: libraries/messages.inc.php:1420
+#, fuzzy
 msgid "Structure for view"
-msgstr ""
+msgstr "فقط ساختار"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "ساختار"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -6318,9 +6391,9 @@ msgid "The table name is empty!"
 msgstr "نام جدول وارد نشده‌است !"
 
 #: libraries/messages.inc.php:1448
-#, php-format
+#, fuzzy, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "جدول %s حذف گرديد"
 
 #: libraries/messages.inc.php:1449
 #, php-format
@@ -6333,9 +6406,9 @@ msgid "Table %s has been emptied"
 msgstr "جدول %s خالي شد"
 
 #: libraries/messages.inc.php:1451
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been flushed"
-msgstr ""
+msgstr "جدول %s حذف گرديد"
 
 #: libraries/messages.inc.php:1452
 msgid "Insert row(s)"
@@ -6354,8 +6427,9 @@ msgid "Table name"
 msgstr ""
 
 #: libraries/messages.inc.php:1456
+#, fuzzy
 msgid "Table of contents"
-msgstr ""
+msgstr "توضيحات جدول"
 
 #: libraries/messages.inc.php:1457
 msgid "Table options"
@@ -6520,8 +6594,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "نسخه سرور"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6529,8 +6604,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "پايگاه داده"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -6541,8 +6617,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "داده"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -6629,12 +6706,14 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "فقط ساختار"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "ساختن"
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
@@ -6645,8 +6724,9 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "فارسي"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -6665,16 +6745,18 @@ msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "بررسي جدول"
 
 #: libraries/messages.inc.php:1530
 msgid "Untracked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "نام كاربر:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -6697,8 +6779,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "فارسي"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -6999,12 +7082,14 @@ msgid "Variable"
 msgstr "متغییر"
 
 #: libraries/messages.inc.php:1600
+#, fuzzy
 msgid "Version information"
-msgstr ""
+msgstr "اطلاعات ورود"
 
 #: libraries/messages.inc.php:1601
+#, fuzzy
 msgid "View dump (schema) of databases"
-msgstr ""
+msgstr "نمايش الگوي پايگاه داده"
 
 #: libraries/messages.inc.php:1602
 msgid "View dump (schema) of database"
@@ -7022,9 +7107,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1605
-#, php-format
+#, fuzzy, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "ستون %s حذف گرديد"
 
 #: libraries/messages.inc.php:1606
 msgid "View image"
@@ -7113,8 +7198,9 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "No tables"
 
 #: libraries/messages.inc.php:1629
 msgid "Export triggers"

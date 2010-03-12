@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-11 23:39+0100\n"
+"POT-Creation-Date: 2010-03-12 09:07+0100\n"
+"PO-Revision-Date: 2010-03-12 09:18+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,6 @@ msgstr ""
 #. l10n: Language to use for MySQL 5.1 documentation
 #: libraries/common.lib.php:411
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_1_doc_lang"
 msgid "en"
 msgstr "Odoslané"
@@ -42,7 +41,6 @@ msgstr "Odoslané"
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
 #, fuzzy
-#| msgid "Sent"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
 msgstr "Odoslané"
@@ -457,14 +455,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:96
 #, fuzzy
-#| msgid "Disabled"
 msgctxt "$strBLOBRepositoryDisabled"
 msgid "Disabled"
 msgstr "Vypnuté"
 
 #: libraries/messages.inc.php:97
+#, fuzzy
 msgid "Disable"
-msgstr ""
+msgstr "Vypnuté"
 
 #: libraries/messages.inc.php:98
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -472,14 +470,14 @@ msgstr ""
 
 #: libraries/messages.inc.php:99
 #, fuzzy
-#| msgid "Enabled"
 msgctxt "$strBLOBRepositoryEnabled"
 msgid "Enabled"
 msgstr "Zapnuté"
 
 #: libraries/messages.inc.php:100
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Zapnuté"
 
 #: libraries/messages.inc.php:101
 msgid "Remove BLOB Repository Reference"
@@ -487,7 +485,6 @@ msgstr ""
 
 #: libraries/messages.inc.php:102
 #, fuzzy
-#| msgid "Repair"
 msgctxt "$strBLOBRepositoryRepair"
 msgid "Repair"
 msgstr "Opraviť"
@@ -782,7 +779,7 @@ msgstr "Úplné vloženie"
 
 #: libraries/messages.inc.php:170 libraries/messages.inc.php:958
 msgid "Compression"
-msgstr ""
+msgstr "Kompresia"
 
 #: libraries/messages.inc.php:171
 #, php-format
@@ -925,12 +922,12 @@ msgid "Create relation"
 msgstr "Vytvoriť relaciu"
 
 #: libraries/messages.inc.php:199
+#, fuzzy
 msgid "Create table"
-msgstr ""
+msgstr "Vytvoriť tabuľku"
 
 #: libraries/messages.inc.php:200
 #, fuzzy
-#| msgid "Create table"
 msgctxt "$strCreateTableShort"
 msgid "Create table"
 msgstr "Vytvoriť tabuľku"
@@ -971,7 +968,6 @@ msgid "Croatian"
 msgstr "Chorvátsky"
 
 #: libraries/messages.inc.php:209
-#, fuzzy
 msgid "CSV"
 msgstr "CSV dáta"
 
@@ -1027,8 +1023,9 @@ msgid "'%s' database does not exist."
 msgstr "'%s' databáza neexistuje."
 
 #: libraries/messages.inc.php:223 libraries/messages.inc.php:984
+#, fuzzy
 msgid "Databases"
-msgstr ""
+msgstr "Databáza"
 
 #: libraries/messages.inc.php:224
 #, php-format
@@ -1159,8 +1156,9 @@ msgid "No users selected for deleting!"
 msgstr "Na odstránenie neboli vybraní žiadni používatelia!"
 
 #: libraries/messages.inc.php:253
+#, fuzzy
 msgid "Delete relation"
-msgstr ""
+msgstr "Vytvoriť relaciu"
 
 #: libraries/messages.inc.php:254
 msgid "Delete tracking data for this table"
@@ -1188,7 +1186,6 @@ msgid "Descending"
 msgstr "Zostupne"
 
 #: libraries/messages.inc.php:259
-#, fuzzy
 msgid "Description"
 msgstr "Popis"
 
@@ -1303,7 +1300,7 @@ msgstr "dynamický"
 
 #: libraries/messages.inc.php:287 libraries/messages.inc.php:1212
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: libraries/messages.inc.php:288
 msgid "Edit PDF Pages"
@@ -1422,8 +1419,9 @@ msgid "Execute bookmarked query"
 msgstr "Spustiť obľúbený dopyt"
 
 #: libraries/messages.inc.php:316 libraries/messages.inc.php:1213
+#, fuzzy
 msgid "Explain SQL"
-msgstr ""
+msgstr "Preskočiť vysvetlenie SQL"
 
 #: libraries/messages.inc.php:317
 msgid "Export"
@@ -1571,7 +1569,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:348 libraries/messages.inc.php:962
 msgid "Format"
-msgstr ""
+msgstr "Formát"
 
 #: libraries/messages.inc.php:349
 msgid "Missing value in the form!"
@@ -1582,8 +1580,9 @@ msgid "Free pages"
 msgstr "Prázdnych stránok"
 
 #: libraries/messages.inc.php:351
+#, fuzzy
 msgid "Full start"
-msgstr ""
+msgstr "Celý text"
 
 #: libraries/messages.inc.php:352
 msgid "Full stop"
@@ -1706,8 +1705,9 @@ msgid "Hide"
 msgstr "Skryť"
 
 #: libraries/messages.inc.php:384
+#, fuzzy
 msgid "Hide/Show all"
-msgstr ""
+msgstr "Zobraziť všetko"
 
 #: libraries/messages.inc.php:385
 msgid "Hide/Show Tables with no relation"
@@ -1795,7 +1795,7 @@ msgstr "Importovať súbory"
 
 #: libraries/messages.inc.php:406 libraries/messages.inc.php:1032
 msgid "Format of imported file"
-msgstr ""
+msgstr "Formát importovaného súboru"
 
 #: libraries/messages.inc.php:407
 msgid "Import"
@@ -1834,7 +1834,6 @@ msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
 #: libraries/messages.inc.php:414 libraries/messages.inc.php:597
-#, fuzzy
 msgid "Open Document Spreadsheet"
 msgstr "Tabuľkový procesor Open Document"
 
@@ -1981,8 +1980,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:444
+#, fuzzy
 msgid "Internal relation added"
-msgstr ""
+msgstr "Interné vzťahy"
 
 #: libraries/messages.inc.php:445
 msgid "Internal relations"
@@ -2318,7 +2318,7 @@ msgid ""
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 "Pre zoznam dostupných parametrov a ich MIME typov kliknite na %spopisy "
-"transformácií%s"
+"transformácií"
 
 #: libraries/messages.inc.php:522
 msgid ""
@@ -2493,8 +2493,9 @@ msgid "Filter"
 msgstr "Filter"
 
 #: libraries/messages.inc.php:555
+#, fuzzy
 msgid "New table"
-msgstr ""
+msgstr "Žiadne tabuľky"
 
 #: libraries/messages.inc.php:556
 msgid "Next"
@@ -2668,8 +2669,9 @@ msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgstr "<b>Celkovo:</b> <i>%s</i> výskyt(ov)"
 
 #: libraries/messages.inc.php:594 libraries/messages.inc.php:991
+#, fuzzy
 msgid "Tables"
-msgstr ""
+msgstr "Tabuľka"
 
 #: libraries/messages.inc.php:596
 msgid "OK"
@@ -2713,7 +2715,7 @@ msgstr "Naviac"
 
 #: libraries/messages.inc.php:607 libraries/messages.inc.php:964
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Prepísať existujúci súbor(y)"
 
 #: libraries/messages.inc.php:609
 msgid "Packed"
@@ -2748,8 +2750,9 @@ msgid "partitioned"
 msgstr ""
 
 #: libraries/messages.inc.php:617
+#, fuzzy
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Údržba tabuľky"
 
 #: libraries/messages.inc.php:618
 #, php-format
@@ -2835,8 +2838,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:635
+#, fuzzy
 msgid "Log buffer size"
-msgstr ""
+msgstr "Veľkosť zoraďovacej pamäte"
 
 #: libraries/messages.inc.php:636
 msgid ""
@@ -2914,8 +2918,9 @@ msgid "No tables"
 msgstr "Žiadne tabuľky"
 
 #: libraries/messages.inc.php:651
+#, fuzzy
 msgid "Page has been created"
-msgstr ""
+msgstr "Tabuľka %1$s bola vytvorená."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
@@ -2958,8 +2963,9 @@ msgid "PHP array"
 msgstr "PHP pole"
 
 #: libraries/messages.inc.php:662 libraries/messages.inc.php:1215
+#, fuzzy
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Vytvoriť novú Stránku"
 
 #: libraries/messages.inc.php:663
 msgid "PHP extension"
@@ -3212,8 +3218,9 @@ msgstr ""
 "premenných alebo zabíjanie procesov iných používateľov."
 
 #: libraries/messages.inc.php:720
+#, fuzzy
 msgid "Allows creating and dropping triggers"
-msgstr ""
+msgstr "Povolí vytváranie a mazanie indexov."
 
 #: libraries/messages.inc.php:721
 msgid "Allows changing data."
@@ -3277,7 +3284,7 @@ msgstr "Vyrovnávacia pamäť príkazov"
 
 #: libraries/messages.inc.php:737 libraries/messages.inc.php:996
 msgid "Query window"
-msgstr ""
+msgstr "SQL okno"
 
 #: libraries/messages.inc.php:738
 #, php-format
@@ -3340,23 +3347,25 @@ msgstr "Skontrolovať referenčnú integritu:"
 
 #: libraries/messages.inc.php:752 libraries/messages.inc.php:1214
 msgid "Refresh"
-msgstr ""
+msgstr "Obnoviť"
 
 #: libraries/messages.inc.php:753
 msgid "Relational display field"
 msgstr ""
 
 #: libraries/messages.inc.php:754
+#, fuzzy
 msgid "Relational key"
-msgstr ""
+msgstr "Relačná schéma"
 
 #: libraries/messages.inc.php:755
 msgid "Relational schema"
 msgstr "Relačná schéma"
 
 #: libraries/messages.inc.php:756
+#, fuzzy
 msgid "Relation deleted"
-msgstr ""
+msgstr "Zobraziť prepojenia"
 
 #: libraries/messages.inc.php:757
 #, php-format
@@ -3426,8 +3435,9 @@ msgid "Rename table to"
 msgstr "Premenovať tabuľku na"
 
 #: libraries/messages.inc.php:772
+#, fuzzy
 msgid "Rename view to"
-msgstr ""
+msgstr "Premenovať tabuľku na"
 
 #: libraries/messages.inc.php:773
 msgid "Repair"
@@ -3496,8 +3506,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:787
+#, fuzzy
 msgid "Master configuration"
-msgstr ""
+msgstr "Master replikácia"
 
 #: libraries/messages.inc.php:788
 msgid "Master replication"
@@ -3519,11 +3530,13 @@ msgid "Please select databases:"
 msgstr "Prosím, vyberte databázy:"
 
 #: libraries/messages.inc.php:792
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Tento server nie je nakonfigurovaný ako slave v replikačnom procese. Chceli "
+"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
 
 #: libraries/messages.inc.php:793
 msgid ""
@@ -3536,8 +3549,9 @@ msgid "Show connected slaves"
 msgstr ""
 
 #: libraries/messages.inc.php:795 libraries/messages.inc.php:1257
+#, fuzzy
 msgid "Show master status"
-msgstr ""
+msgstr "Zobraziť stav podriadených hostov"
 
 #: libraries/messages.inc.php:796
 msgid "Skipping error(s) might lead into unsynchronized master and slave!"
@@ -3548,13 +3562,17 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/messages.inc.php:798
+#, fuzzy
 msgid "Slave configuration"
-msgstr ""
+msgstr "Slave replikácia"
 
 #: libraries/messages.inc.php:799
+#, fuzzy
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Tento server nie je nakonfigurovaný ako slave v replikačnom procese. Chceli "
+"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
 
 #: libraries/messages.inc.php:800
 msgid "Error management:"
@@ -3623,20 +3641,23 @@ msgstr ""
 "\"#replication\">sekciu replikácie</a>."
 
 #: libraries/messages.inc.php:813
+#, fuzzy
 msgid "Master status"
-msgstr ""
+msgstr "Zobraziť stav master replikácie"
 
 #: libraries/messages.inc.php:814
 msgid "Replication status"
 msgstr "Stav replikácie"
 
 #: libraries/messages.inc.php:815
+#, fuzzy
 msgid "Slave status"
-msgstr ""
+msgstr "Zobraziť stav podriadených hostov"
 
 #: libraries/messages.inc.php:816
+#, fuzzy
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Synchronizovať Databázy"
 
 #: libraries/messages.inc.php:817
 msgid "Unable to change master"
@@ -3647,7 +3668,6 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/messages.inc.php:819
-#, fuzzy
 msgid "Reset"
 msgstr "Vynulovať"
 
@@ -3875,7 +3895,7 @@ msgstr "Vybrať Tabuľky"
 
 #: libraries/messages.inc.php:872 libraries/messages.inc.php:956
 msgid "Save as file"
-msgstr ""
+msgstr "Pošli"
 
 #: libraries/messages.inc.php:873
 msgid "Sent"
@@ -3894,8 +3914,9 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/messages.inc.php:877 libraries/messages.inc.php:989
+#, fuzzy
 msgid "Servers"
-msgstr ""
+msgstr "Server"
 
 #: libraries/messages.inc.php:878
 msgid "Delayed inserts"
@@ -3988,8 +4009,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:893
+#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "Nedá sa prihlásiť k MySQL serveru"
 
 #: libraries/messages.inc.php:894
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4097,8 +4119,9 @@ msgid "Check config file permissions"
 msgstr ""
 
 #: libraries/messages.inc.php:916
+#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Kalendár"
 
 #: libraries/messages.inc.php:917
 msgid ""
@@ -4145,16 +4168,18 @@ msgid "Tab that is displayed when entering a database"
 msgstr ""
 
 #: libraries/messages.inc.php:927
+#, fuzzy
 msgid "Default database tab"
-msgstr ""
+msgstr "Premenovať databázu na"
 
 #: libraries/messages.inc.php:928
 msgid "Tab that is displayed when entering a server"
 msgstr ""
 
 #: libraries/messages.inc.php:929
+#, fuzzy
 msgid "Default server tab"
-msgstr ""
+msgstr "Predvolený server"
 
 #: libraries/messages.inc.php:930
 msgid "Tab that is displayed when entering a table"
@@ -4195,16 +4220,18 @@ msgid "Donate"
 msgstr ""
 
 #: libraries/messages.inc.php:939
+#, fuzzy
 msgid "Download"
-msgstr ""
+msgstr "Stiahnuť súbor"
 
 #: libraries/messages.inc.php:940
 msgid "End of line"
 msgstr ""
 
 #: libraries/messages.inc.php:941
+#, fuzzy
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Nepodarilo sa pripojiť k zdroju"
 
 #: libraries/messages.inc.php:942
 msgid "Empty phpMyAdmin control user password while using pmadb"
@@ -4267,28 +4294,33 @@ msgid "Maximum execution time"
 msgstr ""
 
 #: libraries/messages.inc.php:957
+#, fuzzy
 msgid "Character set of the file"
-msgstr ""
+msgstr "Znaková sada súboru:"
 
 #: libraries/messages.inc.php:959
+#, fuzzy
 msgid "Database name template"
-msgstr ""
+msgstr "Vzor pre názov súboru"
 
 #: libraries/messages.inc.php:960
+#, fuzzy
 msgid "Server name template"
-msgstr ""
+msgstr "Vzor pre názov súboru"
 
 #: libraries/messages.inc.php:961
+#, fuzzy
 msgid "Table name template"
-msgstr ""
+msgstr "Vzor pre názov súboru"
 
 #: libraries/messages.inc.php:963
 msgid "Save on server"
 msgstr ""
 
 #: libraries/messages.inc.php:965
+#, fuzzy
 msgid "Remember file name template"
-msgstr ""
+msgstr "Vzor pre názov súboru"
 
 #: libraries/messages.inc.php:966
 msgid "no"
@@ -4355,8 +4387,9 @@ msgid "Customize default common import options"
 msgstr ""
 
 #: libraries/messages.inc.php:981
+#, fuzzy
 msgid "Import defaults"
-msgstr ""
+msgstr "Importovať súbory"
 
 #: libraries/messages.inc.php:982
 msgid "Set import and export directories and compression options"
@@ -4367,8 +4400,9 @@ msgid "Import / export"
 msgstr ""
 
 #: libraries/messages.inc.php:985
+#, fuzzy
 msgid "Databases display options"
-msgstr ""
+msgstr "Nastavenia exportu databáz"
 
 #: libraries/messages.inc.php:986
 msgid "Customize appearance of the navigation frame"
@@ -4446,16 +4480,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1006 libraries/messages.inc.php:1163
+#, fuzzy
 msgid "PMA database"
-msgstr ""
+msgstr "Žiadne databázy"
 
 #: libraries/messages.inc.php:1007
 msgid "Customization"
 msgstr ""
 
 #: libraries/messages.inc.php:1008
+#, fuzzy
 msgid "Customize export options"
-msgstr ""
+msgstr "Nastavenia exportu databáz"
 
 #: libraries/messages.inc.php:1009
 msgid "Features"
@@ -4478,8 +4514,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/messages.inc.php:1014
+#, fuzzy
 msgid "SQL Query box"
-msgstr ""
+msgstr "SQL dopyt"
 
 #: libraries/messages.inc.php:1015
 msgid ""
@@ -4488,24 +4525,27 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1016
+#, fuzzy
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL dopyt"
 
 #: libraries/messages.inc.php:1017
 msgid "Customize startup page"
 msgstr ""
 
 #: libraries/messages.inc.php:1018
+#, fuzzy
 msgid "Startup"
-msgstr ""
+msgstr "Štart"
 
 #: libraries/messages.inc.php:1019
 msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/messages.inc.php:1020
+#, fuzzy
 msgid "Tabs"
-msgstr ""
+msgstr "Tabuľka"
 
 #: libraries/messages.inc.php:1021
 msgid ""
@@ -4526,8 +4566,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1024
+#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin Dokumentácia"
 
 #: libraries/messages.inc.php:1025
 msgid "Extra parameters for iconv"
@@ -4548,11 +4589,15 @@ msgid "Ignore multiple statement errors"
 msgstr ""
 
 #: libraries/messages.inc.php:1029
+#, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Povoliť prerušenie importu v prípade, že sa blíži časový limit behu skriptu. "
+"Týmto spôsobom sa môžu importovať aj veľké súbory, ale môže to zároveň "
+"spôsobiť problémy s transakciami."
 
 #: libraries/messages.inc.php:1030
 msgid "Partial import: allow interrupt"
@@ -4565,7 +4610,6 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1033 libraries/messages.inc.php:1376
-#, fuzzy
 msgid "Number of records (queries) to skip from start"
 msgstr "Počet záznamov (príkazov), ktoré sa majú zo začiatku preskočiť"
 
@@ -4595,8 +4639,9 @@ msgid "How many rows can be inserted at one time"
 msgstr ""
 
 #: libraries/messages.inc.php:1039
+#, fuzzy
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Počet zoradených riadkov."
 
 #: libraries/messages.inc.php:1040
 msgid "Target for quick access icon"
@@ -4641,8 +4686,9 @@ msgid "Disable this if you want to see all databases at once"
 msgstr ""
 
 #: libraries/messages.inc.php:1050
+#, fuzzy
 msgid "Use light version"
-msgstr ""
+msgstr "Verzia MySQL klienta"
 
 #: libraries/messages.inc.php:1051
 msgid "Maximum table tree depth"
@@ -4691,8 +4737,9 @@ msgid "Light tabs"
 msgstr ""
 
 #: libraries/messages.inc.php:1062
+#, fuzzy
 msgid "Load"
-msgstr ""
+msgstr "Lokálny"
 
 #: libraries/messages.inc.php:1063
 msgid ""
@@ -4784,8 +4831,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1081
+#, fuzzy
 msgid "Memory limit"
-msgstr ""
+msgstr "Obmedzenie zdrojov"
 
 #: libraries/messages.inc.php:1082 libraries/messages.inc.php:1094
 msgid "Use only icons, only text or both"
@@ -4796,8 +4844,9 @@ msgid "Iconic navigation bar"
 msgstr ""
 
 #: libraries/messages.inc.php:1084
+#, fuzzy
 msgid "New server"
-msgstr ""
+msgstr "Webový server"
 
 #: libraries/messages.inc.php:1085
 msgid "There are no configured servers"
@@ -4896,8 +4945,9 @@ msgid "Directory where exports can be saved on server"
 msgstr ""
 
 #: libraries/messages.inc.php:1109
+#, fuzzy
 msgid "Save directory"
-msgstr ""
+msgstr "Domovský adresár pre dáta"
 
 #: libraries/messages.inc.php:1110
 #, php-format
@@ -4918,8 +4968,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/messages.inc.php:1113
+#, fuzzy
 msgid "Add a new server"
-msgstr ""
+msgstr "Pridať nového používateľa"
 
 #: libraries/messages.inc.php:1114
 msgid "Leave blank if not used"
@@ -5005,8 +5056,9 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/messages.inc.php:1133
+#, fuzzy
 msgid "Connection type"
-msgstr ""
+msgstr "Spojenia"
 
 #: libraries/messages.inc.php:1134
 msgid "Control user password"
@@ -5019,16 +5071,18 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1136
+#, fuzzy
 msgid "Control user"
-msgstr ""
+msgstr "Ovládať slave:"
 
 #: libraries/messages.inc.php:1137
 msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/messages.inc.php:1138
+#, fuzzy
 msgid "Count tables"
-msgstr ""
+msgstr "Žiadne tabuľky"
 
 #: libraries/messages.inc.php:1139
 msgid ""
@@ -5037,8 +5091,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1140
+#, fuzzy
 msgid "Designer table"
-msgstr ""
+msgstr "Defragmentovať tabuľku"
 
 #: libraries/messages.inc.php:1141
 msgid ""
@@ -5062,24 +5117,27 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1144
+#, fuzzy
 msgid "Edit server"
-msgstr ""
+msgstr "Webový server"
 
 #: libraries/messages.inc.php:1145
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 
 #: libraries/messages.inc.php:1146
+#, fuzzy
 msgid "PHP extension to use"
-msgstr ""
+msgstr "rozšírenie PHP"
 
 #: libraries/messages.inc.php:1147
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
 #: libraries/messages.inc.php:1148
+#, fuzzy
 msgid "Hide databases"
-msgstr ""
+msgstr "Žiadne databázy"
 
 #: libraries/messages.inc.php:1149
 msgid ""
@@ -5096,8 +5154,9 @@ msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/messages.inc.php:1152
+#, fuzzy
 msgid "Server hostname"
-msgstr ""
+msgstr "meno servera"
 
 #: libraries/messages.inc.php:1153
 msgid "Logout URL"
@@ -5150,8 +5209,9 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1165
+#, fuzzy
 msgid "Server port"
-msgstr ""
+msgstr "ID servra"
 
 #: libraries/messages.inc.php:1166
 msgid ""
@@ -5160,8 +5220,9 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1167
+#, fuzzy
 msgid "Relation table"
-msgstr ""
+msgstr "Opraviť tabuľku"
 
 #: libraries/messages.inc.php:1168
 msgid "SQL command to fetch available databases"
@@ -5194,8 +5255,9 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/messages.inc.php:1175
+#, fuzzy
 msgid "Server socket"
-msgstr ""
+msgstr "Voľba serveru"
 
 #: libraries/messages.inc.php:1176
 msgid "Enable SSL for connection to MySQL server"
@@ -5278,8 +5340,9 @@ msgid "Show create database form"
 msgstr ""
 
 #: libraries/messages.inc.php:1194
+#, fuzzy
 msgid "Show form"
-msgstr ""
+msgstr "Zobraziť farbu"
 
 #: libraries/messages.inc.php:1195
 msgid "Display the function fields in edit/insert mode"
@@ -5312,16 +5375,18 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/messages.inc.php:1202
+#, fuzzy
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Zobraziť kompletné dopyty"
 
 #: libraries/messages.inc.php:1203
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/messages.inc.php:1204
+#, fuzzy
 msgid "Show statistics"
-msgstr ""
+msgstr "Štatistika riadku"
 
 #: libraries/messages.inc.php:1205
 msgid ""
@@ -5355,11 +5420,11 @@ msgid ""
 msgstr ""
 
 #: libraries/messages.inc.php:1211
+#, fuzzy
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Zobraziť otvorené tabuľky"
 
 #: libraries/messages.inc.php:1216 libraries/messages.inc.php:1596
-#, fuzzy
 msgid "Validate SQL"
 msgstr "Potvrdiť platnosť SQL"
 
@@ -5374,8 +5439,9 @@ msgid "Suggest new database name"
 msgstr ""
 
 #: libraries/messages.inc.php:1219
+#, fuzzy
 msgid "yes"
-msgstr ""
+msgstr "Áno"
 
 #: libraries/messages.inc.php:1220
 msgid ""
@@ -5542,8 +5608,9 @@ msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
 #: libraries/messages.inc.php:1255
+#, fuzzy
 msgid "Show insert query"
-msgstr ""
+msgstr "Zobrazujem SQL dotaz"
 
 #: libraries/messages.inc.php:1256
 msgid "Only show keys"
@@ -6439,12 +6506,14 @@ msgid "Structure Difference"
 msgstr ""
 
 #: libraries/messages.inc.php:1420
+#, fuzzy
 msgid "Structure for view"
-msgstr ""
+msgstr "Iba štruktúru"
 
 #: libraries/messages.inc.php:1421
+#, fuzzy
 msgid "structure"
-msgstr ""
+msgstr "Štruktúra"
 
 #: libraries/messages.inc.php:1422
 msgid "Structure"
@@ -6535,12 +6604,14 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabuľka %1$s bola úspešné upravená"
 
 #: libraries/messages.inc.php:1443
+#, fuzzy
 msgid "Alter index(s)"
-msgstr ""
+msgstr "Upraviť stĺpec/stĺpce"
 
 #: libraries/messages.inc.php:1444
+#, fuzzy
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Odstrániť index/indexy"
 
 #: libraries/messages.inc.php:1445
 msgid "Table comments"
@@ -6764,8 +6835,9 @@ msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
 #: libraries/messages.inc.php:1494
+#, fuzzy
 msgid "Create version"
-msgstr ""
+msgstr "Vytvoriť relaciu"
 
 #: libraries/messages.inc.php:1495
 #, php-format
@@ -6773,8 +6845,9 @@ msgid "Create version %s of %s.%s"
 msgstr ""
 
 #: libraries/messages.inc.php:1496
+#, fuzzy
 msgid "Database Log"
-msgstr ""
+msgstr "Databáza"
 
 #: libraries/messages.inc.php:1497
 msgid "Data definition statement"
@@ -6785,8 +6858,9 @@ msgid "Data manipulation statement"
 msgstr ""
 
 #: libraries/messages.inc.php:1499
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Dáta"
 
 #: libraries/messages.inc.php:1500
 msgid "Deactivate now"
@@ -6873,12 +6947,14 @@ msgid "not active"
 msgstr ""
 
 #: libraries/messages.inc.php:1520
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Iba štruktúru"
 
 #: libraries/messages.inc.php:1521
+#, fuzzy
 msgid "Created"
-msgstr ""
+msgstr "Vytvoriť"
 
 #: libraries/messages.inc.php:1522
 msgid "Last version"
@@ -6889,8 +6965,9 @@ msgid "Updated"
 msgstr ""
 
 #: libraries/messages.inc.php:1524
+#, fuzzy
 msgid "Version"
-msgstr ""
+msgstr "Perština"
 
 #: libraries/messages.inc.php:1525
 msgid "Track these data definition statements:"
@@ -6909,16 +6986,18 @@ msgid "Tracking"
 msgstr ""
 
 #: libraries/messages.inc.php:1529
+#, fuzzy
 msgid "Track table"
-msgstr ""
+msgstr "Skontrolovať tabuľku"
 
 #: libraries/messages.inc.php:1530
 msgid "Untracked tables"
 msgstr ""
 
 #: libraries/messages.inc.php:1531
+#, fuzzy
 msgid "Username"
-msgstr ""
+msgstr "Používateľ:"
 
 #: libraries/messages.inc.php:1532
 #, php-format
@@ -6941,8 +7020,9 @@ msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
 #: libraries/messages.inc.php:1536
+#, fuzzy
 msgid "Versions"
-msgstr ""
+msgstr "Perština"
 
 #: libraries/messages.inc.php:1537
 msgid ""
@@ -7397,12 +7477,14 @@ msgid "Export Structure Schemas (recommended)"
 msgstr ""
 
 #: libraries/messages.inc.php:1628
+#, fuzzy
 msgid "Export tables"
-msgstr ""
+msgstr "Typ vytvorených dopytov"
 
 #: libraries/messages.inc.php:1629
+#, fuzzy
 msgid "Export triggers"
-msgstr ""
+msgstr "Typ vytvorených dopytov"
 
 #: libraries/messages.inc.php:1630
 msgid "Export views"
