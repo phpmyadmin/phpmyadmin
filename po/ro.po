@@ -107,7 +107,7 @@ msgstr "Mie"
 
 #: libraries/messages.inc.php:23
 msgid "Wed"
-msgstr "Joi"
+msgstr "Mie"
 
 #: libraries/messages.inc.php:23
 msgid "Thu"
