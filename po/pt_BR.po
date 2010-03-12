@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-12 09:07+0200\n"
+"PO-Revision-Date: 2010-03-12 09:08+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -44,12 +44,11 @@ msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation
 #: libraries/common.lib.php:415
-#, fuzzy
 #| msgctxt "$mysql_4_1_doc_lang$mysql_4_1_doc_lang"
 #| msgid "en"
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "pt"
+msgstr "en"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
