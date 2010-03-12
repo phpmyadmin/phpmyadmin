@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 00:25+0100\n"
-"PO-Revision-Date: 2010-03-12 09:45+0200\n"
+"PO-Revision-Date: 2010-03-12 09:47+0200\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -319,7 +319,7 @@ msgstr "E"
 
 #: libraries/messages.inc.php:61
 msgid "and"
-msgstr ""
+msgstr "e"
 
 #: libraries/messages.inc.php:62
 msgid "and then"
