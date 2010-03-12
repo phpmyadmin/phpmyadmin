@@ -2919,8 +2919,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Velikost vyrovnávací paměti logu souhrných transakcí (vyrovnávací paměť se "
-"vytváří dvakrát). Výchozí velikost je 1MB."
+"Velikost vyrovnávací paměti logu souhrných transakcí (vytváří se 2 "
+"vyrovnávací paměti). Výchozí velikost je 1MB."
 
 #: libraries/messages.inc.php:647
 msgid "Transaction buffer size"
