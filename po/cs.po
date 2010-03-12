@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.4.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2010-03-12 09:48+0100\n"
-"PO-Revision-Date: 2010-03-12 09:13+0100\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2010-03-12 11:10+0200\n"
+"Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -411,11 +411,11 @@ msgstr "ZAČÁTEK VÝPISU"
 
 #: libraries/messages.inc.php:84
 msgid "Binary"
-msgstr " Binární "
+msgstr "Binární"
 
 #: libraries/messages.inc.php:85
 msgid "Binary - do not edit"
-msgstr " Binární - neupravujte "
+msgstr "Binární - neupravujte"
 
 #: libraries/messages.inc.php:86
 msgid "Binary log"
@@ -956,7 +956,7 @@ msgstr "Přidělit všechna oprávnění na databázi &quot;%s&quot;"
 
 #: libraries/messages.inc.php:205
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel_%)"
+msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživatel\\_%)"
 
 #: libraries/messages.inc.php:206
 msgid "Creation/Update/Check dates"
@@ -1076,7 +1076,7 @@ msgstr "Rozdíl mezi daty"
 
 #: libraries/messages.inc.php:234
 msgid "Data only"
-msgstr " Jen data"
+msgstr "Jen data"
 
 #: libraries/messages.inc.php:235
 msgid "Pages containing data"
@@ -1264,7 +1264,7 @@ msgstr "Stáhnout soubor"
 
 #: libraries/messages.inc.php:277
 msgid "Do you really want to "
-msgstr "Opravdu si přejete vykonat příkaz"
+msgstr "Opravdu si přejete vykonat příkaz "
 
 #: libraries/messages.inc.php:278
 msgid "You are about to DESTROY a complete database!"
@@ -1369,7 +1369,7 @@ msgstr "Anglicky"
 
 #: libraries/messages.inc.php:303
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr "Poznámka: názvy oprávnění v MySQL jsou uváděny anglicky"
+msgstr " Poznámka: názvy oprávnění v MySQL jsou uváděny anglicky "
 
 #: libraries/messages.inc.php:304
 msgid "Error"
@@ -1910,7 +1910,7 @@ msgstr "Krok automatického zvětšování"
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr "Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
+msgstr " Velikost o kterou je zvětšen soubor s daty, pokud je zaplněný."
 
 #: libraries/messages.inc.php:430
 msgid "Buffer pool size"
@@ -2390,7 +2390,7 @@ msgid ""
 "tables when no MAX_ROWS option is specified."
 msgstr ""
 "Výchozí velikost ukazatele v bajtech, která bude použita pro vytváření "
-"MyISAM tabulek, pokud není uvedeno MAX_ROWS."
+"MyISAM tabulek příkazem CREATE TABLE, pokud není uvedeno MAX_ROWS."
 
 #: libraries/messages.inc.php:536
 msgid ""
@@ -2448,7 +2448,7 @@ msgid ""
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
 "Paměť, která je alokována při řazení MyISAM indexů během jejich vytváření "
-"nebo opravování."
+"příkazem CREATE INDEX nebo opravování příkazem ALTER TABLE."
 
 #: libraries/messages.inc.php:545
 msgid "Sort buffer size"
@@ -2547,7 +2547,7 @@ msgstr "V ZIP archívu nebyly nalezeny žádné soubory!"
 
 #: libraries/messages.inc.php:566
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin se lépe používá v prohlížeči podporujícím rámy („FRAME“)."
+msgstr "phpMyAdmin se lépe používá v prohlížeči <b>podporujícím rámce</b>."
 
 #: libraries/messages.inc.php:567
 msgid "No index defined!"
@@ -2919,8 +2919,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Velikost vyrovnávací paměti logu souhrných transakcí (vyrovnávací paměť se "
-"vytváří dvakrát). Výchozí velikost je 1MB."
+"Velikost vyrovnávací paměti logu souhrných transakcí (vytváří se 2 "
+"vyrovnávací paměti). Výchozí velikost je 1MB."
 
 #: libraries/messages.inc.php:647
 msgid "Transaction buffer size"
@@ -2947,7 +2947,7 @@ msgstr "Byla vytvořena tabulka %1$s."
 
 #: libraries/messages.inc.php:652
 msgid "Page creation failed"
-msgstr ""
+msgstr "Vytvoření stránky selhalo"
 
 #: libraries/messages.inc.php:653
 msgid "PDF"
@@ -3031,6 +3031,7 @@ msgstr "Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky."
 #: libraries/messages.inc.php:671
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Prosím přihlašte se znovu , aby se projevily změny v konfiguračním souboru."
 
 #: libraries/messages.inc.php:672
 msgid "phpMyAdmin documentation"
@@ -3485,7 +3486,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:778
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Přidat replikačního uživatele pro podřízený server"
 
 #: libraries/messages.inc.php:779
 #, php-format
@@ -4307,7 +4308,7 @@ msgstr "Nesprávná IP adresa: %s"
 
 #: libraries/messages.inc.php:949
 msgid "Not a valid port number"
-msgstr "Neplatné číslo portu "
+msgstr "Neplatné číslo portu"
 
 #: libraries/messages.inc.php:950
 msgid "Incorrect value"
@@ -5040,8 +5041,9 @@ msgstr ""
 "Nastavil jste typ autentizace [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
 "produkční servery. Kdokoli kdo zná URL phpMyAdminu může přímo přistoupit k "
-"Vašemu  phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo [kbd]http[/kbd]."
+"Vašemu phpMyAdmin panelu. Nastavte [a@?page=servers&amp;mode=edit&amp;id=%"
+"1$d#tab_Server]typ autentizace[/a] na [kbd]cookie[/kbd] nebo "
+"[kbd]http[/kbd]."
 
 #: libraries/messages.inc.php:1111
 msgid "You should use mysqli for performance reasons"
@@ -5270,7 +5272,7 @@ msgid ""
 "use their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgstr ""
 "Můžete použít žolíky MySQL (% a _), escapujte je, pokud je chcete použít "
-"jako znaky, např. použijte 'moje\\_db' a ne  'moje_db'"
+"jako znaky, např. použijte 'moje\\_db' a ne 'moje_db'"
 
 #: libraries/messages.inc.php:1157
 msgid "Show only listed databases"
@@ -5777,7 +5779,7 @@ msgid ""
 "based instead of disk-based."
 msgstr ""
 "Počet dočasných tabulek vytvořených serverem na disku při provádění dotazů. "
-"Pokud je tato hodnota velká, můžete zvětšit parametr tmp_table_size a MySQL "
+"Pokud je tato hodnota velká, můžete zvětšit parametr tmp_table_size  a MySQL "
 "bude používat větší dočasné tabulky v paměti."
 
 #: libraries/messages.inc.php:1266
@@ -5991,11 +5993,11 @@ msgstr "Počet zápisů provedených do InnoDB bufferu."
 
 #: libraries/messages.inc.php:1297
 msgid "The number of fsync() operations so far."
-msgstr "Počet provedených synchronizací."
+msgstr "Počet provedených synchronizací fsync()."
 
 #: libraries/messages.inc.php:1298
 msgid "The current number of pending fsync() operations."
-msgstr "Počet nevyřízených synchronizací."
+msgstr "Počet nevyřízených synchronizací fsync()."
 
 #: libraries/messages.inc.php:1299
 msgid "The current number of pending reads."
@@ -6051,7 +6053,7 @@ msgstr "Počet skutečných zápisů do logovacího souboru."
 
 #: libraries/messages.inc.php:1310
 msgid "The number of fsync() writes done to the log file."
-msgstr "Počet synchronizací provedených na logovacích souborech."
+msgstr "Počet synchronizací fsync() provedených na logovacích souborech."
 
 #: libraries/messages.inc.php:1311
 msgid "The number of pending log file fsyncs."
@@ -6390,7 +6392,7 @@ msgstr "Zobrazit tabulky"
 
 #: libraries/messages.inc.php:1372
 msgid " Show this query here again "
-msgstr "Zobrazit zde tento dotaz znovu"
+msgstr " Zobrazit zde tento dotaz znovu "
 
 #: libraries/messages.inc.php:1373
 msgid "Simplified Chinese"
@@ -6755,7 +6757,7 @@ msgstr "Tabulka se zdá být prázdná!"
 
 #: libraries/messages.inc.php:1454
 msgid "Table maintenance"
-msgstr " Údržba tabulky "
+msgstr "Údržba tabulky"
 
 #: libraries/messages.inc.php:1455
 msgid "Table name"
@@ -6812,7 +6814,7 @@ msgstr "Dočasná data"
 
 #: libraries/messages.inc.php:1468
 msgid " Because of its length,<br /> this field might not be editable "
-msgstr "Tento sloupec možná nepůjde <br />(kvůli délce) upravit "
+msgstr " Tento sloupec možná nepůjde <br />kvůli délce upravit "
 
 #: libraries/messages.inc.php:1469
 msgid "Texy! text"
@@ -7001,7 +7003,7 @@ msgstr "Informace o sledování"
 #: libraries/messages.inc.php:1509
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr "Zobrazit %s s datumy od %s do %s od uživatele %s %s"
+msgstr "Zobrazit %s s datem od %s do %s od uživatele %s %s"
 
 #: libraries/messages.inc.php:1510
 msgid "Show versions"
@@ -7222,7 +7224,9 @@ msgstr ""
 msgid ""
 "Displays the contents of the field as-is, without running it through "
 "htmlspecialchars(). That is, the field is assumed to contain valid HTML."
-msgstr "Zachová původní formátování sloupce, tak jak je uložen v databázi."
+msgstr ""
+"Zachová původní formátování sloupce, tak jak je uložen v databázi, bez "
+"použití htmlspecialchars(). Předpokládá se, že sloupec obsahuje platné HTML."
 
 #: libraries/messages.inc.php:1550
 msgid ""
