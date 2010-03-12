@@ -5368,7 +5368,7 @@ msgstr ""
 
 #: libraries/messages.inc.php:1219
 msgid "yes"
-msgstr ""
+msgstr "sim"
 
 #: libraries/messages.inc.php:1220
 msgid ""
