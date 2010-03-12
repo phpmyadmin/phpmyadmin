@@ -411,7 +411,7 @@ msgstr "ZAČÁTEK VÝPISU"
 
 #: libraries/messages.inc.php:84
 msgid "Binary"
-msgstr " Binární "
+msgstr "Binární "
 
 #: libraries/messages.inc.php:85
 msgid "Binary - do not edit"
