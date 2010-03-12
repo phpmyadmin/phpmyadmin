@@ -178,6 +178,14 @@ if [ $# -gt 0 ] ; then
                 tagname=RELEASE_`echo $version | tr . _ | tr '[:lower:]' '[:upper:]' | tr -d -`
                 echo "* Tagging release as $tagname"
                 git tag -a -m "Released $version" $tagname $branch
+                if echo $version | grep '[a-z_-]' ; then
+                    echo "* Tagging release as TESTING"
+                    git tag -a -f -m "Released $version" TESTING $branch
+                else
+                    echo "* Tagging release as STABLE"
+                    git tag -a -f -m "Released $version" STABLE $branch
+                fi
+                echo "   Dont forget to push tags using: git push --tags"
                 ;;
             *)
                 echo "Unknown parameter: $1!"
