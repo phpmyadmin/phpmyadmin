@@ -415,7 +415,7 @@ msgstr "Binární "
 
 #: libraries/messages.inc.php:85
 msgid "Binary - do not edit"
-msgstr " Binární - neupravujte "
+msgstr "Binární - neupravujte"
 
 #: libraries/messages.inc.php:86
 msgid "Binary log"
