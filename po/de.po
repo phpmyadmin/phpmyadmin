@@ -47,7 +47,7 @@ msgstr "de"
 #: libraries/common.lib.php:415
 msgctxt "$mysql_5_0_doc_lang"
 msgid "en"
-msgstr "de"
+msgstr "en"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/messages.inc.php:15
